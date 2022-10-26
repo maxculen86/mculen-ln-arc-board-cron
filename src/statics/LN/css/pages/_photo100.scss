@@ -36,7 +36,6 @@
                 @include width-nota100;
             }
         }
-
         > .row {
             display: block;
             margin-bottom: $spacing-lg;
@@ -94,10 +93,11 @@
                     height: auto;
                 }
             }
-            > .com-link.--logo {
+            > .com-link.--logo,
+            #audio-player-desktop {
                 @include padding_rl;
                 @media ($media-l) {
-                    display: block;
+                    display: flex;
                     width: 100%;
                     margin-right: auto;
                     margin-left: auto;

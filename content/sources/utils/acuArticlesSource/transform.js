@@ -15,7 +15,14 @@ import {
 
 const transform = (data, siteProps) => {
     const respData = data;
-    const { sectionsIds, type, size, shouldNotFilter } = siteProps;
+    const {
+        sectionsIds,
+        type,
+        size,
+        shouldNotFilter,
+        excludePreload,
+        hasCollectionApertura
+    } = siteProps;
     const { content_elements: contentElements } = data || {};
     const { presets, presetsDefault } = getPresets(siteProps);
 
@@ -23,7 +30,9 @@ const transform = (data, siteProps) => {
 
     respData.content_elements =
         contentElements &&
-        contentElements.map(elem => {
+        contentElements.map((elem, index) => {
+            const isInApertura =
+                !hasCollectionApertura && !excludePreload && index === 0;
             const promoItems = get(elem, `promo_items`, null);
             const subtype = get(elem, `subtype`, null);
             const presetsCredits = get(presets, 'credits', null);
@@ -31,6 +40,7 @@ const transform = (data, siteProps) => {
             const api = get(siteProps, 'api', false);
             const isFotoAl100orStorytelling =
                 subtype === FOTOAL100 || subtype === STORYTELLING;
+
             return {
                 ...elem,
                 ...addResizedUrls(
@@ -49,7 +59,8 @@ const transform = (data, siteProps) => {
                         // Se pasa el subtype para que las notas de foto al 100
                         // y storytelling no sean excluidas de las validaciones del resizer
                         // y pueda aplicarse 3:2, focal point o smartcrop
-                        subtype: isFotoAl100orStorytelling ? '-1' : subtype
+                        subtype: isFotoAl100orStorytelling ? '-1' : subtype,
+                        isInApertura
                     }
                 )
             };

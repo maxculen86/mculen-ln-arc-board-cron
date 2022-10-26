@@ -1,5 +1,4 @@
 /* eslint-disable react/require-default-props */
-/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-danger */
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
@@ -15,8 +14,10 @@ import {
     setPrerollAdsForPowa,
     setEvent,
     setProgressEvent,
-    addToDataLayer
+    addToDataLayer,
+    setCustomErrorsVideoPlayer
 } from '../utils/videoPlayerHelper';
+import '../../../../resources/dist/css/ln/components/video-player.css';
 
 const VideoPlayer = props => {
     const {
@@ -25,7 +26,6 @@ const VideoPlayer = props => {
         tituloVideo,
         isAdmin,
         videoId,
-        muted,
         enableAds,
         enableAdBar,
         loadVideoOnInit,
@@ -62,7 +62,7 @@ const VideoPlayer = props => {
 
     const firstVideoCuerpoAutoplay = useTermica('autoplay');
 
-    const _firstVideoId = get(firstVideo, '_id');
+    const firstVideoId = get(firstVideo, '_id');
     const siteVars = getProperties(arcSite);
     const { organizationId } = siteVars || {};
     const apiEnv = API_ENV || 'sandbox';
@@ -100,6 +100,7 @@ const VideoPlayer = props => {
         };
 
         if (!isAdmin && window && window.powaBoot) window.powaBoot();
+        setCustomErrorsVideoPlayer();
         setPrerollAdsForPowa(adsURL);
         window.addEventListener('powaReady', setVideoEvents);
         addToDataLayer('videoDisplay', tituloVideo, videoId);
@@ -107,7 +108,7 @@ const VideoPlayer = props => {
     }, [adsURL, isAdmin, tituloVideo, videoId, streamingAnalyticInstance]);
 
     return (
-        <>
+        <div className="video-player">
             <div
                 className="powa"
                 data-org={organizationId}
@@ -118,19 +119,12 @@ const VideoPlayer = props => {
                 data-autoplay={autoPlay}
                 data-autoplay-muted={autoPlay}
                 data-controls={enableControls}
-                data-muted={
-                    (firstVideo &&
-                        videoId === _firstVideoId &&
-                        device === 'desktop') ||
-                    isApertura
-                        ? true
-                        : muted
-                }
+                data-muted={isApertura ? true : firstVideoCuerpoAutoplay}
                 data-sticky={sticky}
                 data-api={apiEnv}
                 data-env="prod"
             />
-            {firstVideo && videoId === _firstVideoId && device === 'desktop' && (
+            {firstVideo && videoId === firstVideoId && device === 'desktop' && (
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -141,7 +135,7 @@ const VideoPlayer = props => {
 
                                 let divFirstPowa =
                                     shadowRoot.querySelector &&
-                                    shadowRoot.querySelector('[data-uuid="${_firstVideoId}"]');
+                                    shadowRoot.querySelector('[data-uuid="${firstVideoId}"]');
 
                                 let userPause = false;
                                 
@@ -160,7 +154,25 @@ const VideoPlayer = props => {
                     }}
                 />
             )}
-        </>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+                    window.addEventListener('load', () => {
+                        const [{
+                            shadowRoot
+                        } = {}] = document.querySelectorAll('.powa-shadow');
+                    
+                        let errorPowa =
+                            shadowRoot.querySelector &&
+                            shadowRoot.querySelector('div.powa-outage');
+                    
+                        if (${isApertura} && errorPowa.innerHTML === '<p>This video is geo-restricted.</p><p>Error 931.</p>') {
+                            errorPowa.innerHTML = '¡Ups! Parece que este video no esta disponible en tu ubicación'
+                        }
+                    });`
+                }}
+            />
+        </div>
     );
 };
 
@@ -173,7 +185,6 @@ VideoPlayer.propTypes = {
     loadVideoOnInit: PropTypes.bool,
     autoPlay: PropTypes.bool,
     enableControls: PropTypes.bool,
-    muted: PropTypes.bool,
     sticky: PropTypes.bool,
     isAdmin: PropTypes.bool,
     adsURL: PropTypes.string.isRequired,
@@ -190,7 +201,6 @@ VideoPlayer.defaultProps = {
     autoPlay: false,
     enableControls: true,
     enableAdBar: true,
-    muted: false,
     sticky: false,
     isAdmin: false,
     isApertura: false

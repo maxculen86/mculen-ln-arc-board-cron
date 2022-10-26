@@ -1,9 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
 import Static from 'fusion:static';
 import Title from '../../private/LN/acumulado/acumuladoTitle';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
+import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
 
 const TitleFeature = props => {
     const { id } = props;
@@ -15,17 +17,29 @@ const TitleFeature = props => {
     const { id_logo_image: idLogoImage, navigation_color: navigationColor } =
         acumuladoColor || {};
 
-    return (
+    const {
+        globalContent: { node_type: nodeType }
+    } = useAppContext();
+
+    const hasHydrateOnly = checkHydrateOnly({ nodeType });
+
+    const Component = (
+        <Title
+            hideCategories={hidesectionslist}
+            hierarchyManual={hierarchyManual}
+            colorCategory={navigationColor}
+            colorTags={navigationColor}
+            idLogoImage={idLogoImage}
+            {...props}
+        />
+    );
+
+    return !hasHydrateOnly ? (
         <Static id={id} htmlOnly persistent>
-            <Title
-                hideCategories={hidesectionslist}
-                hierarchyManual={hierarchyManual}
-                colorCategory={navigationColor}
-                colorTags={navigationColor}
-                idLogoImage={idLogoImage}
-                {...props}
-            />
+            {Component}
         </Static>
+    ) : (
+        <>{Component}</>
     );
 };
 

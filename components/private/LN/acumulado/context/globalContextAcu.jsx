@@ -25,6 +25,7 @@ const getCollectionsInPage = (idCollectionsInPage = []) => {
             website: 'la-nacion-ar',
             imageConfig: isAnyGrilla1(renderables) ? 'l' : 'm'
         };
+
         const collect =
             id &&
             useContent({
@@ -54,6 +55,7 @@ const getCollectionApertura = id => {
         id &&
         useContent({
             source: 'collectionsSource',
+            staticMode: false,
             query: collectionsProps,
             filter,
             transform: response => {

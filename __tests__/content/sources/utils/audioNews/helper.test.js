@@ -28,7 +28,7 @@ describe('Test - isNoteListenable', () => {
     test('Should return false when the subtype is not enabled.', () => {
         const resp = {
             ...data,
-            subtype: '10'
+            subtype: '9'
         };
         expect(isNoteListenable(resp)).toStrictEqual(false);
     });
@@ -39,19 +39,6 @@ describe('Test - isNoteListenable', () => {
             source: {
                 ...data.source,
                 system: 'LN-9'
-            }
-        };
-
-        expect(isNoteListenable(resp)).toStrictEqual(false);
-    });
-
-    test('should return false when the note section is not enabled', () => {
-        const resp = {
-            ...data,
-            taxonomy: {
-                primary_section: {
-                    _id: '/economia'
-                }
             }
         };
 

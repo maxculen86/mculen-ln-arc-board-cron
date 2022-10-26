@@ -92,15 +92,6 @@ const GlobalProvider = ({ children }) => {
             query: {
                 website
             },
-            filter: `
-                {
-                    tooltips
-                    Termicas
-                    bannerConfig
-                    site,
-                    migration
-                }
-            `,
             transform: response => {
                 const {
                     site = {},

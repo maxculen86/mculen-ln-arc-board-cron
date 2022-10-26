@@ -32,9 +32,11 @@ class AccumulatedStoryByIds {
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
             ];
+
             if (!acuArticlesSource || !acuArticlesSource.content_elements) {
                 return null;
             }
+
             const acuData = {
                 tipoAcumulado: 4,
                 name: 'Acumulados Notas por Ids',

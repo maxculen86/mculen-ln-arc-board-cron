@@ -1,114 +1,147 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`WIkiAuthorHelper functions test Checking authorAffiliations 1`] = `
-<mock-com-container>
-  <mock-mod-description
-    classcondition="--membresia"
-    descriptiontitle="Membresías profesionales:"
-    size="--twoxs"
-    text="Academia de Periodismo."
-  />
-</mock-com-container>
+<div>
+  <mock-com-container>
+    <mock-mod-description
+      classcondition="--membresia"
+      descriptiontitle="Membresías profesionales:"
+      size="--twoxs"
+      text="Academia de Periodismo."
+    />
+  </mock-com-container>
+</div>
 `;
 
 exports[`WIkiAuthorHelper functions test Checking authorAwards 1`] = `
-<mock-com-container
-  classcondition="--reconocimientos"
->
-  <mock-mod-description
-    descriptiontitle="Reconocimientos"
-    list="[object Object],[object Object]"
-    size="--twoxs"
-  />
-</mock-com-container>
+<div>
+  <mock-com-container
+    classcondition="--reconocimientos"
+  >
+    <mock-mod-description
+      descriptiontitle="Reconocimientos"
+      list="[object Object],[object Object]"
+      size="--twoxs"
+    />
+  </mock-com-container>
+</div>
 `;
 
 exports[`WIkiAuthorHelper functions test Checking authorBooks 1`] = `
-<mock-com-container>
-  <mock-mod-description
-    descriptiontitle="Publicaciones"
-    list="[object Object]"
-    size="--twoxs"
-  />
-</mock-com-container>
+<div>
+  <mock-com-container>
+    <mock-mod-description
+      descriptiontitle="Publicaciones"
+      list="[object Object]"
+      size="--twoxs"
+    />
+  </mock-com-container>
+</div>
 `;
 
 exports[`WIkiAuthorHelper functions test Checking authorEducation 1`] = `
-<mock-com-container
-  classcondition="--educacion"
->
-  <mock-mod-description
-    bullet="true"
-    descriptiontitle="Educación"
-    list="[object Object],[object Object]"
-    size="--twoxs"
-    sizebullet="--twoxs"
-  />
-</mock-com-container>
+<div>
+  <mock-com-container
+    classcondition="--educacion"
+  >
+    <mock-mod-description
+      bullet="true"
+      descriptiontitle="Educación"
+      list="[object Object],[object Object]"
+      size="--twoxs"
+      sizebullet="--twoxs"
+    />
+  </mock-com-container>
+</div>
+`;
+
+exports[`WIkiAuthorHelper functions test Checking authorExpertise 1`] = `
+<div>
+  <mock-com-container
+    classcondition="--educacion"
+  >
+    <mock-mod-description
+      classcondition="--idiomas"
+      descriptiontitle="Áreas de interés:"
+      size="--twoxs"
+      text="Economia, Politica"
+    />
+  </mock-com-container>
+</div>
 `;
 
 exports[`WIkiAuthorHelper functions test Checking authorLanguages 1`] = `
-<mock-com-container>
-  <mock-mod-description
-    classcondition="--idiomas"
-    descriptiontitle="Idiomas:"
-    size="--twoxs"
-    text="Ingles, Frances"
-  />
-</mock-com-container>
+<div>
+  <mock-com-container>
+    <mock-mod-description
+      classcondition="--idiomas"
+      descriptiontitle="Idiomas:"
+      size="--twoxs"
+      text="Ingles, Frances"
+    />
+  </mock-com-container>
+</div>
 `;
 
 exports[`WIkiAuthorHelper functions test Checking authorLocation 1`] = `
-<mock-com-container>
-  <mock-mod-description
-    classcondition="--idiomas"
-    descriptiontitle="Ubicación:"
-    size="--twoxs"
-    text="Argentina"
-  />
-</mock-com-container>
+<div>
+  <mock-com-container>
+    <mock-mod-description
+      classcondition="--idiomas"
+      descriptiontitle="Ubicación:"
+      size="--twoxs"
+      text="Argentina"
+    />
+  </mock-com-container>
+</div>
 `;
 
 exports[`WIkiAuthorHelper functions test Checking authorPhoto 1`] = `
-<div
-  class="col-12 col-tablet-4 col-deskxl-3"
->
-  <mock-imageauthor
-    name="Javier Blanco"
-    outputtype="default"
-    url="https://resizer.glanacion.com/resizer/0BhTvrLkGMQ2k7iw_97QKDQvhRw=/280x0/filters:quality(80)/s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png"
-  />
+<div>
+  <div
+    class="col-12 col-tablet-4 col-deskxl-3"
+  >
+    <mock-imageauthor
+      name="Javier Blanco"
+      outputtype="default"
+      url="https://resizer.glanacion.com/resizer/0BhTvrLkGMQ2k7iw_97QKDQvhRw=/280x0/filters:quality(80)/s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png"
+    />
+  </div>
 </div>
 `;
 
 exports[`WIkiAuthorHelper functions test Checking authorPodcast 1`] = `
-<mock-com-container>
-  <mock-mod-description
-    descriptiontitle="Podcast"
-    list="[object Object],[object Object]"
-    size="--twoxs"
-  />
-</mock-com-container>
+<div>
+  <mock-com-container>
+    <mock-mod-description
+      descriptiontitle="Podcast"
+      list="[object Object],[object Object]"
+      size="--twoxs"
+    />
+  </mock-com-container>
+</div>
 `;
 
 exports[`WIkiAuthorHelper functions test Checking authorSocialNetworks 1`] = `
-<div
-  class="col-12"
->
-  <mock-com-container
-    classcondition="--socialicons"
+<div>
+  <div
+    class="col-12"
   >
-    <mock-com-subtitle
-      size="--twoxs"
+    <mock-com-container
+      classcondition="--socialicons"
     >
-      Conectar
-    </mock-com-subtitle>
-    <mock-social-icons
-      data="[object Object]"
-      size="--threexs"
-      sizeicon="--xl"
-      vertical=""
-    />
-  </mock-com-container>
+      <mock-com-subtitle
+        size="--twoxs"
+      >
+        Conectar
+      </mock-com-subtitle>
+      <mock-social-icons
+        data="[object Object]"
+        size="--threexs"
+        sizeicon="--xl"
+        vertical=""
+      />
+    </mock-com-container>
+  </div>
 </div>
 `;

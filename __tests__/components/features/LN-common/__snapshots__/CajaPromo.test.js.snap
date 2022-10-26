@@ -10,44 +10,50 @@ exports[`Private - Feature - CajaAnticipo => with a valid response Snapshot Caja
     }
   }
 >
-  <ModPromo
-    classCondition={null}
-    isStatic={false}
-    link="https://www.lanacion.com.ar/"
-    logoName="propiedades"
-    logoSize="--xs"
-    tag={null}
-    text="La información más completa del mercado inmobiliario minuto a minuto."
-    textButton={null}
-  >
-    <section
-      className="mod-promo "
+  <StaticContent>
+    <div
+      className="hidden"
     >
-      <a
-        className="link"
-        href="https://www.lanacion.com.ar/"
-        title="La información más completa del mercado inmobiliario minuto a minuto."
+      <ModPromo
+        classCondition={null}
+        isStatic={true}
+        link="https://www.lanacion.com.ar/"
+        logoName="propiedades"
+        logoSize="--xs"
+        tag={null}
+        text="La información más completa del mercado inmobiliario minuto a minuto."
+        textButton={null}
       >
-        <div>
-          <com-logo
-            color={true}
-            isStatic={false}
-            logoName="propiedades"
-            size="--xs"
-          />
-          <p
-            className="com-text --threexs"
-          >
-            La información más completa del mercado inmobiliario minuto a minuto.
-          </p>
-        </div>
-        <span
-          className="com-button --secondary"
+        <section
+          className="mod-promo "
         >
-          IR A NOTAS
-        </span>
-      </a>
-    </section>
-  </ModPromo>
+          <a
+            className="link"
+            href="https://www.lanacion.com.ar/"
+            title="La información más completa del mercado inmobiliario minuto a minuto."
+          >
+            <div>
+              <com-logo
+                color={true}
+                isStatic={true}
+                logoName="propiedades"
+                size="--xs"
+              />
+              <p
+                className="com-text --threexs"
+              >
+                La información más completa del mercado inmobiliario minuto a minuto.
+              </p>
+            </div>
+            <span
+              className="com-button --secondary"
+            >
+              IR A NOTAS
+            </span>
+          </a>
+        </section>
+      </ModPromo>
+    </div>
+  </StaticContent>
 </CajaPromo>
 `;

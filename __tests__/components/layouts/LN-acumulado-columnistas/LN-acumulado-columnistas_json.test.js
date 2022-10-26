@@ -1,18 +1,21 @@
-import * as LNAcumuladoColumnistasLayout from '../../../../components/layouts/LN-acumulado-columnistas/json';
+import * as LayoutAcumColumnistasJson from '../../../../components/layouts/LN-acumulado-columnistas/json';
+
+const props = {
+    id: 'LN-acumulado-columnistas',
+    isAdmin: false,
+    layout: 'LN-acumulado-columnistas',
+    arcSite: 'la-nacion-ar',
+    siteProperties: {}
+};
 jest.mock('fusion:consumer', component => {
     return function(component) {
         return component;
     };
 });
-describe('Test Acumulado Columnistas', () => {
-    const props = {};
-    props.id = 'LN-acumulado-columnistas';
-    props.isAdmin = false;
-    props.layout = 'LN-acumulado-columnistas';
-    props.arcSite = 'la-nacion-ar';
 
-    test('OK', () => {
-        const children = [
+describe('Components - Layout - LNAcumuladoColumnistasLayout JSON', () => {
+    test('Should have correct ammount of children with their proper keys', () => {
+        props.children = [
             [],
             [],
             [
@@ -43,8 +46,8 @@ describe('Test Acumulado Columnistas', () => {
             ],
             []
         ];
-        props.children = children;
-        const columnistas = LNAcumuladoColumnistasLayout.default(props);
+
+        const columnistas = LayoutAcumColumnistasJson.default(props);
         expect(columnistas.length).toBe(1);
         expect(columnistas[0].length).toBe(2);
         expect(Object.keys(columnistas[0][0]).sort()).toEqual(

@@ -1,18 +1,31 @@
 import React from 'react';
 import { useContent } from 'fusion:content';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Context from 'fusion:context';
 import CajaHoroscopos from '../../../../components/features/LN-acumulado/cajaHoroscopos';
 import API_RESPONSE_ZODIAC from '../../../../__mocks__/data/apiHoroscope/horoscoposZodiaco';
-import { shallow, render } from 'enzyme';
 
-jest.mock('fusion:static', () => 'mock-static');
+jest.mock('fusion:environment', () => {
+    return {
+        IS_SANDBOX: 'true',
+        API_ENV: 'sandbox',
+        LANACIONAR_URLASSETS: 'https://www.lanacion.com.ar',
+        SITE_LANACION: 'https://www.lanacion.com.ar',
+        ARC_STATIC: 'https://arc-static.glanacion.com'
+    };
+});
+
+jest.mock(
+    '../../../../components/private/common/staticValidation',
+    () => 'mock-static-validation'
+);
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
 });
 
-const contextPath = '/pf';
 const deployment = deploymentValue => deploymentValue;
 const props = {
     customFields: { title: 'Seleccioná tu signo...' },
@@ -31,52 +44,33 @@ describe('Features - LN-acumulado - Caja Horoscopos Feature =>', () => {
                 globalContent
             }));
 
-            const wrapper1 = shallow(<CajaHoroscopos {...props} />);
+            const { container } = render(<CajaHoroscopos {...props} />);
 
-            useContent.mockImplementation(() => ({
-                data: undefined
-            }));
-
-            const wrapper2 = shallow(<CajaHoroscopos {...props} />);
-
-            expect(wrapper1.html() && wrapper2.html()).toBeNull();
+            expect(container.firstChild).toBeEmptyDOMElement();
         });
     });
 
     describe('With a valid response', () => {
-        it('should render HoroscopeBox component with correct props', () => {
+        it('Render feature CajaHoroscopos and child components must be 12', () => {
             useContent.mockImplementation(() => API_RESPONSE_ZODIAC);
-
-            const wrapper = shallow(<CajaHoroscopos {...props} />);
-            const result = wrapper.first();
-            const HoroscopeBoxComponent = result.find('HoroscopeBox');
-
-            const { signos: signosProps } = HoroscopeBoxComponent.props();
-
-            Context.useAppContext = jest.fn(() => ({
-                globalContent
-            }));
-
-            const { data } = API_RESPONSE_ZODIAC;
-
-            expect(HoroscopeBoxComponent.exists()).toBeTruthy();
-            expect(signosProps).toStrictEqual(data.signos);
-            expect(signosProps.length).toBe(12);
-        });
-    });
-    describe('Render feature CajaHoroscopos and child components - snapshot', () => {
-        it('Should match snapshot', () => {
-            useContent.mockImplementation(() => API_RESPONSE_ZODIAC);
-
             Context.useAppContext = jest.fn(() => ({
                 globalContent,
-                contextPath,
+                contextPath: '/pf',
                 deployment
             }));
-
-            const wrapper = render(<CajaHoroscopos {...props} />);
-
-            expect(wrapper).toMatchSnapshot();
+            const { container } = render(<CajaHoroscopos {...props} />);
+            const sings = container.getElementsByClassName(
+                'horoscope-item --zodiaco'
+            );
+            expect(
+                screen.getByText(
+                    (content, element) =>
+                        element.tagName.toLowerCase() ===
+                        'mock-static-validation'
+                )
+            ).toBeVisible();
+            expect(container).toMatchSnapshot();
+            expect(sings.length).toBe(12);
         });
     });
 });

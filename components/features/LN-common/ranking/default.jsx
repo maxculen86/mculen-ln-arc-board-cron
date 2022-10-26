@@ -5,20 +5,26 @@ import { useContent as getContent } from 'fusion:content';
 import StaticValidation from '../../../private/common/staticValidation';
 import CajaTema from '../../../private/LN/common/cajaTema';
 import { getRankingProps, getSectionParentId, hasArticles } from './_helper';
-import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
-
+import StaticContent from '../../../private/common/staticContent';
 import '../../../../resources/dist/css/ln/components/ranking.css';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
 
-const getDataContent = (sectionId, sectionParentId, website) => {
+const getDataContent = (
+    sectionId,
+    sectionParentId,
+    website,
+    isHome = false
+) => {
     const getRankingData = section =>
         getContent({
             source: 'rankingArticlesSource',
+            staticMode: true,
             query: {
                 sectionId: section,
                 imageConfig: 'boxArticles',
                 website
-            }
+            },
+            staticMode: isHome
         });
 
     const data = getRankingData(sectionId);
@@ -27,16 +33,6 @@ const getDataContent = (sectionId, sectionParentId, website) => {
 
     return (hasArticles(data) && data) || getRankingData(sectionParentId);
 };
-
-const getComponentForHome = (component, isInverse, hidePlaceholder, size = 4) =>
-    component ||
-    (!hidePlaceholder &&
-        getPlaceholder(isInverse ? 'grilla6' : `ranking${size}`)) || <></>;
-
-const getComponentForSection = (component, featureId) =>
-    (component && (
-        <StaticValidation id={featureId}>{component}</StaticValidation>
-    )) || <></>;
 
 const RankingFeature = ({ id: featureId }) => {
     const {
@@ -52,18 +48,21 @@ const RankingFeature = ({ id: featureId }) => {
         sectionName,
         sectionId,
         isHome,
-        isInverse,
         notesQuantity,
         classCondition,
         rankingLayout
     } = getRankingProps(layout, featureId, globalContent);
 
     const sectionParentId = getSectionParentId(sectionId);
-    const { _id, name, articles, size } =
-        getDataContent(sectionId, sectionParentId, website || arcSite) || {};
+    const { name, articles } =
+        getDataContent(
+            sectionId,
+            sectionParentId,
+            website || arcSite,
+            isHome
+        ) || {};
 
     const customTitle = name ? `Más leídas de ${name}` : 'Más leídas';
-    const hidePlaceholder = _id && !articles && isInverse;
 
     const component = articles && articles.length && (
         <CajaTema
@@ -83,19 +82,17 @@ const RankingFeature = ({ id: featureId }) => {
         />
     );
 
-    return isHome
-        ? getComponentForHome(component, isInverse, hidePlaceholder, size)
-        : getComponentForSection(component, featureId);
+    const sectionRanking = (component && (
+        <StaticValidation id={featureId}>{component}</StaticValidation>
+    )) || <></>;
+
+    return isHome ? <StaticContent>{component}</StaticContent> : sectionRanking;
 };
 
 RankingFeature.label = 'LN-Common-Ranking';
 
 RankingFeature.propTypes = {
     id: PropTypes.string.isRequired,
-    outputType: PropTypes.string,
-    website: PropTypes.string,
-    arcSite: PropTypes.string,
-    layout: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         _id: PropTypes.string,
         node_type: PropTypes.string,
@@ -106,11 +103,6 @@ RankingFeature.propTypes = {
             })
         })
     }).isRequired
-};
-
-RankingFeature.defaultProps = {
-    outputType: 'default',
-    arcSite: 'la-nacion-ar'
 };
 
 export default RankingFeature;

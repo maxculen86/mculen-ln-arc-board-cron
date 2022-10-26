@@ -25,7 +25,7 @@ describe('private - common - videoPlayer', () => {
             { key: 'data-autoplay', val: 'false' },
             { key: 'data-autoplay-muted', val: 'false' },
             { key: 'data-controls', val: 'true' },
-            { key: 'data-muted', val: 'false' },
+            { key: 'data-muted', val: 'true' },
             { key: 'data-sticky', val: 'false' },
             { key: 'data-api', val: 'sandbox' },
             { key: 'data-env', val: 'prod' }
@@ -71,5 +71,42 @@ describe('private - common - videoPlayer', () => {
             'data-muted',
             'true'
         );
+    });
+    it('should have placeholder class', () => {
+        const { container } = render(
+            <VideoPlayer
+                videoId={'apertura_video_basic'}
+                arcSite={'la-nacion-ar'}
+                globalContent={_globalContent({
+                    basic: {
+                        type: 'video',
+                        _id: 'apertura_video_basic'
+                    }
+                })}
+                device={'desktop'}
+                isApertura={true}
+            />
+        );
+        expect(container.querySelector('.video-player')).toBeInTheDocument();
+    });
+    it('should have script for custom errors', () => {
+        const errorScript = `window.addEventListener('load',()=>{const[{shadowRoot}={}]=document.querySelectorAll('.powa-shadow');leterrorPowa=shadowRoot.querySelector&&shadowRoot.querySelector('div.powa-outage');if(true&&errorPowa.innerHTML==='<p>Thisvideoisgeo-restricted.</p><p>Error931.</p>'){errorPowa.innerHTML='¡Ups!Parecequeestevideonoestadisponibleentuubicación'}});`;
+        const { container } = render(
+            <VideoPlayer
+                videoId={'apertura_video_basic'}
+                arcSite={'la-nacion-ar'}
+                globalContent={_globalContent({
+                    basic: {
+                        type: 'video',
+                        _id: 'apertura_video_basic'
+                    }
+                })}
+                device={'desktop'}
+                isApertura={true}
+            />
+        );
+        expect(
+            container.querySelectorAll('script')[1].innerHTML.replace(/\s/g, '')
+        ).toStrictEqual(errorScript.replace(/\s/g, ''));
     });
 });

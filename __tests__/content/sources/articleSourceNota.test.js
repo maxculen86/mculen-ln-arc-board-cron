@@ -2,30 +2,22 @@ import 'regenerator-runtime/runtime';
 import env from '../../../__mocks__/fusion:environment';
 import properties from '../../../__mocks__/fusion:properties';
 import Redirect from '../../../content/sources/utils/redirect';
+import NotFoundError from '../../../content/sources/utils/notFoundError';
 import removeInvalidUrlTagA from '../../../components/private/common/utils/removeInvalidUrlTagA';
 import {
     recipePowerUps,
     removeParallaxPowerUp
 } from '../../../content/sources/utils/powerUp';
 import contentElementRecipe from '../../../__mocks__/data/articles/contentElementsRecipe.json';
-import articleSourceNota from '../../../content/sources/articleSourceNota';
-import { resolve } from '../../../content/sources/articleSourceNota';
-import responseArticleSource from '../../../__mocks__/data/articles/responseArticleSource.json';
+import articleSourceNota, {
+    resolve
+} from '../../../content/sources/articleSourceNota';
 import validateExclusiveAccess from '../../../content/sources/utils/validateExclusiveAccess';
+import responseNotaNoticia from '../../../__mocks__/data/articles/3SHTRO3NKBCN7L3JITCDQYSJLM.json';
+import responseHtmlLibreArticle from '../../../__mocks__/data/nota/cuerpo/notaHtml.json';
 
+const mockResponseNotaNoticia = Promise.resolve(responseNotaNoticia);
 const mockRequestResponse = jest.fn();
-
-const mockResponse = Promise.resolve(responseArticleSource);
-
-const mockResponseRedirect = Promise.resolve({
-    ...responseArticleSource,
-    type: 'redirect',
-    redirect_url: 'https://www.lanacion.com.ar/'
-});
-
-beforeEach(() => {
-    mockRequestResponse.mockReturnValue(mockResponse);
-});
 
 jest.mock('request-promise-native', () => {
     return {
@@ -44,6 +36,7 @@ jest.mock('../../../components/private/common/utils/logger', () => {
 });
 
 jest.mock('../../../content/sources/utils/redirect', () => jest.fn());
+jest.mock('../../../content/sources/utils/notFoundError', () => jest.fn());
 
 const { fetch: articleSourceFetch } = articleSourceNota;
 
@@ -53,10 +46,14 @@ const query = {
     meteringVariant: 'A',
     'arc-site': 'la-nacion-ar',
     checkExclusiveAccess: false,
-    imageConfig: 'm'
+    imageConfig: 'm',
+    outputType: 'default'
 };
 
 describe('Article source nota - validateExclusiveAccess', () => {
+    beforeEach(() => {
+        mockRequestResponse.mockReturnValue(mockResponseNotaNoticia);
+    });
     afterEach(() => {
         validateExclusiveAccess.mockClear();
     });
@@ -71,14 +68,17 @@ describe('Article source nota - validateExclusiveAccess', () => {
             })
             .then(done);
     });
-    const queryTrue = {
-        ...query,
-        checkExclusiveAccess: true
-    };
+
     it('validateExclusive access must be called when checkExclusiveAccess true', done => {
-        articleSourceFetch(queryTrue, {
-            cachedCall: jest.fn()
-        })
+        articleSourceFetch(
+            {
+                ...query,
+                checkExclusiveAccess: true
+            },
+            {
+                cachedCall: jest.fn()
+            }
+        )
             .then(response => {
                 expect(validateExclusiveAccess).toBeCalledTimes(1);
             })
@@ -86,9 +86,70 @@ describe('Article source nota - validateExclusiveAccess', () => {
     });
 });
 
+describe('Article source nota - htmlLibre AMP 404', () => {
+    const mockResponseHtmlLibre = Promise.resolve(responseHtmlLibreArticle);
+    beforeEach(() => {
+        Redirect.mockClear();
+        NotFoundError.mockClear();
+    });
+    describe('When is htmlLibre subtype 9 and outputType AMP', () => {
+        it('Should throw notFound error 404', done => {
+            mockRequestResponse.mockReturnValueOnce(mockResponseHtmlLibre);
+            query.outputType = 'amp';
+
+            articleSourceFetch(query, {
+                cachedCall: jest.fn()
+            })
+                .then(() => {
+                    expect(Redirect).not.toBeCalled();
+                    expect(NotFoundError).toBeCalledWith(
+                        'Pagina en Amp no encontrada'
+                    );
+                })
+                .then(done);
+        });
+    });
+    describe('When is NOT htmlLibre subtype and outputType AMP', () => {
+        it('Should NOT throw notFound error 404', done => {
+            mockRequestResponse.mockReturnValueOnce(mockResponseNotaNoticia);
+            query.outputType = 'amp';
+
+            articleSourceFetch(query, {
+                cachedCall: jest.fn()
+            })
+                .then(() => {
+                    expect(Redirect).not.toBeCalled();
+                    expect(NotFoundError).not.toBeCalled();
+                })
+                .then(done);
+        });
+    });
+    describe('When is htmlLibre subtype 9 and outputType default', () => {
+        it('Should NOT throw notFound error 404', done => {
+            mockRequestResponse.mockReturnValueOnce(mockResponseHtmlLibre);
+            query.outputType = 'default';
+
+            articleSourceFetch(query, {
+                cachedCall: jest.fn()
+            })
+                .then(() => {
+                    expect(Redirect).not.toBeCalled();
+                    expect(NotFoundError).not.toBeCalled();
+                })
+                .then(done);
+        });
+    });
+});
+
 describe('Article source nota - redirect', () => {
     beforeEach(() => {
-        mockRequestResponse.mockReturnValue(mockResponseRedirect);
+        mockRequestResponse.mockReturnValue(
+            Promise.resolve({
+                ...responseNotaNoticia,
+                type: 'redirect',
+                redirect_url: 'https://www.lanacion.com.ar/'
+            })
+        );
     });
 
     it('Must redirect to provided redirect_url with status code 301', done => {
@@ -107,18 +168,20 @@ describe('Article source nota - redirect', () => {
 });
 
 describe('Article source nota - defensive cachedCall', () => {
+    beforeEach(() => {
+        mockRequestResponse.mockReturnValue(mockResponseNotaNoticia);
+    });
     it('Return test when cachedcall is not defined', done => {
         articleSourceFetch(query)
             .then(response => {
-                expect(response).toEqual({
-                    ...responseArticleSource,
+                expect(response).toStrictEqual({
+                    ...responseNotaNoticia,
+                    taxonomy: { ...responseNotaNoticia.taxonomy, sections: [] },
                     paywallEnabled: '',
                     subscription: 'A',
-                    taxonomy: {
-                        sections: null
-                    },
                     isListenable: false,
-                    withFirmaDistributor: true
+                    withFirmaDistributor: true,
+                    withSponsoredLink: false
                 });
             })
             .then(done);

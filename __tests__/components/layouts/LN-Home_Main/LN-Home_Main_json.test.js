@@ -169,7 +169,9 @@ describe('components - layouts - LN-Home_Main - json', () => {
 
     describe('Test Section Apertura Timeline', () => {
         test('Ok', () => {
-            const homeSections = LayoutLNMainHome.default(propsAperturaTimeline);
+            const homeSections = LayoutLNMainHome.default(
+                propsAperturaTimeline
+            );
             expect(homeSections.length).toBe(8);
             expect(Object.keys(homeSections[0]).sort()).toEqual(
                 [
@@ -199,9 +201,11 @@ describe('components - layouts - LN-Home_Main - json', () => {
         });
 
         test('Ok timeline without articles', () => {
-            const propsAperturaTimelineNoArticles=propsAperturaTimeline;
-            propsAperturaTimelineNoArticles.children[3][0].articles=[];
-            const homeSections = LayoutLNMainHome.default(propsAperturaTimelineNoArticles);
+            const propsAperturaTimelineNoArticles = propsAperturaTimeline;
+            propsAperturaTimelineNoArticles.children[3][0].articles = [];
+            const homeSections = LayoutLNMainHome.default(
+                propsAperturaTimelineNoArticles
+            );
             expect(homeSections.length).toBe(7);
             expect(Object.keys(homeSections[0]).sort()).toEqual(
                 [

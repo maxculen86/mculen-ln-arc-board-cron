@@ -1,6 +1,10 @@
-import { NOTICIA } from '../../../../components/private/common/utils/subtypes/subtypeHelper';
+import {
+    HTMLLIBRE,
+    VIDEO,
+    RECETA,
+    AGENCIA
+} from '../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 export default {
-    enableSubtypes: [NOTICIA],
-    enableSections: ['espectaculos']
+    disableSubtypes: [HTMLLIBRE, VIDEO, RECETA, AGENCIA]
 };

@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 // TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
 
-import { RESIZER_URL_PUBLIC, SITE_LANACION } from 'fusion:environment';
+import { RESIZER_URL_PUBLIC, SITE_LANACION, API_ENV } from 'fusion:environment';
 import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
@@ -10,6 +10,17 @@ export const setHeight = (width, height, proportion) => {
     const [axisX, axisY] = proportion.split(':');
 
     return axisX > axisY ? parseInt((width / axisX) * axisY, 10) : height;
+};
+
+export const updateHeight = (originalHeight, originalWidth, opt = {}) => {
+    const { proportion } = opt;
+    if (!proportion && originalWidth < originalHeight) {
+        const aspectRatio = getAspectRatio(originalWidth, originalHeight);
+        const [axisXX, axisYY] = aspectRatio.split(':');
+
+        return parseInt((opt.width / axisXX) * axisYY, 10);
+    }
+    return opt.height;
 };
 
 const setFilter = (thumbor, [type, value]) =>
@@ -29,7 +40,7 @@ export const setCropMethod = ({
     const { proportion, isNotSmart } = resizeOptions;
     if (proportion) {
         const aspectRatio = getAspectRatio(originalWidth, originalHeight);
-        const notEqualProportion = !(aspectRatio === proportion);
+        const notEqualProportion = aspectRatio !== proportion;
 
         if (notEqualProportion) {
             const [focalX, focalY] = focalPoint;
@@ -52,6 +63,9 @@ export const createResizer = (
     isInApertura = false,
     isAdmin = false
 ) => {
+    const aperturaUrl =
+        API_ENV === 'prod' ? SITE_LANACION : `https://www.lanacion.com.ar`;
+
     const Thumbor =
         // eslint-disable-next-line no-eval
         typeof window === 'undefined' ? eval('require("thumbor")') : () => {};
@@ -99,7 +113,7 @@ export const createResizer = (
             .buildUrl();
 
         return isInApertura && !isAdmin
-            ? url.replace(/^.*\/\/[^\/]+/, SITE_LANACION)
+            ? url.replace(/^.*\/\/[^\/]+/, aperturaUrl)
             : url.replace(/^.*\/\/[^\/]+/, RESIZER_URL_PUBLIC);
     };
 
@@ -125,7 +139,10 @@ export const createResizer = (
                 );
                 resp.push({
                     resizedUrl,
-                    option: opt
+                    option: {
+                        ...opt,
+                        height: updateHeight(originalHeight, originalWidth, opt)
+                    }
                 });
             });
 

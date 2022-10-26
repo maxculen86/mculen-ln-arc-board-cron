@@ -1,0 +1,1914 @@
+[
+    {
+        "collection": "layouts",
+        "type": "LN-acumulado",
+        "props": {
+            "collection": "layouts",
+            "type": "LN-acumulado",
+            "id": "LN-acumulado",
+            "childProps": [
+                {
+                    "collection": "sections",
+                    "id": 0
+                },
+                {
+                    "collection": "sections",
+                    "id": 1
+                },
+                {
+                    "collection": "sections",
+                    "id": 2
+                },
+                {
+                    "collection": "sections",
+                    "id": 3
+                },
+                {
+                    "collection": "sections",
+                    "id": 4
+                },
+                {
+                    "collection": "sections",
+                    "id": 5
+                },
+                {
+                    "collection": "sections",
+                    "id": 6
+                },
+                {
+                    "collection": "sections",
+                    "id": 7
+                }
+            ]
+        },
+        "children": [
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 0
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fkMnyz9JmNbem",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "comercial_dsk",
+                                "mobile": "comercial_mob"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 1
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fqSDamLI8e85n",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "mobile": "sticky2_mob",
+                                "sticky": true,
+                                "background": true
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 2
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fFJ4LS0UH1e5H",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "cabezal_dsk",
+                                "background": true,
+                                "tablet": "cabezal_tab"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 3
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-acumulado/breadcrumb",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-acumulado/breadcrumb",
+                            "id": "f0fajd3tEW2f8wy",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {},
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-acumulado/titulo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-acumulado/titulo",
+                            "id": "f0ftMrfdonD2eGE",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {},
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 4
+                },
+                "children": []
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 5
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-acumulado/cajaDolar",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-acumulado/cajaDolar",
+                            "id": "f0fdyQVFKe83eMy",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {},
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 6
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0ffYy9BB3z77gA",
+                            "name": null,
+                            "customFields": {
+                                "layout": "focalLeft3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": true,
+                                "idCollection": "DX2HW7RLQVCNZPKHHUXCE7VXQE"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/navigationList",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/navigationList",
+                            "id": "f0f3ar0b0u9g8wc",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "hierarchy": "Comunidad_de_negocios",
+                                "title": "INDICADORES ECONÓMICOS:"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fwwx2dRY84bhV",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 4,
+                                "hideTitle": true,
+                                "idCollection": "DX2HW7RLQVCNZPKHHUXCE7VXQE"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-acumulado/anexoIframe",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-acumulado/anexoIframe",
+                            "id": "f0fAaSB5dKhk5d4",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "url": "https://especialeslntools.lanacion.com.ar/generic-anexo-monitor-ln-ex-mer/index.html"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fOdkI4ZGxk6qd",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "mobile": null,
+                                "tablet": null
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fa5qJMFpfIao6",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla9",
+                                "backgroundColor": "default",
+                                "initialPosition": 7,
+                                "hideTitle": true,
+                                "idCollection": "DX2HW7RLQVCNZPKHHUXCE7VXQE"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0f16coc4cmY2BN",
+                            "name": null,
+                            "customFields": {
+                                "layout": "author3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": true,
+                                "idCollection": "5EXM4IYBWNFHHB5PUVFBPBN2SM"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0f6g85vaQFZaHi",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "5GOER2MSDZGWXD2S2PVVZVAWFY",
+                                "title": "Emprendedores",
+                                "url": "https://www.lanacion.com.ar/tema/emprendedores-tid53673"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0frAY0ELd5EaVn",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "3RZXCDKOS5B3ZMSOW6S5LKASOU",
+                                "url": "https://www.lanacion.com.ar/economia/campo/",
+                                "title": "Campo"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fYzDI2WcqJ4yN",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "LN22STU3PJGINAGSCX3W35I4SI",
+                                "url": "https://www.lanacion.com.ar/propiedades/",
+                                "title": "Propiedades"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fN90338G5T26h",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "R4NBAZYC7JAGZJL2M2HO73VLHA",
+                                "url": "https://www.lanacion.com.ar/economia/comercio-exterior/",
+                                "title": "Comercio exterior"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "chains",
+                        "type": "Ln_Caja_Collection",
+                        "props": {
+                            "collection": "chains",
+                            "type": "Ln_Caja_Collection",
+                            "id": "c0fwCoShiGWB4hE",
+                            "name": null,
+                            "customFields": {
+                                "layout": "grilla3",
+                                "backgroundColor": "default",
+                                "initialPosition": 1,
+                                "hideTitle": false,
+                                "idCollection": "S2XGDSB4U5C6BHJ5EKUC65YVBA",
+                                "title": "Autos",
+                                "url": "https://www.lanacion.com.ar/autos/"
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": []
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/techo",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/techo",
+                            "id": "f0fIuweAoSn5bgo",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "color": "default",
+                                "title": "Más sobre economía"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-acumulado/grillaNotas",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-acumulado/grillaNotas",
+                            "id": "f0f2kzvEETl27yn",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "desktop1": "caja1_amp",
+                                "position1": 1,
+                                "desktop2": "caja2_amp",
+                                "position2": 3,
+                                "tablet3": "caja1_tab",
+                                "position3": 6,
+                                "tablet4": "caja2_tab",
+                                "position4": 12,
+                                "mobile5": "caja1_mob",
+                                "position5": 4,
+                                "mobile6": "caja2_mob",
+                                "position6": 9,
+                                "mobile7": "caja3_mob",
+                                "position7": 14,
+                                "mobile8": "caja4_mob",
+                                "position8": 15
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0f0kjRCRZBA3n0",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "tablet": "adhesion_tab",
+                                "mobile": "adhesion_mob",
+                                "desktop": "adhesion_dsk",
+                                "group": "acumulado",
+                                "fixed": true
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 7
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fs8kp9UKy15gT",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "caja1_dsk"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fOgFHzdwru9tk",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "caja2_dsk"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/ranking",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/ranking",
+                            "id": "f0fk5Q0DDX525ft",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "size1": 3,
+                                "daysAgo1": 1,
+                                "weeksAgo1": 1,
+                                "size2": 3,
+                                "daysAgo2": 5,
+                                "weeksAgo2": 2
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fJxf9c6QSu9Yy",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "caja3_dsk",
+                                "tablet": "caja3_tab"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-common/bannerRefactor",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-common/bannerRefactor",
+                            "id": "f0fdtvTt9ZLS5Hw",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "group": "acumulado",
+                                "desktop": "caja4_dsk",
+                                "sticky": true,
+                                "tablet": "caja4_tab"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 0
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fkMnyz9JmNbem",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "comercial_dsk",
+                        "mobile": "comercial_mob"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 1
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fqSDamLI8e85n",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "mobile": "sticky2_mob",
+                        "sticky": true,
+                        "background": true
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 2
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fFJ4LS0UH1e5H",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "cabezal_dsk",
+                        "background": true,
+                        "tablet": "cabezal_tab"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 3
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-acumulado/breadcrumb",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-acumulado/breadcrumb",
+                    "id": "f0fajd3tEW2f8wy",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {},
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-acumulado/titulo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-acumulado/titulo",
+                    "id": "f0ftMrfdonD2eGE",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {},
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 4
+        },
+        "children": []
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 5
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-acumulado/cajaDolar",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-acumulado/cajaDolar",
+                    "id": "f0fdyQVFKe83eMy",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {},
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 6
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0ffYy9BB3z77gA",
+                    "name": null,
+                    "customFields": {
+                        "layout": "focalLeft3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": true,
+                        "idCollection": "DX2HW7RLQVCNZPKHHUXCE7VXQE"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/navigationList",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/navigationList",
+                    "id": "f0f3ar0b0u9g8wc",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "hierarchy": "Comunidad_de_negocios",
+                        "title": "INDICADORES ECONÓMICOS:"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fwwx2dRY84bhV",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 4,
+                        "hideTitle": true,
+                        "idCollection": "DX2HW7RLQVCNZPKHHUXCE7VXQE"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "features",
+                "type": "LN-acumulado/anexoIframe",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-acumulado/anexoIframe",
+                    "id": "f0fAaSB5dKhk5d4",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "url": "https://especialeslntools.lanacion.com.ar/generic-anexo-monitor-ln-ex-mer/index.html"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fOdkI4ZGxk6qd",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "mobile": null,
+                        "tablet": null
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fa5qJMFpfIao6",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla9",
+                        "backgroundColor": "default",
+                        "initialPosition": 7,
+                        "hideTitle": true,
+                        "idCollection": "DX2HW7RLQVCNZPKHHUXCE7VXQE"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0f16coc4cmY2BN",
+                    "name": null,
+                    "customFields": {
+                        "layout": "author3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": true,
+                        "idCollection": "5EXM4IYBWNFHHB5PUVFBPBN2SM"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0f6g85vaQFZaHi",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "5GOER2MSDZGWXD2S2PVVZVAWFY",
+                        "title": "Emprendedores",
+                        "url": "https://www.lanacion.com.ar/tema/emprendedores-tid53673"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0frAY0ELd5EaVn",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "3RZXCDKOS5B3ZMSOW6S5LKASOU",
+                        "url": "https://www.lanacion.com.ar/economia/campo/",
+                        "title": "Campo"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fYzDI2WcqJ4yN",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "LN22STU3PJGINAGSCX3W35I4SI",
+                        "url": "https://www.lanacion.com.ar/propiedades/",
+                        "title": "Propiedades"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fN90338G5T26h",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "R4NBAZYC7JAGZJL2M2HO73VLHA",
+                        "url": "https://www.lanacion.com.ar/economia/comercio-exterior/",
+                        "title": "Comercio exterior"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "chains",
+                "type": "Ln_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "Ln_Caja_Collection",
+                    "id": "c0fwCoShiGWB4hE",
+                    "name": null,
+                    "customFields": {
+                        "layout": "grilla3",
+                        "backgroundColor": "default",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "S2XGDSB4U5C6BHJ5EKUC65YVBA",
+                        "title": "Autos",
+                        "url": "https://www.lanacion.com.ar/autos/"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/techo",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/techo",
+                    "id": "f0fIuweAoSn5bgo",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "color": "default",
+                        "title": "Más sobre economía"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-acumulado/grillaNotas",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-acumulado/grillaNotas",
+                    "id": "f0f2kzvEETl27yn",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "desktop1": "caja1_amp",
+                        "position1": 1,
+                        "desktop2": "caja2_amp",
+                        "position2": 3,
+                        "tablet3": "caja1_tab",
+                        "position3": 6,
+                        "tablet4": "caja2_tab",
+                        "position4": 12,
+                        "mobile5": "caja1_mob",
+                        "position5": 4,
+                        "mobile6": "caja2_mob",
+                        "position6": 9,
+                        "mobile7": "caja3_mob",
+                        "position7": 14,
+                        "mobile8": "caja4_mob",
+                        "position8": 15
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0f0kjRCRZBA3n0",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "tablet": "adhesion_tab",
+                        "mobile": "adhesion_mob",
+                        "desktop": "adhesion_dsk",
+                        "group": "acumulado",
+                        "fixed": true
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 7
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fs8kp9UKy15gT",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "caja1_dsk"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fOgFHzdwru9tk",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "caja2_dsk"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/ranking",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/ranking",
+                    "id": "f0fk5Q0DDX525ft",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "size1": 3,
+                        "daysAgo1": 1,
+                        "weeksAgo1": 1,
+                        "size2": 3,
+                        "daysAgo2": 5,
+                        "weeksAgo2": 2
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fJxf9c6QSu9Yy",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "caja3_dsk",
+                        "tablet": "caja3_tab"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-common/bannerRefactor",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-common/bannerRefactor",
+                    "id": "f0fdtvTt9ZLS5Hw",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "group": "acumulado",
+                        "desktop": "caja4_dsk",
+                        "sticky": true,
+                        "tablet": "caja4_tab"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fkMnyz9JmNbem",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "comercial_dsk",
+                "mobile": "comercial_mob"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fqSDamLI8e85n",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "mobile": "sticky2_mob",
+                "sticky": true,
+                "background": true
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fFJ4LS0UH1e5H",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "cabezal_dsk",
+                "background": true,
+                "tablet": "cabezal_tab"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-acumulado/breadcrumb",
+        "props": {
+            "collection": "features",
+            "type": "LN-acumulado/breadcrumb",
+            "id": "f0fajd3tEW2f8wy",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {},
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-acumulado/titulo",
+        "props": {
+            "collection": "features",
+            "type": "LN-acumulado/titulo",
+            "id": "f0ftMrfdonD2eGE",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {},
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-acumulado/cajaDolar",
+        "props": {
+            "collection": "features",
+            "type": "LN-acumulado/cajaDolar",
+            "id": "f0fdyQVFKe83eMy",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {},
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0ffYy9BB3z77gA",
+            "name": null,
+            "customFields": {
+                "layout": "focalLeft3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": true,
+                "idCollection": "DX2HW7RLQVCNZPKHHUXCE7VXQE"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/navigationList",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/navigationList",
+            "id": "f0f3ar0b0u9g8wc",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "hierarchy": "Comunidad_de_negocios",
+                "title": "INDICADORES ECONÓMICOS:"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fwwx2dRY84bhV",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 4,
+                "hideTitle": true,
+                "idCollection": "DX2HW7RLQVCNZPKHHUXCE7VXQE"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "features",
+        "type": "LN-acumulado/anexoIframe",
+        "props": {
+            "collection": "features",
+            "type": "LN-acumulado/anexoIframe",
+            "id": "f0fAaSB5dKhk5d4",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "url": "https://especialeslntools.lanacion.com.ar/generic-anexo-monitor-ln-ex-mer/index.html"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fOdkI4ZGxk6qd",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "mobile": null,
+                "tablet": null
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fa5qJMFpfIao6",
+            "name": null,
+            "customFields": {
+                "layout": "grilla9",
+                "backgroundColor": "default",
+                "initialPosition": 7,
+                "hideTitle": true,
+                "idCollection": "DX2HW7RLQVCNZPKHHUXCE7VXQE"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0f16coc4cmY2BN",
+            "name": null,
+            "customFields": {
+                "layout": "author3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": true,
+                "idCollection": "5EXM4IYBWNFHHB5PUVFBPBN2SM"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0f6g85vaQFZaHi",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "5GOER2MSDZGWXD2S2PVVZVAWFY",
+                "title": "Emprendedores",
+                "url": "https://www.lanacion.com.ar/tema/emprendedores-tid53673"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0frAY0ELd5EaVn",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "3RZXCDKOS5B3ZMSOW6S5LKASOU",
+                "url": "https://www.lanacion.com.ar/economia/campo/",
+                "title": "Campo"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fYzDI2WcqJ4yN",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "LN22STU3PJGINAGSCX3W35I4SI",
+                "url": "https://www.lanacion.com.ar/propiedades/",
+                "title": "Propiedades"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fN90338G5T26h",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "R4NBAZYC7JAGZJL2M2HO73VLHA",
+                "url": "https://www.lanacion.com.ar/economia/comercio-exterior/",
+                "title": "Comercio exterior"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "Ln_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "Ln_Caja_Collection",
+            "id": "c0fwCoShiGWB4hE",
+            "name": null,
+            "customFields": {
+                "layout": "grilla3",
+                "backgroundColor": "default",
+                "initialPosition": 1,
+                "hideTitle": false,
+                "idCollection": "S2XGDSB4U5C6BHJ5EKUC65YVBA",
+                "title": "Autos",
+                "url": "https://www.lanacion.com.ar/autos/"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/techo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/techo",
+            "id": "f0fIuweAoSn5bgo",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "color": "default",
+                "title": "Más sobre economía"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-acumulado/grillaNotas",
+        "props": {
+            "collection": "features",
+            "type": "LN-acumulado/grillaNotas",
+            "id": "f0f2kzvEETl27yn",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "desktop1": "caja1_amp",
+                "position1": 1,
+                "desktop2": "caja2_amp",
+                "position2": 3,
+                "tablet3": "caja1_tab",
+                "position3": 6,
+                "tablet4": "caja2_tab",
+                "position4": 12,
+                "mobile5": "caja1_mob",
+                "position5": 4,
+                "mobile6": "caja2_mob",
+                "position6": 9,
+                "mobile7": "caja3_mob",
+                "position7": 14,
+                "mobile8": "caja4_mob",
+                "position8": 15
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0f0kjRCRZBA3n0",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "tablet": "adhesion_tab",
+                "mobile": "adhesion_mob",
+                "desktop": "adhesion_dsk",
+                "group": "acumulado",
+                "fixed": true
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fs8kp9UKy15gT",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "caja1_dsk"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fOgFHzdwru9tk",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "caja2_dsk"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/ranking",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/ranking",
+            "id": "f0fk5Q0DDX525ft",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "size1": 3,
+                "daysAgo1": 1,
+                "weeksAgo1": 1,
+                "size2": 3,
+                "daysAgo2": 5,
+                "weeksAgo2": 2
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fJxf9c6QSu9Yy",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "caja3_dsk",
+                "tablet": "caja3_tab"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/bannerRefactor",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/bannerRefactor",
+            "id": "f0fdtvTt9ZLS5Hw",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "group": "acumulado",
+                "desktop": "caja4_dsk",
+                "sticky": true,
+                "tablet": "caja4_tab"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    }
+]

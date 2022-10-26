@@ -4,14 +4,23 @@ import get from '../get';
 import getImage from './getImage';
 import { getChildsFromSections } from '../../../LN/common/utils/homeHelper';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config';
-import { FOTOAL100, STORYTELLING } from '../subtypes/subtypeHelper';
+import { STORYTELLING } from '../subtypes/subtypeHelper';
 import {
     LinkImagePreload,
     wikiImagesWithWWW,
-    replaceAllUrlResizedToWWW
+    replaceAllUrlsResizerArray,
+    replaceAllUrlsResizerObject
 } from '../../../LN/common/utils/mediaHelper';
 import getVideoPosterResized from '../video/getVideoPosterResized';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
+import capitalizeFirstLetter from '../capitalizeFirstLetter';
+import ImagePreloadlAcu from '../../../LN/acumulado/imagePreloadAcu';
+import {
+    verifyChainsBeforeGrid,
+    getIdCollectionFromGC,
+    haveFeatureAcumuladoApertura,
+    getDataPreloadAcu
+} from '../preloadHelper';
 
 const getSource = ({
     imageID = '',
@@ -134,26 +143,26 @@ const GetDataToLinkImage = ({
     isAdmin = false
 }) => {
     const {
+        _id: id,
+        name,
         subtype,
         promo_items: promoItems,
+        canonical_url: canonicalUrl,
         wikiSourceData = {},
-        isWiki = false
+        isWiki = false,
+        node_type: nodeType
     } = data || {};
 
     const basic = replaceUrlResizerToWWW(get(data, 'promo_items.basic', {}));
+    const isAuthor = nodeType === 'author';
 
     if (!data) return <></>;
 
     const sectionData = {
-        nota: () => {
-            const shouldExclude = !!(
-                subtype === FOTOAL100 &&
-                get(promoItems, 'storytelling_mobile.resized_urls.length')
-            );
-
+        Nota: () => {
             const resizedUrls =
                 subtype === STORYTELLING
-                    ? replaceAllUrlResizedToWWW(
+                    ? replaceAllUrlsResizerArray(
                           get(
                               promoItems,
                               'storytelling_mobile.resized_urls',
@@ -161,20 +170,57 @@ const GetDataToLinkImage = ({
                           )
                       )
                     : get(basic, 'resized_urls', []);
-            return !shouldExclude ? (
-                <LinkImagePreload resizedUrls={resizedUrls} />
-            ) : (
-                <></>
-            );
+
+            return <LinkImagePreload resizedUrls={resizedUrls} />;
         },
-        acumulado: () => {
+
+        Acumulado: () => {
             if (isWiki) {
                 const imagesToPreload = wikiImagesWithWWW(wikiSourceData);
                 return <LinkImagePreload resizedUrls={imagesToPreload} />;
             }
-            return [];
+            if (isAuthor) {
+                const urlImage = replaceAllUrlsResizerObject(
+                    get(data, 'image.url', null)
+                );
+                return (
+                    urlImage && (
+                        <link
+                            rel="preload"
+                            as="image"
+                            fetchPriority="high"
+                            href={urlImage}
+                            imagesrcset={urlImage}
+                        />
+                    )
+                );
+            }
+            const hasFeatureAcumuladoApertura = haveFeatureAcumuladoApertura(
+                renderables
+            );
+            const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
+            const idCollectionApertura = getIdCollectionFromGC(data);
+
+            if (
+                !hasFeatureAcumuladoApertura ||
+                (!idCollectionApertura && hasChainBeforeGrid)
+            )
+                return <></>;
+
+            const dataPreloadAcu = getDataPreloadAcu(
+                idCollectionApertura,
+                nodeType
+            );
+            return (
+                <ImagePreloadlAcu
+                    {...dataPreloadAcu}
+                    arcSite={arcSite}
+                    accumulated={{ id, canonicalUrl, name }}
+                />
+            );
         },
-        home: () => {
+
+        Home: () => {
             const bomba =
                 (renderables.length &&
                     getChildsFromSections(
@@ -208,7 +254,12 @@ const GetDataToLinkImage = ({
         }
     } || <></>;
 
-    return (sectionData[section] && sectionData[section]()) || <></>;
+    const sectionAsComponent = capitalizeFirstLetter(section);
+
+    return (
+        (sectionData[sectionAsComponent] &&
+            sectionData[sectionAsComponent]()) || <></>
+    );
 };
 
 export default GetDataToLinkImage;

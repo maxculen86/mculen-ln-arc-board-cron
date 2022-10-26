@@ -1,0 +1,1065 @@
+{
+    "_id": "UK57ZJT3DJGPRFTACPR7KTFUWA",
+    "type": "story",
+    "version": "0.10.7",
+    "content_elements": [
+        {
+            "_id": "GBGJYWEXNZEM5HUWGZO3L37WBE",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662657840199,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "LONDRES.- El plan del gobierno del <b>Reino Unido</b> para lo que sucederá cuando muera la<b> reina Isabel II</b> -cuyo nombre, en código, es “Operación London Bridge”- fue revelado el año pasado con amplio detalle, después de muchos años de ser guardado en secreto, con apenas poca información de su contenido."
+        },
+        {
+            "_id": "S7IN7BFL2ZAVROD743EEOTTAUU",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662657840200,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "La “Operación London Bridge” implica el trabajo conjunto de varias áreas del Estado e incluye acciones como un megaoperativo de seguridad para controlar la multitud de personas que se acercará a Londres a despedir a la reina, discursos oficiales pautados, una gira del rey Carlos por Gran Bretaña, la baja de todas las banderas a media asta en diez minutos y un<b> apagón de las redes sociales.</b>"
+        },
+        {
+            "_id": "PHJ6JMR2JZEOROJA5KFWB6ILH4",
+            "additional_properties": {
+                "fullSizeResizeUrl": "/resizer/j032q8Ft2ZukotlJXdWQL_R7eUg=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/PHJ6JMR2JZEOROJA5KFWB6ILH4.jpg",
+                "galleries": [],
+                "mime_type": "image/jpeg",
+                "originalName": "https://c.files.bbci.co.uk/10C4A/production/_126628686_gettyimages-1236287898.jpg",
+                "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/PHJ6JMR2JZEOROJA5KFWB6ILH4.jpg",
+                "proxyUrl": "/resizer/j032q8Ft2ZukotlJXdWQL_R7eUg=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/PHJ6JMR2JZEOROJA5KFWB6ILH4.jpg",
+                "published": true,
+                "resizeUrl": "/resizer/j032q8Ft2ZukotlJXdWQL_R7eUg=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/PHJ6JMR2JZEOROJA5KFWB6ILH4.jpg",
+                "restricted": false,
+                "thumbnailResizeUrl": "/resizer/3gF0U_yLY4bZuRiQluxPDM8bpPw=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/PHJ6JMR2JZEOROJA5KFWB6ILH4.jpg",
+                "version": 0,
+                "_id": "I6FD4GMBX5AO7F5CHWKIPF7G54",
+                "comments": []
+            },
+            "address": {},
+            "created_date": "2022-09-07T23:00:24Z",
+            "height": 549,
+            "last_updated_date": "2022-09-07T23:00:24Z",
+            "licensable": false,
+            "owner": {
+                "id": "sandbox.lanacionar"
+            },
+            "source": {
+                "additional_properties": {
+                    "editor": "photo center"
+                },
+                "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/PHJ6JMR2JZEOROJA5KFWB6ILH4",
+                "system": "photo center"
+            },
+            "status": "published",
+            "type": "image",
+            "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/PHJ6JMR2JZEOROJA5KFWB6ILH4.jpg",
+            "version": "0.10.3",
+            "width": 976,
+            "display_date": "2022-09-07T20:00:18.2578521-03:00",
+            "first_publish_date": "2022-09-07T20:00:18.2578517-03:00",
+            "language": "es-419",
+            "publish_date": "2022-09-07T20:00:18.2578517-03:00"
+        },
+        {
+            "_id": "VZK5VRQKX5GSJEJZE2K5WPZE4M",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662657840202,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El cronograma se extiende por diez días, entre la muerte de la reina Isabel II y su funeral. El día del deceso será catalogado “Día D”, y cada día posterior se denominará “D+1″, “D+2″, etc."
+        },
+        {
+            "_id": "6OSOBG6CTNATZB5U4XIEBXXF4E",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662657840203,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Estos son los detalles completos de la “Operación London Bridge” y la “Operación Spring Tide”, que establece cómo el príncipe Carlos accederá al trono:"
+        },
+        {
+            "_id": "GIFQKLSGUVDT5FJRU637EMPEKI",
+            "type": "header",
+            "level": 1,
+            "additional_properties": {
+                "_id": 1662657840204,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Día D"
+        },
+        {
+            "_id": "OUSBJHCWHZAH5IZQCMQW2RZAFE",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807738,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "En las horas posteriores a la muerte de la reina, se llevarán a cabo una serie de llamadas para informar lo sucedido al primer ministro, al secretario de Gabinete y a los funcionarios más jerárquicos."
+        },
+        {
+            "_id": "VXAFSYA42NG35GADNFRG7NLELI",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807739,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El comunicado hacia los ministros será para todos igual: “Acabamos de ser informados de la muerte de Su Majestad la Reina”. Y se les advertirá que “se requiere discreción”."
+        },
+        {
+            "_id": "7H3ZSRCJQJAF5FUEPCTFHXBM4M",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807740,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Además, recibirán un correo electrónico del secretario del gabinete, cuyo borrador dice: “Estimados colegas. Con tristeza, les escribo para informarles la muerte de Su Majestad la Reina”."
+        },
+        {
+            "_id": "GI3IVZ2TGJBKBJAKV2KHHFJVHA",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807741,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Una vez enviados los correos, las banderas se bajarán a media asta en diez minutos."
+        },
+        {
+            "_id": "YV6MQ6JCUFAE7MLQG2PHJZGUZA",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807742,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "La Casa Real emitirá un aviso oficial al público."
+        },
+        {
+            "_id": "6P2TMVJ53RD65MO6D2EM4DXGP4",
+            "additional_properties": {
+                "fullSizeResizeUrl": "/resizer/zjIRFAJ5lSAMr76knqKeERRhGV8=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/6P2TMVJ53RD65MO6D2EM4DXGP4.jpg",
+                "galleries": [],
+                "mime_type": "image/jpeg",
+                "originalName": "https://c.files.bbci.co.uk/DABE/production/_126589955_gettyimages-1178823749.jpg",
+                "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6P2TMVJ53RD65MO6D2EM4DXGP4.jpg",
+                "proxyUrl": "/resizer/zjIRFAJ5lSAMr76knqKeERRhGV8=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/6P2TMVJ53RD65MO6D2EM4DXGP4.jpg",
+                "published": true,
+                "resizeUrl": "/resizer/zjIRFAJ5lSAMr76knqKeERRhGV8=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/6P2TMVJ53RD65MO6D2EM4DXGP4.jpg",
+                "restricted": false,
+                "thumbnailResizeUrl": "/resizer/wpDbRGmToD2xDgPaXiGsYpLkH80=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/6P2TMVJ53RD65MO6D2EM4DXGP4.jpg",
+                "version": 0,
+                "_id": "CWCSNSRP45GTLFKZNKPU57YMYE",
+                "comments": []
+            },
+            "address": {},
+            "created_date": "2022-09-08T11:10:20Z",
+            "height": 549,
+            "last_updated_date": "2022-09-08T11:10:20Z",
+            "licensable": false,
+            "owner": {
+                "id": "sandbox.lanacionar"
+            },
+            "source": {
+                "additional_properties": {
+                    "editor": "photo center"
+                },
+                "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/6P2TMVJ53RD65MO6D2EM4DXGP4",
+                "system": "photo center"
+            },
+            "status": "published",
+            "type": "image",
+            "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6P2TMVJ53RD65MO6D2EM4DXGP4.jpg",
+            "version": "0.10.3",
+            "width": 976,
+            "display_date": "2022-09-08T08:10:17.7943434-03:00",
+            "first_publish_date": "2022-09-08T08:10:17.7943434-03:00",
+            "language": "es-419",
+            "publish_date": "2022-09-08T08:10:17.7943434-03:00"
+        },
+        {
+            "_id": "R26FXTPSZFEXRDJUMBZTVIBG24",
+            "type": "header",
+            "level": 5,
+            "additional_properties": {
+                "_id": 1662657840211,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El parlamento del Reino Unido y las legislaturas de Escocia, Gales e Irlanda del Norte se suspenderán."
+        },
+        {
+            "_id": "K7C3O37PGNEAXNTS5NALE4FJJQ",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662657840212,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El sitio web de la familia real se teñirá de negro e incluirá una breve declaración que confirma la muerte de la reina. El sitio web del gobierno del Reino Unido también mostrará un banner negro, en la parte superior."
+        },
+        {
+            "_id": "XOMNVVLS6RCFDAYQK2ANF5RVJ4",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662657840213,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Todas las páginas de redes sociales departamentales del Gobierno mostrarán un franjas negras y tendrán prohibido publicar contenido no urgente. Los retuits quedarán prohibidos, a menos que lo autorice el jefe de Comunicación del Gobierno."
+        },
+        {
+            "_id": "SWFRHE7OURCEHDZIC26DFKHBCI",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662657840214,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El primer ministro será el primer integrante del Estado en hacer una declaración. Todos los demás funcionarios recibirán instrucciones de no emitir palabra hasta después de que el primer ministro haya hablado."
+        },
+        {
+            "_id": "Q2IHGDKIORCINPQEFRNVWVJ77A",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662657840215,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Luego de su conferencia, el primer ministro tendrá una audiencia con el príncipe Carlos, y, a las 18, el nuevo rey encabezará una transmisión oficial."
+        },
+        {
+            "_id": "MZNSJA23XFHIHJXR5SGQVPZE5U",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662657840216,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "También habrá un evento conmemorativo en la Catedral de St. Paul, en el corazón de Londres. Asistirán el primer ministro y un número selecto de funcionarios superiores."
+        },
+        {
+            "_id": "MDDVN2UQ65BAXMBLNZFOPFBREQ",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662657840217,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Se anunciará un minuto de silencio nacional."
+        },
+        {
+            "_id": "GGX3N3IW3NDLJP3HDQWENXJYYY",
+            "type": "header",
+            "level": 1,
+            "additional_properties": {
+                "_id": 1662657840218,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Día D+1"
+        },
+        {
+            "_id": "QMIHWCNHK5E23C3QJK73WFDM2U",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662657840219,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "A las 10 de la mañana del día después de la muerte de la reina, el <a href=\"https://privycouncil.independent.gov.uk/privy-council/the-accession-council/\">Consejo de Adhesión</a> se reúne en el Palacio St. James para proclamar al rey Carlos como nuevo soberano. Se trata de un cuerpo ceremonial que contempla a importantes figuras del Gobierno y se reúne tras la muerte de un monarca, para hacer una proclamación formal del ascenso de su sucesor al trono y para recibir el juramento religioso del nuevo rey."
+        },
+        {
+            "_id": "WIYOMAEGXFDFDIKURXGZTWOPQE",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662657840220,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Se espera que los caballeros presentes vistan trajes con corbatas negras u oscuras."
+        },
+        {
+            "_id": "AAE6SX4B2FECFGC52CYHE27S3Q",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662657840221,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "La proclamación del rey Carlos se leerá tanto en el Palacio de St. James como en el Royal Exchange -antigua bolsa de comercio de la ciudad de Londres-."
+        },
+        {
+            "_id": "SYEKO22N4RFQXJFCCHDOG352F4",
+            "additional_properties": {
+                "fullSizeResizeUrl": "/resizer/J1a4a2s1kKkeAnlRapXFjOwoAX0=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/SYEKO22N4RFQXJFCCHDOG352F4.jpg",
+                "galleries": [],
+                "mime_type": "image/jpeg",
+                "originalName": "https://c.files.bbci.co.uk/12A73/production/_126630467_peppapigfamilies.jpg",
+                "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SYEKO22N4RFQXJFCCHDOG352F4.jpg",
+                "proxyUrl": "/resizer/J1a4a2s1kKkeAnlRapXFjOwoAX0=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/SYEKO22N4RFQXJFCCHDOG352F4.jpg",
+                "published": true,
+                "resizeUrl": "/resizer/J1a4a2s1kKkeAnlRapXFjOwoAX0=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/SYEKO22N4RFQXJFCCHDOG352F4.jpg",
+                "restricted": false,
+                "thumbnailResizeUrl": "/resizer/6Q2UKdEbxg7H3s5WJqc1Fomkr9Q=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/SYEKO22N4RFQXJFCCHDOG352F4.jpg",
+                "version": 0,
+                "_id": "A4OOTXTUNJHH3CKU6CBV32C3RE",
+                "comments": []
+            },
+            "address": {},
+            "created_date": "2022-09-08T11:10:24Z",
+            "height": 549,
+            "last_updated_date": "2022-09-08T11:10:24Z",
+            "licensable": false,
+            "owner": {
+                "id": "sandbox.lanacionar"
+            },
+            "source": {
+                "additional_properties": {
+                    "editor": "photo center"
+                },
+                "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/SYEKO22N4RFQXJFCCHDOG352F4",
+                "system": "photo center"
+            },
+            "status": "published",
+            "type": "image",
+            "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/SYEKO22N4RFQXJFCCHDOG352F4.jpg",
+            "version": "0.10.3",
+            "width": 976,
+            "display_date": "2022-09-08T08:10:17.9585427-03:00",
+            "first_publish_date": "2022-09-08T08:10:17.9585427-03:00",
+            "language": "es-419",
+            "publish_date": "2022-09-08T08:10:17.9585424-03:00"
+        },
+        {
+            "_id": "MATNJ4MOMZBA3LZJKMHGXJJSTY",
+            "type": "header",
+            "level": 5,
+            "additional_properties": {
+                "_id": 1662657840223,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El Parlamento se reunirá para acordar un mensaje de pésame. Todos los demás asuntos legislativos se suspenderán durante diez días."
+        },
+        {
+            "_id": "5S2L2J22WRAKXNWOQWUQNPIDUM",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807764,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "A las 15.30, el primer ministro y los miembros de su gabinete tendrán una audiencia con el nuevo rey."
+        },
+        {
+            "_id": "BKWUSWOLPVG7JHD3SKFV2Q3IBQ",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807765,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Día D+2"
+        },
+        {
+            "_id": "U3PJQUHB5JAC5MLGJW3F5KNRHQ",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807766,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El ataúd de la reina se llevará al Palacio de Buckingham. Si la reina muere en Sandringham, su residencia en Norfolk, al este de Inglaterra, su cuerpo será transportado en un tren real a la estación de St. Pancras en Londres, donde su ataúd será recibido por el primer ministro y los ministros del gabinete."
+        },
+        {
+            "_id": "OP3ZQR2QX5CT5PWEPPJYV64NSE",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807767,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Si muere en Balmoral, en Escocia, se activará la “Operación Unicornio”, que contempla que su cuerpo sea llevado a Londres en un tren real o, de lo contrario, en avión -”Operación Overstudy”-."
+        },
+        {
+            "_id": "PDK3BC7XYRDG3O4KFRVBBWW374",
+            "type": "header",
+            "level": 1,
+            "additional_properties": {
+                "_id": 1662655807768,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Día D+3"
+        },
+        {
+            "_id": "S6SAXUKBVZECVASB25A5S7C5EQ",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807769,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Por la mañana, el rey Carlos recibirá la moción de condolencias en la sede del Parlamento británico, el Palacio de Westminster."
+        },
+        {
+            "_id": "H7ANPJBKWBFJFK4LJ7YPYCQ5JM",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807770,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Por la tarde, se embarcará en una gira por el Reino Unido, que comenzará con una visita al Poder Legislativo escocés y un servicio en la Catedral de St. Giles, en Edimburgo."
+        },
+        {
+            "_id": "F7UPBKU4X5B35K4AL6M3Z64FAA",
+            "type": "header",
+            "level": 1,
+            "additional_properties": {
+                "_id": 1662655807771,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Día D+4"
+        },
+        {
+            "_id": "I4SHSC6JRFEXJDIYNOQ5KBNCTE",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807772,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El rey Carlos llegará a Irlanda del Norte, donde recibirá otra moción de condolencia en el castillo de Hillsborough y asistirá a un servicio en la catedral de Santa Ana, en Belfast."
+        },
+        {
+            "_id": "OOGV2Z4NGRDSXMSZ4XJLSXNPSA",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807773,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Se llevará a cabo un ensayo para la “Operación Lion”, que incluye la procesión del ataúd desde el Palacio de Buckingham hasta el Palacio de Westminster."
+        },
+        {
+            "_id": "F7B3SUZ3XFEZ7MTWWVCOSN2PQU",
+            "type": "header",
+            "level": 1,
+            "additional_properties": {
+                "_id": 1662655807774,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Día D+5"
+        },
+        {
+            "_id": "4QFSV335BFCSZOWFX6TJST3NOU",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807775,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Se concretará la procesión desde el Palacio de Buckingham hasta el Palacio de Westminster, a lo largo de una ruta ceremonial que atraviese Londres."
+        },
+        {
+            "_id": "JFETHZPSUBCLJHDTMLLZUG2CVI",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807776,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Habrá un servicio en Westminster Hall después de la llegada del ataúd."
+        },
+        {
+            "_id": "D5FTCLCWIZBVLL7XPWOIXCYAMI",
+            "type": "header",
+            "level": 1,
+            "additional_properties": {
+                "_id": 1662655807777,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Día D+5 al día D+9"
+        },
+        {
+            "_id": "WNVHWIJJARBLNLQEBHGTBR7PTY",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807778,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El cuerpo de la reina permanecerá en el Palacio de Westminster durante tres días, bajo la “Operación Pluma”. La sede del Poder Legislativo estará abierta al público 23 horas al día."
+        },
+        {
+            "_id": "XA2W37NQ65HK3GHW4UF7KXDVPE",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807779,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "En el día D+6, se llevará a cabo un ensayo para la procesión del funeral de Estado."
+        },
+        {
+            "_id": "H6HAW3J2GBEHTD3LLXZ2TI44CY",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807780,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El día D+7, el rey Carlos viajará a Gales para recibir otra moción de condolencias en el Parlamento galés y asistir a un servicio en la Catedral de Liandaff, en Cardiff."
+        },
+        {
+            "_id": "VUWOLLNZKZBNBJWDBQDEG2D3TU",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807781,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El gobierno se encuentra preocupado por los desafíos de que el funeral resulte exitoso."
+        },
+        {
+            "_id": "7BWDVP45PZEWRHE42E3QB5RZ6Q",
+            "additional_properties": {
+                "fullSizeResizeUrl": "/resizer/V_GtKrJrM7kd9itwWeGmwn-YJHE=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/7BWDVP45PZEWRHE42E3QB5RZ6Q.jpg",
+                "galleries": [],
+                "mime_type": "image/jpeg",
+                "originalName": "https://c.files.bbci.co.uk/100F5/production/_126618756_gettyimages-1242980504.jpg",
+                "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7BWDVP45PZEWRHE42E3QB5RZ6Q.jpg",
+                "proxyUrl": "/resizer/V_GtKrJrM7kd9itwWeGmwn-YJHE=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/7BWDVP45PZEWRHE42E3QB5RZ6Q.jpg",
+                "published": true,
+                "resizeUrl": "/resizer/V_GtKrJrM7kd9itwWeGmwn-YJHE=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/7BWDVP45PZEWRHE42E3QB5RZ6Q.jpg",
+                "restricted": false,
+                "thumbnailResizeUrl": "/resizer/wwFIwKmTIOB9tO4EdWyhbfxsfjM=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/7BWDVP45PZEWRHE42E3QB5RZ6Q.jpg",
+                "version": 0,
+                "_id": "I6Q3LQRA4FDWZAJUL3KCZSYRVA",
+                "comments": []
+            },
+            "address": {},
+            "created_date": "2022-09-07T23:00:22Z",
+            "height": 549,
+            "last_updated_date": "2022-09-07T23:00:22Z",
+            "licensable": false,
+            "owner": {
+                "id": "sandbox.lanacionar"
+            },
+            "source": {
+                "additional_properties": {
+                    "editor": "photo center"
+                },
+                "edit_url": "https://sandbox.lanacionar.arcpublishing.com/photo/7BWDVP45PZEWRHE42E3QB5RZ6Q",
+                "system": "photo center"
+            },
+            "status": "published",
+            "type": "image",
+            "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7BWDVP45PZEWRHE42E3QB5RZ6Q.jpg",
+            "version": "0.10.3",
+            "width": 976,
+            "display_date": "2022-09-07T20:00:18.1698348-03:00",
+            "first_publish_date": "2022-09-07T20:00:18.1698345-03:00",
+            "language": "es-419",
+            "publish_date": "2022-09-07T20:00:18.1698345-03:00"
+        },
+        {
+            "_id": "Q4LPU4VR2RGX3IRAYEYXTGN76I",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807786,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Los departamentos que enfrentan mayores dificultades son el Ministerio de Relaciones Exteriores, el Ministerio del Interior y el Departamento de Transporte. El primero, tiene la tarea de organizar las llegadas de jefes de Estado y personalidades del extranjero, así como controlar la entrada de un número significativo de turistas al país."
+        },
+        {
+            "_id": "3CACZREWZ5AHVLHLCN6JPNENWQ",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807787,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El Ministerio del Interior es responsable de la seguridad y, junto a la Secretaría de Seguridad Nacional y los servicios de inteligencia, estará en alerta máxima por cualquier posible amenaza terrorista."
+        },
+        {
+            "_id": "FB67X7P5ZBFBJJE55NMFCK34VU",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807788,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El Departamento de Transporte ha expresado su preocupación por que se produzcan problemas con la red de transporte y el hacinamiento en la capital."
+        },
+        {
+            "_id": "YPMO65EIYZCWNLDT2BXUU4VRNE",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807789,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El primer ministro y la reina acordaron que el día del funeral de Estado será considerado “Día de Luto Nacional”. El día será efectivamente un día festivo, pero si el funeral cae en fin de semana o en un feriado bancario existente, no se otorgará un feriado bancario adicional. Si el funeral cae en un día laborable, el Gobierno tampoco planea ordenar a los empleadores que les den el día libre a sus empleados; los documentos especifican que será un asunto interno de cada empleador."
+        },
+        {
+            "_id": "4MC6TUN7ABBZFAUNMX7IH5PKQM",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807790,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "<b>Día D + 10</b>"
+        },
+        {
+            "_id": "SIOIUD45AJHHFE6Q3S5BR2BB2Y",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807791,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "El funeral de Estado se llevará a cabo en la <b>Abadía de Westminster.</b>"
+        },
+        {
+            "_id": "EEXVPUC6ARDZTHWJEXCJT26URU",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807792,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "<b>Habrá dos minutos de silencio en todo el país al mediodía.</b>"
+        },
+        {
+            "_id": "WCD4ZUPS2FFARHWGETPZ5GQ4BM",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807793,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Las procesiones tendrán lugar en Londres y <b>Windsor</b>, donde funciona la <b>Casa Real del Reino Unido e Irlanda del Norte.</b>"
+        },
+        {
+            "_id": "MIDDEEHMUJDB7DBJXKYIYIQIQM",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1662655807794,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Habrá un servicio en la <b>Capilla de San Jorge en el Castillo de Windsor, y la reina será enterrada allí.</b>"
+        }
+    ],
+    "created_date": "2022-09-08T15:39:15.715Z",
+    "revision": {
+        "revision_id": "7DHTAAGBEZG65M3JNVC6PFALPA",
+        "parent_id": "4TBJEYVWAZHUZPXQNUHMUU2IXU",
+        "editions": ["default"],
+        "branch": "default",
+        "user_id": "ianzola@lanacion.com.ar",
+        "published": true
+    },
+    "last_updated_date": "2022-09-29T20:37:24.108Z",
+    "headlines": {
+        "basic": "“Operación London Bridge”: cómo es el detallado plan del Palacio de Buckingham para el día de la muerte de la reina Isabel II",
+        "meta_title": "",
+        "mobile": "",
+        "native": "",
+        "print": "",
+        "tablet": "",
+        "web": ""
+    },
+    "owner": {
+        "sponsored": false,
+        "id": "sandbox.lanacionar"
+    },
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "address": {},
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true,
+        "moderation_required": false
+    },
+    "syndication": {
+        "external_distribution": true,
+        "search": true
+    },
+    "workflow": {
+        "status_code": 1
+    },
+    "subheadlines": {
+        "basic": "La “Operación London Bridge” incluye un megaoperativo de seguridad para controlar la multitud de personas que se acercará a Londres a despedir a la reina, discursos oficiales pautados, una gira del rey Carlos por Reino Unido y un apagón de las redes sociales"
+    },
+    "description": {
+        "basic": ""
+    },
+    "language": "",
+    "isListenable": true,
+    "label": {
+        "edicion": {
+            "display": true,
+            "text": "Digital",
+            "url": ""
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "metarefresh": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "recomendar": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "republicar_audio": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "trust": {
+            "display": true,
+            "text": "Noticia Original",
+            "url": ""
+        }
+    },
+    "source": {
+        "name": "LA NACION",
+        "source_type": "staff",
+        "system": "composer"
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/espectaculos",
+            "_website": "la-nacion-ar",
+            "type": "section",
+            "version": "0.6.0",
+            "name": "Espectáculos",
+            "path": "/espectaculos",
+            "parent_id": "/",
+            "parent": {
+                "default": "/"
+            },
+            "additional_properties": {
+                "original": {
+                    "_id": "/espectaculos",
+                    "acumuladoGeneral": {
+                        "tipo_acumulado": "Grilla"
+                    },
+                    "acumuladoColor": {
+                        "id_logo_image": "RIK5TWTLL5AITCPTZQ2W6LDNMQ",
+                        "navigation_color_tags": "#EE6052",
+                        "navigation_color": "#FFFFFF",
+                        "background_color": "#EE6052"
+                    },
+                    "migration": {
+                        "migrated_mob": "false",
+                        "id_section_ln9": "120"
+                    },
+                    "bannerConfig": {
+                        "acumulado_caja1_dsk": null
+                    },
+                    "_website": "la-nacion-ar",
+                    "name": "Espectáculos",
+                    "order": {
+                        "Header-FirstNav": 1009,
+                        "default": 1016,
+                        "navigationRedaccion": 1021
+                    },
+                    "parent": {
+                        "default": "/",
+                        "Header-FirstNav": "/",
+                        "navigationRedaccion": "/",
+                        "pruebaTecnica": null
+                    },
+                    "ancestors": {
+                        "Header-FirstNav": ["/"]
+                    },
+                    "inactive": false,
+                    "node_type": "section"
+                }
+            }
+        },
+        "primary_site": {
+            "_id": "/espectaculos",
+            "type": "site",
+            "version": "0.5.8",
+            "name": "Espectáculos",
+            "path": "/espectaculos",
+            "parent_id": "/",
+            "additional_properties": {
+                "original": {
+                    "_id": "/espectaculos",
+                    "acumuladoGeneral": {
+                        "tipo_acumulado": "Grilla"
+                    },
+                    "acumuladoColor": {
+                        "id_logo_image": "RIK5TWTLL5AITCPTZQ2W6LDNMQ",
+                        "navigation_color_tags": "#EE6052",
+                        "navigation_color": "#FFFFFF",
+                        "background_color": "#EE6052"
+                    },
+                    "migration": {
+                        "migrated_mob": "false",
+                        "id_section_ln9": "120"
+                    },
+                    "bannerConfig": {
+                        "acumulado_caja1_dsk": null
+                    },
+                    "name": "Espectáculos",
+                    "order": {
+                        "Header-FirstNav": 1009,
+                        "default": 1016,
+                        "navigationRedaccion": 1021
+                    },
+                    "parent": {
+                        "default": "/",
+                        "Header-FirstNav": "/",
+                        "navigationRedaccion": "/",
+                        "pruebaTecnica": null
+                    },
+                    "ancestors": {
+                        "Header-FirstNav": ["/"]
+                    },
+                    "inactive": false,
+                    "node_type": "section"
+                }
+            }
+        },
+        "sections": [
+            {
+                "_id": "/espectaculos",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Espectáculos",
+                "path": "/espectaculos",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/espectaculos",
+                        "acumuladoGeneral": {
+                            "tipo_acumulado": "Grilla"
+                        },
+                        "acumuladoColor": {
+                            "id_logo_image": "RIK5TWTLL5AITCPTZQ2W6LDNMQ",
+                            "navigation_color_tags": "#EE6052",
+                            "navigation_color": "#FFFFFF",
+                            "background_color": "#EE6052"
+                        },
+                        "migration": {
+                            "migrated_mob": "false",
+                            "id_section_ln9": "120"
+                        },
+                        "bannerConfig": {
+                            "acumulado_caja1_dsk": null
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Espectáculos",
+                        "order": {
+                            "Header-FirstNav": 1009,
+                            "default": 1016,
+                            "navigationRedaccion": 1021
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/",
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": ["/"]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./espectaculos"
+            }
+        ],
+        "sites": [
+            {
+                "_id": "/espectaculos",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Espectáculos",
+                "path": "/espectaculos",
+                "parent_id": "/",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/espectaculos",
+                        "acumuladoGeneral": {
+                            "tipo_acumulado": "Grilla"
+                        },
+                        "acumuladoColor": {
+                            "id_logo_image": "RIK5TWTLL5AITCPTZQ2W6LDNMQ",
+                            "navigation_color_tags": "#EE6052",
+                            "navigation_color": "#FFFFFF",
+                            "background_color": "#EE6052"
+                        },
+                        "migration": {
+                            "migrated_mob": "false",
+                            "id_section_ln9": "120"
+                        },
+                        "bannerConfig": {
+                            "acumulado_caja1_dsk": null
+                        },
+                        "name": "Espectáculos",
+                        "order": {
+                            "Header-FirstNav": 1009,
+                            "default": 1016,
+                            "navigationRedaccion": 1021
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/",
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": ["/"]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                }
+            }
+        ]
+    },
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "distributor": {
+        "name": "LA NACION",
+        "category": "staff",
+        "subcategory": "",
+        "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568",
+        "mode": "reference_denormalized"
+    },
+    "canonical_website": "la-nacion-ar",
+    "geo": {},
+    "planning": {
+        "internal_note": "",
+        "story_length": {
+            "character_count_actual": 7180,
+            "character_encoding": "UTF-16",
+            "inch_count_actual": 9,
+            "line_count_actual": 62,
+            "word_count_actual": 1234
+        }
+    },
+    "display_date": "2022-09-08T15:40:03.738Z",
+    "credits": {
+        "by": []
+    },
+    "subtype": "1",
+    "first_publish_date": "2022-09-08T15:40:03.738Z",
+    "websites": {
+        "la-nacion-ar": {
+            "website_section": {
+                "_id": "/espectaculos",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Espectáculos",
+                "path": "/espectaculos",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/espectaculos",
+                        "acumuladoGeneral": {
+                            "tipo_acumulado": "Grilla"
+                        },
+                        "acumuladoColor": {
+                            "id_logo_image": "RIK5TWTLL5AITCPTZQ2W6LDNMQ",
+                            "navigation_color_tags": "#EE6052",
+                            "navigation_color": "#FFFFFF",
+                            "background_color": "#EE6052"
+                        },
+                        "migration": {
+                            "migrated_mob": "false",
+                            "id_section_ln9": "120"
+                        },
+                        "bannerConfig": {
+                            "acumulado_caja1_dsk": null
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Espectáculos",
+                        "order": {
+                            "Header-FirstNav": 1009,
+                            "default": 1016,
+                            "navigationRedaccion": 1021
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/",
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": ["/"]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./espectaculos"
+            },
+            "website_url": "/espectaculos/operacion-london-bridge-como-es-el-detallado-plan-del-palacio-de-buckingham-para-el-dia-de-la-muerte-nid08092022/"
+        }
+    },
+    "additional_properties": {
+        "clipboard": {},
+        "has_published_copy": true,
+        "is_published": true,
+        "publish_date": "2022-09-29T20:33:08.24Z"
+    },
+    "publish_date": "2022-09-29T20:37:23.655Z",
+    "canonical_url": "/espectaculos/operacion-london-bridge-como-es-el-detallado-plan-del-palacio-de-buckingham-para-el-dia-de-la-muerte-nid08092022/",
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "la-nacion-ar",
+    "website_url": "/espectaculos/operacion-london-bridge-como-es-el-detallado-plan-del-palacio-de-buckingham-para-el-dia-de-la-muerte-nid08092022/"
+}

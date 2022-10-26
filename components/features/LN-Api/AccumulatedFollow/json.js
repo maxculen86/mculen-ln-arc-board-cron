@@ -29,7 +29,6 @@ class AccumulatedFollow {
                 requestUri,
                 globalContent: { followedItems }
             } = this.props;
-
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
             ];
@@ -37,6 +36,7 @@ class AccumulatedFollow {
             if (!globalContent || !globalContent.content_elements) {
                 return null;
             }
+
             const followedItemsValidate = followedItems.filter(x => x.id !== 0);
             const paginator = globalContent.next;
             let page = 1;

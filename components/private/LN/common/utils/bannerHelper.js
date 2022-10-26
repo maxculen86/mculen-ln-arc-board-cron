@@ -82,6 +82,9 @@ export const isForAmp = (desktop = '', mobile = '', tablet = '') => {
         .includes('_amp');
 };
 
+export const shouldShowBanner = (soloNoSuscriptores, globalContent) =>
+    soloNoSuscriptores && get(globalContent, 'subscription') === 'S';
+
 export const getBannerConfiguration = (
     globalContent,
     customFields,
@@ -438,13 +441,19 @@ export const queueGoogletagCommand = bannersToLoad => {
         googletag
             .pubads()
             .addEventListener('slotRenderEnded', ({ slot, isEmpty }) => {
+                const banner = document.getElementById(slot.getSlotElementId());
+                const hiddenBanners = {
+                    parallax_dsk: 'parallax_dsk',
+                    parallax_mob: 'parallax_mob'
+                };
                 if (
                     !isEmpty &&
                     bannersWithoutHide.indexOf(slot.getSlotElementId()) === -1
                 )
-                    document
-                        .getElementById(slot.getSlotElementId())
-                        .parentNode.classList.remove('hlp-none');
+                    banner.parentNode.classList.remove('hlp-none');
+                if (isEmpty && hiddenBanners[slot.getSlotElementId()]) {
+                    banner.parentNode.classList.add('hlp-none');
+                }
             });
     });
 };

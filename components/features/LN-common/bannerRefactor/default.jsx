@@ -3,7 +3,8 @@ import Consumer from 'fusion:consumer';
 import Placeholder from '../../../private/common/banners/placeholder';
 import {
     getBannerConfiguration,
-    isForAmp
+    isForAmp,
+    shouldShowBanner
 } from '../../../private/LN/common/utils/bannerHelper';
 import DivBannerSSR from '../../../private/common/banners/DivBannerSSR';
 import bannersRules from '../../../private/common/banners/bannersRules';
@@ -13,7 +14,13 @@ import { bannerPropTypes } from '../../../private/common/utils/propTypesHelper';
 const Banner = props => {
     const { isAdmin, customFields, globalContent, globalContentConfig } = props;
 
-    const { sticky, desktop, mobile, tablet } = customFields;
+    const {
+        sticky,
+        desktop,
+        mobile,
+        tablet,
+        solo_no_suscriptores: soloNoSuscriptores
+    } = customFields;
 
     if (isForAmp(desktop || '', mobile || '', tablet || '')) return <></>;
 
@@ -49,27 +56,29 @@ const Banner = props => {
 
     return bannersConfiguration.map(bannerConfiguration => {
         return (
-            <>
-                <DivBannerSSR
-                    key={bannerConfiguration.slotName}
-                    bannerConfiguration={bannerConfiguration}
-                />
-                {get(
-                    bannersRules,
-                    `[${bannerConfiguration.slotGroup}][${bannerConfiguration.device}][${bannerConfiguration.slotId}].customScript`
-                ) &&
-                    bannersRules[bannerConfiguration.slotGroup][
-                        bannerConfiguration.device
-                    ][bannerConfiguration.slotId].customScript({
-                        sticky
-                    })}
-            </>
+            !shouldShowBanner(soloNoSuscriptores, globalContent) && (
+                <>
+                    <DivBannerSSR
+                        key={bannerConfiguration.slotName}
+                        bannerConfiguration={bannerConfiguration}
+                    />
+                    {get(
+                        bannersRules,
+                        `[${bannerConfiguration.slotGroup}][${bannerConfiguration.device}][${bannerConfiguration.slotId}].customScript`
+                    ) &&
+                        bannersRules[bannerConfiguration.slotGroup][
+                            bannerConfiguration.device
+                        ][bannerConfiguration.slotId].customScript({
+                            sticky
+                        })}
+                </>
+            )
         );
     });
 };
 
 Banner.label = 'LN-Common-BannerRefactor';
-Banner.static = true;
+// Banner.static = true;
 
 Banner.propTypes = bannerPropTypes;
 

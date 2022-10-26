@@ -5,6 +5,7 @@ import Consumer from 'fusion:consumer';
 import Placeholder from '../../../private/common/banners/placeholder';
 import {
     getBannerConfiguration,
+    shouldShowBanner,
     isForAmp
 } from '../../../private/LN/common/utils/bannerHelper';
 import DivBannerAMP from '../../../private/common/banners/DivBannerAMP';
@@ -13,7 +14,12 @@ import { bannerPropTypes } from '../../../private/common/utils/propTypesHelper';
 const Banner = props => {
     const { isAdmin, customFields, globalContent, globalContentConfig } = props;
 
-    const { desktop, mobile, tablet } = customFields;
+    const {
+        desktop,
+        mobile,
+        tablet,
+        solo_no_suscriptores: soloNoSuscriptores
+    } = customFields;
 
     if (!isForAmp(desktop || '', mobile || '', tablet || '')) return <></>;
 
@@ -36,7 +42,11 @@ const Banner = props => {
         );
     }
 
-    return <DivBannerAMP bannerConfiguration={bannerConfiguration} />;
+    return (
+        !shouldShowBanner(soloNoSuscriptores, globalContent) && (
+            <DivBannerAMP bannerConfiguration={bannerConfiguration} />
+        )
+    );
 };
 
 Banner.label = 'LN-Common-BannerRefactor';

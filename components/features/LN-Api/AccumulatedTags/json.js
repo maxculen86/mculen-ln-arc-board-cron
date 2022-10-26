@@ -35,7 +35,7 @@ class AccumulatedTags {
         );
 
         this.fetchContent({
-            acuArticlesSource: {
+            acuArticlesSourceTag: {
                 source: 'acuArticlesSource',
                 query: {
                     sectionId: null,
@@ -61,7 +61,7 @@ class AccumulatedTags {
 
     render() {
         try {
-            const { acuArticlesSource, globalContent: configuration } =
+            const { acuArticlesSourceTag, globalContent: configuration } =
                 this.state || {};
 
             const { requestUri } = this.props;
@@ -69,7 +69,11 @@ class AccumulatedTags {
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
             ];
-            if (!acuArticlesSource || !acuArticlesSource.content_elements) {
+
+            if (
+                !acuArticlesSourceTag ||
+                !acuArticlesSourceTag.content_elements
+            ) {
                 return null;
             }
 
@@ -81,9 +85,9 @@ class AccumulatedTags {
             const acuDataTag = {
                 tipoAcumulado: 2,
                 name: dataTag.text,
-                articles: acuArticlesSource.content_elements,
-                paginator: acuArticlesSource.next,
-                total: acuArticlesSource.content_elements.length,
+                articles: acuArticlesSourceTag.content_elements,
+                paginator: acuArticlesSourceTag.next,
+                total: acuArticlesSourceTag.content_elements.length,
                 tag: dataTag,
                 configuration
             };

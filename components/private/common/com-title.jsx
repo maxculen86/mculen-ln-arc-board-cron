@@ -33,7 +33,7 @@ const ComTitle = ({
             classCondition={classCondition}
             title={_customTitle}
         >
-            {lead && <em className="com-lead">{`${lead} `}</em>}
+            {lead && <span className="com-lead">{`${lead} `}</span>}
             {content}
         </ComLink>
     );

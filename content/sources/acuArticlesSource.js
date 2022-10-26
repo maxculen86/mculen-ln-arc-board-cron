@@ -1,4 +1,7 @@
+import request from 'request-promise-native';
+import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import transform from './utils/acuArticlesSource/transform';
+import logger from '../../components/private/common/utils/logger';
 
 const resolve = key => {
     const {
@@ -157,13 +160,33 @@ const resolve = key => {
             }
     }`;
 
-    return `${basePath}${query}&size=${cant}&from=${from}
-            &sort=display_date:desc`;
+    const requestUrl = `${basePath}${query}&size=${cant}&from=${from}
+    &sort=display_date:desc`;
+
+    return requestUrl;
+};
+
+const fetch = query => {
+    const opt = {
+        uri: `${CONTENT_BASE}${resolve(query)}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+    return request(opt)
+        .then(response => {
+            return transform(response, query);
+        })
+        .catch(error => {
+            logger.push(error, { source: 'content/acuArticlesSource', query });
+        });
 };
 
 export default {
-    resolve,
-    transform,
+    fetch,
     params: {
         sectionId: 'text',
         authorId: 'text',

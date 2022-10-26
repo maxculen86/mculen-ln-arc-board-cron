@@ -1,11 +1,9 @@
 /* eslint-disable no-restricted-globals */
 import React from 'react';
-import { useContent } from 'fusion:content';
 import dynamicallyLoadScript from './dynamicallyLoadScript';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 import toggleBookmark from '../../../common/utils/bookmarkHelper';
-import { conditionallyCallViafoura } from '../../../common/utils/commentsHelper';
 import { isSubscribed } from './contextHelper';
 import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 
@@ -115,14 +113,6 @@ export const getClassCondition = subtype =>
     subtype === VIDEO ? ' --video' : '';
 
 export const isSuscription = token => (token ? isSubscribed() : false);
-export const GetNumberOfComments = (firstPublishDate, arcSite, id) => {
-    return (
-        useContent({
-            source: conditionallyCallViafoura(firstPublishDate),
-            query: { arcSite, id, firstPublishDate }
-        }) || {}
-    );
-};
 
 export const getTwitterTitle = (mobileTitle, title) =>
     !mobileTitle ? title : mobileTitle;
@@ -228,8 +218,8 @@ export const buttonsList = [
         iconName: 'email',
         title: 'Compartir la nota por E-mail',
         id: 'btnemail',
-        handleClick: ({ requestUri, host, title }) => {
-            popUpCompartirMailTo(requestUri, host, title);
+        handleClick: ({ requestUri, host }) => {
+            popUpCompartirMailTo(requestUri, host);
         },
         className: 'email'
     }

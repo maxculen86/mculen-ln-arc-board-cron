@@ -6,6 +6,7 @@ import Share from '../../../../../../components/features/LN-nota/share/default';
 import getToken from '../../../../../../components/private/common/utils/getToken';
 import toggleBookmark from '../../../../../../components/private/common/utils/bookmarkHelper';
 import useCheckBookmark from '../../../../../../components/private/common/hooks/bookmark/useCheckBookmark';
+import useFetch from '../../../../../../components/private/common/hooks/useFetch';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -25,6 +26,10 @@ jest.mock(
 jest.mock(
     '../../../../../../components/private/common/hooks/bookmark/useCheckBookmark',
     () => jest.fn()
+);
+
+jest.mock('../../../../../../components/private/common/hooks/useFetch', () =>
+    jest.fn()
 );
 
 const props = {
@@ -67,6 +72,9 @@ jest.mock('react', () => {
 });
 
 describe('Share', () => {
+    useFetch.mockImplementation(() => ({
+        data: {}
+    }));
     delete global.window.open;
     global.window = Object.create(window);
     global.window.open = jest.fn();

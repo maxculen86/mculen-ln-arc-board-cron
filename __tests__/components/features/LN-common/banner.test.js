@@ -16,6 +16,7 @@ import BannerAmp from '../../../../components/features/LN-common/bannerRefactor/
 // import BannerSSRAmp from '../../../../components/features/LN-common/banner/amp';
 import Context from 'fusion:context';
 import { mount, render, shallow } from 'enzyme';
+import { render as testingLibraryRender, screen } from '@testing-library/react';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -922,5 +923,62 @@ describe('getBannerConfiguration =>', () => {
             />
         );
         expect(banner).toBeEmptyRender;
+    });
+
+    it('deberia ocultar banner si es el usuario es suscriptor y el banner es solo para no suscriptores', () => {
+        customFields = {
+            desktop: 'cabezal_dsk',
+            solo_no_suscriptores: true,
+            group: 'nota'
+        };
+        const { container } = testingLibraryRender(
+            <Banner customFields={customFields} globalContent={globalContent} />
+        );
+        expect(container.innerHTML).toStrictEqual('');
+    });
+    it('deberia mostrar banner para todos los usuarios con nuevo custom field', () => {
+        const cabezalBanner = `<div class=\"mod-banner --cabezal_dsk  \"><div id=\"cabezal_dsk\" class=\"com-banner \" data-slot-group=\"nota\" data-device=\"desktop\" data-subscription=\"false\" data-ad-unit-path=\"/133919216/la_nacion_desktop/Nota/cabezal_dsk\" data-targeting=\"{&quot;sitio&quot;:&quot;lanacion&quot;,&quot;seccion&quot;:&quot;nota&quot;}\" data-without-hide=\"true\" data-size=\"[[1,1],[728,90],[920,100],[920,170],[970,90],[1260,100],[1260,170]]\" data-sizemap=\"[]\" data-prebid-enabled=\"true\"></div></div>`;
+
+        customFields = {
+            desktop: 'cabezal_dsk',
+            solo_no_suscriptores: false,
+            group: 'nota'
+        };
+        const { container } = testingLibraryRender(
+            <Banner customFields={customFields} globalContent={globalContent} />
+        );
+        expect(container.innerHTML).toStrictEqual(cabezalBanner);
+    });
+    it('deberia ocultar banner si es el usuario es suscriptor y el banner es solo para no suscriptores para amp', () => {
+        customFields = {
+            desktop: 'caja1_amp',
+            solo_no_suscriptores: true,
+            amp: true,
+            group: 'nota'
+        };
+        const { container } = testingLibraryRender(
+            <BannerAmp
+                customFields={customFields}
+                globalContent={globalContent}
+            />
+        );
+        expect(container.innerHTML).toStrictEqual('');
+    });
+    it('deberia mostrar banner para todos los usuarios con nuevo custom field para amp', () => {
+        const ampBanner = `<div class=\"row \"><div class=\"mod-banner --bg-banner \"><amp-ad id=\"caja1_amp\" type=\"doubleclick\" class=\"banner\" width=\"300\" height=\"250\" data-slot=\"/133919216/AMP/ROS/caja1_amp\" json=\"{&quot;tags&quot;:[&quot;ca_el mundo|ca_ciencia|te_deportes|te_sake&quot;],&quot;tags_nuevos&quot;:[&quot;ca_el mundo&quot;,&quot;ca_ciencia&quot;,&quot;te_deportes&quot;,&quot;te_sake&quot;]}\"></amp-ad></div></div>`;
+        customFields = {
+            desktop: 'caja1_amp',
+            solo_no_suscriptores: false,
+            amp: true,
+            group: 'nota'
+        };
+        const { container } = testingLibraryRender(
+            <BannerAmp
+                customFields={customFields}
+                globalContent={globalContent}
+                outputType="amp"
+            />
+        );
+        expect(container.innerHTML).toStrictEqual(ampBanner);
     });
 });

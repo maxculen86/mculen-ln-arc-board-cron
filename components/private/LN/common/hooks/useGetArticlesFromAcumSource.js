@@ -1,20 +1,24 @@
 import { useContent } from 'fusion:content';
 import get from '../../../common/utils/get';
 
-export default function useGetArticlesFromAcumSource(
+export default function useGetArticlesFromAcumSource({
     typesOfQuery,
     filter,
     imageConfig,
     size,
-    sourceOrigin,
-    excludeSectionId,
-    type,
-    shouldNotFilter,
+    sourceOrigin = '',
+    excludeSectionId = false,
+    type = '',
+    shouldNotFilter = false,
     website = 'la-nacion-ar',
     promoItemsOnly = false,
     staticMode = true,
-    collectionId = ''
-) {
+    collectionId = '',
+    withPagination = false,
+    page,
+    hasCollectionApertura = false,
+    excludePreload = false
+}) {
     const { sectionId, tagId, authorId, distributorId, sectionsIds, subtype } =
         typesOfQuery || {};
 
@@ -44,11 +48,21 @@ export default function useGetArticlesFromAcumSource(
             sectionsIds,
             sourceOrigin,
             type,
-            shouldNotFilter
+            shouldNotFilter,
+            page,
+            hasCollectionApertura,
+            excludePreload
         },
         filter,
         staticMode
     });
 
-    return get(articleList, 'content_elements', []);
+    const contentElements = get(articleList, 'content_elements', []);
+
+    return withPagination
+        ? {
+              articles: contentElements,
+              moreArticles: get(articleList, 'next', 0)
+          }
+        : contentElements;
 }

@@ -33,7 +33,9 @@ describe('LN-Private-Common-ComLinkList ', () => {
                 style: '',
                 target: '_blank',
                 textname: 'LN Link Custom',
-                title: 'LN Link Custom'
+                title: 'LN Link Custom',
+                withSponsoredLink: false,
+                rel: undefined
             },
             {
                 classCondition: '',
@@ -44,7 +46,9 @@ describe('LN-Private-Common-ComLinkList ', () => {
                 style: '',
                 target: '',
                 textname: 'OHLALA',
-                title: 'OHLALA'
+                title: 'OHLALA',
+                withSponsoredLink: false,
+                rel: undefined
             }
         ];
 

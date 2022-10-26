@@ -1122,5 +1122,16 @@
                 }
             }
         ]
+    },
+    {
+        "collection": "features",
+        "type": "LN-nota/tePuedeInteresar",
+        "props": {
+            "collection": "features",
+            "type": "LN-nota/tePuedeInteresar",
+            "id": "f0f3er6S47oo8O9",
+            "name": null,
+            "customFields": {}
+        }
     }
 ]

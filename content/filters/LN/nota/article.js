@@ -204,10 +204,6 @@ const table = `
         content
         type
     }
-    additional_properties {
-        _id
-        comments
-    }
     rows {
         _id
         content
@@ -487,4 +483,5 @@ export default `
     paywallEnabled,
     withFirmaDistributor
     isListenable
+    withSponsoredLink
 }`;

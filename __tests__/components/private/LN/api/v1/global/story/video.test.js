@@ -38,7 +38,7 @@ describe('Test unitarios de videos en nota', () => {
         expect(resp['_t']).toBe('vid');
         expect(resp.id).toBe(VideoArticle[0]._id);
         expect(resp.duracion).toBe(VideoArticle[0].duration);
-        expect(resp.showAd).toBe('1');
+        expect(resp.showAd).toBe('0');
         expect(resp.tituloHome).toBe(VideoArticle[0].headlines.basic);
         expect(resp.epigrafe).toBe(VideoArticle[0].subheadlines.basic);
 

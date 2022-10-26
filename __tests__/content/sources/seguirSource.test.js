@@ -104,7 +104,9 @@ describe('Content - Sources - seguirSource', () => {
             expect(result).toHaveProperty('followedItems');
             expect(result.followedItems).toHaveLength(0);
         } catch (err) {
-            expect(err.message).toBe('User is not authorized to access this resource with an explicit deny');
+            expect(err.message).toBe(
+                'User is not authorized to access this resource with an explicit deny'
+            );
         }
     });
 

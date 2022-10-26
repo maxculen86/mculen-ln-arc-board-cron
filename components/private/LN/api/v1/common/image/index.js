@@ -78,6 +78,7 @@ export const imageMobile = imageData => {
         parameters: image.parametros.map(e => {
             return {
                 media: e.media,
+                height: e.alto,
                 width: e.ancho,
                 signature: e.firma
             };

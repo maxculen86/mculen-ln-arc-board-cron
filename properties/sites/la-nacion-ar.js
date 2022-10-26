@@ -98,8 +98,7 @@ export default {
     longTitle: 'Últimas noticias de Argentina y el mundo - LA NACION',
     title: 'LA NACION',
     description:
-        'Todas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología.' +
-        ' Mantenete informado sobre las novedades de Argentina en LA NACION.',
+        'LA NACION ofrece las últimas noticias, fotos y videos de la Argentina y el mundo. Política, economía, deportes y toda la información en tiempo real.',
     className: {
         body: 'ln'
     },
@@ -179,6 +178,10 @@ export default {
         ScriptHtmlLibre: {
             props: {},
             location: ['head']
+        },
+        Blockthrough: {
+            props: {},
+            location: ['body-bottom']
         },
         Queryly: {
             props: {},
@@ -2791,6 +2794,7 @@ export default {
     },
     layoutsName: {
         Home: 'LN-Home_Main',
+        Acumulado: 'LN-acumulado',
         Columnistas: 'LN-acumulado-columnistas',
         FotoAl100: 'LN-nota-foto-al-100'
     },

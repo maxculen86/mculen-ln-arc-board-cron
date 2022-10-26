@@ -19,6 +19,7 @@ import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import { formatText } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModals from '../private/LN/common/pwaModals';
+import { getIdCollectionFromGC } from '../private/common/utils/preloadHelper';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -110,14 +111,15 @@ const LNAcumuladoLayout = props => {
                 ren.collection === 'chains' && ren.type === 'Ln_Caja_Collection'
         );
 
-    const idCollectionApertura =
-        nodeType === 'tags'
-            ? collectionForTag
-            : get(
-                  globalContent,
-                  'acumuladoGeneral.id_collection_promo_items',
-                  get(chainCollection, 'props.customFields.idCollection')
-              );
+    const chainCollectionId = get(
+        chainCollection,
+        'props.customFields.idCollection'
+    );
+
+    const idCollectionApertura = getIdCollectionFromGC(
+        globalContent,
+        chainCollectionId
+    );
 
     const idCollectionsInPage = get(
         globalContent,
