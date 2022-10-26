@@ -9,7 +9,13 @@ const useGridPagination = props => {
     const [storedArticles, setStoredArticles] = useState({});
     const [loading, setLoading] = useState(false);
 
-    const { outputType, getBanner, articlesInCollection = [] } = props;
+    const {
+        outputType,
+        getBanner,
+        articlesInCollection = [],
+        layout,
+        acumuladoGeneral = {}
+    } = props;
 
     const { articles, moreArticles } = useGridArticles({
         ...props,
@@ -17,9 +23,7 @@ const useGridPagination = props => {
         hasCollectionApertura: articlesInCollection.length
     });
 
-    const {
-        tipo_acumulado: accumulatedType = 'Grilla'
-    } = props.acumuladoGeneral;
+    const { tipo_acumulado: accumulatedType = 'Grilla' } = acumuladoGeneral;
 
     const storedArticlesValues = Object.values(storedArticles);
 
@@ -44,10 +48,6 @@ const useGridPagination = props => {
             (!hasFirstArticleId || !storedArticlesValues.length) &&
             articles.length
         ) {
-            console.log('effect');
-            console.log({ articles });
-            console.log({ storedArticles });
-
             setStoredArticles(prev => ({
                 ...prev,
                 [currentPage]: articles
@@ -60,7 +60,7 @@ const useGridPagination = props => {
     const genericProps = {
         getBanner,
         outputType,
-        typeArticle: accumulatedType
+        typeArticle: layout || accumulatedType
     };
 
     const InitialGrid = <ArticlesAcum {...genericProps} articles={articles} />;

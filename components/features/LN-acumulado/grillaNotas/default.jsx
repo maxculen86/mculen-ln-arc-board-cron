@@ -6,14 +6,14 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import { useAppContext } from 'fusion:context';
 
-import BtnMasNotas from '../../../private/LN/acumulado/botonVerMasNotas';
 import Banner from '../../../private/LN/acumulado/grillaNotas/banner';
-import LoadingIcon from '../../../private/LN/common/loadingIcon';
-import { buildCustomFieldsForBanners, getBannerConfig } from './_helpers';
-import StaticContent from '../../../private/common/staticContent';
+import { buildCustomFieldsForBanners } from './_helpers';
 
 import useGlobalProviderAcu from '../../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import useGridPagination from '../../../private/LN/common/hooks/useGridPagination';
+import GrillaNotas from '../../../private/LN/acumulado/grillaNotas/grillaNotas';
+
+import checkHydrateOnly from '../../../private/LN/common/utils/checkHydrateOnly';
 
 const GrillaNotasFeature = props => {
     const { customFields, globalContentConfig, globalContent } = props;
@@ -31,6 +31,8 @@ const GrillaNotasFeature = props => {
         renderables
     } = useAppContext();
 
+    const hasHydrateOnly = checkHydrateOnly({ nodeType });
+
     const appContextProps = {
         _id,
         payload,
@@ -41,46 +43,25 @@ const GrillaNotasFeature = props => {
         renderables
     };
 
-    const bannerConfig = getBannerConfig(customFields);
-
-    const bannerProps = {
-        bannerConfig,
+    const getBanner = Banner({
+        customFields,
         globalContentConfig,
         outputType,
         globalContent
-    };
+    });
 
-    const getBanner = Banner(bannerProps);
-
-    const {
-        goToNextPage,
-        loading,
-        hasMoreArticles,
-        InitialGrid,
-        NextResults
-    } = useGridPagination({
+    const grillaNotasProps = useGridPagination({
         getBanner,
         ...globalProviderAcu,
         ...appContextProps
     });
 
     return (
-        <>
-            <div className={hasMoreArticles ? 'hlp-degrade' : ''}>
-                <StaticContent>{InitialGrid}</StaticContent>
-                {NextResults}
-            </div>
-            {outputType !== 'amp' && hasMoreArticles && (
-                <section className="row">
-                    <BtnMasNotas
-                        onClickHandler={goToNextPage}
-                        name={globalContent.name || ''}
-                        loadingIcon={<LoadingIcon />}
-                        loading={loading}
-                    />
-                </section>
-            )}
-        </>
+        <GrillaNotas
+            {...grillaNotasProps}
+            name={globalContent.name}
+            hasHydrateOnly={hasHydrateOnly}
+        />
     );
 };
 

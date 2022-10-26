@@ -10,7 +10,6 @@ const AperturaFeature = props => {
     const { outputType = 'default', globalContent = {} } = props;
     const { node_type: nodeType } = globalContent;
     const { articlesInCollection = [] } = useGlobalProviderAcu();
-
     const hasHydrateOnly = checkHydrateOnly({ nodeType });
 
     const Component = (

@@ -8,6 +8,7 @@ const useGridArticles = props => {
     const {
         _id,
         payload,
+        sectionsIds,
         distributorId,
         outputType,
         nodeType,
@@ -17,7 +18,8 @@ const useGridArticles = props => {
         collectionsInPage = {},
         articlesInCollection = [],
         page = 1,
-        hasCollectionApertura = false
+        hasCollectionApertura = false,
+        sourceOrigin = ''
     } = props;
 
     const DEFAULT_QUANTITY = 30;
@@ -49,7 +51,8 @@ const useGridArticles = props => {
             sectionId,
             authorId,
             tagId,
-            distributorId
+            distributorId,
+            sectionsIds
         },
         filter,
         imageConfig: 'boxArticles',
@@ -58,7 +61,8 @@ const useGridArticles = props => {
         staticMode: false,
         withPagination: true,
         page,
-        hasCollectionApertura
+        hasCollectionApertura,
+        sourceOrigin
     };
 
     const { articles, moreArticles } =
