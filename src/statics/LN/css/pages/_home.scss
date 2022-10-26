@@ -741,6 +741,11 @@ $rank-dsk: px(400);
                 background: $red-600;
             }
         }
+        &.--qatar {
+            .mod-description {
+                background: #5f98a5;
+            }
+        }
     }
 
     &.--opinion {
