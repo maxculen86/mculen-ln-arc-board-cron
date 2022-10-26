@@ -180,7 +180,8 @@ describe('Article source nota - defensive cachedCall', () => {
                     paywallEnabled: '',
                     subscription: 'A',
                     isListenable: false,
-                    withFirmaDistributor: true
+                    withFirmaDistributor: true,
+                    withSponsoredLink: false
                 });
             })
             .then(done);

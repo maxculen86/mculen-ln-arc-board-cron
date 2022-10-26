@@ -18,59 +18,130 @@ describe('Test - isNoteListenable', () => {
                 _id: '/espectaculos'
             }
         },
-        subtype: '1'
+        subtype: '1',
+        content_elements: [
+            {
+                type: 'text',
+                content: 'Un parrafo'
+            }
+        ],
+        last_updated_date: '2022-09-21T18:06:59.601Z'
     };
 
-    test('Should return true when the origin source is composer and the subtype and section are enabled.', () => {
-        expect(isNoteListenable(data)).toStrictEqual(true);
+    describe('When the note is of spectacles', () => {
+        const casesTruthy = [
+            [
+                'It should return true when the source is composer, the subtype is enabled, and the publish date is 20/09/2022 onwards.',
+                data
+            ],
+            [
+                'should return true even if the section has children.',
+                {
+                    ...data,
+                    taxonomy: {
+                        primary_section: {
+                            _id: '/espectaculos/cartelera-de-cine/'
+                        }
+                    }
+                }
+            ]
+        ];
+
+        test.each(casesTruthy)('%s', (message, data) => {
+            expect(isNoteListenable(data)).toBeTruthy();
+        });
+
+        test('should return false when the publish date is before 13/10/2022', () => {
+            expect(
+                isNoteListenable({
+                    ...data,
+                    last_updated_date: '2022-09-15T18:06:59.601Z'
+                })
+            ).toBeFalsy();
+        });
     });
 
-    test('Should return false when the subtype is not enabled.', () => {
-        const resp = {
-            ...data,
-            subtype: '9'
-        };
-        expect(isNoteListenable(resp)).toStrictEqual(false);
-    });
-
-    test('should return false when the origin source is not composer', () => {
-        const resp = {
-            ...data,
-            source: {
-                ...data.source,
-                system: 'LN-9'
-            }
-        };
-
-        expect(isNoteListenable(resp)).toStrictEqual(false);
-    });
-
-    test('Should return false when data is not defined', () => {
-        expect(isNoteListenable(undefined)).toStrictEqual(false);
-    });
-
-    test('should return true even if the section has children.', () => {
-        const resp = {
+    describe('Cases for the rest of the sections', () => {
+        const response = {
             ...data,
             taxonomy: {
                 primary_section: {
-                    _id: '/espectaculos/cartelera-de-cine/'
+                    _id: '/economia'
                 }
-            }
+            },
+            last_updated_date: '2022-10-21T18:06:59.601Z'
         };
-        expect(isNoteListenable(resp)).toStrictEqual(true);
-    });
 
-    test('should return false when the prop republicar_audio is not defiend ', () => {
-        const resp = {
-            ...data,
-            label: {},
-            taxonomy: {
-                primary_section: {
-                    _id: '/espectaculos/cartelera-de-cine/'
+        test('It should return true when the source is composer, the subtype is enabled, and the publish date is 20/09/2022 onwards.', () => {
+            expect(isNoteListenable(response)).toBeTruthy();
+        });
+
+        const casesFalsy = [
+            [
+                'Should return false when the publish date is 13/10/2022 before.',
+                {
+                    ...response,
+                    last_updated_date: '2022-09-21T18:06:59.601Z'
                 }
-            }
-        };
-        expect(isNoteListenable(resp)).toStrictEqual(false);
+            ],
+            [
+                'Should return false when the subtype is not enabled.',
+                {
+                    ...response,
+                    subtype: '9'
+                }
+            ],
+            [
+                'should return false when the origin source is not composer',
+                {
+                    ...response,
+                    source: {
+                        system: 'LN-9'
+                    }
+                }
+            ],
+            ['Should return false when data is not defined', undefined],
+            [
+                'should return false when the prop republicar_audio is not defiend',
+                {
+                    ...response,
+                    label: {}
+                }
+            ],
+            [
+                'Should return false when the note has no paragraphs',
+                {
+                    ...response,
+                    content_elements: [
+                        {
+                            type: 'image',
+                            content: 'image.png'
+                        }
+                    ]
+                }
+            ],
+            [
+                'Should return false when the type is not defined in contentElements',
+                {
+                    ...response,
+                    content_elements: [
+                        {
+                            type: undefined
+                        }
+                    ]
+                }
+            ],
+            [
+                'Should return false when the contentElements is not defined',
+                {
+                    ...response,
+                    content_elements: [undefined]
+                }
+            ]
+        ];
+
+        test.each(casesFalsy)('%s', (message, response) => {
+            expect(isNoteListenable(response)).toBeFalsy();
+        });
     });
 });

@@ -1,17 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Paragraph Matches snapshot 1`] = `
-<p
-  class="com-paragraph  --capital --s"
->
-  Lorem ipsum dolor sit amet, 
-  <strong>
-    consectetur
-  </strong>
-   adipiscing elit. Donec 
+<div>
+  <p
+    class="com-paragraph  --capital --s"
+  >
+    Lorem ipsum dolor sit amet, 
+    <strong>
+      consectetur
+    </strong>
+     adipiscing elit. Donec 
                     nulla elit, fermentum non neque sed, feugiat interdum 
-  <em>
-    ligula
-  </em>
-</p>
+    <em>
+      ligula
+    </em>
+  </p>
+</div>
 `;

@@ -27,22 +27,16 @@ const useTimeline = ({
         sectionsIds
     });
 
-    const searchArgs = {
+    const response = useGetArticlesFromAcumSource({
         typesOfQuery,
         filter,
         imageConfig: 'm',
         size: articlesQuantityBackup,
         sourceOrigin: 'composer',
-        excludeSectionId: false,
-        type: '',
-        shouldNotFilter: false,
         website: arcSite,
-        promoItemsOnly: false,
         staticMode: isSSR,
         collectionId
-    };
-
-    const response = useGetArticlesFromAcumSource(...Object.values(searchArgs));
+    });
 
     const justCommonArticles = response
         .filter(

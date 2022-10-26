@@ -29,7 +29,7 @@ class AccumulatedAuthor {
         );
 
         this.fetchContent({
-            acuArticlesSource: {
+            acuArticlesSourceAuthor: {
                 source: 'acuArticlesSource',
                 query: {
                     sectionId: null,
@@ -56,55 +56,34 @@ class AccumulatedAuthor {
 
     render() {
         try {
-            const { acuArticlesSource } = this.state || {};
+            const { acuArticlesSourceAuthor } = this.state || {};
 
             const { globalContent: author, requestUri } = this.props;
             const indexAcu = this.apiData[browser.getApiType(requestUri)][
                 browser.getApiVersion(requestUri)
             ];
 
-            if (!acuArticlesSource || !acuArticlesSource.content_elements) {
-                // eslint-disable-next-line no-console
-                console.warn(
-                    `Empty content result. Global content info: ${JSON.stringify(
-                        this.props.globalContent
-                    )}`
-                );
-
+            if (
+                !acuArticlesSourceAuthor ||
+                !acuArticlesSourceAuthor.content_elements
+            ) {
                 return null;
             }
 
-            // TODO comentado hasta validar de donde viene el error - BACKEND card 89766
-            // const isAPI = this.props.globalContentConfig.query.api || false;
-            // if (
-            //     (!acuArticlesSource || !acuArticlesSource.content_elements) &&
-            //     isAPI
-            // ) {
-            //     // eslint-disable-next-line no-console
-            //     console.warn(
-            //         `Empty content result. Global content info: ${JSON.stringify(
-            //             this.props.globalContent
-            //         )}`
-            //     );
-
-            //     throw new Error(
-            //         'Data query response cannot be null or undefined'
-            //     );
-            // }
-            const paginator = acuArticlesSource.next;
+            const paginator = acuArticlesSourceAuthor.next;
             let page = 1;
             if (paginator) {
                 page = Math.floor(
-                    paginator / acuArticlesSource.content_elements.length
+                    paginator / acuArticlesSourceAuthor.content_elements.length
                 );
             }
             const acuData = {
                 tipoAcumulado: 3,
                 name: author.byline,
-                articles: acuArticlesSource.content_elements,
+                articles: acuArticlesSourceAuthor.content_elements,
                 paginator,
                 page,
-                total: acuArticlesSource.count,
+                total: acuArticlesSourceAuthor.count,
                 author
             };
             return indexAcu(acuData);

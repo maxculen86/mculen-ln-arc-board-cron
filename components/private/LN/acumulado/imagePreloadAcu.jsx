@@ -18,23 +18,16 @@ const ImagePreloadlAcu = ({
 }) => {
     const typesOfQuery = setArticleQueryAcu(nodeType, accumulated);
 
-    const searchArgs = {
-        typesOfQuery,
-        filter,
-        imageConfig,
-        size: 1,
-        sourceOrigin: '',
-        excludeSectionId: false,
-        type: '',
-        shouldNotFilter: false,
-        website: arcSite || 'la-nacion-ar',
-        promoItemsOnly: false,
-        staticMode: true,
-        collectionId
-    };
-
     const [firstArticle] =
-        useGetArticlesFromAcumSource(...Object.values(searchArgs)) || [];
+        useGetArticlesFromAcumSource({
+            typesOfQuery,
+            filter,
+            imageConfig,
+            size: 1,
+            website: arcSite || 'la-nacion-ar',
+            staticMode: true,
+            collectionId
+        }) || [];
 
     const basic = get(firstArticle, 'promo_items.basic', {});
     const promoItemsWWW = replaceUrlResizerToWWW(basic) || {};

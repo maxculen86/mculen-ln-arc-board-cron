@@ -63,7 +63,7 @@ export const GetArticlesList = ({
         originalSize: cantidadNotas
     };
 
-    const searchArguments = {
+    return useGetArticlesFromAcumSource({
         typesOfQuery,
         filter,
         imageConfig: 'boxArticles',
@@ -74,10 +74,9 @@ export const GetArticlesList = ({
         shouldNotFilter: notFilter,
         _website,
         promoItemsOnly: true,
-        staticMode: isSection
-    };
-
-    return useGetArticlesFromAcumSource(...Object.values(searchArguments))
+        staticMode: isSection,
+        excludePreload: true
+    })
         .filter(
             ({ _id: id = '', promo_items: promoItems = {} } = {}) =>
                 id !== idArticle && get(promoItems, 'basic.type') === 'image'
@@ -129,13 +128,13 @@ export const filterType = {
         _website,
         sectionName,
         path,
-        tags,
         idArticle,
         sectionId,
         isNoticia,
         isRecetas,
         cantidadNotas,
-        arcSite
+        arcSite,
+        tags = []
     }) => {
         const { articles = [], link = {} } = tags.reduce((acc, tag) => {
             if (acc.articles) return acc;
