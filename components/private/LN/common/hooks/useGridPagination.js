@@ -63,7 +63,12 @@ const useGridPagination = props => {
         typeArticle: layout || accumulatedType
     };
 
-    const InitialGrid = <ArticlesAcum {...genericProps} articles={articles} />;
+    const InitialGrid = (
+        <ArticlesAcum
+            {...genericProps}
+            articles={articles.length ? articles : storedArticlesValues.flat()}
+        />
+    );
 
     const NextResults = storedArticlesValues
         .filter((_, index) => index > 0)
