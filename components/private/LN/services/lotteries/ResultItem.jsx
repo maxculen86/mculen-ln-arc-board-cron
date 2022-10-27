@@ -18,7 +18,7 @@ const ResultItem = ({ text, result, className }) => {
 
 ResultItem.propTypes = {
     text: PropTypes.string,
-    result: PropTypes.arrayOf,
+    result: PropTypes.arrayOf(PropTypes.string),
     className: PropTypes.string
 };
 

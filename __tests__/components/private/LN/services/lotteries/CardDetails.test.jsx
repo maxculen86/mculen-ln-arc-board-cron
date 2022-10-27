@@ -61,15 +61,13 @@ describe('Components - private - CardDetails =>', () => {
     });
 
     it('Test when detail is true and have jackpot', () => {
-        const detail = true;
         const jackpot = [88123, 1234, 333];
-        const hasExtraResult = true;
         const expectedClass = 'extra-results --jackpot-details';
 
         const { container } = render(
             <CardDetails
-                isDetail={detail}
-                hasExtraResults={hasExtraResult}
+                isDetail={true}
+                hasExtraResults={true}
                 jackpot={jackpot}
                 extraResultsModificator={''}
                 reorderedResults={[]}
@@ -84,6 +82,48 @@ describe('Components - private - CardDetails =>', () => {
         expect(container.innerHTML.includes(jackpot[1])).toBe(true);
         expect(container.innerHTML.includes(jackpot[2])).toBe(true);
         expect(container.getElementsByClassName(expectedClass).length).toBe(1);
+    });
+
+    describe('Test when hasJackpot is true and jackpot is undefined', () => {
+        it('Should not show jackpots', () => {
+            const { container } = render(
+                <CardDetails
+                    isDetail={false}
+                    hasExtraResults={true}
+                    extraResultsModificator={''}
+                    reorderedResults={[]}
+                    isQuiniela={false}
+                    hasJackpot={true}
+                />
+            );
+            const jackpotBalls = container.getElementsByClassName(
+                '--twoxs --font-bold ball --blue'
+            );
+            const jackpotDetails = container.getElementsByClassName(
+                'extra-results --jackpot-details'
+            );
+
+            expect(container.innerHTML.includes('Jackpot')).toBe(false);
+            expect(jackpotBalls.length).toBe(0);
+            expect(jackpotDetails.length).toBe(0);
+        });
+        it('Should not break or throw error', () => {
+            expect(() =>
+                render(
+                    <CardDetails
+                        isDetail={false}
+                        hasExtraResults={true}
+                        extraResultsModificator={''}
+                        reorderedResults={[
+                            ,
+                            { name: 'loteria', date: 'hoy', result: ['0'] }
+                        ]}
+                        isQuiniela={false}
+                        hasJackpot={true}
+                    />
+                )
+            ).not.toThrow();
+        });
     });
 
     it('Test when detail is false and hasJackpot is true', () => {
