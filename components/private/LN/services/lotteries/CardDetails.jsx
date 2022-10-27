@@ -39,9 +39,9 @@ const CardDetail = ({
                         .slice(1, 5)
                         .map(
                             ({
-                                name: subLottery,
-                                result: subLotteryResult,
-                                jackpot: subLotteryJackpot
+                                name: subLottery = '',
+                                result: subLotteryResult = [],
+                                jackpot: subLotteryJackpot = []
                             }) => (
                                 <ResultItem
                                     key={subLottery}
