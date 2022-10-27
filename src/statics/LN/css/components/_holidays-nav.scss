@@ -1,0 +1,95 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.holidaysNav {
+    @include flex(flex, column, space-between, flex-start);
+    width: 100%;
+    max-width: px(440);
+    margin-bottom: px(32);
+    margin-left: auto;
+    margin-right: auto;
+    gap: px(16);
+    @media ($media-m) {
+        // 768px
+        @include flex(flex, row, space-between, flex-end);
+        max-width: px(561);
+    }
+    @media ($media-l) {
+        // 1024px
+        margin-left: px(0);
+        margin-right: px(0);
+        max-width: none;
+        align-items: center;
+    }
+    .sampler {
+        @include flex(flex, column, start, space-between);
+        gap: px(8);
+        :nth-child(1)::before,
+        :nth-child(2)::before,
+        :nth-child(3)::before {
+            content: '';
+            display: inline-block;
+            width: px(12);
+            height: px(12);
+            border-radius: 50%;
+            margin-right: px(8);
+            transform: translate(px(0), px(4));
+        }
+        :nth-child(1)::before {
+            background-color: $blue-200;
+            border: px(2) solid $blue-200;
+        }
+        :nth-child(2)::before {
+            border: px(2) solid $blue-200;
+        }
+        :nth-child(3)::before {
+            border: px(2) solid $green-200;
+            background-color: $green-200;
+        }
+        @media ($media-m) {
+            // 768px
+            @include flex(flex, column, start, space-between);
+        }
+        @media ($media-l) {
+            // 1024px
+            @include flex(flex, row, start, space-between);
+            gap: px(24);
+        }
+        @media ($media-lm) {
+            // 1100px
+            gap: px(24);
+        }
+    }
+    .year {
+        @include flex(flex, row, start);
+        width: 100%;
+        height: px(32);
+        border: px(1) solid $light-neutral-300;
+        border-radius: px(4);
+        @media ($media-m) {
+            // 768px
+            width: px(320);
+        }
+        > li {
+            @include flex(flex, row, center, center);
+            flex-grow: 1;
+            .com-link {
+                color: $light-neutral-800;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                line-height: px(29.33);
+                vertical-align: middle;
+            }
+            &:nth-child(2) {
+                background-color: $blue-500;
+                border-radius: px(4);
+                color: $light-neutral-50;
+            }
+        }
+        @media ($media-m) {
+            // 768px
+            @include flex(flex, row, start);
+        }
+    }
+}

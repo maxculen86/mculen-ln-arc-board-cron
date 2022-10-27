@@ -1,5 +1,6 @@
 import Video from '../../../../../../../../../../components/private/LN/api/v1/mobile/story/cuerpo/elements/video';
 import ArticleVideo from '../../../../../../../../../../__mocks__/data/nota/cuerpo/video/video.json';
+import ArticleVideoNotShowAdd from '../../../../../../../../../../__mocks__/data/nota/cuerpo/video/videoNotShowAd.json';
 
 describe('Test de json de imagen en el cuerpo de la nota', () => {
     it('Si se le pasa un valor null a las video', () => {
@@ -11,7 +12,7 @@ describe('Test de json de imagen en el cuerpo de la nota', () => {
         const resp = Video(ArticleVideo[0]);
         expect(resp['_t']).toBe('video');
         expect(resp['duration']).toBe(ArticleVideo[0]['duration']);
-        expect(resp['showAd']).toBe('1');
+        expect(resp['showAd']).toBe('0');
         expect(resp['title']).toBe(ArticleVideo[0]['headlines']['basic']);
         expect(resp['multimediaFile']['_t']).toBe('mmf');
         expect(resp['multimediaFile']['width']).toBe(1280);
@@ -24,5 +25,10 @@ describe('Test de json de imagen en el cuerpo de la nota', () => {
         expect(resp['thumbnailImage']['src']).toBe(
             ArticleVideo[0]['promo_items']['basic']['url']
         );
+    });
+
+    it('Advertesing showAds undefined validation', () => {
+        const resp = Video(ArticleVideoNotShowAdd[0]);
+        expect(resp['showAd']).toBe('1');
     });
 });

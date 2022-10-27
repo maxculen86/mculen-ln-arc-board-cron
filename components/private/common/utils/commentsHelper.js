@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable react-hooks/rules-of-hooks */
 import { LOGIN_URL, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { GlobalContext } from '../context/globalContext';
 import useTermica from '../hooks/useTermica';
 import get from './get';
@@ -82,25 +82,6 @@ export const conditionallyCallViafoura = time => {
         : null;
 };
 
-export const validateComments = (props, subscription = false) => {
-    const allow = get(props, 'globalContent.comments.allow_comments', true);
-    const show = get(props, 'globalContent.comments.display_comments', true);
-    const firstPublishDate = get(props, 'globalContent.first_publish_date');
-    const termicaLivefyre = useTermica('livefyre');
-    const shouldLoad =
-        allowComments(props) && shouldLoadViafoura(firstPublishDate);
-    return {
-        shouldLoad,
-        allowComments: allow,
-        showComments: show,
-        messageType:
-            (!termicaLivefyre && CLOSED_BY_TERMIC) ||
-            (!allow && CLOSED_COMMENTS) ||
-            (!subscription && SUBSCRIPTION),
-        showCounter: show
-    };
-};
-
 export const getLoginAndRegistrationURLS = () => {
     const urlBase64 =
         typeof window !== 'undefined' ? window.btoa(location.href) : '';
@@ -111,10 +92,9 @@ export const getLoginAndRegistrationURLS = () => {
     };
 };
 
-export const getMessageProps = (props, messageType) => {
+export const getMessageProps = (props, messageType, gc) => {
     const canonicalUrl = get(props, 'globalContent.canonical_url', '');
     const outputType = get(props, 'outputType', 'default');
-    const gc = useContext(GlobalContext);
     const termicas = get(gc, 'state.siteService.termicas', []);
     const element = termicas.find(
         ter => ter && ter.key === 'mensaje_para_cierre_de_comentarios'
@@ -150,8 +130,42 @@ export const getMessageProps = (props, messageType) => {
     return MESSAGE_PROPS[messageType];
 };
 
+export const useValidateComments = (props, subscription) => {
+    const gc = useContext(GlobalContext);
+    const [data, setData] = useState({});
+    const allow = get(props, 'globalContent.comments.allow_comments', true);
+    const show = get(props, 'globalContent.comments.display_comments', true);
+    const firstPublishDate = get(props, 'globalContent.first_publish_date');
+    const termicaLivefyre = useTermica('livefyre');
+    const shouldLoad =
+        allowComments(props) && shouldLoadViafoura(firstPublishDate);
+
+    useEffect(() => {
+        const messageType =
+            (!termicaLivefyre && CLOSED_BY_TERMIC) ||
+            (!allow && CLOSED_COMMENTS) ||
+            (!subscription && SUBSCRIPTION);
+
+        setData({
+            shouldLoad,
+            allowComments: allow,
+            showComments: show,
+            messageProps: getMessageProps(props, messageType, gc),
+            showCounter: show
+        });
+    }, [subscription, termicaLivefyre, allow, show, shouldLoad, props, gc]);
+
+    const setMessage = message => {
+        if (data.messageProps) {
+            setData({ ...data, [data.messageProps]: message });
+        }
+    };
+
+    return { ...data, setMessage };
+};
+
 export default {
     allowComments,
     shouldLoadViafoura,
-    validateComments
+    useValidateComments
 };

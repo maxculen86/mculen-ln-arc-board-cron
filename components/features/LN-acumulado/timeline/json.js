@@ -19,7 +19,7 @@ class Timeline {
 
     fetch(query) {
         this.fetchContent({
-            acuArticlesSource: {
+            acuArticlesSourceTime: {
                 source: 'acuArticlesSource',
                 query
             }
@@ -49,17 +49,17 @@ class Timeline {
 
     render() {
         try {
-            const { acuArticlesSource } = this.state || {};
+            const { acuArticlesSourceTime } = this.state || {};
             const {
                 customFields: { size = 5 }
             } = this.props;
-            if (!acuArticlesSource) {
+            if (!acuArticlesSourceTime) {
                 return null;
             }
-            const results = acuArticlesSource;
+            const results = acuArticlesSourceTime;
 
             const { content_elements: contentElements } =
-                acuArticlesSource || {};
+                acuArticlesSourceTime || {};
             results.content_elements =
                 contentElements &&
                 contentElements

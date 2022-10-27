@@ -129,13 +129,13 @@ export const filterType = {
         _website,
         sectionName,
         path,
-        tags,
         idArticle,
         sectionId,
         isNoticia,
         isRecetas,
         cantidadNotas,
-        arcSite
+        arcSite,
+        tags = []
     }) => {
         const { articles = [], link = {} } = tags.reduce((acc, tag) => {
             if (acc.articles) return acc;

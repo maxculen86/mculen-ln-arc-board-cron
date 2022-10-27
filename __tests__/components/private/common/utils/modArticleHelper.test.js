@@ -207,7 +207,7 @@ describe('Test - getMediaData', () => {
                                 }
                             ]
                         },
-                        alt_text: 'Foto de Jorge Fernández Díaz'
+                        alt_text: 'Jorge Fernández Díaz'
                     },
                     {
                         author: 'Carlos Pagni',
@@ -216,7 +216,7 @@ describe('Test - getMediaData', () => {
                             url:
                                 'https://resizer.glanacion.com/resizer/PNjDoOm_Gkxjqpjax5_jKzkLX6k=/80x0/filters:quality(80)/bucket.glanacion.com/anexos/fotos/91/2219591.png'
                         },
-                        alt_text: 'Foto de Jorge Fernández Díaz'
+                        alt_text: 'Jorge Fernández Díaz'
                     }
                 ]
             }
@@ -233,7 +233,7 @@ describe('Test - getMediaData', () => {
             )
         ).toStrictEqual({
             mediaData: {
-                altText: 'Foto de Jorge Fernández Díaz',
+                alt_text: 'Jorge Fernández Díaz',
                 height: 80,
                 resized_urls: [
                     {

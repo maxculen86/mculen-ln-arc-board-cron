@@ -2,7 +2,8 @@ import {
     getTitle,
     getSectionTitle,
     validateMasNotas,
-    getLink
+    getLink,
+    filterType
 } from '../../../../../components/private/common/utils/masNotasHelper';
 import mockArticles from '../../../../../__mocks__/data/masNotas/articles.json';
 
@@ -95,5 +96,21 @@ describe('Mas Notas Helper Function Tests', () => {
             path: '/economia',
             text: 'economia'
         });
+    });
+    it('should work tags undefined', () => {
+        const searchParameters = {
+            sectionOrTag: '',
+            _website: 'la-nacion-ar',
+            sectionName: '/economia',
+            path: '',
+            tags: undefined,
+            idArticle: '123',
+            sectionId: '/economia',
+            subtype: '1',
+            isNoticia: true,
+            cantidadNotas: 3,
+            arcSite: ''
+        };
+        expect(filterType['byTags']({ ...searchParameters })).toBeDefined();
     });
 });
