@@ -72,7 +72,9 @@ const useGridPagination = props => {
 
     const NextResults = storedArticlesValues
         .filter((_, index) => index > 0)
-        .map(page => <ArticlesAcum {...genericProps} articles={page} />);
+        .map(page => (
+            <ArticlesAcum {...genericProps} getBanner={false} articles={page} />
+        ));
 
     return {
         goToNextPage,
