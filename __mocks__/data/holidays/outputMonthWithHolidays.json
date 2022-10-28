@@ -1,0 +1,39 @@
+{
+    "serviceType": "feriados-mes",
+    "serviceItem": "2022",
+    "dataService": {
+        "calendar": {
+            "monthNumber": 5,
+            "monthName": "Mayo",
+            "monthHolidays": [
+                {
+                    "month": 5,
+                    "holiday_day_contents": [
+                        {
+                            "days": [1],
+                            "reason": "Día del Trabajador.",
+                            "day_type": 2,
+                            "day_type_name": "Trasladable"
+                        },
+                        {
+                            "days": [25],
+                            "reason": "Día de la Revolución de Mayo.",
+                            "day_type": 1,
+                            "day_type_name": "Inamovible"
+                        }
+                    ]
+                }
+            ]
+        },
+        "previousAndNextCalendar": {
+            "previous": {
+                "text": "abril 2022",
+                "url": "/feriados/2022/abril/"
+            },
+            "next": {
+                "text": "junio 2022",
+                "url": "/feriados/2022/junio/"
+            }
+        }
+    }
+}

@@ -1,16 +1,15 @@
 import request from 'request-promise-native';
 import { LANACION_SERVICES_URL } from 'fusion:environment';
 import logger from '../../../../../components/private/common/utils/logger';
-import getMonthNumber from './holidaysHelper';
+import { getMonthNumber, transformHolidays } from './holidaysHelper';
 
 const getUri = ({ service = '', serviceItem = '', serviceSubItem = '' }) => {
     if (serviceSubItem && serviceItem)
-        return `${LANACION_SERVICES_URL}/api/v1/feriados/mock/${serviceItem}/${getMonthNumber(
+        return `${LANACION_SERVICES_URL}/api/v1/feriados/${serviceItem}/${getMonthNumber(
             serviceSubItem
         )}`;
-
     if (service)
-        return `${LANACION_SERVICES_URL}/api/v1/feriados/mock/${serviceItem ||
+        return `${LANACION_SERVICES_URL}/api/v1/feriados/${serviceItem ||
             new Date().getFullYear()}`;
 
     throw new Error(
@@ -30,8 +29,24 @@ const holidayRequest = ({ queryData, auth } = {}) => {
 const resolve = ({ response = {} }) => transform(response);
 
 const transform = data => {
-    const { serviceType, dataService, sectionSourceData } = data;
-    return { serviceType, dataService, ...sectionSourceData };
+    const {
+        serviceType,
+        dataService,
+        sectionSourceData,
+        serviceItem,
+        serviceSubItem
+    } = data;
+    return {
+        serviceType,
+        serviceItem: serviceItem || new Date().getFullYear(),
+        ...sectionSourceData,
+        dataService: transformHolidays(
+            dataService,
+            serviceType,
+            serviceItem,
+            serviceSubItem
+        )
+    };
 };
 
 const reject = ({ error, uri, arcSite }) => {

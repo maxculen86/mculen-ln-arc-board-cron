@@ -1,0 +1,17 @@
+{
+    "creation_date": "2022-10-28T11:55:56.1245146-03:00",
+    "holidays": [
+        {
+            "year": 2022,
+            "calendar_name": "Católico",
+            "calendar_type": 1,
+            "holiday_month_contents": []
+        },
+        {
+            "year": 2022,
+            "calendar_name": "Judío",
+            "calendar_type": 2,
+            "holiday_month_contents": []
+        }
+    ]
+}

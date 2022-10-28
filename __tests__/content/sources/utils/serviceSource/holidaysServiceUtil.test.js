@@ -1,13 +1,34 @@
 import 'regenerator-runtime/runtime';
 import { LANACION_SERVICES_URL } from 'fusion:environment';
-import mockData from '../../../../../__mocks__/data/holidays/mockHolidays.json';
+import mockFilterHolidays from '../../../../../__mocks__/data/holidays/mockFilterHolidays.json';
+import mockHolidays from '../../../../../__mocks__/data/holidays/mockHolidays.json';
+import mockCatholicAndJewishHoliday from '../../../../../__mocks__/data/holidays/mockCatholicAndJewishHoliday.json';
+import outputTransformHome from '../../../../../__mocks__/data/holidays/outputTransformHome.json';
+import inputMonthWithoutHolidays from '../../../../../__mocks__/data/holidays/inputMonthWithoutHolidays.json';
+import outputMonthWithoutHolidays from '../../../../../__mocks__/data/holidays/outputMonthWithoutHolidays.json';
+import inputMonthWithHolidays from '../../../../../__mocks__/data/holidays/inputMonthWithHolidays.json';
+import outputMonthWithHolidays from '../../../../../__mocks__/data/holidays/outputMonthWithHolidays.json';
 import error404 from '../../../../../__mocks__/data/logger/error404.json';
 import holidays from '../../../../../content/sources/utils/servicesSource/holidays/holidays';
-import getMonthNumber from '../../../../../content/sources/utils/servicesSource/holidays/holidaysHelper';
+import {
+    getMonthNumber,
+    getMonthName,
+    getNameDay,
+    filterHolidaysByType,
+    previousAndNextDate,
+    createHolidaysArray,
+    convertHolidaysTable
+} from '../../../../../content/sources/utils/servicesSource/holidays/holidaysHelper';
 
-const mockResponse = Promise.resolve(mockData);
+const mockResponse = Promise.resolve(mockCatholicAndJewishHoliday);
 
-const { getUri, request: holidayRequest, reject, getTemplates } = holidays;
+const {
+    getUri,
+    request: holidayRequest,
+    reject,
+    getTemplates,
+    transform
+} = holidays;
 
 jest.mock('request-promise-native', () => {
     return {
@@ -21,12 +42,12 @@ describe('Test getUri function', () => {
         expect(
             getUri({ service: 'feriados', serviceItem: '2022' })
         ).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/api/v1/feriados/mock/2022'
+            'https://arcservices.lanacion.com.ar/api/v1/feriados/2022'
         );
     });
     it('Should return endpoint with the current year', () => {
         expect(getUri({ service: 'feriados' })).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/api/v1/feriados/mock/2022'
+            'https://arcservices.lanacion.com.ar/api/v1/feriados/2022'
         );
     });
 
@@ -38,7 +59,7 @@ describe('Test getUri function', () => {
                 serviceSubItem: 'mayo'
             })
         ).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/api/v1/feriados/mock/2022/5'
+            'https://arcservices.lanacion.com.ar/api/v1/feriados/2022/5'
         );
     });
     it('Should return error', () => {
@@ -79,7 +100,7 @@ describe('Tests getTemplates function', () => {
     });
 });
 
-describe('Tests getMonthNumber helperFunction', () => {
+describe('Test getMonthNumber helperFunction', () => {
     it('Should return number', () => {
         expect(getMonthNumber('diciembre')).toBe(12);
     });
@@ -88,5 +109,240 @@ describe('Tests getMonthNumber helperFunction', () => {
         expect(getMonthNumber('')).toBe('');
         expect(getMonthNumber('2')).toBe('');
         expect(getMonthNumber()).toBe('');
+    });
+});
+
+describe('Test getMonthName helperFunction', () => {
+    it('Should return name', () => {
+        expect(getMonthName(5)).toBe('mayo');
+    });
+    it('Should return string', () => {
+        expect(getMonthName('enero')).toBe('');
+        expect(getMonthName('')).toBe('');
+        expect(getMonthName()).toBe('');
+    });
+});
+
+describe('Test getNameDay helperFunction', () => {
+    it('Should return name', () => {
+        expect(getNameDay('2022-10-25')).toBe('Martes');
+    });
+});
+
+describe('Test filterHolidaysByType helperFuction', () => {
+    test('Should return holidays type = Puente', () => {
+        const filter = filterHolidaysByType({
+            monthHolidays: mockFilterHolidays,
+            holidayType: 'Puente'
+        });
+        expect(filter).toHaveLength(1);
+    });
+    test('Should return holidays type = Trasladable', () => {
+        const filter = filterHolidaysByType({
+            monthHolidays: mockFilterHolidays,
+            holidayType: 'Trasladable'
+        });
+        expect(filter).toHaveLength(1);
+    });
+    test('Should return holidays type = Inamovible', () => {
+        const filter = filterHolidaysByType({
+            monthHolidays: mockFilterHolidays,
+            holidayType: 'Inamovible'
+        });
+        expect(filter).toHaveLength(8);
+    });
+});
+describe('Test previousAndNextDate helperFuction', () => {
+    test('Should return only next for border case', () => {
+        const result = previousAndNextDate(2021, 'enero');
+        expect(result).toStrictEqual({
+            next: { text: 'febrero 2021', url: '/feriados/2021/febrero/' }
+        });
+    });
+    test('Should return only previous for border case', () => {
+        const result = previousAndNextDate(2023, 'diciembre');
+        expect(result).toStrictEqual({
+            previous: {
+                text: 'noviembre 2023',
+                url: '/feriados/2023/noviembre/'
+            }
+        });
+    });
+    test('Should return previous and next', () => {
+        const result = previousAndNextDate(2021, 'diciembre');
+        expect(result).toStrictEqual({
+            next: { text: 'enero 2022', url: '/feriados/2022/enero/' },
+            previous: {
+                text: 'noviembre 2021',
+                url: '/feriados/2021/noviembre/'
+            }
+        });
+    });
+    test('Should return previous and next even receiving year as string', () => {
+        const result = previousAndNextDate('2021', 'diciembre');
+        expect(result).toStrictEqual({
+            next: { text: 'enero 2022', url: '/feriados/2022/enero/' },
+            previous: {
+                text: 'noviembre 2021',
+                url: '/feriados/2021/noviembre/'
+            }
+        });
+    });
+});
+
+describe('Test createHolidaysArray helperFuction', () => {
+    const { holidays } = mockCatholicAndJewishHoliday;
+    const { 0: catholicHolidays, 1: jewishHolidays } = holidays;
+    const {
+        holiday_month_contents: catholicMonthContents,
+        year,
+        calendar_type: catholicCalendarType
+    } = catholicHolidays;
+    const {
+        holiday_month_contents: jewishMonthContents,
+        calendar_type: jewishCalendarType
+    } = jewishHolidays;
+
+    test('Should return catholic array', () => {
+        const response = createHolidaysArray(
+            catholicMonthContents,
+            catholicCalendarType,
+            year
+        );
+        expect(response).toStrictEqual([
+            {
+                date: '1 de enero',
+                day: 'Sábado',
+                reason: 'Año nuevo',
+                dayTypeName: 'Inamovible'
+            }
+        ]);
+    });
+    test('Should return jewish array', () => {
+        const response = createHolidaysArray(
+            jewishMonthContents,
+            jewishCalendarType
+        );
+        expect(response).toStrictEqual([
+            {
+                date: '2-9 de octubre',
+                reason: 'Sucot'
+            },
+            {
+                date: '11 de octubre',
+                reason: 'Simjat Torá (Purim)'
+            }
+        ]);
+    });
+});
+
+describe('Test convertHolidaysTable helperFuction', () => {
+    test('Should return catholic table', () => {
+        const mockCatholicTable = [
+            {
+                date: '1 de enero',
+                day: 'Sábado',
+                reason: 'Año nuevo',
+                dayTypeName: 'Inamovible'
+            }
+        ];
+        const response = convertHolidaysTable(mockCatholicTable, 1);
+        expect(response).toStrictEqual({
+            header: [
+                {
+                    _id: 'header-date',
+                    content: 'Fecha'
+                },
+                {
+                    _id: 'header-day',
+                    content: 'Día'
+                },
+                {
+                    _id: 'header-reason',
+                    content: 'Conmemoración'
+                }
+            ],
+            rows: [
+                [
+                    {
+                        content: '1 de enero'
+                    },
+                    {
+                        content: 'Sábado'
+                    },
+                    {
+                        content: 'Año nuevo'
+                    }
+                ]
+            ]
+        });
+    });
+    test('Should return jewish table', () => {
+        const mockJewishTable = [
+            {
+                date: '10 de febrero',
+                reason: 'Tou BiChvat'
+            }
+        ];
+        const response = convertHolidaysTable(mockJewishTable, 2);
+        expect(response).toStrictEqual({
+            header: [
+                {
+                    _id: 'header-date',
+                    content: 'Fecha'
+                },
+                {
+                    _id: 'header-reason',
+                    content: 'Conmemoración'
+                }
+            ],
+            rows: [
+                [
+                    {
+                        content: '10 de febrero'
+                    },
+                    {
+                        content: 'Tou BiChvat'
+                    }
+                ]
+            ]
+        });
+    });
+});
+
+describe('Test transform holidays ', () => {
+    const data = {
+        dataService: mockHolidays,
+        serviceType: 'feriados-año'
+    };
+    it('Check transform function for holidays home template', () => {
+        expect(transform(data)).toStrictEqual(outputTransformHome);
+    });
+    it('Check transform function for holidays año template', () => {
+        const dataYear = { ...data, serviceItem: 2023 };
+        expect(transform(dataYear)).toStrictEqual({
+            ...outputTransformHome,
+            serviceItem: 2023
+        });
+    });
+    it('Check transform function in month without holidays ', () => {
+        expect(
+            transform({
+                dataService: inputMonthWithoutHolidays,
+                serviceType: 'feriados-mes',
+                serviceItem: '2022',
+                serviceSubItem: 'noviembre'
+            })
+        ).toStrictEqual(outputMonthWithoutHolidays);
+    });
+    it('Check transform function in month with holidays', () => {
+        expect(
+            transform({
+                dataService: inputMonthWithHolidays,
+                serviceType: 'feriados-mes',
+                serviceItem: '2022',
+                serviceSubItem: 'mayo'
+            })
+        ).toStrictEqual(outputMonthWithHolidays);
     });
 });

@@ -1,0 +1,53 @@
+{
+    "creation_date": "2022-10-28T11:55:56.1245146-03:00",
+    "holidays": [
+        {
+            "year": 2022,
+            "calendar_name": "Católico",
+            "calendar_type": 1,
+            "holiday_month_contents": [
+                {
+                    "month": 5,
+                    "holiday_day_contents": [
+                        {
+                            "days": [1],
+                            "reason": "Día del Trabajador.",
+                            "day_type": 2,
+                            "day_type_name": "Trasladable"
+                        },
+                        {
+                            "days": [25],
+                            "reason": "Día de la Revolución de Mayo.",
+                            "day_type": 1,
+                            "day_type_name": "Inamovible"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "year": 2022,
+            "calendar_name": "Judío",
+            "calendar_type": 2,
+            "holiday_month_contents": [
+                {
+                    "month": 5,
+                    "holiday_day_contents": [
+                        {
+                            "days": [12],
+                            "reason": "Lag Ba'Omer",
+                            "day_type": 1,
+                            "day_type_name": "Inamovible"
+                        },
+                        {
+                            "days": [29, 30],
+                            "reason": "Shavouot",
+                            "day_type": 1,
+                            "day_type_name": "Inamovible"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

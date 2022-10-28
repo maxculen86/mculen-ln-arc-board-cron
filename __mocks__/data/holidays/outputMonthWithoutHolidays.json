@@ -1,0 +1,21 @@
+{
+    "serviceType": "feriados-mes",
+    "serviceItem": "2022",
+    "dataService": {
+        "calendar": {
+            "monthNumber": 11,
+            "monthName": "Noviembre",
+            "monthHolidays": []
+        },
+        "previousAndNextCalendar": {
+            "previous": {
+                "text": "octubre 2022",
+                "url": "/feriados/2022/octubre/"
+            },
+            "next": {
+                "text": "diciembre 2022",
+                "url": "/feriados/2022/diciembre/"
+            }
+        }
+    }
+}

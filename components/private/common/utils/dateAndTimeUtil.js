@@ -85,7 +85,7 @@ function formatMonthDigits(originalDate) {
     return mont;
 }
 
-function formatYearMontDayDate(originalDate) {
+export function formatYearMontDayDate(originalDate) {
     const date = formatDateTreeHoursMore(originalDate);
     return `${date.getFullYear()}-${formatMonthDigits(date)}-${date.getDate()}`;
 }
