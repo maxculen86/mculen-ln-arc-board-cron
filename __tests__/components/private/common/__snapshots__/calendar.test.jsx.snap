@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components - common - Calendar => Test calendar with prop daysHighlight 1`] = `
+exports[`Components - common - Calendar => Test calendar with prop holidayData 1`] = `
 <div>
   <section
     class="calendar-common"
@@ -9,45 +9,49 @@ exports[`Components - common - Calendar => Test calendar with prop daysHighlight
       class="labeled-calendar"
     >
       <h2
-        class="com-text --title --arial --font-bold --4xs"
+        class="com-text --title --font-bold --4xs"
       >
-        Abril
+        <span
+          class="com-text"
+        >
+          Mayo
+        </span>
       </h2>
       <div
         class="days-of-week"
       >
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           L
         </h2>
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           M
         </h2>
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           M
         </h2>
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           J
         </h2>
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           V
         </h2>
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           S
         </h2>
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           D
         </h2>
@@ -57,166 +61,196 @@ exports[`Components - common - Calendar => Test calendar with prop daysHighlight
       class="date-calendar"
     >
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
          
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
+      >
+         
+      </span>
+      <span
+        class="com-text"
+      >
+         
+      </span>
+      <span
+        class="com-text"
+      >
+         
+      </span>
+      <span
+        class="com-text"
+      >
+         
+      </span>
+      <span
+        class="com-text"
+      >
+         
+      </span>
+      <span
+        class="com-text --transferable"
       >
         1
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         2
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         3
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         4
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         5
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         6
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         7
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         8
       </span>
       <span
-        class="com-text bg-green --arial --4xs"
+        class="com-text"
       >
         9
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         10
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         11
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         12
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         13
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         14
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         15
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         16
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         17
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         18
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         19
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         20
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         21
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         22
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         23
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         24
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text --immovable"
       >
         25
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         26
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         27
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         28
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         29
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         30
+      </span>
+      <span
+        class="com-text"
+      >
+        31
       </span>
     </div>
   </section>
 </div>
 `;
 
-exports[`Components - common - Calendar => Test calendar with prop month 1`] = `
+exports[`Components - common - Calendar => Test calendar without props 1`] = `
 <div>
   <section
     class="calendar-common"
@@ -225,45 +259,49 @@ exports[`Components - common - Calendar => Test calendar with prop month 1`] = `
       class="labeled-calendar"
     >
       <h2
-        class="com-text --title --arial --font-bold --4xs"
+        class="com-text --title --font-bold --4xs"
       >
-        Abril
+        <span
+          class="com-text"
+        >
+          octubre
+        </span>
       </h2>
       <div
         class="days-of-week"
       >
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           L
         </h2>
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           M
         </h2>
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           M
         </h2>
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           J
         </h2>
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           V
         </h2>
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           S
         </h2>
         <h2
-          class="com-text --arial --font-bold --4xs"
+          class="com-text --font-bold --4xs"
         >
           D
         </h2>
@@ -273,413 +311,182 @@ exports[`Components - common - Calendar => Test calendar with prop month 1`] = `
       class="date-calendar"
     >
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
          
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
          
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
          
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
          
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
+      >
+         
+      </span>
+      <span
+        class="com-text"
       >
         1
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         2
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         3
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         4
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         5
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         6
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         7
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         8
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         9
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         10
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         11
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         12
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         13
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         14
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         15
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         16
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         17
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         18
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         19
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         20
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         21
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         22
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         23
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         24
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         25
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         26
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         27
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         28
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         29
       </span>
       <span
-        class="com-text  --arial --4xs"
-      >
-        30
-      </span>
-    </div>
-  </section>
-</div>
-`;
-
-exports[`Components - common - Calendar => testing components without props 1`] = `
-<div>
-  <section
-    class="calendar-common"
-  >
-    <div
-      class="labeled-calendar"
-    >
-      <h2
-        class="com-text --title --arial --font-bold --4xs"
-      >
-        Octubre
-      </h2>
-      <div
-        class="days-of-week"
-      >
-        <h2
-          class="com-text --arial --font-bold --4xs"
-        >
-          L
-        </h2>
-        <h2
-          class="com-text --arial --font-bold --4xs"
-        >
-          M
-        </h2>
-        <h2
-          class="com-text --arial --font-bold --4xs"
-        >
-          M
-        </h2>
-        <h2
-          class="com-text --arial --font-bold --4xs"
-        >
-          J
-        </h2>
-        <h2
-          class="com-text --arial --font-bold --4xs"
-        >
-          V
-        </h2>
-        <h2
-          class="com-text --arial --font-bold --4xs"
-        >
-          S
-        </h2>
-        <h2
-          class="com-text --arial --font-bold --4xs"
-        >
-          D
-        </h2>
-      </div>
-    </div>
-    <div
-      class="date-calendar"
-    >
-      <span
-        class="com-text  --arial --4xs"
-      >
-         
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-         
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-         
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-         
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-         
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        1
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        2
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        3
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        4
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        5
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        6
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        7
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        8
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        9
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        10
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        11
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        12
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        13
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        14
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        15
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        16
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        17
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        18
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        19
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        20
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        21
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        22
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        23
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        24
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        25
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        26
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        27
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        28
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        29
-      </span>
-      <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         30
       </span>
       <span
-        class="com-text  --arial --4xs"
+        class="com-text"
       >
         31
       </span>

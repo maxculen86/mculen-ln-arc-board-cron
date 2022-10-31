@@ -4,54 +4,49 @@ import '@testing-library/jest-dom';
 import Calendar from '../../../../components/private/common/calendar/Calendar';
 
 describe('Components - common - Calendar =>', () => {
-    it('testing components without props', () => {
+    it('Test calendar without props', () => {
         const { container } = render(<Calendar />);
-        expect(container.getElementsByClassName('calendar-common').length).toBe(
-            1
-        );
-        expect(
-            container.getElementsByClassName(
-                'com-text --arial --font-bold --4xs'
-            ).length
-        ).toBe(8);
-        expect(container).toMatchSnapshot();
-    });
-
-    it('Test calendar with prop month', () => {
-        const props = {
-            month: 3
-        };
-        const { container } = render(<Calendar month={props.month} />);
 
         expect(
             container.getElementsByClassName('labeled-calendar').length
         ).toBe(1);
-
-        expect(container.innerHTML.includes('Abril</h2>')).toBe(true);
-
         expect(container).toMatchSnapshot();
     });
 
-    it('Test calendar with prop daysHighlight', () => {
-        const props = {
-            year: 2014,
-            month: 3,
-            daysHighlight: [
+    it('Test calendar with prop holidayData', () => {
+        const calendar = {
+            monthNumber: 5,
+            monthName: 'Mayo',
+            year: '2022',
+            holidayData: [
                 {
-                    day: 9,
-                    class: 'bg-green'
+                    days: [1],
+                    reason: 'Día del Trabajador.',
+                    day_type: 2,
+                    day_type_name: 'Trasladable'
+                },
+                {
+                    days: [25],
+                    reason: 'Día de la Revolución de Mayo.',
+                    day_type: 1,
+                    day_type_name: 'Inamovible'
                 }
             ]
         };
         const { container } = render(
             <Calendar
-                year={props.year}
-                month={props.month}
-                daysHighlight={props.daysHighlight}
+                year={calendar.year}
+                monthNumber={calendar.monthNumber}
+                monthName={calendar.monthName}
+                holidayData={calendar.holidayData}
+                layout="month"
             />
         );
 
-        expect(container.getElementsByClassName('bg-green').length).toBe(1);
+        expect(container.getElementsByClassName('--transferable').length).toBe(
+            1
+        );
+        expect(container.getElementsByClassName('--immovable').length).toBe(1);
         expect(container).toMatchSnapshot();
     });
 });

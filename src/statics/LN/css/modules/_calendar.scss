@@ -4,21 +4,23 @@
 .calendar-common {
     position: relative;
     width: 100%;
-    border-radius: px(4);
-    padding: $spacing-sm;
+    border-radius: $spacing-2xs;
     background: $light-neutral-50;
 
     .labeled-calendar {
         display: flex;
         flex-direction: column;
-        :first-child {
+        & > .--title {
             align-self: center;
-            margin-bottom: px(8);
+            margin-bottom: px(10);
+            &::first-letter {
+                text-transform: capitalize;
+            }
         }
         .days-of-week {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            row-gap: px(8);
+            row-gap: $spacing-xs;
             justify-items: center;
 
             .com-text:nth-child(n + 6) {
@@ -32,64 +34,37 @@
         justify-items: center;
         grid-template-rows: repeat(5, 1fr);
         grid-template-columns: repeat(7, 1fr);
-        column-gap: px(4);
-        row-gap: px(8);
+        column-gap: $spacing-2xs;
+        row-gap: $spacing-xs;
+        font-size: px(14);
         .com-text {
-            &:nth-child(6) {
-                opacity: 0.7;
-            }
-            &:nth-child(7) {
-                opacity: 0.7;
-            }
-            &:nth-child(13) {
-                opacity: 0.7;
-            }
-            &:nth-child(14) {
-                opacity: 0.7;
-            }
-            &:nth-child(20) {
-                opacity: 0.7;
-            }
-            &:nth-child(21) {
-                opacity: 0.7;
-            }
-            &:nth-child(27) {
-                opacity: 0.7;
-            }
-            &:nth-child(28) {
-                opacity: 0.7;
-            }
-            &:nth-child(34) {
-                opacity: 0.7;
-            }
+            &:nth-child(6),
+            &:nth-child(7),
+            &:nth-child(13),
+            &:nth-child(14),
+            &:nth-child(20),
+            &:nth-child(21),
+            &:nth-child(27),
+            &:nth-child(28),
+            &:nth-child(34),
             &:nth-child(35) {
                 opacity: 0.7;
             }
         }
         .com-text {
-            width: px(30);
-            height: px(30);
+            width: px(28);
+            height: px(28);
             text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include flex(flex, row, center, center);
             border-radius: 100%;
-            color: #333;
-            cursor: pointer;
-            &:hover {
-                opacity: 0.7;
-            }
-            &.bg-green {
+            &.--transferable {
                 background-color: $green-200;
             }
-            &.bg-blue {
+            &.--immovable {
                 background-color: $blue-200;
             }
-            &.bg-outline {
-                border: 2px solid $blue-200;
-            }
-            &.bg-muted {
-                background-color: $light-neutral-400;
+            &.--bridge {
+                border: $spacing-3xs solid $blue-200;
             }
         }
     }

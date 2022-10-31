@@ -1,0 +1,76 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.holidays-month-nav {
+    width: 100%;
+    max-width: px(440);
+    margin: 0 auto px(32) auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+        'calendar calendar'
+        'arrowBack arrowForward';
+    @media ($media-m) {
+        grid-template-columns: 1fr px(561) 1fr;
+        grid-template-areas: 'arrowBack calendar arrowForward';
+        max-width: none;
+    }
+
+    h3 {
+        flex-grow: 1;
+        margin-top: px(16);
+        &.previous-month {
+            grid-area: arrowBack;
+            justify-self: end;
+            @media ($media-m) {
+                align-self: center;
+                justify-self: center;
+            }
+        }
+        &.posterior-month {
+            grid-area: arrowForward;
+            justify-self: start;
+            @media ($media-m) {
+                align-self: center;
+                justify-self: center;
+            }
+        }
+    }
+    .calendar {
+        grid-area: calendar;
+        width: 100%;
+        max-width: px(561);
+        .holidays-card-calendar {
+            margin-bottom: px(0);
+            @media ($media-s) {
+                width: 100%;
+            }
+        }
+    }
+    .interaction-container {
+        @include flex(flex, column, center, center);
+        gap: px(8);
+        padding: 0 px(12);
+        .circle {
+            @include flex(flex, column, center, center);
+            width: px(40);
+            height: px(40);
+            border-radius: 50%;
+            background-color: $blue-100;
+            .com-icon {
+                width: px(32);
+                height: px(32);
+                path {
+                    fill: $blue-500;
+                }
+            }
+        }
+        span {
+            color: $blue-500;
+            text-align: center;
+            &::first-letter {
+                text-transform: capitalize;
+            }
+        }
+    }
+}
