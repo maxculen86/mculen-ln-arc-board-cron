@@ -2,7 +2,12 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
 import useGridArticles from './useGridArticles';
-import ArticlesAcum from '../../acumulado/articlesAcum';
+import ArticlesAcum, {
+    typeAcumRules,
+    DATA_SECTION
+} from '../../acumulado/articlesAcum';
+import ArticleAcum from '../../acumulado/articleAcum';
+import ModRowGap from '../../../common/mod-rowgap';
 
 const useGridPagination = props => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -57,24 +62,45 @@ const useGridPagination = props => {
         }
     }, [currentPage, articles, storedArticlesValues]);
 
+    const typeArticle = layout || accumulatedType;
+
     const genericProps = {
         getBanner,
         outputType,
-        typeArticle: layout || accumulatedType
+        typeArticle
     };
 
     const InitialGrid = (
         <ArticlesAcum
             {...genericProps}
-            articles={articles.length ? articles : storedArticlesValues.flat()}
+            articles={storedArticles[1] || articles}
         />
     );
 
-    const NextResults = storedArticlesValues
-        .filter((_, index) => index > 0)
-        .map(page => (
-            <ArticlesAcum {...genericProps} getBanner={false} articles={page} />
-        ));
+    const NextResults = (
+        <ModRowGap column="3" typeArticle={typeArticle}>
+            {storedArticlesValues
+                .filter((_, index) => index > 0)
+                .map(page =>
+                    page.map(article => (
+                        <ArticleAcum
+                            key={article._id}
+                            dataSection={DATA_SECTION}
+                            article={article}
+                            typeArticle={typeArticle}
+                            titleSize={typeAcumRules[typeArticle].titleSize}
+                            outputType={outputType}
+                            withSubhead={typeAcumRules[typeArticle].withSubhead}
+                            withCategory={
+                                typeAcumRules[typeArticle].withCategory
+                            }
+                            withTags={typeAcumRules[typeArticle].withTags}
+                            isApertura={false}
+                        />
+                    ))
+                )}
+        </ModRowGap>
+    );
 
     return {
         goToNextPage,
