@@ -4,16 +4,14 @@ import ComTitle from '../../../common/com-title';
 import '../../../../../resources/dist/css/ln/components/title.css';
 
 const titleArticle = ({ headlines, prefix, size }) => {
-    const { basic = '', mobile = '' } = headlines || {};
+    const { basic = '' } = headlines || {};
     const prefixText = `${prefix !== '' ? `${prefix} ` : prefix}`;
 
     return (
         <ComTitle
             tag="h1"
             size={size || '--threexl'}
-            content={
-                mobile ? `${prefixText}${mobile}` : `${prefixText}${basic}`
-            }
+            content={`${prefixText}${basic}`}
         />
     );
 };
