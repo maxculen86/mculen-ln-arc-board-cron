@@ -18,6 +18,8 @@ class StoryText {
                 isListenable: isListenableValue
             }
         } = props;
+        // eslint-disable-next-line no-console
+        // console.log('LINEA 15', this.globalContent);
 
         // Agrego validacion que permita distinguir si se debe buscar el audio de la nota
         if (isListenableValue) {
