@@ -114,13 +114,13 @@ const validateNextAndPreviousDate = (nextMonth, previousMonth, numericYear) => {
         previousMonth === 'diciembre' ? numericYear - 1 : numericYear;
     const nextYear = nextMonth === 'enero' ? numericYear + 1 : numericYear;
     return {
-        ...(!(previousYear <= currentYear - 2) && {
+        ...(previousYear > currentYear - 2 && {
             previous: {
                 text: `${previousMonth} ${previousYear}`,
                 url: `/feriados/${previousYear}/${previousMonth}/`
             }
         }),
-        ...(!(nextYear >= currentYear + 2) && {
+        ...(nextYear < currentYear + 2 && {
             next: {
                 text: `${nextMonth} ${nextYear}`,
                 url: `/feriados/${nextYear}/${nextMonth}/`

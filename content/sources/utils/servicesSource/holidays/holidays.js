@@ -38,7 +38,9 @@ const transform = data => {
     } = data;
     return {
         serviceType,
-        serviceItem: serviceItem || new Date().getFullYear(),
+        serviceItem: serviceItem
+            ? Number(serviceItem)
+            : new Date().getFullYear(),
         ...sectionSourceData,
         dataService: transformHolidays(
             dataService,

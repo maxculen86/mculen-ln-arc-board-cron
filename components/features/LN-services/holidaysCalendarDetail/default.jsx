@@ -12,15 +12,16 @@ const HolidaysHomeCalendar = ({ id: _featureId }) => {
         'globalContent.dataService',
         {}
     );
-
+    const serviceItem = get(useAppContext(), 'globalContent.serviceItem', '');
     if (!Object.keys(calendar).length) return null;
 
     return (
         <StaticValidation id={_featureId} htmlOnly persistent>
-            <HolidaysNav year={get(calendar, 'year', '')} layout="month" />
+            <HolidaysNav year={serviceItem} layout="month" />
             <HolidaysMonthNav
                 calendar={calendar}
                 previousAndNextCalendar={previousAndNextCalendar}
+                year={serviceItem}
             />
         </StaticValidation>
     );

@@ -1,6 +1,6 @@
 {
     "serviceType": "feriados-mes",
-    "serviceItem": "2022",
+    "serviceItem": 2022,
     "dataService": {
         "calendar": {
             "monthNumber": 5,

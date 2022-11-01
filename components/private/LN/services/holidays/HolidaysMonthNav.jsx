@@ -5,8 +5,15 @@ import '../../../../../resources/dist/css/ln/components/holidays-month-nav.css';
 import Link from '../../../common/com-link';
 import Icon from '../../../common/icon';
 import HolidaysCardCalendar from './HolidaysCardCalendar';
+import get from '../../../common/utils/get';
 
-const HolidaysMonthNav = ({ calendar, previousAndNextCalendar }) => {
+const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
+    const { monthHolidays = [], monthNumber, monthName } = calendar;
+    const holidayDayContents = get(
+        monthHolidays,
+        '[0].holiday_day_contents',
+        []
+    );
     const link = previousOrNext => {
         return `https://www.lanacion.com.ar${previousAndNextCalendar[previousOrNext].url}`;
     };
@@ -33,11 +40,11 @@ const HolidaysMonthNav = ({ calendar, previousAndNextCalendar }) => {
             )}
             <div className="calendar">
                 <HolidaysCardCalendar
-                    year={calendar.year}
-                    monthNumber={calendar.monthNumber}
-                    monthName={calendar.monthName}
+                    year={year}
+                    monthNumber={monthNumber}
+                    monthName={monthName}
                     layout="month"
-                    holidayData={calendar.monthHolidays[0].holiday_day_contents}
+                    holidayData={holidayDayContents}
                 />
             </div>
             {previousAndNextCalendar.next && (
@@ -84,7 +91,8 @@ HolidaysMonthNav.propTypes = {
             text: PropTypes.string,
             url: PropTypes.string
         })
-    }).isRequired
+    }).isRequired,
+    year: PropTypes.number.isRequired
 };
 
 export default HolidaysMonthNav;

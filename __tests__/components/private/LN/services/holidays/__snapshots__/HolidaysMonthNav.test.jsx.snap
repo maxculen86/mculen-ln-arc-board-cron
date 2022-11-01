@@ -85,6 +85,11 @@ exports[`components - private - holidays - HolidaysNav snapshot HolidaysMonthNav
               <span
                 class="com-text"
               >
+                 
+              </span>
+              <span
+                class="com-text"
+              >
                 1
               </span>
               <span
@@ -240,6 +245,9 @@ exports[`components - private - holidays - HolidaysNav snapshot HolidaysMonthNav
             </div>
           </section>
         </div>
+        <ul
+          class="holidays-list"
+        />
       </div>
     </div>
     <h3
