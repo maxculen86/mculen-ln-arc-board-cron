@@ -11,8 +11,8 @@
 
     .number-counter {
         border-radius: 50%;
-        max-width: px(120);
-        max-height: px(120);
+        width: px(130);
+        height: px(130);
         margin: auto;
         padding: px(30);
         @include flex(flex, column, center, center);
@@ -26,8 +26,8 @@
         color: $negro;
         @media ($media-m) {
             margin: 0;
-            min-width: px(120);
-            min-height: px(120);
+            width: px(140);
+            height: px(140);
         }
         &.--immovable {
             background-color: $blue-200;

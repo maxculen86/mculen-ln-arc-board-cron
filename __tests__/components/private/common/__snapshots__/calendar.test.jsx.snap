@@ -264,7 +264,7 @@ exports[`Components - common - Calendar => Test calendar without props 1`] = `
         <span
           class="com-text"
         >
-          octubre
+          noviembre
         </span>
       </h2>
       <div
@@ -310,26 +310,6 @@ exports[`Components - common - Calendar => Test calendar without props 1`] = `
     <div
       class="date-calendar"
     >
-      <span
-        class="com-text"
-      >
-         
-      </span>
-      <span
-        class="com-text"
-      >
-         
-      </span>
-      <span
-        class="com-text"
-      >
-         
-      </span>
-      <span
-        class="com-text"
-      >
-         
-      </span>
       <span
         class="com-text"
       >
@@ -484,11 +464,6 @@ exports[`Components - common - Calendar => Test calendar without props 1`] = `
         class="com-text"
       >
         30
-      </span>
-      <span
-        class="com-text"
-      >
-        31
       </span>
     </div>
   </section>

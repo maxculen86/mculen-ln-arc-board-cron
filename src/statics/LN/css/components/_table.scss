@@ -40,4 +40,26 @@
             }
         }
     }
+    &.--feriados {
+        .table {
+            border-radius: px(4);
+            overflow: hidden;
+            border-collapse: separate;
+            thead {
+                border-bottom: px(0) solid $light-neutral-300;
+            }
+            tr {
+                th {
+                    text-align: center;
+                    background-color: $light-neutral-200;
+                }
+                td {
+                    text-align: center;
+                }
+            }
+            tr:not(:last-child) {
+                border-bottom: px(0) solid $light-neutral-300;
+            }
+        }
+    }
 }

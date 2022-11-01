@@ -16,6 +16,9 @@
             &::first-letter {
                 text-transform: capitalize;
             }
+            a {
+                color: $dark-neutral-200;
+            }
         }
         .days-of-week {
             display: grid;

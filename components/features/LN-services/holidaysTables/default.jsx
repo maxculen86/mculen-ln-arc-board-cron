@@ -13,15 +13,15 @@ const HolidaysTables = ({ id: _featureId, customFields = {} }) => {
         'globalContent.dataService.holidays',
         []
     );
-    console.log('🚀 ~ file: default.jsx ~ line 41 ~ holidayType', holidayType);
     const monthHolidays = get(holidays, 'holiday_month_contents', []);
+
     if (!Object.keys(holidays).length) return null;
+
     return (
         <StaticValidation id={_featureId} htmlOnly persistent>
-            <h1>HOLAAAAA</h1>
-            {/* {monthHolidays.map(data => (
+            {monthHolidays.map(data => (
                 <Table />
-            ))} */}
+            ))}
         </StaticValidation>
     );
 };
