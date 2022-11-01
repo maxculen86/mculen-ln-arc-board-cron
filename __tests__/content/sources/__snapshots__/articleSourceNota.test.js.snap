@@ -79,5 +79,6 @@ Object {
   "type": "story",
   "website_url": "/deportes/por-el-mercado-nid570000/",
   "withFirmaDistributor": true,
+  "withSponsoredLink": false,
 }
 `;

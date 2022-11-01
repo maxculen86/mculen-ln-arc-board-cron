@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - private - holidays - HolidaysCounter snapshot HolidaysCounter 1`] = `
+<div>
+  <div
+    class="holidays-counter"
+  >
+    <div
+      class="number-counter --immovable"
+    >
+      <span
+        class="com-text --sueca --font-bold --threexl"
+      >
+        8
+      </span>
+      <span
+        class="com-text --font-bold --m"
+      >
+        Enero
+      </span>
+    </div>
+    <div
+      class="label-counter"
+    >
+      <h2
+        class="com-text --l"
+      >
+        <strong>
+          Faltan 5 días 
+        </strong>
+        para el próximo feriado
+      </h2>
+      <p
+        class="com-text --s"
+      >
+        Feriado
+         Día de la Inmaculada Concepción de María.
+      </p>
+    </div>
+  </div>
+</div>
+`;

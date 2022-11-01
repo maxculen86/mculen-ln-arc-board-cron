@@ -14,6 +14,7 @@ const ImageAuthor = ({ outputType, url, name }) => {
                     amp={outputType === 'amp'}
                     width="280"
                     height="280"
+                    isApertura
                 />
             </div>
         </figure>

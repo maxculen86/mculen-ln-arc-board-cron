@@ -9,7 +9,8 @@ const BuildBody = ({ banners, outputType, globalContent = {} }) => {
     const {
         content_elements: contentElements,
         headlines: { basic: tituloNota },
-        subtype = ''
+        subtype = '',
+        withSponsoredLink
     } = globalContent;
 
     let counter = 0;
@@ -28,7 +29,8 @@ const BuildBody = ({ banners, outputType, globalContent = {} }) => {
         const extraProps = setExtraProps({
             tituloNota,
             capitalIndex,
-            contentElements
+            contentElements,
+            withSponsoredLink
         });
 
         const ComponentWithProps = setDataComponent({
@@ -71,7 +73,12 @@ const BuildBody = ({ banners, outputType, globalContent = {} }) => {
 
 export default BuildBody;
 
-const setExtraProps = ({ tituloNota, capitalIndex, contentElements }) => {
+const setExtraProps = ({
+    tituloNota,
+    capitalIndex,
+    contentElements,
+    withSponsoredLink
+}) => {
     return {
         image: { withZoom: '--zoom', insideBody: true },
         gallery: { withZoom: '--zoom' },
@@ -79,6 +86,9 @@ const setExtraProps = ({ tituloNota, capitalIndex, contentElements }) => {
             tituloNota,
             primerParrafo:
                 (capitalIndex !== -1 && contentElements[capitalIndex]) || ''
+        },
+        text: {
+            withSponsoredLink
         }
     };
 };

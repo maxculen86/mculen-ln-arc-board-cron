@@ -32,6 +32,7 @@ import { recipePowerUps, removeParallaxPowerUp } from './utils/powerUp';
 import firmaDistributorValidation from './utils/firmaDistributorValidator';
 import isNoteListenable from './utils/audioNews/helper';
 import force404AMP from './utils/force404AMP';
+import validateSponsoredLink from './utils/validateSponsoredLink';
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -215,6 +216,7 @@ const transform = (
         subscription: meteringVariant,
         withFirmaDistributor,
         isListenable: isNoteListenable(data),
+        withSponsoredLink: validateSponsoredLink(data),
         ...addResizedUrls(data, {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,

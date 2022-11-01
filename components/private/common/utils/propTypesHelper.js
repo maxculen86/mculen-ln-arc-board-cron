@@ -15,7 +15,8 @@ const bannerPropTypes = {
         tablet: PropTypes.oneOf(BANNERS_TABLET),
         sticky: PropTypes.bool,
         background: PropTypes.bool,
-        fixed: PropTypes.bool
+        fixed: PropTypes.bool,
+        solo_no_suscriptores: PropTypes.bool
     }),
     siteProperties: PropTypes.shape({
         bannerConfig: PropTypes.shape({

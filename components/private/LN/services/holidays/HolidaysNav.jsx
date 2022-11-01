@@ -1,12 +1,28 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/holidays-nav.css';
 import Link from '../../../common/com-link';
 import Text from '../../../common/text';
 
-const HolidaysNav = ({ year }) => {
+const HolidaysNav = ({ year, layout }) => {
+    const currentYear = new Date().getFullYear();
+    const previousYear = currentYear - 1;
+    const posteriorYear = currentYear + 1;
+
+    const validateYear = valYear => {
+        return year === valYear
+            ? false
+            : `https://www.lanacion.com.ar/feriados/${valYear}/`;
+    };
+
+    const extraClass = {
+        home: ' --home',
+        month: ' --month'
+    };
+
     return (
-        <div className="holidaysNav">
+        <div className={`holidays-nav${extraClass[layout]}`}>
             <div className="sampler">
                 <Text tag="p" size="4xs">
                     Feriados inamovibles
@@ -19,23 +35,37 @@ const HolidaysNav = ({ year }) => {
                 </Text>
             </div>
             <ol className="year">
-                <li className="--font-bold --fivexs">
+                <li
+                    className={`--font-bold --fivexs${
+                        !validateYear(previousYear) ? ' --active' : ''
+                    }`}
+                >
                     <Link
-                        link={`
-                            https://www.lanacion.com.ar/feriados/${year - 1}/
-                        `}
-                        title={`Ir a feriados ${`${year - 1}`}`}
-                        textname={`${year - 1}`}
+                        link={validateYear(previousYear)}
+                        title={`Ir a feriados ${`${previousYear}`}`}
+                        textname={`${previousYear}`}
                     />
                 </li>
-                <li className="--font-bold --fivexs">{`${year}`}</li>
-                <li className="--font-bold --fivexs">
+                <li
+                    className={`--font-bold --fivexs${
+                        !validateYear(currentYear) ? ' --active' : ''
+                    }`}
+                >
                     <Link
-                        link={`
-                            https://www.lanacion.com.ar/feriados/${year + 1}/
-                        `}
-                        title={`Ir a feriados ${`${year + 1}`}`}
-                        textname={`${year + 1}`}
+                        link={validateYear(currentYear)}
+                        title={`Ir a feriados ${currentYear}`}
+                        textname={`${currentYear}`}
+                    />
+                </li>
+                <li
+                    className={`--font-bold --fivexs${
+                        !validateYear(posteriorYear) ? ' --active' : ''
+                    }`}
+                >
+                    <Link
+                        link={validateYear(posteriorYear)}
+                        title={`Ir a feriados ${`${posteriorYear}`}`}
+                        textname={`${posteriorYear}`}
                     />
                 </li>
             </ol>
@@ -44,7 +74,8 @@ const HolidaysNav = ({ year }) => {
 };
 
 HolidaysNav.propTypes = {
-    year: PropTypes.number.isRequired
+    year: PropTypes.number.isRequired,
+    layout: PropTypes.oneOf(['home', 'month'])
 };
 
 export default HolidaysNav;

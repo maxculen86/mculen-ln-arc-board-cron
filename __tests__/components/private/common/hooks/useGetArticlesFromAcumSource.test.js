@@ -28,14 +28,12 @@ describe('Private - Common - Hooks - useGetArticlesFromAcumSource', () => {
     };
     it('should return the corresponding array of articles', () => {
         useContent.mockReturnValueOnce(mockArticles);
-        expect(
-            useGetArticlesFromAcumSource(...Object.values(args))
-        ).toStrictEqual(mockArticles.content_elements);
+        expect(useGetArticlesFromAcumSource(args)).toStrictEqual(
+            mockArticles.content_elements
+        );
     });
     it('should return an empty array', () => {
         useContent.mockReturnValueOnce([]);
-        expect(
-            useGetArticlesFromAcumSource(...Object.values(args))
-        ).toStrictEqual([]);
+        expect(useGetArticlesFromAcumSource(args)).toStrictEqual([]);
     });
 });

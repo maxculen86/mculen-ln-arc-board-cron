@@ -39,6 +39,10 @@ jest.mock(
     () => 'mock-social-icons'
 );
 
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+}));
+
 describe('WIkiAuthorHelper functions test', () => {
     const outputType = 'default';
     const affiliations = 'Academia de Periodismo.';
@@ -237,6 +241,7 @@ describe('WIkiAuthorHelper functions test', () => {
 
     it('Checking authorPodcast', () => {
         const { container } = render(authorPodcast(podcast));
+
         const containerElement = container.getElementsByTagName(
             'mock-com-container'
         );

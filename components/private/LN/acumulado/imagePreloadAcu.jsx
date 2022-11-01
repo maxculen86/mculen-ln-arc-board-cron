@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkImagePreload } from '../common/utils/mediaHelper';
@@ -7,25 +9,25 @@ import get from '../../common/utils/get';
 import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
 import filter from '../../../../content/filters/LN/acumulado/articlePreload';
 
-const ImagePreloadlAcu = ({ arcSite, accumulated, nodeType }) => {
+const ImagePreloadlAcu = ({
+    arcSite,
+    accumulated,
+    nodeType,
+    collectionId = '',
+    imageConfig = 'boxArticles'
+}) => {
     const typesOfQuery = setArticleQueryAcu(nodeType, accumulated);
 
-    const searchArgs = {
-        typesOfQuery,
-        filter,
-        imageConfig: 'boxArticles',
-        size: 1,
-        sourceOrigin: '',
-        excludeSectionId: false,
-        type: '',
-        shouldNotFilter: false,
-        website: arcSite || 'la-nacion-ar',
-        promoItemsOnly: false,
-        staticMode: true
-    };
-
     const [firstArticle] =
-        useGetArticlesFromAcumSource(...Object.values(searchArgs)) || [];
+        useGetArticlesFromAcumSource({
+            typesOfQuery,
+            filter,
+            imageConfig,
+            size: 1,
+            website: arcSite || 'la-nacion-ar',
+            staticMode: true,
+            collectionId
+        }) || [];
 
     const basic = get(firstArticle, 'promo_items.basic', {});
     const promoItemsWWW = replaceUrlResizerToWWW(basic) || {};
@@ -41,7 +43,9 @@ ImagePreloadlAcu.propTypes = {
         canonicalUrl: PropTypes.string,
         name: PropTypes.string
     }).isRequired,
-    nodeType: PropTypes.string.isRequired
+    nodeType: PropTypes.string.isRequired,
+    collectionId: PropTypes.string,
+    imageConfig: PropTypes.string
 };
 
 export default ImagePreloadlAcu;

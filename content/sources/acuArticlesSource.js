@@ -178,7 +178,6 @@ const fetch = query => {
     }
     return request(opt)
         .then(response => {
-
             return transform(response, query);
         })
         .catch(error => {
