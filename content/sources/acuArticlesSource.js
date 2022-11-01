@@ -181,6 +181,12 @@ const fetch = query => {
             return transform(response, query);
         })
         .catch(error => {
+            // eslint-disable-next-line no-console
+            console.warn(
+                `content/acuArticlesSource Error: ${JSON.stringify(
+                    query
+                )} - errorMsj:${error.message}`
+            );
             logger.push(error, { source: 'content/acuArticlesSource', query });
         });
 };

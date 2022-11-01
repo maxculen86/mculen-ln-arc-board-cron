@@ -2665,6 +2665,14 @@ export default {
                 2: { imageConfig: 'boxArticlesVerticalArticles' }
             }
         },
+        notaColorQatar3: {
+            className: '--highlight --qatar',
+            articles: {
+                0: { imageConfig: 'boxArticlesVerticalArticles' },
+                1: { imageConfig: 'boxArticlesVerticalArticles' },
+                2: { imageConfig: 'boxArticlesVerticalArticles' }
+            }
+        },
         author3: {
             className: '',
             articles: {
