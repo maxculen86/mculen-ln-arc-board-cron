@@ -196,7 +196,9 @@ export const getScriptForComercial = slodId => {
                 __html: `
                 window.addEventListener('DOMContentLoaded', () => {
                     setTimeout(function(){
-                        document.getElementById("${slodId}").parentNode.classList.add('hlp-none');
+                        
+                        const bannerComercial = document.getElementById("${slodId}");
+                        bannerComercial && bannerComercial.parentNode.classList.add('hlp-none');
                       },12000)
                 })
             `

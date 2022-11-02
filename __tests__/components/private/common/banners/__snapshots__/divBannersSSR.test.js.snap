@@ -35,7 +35,8 @@ exports[`Private - Common - Banners - Div Banners SSR should return div banner w
       
                             window.addEventListener('DOMContentLoaded', () =&gt; {
                                 document.getElementById('random_banner_btnCloseAd').onclick = function() {
-                                    this.parentNode.classList.add('hlp-none')
+                                    
+                                    this.parentNode && this.parentNode.classList.add('hlp-none')
                                 };
                             });
                             
