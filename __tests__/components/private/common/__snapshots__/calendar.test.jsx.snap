@@ -458,7 +458,7 @@ exports[`Components - common - Calendar => testing components without props 1`] 
       <h2
         class="com-text --title --arial --font-bold --4xs"
       >
-        Octubre
+        Noviembre
       </h2>
       <div
         class="days-of-week"
@@ -503,26 +503,6 @@ exports[`Components - common - Calendar => testing components without props 1`] 
     <div
       class="date-calendar"
     >
-      <span
-        class="com-text  --arial --4xs"
-      >
-         
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-         
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-         
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-         
-      </span>
       <span
         class="com-text  --arial --4xs"
       >
@@ -677,11 +657,6 @@ exports[`Components - common - Calendar => testing components without props 1`] 
         class="com-text  --arial --4xs"
       >
         30
-      </span>
-      <span
-        class="com-text  --arial --4xs"
-      >
-        31
       </span>
     </div>
   </section>

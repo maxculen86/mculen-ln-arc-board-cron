@@ -53,7 +53,8 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                             __html: `
                             window.addEventListener('DOMContentLoaded', () => {
                                 document.getElementById('${slotId}_btnCloseAd').onclick = function() {
-                                    this.parentNode.classList.add('hlp-none')
+                                    
+                                    this.parentNode && this.parentNode.classList.add('hlp-none')
                                 };
                             });
                             `
