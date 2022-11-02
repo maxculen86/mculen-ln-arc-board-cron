@@ -221,6 +221,7 @@ const transform = (
         withFirmaDistributor,
         isListenable: isNoteListenable(data),
         withSponsoredLink: validateSponsoredLink(data),
+        category: category.valor || null,
         ...addResizedUrls(data, {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,
@@ -242,8 +243,7 @@ const transform = (
             subtype,
             isInApertura,
             isAdmin
-        }),
-        category: category.valor || null
+        })
     };
     return transformContent(
         resp,
@@ -360,8 +360,6 @@ const transformContent = async (
         const relatedContent = get(resp, 'related_content.basic', []);
         relatedContent.length &&
             (resp.related_content.basic = removeInvalidRelated(relatedContent));
-        // eslint-disable-next-line no-console
-        console.log('RESPUESTAAAAAAAA', resp);
         return resp;
     });
 };
