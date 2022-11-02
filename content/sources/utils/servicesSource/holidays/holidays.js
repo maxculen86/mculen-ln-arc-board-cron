@@ -1,7 +1,11 @@
 import request from 'request-promise-native';
 import { LANACION_SERVICES_URL } from 'fusion:environment';
 import logger from '../../../../../components/private/common/utils/logger';
-import { getMonthNumber, transformHolidays } from './holidaysHelper';
+import {
+    getMonthNumber,
+    transformHolidays,
+    getHolidaysMetaData
+} from './holidaysHelper';
 
 const getUri = ({ service = '', serviceItem = '', serviceSubItem = '' }) => {
     if (serviceSubItem && serviceItem)
@@ -45,6 +49,10 @@ const transform = data => {
         dataService: transformHolidays(
             dataService,
             serviceType,
+            serviceItem,
+            serviceSubItem
+        ),
+        metaData: getHolidaysMetaData(serviceSubItem)(
             serviceItem,
             serviceSubItem
         )
