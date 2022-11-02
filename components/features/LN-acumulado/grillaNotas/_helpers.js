@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import PropTypes from 'fusion:prop-types';
 import {
     BANNERS_DESKTOP,
@@ -6,7 +5,7 @@ import {
     BANNERS_TABLET
 } from '../../../private/LN/common/utils/bannerHelper';
 
-export const buildCustomFieldsForBanners = () => {
+const buildCustomFieldsForBanners = () => {
     const attributes = [
         {
             name: 'desktop',
@@ -57,3 +56,5 @@ export const buildCustomFieldsForBanners = () => {
         {}
     );
 };
+
+export default buildCustomFieldsForBanners;

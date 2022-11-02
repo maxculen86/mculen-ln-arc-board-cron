@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
 import useGridArticles from './useGridArticles';
@@ -64,15 +63,11 @@ const useGridPagination = props => {
 
     const typeArticle = layout || accumulatedType;
 
-    const genericProps = {
-        getBanner,
-        outputType,
-        typeArticle
-    };
-
     const InitialGrid = (
         <ArticlesAcum
-            {...genericProps}
+            getBanner={getBanner}
+            outputType={outputType}
+            typeArticle={typeArticle}
             articles={storedArticles[1] || articles}
         />
     );

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-underscore-dangle */
 import useGetArticlesFromAcuSource from './useGetArticlesFromAcumSource';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';

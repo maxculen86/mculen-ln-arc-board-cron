@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/require-default-props */
 
 import React from 'react';
@@ -7,7 +6,7 @@ import Consumer from 'fusion:consumer';
 import { useAppContext } from 'fusion:context';
 
 import Banner from '../../../private/LN/acumulado/grillaNotas/banner';
-import { buildCustomFieldsForBanners } from './_helpers';
+import buildCustomFieldsForBanners from './_helpers';
 
 import useGlobalProviderAcu from '../../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import useGridPagination from '../../../private/LN/common/hooks/useGridPagination';
@@ -50,7 +49,13 @@ const GrillaNotasFeature = props => {
         globalContent
     });
 
-    const grillaNotasProps = useGridPagination({
+    const {
+        goToNextPage,
+        loading,
+        hasMoreArticles,
+        InitialGrid,
+        NextResults
+    } = useGridPagination({
         getBanner,
         ...globalProviderAcu,
         ...appContextProps
@@ -58,7 +63,11 @@ const GrillaNotasFeature = props => {
 
     return (
         <GrillaNotas
-            {...grillaNotasProps}
+            goToNextPage={goToNextPage}
+            loading={loading}
+            hasMoreArticles={hasMoreArticles}
+            InitialGrid={InitialGrid}
+            NextResults={NextResults}
             name={globalContent.name}
             hasHydrateOnly={hasHydrateOnly}
         />
