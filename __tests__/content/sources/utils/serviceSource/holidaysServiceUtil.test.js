@@ -322,7 +322,13 @@ describe('Test transform holidays ', () => {
         const dataYear = { ...data, serviceItem: 2023 };
         expect(transform(dataYear)).toStrictEqual({
             ...outputTransformHome,
-            serviceItem: 2023
+            serviceItem: 2023,
+            metaData: {
+                description:
+                    'Calendario de feriados nacionales 2023 en Argentina: días no laborables, fines de semana largo y feriados puente del 2023 y 2024 en LA NACION.',
+                title:
+                    'Feriados 2023 en Argentina: Calendario de feriados nacionales - LA NACION'
+            }
         });
     });
     it('Check transform function in month without holidays ', () => {

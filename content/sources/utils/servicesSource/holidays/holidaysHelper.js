@@ -1,6 +1,51 @@
 import { monthNames } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 import { weekDays } from '../../../../../components/private/common/utils/transformISODate';
 import capitalizeFirstLetter from '../../../../../components/private/common/utils/capitalizeFirstLetter';
+import get from '../../../../../components/private/common/utils/get';
+import monthsDescriptions from './_config';
+
+export const getHolidaysMetaData = serviceSubItem => {
+    if (serviceSubItem)
+        return get(metaDataFactory, 'mes', metaDataFactory.default);
+
+    return get(metaDataFactory, 'home', metaDataFactory.default);
+};
+
+const metaDataFactory = {
+    home: serviceItem => {
+        const year = serviceItem || new Date().getFullYear();
+        return {
+            title: `Feriados ${year} en Argentina: Calendario de feriados nacionales - LA NACION`,
+            description: `Calendario de feriados nacionales ${year} en Argentina: días no laborables, fines de semana largo y feriados puente del ${year} y ${year +
+                1} en LA NACION.`
+        };
+    },
+    mes: (serviceItem, serviceSubItem) => {
+        if (serviceItem === '2021') {
+            return {
+                title: `Feriados en ${serviceSubItem} de ${serviceItem} en Argentina. Calendario ${serviceItem} - LA NACION`,
+                description: `Calendario de feriados nacionales en ${serviceSubItem} de ${serviceItem} en Argentina: días no laborables, fines de semana largo y feriados puente en LA NACION.`,
+                paragraph: monthsDescriptions[serviceItem]
+            };
+        }
+        return {
+            title: `Feriados en ${serviceSubItem} de ${serviceItem} en Argentina. Calendario ${serviceItem} - LA NACION`,
+            description: `Calendario de feriados nacionales en ${serviceSubItem} de ${serviceItem} en Argentina: días no laborables, fines de semana largo y feriados puente en LA NACION.`,
+            paragraph: get(
+                monthsDescriptions[serviceItem],
+                `.${serviceSubItem}`,
+                ''
+            )
+        };
+    },
+    default: serviceItem => {
+        const year = serviceItem || new Date().getFullYear();
+        return {
+            title: 'Feriados por LA NACION',
+            description: `Todos los feriados de ${year} por LA NACION`
+        };
+    }
+};
 
 const getMonthNumber = (monthString = '') => {
     return monthNames.indexOf(monthString) !== -1

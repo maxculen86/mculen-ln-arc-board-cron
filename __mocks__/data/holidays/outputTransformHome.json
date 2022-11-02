@@ -388,5 +388,9 @@
                 ]
             }
         }
+    },
+    "metaData": {
+        "description": "Calendario de feriados nacionales 2022 en Argentina: días no laborables, fines de semana largo y feriados puente del 2022 y 2023 en LA NACION.",
+        "title": "Feriados 2022 en Argentina: Calendario de feriados nacionales - LA NACION"
     }
 }
