@@ -17,7 +17,7 @@ export const getHolidaysMetaData = serviceSubItem => {
 
 const metaDataFactory = {
     home: serviceItem => {
-        const year = serviceItem || new Date().getFullYear();
+        const year = Number(serviceItem) || new Date().getFullYear();
         return {
             title: `Feriados ${year} en Argentina: Calendario de feriados nacionales - LA NACION`,
             description: `Calendario de feriados nacionales ${year} en Argentina: días no laborables, fines de semana largo y feriados puente del ${year} y ${year +
@@ -43,7 +43,7 @@ const metaDataFactory = {
         };
     },
     default: serviceItem => {
-        const year = serviceItem || new Date().getFullYear();
+        const year = Number(serviceItem) || new Date().getFullYear();
         return {
             title: 'Feriados por LA NACION',
             description: `Todos los feriados de ${year} por LA NACION`
