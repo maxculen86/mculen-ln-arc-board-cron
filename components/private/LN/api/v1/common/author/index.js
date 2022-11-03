@@ -9,12 +9,15 @@ const getAuthorData = author => {
         throw new Error('Nombre de Autor Inexistente');
     }
 
+    const roleDesc =
+        role || get(author, 'additional_properties.original.role', null);
+
     return {
         id: getAutorId(id),
         slug: id,
         valor: name,
         intereses: expertise,
-        rol: role
+        rol: roleDesc
     };
 };
 
