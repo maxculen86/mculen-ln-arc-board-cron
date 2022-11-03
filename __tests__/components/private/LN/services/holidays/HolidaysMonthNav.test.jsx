@@ -1,7 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+
 import '@testing-library/jest-dom';
 import HolidaysMonthNav from '../../../../../../components/private/LN/services/holidays/HolidaysMonthNav';
+
+jest.mock('fusion:environment', () => {
+    return {
+        SITE_LANACION: 'https://www.lanacion.com.ar'
+    };
+});
 
 describe('components - private - holidays - HolidaysNav', () => {
     let component;
@@ -20,7 +27,7 @@ describe('components - private - holidays - HolidaysNav', () => {
             next: {
                 text: 'enero 2022',
                 title: 'Ir a feriados de enero del 2022',
-                url: '/feriados/2022/enero/'
+                url: 'feriados/2022/enero/'
             }
         }
     };

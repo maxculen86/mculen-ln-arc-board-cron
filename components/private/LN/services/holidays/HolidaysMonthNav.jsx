@@ -1,6 +1,7 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 import '../../../../../resources/dist/css/ln/components/holidays-month-nav.css';
 import Link from '../../../common/com-link';
 import Icon from '../../../common/icon';
@@ -15,7 +16,7 @@ const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
         []
     );
     const link = previousOrNext => {
-        return `https://www.lanacion.com.ar${previousAndNextCalendar[previousOrNext].url}`;
+        return `${SITE_LANACION}/${previousAndNextCalendar[previousOrNext].url}`;
     };
     const title = previousOrNext => {
         return previousAndNextCalendar[previousOrNext].title;

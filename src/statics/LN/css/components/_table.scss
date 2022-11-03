@@ -1,7 +1,6 @@
 @import '../abstracts/variables';
-
 .table-wrapper {
-    overflow-x: auto;
+    overflow: auto;
     width: 100%;
     .table {
         width: 100%;
@@ -16,14 +15,14 @@
                 font-weight: 700;
                 background-color: inherit;
             }
-            td {
-                padding: $spacing-sm;
-            }
-            th,
-            td {
-                text-align: start;
-                vertical-align: middle;
-            }
+        }
+        td {
+            padding: $spacing-sm;
+        }
+        th,
+        td {
+            text-align: start;
+            vertical-align: middle;
         }
         tr:not(:last-child) {
             border-bottom: px(1) solid $light-neutral-300;
@@ -57,6 +56,18 @@
                 }
                 td {
                     text-align: center;
+                    hyphens: auto;
+                    @media ($media-s) {
+                        vertical-align: middle;
+                        hyphens: none;
+                    }
+                }
+            }
+            td,
+            th {
+                padding: $spacing-sm $spacing-xs;
+                @media (min-width: 402px) {
+                    padding: $spacing-sm;
                 }
             }
             tr:not(:last-child) {

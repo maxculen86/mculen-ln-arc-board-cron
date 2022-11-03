@@ -1,0 +1,31 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: $spacing-xs;
+    column-gap: $spacing-xs;
+    margin-bottom: $spacing-lg;
+    margin-top: $spacing-lg;
+
+    @media ($media-m) {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .service-item {
+        @include flex(flex, column, center, start);
+        border: 1px solid $light-neutral-400;
+        border-radius: $spacing-2xs;
+        height: px(56);
+        padding: $spacing-sm;
+        width: 100%;
+        max-width: px(430);
+
+        .com-link {
+            text-transform: capitalize;
+            color: $light-neutral-900;
+        }
+    }
+}
