@@ -1,7 +1,11 @@
-import { monthNames } from '../../../../../components/private/common/utils/dateAndTimeUtil';
+import {
+    monthNames,
+    datesDiffInDays,
+    getSpecificDate
+} from '../../../../../components/private/common/utils/dateAndTimeUtil';
+import get from '../../../../../components/private/common/utils/get';
 import { weekDays } from '../../../../../components/private/common/utils/transformISODate';
 import capitalizeFirstLetter from '../../../../../components/private/common/utils/capitalizeFirstLetter';
-import get from '../../../../../components/private/common/utils/get';
 import monthsDescriptions from './_config';
 
 export const getHolidaysMetaData = serviceSubItem => {
@@ -162,12 +166,14 @@ const validateNextAndPreviousDate = (nextMonth, previousMonth, numericYear) => {
         ...(previousYear > currentYear - 2 && {
             previous: {
                 text: `${previousMonth} ${previousYear}`,
+                title: `Ir a feriados de ${previousMonth} del ${previousYear}`,
                 url: `/feriados/${previousYear}/${previousMonth}/`
             }
         }),
         ...(nextYear < currentYear + 2 && {
             next: {
                 text: `${nextMonth} ${nextYear}`,
+                title: `Ir a feriados de ${nextMonth} del ${nextYear}`,
                 url: `/feriados/${nextYear}/${nextMonth}/`
             }
         })
@@ -183,15 +189,15 @@ const transformHolidays = (
     if (!dataService) return {};
     const { holidays = [] } = dataService;
 
-    const { 0: catholicHolidays, 1: jewishHolidays } = holidays;
+    const { 0: catholicHolidays = {}, 1: jewishHolidays = {} } = holidays;
     const {
-        holiday_month_contents: catholicMonthContents,
-        year,
-        calendar_type: catholicCalendarType
+        holiday_month_contents: catholicMonthContents = [],
+        year = '',
+        calendar_type: catholicCalendarType = ''
     } = catholicHolidays;
     const {
-        holiday_month_contents: jewishMonthContents,
-        calendar_type: jewishCalendarType
+        holiday_month_contents: jewishMonthContents = [],
+        calendar_type: jewishCalendarType = ''
     } = jewishHolidays;
 
     const catholicHolidaysArray = createHolidaysArray(
@@ -268,6 +274,59 @@ const transformHolidays = (
           };
 };
 
+const getNextHolidayData = monthsArray => {
+    if (!monthsArray || !monthsArray.length) return null;
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const actualMonth = currentDate.getMonth();
+    const actualDay = currentDate.getDate();
+
+    const isNotCurrentDay = (holidays, month) =>
+        (Array.isArray(holidays.days) &&
+            holidays.days.some(day => day > actualDay)) ||
+        month - 1 > actualMonth;
+
+    const nextHolidays =
+        monthsArray
+            .slice(actualMonth)
+            .filter(month => Array.isArray(month.holidayData))
+            .find(month =>
+                month.holidayData.some(holiday =>
+                    isNotCurrentDay(holiday, month.monthNumber)
+                )
+            ) || {};
+
+    if (Object.keys(nextHolidays).length) {
+        const { monthNumber, monthName, holidayData } = nextHolidays;
+
+        const correctHoliday = holidayData.find(holiday =>
+            isNotCurrentDay(holiday, monthNumber)
+        );
+        const day = get(correctHoliday, 'days[0]', '');
+
+        return {
+            countdown: datesDiffInDays(
+                currentDate,
+                getSpecificDate(currentYear, monthNumber, day)
+            ),
+            monthName,
+            day,
+            reason: get(correctHoliday, 'reason', ''),
+            typeHoliday: get(correctHoliday, 'day_type_name', '')
+        };
+    }
+    return {
+        countdown: datesDiffInDays(
+            currentDate,
+            getSpecificDate(currentYear + 1, 1, 1)
+        ),
+        monthName: 'Enero',
+        day: 1,
+        reason: 'Año nuevo',
+        typeHoliday: 'Inamovible'
+    };
+};
+
 export {
     getMonthNumber,
     getMonthName,
@@ -276,5 +335,6 @@ export {
     transformHolidays,
     previousAndNextDate,
     createHolidaysArray,
-    convertHolidaysTable
+    convertHolidaysTable,
+    getNextHolidayData
 };

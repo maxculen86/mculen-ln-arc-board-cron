@@ -19,6 +19,7 @@ describe('components - private - holidays - HolidaysNav', () => {
         previousAndNextCalendar: {
             next: {
                 text: 'enero 2022',
+                title: 'Ir a feriados de enero del 2022',
                 url: '/feriados/2022/enero/'
             }
         }
@@ -51,7 +52,7 @@ describe('components - private - holidays - HolidaysNav', () => {
             })[0]
         ).toHaveAttribute(
             'title',
-            `Ir a feriados de ${dataFeriadosMes.previousAndNextCalendar.next.text}`
+            `${dataFeriadosMes.previousAndNextCalendar.next.title}`
         );
     });
 });

@@ -17,7 +17,8 @@ import {
     filterHolidaysByType,
     previousAndNextDate,
     createHolidaysArray,
-    convertHolidaysTable
+    convertHolidaysTable,
+    getNextHolidayData
 } from '../../../../../content/sources/utils/servicesSource/holidays/holidaysHelper';
 
 const mockResponse = Promise.resolve(mockCatholicAndJewishHoliday);
@@ -156,7 +157,11 @@ describe('Test previousAndNextDate helperFuction', () => {
     test('Should return only next for border case', () => {
         const result = previousAndNextDate(2021, 'enero');
         expect(result).toStrictEqual({
-            next: { text: 'febrero 2021', url: '/feriados/2021/febrero/' }
+            next: {
+                text: 'febrero 2021',
+                title: 'Ir a feriados de febrero del 2021',
+                url: '/feriados/2021/febrero/'
+            }
         });
     });
     test('Should return only previous for border case', () => {
@@ -164,6 +169,7 @@ describe('Test previousAndNextDate helperFuction', () => {
         expect(result).toStrictEqual({
             previous: {
                 text: 'noviembre 2023',
+                title: 'Ir a feriados de noviembre del 2023',
                 url: '/feriados/2023/noviembre/'
             }
         });
@@ -171,9 +177,14 @@ describe('Test previousAndNextDate helperFuction', () => {
     test('Should return previous and next', () => {
         const result = previousAndNextDate(2021, 'diciembre');
         expect(result).toStrictEqual({
-            next: { text: 'enero 2022', url: '/feriados/2022/enero/' },
+            next: {
+                text: 'enero 2022',
+                title: 'Ir a feriados de enero del 2022',
+                url: '/feriados/2022/enero/'
+            },
             previous: {
                 text: 'noviembre 2021',
+                title: 'Ir a feriados de noviembre del 2021',
                 url: '/feriados/2021/noviembre/'
             }
         });
@@ -181,9 +192,14 @@ describe('Test previousAndNextDate helperFuction', () => {
     test('Should return previous and next even receiving year as string', () => {
         const result = previousAndNextDate('2021', 'diciembre');
         expect(result).toStrictEqual({
-            next: { text: 'enero 2022', url: '/feriados/2022/enero/' },
+            next: {
+                text: 'enero 2022',
+                title: 'Ir a feriados de enero del 2022',
+                url: '/feriados/2022/enero/'
+            },
             previous: {
                 text: 'noviembre 2021',
+                title: 'Ir a feriados de noviembre del 2021',
                 url: '/feriados/2021/noviembre/'
             }
         });
@@ -350,5 +366,46 @@ describe('Test transform holidays ', () => {
                 serviceSubItem: 'mayo'
             })
         ).toStrictEqual(outputMonthWithHolidays);
+    });
+});
+
+describe('Test next holiday data generation with getNextHolidayData', () => {
+    const {
+        dataService: { calendars }
+    } = outputTransformHome;
+
+    describe('When current date is a holiday, should return next holiday', () => {
+        it('On christmas should return new year', () => {
+            const mockDateObject = new Date(2022, 11, 25);
+            const spy = jest
+                .spyOn(global, 'Date')
+                .mockImplementation(() => mockDateObject);
+
+            expect(getNextHolidayData(calendars)).toStrictEqual({
+                countdown: 0,
+                day: 1,
+                monthName: 'Enero',
+                reason: 'Año nuevo',
+                typeHoliday: 'Inamovible'
+            });
+            spy.mockRestore();
+        });
+    });
+    describe('When current date is not holiday, should return upcoming holiday', () => {
+        it('On first of july should return independency day', () => {
+            const mockDateObject = new Date(2022, 6, 1);
+            const spy = jest
+                .spyOn(global, 'Date')
+                .mockImplementation(() => mockDateObject);
+
+            expect(getNextHolidayData(calendars)).toStrictEqual({
+                countdown: 0,
+                day: 9,
+                monthName: 'Julio',
+                reason: 'Día de la Independencia.',
+                typeHoliday: 'Inamovible'
+            });
+            spy.mockRestore();
+        });
     });
 });

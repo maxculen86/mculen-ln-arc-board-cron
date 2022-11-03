@@ -18,8 +18,8 @@ const HolidaysHomeCalendar = ({ id: _featureId }) => {
 
     return (
         <StaticValidation id={_featureId} htmlOnly persistent>
-            <HolidaysNav year={serviceItem} layout="home" />
-            <HolidaysGridContainer calendars={calendars} />
+            <HolidaysNav layout="home" year={serviceItem} />
+            <HolidaysGridContainer calendars={calendars} year={serviceItem} />
         </StaticValidation>
     );
 };

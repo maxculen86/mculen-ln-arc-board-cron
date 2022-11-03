@@ -256,7 +256,7 @@ exports[`components - private - holidays - HolidaysNav snapshot HolidaysMonthNav
       <a
         class="com-link"
         href="https://www.lanacion.com.ar/feriados/2022/enero/"
-        title="Ir a feriados de enero 2022"
+        title="Ir a feriados de enero del 2022"
       >
         <div
           class="interaction-container"

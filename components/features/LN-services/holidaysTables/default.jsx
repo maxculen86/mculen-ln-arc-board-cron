@@ -20,6 +20,7 @@ const HolidaysTables = ({ id: _featureId, customFields = {} }) => {
         </StaticValidation>
     );
 };
+
 HolidaysTables.label = 'LN Tablas Feriados';
 HolidaysTables.propTypes = {
     id: PropTypes.string.isRequired,
