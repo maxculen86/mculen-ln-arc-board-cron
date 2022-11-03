@@ -183,15 +183,15 @@ const transformHolidays = (
     if (!dataService) return {};
     const { holidays = [] } = dataService;
 
-    const { 0: catholicHolidays, 1: jewishHolidays } = holidays;
+    const { 0: catholicHolidays = {}, 1: jewishHolidays = {} } = holidays;
     const {
-        holiday_month_contents: catholicMonthContents,
+        holiday_month_contents: catholicMonthContents = [],
         year,
-        calendar_type: catholicCalendarType
+        calendar_type: catholicCalendarType = ''
     } = catholicHolidays;
     const {
-        holiday_month_contents: jewishMonthContents,
-        calendar_type: jewishCalendarType
+        holiday_month_contents: jewishMonthContents = [],
+        calendar_type: jewishCalendarType = ''
     } = jewishHolidays;
 
     const catholicHolidaysArray = createHolidaysArray(
