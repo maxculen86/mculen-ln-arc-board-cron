@@ -1,5 +1,6 @@
 import weather from './weather';
 import lottery from './lottery';
+import holidays from './holidays';
 
 export default `{
     children {
@@ -11,6 +12,7 @@ export default `{
     dataService {
         ${weather}
         ${lottery}
+        ${holidays}
     }
     metaData {
         completeDay
@@ -23,9 +25,11 @@ export default `{
         headline
         latestNewsTitle
         title
+        paragraph
     }
     name
     node_type
     serviceType
+    serviceItem
     _id
 }`;

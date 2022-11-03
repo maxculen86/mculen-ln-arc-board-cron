@@ -6,13 +6,14 @@ import get from '../../../private/common/utils/get';
 import HolidaysMonthNav from '../../../private/LN/services/holidays/HolidaysMonthNav';
 import HolidaysNav from '../../../private/LN/services/holidays/HolidaysNav';
 
-const HolidaysHomeCalendar = ({ id: _featureId }) => {
+const HolidaysCalendarDetail = ({ id: _featureId }) => {
+    const { globalContent = {} } = useAppContext();
+    const serviceItem = get(globalContent, 'serviceItem', '');
     const { previousAndNextCalendar = {}, calendar = {} } = get(
-        useAppContext(),
-        'globalContent.dataService',
+        globalContent,
+        'dataService',
         {}
     );
-    const serviceItem = get(useAppContext(), 'globalContent.serviceItem', '');
     if (!Object.keys(calendar).length) return null;
 
     return (
@@ -27,8 +28,8 @@ const HolidaysHomeCalendar = ({ id: _featureId }) => {
     );
 };
 
-HolidaysHomeCalendar.label = 'LN Calendario Detalle';
+HolidaysCalendarDetail.label = 'LN Calendario Detalle';
 
-HolidaysHomeCalendar.propTypes = { id: PropTypes.string.isRequired };
+HolidaysCalendarDetail.propTypes = { id: PropTypes.string.isRequired };
 
-export default HolidaysHomeCalendar;
+export default HolidaysCalendarDetail;

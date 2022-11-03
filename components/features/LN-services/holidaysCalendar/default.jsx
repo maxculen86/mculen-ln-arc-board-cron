@@ -7,14 +7,11 @@ import HolidaysGridContainer from '../../../private/LN/services/holidays/Holiday
 import HolidaysNav from '../../../private/LN/services/holidays/HolidaysNav';
 
 const HolidaysHomeCalendar = ({ id: _featureId }) => {
-    const calendars = get(
-        useAppContext(),
-        'globalContent.dataService.calendars',
-        []
-    );
-    const serviceItem = get(useAppContext(), 'globalContent.serviceItem', '');
+    const { globalContent = {} } = useAppContext();
+    const serviceItem = get(globalContent, 'serviceItem', '');
+    const calendars = get(globalContent, 'dataService.calendars', []);
 
-    if (!Object.keys(calendars).length) return null;
+    if (!calendars.length) return null;
 
     return (
         <StaticValidation id={_featureId} htmlOnly persistent>

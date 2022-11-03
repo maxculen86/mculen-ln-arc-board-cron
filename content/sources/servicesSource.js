@@ -86,6 +86,6 @@ export default {
         redirectUrl: 'text',
         meteringVariant: 'text'
     },
-    // filter,
+    filter,
     ttl: 120
 };
