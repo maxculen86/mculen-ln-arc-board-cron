@@ -5,7 +5,7 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import { useAppContext } from 'fusion:context';
 
-import Banner from '../../../private/LN/acumulado/grillaNotas/banner';
+import Banner from '../../../private/LN/acumulado/grillaNotas/Banner';
 import buildCustomFieldsForBanners from './_helpers';
 
 import useGlobalProviderAcu from '../../../private/LN/acumulado/hooks/useGlobalProviderAcu';
@@ -46,7 +46,8 @@ const GrillaNotasFeature = props => {
         customFields,
         globalContentConfig,
         outputType,
-        globalContent
+        globalContent,
+        hasHydrateOnly
     });
 
     const {
