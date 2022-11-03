@@ -40,8 +40,10 @@
             }
         }
     }
-    &.--feriados {
+    &.--holidays {
         .table {
+            margin-top: $spacing-sm;
+            margin-bottom: $spacing-lg;
             border-radius: px(4);
             overflow: hidden;
             border-collapse: separate;

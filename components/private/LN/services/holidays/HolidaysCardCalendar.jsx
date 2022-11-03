@@ -55,7 +55,6 @@ HolidaysCardCalendar.propTypes = {
         PropTypes.shape({
             days: PropTypes.arrayOf(PropTypes.number),
             reason: PropTypes.string,
-            day_type: PropTypes.number,
             day_type_name: PropTypes.oneOf([
                 'Inamovible',
                 'Puente',

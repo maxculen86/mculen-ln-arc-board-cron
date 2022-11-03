@@ -22,13 +22,11 @@ describe('Components - common - Calendar =>', () => {
                 {
                     days: [1],
                     reason: 'Día del Trabajador.',
-                    day_type: 2,
                     day_type_name: 'Trasladable'
                 },
                 {
                     days: [25],
                     reason: 'Día de la Revolución de Mayo.',
-                    day_type: 1,
                     day_type_name: 'Inamovible'
                 }
             ]

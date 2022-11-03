@@ -1,11 +1,12 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 import setClassName from '../../../common/utils/setClassName';
 import '../../../../../resources/dist/css/ln/components/table.css';
 
-const Table = ({ data = {} }) => {
-    const { header = [], rows = [], extraClass = '' } = data;
+const Table = ({ data = {}, extraClass = '' }) => {
+    const { header = [], rows = [] } = data;
 
     if (!rows.length) return null;
     const classCondition = rows[0].length <= 2 ? '--two-columns' : '';
@@ -57,7 +58,8 @@ Table.propTypes = {
                 })
             )
         ).isRequired
-    }).isRequired
+    }).isRequired,
+    extraClass: PropTypes.string
 };
 
 export default Table;

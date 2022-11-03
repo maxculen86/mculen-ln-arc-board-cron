@@ -8,23 +8,19 @@ import Table from '../../../private/LN/nota/cuerpo/table';
 const HolidaysTables = ({ id: _featureId, customFields = {} }) => {
     const { holidayType } = customFields;
 
-    const holidays = get(
-        useAppContext(),
-        'globalContent.dataService.holidays',
-        []
-    );
-    const monthHolidays = get(holidays, 'holiday_month_contents', []);
+    const tables = get(useAppContext(), 'globalContent.dataService.tables', {});
 
-    if (!Object.keys(holidays).length) return null;
+    const table = tables[holidayType];
+
+    if (!Object.keys(tables).length) return null;
 
     return (
         <StaticValidation id={_featureId} htmlOnly persistent>
-            {monthHolidays.map(data => (
-                <Table />
-            ))}
+            <Table data={table} extraClass="--holidays" />
         </StaticValidation>
     );
 };
+
 HolidaysTables.label = 'LN Tablas Feriados';
 HolidaysTables.propTypes = {
     id: PropTypes.string.isRequired,

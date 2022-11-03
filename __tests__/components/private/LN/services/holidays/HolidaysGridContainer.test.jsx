@@ -5,7 +5,7 @@ import HolidaysGridContainer from '../../../../../../components/private/LN/servi
 
 describe('components - private - holidays - HolidaysGridContainer', () => {
     let component;
-    const calendarss = [
+    const calendars = [
         {
             monthNumber: 1,
             monthName: 'Enero',
@@ -14,7 +14,6 @@ describe('components - private - holidays - HolidaysGridContainer', () => {
                 {
                     days: [1],
                     reason: 'Año nuevo',
-                    day_type: 1,
                     day_type_name: 'Inamovible'
                 }
             ]
@@ -27,7 +26,6 @@ describe('components - private - holidays - HolidaysGridContainer', () => {
                 {
                     days: [28],
                     reason: 'Carnaval',
-                    day_type: 1,
                     day_type_name: 'Inamovible'
                 }
             ]
@@ -35,7 +33,9 @@ describe('components - private - holidays - HolidaysGridContainer', () => {
     ];
 
     beforeEach(() => {
-        component = render(<HolidaysGridContainer calendars={calendarss} />);
+        component = render(
+            <HolidaysGridContainer calendars={calendars} year={2022} />
+        );
     });
 
     test('snapshot HolidaysGridContainer', () => {
@@ -47,7 +47,7 @@ describe('components - private - holidays - HolidaysGridContainer', () => {
             component.getAllByTitle('Ir a feriados de ', {
                 exact: false
             }).length
-        ).toBe(calendarss.length);
+        ).toBe(calendars.length);
 
         expect(
             component.getAllByTitle('Ir a feriados de ', {
@@ -57,8 +57,8 @@ describe('components - private - holidays - HolidaysGridContainer', () => {
             'href',
             expect.stringContaining(
                 `https://www.lanacion.com.ar/feriados/${
-                    calendarss[0].year
-                }/${calendarss[0].monthName.toLowerCase()}/`
+                    calendars[0].year
+                }/${calendars[0].monthName.toLowerCase()}/`
             )
         );
     });

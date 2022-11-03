@@ -11,7 +11,7 @@ describe('components - private - holidays - HolidaysCounter', () => {
                 month="Enero"
                 remainingDays={5}
                 description="Día de la Inmaculada Concepción de María."
-                typeHoliday="inamovibles"
+                typeHoliday="Inamovible"
             />
         );
         expect(container).toMatchSnapshot();

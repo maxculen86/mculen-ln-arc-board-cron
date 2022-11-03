@@ -18,7 +18,7 @@ const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
         return `https://www.lanacion.com.ar${previousAndNextCalendar[previousOrNext].url}`;
     };
     const title = previousOrNext => {
-        return `Ir a feriados de ${previousAndNextCalendar[previousOrNext].text}`;
+        return previousAndNextCalendar[previousOrNext].title;
     };
     const text = previousOrNext => {
         return `${previousAndNextCalendar[previousOrNext].text}`;
@@ -75,7 +75,6 @@ HolidaysMonthNav.propTypes = {
                     PropTypes.shape({
                         days: PropTypes.arrayOf(PropTypes.number),
                         reason: PropTypes.string,
-                        day_type: PropTypes.number,
                         day_type_name: PropTypes.string
                     })
                 )

@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/holidays-grid-container.css';
 import HolidaysCardCalendar from './HolidaysCardCalendar';
 
-const HolidaysGridContainer = ({ calendars }) => {
+const HolidaysGridContainer = ({ calendars, year }) => {
     return (
         <div className="holidays-grid-container">
-            {calendars.map(({ monthNumber, monthName, year, holidayData }) => {
+            {calendars.map(({ monthNumber, monthName, holidayData }) => {
                 return (
                     <HolidaysCardCalendar
                         year={year}
@@ -33,7 +33,6 @@ HolidaysGridContainer.propTypes = {
                 PropTypes.shape({
                     days: PropTypes.arrayOf(PropTypes.number),
                     reason: PropTypes.string,
-                    day_type: PropTypes.number,
                     day_type_name: PropTypes.oneOf([
                         'Trasladable',
                         'Inamovible',

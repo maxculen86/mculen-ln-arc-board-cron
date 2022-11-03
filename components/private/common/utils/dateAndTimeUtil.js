@@ -15,6 +15,24 @@ export const monthNames = [
     'diciembre'
 ];
 
+export const getSpecificDate = (year, month, day) => {
+    const date = new Date(year, month - 1, day);
+    return isNaN(date.getMonth()) ? null : date;
+};
+
+export function datesDiffInDays(firstDate, secondDate) {
+    if (
+        !firstDate ||
+        typeof firstDate !== 'object' ||
+        isNaN(firstDate.getMonth()) ||
+        !secondDate ||
+        typeof secondDate !== 'object' ||
+        isNaN(secondDate.getMonth())
+    )
+        return null;
+    return Math.ceil((secondDate - firstDate) / (1000 * 3600 * 24));
+}
+
 export function formatDate(originalDate) {
     // TODO: en  el render desde el cliente toma la hora del mismo,
     // cuando es ssr toma la hora del servidor.
