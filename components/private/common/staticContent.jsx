@@ -9,6 +9,7 @@ function StaticContent({ children, Tag = 'div', ...attrs }) {
 
     useEffect(() => {
         const isEmpty = ref.current.innerHTML === '';
+
         if (isEmpty) {
             setRender(true);
         }

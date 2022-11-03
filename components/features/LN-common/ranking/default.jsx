@@ -18,6 +18,7 @@ const getDataContent = (
     const getRankingData = section =>
         getContent({
             source: 'rankingArticlesSource',
+            staticMode: true,
             query: {
                 sectionId: section,
                 imageConfig: 'boxArticles',

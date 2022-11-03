@@ -5,6 +5,7 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import isAnyGrilla1 from '../../../common/utils/isAnyGrilla1';
+import checkHydrateOnly from '../../common/utils/checkHydrateOnly';
 
 const GlobalContext = React.createContext([{}, () => {}]);
 
@@ -25,6 +26,7 @@ const getCollectionsInPage = (idCollectionsInPage = []) => {
             website: 'la-nacion-ar',
             imageConfig: isAnyGrilla1(renderables) ? 'l' : 'm'
         };
+
         const collect =
             id &&
             useContent({
@@ -44,6 +46,12 @@ const getCollectionsInPage = (idCollectionsInPage = []) => {
 };
 
 const getCollectionApertura = id => {
+    const {
+        globalContent: { node_type: nodeType }
+    } = useAppContext();
+
+    const hasHydrateOnly = checkHydrateOnly({ nodeType });
+
     const collectionsProps = {
         id: id && id.trim(),
         size: 2,
@@ -54,6 +62,7 @@ const getCollectionApertura = id => {
         id &&
         useContent({
             source: 'collectionsSource',
+            staticMode: hasHydrateOnly,
             query: collectionsProps,
             filter,
             transform: response => {

@@ -19,7 +19,6 @@ import LinkAmpHTML from '../private/common/linkAmpHTML';
 import LinkCanonical from '../private/common/linkCanonical';
 import GetDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
-import addForwardSlash from '../private/LN/common/utils/addForwardSlash';
 import setMetasOtt from '../private/common/metaTags/setMetasHelper';
 import CriticalCss from '../private/common/criticalcss';
 import MetaViafoura from '../private/common/metaViafoura';
@@ -30,8 +29,8 @@ import {
     metasFromSiteServices
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
+import checkHydrateOnly from '../private/LN/common/utils/checkHydrateOnly';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
-import get from '../private/common/utils/get';
 
 const getBodyClass = props => {
     const { className = {} } = props;
@@ -126,8 +125,11 @@ const Default = props => {
     );
 
     const configHydrate = {};
-    if (layout === get(siteProperties, 'layoutsName.Home'))
+    const hasHydrateOnly = checkHydrateOnly({ layout, nodeType });
+
+    if (hasHydrateOnly) {
         configHydrate.hydrateOnly = true;
+    }
 
     return (
         <html lang="es">

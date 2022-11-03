@@ -5,7 +5,7 @@ import TitleArticle from '../../../../../components/private/LN/nota/apertura/tit
 
 describe('components - private - LN - nota - titulo', () => {
     describe('titleAticle component', () => {
-        it('Should return mobile title when basic and mobile are uploaded', () => {
+        it('Should return basic title when basic and mobile are uploaded', () => {
             const headlines = {
                 basic: 'titulo largo largo',
                 mobile: 'titulo corto'
@@ -14,7 +14,7 @@ describe('components - private - LN - nota - titulo', () => {
                 <TitleArticle headlines={headlines} prefix="" size="--xl" />
             );
             const title = container.getElementsByTagName('h1');
-            expect(title[0].innerHTML).toBe(headlines.mobile);
+            expect(title[0].innerHTML).toBe(headlines.basic);
         });
         it('Should return basic if no mobile title', () => {
             const headlines = { basic: 'titulo largo largo' };

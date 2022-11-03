@@ -3,6 +3,7 @@ import React from 'react';
 import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import ModheaderSection from '../../private/common/mod-headerSection';
+import StaticContent from '../../private/common/staticContent';
 
 const TechoFeatured = props => {
     const {
@@ -14,7 +15,7 @@ const TechoFeatured = props => {
     if (!title && !imageId) return <></>;
 
     return (
-        <Static id={featureId}>
+        <StaticContent>
             <ModheaderSection
                 title={title}
                 link={url}
@@ -24,7 +25,7 @@ const TechoFeatured = props => {
                 outputType={outputType}
                 line={color !== 'default' ? false : true}
             />
-        </Static>
+        </StaticContent>
     );
 };
 
