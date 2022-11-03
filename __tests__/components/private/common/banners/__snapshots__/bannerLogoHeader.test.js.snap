@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - Private -  Common - Banners - BannerLogoHeader should match snapshot 1`] = `
+<div>
+  <mock-static
+    id="id-banner-logo"
+  >
+    <div
+      class="mod-banner --logo_header_dsk --logo hlp-none "
+    >
+      <div
+        class="com-banner "
+        data-prebid-enabled="false"
+        data-size="[]"
+        data-sizemap="[]"
+        data-subscription="false"
+        data-without-hide="false"
+        id="logo_header_dsk"
+      />
+    </div>
+    <div
+      class="mod-banner --logo_header_mob --logo hlp-none "
+    >
+      <div
+        class="com-banner "
+        data-prebid-enabled="false"
+        data-size="[]"
+        data-sizemap="[]"
+        data-subscription="false"
+        data-without-hide="false"
+        id="logo_header_mob"
+      />
+    </div>
+    <div
+      class="mod-banner --logo_header_tab --logo hlp-none "
+    >
+      <div
+        class="com-banner "
+        data-prebid-enabled="false"
+        data-size="[]"
+        data-sizemap="[]"
+        data-subscription="false"
+        data-without-hide="false"
+        id="logo_header_tab"
+      />
+    </div>
+  </mock-static>
+</div>
+`;
