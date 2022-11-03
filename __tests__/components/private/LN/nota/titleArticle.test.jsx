@@ -14,7 +14,7 @@ describe('components - private - LN - nota - titulo', () => {
                 <TitleArticle headlines={headlines} prefix="" size="--xl" />
             );
             const title = container.getElementsByTagName('h1');
-            expect(title[0].innerHTML).toBe(headlines.mobile);
+            expect(title[0].innerHTML).toBe(headlines.basic);
         });
         it('Should return basic if no mobile title', () => {
             const headlines = { basic: 'titulo largo largo' };
