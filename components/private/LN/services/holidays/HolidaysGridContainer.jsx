@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/holidays-grid-container.css';
 import HolidaysCardCalendar from './HolidaysCardCalendar';
 
-const HolidaysGridContainer = ({ calendars, year }) => {
-    return (
+const HolidaysGridContainer = ({ calendars = [], year }) => {
+    return calendars.length ? (
         <div className="holidays-grid-container">
-            {calendars.map(({ monthNumber, monthName, holidayData }) => {
+            {calendars.map(({ monthNumber, monthName, holidayData = [] }) => {
                 return (
                     <HolidaysCardCalendar
                         year={year}
@@ -20,6 +20,8 @@ const HolidaysGridContainer = ({ calendars, year }) => {
                 );
             })}
         </div>
+    ) : (
+        <></>
     );
 };
 

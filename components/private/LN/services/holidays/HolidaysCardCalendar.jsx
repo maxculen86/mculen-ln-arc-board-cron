@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -34,16 +33,18 @@ const HolidaysCardCalendar = ({
             </div>
             {holidayData && (
                 <ul className="holidays-list">
-                    {holidayData.map(({ days, day_type_name, reason }) => {
-                        return (
-                            <li>
-                                <span className={extraClass[day_type_name]}>
-                                    {days}
-                                </span>
-                                <Text tag="span">{reason}</Text>
-                            </li>
-                        );
-                    })}
+                    {holidayData.map(
+                        ({ days, day_type_name: dayTypeName, reason }) => {
+                            return (
+                                <li>
+                                    <span className={extraClass[dayTypeName]}>
+                                        {days}
+                                    </span>
+                                    <Text tag="span">{reason}</Text>
+                                </li>
+                            );
+                        }
+                    )}
                 </ul>
             )}
         </div>

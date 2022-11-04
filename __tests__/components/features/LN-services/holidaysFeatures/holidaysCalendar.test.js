@@ -22,7 +22,7 @@ describe('Components- Features - HolidaysCalendar - default.jsx - test', () => {
     Context.useAppContext = jest.fn(() => ({
         globalContent: outputTransformHome
     }));
-    it('Should match snapshot', () => {
+    it('Should match snapshot showing all the private components', () => {
         const { container } = render(<HolidaysHomeCalendar id="QWERTYUIOP" />);
         expect(container).toMatchSnapshot();
     });

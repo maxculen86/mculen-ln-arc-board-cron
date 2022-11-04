@@ -14,9 +14,7 @@ const HolidaysCalendarDetail = ({ id: _featureId }) => {
         'dataService',
         {}
     );
-    if (!Object.keys(calendar).length) return null;
-
-    return (
+    return Object.keys(calendar).length ? (
         <StaticValidation id={_featureId} htmlOnly persistent>
             <HolidaysNav year={serviceItem} layout="month" />
             <HolidaysMonthNav
@@ -25,6 +23,8 @@ const HolidaysCalendarDetail = ({ id: _featureId }) => {
                 year={serviceItem}
             />
         </StaticValidation>
+    ) : (
+        <></>
     );
 };
 

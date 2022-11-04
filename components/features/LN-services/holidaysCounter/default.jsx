@@ -7,20 +7,19 @@ import { getNextHolidayData } from '../../../../content/sources/utils/servicesSo
 import filter from '../../../../content/filters/LN/services/nextHolidayFilter';
 
 const HolidaysCountdown = ({ id: _featureId }) => {
+    const { dataService = {} } =
+        useContent({
+            source: 'servicesSource',
+            query: {
+                id: '/feriados',
+                service: 'feriados'
+            },
+            staticMode: true,
+            filter
+        }) || {};
     return (
         <StaticValidation id={_featureId} htmlOnly persistent>
             {(() => {
-                const { dataService = {} } =
-                    useContent({
-                        source: 'servicesSource',
-                        query: {
-                            id: '/feriados',
-                            service: 'feriados'
-                        },
-                        staticMode: true,
-                        filter
-                    }) || {};
-
                 const { calendars = [] } = dataService;
 
                 const result = getNextHolidayData(calendars);

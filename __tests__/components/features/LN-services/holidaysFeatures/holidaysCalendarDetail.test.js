@@ -22,7 +22,7 @@ describe('Components- Features - HolidaysCalendarDetail - default.jsx - test', (
     Context.useAppContext = jest.fn(() => ({
         globalContent: outputMonthWithHolidays
     }));
-    it('Should match snapshot', () => {
+    it('Should match snapshot showing all the private components', () => {
         const { container } = render(<HolidaysCalendarDetail id="MOCKID" />);
         expect(container).toMatchSnapshot();
     });

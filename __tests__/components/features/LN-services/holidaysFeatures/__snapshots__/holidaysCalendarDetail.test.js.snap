@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Should match snapshot 1`] = `
+exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Should match snapshot showing all the private components 1`] = `
 <div>
   <mock-static-validation
     htmlonly="true"

@@ -11,13 +11,13 @@ const HolidaysHomeCalendar = ({ id: _featureId }) => {
     const serviceItem = get(globalContent, 'serviceItem', '');
     const calendars = get(globalContent, 'dataService.calendars', []);
 
-    if (!calendars.length) return null;
-
-    return (
+    return calendars.length ? (
         <StaticValidation id={_featureId} htmlOnly persistent>
             <HolidaysNav layout="home" year={serviceItem} />
             <HolidaysGridContainer calendars={calendars} year={serviceItem} />
         </StaticValidation>
+    ) : (
+        <></>
     );
 };
 

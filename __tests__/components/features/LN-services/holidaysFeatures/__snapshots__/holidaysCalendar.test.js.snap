@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components- Features - HolidaysCalendar - default.jsx - test Should match snapshot 1`] = `
+exports[`Components- Features - HolidaysCalendar - default.jsx - test Should match snapshot showing all the private components 1`] = `
 <div>
   <mock-static-validation
     htmlonly="true"
@@ -2081,6 +2081,9 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             </div>
           </section>
         </div>
+        <ul
+          class="holidays-list"
+        />
       </div>
       <div
         class="holidays-card-calendar --vertical"
@@ -2316,6 +2319,9 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             </div>
           </section>
         </div>
+        <ul
+          class="holidays-list"
+        />
       </div>
       <div
         class="holidays-card-calendar --vertical"
@@ -2566,6 +2572,9 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             </div>
           </section>
         </div>
+        <ul
+          class="holidays-list"
+        />
       </div>
       <div
         class="holidays-card-calendar --vertical"
@@ -2791,6 +2800,9 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             </div>
           </section>
         </div>
+        <ul
+          class="holidays-list"
+        />
       </div>
       <div
         class="holidays-card-calendar --vertical"

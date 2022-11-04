@@ -66,7 +66,7 @@ const getNameDay = date => {
     return weekDays[numberDay];
 };
 
-const createHolidaysArray = (data, calendarType, year) => {
+const createHolidaysArray = (data = [], calendarType, year) => {
     const arrayHolidaysTable = [];
     data.map(holiday => {
         const {
@@ -103,11 +103,11 @@ const createHolidaysArray = (data, calendarType, year) => {
     return arrayHolidaysTable;
 };
 
-const filterHolidaysByType = ({ monthHolidays, holidayType = '' }) => {
+const filterHolidaysByType = ({ monthHolidays = [], holidayType = '' }) => {
     return monthHolidays.filter(month => month.dayTypeName === holidayType);
 };
 
-const convertHolidaysTable = (holidayArray, calendarType) => {
+const convertHolidaysTable = (holidayArray = [], calendarType) => {
     if (!holidayArray.length) return null;
     const header = [
         {

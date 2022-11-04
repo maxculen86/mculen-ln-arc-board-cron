@@ -2,15 +2,14 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../../../../resources/dist/css/ln/modules/calendar.css';
 import Link from '../com-link';
-
 import Text from '../text';
+import '../../../../resources/dist/css/ln/modules/calendar.css';
 
 const Calendar = ({
     year,
     monthNumber,
-    holidayData,
+    holidayData = [],
     monthName,
     layout = 'month'
 }) => {
@@ -39,7 +38,7 @@ const Calendar = ({
             Puente: ' --bridge',
             Trasladable: ' --transferable'
         };
-        const dayHighlight = holidayData
+        const dayHighlight = holidayData.length
             ? holidayData.find(h => day === h.days[0])
             : undefined;
         if (!dayHighlight) return '';
