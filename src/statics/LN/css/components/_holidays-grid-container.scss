@@ -4,7 +4,7 @@
 .holidays-grid-container {
     width: 100%;
     max-width: px(440);
-    margin: 0 auto px(32) auto;
+    margin: 0 auto $spacing-lg auto;
     display: grid;
     gap: $spacing-sm;
     @media ($media-m) {

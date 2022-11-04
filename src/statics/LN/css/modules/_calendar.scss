@@ -13,9 +13,7 @@
         & > .--title {
             align-self: center;
             margin-bottom: px(10);
-            &::first-letter {
-                text-transform: capitalize;
-            }
+            text-transform: capitalize;
             a {
                 color: $dark-neutral-200;
             }
@@ -25,7 +23,7 @@
             grid-template-columns: repeat(7, 1fr);
             row-gap: $spacing-xs;
             justify-items: center;
-
+            margin-bottom: $spacing-2xs;
             .com-text:nth-child(n + 6) {
                 opacity: 0.7;
             }

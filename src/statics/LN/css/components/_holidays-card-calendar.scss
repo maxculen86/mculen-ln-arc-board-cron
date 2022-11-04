@@ -14,7 +14,7 @@
             width: px(561);
             flex-direction: column;
             gap: px(0);
-            padding: px(16) px(7);
+            padding: $spacing-sm px(7);
             place-self: start;
             .holidays-list {
                 border-left: none;
@@ -23,7 +23,7 @@
             }
         }
         @media ($media-l) {
-            padding: px(16);
+            padding: $spacing-sm;
         }
     }
     &.--horizontal {
@@ -43,8 +43,8 @@
                 width: 50%;
                 border-top: none;
                 border-left: px(1) solid $light-neutral-400;
-                padding-left: px(16);
-                margin-left: px(16);
+                padding-left: $spacing-sm;
+                margin-left: $spacing-sm;
             }
         }
     }

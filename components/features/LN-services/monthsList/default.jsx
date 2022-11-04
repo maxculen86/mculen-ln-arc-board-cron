@@ -14,14 +14,14 @@ const MonthsList = ({ id: _featureId }) => {
     return (
         <StaticValidation id={_featureId} htmlOnly persistent>
             <ModHeaderSection
-                tag="h2"
+                tag="h3"
                 title={`Todos los meses del ${serviceItem}`}
             />
             <div className="service-list --font-bold">
                 {monthNames &&
                     monthNames.map(month => (
                         <div className="service-item" key={month}>
-                            <Text tag="h3" size="2xs">
+                            <Text tag="h2" size="2xs">
                                 <ComLink
                                     link={`/feriados/${serviceItem}/${month}/`}
                                     title={`Ir a feriados de ${month} del ${serviceItem}`}
