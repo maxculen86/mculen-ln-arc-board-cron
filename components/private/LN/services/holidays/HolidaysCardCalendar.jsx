@@ -9,7 +9,7 @@ const HolidaysCardCalendar = ({
     year,
     monthNumber,
     monthName,
-    holidayData,
+    holidayData = [],
     layout
 }) => {
     const extraClass = {
@@ -19,9 +19,12 @@ const HolidaysCardCalendar = ({
         Puente: ' --bridge',
         Trasladable: ' --transferable'
     };
-
+    const extraClassList = holidayData.length ? '' : ' --withoutHolidayData';
     return (
-        <div className={`holidays-card-calendar${extraClass[layout] || ''}`}>
+        <div
+            className={`holidays-card-calendar${extraClass[layout] ||
+                ''}${extraClassList}`}
+        >
             <div className="calendar-container">
                 <Calendar
                     year={year}
@@ -31,7 +34,7 @@ const HolidaysCardCalendar = ({
                     layout={layout}
                 />
             </div>
-            {holidayData && (
+            {holidayData.length ? (
                 <ul className="holidays-list">
                     {holidayData.map(
                         ({ days, day_type_name: dayTypeName, reason }) => {
@@ -40,12 +43,14 @@ const HolidaysCardCalendar = ({
                                     <span className={extraClass[dayTypeName]}>
                                         {days}
                                     </span>
-                                    <Text tag="span">{reason}</Text>
+                                    <Text tag="h4">{reason}</Text>
                                 </li>
                             );
                         }
                     )}
                 </ul>
+            ) : (
+                <></>
             )}
         </div>
     );

@@ -373,11 +373,11 @@ exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Shou
               >
                 1
               </span>
-              <span
+              <h4
                 class="com-text"
               >
                 Día del Trabajador.
-              </span>
+              </h4>
             </li>
             <li>
               <span
@@ -385,11 +385,11 @@ exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Shou
               >
                 25
               </span>
-              <span
+              <h4
                 class="com-text"
               >
                 Día de la Revolución de Mayo.
-              </span>
+              </h4>
             </li>
           </ul>
         </div>

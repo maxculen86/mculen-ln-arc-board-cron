@@ -263,11 +263,11 @@ exports[`components - private - holidays - HolidaysGridContainer snapshot Holida
           >
             1
           </span>
-          <span
+          <h4
             class="com-text"
           >
             Año nuevo
-          </span>
+          </h4>
         </li>
       </ul>
     </div>
@@ -494,11 +494,11 @@ exports[`components - private - holidays - HolidaysGridContainer snapshot Holida
           >
             28
           </span>
-          <span
+          <h4
             class="com-text"
           >
             Carnaval
-          </span>
+          </h4>
         </li>
       </ul>
     </div>

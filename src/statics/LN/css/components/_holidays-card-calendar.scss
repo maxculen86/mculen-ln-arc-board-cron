@@ -18,9 +18,12 @@
             place-self: start;
             .holidays-list {
                 border-left: none;
-                padding-left: none;
-                margin-left: none;
+                padding-left: 0;
+                margin-left: 0;
             }
+        }
+        &.--withoutHolidayData {
+            padding-bottom: 0;
         }
         @media ($media-l) {
             padding: $spacing-sm;

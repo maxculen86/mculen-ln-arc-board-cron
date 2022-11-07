@@ -326,11 +326,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             >
               1
             </span>
-            <span
+            <h4
               class="com-text"
             >
               Año nuevo
-            </span>
+            </h4>
           </li>
         </ul>
       </div>
@@ -557,11 +557,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             >
               28
             </span>
-            <span
+            <h4
               class="com-text"
             >
               Carnaval
-            </span>
+            </h4>
           </li>
         </ul>
       </div>
@@ -803,11 +803,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             >
               24
             </span>
-            <span
+            <h4
               class="com-text"
             >
               Día Nacional de la Memoria por la Verdad y la Justicia.
-            </span>
+            </h4>
           </li>
         </ul>
       </div>
@@ -1059,11 +1059,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             >
               2
             </span>
-            <span
+            <h4
               class="com-text"
             >
               Viernes Santo.
-            </span>
+            </h4>
           </li>
         </ul>
       </div>
@@ -1330,11 +1330,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             >
               1
             </span>
-            <span
+            <h4
               class="com-text"
             >
               Día del Trabajador.
-            </span>
+            </h4>
           </li>
           <li>
             <span
@@ -1342,11 +1342,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             >
               25
             </span>
-            <span
+            <h4
               class="com-text"
             >
               Día de la Revolución de Mayo.
-            </span>
+            </h4>
           </li>
         </ul>
       </div>
@@ -1588,11 +1588,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             >
               20
             </span>
-            <span
+            <h4
               class="com-text"
             >
               Paso a la Inmortalidad del General Manuel Belgrano.
-            </span>
+            </h4>
           </li>
         </ul>
       </div>
@@ -1849,16 +1849,16 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             >
               9
             </span>
-            <span
+            <h4
               class="com-text"
             >
               Día de la Independencia.
-            </span>
+            </h4>
           </li>
         </ul>
       </div>
       <div
-        class="holidays-card-calendar --vertical"
+        class="holidays-card-calendar --vertical --withoutHolidayData"
       >
         <div
           class="calendar-container"
@@ -2081,12 +2081,9 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             </div>
           </section>
         </div>
-        <ul
-          class="holidays-list"
-        />
       </div>
       <div
-        class="holidays-card-calendar --vertical"
+        class="holidays-card-calendar --vertical --withoutHolidayData"
       >
         <div
           class="calendar-container"
@@ -2319,12 +2316,9 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             </div>
           </section>
         </div>
-        <ul
-          class="holidays-list"
-        />
       </div>
       <div
-        class="holidays-card-calendar --vertical"
+        class="holidays-card-calendar --vertical --withoutHolidayData"
       >
         <div
           class="calendar-container"
@@ -2572,12 +2566,9 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             </div>
           </section>
         </div>
-        <ul
-          class="holidays-list"
-        />
       </div>
       <div
-        class="holidays-card-calendar --vertical"
+        class="holidays-card-calendar --vertical --withoutHolidayData"
       >
         <div
           class="calendar-container"
@@ -2800,9 +2791,6 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             </div>
           </section>
         </div>
-        <ul
-          class="holidays-list"
-        />
       </div>
       <div
         class="holidays-card-calendar --vertical"
@@ -3052,11 +3040,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             >
               8
             </span>
-            <span
+            <h4
               class="com-text"
             >
               Inmaculada Concepción de María.
-            </span>
+            </h4>
           </li>
           <li>
             <span
@@ -3064,11 +3052,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             >
               25
             </span>
-            <span
+            <h4
               class="com-text"
             >
               Navidad.
-            </span>
+            </h4>
           </li>
         </ul>
       </div>
