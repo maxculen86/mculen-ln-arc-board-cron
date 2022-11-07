@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/holidays-card-calendar.css';
 import Text from '../../../common/text';
 import Calendar from '../../../common/calendar/Calendar';
+import setClassName from '../../../common/utils/setClassName';
 
 const HolidaysCardCalendar = ({
     year,
@@ -13,18 +14,20 @@ const HolidaysCardCalendar = ({
     layout
 }) => {
     const extraClass = {
-        home: ' --vertical',
-        month: ' --horizontal',
-        Inamovible: ' --immovable',
-        Puente: ' --bridge',
-        Trasladable: ' --transferable'
+        home: '--vertical',
+        month: '--horizontal',
+        Inamovible: '--immovable',
+        Puente: '--bridge',
+        Trasladable: '--transferable'
     };
     const extraClassList = holidayData.length ? '' : ' --withoutHolidayData';
+    const _className = setClassName({
+        baseClassName: 'holidays-card-calendar',
+        extraClass: extraClass[layout],
+        extraClassList
+    });
     return (
-        <div
-            className={`holidays-card-calendar${extraClass[layout] ||
-                ''}${extraClassList}`}
-        >
+        <div className={_className}>
             <div className="calendar-container">
                 <Calendar
                     year={year}
