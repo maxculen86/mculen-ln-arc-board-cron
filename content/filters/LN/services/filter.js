@@ -31,5 +31,6 @@ export default `{
     node_type
     serviceType
     serviceItem
+    serviceSubItem
     _id
 }`;

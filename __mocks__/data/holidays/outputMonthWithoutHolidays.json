@@ -1,6 +1,7 @@
 {
     "serviceType": "feriados-mes",
     "serviceItem": 2022,
+    "serviceSubItem": "noviembre",
     "dataService": {
         "calendar": {
             "monthNumber": 11,
