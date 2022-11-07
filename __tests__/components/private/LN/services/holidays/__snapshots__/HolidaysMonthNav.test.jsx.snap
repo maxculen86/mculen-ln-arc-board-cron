@@ -9,7 +9,7 @@ exports[`components - private - holidays - HolidaysNav snapshot HolidaysMonthNav
       class="calendar"
     >
       <div
-        class="holidays-card-calendar --horizontal --withoutHolidayData"
+        class="holidays-card-calendar --horizontal  --withoutHolidayData"
       >
         <div
           class="calendar-container"

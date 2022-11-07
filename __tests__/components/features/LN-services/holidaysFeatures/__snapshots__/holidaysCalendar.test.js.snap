@@ -322,7 +322,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         >
           <li>
             <span
-              class=" --immovable"
+              class="--immovable"
             >
               1
             </span>
@@ -553,7 +553,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         >
           <li>
             <span
-              class=" --immovable"
+              class="--immovable"
             >
               28
             </span>
@@ -799,7 +799,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         >
           <li>
             <span
-              class=" --immovable"
+              class="--immovable"
             >
               24
             </span>
@@ -1055,7 +1055,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         >
           <li>
             <span
-              class=" --bridge"
+              class="--bridge"
             >
               2
             </span>
@@ -1326,7 +1326,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         >
           <li>
             <span
-              class=" --transferable"
+              class="--transferable"
             >
               1
             </span>
@@ -1338,7 +1338,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
           </li>
           <li>
             <span
-              class=" --immovable"
+              class="--immovable"
             >
               25
             </span>
@@ -1584,7 +1584,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         >
           <li>
             <span
-              class=" --immovable"
+              class="--immovable"
             >
               20
             </span>
@@ -1845,7 +1845,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         >
           <li>
             <span
-              class=" --immovable"
+              class="--immovable"
             >
               9
             </span>
@@ -1858,7 +1858,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         </ul>
       </div>
       <div
-        class="holidays-card-calendar --vertical --withoutHolidayData"
+        class="holidays-card-calendar --vertical  --withoutHolidayData"
       >
         <div
           class="calendar-container"
@@ -2083,7 +2083,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         </div>
       </div>
       <div
-        class="holidays-card-calendar --vertical --withoutHolidayData"
+        class="holidays-card-calendar --vertical  --withoutHolidayData"
       >
         <div
           class="calendar-container"
@@ -2318,7 +2318,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         </div>
       </div>
       <div
-        class="holidays-card-calendar --vertical --withoutHolidayData"
+        class="holidays-card-calendar --vertical  --withoutHolidayData"
       >
         <div
           class="calendar-container"
@@ -2568,7 +2568,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         </div>
       </div>
       <div
-        class="holidays-card-calendar --vertical --withoutHolidayData"
+        class="holidays-card-calendar --vertical  --withoutHolidayData"
       >
         <div
           class="calendar-container"
@@ -3036,7 +3036,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         >
           <li>
             <span
-              class=" --immovable"
+              class="--immovable"
             >
               8
             </span>
@@ -3048,7 +3048,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
           </li>
           <li>
             <span
-              class=" --immovable"
+              class="--immovable"
             >
               25
             </span>

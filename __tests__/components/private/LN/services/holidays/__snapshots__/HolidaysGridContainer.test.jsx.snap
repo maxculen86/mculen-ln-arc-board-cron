@@ -259,7 +259,7 @@ exports[`components - private - holidays - HolidaysGridContainer snapshot Holida
       >
         <li>
           <span
-            class=" --immovable"
+            class="--immovable"
           >
             1
           </span>
@@ -490,7 +490,7 @@ exports[`components - private - holidays - HolidaysGridContainer snapshot Holida
       >
         <li>
           <span
-            class=" --immovable"
+            class="--immovable"
           >
             28
           </span>

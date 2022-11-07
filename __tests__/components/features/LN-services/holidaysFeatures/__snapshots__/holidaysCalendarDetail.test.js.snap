@@ -369,7 +369,7 @@ exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Shou
           >
             <li>
               <span
-                class=" --transferable"
+                class="--transferable"
               >
                 1
               </span>
@@ -381,7 +381,7 @@ exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Shou
             </li>
             <li>
               <span
-                class=" --immovable"
+                class="--immovable"
               >
                 25
               </span>
