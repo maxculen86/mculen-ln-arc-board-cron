@@ -37,7 +37,7 @@ exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Shou
         >
           <a
             class="com-link"
-            href="https://www.lanacion.com.ar/feriados/2021/"
+            href="/feriados/2021/"
             title="Ir a feriados 2021"
           >
             2021
@@ -57,7 +57,7 @@ exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Shou
         >
           <a
             class="com-link"
-            href="https://www.lanacion.com.ar/feriados/2023/"
+            href="/feriados/2023/"
             title="Ir a feriados 2023"
           >
             2023
@@ -73,7 +73,7 @@ exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Shou
       >
         <a
           class="com-link"
-          href="undefined//feriados/2022/abril/"
+          href="/feriados/2022/abril/"
           title="Ir a feriados de abril del 2022"
         >
           <div
@@ -399,7 +399,7 @@ exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Shou
       >
         <a
           class="com-link"
-          href="undefined//feriados/2022/junio/"
+          href="/feriados/2022/junio/"
           title="Ir a feriados de junio del 2022"
         >
           <div

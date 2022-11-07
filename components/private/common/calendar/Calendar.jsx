@@ -52,7 +52,7 @@ const Calendar = ({
     const attributes = {
         home: {
             titleTag: 'h3',
-            titleLink: `Ir a feriados de ${validMonthName} del ${year}`,
+            titleLink: `Ir a feriados de ${validMonthName.toLowerCase()} del ${year}`,
             link: `https://www.lanacion.com.ar/feriados/${year}/${validMonthName.toLowerCase()}/`
         },
         month: {

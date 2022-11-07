@@ -7,7 +7,7 @@ import Table from '../../../private/LN/nota/cuerpo/table';
 const HolidaysTables = ({ id: _featureId, customFields = {} }) => {
     const { holidayType } = customFields;
     const tables = get(useAppContext(), 'globalContent.dataService.tables', {});
-    const table = tables[holidayType];
+    const table = tables[holidayType] || {};
 
     return Object.keys(tables).length ? (
         <Table data={table} extraClass="--holidays" />

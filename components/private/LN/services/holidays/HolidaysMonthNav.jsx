@@ -1,12 +1,11 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SITE_LANACION } from 'fusion:environment';
-import '../../../../../resources/dist/css/ln/components/holidays-month-nav.css';
+import HolidaysCardCalendar from './HolidaysCardCalendar';
 import Link from '../../../common/com-link';
 import Icon from '../../../common/icon';
-import HolidaysCardCalendar from './HolidaysCardCalendar';
 import get from '../../../common/utils/get';
+import '../../../../../resources/dist/css/ln/components/holidays-month-nav.css';
 
 const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
     const { monthHolidays = [], monthNumber, monthName } = calendar;
@@ -16,7 +15,7 @@ const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
         []
     );
     const link = previousOrNext => {
-        return `${SITE_LANACION}/${previousAndNextCalendar[previousOrNext].url}`;
+        return `${previousAndNextCalendar[previousOrNext].url}`;
     };
     const title = previousOrNext => {
         return previousAndNextCalendar[previousOrNext].title;

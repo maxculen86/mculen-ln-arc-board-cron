@@ -1,14 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-
 import '@testing-library/jest-dom';
 import HolidaysMonthNav from '../../../../../../components/private/LN/services/holidays/HolidaysMonthNav';
-
-jest.mock('fusion:environment', () => {
-    return {
-        SITE_LANACION: 'https://www.lanacion.com.ar'
-    };
-});
 
 describe('components - private - holidays - HolidaysNav', () => {
     let component;
