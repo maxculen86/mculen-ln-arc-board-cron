@@ -108,7 +108,7 @@ const filterHolidaysByType = ({ monthHolidays = [], holidayType = '' }) => {
 };
 
 const convertHolidaysTable = (holidayArray = [], calendarType) => {
-    if (!holidayArray.length) return null;
+    if (!holidayArray.length) return undefined;
     const header = [
         {
             _id: 'header-date',
@@ -275,7 +275,7 @@ const transformHolidays = (
 };
 
 const getNextHolidayData = monthsArray => {
-    if (!monthsArray || !monthsArray.length) return null;
+    if (!monthsArray || !monthsArray.length) return undefined;
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
     const actualMonth = currentDate.getMonth();
