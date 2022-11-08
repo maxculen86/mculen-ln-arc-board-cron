@@ -12,7 +12,7 @@ const JewishHolidaysTable = ({ id: _featureId = {} }) => {
         {}
     );
 
-    return Object.keys(jewishTable).length ? (
+    return Object.keys(jewishTable).length !== 0 ? (
         <>
             <ModheaderSection
                 tag="h2"
