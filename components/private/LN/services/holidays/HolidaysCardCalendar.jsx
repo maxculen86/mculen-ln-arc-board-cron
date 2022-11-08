@@ -4,24 +4,30 @@ import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/holidays-card-calendar.css';
 import Text from '../../../common/text';
 import Calendar from '../../../common/calendar/Calendar';
+import setClassName from '../../../common/utils/setClassName';
 
 const HolidaysCardCalendar = ({
     year,
     monthNumber,
     monthName,
-    holidayData,
+    holidayData = [],
     layout
 }) => {
     const extraClass = {
-        home: ' --vertical',
-        month: ' --horizontal',
-        Inamovible: ' --immovable',
-        Puente: ' --bridge',
-        Trasladable: ' --transferable'
+        home: '--vertical',
+        month: '--horizontal',
+        Inamovible: '--immovable',
+        Puente: '--bridge',
+        Trasladable: '--transferable'
     };
-
+    const extraClassList = holidayData.length ? '' : ' --withoutHolidayData';
+    const _className = setClassName({
+        baseClassName: 'holidays-card-calendar',
+        extraClass: extraClass[layout],
+        extraClassList
+    });
     return (
-        <div className={`holidays-card-calendar${extraClass[layout] || ''}`}>
+        <div className={_className}>
             <div className="calendar-container">
                 <Calendar
                     year={year}
@@ -31,7 +37,7 @@ const HolidaysCardCalendar = ({
                     layout={layout}
                 />
             </div>
-            {holidayData && (
+            {holidayData.length ? (
                 <ul className="holidays-list">
                     {holidayData.map(
                         ({ days, day_type_name: dayTypeName, reason }) => {
@@ -40,12 +46,14 @@ const HolidaysCardCalendar = ({
                                     <span className={extraClass[dayTypeName]}>
                                         {days}
                                     </span>
-                                    <Text tag="span">{reason}</Text>
+                                    <Text tag="h4">{reason}</Text>
                                 </li>
                             );
                         }
                     )}
                 </ul>
+            ) : (
+                <></>
             )}
         </div>
     );

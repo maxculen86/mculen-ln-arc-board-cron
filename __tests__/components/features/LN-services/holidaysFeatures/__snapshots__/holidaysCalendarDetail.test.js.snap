@@ -369,27 +369,27 @@ exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Shou
           >
             <li>
               <span
-                class=" --transferable"
+                class="--transferable"
               >
                 1
               </span>
-              <span
+              <h4
                 class="com-text"
               >
                 Día del Trabajador.
-              </span>
+              </h4>
             </li>
             <li>
               <span
-                class=" --immovable"
+                class="--immovable"
               >
                 25
               </span>
-              <span
+              <h4
                 class="com-text"
               >
                 Día de la Revolución de Mayo.
-              </span>
+              </h4>
             </li>
           </ul>
         </div>
