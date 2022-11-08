@@ -53,7 +53,7 @@ const Calendar = ({
         home: {
             titleTag: 'h3',
             titleLink: `Ir a feriados de ${validMonthName.toLowerCase()} del ${year}`,
-            link: `https://www.lanacion.com.ar/feriados/${year}/${validMonthName.toLowerCase()}/`
+            link: `/feriados/${year}/${validMonthName.toLowerCase()}/`
         },
         month: {
             titleTag: 'h2',

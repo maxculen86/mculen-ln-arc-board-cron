@@ -22,7 +22,7 @@ exports[`components - private - holidays - HolidaysGridContainer snapshot Holida
             >
               <a
                 class="com-link"
-                href="https://www.lanacion.com.ar/feriados/2022/enero/"
+                href="/feriados/2022/enero/"
                 title="Ir a feriados de enero del 2022"
               >
                 Enero
@@ -288,7 +288,7 @@ exports[`components - private - holidays - HolidaysGridContainer snapshot Holida
             >
               <a
                 class="com-link"
-                href="https://www.lanacion.com.ar/feriados/2022/febrero/"
+                href="/feriados/2022/febrero/"
                 title="Ir a feriados de febrero del 2022"
               >
                 Febrero
