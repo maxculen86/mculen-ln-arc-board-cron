@@ -127,9 +127,7 @@ const Default = props => {
     const configHydrate = {};
     const hasHydrateOnly = checkHydrateOnly({ layout, nodeType });
 
-    if (hasHydrateOnly) {
-        configHydrate.hydrateOnly = true;
-    }
+    configHydrate.hydrateOnly = hasHydrateOnly;
 
     return (
         <html lang="es">
