@@ -84,7 +84,7 @@ const Banner = props => {
                 return hasHydrateOnly ? (
                     <StaticContent id={slotId}>{Component}</StaticContent>
                 ) : (
-                    <Static id={slotId}>{Component}</Static>
+                    Component
                 );
             });
     };
