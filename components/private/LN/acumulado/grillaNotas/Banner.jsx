@@ -1,5 +1,4 @@
 import React from 'react';
-import Static from 'fusion:static';
 import {
     getBannerConfiguration,
     suffixDevice
