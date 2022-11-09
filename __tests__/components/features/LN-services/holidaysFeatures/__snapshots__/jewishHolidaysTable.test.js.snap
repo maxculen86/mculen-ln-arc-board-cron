@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components- Features - JewishHolidaysTable - default.jsx - test Should show all the jewish holidays tables 1`] = `
+<div>
+  <section
+    class="mod-headersection  --line"
+    role="contentinfo"
+  >
+    <h2
+      class="com-title --l"
+    >
+      Feriados judíos
+    </h2>
+  </section>
+  <div
+    class="table-wrapper --two-columns --holidays"
+  >
+    <table
+      class="table"
+    >
+      <thead>
+        <tr>
+          <th>
+            Fecha
+          </th>
+          <th>
+            Conmemoración
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            10 de febrero
+          </td>
+          <td>
+            Tou BiChvat
+          </td>
+        </tr>
+        <tr>
+          <td>
+            28 de marzo
+          </td>
+          <td>
+            Chouchane Pourim
+          </td>
+        </tr>
+        <tr>
+          <td>
+            9-16 de abril
+          </td>
+          <td>
+            Pésaj
+          </td>
+        </tr>
+        <tr>
+          <td>
+            12 de mayo
+          </td>
+          <td>
+            Lag Ba'Omer
+          </td>
+        </tr>
+        <tr>
+          <td>
+            29-30 de mayo
+          </td>
+          <td>
+            Shavouot
+          </td>
+        </tr>
+        <tr>
+          <td>
+            30-31 de julio
+          </td>
+          <td>
+            Ayuno Tichea BeAv
+          </td>
+        </tr>
+        <tr>
+          <td>
+            28-29 de septiembre
+          </td>
+          <td>
+            Ayuno Tichea BeAv
+          </td>
+        </tr>
+        <tr>
+          <td>
+            2-9 de octubre
+          </td>
+          <td>
+            Sucot
+          </td>
+        </tr>
+        <tr>
+          <td>
+            11 de octubre
+          </td>
+          <td>
+            Simjat Torá (Purim)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            10-18 de diciembre
+          </td>
+          <td>
+            Hanuka
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
