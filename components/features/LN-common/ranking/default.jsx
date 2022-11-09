@@ -40,7 +40,7 @@ const RankingFeature = ({ id: featureId }) => {
         website,
         arcSite,
         layout,
-        globalContent
+        globalContent = {}
     } = useAppContext();
 
     const { node_type: nodeType } = globalContent;
