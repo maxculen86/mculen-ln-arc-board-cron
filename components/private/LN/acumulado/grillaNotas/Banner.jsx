@@ -5,15 +5,13 @@ import {
 } from '../../common/utils/bannerHelper';
 import DivBannerAMP from '../../../common/banners/DivBannerAMP';
 import DivBannerSSR from '../../../common/banners/DivBannerSSR';
-import StaticContent from '../../../common/staticContent';
 
 const Banner = props => {
     const {
         customFields,
         globalContentConfig,
         outputType,
-        globalContent,
-        hasHydrateOnly
+        globalContent
     } = props;
 
     const getBannerConfig = () => {
@@ -74,16 +72,11 @@ const Banner = props => {
                     return <></>;
 
                 const isAmp = outputType === 'amp' && slotId.includes('_amp');
-                const Component = isAmp ? (
+
+                return isAmp ? (
                     <DivBannerAMP bannerConfiguration={bannerConfiguration} />
                 ) : (
                     <DivBannerSSR bannerConfiguration={bannerConfiguration} />
-                );
-
-                return hasHydrateOnly ? (
-                    <StaticContent id={slotId}>{Component}</StaticContent>
-                ) : (
-                    Component
                 );
             });
     };

@@ -46,8 +46,7 @@ const GrillaNotasFeature = props => {
         customFields,
         globalContentConfig,
         outputType,
-        globalContent,
-        hasHydrateOnly
+        globalContent
     });
 
     const {
