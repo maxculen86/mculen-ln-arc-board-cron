@@ -78,7 +78,8 @@ const Default = props => {
         website_url: websiteUrl
     } = globalContent || {};
 
-    const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
+    const { meta_title: metaTitle, basic: basicTitle, mobile: mobileTitle } =
+        headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
     const { description: defaultDescription, host = '' } = siteProperties;
@@ -86,13 +87,13 @@ const Default = props => {
     const metaTitleBasic = metaTitle || basicTitle;
 
     const _nodeType = getSectionName({ nodeType, type, arcSite });
-    const title = getTitle(
-        metaValue('title'),
-        siteProperties,
-        requestUri,
-        _nodeType,
-        renderables
-    );
+    const title = getTitle({
+        title: metaValue('title'),
+        shortTitle: mobileTitle,
+        properties: siteProperties,
+        uri: requestUri,
+        nodeType: _nodeType
+    });
 
     const {
         title: ottMetaTitle,
