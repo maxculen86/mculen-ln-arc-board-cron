@@ -124,12 +124,9 @@ const Default = props => {
         requestUri
     );
 
-    const configHydrate = {};
-    const hasHydrateOnly = checkHydrateOnly({ layout, nodeType });
-
-    if (hasHydrateOnly) {
-        configHydrate.hydrateOnly = true;
-    }
+    const configHydrate = {
+        hydrateOnly: checkHydrateOnly({ layout, nodeType })
+    };
 
     return (
         <html lang="es">

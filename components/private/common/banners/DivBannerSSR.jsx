@@ -25,6 +25,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
         lazyClass = ''
     } = bannerConfiguration;
     const ClassNames = `mod-banner --${slotId} ${classes || ''} `;
+
     const Comp = (
         <>
             {closeButton && (

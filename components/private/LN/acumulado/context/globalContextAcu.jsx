@@ -5,6 +5,7 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import isAnyGrilla1 from '../../../common/utils/isAnyGrilla1';
+import get from '../../../common/utils/get';
 import checkHydrateOnly from '../../common/utils/checkHydrateOnly';
 
 const GlobalContext = React.createContext([{}, () => {}]);
@@ -27,49 +28,43 @@ const getCollectionsInPage = (idCollectionsInPage = []) => {
             imageConfig: isAnyGrilla1(renderables) ? 'l' : 'm'
         };
 
-        const collect =
-            id &&
-            useContent({
-                source: 'collectionsSource',
-                query: collectionsProps,
-                filter,
-                transform: response => {
-                    return {
-                        idCollection: id,
-                        articles: response ? response.content_elements : []
-                    };
-                }
-            });
+        const collect = useContent({
+            source: id ? 'collectionsSource' : null,
+            query: collectionsProps,
+            filter,
+            transform: response => {
+                return {
+                    idCollection: id,
+                    articles: response ? response.content_elements : []
+                };
+            }
+        });
+
         listOfCollections.push(collect);
     });
+
     return listOfCollections;
 };
 
 const getCollectionApertura = id => {
-    const {
-        globalContent: { node_type: nodeType }
-    } = useAppContext();
-
-    const hasHydrateOnly = checkHydrateOnly({ nodeType });
-
     const collectionsProps = {
         id: id && id.trim(),
         size: 2,
         website: 'la-nacion-ar',
         imageConfig: 'aperturaAcu'
     };
-    return (
-        id &&
-        useContent({
-            source: 'collectionsSource',
-            staticMode: hasHydrateOnly,
-            query: collectionsProps,
-            filter,
-            transform: response => {
-                return response ? response.content_elements : [];
-            }
-        })
-    );
+
+    const articlesCollection = useContent({
+        source: id ? 'collectionsSource' : null,
+        query: collectionsProps,
+        staticMode: true,
+        filter,
+        transform: response => {
+            return response ? response.content_elements : [];
+        }
+    });
+
+    return articlesCollection;
 };
 
 const GlobalProviderAcu = props => {
@@ -80,6 +75,7 @@ const GlobalProviderAcu = props => {
         idCollectionApertura,
         children
     } = props;
+
     const articlesInCollection = idCollectionApertura
         ? getCollectionApertura(idCollectionApertura)
         : [];
