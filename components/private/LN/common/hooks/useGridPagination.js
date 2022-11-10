@@ -18,6 +18,7 @@ const useGridPagination = props => {
         getBanner,
         articlesInCollection = [],
         layout,
+        nodeType = '',
         acumuladoGeneral = {}
     } = props;
 
@@ -69,6 +70,7 @@ const useGridPagination = props => {
             outputType={outputType}
             typeArticle={typeArticle}
             articles={storedArticles[1] || articles}
+            nodeType={nodeType}
         />
     );
 

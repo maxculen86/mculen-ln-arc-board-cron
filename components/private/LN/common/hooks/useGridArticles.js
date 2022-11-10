@@ -61,7 +61,8 @@ const useGridArticles = props => {
         withPagination: true,
         page,
         hasCollectionApertura,
-        sourceOrigin
+        sourceOrigin,
+        excludePreload: nodeType === 'author'
     };
 
     const { articles, moreArticles } =
