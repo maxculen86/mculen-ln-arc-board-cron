@@ -20,6 +20,8 @@
         flex-grow: 1;
         margin-top: $spacing-sm;
         &.previous-month {
+            margin-right: $spacing-sm;
+            margin-left: $spacing-sm;
             grid-area: arrowBack;
             justify-self: end;
             @media ($media-m) {
@@ -28,6 +30,8 @@
             }
         }
         &.posterior-month {
+            margin-right: $spacing-sm;
+            margin-left: $spacing-sm;
             grid-area: arrowForward;
             justify-self: start;
             @media ($media-m) {
@@ -50,7 +54,6 @@
     .interaction-container {
         @include flex(flex, column, center, center);
         gap: $spacing-xs;
-        padding: 0 px(12);
         .circle {
             @include flex(flex, column, center, center);
             width: px(40);
@@ -69,6 +72,29 @@
             color: $blue-500;
             text-align: center;
             text-transform: capitalize;
+        }
+    }
+    &.--withoutHolidayData {
+        @media ($media-m) {
+            grid-template-columns: 1fr px(280) 1fr;
+        }
+        h3 {
+            &.previous-month {
+                @media ($media-m) {
+                    justify-self: flex-end;
+                }
+                @media ($media-l) {
+                    margin-right: px(48);
+                }
+            }
+            &.posterior-month {
+                @media ($media-m) {
+                    justify-self: flex-start;
+                }
+                @media ($media-l) {
+                    margin-left: px(48);
+                }
+            }
         }
     }
 }

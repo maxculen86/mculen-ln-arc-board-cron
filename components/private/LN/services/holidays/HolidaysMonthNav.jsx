@@ -5,6 +5,7 @@ import HolidaysCardCalendar from './HolidaysCardCalendar';
 import Link from '../../../common/com-link';
 import Icon from '../../../common/icon';
 import get from '../../../common/utils/get';
+import setClassName from '../../../common/utils/setClassName';
 import '../../../../../resources/dist/css/ln/components/holidays-month-nav.css';
 
 const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
@@ -14,6 +15,13 @@ const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
         '[0].holiday_day_contents',
         []
     );
+    const extraClassList = holidayDayContents.length
+        ? ''
+        : ' --withoutHolidayData';
+    const _className = setClassName({
+        baseClassName: 'holidays-month-nav',
+        extraClassList
+    });
     const link = previousOrNext => {
         return `${previousAndNextCalendar[previousOrNext].url}`;
     };
@@ -25,7 +33,7 @@ const HolidaysMonthNav = ({ calendar, previousAndNextCalendar, year }) => {
     };
 
     return (
-        <div className="holidays-month-nav">
+        <div className={_className}>
             {previousAndNextCalendar.previous && (
                 <h3 className="previous-month">
                     <Link link={link('previous')} title={title('previous')}>

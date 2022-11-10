@@ -45,6 +45,7 @@ const transform = data => {
         serviceItem: serviceItem
             ? Number(serviceItem)
             : new Date().getFullYear(),
+        ...(serviceSubItem && { serviceSubItem }),
         ...sectionSourceData,
         dataService: transformHolidays(
             dataService,

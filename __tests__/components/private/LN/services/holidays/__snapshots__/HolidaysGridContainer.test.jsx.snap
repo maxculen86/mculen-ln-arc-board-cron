@@ -22,7 +22,7 @@ exports[`components - private - holidays - HolidaysGridContainer snapshot Holida
             >
               <a
                 class="com-link"
-                href="https://www.lanacion.com.ar/feriados/2022/enero/"
+                href="/feriados/2022/enero/"
                 title="Ir a feriados de enero del 2022"
               >
                 Enero
@@ -259,15 +259,15 @@ exports[`components - private - holidays - HolidaysGridContainer snapshot Holida
       >
         <li>
           <span
-            class=" --immovable"
+            class="--immovable"
           >
             1
           </span>
-          <span
+          <h4
             class="com-text"
           >
             Año nuevo
-          </span>
+          </h4>
         </li>
       </ul>
     </div>
@@ -288,7 +288,7 @@ exports[`components - private - holidays - HolidaysGridContainer snapshot Holida
             >
               <a
                 class="com-link"
-                href="https://www.lanacion.com.ar/feriados/2022/febrero/"
+                href="/feriados/2022/febrero/"
                 title="Ir a feriados de febrero del 2022"
               >
                 Febrero
@@ -490,15 +490,15 @@ exports[`components - private - holidays - HolidaysGridContainer snapshot Holida
       >
         <li>
           <span
-            class=" --immovable"
+            class="--immovable"
           >
             28
           </span>
-          <span
+          <h4
             class="com-text"
           >
             Carnaval
-          </span>
+          </h4>
         </li>
       </ul>
     </div>
