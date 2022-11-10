@@ -1,5 +1,4 @@
 import React from 'react';
-import Static from 'fusion:static';
 import {
     getBannerConfiguration,
     suffixDevice
@@ -72,18 +71,12 @@ const Banner = props => {
                 )
                     return <></>;
 
-                return (
-                    <Static id={slotId}>
-                        {outputType === 'amp' && slotId.includes('_amp') ? (
-                            <DivBannerAMP
-                                bannerConfiguration={bannerConfiguration}
-                            />
-                        ) : (
-                            <DivBannerSSR
-                                bannerConfiguration={bannerConfiguration}
-                            />
-                        )}
-                    </Static>
+                const isAmp = outputType === 'amp' && slotId.includes('_amp');
+
+                return isAmp ? (
+                    <DivBannerAMP bannerConfiguration={bannerConfiguration} />
+                ) : (
+                    <DivBannerSSR bannerConfiguration={bannerConfiguration} />
                 );
             });
     };

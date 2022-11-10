@@ -13,7 +13,7 @@ const CatholicHolidaysTables = ({ id: _featureId }) => {
 
     return (
         <>
-            {Object.keys(unmovableHolidays).length !== 0 && (
+            {!!Object.keys(unmovableHolidays).length && (
                 <>
                     <ModheaderSection
                         tag="h2"
@@ -24,7 +24,7 @@ const CatholicHolidaysTables = ({ id: _featureId }) => {
                     <Table data={unmovableHolidays} extraClass="--holidays" />
                 </>
             )}
-            {Object.keys(transferableHolidays).length !== 0 && (
+            {!!Object.keys(transferableHolidays).length && (
                 <>
                     <ModheaderSection
                         tag="h2"
@@ -38,7 +38,7 @@ const CatholicHolidaysTables = ({ id: _featureId }) => {
                     />
                 </>
             )}
-            {Object.keys(bridgeHolidays).length !== 0 && (
+            {!!Object.keys(bridgeHolidays).length && (
                 <>
                     <ModheaderSection
                         tag="h2"

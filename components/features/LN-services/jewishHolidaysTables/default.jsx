@@ -12,18 +12,20 @@ const JewishHolidaysTable = ({ id: _featureId = {} }) => {
         {}
     );
 
-    return Object.keys(jewishTable).length !== 0 ? (
+    return (
         <>
-            <ModheaderSection
-                tag="h2"
-                font="sueca"
-                title="Feriados judíos"
-                line
-            />
-            <Table data={jewishTable} extraClass="--holidays" />
+            {!!Object.keys(jewishTable).length && (
+                <>
+                    <ModheaderSection
+                        tag="h2"
+                        font="sueca"
+                        title="Feriados judíos"
+                        line
+                    />
+                    <Table data={jewishTable} extraClass="--holidays" />
+                </>
+            )}
         </>
-    ) : (
-        <></>
     );
 };
 

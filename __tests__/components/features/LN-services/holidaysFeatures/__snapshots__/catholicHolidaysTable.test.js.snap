@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Should show all the catholic holidays tables 1`] = `
+<div>
+  <section
+    class="mod-headersection  --line"
+    role="contentinfo"
+  >
+    <h2
+      class="com-title --l"
+    >
+      Feriados inamovibles
+    </h2>
+  </section>
+  <div
+    class="table-wrapper --holidays"
+  >
+    <table
+      class="table"
+    >
+      <thead>
+        <tr>
+          <th>
+            Fecha
+          </th>
+          <th>
+            Día
+          </th>
+          <th>
+            Conmemoración
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            1 de enero
+          </td>
+          <td>
+            Sábado
+          </td>
+          <td>
+            Año nuevo
+          </td>
+        </tr>
+        <tr>
+          <td>
+            28 de febrero
+          </td>
+          <td>
+            Lunes
+          </td>
+          <td>
+            Carnaval
+          </td>
+        </tr>
+        <tr>
+          <td>
+            24 de marzo
+          </td>
+          <td>
+            Jueves
+          </td>
+          <td>
+            Día Nacional de la Memoria por la Verdad y la Justicia.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            25 de mayo
+          </td>
+          <td>
+            Miércoles
+          </td>
+          <td>
+            Día de la Revolución de Mayo.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            20 de junio
+          </td>
+          <td>
+            Lunes
+          </td>
+          <td>
+            Paso a la Inmortalidad del General Manuel Belgrano.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            9 de julio
+          </td>
+          <td>
+            Sábado
+          </td>
+          <td>
+            Día de la Independencia.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            8 de diciembre
+          </td>
+          <td>
+            Jueves
+          </td>
+          <td>
+            Inmaculada Concepción de María.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            25 de diciembre
+          </td>
+          <td>
+            Domingo
+          </td>
+          <td>
+            Navidad.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <section
+    class="mod-headersection  --line"
+    role="contentinfo"
+  >
+    <h2
+      class="com-title --l"
+    >
+      Feriados transferibles
+    </h2>
+  </section>
+  <div
+    class="table-wrapper --holidays"
+  >
+    <table
+      class="table"
+    >
+      <thead>
+        <tr>
+          <th>
+            Fecha
+          </th>
+          <th>
+            Día
+          </th>
+          <th>
+            Conmemoración
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            1 de mayo
+          </td>
+          <td>
+            Domingo
+          </td>
+          <td>
+            Día del Trabajador.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <section
+    class="mod-headersection  --line"
+    role="contentinfo"
+  >
+    <h2
+      class="com-title --l"
+    >
+      Feriados puentes
+    </h2>
+  </section>
+  <div
+    class="table-wrapper --holidays"
+  >
+    <table
+      class="table"
+    >
+      <thead>
+        <tr>
+          <th>
+            Fecha
+          </th>
+          <th>
+            Día
+          </th>
+          <th>
+            Conmemoración
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            2 de abril
+          </td>
+          <td>
+            Sábado
+          </td>
+          <td>
+            Viernes Santo.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
