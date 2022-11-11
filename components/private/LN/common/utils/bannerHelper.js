@@ -82,6 +82,9 @@ export const isForAmp = (desktop = '', mobile = '', tablet = '') => {
         .includes('_amp');
 };
 
+export const shouldShowBanner = (soloNoSuscriptores, globalContent) =>
+    soloNoSuscriptores && get(globalContent, 'subscription') === 'S';
+
 export const getBannerConfiguration = (
     globalContent,
     customFields,

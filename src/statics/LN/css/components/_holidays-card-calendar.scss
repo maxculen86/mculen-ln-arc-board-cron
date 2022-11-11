@@ -1,0 +1,85 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.holidays-card-calendar {
+    @include common-card;
+    gap: px(19);
+    border-color: $light-neutral-400;
+    margin-bottom: $spacing-lg;
+    @media ($media-m) {
+        width: px(440);
+    }
+    &.--vertical {
+        @media ($media-m) {
+            width: px(561);
+            flex-direction: column;
+            gap: px(0);
+            padding: $spacing-sm px(7);
+            place-self: start;
+            .holidays-list {
+                border-left: none;
+                padding-left: 0;
+                margin-left: 0;
+            }
+        }
+        &.--withoutHolidayData {
+            padding-bottom: 0;
+        }
+        @media ($media-l) {
+            padding: $spacing-sm;
+        }
+    }
+    &.--horizontal {
+        @media ($media-m) {
+            width: px(561);
+            flex-direction: row;
+            gap: px(0);
+        }
+    }
+    .calendar-container {
+        flex-grow: 1;
+        min-height: px(266);
+    }
+    &.--horizontal {
+        .holidays-list {
+            @media ($media-m) {
+                width: 50%;
+                border-top: none;
+                border-left: px(1) solid $light-neutral-400;
+                padding-left: $spacing-sm;
+                margin-left: $spacing-sm;
+            }
+        }
+    }
+    .holidays-list {
+        @include flex(flex, column, start, start);
+        padding-top: px(22);
+        gap: $spacing-sm;
+        flex-grow: 1;
+        border-top: px(1) solid $light-neutral-400;
+        li {
+            @include flex(flex, row, start, start);
+            font-size: px(14);
+            span:first-child {
+                @include flex(flex, row, center, center);
+                min-width: px(28);
+                min-height: px(28);
+                box-sizing: border-box;
+                border-radius: 50%;
+                margin-right: $spacing-xs;
+                transform: translateY(px(-6));
+                &.--immovable {
+                    background-color: $blue-200;
+                    border: px(2) solid $blue-200;
+                }
+                &.--bridge {
+                    border: px(2) solid $blue-200;
+                }
+                &.--transferable {
+                    border: px(2) solid $green-200;
+                    background-color: $green-200;
+                }
+            }
+        }
+    }
+}

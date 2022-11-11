@@ -6,14 +6,15 @@ import ComLink from '../../../common/com-link';
 import ComParagraph from '../../../common/com-paragraph';
 import { compose } from '../../../common/utils/functional';
 
-const Parrafo = ({ data, capital, size, classCondition }) => {
+const Parrafo = props => {
+    const { data, capital, size, classCondition, withSponsoredLink } = props;
     const content = compose(
         replaceClassForMark,
         setOtherChar,
         setExternalLinks,
         setItalicText,
         setBoldText
-    )(data.content);
+    )({ content: data.content, withSponsoredLink });
 
     // Si el redactor hace enter varias veces ignoramos los <br/>
     if (content === '<br/>') return <></>;
@@ -38,7 +39,8 @@ Parrafo.propTypes = {
     }),
     capital: PropTypes.bool,
     size: PropTypes.string,
-    classCondition: PropTypes.string
+    classCondition: PropTypes.string,
+    withSponsoredLink: PropTypes.bool
 };
 
 Parrafo.defaultProps = {
@@ -47,7 +49,8 @@ Parrafo.defaultProps = {
     classCondition: '',
     data: PropTypes.shape({
         type: ''
-    })
+    }),
+    withSponsoredLink: false
 };
 
 export default Parrafo;
@@ -57,28 +60,22 @@ const isLetter = text => text.match(/^[A-Za-z]/);
 const setOtherChar = text => text.replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 
 const replaceClassForMark = text =>
-    text
-        .replace(/hl_yellow/g, 'hl_underline')
-        .replace(/hl_pink/g, 'hl_underline')
-        .replace(/hl_purple/g, 'hl_underline')
-        .replace(/hl_orange/g, 'hl_underline')
-        .replace(/hl_green/g, 'hl_underline');
+    text.replace(/hl_(yellow|pink|purple|orange|green)/g, 'hl_underline');
 
-const setBoldText = text =>
-    text.replace(/<b>/g, '<strong>').replace(/<\/b>/g, '</strong>');
+const setBoldText = ({ content, withSponsoredLink } = {}) => ({
+    text: content.replace(/(?:<|<(\/))b(?:>)/g, '<$1strong>'),
+    withSponsoredLink
+});
 
-const setItalicText = text =>
-    text.replace(/<i>/g, '<em>').replace(/<\/i>/g, '</em>');
+const setItalicText = ({ text, withSponsoredLink } = {}) => ({
+    content: text.replace(/(?:<|<(\/))i(?:>)/g, '<$1em>'),
+    withSponsoredLink
+});
 
-const deleteTagsForTitle = text =>
-    text
-        .replace(/<em>/g, '')
-        .replace(/<\/em>/g, '')
-        .replace(/<strong>/g, '')
-        .replace(/<\/strong>/g, '');
+const deleteTagsForTitle = text => text.replace(/(<|<\/)(em|strong)>/g, '');
 
-const setExternalLinks = text =>
-    text.replace(
+const setExternalLinks = ({ content, withSponsoredLink } = {}) =>
+    content.replace(
         /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
         (match, href, string) => {
             const [, , link] = href.match(/href=(["'\\])+(.*?)\1/) || [
@@ -86,19 +83,17 @@ const setExternalLinks = text =>
                 null,
                 '#'
             ];
-            let target = '_self';
-
-            if (!href.includes(config.host)) {
-                target = '_blank';
-            }
 
             return ReactDOMServer.renderToString(
                 React.createElement(
                     ComLink,
                     {
                         link,
-                        target,
-                        title: deleteTagsForTitle(string)
+                        target: !href.includes(config.host)
+                            ? '_blank'
+                            : '_self',
+                        title: deleteTagsForTitle(string),
+                        withSponsoredLink
                     },
                     string
                 )

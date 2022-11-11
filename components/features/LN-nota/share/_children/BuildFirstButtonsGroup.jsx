@@ -1,18 +1,20 @@
 /* eslint-disable react/require-default-props */
+import { VIAFOURA_UUID } from 'fusion:environment';
 import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
-import { useAppContext } from 'fusion:context';
 import { GlobalContext } from '../../../../private/common/context/globalContext';
 import ComButton from '../../../../private/common/com-button';
 import {
     scrollToComments,
     onButtonClicked,
-    GetNumberOfComments,
     addEventToDataLayer,
     getClassAndIconByBookmark
 } from '../../../../private/LN/common/utils/shareHelper';
 import { handleClickAudioNews } from '../../../../private/common/audioNews/helpers';
 import '../../../../../resources/dist/css/ln/components/build-first-buttons-group.css';
+import useFetch from '../../../../private/common/hooks/useFetch';
+import get from '../../../../private/common/utils/get';
+import { conditionallyCallViafoura } from '../../../../private/common/utils/commentsHelper';
 
 const BuildFirtsButtonsGroup = ({
     termicaBookmark,
@@ -25,7 +27,6 @@ const BuildFirtsButtonsGroup = ({
     enableButton,
     bookmark = ''
 } = {}) => {
-    const { arcSite = 'la-nacion-ar' } = useAppContext() || {};
     const { dispatch, state } = useContext(GlobalContext) || {};
 
     const {
@@ -35,11 +36,19 @@ const BuildFirtsButtonsGroup = ({
         isListenable
     } = globalContent;
 
-    const { totalVisibleContent = '' } = GetNumberOfComments(
-        firstPublishDate,
-        arcSite,
-        id
-    );
+    const { data } = useFetch({
+        url: conditionallyCallViafoura(firstPublishDate)
+            ? `https://livecomments.viafoura.co/v4/livecomments/${VIAFOURA_UUID}/contentcontainer/id?container_id=${id}`
+            : null,
+        options: {
+            method: 'GET',
+            headers: {
+                accept: 'application/json'
+            }
+        }
+    });
+
+    const totalVisibleContent = get(data, 'total_visible_content', '');
 
     const { className, icon } = getClassAndIconByBookmark(bookmark);
 

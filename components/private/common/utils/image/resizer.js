@@ -12,6 +12,17 @@ export const setHeight = (width, height, proportion) => {
     return axisX > axisY ? parseInt((width / axisX) * axisY, 10) : height;
 };
 
+export const updateHeight = (originalHeight, originalWidth, opt = {}) => {
+    const { proportion } = opt;
+    if (!proportion && originalWidth < originalHeight) {
+        const aspectRatio = getAspectRatio(originalWidth, originalHeight);
+        const [axisXX, axisYY] = aspectRatio.split(':');
+
+        return parseInt((opt.width / axisXX) * axisYY, 10);
+    }
+    return opt.height;
+};
+
 const setFilter = (thumbor, [type, value]) =>
     thumbor.filter(`${type}(${value})`);
 
@@ -128,7 +139,10 @@ export const createResizer = (
                 );
                 resp.push({
                     resizedUrl,
-                    option: opt
+                    option: {
+                        ...opt,
+                        height: updateHeight(originalHeight, originalWidth, opt)
+                    }
                 });
             });
 

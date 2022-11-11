@@ -39,6 +39,7 @@ const featuredRules = {
             // author3: 'Opinión',
             notaColorRosa3: 'Vertical 3 color Rosa',
             notaColorVerde3: 'Vertical 3 color Verde',
+            notaColorQatar3: 'Vertical 3 color Qatar',
             grilla1: 'Grilla 1',
             grilla2: 'Grilla 2',
             grilla3: 'Grilla 3',

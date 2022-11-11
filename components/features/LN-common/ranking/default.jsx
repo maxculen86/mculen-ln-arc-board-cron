@@ -13,12 +13,13 @@ import {
 import StaticContent from '../../../private/common/staticContent';
 import '../../../../resources/dist/css/ln/components/ranking.css';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
+import checkHydrateOnly from '../../../private/LN/common/utils/checkHydrateOnly';
 
 const getDataContent = (
     sectionId,
     sectionParentId,
     website,
-    isHome = false
+    hasHydrateOnly = false
 ) => {
     const getRankingData = section =>
         getContent({
@@ -28,7 +29,7 @@ const getDataContent = (
                 imageConfig: 'boxArticles',
                 website
             },
-            staticMode: isHome
+            staticMode: hasHydrateOnly
         });
 
     const data = getRankingData(sectionId);
@@ -44,8 +45,12 @@ const RankingFeature = ({ id: featureId }) => {
         website,
         arcSite,
         layout,
-        globalContent
+        globalContent = {}
     } = useAppContext();
+
+    const { node_type: nodeType } = globalContent;
+
+    const hasHydrateOnly = checkHydrateOnly({ layout, nodeType });
 
     const {
         title,
@@ -63,7 +68,7 @@ const RankingFeature = ({ id: featureId }) => {
             sectionId,
             sectionParentId,
             website || arcSite,
-            isHome
+            hasHydrateOnly
         ) || {};
 
     const customTitle = name ? `Más leídas de ${name}` : 'Más leídas';
@@ -90,7 +95,11 @@ const RankingFeature = ({ id: featureId }) => {
         <StaticValidation id={featureId}>{component}</StaticValidation>
     )) || <></>;
 
-    return isHome ? <StaticContent>{component}</StaticContent> : sectionRanking;
+    return hasHydrateOnly ? (
+        <StaticContent>{component}</StaticContent>
+    ) : (
+        sectionRanking
+    );
 };
 
 RankingFeature.label = 'LN-Common-Ranking';

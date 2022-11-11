@@ -180,7 +180,8 @@ describe('Article source nota - defensive cachedCall', () => {
                     paywallEnabled: '',
                     subscription: 'A',
                     isListenable: false,
-                    withFirmaDistributor: true
+                    withFirmaDistributor: true,
+                    withSponsoredLink: false
                 });
             })
             .then(done);
@@ -463,5 +464,41 @@ describe('ByUrl regex', () => {
         expect(resolve(key_)).toEqual(
             '/content/v4/stories/?website=la-nacion-ar&website_url=/deportes/futbol/river-campeon-como-quedo-la-tabla-historica-del-futbol-argentino-y-asi-esta-la-pelea-con-boca-nid25112021/'
         );
+    });
+});
+
+describe('Author role', () => {
+    it('should get author role', done => {
+        articleSourceFetch(query)
+            .then(response => {
+                expect(response).toStrictEqual({
+                    ...responseNotaNoticia,
+                    taxonomy: { ...responseNotaNoticia.taxonomy, sections: [] },
+                    paywallEnabled: '',
+                    subscription: 'A',
+                    isListenable: false,
+                    withFirmaDistributor: true,
+                    withSponsoredLink: false
+                });
+            })
+            .then(done);
+    });
+
+    it('should not get author role', done => {
+        mockRequestResponse.mockReturnValue(mockResponseNotaNoticia);
+
+        articleSourceFetch(query)
+            .then(response => {
+                expect(response).toStrictEqual({
+                    ...responseNotaNoticia,
+                    taxonomy: { ...responseNotaNoticia.taxonomy, sections: [] },
+                    paywallEnabled: '',
+                    subscription: 'A',
+                    isListenable: false,
+                    withFirmaDistributor: true,
+                    withSponsoredLink: false
+                });
+            })
+            .then(done);
     });
 });

@@ -5,37 +5,39 @@ import HolidaysNav from '../../../../../../components/private/LN/services/holida
 
 describe('components - private - holidays - HolidaysNav', () => {
     let component;
-    let mockYear = 2022;
+    let mockYear = new Date().getFullYear();
 
     beforeEach(() => {
-        component = render(<HolidaysNav year={mockYear} />);
+        component = render(<HolidaysNav year={mockYear} layout="home" />);
     });
 
-    test('snapshot HolidaysNav', () => {
+    test('Should match snapshot HolidaysNav', () => {
         expect(component.container).toMatchSnapshot();
     });
 
-    test('existance of buttons containing links to past and future years', () => {
+    test('Existance of buttons containing links to two other years', () => {
         expect(
-            component.getByTitle(`ir a feriados ${mockYear - 1}`, {
+            component.getByTitle(`Ir a feriados ${mockYear - 1}`, {
                 exact: false
             })
         ).toHaveAttribute(
             'href',
-            expect.stringContaining(
-                `https://www.lanacion.com.ar/feriados/${mockYear - 1}/`
-            )
+            expect.stringContaining(`/feriados/${mockYear - 1}/`)
         );
 
         expect(
-            component.getByTitle(`ir a feriados ${mockYear + 1}`, {
+            component.getByTitle(`Ir a feriados ${mockYear + 1}`, {
                 exact: false
             })
         ).toHaveAttribute(
             'href',
-            expect.stringContaining(
-                `https://www.lanacion.com.ar/feriados/${mockYear + 1}/`
-            )
+            expect.stringContaining(`/feriados/${mockYear + 1}/`)
         );
+
+        expect(
+            component.getAllByTitle(`Ir a feriados `, {
+                exact: false
+            })
+        ).toHaveLength(2);
     });
 });

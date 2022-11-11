@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import setClassName from '../utils/setClassName';
 import { getFontFamily, getFontSize, getFontWeight } from './getFontData';
 
 const Text = ({
@@ -21,12 +22,7 @@ const Text = ({
     const _size = getFontSize(size);
     const _weight = getFontWeight(weight);
 
-    const setTextClassName = props =>
-        Object.values(props)
-            .filter(Boolean)
-            .join(' ');
-
-    const _className = setTextClassName({ extraClass, _font, _weight, _size });
+    const _className = setClassName({ extraClass, _font, _weight, _size });
 
     if (!_content) return null;
 

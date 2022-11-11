@@ -1,0 +1,396 @@
+{
+    "serviceType": "feriados-año",
+    "serviceItem": 2022,
+    "dataService": {
+        "calendars": [
+            {
+                "monthNumber": 1,
+                "monthName": "Enero",
+                "holidayData": [
+                    {
+                        "days": [1],
+                        "reason": "Año nuevo",
+                        "day_type": 1,
+                        "day_type_name": "Inamovible"
+                    }
+                ]
+            },
+            {
+                "monthNumber": 2,
+                "monthName": "Febrero",
+                "holidayData": [
+                    {
+                        "days": [28],
+                        "reason": "Carnaval",
+                        "day_type": 1,
+                        "day_type_name": "Inamovible"
+                    }
+                ]
+            },
+            {
+                "monthNumber": 3,
+                "monthName": "Marzo",
+                "holidayData": [
+                    {
+                        "days": [24],
+                        "reason": "Día Nacional de la Memoria por la Verdad y la Justicia.",
+                        "day_type": 1,
+                        "day_type_name": "Inamovible"
+                    }
+                ]
+            },
+            {
+                "monthNumber": 4,
+                "monthName": "Abril",
+                "holidayData": [
+                    {
+                        "days": [2],
+                        "reason": "Viernes Santo.",
+                        "day_type": 3,
+                        "day_type_name": "Puente"
+                    }
+                ]
+            },
+            {
+                "monthNumber": 5,
+                "monthName": "Mayo",
+                "holidayData": [
+                    {
+                        "days": [1],
+                        "reason": "Día del Trabajador.",
+                        "day_type": 2,
+                        "day_type_name": "Trasladable"
+                    },
+                    {
+                        "days": [25],
+                        "reason": "Día de la Revolución de Mayo.",
+                        "day_type": 1,
+                        "day_type_name": "Inamovible"
+                    }
+                ]
+            },
+            {
+                "monthNumber": 6,
+                "monthName": "Junio",
+                "holidayData": [
+                    {
+                        "days": [20],
+                        "reason": "Paso a la Inmortalidad del General Manuel Belgrano.",
+                        "day_type": 1,
+                        "day_type_name": "Inamovible"
+                    }
+                ]
+            },
+            {
+                "monthNumber": 7,
+                "monthName": "Julio",
+                "holidayData": [
+                    {
+                        "days": [9],
+                        "reason": "Día de la Independencia.",
+                        "day_type": 1,
+                        "day_type_name": "Inamovible"
+                    }
+                ]
+            },
+            {
+                "monthNumber": 8,
+                "monthName": "Agosto"
+            },
+            {
+                "monthNumber": 9,
+                "monthName": "Septiembre"
+            },
+            {
+                "monthNumber": 10,
+                "monthName": "Octubre"
+            },
+            {
+                "monthNumber": 11,
+                "monthName": "Noviembre"
+            },
+            {
+                "monthNumber": 12,
+                "monthName": "Diciembre",
+                "holidayData": [
+                    {
+                        "days": [8],
+                        "reason": "Inmaculada Concepción de María.",
+                        "day_type": 1,
+                        "day_type_name": "Inamovible"
+                    },
+                    {
+                        "days": [25],
+                        "reason": "Navidad.",
+                        "day_type": 1,
+                        "day_type_name": "Inamovible"
+                    }
+                ]
+            }
+        ],
+        "tables": {
+            "Trasladable": {
+                "header": [
+                    {
+                        "_id": "header-date",
+                        "content": "Fecha"
+                    },
+                    {
+                        "_id": "header-day",
+                        "content": "Día"
+                    },
+                    {
+                        "_id": "header-reason",
+                        "content": "Conmemoración"
+                    }
+                ],
+                "rows": [
+                    [
+                        {
+                            "content": "1 de mayo"
+                        },
+                        {
+                            "content": "Domingo"
+                        },
+                        {
+                            "content": "Día del Trabajador."
+                        }
+                    ]
+                ]
+            },
+            "Inamovible": {
+                "header": [
+                    {
+                        "_id": "header-date",
+                        "content": "Fecha"
+                    },
+                    {
+                        "_id": "header-day",
+                        "content": "Día"
+                    },
+                    {
+                        "_id": "header-reason",
+                        "content": "Conmemoración"
+                    }
+                ],
+                "rows": [
+                    [
+                        {
+                            "content": "1 de enero"
+                        },
+                        {
+                            "content": "Sábado"
+                        },
+                        {
+                            "content": "Año nuevo"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "28 de febrero"
+                        },
+                        {
+                            "content": "Lunes"
+                        },
+                        {
+                            "content": "Carnaval"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "24 de marzo"
+                        },
+                        {
+                            "content": "Jueves"
+                        },
+                        {
+                            "content": "Día Nacional de la Memoria por la Verdad y la Justicia."
+                        }
+                    ],
+                    [
+                        {
+                            "content": "25 de mayo"
+                        },
+                        {
+                            "content": "Miércoles"
+                        },
+                        {
+                            "content": "Día de la Revolución de Mayo."
+                        }
+                    ],
+                    [
+                        {
+                            "content": "20 de junio"
+                        },
+                        {
+                            "content": "Lunes"
+                        },
+                        {
+                            "content": "Paso a la Inmortalidad del General Manuel Belgrano."
+                        }
+                    ],
+                    [
+                        {
+                            "content": "9 de julio"
+                        },
+                        {
+                            "content": "Sábado"
+                        },
+                        {
+                            "content": "Día de la Independencia."
+                        }
+                    ],
+                    [
+                        {
+                            "content": "8 de diciembre"
+                        },
+                        {
+                            "content": "Jueves"
+                        },
+                        {
+                            "content": "Inmaculada Concepción de María."
+                        }
+                    ],
+                    [
+                        {
+                            "content": "25 de diciembre"
+                        },
+                        {
+                            "content": "Domingo"
+                        },
+                        {
+                            "content": "Navidad."
+                        }
+                    ]
+                ]
+            },
+            "Puente": {
+                "header": [
+                    {
+                        "_id": "header-date",
+                        "content": "Fecha"
+                    },
+                    {
+                        "_id": "header-day",
+                        "content": "Día"
+                    },
+                    {
+                        "_id": "header-reason",
+                        "content": "Conmemoración"
+                    }
+                ],
+                "rows": [
+                    [
+                        {
+                            "content": "2 de abril"
+                        },
+                        {
+                            "content": "Sábado"
+                        },
+                        {
+                            "content": "Viernes Santo."
+                        }
+                    ]
+                ]
+            },
+            "Judio": {
+                "header": [
+                    {
+                        "_id": "header-date",
+                        "content": "Fecha"
+                    },
+                    {
+                        "_id": "header-reason",
+                        "content": "Conmemoración"
+                    }
+                ],
+                "rows": [
+                    [
+                        {
+                            "content": "10 de febrero"
+                        },
+                        {
+                            "content": "Tou BiChvat"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "28 de marzo"
+                        },
+                        {
+                            "content": "Chouchane Pourim"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "9-16 de abril"
+                        },
+                        {
+                            "content": "Pésaj"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "12 de mayo"
+                        },
+                        {
+                            "content": "Lag Ba'Omer"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "29-30 de mayo"
+                        },
+                        {
+                            "content": "Shavouot"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "30-31 de julio"
+                        },
+                        {
+                            "content": "Ayuno Tichea BeAv"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "28-29 de septiembre"
+                        },
+                        {
+                            "content": "Ayuno Tichea BeAv"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "2-9 de octubre"
+                        },
+                        {
+                            "content": "Sucot"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "11 de octubre"
+                        },
+                        {
+                            "content": "Simjat Torá (Purim)"
+                        }
+                    ],
+                    [
+                        {
+                            "content": "10-18 de diciembre"
+                        },
+                        {
+                            "content": "Hanuka"
+                        }
+                    ]
+                ]
+            }
+        }
+    },
+    "metaData": {
+        "description": "Calendario de feriados nacionales 2022 en Argentina: días no laborables, fines de semana largo y feriados puente del 2022 y 2023 en LA NACION.",
+        "title": "Feriados 2022 en Argentina: Calendario de feriados nacionales - LA NACION"
+    }
+}

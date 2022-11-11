@@ -4,7 +4,7 @@ import ComTitle from '../../../common/com-title';
 import '../../../../../resources/dist/css/ln/components/title.css';
 
 const titleArticle = ({ headlines, prefix, size }) => {
-    const { basic } = headlines || {};
+    const { basic = '' } = headlines || {};
     const prefixText = `${prefix !== '' ? `${prefix} ` : prefix}`;
 
     return (

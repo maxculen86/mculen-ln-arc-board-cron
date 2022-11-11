@@ -16,7 +16,8 @@ const ComLink = props => {
         classCondition,
         size,
         rel,
-        style
+        style,
+        withSponsoredLink = false
     } = props;
 
     const classBuilder = builder => (builder ? ` ${builder}` : '');
@@ -38,7 +39,8 @@ const ComLink = props => {
         children,
         style,
         SIZE_CLASS,
-        EXTRA_CLASS
+        EXTRA_CLASS,
+        withSponsoredLink
     );
 
     const tag = link ? 'a' : 'span';
@@ -51,7 +53,7 @@ ComLink.propTypes = {
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.string,
         PropTypes.node
-    ]),
+    ]).isRequired,
     link: PropTypes.string,
     textname: PropTypes.string,
     title: PropTypes.string,
@@ -60,7 +62,9 @@ ComLink.propTypes = {
     size: PropTypes.string,
     style: PropTypes.string,
     dataSection: PropTypes.string,
-    dataEvent: PropTypes.string
+    dataEvent: PropTypes.string,
+    rel: PropTypes.string,
+    withSponsoredLink: PropTypes.bool
 };
 
 ComLink.defaultProps = {
@@ -72,7 +76,9 @@ ComLink.defaultProps = {
     style: '',
     dataSection: '',
     dataEvent: '',
-    link: null
+    link: null,
+    rel: undefined,
+    withSponsoredLink: false
 };
 
 export default ComLink;

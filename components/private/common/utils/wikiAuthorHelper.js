@@ -4,11 +4,16 @@ import ComContainer from '../com-container';
 import ModDescriptionList from '../mod-descriptionList';
 import ComSubtitle from '../com-subtitle';
 import ListSocialIcons from '../list-socialicons';
+import { replaceAllUrlsResizerObject } from '../../LN/common/utils/mediaHelper';
 
 export const authorPhoto = (outputType, url, byline) => {
     return url ? (
         <div className="col-12 col-tablet-4 col-deskxl-3">
-            <ImageAuthor outputType={outputType} url={url} name={byline} />
+            <ImageAuthor
+                outputType={outputType}
+                url={replaceAllUrlsResizerObject(url)}
+                name={byline}
+            />
         </div>
     ) : null;
 };
@@ -92,24 +97,32 @@ export const authorAffiliations = affiliations => {
 };
 
 export const authorBooks = (books = []) => {
-    return books.length > 0 ? (
+    const validatedBooks = books.filter((book = {}) => {
+        const { title = '' } = book;
+        return title !== '';
+    });
+    return validatedBooks.length > 0 ? (
         <ComContainer>
             <ModDescriptionList
                 descriptionTitle="Publicaciones"
                 size="--twoxs"
-                list={books}
+                list={validatedBooks}
             />
         </ComContainer>
     ) : null;
 };
 
-export const authorPodcast = (podcast = []) => {
-    return podcast.length > 0 ? (
+export const authorPodcast = (podcasts = []) => {
+    const validatedPodcast = podcasts.filter((podcast = {}) => {
+        const { name = '' } = podcast;
+        return name !== '';
+    });
+    return validatedPodcast.length > 0 ? (
         <ComContainer>
             <ModDescriptionList
                 descriptionTitle="Podcast"
                 size="--twoxs"
-                list={podcast}
+                list={validatedPodcast}
             />
         </ComContainer>
     ) : null;

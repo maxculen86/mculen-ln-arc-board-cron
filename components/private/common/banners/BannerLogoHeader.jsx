@@ -11,9 +11,13 @@ import {
     suffixDevice
 } from '../../LN/common/utils/bannerHelper';
 import DivBannerSSR from './DivBannerSSR';
+import checkHydrateOnly from '../../LN/common/utils/checkHydrateOnly';
+import StaticContent from '../staticContent';
 
 const BannerLogoHeader = ({ section, isAdmin }) => {
-    const { siteProperties } = useAppContext();
+    const { siteProperties, globalContent, layout } = useAppContext();
+
+    const nodeType = get(globalContent, 'node_type', '');
     const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
     const config = get(siteProperties, 'bannerConfig.common', {});
 
@@ -47,8 +51,8 @@ const BannerLogoHeader = ({ section, isAdmin }) => {
         classes: '--logo hlp-none'
     };
 
-    return (
-        <Static id="id-banner-logo">
+    const Component = (
+        <>
             <DivBannerSSR
                 bannerConfiguration={{
                     ...bannerConfiguration,
@@ -67,7 +71,12 @@ const BannerLogoHeader = ({ section, isAdmin }) => {
                     slotId: 'logo_header_tab'
                 }}
             />
-        </Static>
+        </>
+    );
+    return checkHydrateOnly({ nodeType, layout }) ? (
+        <StaticContent>{Component}</StaticContent>
+    ) : (
+        <Static id="id-banner-logo">{Component}</Static>
     );
 };
 

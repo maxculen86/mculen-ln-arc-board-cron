@@ -408,6 +408,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                             style=""
                             textname=""
                             title="Prueba Newsletter de propiedades"
+                            withSponsoredLink={false}
                           >
                             <a
                               className="com-link"
@@ -691,6 +692,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                             style=""
                             textname=""
                             title="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
+                            withSponsoredLink={false}
                           >
                             <a
                               className="com-link"
@@ -974,6 +976,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                             style=""
                             textname=""
                             title="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
+                            withSponsoredLink={false}
                           >
                             <a
                               className="com-link"

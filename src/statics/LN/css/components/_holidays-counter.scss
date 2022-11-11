@@ -1,0 +1,71 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.holidays-counter {
+    @include common-card;
+    width: 100%;
+    max-width: px(288);
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-lg;
+    margin: px(0) auto $spacing-lg auto;
+
+    .number-counter {
+        border-radius: 50%;
+        width: px(130);
+        height: px(130);
+        margin: auto;
+        padding: px(30);
+        @include flex(flex, column, center, center);
+        :first-child {
+            font-size: px(48);
+            padding-bottom: px(10);
+        }
+        :last-child {
+            font-size: px(20);
+        }
+        color: $negro;
+        @media ($media-m) {
+            margin: 0;
+            width: px(140);
+            height: px(140);
+        }
+        &.--immovable {
+            background-color: $blue-200;
+        }
+        &.--bridge {
+            border: px(6) solid $blue-200;
+        }
+        &.--transferable {
+            background-color: $green-200;
+            border-color: none;
+        }
+    }
+
+    .label-counter {
+        @include flex(flex, column, center, center);
+        h2 {
+            font-size: px(24);
+            line-height: $spacing-lg;
+            margin-bottom: $spacing-sm;
+        }
+        .com-text {
+            text-align: center;
+        }
+        @media ($media-m) {
+            @include flex(flex, column, center, start);
+            .com-text {
+                text-align: start;
+            }
+        }
+    }
+    @media ($media-xs) {
+        max-width: px(328);
+    }
+    @media ($media-s) {
+        max-width: px(440);
+    }
+    @media ($media-m) {
+        @include flex(flex, row, start, space-between);
+        max-width: px(620);
+    }
+}

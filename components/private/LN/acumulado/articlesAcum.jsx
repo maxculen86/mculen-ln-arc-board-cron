@@ -5,8 +5,8 @@ import ArticleAcum from './articleAcum';
 import ModRowGap from '../../common/mod-rowgap';
 import checkIsApertura from '../common/utils/checkIsApertura';
 
-const DATA_SECTION = 'CuerpoAcu';
-const typeAcumRules = {
+export const DATA_SECTION = 'CuerpoAcu';
+export const typeAcumRules = {
     Grilla: {
         withSubhead: false,
         titleSize: '--xs',
