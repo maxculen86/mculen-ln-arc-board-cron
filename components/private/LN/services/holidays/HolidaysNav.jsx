@@ -11,18 +11,20 @@ const HolidaysNav = ({ year, layout }) => {
     const posteriorYear = currentYear + 1;
 
     const validateYear = valYear => {
-        return year === valYear
-            ? false
-            : `https://www.lanacion.com.ar/feriados/${valYear}/`;
+        return year === valYear ? '' : `/feriados/${valYear}/`;
     };
 
     const extraClass = {
-        home: ' --home',
-        month: ' --month'
+        home: '--home',
+        month: '--month'
     };
 
+    const isActivePrevious = validateYear(previousYear) ? '' : ' --active';
+    const isActiveCurrent = validateYear(currentYear) ? '' : ' --active';
+    const isActivePosterior = validateYear(posteriorYear) ? '' : ' --active';
+
     return (
-        <div className={`holidays-nav${extraClass[layout]}`}>
+        <div className={`holidays-nav ${extraClass[layout]}`}>
             <div className="sampler">
                 <Text tag="p" size="4xs">
                     Feriados inamovibles
@@ -35,37 +37,25 @@ const HolidaysNav = ({ year, layout }) => {
                 </Text>
             </div>
             <ol className="year">
-                <li
-                    className={`--font-bold --fivexs${
-                        !validateYear(previousYear) ? ' --active' : ''
-                    }`}
-                >
+                <li className={`--font-bold --fivexs${isActivePrevious}`}>
                     <Link
                         link={validateYear(previousYear)}
-                        title={`Ir a feriados ${`${previousYear}`}`}
-                        textname={`${previousYear}`}
+                        title={`Ir a feriados ${previousYear}`}
+                        textname={previousYear}
                     />
                 </li>
-                <li
-                    className={`--font-bold --fivexs${
-                        !validateYear(currentYear) ? ' --active' : ''
-                    }`}
-                >
+                <li className={`--font-bold --fivexs${isActiveCurrent}`}>
                     <Link
                         link={validateYear(currentYear)}
                         title={`Ir a feriados ${currentYear}`}
-                        textname={`${currentYear}`}
+                        textname={currentYear}
                     />
                 </li>
-                <li
-                    className={`--font-bold --fivexs${
-                        !validateYear(posteriorYear) ? ' --active' : ''
-                    }`}
-                >
+                <li className={`--font-bold --fivexs${isActivePosterior}`}>
                     <Link
                         link={validateYear(posteriorYear)}
-                        title={`Ir a feriados ${`${posteriorYear}`}`}
-                        textname={`${posteriorYear}`}
+                        title={`Ir a feriados ${posteriorYear}`}
+                        textname={posteriorYear}
                     />
                 </li>
             </ol>

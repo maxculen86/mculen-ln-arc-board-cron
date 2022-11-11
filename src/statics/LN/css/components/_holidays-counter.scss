@@ -5,14 +5,14 @@
     @include common-card;
     width: 100%;
     max-width: px(288);
-    gap: px(16);
-    padding: px(16) px(32);
-    margin: px(0) auto px(32) auto;
+    gap: $spacing-sm;
+    padding: $spacing-sm $spacing-lg;
+    margin: px(0) auto $spacing-lg auto;
 
     .number-counter {
         border-radius: 50%;
-        max-width: px(120);
-        max-height: px(120);
+        width: px(130);
+        height: px(130);
         margin: auto;
         padding: px(30);
         @include flex(flex, column, center, center);
@@ -26,8 +26,8 @@
         color: $negro;
         @media ($media-m) {
             margin: 0;
-            min-width: px(120);
-            min-height: px(120);
+            width: px(140);
+            height: px(140);
         }
         &.--immovable {
             background-color: $blue-200;
@@ -45,8 +45,8 @@
         @include flex(flex, column, center, center);
         h2 {
             font-size: px(24);
-            line-height: px(32);
-            margin-bottom: px(16);
+            line-height: $spacing-lg;
+            margin-bottom: $spacing-sm;
         }
         .com-text {
             text-align: center;

@@ -14,6 +14,9 @@ export default function useGetArticlesFromAcumSource({
     promoItemsOnly = false,
     staticMode = true,
     collectionId = '',
+    withPagination = false,
+    page,
+    hasCollectionApertura = false,
     excludePreload = false
 }) {
     const { sectionId, tagId, authorId, distributorId, sectionsIds, subtype } =
@@ -46,11 +49,20 @@ export default function useGetArticlesFromAcumSource({
             sourceOrigin,
             type,
             shouldNotFilter,
+            page,
+            hasCollectionApertura,
             excludePreload
         },
         filter,
         staticMode
     });
 
-    return get(articleList, 'content_elements', []);
+    const contentElements = get(articleList, 'content_elements', []);
+
+    return withPagination
+        ? {
+              articles: contentElements,
+              moreArticles: get(articleList, 'next', 0)
+          }
+        : contentElements;
 }

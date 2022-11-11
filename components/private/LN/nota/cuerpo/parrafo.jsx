@@ -63,12 +63,12 @@ const replaceClassForMark = text =>
     text.replace(/hl_(yellow|pink|purple|orange|green)/g, 'hl_underline');
 
 const setBoldText = ({ content, withSponsoredLink } = {}) => ({
-    text: content.replace(/(?<=<|<\/)b(?=>)/g, 'strong'),
+    text: content.replace(/(?:<|<(\/))b(?:>)/g, '<$1strong>'),
     withSponsoredLink
 });
 
 const setItalicText = ({ text, withSponsoredLink } = {}) => ({
-    content: text.replace(/(?<=<|<\/)i(?=>)/g, 'em'),
+    content: text.replace(/(?:<|<(\/))i(?:>)/g, '<$1em>'),
     withSponsoredLink
 });
 

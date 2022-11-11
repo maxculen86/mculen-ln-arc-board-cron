@@ -1,0 +1,62 @@
+[
+    {
+        "date": "1 de enero",
+        "day": "Sábado",
+        "reason": "Año nuevo",
+        "dayTypeName": "Inamovible"
+    },
+    {
+        "date": "28 de febrero",
+        "day": "Lunes",
+        "reason": "Carnaval",
+        "dayTypeName": "Inamovible"
+    },
+    {
+        "date": "24 de marzo",
+        "day": "Jueves",
+        "reason": "Día Nacional de la Memoria por la Verdad y la Justicia.",
+        "dayTypeName": "Inamovible"
+    },
+    {
+        "date": "2 de abril",
+        "day": "Sábado",
+        "reason": "Viernes Santo.",
+        "dayTypeName": "Puente"
+    },
+    {
+        "date": "1 de mayo",
+        "day": "Domingo",
+        "reason": "Día del Trabajador.",
+        "dayTypeName": "Trasladable"
+    },
+    {
+        "date": "25 de mayo",
+        "day": "Miércoles",
+        "reason": "Día de la Revolución de Mayo.",
+        "dayTypeName": "Inamovible"
+    },
+    {
+        "date": "20 de junio",
+        "day": "Lunes",
+        "reason": "Paso a la Inmortalidad del General Manuel Belgrano.",
+        "dayTypeName": "Inamovible"
+    },
+    {
+        "date": "9 de julio",
+        "day": "Sábado",
+        "reason": "Día de la Independencia.",
+        "dayTypeName": "Inamovible"
+    },
+    {
+        "date": "8 de diciembre",
+        "day": "Jueves",
+        "reason": "Inmaculada Concepción de María.",
+        "dayTypeName": "Inamovible"
+    },
+    {
+        "date": "25 de diciembre",
+        "day": "Domingo",
+        "reason": "Navidad.",
+        "dayTypeName": "Inamovible"
+    }
+]

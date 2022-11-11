@@ -1,0 +1,23 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.holidays-grid-container {
+    width: 100%;
+    max-width: px(440);
+    margin: 0 auto $spacing-lg auto;
+    display: grid;
+    gap: $spacing-sm;
+    @media ($media-m) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: $spacing-lg $spacing-sm;
+        max-width: none;
+    }
+    .holidays-card-calendar {
+        margin-bottom: px(0);
+        &.--vertical {
+            @media ($media-m) {
+                width: 100%;
+            }
+        }
+    }
+}

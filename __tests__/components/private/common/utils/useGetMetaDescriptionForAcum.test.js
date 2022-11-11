@@ -253,6 +253,7 @@ describe('Components - private - common - utils - useGetMetaDescriptionForAcum',
             expect(isInPVS('/economia')).toBe(false);
             expect(isInPVS('')).toBe(false);
             expect(isInPVS()).toBe(false);
+            expect(isInPVS('/')).toBe(false);
         });
         it('Check extractDataFromTags function', () => {
             const payload = {

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import addForwardSlash from '../LN/common/utils/addForwardSlash';
+import canonicalIdChecker from './utils/canonicalIdChecker';
 
 const LinkCanonical = props => {
     const { _id = '', canonicalUrl = '', host = '', nodeType = '' } = props;
@@ -8,7 +9,9 @@ const LinkCanonical = props => {
     return host && (canonicalUrl || _id || nodeType === 'home') ? (
         <link
             rel="canonical"
-            href={addForwardSlash(`${host}${canonicalUrl || _id}`)}
+            href={addForwardSlash(
+                `${host}${canonicalUrl || canonicalIdChecker(_id)}`
+            )}
         />
     ) : (
         <></>

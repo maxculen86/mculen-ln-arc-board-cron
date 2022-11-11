@@ -12,9 +12,9 @@ const HolidaysCounter = ({
     typeHoliday
 }) => {
     const extraClass = {
-        inamovibles: ' --immovable',
-        puente: ' --bridge',
-        trasladables: ' --transferable'
+        Inamovible: ' --immovable',
+        Puente: ' --bridge',
+        Trasladable: ' --transferable'
     };
     const dayCondition =
         remainingDays === 1

@@ -1,0 +1,29 @@
+{
+    "serviceType": "feriados-mes",
+    "serviceItem": 2022,
+    "serviceSubItem": "noviembre",
+    "dataService": {
+        "calendar": {
+            "monthNumber": 11,
+            "monthName": "Noviembre",
+            "monthHolidays": []
+        },
+        "previousAndNextCalendar": {
+            "previous": {
+                "text": "octubre 2022",
+                "title": "Ir a feriados de octubre del 2022",
+                "url": "/feriados/2022/octubre/"
+            },
+            "next": {
+                "text": "diciembre 2022",
+                "title": "Ir a feriados de diciembre del 2022",
+                "url": "/feriados/2022/diciembre/"
+            }
+        }
+    },
+    "metaData": {
+        "description": "Calendario de feriados nacionales en noviembre de 2022 en Argentina: días no laborables, fines de semana largo y feriados puente en LA NACION.",
+        "paragraph": "Noviembre tiene dos feriados nacionales: el domingo 20 el Día de la Soberanía Nacional, feriado inamovible del calendario nacional, en conmemoración a la Batalla de la Vuelta de Obligado un día como ese de 1845; y al día siguiente, lunes 21, también se descansa porque se lo estableció como un puente turístico.",
+        "title": "Feriados en noviembre de 2022 en Argentina. Calendario 2022 - LA NACION"
+    }
+}

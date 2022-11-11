@@ -1,0 +1,47 @@
+{
+    "serviceType": "feriados-mes",
+    "serviceItem": 2022,
+    "serviceSubItem": "mayo",
+    "dataService": {
+        "calendar": {
+            "monthNumber": 5,
+            "monthName": "Mayo",
+            "monthHolidays": [
+                {
+                    "month": 5,
+                    "holiday_day_contents": [
+                        {
+                            "days": [1],
+                            "reason": "Día del Trabajador.",
+                            "day_type": 2,
+                            "day_type_name": "Trasladable"
+                        },
+                        {
+                            "days": [25],
+                            "reason": "Día de la Revolución de Mayo.",
+                            "day_type": 1,
+                            "day_type_name": "Inamovible"
+                        }
+                    ]
+                }
+            ]
+        },
+        "previousAndNextCalendar": {
+            "previous": {
+                "text": "abril 2022",
+                "title": "Ir a feriados de abril del 2022",
+                "url": "/feriados/2022/abril/"
+            },
+            "next": {
+                "text": "junio 2022",
+                "title": "Ir a feriados de junio del 2022",
+                "url": "/feriados/2022/junio/"
+            }
+        }
+    },
+    "metaData": {
+        "description": "Calendario de feriados nacionales en mayo de 2022 en Argentina: días no laborables, fines de semana largo y feriados puente en LA NACION.",
+        "paragraph": "Mayo tiene dos feriados: su primer día está asegurado para el descanso por ley por tratarse del Día Internacional del Trabajador. Más tarde, el miércoles 25, se conmemora un nuevo aniversario de la Revolución de Mayo con un día de asueto generalizado que es un feriado inamovible de nuestro calendario.",
+        "title": "Feriados en mayo de 2022 en Argentina. Calendario 2022 - LA NACION"
+    }
+}
