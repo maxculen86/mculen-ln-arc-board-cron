@@ -85,7 +85,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="https://www.lanacion.com.ar/feriados/2022/enero/"
+                  href="/feriados/2022/enero/"
                   title="Ir a feriados de enero del 2022"
                 >
                   Enero
@@ -351,7 +351,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="https://www.lanacion.com.ar/feriados/2022/febrero/"
+                  href="/feriados/2022/febrero/"
                   title="Ir a feriados de febrero del 2022"
                 >
                   Febrero
@@ -582,7 +582,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="https://www.lanacion.com.ar/feriados/2022/marzo/"
+                  href="/feriados/2022/marzo/"
                   title="Ir a feriados de marzo del 2022"
                 >
                   Marzo
@@ -828,7 +828,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="https://www.lanacion.com.ar/feriados/2022/abril/"
+                  href="/feriados/2022/abril/"
                   title="Ir a feriados de abril del 2022"
                 >
                   Abril
@@ -1084,7 +1084,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="https://www.lanacion.com.ar/feriados/2022/mayo/"
+                  href="/feriados/2022/mayo/"
                   title="Ir a feriados de mayo del 2022"
                 >
                   Mayo
@@ -1367,7 +1367,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="https://www.lanacion.com.ar/feriados/2022/junio/"
+                  href="/feriados/2022/junio/"
                   title="Ir a feriados de junio del 2022"
                 >
                   Junio
@@ -1613,7 +1613,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="https://www.lanacion.com.ar/feriados/2022/julio/"
+                  href="/feriados/2022/julio/"
                   title="Ir a feriados de julio del 2022"
                 >
                   Julio
@@ -1874,7 +1874,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="https://www.lanacion.com.ar/feriados/2022/agosto/"
+                  href="/feriados/2022/agosto/"
                   title="Ir a feriados de agosto del 2022"
                 >
                   Agosto
@@ -2099,7 +2099,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="https://www.lanacion.com.ar/feriados/2022/septiembre/"
+                  href="/feriados/2022/septiembre/"
                   title="Ir a feriados de septiembre del 2022"
                 >
                   Septiembre
@@ -2334,7 +2334,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="https://www.lanacion.com.ar/feriados/2022/octubre/"
+                  href="/feriados/2022/octubre/"
                   title="Ir a feriados de octubre del 2022"
                 >
                   Octubre
@@ -2584,7 +2584,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="https://www.lanacion.com.ar/feriados/2022/noviembre/"
+                  href="/feriados/2022/noviembre/"
                   title="Ir a feriados de noviembre del 2022"
                 >
                   Noviembre
@@ -2809,7 +2809,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="https://www.lanacion.com.ar/feriados/2022/diciembre/"
+                  href="/feriados/2022/diciembre/"
                   title="Ir a feriados de diciembre del 2022"
                 >
                   Diciembre

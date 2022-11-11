@@ -56,7 +56,7 @@ describe('components - private - holidays - HolidaysGridContainer', () => {
         ).toHaveAttribute(
             'href',
             expect.stringContaining(
-                `https://www.lanacion.com.ar/feriados/${
+                `/feriados/${
                     calendars[0].year
                 }/${calendars[0].monthName.toLowerCase()}/`
             )
