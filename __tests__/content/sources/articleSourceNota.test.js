@@ -466,3 +466,39 @@ describe('ByUrl regex', () => {
         );
     });
 });
+
+describe('Author role', () => {
+    it('should get author role', done => {
+        articleSourceFetch(query)
+            .then(response => {
+                expect(response).toStrictEqual({
+                    ...responseNotaNoticia,
+                    taxonomy: { ...responseNotaNoticia.taxonomy, sections: [] },
+                    paywallEnabled: '',
+                    subscription: 'A',
+                    isListenable: false,
+                    withFirmaDistributor: true,
+                    withSponsoredLink: false
+                });
+            })
+            .then(done);
+    });
+
+    it('should not get author role', done => {
+        mockRequestResponse.mockReturnValue(mockResponseNotaNoticia);
+
+        articleSourceFetch(query)
+            .then(response => {
+                expect(response).toStrictEqual({
+                    ...responseNotaNoticia,
+                    taxonomy: { ...responseNotaNoticia.taxonomy, sections: [] },
+                    paywallEnabled: '',
+                    subscription: 'A',
+                    isListenable: false,
+                    withFirmaDistributor: true,
+                    withSponsoredLink: false
+                });
+            })
+            .then(done);
+    });
+});
