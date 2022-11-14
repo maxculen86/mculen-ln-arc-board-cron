@@ -231,7 +231,7 @@ const transformHolidays = (
         calendarType: jewishCalendarType
     });
 
-    const getMonthData = (month, index) => {
+    const getMonthData = index => {
         const monthDataIndex = catholicMonthContents.findIndex(
             x => x.month === index + 1
         );
@@ -248,7 +248,7 @@ const transformHolidays = (
               calendars: monthNames.map((month, index) => ({
                   monthNumber: index + 1,
                   monthName: capitalizeFirstLetter(month),
-                  ...getMonthData(month, index)
+                  ...getMonthData(index)
               })),
               tables: {
                   Trasladable: convertHolidaysTable({
