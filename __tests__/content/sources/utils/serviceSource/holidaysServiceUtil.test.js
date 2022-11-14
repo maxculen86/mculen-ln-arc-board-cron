@@ -254,18 +254,18 @@ describe('Test createHolidaysArray helperFuction', () => {
 });
 
 describe('Test convertHolidaysTable helperFuction', () => {
-    test('Should return catholic table', () => {
+    test('Should return catholic table with reason row for unmovable holiday type', () => {
         const mockCatholicTable = [
             {
                 date: '1 de enero',
                 day: 'Sábado',
-                reason: 'Año nuevo',
-                dayTypeName: 'Inamovible'
+                reason: 'Año nuevo'
             }
         ];
         const response = convertHolidaysTable({
             holidayArray: mockCatholicTable,
-            calendarType: 1
+            calendarType: 1,
+            holidayNameType: 'Inamovible'
         });
         expect(response).toStrictEqual({
             header: [
@@ -292,6 +292,42 @@ describe('Test convertHolidaysTable helperFuction', () => {
                     },
                     {
                         content: 'Año nuevo'
+                    }
+                ]
+            ]
+        });
+    });
+    test('Should return catholic table without reason row for bridge holiday type', () => {
+        const mockCatholicTable = [
+            {
+                date: '17 de junio',
+                day: 'Viernes',
+                reason: 'Feriado Puente Turístico'
+            }
+        ];
+        const response = convertHolidaysTable({
+            holidayArray: mockCatholicTable,
+            calendarType: 1,
+            holidayNameType: 'Puente'
+        });
+        expect(response).toStrictEqual({
+            header: [
+                {
+                    _id: 'header-date',
+                    content: 'Fecha'
+                },
+                {
+                    _id: 'header-day',
+                    content: 'Día'
+                }
+            ],
+            rows: [
+                [
+                    {
+                        content: '17 de junio'
+                    },
+                    {
+                        content: 'Viernes'
                     }
                 ]
             ]
