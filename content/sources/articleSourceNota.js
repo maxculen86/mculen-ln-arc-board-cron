@@ -33,6 +33,7 @@ import firmaDistributorValidation from './utils/firmaDistributorValidator';
 import isNoteListenable from './utils/audioNews/helper';
 import force404AMP from './utils/force404AMP';
 import validateSponsoredLink from './utils/validateSponsoredLink';
+import { getPrincipalCategory } from '../../components/private/LN/api/v1/common/category';
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -209,6 +210,9 @@ const transform = (
         null
     );
 
+    const primarySection = get(data, 'taxonomy.primary_section');
+    const category = primarySection && getPrincipalCategory(primarySection);
+
     // Data con urls Resizeadas
     const resp = {
         paywallEnabled,
@@ -217,6 +221,7 @@ const transform = (
         withFirmaDistributor,
         isListenable: isNoteListenable(data),
         withSponsoredLink: validateSponsoredLink(data),
+        category: category.valor || null,
         ...addResizedUrls(data, {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,
@@ -355,7 +360,6 @@ const transformContent = async (
         const relatedContent = get(resp, 'related_content.basic', []);
         relatedContent.length &&
             (resp.related_content.basic = removeInvalidRelated(relatedContent));
-
         return resp;
     });
 };

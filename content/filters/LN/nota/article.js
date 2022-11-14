@@ -484,4 +484,5 @@ export default `
     withFirmaDistributor
     isListenable
     withSponsoredLink
+    category
 }`;
