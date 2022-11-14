@@ -178,7 +178,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
     </h2>
   </section>
   <div
-    class="table-wrapper --holidays"
+    class="table-wrapper --two-columns --holidays"
   >
     <table
       class="table"
@@ -191,9 +191,6 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
           <th>
             Día
           </th>
-          <th>
-            Conmemoración
-          </th>
         </tr>
       </thead>
       <tbody>
@@ -203,9 +200,6 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
           </td>
           <td>
             Sábado
-          </td>
-          <td>
-            Viernes Santo.
           </td>
         </tr>
       </tbody>

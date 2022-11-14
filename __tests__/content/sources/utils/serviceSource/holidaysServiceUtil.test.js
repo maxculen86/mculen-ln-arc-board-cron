@@ -18,7 +18,8 @@ import {
     previousAndNextDate,
     createHolidaysArray,
     convertHolidaysTable,
-    getNextHolidayData
+    getNextHolidayData,
+    getHolidaysDate
 } from '../../../../../content/sources/utils/servicesSource/holidays/holidaysHelper';
 
 const mockResponse = Promise.resolve(mockCatholicAndJewishHoliday);
@@ -407,5 +408,17 @@ describe('Test next holiday data generation with getNextHolidayData', () => {
             });
             spy.mockRestore();
         });
+    });
+});
+
+describe('Tests getHolidaysDate', () => {
+    it('Should return correct format for date when the array has more than two days', () => {
+        expect(getHolidaysDate([1, 2, 3, 4], 4)).toStrictEqual('1-4 de abril');
+    });
+    it('Should return correct format for date when the array has two days', () => {
+        expect(getHolidaysDate([5, 6], 6)).toStrictEqual('5-6 de junio');
+    });
+    it('Should return correct format for date with only one day', () => {
+        expect(getHolidaysDate([23], 11)).toStrictEqual('23 de noviembre');
     });
 });

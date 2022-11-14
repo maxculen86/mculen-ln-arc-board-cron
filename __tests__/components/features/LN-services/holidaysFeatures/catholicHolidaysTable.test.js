@@ -35,9 +35,9 @@ describe('Components- Features - CatholicHolidaysTable - default.jsx - test', ()
         expect(tables.length).toBe(3);
     });
 
-    it('Should render nine columns for the three catholic tables', () => {
+    it('Should render eight columns for the three catholic tables', () => {
         const { container } = render(<CatholicHolidaysTable />);
         const tableColumns = container.getElementsByTagName('th');
-        expect(tableColumns.length).toBe(9);
+        expect(tableColumns.length).toBe(8);
     });
 });

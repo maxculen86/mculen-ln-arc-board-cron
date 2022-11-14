@@ -8,6 +8,8 @@ import { weekDays } from '../../../../../components/private/common/utils/transfo
 import capitalizeFirstLetter from '../../../../../components/private/common/utils/capitalizeFirstLetter';
 import monthsDescriptions from './_config';
 
+const CATHOLIC = 1;
+
 export const getHolidaysMetaData = serviceSubItem => {
     if (serviceSubItem)
         return get(metaDataFactory, 'mes', metaDataFactory.default);
@@ -66,6 +68,12 @@ const getNameDay = date => {
     return weekDays[numberDay];
 };
 
+const getHolidaysDate = (days, month) => {
+    return days.length < 2
+        ? `${days} de ${getMonthName(month)}`
+        : `${days[0]}-${days[days.length - 1]} de ${getMonthName(month)}`;
+};
+
 const createHolidaysArray = (data = [], calendarType, year) => {
     const arrayHolidaysTable = [];
     data.map(holiday => {
@@ -75,27 +83,16 @@ const createHolidaysArray = (data = [], calendarType, year) => {
         } = holiday;
         return holidayDayContents.map(
             ({ days, reason, day_type_name: dayTypeName }) => {
-                return calendarType === 1
+                return calendarType === CATHOLIC
                     ? arrayHolidaysTable.push({
                           date: `${days} de ${getMonthName(month)}`,
                           day: getNameDay(`${year}-${month}-${days}`),
-                          reason,
+                          ...(dayTypeName !== 'Puente' && { reason }),
                           dayTypeName
                       })
                     : arrayHolidaysTable.push({
-                          ...(days.length <= 2
-                              ? {
-                                    date: `${days.join('-')} de ${getMonthName(
-                                        month
-                                    )}`,
-                                    reason
-                                }
-                              : {
-                                    date: `${days[0]}-${
-                                        days[days.length - 1]
-                                    } de ${getMonthName(month)}`,
-                                    reason
-                                })
+                          reason,
+                          date: getHolidaysDate(days, month)
                       });
             }
         );
@@ -107,14 +104,18 @@ const filterHolidaysByType = ({ monthHolidays = [], holidayType = '' }) => {
     return monthHolidays.filter(month => month.dayTypeName === holidayType);
 };
 
-const convertHolidaysTable = (holidayArray = [], calendarType) => {
+const convertHolidaysTable = (
+    holidayArray = [],
+    calendarType,
+    holidayNameType
+) => {
     if (!holidayArray.length) return undefined;
     const header = [
         {
             _id: 'header-date',
             content: 'Fecha'
         },
-        ...(calendarType === 1
+        ...(calendarType === CATHOLIC
             ? [
                   {
                       _id: 'header-day',
@@ -122,10 +123,14 @@ const convertHolidaysTable = (holidayArray = [], calendarType) => {
                   }
               ]
             : []),
-        {
-            _id: 'header-reason',
-            content: 'Conmemoración'
-        }
+        ...(holidayNameType !== 'Puente'
+            ? [
+                  {
+                      _id: 'header-reason',
+                      content: 'Conmemoración'
+                  }
+              ]
+            : [])
     ];
     return {
         header,
@@ -133,10 +138,10 @@ const convertHolidaysTable = (holidayArray = [], calendarType) => {
             {
                 content: holiday.date
             },
-            ...(calendarType === 1 ? [{ content: holiday.day }] : []),
-            {
-                content: holiday.reason
-            }
+            ...(calendarType === CATHOLIC ? [{ content: holiday.day }] : []),
+            ...(holidayNameType !== 'Puente'
+                ? [{ content: holiday.reason }]
+                : [])
         ])
     };
 };
@@ -248,15 +253,18 @@ const transformHolidays = (
               tables: {
                   Trasladable: convertHolidaysTable(
                       transferableHolidays,
-                      catholicCalendarType
+                      catholicCalendarType,
+                      'Trasladable'
                   ),
                   Inamovible: convertHolidaysTable(
                       unmovableHolidays,
-                      catholicCalendarType
+                      catholicCalendarType,
+                      'Inamovible'
                   ),
                   Puente: convertHolidaysTable(
                       bridgeHolidays,
-                      catholicCalendarType
+                      catholicCalendarType,
+                      'Puente'
                   ),
                   Judio: convertHolidaysTable(jewishTable, jewishCalendarType)
               }
@@ -336,5 +344,6 @@ export {
     previousAndNextDate,
     createHolidaysArray,
     convertHolidaysTable,
-    getNextHolidayData
+    getNextHolidayData,
+    getHolidaysDate
 };
