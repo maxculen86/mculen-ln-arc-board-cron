@@ -5,17 +5,20 @@ export const getSectionOfRequestUri = (requestUri = '') => {
     const [section] = requestUri.split('/').filter(item => item !== '');
     return section || '';
 };
-export const getTitle = (
-    metaValue,
-    { longTitle, title: defaultTitle },
-    requestUri = '',
-    _nodeType = ''
-) => {
-    if (getSectionOfRequestUri(requestUri) === 'mis-notas') {
-        return metaValue || defaultTitle;
+export const getTitle = ({
+    title,
+    shortTitle,
+    properties = {},
+    uri,
+    nodeType
+}) => {
+    const { longTitle, title: defaultTitle } = properties;
+    if (getSectionOfRequestUri(uri) === 'mis-notas') {
+        return title || defaultTitle;
     }
+    if (nodeType === 'nota') return shortTitle || title || defaultTitle;
 
-    return _nodeType === 'home' ? longTitle : metaValue || defaultTitle;
+    return nodeType === 'home' ? longTitle : title || defaultTitle;
 };
 
 export const getMetaDescriptionDefault = (

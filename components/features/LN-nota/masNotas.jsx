@@ -15,6 +15,7 @@ import {
     filterType
 } from '../../private/common/utils/masNotasHelper';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import { productClickFromClient } from '../../private/common/utils/viewability';
 
 const masNotas = props => {
     const {
@@ -73,6 +74,7 @@ const masNotas = props => {
                     articles={articles}
                     position="toi"
                     outputType={outputType}
+                    handleClick={productClickFromClient}
                     withVolanta
                 />
             ) : (
