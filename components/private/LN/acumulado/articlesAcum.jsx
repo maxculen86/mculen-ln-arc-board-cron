@@ -40,7 +40,9 @@ const ArticlesAcum = ({
     classCondition,
     outputType,
     nodeType = '',
-    articlesInCollection = []
+    articlesInCollection = [],
+    chainBeforeGrid = false,
+    isWiki = false
 }) => {
     return (
         <ModRowGap
@@ -50,11 +52,14 @@ const ArticlesAcum = ({
         >
             {articles.map((art, index) => {
                 const banner = getBanner ? getBanner(index) : <></>;
-                const isApertura = checkIsApertura(
-                    nodeType,
-                    index,
-                    articlesInCollection
-                );
+                const isApertura =
+                    !chainBeforeGrid &&
+                    checkIsApertura(
+                        nodeType,
+                        index,
+                        articlesInCollection,
+                        isWiki
+                    );
 
                 return (
                     <ArticleAcum
@@ -84,7 +89,9 @@ ArticlesAcum.propTypes = {
     outputType: PropTypes.string,
     classCondition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     nodeType: PropTypes.string,
-    articlesInCollection: PropTypes.arrayOf(PropTypes.object)
+    articlesInCollection: PropTypes.arrayOf(PropTypes.object),
+    chainBeforeGrid: PropTypes.bool,
+    isWiki: PropTypes.bool
 };
 
 ArticlesAcum.defaultProps = {

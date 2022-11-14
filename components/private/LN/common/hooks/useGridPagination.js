@@ -19,13 +19,17 @@ const useGridPagination = props => {
         articlesInCollection = [],
         layout,
         nodeType = '',
-        acumuladoGeneral = {}
+        isWiki = false,
+        acumuladoGeneral = {},
+        chainBeforeGrid = false
     } = props;
 
     const { articles, moreArticles } = useGridArticles({
         ...props,
         page: currentPage,
-        hasCollectionApertura: articlesInCollection.length
+        hasCollectionApertura: articlesInCollection.length,
+        chainBeforeGrid,
+        isWiki
     });
 
     const { tipo_acumulado: accumulatedType = 'Grilla' } = acumuladoGeneral;
@@ -71,6 +75,8 @@ const useGridPagination = props => {
             typeArticle={typeArticle}
             articles={storedArticles[1] || articles}
             nodeType={nodeType}
+            chainBeforeGrid={chainBeforeGrid}
+            isWiki={isWiki}
         />
     );
 

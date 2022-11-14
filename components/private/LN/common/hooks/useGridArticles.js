@@ -18,7 +18,9 @@ const useGridArticles = props => {
         articlesInCollection = [],
         page = 1,
         hasCollectionApertura = false,
-        sourceOrigin = ''
+        sourceOrigin = '',
+        chainBeforeGrid = false,
+        isWiki = false
     } = props;
 
     const DEFAULT_QUANTITY = 30;
@@ -45,6 +47,11 @@ const useGridArticles = props => {
         articlesInCollection.map(art => art._id)
     );
 
+    const excludeUrl =
+        chainBeforeGrid ||
+        nodeType === 'author' ||
+        (nodeType === 'tags' && isWiki);
+
     const searchArgs = {
         typesOfQuery: {
             sectionId,
@@ -62,7 +69,7 @@ const useGridArticles = props => {
         page,
         hasCollectionApertura,
         sourceOrigin,
-        excludePreload: nodeType === 'author'
+        excludePreload: excludeUrl
     };
 
     const { articles, moreArticles } =
