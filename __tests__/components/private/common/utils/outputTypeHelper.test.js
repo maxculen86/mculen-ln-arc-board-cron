@@ -25,24 +25,24 @@ describe('Common - utils - getTitle', () => {
         const metaValue = undefined;
         const _nodeType = undefined;
 
-        const title = getTitle(
-            metaValue,
-            siteProperties,
-            requestUri,
-            _nodeType
-        );
+        const title = getTitle({
+            title: metaValue,
+            properties: siteProperties,
+            uri: requestUri,
+            nodeType: _nodeType
+        });
 
         expect(title).toStrictEqual('LA NACION');
     });
 
     test('Test de retorno para el caso de la home', () => {
         const _nodeType = 'home';
-        const title = getTitle(
-            metaValue,
-            siteProperties,
-            requestUri,
-            _nodeType
-        );
+        const title = getTitle({
+            title: metaValue,
+            properties: siteProperties,
+            uri: requestUri,
+            nodeType: _nodeType
+        });
 
         expect(title).toStrictEqual(
             'Últimas noticias de Argentina y el mundo - LA NACION'
@@ -53,12 +53,12 @@ describe('Common - utils - getTitle', () => {
         const _nodeType = 'acumulado';
         const metaValue = 'Política - LA NACION';
         const layout = 'LN-acumulado';
-        const title = getTitle(
-            metaValue,
-            siteProperties,
-            requestUri,
-            _nodeType
-        );
+        const title = getTitle({
+            title: metaValue,
+            properties: siteProperties,
+            uri: requestUri,
+            nodeType: _nodeType
+        });
 
         expect(title).toStrictEqual('Política - LA NACION');
     });
@@ -68,12 +68,12 @@ describe('Common - utils - getTitle', () => {
         const metaValue =
             'Ola de calor: la temperatura superó los 40° en la ciudad y es la segunda más alta de la historia';
 
-        const title = getTitle(
-            metaValue,
-            siteProperties,
-            requestUri,
-            _nodeType
-        );
+        const title = getTitle({
+            title: metaValue,
+            properties: siteProperties,
+            uri: requestUri,
+            nodeType: _nodeType
+        });
 
         expect(title).toStrictEqual(
             'Ola de calor: la temperatura superó los 40° en la ciudad y es la segunda más alta de la historia'
@@ -85,12 +85,12 @@ describe('Common - utils - getTitle', () => {
         const _nodeType = 'acumulado';
         const metaValue = 'Mis Notas guardadas - LA NACION';
 
-        const title = getTitle(
-            metaValue,
-            siteProperties,
-            requestUri,
-            _nodeType
-        );
+        const title = getTitle({
+            title: metaValue,
+            properties: siteProperties,
+            uri: requestUri,
+            nodeType: _nodeType
+        });
 
         expect(title).toStrictEqual('Mis Notas guardadas - LA NACION');
     });
@@ -99,12 +99,12 @@ describe('Common - utils - getTitle', () => {
         const requestUri = undefined;
         const _nodeType = 'home';
 
-        const title = getTitle(
-            metaValue,
-            siteProperties,
-            requestUri,
-            _nodeType
-        );
+        const title = getTitle({
+            title: metaValue,
+            properties: siteProperties,
+            uri: requestUri,
+            nodeType: _nodeType
+        });
 
         expect(title).toStrictEqual(
             'Últimas noticias de Argentina y el mundo - LA NACION'
@@ -116,14 +116,29 @@ describe('Common - utils - getTitle', () => {
         const _nodeType = 'acumulado';
         const metaValue = undefined;
 
-        const title = getTitle(
-            metaValue,
-            siteProperties,
-            requestUri,
-            _nodeType
-        );
+        const title = getTitle({
+            title: metaValue,
+            properties: siteProperties,
+            uri: requestUri,
+            nodeType: _nodeType
+        });
 
         expect(title).toStrictEqual('LA NACION');
+    });
+    test('Deberia devolver titulo corto para la nota si es que existe', () => {
+        const _nodeType = 'nota';
+        const metaValue =
+            'Ola de calor: la temperatura superó los 40° en la ciudad y es la segunda más alta de la historia';
+        const shortTitle = 'Ola de calor corto';
+        const title = getTitle({
+            title: metaValue,
+            shortTitle: shortTitle,
+            properties: siteProperties,
+            uri: requestUri,
+            nodeType: _nodeType
+        });
+
+        expect(title).toStrictEqual('Ola de calor corto');
     });
 });
 

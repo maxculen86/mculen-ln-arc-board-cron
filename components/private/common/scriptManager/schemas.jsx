@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const Schemas = ({ section }) => {
     const { contextPath, deployment } = useAppContext();
     const logoUrl = `${ARC_STATIC}${deployment(
-        `${contextPath}/resources/images/placeholderLN-600_amp.jpg`
+        `${contextPath}/resources/images/placeholderLN-112_amp.jpg`
     )}`;
 
     const newsMedia = `{
@@ -26,8 +26,8 @@ const Schemas = ({ section }) => {
             "@context": "https://schema.org",
             "@type": "ImageObject",
             "url": "${logoUrl}",
-            "height": 60,
-            "width": 600
+            "height": 112,
+            "width": 112
           },
         "sameAs": [
           "https://www.facebook.com/lanacion/",
