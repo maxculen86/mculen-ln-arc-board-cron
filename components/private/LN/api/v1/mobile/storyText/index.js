@@ -11,7 +11,8 @@ const indexNotaText = dataNota => {
         ? {
               ...storyTitleAndResume(dataNota),
               contenido: content.concat('Fin de la nota').join('\n'),
-              audio_url: dataNota.audio_url
+              audio_url: dataNota.audio_url,
+              categoria: dataNota.category
           }
         : {};
 };

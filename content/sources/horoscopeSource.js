@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 
@@ -23,7 +22,7 @@ const fetch = ({ arcSite, horoscope, sign, year }) => {
                 data: response
             };
         } catch (error) {
-            logger.push(
+            return logger.push(
                 error,
                 {
                     source: 'content/sources/horoscopeSource',
