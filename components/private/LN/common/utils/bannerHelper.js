@@ -258,7 +258,9 @@ export const getDimsFromSiteService = (config, slotName, section) => {
 
     // TODO: hacerlo dinamico
     if (
-        ['propiedades', 'campo', 'salud', 'autos'].includes(section) &&
+        ['propiedades', 'campo', 'salud', 'autos', 'la_nacion_usa'].includes(
+            section
+        ) &&
         (slotName === 'nota_caja1_dsk' || slotName === 'acumulado_caja1_dsk')
     )
         position.dimensions = '120x600,160x600,300x600';
@@ -273,6 +275,7 @@ export const isPrimarySectionInBannerSegments = primarySection => segments => {
     if (!segments || !primarySection) return [false, null];
 
     const EXCEPTIONS = {
+        'estados-unidos': 'la_nacion_usa',
         salud: 'bienestar',
         autos: 'movilidad'
     };

@@ -74,14 +74,14 @@ const getHolidaysDate = (days, month) => {
         : `${days[0]}-${days[days.length - 1]} de ${getMonthName(month)}`;
 };
 
-const createHolidaysArray = (data = [], calendarType, year) => {
+const createHolidaysArray = ({ data = [], calendarType, year }) => {
     const arrayHolidaysTable = [];
-    data.map(holiday => {
+    data.forEach(holiday => {
         const {
             month = '',
             holiday_day_contents: holidayDayContents = []
         } = holiday;
-        return holidayDayContents.map(
+        holidayDayContents.forEach(
             ({ days, reason, day_type_name: dayTypeName }) => {
                 return calendarType === CATHOLIC
                     ? arrayHolidaysTable.push({
@@ -104,11 +104,11 @@ const filterHolidaysByType = ({ monthHolidays = [], holidayType = '' }) => {
     return monthHolidays.filter(month => month.dayTypeName === holidayType);
 };
 
-const convertHolidaysTable = (
+const convertHolidaysTable = ({
     holidayArray = [],
     calendarType,
     holidayNameType
-) => {
+}) => {
     if (!holidayArray.length) return undefined;
     const header = [
         {
@@ -205,11 +205,11 @@ const transformHolidays = (
         calendar_type: jewishCalendarType = ''
     } = jewishHolidays;
 
-    const catholicHolidaysArray = createHolidaysArray(
-        catholicMonthContents,
-        catholicCalendarType,
+    const catholicHolidaysArray = createHolidaysArray({
+        data: catholicMonthContents,
+        calendarType: catholicCalendarType,
         year
-    );
+    });
 
     const unmovableHolidays = filterHolidaysByType({
         monthHolidays: catholicHolidaysArray,
@@ -226,10 +226,10 @@ const transformHolidays = (
         holidayType: 'Puente'
     });
 
-    const jewishTable = createHolidaysArray(
-        jewishMonthContents,
-        jewishCalendarType
-    );
+    const jewishTable = createHolidaysArray({
+        data: jewishMonthContents,
+        calendarType: jewishCalendarType
+    });
 
     const getMonthData = (month, index) => {
         const monthDataIndex = catholicMonthContents.findIndex(
@@ -251,22 +251,25 @@ const transformHolidays = (
                   ...getMonthData(month, index)
               })),
               tables: {
-                  Trasladable: convertHolidaysTable(
-                      transferableHolidays,
-                      catholicCalendarType,
-                      'Trasladable'
-                  ),
-                  Inamovible: convertHolidaysTable(
-                      unmovableHolidays,
-                      catholicCalendarType,
-                      'Inamovible'
-                  ),
-                  Puente: convertHolidaysTable(
-                      bridgeHolidays,
-                      catholicCalendarType,
-                      'Puente'
-                  ),
-                  Judio: convertHolidaysTable(jewishTable, jewishCalendarType)
+                  Trasladable: convertHolidaysTable({
+                      holidayArray: transferableHolidays,
+                      calendarType: catholicCalendarType,
+                      holidayNameType: 'Trasladable'
+                  }),
+                  Inamovible: convertHolidaysTable({
+                      holidayArray: unmovableHolidays,
+                      calendarType: catholicCalendarType,
+                      holidayNameType: 'Inamovible'
+                  }),
+                  Puente: convertHolidaysTable({
+                      holidayArray: bridgeHolidays,
+                      calendarType: catholicCalendarType,
+                      holidayNameType: 'Puente'
+                  }),
+                  Judio: convertHolidaysTable({
+                      holidayArray: jewishTable,
+                      calendarType: jewishCalendarType
+                  })
               }
           }
         : {

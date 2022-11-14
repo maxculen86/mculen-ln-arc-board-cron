@@ -221,11 +221,11 @@ describe('Test createHolidaysArray helperFuction', () => {
     } = jewishHolidays;
 
     test('Should return catholic array', () => {
-        const response = createHolidaysArray(
-            catholicMonthContents,
-            catholicCalendarType,
+        const response = createHolidaysArray({
+            data: catholicMonthContents,
+            calendarType: catholicCalendarType,
             year
-        );
+        });
         expect(response).toStrictEqual([
             {
                 date: '1 de enero',
@@ -236,10 +236,10 @@ describe('Test createHolidaysArray helperFuction', () => {
         ]);
     });
     test('Should return jewish array', () => {
-        const response = createHolidaysArray(
-            jewishMonthContents,
-            jewishCalendarType
-        );
+        const response = createHolidaysArray({
+            data: jewishMonthContents,
+            calendarType: jewishCalendarType
+        });
         expect(response).toStrictEqual([
             {
                 date: '2-9 de octubre',
@@ -263,7 +263,10 @@ describe('Test convertHolidaysTable helperFuction', () => {
                 dayTypeName: 'Inamovible'
             }
         ];
-        const response = convertHolidaysTable(mockCatholicTable, 1);
+        const response = convertHolidaysTable({
+            holidayArray: mockCatholicTable,
+            calendarType: 1
+        });
         expect(response).toStrictEqual({
             header: [
                 {
@@ -301,7 +304,10 @@ describe('Test convertHolidaysTable helperFuction', () => {
                 reason: 'Tou BiChvat'
             }
         ];
-        const response = convertHolidaysTable(mockJewishTable, 2);
+        const response = convertHolidaysTable({
+            holidayArray: mockJewishTable,
+            calendarType: 2
+        });
         expect(response).toStrictEqual({
             header: [
                 {

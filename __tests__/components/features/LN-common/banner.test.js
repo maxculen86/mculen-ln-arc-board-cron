@@ -10,13 +10,11 @@ import {
     isPrimarySectionInBannerSegments,
     shouldShow
 } from '../../../../components/private/LN/common/utils/bannerHelper';
-// import BannerSSR from '../../../../components/features/LN-common/banner/default';
 import Banner from '../../../../components/features/LN-common/bannerRefactor/default';
 import BannerAmp from '../../../../components/features/LN-common/bannerRefactor/amp';
-// import BannerSSRAmp from '../../../../components/features/LN-common/banner/amp';
 import Context from 'fusion:context';
 import { mount, render, shallow } from 'enzyme';
-import { render as testingLibraryRender, screen } from '@testing-library/react';
+import { render as testingLibraryRender } from '@testing-library/react';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -583,6 +581,20 @@ describe('isPrimarySectionInBannerSegments =>', () => {
         evalSectionInBanner('/opinion/', [false, 'opinion']));
     it('it should be deportes (two sub-categories) does not included =>', () =>
         evalSectionInBanner('/deportes/futbol/boca/', [false, 'deportes']));
+    it('should test exceptions', () => {
+        const exceptions = [
+            { primarySection: '/estados-unidos', segment: 'la_nacion_usa' },
+            { primarySection: '/salud', segment: 'bienestar' },
+            { primarySection: '/autos', segment: 'movilidad' }
+        ];
+        exceptions.forEach(element =>
+            expect(
+                isPrimarySectionInBannerSegments(element.primarySection)([
+                    element.segment
+                ])
+            ).toStrictEqual([true, element.segment])
+        );
+    });
 });
 
 describe('getTargetingFormat =>', () => {
@@ -595,25 +607,57 @@ describe('getTargetingFormat =>', () => {
 });
 
 describe('getDimsFromSiteService =>', () => {
-    let dimensions = getDimsFromSiteService(
-        [],
-        `nota_caja1_dsk`,
-        'propiedades'
-    );
-    expect(dimensions).toBeNull();
+    it('should test getDimsFromSiteService func', () => {
+        let dimensions = getDimsFromSiteService(
+            [],
+            `nota_caja1_dsk`,
+            'propiedades'
+        );
+        expect(dimensions).toBeNull();
 
-    dimensions = getDimsFromSiteService(
-        [
-            {
-                adunit: 'nota_caja2_mob',
-                dimensions:
-                    '320x50,320x100,300x250,300x450,1x1,360x270,320x180, 360x450, 380x450'
-            }
-        ],
-        `nota_caja2_mob`,
-        'espectaculos'
-    );
-    expect(dimensions).toHaveLength(9);
+        dimensions = getDimsFromSiteService(
+            [
+                {
+                    adunit: 'nota_caja2_mob',
+                    dimensions:
+                        '320x50,320x100,300x250,300x450,1x1,360x270,320x180, 360x450, 380x450'
+                }
+            ],
+            `nota_caja2_mob`,
+            'espectaculos'
+        );
+        expect(dimensions).toHaveLength(9);
+    });
+    it('should add corresponding dimensions for sections', () => {
+        const banners = ['nota_caja1_dsk', 'acumulado_caja1_dsk'];
+        const sections = [
+            'propiedades',
+            'campo',
+            'salud',
+            'autos',
+            'la_nacion_usa'
+        ];
+        banners.forEach(banner =>
+            sections.forEach(section =>
+                expect(
+                    getDimsFromSiteService(
+                        [
+                            {
+                                adunit: banner,
+                                dimensions: '200x300'
+                            }
+                        ],
+                        banner,
+                        section
+                    )
+                ).toStrictEqual([
+                    [120, 600],
+                    [160, 600],
+                    [300, 600]
+                ])
+            )
+        );
+    });
 });
 
 describe('changeSegmentAdUnit =>', () => {
