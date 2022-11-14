@@ -4,6 +4,7 @@ exports[`Article source nota - validateExclusiveAccess validateExclusive access 
 Object {
   "_id": "3SHTRO3NKBCN7L3JITCDQYSJLM",
   "canonical_url": "/deportes/por-el-mercado-nid570000/",
+  "category": "Deportes",
   "content_elements": Array [
     Object {
       "_id": "UGOTNNA5NNH3NK2KSBIANFMLM4",

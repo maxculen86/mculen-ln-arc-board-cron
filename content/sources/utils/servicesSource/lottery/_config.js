@@ -7,6 +7,8 @@ export const reorderSubLotteries = (results, order, isDetail) =>
         ? results.sort((a, b) => order.indexOf(a.name) - order.indexOf(b.name))
         : [];
 
+const boxResultClass = 'box-result --grid-5-columns';
+
 export const games = {
     Quiniela_Nacional: {
         name: 'Lotería de la Ciudad (ex Quiniela Nacional)',
@@ -86,7 +88,7 @@ export const games = {
     Telekino: {
         name: 'Telekino',
         url: '/loterias/telekino/',
-        boxResultClass: 'box-result --grid-5-columns',
+        boxResultClass,
         getLotteryDate,
         hasExtraResults: true,
         extraResultsModificator: '--grid-5',
@@ -127,7 +129,7 @@ export const games = {
                     'De un extracto de veinte (20) números de dos cifras, el apostador debe seleccionar 8 números. Obtienen premio las apuestas con ocho (8), siete (7) o seis (6) aciertos.'
             }
         ],
-        boxResultClass: 'box-result --grid-5-columns',
+        boxResultClass,
         showVacantPot: false,
         showLetters: true,
         getLotteryDate
@@ -135,7 +137,7 @@ export const games = {
     Quiniela_Plus: {
         name: 'Quiniela Plus',
         url: '/loterias/quiniela-plus/',
-        boxResultClass: 'box-result --grid-5-columns',
+        boxResultClass,
         getLotteryDate,
         showFirstLotteryName: true
     },

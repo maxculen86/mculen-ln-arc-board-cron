@@ -14,9 +14,11 @@ import articleSourceNota, {
 } from '../../../content/sources/articleSourceNota';
 import validateExclusiveAccess from '../../../content/sources/utils/validateExclusiveAccess';
 import responseNotaNoticia from '../../../__mocks__/data/articles/3SHTRO3NKBCN7L3JITCDQYSJLM.json';
+import responseSinCategoria from '../../../__mocks__/data/articles/3SHTRO3NKBCN7L3JITCDQYSJLM.json';
 import responseHtmlLibreArticle from '../../../__mocks__/data/nota/cuerpo/notaHtml.json';
 
 const mockResponseNotaNoticia = Promise.resolve(responseNotaNoticia);
+const mockResponseSinCategoria = Promise.resolve(responseSinCategoria);
 const mockRequestResponse = jest.fn();
 
 jest.mock('request-promise-native', () => {
@@ -464,5 +466,46 @@ describe('ByUrl regex', () => {
         expect(resolve(key_)).toEqual(
             '/content/v4/stories/?website=la-nacion-ar&website_url=/deportes/futbol/river-campeon-como-quedo-la-tabla-historica-del-futbol-argentino-y-asi-esta-la-pelea-con-boca-nid25112021/'
         );
+    });
+});
+
+describe('Category test', () => {
+    it('should get categoria', done => {
+        mockRequestResponse.mockReturnValue(mockResponseNotaNoticia);
+
+        articleSourceFetch(query)
+            .then(response => {
+                expect(response).toStrictEqual({
+                    ...responseNotaNoticia,
+                    taxonomy: { ...responseNotaNoticia.taxonomy, sections: [] },
+                    paywallEnabled: '',
+                    subscription: 'A',
+                    isListenable: false,
+                    withFirmaDistributor: true,
+                    withSponsoredLink: false
+                });
+            })
+            .then(done);
+    });
+
+    it('no categoria value', done => {
+        mockRequestResponse.mockReturnValue(mockResponseSinCategoria);
+
+        articleSourceFetch(query)
+            .then(response => {
+                expect(response).toStrictEqual({
+                    ...responseSinCategoria,
+                    taxonomy: {
+                        ...responseSinCategoria.taxonomy,
+                        sections: []
+                    },
+                    paywallEnabled: '',
+                    subscription: 'A',
+                    isListenable: false,
+                    withFirmaDistributor: true,
+                    withSponsoredLink: false
+                });
+            })
+            .then(done);
     });
 });

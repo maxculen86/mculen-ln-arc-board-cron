@@ -55,6 +55,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 [
                     'audio_url',
                     'bajada',
+                    'categoria',
                     'contenido',
                     'titulo',
                     'tituloMobile'
@@ -97,6 +98,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 [
                     'audio_url',
                     'bajada',
+                    'categoria',
                     'contenido',
                     'titulo',
                     'tituloMobile'
@@ -131,6 +133,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
                 [
                     'audio_url',
                     'bajada',
+                    'categoria',
                     'contenido',
                     'titulo',
                     'tituloMobile'
