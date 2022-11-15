@@ -226,15 +226,6 @@ export const getCommonProps = props => {
         renderables
     );
 
-    // const position =
-    //     renderables
-    //         .filter(ren => ren.collection === 'chains')
-    //         .filter(
-    //             chain =>
-    //                 get(chain, 'props.customFields.hideCaja', false) !== true
-    //         )
-    //         .findIndex(chain => chain.props.id === idFeature) || 0;
-
     const sectionName = formatText(
         pageBuilderLayout === layoutsName.Home ? '' : `${name}_`
     );
@@ -277,10 +268,6 @@ export const findPositionInsideSection = (idFeature, renderables = []) => {
     const position = mySection.children.findIndex(
         child => child.props.id === idFeature
     );
-    // .filter(
-    //     chain =>
-    //         get(chain, 'props.customFields.hideCaja', false) !== true
-    // )
 
     return `0${Number(position) + 1}`.slice(-2);
 };
