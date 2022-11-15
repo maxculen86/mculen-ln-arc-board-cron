@@ -273,10 +273,6 @@
                     {
                         "_id": "header-day",
                         "content": "Día"
-                    },
-                    {
-                        "_id": "header-reason",
-                        "content": "Conmemoración"
                     }
                 ],
                 "rows": [
@@ -286,9 +282,6 @@
                         },
                         {
                             "content": "Sábado"
-                        },
-                        {
-                            "content": "Viernes Santo."
                         }
                     ]
                 ]

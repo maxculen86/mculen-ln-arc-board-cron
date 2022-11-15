@@ -18,7 +18,8 @@ import {
     previousAndNextDate,
     createHolidaysArray,
     convertHolidaysTable,
-    getNextHolidayData
+    getNextHolidayData,
+    getHolidaysDate
 } from '../../../../../content/sources/utils/servicesSource/holidays/holidaysHelper';
 
 const mockResponse = Promise.resolve(mockCatholicAndJewishHoliday);
@@ -253,18 +254,18 @@ describe('Test createHolidaysArray helperFuction', () => {
 });
 
 describe('Test convertHolidaysTable helperFuction', () => {
-    test('Should return catholic table', () => {
+    test('Should return catholic table with reason row for unmovable holiday type', () => {
         const mockCatholicTable = [
             {
                 date: '1 de enero',
                 day: 'Sábado',
-                reason: 'Año nuevo',
-                dayTypeName: 'Inamovible'
+                reason: 'Año nuevo'
             }
         ];
         const response = convertHolidaysTable({
             holidayArray: mockCatholicTable,
-            calendarType: 1
+            calendarType: 1,
+            holidayNameType: 'Inamovible'
         });
         expect(response).toStrictEqual({
             header: [
@@ -291,6 +292,42 @@ describe('Test convertHolidaysTable helperFuction', () => {
                     },
                     {
                         content: 'Año nuevo'
+                    }
+                ]
+            ]
+        });
+    });
+    test('Should return catholic table without reason row for bridge holiday type', () => {
+        const mockCatholicTable = [
+            {
+                date: '17 de junio',
+                day: 'Viernes',
+                reason: 'Feriado Puente Turístico'
+            }
+        ];
+        const response = convertHolidaysTable({
+            holidayArray: mockCatholicTable,
+            calendarType: 1,
+            holidayNameType: 'Puente'
+        });
+        expect(response).toStrictEqual({
+            header: [
+                {
+                    _id: 'header-date',
+                    content: 'Fecha'
+                },
+                {
+                    _id: 'header-day',
+                    content: 'Día'
+                }
+            ],
+            rows: [
+                [
+                    {
+                        content: '17 de junio'
+                    },
+                    {
+                        content: 'Viernes'
                     }
                 ]
             ]
@@ -413,5 +450,17 @@ describe('Test next holiday data generation with getNextHolidayData', () => {
             });
             spy.mockRestore();
         });
+    });
+});
+
+describe('Tests getHolidaysDate', () => {
+    it('Should return correct format for date when the array has more than two days', () => {
+        expect(getHolidaysDate([1, 2, 3, 4], 4)).toStrictEqual('1-4 de abril');
+    });
+    it('Should return correct format for date when the array has two days', () => {
+        expect(getHolidaysDate([5, 6], 6)).toStrictEqual('5-6 de junio');
+    });
+    it('Should return correct format for date with only one day', () => {
+        expect(getHolidaysDate([23], 11)).toStrictEqual('23 de noviembre');
     });
 });
