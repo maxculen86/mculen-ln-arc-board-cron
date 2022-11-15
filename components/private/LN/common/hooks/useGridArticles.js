@@ -48,6 +48,7 @@ const useGridArticles = props => {
     );
 
     const excludeUrl =
+        hasCollectionApertura ||
         chainBeforeGrid ||
         nodeType === 'author' ||
         (nodeType === 'tags' && isWiki);

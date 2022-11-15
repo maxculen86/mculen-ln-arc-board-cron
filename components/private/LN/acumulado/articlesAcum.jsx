@@ -41,6 +41,7 @@ const ArticlesAcum = ({
     outputType,
     nodeType = '',
     articlesInCollection = [],
+    hasCollectionApertura = false,
     chainBeforeGrid = false,
     isWiki = false
 }) => {
@@ -53,6 +54,7 @@ const ArticlesAcum = ({
             {articles.map((art, index) => {
                 const banner = getBanner ? getBanner(index) : <></>;
                 const isApertura =
+                    !hasCollectionApertura &&
                     !chainBeforeGrid &&
                     checkIsApertura(
                         nodeType,
@@ -91,6 +93,7 @@ ArticlesAcum.propTypes = {
     nodeType: PropTypes.string,
     articlesInCollection: PropTypes.arrayOf(PropTypes.object),
     chainBeforeGrid: PropTypes.bool,
+    hasCollectionApertura: PropTypes.bool,
     isWiki: PropTypes.bool
 };
 
