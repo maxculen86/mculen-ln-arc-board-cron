@@ -30,7 +30,7 @@ const ModCriptoCarrousel = () => {
                     lcw-marquee-items="20"
                 />
             </div>
-            <Text size="5xs">
+            <Text size="5xs" extraClass="cripto-info">
                 Información provista por
                 {`${' '}`}
                 <ComLink

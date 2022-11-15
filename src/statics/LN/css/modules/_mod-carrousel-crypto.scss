@@ -3,11 +3,13 @@
 
 .container-widget-carrousel {
     margin-bottom: px(32);
-
+    display: flex;
+    flex-direction: column;
     .widget-carrousel-coins {
-        background-color: $light-neutral-200;
+        border: px(1) solid $light-neutral-400;
+        border-radius: px(4);
         min-height: px(88);
-        padding: px(8) 0 px(8) 0;
+        padding: $spacing-xs 0 $spacing-xs 0;
         position: relative;
         margin: 1rem 0 0.5rem;
 
@@ -36,5 +38,8 @@
                 margin-left: px(16);
             }
         }
+    }
+    .cripto-info {
+        align-self: flex-end;
     }
 }
