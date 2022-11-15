@@ -13,8 +13,8 @@ exports[`Componentes - features - LN-Acumulado - CryptoCarrouse Should render li
       >
         <a
           class="com-link"
-          href="undefined/tema/criptomonedas-tid63718/"
-          title="Ir a criptomonedas"
+          href="/tema/criptomonedas-tid63718/"
+          title="Ir a Criptomonedas"
         >
           <h2
             class="cripto-title --font-bold --twoxs"
