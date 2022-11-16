@@ -4,7 +4,8 @@ import dateAndTimeUtil, {
     hasFutureDisplayDate,
     isOlderThanXHoursAgo,
     getSpecificDate,
-    datesDiffInDays
+    datesDiffInDays,
+    getArgentinaYear
 } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 describe('Private - Common - Utils - dateAndTimeUtil', () => {
     it('deberia filtrar notas con display_date a futuro', () => {
@@ -86,3 +87,27 @@ describe('Private - Common - Utils - dateAndTimeUtil', () => {
         });
     });
 });
+
+// describe('Private - Common - Utils - dateAndTimeUtil - getArgentinaYear', () => {
+
+//     // it('Should return year 2022 for Argentina', () => {
+//     //     const date = 'January 1, 2023 00:05:00';
+//     //     const result = getArgentinaYear();
+//     //     expect(result).toBe('2022');
+//     // });
+
+//     test('mocks a constructor like new Date()', () => {
+//         console.log('Normal:   ', new Date().getTime())
+
+//         const mockDate = new Date(1466424490000)
+//         const spy = jest
+//           .spyOn(global, 'Date')
+//           .mockImplementation(() => mockDate)
+
+//         console.log('Mocked:   ', new Date().getTime())
+//         spy.mockRestore()
+
+//         console.log('Restored: ', new Date().getTime())
+//       })
+
+// })
