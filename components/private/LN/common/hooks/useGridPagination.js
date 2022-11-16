@@ -14,27 +14,16 @@ const useGridPagination = props => {
     const [storedArticles, setStoredArticles] = useState({});
     const [loading, setLoading] = useState(false);
 
-    const {
-        outputType,
-        getBanner,
-        articlesInCollection = [],
-        layout,
-        acumuladoGeneral = {}
-    } = props;
-    console.log(
-        '🚀 ~ file: useGridPagination.js ~ line 23 ~ useGridPagination ~ acumuladoGeneral',
-        get(acumuladoGeneral, 'id_collection_promo_items')
+    const { outputType, getBanner, layout, acumuladoGeneral = {} } = props;
+    const hasCollectionApertura = !!get(
+        acumuladoGeneral,
+        'id_collection_promo_items'
     );
 
     const { articles, moreArticles } = useGridArticles({
         ...props,
         page: currentPage,
-        hasCollectionApertura: get(
-            acumuladoGeneral,
-            'id_collection_promo_items'
-        )
-            ? true
-            : false
+        hasCollectionApertura
     });
 
     const { tipo_acumulado: accumulatedType = 'Grilla' } = acumuladoGeneral;
