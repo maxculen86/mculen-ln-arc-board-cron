@@ -2,12 +2,14 @@
 @import '../abstracts/mixins';
 
 .container-widget-carrousel {
-    margin-bottom: px(32);
-
+    margin-bottom: $spacing-lg;
+    display: flex;
+    flex-direction: column;
     .widget-carrousel-coins {
-        background-color: $light-neutral-200;
+        border: px(1) solid $light-neutral-400;
+        border-radius: $spacing-2xs;
         min-height: px(88);
-        padding: px(8) 0 px(8) 0;
+        padding: $spacing-xs 0 $spacing-xs 0;
         position: relative;
         margin: 1rem 0 0.5rem;
 
@@ -19,22 +21,25 @@
 
             .cripto-title {
                 color: $light-neutral-900;
-                margin-left: px(8);
+                margin-left: $spacing-xs;
             }
         }
 
         .livecoinwatch-widget-5 {
-            padding-top: px(24);
+            padding-top: $spacing-md;
             margin: 0px !important;
-            height: px(40) !important;
+            height: $spacing-xl !important;
         }
 
         @media ($media-l) {
-            margin-top: px(16);
-            padding-top: px(16);
+            margin-top: $spacing-sm;
+            padding-top: $spacing-sm;
             .com-link .cripto-title {
-                margin-left: px(16);
+                margin-left: $spacing-sm;
             }
         }
+    }
+    .cripto-info {
+        align-self: flex-end;
     }
 }
