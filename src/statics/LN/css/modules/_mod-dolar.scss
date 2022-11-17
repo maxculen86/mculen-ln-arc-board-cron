@@ -74,7 +74,7 @@
             @media ($media-m) {
                 align-self: center;
                 border-left: none;
-                padding-top: px(8); // reemplzar por variable
+                padding-top: $spacing-xs;
                 padding-bottom: 0;
                 border-bottom: none;
                 margin-bottom: 0;
@@ -94,7 +94,7 @@
                 }
                 .dolar-title {
                     border-top: px(1) solid $light-neutral-300;
-                    padding-top: 8px;
+                    padding-top: $spacing-xs;
                 }
                 &:nth-child(1),
                 &:nth-child(2),
@@ -182,13 +182,13 @@
                     }
                 }
                 &:nth-child(4n) {
-                    padding-top: px(8);
+                    padding-top: $spacing-xs;
                     padding-right: $spacing-sm;
                     border-right: px(1) solid $light-neutral-300;
                     margin-right: $spacing-sm;
                     .dolar-title {
                         border-top: px(1) solid $light-neutral-300;
-                        padding-top: 8px;
+                        padding-top: $spacing-xs;
                     }
                 }
                 &:nth-child(3),
