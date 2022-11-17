@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import SnippetRender from '../../../common/snippet/snippetRender';
 import get from '../../../common/utils/get';

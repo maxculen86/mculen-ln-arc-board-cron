@@ -5,8 +5,6 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import isAnyGrilla1 from '../../../common/utils/isAnyGrilla1';
-import get from '../../../common/utils/get';
-import checkHydrateOnly from '../../common/utils/checkHydrateOnly';
 
 const GlobalContext = React.createContext([{}, () => {}]);
 
