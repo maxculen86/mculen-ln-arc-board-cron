@@ -88,26 +88,35 @@ describe('Private - Common - Utils - dateAndTimeUtil', () => {
     });
 });
 
-// describe('Private - Common - Utils - dateAndTimeUtil - getArgentinaYear', () => {
+describe('Private - Common - Utils - dateAndTimeUtil - getArgentinaYear', () => {
+    test('Should return 2022 when server is 2023-01-01 at 00hrs', () => {
+        const mockedDate = new Date('2023-01-01T00:00:00.000Z');
+        const originalDate = Date;
 
-//     // it('Should return year 2022 for Argentina', () => {
-//     //     const date = 'January 1, 2023 00:05:00';
-//     //     const result = getArgentinaYear();
-//     //     expect(result).toBe('2022');
-//     // });
+        global.Date = jest.fn(() => mockedDate);
+        global.Date.setDate = originalDate.setDate;
 
-//     test('mocks a constructor like new Date()', () => {
-//         console.log('Normal:   ', new Date().getTime())
+        const result = getArgentinaYear();
+        expect(result).toBe('2022');
+    });
+    test('Should return 2023 when server is 2023-01-01 at 03hrs', () => {
+        const mockedDate = new Date('2023-01-01T03:00:00.000Z');
+        const originalDate = Date;
 
-//         const mockDate = new Date(1466424490000)
-//         const spy = jest
-//           .spyOn(global, 'Date')
-//           .mockImplementation(() => mockDate)
+        global.Date = jest.fn(() => mockedDate);
+        global.Date.setDate = originalDate.setDate;
 
-//         console.log('Mocked:   ', new Date().getTime())
-//         spy.mockRestore()
+        const result = getArgentinaYear();
+        expect(result).toBe('2023');
+    });
+    test('Should return 2022 when server is 2022-12-31 at 23:59hrs', () => {
+        const mockedDate = new Date('2022-12-31T23:59:59.000Z');
+        const originalDate = Date;
 
-//         console.log('Restored: ', new Date().getTime())
-//       })
+        global.Date = jest.fn(() => mockedDate);
+        global.Date.setDate = originalDate.setDate;
 
-// })
+        const result = getArgentinaYear();
+        expect(result).toBe('2022');
+    });
+});
