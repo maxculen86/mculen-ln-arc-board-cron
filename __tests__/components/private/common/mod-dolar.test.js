@@ -19,27 +19,27 @@ jest.mock(
     () => 'mock-currencyData'
 );
 
-describe('Private - Common - ModDolar =>', () => {
-    it('with empty data list ', () => {
-        const { container } = render(<ModDolar />);
-        expect(container).toBeEmptyDOMElement();
-    });
-});
+// describe('Private - Common - ModDolar =>', () => {
+//     it('with empty data list ', () => {
+//         const { container } = render(<ModDolar />);
+//         expect(container).toBeEmptyDOMElement();
+//     });
+// });
 
 describe('with data list', () => {
-    it('should render div tag with "mod-dolar" className with 4 li tags', () => {
+    it('should render div tag with "mod-dolar" className with 7 li tags', () => {
         const { container } = render(<ModDolar {...API_RESPONSE} />);
         const ul = container.getElementsByTagName('ul');
         const li = container.getElementsByTagName('li');
         const currencyData = container.getElementsByTagName(
             'mock-currencyData'
         );
-        expect(li).toHaveLength(4);
+        expect(li).toHaveLength(7);
         expect(ul[0]).toBeVisible();
-        expect(currencyData).toHaveLength(4);
-        expect(screen.getByTitle('Dólar Contado con Liqui')).toBeVisible();
-        expect(screen.getByTitle('Dólar Blue')).toBeVisible();
-        expect(screen.getByTitle('Dólar Banco Nación')).toBeVisible();
+        expect(currencyData).toHaveLength(7);
+        // expect(screen.getByTitle('Dólar Contado con Liqui')).toBeVisible();
+        expect(screen.getByTitle('Dólar blue')).toBeVisible();
+        expect(screen.getByTitle('Dólar CCL')).toBeVisible();
         expect(container).toMatchSnapshot();
     });
 });

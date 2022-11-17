@@ -12,28 +12,27 @@ exports[`Common private currencyData - with dbna CurrencyData snapshot 1`] = `
   >
     <mock-text
       extraclass="dolar-title"
-      size="--twoxs"
+      size="--fourxs"
       tag="h2"
       text="Dólar hoy"
-      weight="bold"
     />
   </mock-com-link>
   <p
     class="com-text --sixxs"
   >
     <span>
-      COMPRA
+      Compra
     </span>
     <strong
-      class="--fourxs"
+      class="--font-bold"
     >
       $104,25
     </strong>
     <span>
-      VENTA
+      Venta
     </span>
     <strong
-      class="--fourxs"
+      class="--font-bold"
     >
       $110,25
     </strong>
@@ -42,40 +41,41 @@ exports[`Common private currencyData - with dbna CurrencyData snapshot 1`] = `
 `;
 
 exports[`Currency data with urlBrand Snapshot de component con urlBrand 1`] = `
-<mock-com-link
-  classcondition="provider-data"
-  link="https://www.invertironline.com/"
-  type="text/css"
+<div
+  class=" currency-data"
 >
-  <div
-    class="container-logo"
+  <mock-com-link
+    classcondition="link-container-currency-data"
+    link="https://www.lanacion.com.ar/dolar-hoy/"
+    title="Dólar hoy"
+    type="text/css"
   >
-    <span
-      class="--sixxs"
-    >
-      Información de
-    </span>
-    <mock-com-image
-      alt="BYMA"
-      amp="false"
-      classcondition="logo byma"
-      src="undefinedundefined"
+    <mock-text
+      extraclass="dolar-title"
+      size="--fourxs"
+      tag="h2"
+      text="Dólar hoy"
     />
-  </div>
-  <div
-    class="container-logo"
+  </mock-com-link>
+  <p
+    class="com-text --sixxs"
   >
-    <span
-      class="--sixxs"
-    >
-      provista por
+    <span>
+      Compra
     </span>
-    <mock-com-image
-      alt="InvertirOnline"
-      amp="false"
-      classcondition="logo iol"
-      src="undefinedundefined"
-    />
-  </div>
-</mock-com-link>
+    <strong
+      class="--font-bold"
+    >
+      $104,25
+    </strong>
+    <span>
+      Venta
+    </span>
+    <strong
+      class="--font-bold"
+    >
+      $110,25
+    </strong>
+  </p>
+</div>
 `;

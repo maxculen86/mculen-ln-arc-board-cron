@@ -1,43 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`with data list should render div tag with "mod-dolar" className with 4 li tags 1`] = `
+exports[`with data list should render div tag with "mod-dolar" className with 7 li tags 1`] = `
 <div>
   <div
     class="dolar"
   >
     <ul
-      class="mod-dolar"
+      class="dolar-subgroup --odd --minusOne"
     >
       <li>
         <mock-currencydata
-          purchasevalue="86,25"
-          salevalue="92,25"
+          purchasevalue="159,50"
+          salevalue="167,50"
           sourcename="dbna"
-          title="Dólar Banco Nación"
+          title="Dólar hoy 1"
         />
       </li>
       <li>
         <mock-currencydata
-          purchasevalue="148,00"
-          salevalue="153,00"
+          purchasevalue="290,00"
+          salevalue="294,00"
           sourcename="dblue"
-          title="Dólar Blue"
+          title="Dólar blue"
         />
       </li>
       <li>
         <mock-currencydata
-          purchasevalue="118,18"
+          purchasevalue="159,50"
+          salevalue="167,50"
+          sourcename="dbna"
+          title="Dólar hoy 2"
+        />
+      </li>
+      <li>
+        <mock-currencydata
+          purchasevalue="310,45"
           salevalue="false"
           sourcename="dccl"
-          title="Dólar Contado con Liqui"
+          title="Dólar CCL"
         />
       </li>
       <li>
         <mock-currencydata
-          urlbrand="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Lzu3CsxaJkufzPN4fOxQjod_yik=/314x0/filters:quality(100)/especiales.lanacion.com.ar/LN/dolar/anexo-dolar/logo-invertir.png"
+          purchasevalue="159,50"
+          salevalue="167,50"
+          sourcename="dbna"
+          title="Dólar hoy 3"
+        />
+      </li>
+      <li>
+        <mock-currencydata
+          purchasevalue="290,00"
+          salevalue="294,00"
+          sourcename="dblue"
+          title="Dólar blue 4"
+        />
+      </li>
+      <li>
+        <mock-currencydata
+          purchasevalue="290,00"
+          salevalue="294,00"
+          sourcename="dblue"
+          title="Dólar blue 5"
         />
       </li>
     </ul>
   </div>
+  <a
+    class="com-link provider-data"
+    href="https://www.invertironline.com/"
+    title=""
+  >
+    <div
+      class="container-logo"
+    >
+      <span
+        class="--fivexs"
+      >
+        Información de
+      </span>
+      <img
+        alt="BYMA"
+        class="com-image logo byma"
+        decoding="async"
+        fetchpriority="low"
+        loading="lazy"
+        src="undefined/resources/images"
+      />
+      <span
+        class="--fivexs"
+      >
+        provista por
+      </span>
+      <img
+        alt="InvertirOnline"
+        class="com-image logo iol"
+        decoding="async"
+        fetchpriority="low"
+        loading="lazy"
+        src="undefined/resources/images"
+      />
+    </div>
+  </a>
 </div>
 `;

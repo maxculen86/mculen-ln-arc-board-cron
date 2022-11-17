@@ -51,7 +51,7 @@ describe('Common private currencyData - with dbna', () => {
     it('Check text component', () => {
         expect(textComponent).toBeTruthy;
         expect(textComponent.name).toBe('mock-text');
-        expect(textComponent.attribs.size).toBe('--twoxs');
+        expect(textComponent.attribs.size).toBe('--fourxs');
         expect(textComponent.attribs.text).toBe('Dólar hoy');
         expect(textComponent.attribs.extraclass).toBe('dolar-title');
     });
