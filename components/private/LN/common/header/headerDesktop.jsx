@@ -9,12 +9,10 @@ import PropTypes from 'prop-types';
 import Header from './headerBase';
 import Hamburger from './hamburger';
 import ComIcon from '../../../common/icon';
-
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
 import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
-// import handleCookie from '../utils/handleCookie';
 import LnLogoHeader from '../../../common/logos/LnLogoHeader';
 import useTermica from '../../../common/hooks/useTermica';
 
@@ -76,11 +74,8 @@ const HeaderDesktop = ({
     isAdmin
 }) => {
     const { loading, goToLoginUrl } = loginData;
-    // const { getCookie } = handleCookie();
-    // const getCookieCallback = useCallback(getCookie, []);
     const bookmarkWeb = useTermica('bookmark_web');
 
-    // const [token, setToken] = useState(getCookie('token'));
     const [active, setActive] = useState('com-usuario');
     const [loadingUserData, setLoadingUserData] = useState(
         loading ? ' hlp-none' : ''
@@ -93,7 +88,6 @@ const HeaderDesktop = ({
 
     useEffect(() => {
         setLoadingUserData(loading ? ' hlp-none' : '');
-        // setToken(getCookieCallback('token'));
     }, [loading, logueado]);
 
     const handleClickBuscar = () => {

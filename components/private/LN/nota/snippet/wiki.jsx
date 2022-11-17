@@ -8,8 +8,7 @@ import get from '../../../common/utils/get';
 const SnippetWiki = () => {
     const props = get(useAppContext(), 'globalContent', {});
     const { wikiSourceData = {} } = props;
-    const { schemas_info: schemasInfo = {}, image = {}, type } =
-        wikiSourceData || {};
+    const { schemas_info: schemasInfo = {}, image = {}, type } = wikiSourceData;
     const { resizedUrls = [] } = image;
 
     const { resizedUrl } = resizedUrls.find(e => e.option.width === 320) || {};

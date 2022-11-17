@@ -31,7 +31,7 @@ export const streamingAnalyticsInit = (
         })
     );
 
-    // analytics.configuration.enableImplementationValidationMode();  //debug Mode // NOSONAR
+    // NOSONAR analytics.configuration.enableImplementationValidationMode(); debug mode
     analytics.start();
 
     const StreamingAnalytics = new analytics.StreamingAnalytics();
