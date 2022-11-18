@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-curly-newline */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import '../../../../resources/dist/css/ln/components/sticky-mobile.css';
@@ -5,6 +6,10 @@ import Text from '../../common/text';
 import Icon from '../../common/icon';
 import ComLink from '../../common/com-link';
 import ModPicture from '../../common/mod-picture';
+import {
+    crtViewTracker,
+    handleClickForCTRcomponent
+} from '../../common/utils/noteTracker/ctrTracker';
 
 const StickyMobile = ({ headerText, alt, articleToShow }) => {
     const {
@@ -31,20 +36,34 @@ const StickyMobile = ({ headerText, alt, articleToShow }) => {
                 <Text font="arial" size="2xs" weight="bold" tag="h3">
                     {headerText}
                 </Text>
-                <div onClick={() => setDisplaySticky(false)} aria-hidden="true">
+                <div
+                    onClick={() => {
+                        setDisplaySticky(false);
+                        handleClickForCTRcomponent('close', articleToShow);
+                    }}
+                    aria-hidden="true"
+                >
                     <Icon name="close" size="--xs" />
                 </div>
             </div>
-            <ComLink link={websiteUrl} title={headlineToUse}>
-                <ModPicture
-                    src={url}
-                    alt={alt || headlineToUse}
-                    sources={resizedUrls}
-                />
-                <Text font="sueca" size="2xs" weight="regular" tag="h2">
-                    {headlineToUse}
-                </Text>
-            </ComLink>
+            <div
+                aria-hidden="true"
+                onClick={() =>
+                    handleClickForCTRcomponent('open', articleToShow)
+                }
+            >
+                <ComLink link="#" title={headlineToUse}>
+                    <ModPicture
+                        src={url}
+                        alt={alt || headlineToUse}
+                        sources={resizedUrls}
+                    />
+                    <Text font="sueca" size="2xs" weight="regular" tag="h2">
+                        {headlineToUse}
+                    </Text>
+                </ComLink>
+            </div>
+            {crtViewTracker(articleToShow)}
         </section>
     );
 };
