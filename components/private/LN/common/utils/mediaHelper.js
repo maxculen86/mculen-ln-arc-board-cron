@@ -12,6 +12,8 @@ import {
 } from '../../../common/utils/subtypes/subtypeHelper';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
 
+const optionWidth = 'option.width';
+
 export const getEpigrafe = basic => {
     const { type, promo_items: promoItemsBasic, caption } = basic || {};
 
@@ -93,14 +95,14 @@ export const getSizes = (sources = []) => {
 export const getShortestImage = (resizedUrls = []) => {
     const result = resizedUrls.reduce(
         (prev, curr) =>
-            get(prev, 'option.width', 5000) < get(curr, 'option.width', 5000)
+            get(prev, optionWidth, 5000) < get(curr, optionWidth, 5000)
                 ? prev
                 : curr,
         {}
     );
 
     // eslint-disable-next-line no-underscore-dangle
-    const _width = get(result, 'option.width', undefined);
+    const _width = get(result, optionWidth, undefined);
 
     return {
         resizedUrl: result.resizedUrl,

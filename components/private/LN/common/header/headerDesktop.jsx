@@ -18,6 +18,8 @@ import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
 import LnLogoHeader from '../../../common/logos/LnLogoHeader';
 import useTermica from '../../../common/hooks/useTermica';
 
+const comUsuario = 'com-usuario';
+
 const ItemAnchor = ({ url, text, title, className }) => {
     const callURL = address => {
         // eslint-disable-next-line no-restricted-globals
@@ -81,15 +83,15 @@ const HeaderDesktop = ({
     const bookmarkWeb = useTermica('bookmark_web');
 
     // const [token, setToken] = useState(getCookie('token'));
-    const [active, setActive] = useState('com-usuario');
+    const [active, setActive] = useState(comUsuario);
     const [loadingUserData, setLoadingUserData] = useState(
         loading ? ' hlp-none' : ''
     );
 
     const toggleMenu = () =>
-        active === 'com-usuario'
+        active === comUsuario
             ? setActive('com-usuario --active')
-            : setActive('com-usuario');
+            : setActive(comUsuario);
 
     useEffect(() => {
         setLoadingUserData(loading ? ' hlp-none' : '');
@@ -169,8 +171,8 @@ const HeaderDesktop = ({
                                     tabIndex="0"
                                     role="button"
                                     id="menuUser"
-                                    onBlur={() => setActive('com-usuario')}
-                                    onScroll={() => setActive('com-usuario')}
+                                    onBlur={() => setActive(comUsuario)}
+                                    onScroll={() => setActive(comUsuario)}
                                 >
                                     <p
                                         className="com-usuario__name"
