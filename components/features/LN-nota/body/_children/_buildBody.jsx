@@ -4,6 +4,7 @@ import { bodyElementRules } from '../_utils/_bodyElementRules';
 import { BuildBanners } from './_buildBanners';
 import { supportedTypes } from '../_utils/_bodyRules';
 import get from '../../../../private/common/utils/get';
+import { transformEmbedScript } from '../_utils/_embedHelper';
 
 const BuildBody = ({ banners, outputType, globalContent = {} }) => {
     const {
@@ -15,11 +16,15 @@ const BuildBody = ({ banners, outputType, globalContent = {} }) => {
 
     let counter = 0;
     const elementList = contentElements.map((element, currentIndex) => {
-        const nodeType = get(element, 'additional_properties.nodeType', {});
+        const newElement = element.subtype
+            ? transformEmbedScript(element)
+            : element;
+
+        const nodeType = get(newElement, 'additional_properties.nodeType', {});
         const capitalIndex = contentElements.findIndex(v => v.type === 'text');
 
         const Component = bodyElementRules({
-            element,
+            element: newElement,
             outputType,
             subtype
         });

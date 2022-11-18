@@ -6,8 +6,9 @@ import Context from 'fusion:context';
 import BuildBody from '../../../../../../components/features/LN-nota/body/_children/_buildBody';
 import content_elements from '../../../../../../__mocks__/data/nota/body/contentElements.json';
 import siteProperties from '../../../../../../__mocks__/data/nota/body/siteProperties.json';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import * as utils from '../../../../../../components/features/LN-nota/body/_utils/_embedHelper';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -71,7 +72,7 @@ describe('BuildBody', () => {
     ];
 
     it('deberia renderizar todos los elementos del cuerpo para default', () => {
-        const { container, getAllByText, getByText } = render(
+        const { container } = render(
             BuildBody({
                 banners,
                 outputType: 'default',
@@ -387,5 +388,20 @@ describe('BuildBody', () => {
         expect(
             container.querySelectorAll(`div[class*="divider"]`)
         ).toHaveLength(1);
+    });
+    it('deberia ejecutar funcion para transformar el oembedScript', () => {
+        jest.spyOn(utils, 'transformEmbedScript').mockImplementation(() =>
+            jest.fn()
+        );
+
+        render(
+            BuildBody({
+                banners,
+                outputType: 'default',
+                globalContent
+            })
+        );
+
+        expect(utils.transformEmbedScript).toBeCalledTimes(15);
     });
 });

@@ -108,19 +108,13 @@ describe('Test de las embebidos en el cuerpo de una nota', () => {
 
     it('Atributos y nodo del DOM correcto', () => {
         const component = mount(<SocialEmbeds />);
-        expect(component.find('script')).toHaveLength(5);
+        expect(component.find('script')).toHaveLength(3);
         expect(
             component
                 .find('script')
                 .at(0)
                 .props().src
         ).toEqual('//www.instagram.com/embed.js');
-        expect(
-            component
-                .find('script')
-                .at(2)
-                .props().src
-        ).toEqual('https://platform.twitter.com/widgets.js');
     });
 
     it('Snapshots', () => {
