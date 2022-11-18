@@ -11,10 +11,10 @@ export const crtViewTracker = (article = {}) => {
     const { _id: id } = article;
 
     const { dataLayer } = window;
-    const isRealoaed = checkUserRealoadAction(window);
+    const isReloaded = checkUserRealoadAction(window);
     console.log(
         '🚀 ~ file: ctrTracker.js ~ line 15 ~ crtViewTracker ~ isRealoaed',
-        isRealoaed
+        isReloaded
     );
 
     const shouldNotSend = dataLayer.some((element = {}) => {
