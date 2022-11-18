@@ -1,0 +1,188 @@
+/* eslint-disable no-underscore-dangle */
+import {
+    SITE_LANACION,
+    API_ENV,
+    RESIZER_URL_PUBLIC,
+    CONTENT_BASE
+} from 'fusion:environment';
+// import { updateHeight, setHeight, baseUrl } from './resizerHelper';
+import * as resizerHelper from './resizerHelper';
+import get from '../../../get';
+
+const MEDIAMINWIDTH = '(min-width: 768px)';
+
+export const resizeArcImage = (
+    arcImage,
+    resizeOptions,
+    zoomSizes,
+    smartCropExcluded = false,
+    defaultResize = {
+        width: 768,
+        height: 513,
+        media: MEDIAMINWIDTH
+    }
+) => {
+    if (arcImage.type !== 'image' || !arcImage.url)
+        throw new Error(
+            'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
+        );
+
+    // TODO: Cambiar nombre Punto Focal
+    const fp = get(
+        arcImage,
+        'additional_properties.focal_point.min',
+        undefined
+    );
+    // console.log('🚀 ~ file: resizerHelper.js ~ line 84 ~ fp', fp);
+
+    const defaultResizeWithSmart = {
+        ...defaultResize,
+        isNotSmart: typeof fp !== 'undefined'
+    };
+
+    const _resizeOptions =
+        typeof fp !== 'undefined'
+            ? resizeOptions &&
+              resizeOptions.map(e => ({ ...e, isNotSmart: true }))
+            : resizeOptions;
+
+    // console.log(
+    //     '🚀 ~ file: buildResizerUrls.js:39 ~ _resizeOptions',
+    //     _resizeOptions
+    // );
+
+    const _zoomSizes =
+        typeof fp !== 'undefined'
+            ? zoomSizes && zoomSizes.map(e => ({ ...e, isNotSmart: true }))
+            : zoomSizes;
+
+    return {
+        ...arcImage,
+        width: fp || !smartCropExcluded ? 768 : arcImage.width,
+        height: fp || !smartCropExcluded ? 513 : arcImage.height,
+        url: resizeImgUrl({
+            originalUrl: arcImage.url,
+            originalWidth: arcImage.width,
+            originalHeight: arcImage.height,
+            defaultResizeWithSmart,
+            focalPoint: fp,
+            smartCropExcluded,
+            arcImage
+        }),
+        // TODO: Hacer logica del resizerUrls
+        resized_urls: resizeUrlCollection({
+            originalUrl: arcImage.url,
+            originalWidth: arcImage.width,
+            originalHeight: arcImage.height,
+            defaultResizeWithSmart: _resizeOptions,
+            focalPoint: fp,
+            smartCropExcluded,
+            filterQuality: 80,
+            isInApertura: false,
+            isAdmin: false,
+            arcImage
+        })
+        // resized_urls_zoom: resizeUrls(
+        //     arcImage.url,
+        //     arcImage.width,
+        //     arcImage.height,
+        //     _zoomSizes,
+        //     fp,
+        //     smartCropExcluded
+        // )
+    };
+};
+
+// TODO: Resizer Exportar methodo resizeUrl
+export const resizeImgUrl = ({
+    originalUrl,
+    originalWidth,
+    originalHeight,
+    defaultResizeWithSmart = {},
+    focalPoint = [],
+    smartCropExcluded,
+    filterQuality = 80,
+    isInApertura = false,
+    isAdmin = false,
+    arcImage
+}) => {
+    const {
+        useFullSize,
+        proportion,
+        width: newWidth = 0
+    } = defaultResizeWithSmart;
+    let { height: newHeight = 0 } = defaultResizeWithSmart;
+
+    newHeight = !useFullSize ? 0 : newHeight;
+
+    if (!newHeight && !newWidth) throw new Error('Height and Width required');
+
+    // TODO: Revisar el tema del Crop
+    // resizerHelper.setCropMethod({
+    //     thumbor: {},
+    //     defaultResizeWithSmart,
+    //     originalWidth,
+    //     originalHeight,
+    //     focalPoint,
+    //     smartCropExcluded
+    // });
+
+    proportion &&
+        (newHeight = resizerHelper.setHeight(newWidth, newHeight, proportion));
+
+    const [fileName = ''] = originalUrl.match(/[^\/]+\.(jpg|png|jpeg)/gm) || [];
+
+    return `${resizerHelper.baseUrl({
+        isInApertura,
+        isAdmin
+    })}/resizer/v2/${resizerHelper.buildQueryParams({
+        originalUrl,
+        newWidth,
+        newHeight,
+        filterQuality,
+        smartCropExcluded,
+        focalPoint,
+        arcImage
+    })}`;
+};
+
+export const resizeUrlCollection = ({
+    originalUrl,
+    originalWidth,
+    originalHeight,
+    defaultResizeWithSmart,
+    focalPoint = [],
+    smartCropExcluded,
+    filterQuality = 80,
+    isInApertura = false,
+    isAdmin = false,
+    arcImage
+}) => {
+    const resp = [];
+    const finalPreset = defaultResizeWithSmart;
+    finalPreset &&
+        finalPreset.forEach(opt => {
+            const resizedUrl = resizeImgUrl({
+                originalUrl,
+                originalWidth,
+                originalHeight,
+                defaultResizeWithSmart: opt,
+                focalPoint,
+                smartCropExcluded,
+                arcImage
+            });
+            resp.push({
+                resizedUrl,
+                option: {
+                    ...opt,
+                    height: resizerHelper.updateHeight(
+                        originalHeight,
+                        originalWidth,
+                        opt
+                    )
+                }
+            });
+        });
+
+    return resp;
+};

@@ -1,8 +1,6 @@
 import request from 'request-promise-native';
 import {
     CONTENT_BASE,
-    RESIZER_KEY,
-    RESIZER_URL,
     ARC_ACCESS_TOKEN,
     SITE_LANACION,
     API_ENV
@@ -10,7 +8,7 @@ import {
 import getProperties from 'fusion:properties';
 import addParallaxData from './utils/addParallaxData';
 import get from '../../components/private/common/utils/get';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
 import filter from '../filters/LN/nota/article';
 import getRequest from './utils/getRequest';
 import Redirect from './utils/redirect';
@@ -33,6 +31,8 @@ import isNoteListenable from './utils/audioNews/helper';
 import force404AMP from './utils/force404AMP';
 import validateSponsoredLink from './utils/validateSponsoredLink';
 import { getPrincipalCategory } from '../../components/private/LN/api/v1/common/category';
+import signingServiceSource from './signingServiceSource';
+import { hasPromoItemImgAuth } from './utils/signingImageAuth';
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -142,7 +142,7 @@ const fetch = (query, { cachedCall } = {}) => {
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
 // directamente nosotros desde el fetch
-const transform = (
+const transform = async (
     data,
     arcSite,
     properties,
@@ -163,6 +163,26 @@ const transform = (
     const sections = get(data, 'taxonomy.sections', []);
     const authors = get(data, 'credits.by', []);
     const layout = 'LN-nota-noticia';
+
+    // Get Auth cuando en el promo Items no viene el auth del tipo imagen
+    // Cambiar a un modulo para evitar los eslint-disable
+    if (hasPromoItemImgAuth({ dataPromoItem: data })) {
+        const id = get(data, 'promo_items.basic._id', null);
+        // eslint-disable-next-line no-param-reassign
+        data.promo_items.basic.auth = data.promo_items.basic.auth || {};
+
+        const signingResponse = await cachedCall(
+            'signingServiceSource Token',
+            signingServiceSource.fetch, // The fetch method imported fromthe resizer content source
+            {
+                query: { imageId: id },
+                ttl: 31536000,
+                independent: true
+            }
+        );
+        // eslint-disable-next-line no-param-reassign
+        data.promo_items.basic.auth['1'] = signingResponse.hash;
+    }
 
     const withFirmaDistributor = firmaDistributorValidation(
         sections,
@@ -216,6 +236,14 @@ const transform = (
     const primarySection = get(data, 'taxonomy.primary_section');
     const category = primarySection && getPrincipalCategory(primarySection);
 
+    // TODO: Mover logica de signingResponse a un util.
+    // Inflate ANS with token promo items -> basic -> image if there is no auth
+    // console.log(
+    //     'XXXXXXXXXXXXXXWWWWWWWWW2',
+    //     get(data, 'promo_items.basic.type') === 'image' &&
+    //         hasPromoItemImgAuth({ data })
+    // );
+
     // Data con urls Resizeadas
     const resp = {
         paywallEnabled,
@@ -226,8 +254,6 @@ const transform = (
         withSponsoredLink: validateSponsoredLink(data),
         category: get(category, 'valor', null),
         ...addResizedUrls(data, {
-            resizerSecret: RESIZER_KEY,
-            resizerUrl: RESIZER_URL,
             presets: {
                 promoItems:
                     presetsPromoItemsCustom ||
