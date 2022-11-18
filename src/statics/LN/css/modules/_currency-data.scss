@@ -22,8 +22,11 @@
         grid-template-rows: repeat(2, auto);
         grid-auto-flow: column;
         justify-items: center;
-        gap: 0 px(16);
         justify-content: center;
+        gap: 0 px(8);
+        @media ($media-s) {
+            gap: 0 px(16);
+        }
         span {
             color: $light-neutral-600;
         }

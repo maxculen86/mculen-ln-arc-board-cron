@@ -127,7 +127,7 @@ const ModDolar = ({
         //         'https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacionblue/DBLUE',
         //     title: 'Dólar blue 7',
         //     titleMobile: 'Dólar blue 7'
-        // }
+        // },
         // {
         //     fuente: 'InvertirOnline',
         //     compra: '290,00',
@@ -178,15 +178,15 @@ const ModDolar = ({
         // }
     ];
 
-    oddOrEven = mockData.length % 2 ? '--odd' : '--even';
+    oddOrEven = mockData && (mockData.length % 2 ? '--odd' : '--even');
 
     let fillClass;
-    const extraClass = ['', '--minusThree', '--minusTwo', '--minusOne'];
 
-    if (mockData.length < 4) {
+    if (mockData && mockData.length < 4) {
         fillClass = '--fewElem';
     } else {
-        fillClass = extraClass[mockData.length % 4];
+        const extraClass = ['', '--minusThree', '--minusTwo', '--minusOne'];
+        fillClass = mockData && extraClass[mockData.length % 4];
     }
 
     return (
