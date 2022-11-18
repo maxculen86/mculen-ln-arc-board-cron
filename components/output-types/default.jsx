@@ -74,8 +74,7 @@ const Default = props => {
         _id,
         taxonomy,
         first_publish_date: firstPublishDate,
-        acumuladoGeneral: { metas } = {},
-        website_url: websiteUrl
+        acumuladoGeneral: { metas } = {}
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle, mobile: mobileTitle } =

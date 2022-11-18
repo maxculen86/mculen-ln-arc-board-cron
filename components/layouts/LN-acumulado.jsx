@@ -82,8 +82,7 @@ const LNAcumuladoLayout = props => {
 
     const {
         anexosuperior: anexoSuperior = '',
-        anexoinferior: anexoInferior = '',
-        collectionForTag = ''
+        anexoinferior: anexoInferior = ''
     } = acumuladoGeneral;
 
     const anexoSuperiorConfig = getConfigForAnexo(anexoSuperior);

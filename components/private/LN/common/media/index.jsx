@@ -132,7 +132,7 @@ const media = ({
         }
     }
     if (!item) {
-        item = <ComPicture href={href} amp={outputType === 'amp'} />;
+        item = <ComPicture href={href} />;
     }
     return (
         <>
