@@ -22,7 +22,7 @@ const useGridPagination = props => {
         nodeType = '',
         isWiki = false,
         acumuladoGeneral = {},
-        chainBeforeGrid = false
+        hasChainBeforeGrid = false
     } = props;
 
     const hasCollectionApertura =
@@ -33,7 +33,7 @@ const useGridPagination = props => {
         ...props,
         page: currentPage,
         hasCollectionApertura,
-        chainBeforeGrid,
+        hasChainBeforeGrid,
         isWiki
     });
 
@@ -81,7 +81,7 @@ const useGridPagination = props => {
             articles={storedArticles[1] || articles}
             nodeType={nodeType}
             hasCollectionApertura={hasCollectionApertura}
-            chainBeforeGrid={chainBeforeGrid}
+            hasChainBeforeGrid={hasChainBeforeGrid}
             isWiki={isWiki}
         />
     );

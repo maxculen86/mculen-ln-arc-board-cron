@@ -42,7 +42,7 @@ const ArticlesAcum = ({
     nodeType = '',
     articlesInCollection = [],
     hasCollectionApertura = false,
-    chainBeforeGrid = false,
+    hasChainBeforeGrid = false,
     isWiki = false
 }) => {
     return (
@@ -53,15 +53,14 @@ const ArticlesAcum = ({
         >
             {articles.map((art, index) => {
                 const banner = getBanner ? getBanner(index) : <></>;
-                const isApertura =
-                    !hasCollectionApertura &&
-                    !chainBeforeGrid &&
-                    checkIsApertura(
-                        nodeType,
-                        index,
-                        articlesInCollection,
-                        isWiki
-                    );
+                const isApertura = checkIsApertura({
+                    hasCollectionApertura,
+                    hasChainBeforeGrid,
+                    nodeType,
+                    articleIndex: index,
+                    articlesInCollection,
+                    isWiki
+                });
 
                 return (
                     <ArticleAcum
@@ -92,7 +91,7 @@ ArticlesAcum.propTypes = {
     classCondition: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     nodeType: PropTypes.string,
     articlesInCollection: PropTypes.arrayOf(PropTypes.object),
-    chainBeforeGrid: PropTypes.bool,
+    hasChainBeforeGrid: PropTypes.bool,
     hasCollectionApertura: PropTypes.bool,
     isWiki: PropTypes.bool
 };

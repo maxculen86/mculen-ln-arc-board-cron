@@ -32,7 +32,7 @@ const GrillaNotasFeature = props => {
         renderables
     } = useAppContext();
 
-    const chainBeforeGrid = verifyChainsBeforeGrid(renderables);
+    const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
     const hasHydrateOnly = checkHydrateOnly({ nodeType });
 
     const appContextProps = {
@@ -63,7 +63,7 @@ const GrillaNotasFeature = props => {
         getBanner,
         ...globalProviderAcu,
         ...appContextProps,
-        chainBeforeGrid
+        hasChainBeforeGrid
     });
 
     return (

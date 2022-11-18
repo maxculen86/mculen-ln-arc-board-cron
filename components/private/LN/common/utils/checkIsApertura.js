@@ -1,19 +1,19 @@
-const checkIsApertura = (
-    nodeType,
-    articleIndex,
-    articlesInCollection,
-    isWiki
-) => {
-    const isAuthor = nodeType === 'author';
-    const isTag = nodeType === 'tags';
-    const isFirstArticle = articleIndex === 0;
-
+const checkIsApertura = ({
+    hasCollectionApertura = false,
+    hasChainBeforeGrid = false,
+    nodeType = '',
+    articleIndex = null,
+    articlesInCollection = [],
+    isWiki = false
+}) => {
+    const isBefore =
+        articleIndex === 0 && !hasChainBeforeGrid && !hasCollectionApertura;
+    const isTagWithoutWiki = nodeType === 'tags' && !isWiki;
+    const isNodeTypeValid = nodeType !== 'author' && nodeType !== 'tags';
+    const notHaveArticlesInCollection = !articlesInCollection.length;
     return (
-        (!articlesInCollection.length &&
-            isFirstArticle &&
-            !isAuthor &&
-            !isTag) ||
-        (isTag && !isWiki)
+        isBefore &&
+        ((isNodeTypeValid && notHaveArticlesInCollection) || isTagWithoutWiki)
     );
 };
 
