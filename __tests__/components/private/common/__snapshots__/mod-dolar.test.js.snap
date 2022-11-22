@@ -79,27 +79,11 @@ exports[`with data list should render div tag with "mod-dolar" className with 7 
       >
         Información de
       </span>
-      <img
-        alt="BYMA"
-        class="com-image logo byma"
-        decoding="async"
-        fetchpriority="low"
-        loading="lazy"
-        src="undefined/resources/images"
-      />
       <span
         class="--fivexs"
       >
         provista por
       </span>
-      <img
-        alt="InvertirOnline"
-        class="com-image logo iol"
-        decoding="async"
-        fetchpriority="low"
-        loading="lazy"
-        src="undefined/resources/images"
-      />
     </div>
   </a>
 </div>

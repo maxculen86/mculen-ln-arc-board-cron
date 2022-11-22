@@ -16,8 +16,7 @@ const ModDolar = ({
     outputType,
     providedAlt,
     contextPath,
-    deployment,
-    oddOrEven
+    deployment
 }) => {
     const mockData = [
         {
@@ -178,16 +177,15 @@ const ModDolar = ({
         // }
     ];
 
-    oddOrEven = mockData && (mockData.length % 2 ? '--odd' : '--even');
+    const oddOrEven = mockData && (mockData.length % 2 ? '--odd' : '--even');
 
-    let fillClass;
+    let fillClass = '';
+    const extraClass = ['', '--minusThree', '--minusTwo', '--minusOne'];
 
-    if (mockData && mockData.length < 4) {
-        fillClass = '--fewElem';
-    } else {
-        const extraClass = ['', '--minusThree', '--minusTwo', '--minusOne'];
-        fillClass = mockData && extraClass[mockData.length % 4];
-    }
+    mockData &&
+        (mockData.length < 4
+            ? (fillClass = '--fewElem')
+            : (fillClass = mockData && extraClass[mockData.length % 4]));
 
     return (
         (mockData.length && (

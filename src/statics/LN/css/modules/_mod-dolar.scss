@@ -90,10 +90,8 @@
                 padding-right: $spacing-sm;
                 border-right: px(1) solid $light-neutral-300;
                 margin-right: $spacing-sm;
-                &:nth-child(2n + 3) {
-                    .currency-data {
-                        border-left: none;
-                    }
+                &:nth-child(2n + 3) .currency-data {
+                    border-left: none;
                 }
                 &:nth-child(4n) {
                     border-right: none;

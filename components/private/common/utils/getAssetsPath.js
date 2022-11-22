@@ -1,11 +1,11 @@
 import { ARC_STATIC } from 'fusion:environment';
 
 const getAssetsPath = contextPath => deployment => assets => {
-    const path = `${contextPath}/resources/images`;
     if (deployment && assets) {
-        return `${ARC_STATIC}${deployment(`${path}/${assets}`)}`;
+        const path = `${contextPath}/resources/images/${assets}`;
+        return `${ARC_STATIC}${deployment(path)}`;
     }
-    return path;
+    return '';
 };
 
 export default getAssetsPath;
