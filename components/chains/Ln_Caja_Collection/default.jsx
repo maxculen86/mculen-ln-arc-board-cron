@@ -50,7 +50,8 @@ const CajaCollection = props => {
         notesQuantity,
         classCondition,
         position,
-        sectionName
+        sectionName,
+        positionInsideSection
     } = getCommonProps(props);
 
     const { layoutsName = {} } = siteConfig || {};
@@ -144,6 +145,7 @@ const CajaCollection = props => {
                 ''}`}
             notesQuantity={notesQuantity}
             position={position}
+            positionInsideSection={positionInsideSection}
             sectionName={sectionName}
             articles={_articles}
             titleSize={titleSize}

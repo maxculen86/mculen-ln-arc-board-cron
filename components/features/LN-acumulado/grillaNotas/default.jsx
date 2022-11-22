@@ -25,9 +25,9 @@ const GrillaNotasFeature = props => {
             distributorId,
             node_type: nodeType,
             type
-        },
-        outputType,
-        renderables
+        } = {},
+        outputType = 'default',
+        renderables = []
     } = useAppContext();
 
     const hasHydrateOnly = checkHydrateOnly({ nodeType });
