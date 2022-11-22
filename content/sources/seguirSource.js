@@ -38,7 +38,7 @@ let sourceInclude = [
 ];
 sourceInclude = !sourceExclude.length ? sourceInclude : [];
 const mustElements = days => {
-    const must = [
+    return [
         {
             range: {
                 first_publish_date: {
@@ -58,8 +58,6 @@ const mustElements = days => {
             }
         }
     ];
-
-    return must;
 };
 
 const filterByType = (items, topicType) => {

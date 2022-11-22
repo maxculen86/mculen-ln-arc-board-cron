@@ -52,7 +52,7 @@ const getCollectionApertura = id => {
         imageConfig: 'aperturaAcu'
     };
 
-    const articlesCollection = useContent({
+    return useContent({
         source: id ? 'collectionsSource' : null,
         query: collectionsProps,
         staticMode: true,
@@ -61,8 +61,6 @@ const getCollectionApertura = id => {
             return response ? response.content_elements : [];
         }
     });
-
-    return articlesCollection;
 };
 
 const GlobalProviderAcu = props => {

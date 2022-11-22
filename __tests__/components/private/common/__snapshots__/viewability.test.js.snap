@@ -309,7 +309,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                 zoom={false}
                               >
                                 <ComPicture
-                                  amp={false}
                                   classCondition=""
                                   href="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
                                   video=""
@@ -593,7 +592,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                 zoom={false}
                               >
                                 <ComPicture
-                                  amp={false}
                                   classCondition=""
                                   href="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
                                   video=""
@@ -877,7 +875,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                 zoom={false}
                               >
                                 <ComPicture
-                                  amp={false}
                                   classCondition=""
                                   href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
                                   video=""
