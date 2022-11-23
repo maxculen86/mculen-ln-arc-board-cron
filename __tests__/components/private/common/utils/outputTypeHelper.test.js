@@ -374,4 +374,21 @@ describe('getTagTitle function test', () => {
             ).toBe('titulo ott');
         });
     });
+    describe('getTagTitle for acu', () => {
+        test('Return pagebuilder title when nodeType is acu', () => {
+            expect(
+                getTagTitle({
+                    basicTitle: 'Titulo de pagebuilder - LA NACION',
+                    shortTitle: 'Titulo corto',
+                    ottTitle: 'titulo ott',
+                    nodeType: 'acumulado',
+                    siteProps: {
+                        longTitle:
+                            'Todas las noticias de Argentina y el mundo en LA NACION'
+                    },
+                    arcSite: 'la-nacion-ar'
+                })
+            ).toBe('Titulo de pagebuilder - LA NACION');
+        });
+    });
 });

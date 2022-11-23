@@ -41,8 +41,11 @@ const nodeTypeTitles = {
     nota: ({ basicTitle, shortTitle }) =>
         shortTitle ? `${shortTitle} - LA NACION` : basicTitle,
     ott: ({ ottTitle }) => ottTitle,
-    default: ({ basicTitle, longTitle, defaultTitle }) => {
+    home: ({ basicTitle, longTitle, defaultTitle }) => {
         return longTitle || basicTitle || defaultTitle;
+    },
+    default: ({ basicTitle, defaultTitle }) => {
+        return basicTitle || defaultTitle;
     }
 };
 
