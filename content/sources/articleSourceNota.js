@@ -220,7 +220,7 @@ const transform = (
         withFirmaDistributor,
         isListenable: isNoteListenable(data),
         withSponsoredLink: validateSponsoredLink(data),
-        category: category.valor || null,
+        category: get(category, 'valor', null),
         ...addResizedUrls(data, {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,
@@ -372,19 +372,31 @@ const addGalleryData = (cachedCall, gallery, arcSite) => {
     const { _id: galleryId } = gallery;
     return cachedCall('gallerySource', getRequest, {
         query: `${CONTENT_BASE}/content/v4/galleries?website=${arcSite}&_id=${galleryId}&included_fields=content_elements,content_elements.credits`
-    }).then(fetchedGallery => {
-        const resp = {
-            ...gallery
-        };
-        resp.content_elements = gallery.content_elements.map((v, i) => {
-            return {
-                ...v,
-                ...fetchedGallery.content_elements[i]
+    })
+        .then(fetchedGallery => {
+            const resp = {
+                ...gallery
             };
-        });
+            resp.content_elements = gallery.content_elements.map((v, i) => {
+                return {
+                    ...v,
+                    ...fetchedGallery.content_elements[i]
+                };
+            });
 
-        return resp;
-    });
+            return resp;
+        })
+        .catch(error => {
+            return logger.push(
+                error,
+                {
+                    source: 'content/source/articleSourceNota/addGalleryData',
+                    url: galleryId
+                },
+                arcSite,
+                true
+            );
+        });
 };
 
 const addFollowAnotherNoteData = async (
