@@ -52,7 +52,7 @@ const StickyMobile = ({ headerText, alt, articleToShow }) => {
                     handleClickForCTRcomponent('open', articleToShow)
                 }
             >
-                <ComLink link="#" title={headlineToUse}>
+                <ComLink link={websiteUrl} title={headlineToUse}>
                     <ModPicture
                         src={url}
                         alt={alt || headlineToUse}

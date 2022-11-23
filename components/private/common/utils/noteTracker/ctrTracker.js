@@ -12,7 +12,6 @@ export const crtViewTracker = (article = {}) => {
 
     const { dataLayer } = window;
     const isReloaded = checkUserRealoadAction(window);
-    alert(isReloaded);
     if (!isReloaded && article) {
         dataLayer.push({
             event: 'CTR view',
@@ -27,14 +26,13 @@ export const crtViewTracker = (article = {}) => {
 export const handleClickForCTRcomponent = (action, article) => {
     const { dataLayer } = window;
     const isReloaded = checkUserRealoadAction(window);
-    alert(isReloaded);
-    return article ? userActions[action](article, dataLayer, isRealoaed) : true;
+    return article ? userActions[action](article, dataLayer, isReloaded) : true;
 };
 
 const userActions = {
-    close: (article, dataLayer, isRealoaed) => {
+    close: (article, dataLayer, isReloaded) => {
         return (
-            !isRealoaed &&
+            !isReloaded &&
             dataLayer.push({
                 event: 'CTR close',
                 brand: 'stickyMobile_diag1',
@@ -42,9 +40,9 @@ const userActions = {
             })
         );
     },
-    open: (article, dataLayer, isRealoaed) => {
+    open: (article, dataLayer, isReloaded) => {
         return (
-            !isRealoaed &&
+            !isReloaded &&
             dataLayer.push({
                 event: 'CTR open note',
                 brand: 'stickyMobile_diag1',
