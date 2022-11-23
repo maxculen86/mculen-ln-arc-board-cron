@@ -110,34 +110,6 @@ Our anniversary has a lot of meaning to me as an opportunity to reflect on how..
       type="text/javascript"
     />
     <script
-      async={true}
-      src="https://platform.twitter.com/widgets.js"
-    />
-    <script
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "
-        window.addEventListener('load', () => {
-            const WIDGET_URL = 'https://platform.twitter.com/widgets.js';
-            const twttr = window.twttr || {};
-            const cuerpoNota = document.querySelector(\\".cuerpo__nota\\"); 
-            const scripts = cuerpoNota.getElementsByTagName(\\"script\\");
-            
-            const isTwitterUrl = e => WIDGET_URL === e.getAttribute('src');
-            const removeElements = e => e.remove();
-            
-            HTMLCollection.prototype.filter = 
-                Array.prototype.filter, 
-                scripts.filter(isTwitterUrl).forEach(removeElements)
-
-            twttr.widgets && twttr.widgets.load();
-        });
-    ",
-        }
-      }
-      type="text/javascript"
-    />
-    <script
       dangerouslySetInnerHTML={
         Object {
           "__html": "

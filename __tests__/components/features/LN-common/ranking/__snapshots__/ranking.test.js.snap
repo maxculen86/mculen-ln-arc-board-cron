@@ -34,11 +34,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
               class="com-item"
             >
               <article
-                class="mod-article toi1 nidNBBXCN42LBFM7DH4Q7USAC3DS4"
+                class="mod-article"
                 data-event="LinkClick"
                 data-id="NBBXCN42LBFM7DH4Q7USAC3DS4"
                 data-notaid="NBBXCN42LBFM7DH4Q7USAC3DS4"
-                data-pos="toi1"
+                data-pos="019001"
                 data-section="politica"
                 data-source="editor"
               >
@@ -105,11 +105,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
               class="com-item"
             >
               <article
-                class="mod-article toi2 nid2RCHRDFJ5RGIZJYZOQIQS2CMWM"
+                class="mod-article"
                 data-event="LinkClick"
                 data-id="2RCHRDFJ5RGIZJYZOQIQS2CMWM"
                 data-notaid="2RCHRDFJ5RGIZJYZOQIQS2CMWM"
-                data-pos="toi2"
+                data-pos="019002"
                 data-section="politica"
                 data-source="editor"
               >
@@ -176,11 +176,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
               class="com-item"
             >
               <article
-                class="mod-article toi3 nidKU7RUAX7EBHDLKC7SYD6RLQUQM"
+                class="mod-article"
                 data-event="LinkClick"
                 data-id="KU7RUAX7EBHDLKC7SYD6RLQUQM"
                 data-notaid="KU7RUAX7EBHDLKC7SYD6RLQUQM"
-                data-pos="toi3"
+                data-pos="019003"
                 data-section="politica"
                 data-source="editor"
               >
@@ -247,11 +247,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
               class="com-item"
             >
               <article
-                class="mod-article toi4 nidDNCXVEN2P5CILNUSO6HAIDRS6A"
+                class="mod-article"
                 data-event="LinkClick"
                 data-id="DNCXVEN2P5CILNUSO6HAIDRS6A"
                 data-notaid="DNCXVEN2P5CILNUSO6HAIDRS6A"
-                data-pos="toi4"
+                data-pos="019004"
                 data-section="politica"
                 data-source="editor"
               >
@@ -356,10 +356,10 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
               class="com-item"
             >
               <article
-                class="mod-article toi1 nid6WRVOIVRJRFVVFHF3O7MZGOM24"
+                class="mod-article"
                 data-id="6WRVOIVRJRFVVFHF3O7MZGOM24"
                 data-notaid="6WRVOIVRJRFVVFHF3O7MZGOM24"
-                data-pos="toi1"
+                data-pos="019001"
                 data-source="editor"
               >
                 <div
@@ -425,10 +425,10 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
               class="com-item"
             >
               <article
-                class="mod-article toi2 nidCROZBJ5QWBG67HHPBKM42NXEOU"
+                class="mod-article"
                 data-id="CROZBJ5QWBG67HHPBKM42NXEOU"
                 data-notaid="CROZBJ5QWBG67HHPBKM42NXEOU"
-                data-pos="toi2"
+                data-pos="019002"
                 data-source="editor"
               >
                 <div
@@ -494,10 +494,10 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
               class="com-item"
             >
               <article
-                class="mod-article toi3 nidWVS4QHJHTJEXXFM5ZXWB2VP4Q4"
+                class="mod-article"
                 data-id="WVS4QHJHTJEXXFM5ZXWB2VP4Q4"
                 data-notaid="WVS4QHJHTJEXXFM5ZXWB2VP4Q4"
-                data-pos="toi3"
+                data-pos="019003"
                 data-source="editor"
               >
                 <div
@@ -563,10 +563,10 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
               class="com-item"
             >
               <article
-                class="mod-article toi4 nidUNBDR5OSHNH2JO3A2GJ5CD3FUU"
+                class="mod-article"
                 data-id="UNBDR5OSHNH2JO3A2GJ5CD3FUU"
                 data-notaid="UNBDR5OSHNH2JO3A2GJ5CD3FUU"
-                data-pos="toi4"
+                data-pos="019004"
                 data-source="editor"
               >
                 <div
@@ -664,11 +664,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
           class="row-gap-tablet-3 "
         >
           <article
-            class="mod-article toi1 nidC77SAEJS45C5FIUTDDWMYZMYA4"
+            class="mod-article"
             data-event="LinkClick"
             data-id="C77SAEJS45C5FIUTDDWMYZMYA4"
             data-notaid="C77SAEJS45C5FIUTDDWMYZMYA4"
-            data-pos="toi1"
+            data-pos="019101"
             data-section="inverse-home"
             data-source="editor"
           >
@@ -731,11 +731,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
             </section>
           </article>
           <article
-            class="mod-article toi2 nidE777LA4DCVAJNHIFHKT42ARJME"
+            class="mod-article"
             data-event="LinkClick"
             data-id="E777LA4DCVAJNHIFHKT42ARJME"
             data-notaid="E777LA4DCVAJNHIFHKT42ARJME"
-            data-pos="toi2"
+            data-pos="019102"
             data-section="inverse-home"
             data-source="editor"
           >
@@ -798,11 +798,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
             </section>
           </article>
           <article
-            class="mod-article toi3 nidCBE2JAIHFRBZNJKRUOM3A3XCFA"
+            class="mod-article"
             data-event="LinkClick"
             data-id="CBE2JAIHFRBZNJKRUOM3A3XCFA"
             data-notaid="CBE2JAIHFRBZNJKRUOM3A3XCFA"
-            data-pos="toi3"
+            data-pos="019103"
             data-section="inverse-home"
             data-source="editor"
           >
@@ -865,11 +865,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
             </section>
           </article>
           <article
-            class="mod-article toi4 nidTGAKMLOUL5CRHBOMNGE3ENB3QU"
+            class="mod-article"
             data-event="LinkClick"
             data-id="TGAKMLOUL5CRHBOMNGE3ENB3QU"
             data-notaid="TGAKMLOUL5CRHBOMNGE3ENB3QU"
-            data-pos="toi4"
+            data-pos="019104"
             data-section="inverse-home"
             data-source="editor"
           >
@@ -932,11 +932,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
             </section>
           </article>
           <article
-            class="mod-article toi5 nidFW7YPKHUI5EWPOXFBVXK6AOKEE"
+            class="mod-article"
             data-event="LinkClick"
             data-id="FW7YPKHUI5EWPOXFBVXK6AOKEE"
             data-notaid="FW7YPKHUI5EWPOXFBVXK6AOKEE"
-            data-pos="toi5"
+            data-pos="019105"
             data-section="inverse-home"
             data-source="editor"
           >
@@ -999,11 +999,11 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
             </section>
           </article>
           <article
-            class="mod-article toi6 nidZXSJWZ5ZANEEPK2O7AF7JDOFGI"
+            class="mod-article"
             data-event="LinkClick"
             data-id="ZXSJWZ5ZANEEPK2O7AF7JDOFGI"
             data-notaid="ZXSJWZ5ZANEEPK2O7AF7JDOFGI"
-            data-pos="toi6"
+            data-pos="019106"
             data-section="inverse-home"
             data-source="editor"
           >

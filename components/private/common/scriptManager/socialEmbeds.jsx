@@ -20,14 +20,6 @@ const hasInstagramEmbed = contentElements =>
                 contentElement.content.includes('instagram-media'))
     );
 
-const hasTwitterEmbed = contentElements =>
-    contentElements.some(
-        contentElement =>
-            contentElement.subtype === 'twitter' ||
-            (contentElement.content &&
-                contentElement.content.includes('twitter-tweet'))
-    );
-
 const hasFacebookEmbed = contentElements => {
     return contentElements.some(
         contentElement =>
@@ -46,7 +38,6 @@ const SocialEmbeds = props => {
     const content = filterEmbeds(contentElements);
 
     const instagramEmbed = hasInstagramEmbed(content);
-    const twitterEmbed = hasTwitterEmbed(content);
     const facebookEmbed = hasFacebookEmbed(content);
 
     const processInstaEmbeds = `
@@ -58,24 +49,6 @@ const SocialEmbeds = props => {
             }).forEach(function(e) {
                 return e.remove()
             })
-        });
-    `;
-
-    const processTwitterEmbeds = `
-        window.addEventListener('load', () => {
-            const WIDGET_URL = 'https://platform.twitter.com/widgets.js';
-            const twttr = window.twttr || {};
-            const cuerpoNota = document.querySelector(".cuerpo__nota"); 
-            const scripts = cuerpoNota.getElementsByTagName("script");
-            
-            const isTwitterUrl = e => WIDGET_URL === e.getAttribute('src');
-            const removeElements = e => e.remove();
-            
-            HTMLCollection.prototype.filter = 
-                Array.prototype.filter, 
-                scripts.filter(isTwitterUrl).forEach(removeElements)
-
-            twttr.widgets && twttr.widgets.load();
         });
     `;
 
@@ -92,7 +65,7 @@ const SocialEmbeds = props => {
     `;
 
     if (type !== 'story') return null;
-    if (!instagramEmbed && !twitterEmbed && !facebookEmbed) return null;
+    if (!instagramEmbed && !facebookEmbed) return null;
     return (
         <>
             {instagramEmbed && (
@@ -101,20 +74,6 @@ const SocialEmbeds = props => {
                     <script
                         type="text/javascript"
                         dangerouslySetInnerHTML={{ __html: processInstaEmbeds }}
-                    />
-                </>
-            )}
-            {twitterEmbed && (
-                <>
-                    <script
-                        async
-                        src="https://platform.twitter.com/widgets.js"
-                    />
-                    <script
-                        type="text/javascript"
-                        dangerouslySetInnerHTML={{
-                            __html: processTwitterEmbeds
-                        }}
                     />
                 </>
             )}
