@@ -267,7 +267,7 @@ export const getDimsFromSiteService = (config, slotName, section) => {
 
     const dimensions = position.dimensions.split(',');
     return dimensions.map(dimension =>
-        dimension.split('x').map(size => parseInt(size, 10))
+        dimension.split('x').map(size => parseInt(size, 10) || size)
     );
 };
 
