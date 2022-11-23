@@ -52,14 +52,17 @@ export function popUpCompartirNotaFB(notaId, dominio, titulo) {
 
 const callFacebookUI = (notaId, dominio) => {
     if (typeof FB !== 'undefined') {
-        FB.ui(
-            {
-                method: 'share',
-                mobile_iframe: true,
-                href: `${dominio}${notaId}`
-            },
-            response => {}
-        );
+        FB.ui &&
+            FB.ui(
+                {
+                    method: 'share',
+                    mobile_iframe: true,
+                    href: `${dominio}${notaId}`
+                },
+                response => {
+                    // NOSONAR - This is intentional
+                }
+            );
     }
 };
 

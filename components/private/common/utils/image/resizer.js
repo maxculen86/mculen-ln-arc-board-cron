@@ -68,7 +68,11 @@ export const createResizer = (
 
     const Thumbor =
         // eslint-disable-next-line no-eval
-        typeof window === 'undefined' ? eval('require("thumbor")') : () => {};
+        typeof window === 'undefined'
+            ? eval('require("thumbor")')
+            : () => {
+                  // NOSONAR - This is intentional
+              };
 
     const resizeUrl = (
         originalUrl,
