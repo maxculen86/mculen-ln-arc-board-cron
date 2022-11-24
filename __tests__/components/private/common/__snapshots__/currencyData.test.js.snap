@@ -24,7 +24,7 @@ exports[`Common private currencyData - with dbna CurrencyData snapshot 1`] = `
       Compra
     </span>
     <strong
-      class="--font-bold"
+      class="--fourxs"
     >
       $104,25
     </strong>
@@ -32,7 +32,7 @@ exports[`Common private currencyData - with dbna CurrencyData snapshot 1`] = `
       Venta
     </span>
     <strong
-      class="--font-bold"
+      class="--fourxs"
     >
       $110,25
     </strong>
@@ -64,7 +64,7 @@ exports[`Currency data with urlBrand Snapshot de component con urlBrand 1`] = `
       Compra
     </span>
     <strong
-      class="--font-bold"
+      class="--fourxs"
     >
       $104,25
     </strong>
@@ -72,7 +72,7 @@ exports[`Currency data with urlBrand Snapshot de component con urlBrand 1`] = `
       Venta
     </span>
     <strong
-      class="--font-bold"
+      class="--fourxs"
     >
       $110,25
     </strong>

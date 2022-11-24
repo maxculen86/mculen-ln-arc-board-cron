@@ -5,8 +5,6 @@
     .dolar-title {
         color: $blue-500;
         text-align: center;
-        font-size: px(14);
-        line-height: px(16);
         @media ($media-m) {
             font-size: px(16);
             line-height: px(24);
@@ -32,8 +30,6 @@
         }
         strong {
             color: $light-neutral-800;
-            font-size: px(14);
-            line-height: px(16);
             @media ($media-m) {
                 font-size: px(18);
                 line-height: px(26);

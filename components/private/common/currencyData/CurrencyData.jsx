@@ -11,51 +11,54 @@ const CurrencyData = ({
     title,
     purchaseValue,
     saleValue,
-    sourceName,
+    link,
     ...r
 }) => {
-    const navigationData = sourceNombre => {
-        if (sourceNombre === 'dbna') {
-            return 'https://www.lanacion.com.ar/dolar-hoy/';
-        }
-        if (sourceNombre === 'dblue') {
-            return 'https://www.lanacion.com.ar/tema/dolar-blue-tid67294/';
-        }
-        return '';
-    };
-    const titleData = sourceNombre => {
-        if (sourceNombre === 'dbna') {
-            return 'Dólar hoy';
-        }
-        if (sourceNombre === 'dblue') {
-            return 'Dólar blue';
-        }
-        return '';
-    };
+    // const navigationData = sourceNombre => {
+    //     if (sourceNombre === 'dbna') {
+    //         return 'https://www.lanacion.com.ar/dolar-hoy/';
+    //     }
+    //     if (sourceNombre === 'dblue') {
+    //         return 'https://www.lanacion.com.ar/tema/dolar-blue-tid67294/';
+    //     }
+    //     return '';
+    // };
+    // const titleData = sourceNombre => {
+    //     if (sourceNombre === 'dbna') {
+    //         return 'Dólar hoy';
+    //     }
+    //     if (sourceNombre === 'dblue') {
+    //         return 'Dólar blue';
+    //     }
+    //     return '';
+    // };
 
     return (
         <div className={`${classCondition} currency-data`}>
             <ComLink
                 type="text/css"
-                title={titleData(sourceName)}
+                title={title}
                 classCondition="link-container-currency-data"
-                link={navigationData(sourceName)}
+                link={link}
             >
                 <Text
                     tag="h2"
                     size="--fourxs"
-                    // weight="bold"
                     extraClass="dolar-title"
                     text={title}
                 />
             </ComLink>
             <p className="com-text --sixxs">
-                <span>Compra</span>
-                <strong className="--font-bold">${purchaseValue}</strong>
+                {purchaseValue && (
+                    <>
+                        <span>Compra</span>
+                        <strong className="--fourxs">${purchaseValue}</strong>
+                    </>
+                )}
                 {saleValue && (
                     <>
                         <span>Venta</span>
-                        <strong className="--font-bold">${saleValue}</strong>
+                        <strong className="--fourxs">${saleValue}</strong>
                     </>
                 )}
             </p>
@@ -71,14 +74,14 @@ CurrencyData.propTypes = {
     title: PropTypes.string,
     purchaseValue: PropTypes.string,
     saleValue: PropTypes.string,
-    sourceName: PropTypes.string
+    link: PropTypes.string
 };
 CurrencyData.defaultProps = {
     classCondition: '',
     title: '',
     purchaseValue: '',
     saleValue: '',
-    sourceName: ''
+    link: ''
 };
 
 export default CurrencyData;
