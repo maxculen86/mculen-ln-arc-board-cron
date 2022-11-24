@@ -9,7 +9,15 @@ import {
 } from '../../utils/mediaHelper';
 
 const ImageArticle = props => {
-    const { image, href, outputType, active, isVertical, isApertura } = props;
+    const {
+        image,
+        href,
+        outputType,
+        active,
+        isVertical,
+        isApertura,
+        searchableField
+    } = props;
 
     const { alt_text: altText, caption, titleText, height, width, url } = image;
 
@@ -45,6 +53,7 @@ const ImageArticle = props => {
                 height={height}
                 width={width}
                 isApertura={isApertura}
+                searchableField={searchableField}
             />
         </ComPicture>
     );

@@ -29,7 +29,8 @@ const NoteCard = ({
     isPowa,
     handleClick,
     registerSuccessEvent,
-    mobileImage
+    mobileImage,
+    searchableField
 }) => {
     const [article, setArticle] = useState(
         transform(content, customFields, promoItems)
@@ -113,6 +114,7 @@ const NoteCard = ({
                 }
                 registerSuccessEvent={registerSuccessEvent}
                 mobileImage={mobileImage}
+                searchableField={searchableField}
             />
         )) || <></>
     );

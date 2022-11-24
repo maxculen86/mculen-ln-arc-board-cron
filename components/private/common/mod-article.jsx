@@ -49,7 +49,8 @@ const ModArticle = props => {
         isApertura,
         registerSuccessEvent,
         typeArticle,
-        mobileImage
+        mobileImage,
+        searchableField
     } = props;
 
     const { dispatch } = useContext(GlobalContext) || {};
@@ -118,6 +119,7 @@ const ModArticle = props => {
                     isPowa={isPowa}
                     isApertura={isApertura}
                     withMobileImage={withMobileImage}
+                    searchableField={searchableField}
                     // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
             )}
@@ -218,6 +220,9 @@ ModArticle.propTypes = {
         promo_items: PropTypes.shape({
             basic: PropTypes.object
         })
+    }),
+    searchableField: PropTypes.shape({
+        imageId: PropTypes.string
     })
 };
 
@@ -255,7 +260,8 @@ ModArticle.defaultProps = {
     withMedia: false,
     isApertura: false,
     typeArticle: '',
-    mobileImage: undefined
+    mobileImage: undefined,
+    searchableField: undefined
 };
 
 export default ModArticle;
