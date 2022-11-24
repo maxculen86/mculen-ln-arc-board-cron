@@ -10,7 +10,7 @@ import urlForPrerollAds from '../utils/urlForPrerollAds';
 import get from '../../../common/utils/get';
 import ModVideo from '../../../common/mod-video';
 import getStreams from '../utils/getStreams';
-import getBiggestImage from '../utils/getBiggestImage';
+import { getShortestImage } from '../utils/mediaHelper';
 
 const video = ({
     videoId,
@@ -26,14 +26,14 @@ const video = ({
     const {
         streams = [],
         promo_items: promoItems,
-        resizedUrl: urlsRezized
+        resizedUrl: urlsResized
     } = mediaData;
     const tituloVideo = get(mediaData, 'headlines.basic', '');
     if (streams.length === 0) return <div className="mod-video" />;
+    const videoImageData = get(promoItems, 'basic', []);
+    const videoImagesResized = get(promoItems, 'basic.resized_urls', []);
 
-    const { resizedUrl } = getBiggestImage({
-        resized_urls: urlsRezized
-    });
+    const { resizedUrl } = getShortestImage(urlsResized || videoImagesResized);
 
     const mainStream = getStreams(streams, isPowa ? '<' : '>');
 
@@ -67,6 +67,7 @@ const video = ({
                         autoPlay={autoplay}
                         device={screenUtils.device}
                         isApertura={isApertura}
+                        videoImageData={videoImageData}
                     />
                 </AmpContainer>
                 <AmpContainer isForAmp>

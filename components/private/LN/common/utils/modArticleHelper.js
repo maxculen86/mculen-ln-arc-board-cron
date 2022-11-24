@@ -33,6 +33,10 @@ const getMediaData = (
 
     const rules = [
         {
+            validation: layout === 'grillaVideo1',
+            data: videoBackground
+        },
+        {
             validation: videoBackground && !isMobile,
             data: videoBackground
         },

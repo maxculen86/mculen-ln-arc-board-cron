@@ -1179,6 +1179,28 @@ export default {
                     ]
                 }
             },
+            videoImage: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 820,
+                            height: 410
+                        },
+                        {
+                            width: 768,
+                            height: 414
+                        },
+                        {
+                            width: 360,
+                            height: 180
+                        },
+                        {
+                            width: 351,
+                            height: 175
+                        }
+                    ]
+                }
+            },
             xxl: {
                 promo_items: {
                     sizes: [
