@@ -7,10 +7,11 @@ export const checkUserRealoadAction = activeWindow => {
     return pageAccessByReload;
 };
 
-export const crtViewTracker = () => {
+export const crtViewTracker = (tracked, trackSetter) => {
     const { dataLayer } = window;
     const isReloaded = checkUserRealoadAction(window);
-    if (!isReloaded) {
+    if (!isReloaded && tracked) {
+        trackSetter(false);
         dataLayer.push({
             event: 'CTR view',
             brand: 'stickyMobile_diag1',

@@ -6,10 +6,7 @@ import Text from '../../common/text';
 import Icon from '../../common/icon';
 import ComLink from '../../common/com-link';
 import ModPicture from '../../common/mod-picture';
-import {
-    crtViewTracker,
-    handleClickForCTRcomponent
-} from '../../common/utils/noteTracker/ctrTracker';
+import { handleClickForCTRcomponent } from '../../common/utils/noteTracker/ctrTracker';
 
 const StickyMobile = ({ headerText, alt, articleToShow }) => {
     const {
@@ -29,7 +26,6 @@ const StickyMobile = ({ headerText, alt, articleToShow }) => {
 
     const headlineToUse = headlinesMobile || headlinesBasic;
     const [displaySticky, setDisplaySticky] = useState(true);
-
     return (
         <section className={`sticky-mobile ${!displaySticky && 'hlp-none'}`}>
             <div className="header-sticky">
@@ -61,7 +57,6 @@ const StickyMobile = ({ headerText, alt, articleToShow }) => {
                     </Text>
                 </ComLink>
             </div>
-            {crtViewTracker()}
         </section>
     );
 };
