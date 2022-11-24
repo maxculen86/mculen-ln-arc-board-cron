@@ -7,7 +7,7 @@ const resolve = query => {
     const { sectionId, website } = query;
 
     const arcSite = website || 'la-nacion-ar';
-    const basePath = `${SITE_LANACION}/pf${sectionId ? `/${sectionId}` : ''}`;
+    const basePath = `${SITE_LANACION}${sectionId ? `/${sectionId}` : ''}`;
     /*const basePath = `http://arc.lanacion.com.ar/pf${
         sectionId ? `/${sectionId}` : ''
     }`;*/
@@ -15,7 +15,6 @@ const resolve = query => {
 
     return requestUrl;
 };
-
 
 const fetch = async query => {
     const opt = {
