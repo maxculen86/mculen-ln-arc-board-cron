@@ -57,6 +57,9 @@
             right: 0;
             margin: auto;
         }
+        &:before {
+            content: '';
+        }
     }
 
     &.--comercial {

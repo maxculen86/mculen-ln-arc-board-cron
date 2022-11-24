@@ -127,7 +127,7 @@ const LNMainHome = props => {
                                 <div data-section="breaking1">{breaking1}</div>
 
                                 <>
-                                    {bannersHome.caja3Mob}
+                                    {bannersHome.parallaxMob}
                                     <div className="row-gap-tablet-2 --ads">
                                         {bannersHome.caja1Tab}
                                         {bannersHome.caja2Tab}
@@ -143,7 +143,7 @@ const LNMainHome = props => {
                                 <div data-section="breaking2">{breaking2}</div>
 
                                 <>
-                                    {bannersHome.caja4Mob}
+                                    {bannersHome.caja3Mob}
                                     {bannersHome.middle1Tab}
                                 </>
                                 {bannersHome.cinturonDsk}
@@ -199,7 +199,7 @@ const LNMainHome = props => {
                                 </section>
 
                                 <>
-                                    {bannersHome.caja5Mob}
+                                    {bannersHome.caja4Mob}
                                     {bannersHome.cinturon2Dsk}
                                     {bannersHome.middle2Tab}
                                 </>
@@ -227,7 +227,7 @@ const LNMainHome = props => {
                                 {bannersHome.megalateralDsk}
                             </div>
                         </div>
-                        {bannersHome.parallaxMob}
+                        {bannersHome.caja5Mob}
                         {bannersHome.parallaxDsk}
                         <div data-section="ranking" className="lay">
                             <Ranking {...props} id="rankingHome" />

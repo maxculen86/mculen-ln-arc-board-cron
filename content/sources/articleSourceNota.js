@@ -12,8 +12,7 @@ import addParallaxData from './utils/addParallaxData';
 import get from '../../components/private/common/utils/get';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import filter from '../filters/LN/nota/article';
-import gallerySource from './gallerySource';
-import relatedSource from './relatedSource';
+import getRequest from './utils/getRequest';
 import Redirect from './utils/redirect';
 import validateExclusiveAccess from './utils/validateExclusiveAccess';
 import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
@@ -33,6 +32,7 @@ import firmaDistributorValidation from './utils/firmaDistributorValidator';
 import isNoteListenable from './utils/audioNews/helper';
 import force404AMP from './utils/force404AMP';
 import validateSponsoredLink from './utils/validateSponsoredLink';
+import { getPrincipalCategory } from '../../components/private/LN/api/v1/common/category';
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -132,7 +132,7 @@ const fetch = (query, { cachedCall } = {}) => {
                 '🚀 ~ file: articleSourceNota.js ~ line 90 ~ error',
                 error
             );
-            logger.push(
+            return logger.push(
                 error,
                 { source: 'content/source/articleSourceNota', url },
                 arcSite
@@ -209,6 +209,9 @@ const transform = (
         null
     );
 
+    const primarySection = get(data, 'taxonomy.primary_section');
+    const category = primarySection && getPrincipalCategory(primarySection);
+
     // Data con urls Resizeadas
     const resp = {
         paywallEnabled,
@@ -217,6 +220,7 @@ const transform = (
         withFirmaDistributor,
         isListenable: isNoteListenable(data),
         withSponsoredLink: validateSponsoredLink(data),
+        category: get(category, 'valor', null),
         ...addResizedUrls(data, {
             resizerSecret: RESIZER_KEY,
             resizerUrl: RESIZER_URL,
@@ -273,7 +277,7 @@ const transformContent = async (
         resp.content_elements.forEach((e, i) => {
             if (e.type === 'gallery') {
                 promiseArr.push(
-                    addGalleryData(e, arcSite).then(g => {
+                    addGalleryData(cachedCall, e, arcSite).then(g => {
                         resp.content_elements[i] = g;
                     })
                 );
@@ -295,11 +299,14 @@ const transformContent = async (
 
                 referentType === 'story' &&
                     promiseArr.push(
-                        addFollowAnotherNoteData(element, arcSite, i).then(
-                            newContent => {
-                                resp.related_content.basic[i] = newContent;
-                            }
-                        )
+                        addFollowAnotherNoteData(
+                            cachedCall,
+                            element,
+                            arcSite,
+                            i
+                        ).then(newContent => {
+                            resp.related_content.basic[i] = newContent;
+                        })
                     );
             }
         });
@@ -307,13 +314,15 @@ const transformContent = async (
 
     if (get(resp, 'promo_items.basic.type', '') === 'gallery') {
         promiseArr.push(
-            addGalleryData(resp.promo_items.basic, arcSite).then(g => {
-                resp.promo_items.basic = g;
-            })
+            addGalleryData(cachedCall, resp.promo_items.basic, arcSite).then(
+                g => {
+                    resp.promo_items.basic = g;
+                }
+            )
         );
     }
 
-    get(resp, 'credits.by', []).map((elem, i) => {
+    get(resp, 'credits.by', []).forEach((elem, i) =>
         promiseArr.push(
             new Promise(resolver =>
                 resolver(get(elem, 'image.resized_urls[0].resizedUrl'))
@@ -323,8 +332,8 @@ const transformContent = async (
                         i
                     ].additional_properties.original.image = url;
             })
-        );
-    });
+        )
+    );
 
     // Url Validator
     if (resp && resp.content_elements) {
@@ -355,19 +364,15 @@ const transformContent = async (
         const relatedContent = get(resp, 'related_content.basic', []);
         relatedContent.length &&
             (resp.related_content.basic = removeInvalidRelated(relatedContent));
-
         return resp;
     });
 };
 
-const addGalleryData = (gallery, arcSite) => {
+const addGalleryData = (cachedCall, gallery, arcSite) => {
     const { _id: galleryId } = gallery;
-    return gallerySource
-        .fetch({
-            id: galleryId,
-            'arc-site': arcSite,
-            includedFields: 'content_elements,content_elements.credits'
-        })
+    return cachedCall('gallerySource', getRequest, {
+        query: `${CONTENT_BASE}/content/v4/galleries?website=${arcSite}&_id=${galleryId}&included_fields=content_elements,content_elements.credits`
+    })
         .then(fetchedGallery => {
             const resp = {
                 ...gallery
@@ -380,19 +385,32 @@ const addGalleryData = (gallery, arcSite) => {
             });
 
             return resp;
+        })
+        .catch(error => {
+            return logger.push(
+                error,
+                {
+                    source: 'content/source/articleSourceNota/addGalleryData',
+                    url: galleryId
+                },
+                arcSite,
+                true
+            );
         });
 };
 
-const addFollowAnotherNoteData = async (anotherNoteData, arcSite, i) => {
+const addFollowAnotherNoteData = async (
+    cachedCall,
+    anotherNoteData,
+    arcSite,
+    i
+) => {
     const { _id: id } = anotherNoteData;
 
     try {
-        const fetchedRelated = await relatedSource.fetch({
-            id,
-            'arc-site': arcSite,
-            includedFields:
-                'headlines,label,website_url,type,additional_properties',
-            notPublished: true
+        const fetchedRelated = await cachedCall('relatedSource', getRequest, {
+            query: `${CONTENT_BASE}/content/v4/stories/?website=${arcSite}&_id=${id}&included_fields=headlines,label,website_url,type,additional_properties`,
+            independent: true
         });
         const published = get(
             fetchedRelated,
@@ -416,7 +434,7 @@ const addFollowAnotherNoteData = async (anotherNoteData, arcSite, i) => {
             type
         };
     } catch (error) {
-        logger.push(
+        return logger.push(
             error,
             {
                 source:

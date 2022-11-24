@@ -20,11 +20,13 @@ const isNoteListenable = data => {
     const sourceOrigin = get(data, 'source.system', '');
     const subtype = get(data, 'subtype', '');
     const labelAudioNews = get(data, 'label.republicar_audio', null);
+    const textAudioNews = get(data, 'label.republicar_audio.text', null);
     const contentElements = get(data, 'content_elements', []);
 
     if (
         sourceOrigin === 'composer' &&
         labelAudioNews &&
+        textAudioNews !== 'No mostrar audio' &&
         hasParagraphs(contentElements)
     ) {
         const date = get(data, 'last_updated_date', '');

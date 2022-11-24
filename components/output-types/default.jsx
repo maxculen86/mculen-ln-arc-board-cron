@@ -26,7 +26,8 @@ import Favicon from '../private/common/favicon';
 import {
     getTitle,
     getMetaDescriptionDefault,
-    metasFromSiteServices
+    metasFromSiteServices,
+    getTagTitle
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
 import checkHydrateOnly from '../private/LN/common/utils/checkHydrateOnly';
@@ -78,7 +79,8 @@ const Default = props => {
         website_url: websiteUrl
     } = globalContent || {};
 
-    const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
+    const { meta_title: metaTitle, basic: basicTitle, mobile: mobileTitle } =
+        headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
     const { description: defaultDescription, host = '' } = siteProperties;
@@ -86,13 +88,12 @@ const Default = props => {
     const metaTitleBasic = metaTitle || basicTitle;
 
     const _nodeType = getSectionName({ nodeType, type, arcSite });
-    const title = getTitle(
-        metaValue('title'),
-        siteProperties,
-        requestUri,
-        _nodeType,
-        renderables
-    );
+    const title = getTitle({
+        title: metaValue('title'),
+        properties: siteProperties,
+        uri: requestUri,
+        nodeType: _nodeType
+    });
 
     const {
         title: ottMetaTitle,
@@ -103,6 +104,15 @@ const Default = props => {
         title: metaTitleBasic,
         section: _nodeType,
         siteProperties
+    });
+
+    const tagTitle = getTagTitle({
+        basicTitle: metaValue('title'),
+        shortTitle: mobileTitle,
+        ottTitle: ottMetaTitle,
+        arcSite,
+        nodeType: _nodeType,
+        siteProps: siteProperties
     });
 
     const Scripts = buildScriptComponent(
@@ -137,9 +147,7 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
-                {layout !== 'LN-buscador' && (
-                    <title>{arcSite === 'ott' ? ottMetaTitle : title}</title>
-                )}
+                {layout !== 'LN-buscador' && <title>{tagTitle}</title>}
                 {metasFromSiteServices(metas)}
                 <GetDataToLinkImage
                     data={globalContent}

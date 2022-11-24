@@ -137,6 +137,18 @@ describe('Test - isNoteListenable', () => {
                     ...response,
                     content_elements: [undefined]
                 }
+            ],
+            [
+                'Should return false when republicar_audio text is "No mostrar audio"',
+                {
+                    ...response,
+                    label: {
+                        republicar_audio: {
+                            display: true,
+                            text: 'No mostrar audio'
+                        }
+                    }
+                }
             ]
         ];
 
