@@ -1,4 +1,3 @@
-import React from 'react';
 import dateAndTimeUtil, {
     addHoursAndFormat,
     hasFutureDisplayDate,
@@ -7,6 +6,11 @@ import dateAndTimeUtil, {
     datesDiffInDays,
     getArgentinaYear
 } from '../../../../../components/private/common/utils/dateAndTimeUtil';
+
+beforeEach(() => {
+    jest.restoreAllMocks();
+});
+
 describe('Private - Common - Utils - dateAndTimeUtil', () => {
     it('deberia filtrar notas con display_date a futuro', () => {
         const date = '2021-02-05T17:34:00.624Z';
@@ -89,32 +93,28 @@ describe('Private - Common - Utils - dateAndTimeUtil', () => {
 });
 
 describe('Private - Common - Utils - dateAndTimeUtil - getArgentinaYear', () => {
-    test('Should return 2022 when server is 2023-01-01 at 00hrs', () => {
-        const mockedDate = new Date('2023-01-01T00:00:00.000Z');
-        const originalDate = Date;
+    const mockDateFn = dateString => {
+        const mockDate = new Date(dateString);
+        const spy = jest
+            .spyOn(global, 'Date')
+            .mockImplementationOnce(() => mockDate);
+    };
 
-        global.Date = jest.fn(() => mockedDate);
-        global.Date.setDate = originalDate.setDate;
+    test('Should return 2022 when server is 2023-01-01 until 02:59hrs', () => {
+        mockDateFn('2023-01-01T02:59:59.000Z');
 
         const result = getArgentinaYear();
         expect(result).toBe('2022');
     });
-    test('Should return 2023 when server is 2023-01-01 at 03hrs', () => {
-        const mockedDate = new Date('2023-01-01T03:00:00.000Z');
-        const originalDate = Date;
-
-        global.Date = jest.fn(() => mockedDate);
-        global.Date.setDate = originalDate.setDate;
+    test('Should return 2023 when server is 2023-01-01 from 03hrs', () => {
+        mockDateFn('2023-01-01T03:00:00.000Z');
 
         const result = getArgentinaYear();
         expect(result).toBe('2023');
     });
-    test('Should return 2022 when server is 2022-12-31 at 23:59hrs', () => {
-        const mockedDate = new Date('2022-12-31T23:59:59.000Z');
-        const originalDate = Date;
 
-        global.Date = jest.fn(() => mockedDate);
-        global.Date.setDate = originalDate.setDate;
+    test('Should return 2022 when server is 2022-12-31 at 23:59hrs', () => {
+        mockDateFn('2022-12-31T23:59:59.000Z');
 
         const result = getArgentinaYear();
         expect(result).toBe('2022');
