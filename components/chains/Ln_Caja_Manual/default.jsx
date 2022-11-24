@@ -42,7 +42,8 @@ const CajaManual = props => {
         notesQuantity,
         classCondition,
         position,
-        sectionName
+        sectionName,
+        positionInsideSection
     } = getCommonProps(props);
 
     const aperturasChildren = getChildrenFromAperturaHome(
@@ -128,6 +129,7 @@ const CajaManual = props => {
                 ''}`}
             notesQuantity={notesQuantity}
             position={position}
+            positionInsideSection={positionInsideSection}
             sectionName={sectionName}
             _children={filteredChildren}
             handleClick={productClickFromClient}

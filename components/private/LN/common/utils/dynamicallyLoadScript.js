@@ -3,6 +3,7 @@ const dynamicallyLoadScript = (script, section) => {
     if (!document.querySelector(`script[src="${script}"]`)) {
         const baseScript = document.createElement('script');
         baseScript.src = script;
+        baseScript.setAttribute('fetchpriority', 'high');
         document[section].appendChild(baseScript);
         return new Promise((res, rej) => {
             baseScript.onload = () => {
