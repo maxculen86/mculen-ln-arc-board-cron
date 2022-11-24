@@ -27,9 +27,9 @@ const GrillaNotasFeature = props => {
             node_type: nodeType,
             type,
             isWiki
-        },
-        outputType,
-        renderables
+        } = {},
+        outputType = 'default',
+        renderables = []
     } = useAppContext();
 
     const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
