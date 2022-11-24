@@ -98,9 +98,6 @@ const ModArticle = props => {
         <article
             className={setArticleClassName({
                 classCondition,
-                boxPosition,
-                artPosition,
-                _id,
                 withMedia,
                 isRenderAuthor,
                 isRenderAuthorOpinion

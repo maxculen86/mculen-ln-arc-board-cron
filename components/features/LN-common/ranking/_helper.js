@@ -2,6 +2,8 @@ import get from '../../../private/common/utils/get';
 import getSectionName from '../../../private/LN/common/utils/getSectionName';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 
+export const RANKING = 'Ranking';
+
 export const getRankingProps = (layout, featureId, globalContent) => {
     const { layoutsName = {} } = siteConfig;
     const isHome = layout === layoutsName.Home;
@@ -16,12 +18,12 @@ export const getRankingProps = (layout, featureId, globalContent) => {
     const rankingType = {
         home: () => ({
             title: 'Más leídas',
-            sectionName: 'Ranking',
+            sectionName: RANKING,
             sectionId: getSectionId(globalContent),
             isHome,
             notesQuantity: 1,
             classCondition: 'com-ranking',
-            rankingLayout: 'Ranking'
+            rankingLayout: RANKING
         }),
         inverseHome: () => ({
             title: 'Te puede interesar',
@@ -30,10 +32,10 @@ export const getRankingProps = (layout, featureId, globalContent) => {
             isHome,
             isInverse,
             classCondition: '',
-            rankingLayout: 'Ranking'
+            rankingLayout: RANKING
         }),
         acu: () => ({
-            sectionName: 'Ranking',
+            sectionName: RANKING,
             sectionId: getSectionId(globalContent),
             isHome,
             notesQuantity: 1,

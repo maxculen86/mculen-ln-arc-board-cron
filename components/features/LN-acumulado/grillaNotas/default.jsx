@@ -13,6 +13,7 @@ import useGridPagination from '../../../private/LN/common/hooks/useGridPaginatio
 import GrillaNotas from '../../../private/LN/acumulado/grillaNotas/grillaNotas';
 
 import checkHydrateOnly from '../../../private/LN/common/utils/checkHydrateOnly';
+import { verifyChainsBeforeGrid } from '../../../private/common/utils/preloadHelper';
 
 const GrillaNotasFeature = props => {
     const { customFields, globalContentConfig, globalContent } = props;
@@ -24,12 +25,14 @@ const GrillaNotasFeature = props => {
             Payload: payload,
             distributorId,
             node_type: nodeType,
-            type
-        },
-        outputType,
-        renderables
+            type,
+            isWiki
+        } = {},
+        outputType = 'default',
+        renderables = []
     } = useAppContext();
 
+    const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
     const hasHydrateOnly = checkHydrateOnly({ nodeType });
 
     const appContextProps = {
@@ -39,7 +42,8 @@ const GrillaNotasFeature = props => {
         nodeType,
         type,
         outputType,
-        renderables
+        renderables,
+        isWiki
     };
 
     const getBanner = Banner({
@@ -58,7 +62,8 @@ const GrillaNotasFeature = props => {
     } = useGridPagination({
         getBanner,
         ...globalProviderAcu,
-        ...appContextProps
+        ...appContextProps,
+        hasChainBeforeGrid
     });
 
     return (

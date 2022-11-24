@@ -28,7 +28,7 @@ exports[`TePuedeIneresarAmp Should render component 1`] = `
         class="row-gap-tablet-3 "
       >
         <article
-          class="mod-article toi1 nid5CK7ZBBKSVFFPH6XDCFONN3UMM"
+          class="mod-article"
           data-id="5CK7ZBBKSVFFPH6XDCFONN3UMM"
           data-notaid="5CK7ZBBKSVFFPH6XDCFONN3UMM"
           data-pos="toi1"
@@ -89,7 +89,7 @@ exports[`TePuedeIneresarAmp Should render component 1`] = `
           </section>
         </article>
         <article
-          class="mod-article toi2 nidHM5HQ2HOH5DSZG5I6NKXHP5BEQ"
+          class="mod-article"
           data-id="HM5HQ2HOH5DSZG5I6NKXHP5BEQ"
           data-notaid="HM5HQ2HOH5DSZG5I6NKXHP5BEQ"
           data-pos="toi2"

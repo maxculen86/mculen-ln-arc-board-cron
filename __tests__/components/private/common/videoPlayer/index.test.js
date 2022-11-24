@@ -4,6 +4,7 @@ import getProperties from 'fusion:properties';
 import VideoPlayer from '../../../../../components/private/common/videoPlayer';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import globalContentWithVideo from '../../../../../__mocks__/data/images/getDataToLinkImage/globalContentWithVideo';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -90,7 +91,7 @@ describe('private - common - videoPlayer', () => {
         expect(container.querySelector('.video-player')).toBeInTheDocument();
     });
     it('should have script for custom errors', () => {
-        const errorScript = `window.addEventListener('load',()=>{const[{shadowRoot}={}]=document.querySelectorAll('.powa-shadow');leterrorPowa=shadowRoot.querySelector&&shadowRoot.querySelector('div.powa-outage');if(true&&errorPowa.innerHTML==='<p>Thisvideoisgeo-restricted.</p><p>Error931.</p>'){errorPowa.innerHTML='¡Ups!Parecequeestevideonoestadisponibleentuubicación'}});`;
+        const errorScript = `window.addEventListener('powaError',()=>{constfacade=document.querySelector('.content-facade');if(facade)facade.remove();const[{shadowRoot}={}]=document.querySelectorAll('.powa-shadow');leterrorPowa=shadowRoot.querySelector&&shadowRoot.querySelector('div.powa-outage');if(errorPowa&&true&&errorPowa.innerHTML==='<p>Thisvideoisgeo-restricted.</p><p>Error931.</p>'){errorPowa.innerHTML='¡Ups!Parecequeestevideonoestadisponibleentuubicación'}});`;
         const { container } = render(
             <VideoPlayer
                 videoId={'apertura_video_basic'}
@@ -105,8 +106,77 @@ describe('private - common - videoPlayer', () => {
                 isApertura={true}
             />
         );
+
         expect(
-            container.querySelectorAll('script')[1].innerHTML.replace(/\s/g, '')
+            container.querySelector('script').innerHTML.replace(/\s/g, '')
         ).toStrictEqual(errorScript.replace(/\s/g, ''));
+    });
+
+    describe('Tests powa video upload with facade image', () => {
+        let videoPlayer = null;
+
+        beforeEach(() => {
+            videoPlayer = render(
+                <VideoPlayer
+                    videoId={'apertura_video_basic'}
+                    arcSite={'la-nacion-ar'}
+                    globalContent={{
+                        ...globalContentWithVideo,
+                        type: 'story'
+                    }}
+                    videoImageData={
+                        globalContentWithVideo.promo_items.apertura_multimedia
+                            .promo_items.basic
+                    }
+                    device={'desktop'}
+                    isApertura={true}
+                />
+            );
+        });
+
+        it('The video-player container should have the "--isApertura" and "--facade" modifier classes.', () => {
+            const { container } = videoPlayer;
+
+            const containerVideoPlayer = container.querySelector(
+                '.video-player'
+            );
+
+            expect(
+                containerVideoPlayer.classList.contains('--isApertura')
+            ).toBeTruthy();
+
+            expect(
+                containerVideoPlayer.classList.contains('--facade')
+            ).toBeTruthy();
+        });
+
+        it('It should render the image facade and not load the powa script.', () => {
+            const { container } = videoPlayer;
+
+            const contentFacade = container.querySelector('.content-facade');
+
+            expect(contentFacade).toBeDefined();
+
+            expect(document.querySelector('#script-powa')).toBeNull();
+
+            expect(contentFacade.querySelector('.com-image')).toBeDefined();
+
+            expect(contentFacade.querySelector('.button-play')).toBeDefined();
+        });
+
+        it('should have the powa lazyload script.', () => {
+            const ScriptBuildPowa = `window.addEventListener('load',()=>{constisDesktop=deviceType()==='desktop'constvideoPlayerList=document.querySelectorAll('.video-player');constobserver=setIntersectionObserver(videoPlayerList,'sandbox',isDesktop,true,'','apertura_video_basic',true)window.addEventListener('powaReady',()=>{observer.disconnect();removeFacade();const[{shadowRoot}={}]=document.querySelectorAll('.powa-shadow');letdivFirstPowa=shadowRoot.querySelector&&shadowRoot.querySelector('[data-uuid=\"\"]');letuserPause=false;if(false&&false){divFirstPowa=undefined}if(divFirstPowa&&window.powas){const{powa}=window.powas[divFirstPowa.id];powa.on('pause',()=>userPause=true);powa.on('viewable',()=>!userPause&&powa.play());}});});`;
+            const { container } = videoPlayer;
+            console.log(
+                '====>',
+                container.querySelectorAll('script')[0].innerHTML
+            );
+            expect(
+                container
+                    .querySelectorAll('script')[0]
+                    .innerHTML.replace(/\s/g, '')
+                    .includes(ScriptBuildPowa)
+            ).toBeTruthy();
+        });
     });
 });

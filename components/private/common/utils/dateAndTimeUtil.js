@@ -191,3 +191,11 @@ export const formatToISOString = date => date.toISOString().split('T')[0];
 export function restMinutes(date, minutes) {
     return new Date(date.getTime() - minutes * 60000);
 }
+
+export const getArgentinaYear = () => {
+    const date = new Date();
+    return date.toLocaleString('es-AR', {
+        timeZone: 'America/Argentina/Buenos_Aires',
+        year: 'numeric'
+    });
+};

@@ -11,6 +11,7 @@ export const productClickFromServer = () => {
                 __html: `
                     window.addEventListener('DOMContentLoaded', () => {
                         const articles = document.querySelectorAll('article');
+                        ${isSandbox.toString()}
                         ${getName.toString()}
                         ${getDataSetProps.toString()}
                         ${productClickFromClient.toString()}
@@ -37,16 +38,23 @@ export const productClickFromServer = () => {
 const getDataSetProps = element => {
     if (element) {
         const { dataset: articleDataSet = {} } = element;
-        const { dataset: sectionDataSet = {} } = (element.closest &&
+        const { dataset: chainDataSet = {} } = (element.closest &&
             element.closest('.box-articles')) || {
-            dataset: { blockName: 'h_tema-01', diagramacionId: 'h_00' }
+            dataset: { blockName: '', diagramacionId: '', chainPosition: '' }
+        };
+
+        const { dataset: sectionDataSet = {} } = (element.closest &&
+            element.closest('[data-section]')) || {
+            dataset: { section: '' }
         };
         return {
-            position: articleDataSet.pos,
+            position: `${chainDataSet.chainPosition || ''}${
+                articleDataSet.pos
+            }`,
             id: articleDataSet.id,
             variant: articleDataSet.source,
-            brand: sectionDataSet.diagramacionId,
-            list: sectionDataSet.blockName,
+            brand: `${sectionDataSet.section}_${chainDataSet.diagramacionId}`,
+            list: chainDataSet.blockName,
             name: getName(element)
         };
     }
@@ -64,12 +72,15 @@ const getName = element => {
 export const productClickFromClient = (element = {}) => {
     const product = getDataSetProps(element.currentTarget);
     if (product.id) {
-        window.dataLayer.push({ event: 'productClickScore', product });
+        window.dataLayer.push({
+            event: `productClickScore`,
+            product
+        });
     }
     return true;
 };
 
-export const createIntersectionObserver = () => {
+export const createViewabilityIntersectionObserver = () => {
     try {
         const callback = (entries, observer) => {
             const articlesToAdd = [];
@@ -122,13 +133,18 @@ const shouldAddArticle = (entry, articlesSeen) => {
     );
 };
 
+const isSandbox = () => {
+    if (window && window.location.host === 'lanacion.com.ar') return '';
+    return '_DESA';
+};
+
 const addEventImpressionToDataLayer = (
     articlesToAdd = [],
     articlesSeen = []
 ) => {
     if (articlesToAdd.length > 0) {
         window.dataLayer.push({
-            event: 'impressionsScore',
+            event: `impressionsScore`,
             products: articlesToAdd
         });
 
@@ -143,38 +159,4 @@ const addEventImpressionToDataLayer = (
             )
         );
     }
-};
-
-export const createObservers = () => {
-    const interSectionObserver = createIntersectionObserver();
-
-    const mutationCallback = (mutationsList, observer) => {
-        mutationsList.forEach(mutation => {
-            mutation.addedNodes.forEach(node => {
-                if (get(node, 'dataset.module')) {
-                    const arts = document.querySelectorAll(
-                        `div[data-module=${node.dataset.module}] article`
-                    );
-                    arts.forEach(element => {
-                        if (element && element.dataset.id) {
-                            interSectionObserver.observe(element);
-                        }
-                    });
-                }
-
-                if (node.nodeName === 'ARTICLE' && node.dataset.id) {
-                    interSectionObserver.observe(node);
-                }
-            });
-        });
-    };
-
-    const mutationObserver = new MutationObserver(mutationCallback);
-    mutationObserver.observe(document.querySelector('#wrapper'), {
-        attributes: false,
-        childList: true,
-        subtree: true
-    });
-
-    // mutationObserver.disconnect();
 };

@@ -4406,7 +4406,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
             />
             <script>
               
-                    window.addEventListener('load', () =&gt; {
+                    window.addEventListener('powaError', () =&gt; {
+                        const facade = document.querySelector('.content-facade');
+                        if (facade) facade.remove();
+
                         const [{
                             shadowRoot
                         } = {}] = document.querySelectorAll('.powa-shadow');
@@ -4415,7 +4418,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
                             shadowRoot.querySelector &&
                             shadowRoot.querySelector('div.powa-outage');
                     
-                        if (false && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
+                        if (errorPowa && false && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
                             errorPowa.innerHTML = '¡Ups! Parece que este video no esta disponible en tu ubicación'
                         }
                     });
@@ -5055,7 +5058,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
             />
             <script>
               
-                    window.addEventListener('load', () =&gt; {
+                    window.addEventListener('powaError', () =&gt; {
+                        const facade = document.querySelector('.content-facade');
+                        if (facade) facade.remove();
+
                         const [{
                             shadowRoot
                         } = {}] = document.querySelectorAll('.powa-shadow');
@@ -5064,7 +5070,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
                             shadowRoot.querySelector &&
                             shadowRoot.querySelector('div.powa-outage');
                     
-                        if (false && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
+                        if (errorPowa && false && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
                             errorPowa.innerHTML = '¡Ups! Parece que este video no esta disponible en tu ubicación'
                         }
                     });
@@ -7409,7 +7415,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
             />
             <script>
               
-                    window.addEventListener('load', () =&gt; {
+                    window.addEventListener('powaError', () =&gt; {
+                        const facade = document.querySelector('.content-facade');
+                        if (facade) facade.remove();
+
                         const [{
                             shadowRoot
                         } = {}] = document.querySelectorAll('.powa-shadow');
@@ -7418,7 +7427,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
                             shadowRoot.querySelector &&
                             shadowRoot.querySelector('div.powa-outage');
                     
-                        if (false && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
+                        if (errorPowa && false && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
                             errorPowa.innerHTML = '¡Ups! Parece que este video no esta disponible en tu ubicación'
                         }
                     });
@@ -8736,7 +8745,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
             />
             <script>
               
-                    window.addEventListener('load', () =&gt; {
+                    window.addEventListener('powaError', () =&gt; {
+                        const facade = document.querySelector('.content-facade');
+                        if (facade) facade.remove();
+
                         const [{
                             shadowRoot
                         } = {}] = document.querySelectorAll('.powa-shadow');
@@ -8745,7 +8757,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
                             shadowRoot.querySelector &&
                             shadowRoot.querySelector('div.powa-outage');
                     
-                        if (false && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
+                        if (errorPowa && false && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
                             errorPowa.innerHTML = '¡Ups! Parece que este video no esta disponible en tu ubicación'
                         }
                     });
