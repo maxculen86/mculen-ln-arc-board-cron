@@ -39,7 +39,7 @@ const StickyMobile = ({ headerText, alt, articleToShow }) => {
                 <div
                     onClick={() => {
                         setDisplaySticky(false);
-                        handleClickForCTRcomponent('close', articleToShow);
+                        handleClickForCTRcomponent('close');
                     }}
                     aria-hidden="true"
                 >
@@ -48,9 +48,7 @@ const StickyMobile = ({ headerText, alt, articleToShow }) => {
             </div>
             <div
                 aria-hidden="true"
-                onClick={() =>
-                    handleClickForCTRcomponent('open', articleToShow)
-                }
+                onClick={() => handleClickForCTRcomponent('open')}
             >
                 <ComLink link={websiteUrl} title={headlineToUse}>
                     <ModPicture
@@ -63,7 +61,7 @@ const StickyMobile = ({ headerText, alt, articleToShow }) => {
                     </Text>
                 </ComLink>
             </div>
-            {crtViewTracker(articleToShow)}
+            {crtViewTracker()}
         </section>
     );
 };

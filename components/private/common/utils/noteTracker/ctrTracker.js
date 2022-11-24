@@ -7,47 +7,37 @@ export const checkUserRealoadAction = activeWindow => {
     return pageAccessByReload;
 };
 
-export const crtViewTracker = (article = {}) => {
-    const { _id: id } = article;
-
+export const crtViewTracker = () => {
     const { dataLayer } = window;
     const isReloaded = checkUserRealoadAction(window);
-    if (!isReloaded && article) {
+    if (!isReloaded) {
         dataLayer.push({
             event: 'CTR view',
             brand: 'stickyMobile_diag1',
-            element: article.canonical_url,
-            id
+            position: '101101'
         });
     }
-    return true;
 };
 
-export const handleClickForCTRcomponent = (action, article) => {
+export const handleClickForCTRcomponent = action => {
     const { dataLayer } = window;
     const isReloaded = checkUserRealoadAction(window);
-    return article ? userActions[action](article, dataLayer, isReloaded) : true;
+    return !isReloaded ? userActions[action](dataLayer) : true;
 };
 
 const userActions = {
-    close: (article, dataLayer, isReloaded) => {
-        return (
-            !isReloaded &&
-            dataLayer.push({
-                event: 'CTR close',
-                brand: 'stickyMobile_diag1',
-                element: article
-            })
-        );
+    close: dataLayer => {
+        return dataLayer.push({
+            event: 'CTR close',
+            brand: 'stickyMobile_diag1',
+            position: '101101'
+        });
     },
-    open: (article, dataLayer, isReloaded) => {
-        return (
-            !isReloaded &&
-            dataLayer.push({
-                event: 'CTR open note',
-                brand: 'stickyMobile_diag1',
-                element: article
-            })
-        );
+    open: dataLayer => {
+        return dataLayer.push({
+            event: 'CTR open note',
+            brand: 'stickyMobile_diag1',
+            position: '101101'
+        });
     }
 };
