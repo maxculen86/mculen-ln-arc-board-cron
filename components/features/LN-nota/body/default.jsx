@@ -11,6 +11,7 @@ import addEventListener from '../../../private/common/hooks/useEventListener';
 import handleScrollForNota from '../../../private/LN/nota/dataLayer/handleScrollForNota';
 import { setStorageConfiguration } from '../../../private/common/utils/storage';
 import AudioPlayerDesktop from '../../../private/common/audioNews/AudioPlayerDesktop';
+import { embedIntersectionObserver } from './_utils/_embedHelper';
 
 const body = ({ customFields }) => {
     const { outputType, globalContent = {} } = useAppContext();
@@ -20,6 +21,7 @@ const body = ({ customFields }) => {
     useEffect(() => {
         try {
             setStorageConfiguration(_id);
+            embedIntersectionObserver();
         } catch (error) {
             console.error('Error en setear Local Storage, CuerpoDefault', {
                 error,
