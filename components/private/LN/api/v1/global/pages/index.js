@@ -1,12 +1,10 @@
-import Consumer from 'fusion:consumer';
-import home from '../../private/LN/api/v1/global/home';
-import pageBuilderSections from '../config/LN-PageBuilder.config.json';
-import get from '../../private/common/utils/get';
+import pageBuilderSections from '../../../../../../layouts/config/LN-PageBuilder.config.json';
+import get from '../../../../../common/utils/get';
 
 import {
     checkIfValid,
     findSectionChildren
-} from '../../private/common/utils/validateSectionHome';
+} from '../../../../../common/utils/validateSectionHome';
 
 const boxPosition = {
     Apertura_1: { id: 402, type: 1, feature: 'Banner', position: 'bottom' },
@@ -257,19 +255,4 @@ const getHomeElements = props => {
     }, []);
 };
 
-const LNMainHome = props => {
-    const propsHome = {
-        children: props.children,
-        renderables: props.renderables,
-        arcSite: props.arcSite
-    };
-    //const homeSections = getHomeElements(props);
-    //home(homeSections);
-    //return home(homeSections) || [];
-    return propsHome;
-    //return [homeSections];
-};
-
-LNMainHome.sections = pageBuilderSections;
-
-export default Consumer(LNMainHome);
+export default getHomeElements;
