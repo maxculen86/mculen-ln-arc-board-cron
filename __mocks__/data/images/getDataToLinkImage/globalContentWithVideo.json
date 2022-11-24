@@ -1,0 +1,87 @@
+{
+    "promo_items": {
+        "apertura_multimedia": {
+            "_id": "2adb18dc-46d9-4159-ba59-8636349ab0e3",
+            "additional_properties": {
+                "advertising": {
+                    "playAds": true
+                }
+            },
+            "created_date": "2022-09-30T19:20:19Z",
+            "credits": {
+                "affiliation": [
+                    {
+                        "name": "Juan Cruz Andrada"
+                    }
+                ],
+                "by": [
+                    {
+                        "name": "",
+                        "type": "author"
+                    }
+                ]
+            },
+            "duration": 28027,
+            "embed_html": "<div class=\"powa\" id=\"powa-2adb18dc-46d9-4159-ba59-8636349ab0e3\" data-env=\"sandbox\" data-api=\"sandbox\" data-org=\"lanacionar\" data-uuid=\"2adb18dc-46d9-4159-ba59-8636349ab0e3\" data-aspect-ratio=\"0.562\"><script src=\"https://lanacionar.video-player.arcpublishing.com/sandbox/powaBoot.js?org=lanacionar\"></script></div>",
+            "headlines": {
+                "basic": "Conflicto neumático"
+            },
+            "promo_items": {
+                "basic": {
+                    "caption": "Conflicto del neumático",
+                    "credits": {},
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 410,
+                                "width": 820
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/mxeQgSo8rF_5hYakbXPqoXCi4lo=/820x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 414,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/3IibxbS9Q7-2PL73hRaFQrk5XCA=/768x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 180,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/W6Qqj-PwP6QDW_3kLX_oqF7HCog=/360x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 175,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/ZpxaMJQuq3zkfZkZ47TcSELlvb0=/351x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/3IibxbS9Q7-2PL73hRaFQrk5XCA=/768x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/09-30-2022/t_be67699132db466a95827ceac7fcbc71_name_file_1280x720_2000_v3_1_.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2022-09-30T19:24:27Z",
+            "streams": [
+                {
+                    "height": 360,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/Juan_Cruz_Andrada/20220930/6337417356289817029a90ff/t_4b976608f9a3479591bb935bb39c257e_name_lv_0_20220929224858/file_640x360-600.mp4",
+                    "width": 640
+                },
+                {
+                    "height": 720,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/Juan_Cruz_Andrada/20220930/6337417356289817029a90ff/t_4b976608f9a3479591bb935bb39c257e_name_lv_0_20220929224858/file_1280x720-2000-v3_1.mp4",
+                    "width": 1280
+                }
+            ],
+            "type": "video"
+        }
+    }
+}

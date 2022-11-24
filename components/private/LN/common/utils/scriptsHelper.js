@@ -13,7 +13,6 @@ import OptaEmbed from '../../../common/scriptManager/optaEmbed';
 import Petametrics from '../../../common/scriptManager/petametrics';
 import PostBid from '../../../common/scriptManager/postbid';
 import ScriptHtmlLibre from '../../../common/scriptManager/scriptHtmlLibre';
-import ScriptVideoPowa from '../../../common/scriptManager/scriptVideoPowa';
 import SocialEmbeds from '../../../common/scriptManager/socialEmbeds';
 import DevReactTracker from '../../../common/scriptManager/DevReactTracker';
 import AdblockDetector from '../../../common/scriptManager/adblockDetector';
@@ -27,10 +26,6 @@ const scriptList = [
     },
     {
         component: { name: 'AdblockDetector', function: AdblockDetector },
-        feature: 'none'
-    },
-    {
-        component: { name: 'ScriptVideoPowa', function: ScriptVideoPowa },
         feature: 'none'
     },
     {

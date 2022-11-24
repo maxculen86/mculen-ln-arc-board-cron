@@ -6,6 +6,7 @@ import {
     transformHolidays,
     getHolidaysMetaData
 } from './holidaysHelper';
+import { getArgentinaYear } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 
 const getUri = ({ service = '', serviceItem = '', serviceSubItem = '' }) => {
     if (serviceSubItem && serviceItem)
@@ -14,7 +15,7 @@ const getUri = ({ service = '', serviceItem = '', serviceSubItem = '' }) => {
         )}`;
     if (service)
         return `${LANACION_SERVICES_URL}/api/v1/feriados/${serviceItem ||
-            new Date().getFullYear()}`;
+            Number(getArgentinaYear())}`;
 
     throw new Error(
         'No está solicitado ningún feriado o el feriado que desea solicitar no existe.'
@@ -44,7 +45,7 @@ const transform = data => {
         serviceType,
         serviceItem: serviceItem
             ? Number(serviceItem)
-            : new Date().getFullYear(),
+            : Number(getArgentinaYear()),
         ...(serviceSubItem && { serviceSubItem }),
         ...sectionSourceData,
         dataService: transformHolidays(
