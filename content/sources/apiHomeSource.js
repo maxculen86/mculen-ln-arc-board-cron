@@ -2,11 +2,17 @@ import pages from './utils/servicesSource/pages';
 
 const fetch = async query => {
     try {
-        return await pages.fetch({ query });
+        const now = new Date();
+        const ticks = now.getTime();
+        const queryParams = {
+            ticksCache: ticks.toString(),
+            website: query?.website
+        };
+        return await pages.fetch(queryParams);
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(
-            `Error Transform - content/apiHomeSource : ${JSON.stringify(
+            `Error content/apiHomeSource : ${JSON.stringify(
                 query
             )} - errorMsj:${error.message}`
         );
@@ -17,7 +23,8 @@ const fetch = async query => {
 export default {
     fetch,
     params: {
-        website: 'text'
+        website: 'text',
+        ticks: 'text'
     },
     ttl: 120
 };

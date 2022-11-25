@@ -2,7 +2,7 @@ import Consumer from 'fusion:consumer';
 import home from '../../private/LN/api/v1/global/home';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
 import get from '../../private/common/utils/get';
-
+import propsjson from '../../../__mocks__/data/homes/propsHome.json';
 import {
     checkIfValid,
     findSectionChildren
@@ -263,10 +263,12 @@ const LNMainHome = props => {
         renderables: props.renderables,
         arcSite: props.arcSite
     };
-    //const homeSections = getHomeElements(props);
+    //const homeSections = getHomeElements(propsHome);
     //home(homeSections);
     //return home(homeSections) || [];
     return propsHome;
+    //return propsjson;
+    //return { aaa: 'ddd' };
     //return [homeSections];
 };
 

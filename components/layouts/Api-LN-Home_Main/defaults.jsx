@@ -1,12 +1,8 @@
 import React from 'react';
+import Consumer from 'fusion:consumer';
 
-const ApiLNHomeMain = ({ children }) => {
-    return (
-        <div>
-            {/* Contenido */}
-            {children}
-        </div>
-    );
+const ApiLNHomeMain = props => {
+    return <div>{/* Contenido */}</div>;
 };
 
-export default ApiLNHomeMain;
+export default Consumer(ApiLNHomeMain);
