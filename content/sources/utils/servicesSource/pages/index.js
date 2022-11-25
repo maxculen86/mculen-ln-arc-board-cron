@@ -24,11 +24,12 @@ const fetch = async query => {
         json: true
     };
 
-    if (ARC_ACCESS_TOKEN) {
-        endpoint.auth = {
-            bearer: ARC_ACCESS_TOKEN
+    if (endpoint.uri.includes('sandbox')) {
+        endpoint.headers = {
+            Cookie: 'el_arc=2c88b3e4-500e-4629-9a0d-78a032107225'
         };
     }
+
     return request(endpoint)
         .then(response => {
             console.log('RESSSPOSSSMSMS');
@@ -37,9 +38,9 @@ const fetch = async query => {
         .catch(error => {
             // eslint-disable-next-line no-console
             console.warn(
-                `servicesSource/page Error: ${JSON.stringify(
-                    query
-                )} - errorMsj:${error.message}`
+                `servicesSource/page Error: ${JSON.stringify(query)} - uri: ${
+                    endpoint.uri
+                } - errorMsj:${error.message}`
             );
             logger.push(error, { source: 'servicesSource/page', query });
         });

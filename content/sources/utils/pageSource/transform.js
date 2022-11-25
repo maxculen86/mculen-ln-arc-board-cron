@@ -1,15 +1,17 @@
 const transform = (data, siteProps) => {
+    const respData = data;
     try {
-        const respData = data;
         return respData;
     } catch (error) {
         // eslint-disable-next-line no-console
+        let dataStr = '';
+        if (typeof respData === 'object' || Array.isArray(respData)) {
+            dataStr = JSON.stringify(data);
+        }
         console.warn(
-            `Error Transform - content/pageSource : ${JSON.stringify(
-                data
-            )} - siteprops: ${JSON.stringify(siteProps)} - errorMsj:${
-                error.message
-            }`
+            `Error Transform - content/pageSource : ${dataStr} - siteprops: ${JSON.stringify(
+                siteProps
+            )} - errorMsj:${error.message}`
         );
         throw new Error(error);
     }
