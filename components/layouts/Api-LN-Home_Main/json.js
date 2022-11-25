@@ -5,9 +5,9 @@ import getHomeElements from '../../private/LN/api/v1/global/pages';
 import home from '../../private/LN/api/v1/global/home';
 
 const ApiLNHomeMain = props => {
-    return [props?.globalContent];
-    //const homeSections = getHomeElements(props);
-    //return home(homeSections) || [];
+    //return [props?.globalContent];
+    const homeSections = getHomeElements(props?.globalContent);
+    return home(homeSections) || [];
 };
 
 export default Consumer(ApiLNHomeMain);
