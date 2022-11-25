@@ -91,3 +91,91 @@ export const setCustomErrorsVideoPlayer = () => {
         }
     };
 };
+
+// Logica de carga diferida de script de powa
+
+export const buildScriptPowa = apiEnv => {
+    if (!document.querySelector('#script-powa')) {
+        const scriptPowa = document.createElement('script');
+        scriptPowa.src = `https://lanacionar.video-player.arcpublishing.com/${apiEnv}/powaBoot.js`; // Aca va concatenado apiEnv
+        scriptPowa.id = 'script-powa';
+        document.head.appendChild(scriptPowa);
+    }
+};
+
+export const removeFacade = () => {
+    const facade = document.querySelector('.content-facade');
+    if (facade) facade.remove();
+};
+
+export const handleClickEvent = (videoId, target, apiEnv) => {
+    const divPowa = document.querySelector(`[data-uuid="${videoId}"]`);
+    const buttonPlay = target && target.querySelector('#button-play');
+
+    divPowa && divPowa.setAttribute('data-autoPlay', true);
+    buttonPlay && buttonPlay.classList.add('loader');
+
+    buildScriptPowa(apiEnv);
+};
+
+export const withAutoPlay = (
+    target,
+    firstVideoId,
+    isApertura,
+    firstVideoCuerpoAutoplay,
+    isDesktop
+) => {
+    if (isDesktop && target && target.getAttribute('id') === firstVideoId) {
+        return isApertura || firstVideoCuerpoAutoplay;
+    }
+
+    return false;
+};
+
+export const setIntersectionObserver = (
+    elements,
+    apiEnv,
+    isDesktop,
+    firstVideoCuerpoAutoplay,
+    firstVideoId,
+    videoId,
+    isApertura
+) => {
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(({ isIntersecting, target } = {}) => {
+                if (isIntersecting) {
+                    target.addEventListener('click', () =>
+                        handleClickEvent(videoId, target, apiEnv)
+                    );
+
+                    withAutoPlay(
+                        target,
+                        firstVideoId,
+                        isApertura,
+                        firstVideoCuerpoAutoplay,
+                        isDesktop
+                    ) && target.click();
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+
+    elements.forEach(item => {
+        const videoPowa = item.querySelector(`[id="${videoId}"]`);
+        if (videoPowa) {
+            observer.observe(videoPowa);
+        }
+    });
+
+    return observer;
+};
+
+export const getClassCondition = (isNote, isApertura) => {
+    if (isNote) {
+        return isApertura ? ' --isApertura --facade' : ' --facade';
+    }
+
+    return '';
+};

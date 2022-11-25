@@ -8,17 +8,15 @@ import { INFOGRAFIA } from '../../private/common/utils/subtypes/subtypeHelper';
 import {
     // buildScriptResizeSSRInfography,
     buildScriptForZoom,
-    getEpigrafe
+    getEpigrafe,
+    getMediaData
 } from '../../private/LN/common/utils/mediaHelper';
-import replaceUrlResizerToWWW from '../../../content/sources/utils/replaceUrlResizerToWWW';
-import get from '../../private/common/utils/get';
 
 const AperturaNoticia = props => {
     const { globalContent, outputType, id: idFeature } = props;
     const { promo_items: promoItems = {}, subtype } = globalContent || {};
-    const { apertura_multimedia: aperturaMultimedia } = promoItems;
-    const basic = replaceUrlResizerToWWW(get(promoItems, 'basic', {}));
-    const { _id: idMedia, content } = aperturaMultimedia || basic || {};
+    const mediaData = getMediaData(promoItems, subtype);
+    const { _id: idMedia, content } = mediaData || {};
 
     const Component = (
         <section className="mod-opening">
@@ -27,20 +25,19 @@ const AperturaNoticia = props => {
                     headlines: { basic: tituloNota },
                     content_elements: contentElements = []
                 } = globalContent || {};
+
                 const firstText = contentElements.find(
                     element => element.type === 'text'
                 );
 
                 const scriptForZoom =
                     outputType !== 'amp' &&
-                    buildScriptForZoom(aperturaMultimedia || basic, subtype);
-                const { caption, credit } = getEpigrafe(
-                    aperturaMultimedia || basic
-                );
+                    buildScriptForZoom(mediaData, subtype);
+                const { caption, credit } = getEpigrafe(mediaData);
 
                 return (
                     <Media
-                        mediaData={aperturaMultimedia || basic}
+                        mediaData={mediaData}
                         withZoom="--zoom"
                         idMedia={idMedia}
                         scriptForZoom={scriptForZoom}
