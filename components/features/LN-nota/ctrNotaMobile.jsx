@@ -27,11 +27,6 @@ const CTRNota = () => {
 
     const [trigger, setTrigger] = useState(false);
     const [tracked, setTracker] = useState(true);
-    console.log(
-        '🚀 ~ file: ctrNotaMobile.jsx ~ line 30 ~ CTRNota ~ tracked',
-        tracked
-    );
-
     const [excludeItems, setExcludeItems] = useState([]);
 
     useEffect(() => {
