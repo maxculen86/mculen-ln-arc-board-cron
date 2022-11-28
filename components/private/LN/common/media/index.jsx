@@ -39,6 +39,7 @@ const media = ({
     const isVertical = height > width;
     let item = null;
     const { subtipo } = useSubtype();
+    const idForMedia = isApertura ? idMedia : undefined;
 
     useEffect(() => {
         if (!itsGallery && withZoom) {
@@ -141,7 +142,7 @@ const media = ({
             ) : (
                 <div className="content-media" ref={refContainer}>
                     <ModMedia
-                        idMedia={isApertura ? idMedia : undefined}
+                        idMedia={idForMedia}
                         zoom={zoom}
                         withZoom={withZoom}
                         active={active}
