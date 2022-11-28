@@ -49,12 +49,21 @@ describe('Json imagen en acumulado', () => {
     test('Rol', () => {
         const author = authorsData[0];
         const resp = acuAuthor(author);
+
+        expect(Object.keys(resp).sort()).toEqual(
+            ['id', 'imagen', 'intereses', 'rol', 'slug', 'tipo', 'valor'].sort()
+        );
         expect(resp.rol).toEqual('PARA LA NACION');
     });
 
     test('Rol null', () => {
         const author = authorsData[1];
         const resp = acuAuthor(author);
-        expect(resp.rol).toBeUndefined();
+
+        expect(Object.keys(resp).sort()).toEqual(
+            ['id', 'imagen', 'intereses', 'rol', 'slug', 'tipo', 'valor'].sort()
+        );
+
+        expect(resp.rol).toBeNull();
     });
 });

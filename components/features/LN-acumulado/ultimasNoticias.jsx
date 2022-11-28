@@ -14,7 +14,7 @@ const UltimasNoticias = props => {
     const globalProviderAcu = useGlobalProviderAcu();
 
     const {
-        globalContent: { type, name, node_type: nodeType },
+        globalContent: { type, name, node_type: nodeType } = {},
         outputType,
         renderables
     } = useAppContext();

@@ -20,7 +20,8 @@ const ComImage = props => {
         href,
         target,
         isApertura,
-        svg
+        svg,
+        searchableField
     } = props;
 
     if (!src) return null;
@@ -37,6 +38,7 @@ const ComImage = props => {
     const image = (
         <img
             {...commonProps}
+            {...searchableField}
             className={classes}
             srcSet={srcset}
             loading={isApertura ? 'eager' : 'lazy'}
@@ -44,6 +46,7 @@ const ComImage = props => {
             decoding="async"
         />
     );
+
     const imageAmp = (
         <amp-img
             {...commonProps}
@@ -82,7 +85,10 @@ ComImage.propTypes = {
     target: PropTypes.string,
     layout: PropTypes.string,
     isApertura: PropTypes.bool,
-    svg: PropTypes.bool
+    svg: PropTypes.bool,
+    searchableField: PropTypes.shape({
+        imageId: PropTypes.string
+    })
 };
 
 ComImage.defaultProps = {
@@ -95,7 +101,8 @@ ComImage.defaultProps = {
     isApertura: false,
     svg: false,
     height: undefined,
-    width: undefined
+    width: undefined,
+    searchableField: undefined
 };
 
 export default ComImage;

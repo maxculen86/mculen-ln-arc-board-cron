@@ -2,6 +2,7 @@
 import useGetArticlesFromAcuSource from './useGetArticlesFromAcumSource';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import { getIdsArticlesFromOtherCollections } from '../utils/cajaTemasValidators';
+import excludeUrlNacion from '../utils/excludeUrlNacion';
 
 const useGridArticles = props => {
     const {
@@ -18,7 +19,9 @@ const useGridArticles = props => {
         articlesInCollection = [],
         page = 1,
         hasCollectionApertura = false,
-        sourceOrigin = ''
+        sourceOrigin = '',
+        hasChainBeforeGrid = false,
+        isWiki = false
     } = props;
 
     const DEFAULT_QUANTITY = 30;
@@ -45,6 +48,13 @@ const useGridArticles = props => {
         articlesInCollection.map(art => art._id)
     );
 
+    const excludeUrl = excludeUrlNacion({
+        hasCollectionApertura,
+        hasChainBeforeGrid,
+        nodeType,
+        isWiki
+    });
+
     const searchArgs = {
         typesOfQuery: {
             sectionId,
@@ -61,7 +71,8 @@ const useGridArticles = props => {
         withPagination: true,
         page,
         hasCollectionApertura,
-        sourceOrigin
+        sourceOrigin,
+        excludePreload: excludeUrl
     };
 
     const { articles, moreArticles } =
