@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useState, useEffect } from 'react';
+import get from '../../../common/utils/get';
 import useGridArticles from './useGridArticles';
 import ArticlesAcum, {
     typeAcumRules,
@@ -18,13 +19,22 @@ const useGridPagination = props => {
         getBanner,
         articlesInCollection = [],
         layout,
-        acumuladoGeneral = {}
+        nodeType = '',
+        isWiki = false,
+        acumuladoGeneral = {},
+        hasChainBeforeGrid = false
     } = props;
+
+    const hasCollectionApertura =
+        articlesInCollection.length ||
+        get(acumuladoGeneral, 'id_collection_promo_items', null);
 
     const { articles, moreArticles } = useGridArticles({
         ...props,
         page: currentPage,
-        hasCollectionApertura: articlesInCollection.length
+        hasCollectionApertura,
+        hasChainBeforeGrid,
+        isWiki
     });
 
     const { tipo_acumulado: accumulatedType = 'Grilla' } = acumuladoGeneral;
@@ -69,6 +79,10 @@ const useGridPagination = props => {
             outputType={outputType}
             typeArticle={typeArticle}
             articles={storedArticles[1] || articles}
+            nodeType={nodeType}
+            hasCollectionApertura={hasCollectionApertura}
+            hasChainBeforeGrid={hasChainBeforeGrid}
+            isWiki={isWiki}
         />
     );
 
