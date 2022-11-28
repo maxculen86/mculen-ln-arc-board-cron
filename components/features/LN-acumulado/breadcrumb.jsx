@@ -5,7 +5,6 @@ import React from 'react';
 
 import Breadcrumb from '../../private/LN/acumulado/breadcrumb';
 import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
-import StaticContent from '../../private/common/staticContent';
 
 const BreadcrumbFeature = props => {
     const { globalContent: { node_type: nodeType } = {} } = useAppContext();
@@ -16,9 +15,7 @@ const BreadcrumbFeature = props => {
             <Breadcrumb {...props} />
         </Static>
     ) : (
-        <StaticContent>
-            <Breadcrumb {...props} />
-        </StaticContent>
+        <Breadcrumb {...props} />
     );
 };
 
