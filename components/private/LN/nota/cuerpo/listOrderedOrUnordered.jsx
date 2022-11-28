@@ -14,8 +14,8 @@ const ListOrderedOrUnordered = ({ data }) => {
             return fullMatch.replace(group, 'com-link');
         });
         return filteredText.replace(regex, match => {
-            return match.replace(/href=(["'\\])+(.*?)\1/, match => {
-                return `${match} class="com-link"`;
+            return match.replace(/href=(["'\\])+(.*?)\1/, _match => {
+                return `${_match} class="com-link"`;
             });
         });
     };

@@ -71,7 +71,7 @@ export const productClickFromClient = (element = {}) => {
 
 export const createIntersectionObserver = () => {
     try {
-        const callback = (entries, observer) => {
+        const callback = (entries, _observer) => {
             const articlesToAdd = [];
             const articlesSeen =
                 (sessionStorage &&
@@ -82,7 +82,7 @@ export const createIntersectionObserver = () => {
                 if (shouldAddArticle(entry, articlesSeen)) {
                     const product = getDataSetProps(entry.target);
                     articlesToAdd.push(product);
-                    observer.unobserve(entry.target);
+                    _observer.unobserve(entry.target);
                 }
             });
 
