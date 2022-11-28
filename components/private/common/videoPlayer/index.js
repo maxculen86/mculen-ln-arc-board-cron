@@ -145,22 +145,10 @@ const VideoPlayer = props => {
             <script
                 dangerouslySetInnerHTML={{
                     __html: `
-                    window.addEventListener('powaError', () => {
-                        const facade = document.querySelector('.content-facade');
-                        if (facade) facade.remove();
-
-                        const [{
-                            shadowRoot
-                        } = {}] = document.querySelectorAll('.powa-shadow');
-                    
-                        let errorPowa =
-                            shadowRoot.querySelector &&
-                            shadowRoot.querySelector('div.powa-outage');
-                    
-                        if (errorPowa && ${isApertura} && errorPowa.innerHTML === '<p>This video is geo-restricted.</p><p>Error 931.</p>') {
-                            errorPowa.innerHTML = '¡Ups! Parece que este video no esta disponible en tu ubicación'
-                        }
-                    });`
+                        window.addEventListener('powaError', () => {
+                            const facade = document.querySelector('.content-facade');
+                            if (facade) facade.remove();
+                        });`
                 }}
             />
         </div>

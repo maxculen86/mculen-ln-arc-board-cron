@@ -2,10 +2,10 @@
 @import '../abstracts/mixins';
 
 .video-player {
-    min-height: 56vw;
+    min-height: 54vw;
 
     @media ($media-l) {
-        min-height: px(426);
+        min-height: px(413);
     }
 
     .home & {
@@ -15,6 +15,12 @@
     &.--isApertura {
         @media ($media-l) {
             min-height: px(495);
+        }
+
+        .video & {
+            @media ($media-l) {
+                min-height: px(461);
+            }
         }
     }
 

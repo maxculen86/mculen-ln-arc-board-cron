@@ -91,7 +91,7 @@ describe('private - common - videoPlayer', () => {
         expect(container.querySelector('.video-player')).toBeInTheDocument();
     });
     it('should have script for custom errors', () => {
-        const errorScript = `window.addEventListener('powaError',()=>{constfacade=document.querySelector('.content-facade');if(facade)facade.remove();const[{shadowRoot}={}]=document.querySelectorAll('.powa-shadow');leterrorPowa=shadowRoot.querySelector&&shadowRoot.querySelector('div.powa-outage');if(errorPowa&&true&&errorPowa.innerHTML==='<p>Thisvideoisgeo-restricted.</p><p>Error931.</p>'){errorPowa.innerHTML='¡Ups!Parecequeestevideonoestadisponibleentuubicación'}});`;
+        const errorScript = `window.addEventListener('powaError',()=>{constfacade=document.querySelector('.content-facade');if(facade)facade.remove();});`;
         const { container } = render(
             <VideoPlayer
                 videoId={'apertura_video_basic'}
@@ -165,7 +165,7 @@ describe('private - common - videoPlayer', () => {
         });
 
         it('should have the powa lazyload script.', () => {
-            const ScriptBuildPowa = `window.addEventListener('load',()=>{constisDesktop=deviceType()==='desktop'constvideoPlayerList=document.querySelectorAll('.video-player');constobserver=setIntersectionObserver(videoPlayerList,'sandbox',isDesktop,true,'','apertura_video_basic',true)window.addEventListener('powaReady',()=>{observer.disconnect();removeFacade();const[{shadowRoot}={}]=document.querySelectorAll('.powa-shadow');letdivFirstPowa=shadowRoot.querySelector&&shadowRoot.querySelector('[data-uuid=\"\"]');letuserPause=false;if(false&&false){divFirstPowa=undefined}if(divFirstPowa&&window.powas){const{powa}=window.powas[divFirstPowa.id];powa.on('pause',()=>userPause=true);powa.on('viewable',()=>!userPause&&powa.play());}});});`;
+            const ScriptBuildPowa = `window.addEventListener('load',()=>{setCustomErrorsVideoPlayer()constisDesktop=deviceType()==='desktop'constvideoPlayerList=document.querySelectorAll('.video-player');constobserver=setIntersectionObserver(videoPlayerList,'sandbox',isDesktop,true,'','apertura_video_basic',true)window.addEventListener('powaReady',()=>{observer.disconnect();removeFacade();const[{shadowRoot}={}]=document.querySelectorAll('.powa-shadow');letdivFirstPowa=shadowRoot.querySelector&&shadowRoot.querySelector('[data-uuid=\"\"]');letuserPause=false;if(false&&false){divFirstPowa=undefined}if(divFirstPowa&&window.powas){const{powa}=window.powas[divFirstPowa.id];powa.on('pause',()=>userPause=true);powa.on('viewable',()=>!userPause&&powa.play());}});});`;
             const { container } = videoPlayer;
             console.log(
                 '====>',
