@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import '../../../../resources/dist/css/ln/components/badge-usertype.css';
 import Icon from '../icon';
 import Text from '../text';
 
 const BadgeUsertype = ({ icon, text, title, dark, className, type }) => {
+    const typeClass = type ? `--${type}` : ``;
+    const darkClass = dark ? `--dark` : ``;
     return (
         <div
-            className={`usertype ${className} ${type ? `--${type}` : ``} ${
-                dark ? `--dark` : ``
-            }`}
+            className={`usertype ${className} ${typeClass} ${darkClass}`}
             title={title}
         >
             <Icon name={icon} />

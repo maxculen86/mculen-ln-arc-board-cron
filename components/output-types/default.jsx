@@ -166,17 +166,15 @@ const Default = props => {
                 <link
                     rel="preload"
                     as="script"
-                    href={`${deployment(
-                        `${contextPath}/dist/engine/react.js`
-                    )}`}
+                    href={deployment(`${contextPath}/dist/engine/react.js`)}
                     crossOrigin=""
                 />
                 <link
                     rel="preload"
                     as="script"
-                    href={`${deployment(
+                    href={deployment(
                         `${contextPath}/dist/components/combinations/default.js`
-                    )}`}
+                    )}
                     crossOrigin=""
                 />
                 <Libs />
