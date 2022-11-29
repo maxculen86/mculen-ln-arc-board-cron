@@ -31,7 +31,7 @@ const CajaTema = props => {
         isMultimedia
     } = props;
 
-    const artWithoutDate = clearArticleKey(articles, 'display_date');
+    const artWithoutDate = clearArticleKey('display_date', articles);
     const layoutName = getLayoutType(layout, artWithoutDate, _children);
 
     const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(

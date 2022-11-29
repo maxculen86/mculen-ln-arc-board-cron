@@ -115,10 +115,10 @@ const LNAcumuladoLayout = props => {
         'props.customFields.idCollection'
     );
 
-    const idCollectionApertura = getIdCollectionFromGC(
+    const idCollectionApertura = getIdCollectionFromGC({
         globalContent,
-        chainCollectionId
-    );
+        defaultValue: chainCollectionId
+    });
 
     const idCollectionsInPage = get(
         globalContent,

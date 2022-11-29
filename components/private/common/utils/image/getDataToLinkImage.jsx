@@ -199,7 +199,9 @@ const GetDataToLinkImage = ({
                 renderables
             );
             const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
-            const idCollectionApertura = getIdCollectionFromGC(data);
+            const idCollectionApertura = getIdCollectionFromGC({
+                globalContent: data
+            });
 
             if (
                 !hasFeatureAcumuladoApertura ||

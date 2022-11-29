@@ -24,17 +24,17 @@ const transform = data => {
         contentElements.map(elem => {
             return {
                 ...elem,
-                resized_url: createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl(
-                    elem.promo_image.url,
-                    289,
-                    163,
-                    {
+                resized_url: createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl({
+                    originalUrl: elem.promo_image.url,
+                    originalWidth: 289,
+                    originalHeight: 163,
+                    opt: {
                         width: 289,
                         height: 163,
                         media: '(min-width: 320px)',
                         type: 'image'
                     }
-                )
+                })
             };
         });
     return transformedData;
