@@ -97,6 +97,8 @@ const VideoPlayer = props => {
                 videoId,
                 streamingAnalyticInstance
             );
+
+            return undefined;
         };
 
         if (!isAdmin && window && window.powaBoot) window.powaBoot();

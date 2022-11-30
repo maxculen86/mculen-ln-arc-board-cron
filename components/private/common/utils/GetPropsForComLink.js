@@ -10,6 +10,7 @@ const setNofollow = (link, rel, withSponsoredLink, target) => {
                     : undefined)
         };
     }
+    return {};
 };
 
 const generateProps = (
