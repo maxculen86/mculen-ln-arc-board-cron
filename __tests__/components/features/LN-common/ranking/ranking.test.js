@@ -81,7 +81,7 @@ describe('Features - LN - Common - Ranking - default', () => {
                 website: 'la-nacion-ar'
             },
             source: 'rankingArticlesSource',
-            staticMode: true
+            staticMode: false
         });
 
         expect(container).toMatchSnapshot();

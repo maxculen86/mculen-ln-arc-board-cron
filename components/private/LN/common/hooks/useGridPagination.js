@@ -7,23 +7,24 @@ import ArticlesAcum, {
 } from '../../acumulado/articlesAcum';
 import ArticleAcum from '../../acumulado/articleAcum';
 import ModRowGap from '../../../common/mod-rowgap';
-import get from '../../../common/utils/get';
 
 const useGridPagination = props => {
     const [currentPage, setCurrentPage] = useState(1);
     const [storedArticles, setStoredArticles] = useState({});
     const [loading, setLoading] = useState(false);
 
-    const { outputType, getBanner, layout, acumuladoGeneral = {} } = props;
-    const hasCollectionApertura = !!get(
-        acumuladoGeneral,
-        'id_collection_promo_items'
-    );
+    const {
+        outputType,
+        getBanner,
+        articlesInCollection = [],
+        layout,
+        acumuladoGeneral = {}
+    } = props;
 
     const { articles, moreArticles } = useGridArticles({
         ...props,
         page: currentPage,
-        hasCollectionApertura
+        hasCollectionApertura: articlesInCollection.length
     });
 
     const { tipo_acumulado: accumulatedType = 'Grilla' } = acumuladoGeneral;

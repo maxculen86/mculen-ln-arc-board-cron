@@ -2,8 +2,8 @@
 
 exports[`Features - LN - Common - Ranking - default Should render ranking acu politica 1`] = `
 <div>
-  <div
-    class="hidden"
+  <mock-static-validation
+    id="LN-acumulado"
   >
     <div
       data-module="tema_ranking"
@@ -318,7 +318,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
         </div>
       </section>
     </div>
-  </div>
+  </mock-static-validation>
 </div>
 `;
 
