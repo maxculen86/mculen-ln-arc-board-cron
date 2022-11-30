@@ -148,7 +148,7 @@ const media = ({
                         withZoom={withZoom}
                         active={active}
                         html={html}
-                        scriptForZoom={scriptForZoom}
+                        scriptForZoom={!isApertura && scriptForZoom}
                         outputType={outputType}
                     >
                         {item}
