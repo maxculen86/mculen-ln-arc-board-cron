@@ -1,5 +1,9 @@
 import request from 'request-promise-native';
-import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import {
+    CONTENT_BASE,
+    ARC_ACCESS_TOKEN,
+    SITE_LANACION
+} from 'fusion:environment';
 import Redirect from './utils/redirect';
 
 const is404 = message => {
@@ -20,6 +24,10 @@ const eventByFilter = {
 };
 
 const fetch = query => {
+    if (query.hasOwnProperty('nota_id')) {
+        const notaIdAsp = query.nota_id.replace('/', '');
+        throw new Redirect(`${SITE_LANACION}/${notaIdAsp}`, 301);
+    }
     const { statusCode } = query;
     const { path, typeFilter } = resolve(query);
     const opt = {
@@ -77,7 +85,8 @@ export default {
         source_id: 'text',
         website_url: 'text',
         website: 'text',
-        statusCode: 'text'
+        statusCode: 'text',
+        nota_id: 'text'
     },
     fetch
 };
