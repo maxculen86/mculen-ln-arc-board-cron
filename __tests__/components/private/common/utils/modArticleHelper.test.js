@@ -253,4 +253,21 @@ describe('Test - getMediaData', () => {
             withMobileImage: undefined
         });
     });
+
+    test('should return the data of the video when the layout is "gridVideo1" and the device is mobile', () => {
+        expect(
+            getMediaData(
+                videoBackground,
+                'mobile',
+                mobileImage,
+                'grillaVideo1',
+                isRenderAuthor,
+                isRenderAuthorOpinion,
+                articleData
+            )
+        ).toStrictEqual({
+            mediaData: videoBackground,
+            withMobileImage: false
+        });
+    });
 });

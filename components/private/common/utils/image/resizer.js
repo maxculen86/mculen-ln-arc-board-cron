@@ -332,22 +332,46 @@ export const resizePromoItems = (
     const { defaultResize, shouldExcludeCrop } = getDefaultSize(subtype);
 
     const optionsFinal = get(resizeOptions, 'sizes', [defaultResize]);
-
     Object.keys(promoItems).forEach(key => {
         const pi = promoItems[key];
 
-        if (pi.type === 'image') {
-            resp[key] = resizeArcImage(
-                pi,
-                optionsFinal,
-                resizer,
-                zoomSizes,
-                shouldExcludeCrop,
-                defaultResize
-            );
-        } else {
-            resp[key] = pi;
-        }
+        const types = {
+            video: () => {
+                const videoImage = get(pi, 'promo_items.basic');
+
+                resp[key] = {
+                    ...pi,
+                    promo_items: {
+                        basic: {
+                            ...pi.promo_items.basic,
+                            ...resizeArcImage(
+                                videoImage,
+                                optionsFinal,
+                                resizer,
+                                zoomSizes,
+                                shouldExcludeCrop,
+                                defaultResize
+                            )
+                        }
+                    }
+                };
+            },
+            image: () => {
+                resp[key] = resizeArcImage(
+                    pi,
+                    optionsFinal,
+                    resizer,
+                    zoomSizes,
+                    shouldExcludeCrop,
+                    defaultResize
+                );
+            },
+            default: () => {
+                resp[key] = pi;
+            }
+        };
+
+        types[pi.type] ? types[pi.type]() : types.default();
     });
 
     return resp;
@@ -390,6 +414,7 @@ export const addResizedUrls = (ansDoc, options) => {
         content_elements: contentElements,
         credits
     } = ansDoc;
+
     if (!resizerSecret || !resizerUrl || !presets)
         throw new Error(
             'Debe proporcionar el resizerSecret, resizerUrl y presets'
@@ -419,6 +444,21 @@ export const addResizedUrls = (ansDoc, options) => {
                             true,
                             defaultResize
                         )) ||
+                    (type === 'video' && {
+                        ...elem,
+                        promo_items: {
+                            basic: {
+                                ...resizeArcImage(
+                                    elem.promo_items.basic,
+                                    presetsContentElements || presetsDefault,
+                                    resizer,
+                                    zoomSizes,
+                                    true,
+                                    defaultResize
+                                )
+                            }
+                        }
+                    }) ||
                     (type === 'gallery' &&
                         resizeArcGallery(
                             elem,

@@ -1,0 +1,3538 @@
+[
+    {
+        "_id": "CYRVJGWAQFHFRA2GVETNNMSWIA",
+        "content_elements": [
+            {
+                "content": "<b>El anuncio apresurado de una ampliación del </b><i><b>swap </b></i><b>de monedas</b> que el país mantiene desde hace años con China para reforzar cosméticamente las tenencias del Banco Central (BCRA)<b> no modificó, previsiblemente, el clima de nerviosismo que va ganando a la plaza local.</b>",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-15T19:12:36.088Z",
+        "headlines": {
+            "basic": "El anuncio de una ampliación del swap con China no detuvo el drenaje de reservas",
+            "mobile": "Pese a los anuncios, el Banco Central sigue perdiendo dólares"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Swap con China."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/ECj3qunp9ppx3ZCyVDrPdUsD7IQ=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q5J6HMXLTVH4DLRX34VQGWOWPU.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/jcCjL_PHdjkW_j9-1wYZtQ13IbA=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q5J6HMXLTVH4DLRX34VQGWOWPU.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/xdaKNVCCc4Qwf7K_xa0xHgoWnTI=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q5J6HMXLTVH4DLRX34VQGWOWPU.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/dnYnCHzSMYEneZc7yAWO3GgRGII=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q5J6HMXLTVH4DLRX34VQGWOWPU.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/r3kj1p9tx1-ogO5nDXqm5y6zbPc=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q5J6HMXLTVH4DLRX34VQGWOWPU.jpg"
+                    }
+                ],
+                "subtitle": "Por los proyectos oficiales, se disparó otra corrida que llevó el dólar a nuevos récords",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/017VwcGWtpcvJdm63O3_qi_g9Jk=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q5J6HMXLTVH4DLRX34VQGWOWPU.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-15T23:05:41.309Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "La entidad monetaria vendió otros US$48 millones y los precios libres del dólar vuelven a subir, mostrando el nerviosismo que genera esta pérdida en el mercado"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/el-anuncio-de-una-ampliacion-del-swap-con-china-no-detuvo-el-drenaje-de-reservas-nid15112022/"
+    },
+    {
+        "_id": "H47N74PUQRFABINBDKIH7SKYDM",
+        "content_elements": [
+            {
+                "content": "<b>El Banco Central (BCRA) cerró su jornada cambiaria cediendo hoy otros US$100 millones de sus reservas</b> en intervenciones sobre el mercado oficial para mantener bajo control el precio del dólar oficial, al que dejó trepar en $1,08 con respecto al viernes (+3,16% en el mes) al clausurar el día a un promedio de $161,58/161,78 por unidad para compra y venta, respectivamente.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-14T19:20:39.063Z",
+        "headlines": {
+            "basic": "El BCRA enfrenta su peor sangría de reservas por ventas de los últimos 26 meses",
+            "mobile": "El BCRA enfrenta su peor sangría de reservas por ventas de los últimos 26 meses"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Dólar."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/eLasx7TkDKpE_YPCe2CTOrdcJp0=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/MEVJUP6KERD5JFOTZ5MG35UOYY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/r09L4V7_5d-vI-o5BIHvZjZFBdY=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/MEVJUP6KERD5JFOTZ5MG35UOYY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/6dZdjwKFFhuSFHZyHIbdBRkq6XU=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/MEVJUP6KERD5JFOTZ5MG35UOYY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/NV1ndzN3yx0aJlDwv3LDJMYsc4I=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/MEVJUP6KERD5JFOTZ5MG35UOYY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/mOUwOHbktFId2RH_4Azwotm_R7o=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/MEVJUP6KERD5JFOTZ5MG35UOYY.jpg"
+                    }
+                ],
+                "subtitle": "Banco Central de la República Argentina",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/6mqqCVuHhUrzUxYb1wWoeG3rZeA=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/MEVJUP6KERD5JFOTZ5MG35UOYY.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-14T21:35:52.492Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Vendió hoy otros US$100 millones, con lo que acumula una pérdida de US$885 millones en las 12 ruedas que lleva con cierre negativo "
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/el-bcra-enfrenta-su-peor-sangria-de-reservas-por-ventas-de-los-ultimos-26-meses-nid14112022/"
+    },
+    {
+        "_id": "AJNGRA6GNZDGXLM623CWK7G5PI",
+        "content_elements": [
+            {
+                "content": "<b>El Banco Central (BCRA) pudo reducir levamente hoy el nivel de reservas que pierde por intervenciones sobre el mercado cambiario oficial, aunque no pudo cortar la sangría. </b>Lo hizo<b> al verse beneficiado por el desplome del 50% en relación al la rueda previa que tuvo el volumen operado </b>por el segmento de contado (alcanzó apenas los US$164,3 millones, el menor monto en tres meses), al resultar afectado por el feriado que se registra en Estados Unidos al conmemorarse allí el Día de los Veteranos de Guerra.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-11T20:27:00.113Z",
+        "headlines": {
+            "basic": "El Banco Central vendió otros US$50 millones de sus reservas y sacrificó unos US$525 millones en la semana ",
+            "mobile": "El BCRA no frena la sangría: perdió US$525 millones de sus reservas en la semana"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Compró caro y vende barato."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/twWNqLBoAN8F8mpIC6XqZ-rcZMs=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WNFHIWBYJRG4LI7XHUGHDEN42A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/cELnP9dVY7e_PSzBIYt4VmWDrmU=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WNFHIWBYJRG4LI7XHUGHDEN42A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/-MRCLbz-aezJ59afeTEz0vpdYtY=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WNFHIWBYJRG4LI7XHUGHDEN42A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/tFDiD53wNNAtVpfOJDKDLJjHXxo=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WNFHIWBYJRG4LI7XHUGHDEN42A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/3LAOny6RQyGJSFToyvFSe42onDM=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WNFHIWBYJRG4LI7XHUGHDEN42A.jpg"
+                    }
+                ],
+                "subtitle": "Banco Central de la República Argentina.",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/JzUGG7hZOsda6GGxwJzl2-OWWvk=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WNFHIWBYJRG4LI7XHUGHDEN42A.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-11T20:27:00.113Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Ni el recorte en las operaciones por un feriado en Estados Unidos le ayudó para frenar el drenaje"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                },
+                {
+                    "slug": "banco-central-tid31402",
+                    "text": "Banco Central"
+                },
+                {
+                    "slug": "reservas-del-banco-central-tid50516",
+                    "text": "Reservas del Banco Central"
+                }
+            ]
+        },
+        "website_url": "/economia/el-bcra-vendio-otros-us-50-millones-y-sacrifico-por-esta-via-unos-us-525-millones-en-la-semana-nid11112022/"
+    },
+    {
+        "_id": "BRYFIN2ZZVG3FJIEN4S25PNR2E",
+        "content_elements": [
+            {
+                "content": "<b>El Gobierno logró reducir en un 60% la carga de vencimientos de la deuda pública en pesos que enfrentaba hasta fin de año</b>, aunque tras ofrecer nuevas garantías a los inversores, naturalmente temerosos del proceso de erosión que enfrenta la moneda local por la inflación o una posible mayor devaluación, y pateando para un momento “sensible” (la previa de las próximas elecciones presidenciales) esos compromisos.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-10T23:38:10.553Z",
+        "headlines": {
+            "basic": "Deuda en pesos: con un nuevo canje, el Gobierno alivió un 60% los pagos que enfrentaba hasta fin de año",
+            "mobile": "Con un nuevo canje, el Gobierno alivió un 60% los pagos que enfrentaba hasta fin de año"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Deuda en pesos."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/g2wP6IxutWSpeQBGe3CsxN3Jt_w=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QIXFICHS3VAA3JB7BQEQVUFROE.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/QWkhldxfkRXuJRKTw5RNdS9lUp8=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QIXFICHS3VAA3JB7BQEQVUFROE.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/sGg9v8KMS8IUVtoXfcE8RMaxZxo=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QIXFICHS3VAA3JB7BQEQVUFROE.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/8tosI14X-e3VaqBHdypuWT-ebxE=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QIXFICHS3VAA3JB7BQEQVUFROE.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/ikgn-bn37ItUUUjH9R029lLbgwU=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QIXFICHS3VAA3JB7BQEQVUFROE.jpg"
+                    }
+                ],
+                "subtitle": "El Gobierno depositó el primer pago de deuda en Buenos Aires para los bonistas que ingresaron a los canjes",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/ugYJMeDdSudDzBXjJ-2OgP6GxLc=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QIXFICHS3VAA3JB7BQEQVUFROE.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-10T23:46:50.609Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Como contrapartida crea una montaña de vencimientos para los meses previos a las próximas elecciones"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/deuda-en-pesos-con-un-nuevo-canje-el-gobierno-alivio-un-60-los-pagos-que-enfrentaba-hasta-fin-de-ano-nid10112022/"
+    },
+    {
+        "_id": "3RHOAYHELNFPFOSE6SSBKQM2UA",
+        "content_elements": [
+            {
+                "content": "<b>El Banco Central (BCRA) no consigue detener el proceso de drenaje de reservas </b>que se reabrió tras el final del denominado “dólar soja”, <b>aunque acelera el ritmo de depreciación del peso, que ya corre a un ritmo 7% mensual en lo que va de noviembre. </b>Se trata de un nivel inédito para la errática política de deslizamiento del tipo de cambio oficial que venía ensayando la administración Fernández hasta aquí.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-10T19:36:15.047Z",
+        "headlines": {
+            "basic": "Dólar hoy: el Banco Central no deja de vender reservas, aunque acelera la devaluación del peso",
+            "mobile": "El Banco Central no deja de vender reservas, aunque acelera la devaluación del peso"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Dólar."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/v5Gq3zF7z8w-RGs-DIcFL7Hhqmo=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XPAMGTD7GFAGJH33DWBOT3MKGQ"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/rSECXmZK-ctH3belswv3ar_wLzQ=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XPAMGTD7GFAGJH33DWBOT3MKGQ"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/JuQUF_AdhlapmtL2_YusGxTmaEA=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XPAMGTD7GFAGJH33DWBOT3MKGQ"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/M7UFFwD8lUWXlJBVxBCB5jDEcAs=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XPAMGTD7GFAGJH33DWBOT3MKGQ"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/obc8kcsDwwRjMR0JZYPGpM0trY4=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XPAMGTD7GFAGJH33DWBOT3MKGQ"
+                    }
+                ],
+                "subtitle": "Archivo - Entrada del Banco Central de la República Argentina",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/navpDPPItkF4o2OcecmEyHXBPss=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XPAMGTD7GFAGJH33DWBOT3MKGQ",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-10T21:50:54.180Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Aunque deja correr el dólar oficial a un ritmo del 7% mensual, la entidad debió liquidar otros US$95 millones; se espera un recorte en las ventas para mañana por feriado en Estados Unidos"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/el-banco-central-no-deja-de-vender-reservas-aunque-acelera-la-devaluacion-del-peso-nid10112022/"
+    },
+    {
+        "_id": "Y7AFP4NIYBFC5FHZF2XYWKBNVA",
+        "content_elements": [
+            {
+                "content": "<b>La racha vendedora del Banco Central (BCRA) enhebró hoy su noveno capítulo consecutivo, al tener que aportar al mercado esa entidad otros US$80 millones de sus flácidas reservas netas,</b> sólo para poder dar curso a las órdenes de compra que habían superado todos los filtros oficiales.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-09T19:44:15.310Z",
+        "headlines": {
+            "basic": "El Banco Central no deja de vender reservas: sacrificó más de US$600 millones en lo que va del mes",
+            "mobile": "El Banco Central no deja de perder reservas: sacrificó más de US$600 millones en lo que va del mes"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Menos dólares."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Opg3DS_xfm-r2vvUw9-r_oEtHoc=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU6REVKFENG3NIK52NYCRKBLPU.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/HqMUbpPvCJaodsaiNJZ_v-vdVvY=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU6REVKFENG3NIK52NYCRKBLPU.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/d4JiPN5kEXSkYtqZH6TyJytKK20=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU6REVKFENG3NIK52NYCRKBLPU.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/aA0tehrP4x5VxX22it6IrZsS6yA=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU6REVKFENG3NIK52NYCRKBLPU.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/l5hGkO_cYenTR9YdjY9vLYDeXeA=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU6REVKFENG3NIK52NYCRKBLPU.jpg"
+                    }
+                ],
+                "subtitle": "Banco Central de la República Argentina",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/wV-0v4Gk-NttYAm4w9O1MZExPFA=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU6REVKFENG3NIK52NYCRKBLPU.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-09T22:05:31.410Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "La entidad debió aportar al mercado otros US$80 millones en una jornada en la que elevó su queja por los problemas para acceder al mercado la industria minera; podría haber un nuevo tipo de cambio diferencial para atraer oferta en diciembre"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/el-banco-central-no-deja-de-vender-reservas-sacrifico-mas-de-us600-millones-en-lo-que-va-del-mes-nid09112022/"
+    },
+    {
+        "_id": "G2UWA5SRSNANXJMTWMLUDDE36A",
+        "content_elements": [
+            {
+                "content": "El Gobierno oficializó hoy el llamado a un <b>canje de deuda</b> con el que buscará descomprimir la exigente carga de pagos que enfrenta en los 50 días que restan para finalizar el año. La operación de conversión fue lanzada para el jueves y su liquidación se hará el martes siguiente.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-08T23:10:12.484Z",
+        "headlines": {
+            "basic": "El Gobierno lanzó el canje de deuda para patear vencimientos por hasta $800.000 millones hasta fin de año",
+            "mobile": "El Gobierno lanzó el canje de deuda: busca patear $800.000 millones"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Operación."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Lni8iw8m8wb2ezcuE75Pkp6FIWg=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SZ3XY2PFVNEILLJN32DHTGPOQA.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/RrRcSGbnU36uiQbWD8N24ib9TQ0=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SZ3XY2PFVNEILLJN32DHTGPOQA.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/W4CUaoF3LCXcJBJ1qE5c90mu5T0=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SZ3XY2PFVNEILLJN32DHTGPOQA.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/V3Sxgfju9uSC37T7mIrSn_tkHm4=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SZ3XY2PFVNEILLJN32DHTGPOQA.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/wV494YPKLJH9ekxnTT5ZE_Jola0=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SZ3XY2PFVNEILLJN32DHTGPOQA.JPG"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/qNLBtATbqg1UXQjlB8qqnbDtZU4=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SZ3XY2PFVNEILLJN32DHTGPOQA.JPG",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-09T15:23:05.886Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Ofrece a inversores la reapertura de los bonos duales con que concretara la conversión en agosto, al inicio de la gestión Massa"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/el-gobierno-lanzo-el-canje-de-deuda-para-patear-vencimientos-por-hasta-800000-millones-hasta-fin-de-nid08112022/"
+    },
+    {
+        "_id": "DD7XE2DAFNEHHF2LOKLJZ4WAJY",
+        "content_elements": [
+            {
+                "content": "Como suele hacer periódicamente, habida cuenta la <b>montaña de pesos</b> que emitió en los últimos años sin que haya como contrapartida una demanda genuina del otro lado, el Banco Central (BCRA) absorbió otros $131.032 millones hoy, al colocar entre los bancos nuevas letras de liquidez (Leliq) a 28 días por $758.965 millones cuando le vencían por $627.000 millones.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-08T21:01:02.529Z",
+        "headlines": {
+            "basic": "La “bola de Leliq” no deja de crecer y ya superó los $9 billones",
+            "mobile": "La “bola de Leliq” no deja de crecer y ya superó los $9 billones"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Deuda."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/K8LooBIbpY7aV2P-37M7LUzfHIY=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q5USEDMCE5ACHFIARTQBI4CGRI.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/lvFEqZq9jmN_GbP5aybQBzz0qMY=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q5USEDMCE5ACHFIARTQBI4CGRI.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/rMgzmc3PNapkUGEdskDZYcLq5fY=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q5USEDMCE5ACHFIARTQBI4CGRI.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/5l-zUQzY04kdfK4aIC45UdJB4Cs=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q5USEDMCE5ACHFIARTQBI4CGRI.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/fub9VhN76kfyorn795rmHYOdupg=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q5USEDMCE5ACHFIARTQBI4CGRI.jpg"
+                    }
+                ],
+                "subtitle": "Close-up,Of,Bills,Of,1000,Argentine,Pesos,Seen,From,Above",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/xjYQJ4APu8m2h6JV4bOGjlZ-vhc=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Q5USEDMCE5ACHFIARTQBI4CGRI.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-08T22:38:19.176Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Es una deuda que tomó vida propia y se alimenta ahora básicamente de la fuerte emisión para pagar los intereses que genera; además, representa más de un 210% de la base monetaria y entre 9,4 y 10,2 puntos en relación al tamaño de la economía, según la estimación de PBI que se realice"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                },
+                {
+                    "slug": "banco-central-tid31402",
+                    "text": "Banco Central"
+                }
+            ]
+        },
+        "website_url": "/economia/la-bola-de-leliq-no-deja-de-crecer-y-ya-supero-los-9-billones-nid08112022/"
+    },
+    {
+        "_id": "54TBH6AYR5EJXOVFPPLCIFVQC4",
+        "content_elements": [
+            {
+                "content": "<b>El Banco Central (BCRA) no logra detener la nueva sangría de reservas que se disparó tras el fin del dólar soja y se aceleró en las últimas ruedas,</b> al desplomarse la oferta de divisas en medio de una sequía que no sólo recortó fuerte la cosecha de trigo, sino que pone en serio riesgo a la próxima de maíz y soja, un aporte clave sobre el que se monta el <b>“plan aguantar”</b> que está ensayando el Gobierno para tratar de administrar la escasa tenencia neta de divisas y llegar hasta el momento en que aparezcan dichos ingresos.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-08T18:50:32.036Z",
+        "headlines": {
+            "basic": "El Banco Central no puede frenar la sangría de reservas: vendió hoy otros US$145 millones",
+            "mobile": "El Banco Central no puede frenar la sangría de reservas: vendió hoy otros US$145 millones"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Sigue en rojo."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/q_683bLxNh-MTy85Xde_dWmsJl0=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BCFRNWFLFJDKJHEXAPKDQZJD3A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/FulQZkIBe_RJjdrobwmx2aHRJuE=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BCFRNWFLFJDKJHEXAPKDQZJD3A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/H7gamK_OBG-aOuPUmrn-ewKPmoA=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BCFRNWFLFJDKJHEXAPKDQZJD3A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/maAQitj0clrO-z1xghUg6rZ3AbU=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BCFRNWFLFJDKJHEXAPKDQZJD3A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/xZk7UkqeVdr5weJMZXY7AL96GT0=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BCFRNWFLFJDKJHEXAPKDQZJD3A.jpg"
+                    }
+                ],
+                "subtitle": "Banco Central de la República Argentina",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/RWPJVDcHoEienAdcjWkkoh5hwGI=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BCFRNWFLFJDKJHEXAPKDQZJD3A.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-08T19:32:57.233Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "De este modo, ya liquidó casi US$300 millones en lo que va de la semana"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                },
+                {
+                    "slug": "reservas-del-banco-central-tid50516",
+                    "text": "Reservas del Banco Central"
+                },
+                {
+                    "slug": "banco-central-tid31402",
+                    "text": "Banco Central"
+                }
+            ]
+        },
+        "website_url": "/economia/el-banco-central-no-puede-frenar-la-nueva-sangria-de-reservas-vendio-hoy-otros-us145-millones-nid08112022/"
+    },
+    {
+        "_id": "U7YQKYX345B2HOUAZXUBCMITJU",
+        "content_elements": [
+            {
+                "content": "<b>El Gobierno captó hoy del mercado casi $63.600 millones en la primera licitación de deuda -de las tres previstas para el presente mes</b>- al ofrecer entre inversores cuatro títulos, con lo que se aseguró unos $25.360 millones para cubrir su elevado déficit, dado que en el corto plazo sólo enfrenta vencimientos de papeles por unos $38.200 millones.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-07T22:48:00.190Z",
+        "headlines": {
+            "basic": "El Gobierno tomó $63.600 millones y testeó el mercado para un nuevo canje",
+            "mobile": "El Gobierno tomó $63.600 millones y testeó el mercado para un nuevo canje"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Financiamiento."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/ugtO24doCNwkEP19j0-gydVYlzU=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ETRNQRFZBJC33LKLWJIUVN4CJU.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/QmXixJH2jAh4KgOUZup9lgfOd1s=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ETRNQRFZBJC33LKLWJIUVN4CJU.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Sxjk49TdG13ppKuqtpsxKD2KAv0=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ETRNQRFZBJC33LKLWJIUVN4CJU.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/DbDV_GnqkqDSSTlx1qxfbwjTBGM=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ETRNQRFZBJC33LKLWJIUVN4CJU.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/qXKSXp_p6VTyhagtBUstQPhcxKk=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ETRNQRFZBJC33LKLWJIUVN4CJU.jpg"
+                    }
+                ],
+                "subtitle": "Ministerio de Economía",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/Z3NNxxcmtV0YxQORSNyqpR3FByQ=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ETRNQRFZBJC33LKLWJIUVN4CJU.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-07T22:48:00.190Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Consiguió unos $25.360 millones frescos para el Tesoro; ahora debe definir la estrategia con la que afrontará lo que resta del año, ahora que los vencimientos de deuda se le vuelven a empinar"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia/negocios",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Negocios",
+                "path": "/economia/negocios"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/negocios/el-gobierno-tomo-63600-millones-y-testeo-el-mercado-para-un-nuevo-canje-nid07112022/"
+    },
+    {
+        "_id": "KE5D62U6CNH4VFVYFCLEGXACMM",
+        "content_elements": [
+            {
+                "content": "<b>El Banco Central (BCRA) no logra detener el drenaje de reservas </b>reiniciado una vez finalizada la vigencia efectiva del denominado<b> dólar soja: debió desprenderse hoy de otros US$150 millones</b> para poder dar curso a las órdenes de compra que superaron todos los filtros, ante una oferta de divisas que se mantiene raleada y no alcanza para cubrir el total de la demanda aprobada.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-07T18:43:32.933Z",
+        "headlines": {
+            "basic": "Desde que finalizó el dólar soja, el Banco Central ya perdió US$940 millones de sus reservas en intervenciones en el mercado ",
+            "mobile": "El Banco Central ya vendió US$940 millones de sus reservas tras el fin del dólar soja"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "En rojo."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/r9RSbK0DrSRoAImsOfzGTUnEn7s=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PGKCPITG5BAVLBD3EVKBC7VTNE.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/eyjDFYgkPoq_wpENsVBgv7Bq8As=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PGKCPITG5BAVLBD3EVKBC7VTNE.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/bMy-22inSQ34kf4xmM6Ejs_XmxQ=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PGKCPITG5BAVLBD3EVKBC7VTNE.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/yfbtkQ3ViEoY8mlsk6L2_rQ_1dY=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PGKCPITG5BAVLBD3EVKBC7VTNE.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/13dd4wKg_rjduf_OqGqSa8Zhos4=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PGKCPITG5BAVLBD3EVKBC7VTNE.jpg"
+                    }
+                ],
+                "subtitle": "Banco Central de la República Argentina",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/nvCFubyxaE0J2zs8gwjpXpOAteQ=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PGKCPITG5BAVLBD3EVKBC7VTNE.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-07T21:03:24.553Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Se desprendió hoy de otros US$150 millones y lleva siete ruedas perdiendo divisas compradas “caras” por el tipo de cambio diferencial para el agro"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                },
+                {
+                    "slug": "reservas-del-banco-central-tid50516",
+                    "text": "Reservas del Banco Central"
+                },
+                {
+                    "slug": "banco-central-tid31402",
+                    "text": "Banco Central"
+                },
+                {
+                    "slug": "dolar-soja",
+                    "text": "Dólar soja"
+                }
+            ]
+        },
+        "website_url": "/economia/desde-que-finalizo-el-dolar-soja-el-bcra-ya-perdio-us940-millones-de-sus-reservas-en-intervenciones-nid07112022/"
+    },
+    {
+        "_id": "B4J42FOZTNHW7NVKOWDOJDHDHA",
+        "content_elements": [
+            {
+                "content": "Para los analistas de mercado,<b> los frenos que el Gobierno intenta aplicarle a la inflación podrán servirle para mantenerla entre 100 y 101% finalmente este año, pero no lograrán evitar que escale hasta 96% (5,5 puntos porcentuales más de los que habían pronosticado el mes pasado) durante el último año de mandato de Alberto Fernández.</b>",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-05T10:24:20.169Z",
+        "headlines": {
+            "basic": "El mercado mantiene su proyección de inflación en 100% para este año y ya la ubica en torno al 96% para 2023",
+            "mobile": "El indicador económico que empeora aceleradamente de cara al último año de Alberto Fernández"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Pronóstico."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/n-Rl3mymjUmeX4lMoB0o6eaBWIQ=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XKBTLLRY5VH3PDU3F7DYFVVGU4"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/KuiVB7lYNVxGnJJ0F6xGFcWd2oA=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XKBTLLRY5VH3PDU3F7DYFVVGU4"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/_lh1xMhzRjc78-55RZ-fWOZLAPo=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XKBTLLRY5VH3PDU3F7DYFVVGU4"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/PYPlw1lGozUyo2CUO408NgRglj0=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XKBTLLRY5VH3PDU3F7DYFVVGU4"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/XBoz-8UcKoakGcyV0VK_eQYyjLw=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XKBTLLRY5VH3PDU3F7DYFVVGU4"
+                    }
+                ],
+                "subtitle": "Un estante de carne en el Mercado Municipal de Pacífico, a 6 de agosto de 2022, en Madrid (España). El encarecimiento de los alimentos básicos pone en el punto de mira la calidad de la nutrición, en un momento en el que la inflación está en el 10,8%. Acor",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/cL7gs1v_Z0Y4a4MEfd_7KGE05s4=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XKBTLLRY5VH3PDU3F7DYFVVGU4",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-05T10:24:20.169Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Se estabilizó la expectativa en el corto plazo pero creció en más de cinco puntos la estimación para el próximo año"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/el-mercado-mantiene-su-proyeccion-de-inflacion-en-100-para-este-ano-y-ya-la-ubica-en-torno-al-96-nid04112022/"
+    },
+    {
+        "_id": "QXSTXNQUMNGYHJH4U465KHORRM",
+        "content_elements": [
+            {
+                "content": "El Banco Central (BCRA) completó toda una semana brindando asistencia al mercado cambiario oficial con su tenencia de reservas, una situación que no le tocaba enfrentar desde comienzos de agosto. <b>Lo hizo al verse obligado a aportar hoy otros US$49 millones</b>, con lo que terminó sacrificando unos <b>US$370 millones en la semana que termina, </b>cifra que se eleva a US$398 millones desde que comenzara esta “racha vendedora” el viernes anterior y se acerca a los US$800 millones desde que se terminó de extinguir la entrada de divisas vinculada a la vigencia del dólar soja, el martes 5 de octubre pasado.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-04T19:18:57.939Z",
+        "headlines": {
+            "basic": "Dólar hoy: el Banco Central completó toda la semana en modo vendedor y perdió unos US$370 millones en intervenciones sobre el mercado",
+            "mobile": "El Banco Central perdió esta semana US$367 millones"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Dólar."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/hcvSKM9OUkn-zZbLV0Kj6KgXX2E=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/X2LNEJNLNNCQVAVIL6MLTAV2EY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Xs5iPAafvhDM-KXc-DXGGgQEShM=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/X2LNEJNLNNCQVAVIL6MLTAV2EY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/q1p4BA1luLGVaXWXhqdaTJzk1qo=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/X2LNEJNLNNCQVAVIL6MLTAV2EY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/ZyFieCO89TMgNtz0oAkrdAlYuQo=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/X2LNEJNLNNCQVAVIL6MLTAV2EY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/laA6Q_1MrElSF_MDJWB9tHD9yQI=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/X2LNEJNLNNCQVAVIL6MLTAV2EY.jpg"
+                    }
+                ],
+                "subtitle": "El peso argentino sufre por reducción de la reservas internacionales",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/23LY4UUtGbIgQCkp8rgUbJYdbHs=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/X2LNEJNLNNCQVAVIL6MLTAV2EY.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-04T21:00:18.831Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "La entidad se tuvo que desprender hoy de otros US$49 millones y ya liquidó el 16% de las divisas recompradas a $200 durante la vigencia del dólar soja"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/el-bcra-completo-toda-la-semana-en-modo-vendedor-perdio-unos-us370-millones-en-intervenciones-sobre-nid04112022/"
+    },
+    {
+        "_id": "52DQUAFLS5C4HPUJRD2FTLXWEI",
+        "content_elements": [
+            {
+                "content": "<b>El Banco Central (BCRA) se vio obligado nuevamente a vender reservas hoy. </b>Lo hizo por <b>quinta rueda consecutiva,</b> en una jornada en la que su directorio además comenzó a definir la “letra chica” de las normas cambiarias anticipadas esta semana por el ministro de Economía, Sergio Massa.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-03T19:14:27.175Z",
+        "headlines": {
+            "basic": "Se mantiene la nueva sangría de reservas del Banco Central: ronda los US$350 millones en los últimos cinco días",
+            "mobile": "Se mantiene la nueva sangría de reservas del BCRA: acumula pérdidas de US$350 millones en cinco días"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "En rojo."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/vbWbiV_PXiMteYCZTCL27D0XAHQ=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BZAU4675PRDKDBVSRJJO24F7DI.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/vhn8lU3qakiKW2IFn-65Se-DMxQ=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BZAU4675PRDKDBVSRJJO24F7DI.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/mNTZuTkVVGX5fvH36dNHCEEbdNg=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BZAU4675PRDKDBVSRJJO24F7DI.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/FO0JlkA4gymhx_Q6cSP4HBVhOeA=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BZAU4675PRDKDBVSRJJO24F7DI.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/tAo51LJtXvqVkI1yV9eYu7Vr0EQ=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BZAU4675PRDKDBVSRJJO24F7DI.jpg"
+                    }
+                ],
+                "subtitle": "Edificio del Banco Central",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/wtE96eaAV1Z8LhyaeD2P9gRM86U=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BZAU4675PRDKDBVSRJJO24F7DI.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-03T22:53:41.885Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "La entidad vendió hoy otros US$84 millones mientras su directorio definió la “letra chica” del dólar para turistas y el cupo de acceso al mercado a Pymes"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia/dolar",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Dólar Hoy",
+                "path": "/economia/dolar"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                },
+                {
+                    "slug": "reservas-del-banco-central-tid50516",
+                    "text": "Reservas del Banco Central"
+                },
+                {
+                    "slug": "banco-central-tid31402",
+                    "text": "Banco Central"
+                }
+            ]
+        },
+        "website_url": "/economia/dolar/se-mantiene-la-nueva-sangria-de-reservas-ronda-los-us-350-millones-en-los-ultimos-5-dias-nid03112022/"
+    },
+    {
+        "_id": "IJGEIM6NMZEAPAEK66M5VSQQWM",
+        "content_elements": [
+            {
+                "content": "<b>El Banco Central (BCRA) no logra poner fin a la nueva racha vendedora de reservas en que se vio mayoritariamente embarcado desde que dejó de regir el dólar soja y</b> a pesar de las nuevas restricciones que impuso durante el mes pasado a la demanda de divisas y del enésimo recorte aplicado a las licencias automáticas de importación.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-02T20:58:12.473Z",
+        "headlines": {
+            "basic": "El BCRA sigue vendiendo reservas: cedió otros US$83 millones hoy",
+            "mobile": "El BCRA sigue vendiendo reservas: cedió otros US$83 millones hoy"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "El post dólar soja."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/ibbv3rQEwxzOA46VTUTrgT3mqn0=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LYH7RGCGJVBARBS7AZJLIR4XGM.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/42-Z_zJFkFtZMes0QtE_yc0062g=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LYH7RGCGJVBARBS7AZJLIR4XGM.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/BARK_8_ocpEWqe_-5ddLAx55xDc=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LYH7RGCGJVBARBS7AZJLIR4XGM.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/T7rRl1xkgMCjfP_oO5hx6g-Giiw=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LYH7RGCGJVBARBS7AZJLIR4XGM.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Me9w2fDzhYYxY7MoN4u5otghtw8=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LYH7RGCGJVBARBS7AZJLIR4XGM.jpg"
+                    }
+                ],
+                "subtitle": "Frente del Banco Central de la República Argentina (BCRA)",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/6QoYNtSexrfrWrvJlf9BIxUc2Uk=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LYH7RGCGJVBARBS7AZJLIR4XGM.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-02T21:08:22.222Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Resignó unos US$263 millones desde el viernes pasado en intervenciones sobre el mercado"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/el-bcra-sigue-vendiendo-reservas-cedio-otros-us83-millones-hoy-nid02112022/"
+    },
+    {
+        "_id": "6YFIKH6WPFB5PNFS52FWKGPSF4",
+        "content_elements": [
+            {
+                "content": "<b>El Banco Central (BCRA) </b>abrió el anteúltimo mes del año teniendo que aportar al mercado de cambios oficial otros US$27 millones de sus reservas netas para atender los pedidos de compra que habían superado los múltiples filtros, con lo que<b> acumula tres jornadas cediendo tenencias propias por esta vía.</b>",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-11-01T19:10:15.226Z",
+        "headlines": {
+            "basic": "El Banco Central volvió a vender reservas y ya sacrificó US$180 millones en los últimos tres días",
+            "mobile": "El Banco Central ya sacrificó US$180 millones en los últimos tres días"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Volvió a vender."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/6R-O8xR7YcL9DlqwqQs-iOcpaUk=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5U6ITWIYIZBVNNPGJMJJGT7FGM.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/P63eZu_kA9YxqjgaROxYX7bvVWE=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5U6ITWIYIZBVNNPGJMJJGT7FGM.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/QgV2zxHSQAzaglcb8X36PB6tff8=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5U6ITWIYIZBVNNPGJMJJGT7FGM.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/5TKV9_8R1In55VHEXrquNADPkrI=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5U6ITWIYIZBVNNPGJMJJGT7FGM.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/bGMVEoyjs4IPDzXDsntz7JQ8wHM=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5U6ITWIYIZBVNNPGJMJJGT7FGM.jpg"
+                    }
+                ],
+                "subtitle": "Banco Central de la República Argentina",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/IOzJb52IryY31RAjUF5hhiDNPVU=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5U6ITWIYIZBVNNPGJMJJGT7FGM.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-11-01T19:56:08.018Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "La entidad monetaria arrancó noviembre aportando otros US$27 millones al mercado; el resultado del día confirma que, tras el fin del dólar soja, regresó a escena el denominado “déficit cambiario” "
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/el-banco-central-volvio-a-vender-reservas-y-ya-sacrifico-us180-millones-en-los-ultimos-tres-dias-nid01112022/"
+    },
+    {
+        "_id": "SQNLGYTKTFG3VKHF47I5HYTMBY",
+        "content_elements": [
+            {
+                "content": "El Banco Central (BCRA) convalidó en octubre la mayor tasa mensual de depreciación del peso desde que gobierna Alberto Fernández:<b> lo dejó caer 6,51% en relación con el dólar estadounidense, al pasar el valor de referencia para la venta del billete de $147,32 a $156,91 del último día de septiembre a hoy</b>.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-31T18:48:27.940Z",
+        "headlines": {
+            "basic": "El peso se devaluó 6,5% en octubre y tuvo su mayor caída oficial de los últimos 38 meses ",
+            "mobile": "El peso tuvo su mayor devaluación desde el final de la gestión de Macri"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Octubre."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Ot-DErE0NHKyvLZLgLRKPWH8t0E=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ZXSOZVGCYBFFLJXWNUIBPKK4AM.jpeg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/FoE8-ufNmk_OkB3jXw_yTL4oa9M=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ZXSOZVGCYBFFLJXWNUIBPKK4AM.jpeg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/T1TFOZnrOlBbPTBLR8k6207GjnI=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ZXSOZVGCYBFFLJXWNUIBPKK4AM.jpeg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/6MSWw2ZIHfGI824sQHzH6MxjGN4=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ZXSOZVGCYBFFLJXWNUIBPKK4AM.jpeg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/JQGFqFZrjxG8xt-5b14Rbk8aygw=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ZXSOZVGCYBFFLJXWNUIBPKK4AM.jpeg"
+                    }
+                ],
+                "subtitle": "Argentininan,Pesos.,Money,Notes,Of,The,Argetina's,Currency,And,A",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/cACXZavehmF4xitl0Beal9GhJrI=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ZXSOZVGCYBFFLJXWNUIBPKK4AM.jpeg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-31T21:49:38.396Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Cerró a $156,91 para la venta en una jornada en la que el Banco Central hizo, además, la mayor venta de reservas desde inicios de agosto pasado"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/el-peso-se-devaluo-65-en-octubre-y-tuvo-su-mayor-caida-oficial-de-los-ultimos-38-meses-nid31102022/"
+    },
+    {
+        "_id": "FWJRMOUJDVCOFGY7274MPOY3NU",
+        "content_elements": [
+            {
+                "content": "El Banco Central (BCRA) <b>cerró una semana a pura venta de reservas</b>, como lo no hacía desde la primera de agosto, al tener que asistir al mercado hoy con otros US$68 millones de su tenencia neta, la que vuelve a ser sistemáticamente erosionado tras el refuerzo “caro” que recibió durante la vigencia del <b>dólar soja.</b>",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-14T18:56:31.846Z",
+        "headlines": {
+            "basic": "El BCRA cerró una semana a pura pérdida de reservas: vendió más de US$250 millones en apenas cuatro días",
+            "mobile": "El BCRA vendió reservas por más de US$250 millones en apenas cuatro días"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Semana en rojo."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Henf82CUZUuK2WxDaKZRvrg2L4Y=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BJLPO2ZU5NFRFHTVBVN6K73NIA.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/zDMO8zjx2QZjc9IS27EaHUT3QZo=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BJLPO2ZU5NFRFHTVBVN6K73NIA.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/MBVKzU81c290-Kj2SRgU2m8noLY=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BJLPO2ZU5NFRFHTVBVN6K73NIA.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/7OKXLwK6Ba7A-vPm-MHSIS9RfDc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BJLPO2ZU5NFRFHTVBVN6K73NIA.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/8t2OTaIZr0PbiS6MIUvD2XRTMAk=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BJLPO2ZU5NFRFHTVBVN6K73NIA.jpg"
+                    }
+                ],
+                "subtitle": "Banco Central de la República Argentina",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/Spz_5TD8X1n9yEhgu0Mz8GU0V5o=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BJLPO2ZU5NFRFHTVBVN6K73NIA.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-14T20:49:12.040Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Desde el inicio de agosto no cerraba una semana con semejante rojo"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "banco-central-tid31402",
+                    "text": "Banco Central"
+                },
+                {
+                    "slug": "reservas-del-banco-central-tid50516",
+                    "text": "Reservas del Banco Central"
+                },
+                {
+                    "slug": "actualidad-economica-tid63428",
+                    "text": "Actualidad económica"
+                },
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/el-bcra-cerro-una-semana-a-pura-perdida-de-reservas-vendio-mas-de-us-250-millones-en-apenas-4-dias-nid14102022/"
+    },
+    {
+        "_id": "PJ3XISGMSRCM5PFXCFCZEUQQGM",
+        "content_elements": [
+            {
+                "content": "La seguidilla vendedora del Banco Central (BCRA) tuvo hoy un previsible nuevo capítulo:<b> debió aportar al mercado unos US$60 millones, con lo que ya se desprendió de casi US$280 millones en las últimas cinco ruedas y sacrificó el 5,5% de las reservas tan costosamente recompradas el mes pasado</b>, gracias a la instrumentación del dólar soja.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-13T19:04:59.600Z",
+        "headlines": {
+            "basic": "Se extienden las ventas del Banco Central, que ya perdió el 5,5% de las reservas tan costosamente recompradas",
+            "mobile": "El BCRA ya perdió el 5,5% de las reservas tan costosamente recompradas con el dólar soja"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Cinco días en rojo."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/q_683bLxNh-MTy85Xde_dWmsJl0=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BCFRNWFLFJDKJHEXAPKDQZJD3A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/FulQZkIBe_RJjdrobwmx2aHRJuE=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BCFRNWFLFJDKJHEXAPKDQZJD3A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/H7gamK_OBG-aOuPUmrn-ewKPmoA=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BCFRNWFLFJDKJHEXAPKDQZJD3A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/maAQitj0clrO-z1xghUg6rZ3AbU=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BCFRNWFLFJDKJHEXAPKDQZJD3A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/xZk7UkqeVdr5weJMZXY7AL96GT0=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BCFRNWFLFJDKJHEXAPKDQZJD3A.jpg"
+                    }
+                ],
+                "subtitle": "Banco Central de la República Argentina",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/RWPJVDcHoEienAdcjWkkoh5hwGI=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/BCFRNWFLFJDKJHEXAPKDQZJD3A.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-13T19:53:17.395Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "La entidad debió aportar al mercado otros US$60 millones en la rueda de hoy"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "reservas-del-banco-central-tid50516",
+                    "text": "Reservas del Banco Central"
+                },
+                {
+                    "slug": "banco-central-tid31402",
+                    "text": "Banco Central"
+                }
+            ]
+        },
+        "website_url": "/economia/se-extiende-las-ventas-del-bcra-que-ya-perdio-el-55-de-las-reservas-tan-costosamente-recompradas-nid13102022/"
+    },
+    {
+        "_id": "O7LRA7UOWND53MF4PMOGRPORC4",
+        "content_elements": [
+            {
+                "content": "<b>El crédito bancario en pesos al sector privado aceleró el mes pasado su tendencia a la contracción de la mano del encarecimiento que registraron las tasas de interés activas</b>, acompañando el ajuste al alza que el Banco Central (BCRA) dispone de las tasas pasivas, <b>y en medio de las señales de enfriamiento que muestra la actividad.</b>",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-12T19:16:25.024Z",
+        "headlines": {
+            "basic": "La suba de tasas aceleró la caída del crédito bancario en septiembre",
+            "mobile": "El dato de los bancos que anticipa un contexto preocupante para el Gobierno"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Señales de enfriamiento."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/UXnRZfiooEa49L-c1fmQof9W7tw=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XIPVQ4RDXBHVDNY5OQ2NHTJHFI.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/BfENGBe41zhAOZos7RqC0kPh9Zo=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XIPVQ4RDXBHVDNY5OQ2NHTJHFI.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/0b3pMXRKA8zs7YO03INKLHcsxGg=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XIPVQ4RDXBHVDNY5OQ2NHTJHFI.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/JxGLpVi8cEuWr-0hEe_40Mu7KIM=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XIPVQ4RDXBHVDNY5OQ2NHTJHFI.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/xnj_kEI3orF6bo83rLR3MtaxFmI=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XIPVQ4RDXBHVDNY5OQ2NHTJHFI.JPG"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/vG4z7GRTmmVwJGLvioRgTe5g6-M=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XIPVQ4RDXBHVDNY5OQ2NHTJHFI.JPG",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-13T01:44:23.101Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Los préstamos en pesos en general se contrajeron 3,4 puntos pero los que tienen destino comercial duplicaron esa caída"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "banco-central-tid31402",
+                    "text": "Banco Central"
+                },
+                {
+                    "slug": "actualidad-economica-tid63428",
+                    "text": "Actualidad económica"
+                },
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/la-suba-de-tasas-acelero-la-caida-del-credito-bancario-en-septiembre-nid12102022/"
+    },
+    {
+        "_id": "DURWQOMWCNH6LMDEXGDKVBSUDQ",
+        "content_elements": [
+            {
+                "content": "El Banco Central (BCRA) enhebró la cuarta jornada consecutiva en que resigna reservas propias por registrar un saldo negativo de intervenciones sobre el mercado de cambios oficial.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-12T19:03:46.992Z",
+        "headlines": {
+            "basic": "El BCRA hizo hoy la mayor venta de reservas desde el final del dólar soja: resignó 85 millones",
+            "mobile": "El BCRA hizo hoy la mayor venta de reservas desde el final del dólar soja"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Cuatro días en rojo."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/hcvSKM9OUkn-zZbLV0Kj6KgXX2E=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/X2LNEJNLNNCQVAVIL6MLTAV2EY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Xs5iPAafvhDM-KXc-DXGGgQEShM=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/X2LNEJNLNNCQVAVIL6MLTAV2EY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/q1p4BA1luLGVaXWXhqdaTJzk1qo=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/X2LNEJNLNNCQVAVIL6MLTAV2EY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/ZyFieCO89TMgNtz0oAkrdAlYuQo=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/X2LNEJNLNNCQVAVIL6MLTAV2EY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/laA6Q_1MrElSF_MDJWB9tHD9yQI=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/X2LNEJNLNNCQVAVIL6MLTAV2EY.jpg"
+                    }
+                ],
+                "subtitle": "El peso argentino sufre por reducción de la reservas internacionales",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/23LY4UUtGbIgQCkp8rgUbJYdbHs=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/X2LNEJNLNNCQVAVIL6MLTAV2EY.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-12T19:03:46.992Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Se confirma que las mayores restricciones no logran evitar un nuevo goteo de la tenencia que tan costosamente recompuso la entidad el mes pasado."
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "banco-central-tid31402",
+                    "text": "Banco Central"
+                },
+                {
+                    "slug": "reservas-del-banco-central-tid50516",
+                    "text": "Reservas del Banco Central"
+                },
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                },
+                {
+                    "slug": "dolar-soja",
+                    "text": "Dólar soja"
+                }
+            ]
+        },
+        "website_url": "/economia/el-bcra-hizo-hoy-la-mayor-venta-de-reservas-desde-el-final-del-dolar-soja-resigno-85-millones-nid12102022/"
+    },
+    {
+        "_id": "VLRISS7PUZDYLK4EAYZP53P244",
+        "content_elements": [
+            {
+                "content": "<b>Las reservas internacionales brutas del Banco Central (BCRA) crecieron en US$3569 millones hoy, con lo que volvieron a ubicarse levemente por encima de los US$40.000 millones luego de 12 semanas de haber quebrado ese nivel.</b>",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-12T01:50:58.015Z",
+        "headlines": {
+            "basic": "Las reservas brutas del BCRA vuelven a ubicarse sobre los US$ 40.000 millones",
+            "mobile": "Las reservas brutas del BCRA vuelven a ubicarse sobre los US$ 40.000 millones"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Alivio."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/UykcuGrlY7V_m9SWiAXC2MRXvk8=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/4IBJV3IEEVCS3DZIG5EQXYCNGY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/2VsYKOhxT9jxWVXK7oQiYPfmtaI=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/4IBJV3IEEVCS3DZIG5EQXYCNGY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/5AGx36aSHVa3GgYN4YQ__7By93s=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/4IBJV3IEEVCS3DZIG5EQXYCNGY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/P4Dg6LhMGrXwGwQPf9cFRR030n4=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/4IBJV3IEEVCS3DZIG5EQXYCNGY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/E-CZ3HiJJWixarmzl54uZ0Wn9cE=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/4IBJV3IEEVCS3DZIG5EQXYCNGY.jpg"
+                    }
+                ],
+                "subtitle": "Banco Central de la República Argentina",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/9O1zVBUZpa5ZzcUR8wlg0q-vol4=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/4IBJV3IEEVCS3DZIG5EQXYCNGY.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-12T01:50:58.015Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Subieron US$3569 millones en la jornada al computarse el nuevo desembolso del FMI"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            }
+        },
+        "website_url": "/economia/las-reservas-brutas-del-bcra-vuelven-a-ubicarse-sobre-los-us-40000-millones-nid11102022/"
+    },
+    {
+        "_id": "GD2AUNJHA5HAHERMJK5C2JYM34",
+        "content_elements": [
+            {
+                "content": "<b>El Banco Central (BCRA) volvió a cerrar hoy sus intervenciones</b> sobre el cada vez más pequeño mercado de cambios oficial <b>con un saldo negativo</b>. Es el tercero consecutivo que acumula, seguidilla que -no casualmente- comenzó cuando caducaron totalmente las liquidaciones atraídas por el dólar soja, y lo llevó a resignar ya unos US$131 millones, o el 2,6% de las divisas que había juntado durante la vigencia de ese tipo de cambio diferencial.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-11T18:56:59.607Z",
+        "headlines": {
+            "basic": "Dólar hoy: el Banco Central perdió US$131 millones desde el final del dólar soja",
+            "mobile": "El Banco Central perdió US$131 millones desde el final del dólar soja"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Reservas."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/w9kXLlhyIQUhue66gPAGEm5ox3I=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QSUNU5T3N5EL7DEWAIGEFFJ7WI.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/QA9ItecfhGsNYs1zV4JTHqNLzx8=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QSUNU5T3N5EL7DEWAIGEFFJ7WI.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/iaBmTjqFJTYD_lyeWVhgCArBVQw=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QSUNU5T3N5EL7DEWAIGEFFJ7WI.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/5dVYCd67x10YJJGAjAWTmrT2Fgw=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QSUNU5T3N5EL7DEWAIGEFFJ7WI.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/WQVUl8w3kWHqnQPibsvR-1cmR3o=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QSUNU5T3N5EL7DEWAIGEFFJ7WI.jpg"
+                    }
+                ],
+                "subtitle": "Banco Central de la República Argentina",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/ekMqOKBEhDOWtSbOMTBq6mCVtl8=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QSUNU5T3N5EL7DEWAIGEFFJ7WI.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-11T19:52:55.454Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "La entidad debió aportar otros US$ 39millones, lo que explica la obsesión del Gobierno por desalentar o directamente restringir más la demanda de divisas"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/el-bcra-volvio-a-vender-reservas-aunque-los-montos-operados-en-el-mercado-fueron-muy-bajos-nid11102022/"
+    },
+    {
+        "_id": "6B5NIYNNNRGG5CCATTIHYRFZMI",
+        "content_elements": [
+            {
+                "content": "El mercado no deja de recalcular al alza sus proyecciones de inflación para lo que resta de la administración Fernández: <b>ya estima que cerrará el presente año en tres dígitos, un nivel inédito desde que el Banco Central (BCRA) lanzó esta herramienta para colaborar en sus decisiones de política monetaria.</b>",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-06T22:47:33.539Z",
+        "headlines": {
+            "basic": "El mercado ya espera una inflación de tres dígitos para este año",
+            "mobile": "El mercado ya espera una inflación de tres dígitos para este año"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Descontrol."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/1jkcXzxTWJOENpIV6MNmQkX_O-k=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VLIXNAKFDZDIBLLJKISQJKCUQI.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/tZ0a4aURHxzXr-ND8n1E2tYelzU=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VLIXNAKFDZDIBLLJKISQJKCUQI.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/QY9IH_vg0DfCpFC0duVvYMAv314=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VLIXNAKFDZDIBLLJKISQJKCUQI.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/p3_ZfogkNZ-S6iA_q0wdw3UCLZQ=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VLIXNAKFDZDIBLLJKISQJKCUQI.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/uTXRekJpd2zc4B29TWiCFHxRSOc=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VLIXNAKFDZDIBLLJKISQJKCUQI.JPG"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/uNSZARdPvOpDHubv1Sy-2V_QcJk=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VLIXNAKFDZDIBLLJKISQJKCUQI.JPG",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-06T23:33:52.042Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Los analistas volvieron a revisar al alza sus proyecciones y la proyectan entre 100,3 y 101%, con lo que casi duplicaría a la que dejó la administración Macri"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            }
+        },
+        "website_url": "/economia/el-mercado-ya-espera-una-inflacion-de-tres-digitos-para-este-ano-nid06102022/"
+    },
+    {
+        "_id": "ML74T6FZOFAYXLF37DEABS4N34",
+        "content_elements": [
+            {
+                "content": "<b>El BCRA volvió a cerrar su jornada cambiaria con un saldo negativo por sus intervenciones sobre el mercado oficial por segunda rueda consecutiva:</b> debió aportar al mercado US$58 millones de sus reservas para dar curso a los pedidos de compra que habían superado los filtros. <b>De este modo, acumuló un total de ventas en las últimas 48 horas por US$92 millones.</b>",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-06T19:52:26.678Z",
+        "headlines": {
+            "basic": "Dólar hoy: el Banco Central vuelve a cerrar en rojo tras siete semanas",
+            "mobile": "El Banco Central vuelve a cerrar en rojo tras siete semanas"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Cambio de tendencia."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/twWNqLBoAN8F8mpIC6XqZ-rcZMs=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WNFHIWBYJRG4LI7XHUGHDEN42A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/cELnP9dVY7e_PSzBIYt4VmWDrmU=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WNFHIWBYJRG4LI7XHUGHDEN42A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/-MRCLbz-aezJ59afeTEz0vpdYtY=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WNFHIWBYJRG4LI7XHUGHDEN42A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/tFDiD53wNNAtVpfOJDKDLJjHXxo=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WNFHIWBYJRG4LI7XHUGHDEN42A.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/3LAOny6RQyGJSFToyvFSe42onDM=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WNFHIWBYJRG4LI7XHUGHDEN42A.jpg"
+                    }
+                ],
+                "subtitle": "Banco Central de la República Argentina.",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/JzUGG7hZOsda6GGxwJzl2-OWWvk=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WNFHIWBYJRG4LI7XHUGHDEN42A.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-06T19:52:26.678Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "Se desprendió de US$58 millones hoy, con lo que ya perdió unos US$44 millones en intervenciones esta semana "
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/dolar-hoy-el-banco-central-vuelve-a-cerrar-en-rojo-tras-siete-semanas-nid06102022/"
+    },
+    {
+        "_id": "YZHE725FXJBEPOSEKJZC2KRXWA",
+        "content_elements": [
+            {
+                "content": "<b>Los datos que deja la rueda del mercado cambiario oficial del día confirman lo que se temía: sin un tipo de cambio diferencial que atraiga a la oferta, el Banco Central (BCRA) luce condenado a volver a transitar nuevamente por el desierto.</b>",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-05T19:03:06.325Z",
+        "headlines": {
+            "basic": "Dólar hoy: cambió la tendencia tras 21 días sin el aporte del dólar soja",
+            "mobile": "Tras 21 días sin el aporte del dólar soja, cambió la tendencia"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "La crisis de las reservas."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/gDX6FNg588aK-8P7VKR53e4mZ6Y=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/2XMSPUD2B5FO5MIX5J3CCY4YLY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/tg2HAJUpXYP6315_ZJw8jL8bRb0=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/2XMSPUD2B5FO5MIX5J3CCY4YLY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/tVM-vM5vweepL-oxPqk0ZG3hixo=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/2XMSPUD2B5FO5MIX5J3CCY4YLY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/f83K_aGuOd0lqOhE9LRvzzEbwm0=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/2XMSPUD2B5FO5MIX5J3CCY4YLY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/QNRGJfwts0aHq034wAsztcNlaMI=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/2XMSPUD2B5FO5MIX5J3CCY4YLY.jpg"
+                    }
+                ],
+                "subtitle": "Edificio del Banco Central",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/iwdka9jU6kNNzmLIbpU3BeJd7Qg=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/2XMSPUD2B5FO5MIX5J3CCY4YLY.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-05T21:26:08.809Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "El Banco Central se desprendió de US$34 millones en la jornada, con lo que aportó a la plaza cambiaria oficial el 14,5% de las divisas operadas"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/sin-el-aporte-del-dolar-soja-el-bcra-ya-se-ve-obligado-a-volver-a-vender-reservas-nid05102022/"
+    },
+    {
+        "_id": "ZJKCE34VGVGSHO563YLZ4TZIGE",
+        "content_elements": [
+            {
+                "content": "El Banco Central (BCRA) apenas pudo comprar US$3 millones para sus reservas en la rueda que marcó la despedida “final” del dólar soja. Se trata de su menor adquisición en un mes, aunque no cortó una racha con saldo a favor por sus intervenciones sobre el mercado, que ahora se extendió a 21 ruedas.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-04T19:18:05.785Z",
+        "headlines": {
+            "basic": "Dólar hoy: en el adiós al “dólar soja”, el BCRA casi no pudo comprar reservas",
+            "mobile": "En el adiós al dólar soja, el BCRA casi no pudo hacerse de divisas"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Reservas."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/10Cb79rdJnDv7Qr7PL0UX_CCAFs=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HDM6CF2NYZGRBB774IZ2GWSDSQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/xCVUFSPcFE6V6o_IWVtdjSTA0xc=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HDM6CF2NYZGRBB774IZ2GWSDSQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/qIWwahX6PWQp7JMIcK5F6k-gmS8=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HDM6CF2NYZGRBB774IZ2GWSDSQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/SwXtwN3zGP0F5xXHelPqWNQMjc0=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HDM6CF2NYZGRBB774IZ2GWSDSQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/AKPK9Qei3KEXAuRuh8Wy0Cn-Buc=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HDM6CF2NYZGRBB774IZ2GWSDSQ.jpg"
+                    }
+                ],
+                "subtitle": "Banco Central de la República Argentina",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/rjqIOUnPLAj-SQUK14XV2-z5mdo=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HDM6CF2NYZGRBB774IZ2GWSDSQ.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-04T19:18:05.785Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "En la rueda del día ingresó un último remanente de US$55 millones, pero la entidad apenas pudo sumar US$3 millones a su tenencia"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            },
+            "tags": [
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/dolar-hoy-en-el-adios-al-dolar-soja-el-bcra-casi-no-pudo-comprar-reservas-nid04102022/"
+    },
+    {
+        "_id": "SFETAFHMXFHVTMCO6YSOOXB224",
+        "content_elements": [
+            {
+                "content": "<b>La fuerte y sostenida recompra de dólares que pudo llevar adelante durante todo este mes el Banco Central (BCRA) gracias al dólar soja</b> -aunque a un alto costo- <b>pareció disipar los miedos que habían comenzado a mostrar los ahorristas en los últimos meses y favoreció una recuperación cercana al 3% de los depósitos privados en dólares.</b>",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-04T13:58:11.974Z",
+        "headlines": {
+            "basic": "Dólar hoy: la compra de reservas calmó a los ahorristas",
+            "mobile": "La compra de reservas favoreció una recuperación de los depósitos en dólares"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Tras \"dos meses negros\"."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/c9BVneyKqcweTkf_wBLaY7u7R1g=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ETC3TLISJ5CGXBGBZ4MDQOFKEY.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/A8AQ2eZ4eow9wnv_5ocAiCZNzXk=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ETC3TLISJ5CGXBGBZ4MDQOFKEY.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/BD51H_3D_Gg6hiJWgEw1guEWUQY=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ETC3TLISJ5CGXBGBZ4MDQOFKEY.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/QWxPoQMG4-32aBQlmEAjHxnsAhc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ETC3TLISJ5CGXBGBZ4MDQOFKEY.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/LnivbG9cO7bHkJknBVR-sPVBCd0=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ETC3TLISJ5CGXBGBZ4MDQOFKEY.JPG"
+                    }
+                ],
+                "subtitle": "A,Bright,Red,Arrow,Against,The,Background,Of,Money,And",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/1Ms5IVylqrvFqSGzBMk-tFKTwjo=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ETC3TLISJ5CGXBGBZ4MDQOFKEY.JPG",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-04T13:58:11.974Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "El rebote se inició con la implementación del dólar soja y permitió una recomposición de 3% en esas colocaciones; de todos modos, aún muestran una caída mayor a los US$830 millones en lo que va del año y su evolución dependerá de la estabilidad política del país"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            }
+        },
+        "website_url": "/economia/dolar-hoy-la-compra-de-reservas-calmo-a-los-ahorristas-nid04102022/"
+    },
+    {
+        "_id": "37QKZYBL5FBXLJLGH6QZSU2MY4",
+        "content_elements": [
+            {
+                "content": "El Programa de Incremento para la Exportaciones sojeras cerró formalmente hoy con su objetivo principal sobre cumplido: <b>atrajo liquidaciones de ese sector por US$7678,62 millones</b> (US$647,6 millones de los cuales los sumó en la jornada de hoy), <b>algo que le permitió al Banco Central (BCRA) comprar (aunque a pérdida) US$4968 millones para sus aún muy bajas reservas netas </b>(tras los US$ US$317 millones que sumó hoy), según las cifras preliminares conocidas al finalizar la rueda cambiaria del día.",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-04T13:57:26.093Z",
+        "headlines": {
+            "basic": "Dólar hoy: se despidió el dólar soja e influyó en la cotización",
+            "mobile": "Sumó US$7678 millones y le aportó casi US$5000 millones al Central"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "El fin del dólar soja."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/EZDx7HvhZYzHYPZyW-mEnRF90I0=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LHRITZDF65CAXFMRIUDHECSF2E.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/11c1lDCenaXWBU2pA0y9mI2K2Fk=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LHRITZDF65CAXFMRIUDHECSF2E.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/OnH4udkxqQXiiQmFR2qTvOVrwQM=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LHRITZDF65CAXFMRIUDHECSF2E.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/svvKJ63Nkj15wmPITXyFfP1tbRs=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LHRITZDF65CAXFMRIUDHECSF2E.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/I2bv-8mhNXTQhnoNXBx2P0WXERc=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LHRITZDF65CAXFMRIUDHECSF2E.jpg"
+                    }
+                ],
+                "subtitle": "Frente del Banco Central de la República Argentina (BCRA)",
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/S5aWYgkOb8vN2knWxe38JETGGWg=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/LHRITZDF65CAXFMRIUDHECSF2E.jpg",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-04T13:57:26.093Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "El programa sobrecumplió su objetivo primordial, pero dejó abierto nuevos desafíos al mostrar el atraso del tipo de cambio oficial e inundar de pesos al mercado"
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "tags": [
+                {
+                    "slug": "banco-central-tid31402",
+                    "text": "Banco Central"
+                },
+                {
+                    "slug": "actualidad-economica-tid63428",
+                    "text": "Actualidad económica"
+                },
+                {
+                    "slug": "dolar-soja",
+                    "text": "Dólar soja"
+                },
+                {
+                    "slug": "reservas-del-banco-central-tid50516",
+                    "text": "Reservas del Banco Central"
+                },
+                {
+                    "slug": "comunidad-de-negocios-tid54327",
+                    "text": "Comunidad de Negocios"
+                }
+            ]
+        },
+        "website_url": "/economia/dolar-hoy-se-despidio-el-dolar-soja-e-influyo-en-la-cotizacion-nid04102022/"
+    },
+    {
+        "_id": "PKK4LMYLJFH25KHFJGWEG6OVIY",
+        "content_elements": [
+            {
+                "content": "<b>“Cada dólar que entró lo vamos a cuidar”</b>, avisó el ministro de Economía, Sergio Massa al presentar en el atardecer los resultados finales del Programa de Incentivo a las Exportaciones sojeras que rigió durante el presente mes y <b>atrajo liquidaciones por 8123 millones de dólares, el 95,5% de las cuales ya pasó por el mercado cambiario</b> (el remanente tiene tiempo de hacerlo hasta el martes).",
+                "type": "text"
+            }
+        ],
+        "content_restrictions": {
+            "content_code": "comun"
+        },
+        "credits": {
+            "by": [
+                {
+                    "additional_properties": {
+                        "original": {
+                            "image": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                        }
+                    },
+                    "image": {
+                        "url": "https://s3.amazonaws.com/arc-authors/lanacionar/ee91510e-e36a-400c-b29c-95663f7e6dc7.png"
+                    },
+                    "name": "Javier Blanco",
+                    "type": "author"
+                }
+            ]
+        },
+        "display_date": "2022-10-04T13:56:26.365Z",
+        "headlines": {
+            "basic": "Dólar hoy: el aviso de Massa sobre el futuro del dólar",
+            "mobile": "Massa avisó que no habrá más tipos de cambio diferenciales y que se cuidará “cada dólar que ingresó”"
+        },
+        "label": {
+            "recomendar": {
+                "text": "Si"
+            },
+            "volanta": {
+                "display": true,
+                "text": "Dólar soja."
+            }
+        },
+        "promo_items": {
+            "basic": {
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 200,
+                            "media": "(min-width: 1280px)",
+                            "width": 298
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/QbN7hyMcIRsecn-usH-ukqAj54U=/298x198/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/UBJIVDHCFJC4ZE6IEKLSQWUBRQ.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media": "(min-width: 1024px)",
+                            "width": 318
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/DovQEG_Gh9CZpgISW0tjUY2IMvc=/318x212/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/UBJIVDHCFJC4ZE6IEKLSQWUBRQ.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media": "(min-width: 768px)",
+                            "width": 233
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/3t6PIrgmSt6dOXZxdrgrDIEzVUo=/233x155/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/UBJIVDHCFJC4ZE6IEKLSQWUBRQ.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/viNgfxMz6hCFtVW1ChKWqCm-dXc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/UBJIVDHCFJC4ZE6IEKLSQWUBRQ.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/aw6sXgKjdzmN_R7czC3QQnLKcyo=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/UBJIVDHCFJC4ZE6IEKLSQWUBRQ.JPG"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/t50CLxkNBAfNETWMT1ua3D03Vug=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/UBJIVDHCFJC4ZE6IEKLSQWUBRQ.JPG",
+                "width": 768
+            }
+        },
+        "publish_date": "2022-10-04T13:56:26.365Z",
+        "related_content": {
+            "basic": []
+        },
+        "subheadlines": {
+            "basic": "El Programa de Incentivo a las Exportaciones sojeras que rigió durante septiembre atrajo liquidaciones por 8123 millones de dólares; descartó que esta experiencia se pueda extender hacia otros sectores productivos; dio por cumplidas las metas trimestrales con el FMI; "
+        },
+        "subtype": "1",
+        "taxonomy": {
+            "primary_section": {
+                "_id": "/economia",
+                "additional_properties": {
+                    "original": {}
+                },
+                "name": "Economía",
+                "path": "/economia"
+            }
+        },
+        "website_url": "/economia/dolar-hoy-el-aviso-de-massa-sobre-el-futuro-del-dolar-nid04102022/"
+    }
+]

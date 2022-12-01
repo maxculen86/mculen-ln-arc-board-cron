@@ -6,7 +6,6 @@ import Context from 'fusion:context';
 import getProperties from 'fusion:properties';
 import { API_ENV } from 'fusion:environment';
 import { streamingAnalyticsInit } from './comscoreStreamingTag';
-import deviceType from '../../LN/common/utils/deviceType';
 import get from '../utils/get';
 import { VIDEO } from '../utils/subtypes/subtypeHelper';
 import useTermica from '../hooks/useTermica';
@@ -15,8 +14,10 @@ import {
     setEvent,
     setProgressEvent,
     addToDataLayer,
-    setCustomErrorsVideoPlayer
+    setCustomErrorsVideoPlayer,
+    getClassCondition
 } from '../utils/videoPlayerHelper';
+import BuildScriptPowaWithFacade from './BuildScriptPowaWithFacade';
 import '../../../../resources/dist/css/ln/components/video-player.css';
 
 const VideoPlayer = props => {
@@ -33,9 +34,12 @@ const VideoPlayer = props => {
         enableControls,
         sticky,
         globalContent = {},
-        device,
-        isApertura
+        isApertura,
+        videoImageData,
+        outputType
     } = props;
+
+    const isNote = get(globalContent, 'type', '') === 'story';
 
     const isVideoType =
         get(globalContent, 'promo_items.basic.type') === 'video' ||
@@ -110,7 +114,20 @@ const VideoPlayer = props => {
     }, [adsURL, isAdmin, tituloVideo, videoId, streamingAnalyticInstance]);
 
     return (
-        <div className="video-player">
+        <div className={`video-player${getClassCondition(isNote, isApertura)}`}>
+            {isNote && (
+                <BuildScriptPowaWithFacade
+                    firstVideoCuerpoAutoplay={firstVideoCuerpoAutoplay}
+                    isApertura={isApertura}
+                    firstVideoId={firstVideoId}
+                    aperturaVideo={aperturaVideo}
+                    videoId={videoId}
+                    apiEnv={apiEnv}
+                    videoImageData={videoImageData}
+                    outputType={outputType}
+                />
+            )}
+
             <div
                 className="powa"
                 data-org={organizationId}
@@ -118,7 +135,7 @@ const VideoPlayer = props => {
                 data-ads={enableAds}
                 data-ad-bar={enableAdBar}
                 data-autoinit={loadVideoOnInit ? 'native-hls' : 'false'}
-                data-autoplay={autoPlay}
+                data-autoPlay={autoPlay}
                 data-autoplay-muted={autoPlay}
                 data-controls={enableControls}
                 data-muted={isApertura ? true : firstVideoCuerpoAutoplay}
@@ -126,52 +143,14 @@ const VideoPlayer = props => {
                 data-api={apiEnv}
                 data-env="prod"
             />
-            {firstVideo && videoId === firstVideoId && device === 'desktop' && (
-                <script
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                        ${deviceType}
-                        deviceType() === 'desktop' &&
-                            window.addEventListener('load', () => {
-                                const [{ shadowRoot } = {}] = document.querySelectorAll('.powa-shadow');
 
-                                let divFirstPowa =
-                                    shadowRoot.querySelector &&
-                                    shadowRoot.querySelector('[data-uuid="${firstVideoId}"]');
-
-                                let userPause = false;
-                                
-                                if (${!firstVideoCuerpoAutoplay} && ${!aperturaVideo}) {
-                                    divFirstPowa = undefined
-                                }
-
-                                if (divFirstPowa && window.powas) {
-                                    const { powa } = window.powas[divFirstPowa.id];
-                                    
-                                    powa.on('pause', () => userPause = true);
-                                    powa.on('viewable', () => !userPause && powa.play());
-                                }
-                            });
-                        `
-                    }}
-                />
-            )}
             <script
                 dangerouslySetInnerHTML={{
                     __html: `
-                    window.addEventListener('load', () => {
-                        const [{
-                            shadowRoot
-                        } = {}] = document.querySelectorAll('.powa-shadow');
-                    
-                        let errorPowa =
-                            shadowRoot.querySelector &&
-                            shadowRoot.querySelector('div.powa-outage');
-                    
-                        if (${isApertura} && errorPowa.innerHTML === '<p>This video is geo-restricted.</p><p>Error 931.</p>') {
-                            errorPowa.innerHTML = '¡Ups! Parece que este video no esta disponible en tu ubicación'
-                        }
-                    });`
+                        window.addEventListener('powaError', () => {
+                            const facade = document.querySelector('.content-facade');
+                            if (facade) facade.remove();
+                        });`
                 }}
             />
         </div>
@@ -193,8 +172,15 @@ VideoPlayer.propTypes = {
     globalContent: PropTypes.shape({
         content_elements: PropTypes.arrayOf(PropTypes.object)
     }),
-    device: PropTypes.string.isRequired,
-    isApertura: PropTypes.bool
+    outputType: PropTypes.string,
+    isApertura: PropTypes.bool,
+    videoImageData: PropTypes.shape({
+        caption: PropTypes.string,
+        height: PropTypes.number,
+        width: PropTypes.number,
+        url: PropTypes.string,
+        resized_urls: PropTypes.array
+    }).isRequired
 };
 
 VideoPlayer.defaultProps = {
@@ -205,7 +191,8 @@ VideoPlayer.defaultProps = {
     enableAdBar: true,
     sticky: false,
     isAdmin: false,
-    isApertura: false
+    isApertura: false,
+    outputType: 'default'
 };
 
 export default Context(VideoPlayer);

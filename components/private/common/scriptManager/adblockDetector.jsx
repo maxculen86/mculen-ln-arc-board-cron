@@ -10,11 +10,16 @@ const AdblockDetector = () => {
       );
   
       fetch(check)
+        .then(() => dataLayer.push({
+          'event': 'adblock-detected',
+          'detectado': false
+        }))
+        
         .catch((err) => {
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             'event' : 'adblock-detected',
-            'detectado': 'true'
+            'detectado': true
           });
         });
     });

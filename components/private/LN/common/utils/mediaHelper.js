@@ -242,3 +242,22 @@ export const buildScriptResizeSSRInfography = (promoItems = {}) => {
         />
     );
 };
+
+export const getMediaData = (promoItems = {}) => {
+    const { apertura_multimedia: aperturaMultimedia, basic } = promoItems;
+    const mediaData = aperturaMultimedia || basic;
+    const type = get(mediaData, 'type', '');
+
+    if (type === 'video') {
+        return {
+            ...mediaData,
+            promo_items: {
+                basic: replaceUrlResizerToWWW(
+                    get(mediaData, 'promo_items.basic', {})
+                )
+            }
+        };
+    }
+
+    return replaceUrlResizerToWWW(mediaData);
+};

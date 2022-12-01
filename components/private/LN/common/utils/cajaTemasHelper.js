@@ -94,11 +94,15 @@ export const getMarkupForDatalayer = (
     layoutType,
     layout,
     position,
-    sectionName
+    sectionName,
+    positionInsideSection
 ) => {
     const extraOptsdefault = {
         'data-diagramacion-id': '0',
-        'data-is-block': true
+        'data-is-block': true,
+        ...(positionInsideSection && {
+            'data-chain-position': positionInsideSection
+        })
     };
     const types = {
         Opinion: {
@@ -172,6 +176,9 @@ export const getMarkupForDatalayer = (
                     'data-block-name': `h_${section}tema-${pos}`,
                     'data-diagramacion-id': lay,
                     'data-is-block': true,
+                    ...(positionInsideSection && {
+                        'data-chain-position': positionInsideSection
+                    }),
                     id: `tema_${pos}`
                 }
             };
@@ -181,7 +188,7 @@ export const getMarkupForDatalayer = (
     const { extraOptsDiv = {}, extraOpts = {} } =
         types[layoutType] ||
         types[sectionName] ||
-        types.Default(position, sectionName, layout);
+        types.Default(position, sectionName, layout, positionInsideSection);
 
     return { extraOptsDiv, extraOpts };
 };
@@ -212,14 +219,12 @@ export const getCommonProps = props => {
     const classCondition =
         (cajaTemaConfig[layout] && cajaTemaConfig[layout].className) || '';
 
-    const position =
+    const position = findPositionInPageBuilder(idFeature, renderables);
+
+    const positionInsideSection = findPositionInsideSection(
+        idFeature,
         renderables
-            .filter(ren => ren.collection === 'chains')
-            .filter(
-                chain =>
-                    get(chain, 'props.customFields.hideCaja', false) !== true
-            )
-            .findIndex(chain => chain.props.id === idFeature) || 0;
+    );
 
     const sectionName = formatText(
         pageBuilderLayout === layoutsName.Home ? '' : `${name}_`
@@ -238,8 +243,33 @@ export const getCommonProps = props => {
         position:
             showDatalayerMark !== 'false' &&
             `0${Number(position) + 1}`.slice(-2),
-        sectionName
+        sectionName,
+        positionInsideSection
     };
+};
+
+export const findPositionInPageBuilder = (idFeature, renderables = []) => {
+    return (
+        renderables
+            .filter(ren => ren.collection === 'chains')
+            .filter(
+                chain =>
+                    get(chain, 'props.customFields.hideCaja', false) !== true
+            )
+            .findIndex(chain => chain.props.id === idFeature) || 0
+    );
+};
+
+export const findPositionInsideSection = (idFeature, renderables = []) => {
+    const sections = renderables.filter(ren => ren.collection === 'sections');
+    const mySection = sections.find(sec =>
+        sec.children.find(child => child.props.id === idFeature)
+    ) || { children: [] };
+    const position = mySection.children.findIndex(
+        child => child.props.id === idFeature
+    );
+
+    return `0${Number(position) + 1}`.slice(-2);
 };
 
 export const calculateSizeOfCollection = (collections, notesQuantity) => {
