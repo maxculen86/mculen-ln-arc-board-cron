@@ -28,7 +28,7 @@ const transform = data => {
                     originalUrl: elem.promo_image.url,
                     originalWidth: 289,
                     originalHeight: 163,
-                    opt: {
+                    resizeOptions: {
                         width: 289,
                         height: 163,
                         media: '(min-width: 320px)',

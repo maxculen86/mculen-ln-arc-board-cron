@@ -50,7 +50,7 @@ const transform = data => {
         originalUrl: 'https://especialess3.lanacion.com.ar/LN/svg/logo-iol.svg',
         originalWidth: 49,
         originalHeight: 60,
-        opt: {
+        resizeOptions: {
             height: 76,
             width: 314
         }

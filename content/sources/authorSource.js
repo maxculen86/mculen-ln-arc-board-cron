@@ -50,7 +50,7 @@ const transform = (data, query) => {
                 originalUrl: data.image,
                 originalWidth: 280,
                 originalHeight: 280,
-                opt: imagePreset
+                resizeOptions: imagePreset
             })
         },
         node_type: 'author'

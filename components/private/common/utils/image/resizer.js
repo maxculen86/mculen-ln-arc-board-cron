@@ -133,7 +133,7 @@ export const createResizer = (
                     originalUrl,
                     originalWidth,
                     originalHeight,
-                    opt,
+                    resizeOptions: opt,
                     focalPoint,
                     smartCropExcluded
                 });
@@ -257,7 +257,7 @@ export const resizeArcImage = (
             originalUrl: arcImage.url,
             originalWidth: arcImage.width,
             originalHeight: arcImage.height,
-            opt: defaultResizeWithSmart,
+            resizeOptions: defaultResizeWithSmart,
             focalPoint: fp,
             smartCropExcluded
         }),

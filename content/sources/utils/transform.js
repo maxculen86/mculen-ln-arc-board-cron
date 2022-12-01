@@ -16,7 +16,7 @@ const transform = data => {
                 originalUrl: data.image,
                 originalWidth: 80,
                 originalHeight: 80,
-                opt: {
+                resizeOptions: {
                     width: 80,
                     height: 80,
                     media: '(min-width: 320px)',
