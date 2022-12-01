@@ -31,7 +31,7 @@ export const counterNota = notaId => {
 
 export const filterNotesWithinDays = (notas, days) => {
     const today = new Date();
-    const lsDayCheckCounter = localStorage.getItem('DayCheckCounter');
+    const lsDayCheckCounter = Number(localStorage.getItem('DayCheckCounter'));
     let newNotas = [...notas];
     // Una vez por dia para ser mas performante
     if (lsDayCheckCounter !== today.getDate()) {

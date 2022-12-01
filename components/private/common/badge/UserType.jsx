@@ -5,8 +5,8 @@ import Icon from '../icon';
 import Text from '../text';
 
 const BadgeUsertype = ({ icon, text, title, dark, className, type }) => {
-    const typeClass = type ? `--${type}` : ``;
-    const darkClass = dark ? `--dark` : ``;
+    const typeClass = type ? `--${type}` : '';
+    const darkClass = dark ? '--dark' : '';
     return (
         <div
             className={`usertype ${className} ${typeClass} ${darkClass}`}

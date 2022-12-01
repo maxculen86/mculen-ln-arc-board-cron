@@ -20,10 +20,10 @@ const ComLogo = props => {
         href,
         title,
         alt,
-        folder = '',
         target,
         rel,
-        isStatic
+        isStatic,
+        folder = ''
     } = props;
 
     const { contextPath, deployment, outputType } = useAppContext();
