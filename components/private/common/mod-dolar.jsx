@@ -1,27 +1,34 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-
 import CurrencyData from './currencyData/CurrencyData';
-
 import '../../../resources/dist/css/ln/modules/mod-dolar.css';
 
 const ModDolar = ({ imageUrl, data = [] }) =>
-    (data.length && (
+    data.length ? (
         <div className="dolar">
             <ul className="mod-dolar">
                 {data.map((item, index) => {
-                    const { sourceName, title, compra, venta } = item;
+                    const {
+                        sourceName,
+                        titleMobile,
+                        compra,
+                        venta,
+                        link
+                    } = item;
+
                     return (
                         <li key={item.sourceName}>
                             <CurrencyData
                                 sourceName={sourceName}
-                                title={title}
+                                title={titleMobile}
                                 purchaseValue={compra}
-                                saleValue={sourceName !== 'dccl' && venta}
+                                saleValue={venta}
+                                link={link}
                             />
                         </li>
                     );
                 })}
+
                 {imageUrl && (
                     <li>
                         <CurrencyData urlBrand={imageUrl} />
@@ -29,8 +36,9 @@ const ModDolar = ({ imageUrl, data = [] }) =>
                 )}
             </ul>
         </div>
-    )) ||
-    null;
+    ) : (
+        <></>
+    );
 
 ModDolar.propTypes = {
     data: PropTypes.shape({

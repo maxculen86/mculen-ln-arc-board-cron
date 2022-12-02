@@ -15,6 +15,7 @@ const CurrencyData = ({
     deployment,
     classCondition,
     title,
+    link,
     purchaseValue,
     saleValue,
     sourceName,
@@ -23,34 +24,15 @@ const CurrencyData = ({
     providedAlt,
     ...r
 }) => {
-    const navigationData = sourceNombre => {
-        if (sourceNombre === 'dbna') {
-            return 'https://www.lanacion.com.ar/dolar-hoy/';
-        }
-        if (sourceNombre === 'dblue') {
-            return 'https://www.lanacion.com.ar/tema/dolar-blue-tid67294/';
-        }
-        return '';
-    };
-    const titleData = sourceNombre => {
-        if (sourceNombre === 'dbna') {
-            return 'Dólar hoy';
-        }
-        if (sourceNombre === 'dblue') {
-            return 'Dólar blue';
-        }
-        return '';
-    };
-
     return (
         <>
             {!urlBrand ? (
                 <div className={`${classCondition} currency-data`}>
                     <ComLink
                         type="text/css"
-                        title={titleData(sourceName)}
+                        title={title}
                         classCondition="link-container-currency-data"
-                        link={navigationData(sourceName)}
+                        link={link || ''}
                     >
                         <Text
                             tag="h2"
@@ -61,8 +43,14 @@ const CurrencyData = ({
                         />
                     </ComLink>
                     <p className="com-text --sixxs">
-                        <span>COMPRA</span>
-                        <strong className="--fourxs">${purchaseValue}</strong>
+                        {purchaseValue && (
+                            <>
+                                <span>COMPRA</span>
+                                <strong className="--fourxs">
+                                    ${purchaseValue}
+                                </strong>
+                            </>
+                        )}
                         {saleValue && (
                             <>
                                 <span>VENTA</span>
@@ -116,6 +104,7 @@ CurrencyData.propTypes = {
     deployment: PropTypes.func.isRequired,
     classCondition: PropTypes.string,
     title: PropTypes.string,
+    link: PropTypes.string,
     purchaseValue: PropTypes.string,
     saleValue: PropTypes.string,
     sourceName: PropTypes.string,
@@ -127,6 +116,7 @@ CurrencyData.defaultProps = {
     outputType: 'default',
     classCondition: '',
     title: '',
+    link: '',
     purchaseValue: '',
     saleValue: '',
     sourceName: '',

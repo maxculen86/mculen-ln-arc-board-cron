@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`with data list should render div tag with "mod-dolar" className with 4 li tags 1`] = `
+exports[`With data list Should match snapshot showing correct data for all 8 type of dolars 1`] = `
 <div>
   <div
     class="dolar"
@@ -9,33 +9,314 @@ exports[`with data list should render div tag with "mod-dolar" className with 4 
       class="mod-dolar"
     >
       <li>
-        <mock-currencydata
-          purchasevalue="86,25"
-          salevalue="92,25"
-          sourcename="dbna"
-          title="Dólar Banco Nación"
-        />
+        <div
+          class=" currency-data"
+        >
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/dolar-hoy/"
+            title="Dólar oficial"
+          >
+            <h2
+              class="dolar-title --font-bold --twoxs"
+            >
+              Dólar oficial
+            </h2>
+          </a>
+          <p
+            class="com-text --sixxs"
+          >
+            <span>
+              COMPRA
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              163,25
+            </strong>
+            <span>
+              VENTA
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              171,25
+            </strong>
+          </p>
+        </div>
       </li>
       <li>
-        <mock-currencydata
-          purchasevalue="148,00"
-          salevalue="153,00"
-          sourcename="dblue"
-          title="Dólar Blue"
-        />
+        <div
+          class=" currency-data"
+        >
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/tema/dolar-blue-tid67294/"
+            title="Dólar blue"
+          >
+            <h2
+              class="dolar-title --font-bold --twoxs"
+            >
+              Dólar blue
+            </h2>
+          </a>
+          <p
+            class="com-text --sixxs"
+          >
+            <span>
+              COMPRA
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              308,00
+            </strong>
+            <span>
+              VENTA
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              312,00
+            </strong>
+          </p>
+        </div>
       </li>
       <li>
-        <mock-currencydata
-          purchasevalue="118,18"
-          salevalue="false"
-          sourcename="dccl"
-          title="Dólar Contado con Liqui"
-        />
+        <div
+          class=" currency-data"
+        >
+          <span
+            class="com-text link-container-currency-data"
+          >
+            <h2
+              class="dolar-title --font-bold --twoxs"
+            >
+              Dólar MEP
+            </h2>
+          </span>
+          <p
+            class="com-text --sixxs"
+          >
+            
+            <span>
+              VENTA
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              311,81
+            </strong>
+          </p>
+        </div>
       </li>
       <li>
-        <mock-currencydata
-          urlbrand="https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Lzu3CsxaJkufzPN4fOxQjod_yik=/314x0/filters:quality(100)/especiales.lanacion.com.ar/LN/dolar/anexo-dolar/logo-invertir.png"
-        />
+        <div
+          class=" currency-data"
+        >
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/tema/dolar-ccl/"
+            title="Dólar CCL"
+          >
+            <h2
+              class="dolar-title --font-bold --twoxs"
+            >
+              Dólar CCL
+            </h2>
+          </a>
+          <p
+            class="com-text --sixxs"
+          >
+            
+            <span>
+              VENTA
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              325,72
+            </strong>
+          </p>
+        </div>
+      </li>
+      <li>
+        <div
+          class=" currency-data"
+        >
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/tema/dolar-tarjeta-tid50462/"
+            title="Dólar tarjeta"
+          >
+            <h2
+              class="dolar-title --font-bold --twoxs"
+            >
+              Dólar tarjeta
+            </h2>
+          </a>
+          <p
+            class="com-text --sixxs"
+          >
+            
+            <span>
+              VENTA
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              299,69
+            </strong>
+          </p>
+        </div>
+      </li>
+      <li>
+        <div
+          class=" currency-data"
+        >
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/tema/dolar-turista-tid67475/"
+            title="Dólar turista"
+          >
+            <h2
+              class="dolar-title --font-bold --twoxs"
+            >
+              Dólar turista
+            </h2>
+          </a>
+          <p
+            class="com-text --sixxs"
+          >
+            
+            <span>
+              VENTA
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              342,5
+            </strong>
+          </p>
+        </div>
+      </li>
+      <li>
+        <div
+          class=" currency-data"
+        >
+          <span
+            class="com-text link-container-currency-data"
+          >
+            <h2
+              class="dolar-title --font-bold --twoxs"
+            >
+              Dólar mayorista
+            </h2>
+          </span>
+          <p
+            class="com-text --sixxs"
+          >
+            
+            <span>
+              VENTA
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              164,52
+            </strong>
+          </p>
+        </div>
+      </li>
+      <li>
+        <div
+          class=" currency-data"
+        >
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/tema/euro-hoy-tid66142/"
+            title="Euro"
+          >
+            <h2
+              class="dolar-title --font-bold --twoxs"
+            >
+              Euro
+            </h2>
+          </a>
+          <p
+            class="com-text --sixxs"
+          >
+            <span>
+              COMPRA
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              167,86
+            </strong>
+            <span>
+              VENTA
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              176,69
+            </strong>
+          </p>
+        </div>
+      </li>
+      <li>
+        <a
+          class="com-link provider-data"
+          href="https://www.invertironline.com/"
+          title=""
+        >
+          <div
+            class="container-logo"
+          >
+            <span
+              class="--sixxs"
+            >
+              Información de
+            </span>
+            <img
+              alt="BYMA"
+              class="com-image logo byma"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="https://arc-static.glanacion.com/pf/resources/images/logo-byma.svg"
+            />
+          </div>
+          <div
+            class="container-logo"
+          >
+            <span
+              class="--sixxs"
+            >
+              provista por
+            </span>
+            <img
+              alt="InvertirOnline"
+              class="com-image logo iol"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="https://arc-static.glanacion.com/pf/resources/images/logo-iol.svg"
+            />
+          </div>
+        </a>
       </li>
     </ul>
   </div>

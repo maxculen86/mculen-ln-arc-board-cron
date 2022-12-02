@@ -3,11 +3,13 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import Static from 'fusion:static';
 import ModDolar from '../../private/common/mod-dolar';
+import filter from '../../../content/filters/LN/services/dolar';
 
 const CajaDolar = ({ id: featureId }) => {
     const response =
         useContent({
-            source: 'dolarSource'
+            source: 'dolarSource',
+            filter
         }) || {};
 
     const { data, imageUrl } = response;
