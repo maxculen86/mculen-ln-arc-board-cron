@@ -23,6 +23,7 @@ const CajaTema = props => {
         notesQuantity = 3,
         hideTitle = false,
         position,
+        positionInsideSection = '',
         sectionName = '',
         _children = [],
         isHome = false,
@@ -38,7 +39,8 @@ const CajaTema = props => {
         layoutName,
         layout,
         position,
-        sectionName
+        sectionName,
+        positionInsideSection
     );
 
     const childrenComponent =

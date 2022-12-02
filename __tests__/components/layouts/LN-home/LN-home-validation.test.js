@@ -16,6 +16,7 @@ import {
 } from '../../../../__mocks__/data/renderables/sectionsComercialData';
 import Context from 'fusion:context';
 import { getArticlesIdsFromApertura } from '../../../../components/private/LN/common/utils/cajaTemasHelper';
+import { checkIfValid } from '../../../../components/private/common/utils/validateSectionHome';
 
 jest.mock('fusion:context', () => () => ({
     default: props => {
@@ -517,6 +518,39 @@ describe('Test de funcion getArticlesIdsFromApertura que se usa en tagList', () 
         expect(getArticlesIdsFromApertura(undefined)).toEqual('');
         expect(getArticlesIdsFromApertura(renderables1)).toEqual(
             'ILXGTYXUWNF3HKJ3ROQQCQPRVE,Z62GTRQMINHNRDLWGGMKGE3ZCE'
+        );
+    });
+});
+
+describe('Test checkIfValid function for sections', () => {
+    it('should return false if components do not respect quantity or operator', () => {
+        expect(
+            checkIfValid('Anticipo', [
+                { type: 'LN-common/cajaAnticipo' },
+                { type: 'LN-common/cajaAnticipo' }
+            ])
+        ).toStrictEqual(false);
+        expect(
+            checkIfValid('Opinion', [{ type: 'LN-common/opinion' }])
+        ).toStrictEqual(false);
+    });
+    it('should return true if components are valid', () => {
+        expect(
+            checkIfValid('Breaking_3', [
+                { type: 'Ln_Caja_Collection' },
+                { type: 'Ln_Caja_Collection' },
+                { type: 'Ln_Caja_Manual' }
+            ])
+        ).toStrictEqual(true);
+        expect(
+            checkIfValid('Anticipo', [{ type: 'LN-common/cajaAnticipo' }])
+        ).toStrictEqual(true);
+    });
+    it('should return error message if wrong component type', () => {
+        expect(
+            checkIfValid('Anticipo', [{ type: 'LN-common/anexo' }])
+        ).toStrictEqual(
+            'solo permite componentes del tipo LN-common/cajaAnticipo'
         );
     });
 });

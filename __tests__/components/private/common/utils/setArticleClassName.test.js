@@ -26,7 +26,7 @@ describe('components - private - common - utils - setArticleClassName', () => {
         }
     };
 
-    const classBase = 'mod-article toi202 nidSUW6AQPARNCGLBDM2YOUGGC474';
+    const classBase = 'mod-article';
 
     it('should be mod-article with toiclass and nid', () => {
         expect(setArticleClassName(mocks.default)).toBe(classBase);

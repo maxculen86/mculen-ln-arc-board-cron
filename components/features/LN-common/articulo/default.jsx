@@ -5,6 +5,7 @@ import { useAppContext, useComponentContext } from 'fusion:context';
 import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
+import Consumer from 'fusion:consumer';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
 import {
     isInHomeAperturaOrBomba,
@@ -171,6 +172,12 @@ const ArticleFeature = ({
                     handleClick={productClickFromClient}
                     registerSuccessEvent={registerSuccessEvent}
                     mobileImage={mobileImage}
+                    searchableField={
+                        layoutPageBuilder === layoutsName.Home &&
+                        searchableField({
+                            imageId: '_id'
+                        })
+                    }
                 />
             </ErrorBoundary>
         )) ||
@@ -193,4 +200,4 @@ ArticleFeature.propTypes = {
     })
 };
 
-export default ArticleFeature;
+export default Consumer(ArticleFeature);

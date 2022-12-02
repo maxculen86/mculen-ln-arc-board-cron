@@ -130,6 +130,19 @@ describe('Features - LN-acumulado - Ultimas Noticias', () => {
         expect(screen.getAllByRole('article')).toBeTruthy();
     });
 
+    it('should render ultimas noticias without globalContent', () => {
+        Context.useAppContext = jest.fn(() => ({}));
+        const props = {
+            customFields: {
+                sections: [],
+                layout: 'Timeline',
+                size: 30
+            }
+        };
+        render(<UltimasNoticias {...props} />);
+        expect(screen.getAllByRole('article')).toBeTruthy();
+    });
+
     it('should test sectionsFormated func', () => {
         expect(sectionsFormated(['economia', 'politica'])).toStrictEqual(
             '("economia","politica")'

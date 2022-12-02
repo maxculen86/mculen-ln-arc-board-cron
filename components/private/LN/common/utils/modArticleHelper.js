@@ -1,6 +1,8 @@
 import get from '../../../common/utils/get';
 import getAuthorsPhoto from '../../../common/utils/getAuthorsPhoto';
 
+const promoItemsBasic = 'promo_items.basic';
+
 const getImageDestacada = (
     isRenderAuthor,
     isRenderAuthorOpinion,
@@ -8,7 +10,7 @@ const getImageDestacada = (
 ) => {
     return isRenderAuthor || isRenderAuthorOpinion
         ? getAuthorsPhoto(articleData)
-        : get(articleData, 'promo_items.basic', null);
+        : get(articleData, promoItemsBasic, null);
 };
 
 const getMediaData = (
@@ -33,16 +35,20 @@ const getMediaData = (
 
     const rules = [
         {
+            validation: layout === 'grillaVideo1',
+            data: videoBackground
+        },
+        {
             validation: videoBackground && !isMobile,
             data: videoBackground
         },
         {
             validation: videoBackground && isMobileAndGrilla1,
-            data: get(mobileImageForMultimediaBox, 'promo_items.basic', image)
+            data: get(mobileImageForMultimediaBox, promoItemsBasic, image)
         },
         {
             validation: mobileImageForMultimediaBox && isMobileAndGrilla1,
-            data: get(mobileImageForMultimediaBox, 'promo_items.basic', image)
+            data: get(mobileImageForMultimediaBox, promoItemsBasic, image)
         }
     ];
 

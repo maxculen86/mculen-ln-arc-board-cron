@@ -15,8 +15,12 @@ const eventByFilter = {
         if (redirectUrl) throw new Redirect(redirectUrl, statusCode || 301);
         else return response;
     },
-    source_id: () => {},
-    canonical_url: () => {}
+    source_id: () => {
+        // NOSONAR - This is intentional
+    },
+    canonical_url: () => {
+        // NOSONAR - This is intentional
+    }
 };
 
 const fetch = query => {

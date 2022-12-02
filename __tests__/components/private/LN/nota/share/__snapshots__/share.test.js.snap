@@ -63,7 +63,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
           </button>
         </div>
         <div
-          class="com-line  "
+          class="com-line"
         />
         <div
           class="second-buttons-group"
@@ -335,7 +335,7 @@ exports[`Share Snapshot - Should show 7 buttons  1`] = `
           </button>
         </div>
         <div
-          class="com-line  "
+          class="com-line"
         />
         <div
           class="second-buttons-group"
@@ -607,7 +607,7 @@ exports[`Share Test click button bookmark 1`] = `
           </button>
         </div>
         <div
-          class="com-line  "
+          class="com-line"
         />
         <div
           class="second-buttons-group"

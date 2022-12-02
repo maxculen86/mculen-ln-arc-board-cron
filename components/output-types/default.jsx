@@ -32,6 +32,8 @@ import FontPreloads from '../private/common/fontsPreloads';
 import checkHydrateOnly from '../private/LN/common/utils/checkHydrateOnly';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 
+const lnBuscador = 'LN-buscador';
+
 const getBodyClass = props => {
     const { className = {} } = props;
     if (className.body) return { className: className.body };
@@ -137,7 +139,7 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
-                {layout !== 'LN-buscador' && (
+                {layout !== lnBuscador && (
                     <title>{arcSite === 'ott' ? ottMetaTitle : title}</title>
                 )}
                 {metasFromSiteServices(metas)}
@@ -163,17 +165,15 @@ const Default = props => {
                 <link
                     rel="preload"
                     as="script"
-                    href={`${deployment(
-                        `${contextPath}/dist/engine/react.js`
-                    )}`}
+                    href={deployment(`${contextPath}/dist/engine/react.js`)}
                     crossOrigin=""
                 />
                 <link
                     rel="preload"
                     as="script"
-                    href={`${deployment(
+                    href={deployment(
                         `${contextPath}/dist/components/combinations/default.js`
-                    )}`}
+                    )}
                     crossOrigin=""
                 />
                 <Libs />
@@ -206,7 +206,7 @@ const Default = props => {
                     Tag="script"
                     globalContent={globalContent}
                 />
-                {layout !== 'LN-buscador' && (
+                {layout !== lnBuscador && (
                     <MetasOG
                         {...props}
                         section={_nodeType}
@@ -228,7 +228,7 @@ const Default = props => {
                     arcSite={arcSite}
                     nodeType={nodeType}
                 />
-                {layout !== 'LN-buscador' && (
+                {layout !== lnBuscador && (
                     <MetaTitle
                         arcSite={arcSite}
                         title={title}
@@ -240,7 +240,7 @@ const Default = props => {
                         requestUri={requestUri}
                     />
                 )}
-                {layout !== 'LN-buscador' && (
+                {layout !== lnBuscador && (
                     <MetaDescription
                         subtype={subtype}
                         nodeType={nodeType}

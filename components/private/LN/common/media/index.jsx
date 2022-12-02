@@ -31,7 +31,8 @@ const media = ({
     autoplay,
     isPowa,
     insideBody,
-    withMobileImage
+    withMobileImage,
+    searchableField
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -100,6 +101,7 @@ const media = ({
                             outputType={outputType}
                             zoom={zoom}
                             isApertura={isApertura}
+                            searchableField={searchableField}
                         />
                         {children}
                         {(zoom || itsGallery) && (
@@ -147,7 +149,7 @@ const media = ({
                         withZoom={withZoom}
                         active={active}
                         html={html}
-                        scriptForZoom={scriptForZoom}
+                        scriptForZoom={!isApertura && scriptForZoom}
                         outputType={outputType}
                     >
                         {item}
@@ -187,7 +189,10 @@ media.propTypes = {
     autoplay: PropTypes.bool,
     isPowa: PropTypes.bool,
     insideBody: PropTypes.bool,
-    withMobileImage: PropTypes.bool
+    withMobileImage: PropTypes.bool,
+    searchableField: PropTypes.shape({
+        imageId: PropTypes.string
+    })
 };
 
 media.defaultProps = {
@@ -207,7 +212,8 @@ media.defaultProps = {
     children: undefined,
     isPowa: true,
     handleClick: () => {},
-    withMobileImage: false
+    withMobileImage: false,
+    searchableField: undefined
 };
 
 media.defaultProps = {
