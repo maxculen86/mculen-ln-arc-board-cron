@@ -43,7 +43,7 @@ const ImageArticle = props => {
     const _url = resizedUrl || url;
 
     return (
-        <ComPicture href={href} amp={outputType === 'amp'}>
+        <ComPicture href={href}>
             <ComImage
                 srcset={srcset}
                 sizes={sizes.length > 0 ? `${sizes},100vw` : '100vw'}

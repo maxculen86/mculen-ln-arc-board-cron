@@ -7,9 +7,9 @@ const authorArticle = ({
         credits: { by }
     }
 }) => {
-    const concatAuthors = (index, authors) => {
-        if (index < authors.length - 2) return ', ';
-        if (index === authors.length - 2) return ' y ';
+    const concatAuthors = (index, _authors) => {
+        if (index < _authors.length - 2) return ', ';
+        if (index === _authors.length - 2) return ' y ';
         return '';
     };
 

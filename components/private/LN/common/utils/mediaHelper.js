@@ -149,13 +149,7 @@ export const wikiImagesWithWWW = data => {
         type: 'image',
         resized_urls: resizedUrls
     };
-    const imagesToPreload = get(
-        replaceUrlResizerToWWW(promoItemsWiki),
-        'resized_urls',
-        []
-    );
-
-    return imagesToPreload;
+    return get(replaceUrlResizerToWWW(promoItemsWiki), 'resized_urls', []);
 };
 
 export const replaceAllUrlsResizerObject = (object = {}) => {

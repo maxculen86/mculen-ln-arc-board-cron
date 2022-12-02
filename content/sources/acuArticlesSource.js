@@ -161,10 +161,8 @@ const resolve = key => {
             }
     }`;
 
-    const requestUrl = `${basePath}${query}&size=${cant}&from=${from}
+    return `${basePath}${query}&size=${cant}&from=${from}
     &sort=display_date:desc`;
-
-    return requestUrl;
 };
 
 const fetch = query => {

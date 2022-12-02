@@ -43,7 +43,7 @@ const Banner = props => {
 
     const bannerConfig = getBannerConfig() || [];
 
-    const getBanner = index => {
+    return index => {
         const position = index + 1;
 
         return bannerConfig
@@ -80,8 +80,6 @@ const Banner = props => {
                 );
             });
     };
-
-    return getBanner;
 };
 
 export default Banner;
