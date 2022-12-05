@@ -5,8 +5,8 @@ import getBiggestImage from '../../../common/utils/getBiggestImage';
 export const extractDataFromContentElements = contentElements => {
     const instructions = [];
     const embedConfigTypeList = 'embed.config.typeList';
-    let ingredients = [];
-    let nutritionItems = [];
+    const ingredients = [];
+    const nutritionItems = [];
     const nutrition = {};
     let newProperty;
 
@@ -18,7 +18,7 @@ export const extractDataFromContentElements = contentElements => {
         if (element) {
             element.powerUp.forEach(e => {
                 get(e, `${embedConfigTypeList}`, '') === 'ingredientes' &&
-                    (ingredients = ingredients.concat(e.embed.config.items));
+                    ingredients.push(...e.embed.config.items);
 
                 get(e, `${embedConfigTypeList}`, '') === 'preparacion' &&
                     instructions.push({
@@ -38,13 +38,14 @@ export const extractDataFromContentElements = contentElements => {
                     });
 
                 get(e, 'subtype', '') === 'custom-nutrition' &&
-                    (nutritionItems = nutritionItems.concat(e.rows) || []);
+                    nutritionItems.push(...e.rows);
 
                 nutritionItems.forEach(item => {
                     newProperty = `${item[1].content}`;
                     nutritionInfo.forEach(i => {
-                        item[0].content === i.name &&
-                            (nutrition[i.property] = newProperty);
+                        if (item[0].content === i.name) {
+                            nutrition[i.property] = newProperty;
+                        }
                     });
                 });
             });

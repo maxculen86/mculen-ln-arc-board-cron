@@ -109,7 +109,9 @@ export const createResizer = (
             smartCropExcluded
         });
 
-        proportion && (newHeight = setHeight(newWidth, newHeight, proportion));
+        if (proportion) {
+            newHeight = setHeight(newWidth, newHeight, proportion);
+        }
 
         const url = thumbor
             .setImagePath(cleanedUrl)
