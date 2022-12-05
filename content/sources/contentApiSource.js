@@ -1,9 +1,5 @@
 import request from 'request-promise-native';
-import {
-    CONTENT_BASE,
-    ARC_ACCESS_TOKEN,
-    SITE_LANACION
-} from 'fusion:environment';
+import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import Redirect from './utils/redirect';
 
 const is404 = message => {
@@ -24,10 +20,6 @@ const eventByFilter = {
 };
 
 const fetch = query => {
-    if (query.hasOwnProperty('nota_id')) {
-        const notaIdAsp = query.nota_id.replace('/', '');
-        throw new Redirect(`${SITE_LANACION}/${notaIdAsp}`, 301);
-    }
     const { statusCode } = query;
     const { path, typeFilter } = resolve(query);
     const opt = {
@@ -37,6 +29,11 @@ const fetch = query => {
     if (ARC_ACCESS_TOKEN) {
         opt.auth = {
             bearer: ARC_ACCESS_TOKEN
+        };
+    }
+    if (typeFilter === 'nota_id') {
+        return {
+            redirectNotaAsp: true
         };
     }
     return request(opt)
@@ -54,6 +51,11 @@ const resolve = (query = {}) => {
     const website = `website=${query.website || query['arc-site']}`;
     const published = `&published=${query.published || 'true'}`;
 
+    if (query.uri === '/nota.asp') {
+        return {
+            typeFilter: 'nota_id'
+        };
+    }
     if (query.hasOwnProperty('website_url')) {
         return {
             path: `/content/v4/?website_url=${query.website_url}&${website}&${published}`,
@@ -85,8 +87,7 @@ export default {
         source_id: 'text',
         website_url: 'text',
         website: 'text',
-        statusCode: 'text',
-        nota_id: 'text'
+        statusCode: 'text'
     },
     fetch
 };
