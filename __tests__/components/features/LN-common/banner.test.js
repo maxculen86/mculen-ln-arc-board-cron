@@ -627,6 +627,33 @@ describe('getDimsFromSiteService =>', () => {
             'espectaculos'
         );
         expect(dimensions).toHaveLength(9);
+
+        dimensions = getDimsFromSiteService(
+            [
+                {
+                    adunit: 'nota_caja5_mob',
+                    dimensions:
+                        '320x50,320x100,300x250,300x450,1x1,360x270,320x180, 360x450, 380x450,fluid'
+                }
+            ],
+            `nota_caja5_mob`,
+            'espectaculos'
+        );
+
+        const expectArray = [
+            [320, 50],
+            [320, 100],
+            [300, 250],
+            [300, 450],
+            [1, 1],
+            [360, 270],
+            [320, 180],
+            [360, 450],
+            [380, 450],
+            ['fluid']
+        ];
+        expect(dimensions).toEqual(expectArray);
+        expect(dimensions).toHaveLength(10);
     });
     it('should add corresponding dimensions for sections', () => {
         const banners = ['nota_caja1_dsk', 'acumulado_caja1_dsk'];

@@ -38,7 +38,7 @@ let sourceInclude = [
 ];
 sourceInclude = !sourceExclude.length ? sourceInclude : [];
 const mustElements = days => {
-    const must = [
+    return [
         {
             range: {
                 first_publish_date: {
@@ -58,8 +58,6 @@ const mustElements = days => {
             }
         }
     ];
-
-    return must;
 };
 
 const filterByType = (items, topicType) => {
@@ -111,25 +109,24 @@ const shouldElements = query => {
     return elem;
 };
 
-const resolveUri = query => {
+export const resolveUri = query => {
     const { size, page, days } = query;
     const from = ((page || 1) - 1) * size;
 
     const requestUri = `${CONTENT_BASE}/content/v4/search/published`;
+    const sourceIncludeQuery = !sourceInclude.length
+        ? ''
+        : `_sourceInclude=${sourceInclude.join(',')}`;
+    const sourceExcludeQuery = !sourceExclude.length
+        ? ''
+        : `_sourceExclude=${sourceExclude.join(',')}`;
+
     const uriParams = [
         `website=${query['arc-site']}`,
         `size=${size}`,
         `from=${from}`,
-        `${
-            !sourceInclude.length
-                ? ''
-                : `_sourceInclude=${sourceInclude.join(',')}`
-        }`,
-        `${
-            !sourceExclude.length
-                ? ''
-                : `_sourceExclude=${sourceExclude.join(',')}`
-        }`,
+        sourceIncludeQuery,
+        sourceExcludeQuery,
         `sort=display_date:desc`
     ]
         .join('&')

@@ -42,6 +42,11 @@
         }
     }
 
+    .content-facade & {
+        border: none;
+        margin-bottom: 0;
+    }
+
     .--slider.--slider & {
         display: flex;
         padding-top: $picture;

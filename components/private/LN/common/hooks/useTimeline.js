@@ -46,7 +46,7 @@ const useTimeline = ({
         )
         .slice(0, articlesQuantity);
 
-    return setTLArticles(justCommonArticles, source);
+    return setTLArticles(source, justCommonArticles);
 };
 
 export default useTimeline;

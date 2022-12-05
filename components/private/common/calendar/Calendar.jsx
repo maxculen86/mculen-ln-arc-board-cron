@@ -4,6 +4,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from '../com-link';
 import Text from '../text';
+import {
+    dayLetter,
+    getInitialDay,
+    getLastDay,
+    getHighlightDayClass
+} from './helper/dayHelper';
 import '../../../../resources/dist/css/ln/modules/calendar.css';
 
 const Calendar = ({
@@ -13,39 +19,17 @@ const Calendar = ({
     monthName,
     layout = 'month'
 }) => {
-    const validMonth = monthNumber ? monthNumber - 1 : new Date().getMonth();
+    const newDate = new Date();
+    const validMonth = monthNumber ? monthNumber - 1 : newDate.getMonth();
     const validMonthName =
         monthName ||
-        new Date().toLocaleDateString('es-ES', {
+        newDate.toLocaleDateString('es-ES', {
             month: 'long'
         });
-    const validYear = year || new Date().getFullYear();
-    const dayLetter = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
+    const validYear = Number(year) || newDate.getFullYear();
 
-    const getInitialDay = (yr, mnth) => {
-        const day = new Date(yr, mnth, 1).getDay();
-        return day === 0 ? 6 : day - 1;
-    };
-
-    const getLastDay = (yr, mnth) => {
-        const lastDay = new Date(yr, mnth, 0);
-        return lastDay.getDate();
-    };
-
-    const getHighlightDayClass = day => {
-        const dictionary = {
-            Inamovible: ' --immovable',
-            Puente: ' --bridge',
-            Trasladable: ' --transferable'
-        };
-        const dayHighlight = holidayData.length
-            ? holidayData.find(h => day === h.days[0])
-            : undefined;
-        if (!dayHighlight) return '';
-        return dictionary[dayHighlight.day_type_name];
-    };
-    const initialDay = getInitialDay(Number(validYear), validMonth);
-    const lastDayOfMonth = getLastDay(Number(validYear), validMonth + 1);
+    const initialDay = getInitialDay(validYear, validMonth);
+    const lastDayOfMonth = getLastDay(validYear, validMonth + 1);
     const days = Array.from({ length: lastDayOfMonth }, (_, i) => i + 1);
     const emptyDays = new Array(initialDay).fill(' ');
     const daysMonth = [...emptyDays, ...days];
@@ -87,7 +71,10 @@ const Calendar = ({
                 {daysMonth.map(day => (
                     <Text
                         key={day}
-                        extraClass={`com-text${getHighlightDayClass(day)}`}
+                        extraClass={`com-text${getHighlightDayClass(
+                            holidayData,
+                            day
+                        )}`}
                     >
                         {day}
                     </Text>

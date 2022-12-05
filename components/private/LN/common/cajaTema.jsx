@@ -23,6 +23,7 @@ const CajaTema = props => {
         notesQuantity = 3,
         hideTitle = false,
         position,
+        positionInsideSection = '',
         sectionName = '',
         _children = [],
         isHome = false,
@@ -31,14 +32,15 @@ const CajaTema = props => {
         isMultimedia
     } = props;
 
-    const artWithoutDate = clearArticleKey(articles, 'display_date');
+    const artWithoutDate = clearArticleKey('display_date', articles);
     const layoutName = getLayoutType(layout, artWithoutDate, _children);
 
     const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
         layoutName,
         layout,
         position,
-        sectionName
+        sectionName,
+        positionInsideSection
     );
 
     const childrenComponent =

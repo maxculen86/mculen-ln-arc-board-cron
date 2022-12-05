@@ -1,90 +1,303 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`with data list should render div tag with "mod-dolar" className with 7 li tags 1`] = `
+exports[`With data list Should match snapshot showing correct data for all 8 type of dolars 1`] = `
 <div>
   <div
     class="dolar"
   >
     <ul
-      class="dolar-subgroup --odd --minusOne"
+      class="dolar-subgroup --even "
     >
       <li>
-        <mock-currencydata
-          purchasevalue="159,50"
-          salevalue="167,50"
-          sourcename="dbna"
-          title="Dólar hoy 1"
-        />
+        <div
+          class=" currency-data"
+        >
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/dolar-hoy/"
+            title="Dólar oficial"
+          >
+            <h2
+              class="dolar-title --fourxs"
+            >
+              Dólar oficial
+            </h2>
+          </a>
+          <p
+            class="com-text --sixxs"
+          >
+            <span>
+              Compra
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              163,25
+            </strong>
+            <span>
+              Venta
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              171,25
+            </strong>
+          </p>
+        </div>
       </li>
       <li>
-        <mock-currencydata
-          purchasevalue="290,00"
-          salevalue="294,00"
-          sourcename="dblue"
-          title="Dólar blue"
-        />
+        <div
+          class=" currency-data"
+        >
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/tema/dolar-blue-tid67294/"
+            title="Dólar blue"
+          >
+            <h2
+              class="dolar-title --fourxs"
+            >
+              Dólar blue
+            </h2>
+          </a>
+          <p
+            class="com-text --sixxs"
+          >
+            <span>
+              Compra
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              308,00
+            </strong>
+            <span>
+              Venta
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              312,00
+            </strong>
+          </p>
+        </div>
       </li>
       <li>
-        <mock-currencydata
-          purchasevalue="159,50"
-          salevalue="167,50"
-          sourcename="dbna"
-          title="Dólar hoy 2"
-        />
+        <div
+          class=" currency-data"
+        >
+          <span
+            class="com-text link-container-currency-data"
+          >
+            <h2
+              class="dolar-title --fourxs"
+            >
+              Dólar MEP
+            </h2>
+          </span>
+          <p
+            class="com-text --sixxs"
+          >
+            
+            <span>
+              Venta
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              311,81
+            </strong>
+          </p>
+        </div>
       </li>
       <li>
-        <mock-currencydata
-          purchasevalue="310,45"
-          salevalue="false"
-          sourcename="dccl"
-          title="Dólar CCL"
-        />
+        <div
+          class=" currency-data"
+        >
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/tema/dolar-ccl/"
+            title="Dólar CCL"
+          >
+            <h2
+              class="dolar-title --fourxs"
+            >
+              Dólar CCL
+            </h2>
+          </a>
+          <p
+            class="com-text --sixxs"
+          >
+            
+            <span>
+              Venta
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              325,72
+            </strong>
+          </p>
+        </div>
       </li>
       <li>
-        <mock-currencydata
-          purchasevalue="159,50"
-          salevalue="167,50"
-          sourcename="dbna"
-          title="Dólar hoy 3"
-        />
+        <div
+          class=" currency-data"
+        >
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/tema/dolar-tarjeta-tid50462/"
+            title="Dólar tarjeta"
+          >
+            <h2
+              class="dolar-title --fourxs"
+            >
+              Dólar tarjeta
+            </h2>
+          </a>
+          <p
+            class="com-text --sixxs"
+          >
+            
+            <span>
+              Venta
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              299,69
+            </strong>
+          </p>
+        </div>
       </li>
       <li>
-        <mock-currencydata
-          purchasevalue="290,00"
-          salevalue="294,00"
-          sourcename="dblue"
-          title="Dólar blue 4"
-        />
+        <div
+          class=" currency-data"
+        >
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/tema/dolar-turista-tid67475/"
+            title="Dólar turista"
+          >
+            <h2
+              class="dolar-title --fourxs"
+            >
+              Dólar turista
+            </h2>
+          </a>
+          <p
+            class="com-text --sixxs"
+          >
+            
+            <span>
+              Venta
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              342,5
+            </strong>
+          </p>
+        </div>
       </li>
       <li>
-        <mock-currencydata
-          purchasevalue="290,00"
-          salevalue="294,00"
-          sourcename="dblue"
-          title="Dólar blue 5"
-        />
+        <div
+          class=" currency-data"
+        >
+          <span
+            class="com-text link-container-currency-data"
+          >
+            <h2
+              class="dolar-title --fourxs"
+            >
+              Dólar mayorista
+            </h2>
+          </span>
+          <p
+            class="com-text --sixxs"
+          >
+            
+            <span>
+              Venta
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              164,52
+            </strong>
+          </p>
+        </div>
+      </li>
+      <li>
+        <div
+          class=" currency-data"
+        >
+          <a
+            class="com-link link-container-currency-data"
+            href="https://www.lanacion.com.ar/tema/euro-hoy-tid66142/"
+            title="Euro"
+          >
+            <h2
+              class="dolar-title --fourxs"
+            >
+              Euro
+            </h2>
+          </a>
+          <p
+            class="com-text --sixxs"
+          >
+            <span>
+              Compra
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              167,86
+            </strong>
+            <span>
+              Venta
+            </span>
+            <strong
+              class="--fourxs"
+            >
+              $
+              176,69
+            </strong>
+          </p>
+        </div>
       </li>
     </ul>
   </div>
-  <a
-    class="com-link provider-data"
-    href="https://www.invertironline.com/"
-    title=""
+  <div
+    class="container-logo"
   >
-    <div
-      class="container-logo"
+    <span
+      class="--fivexs"
     >
-      <span
-        class="--fivexs"
-      >
-        Información de
-      </span>
-      <span
-        class="--fivexs"
-      >
-        provista por
-      </span>
-    </div>
-  </a>
+      Información de
+    </span>
+    <span
+      class="--fivexs"
+    >
+      provista por
+    </span>
+    <a
+      class="com-link provider-data"
+      href="https://www.invertironline.com/"
+      rel="nofollow"
+      target="_blank"
+      title="Ir a Invertir Online"
+    />
+  </div>
 </div>
 `;

@@ -5,13 +5,13 @@ const resolve = (key, a) => {
     const { includedFields, id, notPublished = false } = key;
 
     const arcSite = key['arc-site'];
+    const iFields = includedFields ? `&included_fields=${includedFields}` : '';
+
     const basePath = `/content/v4/stories/?website=${arcSite}${
         notPublished ? '&published=false' : ''
     }`;
 
-    return `${basePath}&_id=${id}${
-        includedFields ? `&included_fields=${includedFields}` : ''
-    }`;
+    return `${basePath}&_id=${id}${iFields}`;
 };
 
 const fetch = query => {

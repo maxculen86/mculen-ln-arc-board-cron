@@ -1,6 +1,8 @@
 import React from 'react';
 import DivBannerSSR from './DivBannerSSR';
 
+const megalateralSticky = '--megalateral --sticky';
+
 const bannersHome = {
     cabezal: (
         <>
@@ -272,7 +274,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'megalateral_dsk',
-                classes: '--megalateral --sticky',
+                classes: megalateralSticky,
                 isStatic: true
             }}
         />
@@ -301,7 +303,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'megalateral2_dsk',
-                classes: '--megalateral --sticky',
+                classes: megalateralSticky,
                 isStatic: true,
                 lazyClass: 'lazy'
             }}
@@ -311,7 +313,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'megalateral3_dsk',
-                classes: '--megalateral --sticky',
+                classes: megalateralSticky,
                 isStatic: true,
                 lazyClass: 'lazy'
             }}
@@ -321,7 +323,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'adhesion_dsk',
-                classes: '--adhesion_dsk --fixed --close',
+                classes: '--adhesion_dsk --fixed --close hlp-none',
                 hideForSubscriptor: true,
                 closeButton: true,
                 isStatic: true
@@ -332,7 +334,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'adhesion_mob',
-                classes: '--adhesion_mob --fixed --close',
+                classes: '--adhesion_mob --fixed --close hlp-none',
                 hideForSubscriptor: true,
                 closeButton: true,
                 isStatic: true
@@ -343,7 +345,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'adhesion_tab',
-                classes: '--adhesion_tab --fixed --close',
+                classes: '--adhesion_tab --fixed --close hlp-none',
                 hideForSubscriptor: true,
                 closeButton: true,
                 isStatic: true

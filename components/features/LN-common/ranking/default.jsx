@@ -4,7 +4,12 @@ import PropTypes from 'fusion:prop-types';
 import { useContent as getContent } from 'fusion:content';
 import StaticValidation from '../../../private/common/staticValidation';
 import CajaTema from '../../../private/LN/common/cajaTema';
-import { getRankingProps, getSectionParentId, hasArticles } from './_helper';
+import {
+    getRankingProps,
+    getSectionParentId,
+    hasArticles,
+    RANKING
+} from './_helper';
 import StaticContent from '../../../private/common/staticContent';
 import '../../../../resources/dist/css/ln/components/ranking.css';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
@@ -74,7 +79,7 @@ const RankingFeature = ({ id: featureId }) => {
             notesQuantity={notesQuantity}
             sectionName={sectionName}
             articles={articles}
-            position="toi"
+            position={sectionName === RANKING ? '0190' : '0191'}
             dataSection={sectionId}
             outputType={outputType}
             classCondition={classCondition}

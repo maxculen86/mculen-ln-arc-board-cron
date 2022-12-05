@@ -76,6 +76,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
   layout="grilla3"
   notesQuantity={3}
   position="01"
+  positionInsideSection="01"
   sectionName="propiedades"
   title="Titulo de Nota"
 >
@@ -85,6 +86,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
     <section
       className="box-articles  "
       data-block-name="h_propiedadestema-01"
+      data-chain-position="01"
       data-diagramacion-id="grilla3"
       data-is-block={true}
       id="tema_01"
@@ -237,7 +239,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                 withMedia={true}
               >
                 <article
-                  className="mod-article toi0101 nidK2FFK3J6DNCX3D76BQ6D7FLQNE"
+                  className="mod-article"
                   data-id="K2FFK3J6DNCX3D76BQ6D7FLQNE"
                   data-notaid="K2FFK3J6DNCX3D76BQ6D7FLQNE"
                   data-pos="0101"
@@ -309,7 +311,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                 zoom={false}
                               >
                                 <ComPicture
-                                  amp={false}
                                   classCondition=""
                                   href="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
                                   video=""
@@ -521,7 +522,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                 withMedia={true}
               >
                 <article
-                  className="mod-article toi0102 nidAQCXKYK4XJCVFNFNZ2IQ7SUCA4"
+                  className="mod-article"
                   data-id="AQCXKYK4XJCVFNFNZ2IQ7SUCA4"
                   data-notaid="AQCXKYK4XJCVFNFNZ2IQ7SUCA4"
                   data-pos="0102"
@@ -593,7 +594,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                 zoom={false}
                               >
                                 <ComPicture
-                                  amp={false}
                                   classCondition=""
                                   href="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
                                   video=""
@@ -805,7 +805,7 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                 withMedia={true}
               >
                 <article
-                  className="mod-article toi0103 nidKEBYELHATJHPRNAWO24GRV6YCQ"
+                  className="mod-article"
                   data-id="KEBYELHATJHPRNAWO24GRV6YCQ"
                   data-notaid="KEBYELHATJHPRNAWO24GRV6YCQ"
                   data-pos="0103"
@@ -877,7 +877,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                 zoom={false}
                               >
                                 <ComPicture
-                                  amp={false}
                                   classCondition=""
                                   href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
                                   video=""

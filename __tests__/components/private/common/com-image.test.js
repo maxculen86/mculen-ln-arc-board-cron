@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ComImage from '../../../../components/private/common/com-image';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 describe('components - private - common - ComImage', () => {
     const props = {
@@ -15,8 +17,23 @@ describe('components - private - common - ComImage', () => {
         srcsetAMP: '',
         href: 'https://www.lanacion.com.ar/',
         target: '_blank',
-        isApertura: false
+        isApertura: false,
+        searchableField: {
+            'data-feature': 'f0fEPgosxQPZ4i8',
+            'data-field-editable': 'imageId=_id',
+            contenteditable: 'false',
+            'data-searchable': 'true',
+            'data-searchable-type': 'image'
+        }
     };
+    describe('Test searchableField prop', () => {
+        render(<ComImage {...props} />);
+        it('should render searchableField properties in img', () => {
+            Object.entries(props.searchableField).forEach(([key, value]) => {
+                expect(screen.getByRole('img')).toHaveAttribute(key, value);
+            });
+        });
+    });
     describe('Props on default outputType, with svg, lazy and href', () => {
         const component = shallow(<ComImage {...props} />);
         it('Should return image with correct props and with link', () => {

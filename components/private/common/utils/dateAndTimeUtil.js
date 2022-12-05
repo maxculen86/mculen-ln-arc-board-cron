@@ -78,16 +78,15 @@ export const getTodayDateForAcuDolar = () => {
 
 function formatDateHoursAndMint(originalDate) {
     const date = formatDateTreeHoursMore(originalDate);
-    return `${`00${date.getHours()}`.slice(
-        -2
-    )}:${`00${date.getMinutes()}`.slice(-2)}`;
+    const formatHours = `00${date.getHours()}`.slice(-2);
+    const formatMinutes = `00${date.getMinutes()}`.slice(-2);
+    return `${formatHours}:${formatMinutes}`;
 }
 
 function formatDateHoursMinAndSecond(originalDate) {
     const date = formatDateTreeHoursMore(originalDate);
-    return `${formatDateHoursAndMint(
-        originalDate
-    )}:${`00${date.getSeconds()}`.slice(-2)}`;
+    const formatSeconds = `00${date.getSeconds()}`.slice(-2);
+    return `${formatDateHoursAndMint(originalDate)}:${formatSeconds}`;
 }
 
 export function formatDateTreeHoursMore(originalDate) {
@@ -191,3 +190,11 @@ export const formatToISOString = date => date.toISOString().split('T')[0];
 export function restMinutes(date, minutes) {
     return new Date(date.getTime() - minutes * 60000);
 }
+
+export const getArgentinaYear = () => {
+    const date = new Date();
+    return date.toLocaleString('es-AR', {
+        timeZone: 'America/Argentina/Buenos_Aires',
+        year: 'numeric'
+    });
+};

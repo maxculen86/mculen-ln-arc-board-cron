@@ -24,6 +24,7 @@ const props = {
     outputType: 'default',
     contextPath: '/pf',
     title: 'Dólar hoy',
+    link: 'https://www.lanacion.com.ar/dolar-hoy/',
     purchaseValue: '104,25',
     saleValue: '110,25',
     sourceName: 'dbna',
@@ -39,6 +40,7 @@ describe('Common private currencyData - with dbna', () => {
     const paragraph = children[1];
     const textComponent = linkComponent.children[0];
     it('Check com-link component', () => {
+        console.log(wrapper.html());
         expect(linkComponent).toBeTruthy();
         expect(linkComponent.attribs.link).toBe(
             'https://www.lanacion.com.ar/dolar-hoy/'
@@ -66,6 +68,8 @@ describe('Common private currencyData - with dbna', () => {
 
 describe('Currency data - with dblue', () => {
     props.sourceName = 'dblue';
+    props.link = 'https://www.lanacion.com.ar/tema/dolar-blue-tid67294/';
+    props.title = 'Dólar blue';
     const wrapper = render(<CurrencyData {...props} />);
     const result = wrapper.first();
     const children = result.children();
@@ -79,42 +83,5 @@ describe('Currency data - with dblue', () => {
             'link-container-currency-data'
         );
         expect(linkComponent.attribs.title).toBe('Dólar blue');
-    });
-});
-
-describe('Currency data with invalid sourceName', () => {
-    props.sourceName = 'mock';
-    const wrapper = render(<CurrencyData {...props} />);
-    const result = wrapper.first();
-    const children = result.children();
-    const linkComponent = children[0];
-    it('Should return empty strings for link and text', () => {
-        expect(linkComponent).toBeTruthy();
-        expect(linkComponent.attribs.link).toBe('');
-        expect(linkComponent.attribs.classcondition).toBe(
-            'link-container-currency-data'
-        );
-        expect(linkComponent.attribs.title).toBe('');
-    });
-});
-
-describe('Currency data with urlBrand', () => {
-    const propsWIthUrlBrand = {
-        outputType: 'default',
-        contextPath: '/pf',
-        title: 'Dólar hoy',
-        purchaseValue: '104,25',
-        saleValue: '110,25',
-        sourceName: 'dbna',
-        informationAlt: 'BYMA',
-        deployment: () => {},
-        providedAlt: 'InvertirOnline',
-        urlBrand:
-            'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/Lzu3CsxaJkufzPN4fOxQjod_yik=/314x0/filters:quality(100)/especiales.lanacion.com.ar/LN/dolar/anexo-dolar/logo-invertir.png'
-    };
-    const wrapper = render(<CurrencyData {...propsWIthUrlBrand} />);
-    const result = wrapper.first();
-    it('Snapshot de component con urlBrand', () => {
-        expect(result).toMatchSnapshot();
     });
 });

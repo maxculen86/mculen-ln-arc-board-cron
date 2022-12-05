@@ -54,8 +54,8 @@
         "position": 8
     },
     "Breaking_3": {
-        "quantity": 1,
-        "operatorToUse": "!==",
+        "quantity": 2,
+        "operatorToUse": "<=",
         "types": ["LN-common/anexo", "Ln_Caja_Collection", "Ln_Caja_Manual"],
         "position": 9
     },

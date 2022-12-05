@@ -16,7 +16,7 @@ const ComAdvance = props => {
     } = props;
 
     return (
-        <section className={`com-advance ${classCondition || ``}`}>
+        <section className={`com-advance ${classCondition || ''}`}>
             {withBadgeLiveblog && <Badge type="liveblog-red">EN VIVO</Badge>}
             <ComTitle
                 tag="h2"

@@ -4,33 +4,35 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import Static from 'fusion:static';
 import ModDolar from '../../private/common/mod-dolar';
+import filter from '../../../content/filters/LN/services/dolar';
 
 const CajaDolar = ({ id: featureId }) => {
     const { contextPath, deployment } = useAppContext() || {};
-    console.log(
-        '🚀 ~ file: cajaDolar.jsx ~ line 10 ~ CajaDolar ~ useAppContext()',
-        useAppContext()
-    );
 
     const response =
         useContent({
-            source: 'dolarSource'
+            source: 'dolarSource',
+            staticMode: true,
+            filter
         }) || {};
 
     const { data, imageUrl } = response;
 
     return (
-        (data && (
-            <Static id={featureId}>
-                <ModDolar
-                    imageUrl={imageUrl}
-                    data={data}
-                    contextPath={contextPath}
-                    deployment={deployment}
-                />
-            </Static>
-        )) ||
-        null
+        <Static id={featureId}>
+            {(() => {
+                return data ? (
+                    <ModDolar
+                        imageUrl={imageUrl}
+                        data={data}
+                        contextPath={contextPath}
+                        deployment={deployment}
+                    />
+                ) : (
+                    <></>
+                );
+            })()}
+        </Static>
     );
 };
 

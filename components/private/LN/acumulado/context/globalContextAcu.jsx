@@ -5,8 +5,6 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import isAnyGrilla1 from '../../../common/utils/isAnyGrilla1';
-import get from '../../../common/utils/get';
-import checkHydrateOnly from '../../common/utils/checkHydrateOnly';
 
 const GlobalContext = React.createContext([{}, () => {}]);
 
@@ -54,7 +52,7 @@ const getCollectionApertura = id => {
         imageConfig: 'aperturaAcu'
     };
 
-    const articlesCollection = useContent({
+    return useContent({
         source: id ? 'collectionsSource' : null,
         query: collectionsProps,
         staticMode: true,
@@ -63,8 +61,6 @@ const getCollectionApertura = id => {
             return response ? response.content_elements : [];
         }
     });
-
-    return articlesCollection;
 };
 
 const GlobalProviderAcu = props => {
