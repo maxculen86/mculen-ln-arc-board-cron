@@ -17,28 +17,12 @@ const fetch = async ({ 'arc-site': arcSite } = {}, { cachedCall } = {}) => {
         json: true
     };
 
-    // const filter = `{
-    //     Termicas {
-    //         Dolares
-    //     }
-    // }`;
-
-    // console.log(
-    //     '🚀 ~ file: dolarSource.js ~ line 40 ~ fetch ~ ',
-    //     `${SITE_LANACION}/pf/api/v3/content/fetch/navigationTreeSource?query={"website":"${arcSite}"}&filter=${filter}`
-    // );
-    // console.log(
-    //     '🚀 ~ file: dolarSource.js ~ line 44 ~ fetcheeees',
-    //     `${CONTENT_BASE}/site/v3/navigation/${arcSite}/`
-    // );
     const promiseTermicasDolar = await cachedCall(
         'navigationTreeSource',
         getRequest,
         {
-            query: `${CONTENT_BASE}/site/v3/navigation/${arcSite}/`
-            // query: `${SITE_LANACION}/pf/api/v3/content/fetch/navigationTreeSource?query={"website":"${arcSite}"}&filter=${filter}`
-            // query: { website: arcSite },
-            // filter
+            query: `${CONTENT_BASE}/site/v3/navigation/${arcSite}/`,
+            independent: true
         }
     )
         .then(data => {
@@ -117,8 +101,8 @@ const transform = data => {
                         ...(venta && { venta }),
                         ...(sourceName && { sourceName }),
                         ...(title && { titleMobile: title }),
-                        ...(linkDictionary[dolar.sourceName] && {
-                            link: baseUrl + linkDictionary[dolar.sourceName]
+                        ...(linkDictionary[sourceName] && {
+                            link: baseUrl + linkDictionary[sourceName]
                         })
                     };
                 }),
