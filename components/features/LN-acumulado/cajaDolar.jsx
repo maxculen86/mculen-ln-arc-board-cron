@@ -9,18 +9,22 @@ const CajaDolar = ({ id: featureId }) => {
     const response =
         useContent({
             source: 'dolarSource',
+            staticMode: true,
             filter
         }) || {};
 
     const { data, imageUrl } = response;
 
     return (
-        (data && (
-            <Static id={featureId}>
-                <ModDolar imageUrl={imageUrl} data={data} />
-            </Static>
-        )) ||
-        null
+        <Static id={featureId}>
+            {(() => {
+                return data ? (
+                    <ModDolar imageUrl={imageUrl} data={data} />
+                ) : (
+                    <></>
+                );
+            })()}
+        </Static>
     );
 };
 
