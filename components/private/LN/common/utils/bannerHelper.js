@@ -229,7 +229,7 @@ export const shouldShow = (hideBanners, label, termicas = []) => {
         element &&
         element.value &&
         element.value.toString() === 'true' &&
-        !(hideBanners === 'true') &&
+        hideBanners !== 'true' &&
         mostrarBannersValue !== 'No'
     );
 };

@@ -78,16 +78,15 @@ export const getTodayDateForAcuDolar = () => {
 
 function formatDateHoursAndMint(originalDate) {
     const date = formatDateTreeHoursMore(originalDate);
-    return `${`00${date.getHours()}`.slice(
-        -2
-    )}:${`00${date.getMinutes()}`.slice(-2)}`;
+    const formatHours = `00${date.getHours()}`.slice(-2);
+    const formatMinutes = `00${date.getMinutes()}`.slice(-2);
+    return `${formatHours}:${formatMinutes}`;
 }
 
 function formatDateHoursMinAndSecond(originalDate) {
     const date = formatDateTreeHoursMore(originalDate);
-    return `${formatDateHoursAndMint(
-        originalDate
-    )}:${`00${date.getSeconds()}`.slice(-2)}`;
+    const formatSeconds = `00${date.getSeconds()}`.slice(-2);
+    return `${formatDateHoursAndMint(originalDate)}:${formatSeconds}`;
 }
 
 export function formatDateTreeHoursMore(originalDate) {

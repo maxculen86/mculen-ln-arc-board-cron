@@ -82,25 +82,27 @@ const VideoPlayer = props => {
             const player = event.detail.powa;
             const playerID = event.detail.id;
 
-            if (!playerID.includes(videoId)) return null;
+            if (playerID.includes(videoId)) {
+                setProgressEvent(player, tituloVideo, videoId);
+                setEvent(
+                    player,
+                    'play',
+                    'videoPlay',
+                    tituloVideo,
+                    videoId,
+                    streamingAnalyticInstance
+                );
+                setEvent(
+                    player,
+                    'complete',
+                    'videoComplete',
+                    tituloVideo,
+                    videoId,
+                    streamingAnalyticInstance
+                );
+            }
 
-            setProgressEvent(player, tituloVideo, videoId);
-            setEvent(
-                player,
-                'play',
-                'videoPlay',
-                tituloVideo,
-                videoId,
-                streamingAnalyticInstance
-            );
-            setEvent(
-                player,
-                'complete',
-                'videoComplete',
-                tituloVideo,
-                videoId,
-                streamingAnalyticInstance
-            );
+            return null;
         };
 
         if (!isAdmin && window && window.powaBoot) window.powaBoot();

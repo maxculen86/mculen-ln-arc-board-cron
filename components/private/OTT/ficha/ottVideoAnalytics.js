@@ -1,7 +1,7 @@
 export default function loadOTTVideoAnalytics(titulo, videoId) {
     const datalayer = window.dataLayer;
-    if (datalayer === undefined) return '';
-    window.addEventListener('powaRender', event => {
+    if (!datalayer) return null;
+    return window.addEventListener('powaRender', event => {
         const powa = event.detail.powa;
 
         powa.on(PoWa.EVENTS.START, evPowa => {
@@ -44,12 +44,10 @@ export default function loadOTTVideoAnalytics(titulo, videoId) {
             });
         });
 
-        if (dataLayer) {
-            dataLayer.push({
-                event: 'videoDisplay',
-                videoName: titulo,
-                videoID: videoId
-            });
-        }
+        dataLayer.push({
+            event: 'videoDisplay',
+            videoName: titulo,
+            videoID: videoId
+        });
     });
 }

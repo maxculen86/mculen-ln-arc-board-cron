@@ -33,7 +33,8 @@ const resolve = key => {
     if (sectionsIds) {
         const includeField =
             '_id,subtype,promo_items,taxonomy.tags,taxonomy.primary_section,credits,headlines.basic,headlines.mobile,subheadlines,content_elements,' +
-            'display_date,publish_date,first_publish_date,website_url,display_date,canonical_url,marquesina,label.recomendar.text,related_content,content_restrictions.content_code';
+            'display_date,publish_date,first_publish_date,website_url,display_date,canonical_url,marquesina,label.recomendar.text,related_content,' +
+            'content_restrictions.content_code';
 
         return `${basePath}&q=type:story+AND+source.system:${sourceOrigin}+AND+taxonomy.sites._id:${sectionsIds}
             &sort=display_date:desc&size=${cant}&from=${from}&_sourceInclude=${includeField}`;
@@ -160,10 +161,8 @@ const resolve = key => {
             }
     }`;
 
-    const requestUrl = `${basePath}${query}&size=${cant}&from=${from}
+    return `${basePath}${query}&size=${cant}&from=${from}
     &sort=display_date:desc`;
-
-    return requestUrl;
 };
 
 const fetch = query => {

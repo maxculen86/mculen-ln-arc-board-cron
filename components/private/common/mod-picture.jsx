@@ -30,7 +30,6 @@ const ModImage = props => {
         <ComPicture
             classCondition={classCondition}
             video={video ? '--video-background' : ''}
-            amp={amp}
         >
             <ComImage
                 srcset={srcSet}

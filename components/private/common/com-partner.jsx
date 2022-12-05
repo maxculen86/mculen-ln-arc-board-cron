@@ -6,7 +6,7 @@ const ComPartner = props => {
     const { children, classCondition, size } = props;
 
     return (
-        <span className={`com-partner ${classCondition || ''} ${size || ``}`}>
+        <span className={`com-partner ${classCondition || ''} ${size || ''}`}>
             {children}
         </span>
     );

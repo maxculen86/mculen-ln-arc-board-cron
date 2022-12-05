@@ -46,15 +46,15 @@ const fetch = ({ arcSite }) => {
 };
 
 const transform = data => {
-    const imageUrl = createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl(
-        'https://especialess3.lanacion.com.ar/LN/svg/logo-iol.svg',
-        49,
-        60,
-        {
+    const imageUrl = createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl({
+        originalUrl: 'https://especialess3.lanacion.com.ar/LN/svg/logo-iol.svg',
+        originalWidth: 49,
+        originalHeight: 60,
+        resizeOptions: {
             height: 76,
             width: 314
         }
-    );
+    });
 
     const titles = {
         dbna: ['Dólar Banco Nación', 'Dólar hoy'],
