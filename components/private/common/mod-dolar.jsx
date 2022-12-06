@@ -16,18 +16,10 @@ const ModDolar = ({
     outputType,
     providedAlt,
     contextPath,
-    deployment
+    deployment,
+    oddOrEven,
+    fillClass
 }) => {
-    const oddOrEven = data && (data.length % 2 ? '--odd' : '--even');
-
-    let fillClass = '';
-    const extraClass = ['', '--minusThree', '--minusTwo', '--minusOne'];
-
-    data &&
-        (data.length < 4
-            ? (fillClass = '--fewElem')
-            : (fillClass = data && extraClass[data.length % 4]));
-
     return data.length ? (
         <>
             <div className="dolar">
@@ -91,13 +83,19 @@ ModDolar.propTypes = {
     }).isRequired,
     outputType: PropTypes.string,
     informationAlt: PropTypes.string,
-    providedAlt: PropTypes.string
+    providedAlt: PropTypes.string,
+    contextPath: PropTypes.string.isRequired,
+    deployment: PropTypes.func.isRequired,
+    oddOrEven: PropTypes.string,
+    fillClass: PropTypes.string
 };
 
 ModDolar.defaultProps = {
     outputType: 'default',
     informationAlt: 'BYMA',
-    providedAlt: 'InvertirOnline'
+    providedAlt: 'InvertirOnline',
+    oddOrEven: '',
+    fillClass: ''
 };
 
 export default ModDolar;

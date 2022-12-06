@@ -47,7 +47,9 @@ describe('With data list', () => {
     });
 
     it('Should match snapshot showing correct data for all 8 type of dolars', () => {
-        const { container } = render(<ModDolar {...SOURCE_RESPONSE} />);
+        const { container } = render(
+            <ModDolar {...SOURCE_RESPONSE} oddOrEven="--even" />
+        );
         expect(container).toMatchSnapshot();
     });
 });

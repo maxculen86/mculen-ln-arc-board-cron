@@ -40,7 +40,6 @@ describe('Common private currencyData - with dbna', () => {
     const paragraph = children[1];
     const textComponent = linkComponent.children[0];
     it('Check com-link component', () => {
-        console.log(wrapper.html());
         expect(linkComponent).toBeTruthy();
         expect(linkComponent.attribs.link).toBe(
             'https://www.lanacion.com.ar/dolar-hoy/'

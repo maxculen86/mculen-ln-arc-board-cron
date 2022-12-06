@@ -18,6 +18,16 @@ const CajaDolar = ({ id: featureId }) => {
 
     const { data, imageUrl } = response;
 
+    const oddOrEven = data && (data.length % 2 ? '--odd' : '--even');
+
+    let fillClass = '';
+    const extraClass = ['', '--minusThree', '--minusTwo', '--minusOne'];
+
+    data &&
+        (data.length < 4
+            ? (fillClass = '--fewElem')
+            : (fillClass = data && extraClass[data.length % 4]));
+
     return (
         <Static id={featureId}>
             {(() => {
@@ -27,6 +37,8 @@ const CajaDolar = ({ id: featureId }) => {
                         data={data}
                         contextPath={contextPath}
                         deployment={deployment}
+                        oddOrEven={oddOrEven}
+                        fillClass={fillClass}
                     />
                 ) : (
                     <></>
