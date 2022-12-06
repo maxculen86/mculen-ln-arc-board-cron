@@ -29,10 +29,6 @@ const CajaDolar = ({ id: featureId }) => {
             ? (fillClass = '--fewElem')
             : (fillClass = data && extraClass[data.length % 4]));
 
-    const logoByma = getAssetsPath(contextPath)(deployment)('logo-byma.svg');
-    const logoIol = getAssetsPath(contextPath)(deployment)('logo-iol.svg');
-    const isAmp = outputType === 'amp';
-
     return (
         <Static id={featureId}>
             {(() => {
@@ -42,9 +38,13 @@ const CajaDolar = ({ id: featureId }) => {
                         data={data}
                         oddOrEven={oddOrEven}
                         fillClass={fillClass}
-                        logoByma={logoByma}
-                        logoIol={logoIol}
-                        isAmp={isAmp}
+                        logoByma={getAssetsPath(contextPath)(deployment)(
+                            'logo-byma.svg'
+                        )}
+                        logoIol={getAssetsPath(contextPath)(deployment)(
+                            'logo-iol.svg'
+                        )}
+                        isAmp={outputType === 'amp'}
                     />
                 ) : (
                     <></>
