@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Viewability Evento productClick del script viewability Cuando se hace click en un articulo con layout grilla debe guardar en dataLayer datos attr del articulo 1`] = `
+exports[`Viewability Evento productClick del script viewability when clicks in article with layout grilla should save in dataLayer data attr from article 1`] = `
 <CajaTema
   articles={
     Array [

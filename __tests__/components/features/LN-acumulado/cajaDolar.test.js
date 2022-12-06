@@ -25,7 +25,8 @@ describe('Features - LN-acumulado - Caja Dolar Feature =>', () => {
             }));
             const wrapper2 = shallow(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
 
-            expect(wrapper1.html() && wrapper2.html()).toBeNull();
+            expect(wrapper1.html()).toBeFalsy();
+            expect(wrapper2.html()).toBeFalsy();
         });
     });
 
