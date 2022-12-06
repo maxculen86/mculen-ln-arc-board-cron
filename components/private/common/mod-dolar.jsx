@@ -1,24 +1,21 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-// import { useAppContext } from 'fusion:context';
 
 import CurrencyData from './currencyData/CurrencyData';
 import ComLink from './com-link';
 import ComImage from './com-image';
-
-import getAssetsPath from './utils/getAssetsPath';
 
 import '../../../resources/dist/css/ln/modules/mod-dolar.css';
 
 const ModDolar = ({
     data = [],
     informationAlt,
-    outputType,
     providedAlt,
-    contextPath,
-    deployment,
     oddOrEven,
-    fillClass
+    fillClass,
+    logoByma,
+    logoIol,
+    isAmp
 }) => {
     return data.length ? (
         <>
@@ -45,10 +42,8 @@ const ModDolar = ({
                 <ComImage
                     classCondition="logo byma"
                     alt={informationAlt}
-                    amp={outputType === 'amp'}
-                    src={getAssetsPath(contextPath)(deployment)(
-                        'logo-byma.svg'
-                    )}
+                    amp={isAmp}
+                    src={logoByma}
                 />
                 <span className="--fivexs">provista por</span>
                 <ComLink
@@ -61,10 +56,8 @@ const ModDolar = ({
                     <ComImage
                         classCondition="logo iol"
                         alt={providedAlt}
-                        amp={outputType === 'amp'}
-                        src={getAssetsPath(contextPath)(deployment)(
-                            'logo-iol.svg'
-                        )}
+                        amp={isAmp}
+                        src={logoIol}
                     />
                 </ComLink>
             </div>
@@ -81,21 +74,23 @@ ModDolar.propTypes = {
         compra: PropTypes.string,
         venta: PropTypes.string
     }).isRequired,
-    outputType: PropTypes.string,
     informationAlt: PropTypes.string,
     providedAlt: PropTypes.string,
-    contextPath: PropTypes.string.isRequired,
-    deployment: PropTypes.func.isRequired,
     oddOrEven: PropTypes.string,
-    fillClass: PropTypes.string
+    fillClass: PropTypes.string,
+    logoByma: PropTypes.string,
+    logoIol: PropTypes.string,
+    isAmp: PropTypes.bool
 };
 
 ModDolar.defaultProps = {
-    outputType: 'default',
     informationAlt: 'BYMA',
     providedAlt: 'InvertirOnline',
     oddOrEven: '',
-    fillClass: ''
+    fillClass: '',
+    logoByma: '',
+    logoIol: '',
+    isAmp: false
 };
 
 export default ModDolar;

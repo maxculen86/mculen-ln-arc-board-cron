@@ -5,9 +5,10 @@ import { useContent } from 'fusion:content';
 import Static from 'fusion:static';
 import ModDolar from '../../private/common/mod-dolar';
 import filter from '../../../content/filters/LN/services/dolar';
+import getAssetsPath from '../../private/common/utils/getAssetsPath';
 
 const CajaDolar = ({ id: featureId }) => {
-    const { contextPath, deployment } = useAppContext() || {};
+    const { contextPath, deployment, outputType } = useAppContext() || {};
 
     const response =
         useContent({
@@ -28,6 +29,10 @@ const CajaDolar = ({ id: featureId }) => {
             ? (fillClass = '--fewElem')
             : (fillClass = data && extraClass[data.length % 4]));
 
+    const logoByma = getAssetsPath(contextPath)(deployment)('logo-byma.svg');
+    const logoIol = getAssetsPath(contextPath)(deployment)('logo-iol.svg');
+    const isAmp = outputType === 'amp';
+
     return (
         <Static id={featureId}>
             {(() => {
@@ -35,10 +40,11 @@ const CajaDolar = ({ id: featureId }) => {
                     <ModDolar
                         imageUrl={imageUrl}
                         data={data}
-                        contextPath={contextPath}
-                        deployment={deployment}
                         oddOrEven={oddOrEven}
                         fillClass={fillClass}
+                        logoByma={logoByma}
+                        logoIol={logoIol}
+                        isAmp={isAmp}
                     />
                 ) : (
                     <></>
