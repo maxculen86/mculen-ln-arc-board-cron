@@ -31,7 +31,8 @@ const media = ({
     autoplay,
     isPowa,
     insideBody,
-    withMobileImage
+    withMobileImage,
+    searchableField
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -39,6 +40,7 @@ const media = ({
     const isVertical = height > width;
     let item = null;
     const { subtipo } = useSubtype();
+    const idForMedia = isApertura ? idMedia : undefined;
 
     useEffect(() => {
         if (!itsGallery && withZoom) {
@@ -99,6 +101,7 @@ const media = ({
                             outputType={outputType}
                             zoom={zoom}
                             isApertura={isApertura}
+                            searchableField={searchableField}
                         />
                         {children}
                         {(zoom || itsGallery) && (
@@ -132,7 +135,7 @@ const media = ({
         }
     }
     if (!item) {
-        item = <ComPicture href={href} amp={outputType === 'amp'} />;
+        item = <ComPicture href={href} />;
     }
     return (
         <>
@@ -141,12 +144,12 @@ const media = ({
             ) : (
                 <div className="content-media" ref={refContainer}>
                     <ModMedia
-                        idMedia={isApertura ? idMedia : undefined}
+                        idMedia={idForMedia}
                         zoom={zoom}
                         withZoom={withZoom}
                         active={active}
                         html={html}
-                        scriptForZoom={scriptForZoom}
+                        scriptForZoom={!isApertura && scriptForZoom}
                         outputType={outputType}
                     >
                         {item}
@@ -186,7 +189,10 @@ media.propTypes = {
     autoplay: PropTypes.bool,
     isPowa: PropTypes.bool,
     insideBody: PropTypes.bool,
-    withMobileImage: PropTypes.bool
+    withMobileImage: PropTypes.bool,
+    searchableField: PropTypes.shape({
+        imageId: PropTypes.string
+    })
 };
 
 media.defaultProps = {
@@ -206,7 +212,8 @@ media.defaultProps = {
     children: undefined,
     isPowa: true,
     handleClick: () => {},
-    withMobileImage: false
+    withMobileImage: false,
+    searchableField: undefined
 };
 
 media.defaultProps = {

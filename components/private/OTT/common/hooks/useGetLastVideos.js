@@ -2,7 +2,7 @@ import { useContent } from 'fusion:content';
 import { lastVideosQuery } from '../../../../../content/queries/videosSearchSource';
 
 const useGetLastVideos = (filter, website, published) => {
-    const videos = useContent({
+    return useContent({
         source: 'videosSearchSource',
         query: {
             website,
@@ -11,6 +11,5 @@ const useGetLastVideos = (filter, website, published) => {
         },
         filter
     });
-    return videos;
 };
 export default useGetLastVideos;

@@ -11,6 +11,8 @@ const targetingHome = {
     seccion: 'home'
 };
 
+const bodyBottom = 'body-bottom';
+
 const minWidth1920 = '(min-width: 1920px)';
 const minWidth1280 = '(min-width: 1280px)';
 const minWidth1024 = '(min-width: 1024px)';
@@ -116,7 +118,7 @@ export default {
         },
         ScriptCripto: {
             props: {},
-            location: ['body-bottom']
+            location: [bodyBottom]
         },
         GTM: {
             props: { id: 'GTM-GHV6', idAMP: 'GTM-PRT86FH' },
@@ -149,7 +151,7 @@ export default {
         },
         AdblockDetector: {
             props: {},
-            location: ['body-bottom']
+            location: [bodyBottom]
         },
         NewsMediaOrganization: {
             props: {},
@@ -181,15 +183,15 @@ export default {
         },
         Blockthrough: {
             props: {},
-            location: ['body-bottom']
+            location: [bodyBottom]
         },
         Queryly: {
             props: {},
-            location: ['body-bottom']
+            location: [bodyBottom]
         },
         Viafoura: {
             props: {},
-            location: ['body-bottom']
+            location: [bodyBottom]
         },
         ComscoreVideo: {
             props: {},
@@ -1175,6 +1177,28 @@ export default {
                             //media: minWidth320,
                             useFullSize: true,
                             proportion: '3:2'
+                        }
+                    ]
+                }
+            },
+            videoImage: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 820,
+                            height: 410
+                        },
+                        {
+                            width: 768,
+                            height: 414
+                        },
+                        {
+                            width: 360,
+                            height: 180
+                        },
+                        {
+                            width: 351,
+                            height: 175
                         }
                     ]
                 }

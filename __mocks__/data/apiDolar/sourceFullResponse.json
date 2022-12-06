@@ -1,0 +1,54 @@
+{
+    "data": [
+        {
+            "link": "https://www.lanacion.com.ar/dolar-hoy/",
+            "compra": "163,25",
+            "venta": "171,25",
+            "sourceName": "dbna",
+            "titleMobile": "Dólar oficial"
+        },
+        {
+            "link": "https://www.lanacion.com.ar/tema/dolar-blue-tid67294/",
+            "compra": "308,00",
+            "venta": "312,00",
+            "sourceName": "dblue",
+            "titleMobile": "Dólar blue"
+        },
+        {
+            "venta": "311,81",
+            "sourceName": "dmep",
+            "titleMobile": "Dólar MEP"
+        },
+        {
+            "link": "https://www.lanacion.com.ar/tema/dolar-ccl/",
+            "venta": "325,72",
+            "sourceName": "dccl",
+            "titleMobile": "Dólar CCL"
+        },
+        {
+            "link": "https://www.lanacion.com.ar/tema/dolar-tarjeta-tid50462/",
+            "venta": "299,69",
+            "sourceName": "dtarjeta",
+            "titleMobile": "Dólar tarjeta"
+        },
+        {
+            "link": "https://www.lanacion.com.ar/tema/dolar-turista-tid67475/",
+            "venta": "342,5",
+            "sourceName": "dturista",
+            "titleMobile": "Dólar turista"
+        },
+        {
+            "venta": "164,52",
+            "sourceName": "dmayorista",
+            "titleMobile": "Dólar mayorista"
+        },
+        {
+            "link": "https://www.lanacion.com.ar/tema/euro-hoy-tid66142/",
+            "compra": "167,86",
+            "venta": "176,69",
+            "sourceName": "euro",
+            "titleMobile": "Euro"
+        }
+    ],
+    "imageUrl": "https://resizer.glanacion.com/resizer/0GdxpO9hiHgenNwsaSPj7ljMCRU=/314x0/filters:format(webp):quality(80)/especialess3.lanacion.com.ar/LN/svg/logo-iol.svg"
+}

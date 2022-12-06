@@ -187,6 +187,10 @@ const transform = (
         credits: presetsCreditsCustom
     } = get(properties, `imageConfig.resize.${imageConfig}`, {});
 
+    const presetsPromoItemsVideo =
+        get(data, 'promo_items.apertura_multimedia.type', '') === 'video' &&
+        get(properties, 'imageConfig.resize.videoImage.promo_items', null);
+
     const presetsPromoItemsFotoAl100 =
         (data.subtype === FOTOAL100 || data.subtype === STORYTELLING) &&
         get(properties, 'imageConfig.resize.fotoAl100.promo_items', null);
@@ -228,6 +232,7 @@ const transform = (
                 promoItems:
                     presetsPromoItemsCustom ||
                     presetsPromoItemsFotoAl100 ||
+                    presetsPromoItemsVideo ||
                     presetsPromoItems ||
                     presetsDefault,
                 contentElements:

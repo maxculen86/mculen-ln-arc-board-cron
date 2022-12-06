@@ -135,6 +135,27 @@ const getMediaApertura = (renderables, arcSite, isAdmin) => {
     );
 };
 
+const getResizedUrlsFromNote = (subtype, promoItems, basicDefault) => {
+    const isVideoType =
+        get(promoItems, 'apertura_multimedia.type', false) === 'video';
+
+    if (isVideoType) {
+        const aperturaMultimedia = get(promoItems, 'apertura_multimedia', {});
+
+        return replaceAllUrlsResizerArray(
+            get(aperturaMultimedia, 'promo_items.basic.resized_urls', [])
+        );
+    }
+
+    if (subtype === STORYTELLING) {
+        return replaceAllUrlsResizerArray(
+            get(promoItems, 'storytelling_mobile.resized_urls', [])
+        );
+    }
+
+    return get(basicDefault, 'resized_urls', []);
+};
+
 const GetDataToLinkImage = ({
     data = {},
     section = '',
@@ -160,16 +181,11 @@ const GetDataToLinkImage = ({
 
     const sectionData = {
         Nota: () => {
-            const resizedUrls =
-                subtype === STORYTELLING
-                    ? replaceAllUrlsResizerArray(
-                          get(
-                              promoItems,
-                              'storytelling_mobile.resized_urls',
-                              []
-                          )
-                      )
-                    : get(basic, 'resized_urls', []);
+            const resizedUrls = getResizedUrlsFromNote(
+                subtype,
+                promoItems,
+                basic
+            );
 
             return <LinkImagePreload resizedUrls={resizedUrls} />;
         },
@@ -199,7 +215,9 @@ const GetDataToLinkImage = ({
                 renderables
             );
             const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
-            const idCollectionApertura = getIdCollectionFromGC(data);
+            const idCollectionApertura = getIdCollectionFromGC({
+                globalContent: data
+            });
 
             if (
                 !hasFeatureAcumuladoApertura ||

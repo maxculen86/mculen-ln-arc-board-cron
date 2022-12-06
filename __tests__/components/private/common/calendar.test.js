@@ -5,10 +5,14 @@ import Calendar from '../../../../components/private/common/calendar/Calendar';
 
 describe('Components - common - Calendar =>', () => {
     it('Test calendar without props', () => {
-        const mockDateObject = new Date(2022, 10, 1);
+        const mockActualDate = new Date(2022, 10, 17);
+        const mockFirstDayDate = new Date(2022, 10, 1);
+        const mockLastDayDate = new Date(2022, 10, 0);
         const spy = jest
             .spyOn(global, 'Date')
-            .mockImplementation(() => mockDateObject);
+            .mockImplementationOnce(() => mockActualDate)
+            .mockImplementationOnce(() => mockFirstDayDate)
+            .mockImplementationOnce(() => mockLastDayDate);
         const { container } = render(<Calendar />);
 
         expect(

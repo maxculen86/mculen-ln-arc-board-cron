@@ -1,18 +1,24 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-
+import setClassName from './utils/setClassName';
 import Link from './com-link';
 
 import '../../../resources/dist/css/ln/modules/mod-list.css';
 
 const List = ({ children, order, inline, mod, size }) => {
     const CustomTag = order ? 'ol' : 'ul';
-    const className = `mod-list${order ? ` --ordered` : ''}${
-        inline ? ` --inline` : ''
-    }${mod ? ` ${mod}` : ''}${size ? ` ${size}` : ''}`;
+    const orderedClass = order ? '--ordered' : '';
+    const inlineClass = inline ? '--inline' : '';
+    const _className = setClassName({
+        baseClass: 'mod-list',
+        inlineClass,
+        orderedClass,
+        mod,
+        size
+    });
 
     return (
-        <CustomTag className={className}>
+        <CustomTag className={_className}>
             {children.map((item, index) => (
                 <li key={item.text}>
                     {item.href ? (

@@ -9,7 +9,15 @@ import {
 } from '../../utils/mediaHelper';
 
 const ImageArticle = props => {
-    const { image, href, outputType, active, isVertical, isApertura } = props;
+    const {
+        image,
+        href,
+        outputType,
+        active,
+        isVertical,
+        isApertura,
+        searchableField
+    } = props;
 
     const { alt_text: altText, caption, titleText, height, width, url } = image;
 
@@ -35,7 +43,7 @@ const ImageArticle = props => {
     const _url = resizedUrl || url;
 
     return (
-        <ComPicture href={href} amp={outputType === 'amp'}>
+        <ComPicture href={href}>
             <ComImage
                 srcset={srcset}
                 sizes={sizes.length > 0 ? `${sizes},100vw` : '100vw'}
@@ -45,6 +53,7 @@ const ImageArticle = props => {
                 height={height}
                 width={width}
                 isApertura={isApertura}
+                searchableField={searchableField}
             />
         </ComPicture>
     );

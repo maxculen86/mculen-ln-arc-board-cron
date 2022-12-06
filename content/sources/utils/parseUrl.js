@@ -8,8 +8,8 @@ const validationUrlRepeat = url => {
 const formatUrl = url => {
     const urlArray = url.split('/').filter(item => item !== '');
     if (url.includes('http')) {
-        const [protocol, domain, section, noteUrl] = urlArray;
-        return `${protocol}//${domain}/${section}/${noteUrl}/`;
+        const [protocol, domain, _section, noteUrl] = urlArray;
+        return `${protocol}//${domain}/${_section}/${noteUrl}/`;
     }
     const [section, path] = urlArray;
     return `/${section}/${path}/`;

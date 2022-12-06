@@ -82,8 +82,7 @@ const LNAcumuladoLayout = props => {
 
     const {
         anexosuperior: anexoSuperior = '',
-        anexoinferior: anexoInferior = '',
-        collectionForTag = ''
+        anexoinferior: anexoInferior = ''
     } = acumuladoGeneral;
 
     const anexoSuperiorConfig = getConfigForAnexo(anexoSuperior);
@@ -116,10 +115,10 @@ const LNAcumuladoLayout = props => {
         'props.customFields.idCollection'
     );
 
-    const idCollectionApertura = getIdCollectionFromGC(
+    const idCollectionApertura = getIdCollectionFromGC({
         globalContent,
-        chainCollectionId
-    );
+        defaultValue: chainCollectionId
+    });
 
     const idCollectionsInPage = get(
         globalContent,

@@ -169,7 +169,7 @@ const SnippetNoticia = props => {
         dateCreated: `${new Date(createdDate).toUTCString()}`,
         datePublished: `${new Date(firstPublishDate).toUTCString()}`,
         dateModified: `${new Date(displayDate).toUTCString()}`,
-        mainEntityOfPage: `${addForwardSlash(`${siteProperties.host}${path}`)}`,
+        mainEntityOfPage: addForwardSlash(`${siteProperties.host}${path}`),
         articleSection: `${name}`,
         isAccessibleForFree: `${contentCode === 'abierta'}`,
         hasPart: {

@@ -102,7 +102,7 @@ export const productClickFromClient = (element = {}) => {
 
 export const createIntersectionObserver = () => {
     try {
-        const callback = (entries, observer) => {
+        const callback = (entries, _observer) => {
             const articlesToAdd = [];
             const itemsToAdd = [];
             const articlesSeen =

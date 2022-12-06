@@ -68,9 +68,13 @@ export const createResizer = (
 
     const Thumbor =
         // eslint-disable-next-line no-eval
-        typeof window === 'undefined' ? eval('require("thumbor")') : () => {};
+        typeof window === 'undefined'
+            ? eval('require("thumbor")')
+            : () => {
+                  // NOSONAR - This is intentional
+              };
 
-    const resizeUrl = (
+    const resizeUrl = ({
         originalUrl,
         originalWidth,
         originalHeight,
@@ -78,7 +82,7 @@ export const createResizer = (
         focalPoint = [],
         smartCropExcluded,
         filterQuality = 80
-    ) => {
+    }) => {
         const { useFullSize, proportion, width: newWidth = 0 } = resizeOptions;
         let { height: newHeight = 0 } = resizeOptions;
 
@@ -129,14 +133,14 @@ export const createResizer = (
         const finalPreset = presets;
         finalPreset &&
             finalPreset.forEach(opt => {
-                const resizedUrl = resizeUrl(
+                const resizedUrl = resizeUrl({
                     originalUrl,
                     originalWidth,
                     originalHeight,
-                    opt,
+                    resizeOptions: opt,
                     focalPoint,
                     smartCropExcluded
-                );
+                });
                 resp.push({
                     resizedUrl,
                     option: {
@@ -253,14 +257,14 @@ export const resizeArcImage = (
         ...arcImage,
         width: fp || !smartCropExcluded ? 768 : arcImage.width,
         height: fp || !smartCropExcluded ? 513 : arcImage.height,
-        url: resizer.resizeUrl(
-            arcImage.url,
-            arcImage.width,
-            arcImage.height,
-            defaultResizeWithSmart,
-            fp,
+        url: resizer.resizeUrl({
+            originalUrl: arcImage.url,
+            originalWidth: arcImage.width,
+            originalHeight: arcImage.height,
+            resizeOptions: defaultResizeWithSmart,
+            focalPoint: fp,
             smartCropExcluded
-        ),
+        }),
         resized_urls: resizer.resizeUrls(
             arcImage.url,
             arcImage.width,
@@ -328,22 +332,46 @@ export const resizePromoItems = (
     const { defaultResize, shouldExcludeCrop } = getDefaultSize(subtype);
 
     const optionsFinal = get(resizeOptions, 'sizes', [defaultResize]);
-
     Object.keys(promoItems).forEach(key => {
         const pi = promoItems[key];
 
-        if (pi.type === 'image') {
-            resp[key] = resizeArcImage(
-                pi,
-                optionsFinal,
-                resizer,
-                zoomSizes,
-                shouldExcludeCrop,
-                defaultResize
-            );
-        } else {
-            resp[key] = pi;
-        }
+        const types = {
+            video: () => {
+                const videoImage = get(pi, 'promo_items.basic');
+
+                resp[key] = {
+                    ...pi,
+                    promo_items: {
+                        basic: {
+                            ...pi.promo_items.basic,
+                            ...resizeArcImage(
+                                videoImage,
+                                optionsFinal,
+                                resizer,
+                                zoomSizes,
+                                shouldExcludeCrop,
+                                defaultResize
+                            )
+                        }
+                    }
+                };
+            },
+            image: () => {
+                resp[key] = resizeArcImage(
+                    pi,
+                    optionsFinal,
+                    resizer,
+                    zoomSizes,
+                    shouldExcludeCrop,
+                    defaultResize
+                );
+            },
+            default: () => {
+                resp[key] = pi;
+            }
+        };
+
+        types[pi.type] ? types[pi.type]() : types.default();
     });
 
     return resp;
@@ -386,6 +414,7 @@ export const addResizedUrls = (ansDoc, options) => {
         content_elements: contentElements,
         credits
     } = ansDoc;
+
     if (!resizerSecret || !resizerUrl || !presets)
         throw new Error(
             'Debe proporcionar el resizerSecret, resizerUrl y presets'
@@ -415,6 +444,21 @@ export const addResizedUrls = (ansDoc, options) => {
                             true,
                             defaultResize
                         )) ||
+                    (type === 'video' && {
+                        ...elem,
+                        promo_items: {
+                            basic: {
+                                ...resizeArcImage(
+                                    elem.promo_items.basic,
+                                    presetsContentElements || presetsDefault,
+                                    resizer,
+                                    zoomSizes,
+                                    true,
+                                    defaultResize
+                                )
+                            }
+                        }
+                    }) ||
                     (type === 'gallery' &&
                         resizeArcGallery(
                             elem,

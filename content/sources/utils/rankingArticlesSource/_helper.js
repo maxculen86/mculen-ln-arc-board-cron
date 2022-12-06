@@ -34,12 +34,13 @@ export const getAnalitycUrls = (data = {}) => {
 export const getCanonicalUrls = data => {
     const canonicalUrls = getAnalitycUrls(data);
     const size = get(canonicalUrls, 'length', 0);
-    return size
-        ? canonicalUrls.slice(
-              0,
-              size >= STORY_QUERY_LIMIT ? STORY_QUERY_LIMIT : size
-          )
-        : [];
+    if (size) {
+        return canonicalUrls.slice(
+            0,
+            size >= STORY_QUERY_LIMIT ? STORY_QUERY_LIMIT : size
+        );
+    }
+    return [];
 };
 
 export const resolveUri = key => {

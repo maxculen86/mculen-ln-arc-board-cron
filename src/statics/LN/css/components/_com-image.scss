@@ -17,6 +17,15 @@
         height: auto;
     }
 
+    .content-facade & {
+        display: block;
+        height: 100%;
+    }
+
+    .--vertical-video & {
+        object-fit: cover;
+    }
+
     .--vertical & {
         // .--slider.--slider & {
         //     object-fit: contain;

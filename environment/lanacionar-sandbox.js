@@ -48,7 +48,7 @@ export default {
     VIAFOURA_XREQUEST:
         '+A5uYQkKRlUYelDeXhW0I88A7/UVYGFtIugKIur9dtQE9dx7srvdJiI+ZSJZ2YsE',
     ARC_WIDGETS: 'https://sandbox-arc-widgets.lanacion.com.ar/widgets/',
-    LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar',
+    LANACION_SERVICES_URL: 'https://pre-arcservices.lanacion.com.ar',
     PERSONALIZACION_API:
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
     BOOKMARK_URL:
