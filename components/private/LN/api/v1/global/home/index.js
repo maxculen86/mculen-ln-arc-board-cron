@@ -67,9 +67,13 @@ const articlesMap = (articles, feature) => {
             } catch (error) {
                 // eslint-disable-next-line no-console
 
-                if (error?.name === 'ErrorIdArticle') {
+                if (get(error, 'name', null) === 'ErrorIdArticle') {
                     console.warn(
-                        `SectionMobile:${feature || ''} - ${error?.message} `,
+                        `SectionMobile:${feature || ''} - ${get(
+                            error,
+                            'message',
+                            ''
+                        )} `,
                         {
                             error,
                             outputType: 'json',
