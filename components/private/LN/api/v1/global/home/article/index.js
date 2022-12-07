@@ -2,6 +2,9 @@ const index = (articleSourceNota, articleImage, articleVideo, props) => {
     if (!articleSourceNota) {
         return null;
     }
+    if (!props || !props.customFields) {
+        return null;
+    }
     const {
         noteId,
         title,
@@ -10,7 +13,7 @@ const index = (articleSourceNota, articleImage, articleVideo, props) => {
         chapita,
         opinion,
         html
-    } = props?.customFields;
+    } = props.customFields;
 
     const additionalProperties = {
         noteId,

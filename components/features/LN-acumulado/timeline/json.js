@@ -87,13 +87,16 @@ class Timeline {
                         );
                         return element;
                     });
+            const resultArticles = results.content_elements?.filter(
+                x => x != null
+            );
             const props = {
                 ...this.props,
                 customFields: {
                     ...this.props.customFields,
                     layout: 'timeline'
                 },
-                children: results.content_elements || []
+                children: resultArticles || []
             };
 
             return respChain(null, props);
