@@ -10,7 +10,7 @@ const index = (articleSourceNota, articleImage, articleVideo, props) => {
         chapita,
         opinion,
         html
-    } = props.customFields;
+    } = props?.customFields;
 
     const additionalProperties = {
         noteId,

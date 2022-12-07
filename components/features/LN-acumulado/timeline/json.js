@@ -79,7 +79,12 @@ class Timeline {
                                 title: null
                             }
                         };
-                        const element = resultArticle(elem, null, propsElem);
+                        const element = resultArticle(
+                            elem,
+                            null,
+                            null,
+                            propsElem
+                        );
                         return element;
                     });
             const props = {
