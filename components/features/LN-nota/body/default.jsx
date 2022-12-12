@@ -12,6 +12,7 @@ import handleScrollForNota from '../../../private/LN/nota/dataLayer/handleScroll
 import { setStorageConfiguration } from '../../../private/common/utils/storage';
 import AudioPlayerDesktop from '../../../private/common/audioNews/AudioPlayerDesktop';
 import { embedIntersectionObserver } from './_utils/_embedHelper';
+import createIntersectionObserverForLinks from '../../../private/common/utils/linksTracker';
 
 const body = ({ customFields }) => {
     const { outputType, globalContent = {} } = useAppContext();
@@ -22,6 +23,7 @@ const body = ({ customFields }) => {
         try {
             setStorageConfiguration(_id);
             embedIntersectionObserver();
+            createIntersectionObserverForLinks();
         } catch (error) {
             console.error('Error en setear Local Storage, CuerpoDefault', {
                 error,
