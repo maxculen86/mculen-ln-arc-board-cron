@@ -77,6 +77,7 @@ const HeaderDesktop = ({
 }) => {
     const { loading, goToLoginUrl } = loginData;
     const bookmarkWeb = useTermica('bookmark_web');
+    const paywallActive = useTermica('paywall') || false;
     const [active, setActive] = useState(comUsuario);
     const [loadingUserData, setLoadingUserData] = useState(
         loading ? ' hlp-none' : ''
@@ -134,7 +135,8 @@ const HeaderDesktop = ({
                         className={`${active} ${loadingUserData}`}
                     >
                         {!loginData.subscription &&
-                            typeof window !== 'undefined' && (
+                            typeof window !== 'undefined' &&
+                            paywallActive && (
                                 <a
                                     className="com-button --special"
                                     id="btnsuscribite"
