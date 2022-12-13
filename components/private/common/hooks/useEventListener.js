@@ -26,7 +26,7 @@ const useEventListener = (eventName, handler, element = window) => {
                     element.removeEventListener(eventName, eventListener);
                 };
             }
-            return false;
+            return () => false;
         },
         [eventName, element] // Vuelve a ejecutar si eventName o element cambia
     );

@@ -158,7 +158,7 @@ const validateSections = (section, name, position, renderables) => {
     const sectionChildren = findSectionChildren(renderables, position);
 
     let elements =
-        checkIfValid(name, sectionChildren) === true ? section : null;
+        checkIfValid(name, sectionChildren).ok === true ? section : null;
 
     const banner = boxPosition[name];
 

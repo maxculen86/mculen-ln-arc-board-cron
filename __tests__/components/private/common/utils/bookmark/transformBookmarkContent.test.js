@@ -35,13 +35,13 @@ describe('Tests getHeightOfUrl', () => {
     });
 
     test('Test cuando la url no esta definida', () => {
-        expect(getHeightOfUrl()).toStrictEqual('');
+        expect(getHeightOfUrl()).toStrictEqual(0);
     });
 
     test('Test cuando la url no tiene medidas', () => {
         const url =
             'https://resizer.glanacion.com/resizer/lW7qG2X_dHzU9b8TFbIRQlTk=/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/5UH2M5EWTZBIJE6LCGMRZCUEW4.jpg';
 
-        expect(getHeightOfUrl(url)).toStrictEqual('');
+        expect(getHeightOfUrl(url)).toStrictEqual(0);
     });
 });

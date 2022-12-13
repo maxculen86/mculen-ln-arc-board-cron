@@ -20,18 +20,20 @@ export const fetchVideo = (videoID, imageConfig, isInApertura, isAdmin) => {
 };
 
 const getVideoPosterResized = (videoID, imageConfig, isInApertura, isAdmin) => {
-    const { resizedUrl } =
-        fetchVideo(videoID, imageConfig, isInApertura, isAdmin) || [];
-
-    return (
-        {
-            promo_items: {
-                basic: {
-                    resized_urls: resizedUrl
-                }
-            }
-        } || []
+    const { resizedUrl = [] } = fetchVideo(
+        videoID,
+        imageConfig,
+        isInApertura,
+        isAdmin
     );
+
+    return {
+        promo_items: {
+            basic: {
+                resized_urls: resizedUrl
+            }
+        }
+    };
 };
 
 export default getVideoPosterResized;

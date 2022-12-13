@@ -4,7 +4,7 @@ import capitalizeFirstLetter from './utils/capitalizeFirstLetter';
 import { VIDEO } from './utils/subtypes/subtypeHelper';
 import get from './utils/get';
 
-const validateCampo = id => (id.includes('/economia/campo') ? 'Campo' : false);
+const validateCampo = id => (id.includes('/economia/campo') ? 'Campo' : '');
 
 const getContent = id => {
     const isCampo = validateCampo(id);

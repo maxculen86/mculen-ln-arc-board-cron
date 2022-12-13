@@ -287,7 +287,7 @@ describe('Tests - metasFromSiteServices', () => {
     };
 
     test('Return test when metaTags is defined', () => {
-        expect(metasFromSiteServices(metaTags)).toStrictEqual([
+        expect(metasFromSiteServices(metaTags).props.children).toStrictEqual([
             <meta content="noindex, nofollow" name="robots" />,
             <meta content="La Nacion" name="title" />
         ]);
@@ -302,7 +302,7 @@ describe('Tests - metasFromSiteServices', () => {
             metasFromSiteServices({
                 ...metaTags,
                 title: ''
-            })
+            }).props.children
         ).toStrictEqual([
             <meta content="noindex, nofollow" name="robots" />,
             ''

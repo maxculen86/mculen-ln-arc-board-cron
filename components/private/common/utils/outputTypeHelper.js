@@ -60,7 +60,13 @@ export const metasFromSiteServices = (metaTags = {}) => {
 
     if (!metas || metas.length === 0) return <></>;
 
-    return metas.map(([name, content]) => {
-        return name && content && <meta name={name} content={content} />;
-    });
+    return (
+        <>
+            {metas.map(([name, content]) => {
+                return (
+                    name && content && <meta name={name} content={content} />
+                );
+            })}
+        </>
+    );
 };

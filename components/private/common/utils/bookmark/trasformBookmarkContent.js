@@ -4,7 +4,7 @@ import { getShortestImage } from '../../../LN/common/utils/mediaHelper';
 
 export const getHeightOfUrl = (url = '') => {
     const [measures] = url.match(/\/[0-9]*x[0-9]*\//g) || '';
-    return measures ? Number(measures.split('x')[1].replace('/', '')) : '';
+    return measures ? Number(measures.split('x')[1].replace('/', '')) : 0;
 };
 
 const getImages = objectImage => {

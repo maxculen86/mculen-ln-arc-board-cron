@@ -528,10 +528,10 @@ describe('Test checkIfValid function for sections', () => {
             checkIfValid('Anticipo', [
                 { type: 'LN-common/cajaAnticipo' },
                 { type: 'LN-common/cajaAnticipo' }
-            ])
+            ]).ok
         ).toStrictEqual(false);
         expect(
-            checkIfValid('Opinion', [{ type: 'LN-common/opinion' }])
+            checkIfValid('Opinion', [{ type: 'LN-common/opinion' }]).ok
         ).toStrictEqual(false);
     });
     it('should return true if components are valid', () => {
@@ -540,15 +540,15 @@ describe('Test checkIfValid function for sections', () => {
                 { type: 'Ln_Caja_Collection' },
                 { type: 'Ln_Caja_Collection' },
                 { type: 'Ln_Caja_Manual' }
-            ])
+            ]).ok
         ).toStrictEqual(true);
         expect(
-            checkIfValid('Anticipo', [{ type: 'LN-common/cajaAnticipo' }])
+            checkIfValid('Anticipo', [{ type: 'LN-common/cajaAnticipo' }]).ok
         ).toStrictEqual(true);
     });
     it('should return error message if wrong component type', () => {
         expect(
-            checkIfValid('Anticipo', [{ type: 'LN-common/anexo' }])
+            checkIfValid('Anticipo', [{ type: 'LN-common/anexo' }]).msg
         ).toStrictEqual(
             'solo permite componentes del tipo LN-common/cajaAnticipo'
         );

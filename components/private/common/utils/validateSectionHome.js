@@ -10,6 +10,7 @@ export const findSectionChildren = (renderables, position) => {
 };
 
 export const checkIfValid = (name, children) => {
+    const res = { msg: '', ok: false };
     const childrenWithoutHide = children.filter(
         child =>
             get(child, 'props.customFields.hideCaja', false) !== true &&
@@ -27,17 +28,20 @@ export const checkIfValid = (name, children) => {
             sectionRule.quantity,
             sectionRule.operatorToUse
         )
-    )
-        return false;
+    ) {
+        return res;
+    }
     // Validacion por tipo de componente
     if (
         !childrenWithoutHide.every(component =>
             sectionRule.types.includes(component.type)
         )
-    )
-        return `solo permite componentes del tipo ${sectionRule.types.join(
+    ) {
+        res.msg = `solo permite componentes del tipo ${sectionRule.types.join(
             ','
         )}`;
-
-    return true;
+        return res;
+    }
+    res.ok = true;
+    return res;
 };

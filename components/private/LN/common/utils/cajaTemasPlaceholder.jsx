@@ -171,7 +171,7 @@ export const placeholderArticles = {
             )),
     Ranking: layout => {
         const quantityNotes = Math.abs(layout.slice(-1));
-        if (!quantityNotes) return [];
+        if (!quantityNotes) return <></>;
         return (
             <ol className="com-ordered row-gap-tablet-4">
                 {new Array(quantityNotes).fill().map(e => (
@@ -248,7 +248,7 @@ export const placeholderLayouts = {
     },
     Grilla: (articles, layout) => {
         const quantityNotes = Math.abs(layout.slice(-1));
-        if (!quantityNotes) return [];
+        if (!quantityNotes) return <></>;
         const sectionClass = {
             '1': '--cinema'
         };
