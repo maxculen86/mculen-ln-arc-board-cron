@@ -2,8 +2,6 @@
     "files.exclude": {
         "_ignore_*": true,
         "_ignore_*.*": true,
-        ".fusion": true,
-        ".vscode": true,
         ".huskyrc": true,
         ".prettierrc": true,
         ".scannerwork": true,
@@ -11,9 +9,6 @@
         ".prettierignore": true,
         ".eslintrc*": true,
         "coverage": true,
-        "node_modules": true,
-        "resources/dist": true,
-        ".tools":true,
         "dist":true,
         ".dockerignore":true,
         ".eslintignore":true,

@@ -27,6 +27,7 @@
         "analize": "npx webpack-bundle-analyzer -p 3000 .fusion/dist/stats.json .fusion/dist/components/combinations/"
     },
     "dependencies": {
+        "@ln/common-ui-button": "^0.1.0",
         "lazy-child": "0.3.1",
         "node-html-parser": "1.2.14",
         "prop-types": "15.7.2",
