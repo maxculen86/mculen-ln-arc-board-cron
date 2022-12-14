@@ -3,6 +3,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
+// import { Button } from '@ln/common-ui-button';
 import Header from '../../private/LN/common/header';
 import Footer from '../../private/LN/common/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
@@ -26,6 +27,8 @@ import {
 import createBannersIntersectionObserver from '../../private/common/banners/createBannersIntersectionObserver';
 import StaticContent from '../../private/common/staticContent';
 import bannersHome from '../../private/common/banners/bannersDivHome';
+
+// import '../../../resources/packages/css/@ln/common-ui-button/index.css';
 
 const LNMainHome = props => {
     const { children, outputType, isAdmin, renderables } = props;
@@ -85,6 +88,7 @@ const LNMainHome = props => {
             <div id="wrapper" className="home">
                 <Header />
                 <SubHeader />
+                <Button>Prueba package</Button>
                 {anticipo}
 
                 <section

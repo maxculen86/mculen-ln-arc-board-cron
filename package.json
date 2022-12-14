@@ -5,12 +5,13 @@
     "private": true,
     "main": "index.js",
     "scripts": {
+        "ln:copycss": "copyfiles --up 1 node_modules/@ln/*-ui*/**/*.css resources/packages/css/",
         "dev": "npm run build-dev && npm run start",
         "prod": "npm run build && npm run start",
         "watch": "npm run build-watch & npm run start",
-        "build": "npm run clean && npm run webpack",
-        "build-dev": "npm run clean && npm run webpack-dev",
-        "build-watch": "npm run clean && npm run webpack-watch",
+        "build": "npm run ln:copycss && npm run clean && npm run webpack",
+        "build-dev": "npm run ln:copycss && npm run clean && npm run webpack-dev",
+        "build-watch": "npm run ln:copycss && npm run clean && npm run webpack-watch",
         "clean": "rm -rf resources/dist",
         "eslint": "eslint --ext=js,jsx",
         "prettier": "prettier --write **/*.{js,jsx,scss}",
@@ -24,7 +25,8 @@
         "zip": "npm run build && fusion zip",
         "full-reset-all": "fusion clean && npm run clean && rm -rf node_modules/* --verbose && npm i && npm test",
         "doc": "react-doc-generator ./components/ -o ./components.md",
-        "analize": "npx webpack-bundle-analyzer -p 3000 .fusion/dist/stats.json .fusion/dist/components/combinations/"
+        "analize": "npx webpack-bundle-analyzer -p 3000 .fusion/dist/stats.json .fusion/dist/components/combinations/",
+        "postinstall": "npm run ln:copycss"
     },
     "dependencies": {
         "@ln/common-ui-button": "^0.1.0",
@@ -35,7 +37,8 @@
         "react": "17.0.2",
         "react-dom": "17.0.2",
         "request-promise-native": "1.0.8",
-        "thumbor": "0.1.5"
+        "thumbor": "0.1.5",
+        "copyfiles": "^2.4.1"
     },
     "devDependencies": {
         "@arc-fusion/cli": "2.0.7",
@@ -76,6 +79,7 @@
         "node-fetch": "2.6.1",
         "node-sass": "4.14.0",
         "node-sass-glob-importer": "5.3.2",
+        "npm-run-all": "^4.1.5",
         "prettier": "1.19.1",
         "react-doc-generator": "1.2.5",
         "resolve-url-loader": "3.1.1",
