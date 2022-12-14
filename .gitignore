@@ -17,7 +17,6 @@
 .scannerwork
 
 npm-debug.log
-.npmrc
 _ignore_*
 
 # Webstorm
