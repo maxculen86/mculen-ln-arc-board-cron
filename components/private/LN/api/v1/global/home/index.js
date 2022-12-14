@@ -58,7 +58,7 @@ const featureInformation = (information, feature) => {
     }
     return res;
 };
-const articlesMap = articles => {
+const articlesMap = (articles, feature) => {
     return articles.reduce((result, f) => {
         if (f) {
             try {
@@ -66,12 +66,29 @@ const articlesMap = articles => {
                 result.push(article);
             } catch (error) {
                 // eslint-disable-next-line no-console
-                console.error(error.message, {
-                    error,
-                    outputType: 'json',
-                    websiteUrl:
-                        'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
-                });
+
+                if (get(error, 'name', null) === 'ErrorIdArticle') {
+                    console.warn(
+                        `SectionMobile:${feature || ''} - ${get(
+                            error,
+                            'message',
+                            ''
+                        )} `,
+                        {
+                            error,
+                            outputType: 'json',
+                            websiteUrl:
+                                'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
+                        }
+                    );
+                } else {
+                    console.error(error.message, {
+                        error,
+                        outputType: 'json',
+                        websiteUrl:
+                            'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
+                    });
+                }
             }
         }
         return result;
@@ -87,7 +104,7 @@ const resultArticlesBySections = (feature, ordererArticles) => {
         return AnexoMobile(ordererArticles);
     }
 
-    return articlesMap(ordererArticles);
+    return articlesMap(ordererArticles, feature);
 };
 
 const storyBox = element => {

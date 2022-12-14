@@ -5,6 +5,7 @@ import Video from '../video';
 import { authorHomeMobile, articleSignature } from '../author';
 import sentToApps from '../utils/sentToApps';
 import getEmbedHref from '../../../../../common/utils/getEmbedHref';
+import LNApiErrorArticles from '../utils/lnApiErrorArticles';
 
 const getArticleImage = article => {
     const imagedefault =
@@ -67,7 +68,12 @@ export const articleItem = article => {
 
     const id = get(article, '_id', null);
     if (!id) {
-        throw new Error('Revisar Parametros de Articulo en null o undefined');
+        const itemArticle =
+            typeof article === 'object' ? JSON.stringify(article) : '';
+        throw new LNApiErrorArticles(
+            `Revisar Parametros de Articulo en null o undefined in article with params: ${itemArticle}`,
+            'ErrorIdArticle'
+        );
     }
 
     const url = get(article, 'website_url', null);

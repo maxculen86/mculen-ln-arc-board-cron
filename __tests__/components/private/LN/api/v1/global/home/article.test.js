@@ -196,7 +196,7 @@ describe('components - private - LN - api - v1 - home - article.js', () => {
             const notas = articlesMap(articlesfromCajaManual);
             expect(notas[0].id).toBe('2KOBND62KNFVVBFQZOADNN6WNY');
         } catch (err) {
-            expect(err.message).toBe(
+            expect(err.message).toContain(
                 'Revisar Parametros de Articulo en null o undefined'
             );
         }
