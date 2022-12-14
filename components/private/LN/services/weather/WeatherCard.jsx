@@ -5,7 +5,7 @@ import Text from '../../../common/text';
 import Icon from '../../../common/icon';
 import { isValidNumber } from '../../../../../content/sources/utils/servicesSource/weather/weatherHelper';
 
-const WeatherCard = ({ _id, data }) => {
+const WeatherCard = ({ _id, data } = {}) => {
     const {
         location_name: locationName,
         weather: { id: idDescription, description } = {},

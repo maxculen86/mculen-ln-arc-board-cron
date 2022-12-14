@@ -79,7 +79,7 @@ const getInfographicElement = (
 };
 
 const storyBody = (dataNota, storyBodyElements) => {
-    const { _id } = dataNota;
+    const { _id } = dataNota || {};
     const subtype = get(dataNota, 'subtype', '');
     if (!subtype) throw Error('The story does not have subtype');
 

@@ -12,7 +12,7 @@ class Index extends Component {
             typeArticle,
             bannerConfig
         } = this.props;
-        const { author_type: authorType, _id, Payload } = globalContent;
+        const { author_type: authorType, _id, Payload } = globalContent || {};
         const tagId =
             Payload && Payload.items && Payload.items.length
                 ? Payload.items[0].slug

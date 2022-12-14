@@ -19,6 +19,7 @@ const Tips = props => {
                     <ComTitle tag="h4" size="--l" content={title} />
                     {paragraphs &&
                         paragraphs.map(paragraph =>
+                            paragraph.element &&
                             paragraph.element.type === 'header' ? (
                                 <Subtitle
                                     key={paragraph.element._id}
