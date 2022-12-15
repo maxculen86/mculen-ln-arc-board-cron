@@ -57,6 +57,7 @@ const resolve = (query = {}) => {
 
     if (query.uri === '/nota.asp') {
         return {
+            path: '',
             typeFilter: 'nota_id'
         };
     }
