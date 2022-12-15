@@ -1,18 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const layouts = [
+    { name: 'bomba', value: 'Bomba' },
+    { name: 'focal', value: 'Focal' },
+    { name: 'notaColor', value: 'Color' },
+    { name: 'grilla', value: 'Grilla' },
+    { name: 'author', value: 'Author' },
+    { name: 'opinion', value: 'Opinion' },
+    { name: 'editoriales', value: 'Editoriales' },
+    { name: 'ranking', value: 'Ranking' }
+];
+
 export const getLayoutType = layout => {
-    return (
-        (layout.includes('bomba') && 'Bomba') ||
-        (layout.includes('focal') && 'Focal') ||
-        (layout.includes('notaColor') && 'Color') ||
-        (layout.includes('grilla') && 'Grilla') ||
-        (layout.includes('author') && 'Author') ||
-        (layout.includes('opinion') && 'Opinion') ||
-        (layout.includes('editoriales') && 'Editoriales') ||
-        (layout.includes('ranking') && 'Ranking') ||
-        ''
-    );
+    const { value = '' } =
+        layouts.find(layoutName => layout.includes(layoutName.name)) || {};
+    return value;
 };
 
 export const placeholderArticles = {

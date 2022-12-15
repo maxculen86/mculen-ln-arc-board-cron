@@ -84,8 +84,8 @@ export const extractDataFromPromoItems = (promoItems, PLACERHOLDER) => {
     let prepTime = '';
 
     if (promoItems) {
-        const { basic, receta } = promoItems;
-        const { type, url, height, width } = basic || {};
+        const { basic = {}, receta } = promoItems;
+        const { type, url, height, width } = basic;
         const { bigWidth, bigHeight } = getBiggestImage(basic);
 
         if (type === 'image') {

@@ -71,10 +71,14 @@ const ArticleFeature = ({
                 config
             }));
 
+    const checkForId = idValue => {
+        return idValue && idValue.trim();
+    };
+
     const article = useContent({
-        source: (id && id.trim() && 'articleSourceNota') || null,
+        source: checkForId(id) ? 'articleSourceNota' : null,
         query: {
-            id: id && id.trim(),
+            id,
             published: true,
             imageConfig,
             checkExclusiveAccess: false,
@@ -87,10 +91,10 @@ const ArticleFeature = ({
 
     const videoBackground =
         useContent({
-            source: (videoId && videoId.trim() && 'videoSource') || null,
+            source: checkForId(videoId) ? 'videoSource' : null,
             staticMode: isSSR(),
             query: {
-                id: videoId && videoId.trim(),
+                id: checkForId(videoId),
                 website: 'la-nacion-ar',
                 imageConfig,
                 isInApertura: onlyOneApeturaValidateForWWW,
