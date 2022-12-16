@@ -78,7 +78,7 @@ class Index extends Component {
             if (typeof window === 'object') {
                 event.ctrlKey || event.type === 'auxclick'
                     ? window.open(nextUrl, '_blank')
-                    : (window.location.href = nextUrl);
+                    : window.open(nextUrl, '_self');
             }
         });
     };

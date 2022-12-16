@@ -5,7 +5,7 @@ import { addHoursAndFormat } from '../../../common/utils/dateAndTimeUtil';
 import { weekDays } from '../../../common/utils/transformISODate';
 import Text from '../../../common/text';
 
-const ForecastByDay = ({ _id, index, section, data } = {}) => {
+const ForecastByDay = ({ index, section, data } = {}) => {
     if ([index, section, data].some(e => e === undefined)) return null;
 
     const { morning, afternoon, night, date } = data;
@@ -39,7 +39,6 @@ const ForecastByDay = ({ _id, index, section, data } = {}) => {
 };
 
 ForecastByDay.propTypes = {
-    _id: PropTypes.string,
     index: PropTypes.number.isRequired,
     data: PropTypes.shape({
         morning: PropTypes.shape(),
@@ -48,10 +47,6 @@ ForecastByDay.propTypes = {
         date: PropTypes.string
     }).isRequired,
     section: PropTypes.string.isRequired
-};
-
-ForecastByDay.defaultProps = {
-    _id: ''
 };
 
 export default ForecastByDay;
