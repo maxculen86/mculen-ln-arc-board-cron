@@ -7,10 +7,7 @@ import Breadcrumb from '../../private/LN/acumulado/breadcrumb';
 import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
 
 const BreadcrumbFeature = props => {
-    const {
-        globalContent: { node_type: nodeType }
-    } = useAppContext();
-
+    const { globalContent: { node_type: nodeType } = {} } = useAppContext();
     const hasHydrateOnly = checkHydrateOnly({ nodeType });
 
     return !hasHydrateOnly ? (

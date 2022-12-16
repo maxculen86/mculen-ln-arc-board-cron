@@ -1,0 +1,591 @@
+{
+    "_id": "YJJ7JHAWNJFTDH2RLJ4QHUTA5A",
+    "type": "story",
+    "version": "0.10.7",
+    "content_elements": [],
+    "created_date": "2022-12-12T21:19:06.229Z",
+    "revision": {
+        "revision_id": "MUV7WPMHNNBHPK4YO7XOUW6XMA",
+        "parent_id": "TTEINY57GVB7HDE2BIEBKQK2AE",
+        "editions": ["default"],
+        "branch": "default",
+        "user_id": "jSolar@lanacion.com.ar",
+        "published": true
+    },
+    "last_updated_date": "2022-12-12T21:19:27.994Z",
+    "headlines": {
+        "basic": "Prueba 3 apertura",
+        "meta_title": "",
+        "mobile": "",
+        "native": "",
+        "print": "",
+        "tablet": "",
+        "web": ""
+    },
+    "owner": {
+        "sponsored": false,
+        "id": "sandbox.lanacionar"
+    },
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "address": {},
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true,
+        "moderation_required": false
+    },
+    "syndication": {
+        "external_distribution": true,
+        "search": true
+    },
+    "workflow": {
+        "status_code": 1
+    },
+    "subheadlines": {
+        "basic": ""
+    },
+    "description": {
+        "basic": ""
+    },
+    "language": "",
+    "label": {
+        "edicion": {
+            "display": true,
+            "text": "Digital",
+            "url": ""
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "metarefresh": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "recomendar": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "republicar_audio": {
+            "display": true,
+            "text": "No",
+            "url": ""
+        },
+        "trust": {
+            "display": true,
+            "text": "Noticia Original",
+            "url": ""
+        }
+    },
+    "source": {
+        "name": "LA NACION",
+        "source_type": "staff",
+        "system": "composer"
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/autos/tendencias",
+            "_website": "la-nacion-ar",
+            "type": "section",
+            "version": "0.6.0",
+            "name": "Tendencias",
+            "description": null,
+            "path": "/autos/tendencias",
+            "parent_id": "/autos",
+            "parent": {
+                "default": "/autos"
+            },
+            "additional_properties": {
+                "original": {
+                    "_id": "/autos/tendencias",
+                    "social": {
+                        "rss": null,
+                        "twitter": null,
+                        "facebook": null,
+                        "instagram": null
+                    },
+                    "site": {
+                        "site_url": null,
+                        "site_tagline": null,
+                        "site_description": null,
+                        "pagebuilder_path_for_native_apps": null,
+                        "site_title": null,
+                        "site_about": null,
+                        "site_keywords": null
+                    },
+                    "navigation": {
+                        "nav_title": null
+                    },
+                    "site_topper": {
+                        "site_logo_image": null
+                    },
+                    "acumuladoColor": {
+                        "header_class_name": "No"
+                    },
+                    "acumuladoGeneral": {
+                        "mostrar_en_acu_apps": "true"
+                    },
+                    "_admin": {
+                        "alias_ids": ["/autos/tendencias"]
+                    },
+                    "_website": "la-nacion-ar",
+                    "name": "Tendencias",
+                    "order": {
+                        "Movilidad": 1001
+                    },
+                    "parent": {
+                        "default": "/autos",
+                        "Movilidad": "/",
+                        "navigationRedaccion": "/autos",
+                        "pruebaTecnica": null
+                    },
+                    "ancestors": {
+                        "default": ["/autos"],
+                        "Movilidad": ["/"],
+                        "navigationRedaccion": ["/autos"],
+                        "pruebaTecnica": []
+                    },
+                    "inactive": false,
+                    "node_type": "section"
+                }
+            }
+        },
+        "primary_site": {
+            "_id": "/autos/tendencias",
+            "type": "site",
+            "version": "0.5.8",
+            "name": "Tendencias",
+            "description": null,
+            "path": "/autos/tendencias",
+            "parent_id": "/autos",
+            "additional_properties": {
+                "original": {
+                    "_id": "/autos/tendencias",
+                    "social": {
+                        "rss": null,
+                        "twitter": null,
+                        "facebook": null,
+                        "instagram": null
+                    },
+                    "site": {
+                        "site_url": null,
+                        "site_tagline": null,
+                        "site_description": null,
+                        "pagebuilder_path_for_native_apps": null,
+                        "site_title": null,
+                        "site_about": null,
+                        "site_keywords": null
+                    },
+                    "navigation": {
+                        "nav_title": null
+                    },
+                    "site_topper": {
+                        "site_logo_image": null
+                    },
+                    "acumuladoColor": {
+                        "header_class_name": "No"
+                    },
+                    "acumuladoGeneral": {
+                        "mostrar_en_acu_apps": "true"
+                    },
+                    "_admin": {
+                        "alias_ids": ["/autos/tendencias"]
+                    },
+                    "name": "Tendencias",
+                    "order": {
+                        "Movilidad": 1001
+                    },
+                    "parent": {
+                        "default": "/autos",
+                        "Movilidad": "/",
+                        "navigationRedaccion": "/autos",
+                        "pruebaTecnica": null
+                    },
+                    "ancestors": {
+                        "default": ["/autos"],
+                        "Movilidad": ["/"],
+                        "navigationRedaccion": ["/autos"],
+                        "pruebaTecnica": []
+                    },
+                    "inactive": false,
+                    "node_type": "section"
+                }
+            }
+        },
+        "sections": [
+            {
+                "_id": "/autos/tendencias",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Tendencias",
+                "description": null,
+                "path": "/autos/tendencias",
+                "parent_id": "/autos",
+                "parent": {
+                    "default": "/autos"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/autos/tendencias",
+                        "social": {
+                            "rss": null,
+                            "twitter": null,
+                            "facebook": null,
+                            "instagram": null
+                        },
+                        "site": {
+                            "site_url": null,
+                            "site_tagline": null,
+                            "site_description": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_title": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "navigation": {
+                            "nav_title": null
+                        },
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "No"
+                        },
+                        "acumuladoGeneral": {
+                            "mostrar_en_acu_apps": "true"
+                        },
+                        "_admin": {
+                            "alias_ids": ["/autos/tendencias"]
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Tendencias",
+                        "order": {
+                            "Movilidad": 1001
+                        },
+                        "parent": {
+                            "default": "/autos",
+                            "Movilidad": "/",
+                            "navigationRedaccion": "/autos",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "default": ["/autos"],
+                            "Movilidad": ["/"],
+                            "navigationRedaccion": ["/autos"],
+                            "pruebaTecnica": []
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./autos/tendencias"
+            },
+            {
+                "_id": "/autos",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Autos",
+                "path": "/autos",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/autos",
+                        "acumuladoGeneral": {
+                            "hidetagslist": "false",
+                            "hidesectionslist": "false",
+                            "hierarchy_navigation": "Movilidad",
+                            "tipo_acumulado": "Grilla",
+                            "hide_banner": "false",
+                            "cantidad_notas": "30",
+                            "id_collection_promo_items": "RTSJKCDG3RBMXJ25YBX3NYESWE"
+                        },
+                        "migration": {
+                            "migrated_mob": "true",
+                            "id_section_ln9": null
+                        },
+                        "acumuladoColor": {
+                            "id_logo_image": "ZVBKZLG3HJFAPHU6XGL45ZMNI4",
+                            "navigation_color": "#ff6600",
+                            "background_color": null,
+                            "navigation_color_tags": "#ff6600"
+                        },
+                        "navigation": {
+                            "nav_title": "Movilidad"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Autos",
+                        "order": {
+                            "default": 1007,
+                            "navigationRedaccion": 1020
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": null,
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": []
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./autos"
+            }
+        ],
+        "sites": [
+            {
+                "_id": "/autos/tendencias",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Tendencias",
+                "description": null,
+                "path": "/autos/tendencias",
+                "parent_id": "/autos",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/autos/tendencias",
+                        "social": {
+                            "rss": null,
+                            "twitter": null,
+                            "facebook": null,
+                            "instagram": null
+                        },
+                        "site": {
+                            "site_url": null,
+                            "site_tagline": null,
+                            "site_description": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_title": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "navigation": {
+                            "nav_title": null
+                        },
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "No"
+                        },
+                        "acumuladoGeneral": {
+                            "mostrar_en_acu_apps": "true"
+                        },
+                        "_admin": {
+                            "alias_ids": ["/autos/tendencias"]
+                        },
+                        "name": "Tendencias",
+                        "order": {
+                            "Movilidad": 1001
+                        },
+                        "parent": {
+                            "default": "/autos",
+                            "Movilidad": "/",
+                            "navigationRedaccion": "/autos",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "default": ["/autos"],
+                            "Movilidad": ["/"],
+                            "navigationRedaccion": ["/autos"],
+                            "pruebaTecnica": []
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                }
+            },
+            {
+                "_id": "/autos",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Autos",
+                "path": "/autos",
+                "parent_id": "/",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/autos",
+                        "acumuladoGeneral": {
+                            "hidetagslist": "false",
+                            "hidesectionslist": "false",
+                            "hierarchy_navigation": "Movilidad",
+                            "tipo_acumulado": "Grilla",
+                            "hide_banner": "false",
+                            "cantidad_notas": "30",
+                            "id_collection_promo_items": "RTSJKCDG3RBMXJ25YBX3NYESWE"
+                        },
+                        "migration": {
+                            "migrated_mob": "true",
+                            "id_section_ln9": null
+                        },
+                        "acumuladoColor": {
+                            "id_logo_image": "ZVBKZLG3HJFAPHU6XGL45ZMNI4",
+                            "navigation_color": "#ff6600",
+                            "background_color": null,
+                            "navigation_color_tags": "#ff6600"
+                        },
+                        "navigation": {
+                            "nav_title": "Movilidad"
+                        },
+                        "name": "Autos",
+                        "order": {
+                            "default": 1007,
+                            "navigationRedaccion": 1020
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": null,
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": []
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                }
+            }
+        ]
+    },
+    "promo_items": {
+        "basic": {
+            "_id": "7V6VWM4V55A7BHXDKJ7GA3FJCE",
+            "content": "Solo basic",
+            "type": "raw_html"
+        }
+    },
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "distributor": {
+        "name": "LA NACION",
+        "category": "staff",
+        "subcategory": "",
+        "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568",
+        "mode": "reference_denormalized"
+    },
+    "canonical_website": "la-nacion-ar",
+    "geo": {},
+    "planning": {
+        "internal_note": "",
+        "story_length": {
+            "character_count_actual": 0,
+            "character_encoding": "UTF-16",
+            "inch_count_actual": 0,
+            "line_count_actual": 0,
+            "word_count_actual": 0
+        }
+    },
+    "display_date": "2022-12-12T21:19:27.560Z",
+    "credits": {
+        "by": []
+    },
+    "subtype": "1",
+    "first_publish_date": "2022-12-12T21:19:27.560Z",
+    "websites": {
+        "la-nacion-ar": {
+            "website_section": {
+                "_id": "/autos/tendencias",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Tendencias",
+                "description": null,
+                "path": "/autos/tendencias",
+                "parent_id": "/autos",
+                "parent": {
+                    "default": "/autos"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/autos/tendencias",
+                        "social": {
+                            "rss": null,
+                            "twitter": null,
+                            "facebook": null,
+                            "instagram": null
+                        },
+                        "site": {
+                            "site_url": null,
+                            "site_tagline": null,
+                            "site_description": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_title": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "navigation": {
+                            "nav_title": null
+                        },
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "No"
+                        },
+                        "acumuladoGeneral": {
+                            "mostrar_en_acu_apps": "true"
+                        },
+                        "_admin": {
+                            "alias_ids": ["/autos/tendencias"]
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Tendencias",
+                        "order": {
+                            "Movilidad": 1001
+                        },
+                        "parent": {
+                            "default": "/autos",
+                            "Movilidad": "/",
+                            "navigationRedaccion": "/autos",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "default": ["/autos"],
+                            "Movilidad": ["/"],
+                            "navigationRedaccion": ["/autos"],
+                            "pruebaTecnica": []
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./autos/tendencias"
+            },
+            "website_url": "/autos/tendencias/prueba-3-apertura-nid12122022/"
+        }
+    },
+    "additional_properties": {
+        "clipboard": {},
+        "has_published_copy": true,
+        "is_published": false
+    },
+    "publish_date": "2022-12-12T21:19:27.560Z",
+    "canonical_url": "/autos/tendencias/prueba-3-apertura-nid12122022/",
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "la-nacion-ar",
+    "website_url": "/autos/tendencias/prueba-3-apertura-nid12122022/"
+}

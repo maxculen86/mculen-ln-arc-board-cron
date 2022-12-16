@@ -26,7 +26,8 @@ import Favicon from '../private/common/favicon';
 import {
     getTitle,
     getMetaDescriptionDefault,
-    metasFromSiteServices
+    metasFromSiteServices,
+    getTagTitle
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
 import checkHydrateOnly from '../private/LN/common/utils/checkHydrateOnly';
@@ -90,7 +91,6 @@ const Default = props => {
     const _nodeType = getSectionName({ nodeType, type, arcSite });
     const title = getTitle({
         title: metaValue('title'),
-        shortTitle: mobileTitle,
         properties: siteProperties,
         uri: requestUri,
         nodeType: _nodeType
@@ -105,6 +105,15 @@ const Default = props => {
         title: metaTitleBasic,
         section: _nodeType,
         siteProperties
+    });
+
+    const tagTitle = getTagTitle({
+        basicTitle: metaValue('title'),
+        shortTitle: mobileTitle,
+        ottTitle: ottMetaTitle,
+        arcSite,
+        nodeType: _nodeType,
+        siteProps: siteProperties
     });
 
     const Scripts = buildScriptComponent(
@@ -139,9 +148,7 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
-                {layout !== lnBuscador && (
-                    <title>{arcSite === 'ott' ? ottMetaTitle : title}</title>
-                )}
+                {layout !== lnBuscador && <title>{tagTitle}</title>}
                 {metasFromSiteServices(metas)}
                 <GetDataToLinkImage
                     data={globalContent}

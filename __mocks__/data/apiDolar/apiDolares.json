@@ -1,0 +1,93 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "fuente": "InvertirOnline",
+            "compra": "163,25",
+            "venta": "171,25",
+            "variacion": "+0,6",
+            "aumento": true,
+            "fecha": "2022-11-23 21:51:00",
+            "sourceName": "dbna",
+            "source": "https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacion/DBNA",
+            "title": "Dólar oficial"
+        },
+        {
+            "id": 2,
+            "fuente": "InvertirOnline",
+            "compra": "308,00",
+            "venta": "312,00",
+            "variacion": "1,30",
+            "aumento": false,
+            "fecha": "2022-11-23 16:06:00",
+            "sourceName": "dblue",
+            "source": "https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacionblue/DBLUE",
+            "title": "Dólar blue"
+        },
+        {
+            "id": 3,
+            "fuente": "InvertirOnline",
+            "venta": "325,72",
+            "variacion": "-1,60",
+            "aumento": false,
+            "fecha": "2022-11-23 19:55:00",
+            "sourceName": "dccl",
+            "source": "https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacionblue/DCCL",
+            "title": "Dólar CCL"
+        },
+        {
+            "id": 4,
+            "fuente": "InvertirOnline",
+            "compra": "167,86",
+            "venta": "176,69",
+            "aumento": false,
+            "fecha": "2022-11-23 00:00:00",
+            "sourceName": "euro",
+            "source": "https://especialess3.lanacion.com.ar/monitor-economia-real/data/euro_minorista_-_compra.json",
+            "title": "Euro"
+        },
+        {
+            "id": 5,
+            "fuente": "InvertirOnline",
+            "venta": "311,81",
+            "aumento": false,
+            "fecha": "2022-11-23 00:00:00",
+            "sourceName": "dmep",
+            "source": "https://especialess3.lanacion.com.ar/monitor-economia-real/data/d%C3%B3lar_mep.json",
+            "title": "Dólar MEP"
+        },
+        {
+            "id": 6,
+            "fuente": "InvertirOnline",
+            "venta": "164,52",
+            "aumento": false,
+            "fecha": "2022-11-22 00:00:00",
+            "sourceName": "dmayorista",
+            "source": "https://especialess3.lanacion.com.ar/monitor-economia-real/data/d%C3%B3lar_mayorista.json",
+            "title": "Dólar mayorista"
+        },
+        {
+            "id": 7,
+            "fuente": "InvertirOnline",
+            "venta": "299,69",
+            "variacion": "+0,6",
+            "aumento": true,
+            "fecha": "2022-11-23 21:51:00",
+            "sourceName": "dtarjeta",
+            "source": "https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacion/DBNA",
+            "title": "Dólar tarjeta"
+        },
+        {
+            "id": 8,
+            "fuente": "InvertirOnline",
+            "venta": "342,5",
+            "variacion": "+0,6",
+            "aumento": true,
+            "fecha": "2022-11-23 21:51:00",
+            "sourceName": "dturista",
+            "source": "https://api-contenidos.lanacion.com.ar/json/V3/economia/cotizacion/DBNA",
+            "title": "Dólar turista"
+        }
+    ],
+    "imageUrl": "https://resizer.glanacion.com/resizer/0GdxpO9hiHgenNwsaSPj7ljMCRU=/314x0/filters:format(webp):quality(80)/especialess3.lanacion.com.ar/LN/svg/logo-iol.svg"
+}
