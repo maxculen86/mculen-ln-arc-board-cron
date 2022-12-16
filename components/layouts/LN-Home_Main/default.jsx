@@ -85,7 +85,6 @@ const LNMainHome = props => {
             <div id="wrapper" className="home">
                 <Header />
                 <SubHeader />
-                <Button>Prueba package</Button>
                 {anticipo}
 
                 <section
