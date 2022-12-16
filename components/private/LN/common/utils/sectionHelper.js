@@ -16,7 +16,7 @@ const sectionHelper = (
     isAdmin
 ) => {
     const sectionChildren = findSectionChildren(renderables, position);
-    const { msg: message, ok } = checkIfValid(name, sectionChildren);
+    const { msg: message, isValid } = checkIfValid(name, sectionChildren);
 
     if (outputType === 'json') return 'TODO';
     if (isAdmin && message !== '')
@@ -27,7 +27,7 @@ const sectionHelper = (
                 message={`La sección ${name} ${message}`}
             />
         );
-    return ok === true ? section : null;
+    return isValid === true ? section : null;
 };
 
 export default sectionHelper;

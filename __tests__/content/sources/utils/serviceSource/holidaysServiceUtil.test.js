@@ -106,7 +106,7 @@ describe('Test getMonthNumber helperFunction', () => {
     it('Should return number', () => {
         expect(getMonthNumber('diciembre')).toBe(12);
     });
-    it('Should return string', () => {
+    it('Should return zero', () => {
         expect(getMonthNumber('hola')).toBe(0);
         expect(getMonthNumber('')).toBe(0);
         expect(getMonthNumber('2')).toBe(0);

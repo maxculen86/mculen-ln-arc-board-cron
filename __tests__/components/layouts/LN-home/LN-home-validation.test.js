@@ -1,20 +1,16 @@
 import React from 'react';
-import getProperties from 'fusion:properties';
 import sectionHelper from '../../../../components/private/LN/common/utils/sectionHelper';
-
 import sectionsValidation from '../../../../components/layouts/config/LN-Home.config';
 import PageBuilderMessage from '../../../../components/private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage.jsx';
 import renderables1 from '../../../../__mocks__/data/renderables/data1';
 import renderables2 from '../../../../__mocks__/data/renderables/data2';
 import renderablesOk from '../../../../__mocks__/data/renderables/data3';
-import Consumer from 'fusion:consumer';
 import {
     sectionWith2ItemToShow,
     sectionWithAnexoHide,
     sectionWithNoCollectionAndAnexoShow,
     sectionWithNoCollectionAndNoAnexo
 } from '../../../../__mocks__/data/renderables/sectionsComercialData';
-import Context from 'fusion:context';
 import { getArticlesIdsFromApertura } from '../../../../components/private/LN/common/utils/cajaTemasHelper';
 import { checkIfValid } from '../../../../components/private/common/utils/validateSectionHome';
 
@@ -522,35 +518,63 @@ describe('Test de funcion getArticlesIdsFromApertura que se usa en tagList', () 
     });
 });
 
-describe('Test checkIfValid function for sections', () => {
-    it('should return false if components do not respect quantity or operator', () => {
-        expect(
-            checkIfValid('Anticipo', [
+describe('Test checkIfValid function for sections when return false', () => {
+    const cases = [
+        [
+            'should return false if components do not respect quantity',
+            'Anticipo',
+            [
                 { type: 'LN-common/cajaAnticipo' },
                 { type: 'LN-common/cajaAnticipo' }
-            ]).ok
-        ).toStrictEqual(false);
-        expect(
-            checkIfValid('Opinion', [{ type: 'LN-common/opinion' }]).ok
-        ).toStrictEqual(false);
+            ]
+        ],
+        [
+            'should return false if components do not respect operator',
+            'Opinion',
+            [{ type: 'LN-common/opinion' }]
+        ]
+    ];
+
+    test.each(cases)('%s', (message, section, children) => {
+        const { isValid, msg } = checkIfValid(section, children);
+        expect(isValid).toStrictEqual(false);
+        expect(msg).toStrictEqual('');
     });
-    it('should return true if components are valid', () => {
-        expect(
-            checkIfValid('Breaking_3', [
+});
+
+describe('Test checkIfValid function for sections when return true', () => {
+    const cases = [
+        [
+            'should return true if components are valid',
+            'Breaking_3',
+            [
                 { type: 'Ln_Caja_Collection' },
                 { type: 'Ln_Caja_Collection' },
                 { type: 'Ln_Caja_Manual' }
-            ]).ok
-        ).toStrictEqual(true);
-        expect(
-            checkIfValid('Anticipo', [{ type: 'LN-common/cajaAnticipo' }]).ok
-        ).toStrictEqual(true);
+            ]
+        ],
+        [
+            'should return true if components are valid',
+            'Anticipo',
+            [{ type: 'LN-common/cajaAnticipo' }]
+        ]
+    ];
+
+    test.each(cases)('%s', (message, section, children) => {
+        const { isValid, msg } = checkIfValid(section, children);
+        expect(isValid).toStrictEqual(true);
+        expect(msg).toStrictEqual('');
     });
+});
+
+describe('Test checkIfValid function for sections when return error message', () => {
     it('should return error message if wrong component type', () => {
-        expect(
-            checkIfValid('Anticipo', [{ type: 'LN-common/anexo' }]).msg
-        ).toStrictEqual(
+        const { isValid, msg } = checkIfValid('Anticipo', [
+            { type: 'LN-common/anexo' }
+        ]);
+        expect(msg).toStrictEqual(
             'solo permite componentes del tipo LN-common/cajaAnticipo'
         );
+        expect(isValid).toStrictEqual(false);
     });
 });
