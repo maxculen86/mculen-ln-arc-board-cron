@@ -95,10 +95,15 @@ const transform = data => {
                         : -1
                 )
                 .map((dolar = {}) => {
-                    const { compra, venta, sourceName, title } = dolar;
+                    const {
+                        compra = '-',
+                        venta = '-',
+                        sourceName,
+                        title
+                    } = dolar;
                     return {
-                        ...(compra && { compra }),
-                        ...(venta && { venta }),
+                        compra,
+                        venta,
                         ...(sourceName && { sourceName }),
                         ...(title && { titleMobile: title }),
                         ...(linkDictionary[sourceName] && {
