@@ -15,29 +15,34 @@
             "titleMobile": "Dólar blue"
         },
         {
+            "compra": "-",
             "venta": "311,81",
             "sourceName": "dmep",
             "titleMobile": "Dólar MEP"
         },
         {
+            "compra": "-",
             "link": "https://www.lanacion.com.ar/tema/dolar-ccl/",
             "venta": "325,72",
             "sourceName": "dccl",
             "titleMobile": "Dólar CCL"
         },
         {
+            "compra": "-",
             "link": "https://www.lanacion.com.ar/tema/dolar-tarjeta-tid50462/",
             "venta": "299,69",
             "sourceName": "dtarjeta",
             "titleMobile": "Dólar tarjeta"
         },
         {
+            "compra": "-",
             "link": "https://www.lanacion.com.ar/tema/dolar-turista-tid67475/",
             "venta": "342,5",
             "sourceName": "dturista",
             "titleMobile": "Dólar turista"
         },
         {
+            "compra": "-",
             "venta": "164,52",
             "sourceName": "dmayorista",
             "titleMobile": "Dólar mayorista"

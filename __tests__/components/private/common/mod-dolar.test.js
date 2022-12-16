@@ -27,11 +27,11 @@ describe('Private - Common - ModDolar =>', () => {
 });
 
 describe('With data list', () => {
-    it('Should render div tag with "mod-dolar" className with 9 li tags', () => {
+    it('Should render div tag with "mod-dolar" className with 8 li tags', () => {
         const { container } = render(<ModDolar {...SOURCE_RESPONSE} />);
         const ul = container.getElementsByTagName('ul');
         const li = container.getElementsByTagName('li');
-        expect(li).toHaveLength(9);
+        expect(li).toHaveLength(8);
         expect(ul[0]).toBeVisible();
     });
     it('Should show all 8 titles for each type of dolar', () => {
@@ -47,7 +47,9 @@ describe('With data list', () => {
     });
 
     it('Should match snapshot showing correct data for all 8 type of dolars', () => {
-        const { container } = render(<ModDolar {...SOURCE_RESPONSE} />);
+        const { container } = render(
+            <ModDolar {...SOURCE_RESPONSE} oddOrEven="--even" />
+        );
         expect(container).toMatchSnapshot();
     });
 });

@@ -1,0 +1,463 @@
+{
+    "_id": "JLMPIDPYXFH3JPLFTZNJGONPNA",
+    "type": "story",
+    "version": "0.10.7",
+    "content_elements": [],
+    "created_date": "2022-12-12T20:53:18.758Z",
+    "revision": {
+        "revision_id": "XSE3UH4OQNES7FUCITQUWOGGGE",
+        "parent_id": "OKRW72YFYNBOLG5CD52U5VCWWU",
+        "editions": ["default"],
+        "branch": "default",
+        "user_id": "jSolar@lanacion.com.ar",
+        "published": true
+    },
+    "last_updated_date": "2022-12-12T20:53:51.209Z",
+    "headlines": {
+        "basic": "Prueba apertura",
+        "meta_title": "",
+        "mobile": "",
+        "native": "",
+        "print": "",
+        "tablet": "",
+        "web": ""
+    },
+    "owner": {
+        "sponsored": false,
+        "id": "sandbox.lanacionar"
+    },
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "address": {},
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true,
+        "moderation_required": false
+    },
+    "syndication": {
+        "external_distribution": true,
+        "search": true
+    },
+    "workflow": {
+        "status_code": 1
+    },
+    "subheadlines": {
+        "basic": ""
+    },
+    "description": {
+        "basic": ""
+    },
+    "language": "",
+    "label": {
+        "edicion": {
+            "display": true,
+            "text": "Digital",
+            "url": ""
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "metarefresh": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "recomendar": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "republicar_audio": {
+            "display": true,
+            "text": "No",
+            "url": ""
+        },
+        "trust": {
+            "display": true,
+            "text": "Noticia Original",
+            "url": ""
+        }
+    },
+    "source": {
+        "name": "LA NACION",
+        "source_type": "staff",
+        "system": "composer"
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/agencias",
+            "_website": "la-nacion-ar",
+            "type": "section",
+            "version": "0.6.0",
+            "name": "Agencias",
+            "description": null,
+            "path": "/agencias",
+            "parent_id": "/",
+            "parent": {
+                "default": "/"
+            },
+            "additional_properties": {
+                "original": {
+                    "_id": "/agencias",
+                    "social": {
+                        "rss": null,
+                        "twitter": null,
+                        "facebook": null,
+                        "instagram": null
+                    },
+                    "site": {
+                        "site_url": "/agencias/",
+                        "site_tagline": null,
+                        "site_description": null,
+                        "pagebuilder_path_for_native_apps": null,
+                        "site_title": null,
+                        "site_about": null,
+                        "site_keywords": null
+                    },
+                    "navigation": {
+                        "nav_title": null
+                    },
+                    "site_topper": {
+                        "site_logo_image": null
+                    },
+                    "acumuladoColor": {
+                        "header_class_name": "No"
+                    },
+                    "name": "Agencias",
+                    "_website": "la-nacion-ar",
+                    "parent": {
+                        "default": "/",
+                        "navigationRedaccion": "/",
+                        "pruebaTecnica": null
+                    },
+                    "ancestors": {
+                        "default": [],
+                        "navigationRedaccion": [],
+                        "pruebaTecnica": []
+                    },
+                    "_admin": {
+                        "alias_ids": ["/agencias"]
+                    },
+                    "inactive": false,
+                    "node_type": "section",
+                    "order": {
+                        "default": 1008,
+                        "navigationRedaccion": 1001
+                    }
+                }
+            }
+        },
+        "primary_site": {
+            "_id": "/agencias",
+            "type": "site",
+            "version": "0.5.8",
+            "name": "Agencias",
+            "description": null,
+            "path": "/agencias",
+            "parent_id": "/",
+            "additional_properties": {
+                "original": {
+                    "_id": "/agencias",
+                    "social": {
+                        "rss": null,
+                        "twitter": null,
+                        "facebook": null,
+                        "instagram": null
+                    },
+                    "site": {
+                        "site_url": "/agencias/",
+                        "site_tagline": null,
+                        "site_description": null,
+                        "pagebuilder_path_for_native_apps": null,
+                        "site_title": null,
+                        "site_about": null,
+                        "site_keywords": null
+                    },
+                    "navigation": {
+                        "nav_title": null
+                    },
+                    "site_topper": {
+                        "site_logo_image": null
+                    },
+                    "acumuladoColor": {
+                        "header_class_name": "No"
+                    },
+                    "name": "Agencias",
+                    "parent": {
+                        "default": "/",
+                        "navigationRedaccion": "/",
+                        "pruebaTecnica": null
+                    },
+                    "ancestors": {
+                        "default": [],
+                        "navigationRedaccion": [],
+                        "pruebaTecnica": []
+                    },
+                    "_admin": {
+                        "alias_ids": ["/agencias"]
+                    },
+                    "inactive": false,
+                    "node_type": "section",
+                    "order": {
+                        "default": 1008,
+                        "navigationRedaccion": 1001
+                    }
+                }
+            }
+        },
+        "sections": [
+            {
+                "_id": "/agencias",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Agencias",
+                "description": null,
+                "path": "/agencias",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/agencias",
+                        "social": {
+                            "rss": null,
+                            "twitter": null,
+                            "facebook": null,
+                            "instagram": null
+                        },
+                        "site": {
+                            "site_url": "/agencias/",
+                            "site_tagline": null,
+                            "site_description": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_title": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "navigation": {
+                            "nav_title": null
+                        },
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "No"
+                        },
+                        "name": "Agencias",
+                        "_website": "la-nacion-ar",
+                        "parent": {
+                            "default": "/",
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "default": [],
+                            "navigationRedaccion": [],
+                            "pruebaTecnica": []
+                        },
+                        "_admin": {
+                            "alias_ids": ["/agencias"]
+                        },
+                        "inactive": false,
+                        "node_type": "section",
+                        "order": {
+                            "default": 1008,
+                            "navigationRedaccion": 1001
+                        }
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./agencias"
+            }
+        ],
+        "sites": [
+            {
+                "_id": "/agencias",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Agencias",
+                "description": null,
+                "path": "/agencias",
+                "parent_id": "/",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/agencias",
+                        "social": {
+                            "rss": null,
+                            "twitter": null,
+                            "facebook": null,
+                            "instagram": null
+                        },
+                        "site": {
+                            "site_url": "/agencias/",
+                            "site_tagline": null,
+                            "site_description": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_title": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "navigation": {
+                            "nav_title": null
+                        },
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "No"
+                        },
+                        "name": "Agencias",
+                        "parent": {
+                            "default": "/",
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "default": [],
+                            "navigationRedaccion": [],
+                            "pruebaTecnica": []
+                        },
+                        "_admin": {
+                            "alias_ids": ["/agencias"]
+                        },
+                        "inactive": false,
+                        "node_type": "section",
+                        "order": {
+                            "default": 1008,
+                            "navigationRedaccion": 1001
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "promo_items": {
+        "apertura_multimedia": {
+            "_id": "RJUZ6P6CMFCWXIDG22L3DRWSFQ",
+            "content": "el contenido del html",
+            "type": "raw_html"
+        }
+    },
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "distributor": {
+        "name": "LA NACION",
+        "category": "staff",
+        "subcategory": "",
+        "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568",
+        "mode": "reference_denormalized"
+    },
+    "canonical_website": "la-nacion-ar",
+    "geo": {},
+    "planning": {
+        "internal_note": "",
+        "story_length": {
+            "character_count_actual": 0,
+            "character_encoding": "UTF-16",
+            "inch_count_actual": 0,
+            "line_count_actual": 0,
+            "word_count_actual": 0
+        }
+    },
+    "display_date": "2022-12-12T20:53:50.620Z",
+    "credits": {
+        "by": []
+    },
+    "subtype": "1",
+    "first_publish_date": "2022-12-12T20:53:50.620Z",
+    "websites": {
+        "la-nacion-ar": {
+            "website_section": {
+                "_id": "/agencias",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Agencias",
+                "description": null,
+                "path": "/agencias",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/agencias",
+                        "social": {
+                            "rss": null,
+                            "twitter": null,
+                            "facebook": null,
+                            "instagram": null
+                        },
+                        "site": {
+                            "site_url": "/agencias/",
+                            "site_tagline": null,
+                            "site_description": null,
+                            "pagebuilder_path_for_native_apps": null,
+                            "site_title": null,
+                            "site_about": null,
+                            "site_keywords": null
+                        },
+                        "navigation": {
+                            "nav_title": null
+                        },
+                        "site_topper": {
+                            "site_logo_image": null
+                        },
+                        "acumuladoColor": {
+                            "header_class_name": "No"
+                        },
+                        "name": "Agencias",
+                        "_website": "la-nacion-ar",
+                        "parent": {
+                            "default": "/",
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "default": [],
+                            "navigationRedaccion": [],
+                            "pruebaTecnica": []
+                        },
+                        "_admin": {
+                            "alias_ids": ["/agencias"]
+                        },
+                        "inactive": false,
+                        "node_type": "section",
+                        "order": {
+                            "default": 1008,
+                            "navigationRedaccion": 1001
+                        }
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./agencias"
+            },
+            "website_url": "/agencias/prueba-apertura-nid12122022/"
+        }
+    },
+    "additional_properties": {
+        "clipboard": {},
+        "has_published_copy": true,
+        "is_published": false
+    },
+    "publish_date": "2022-12-12T20:53:50.620Z",
+    "canonical_url": "/agencias/prueba-apertura-nid12122022/",
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "la-nacion-ar",
+    "website_url": "/agencias/prueba-apertura-nid12122022/"
+}

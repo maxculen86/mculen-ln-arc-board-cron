@@ -17,10 +17,7 @@ const TitleFeature = props => {
     const { id_logo_image: idLogoImage, navigation_color: navigationColor } =
         acumuladoColor || {};
 
-    const {
-        globalContent: { node_type: nodeType }
-    } = useAppContext();
-
+    const { globalContent: { node_type: nodeType } = {} } = useAppContext();
     const hasHydrateOnly = checkHydrateOnly({ nodeType });
 
     const Component = (
