@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Te puede interesar default test Matches Snapshot 1`] = `
-<tePuedeInteresar
-  customFields={Object {}}
-  outputType="default"
-  siteProperties={Object {}}
-/>
-`;
