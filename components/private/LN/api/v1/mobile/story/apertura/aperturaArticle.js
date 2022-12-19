@@ -20,7 +20,7 @@ const imageDefault = () => {
     }
     return prodImageDefault;
 };
-const aperturaArticle = article => {
+const aperturaArticle = (article = {}) => {
     const promoItem = promoItemArticle(article);
     const resp = {};
     if (promoItem) {

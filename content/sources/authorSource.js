@@ -37,7 +37,7 @@ const transform = (data, query) => {
         image: { url: data.image || '' },
         node_type: 'author',
         name: data.byline,
-        canonical_url: encodeURI(`/autor/${data._id}/`),
+        canonical_url: encodeURI(`/autor/${(data && data._id) || ''}/`),
         subscription: meteringVariant
     };
 

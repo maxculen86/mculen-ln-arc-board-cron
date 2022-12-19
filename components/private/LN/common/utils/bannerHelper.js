@@ -86,16 +86,16 @@ export const shouldShowBanner = (soloNoSuscriptores, globalContent) =>
     soloNoSuscriptores && get(globalContent, 'subscription') === 'S';
 
 export const getBannerConfiguration = (
-    globalContent,
-    customFields,
-    globalContentConfig,
+    globalContent = {},
+    customFields = {},
+    globalContentConfig = {},
     bannerConfig = {}
 ) => {
-    const { label, taxonomy, type } = globalContent || {};
+    const { label, taxonomy, type } = globalContent;
 
     const { sections = [], tags = [] } = taxonomy || { sections: [], tags: [] };
 
-    const { group: slotGroup } = customFields || {};
+    const { group: slotGroup } = customFields;
     const { device, slotId } = bannerConfig;
 
     if (!slotId || !slotGroup) return null;
@@ -124,11 +124,11 @@ export const getBannerConfiguration = (
         'false'
     );
 
+    const slotIdForAmp = slotId.includes('_amp') ? 'amp' : device;
+
     const config = get(
         siteProperties,
-        `bannerConfig[${slotGroup}][${
-            slotId.includes('_amp') ? 'amp' : device
-        }][${slotId}]`
+        `bannerConfig[${slotGroup}][${slotIdForAmp}][${slotId}]`
     );
 
     // Se valida que se cumpla las reglas del banner
@@ -185,7 +185,7 @@ export const getBannerConfiguration = (
             ...bannerConfiguration,
             slotName: changeSegmentAdUnit(
                 section,
-                slotId.includes('_amp') ? 'amp' : device,
+                slotIdForAmp,
                 bannerConfiguration.slotName
             )
         };

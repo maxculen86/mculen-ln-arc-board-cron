@@ -37,3 +37,7 @@ export const isSubtypeWithAmp = response => {
     const subtype = get(response, 'subtype', '');
     return response && subtype && !get(subtypesWithAmp, subtype, false);
 };
+
+export const isFotoAl100orStorytelling = subtype => {
+    return subtype === FOTOAL100 || subtype === STORYTELLING;
+};
