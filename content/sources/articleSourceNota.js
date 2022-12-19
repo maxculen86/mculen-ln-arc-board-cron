@@ -299,8 +299,9 @@ const transformContent = async (
             if (element.type === 'reference') {
                 const referentType = get(element, 'referent.type', '');
 
-                referentType === 'image' &&
-                    (resp.related_content.basic[i] = element);
+                if (referentType === 'image') {
+                    resp.related_content.basic[i] = element;
+                }
 
                 referentType === 'story' &&
                     promiseArr.push(
@@ -367,8 +368,7 @@ const transformContent = async (
 
     return Promise.all(promiseArr).then(() => {
         const relatedContent = get(resp, 'related_content.basic', []);
-        relatedContent.length &&
-            (resp.related_content.basic = removeInvalidRelated(relatedContent));
+        resp.related_content.basic = removeInvalidRelated(relatedContent);
         return resp;
     });
 };

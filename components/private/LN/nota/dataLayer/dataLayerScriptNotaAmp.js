@@ -32,7 +32,7 @@ const dataLayerScriptNotaAmp = globalContent => {
         taxonomy: { primary_section: primarySection, tags },
         credits: { by },
         display_date: displayDate
-    } = globalContent;
+    } = globalContent || {};
     const valor =
         (content_restrictions && content_restrictions.content_code) || 'comun';
     // TODO: por ahora fijo nota, pero en el futuro debe ser dinamico segun sea home, acu o nota

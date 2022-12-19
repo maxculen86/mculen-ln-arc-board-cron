@@ -16,9 +16,17 @@ import validateExclusiveAccess from '../../../content/sources/utils/validateExcl
 import responseNotaNoticia from '../../../__mocks__/data/articles/3SHTRO3NKBCN7L3JITCDQYSJLM.json';
 import responseSinCategoria from '../../../__mocks__/data/articles/3SHTRO3NKBCN7L3JITCDQYSJLM.json';
 import responseHtmlLibreArticle from '../../../__mocks__/data/nota/cuerpo/notaHtml.json';
+import responseSoloAperturaMultimedia from '../../../__mocks__/data/articles/JLMPIDPYXFH3JPLFTZNJGONPNA.json';
+import responseAperturaBasic from '../../../__mocks__/data/articles/X7HUAP25GFAGDOZ3AHOXLQVL4Q.json';
+import responseBasic from '../../../__mocks__/data/articles/YJJ7JHAWNJFTDH2RLJ4QHUTA5A.json';
 
 const mockResponseNotaNoticia = Promise.resolve(responseNotaNoticia);
 const mockResponseSinCategoria = Promise.resolve(responseSinCategoria);
+const mockResponseAperturaMultimedia = Promise.resolve(
+    responseSoloAperturaMultimedia
+);
+const mockResponseAperturaBasic = Promise.resolve(responseAperturaBasic);
+const mockResponseBasic = Promise.resolve(responseBasic);
 const mockRequestResponse = jest.fn();
 
 jest.mock('request-promise-native', () => {
@@ -503,6 +511,62 @@ describe('Category test', () => {
                     subscription: 'A',
                     isListenable: false,
                     withFirmaDistributor: true,
+                    withSponsoredLink: false
+                });
+            })
+            .then(done);
+    });
+});
+
+describe('Html apertura', () => {
+    it('should get html, config only apertura_multimedia', done => {
+        mockRequestResponse.mockReturnValue(mockResponseAperturaMultimedia);
+
+        articleSourceFetch(query)
+            .then(response => {
+                expect(response).toStrictEqual({
+                    ...responseSoloAperturaMultimedia,
+                    category: 'Agencias',
+                    paywallEnabled: '',
+                    subscription: 'A',
+                    isListenable: false,
+                    withFirmaDistributor: true,
+                    withSponsoredLink: false
+                });
+            })
+            .then(done);
+    });
+
+    it('should get html config both html', done => {
+        mockRequestResponse.mockReturnValue(mockResponseAperturaBasic);
+
+        articleSourceFetch(query)
+            .then(response => {
+                expect(response).toStrictEqual({
+                    ...responseAperturaBasic,
+                    category: 'Arquitectura',
+                    paywallEnabled: '',
+                    subscription: 'A',
+                    isListenable: false,
+                    withFirmaDistributor: true,
+                    withSponsoredLink: false
+                });
+            })
+            .then(done);
+    });
+
+    it('should get html, config only basic raw_html', done => {
+        mockRequestResponse.mockReturnValue(mockResponseBasic);
+
+        articleSourceFetch(query)
+            .then(response => {
+                expect(response).toStrictEqual({
+                    ...responseBasic,
+                    category: 'Tendencias',
+                    paywallEnabled: '',
+                    subscription: 'A',
+                    isListenable: false,
+                    withFirmaDistributor: false,
                     withSponsoredLink: false
                 });
             })

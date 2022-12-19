@@ -4,15 +4,15 @@ import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 
 const DATA_SECTION = 'AperturaAcuRecetas';
-function BreadcrumbAutor({ author, host }) {
+function BreadcrumbAutor({ author = {}, host }) {
     const sections = [
         {
             path: host || '/',
             name: 'LA NACION'
         },
         {
-            path: `/autor/${author._id}`,
-            name: author.byline
+            path: `/autor/${author._id || ''}`,
+            name: author.byline || ''
         }
     ];
     return (

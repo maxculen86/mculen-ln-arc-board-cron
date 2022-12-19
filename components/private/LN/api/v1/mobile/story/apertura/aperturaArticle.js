@@ -9,6 +9,7 @@ import {
 import get from '../../../../../../common/utils/get';
 import video from '../cuerpo/elements/video';
 import image from '../cuerpo/elements/image';
+import htmlRaw from '../cuerpo/elements/html';
 
 const imageDefault = () => {
     if (IS_DEV === 'true') {
@@ -19,7 +20,7 @@ const imageDefault = () => {
     }
     return prodImageDefault;
 };
-const aperturaArticle = article => {
+const aperturaArticle = (article = {}) => {
     const promoItem = promoItemArticle(article);
     const resp = {};
     if (promoItem) {
@@ -33,6 +34,9 @@ const aperturaArticle = article => {
                 break;
             case 'video':
                 resp.video = video(promoItem);
+                break;
+            case 'raw_html':
+                resp.html = htmlRaw(promoItem);
                 break;
         }
     }

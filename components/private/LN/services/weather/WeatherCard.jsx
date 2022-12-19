@@ -5,7 +5,7 @@ import Text from '../../../common/text';
 import Icon from '../../../common/icon';
 import { isValidNumber } from '../../../../../content/sources/utils/servicesSource/weather/weatherHelper';
 
-const WeatherCard = ({ _id, data }) => {
+const WeatherCard = ({ data } = {}) => {
     const {
         location_name: locationName,
         weather: { id: idDescription, description } = {},
@@ -67,7 +67,6 @@ const WeatherCard = ({ _id, data }) => {
 };
 
 WeatherCard.propTypes = {
-    _id: PropTypes.string,
     data: PropTypes.shape({
         location_name: PropTypes.string,
         link: PropTypes.string,
@@ -79,10 +78,6 @@ WeatherCard.propTypes = {
         temp_min: PropTypes.number,
         temp_max: PropTypes.number
     }).isRequired
-};
-
-WeatherCard.defaultProps = {
-    _id: ''
 };
 
 export default WeatherCard;

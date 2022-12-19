@@ -46,9 +46,12 @@ export default function WithNavigation(WrappedComponent) {
             }
 
             getSectionTree = results => {
-                const termicasInResults = (results && results.Termicas) || {};
+                let termicasInResults = (results && results.Termicas) || {};
                 const sectionsInResults = (results && results.sections) || [];
-                if (results) this.convertStringToBoolean(termicasInResults);
+                if (results)
+                    termicasInResults = this.convertStringToBoolean(
+                        termicasInResults
+                    );
                 return {
                     sectionsInTree: sectionsInResults,
                     termicas: termicasInResults
@@ -56,14 +59,14 @@ export default function WithNavigation(WrappedComponent) {
             };
 
             convertStringToBoolean = termicasObj => {
+                const nuevasTermicas = {};
                 Object.keys(termicasObj).forEach(key => {
                     if (typeof termicasObj[key] === 'string') {
-                        termicasObj[key].toLowerCase().trim() === 'true'
-                            ? (termicasObj[key] = true)
-                            : (termicasObj[key] = false);
+                        nuevasTermicas[key] =
+                            termicasObj[key].toLowerCase().trim() === 'true';
                     }
                 });
-                return termicasObj;
+                return nuevasTermicas;
             };
 
             render() {
