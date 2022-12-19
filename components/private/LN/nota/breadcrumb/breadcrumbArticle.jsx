@@ -32,7 +32,7 @@ const BreadcrumbArticle = ({
         _id,
         label,
         owner
-    },
+    } = {},
     siteProperties: { title: siteTitle, host }
 }) => {
     const gc = useContext(GlobalContext);

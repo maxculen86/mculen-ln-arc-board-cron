@@ -42,39 +42,45 @@ const Banner = props => {
         .filter(item => item !== null);
 
     if (isAdmin) {
-        return bannersConfiguration.map(bannerConfiguration => {
-            return (
-                <Placeholder
-                    key={bannerConfiguration.slotName}
-                    slotName={bannerConfiguration.slotName}
-                    dimensions={bannerConfiguration.dimensions}
-                    targeting={bannerConfiguration.targeting}
-                />
-            );
-        });
+        return (
+            <>
+                {bannersConfiguration.map(bannerConfiguration => (
+                    <Placeholder
+                        key={bannerConfiguration.slotName}
+                        slotName={bannerConfiguration.slotName}
+                        dimensions={bannerConfiguration.dimensions}
+                        targeting={bannerConfiguration.targeting}
+                    />
+                ))}
+            </>
+        );
     }
 
-    return bannersConfiguration.map(bannerConfiguration => {
-        return (
-            !shouldShowBanner(soloNoSuscriptores, globalContent) && (
-                <>
-                    <DivBannerSSR
-                        key={bannerConfiguration.slotName}
-                        bannerConfiguration={bannerConfiguration}
-                    />
-                    {get(
-                        bannersRules,
-                        `[${bannerConfiguration.slotGroup}][${bannerConfiguration.device}][${bannerConfiguration.slotId}].customScript`
-                    ) &&
-                        bannersRules[bannerConfiguration.slotGroup][
-                            bannerConfiguration.device
-                        ][bannerConfiguration.slotId].customScript({
-                            sticky
-                        })}
-                </>
-            )
-        );
-    });
+    return (
+        <>
+            {bannersConfiguration.map(bannerConfiguration =>
+                !shouldShowBanner(soloNoSuscriptores, globalContent) ? (
+                    <>
+                        <DivBannerSSR
+                            key={bannerConfiguration.slotName}
+                            bannerConfiguration={bannerConfiguration}
+                        />
+                        {get(
+                            bannersRules,
+                            `[${bannerConfiguration.slotGroup}][${bannerConfiguration.device}][${bannerConfiguration.slotId}].customScript`
+                        ) &&
+                            bannersRules[bannerConfiguration.slotGroup][
+                                bannerConfiguration.device
+                            ][bannerConfiguration.slotId].customScript({
+                                sticky
+                            })}
+                    </>
+                ) : (
+                    <></>
+                )
+            )}
+        </>
+    );
 };
 
 Banner.label = 'LN-Common-BannerRefactor';

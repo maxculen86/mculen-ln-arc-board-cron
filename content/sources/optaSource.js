@@ -5,8 +5,8 @@ import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
 
 const getRawIdAndNoteId = url => {
-    const params = url ? url.split('/') : '';
-    if (params.length < 5) return '';
+    const params = url ? url.split('/') : [];
+    if (params.length < 5) return {};
     const noteId = params[params.length - 2];
     const idRawHtml = params[params.length - 3];
     return { noteId, idRawHtml };

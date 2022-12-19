@@ -11,7 +11,7 @@ const boxResultClass = 'box-result --grid-5-columns';
 
 export const games = {
     Quiniela_Nacional: {
-        name: 'Lotería de la Ciudad (ex Quiniela Nacional)',
+        name: 'Quiniela de la Ciudad (ex Quiniela Nacional)',
         url: '/loterias/quiniela-nacional/',
         isQuiniela: true,
         getLotteryDate,

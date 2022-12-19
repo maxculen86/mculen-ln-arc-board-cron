@@ -2,7 +2,7 @@ import { useContent as getContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/promoItemsRelatedImage';
 import get from '../../../common/utils/get';
 
-const AddRelatedImage = article => {
+const AddRelatedImage = (article = {}) => {
     const relatedContent = get(article, 'related_content.basic', []);
     const canonicalUrl = get(article, 'canonical_url', '');
     const articleId = get(article, '_id', '');
