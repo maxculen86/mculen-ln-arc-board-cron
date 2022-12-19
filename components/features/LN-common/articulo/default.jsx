@@ -78,7 +78,7 @@ const ArticleFeature = ({
     const article = useContent({
         source: checkForId(id) ? 'articleSourceNota' : null,
         query: {
-            id,
+            id: checkForId(id),
             published: true,
             imageConfig,
             checkExclusiveAccess: false,

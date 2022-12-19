@@ -10,6 +10,7 @@ describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
     const positiveSubtypes = Subtypes.filter(
         subtype => subtype.id === '8' || subtype.id === '4'
     );
+
     describe('Testing subtypes which are Storytelling or FotoAl100', () => {
         positiveSubtypes.forEach(subtype => {
             const { id: currentSubtype, nombre } = subtype;
@@ -18,6 +19,7 @@ describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
             });
         });
     });
+
     describe('Testing subtypes which are not Storytelling or FotoAl100', () => {
         negativeSubtypes.forEach(subtype => {
             const { id: currentSubtype, nombre } = subtype;
@@ -26,6 +28,7 @@ describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
             });
         });
     });
+
     describe('Testing border cases', () => {
         it('Should return false for an empty string', () => {
             expect(isFotoAl100orStorytelling('')).toBeFalsy();
