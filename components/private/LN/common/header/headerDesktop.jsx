@@ -134,10 +134,7 @@ const HeaderDesktop = ({
                         id="user-menu"
                         className={`${active} ${loadingUserData}`}
                     >
-                        {showSubscribeButton({
-                            loginData,
-                            window
-                        }) && (
+                        {showSubscribeButton(loginData) && (
                             <a
                                 className="com-button --special"
                                 id="btnsuscribite"
