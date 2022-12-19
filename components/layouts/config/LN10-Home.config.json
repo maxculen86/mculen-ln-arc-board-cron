@@ -1,0 +1,44 @@
+{
+    "Pre_Apertura": {
+        "position": 0
+    },
+    "Apertura": {
+        "position": 1
+    },
+    "Breaking_1": {
+        "position": 2,
+        "max": 8,
+        "min": 5
+    },
+    "Breaking_2": {
+        "position": 3,
+        "max": 6
+    },
+    "Hashtag": {
+        "position": 4,
+        "max": 4
+    },
+    "Content": {
+        "position": 5
+    },
+    "Canales_1": {
+        "position": 6,
+        "max": 10
+    },
+    "Canales_2": {
+        "position": 7,
+        "max": 8
+    },
+    "App_Anexo_1": {
+        "quantity": 1,
+        "operatorToUse": "!==",
+        "types": ["LN-common/anexoMobile"],
+        "position": 8
+    },
+    "App_Anexo_2": {
+        "quantity": 1,
+        "operatorToUse": "!==",
+        "types": ["LN-common/anexoMobile"],
+        "position": 9
+    }
+}
