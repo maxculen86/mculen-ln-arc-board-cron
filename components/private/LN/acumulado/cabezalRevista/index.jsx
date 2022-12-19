@@ -14,7 +14,7 @@ const Index = props => {
             social: { twitter, facebook, instagram },
             _website,
             _id
-        }
+        } = {}
     } = props;
     return (
         <div className="row subheader-acu">

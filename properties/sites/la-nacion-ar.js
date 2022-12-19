@@ -2826,6 +2826,7 @@ export default {
     },
     layoutsName: {
         Home: 'LN-Home_Main',
+        HomeLN10: 'LN10-Home_Main',
         Acumulado: 'LN-acumulado',
         Columnistas: 'LN-acumulado-columnistas',
         FotoAl100: 'LN-nota-foto-al-100'

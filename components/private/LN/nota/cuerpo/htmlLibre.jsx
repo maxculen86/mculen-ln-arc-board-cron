@@ -6,7 +6,7 @@ import PropTypes from 'fusion:prop-types';
 const HtmlLibre = props => {
     const {
         outputType,
-        globalContent: { _id, content_elements: contentElements }
+        globalContent: { _id, content_elements: contentElements } = {}
     } = props;
     const content =
         contentElements[0] && contentElements[0].content
