@@ -15,6 +15,7 @@ import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
 import LnLogoHeader from '../../../common/logos/LnLogoHeader';
 import useTermica from '../../../common/hooks/useTermica';
+import showSubscribeButton from '../utils/showSubscribeButton';
 
 const comUsuario = 'com-usuario';
 
@@ -134,21 +135,23 @@ const HeaderDesktop = ({
                         id="user-menu"
                         className={`${active} ${loadingUserData}`}
                     >
-                        {!loginData.subscription &&
-                            typeof window !== 'undefined' &&
-                            paywallActive && (
-                                <a
-                                    className="com-button --special"
-                                    id="btnsuscribite"
-                                    title="Suscribite a LA NACION"
-                                    href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                                        location.href
-                                    )}`}
-                                    rel="nofollow"
-                                >
-                                    SUSCRIBITE
-                                </a>
-                            )}
+                        {showSubscribeButton({
+                            loginData,
+                            paywall: paywallActive,
+                            window
+                        }) && (
+                            <a
+                                className="com-button --special"
+                                id="btnsuscribite"
+                                title="Suscribite a LA NACION"
+                                href={`${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                                    location.href
+                                )}`}
+                                rel="nofollow"
+                            >
+                                SUSCRIBITE
+                            </a>
+                        )}
                         {logueado && (
                             <>
                                 {/* Botón oculto para Experimentos ADQUISICION */}
