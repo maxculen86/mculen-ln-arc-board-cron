@@ -1,21 +1,15 @@
-import { ARC_ACCESS_TOKEN, SITE_LANACION } from 'fusion:environment';
+import { IS_SANDBOX, IS_DEV } from 'fusion:environment';
 import request from 'request-promise-native';
 import logger from '../../../../../components/private/common/utils/logger';
-import transform from '../../pageSource/transform';
+import transform from './transform';
 
 const resolve = query => {
-    const { sectionId, website, ticksCache } = query;
+    const { rootPath, website, ticksCache } = query;
 
     const arcSite = website || 'la-nacion-ar';
-    const basePath = `${SITE_LANACION}${sectionId ? `/${sectionId}` : ''}`;
-    const basePath2 = `http://localhost/homepage${
-        sectionId ? `/${sectionId}` : ''
-    }`;
+    const paramsTicks = ticksCache != null ? `&ticks=${ticksCache}` : '';
 
-    const requestUrl = `${basePath}/?_website=${arcSite}&outputType=json&ticks=${ticksCache}`;
-    console.log('RRREEEEERERERERrequestUrl');
-    console.log(requestUrl);
-    return requestUrl;
+    return `${rootPath}/?_website=${arcSite}&outputType=json${paramsTicks}`;
 };
 
 const fetch = async query => {
@@ -24,7 +18,7 @@ const fetch = async query => {
         json: true
     };
 
-    if (endpoint.uri.includes('sandbox')) {
+    if (IS_DEV === 'true' && IS_SANDBOX === 'true') {
         endpoint.headers = {
             Cookie: 'el_arc=2c88b3e4-500e-4629-9a0d-78a032107225'
         };
@@ -32,17 +26,16 @@ const fetch = async query => {
 
     return request(endpoint)
         .then(response => {
-            console.log('RESSSPOSSSMSMS');
             return transform(response, query);
         })
         .catch(error => {
             // eslint-disable-next-line no-console
             console.warn(
-                `servicesSource/page Error: ${JSON.stringify(query)} - uri: ${
-                    endpoint.uri
-                } - errorMsj:${error.message}`
+                `Error Page Index - sources/utils/servicesSource/pages/index: ${JSON.stringify(
+                    query
+                )} - uri: ${endpoint.uri} - errorMsj:${error.message}`
             );
-            logger.push(error, { source: 'servicesSource/page', query });
+            logger.push(error, { source: 'servicesSource/page/index', query });
         });
 };
 

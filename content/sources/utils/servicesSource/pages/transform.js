@@ -8,10 +8,11 @@ const transform = (data, siteProps) => {
         if (typeof respData === 'object' || Array.isArray(respData)) {
             dataStr = JSON.stringify(data);
         }
+        // eslint-disable-next-line no-console
         console.warn(
-            `Error Transform - content/pageSource : ${dataStr} - siteprops: ${JSON.stringify(
+            `Error Transform - sources/utils/servicesSource/pages/transform : siteprops: ${JSON.stringify(
                 siteProps
-            )} - errorMsj:${error.message}`
+            )} - errorMsj:${error.message} - data: ${dataStr}`
         );
         throw new Error(error);
     }

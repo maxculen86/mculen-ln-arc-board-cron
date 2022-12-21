@@ -1,6 +1,5 @@
 import pageBuilderSections from '../../../../../../layouts/config/LN-PageBuilder.config.json';
 import get from '../../../../../common/utils/get';
-
 import {
     checkIfValid,
     findSectionChildren
@@ -154,9 +153,10 @@ const segmentbyLayout = (elements, sectionChildren) => {
 
 const validateSections = (section, name, position, renderables) => {
     const sectionChildren = findSectionChildren(renderables, position);
+    const checkElement = checkIfValid(name, sectionChildren);
 
     let elements =
-        checkIfValid(name, sectionChildren) === true ? section : null;
+        get(checkElement, 'isValid', false) === true ? section : null;
 
     const banner = boxPosition[name];
 
