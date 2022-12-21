@@ -8,7 +8,6 @@ const MetaTitle = ({
     nodeType,
     section,
     defaultTitle,
-    metaValue,
     ottMetaTitle,
     requestUri
 }) => {
@@ -21,7 +20,7 @@ const MetaTitle = ({
 
         const acusWithMeta = ['section', 'author', 'distributor', 'tags'];
 
-        let metaTitleForStory = metaValue || '';
+        let metaTitleForStory = title || '';
         let metaTitleForAcum = '';
 
         if (acusWithMeta.includes(nodeType)) {
@@ -47,7 +46,6 @@ MetaTitle.propTypes = {
     title: PropTypes.string,
     section: PropTypes.string,
     defaultTitle: PropTypes.string,
-    metaValue: PropTypes.string,
     ottMetaTitle: PropTypes.string,
     requestUri: PropTypes.string
 };
@@ -56,7 +54,7 @@ MetaTitle.defaultProps = {
     title: '',
     section: '',
     defaultTitle: '',
-    metaValue: '',
+    ottMetaTitle: '',
     requestUri: ''
 };
 
