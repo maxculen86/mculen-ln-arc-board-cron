@@ -4406,22 +4406,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
             />
             <script>
               
-                    window.addEventListener('powaError', () =&gt; {
-                        const facade = document.querySelector('.content-facade');
-                        if (facade) facade.remove();
-
-                        const [{
-                            shadowRoot
-                        } = {}] = document.querySelectorAll('.powa-shadow');
-                    
-                        let errorPowa =
-                            shadowRoot.querySelector &&
-                            shadowRoot.querySelector('div.powa-outage');
-                    
-                        if (errorPowa && false && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
-                            errorPowa.innerHTML = '¡Ups! Parece que este video no esta disponible en tu ubicación'
-                        }
-                    });
+                        window.addEventListener('powaError', () =&gt; {
+                            const facade = document.querySelector('.content-facade');
+                            if (facade) facade.remove();
+                        });
             </script>
           </div>
           <script
@@ -5058,22 +5046,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
             />
             <script>
               
-                    window.addEventListener('powaError', () =&gt; {
-                        const facade = document.querySelector('.content-facade');
-                        if (facade) facade.remove();
-
-                        const [{
-                            shadowRoot
-                        } = {}] = document.querySelectorAll('.powa-shadow');
-                    
-                        let errorPowa =
-                            shadowRoot.querySelector &&
-                            shadowRoot.querySelector('div.powa-outage');
-                    
-                        if (errorPowa && false && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
-                            errorPowa.innerHTML = '¡Ups! Parece que este video no esta disponible en tu ubicación'
-                        }
-                    });
+                        window.addEventListener('powaError', () =&gt; {
+                            const facade = document.querySelector('.content-facade');
+                            if (facade) facade.remove();
+                        });
             </script>
           </div>
           <script
@@ -7415,22 +7391,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
             />
             <script>
               
-                    window.addEventListener('powaError', () =&gt; {
-                        const facade = document.querySelector('.content-facade');
-                        if (facade) facade.remove();
-
-                        const [{
-                            shadowRoot
-                        } = {}] = document.querySelectorAll('.powa-shadow');
-                    
-                        let errorPowa =
-                            shadowRoot.querySelector &&
-                            shadowRoot.querySelector('div.powa-outage');
-                    
-                        if (errorPowa && false && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
-                            errorPowa.innerHTML = '¡Ups! Parece que este video no esta disponible en tu ubicación'
-                        }
-                    });
+                        window.addEventListener('powaError', () =&gt; {
+                            const facade = document.querySelector('.content-facade');
+                            if (facade) facade.remove();
+                        });
             </script>
           </div>
           <script
@@ -8745,22 +8709,10 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
             />
             <script>
               
-                    window.addEventListener('powaError', () =&gt; {
-                        const facade = document.querySelector('.content-facade');
-                        if (facade) facade.remove();
-
-                        const [{
-                            shadowRoot
-                        } = {}] = document.querySelectorAll('.powa-shadow');
-                    
-                        let errorPowa =
-                            shadowRoot.querySelector &&
-                            shadowRoot.querySelector('div.powa-outage');
-                    
-                        if (errorPowa && false && errorPowa.innerHTML === '&lt;p&gt;This video is geo-restricted.&lt;/p&gt;&lt;p&gt;Error 931.&lt;/p&gt;') {
-                            errorPowa.innerHTML = '¡Ups! Parece que este video no esta disponible en tu ubicación'
-                        }
-                    });
+                        window.addEventListener('powaError', () =&gt; {
+                            const facade = document.querySelector('.content-facade');
+                            if (facade) facade.remove();
+                        });
             </script>
           </div>
           <script

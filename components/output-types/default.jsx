@@ -26,11 +26,14 @@ import Favicon from '../private/common/favicon';
 import {
     getTitle,
     getMetaDescriptionDefault,
-    metasFromSiteServices
+    metasFromSiteServices,
+    getTagTitle
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
 import checkHydrateOnly from '../private/LN/common/utils/checkHydrateOnly';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
+
+const lnBuscador = 'LN-buscador';
 
 const getBodyClass = props => {
     const { className = {} } = props;
@@ -74,8 +77,7 @@ const Default = props => {
         _id,
         taxonomy,
         first_publish_date: firstPublishDate,
-        acumuladoGeneral: { metas } = {},
-        website_url: websiteUrl
+        acumuladoGeneral: { metas } = {}
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle, mobile: mobileTitle } =
@@ -89,7 +91,6 @@ const Default = props => {
     const _nodeType = getSectionName({ nodeType, type, arcSite });
     const title = getTitle({
         title: metaValue('title'),
-        shortTitle: mobileTitle,
         properties: siteProperties,
         uri: requestUri,
         nodeType: _nodeType
@@ -104,6 +105,15 @@ const Default = props => {
         title: metaTitleBasic,
         section: _nodeType,
         siteProperties
+    });
+
+    const tagTitle = getTagTitle({
+        basicTitle: metaValue('title'),
+        shortTitle: mobileTitle,
+        ottTitle: ottMetaTitle,
+        arcSite,
+        nodeType: _nodeType,
+        siteProps: siteProperties
     });
 
     const Scripts = buildScriptComponent(
@@ -138,9 +148,7 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
-                {layout !== 'LN-buscador' && (
-                    <title>{arcSite === 'ott' ? ottMetaTitle : title}</title>
-                )}
+                {layout !== lnBuscador && <title>{tagTitle}</title>}
                 {metasFromSiteServices(metas)}
                 <GetDataToLinkImage
                     data={globalContent}
@@ -164,17 +172,15 @@ const Default = props => {
                 <link
                     rel="preload"
                     as="script"
-                    href={`${deployment(
-                        `${contextPath}/dist/engine/react.js`
-                    )}`}
+                    href={deployment(`${contextPath}/dist/engine/react.js`)}
                     crossOrigin=""
                 />
                 <link
                     rel="preload"
                     as="script"
-                    href={`${deployment(
+                    href={deployment(
                         `${contextPath}/dist/components/combinations/default.js`
-                    )}`}
+                    )}
                     crossOrigin=""
                 />
                 <Libs />
@@ -207,7 +213,7 @@ const Default = props => {
                     Tag="script"
                     globalContent={globalContent}
                 />
-                {layout !== 'LN-buscador' && (
+                {layout !== lnBuscador && (
                     <MetasOG
                         {...props}
                         section={_nodeType}
@@ -229,7 +235,7 @@ const Default = props => {
                     arcSite={arcSite}
                     nodeType={nodeType}
                 />
-                {layout !== 'LN-buscador' && (
+                {layout !== lnBuscador && (
                     <MetaTitle
                         arcSite={arcSite}
                         title={title}
@@ -241,7 +247,7 @@ const Default = props => {
                         requestUri={requestUri}
                     />
                 )}
-                {layout !== 'LN-buscador' && (
+                {layout !== lnBuscador && (
                     <MetaDescription
                         subtype={subtype}
                         nodeType={nodeType}

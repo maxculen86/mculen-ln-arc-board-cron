@@ -1,8 +1,11 @@
 import 'regenerator-runtime/runtime';
-import seguir from '../../../content/sources/seguirSource.js';
+import seguir, { resolveUri } from '../../../content/sources/seguirSource.js';
 import tokenOk from '../../../__mocks__/data/personalizacion/token_ok.json';
 import responseCase1 from '../../../__mocks__/data/personalizacion/response_case1.json';
 
+jest.mock('fusion:environment', () => ({
+    CONTENT_BASE: 'https://api.sandbox.lanacionar.arcpublishing.com'
+}));
 const mockRequestResponse = jest
     .fn()
     .mockImplementation(() => Promise.resolve(tokenOk));
@@ -39,7 +42,6 @@ jest.mock('request-promise-native', () => {
     return result;
 });
 const { fetch: seguirFetch } = seguir;
-
 describe('Content - Sources - seguirSource', () => {
     let responseCase = responseCase1;
     let query = {
@@ -132,5 +134,19 @@ describe('Content - Sources - seguirSource', () => {
         } catch (err) {
             expect(err.message).toBe('Cantidad de parámetros inválidos');
         }
+    });
+});
+
+describe('Content - Sources - seguirSource - resolveUri', () => {
+    let query = {
+        size: '5',
+        days: '5',
+        followedItems: [],
+        'arc-site': 'la-nacion-ar'
+    };
+    it('should return correct Uri', () => {
+        expect(resolveUri(query)).toBe(
+            'https://api.sandbox.lanacionar.arcpublishing.com/content/v4/search/published?website=la-nacion-ar&size=5&from=0&_sourceExclude=geo,related_content,content_elements&sort=display_date:desc&body=%7B%22query%22:%7B%22bool%22:%7B%22must%22:%5B%7B%22range%22:%7B%22first_publish_date%22:%7B%22gte%22:%22now-6d%22,%22lte%22:%22now%22%7D%7D%7D,%7B%22term%22:%7B%22type%22:%22story%22%7D%7D,%7B%22term%22:%7B%22revision.published%22:true%7D%7D%5D,%22minimum_should_match%22:1,%22should%22:%5B%5D%7D%7D%7D'
+        );
     });
 });

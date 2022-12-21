@@ -16,7 +16,7 @@ const renderBreadCrumbTag = (globalContent, host) => {
 
 const renderBreadcrumbSection = (globalContent, host, colorCategory) => (
     <BreadcrumbSection
-        sectionId={globalContent._id}
+        sectionId={globalContent && globalContent._id}
         host={host}
         colorCategory={colorCategory}
     />

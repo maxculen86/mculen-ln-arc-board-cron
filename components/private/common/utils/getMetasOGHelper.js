@@ -45,9 +45,8 @@ export const getData = ({
 }) => {
     const domain = getDomain(globalContent);
     const isArticle = !!(globalContent && globalContent.type === 'story');
-    const PLACEHOLDER = `${ARC_STATIC}${deployment(
-        `${contextPath}/resources/images/placeholderLN.jpg`
-    )}`;
+    const imagePath = `${contextPath}/resources/images/placeholderLN.jpg`;
+    const PLACEHOLDER = `${ARC_STATIC}${deployment(imagePath)}`;
     const {
         title: titleDefault,
         description: descriptionDefault,

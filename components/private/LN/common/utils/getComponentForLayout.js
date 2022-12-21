@@ -8,8 +8,6 @@ import ArticleAcum from '../../acumulado/articleAcum';
 import FocalFactory from '../../home/templatesContainers/focalFactory';
 
 import { customHeading } from './cajaTemasHelper';
-import { setTLDistribution, setTLOrderClass } from './timeline';
-import getFeatureByLayout from './getFeatureByLayout';
 
 const getComponentForLayout = (layoutName, props) => {
     const types = {

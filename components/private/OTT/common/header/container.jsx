@@ -10,23 +10,24 @@ class Header extends Component {
         this.headerItems = this.getHeaderItems(props);
     }
 
+    componentWillUpdate(nextProps, nextState) {
+        this.headerItems = this.getHeaderItems(nextProps);
+    }
+
     getHeaderItems(props) {
         return props.navigations.map(elem => {
-            if (elem.node_type == 'link')
+            if (elem.node_type === 'link')
                 return {
                     href: elem.url,
                     description: elem.display_name,
                     alt: elem.display_name
                 };
-            if (elem.node_type == 'section') {
+            if (elem.node_type === 'section') {
                 const href = elem.site ? elem.site.site_url : '/';
-                return { href: href, description: elem.name, alt: elem.name };
+                return { href, description: elem.name, alt: elem.name };
             }
+            return {};
         });
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-        this.headerItems = this.getHeaderItems(nextProps);
     }
 
     render() {

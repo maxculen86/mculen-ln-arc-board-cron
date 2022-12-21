@@ -8,7 +8,7 @@ class ArticleFeature {
     constructor(props) {
         this.props = props;
         const {
-            customFields: { noteId, imageId, video, html },
+            customFields: { noteId, imageId, video },
             id: featureId,
             arcSite
         } = props;

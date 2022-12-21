@@ -1,7 +1,7 @@
 import { useContent } from 'fusion:content';
 
 const useGetLogoImage = (id, isHome, isMultimedia) => {
-    const image = useContent({
+    return useContent({
         source: (id && 'imageSource') || null,
         query: {
             id
@@ -16,8 +16,6 @@ const useGetLogoImage = (id, isHome, isMultimedia) => {
     `,
         staticMode: isHome && !isMultimedia
     });
-
-    return image;
 };
 
 export default useGetLogoImage;

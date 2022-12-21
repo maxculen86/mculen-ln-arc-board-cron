@@ -32,7 +32,9 @@ export const setEvent = (
 
 export const setProgressEvent = (player, titulo, id) => {
     const eventCases = {
-        '0': () => {},
+        '0': () => {
+            // NOSONAR - This is intentional
+        },
         '25': () => {
             if (!isInDatalayerEvent('25', id)) {
                 addToDataLayer('25', titulo, id);

@@ -6,7 +6,8 @@ export const RANKING = 'Ranking';
 
 export const getRankingProps = (layout, featureId, globalContent) => {
     const { layoutsName = {} } = siteConfig;
-    const isHome = layout === layoutsName.Home;
+    const isHome =
+        layout === layoutsName.Home || layout === layoutsName.HomeLN10;
     const isInverse = featureId === 'inverse-home';
     const isAcuTag = get(globalContent, 'node_type', '') === 'tags';
 

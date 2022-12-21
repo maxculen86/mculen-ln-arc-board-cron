@@ -5,8 +5,10 @@ import Link from '../../../common/link';
 import Icon from '../../../common/icon';
 import ComLogo from '../../../common/com-logo';
 import LnLogoHeader from '../../../common/logos/LnLogoHeader';
+import useTermica from '../../../common/hooks/useTermica';
 
-const headerAMP = props => {
+const HeaderAMP = props => {
+    const paywallActive = useTermica('paywall') || false;
     return (
         <>
             <header id="header" className="header">
@@ -26,15 +28,17 @@ const headerAMP = props => {
                         </div>
                         <div className="col-5 col-desksm-4 header__right">
                             <div id="user-menu" className="com-usuario">
-                                <Link
-                                    mod="com-button --special"
-                                    id="btnsuscribite"
-                                    title="Suscribite a LA NACION"
-                                    href="https://suscripciones.lanacion.com.ar/suscribirme"
-                                    rel="nofollow"
-                                >
-                                    SUSCRIBITE
-                                </Link>
+                                {paywallActive && (
+                                    <Link
+                                        mod="com-button --special"
+                                        id="btnsuscribite"
+                                        title="Suscribite a LA NACION"
+                                        href="https://suscripciones.lanacion.com.ar/suscribirme"
+                                        rel="nofollow"
+                                    >
+                                        SUSCRIBITE
+                                    </Link>
+                                )}
                                 <Link
                                     mod="com-button --secondary"
                                     href="https://ingresar.lanacion.com.ar/ingresar/D/1/"
@@ -498,4 +502,4 @@ const headerAMP = props => {
     );
 };
 
-export default headerAMP;
+export default HeaderAMP;

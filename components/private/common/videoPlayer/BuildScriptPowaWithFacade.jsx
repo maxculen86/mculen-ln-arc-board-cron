@@ -7,7 +7,8 @@ import {
     removeFacade,
     handleClickEvent,
     withAutoPlay,
-    setIntersectionObserver
+    setIntersectionObserver,
+    setCustomErrorsVideoPlayer
 } from '../utils/videoPlayerHelper';
 import ImageArticle from '../../LN/common/media/imageBase';
 
@@ -47,8 +48,10 @@ export default function BuildScriptPowaWithFacade({
                     ${handleClickEvent}
                     ${withAutoPlay}
                     ${removeFacade}
+                    ${setCustomErrorsVideoPlayer}
 
                     window.addEventListener('load', () => {
+                        setCustomErrorsVideoPlayer()
                         const isDesktop = deviceType() === 'desktop'
                         const videoPlayerList = document.querySelectorAll('.video-player');
                         
@@ -79,7 +82,6 @@ export default function BuildScriptPowaWithFacade({
 
                             if (divFirstPowa && window.powas) {
                                 const { powa } = window.powas[divFirstPowa.id];
-
                                 powa.on('pause', () => userPause = true);
                                 powa.on('viewable', () => !userPause && powa.play());
                             }

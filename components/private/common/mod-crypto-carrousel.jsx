@@ -9,8 +9,8 @@ const ModCriptoCarrousel = () => {
         <div className="container-widget-carrousel">
             <div className="widget-carrousel-coins">
                 <ComLink
-                    link={`${SITE_LANACION}/tema/criptomonedas-tid63718/`}
-                    title="Ir a criptomonedas"
+                    link="/tema/criptomonedas-tid63718/"
+                    title="Ir a Criptomonedas"
                     type="text/css"
                 >
                     <Text
@@ -30,7 +30,7 @@ const ModCriptoCarrousel = () => {
                     lcw-marquee-items="20"
                 />
             </div>
-            <Text size="5xs">
+            <Text size="5xs" extraClass="cripto-info">
                 Información provista por
                 {`${' '}`}
                 <ComLink

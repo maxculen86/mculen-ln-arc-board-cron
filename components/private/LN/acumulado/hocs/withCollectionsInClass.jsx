@@ -39,7 +39,7 @@ function withCollectionsInClass(WrappedComponent, filter, size, imageConfig) {
                             ? articles.splice(0, size)
                             : articles;
 
-                    this.setState({ articlesInCollection });
+                    return this.setState({ articlesInCollection });
                 });
             }
 

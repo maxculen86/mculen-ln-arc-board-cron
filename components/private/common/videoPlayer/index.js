@@ -82,25 +82,27 @@ const VideoPlayer = props => {
             const player = event.detail.powa;
             const playerID = event.detail.id;
 
-            if (!playerID.includes(videoId)) return null;
+            if (playerID.includes(videoId)) {
+                setProgressEvent(player, tituloVideo, videoId);
+                setEvent(
+                    player,
+                    'play',
+                    'videoPlay',
+                    tituloVideo,
+                    videoId,
+                    streamingAnalyticInstance
+                );
+                setEvent(
+                    player,
+                    'complete',
+                    'videoComplete',
+                    tituloVideo,
+                    videoId,
+                    streamingAnalyticInstance
+                );
+            }
 
-            setProgressEvent(player, tituloVideo, videoId);
-            setEvent(
-                player,
-                'play',
-                'videoPlay',
-                tituloVideo,
-                videoId,
-                streamingAnalyticInstance
-            );
-            setEvent(
-                player,
-                'complete',
-                'videoComplete',
-                tituloVideo,
-                videoId,
-                streamingAnalyticInstance
-            );
+            return null;
         };
 
         if (!isAdmin && window && window.powaBoot) window.powaBoot();
@@ -145,22 +147,10 @@ const VideoPlayer = props => {
             <script
                 dangerouslySetInnerHTML={{
                     __html: `
-                    window.addEventListener('powaError', () => {
-                        const facade = document.querySelector('.content-facade');
-                        if (facade) facade.remove();
-
-                        const [{
-                            shadowRoot
-                        } = {}] = document.querySelectorAll('.powa-shadow');
-                    
-                        let errorPowa =
-                            shadowRoot.querySelector &&
-                            shadowRoot.querySelector('div.powa-outage');
-                    
-                        if (errorPowa && ${isApertura} && errorPowa.innerHTML === '<p>This video is geo-restricted.</p><p>Error 931.</p>') {
-                            errorPowa.innerHTML = '¡Ups! Parece que este video no esta disponible en tu ubicación'
-                        }
-                    });`
+                        window.addEventListener('powaError', () => {
+                            const facade = document.querySelector('.content-facade');
+                            if (facade) facade.remove();
+                        });`
                 }}
             />
         </div>

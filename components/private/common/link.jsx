@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import setClassName from './utils/setClassName';
 import '../../../resources/dist/css/ln/components/com-link.css';
 
 const Link = ({
@@ -15,9 +16,12 @@ const Link = ({
     rel,
     onClick
 }) => {
-    const _className = `com-${href ? 'link' : 'text'}${size ? ` ${size}` : ''}${
-        mod ? ` ${mod}` : ''
-    }${className ? ` ${className}` : ''}`;
+    const _className = setClassName({
+        baseClass: `com-${href ? 'link' : 'text'}`,
+        size,
+        mod,
+        className
+    });
     const content = children || text;
 
     return (

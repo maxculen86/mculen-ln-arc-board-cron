@@ -15,8 +15,12 @@ const eventByFilter = {
         if (redirectUrl) throw new Redirect(redirectUrl, statusCode || 301);
         else return response;
     },
-    source_id: () => {},
-    canonical_url: () => {}
+    source_id: () => {
+        // NOSONAR - This is intentional
+    },
+    canonical_url: () => {
+        // NOSONAR - This is intentional
+    }
 };
 
 const fetch = query => {
@@ -29,6 +33,11 @@ const fetch = query => {
     if (ARC_ACCESS_TOKEN) {
         opt.auth = {
             bearer: ARC_ACCESS_TOKEN
+        };
+    }
+    if (typeFilter === 'nota_id') {
+        return {
+            redirectNotaAsp: true
         };
     }
     return request(opt)
@@ -46,6 +55,12 @@ const resolve = (query = {}) => {
     const website = `website=${query.website || query['arc-site']}`;
     const published = `&published=${query.published || 'true'}`;
 
+    if (query.uri === '/nota.asp') {
+        return {
+            path: '',
+            typeFilter: 'nota_id'
+        };
+    }
     if (query.hasOwnProperty('website_url')) {
         return {
             path: `/content/v4/?website_url=${query.website_url}&${website}&${published}`,
