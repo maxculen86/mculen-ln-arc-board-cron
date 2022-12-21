@@ -12,6 +12,12 @@
 #acumulado .apertura .powa-shadow {
     max-width: 1140px;
     margin: 0 auto;
+
+    @media (max-width: 68.75em) {
+        &.content-facade {
+            position: absolute;
+        }
+    }
 }
 
 #acumulado .apertura picture img {
