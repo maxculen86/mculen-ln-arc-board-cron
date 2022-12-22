@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import getAssetsPath from '../utils/getAssetsPath';
 import Text from '../text';
-import ModalBody from './ModalBody';
+import ModalBody from '../ModalBody';
 import ComButton from '../com-button';
 import ModheaderSection from '../mod-headerSection';
 import Accordion from '../accordion';
