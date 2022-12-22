@@ -81,9 +81,7 @@ class GooglePublisherTag extends Component {
     }
 
     getArticleId() {
-        const {
-            globalContent: { _id }
-        } = this.props;
+        const { globalContent: { _id } = {} } = this.props;
 
         return `'te_${_id}'`;
     }

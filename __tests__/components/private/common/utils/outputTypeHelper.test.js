@@ -7,6 +7,7 @@ import {
     metasFromSiteServices,
     getTagTitle
 } from '../../../../../components/private/common/utils/outputTypeHelper';
+import { RECETA } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -273,7 +274,7 @@ describe('Tests - metasFromSiteServices', () => {
     };
 
     test('Return test when metaTags is defined', () => {
-        expect(metasFromSiteServices(metaTags)).toStrictEqual([
+        expect(metasFromSiteServices(metaTags).props.children).toStrictEqual([
             <meta content="noindex, nofollow" name="robots" />,
             <meta content="La Nacion" name="title" />
         ]);
@@ -288,7 +289,7 @@ describe('Tests - metasFromSiteServices', () => {
             metasFromSiteServices({
                 ...metaTags,
                 title: ''
-            })
+            }).props.children
         ).toStrictEqual([
             <meta content="noindex, nofollow" name="robots" />,
             ''
@@ -317,7 +318,7 @@ describe('getTagTitle function test', () => {
         test('Return when short title isnt defined, return basic title', () => {
             expect(
                 getTagTitle({
-                    basicTitle: 'Titulo de pagebuilder - LA NACION',
+                    PBTitle: 'Titulo de pagebuilder - LA NACION',
                     shortTitle: '',
                     ottTitle: 'titulo ott',
                     nodeType: 'nota',
@@ -332,7 +333,7 @@ describe('getTagTitle function test', () => {
         test('Return longTitle from siteProps when its defined', () => {
             expect(
                 getTagTitle({
-                    basicTitle: 'Titulo de pagebuilder - LA NACION',
+                    PBTitle: 'Titulo de pagebuilder - LA NACION',
                     shortTitle: 'Titulo corto',
                     ottTitle: 'titulo ott',
                     nodeType: 'home',
@@ -347,7 +348,7 @@ describe('getTagTitle function test', () => {
         test('Return basic title when longTitle is not defined', () => {
             expect(
                 getTagTitle({
-                    basicTitle: 'Titulo de pagebuilder - LA NACION',
+                    PBTitle: 'Titulo de pagebuilder - LA NACION',
                     shortTitle: '',
                     ottTitle: 'titulo ott',
                     nodeType: 'home',
@@ -361,7 +362,7 @@ describe('getTagTitle function test', () => {
         test('Return ottTitle when arcSite is ott', () => {
             expect(
                 getTagTitle({
-                    basicTitle: 'Titulo de pagebuilder - LA NACION',
+                    PBTitle: 'Titulo de pagebuilder - LA NACION',
                     shortTitle: 'Titulo corto',
                     ottTitle: 'titulo ott',
                     nodeType: 'home',
@@ -378,7 +379,7 @@ describe('getTagTitle function test', () => {
         test('Return pagebuilder title when nodeType is acu', () => {
             expect(
                 getTagTitle({
-                    basicTitle: 'Titulo de pagebuilder - LA NACION',
+                    PBTitle: 'Titulo de pagebuilder - LA NACION',
                     shortTitle: 'Titulo corto',
                     ottTitle: 'titulo ott',
                     nodeType: 'acumulado',
@@ -389,6 +390,41 @@ describe('getTagTitle function test', () => {
                     arcSite: 'la-nacion-ar'
                 })
             ).toBe('Titulo de pagebuilder - LA NACION');
+        });
+    });
+    describe('getTagTitle for recipe note', () => {
+        test('Return custom recipe title, using shortTitle as priority', () => {
+            expect(
+                getTagTitle({
+                    PBTitle: 'Titulo de receta pagebuilder - LA NACION',
+                    basicTitle: 'Titulo largo',
+                    shortTitle: 'Titulo corto',
+                    ottTitle: 'titulo ott',
+                    nodeType: 'acumulado',
+                    siteProps: {
+                        longTitle:
+                            'Todas las noticias de Argentina y el mundo en LA NACION'
+                    },
+                    arcSite: 'la-nacion-ar',
+                    subtype: RECETA
+                })
+            ).toBe('Receta de titulo corto - LA NACION');
+        });
+        test('Return custom recipe title, using basicTitle (when has not shortTitle)', () => {
+            expect(
+                getTagTitle({
+                    PBTitle: 'Titulo de receta pagebuilder - LA NACION',
+                    basicTitle: 'Titulo largo',
+                    ottTitle: 'titulo ott',
+                    nodeType: 'acumulado',
+                    siteProps: {
+                        longTitle:
+                            'Todas las noticias de Argentina y el mundo en LA NACION'
+                    },
+                    arcSite: 'la-nacion-ar',
+                    subtype: RECETA
+                })
+            ).toBe('Receta de titulo largo - LA NACION');
         });
     });
 });

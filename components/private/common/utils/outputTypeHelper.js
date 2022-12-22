@@ -1,51 +1,76 @@
 import React from 'react';
 import getMetaDescriptionForAcum from './getMetaDescriptionForAcum';
+import { RECETA } from './subtypes/subtypeHelper';
+import uncapitalizeFirstLetter from './uncapitalizeFirstLetter';
 import get from './get';
 
 export const getSectionOfRequestUri = (requestUri = '') => {
     const [section] = requestUri.split('/').filter(item => item !== '');
     return section || '';
 };
-export const getTitle = ({ title, properties = {}, uri, nodeType }) => {
+export const getTitle = ({
+    title,
+    basicTitle,
+    mobileTitle,
+    properties = {},
+    uri,
+    nodeType,
+    subtype
+}) => {
     const { longTitle, title: defaultTitle } = properties;
     if (getSectionOfRequestUri(uri) === 'mis-notas') {
         return title || defaultTitle;
+    }
+    if (subtype === RECETA) {
+        return nodeTypeTitles.receta({ basicTitle, shortTitle: mobileTitle });
     }
 
     return nodeType === 'home' ? longTitle : title || defaultTitle;
 };
 
 export const getTagTitle = ({
+    PBTitle,
     basicTitle,
     shortTitle,
     ottTitle,
     nodeType,
     siteProps,
-    arcSite
+    arcSite,
+    subtype
 }) => {
     const { longTitle, title: defaultTitle } = siteProps;
-    if (arcSite === 'ott')
+    if (arcSite === 'ott') {
         return get(
             nodeTypeTitles,
             arcSite,
             nodeTypeTitles.default
         )({ ottTitle });
+    }
+    if (subtype === RECETA) {
+        return nodeTypeTitles.receta({ basicTitle, shortTitle });
+    }
     return get(
         nodeTypeTitles,
         nodeType,
         nodeTypeTitles.default
-    )({ basicTitle, shortTitle, ottTitle, longTitle, defaultTitle });
+    )({ PBTitle, shortTitle, ottTitle, longTitle, defaultTitle });
 };
 
 const nodeTypeTitles = {
-    nota: ({ basicTitle, shortTitle }) =>
-        shortTitle ? `${shortTitle} - LA NACION` : basicTitle,
+    receta: ({ basicTitle, shortTitle }) =>
+        `Receta de ${
+            shortTitle
+                ? uncapitalizeFirstLetter(shortTitle)
+                : uncapitalizeFirstLetter(basicTitle)
+        } - LA NACION`,
+    nota: ({ PBTitle, shortTitle }) =>
+        shortTitle ? `${shortTitle} - LA NACION` : PBTitle,
     ott: ({ ottTitle }) => ottTitle,
-    home: ({ basicTitle, longTitle, defaultTitle }) => {
-        return longTitle || basicTitle || defaultTitle;
+    home: ({ PBTitle, longTitle, defaultTitle }) => {
+        return longTitle || PBTitle || defaultTitle;
     },
-    default: ({ basicTitle, defaultTitle }) => {
-        return basicTitle || defaultTitle;
+    default: ({ PBTitle, defaultTitle }) => {
+        return PBTitle || defaultTitle;
     }
 };
 
@@ -88,7 +113,13 @@ export const metasFromSiteServices = (metaTags = {}) => {
 
     if (!metas || metas.length === 0) return <></>;
 
-    return metas.map(([name, content]) => {
-        return name && content && <meta name={name} content={content} />;
-    });
+    return (
+        <>
+            {metas.map(([name, content]) => {
+                return (
+                    name && content && <meta name={name} content={content} />
+                );
+            })}
+        </>
+    );
 };

@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import addForwardSlash from '../LN/common/utils/addForwardSlash';
 import canonicalIdChecker from './utils/canonicalIdChecker';
 
-const LinkCanonical = props => {
+const LinkCanonical = (props = {}) => {
     const { _id = '', canonicalUrl = '', host = '', nodeType = '' } = props;
 
     return host && (canonicalUrl || _id || nodeType === 'home') ? (

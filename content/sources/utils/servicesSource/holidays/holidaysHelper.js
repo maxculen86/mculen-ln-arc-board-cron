@@ -60,7 +60,7 @@ const metaDataFactory = {
 const getMonthNumber = (monthString = '') => {
     return monthNames.indexOf(monthString) !== -1
         ? monthNames.indexOf(monthString) + 1
-        : '';
+        : 0;
 };
 const getMonthName = monthNumber => {
     if (typeof monthNumber !== 'number') return '';

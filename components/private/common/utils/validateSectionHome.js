@@ -27,17 +27,21 @@ export const checkIfValid = (name, children) => {
             sectionRule.quantity,
             sectionRule.operatorToUse
         )
-    )
-        return false;
+    ) {
+        return { isValid: false, msg: '' };
+    }
     // Validacion por tipo de componente
     if (
         !childrenWithoutHide.every(component =>
             sectionRule.types.includes(component.type)
         )
-    )
-        return `solo permite componentes del tipo ${sectionRule.types.join(
-            ','
-        )}`;
-
-    return true;
+    ) {
+        return {
+            isValid: false,
+            msg: `solo permite componentes del tipo ${sectionRule.types.join(
+                ','
+            )}`
+        };
+    }
+    return { isValid: true, msg: '' };
 };

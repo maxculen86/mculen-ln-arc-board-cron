@@ -20,12 +20,6 @@ class OTTFichaLayout extends Component {
                 this.props.globalContent.headlines.basic,
                 this.props.globalContent._id
             );
-
-            const videoScript = document.createElement('script');
-            videoScript.src =
-                'https://dzyf5jtgd0sxp.cloudfront.net/prod/powaBoot.js';
-            videoScript.async = true;
-            document.head.appendChild(videoScript);
         }
     }
 

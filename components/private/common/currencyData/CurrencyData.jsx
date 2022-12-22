@@ -30,13 +30,13 @@ const CurrencyData = ({
                 />
             </ComLink>
             <p className="com-text --sixxs">
-                {purchaseValue && (
+                {purchaseValue && purchaseValue !== '-' && (
                     <>
                         <span>Compra</span>
                         <strong className="--fourxs">${purchaseValue}</strong>
                     </>
                 )}
-                {saleValue && (
+                {saleValue && saleValue !== '-' && (
                     <>
                         <span>Venta</span>
                         <strong className="--fourxs">${saleValue}</strong>

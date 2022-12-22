@@ -1,6 +1,6 @@
-const epigrafeAndCreditsData = data => {
-    const { credits, additional_properties: additionalProperties } = data || {};
-    const { iptc_source: iptcSource } = additionalProperties || {};
+const epigrafeAndCreditsData = (data = {}) => {
+    const { credits, additional_properties: additionalProperties = {} } = data;
+    const { iptc_source: iptcSource } = additionalProperties;
 
     const creditos =
         credits && credits.by !== undefined

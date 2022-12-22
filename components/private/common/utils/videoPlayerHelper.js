@@ -174,10 +174,22 @@ export const setIntersectionObserver = (
     return observer;
 };
 
-export const getClassCondition = (isNote, isApertura) => {
-    if (isNote) {
+export const getClassCondition = (withFacade, isApertura) => {
+    if (withFacade) {
         return isApertura ? ' --isApertura --facade' : ' --facade';
     }
 
     return '';
+};
+
+export const getClassForFacade = (arcSite, isVerticalVideo) => {
+    const classCondition = {
+        ott: 'powa-shadow',
+        'la-nacion-ar': isVerticalVideo && '--vertical-video',
+        default: ''
+    };
+
+    return classCondition[arcSite]
+        ? classCondition[arcSite]
+        : classCondition.default;
 };
