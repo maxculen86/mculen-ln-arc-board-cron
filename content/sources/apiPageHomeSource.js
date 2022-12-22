@@ -3,15 +3,17 @@ import get from '../../components/private/common/utils/get';
 import pages from './utils/servicesSource/pages';
 
 const fetch = async (query, { cachedCall } = {}) => {
+    let queryParams = {};
     try {
         const ticksCache = get(query, 'ticks', null)?.replace('/', '');
+        const website = get(query, 'website', null);
         if (!SITE_LANACION) {
             throw new Error('Variable SITE_LANACION missing');
         }
-        const queryParams = {
+        queryParams = {
             rootPath: SITE_LANACION,
             ticksCache,
-            website: get(query, 'website', null)
+            website
         };
         return await cachedCall('ApiPageHome', pages.fetch, {
             query: queryParams,
@@ -21,7 +23,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         // eslint-disable-next-line no-console
         console.error(
             `Error content/apiPageHomeSource : ${JSON.stringify(
-                query
+                queryParams
             )} - errorMsj:${error.message}`
         );
         return null;
