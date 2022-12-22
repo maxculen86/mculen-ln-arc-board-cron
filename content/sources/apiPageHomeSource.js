@@ -5,6 +5,9 @@ import pages from './utils/servicesSource/pages';
 const fetch = async (query, { cachedCall } = {}) => {
     try {
         const ticksCache = get(query, 'ticks', null)?.replace('/', '');
+        if (!SITE_LANACION) {
+            throw new Error('Variable SITE_LANACION missing');
+        }
         const queryParams = {
             rootPath: SITE_LANACION,
             ticksCache,
@@ -16,12 +19,12 @@ const fetch = async (query, { cachedCall } = {}) => {
         });
     } catch (error) {
         // eslint-disable-next-line no-console
-        console.warn(
+        console.error(
             `Error content/apiPageHomeSource : ${JSON.stringify(
                 query
             )} - errorMsj:${error.message}`
         );
-        throw new Error(error);
+        return null;
     }
 };
 
