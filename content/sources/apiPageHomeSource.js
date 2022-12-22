@@ -7,14 +7,15 @@ const fetch = async (query, { cachedCall } = {}) => {
     try {
         const ticksCache = get(query, 'ticks', null)?.replace('/', '');
         const website = get(query, 'website', null);
-        if (!SITE_LANACION) {
-            throw new Error('Variable SITE_LANACION missing');
-        }
+
         queryParams = {
             rootPath: SITE_LANACION,
             ticksCache,
             website
         };
+        if (!SITE_LANACION) {
+            throw new Error('Variable SITE_LANACION missing');
+        }
         return await cachedCall('ApiPageHome', pages.fetch, {
             query: queryParams,
             ttl: 120
