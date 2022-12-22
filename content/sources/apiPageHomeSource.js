@@ -5,7 +5,7 @@ import pages from './utils/servicesSource/pages';
 const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
     try {
-        const ticksCache = get(query, 'ticks', null)?.replace('/', '');
+        const ticksCache = get(query, 'ticks', '').replace('/', '');
         const website = get(query, 'website', null);
 
         queryParams = {
