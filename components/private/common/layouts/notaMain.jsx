@@ -4,9 +4,9 @@ import StaticValidation from '../staticValidation';
 import Header from '../../LN/common/header';
 import Footer from '../../LN/common/footer';
 
-const NotaMain = ({ children }) => {
+const NotaMain = ({ children, className }) => {
     return (
-        <>
+        <div id="wrapper" className={className}>
             <Header />
             <main id="content">
                 {children[1]}
@@ -66,12 +66,13 @@ const NotaMain = ({ children }) => {
             <StaticValidation id="StaticFooter" htmlOnly persistent>
                 <Footer />
             </StaticValidation>
-        </>
+        </div>
     );
 };
 
 NotaMain.propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string.isRequired
 };
 
 export default NotaMain;

@@ -1,16 +1,13 @@
 /* eslint-disable no-console */
 /* eslint-disable no-undef */
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
 import useViewportSize from '../hooks/useViewportSize';
-import getQueryParamValue from '../utils/getQueryParamValue';
-import {
-    suffixDevice,
-    queueGoogletagCommand
-} from '../../LN/common/utils/bannerHelper';
+import { queueGoogletagCommand } from '../../LN/common/utils/bannerHelper';
 import { isSubscribed } from '../../LN/common/utils/contextHelper';
+import useAdsTestAndSuffix from '../hooks/useAdsTestAndSuffix';
 
 let googleCmdPushed = false;
 
@@ -40,7 +37,6 @@ const getBannersInDOM = device => {
 
 const LoadBannersSSR = ({ blocksBanners }) => {
     const { renderables = [], outputType, isAdmin } = useAppContext();
-    const [suffix, setSuffix] = useState();
     const device = useViewportSize();
     const subscription = isSubscribed();
     const bannersConfigured = renderables.filter(e =>
@@ -53,20 +49,7 @@ const LoadBannersSSR = ({ blocksBanners }) => {
         ].includes(e.type)
     );
 
-    useEffect(() => {
-        if (getQueryParamValue('adstest', window.location) === 'true') {
-            googletag.cmd.push(() => {
-                googletag.pubads().setTargeting('adstest', ['true']);
-            });
-        }
-    }, []);
-
-    useEffect(() => {
-        if (outputType && device)
-            setSuffix(() =>
-                outputType === 'amp' ? '_amp' : suffixDevice[device]
-            );
-    }, [device, outputType]);
+    const suffix = useAdsTestAndSuffix(device, outputType);
 
     useEffect(() => {
         try {
