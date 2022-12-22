@@ -14,7 +14,6 @@ const fetch = async (query, { cachedCall } = {}) => {
             query: queryParams,
             ttl: 120
         });
-        //return await pages.fetch(queryParams);
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(
