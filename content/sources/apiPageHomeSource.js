@@ -5,7 +5,8 @@ import pages from './utils/servicesSource/pages';
 const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
     try {
-        const ticksCache = get(query, 'ticks', '').replace('/', '');
+        let ticksCache = get(query, 'ticks', null);
+        ticksCache = ticksCache === null ? '' : ticksCache.replace('/', '');
         const website = get(query, 'website', null);
 
         queryParams = {
@@ -13,6 +14,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             ticksCache,
             website
         };
+
         if (!SITE_LANACION) {
             throw new Error('Variable SITE_LANACION missing');
         }
