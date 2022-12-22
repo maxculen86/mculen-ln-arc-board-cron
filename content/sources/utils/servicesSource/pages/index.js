@@ -36,7 +36,9 @@ const fetch = async query => {
             console.warn(
                 `Error Page Index - sources/utils/servicesSource/pages/index: ${JSON.stringify(
                     query
-                )} - uri: ${endpoint.uri} - errorMsj:${error.message}`
+                )} - uri: ${JSON.stringify(endpoint.uri)} - errorMsj:${
+                    error.message
+                }`
             );
             logger.push(error, { source: 'servicesSource/page/index', query });
         });
