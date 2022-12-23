@@ -1,15 +1,7 @@
 import Consumer from 'fusion:consumer';
 import bitacora from '../../private/LN/api/v1/global/bitacora';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
-
-const homeMobileSections = [
-    'Banner-Megatop',
-    'Sticky-Mobile',
-    'Cabezal',
-    'Apertura',
-    'Cuerpo',
-    'Aside'
-];
+import pageSportsBuilderSections from '../config/LN-Home_Sports-PageBuilder.config.json';
 
 const getHomeElements = props => {
     const { children, arcSite } = props;
@@ -28,7 +20,7 @@ const getHomeElements = props => {
                         .map(b => {
                             const addedInfo = { ...b, configurations };
                             return {
-                                feature: homeMobileSections[i],
+                                feature: pageSportsBuilderSections[i],
                                 ...addedInfo
                             };
                         })
@@ -40,10 +32,19 @@ const getHomeElements = props => {
 };
 
 const LNSportsHome = props => {
-    const homeSections = getHomeElements(props);
-    return bitacora(homeSections) || null;
+    // limpieza de datos
+    const propsHome = {
+        children: props.children,
+        renderables: props.renderables,
+        arcSite: props.arcSite,
+        pageSections: pageSportsBuilderSections,
+        layout: 'LN-Home_Sports'
+    };
+    //const homeSections = getHomeElements(props);
+    //return bitacora(homeSections) || null;
+    return propsHome;
 };
 
-LNSportsHome.sections = homeMobileSections;
+LNSportsHome.sections = pageSportsBuilderSections;
 
 export default Consumer(LNSportsHome);

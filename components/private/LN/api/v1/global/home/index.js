@@ -26,6 +26,7 @@ const typeSection = {
     },
     Multimedia: { tipoSeccion: 'tema', idSeccion: 305 },
     Timeline: { tipoSeccion: 'tema', idSeccion: 3000 },
+    Aside: { tipoSeccion: 'aside', idSeccion: 306 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 
@@ -110,11 +111,14 @@ const resultArticlesBySections = (feature, ordererArticles) => {
 const storyBox = element => {
     const { information, feature } = element;
     const featureInfo = featureInformation(information, feature);
+
     if (feature === 'Anticipo') return { ...featureInfo };
     const articles = get(element, 'articles', []);
+
     const ordererArticles = orderArticles(articles, information.layout);
 
     const resultArticles = resultArticlesBySections(feature, ordererArticles);
+
     if (Array.isArray(resultArticles) && resultArticles.length > 0) {
         return {
             ...featureInfo,

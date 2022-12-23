@@ -1,7 +1,6 @@
 import { IS_SANDBOX, IS_DEV } from 'fusion:environment';
 import request from 'request-promise-native';
 import logger from '../../../../../components/private/common/utils/logger';
-import transform from './transform';
 
 const resolve = query => {
     const { rootPath, website, ticksCache } = query;
@@ -29,7 +28,7 @@ const fetch = async query => {
 
     return request(endpoint)
         .then(response => {
-            return transform(response, query);
+            return response;
         })
         .catch(error => {
             // eslint-disable-next-line no-console

@@ -6,11 +6,19 @@ class AnexoFeature {
     }
 
     render() {
-        const { html, hideByHtml } = this.props.customFields;
-        return {
-            information: { hideCaja: hideByHtml, layout: 'grilla1' },
-            articles: [{ html }]
+        const { hideByUrl, url, heightMobile } = this.props.customFields;
+        let resp = {};
+        const urlAnexo = url?.trim() ?? '';
+        const articles = urlAnexo !== '' ? [{ url, alto: heightMobile }] : [];
+        resp = {
+            information: {
+                hideCaja: hideByUrl,
+                layout: 'grilla1'
+            },
+            articles
         };
+
+        return resp;
     }
 }
 

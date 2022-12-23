@@ -1,19 +1,16 @@
 import Consumer from 'fusion:consumer';
-import pageBuilderSections from '../config/LN-PageBuilder.config.json';
+import pageBuilderSections from '../config/LN-Acumulado-PageBuilder.config.json';
 
-const LNMainHome = props => {
+const LNAcumuladosLayout = props => {
     // limpieza de datos
     const propsHome = {
         children: props.children,
         renderables: props.renderables,
         arcSite: props.arcSite,
         pageSections: pageBuilderSections,
-        layout: 'LN-Home_Main'
+        layout: 'LN-acumulados'
     };
-
     return propsHome;
 };
-
-LNMainHome.sections = pageBuilderSections;
-
-export default Consumer(LNMainHome);
+LNAcumuladosLayout.sections = pageBuilderSections;
+export default Consumer(LNAcumuladosLayout);

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
-import NotaApertura from '../../private/LN/acumulado/notaApertura';
-import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
-import StaticContent from '../../private/common/staticContent';
-import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
+import NotaApertura from '../../../private/LN/acumulado/notaApertura';
+import useGlobalProviderAcu from '../../../private/LN/acumulado/hooks/useGlobalProviderAcu';
+import StaticContent from '../../../private/common/staticContent';
+import checkHydrateOnly from '../../../private/LN/common/utils/checkHydrateOnly';
 
 const AperturaFeature = props => {
     const { outputType = 'default', globalContent = {}, id: featureId } = props;
@@ -35,6 +35,6 @@ AperturaFeature.propTypes = {
     }).isRequired
 };
 
-AperturaFeature.label = 'LN-Acumulado-Apertura';
+AperturaFeature.label = 'LN-Acumulado-Apertura-old';
 
 export default Consumer(AperturaFeature);

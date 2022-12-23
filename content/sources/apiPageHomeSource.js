@@ -1,6 +1,8 @@
 import { SITE_LANACION } from 'fusion:environment';
-import get from '../../components/private/common/utils/get';
 import pages from './utils/servicesSource/pages';
+import get from '../../components/private/common/utils/get';
+import home from '../../components/private/LN/api/v1/global/home';
+import transform from './utils/servicesSource/pages/transform';
 
 const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
@@ -14,14 +16,17 @@ const fetch = async (query, { cachedCall } = {}) => {
             ticksCache,
             website
         };
-
         if (!SITE_LANACION) {
             throw new Error('Variable SITE_LANACION missing');
         }
-        return await cachedCall('ApiPageHome', pages.fetch, {
+        const resultPage = await cachedCall('ApiPageHome', pages.fetch, {
             query: queryParams,
             ttl: 120
         });
+        //return resultPage;
+        const resultPageTransform = await transform(resultPage, queryParams);
+        const resultHome = home(resultPageTransform);
+        return Array.isArray(resultHome) ? resultHome[0] : {};
     } catch (error) {
         // eslint-disable-next-line no-console
         console.error(

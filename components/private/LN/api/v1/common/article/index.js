@@ -67,6 +67,7 @@ export const articleItem = article => {
     const { subtype: templateId, label } = article;
 
     const id = get(article, '_id', null);
+
     if (!id) {
         const itemArticle =
             typeof article === 'object' ? JSON.stringify(article) : '';
@@ -76,10 +77,12 @@ export const articleItem = article => {
         );
     }
 
-    const url = get(article, 'website_url', null);
+    const url =
+        get(article, 'website_url', null) ??
+        get(article, 'canonical_url', null);
     if (!url) {
         throw new Error(
-            `La nota con el id: ${id} no posee el valor website_url`
+            `La nota con el id: ${id} no posee el valor website_url or canonical_url`
         );
     }
 
