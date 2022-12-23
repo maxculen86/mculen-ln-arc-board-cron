@@ -3,24 +3,20 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
+    getArticlesOfChain,
     getCommonProps,
     isInApertura
 } from '../../private/LN/common/utils/cajaTemasHelper';
-import {
-    validateFeature,
-    getIdsArticlesFromOtherCollections,
-    getArticlesFromMyCurrentCollection
-} from '../../private/LN/common/utils/cajaTemasValidators';
-import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import siteConfig from '../../../properties/sites/la-nacion-ar';
-import get from '../../private/common/utils/get';
 import { getPlaceholder } from '../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../private/common/utils/viewability';
 import StaticContent from '../../private/common/staticContent';
+import getDataChainCollection from '../utils/getDataChainCollection';
+import { validateFeature } from '../../private/LN/common/utils/cajaTemasValidators';
+import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
+import WarningMessage from '../../private/common/warningMessage/warningMessage';
 
 const CajaCollection = props => {
     const {
@@ -54,39 +50,24 @@ const CajaCollection = props => {
         positionInsideSection
     } = getCommonProps(props);
 
-    const { layoutsName = {} } = siteConfig || {};
-    const isHome = pageLayout === layoutsName.Home;
-
-    const diagramation =
-        (renderables.some(
-            elem =>
-                get(elem, 'collection') === 'layouts' &&
-                get(elem, 'type') === layoutsName.Home
-        ) &&
-            layout) ||
-        '';
-
-    const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
-        collectionsInPage,
+    const {
+        isInSiteService,
+        articlesFromCollectionSiteService,
+        idsArticlesToExclude,
+        titleSize,
+        diagramation,
+        isHome
+    } = getDataChainCollection({
         idCollection,
-        Number(initialPosition) - 1,
-        notesQuantity
-    );
-
-    const isInSiteService = articlesFromCollectionSiteService.length > 0;
-
-    const idsArticlesToExclude = !isInSiteService
-        ? getIdsArticlesFromOtherCollections(renderables, collectionsInPage)
-        : [];
-
-    const isInsideApertura =
-        tree.type === 'LN-acumulado' ? isInApertura(featureId, tree) : false;
-
-    const titleSize =
-        ((isInsideApertura || layout === 'grilla1' || layout === 'grilla2') &&
-            '--l') ||
-        undefined;
-
+        pageLayout,
+        renderables,
+        layout,
+        initialPosition,
+        collectionsInPage,
+        tree,
+        notesQuantity,
+        featureId
+    });
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(
               notesQuantity,
@@ -103,31 +84,21 @@ const CajaCollection = props => {
           )
         : [];
 
-    const _articles = isInSiteService
-        ? articlesFromCollectionSiteService
-        : articlesToShow;
+    const _articles = getArticlesOfChain({
+        isInSiteService,
+        articlesFromCollectionSiteService,
+        articlesToShow
+    });
 
-    const error = validateFeature(
-        idCollection,
-        isInSiteService ? articlesFromCollectionSiteService : articlesToShow,
-        layout
-    );
+    const error = validateFeature(idCollection, _articles, layout);
 
     if (isAdmin && !!error) {
         return (
-            <div
-                style={{
-                    marginTop: '10px',
-                    marginBottom: '10px',
-                    width: '100%'
-                }}
-            >
-                <PageBuilderMessage
-                    key={featureId}
-                    type={error.type}
-                    message={error.message}
-                />
-            </div>
+            <WarningMessage
+                id={featureId}
+                type={error.type}
+                message={error.message}
+            />
         );
     }
 

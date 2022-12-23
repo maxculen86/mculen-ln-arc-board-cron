@@ -1,0 +1,266 @@
+{
+    "content_elements": [
+        {
+            "_id": "K2FFK3J6DNCX3D76BQ6D7FLQNE",
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": []
+            },
+            "display_date": "2020-11-11T13:54:13.588Z",
+            "headlines": {
+                "basic": "Prueba Newsletter de propiedades",
+                "mobile": ""
+            },
+            "label": {
+                "recomendar": {
+                    "text": "Si"
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/jNu_xLApCBnK5naVXBZkururt2I=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/P8b7p9FMeWanS6m3s4WHBNClqw4=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/DvQRx-9jI8O8qOpCPD9e7BycJgQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/jNu_xLApCBnK5naVXBZkururt2I=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/PbGCju3eIFvWkMJa7r4ss4vrwMU=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U665QRLUEJGU7B6WMZ4AEAQDRY.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2020-11-11T13:54:13.588Z",
+            "subheadlines": {
+                "basic": "esto es una pruena"
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/propiedades",
+                    "additional_properties": {
+                        "original": {}
+                    },
+                    "name": "Propiedades",
+                    "path": "/propiedades"
+                },
+                "tags": []
+            },
+            "website_url": "/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
+        },
+        {
+            "_id": "AQCXKYK4XJCVFNFNZ2IQ7SUCA4",
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "additional_properties": {
+                            "original": {
+                                "image": ""
+                            }
+                        },
+                        "image": {
+                            "url": ""
+                        },
+                        "name": "Diego Lima",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2021-03-01T03:32:27.897Z",
+            "headlines": {
+                "basic": "Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”",
+                "mobile": ""
+            },
+            "label": {},
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/YkRLFu2djYmlekX542bVmRuRZ9U=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/_0ai-n5YA8G4RYJ8SZ1zAwKKsvw=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/0Kw6urtpvMRCAD-MqMrxupp4srA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/YkRLFu2djYmlekX542bVmRuRZ9U=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/tsgafNgslhctNrXxoAWBiE6g-Uo=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TRSC3LYYI5AANJSVUL3ZJJG324.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2021-03-12T14:17:55.232Z",
+            "subheadlines": {
+                "basic": "A los conflictos y protestas de presos de las cárceles de la provincia de Buenos Aires en medio de la pandemia del coronavirus , se sumó un motín protagonizado por detenidos alojados en el complejo penitenciario de Villa Devoto , donde los internos se subieron a los techos para exigir que la Justicia ordene excarcelaciones y arrestos domiciliarios."
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/sociedad/seguridad",
+                    "additional_properties": {
+                        "original": {}
+                    },
+                    "name": "Seguridad",
+                    "path": "/sociedad/seguridad"
+                },
+                "tags": [
+                    {
+                        "slug": "crisis-de-inmigrantes-tid54583",
+                        "text": "Crisis de inmigrantes"
+                    },
+                    {
+                        "slug": "copa-libertadores-de-america",
+                        "text": "Copa Libertadores de América"
+                    },
+                    {
+                        "slug": "libros-tid54646",
+                        "text": "Libros"
+                    }
+                ]
+            },
+            "website_url": "/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
+        },
+        {
+            "_id": "KEBYELHATJHPRNAWO24GRV6YCQ",
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "additional_properties": {
+                            "original": {
+                                "image": ""
+                            }
+                        },
+                        "image": {
+                            "url": ""
+                        },
+                        "name": "Patricia Osuna Gutiérrez",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2020-04-24T16:10:43.235Z",
+            "headlines": {
+                "basic": "Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos",
+                "mobile": ""
+            },
+            "label": {
+                "recomendar": {
+                    "text": "true"
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/q2Tn5yEYVQJHtijNWIorNle8iao=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/Zxdn7YUB-jx7g4NmlPnbJqJRmdM=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/uvXAx8PwxbOikr5OkUTtsE6CWRo=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/q2Tn5yEYVQJHtijNWIorNle8iao=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/axM29-VutuKXUihwOgsIqJ6lhZA=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2021-01-07T12:56:01.989Z",
+            "subheadlines": {
+                "basic": "A los perros no les gusta estar solos . Tanto es así que incluso pueden llegar a experimentar ataques de pánico cuando los dueños salen de sus casas . "
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/lifestyle",
+                    "additional_properties": {
+                        "original": {}
+                    },
+                    "name": "Lifestyle",
+                    "path": "/lifestyle"
+                },
+                "tags": []
+            },
+            "website_url": "/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
+        }
+    ],
+    "type": "collection",
+    "_id": "LPKD4TBYRNGYRCQTIGN3TEFIVU"
+}
