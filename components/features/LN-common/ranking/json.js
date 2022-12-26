@@ -1,40 +1,54 @@
 import Consumer from 'fusion:consumer';
+import get from '../../../private/common/utils/get';
 import { getRankingProps } from './_helper';
 
 class RankingFeature {
     constructor(props) {
         this.props = props;
+        const {
+            website,
+            arcSite,
+            layout,
+            globalContent = {},
+            id: featureId
+        } = this.props;
+
+        const {
+            title,
+            sectionName,
+            sectionId,
+            notesQuantity
+        } = getRankingProps(layout, featureId, globalContent);
+
+        this.title = title ?? sectionName;
+
+        const query = {
+            sectionId,
+            size: notesQuantity,
+            imageConfig: 'boxArticles',
+            'arc-site': website ?? arcSite
+        };
+        this.fetch(query);
+    }
+
+    fetch(query) {
+        this.fetchContent({
+            rankingApi: {
+                source: 'rankingArticlesSource',
+                query
+            }
+        });
     }
 
     render() {
         try {
-            const {
-                outputType,
-                website,
-                arcSite,
-                layout,
-                globalContent = {},
-                id: featureId
-            } = this.props;
-
-            const {
-                title,
-                sectionName,
-                sectionId,
-                isHome,
-                notesQuantity,
-                classCondition,
-                rankingLayout
-            } = getRankingProps(layout, featureId, globalContent);
+            const { rankingApi } = this.state || {};
             const resp = {
                 information: {
                     hideCaja: false,
-                    imageConfig: 'boxArticles',
-                    sectionId,
-                    notesQuantity,
-                    ...this.props.customFields
+                    title: this.title
                 },
-                articles: [{ alto: 9999 }]
+                articles: get(rankingApi, 'articles', []) || []
             };
 
             return resp;

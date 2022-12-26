@@ -12,7 +12,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         const website = get(query, 'website', null);
 
         queryParams = {
-            rootPath: SITE_LANACION,
+            rootPath: 'http://172.17.0.1/homepage8',//SITE_LANACION,
             ticksCache,
             website
         };
@@ -25,6 +25,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         });
         //return resultPage;
         const resultPageTransform = await transform(resultPage, queryParams);
+        return resultPageTransform;
         const resultHome = home(resultPageTransform);
         return Array.isArray(resultHome) ? resultHome[0] : {};
     } catch (error) {

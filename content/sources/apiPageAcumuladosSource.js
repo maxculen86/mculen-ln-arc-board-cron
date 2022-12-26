@@ -15,11 +15,25 @@ import transform from './utils/servicesSource/pages/transform';
 import { getFeatureInPage } from './utils/servicesSource/pages/helper';
 import home from '../../components/private/LN/api/v1/global/home';
 
+const getParamsSectionSource = data => {
+    const title =
+        get(data, 'acumuladoGeneral.hierarchy_navigation', null) ??
+        get(data, 'name', null);
+    const restriction = get(
+        data,
+        'acumuladoGeneral.mostrar_en_acu_apps',
+        'true'
+    );
+    const configuration = get(data, 'configuration', null);
+    return { title, restriction, configuration };
+};
+
 const fetch = async (query, { cachedCall }) => {
     let queryParams = {};
     let restriction = 'true';
     let resultSectionSource = null;
     let resultPage = null;
+    let configuration = null;
 
     try {
         const { uri = '', website, versionUri } = query;
@@ -66,17 +80,12 @@ const fetch = async (query, { cachedCall }) => {
                 query: queryParams
             }
         );
-        title =
-            get(
-                resultSectionSource,
-                'acumuladoGeneral.hierarchy_navigation',
-                null
-            ) ?? get(resultSectionSource, 'name', null);
-        restriction = get(
-            resultSectionSource,
-            'acumuladoGeneral.mostrar_en_acu_apps',
-            'true'
+        const paramsSectionsSource = getParamsSectionSource(
+            resultSectionSource
         );
+        title = get(paramsSectionsSource, 'title', null);
+        restriction = get(paramsSectionsSource, 'restriction', null);
+        configuration = get(paramsSectionsSource, 'configuration', null);
 
         if (isPage || isCustom) {
             queryParams = {
@@ -89,6 +98,7 @@ const fetch = async (query, { cachedCall }) => {
                 configuration: null,
                 categoryUri,
                 versionUri,
+                featureInPage: sectionsinPage?.featureInPage,
                 sectionSource: resultSectionSource
             };
 
@@ -102,13 +112,15 @@ const fetch = async (query, { cachedCall }) => {
                     resultPage,
                     sectionsinPage?.featureInPage
                 );
+                return { resultPage };
             }
-            //return { resultPage };
+
             if (isPage) {
                 const resultPageTransform = await transform(
                     resultPage,
                     queryParams
                 );
+                //return resultPageTransform;
                 const resultHome = home(resultPageTransform);
                 //return resultHome;
                 return Array.isArray(resultHome) ? resultHome[0] : {};
@@ -125,7 +137,7 @@ const fetch = async (query, { cachedCall }) => {
             website,
             uri,
             title,
-            configuration: get(resultSectionSource, 'configuration', null),
+            configuration,
             categoryUri,
             versionUri
         };
@@ -135,7 +147,7 @@ const fetch = async (query, { cachedCall }) => {
         queryParams = {
             uri,
             title,
-            configuration: get(resultSectionSource, 'configuration', null),
+            configuration,
             categoryUri,
             versionUri
         };

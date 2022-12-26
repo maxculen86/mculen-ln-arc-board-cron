@@ -1,6 +1,6 @@
-import rulesLNHomeMain from '../../../../../../../layouts/config/LN-Home.config';
-import rulesLNHomeSports from '../../../../../../../layouts/config/LN-Home_Sports-PageBuilder.config';
-import rulesLNAcumulado from '../../../../../../../layouts/config/rules-LN-Acumulado.config';
+import rulesLNHomeMain from '../../../../../layouts/config/LN-Home.config';
+import rulesLNHomeSports from '../../../../../layouts/config/LN-Home_Sports-PageBuilder.config';
+import rulesLNAcumulado from '../../../../../layouts/config/rules-LN-Acumulado.config';
 
 const getSections = (sectionsPage, layout) => {
     const sectionsMerge = {

@@ -2,58 +2,68 @@
     {
         "sectionId": "economia/campo",
         "isPage": true,
-        "isCustom": false
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "economia",
         "isPage": true,
-        "isCustom": false
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "deportes",
         "isPage": true,
-        "isCustom": false
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "exclusivo-suscriptor",
         "isPage": true,
         "isCustom": false,
-        "namePage": "exclusivo-suscriptor"
+        "namePage": "exclusivo-suscriptor",
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "canchallena",
         "isPage": true,
-        "isCustom": false
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "propiedades",
         "isPage": true,
-        "isCustom": false
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "campo",
         "isPage": true,
-        "isCustom": false
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "bienestar",
         "isPage": true,
-        "isCustom": false
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "movilidad",
         "isPage": true,
-        "isCustom": false
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "opinión",
         "isPage": true,
-        "isCustom": false
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "ultimas-noticias",
         "isPage": true,
         "isCustom": true,
-        "featureInPage": "LN-acumulado/ultimasNoticias"
+        "featureAcumuladosInPage": "LN-acumulado/ultimasNoticias"
     }
 ]

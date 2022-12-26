@@ -7,10 +7,11 @@ import respChain from '../../../private/LN/api/v1/global/home/chains/respCajaCol
 class Timeline {
     constructor(props) {
         this.props = props;
-        const { customFields, arcSite } = props;
+        const {
+            customFields: { sections, size },
+            arcSite
+        } = props;
         this.state = {};
-
-        const { sections, size } = customFields;
 
         const query = this.getQueryElement(sections, size + 3, arcSite);
 

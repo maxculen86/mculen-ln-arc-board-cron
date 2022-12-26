@@ -5,7 +5,7 @@ import Video from '../video';
 import { authorHomeMobile, articleSignature } from '../author';
 import sentToApps from '../utils/sentToApps';
 import getEmbedHref from '../../../../../common/utils/getEmbedHref';
-import LNApiErrorArticles from '../utils/lnApiErrorArticles';
+import LNApiErrorArticles from '../../../global/utils/lnApiErrorArticles';
 
 const getArticleImage = article => {
     const imagedefault =

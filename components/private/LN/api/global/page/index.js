@@ -1,51 +1,28 @@
-import get from '../../../../../common/utils/get';
+import get from '../../../../common/utils/get';
 import {
     checkIfValid,
     findSectionChildren
-} from '../../../../../common/utils/validateSectionHome';
-import getSections from './utils/getSections';
-import getBannerPosition from './utils/getBannerPosition';
+} from '../../../../common/utils/validateSectionHome';
+import getSections from '../utils/getSections';
+import getBannerPosition from '../utils/getBannerPosition';
+import getTypesbyContainer from '../utils/getTypesbyContainer';
 
 const boxMovePosition = {
     App_Anexo_11: { feature: 'Apertura_1', position: 'start' },
     App_Anexo_22: { feature: 'Apertura_1', position: 'bottom' }
 };
-const boxAssingTypes = {
-    bySection: {
-        Anexo_1: { type: 2 },
-        Anexo_2: { type: 2 },
-        App_Anexo_11: { type: 2 },
-        App_Anexo_22: { type: 2 },
-        default: { type: 0 }
-    },
-    byDiagramation: {
-        grillaUltimasNoticias: { type: 3 },
-        default: { type: 0 }
-    }
-};
 
-const sectionbyLayout = {
-    grillaUltimasNoticias: {
-        subLayout: 'LN-acumulado/timeline'
+const sectionbyDiagramation = ['grillaUltimasNoticias'];
+const setTypeElement = information => {
+    if (information && (information.nameChain || information.nameFeature)) {
+        return getTypesbyContainer(
+            information.nameFeature ?? information.nameChain
+        );
     }
+
+    return 0;
 };
-const setTypeElement = (sectionWeb, diagramation) => {
-    let typeElement = 0;
-    if (sectionWeb) {
-        typeElement =
-            boxAssingTypes?.bySection[sectionWeb] != null
-                ? boxAssingTypes?.bySection[sectionWeb].type
-                : boxAssingTypes?.bySection?.default?.type;
-    }
-    if (diagramation) {
-        typeElement =
-            boxAssingTypes?.byDiagramation[diagramation] != null
-                ? boxAssingTypes?.byDiagramation[diagramation].type
-                : boxAssingTypes?.byDiagramation?.default?.type;
-    }
-    return typeElement;
-};
-const segmentbySection = (elements, sectionChildren) => {
+const segmentSectionbyDiagramation = elements => {
     if (!elements || !Array.isArray(elements)) {
         return elements;
     }
@@ -55,12 +32,13 @@ const segmentbySection = (elements, sectionChildren) => {
         elements.forEach(e => {
             if (e && e.information) {
                 const diagramation = get(e.information, 'layout', null);
-                const sectionByDiagramation = sectionbyLayout[diagramation];
+                // Finds the section that contains a component or feature with layout included in the sectionbyDiagramation variable
                 if (
                     e.articles &&
                     Array.isArray(e.articles) &&
-                    sectionByDiagramation
+                    sectionbyDiagramation.includes(diagramation)
                 ) {
+                    // Find position from structure how as {information, articles[{},{},{},{},articles]}
                     const subElementNoIncludeIndex = e.articles.findIndex(
                         x => x && x.articles && Array.isArray(x.articles)
                     );
@@ -88,20 +66,18 @@ const segmentbySection = (elements, sectionChildren) => {
                                             'hideCaja',
                                             null
                                         )
-                                    },
-                                    type: setTypeElement(null, diagramation),
-                                    ...sectionByDiagramation
+                                    }
                                 };
                                 elemArray.push(subElementArray);
-                                const subElementLayout = segmentbySection(
-                                    elemArray,
-                                    sectionChildren
+                                const subElementLayout = segmentSectionbyDiagramation(
+                                    elemArray
                                 );
                                 if (
                                     subElementLayout &&
                                     subElementLayout.length &&
                                     subElementLayout.length > 0
                                 ) {
+                                    // Place the position of the feature as a section according to the visual order on the web
                                     if (subElementNoIncludeIndex > 0) {
                                         elementsValidate.push(
                                             subElementLayout[0]
@@ -115,24 +91,6 @@ const segmentbySection = (elements, sectionChildren) => {
                                     }
                                 }
                             });
-                    } else {
-                        const subChilds = sectionChildren
-                            .filter(
-                                x =>
-                                    x && x.children && Array.isArray(x.children)
-                            )
-                            .map(x => {
-                                return x.children;
-                            });
-                        if (
-                            subChilds &&
-                            subChilds.length &&
-                            subChilds[0].filter(
-                                s => s.type === sectionByDiagramation.subLayout
-                            ).length > 0
-                        ) {
-                            elementsValidate.push(e);
-                        }
                     }
                 } else {
                     elementsValidate.push(e);
@@ -163,7 +121,6 @@ const setBannersInPosition = (elements, banner) => {
 
 const addProperties = (sectionChildren, elements) => {
     const setInformationInFeature = (render, children) => {
-        //console.log(children);
         return {
             ...render,
             information: {
@@ -285,7 +242,7 @@ const getPageElements = props => {
 
             // Divide Section by configured features
             if (elements && Array.isArray(elements) && elements.length > 0) {
-                elements = segmentbySection(elements, sectionChildren);
+                elements = segmentSectionbyDiagramation(elements);
             }
 
             const banner = getBannerPosition(layoutPage)[sectionWeb];
@@ -316,7 +273,7 @@ const getPageElements = props => {
                                         !b.information.hideCaja
                                     ) {
                                         return res.concat({
-                                            type: setTypeElement(sectionWeb),
+                                            type: setTypeElement(b.information),
                                             feature: sectionMobile,
                                             ...b,
                                             configurations,

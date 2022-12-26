@@ -1,4 +1,4 @@
-import getPageElements from '../../../../../components/private/LN/api/v1/global/pages';
+import getPageElements from '../../../../../components/private/LN/api/global/page';
 import get from '../../../../../components/private/common/utils/get';
 
 export const getFeatureInPage = (data, featureInPage) => {
