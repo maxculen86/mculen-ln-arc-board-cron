@@ -27,8 +27,6 @@ const WeatherForecast = ({ id: _featureId }) => {
         </>
     );
 };
-
-WeatherForecast.static = true;
 WeatherForecast.label = 'LN Clima Pronostico';
 
 WeatherForecast.propTypes = { id: PropTypes.string.isRequired };
