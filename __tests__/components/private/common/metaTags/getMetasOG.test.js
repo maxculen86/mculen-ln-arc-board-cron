@@ -165,7 +165,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:title',
-                content: 'Últimas noticias de Argentina y el mundo'
+                content: 'LA NACION'
             },
             {
                 property: 'og:description',

@@ -58,6 +58,7 @@ const featureInformation = (information, feature) => {
     }
     return res;
 };
+
 const articlesMap = (articles, feature) => {
     return articles.reduce((result, f) => {
         if (f) {
