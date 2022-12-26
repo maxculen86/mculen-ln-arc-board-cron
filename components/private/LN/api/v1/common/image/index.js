@@ -3,28 +3,38 @@ import epigrafeAndCreditsData from '../../../../../common/utils/epigrafeAndCredi
 
 const imageCommon = image => {
     if (!image) return null;
-    const { _id: id, resized_urls: resizedUrls } = image;
+    const { _id: id, resized_urls: resizedUrls, url } = image;
     if (!resizedUrls || resizedUrls.length === 0) return null;
 
     const newRegex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;
+    const urlv2 = /.*\/resizer\/v2\/[a-zA-Z0-9]+.jpg[?](auth=.*)/;
     const hrefRegex = new RegExp(
         /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
     );
-
+    const hrefRegexV2 = /.*(\/resizer\/v2\/[a-zA-Z0-9]+.jpg[?]auth=(.*))/;
+    const isV2 = new RegExp(/v2/).exec(url) !== null;
     const absoluteUrl = resizedUrls[0].resizedUrl.replace(
-        newRegex,
+        isV2 ? urlv2 : newRegex,
         (str, match) => {
             return str.replace(match, '{{param}}');
         }
     );
-    const regexResult = hrefRegex.exec(resizedUrls[0].resizedUrl);
-
+    let baseUrl;
+    if (isV2) {
+        const urlResult = hrefRegexV2.exec(resizedUrls[0].resizedUrl);
+        baseUrl = urlResult
+            ? urlResult[1].replace(urlResult[2], '{{param}}')
+            : resizedUrls[0].resizedUrl;
+    } else {
+        const regexResult = hrefRegex.exec(resizedUrls[0].resizedUrl);
+        baseUrl = regexResult
+            ? regexResult[0].replace(regexResult[1], '{{param}}')
+            : resizedUrls[0].resizedUrl;
+    }
     const resp = {
         id,
         _t: 'img',
-        baseUrl: regexResult
-            ? regexResult[0].replace(regexResult[1], '{{param}}')
-            : resizedUrls[0].resizedUrl,
+        baseUrl,
         absoluteUrl,
         parametros: []
     };
@@ -41,16 +51,33 @@ const imageCommon = image => {
                 media = parseInt(media.match(/\d+/)[0], 10);
             } else {
                 media = get(resizedUrls, `[${index}].option.width`, 0);
+                const mediaPreload = get(
+                    resizedUrls,
+                    `[${index}].option.media_preload`
+                );
+                if (isV2 && mediaPreload) {
+                    media = parseInt(mediaPreload.match(/\d+/)[0], 10);
+                }
             }
             const ancho = get(resizedUrls, `[${index}].option.width`, 0);
             const alto = get(resizedUrls, `[${index}].option.height`, 0);
-            const firma =
-                (resizedUrls[index] &&
-                    resizedUrls[index].resizedUrl &&
-                    resizedUrls[index].resizedUrl.match(regex) &&
-                    resizedUrls[index].resizedUrl.replace(regex, '$1')) ||
-                '';
-
+            let firma;
+            if (isV2) {
+                const regexUrl = /.*\/resizer\/v2\/[a-zA-Z0-9]+.jpg[?](auth=.*)/;
+                firma =
+                    (resizedUrls[index] &&
+                        resizedUrls[index].resizedUrl &&
+                        resizedUrls[index].resizedUrl.match(regexUrl) &&
+                        resizedUrls[index].resizedUrl.match(regexUrl)['1']) ||
+                    '';
+            } else {
+                firma =
+                    (resizedUrls[index] &&
+                        resizedUrls[index].resizedUrl &&
+                        resizedUrls[index].resizedUrl.match(regex) &&
+                        resizedUrls[index].resizedUrl.replace(regex, '$1')) ||
+                    '';
+            }
             if (firma) {
                 resp.parametros.push({
                     media,
