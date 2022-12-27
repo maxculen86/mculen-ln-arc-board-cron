@@ -13,8 +13,8 @@ export const crtViewTracker = (tracked, trackSetter) => {
     if (!isReloaded && tracked) {
         trackSetter(false);
         dataLayer.push({
-            event: 'CTR view',
-            brand: 'stickyMobile_diag1',
+            event: 'impressionNota',
+            ctr_brand: 'stickyMobile_diag1',
             position: '101101'
         });
     }
@@ -30,14 +30,14 @@ const userActions = {
     close: dataLayer => {
         return dataLayer.push({
             event: 'CTR close',
-            brand: 'stickyMobile_diag1',
+            ctr_brand: 'stickyMobile_diag1',
             position: '101101'
         });
     },
     open: dataLayer => {
         return dataLayer.push({
-            event: 'CTR open note',
-            brand: 'stickyMobile_diag1',
+            event: 'productClickNota',
+            ctr_brand: 'stickyMobile_diag1',
             position: '101101'
         });
     }
