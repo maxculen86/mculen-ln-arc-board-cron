@@ -6,10 +6,11 @@ import {
 import getSections from '../utils/getSections';
 import getBannerPosition from '../utils/getBannerPosition';
 import getTypesbyContainer from '../utils/getTypesbyContainer';
+import getSectionAliasbyFeature from '../utils/getSectionAliasbyFeature';
 
 const boxMovePosition = {
-    App_Anexo_11: { feature: 'Apertura_1', position: 'start' },
-    App_Anexo_22: { feature: 'Apertura_1', position: 'bottom' }
+    App_Anexo_11: { sectionWeb: 'Apertura_1', position: 'start' },
+    App_Anexo_22: { sectionWeb: 'Apertura_1', position: 'bottom' }
 };
 
 const sectionbyDiagramation = ['grillaUltimasNoticias'];
@@ -21,6 +22,16 @@ const setTypeElement = information => {
     }
 
     return 0;
+};
+const setSectionAliasbyFeature = (information, sectionMobile) => {
+    if (information && information.nameFeature) {
+        console.log(information.nameFeature);
+        return (
+            getSectionAliasbyFeature(information.nameFeature) ?? sectionMobile
+        );
+    }
+    console.log(sectionMobile);
+    return sectionMobile;
 };
 const segmentSectionbyDiagramation = elements => {
     if (!elements || !Array.isArray(elements)) {
@@ -170,12 +181,10 @@ const moveSections = (sections, name) => {
     const sectionToMove = boxMovePosition[name];
     if (sectionToMove) {
         const indexSectionTo = sections.findIndex(
-            x => x.nameSection === sectionToMove.feature
+            x => x.sectionWeb === sectionToMove.sectionWeb
         );
 
-        const indexSectionFrom = sections.findIndex(
-            x => x.nameSection === name
-        );
+        const indexSectionFrom = sections.findIndex(x => x.sectionWeb === name);
 
         if (indexSectionFrom > -1 && indexSectionTo > -1) {
             const elementToMove = sections[indexSectionFrom];
@@ -247,7 +256,7 @@ const getPageElements = props => {
 
             const banner = getBannerPosition(layoutPage)[sectionWeb];
 
-            //  Returns a new element according to the position of the banners of the established configuration
+            //  Returns a new array elements with banners according to the position of the banners of the established configuration
             const child = setBannersInPosition(elements, banner);
 
             /*             const el = child;
@@ -274,13 +283,17 @@ const getPageElements = props => {
                                     ) {
                                         return res.concat({
                                             type: setTypeElement(b.information),
-                                            feature: sectionMobile,
+                                            sectionAliasMobile: setSectionAliasbyFeature(
+                                                b.information,
+                                                sectionMobile
+                                            ),
                                             ...b,
                                             configurations,
-                                            nameSection: sectionWeb
+                                            sectionMobile,
+                                            sectionWeb
                                         });
                                     }
-                                    if (b.feature) {
+                                    if (b.sectionAliasMobile) {
                                         return res.concat(b);
                                     }
                                 }

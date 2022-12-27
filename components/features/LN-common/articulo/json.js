@@ -14,6 +14,8 @@ class ArticleFeature {
         } = props;
 
         const renderables = get(props, 'renderables', null);
+        const sourceInclude =
+            'taxonomy,distributor.name,related_content.basic,_id,last_updated_date,headlines,workflow,subheadlines,description,label,promo_items,canonical_website,credits,subtype,first_publish_date,publish_date,website,website_url';
         let imageConfig = null;
         this.state = {};
         if (renderables) {
@@ -46,7 +48,8 @@ class ArticleFeature {
                         id: noteId.trim(),
                         imageConfig,
                         published: true,
-                        checkExclusiveAccess: false
+                        checkExclusiveAccess: false,
+                        sourceInclude
                     }
                 }
             });

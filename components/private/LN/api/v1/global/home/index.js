@@ -34,19 +34,19 @@ const typeSubSection = {
     timeline: { idSeccion: 3000 }
 };
 
-const featureInformation = (information, feature) => {
-    const type = typeSection[feature] || typeSection.default;
+const featureInformation = (information, section) => {
+    const type = typeSection[section] || typeSection.default;
     const res = {
         ...type,
         ...(typeSubSection[information.layout] || null),
         diagramacion: information.layout || null
     };
 
-    if (feature === 'Anticipo') {
+    if (section === 'Anticipo') {
         res.texto = information.title;
     }
 
-    if (!information.hideTitle && feature !== 'Apertura') {
+    if (!information.hideTitle && section !== 'Apertura') {
         const image = get(information.image, 'promo_items.basic', null);
         const imagenUrl = get(image, 'additional_properties.originalUrl', null);
         if (image && image.type === 'image') res.imagen = Image(image);
@@ -59,7 +59,7 @@ const featureInformation = (information, feature) => {
     }
     return res;
 };
-const articlesMap = (articles, feature) => {
+const articlesMap = (articles, sectionAliasMobile) => {
     return articles.reduce((result, f) => {
         if (f) {
             try {
@@ -71,7 +71,7 @@ const articlesMap = (articles, feature) => {
                 if (get(error, 'name', null) === 'ErrorIdArticle') {
                     // eslint-disable-next-line no-console
                     console.warn(
-                        `SectionMobile:${feature || ''} - ${get(
+                        `SectionMobile:${sectionAliasMobile || ''} - ${get(
                             error,
                             'message',
                             ''
@@ -96,28 +96,16 @@ const articlesMap = (articles, feature) => {
     }, []);
 };
 
-const resultArticlesBySections = (feature, ordererArticles) => {
-    if (feature === 'Anexo') {
-        return Anexo(ordererArticles);
-    }
-
-    if (feature === 'AnexoMobile') {
-        return AnexoMobile(ordererArticles);
-    }
-
-    return articlesMap(ordererArticles, feature);
-};
-
 const storyBox = element => {
-    const { information, feature } = element;
-    const featureInfo = featureInformation(information, feature);
+    const { information, sectionAliasMobile } = element;
+    const featureInfo = featureInformation(information, sectionAliasMobile);
 
-    if (feature === 'Anticipo') return { ...featureInfo };
+    if (sectionAliasMobile === 'Anticipo') return { ...featureInfo };
     const articles = get(element, 'articles', []);
 
     const ordererArticles = orderArticles(articles, information.layout);
 
-    const resultArticles = resultArticlesBySections(feature, ordererArticles);
+    const resultArticles = articlesMap(ordererArticles, sectionAliasMobile);
 
     if (Array.isArray(resultArticles) && resultArticles.length > 0) {
         return {
@@ -129,7 +117,7 @@ const storyBox = element => {
 };
 
 const bannerBox = element => {
-    const type = typeSection[element.feature];
+    const type = typeSection[element.sectionAliasMobile];
     return {
         ...type,
         idSeccion: element.id
@@ -137,12 +125,15 @@ const bannerBox = element => {
 };
 
 const anexoMobile = element => {
-    const { information, feature } = element;
-    const featureInfo = featureInformation(information, feature);
+    const { information, sectionAliasMobile } = element;
+    const featureInfo = featureInformation(information, sectionAliasMobile);
     const articles = get(element, 'articles', []);
     const ordererArticles = orderArticles(articles, information.layout);
 
-    const resultArticles = resultArticlesBySections(feature, ordererArticles);
+    const resultArticles =
+        sectionAliasMobile === 'Anexo'
+            ? Anexo(ordererArticles)
+            : AnexoMobile(ordererArticles);
 
     if (Array.isArray(resultArticles) && resultArticles.length > 0) {
         return {

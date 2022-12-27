@@ -39,8 +39,21 @@ export const resolve = (key, a) => {
 
     const arcSite = key['arc-site'];
     let basePath = `/content/v4/stories/?website=${arcSite}`;
+    const uriParams = [
+        `${
+            key?.sourceInclude && key?.sourceInclude !== ''
+                ? `&included_fields=${key?.sourceInclude}`
+                : ''
+        }`
+    ].join('');
+
     if (published) basePath = `${basePath}&published=${published}`;
+
+    if (uriParams && uriParams !== '') {
+        basePath = `${basePath}${uriParams}`;
+    }
     if (id) return `${basePath}&_id=${id}`;
+
     if (url) {
         let urlClear = url;
         const regexUrl = /^\/api\/(?:mobile\/)?v([1-2]+)\/notas\/(byUrl(\/.+\/$)|byId\/(.+)\/$)/;
@@ -461,7 +474,8 @@ export default {
         meteringVariant: 'text',
         paywallUrl: 'text',
         paywallEnabled: 'text',
-        outputType: 'text'
+        outputType: 'text',
+        sourceInclude: 'text'
     },
     filter,
     ttl: 120
