@@ -29,7 +29,12 @@ const boxPositionLNMain = {
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    Opinion: { id: 406, type: 1, sectionAliasMobile: 'Banner', position: 'start' }
+    Opinion: {
+        id: 406,
+        type: 1,
+        sectionAliasMobile: 'Banner',
+        position: 'start'
+    }
 };
 const boxPositionLNAcumulado = {
     'Pre-Apertura': {
@@ -38,7 +43,12 @@ const boxPositionLNAcumulado = {
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    Apertura: { id: 403, type: 1, sectionAliasMobile: 'Banner', position: 'bottom' }
+    Apertura: {
+        id: 403,
+        type: 1,
+        sectionAliasMobile: 'Banner',
+        position: 'bottom'
+    }
 };
 const boxPositionLNSports = {
     Apertura_1: {
@@ -71,7 +81,12 @@ const boxPositionLNSports = {
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    Opinion: { id: 406, type: 1, sectionAliasMobile: 'Banner', position: 'start' }
+    Opinion: {
+        id: 406,
+        type: 1,
+        sectionAliasMobile: 'Banner',
+        position: 'start'
+    }
 };
 const getBannerPosition = layout => {
     const boxPositionsMerge = {

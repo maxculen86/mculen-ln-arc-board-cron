@@ -7,7 +7,6 @@ const LNMainHome = props => {
         children: props.children,
         renderables: props.renderables,
         arcSite: props.arcSite,
-        pageSections: pageBuilderSections,
         layout: 'LN-Home_Main'
     };
 

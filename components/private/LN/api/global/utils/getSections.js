@@ -1,16 +1,19 @@
 import rulesLNHomeMain from '../../../../../layouts/config/LN-Home.config';
-import rulesLNHomeSports from '../../../../../layouts/config/LN-Home_Sports-PageBuilder.config';
+import rulesLNHomeSports from '../../../../../layouts/config/rules-LN-Home_Sports.config';
 import rulesLNAcumulado from '../../../../../layouts/config/rules-LN-Acumulado.config';
+import sectionsPageMainFront from '../../../../../layouts/config/LN-PageBuilder.config.json';
+import sectionsPageAcumuladosFront from '../../../../../layouts/config/LN-Acumulado-PageBuilder.config.json';
+import sectionsPageSportFront from '../../../../../layouts/config/LN-Home_Sports-PageBuilder.config.json';
 
-const getSections = (sectionsPage, layout) => {
+const getSections = layout => {
     const sectionsMerge = {
         'LN-acumulados': {
-            front: sectionsPage,
-            mobile: sectionsPage,
+            front: sectionsPageAcumuladosFront,
+            mobile: sectionsPageAcumuladosFront,
             rules: rulesLNAcumulado
         },
         'LN-Home_Main': {
-            front: sectionsPage,
+            front: sectionsPageMainFront,
             mobile: [
                 'Anticipo',
                 'AnexoMobile',
@@ -42,8 +45,8 @@ const getSections = (sectionsPage, layout) => {
             rules: rulesLNHomeMain
         },
         'LN-Home_Sports': {
-            front: sectionsPage,
-            mobile: sectionsPage,
+            front: sectionsPageSportFront,
+            mobile: sectionsPageSportFront,
             rules: rulesLNHomeSports
         }
     };

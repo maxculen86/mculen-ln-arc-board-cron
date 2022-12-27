@@ -8,7 +8,7 @@ const getTypesbyContainer = nameContainer => {
         'LN-common/opinion': 0,
         'LN-common/editoriales': 0,
         'LN-common/anexoMobile': 2,
-        'LN-acumulado/timeline': 3,
+        'LN-acumulado/timeline': 0,
         'LN-common/bannerRefactor': 0,
         'LN-acumulado/breadcrumb': 0,
         'LN-acumulado/titulo': 0,

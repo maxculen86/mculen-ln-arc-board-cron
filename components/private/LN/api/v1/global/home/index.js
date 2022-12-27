@@ -30,15 +30,10 @@ const typeSection = {
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 
-const typeSubSection = {
-    timeline: { idSeccion: 3000 }
-};
-
 const featureInformation = (information, section) => {
     const type = typeSection[section] || typeSection.default;
     const res = {
         ...type,
-        ...(typeSubSection[information.layout] || null),
         diagramacion: information.layout || null
     };
 
@@ -148,8 +143,7 @@ const anexoMobile = element => {
 const typeBox = {
     0: storyBox,
     1: bannerBox,
-    2: anexoMobile,
-    3: storyBox
+    2: anexoMobile
 };
 
 const index = children => {

@@ -1,6 +1,6 @@
 const getSectionAliasbyFeature = nameContainer => {
     const boxTypeContainer = {
-        'LN-common/anexo': 'Anexo',
+        'LN-common/anexo': 'AnexoMobile',
         'LN-common/anexoMobile': 'AnexoMobile',
         'LN-acumulado/timeline': 'Timeline'
     };

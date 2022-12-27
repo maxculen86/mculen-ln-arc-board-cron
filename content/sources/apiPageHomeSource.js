@@ -25,7 +25,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         });
         //return resultPage;
         const resultPageTransform = await transform(resultPage, queryParams);
-        // return resultPageTransform;
+       // return resultPageTransform;
         const resultHome = home(resultPageTransform);
         return Array.isArray(resultHome) ? resultHome[0] : {};
     } catch (error) {

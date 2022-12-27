@@ -9,8 +9,8 @@ import getTypesbyContainer from '../utils/getTypesbyContainer';
 import getSectionAliasbyFeature from '../utils/getSectionAliasbyFeature';
 
 const boxMovePosition = {
-    App_Anexo_11: { sectionWeb: 'Apertura_1', position: 'start' },
-    App_Anexo_22: { sectionWeb: 'Apertura_1', position: 'bottom' }
+    Anexo_1: { sectionWeb: 'Apertura_1', position: 'start' },
+    Anexo_2: { sectionWeb: 'Apertura_1', position: 'bottom' }
 };
 
 const sectionbyDiagramation = ['grillaUltimasNoticias'];
@@ -25,12 +25,10 @@ const setTypeElement = information => {
 };
 const setSectionAliasbyFeature = (information, sectionMobile) => {
     if (information && information.nameFeature) {
-        console.log(information.nameFeature);
         return (
             getSectionAliasbyFeature(information.nameFeature) ?? sectionMobile
         );
     }
-    console.log(sectionMobile);
     return sectionMobile;
 };
 const segmentSectionbyDiagramation = elements => {
@@ -177,20 +175,21 @@ const addProperties = (sectionChildren, elements) => {
     return newElements;
 };
 
-const moveSections = (sections, name) => {
-    const sectionToMove = boxMovePosition[name];
+const moveSections = (sections, sectionWeb) => {
+    const sectionToMove = boxMovePosition[sectionWeb];
     if (sectionToMove) {
         const indexSectionTo = sections.findIndex(
             x => x.sectionWeb === sectionToMove.sectionWeb
         );
 
-        const indexSectionFrom = sections.findIndex(x => x.sectionWeb === name);
+        const indexSectionFrom = sections.findIndex(
+            x => x.sectionWeb === sectionWeb
+        );
 
         if (indexSectionFrom > -1 && indexSectionTo > -1) {
             const elementToMove = sections[indexSectionFrom];
             if (elementToMove) {
                 sections.splice(indexSectionFrom, 1);
-                elementToMove.type = sectionToMove.type;
                 switch (sectionToMove.position) {
                     case 'bottom':
                         sections.splice(indexSectionTo + 1, 0, elementToMove);
@@ -209,18 +208,12 @@ const moveSections = (sections, name) => {
 };
 
 const getPageElements = props => {
-    const {
-        children,
-        renderables,
-        arcSite,
-        pageSections,
-        layout: layoutPage
-    } = props;
+    const { children, renderables, arcSite, layout: layoutPage } = props;
     const configurations = {
         arcSite
     };
     //return children;
-    const pageMergeSections = getSections(pageSections, layoutPage);
+    const pageMergeSections = getSections(layoutPage);
     const rules = get(pageMergeSections, 'rules', []);
     // return { pageMergeSections };
     return (

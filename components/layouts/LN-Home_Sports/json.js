@@ -37,7 +37,6 @@ const LNSportsHome = props => {
         children: props.children,
         renderables: props.renderables,
         arcSite: props.arcSite,
-        pageSections: pageSportsBuilderSections,
         layout: 'LN-Home_Sports'
     };
     //const homeSections = getHomeElements(props);
