@@ -15,7 +15,7 @@ const BuildBody = ({ banners, outputType, globalContent = {} }) => {
     } = globalContent;
 
     let counter = 0;
-    const elementList = contentElements.map((element, currentIndex) => {
+    return contentElements.map((element, currentIndex) => {
         const newElement = element.subtype
             ? transformEmbedScript(element)
             : element;
@@ -72,8 +72,6 @@ const BuildBody = ({ banners, outputType, globalContent = {} }) => {
 
         return <></>;
     });
-
-    return elementList;
 };
 
 export default BuildBody;
@@ -116,6 +114,7 @@ const setDataComponent = ({
         />
     ) : (
         <></>
-    );
+    ); //NOSONAR
+
     return baseComponent;
 };

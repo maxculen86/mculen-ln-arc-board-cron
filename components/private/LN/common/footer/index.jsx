@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
@@ -6,205 +5,200 @@ import Icon from '../../../common/icon';
 import Text from '../../../common/text';
 import List from '../../../common/mod-list';
 import Copyright from './copyright';
-
-import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
 import ComLogo from '../../../common/com-logo';
+import commonProps from './helpers/commonProps';
+import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
 
 const Index = ({ home }) => {
     const listText = [
-        {
-            text: 'Últimas noticias',
-            alt: 'Ir a Últimas noticias',
-            href: 'https://www.lanacion.com.ar/ultimas-noticias/'
-        },
-        {
-            text: 'Política',
-            alt: 'Ir a Política',
-            href: 'https://www.lanacion.com.ar/politica/'
-        },
-        {
-            text: 'Economía',
-            alt: 'Ir a Economía',
-            href: 'https://www.lanacion.com.ar/economia/'
-        },
-        {
-            text: 'El mundo',
-            alt: 'Ir a El mundo',
-            href: 'https://www.lanacion.com.ar/el-mundo/'
-        },
-        {
-            text: 'Sociedad',
-            alt: 'Ir a Sociedad',
-            href: 'https://www.lanacion.com.ar/sociedad/'
-        },
-        {
-            text: 'Opinión',
-            alt: 'Ir a Opinión',
-            href: 'https://www.lanacion.com.ar/opinion/'
-        },
-        {
-            text: 'Deportes',
-            alt: 'Ir a Deportes',
-            href: 'https://www.lanacion.com.ar/deportes/'
-        },
-        {
-            text: 'Lifestyle',
-            alt: 'Ir a Lifestyle',
-            href: 'https://www.lanacion.com.ar/lifestyle/'
-        },
-        {
-            text: 'Espectáculos',
-            alt: 'Ir a Espectáculos',
-            href: 'https://www.lanacion.com.ar/espectaculos/'
-        },
-        {
-            text: 'Edición impresa',
-            alt: 'Ir a Edición impresa',
-            href: 'https://edicionimpresa.lanacion.com.ar/la-nacion'
-        },
-        {
-            text: 'LN+',
-            alt: 'Ir a LN+',
-            href: 'https://lnmas.lanacion.com.ar/'
-        },
-        {
-            text: 'Club LA NACION',
-            alt: 'Ir a Club LA NACION',
-            href: 'https://club.lanacion.com.ar/'
-        }
+        commonProps(
+            'Últimas noticias',
+            'Ir a Últimas noticias',
+            'https://www.lanacion.com.ar/ultimas-noticias/'
+        ),
+        commonProps(
+            'Política',
+            'Ir a Política',
+            'https://www.lanacion.com.ar/politica/'
+        ),
+        commonProps(
+            'Economía',
+            'Ir a Economía',
+            'https://www.lanacion.com.ar/economia/'
+        ),
+        commonProps(
+            'El mundo',
+            'Ir a El mundo',
+            'https://www.lanacion.com.ar/el-mundo/'
+        ),
+        commonProps(
+            'Sociedad',
+            'Ir a Sociedad',
+            'https://www.lanacion.com.ar/sociedad/'
+        ),
+        commonProps(
+            'Opinión',
+            'Ir a Opinión',
+            'https://www.lanacion.com.ar/opinion/'
+        ),
+        commonProps(
+            'Deportes',
+            'Ir a Deportes',
+            'https://www.lanacion.com.ar/deportes/'
+        ),
+        commonProps(
+            'Lifestyle',
+            'Ir a Lifestyle',
+            'https://www.lanacion.com.ar/lifestyle/'
+        ),
+        commonProps(
+            'Espectáculos',
+            'Ir a Espectáculos',
+            'https://www.lanacion.com.ar/espectaculos/'
+        ),
+        commonProps(
+            'Edición impresa',
+            'Ir a Edición impresa',
+            'https://edicionimpresa.lanacion.com.ar/la-nacion'
+        ),
+        commonProps('LN+', 'Ir a LN+', 'https://lnmas.lanacion.com.ar/'),
+        commonProps(
+            'Club LA NACION',
+            'Ir a Club LA NACION',
+            'https://club.lanacion.com.ar/'
+        )
     ];
 
     const listText1 = [
-        { text: 'Revistas' },
-        {
-            text: 'OHLALÁ!',
-            alt: 'Ir a Revista OHLALÁ',
-            href: 'https://www.lanacion.com.ar/revista-ohlala/'
-        },
-        {
-            text: '¡HOLA!',
-            alt: 'Ir a Revista HOLA',
-            href: 'https://www.lanacion.com.ar/revista-hola/'
-        },
-        {
-            text: 'ROLLING STONE',
-            alt: 'Ir a Revista Rolling Stone',
-            href: 'https://www.lanacion.com.ar/revista-rolling-stone/'
-        },
-        {
-            text: 'LIVING',
-            alt: 'Ir a Revista Living',
-            href: 'https://www.lanacion.com.ar/revista-living/'
-        },
-        {
-            text: 'BRANDO',
-            alt: 'Ir a Revista Brando',
-            href: 'https://www.lanacion.com.ar/revista-brando/'
-        },
-        {
-            text: 'JARDÍN',
-            alt: 'Ir a Revista Jardín',
-            href: 'https://www.lanacion.com.ar/revista-jardin/'
-        },
-        {
-            text: 'LUGARES',
-            alt: 'Ir a Revista Lugares',
-            href: 'https://www.lanacion.com.ar/revista-lugares/'
-        }
+        commonProps('Revistas'),
+        commonProps(
+            'OHLALÁ!',
+            'Ir a Revista OHLALÁ',
+            'https://www.lanacion.com.ar/revista-ohlala/'
+        ),
+        commonProps(
+            '¡HOLA!',
+            'Ir a Revista HOLA',
+            'https://www.lanacion.com.ar/revista-hola/'
+        ),
+        commonProps(
+            'ROLLING STONE',
+            'Ir a Revista Rolling Stone',
+            'https://www.lanacion.com.ar/revista-rolling-stone/'
+        ),
+        commonProps(
+            'LIVING',
+            'Ir a Revista Living',
+            'https://www.lanacion.com.ar/revista-living/'
+        ),
+        commonProps(
+            'BRANDO',
+            'Ir a Revista Brando',
+            'https://www.lanacion.com.ar/revista-brando/'
+        ),
+        commonProps(
+            'JARDÍN',
+            'Ir a Revista Jardín',
+            'https://www.lanacion.com.ar/revista-jardin/'
+        ),
+        commonProps(
+            'LUGARES',
+            'Ir a Revista Lugares',
+            'https://www.lanacion.com.ar/revista-lugares/'
+        )
     ];
 
     const listText2 = [
-        { text: 'Club del vino:' },
-        {
-            text: 'Bon vivir',
-            alt: 'Ir a tienda online de Bonvivir',
-            href: 'https://bonvivir.com/',
-            target: '_blank'
-        }
+        commonProps('Club del vino:'),
+        commonProps(
+            'Bon vivir',
+            'Ir a tienda online de Bonvivir',
+            'https://bonvivir.com/',
+            '_blank'
+        )
     ];
 
     const listText2b = [
-        { text: 'Envíos:' },
-        {
-            text: 'HOP',
-            alt: 'Ir a página de envíos de HOP',
-            href: 'https://www.hopenvios.com.ar/',
-            target: '_blank'
-        },
-        {
-            text: 'Colecciones',
-            alt: 'Ir a tienda online de Colecciones LA NACION',
-            href: 'https://colecciones.lanacion.com.ar/',
-            target: '_blank'
-        },
-        {
-            text: 'Máster en periodismo',
-            alt: 'Ir a la Maestría en periodismo',
-            href:
-                'https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327',
-            target: '_blank'
-        },
-        {
-            text: 'Fundación LA NACION',
-            alt: 'Ir a la Fundación LA NACION',
-            href: 'https://fundacionlanacion.org.ar/',
-            target: '_blank'
-        }
+        commonProps('Envíos:'),
+        commonProps(
+            'HOP',
+            'Ir a página de envíos de HOP',
+            'https://www.hopenvios.com.ar/',
+            '_blank'
+        ),
+        commonProps(
+            'Colecciones',
+            'Ir a tienda online de Colecciones LA NACION',
+            'https://colecciones.lanacion.com.ar/',
+            '_blank'
+        ),
+        commonProps(
+            'Máster en periodismo',
+            'Ir a la Maestría en periodismo',
+            'https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327',
+            '_blank'
+        ),
+        commonProps(
+            'Fundación LA NACION',
+            'Ir a la Fundación LA NACION',
+            'https://fundacionlanacion.org.ar/',
+            '_blank'
+        )
     ];
 
     const listText2c = [
-        { text: 'Libros:' },
-        {
-            text: 'LiBooks',
-            alt: 'Ir a tienda online de LiBooks',
-            href: 'https://www.libooks.com/',
-            target: '_blank'
-        }
+        commonProps('Libros:'),
+        commonProps(
+            'LiBooks',
+            'Ir a tienda online de LiBooks',
+            'https://www.libooks.com/',
+            '_blank'
+        )
     ];
 
     const listText3 = [
-        {
-            text: 'Mapa del sitio',
-            alt: 'Ir al mapa del sitio de LA NACION',
-            href: 'https://www.lanacion.com.ar/mapa-del-sitio/'
-        },
-        {
-            text: 'Ayuda',
-            alt: 'Ir a las preguntas frecuentes',
-            href: 'https://micuenta.lanacion.com.ar/ayuda/'
-        },
-        {
-            text: 'Términos y condiciones',
-            alt: 'Ir a los términos y condiciones',
-            href: 'https://micuenta.lanacion.com.ar/tyc/'
-        },
-        {
-            text: '¿Cómo anunciar?',
-            alt: 'Cómo anunciar en el sitio de LA NACION',
-            href: 'https://www.lanacion.in/',
-            target: '_blank'
-        },
-        {
-            text: 'Suscribirse al diario impreso',
-            alt: 'Ir a las suscripciones al diario',
-            href: 'https://suscripciones.lanacion.com.ar/suscribirme/'
-        }
+        commonProps(
+            'Mapa del sitio',
+            'Ir al mapa del sitio de LA NACION',
+            'https://www.lanacion.com.ar/mapa-del-sitio/'
+        ),
+        commonProps(
+            'Ayuda',
+            'Ir a las preguntas frecuentes',
+            'https://micuenta.lanacion.com.ar/ayuda/'
+        ),
+        commonProps(
+            'Términos y condiciones',
+            'Ir a los términos y condiciones',
+            'https://micuenta.lanacion.com.ar/tyc/'
+        ),
+        commonProps(
+            '¿Cómo anunciar?',
+            'Cómo anunciar en el sitio de LA NACION',
+            'https://www.lanacion.in/',
+            '_blank'
+        ),
+        commonProps(
+            'Suscribirse al diario impreso',
+            'Ir a las suscripciones al diario',
+            'https://suscripciones.lanacion.com.ar/suscribirme/'
+        )
     ];
 
     const listText4 = [
-        { text: 'Protegido por reCAPTCHA:' },
-        {
-            text: 'Condiciones',
-            alt: 'Ir a las condiciones de Google',
-            href: 'https://policies.google.com/terms?hl=es-419',
-            target: '_blank'
-        },
-        {
-            text: 'Privacidad',
-            alt: 'Ir a la privacidad de Google',
-            href: 'https://policies.google.com/privacy?hl=es-419',
-            target: '_blank'
-        }
+        commonProps('Protegido por reCAPTCHA:'),
+        commonProps(
+            'Condiciones',
+            'Ir a las condiciones de Google',
+            'https://policies.google.com/terms?hl=es-419',
+            '_blank'
+        ),
+        commonProps(
+            'Privacidad',
+            'Ir a la privacidad de Google',
+            'https://policies.google.com/privacy?hl=es-419',
+            '_blank'
+        )
     ];
 
     return (
@@ -348,10 +342,7 @@ const Index = ({ home }) => {
 };
 
 Index.propTypes = {
-    outputType: PropTypes.string,
-    siteProperties: PropTypes.shape({
-        host: PropTypes.string
-    })
+    home: PropTypes.bool.isRequired
 };
 
 export default Consumer(Index);

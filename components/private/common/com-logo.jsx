@@ -20,17 +20,16 @@ const ComLogo = props => {
         href,
         title,
         alt,
-        folder,
         target,
         rel,
-        isStatic
+        isStatic,
+        folder = ''
     } = props;
 
     const { contextPath, deployment, outputType } = useAppContext();
     const assets = mapperLogos[logoName];
-    const archivoSVG = `${ARC_STATIC}${deployment(
-        `${contextPath}/resources/images/${folder || ''}${assets}`
-    )}`;
+    const _deployment = `${contextPath}/resources/images/${folder}${assets}`;
+    const archivoSVG = `${ARC_STATIC}${deployment(_deployment)}`;
     const extraClass = `com-logo ${logoName} ${size || ''}`;
     const classes = `${classCondition} ${extraClass}`;
 

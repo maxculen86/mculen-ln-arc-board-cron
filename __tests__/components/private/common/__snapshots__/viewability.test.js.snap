@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Viewability Evento productClick del script viewability Cuando se hace click en un articulo con layout grilla debe guardar en dataLayer datos attr del articulo 1`] = `
+exports[`Viewability Evento productClick del script viewability when clicks in article with layout grilla should save in dataLayer data attr from article 1`] = `
 <CajaTema
   articles={
     Array [
@@ -311,7 +311,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                 zoom={false}
                               >
                                 <ComPicture
-                                  amp={false}
                                   classCondition=""
                                   href="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
                                   video=""
@@ -595,7 +594,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                 zoom={false}
                               >
                                 <ComPicture
-                                  amp={false}
                                   classCondition=""
                                   href="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
                                   video=""
@@ -879,7 +877,6 @@ exports[`Viewability Evento productClick del script viewability Cuando se hace c
                                 zoom={false}
                               >
                                 <ComPicture
-                                  amp={false}
                                   classCondition=""
                                   href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
                                   video=""

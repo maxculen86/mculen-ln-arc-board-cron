@@ -8,7 +8,7 @@ const trim = string => {
 };
 
 const ComPicture = props => {
-    const { href, classCondition, children, video, amp } = props;
+    const { href, classCondition, children, video } = props;
     const className = trim(`placeholder ${video} ${classCondition}`);
     const picture = <div className={className}>{children}</div>;
 
@@ -19,7 +19,6 @@ ComPicture.propTypes = {
     children: PropTypes.node,
     href: PropTypes.string,
     classCondition: PropTypes.string,
-    amp: PropTypes.bool,
     video: PropTypes.string
 };
 
@@ -27,7 +26,6 @@ ComPicture.defaultProps = {
     children: undefined,
     href: '',
     classCondition: '',
-    amp: false,
     video: ''
 };
 

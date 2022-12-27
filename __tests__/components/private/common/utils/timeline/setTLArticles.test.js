@@ -4,6 +4,7 @@ import { LIVEBLOG } from '../../../../../../components/private/common/utils/subt
 
 describe('Private - Common - Utils - timeline - setTLArticles', () => {
     const globalMock = {
+        source: 'byLastNews',
         articles: [
             {
                 _id: 'N2LUMWIX2RGEBIP7DQLO5MNQVY',
@@ -75,8 +76,7 @@ describe('Private - Common - Utils - timeline - setTLArticles', () => {
                 website_url:
                     '/economia/dolar/dolar-hoy-el-blue-sube-y-supera-su-record-historico-tras-las-nuevas-medidas-del-gobierno-nid14072022/'
             }
-        ],
-        source: 'byLastNews'
+        ]
     };
 
     const { articles: articlesMock } = globalMock;
@@ -134,8 +134,8 @@ describe('Private - Common - Utils - timeline - setTLArticles', () => {
 
     it('does not return hour when source is collection', () => {
         const props = {
-            ...globalMock,
-            source: 'byCollection'
+            source: 'byCollection',
+            articles: globalMock.articles
         };
 
         const articles = setTLArticles(...Object.values(props));
@@ -147,8 +147,8 @@ describe('Private - Common - Utils - timeline - setTLArticles', () => {
 
     it('adds specific class on label when source is collection', () => {
         const props = {
-            articles: articlesToLiveblog,
-            source: 'byCollection'
+            source: 'byCollection',
+            articles: articlesToLiveblog
         };
 
         const articles = setTLArticles(...Object.values(props));

@@ -9,7 +9,7 @@ const TAGS_BY_WIDGET = {
             _id,
             canonical_url: canonicalUrl = '',
             headlines: { mobile, basic } = {}
-        } = globalContent;
+        } = globalContent || {};
         const title = mobile || basic;
         const domain = SITE_LANACION.replace(
             /^(?:https?:\/\/)?(?:www\.)?/i,

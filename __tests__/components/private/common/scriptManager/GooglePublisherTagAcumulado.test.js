@@ -11,7 +11,7 @@ describe('GooglePublisherTagAcumulado', () => {
                         name: 'deportes',
                         organization: 'sandbox.lanacionar',
                         path: '/',
-                        slug: 'deportes',
+                        slug: 'deportes-qatar',
                         usage_counter: 0
                     }
                 ],
@@ -51,7 +51,7 @@ describe('GooglePublisherTagAcumulado', () => {
         expect(component.html()).toMatch('ca_recetas');
         expect(component.html()).toMatch('ca_deportes');
         expect(component.html()).toMatch('ca_futbol');
-        expect(component.html()).toMatch('te_deportes');
+        expect(component.html()).toMatch('te_deportes-qatar');
         expect(component.html()).toMatch('au_alberto-fernandez');
     });
 

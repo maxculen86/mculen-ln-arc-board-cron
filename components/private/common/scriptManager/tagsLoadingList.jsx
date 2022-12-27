@@ -50,11 +50,10 @@ const TagsLoadingList = ({
                         ''
                     );
 
-                    valueInGlobalContent
-                        ? (scriptData[propName] =
-                              String(valueInGlobalContent).toLowerCase() || '')
-                        : (scriptData[propName] =
-                              String(defaultValue).toLowerCase() || '');
+                    scriptData[propName] =
+                        String(
+                            valueInGlobalContent || defaultValue
+                        ).toLowerCase() || '';
 
                     delete scriptData[jsonAttr];
                 }

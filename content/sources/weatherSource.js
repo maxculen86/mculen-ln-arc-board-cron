@@ -20,7 +20,7 @@ const fetch = ({ arcSite }) => {
                 source: endpoint.uri
             };
         } catch (error) {
-            logger.push(
+            return logger.push(
                 error,
                 { source: 'content/sources/weatherSource', url: endpoint.uri },
                 arcSite
@@ -30,9 +30,6 @@ const fetch = ({ arcSite }) => {
 
     return Promise.resolve(getData());
 };
-
-const pronosticoCallbackJSON = ({ ciudades }) =>
-    ciudades.find(x => x.ciudad.codigo).ciudad;
 
 const setIconName = description => {
     const weatherIcons = {

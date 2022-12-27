@@ -7,7 +7,7 @@ const useGlobal = () => {
     const [state, setState] = useContext(GlobalContext);
 
     function setAuth(value) {
-        setState(state => ({ ...state, authenticated: value }));
+        setState(_state => ({ ..._state, authenticated: value }));
     }
 
     return {

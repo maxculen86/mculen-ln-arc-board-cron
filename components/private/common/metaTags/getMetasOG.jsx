@@ -5,22 +5,27 @@ import {
     getData
 } from '../utils/getMetasOGHelper';
 import { getSectionOfRequestUri } from '../utils/outputTypeHelper';
+import { RECETA } from '../utils/subtypes/subtypeHelper';
 
 const getMetasOG = props => {
     const {
+        title = '',
         section,
         siteProperties,
         arcSite,
         ottMetaTitle,
         ottMetaDescription,
         requestUri,
-        metaValue
+        metaValue,
+        subtype
     } = props;
 
     const data = getData(props);
-    const metaTitleFromPB = props.metaValue('title') || '';
+    const metaTitleFromPB =
+        subtype === RECETA ? title : metaValue('title') || '';
+
     const pageBuilderTitle =
-        getSectionOfRequestUri(requestUri) === 'mis-notas'
+        getSectionOfRequestUri(requestUri) === 'mis-notas' || subtype === RECETA
             ? metaTitleFromPB
             : metaTitleFromPB.replace(' - LA NACION', '');
 

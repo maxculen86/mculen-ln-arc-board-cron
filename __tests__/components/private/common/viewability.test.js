@@ -1,8 +1,9 @@
 import React from 'react';
-import { mount, render, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import {
-    createViewabilityIntersectionObserver,
-    productClickFromClient
+    createIntersectionObserver,
+    productClickFromClient,
+    updateIndexOfItems
 } from '../../../../components/private/common/utils/viewability';
 import CajaTema from '../../../../components/private/LN/common/cajaTema';
 import Consumer from 'fusion:consumer';
@@ -86,7 +87,7 @@ describe('Viewability', () => {
             arcSite: 'la-nacion-ar'
         }));
 
-        it('Cuando se hace click en un articulo con layout grilla debe guardar en dataLayer datos attr del articulo', () => {
+        it('when clicks in article with layout grilla should save in dataLayer data attr from article', () => {
             const props = {
                 title: 'Titulo de Nota',
                 articles,
@@ -128,6 +129,20 @@ describe('Viewability', () => {
                 'h_propiedadestema-01'
             );
             expect(window.dataLayer[0].product.name).toBe('');
+
+            expect(window.dataLayer[0].item.item_list_id).toBe('010101');
+            expect(window.dataLayer[0].item.item_id).toBe(
+                'K2FFK3J6DNCX3D76BQ6D7FLQNE'
+            );
+            expect(window.dataLayer[0].item.item_variant).toBe('editor');
+            expect(window.dataLayer[0].item.item_brand).toBe('_grilla3');
+            expect(window.dataLayer[0].item.item_list_name).toBe(
+                'h_propiedadestema-01'
+            );
+            expect(window.dataLayer[0].item.item_name).toBe('');
+            expect(window.dataLayer[0].item.item_category).toBe('N/A');
+            expect(window.dataLayer[0].item.price).toBe(1);
+            expect(window.dataLayer[0].item.quantity).toBe(1);
 
             arts.last().simulate('click');
             expect(window.dataLayer.length).toBe(2);
@@ -186,14 +201,9 @@ describe('Viewability', () => {
             expect(window.dataLayer[3].product.name).toBe('');
 
             expect(seccion1).toMatchSnapshot();
-            /*
-            (layout.includes('opinion4') && 'Opinion') ||
-            (layout.includes('editoriales2') && 'Editoriales') ||
-            (layout.includes('focal') && 'Focal') ||
-            */
         });
 
-        it('Cuando se hace click en un articulo con layout focalRight debe guardar en dataLayer datos attr del articulo', () => {
+        it('when clicks in article with layout focalRight should save in dataLayer data attr from article', () => {
             const propsFocalRight = {
                 title: 'Titulo de Nota',
                 articles,
@@ -223,9 +233,23 @@ describe('Viewability', () => {
             expect(window.dataLayer[4].product.brand).toBe('_focalRight2');
             expect(window.dataLayer[4].product.list).toBe('h_economiatema-01');
             expect(window.dataLayer[4].product.name).toBe('');
+
+            expect(window.dataLayer[4].item.item_list_id).toBe('010102');
+            expect(window.dataLayer[4].item.item_id).toBe(
+                'AQCXKYK4XJCVFNFNZ2IQ7SUCA4'
+            );
+            expect(window.dataLayer[4].item.item_variant).toBe('editor');
+            expect(window.dataLayer[4].item.item_brand).toBe('_focalRight2');
+            expect(window.dataLayer[4].item.item_list_name).toBe(
+                'h_economiatema-01'
+            );
+            expect(window.dataLayer[4].item.item_name).toBe('');
+            expect(window.dataLayer[4].item.item_category).toBe('N/A');
+            expect(window.dataLayer[4].item.price).toBe(1);
+            expect(window.dataLayer[4].item.quantity).toBe(1);
         });
 
-        it('Cuando se hace click en un articulo con layout OPINION debe guardar en dataLayer datos attr del articulo', () => {
+        it('when clicks in article with layout OPINION should save in dataLayer data attr from article', () => {
             const propsOpinion = {
                 title: 'Titulo de Nota',
                 articles: [
@@ -297,7 +321,7 @@ describe('Viewability', () => {
             expect(window.dataLayer[6].product.name).toBe('');
         });
 
-        it('Cuando se hace click en un articulo con layout EDITORIALES debe guardar en dataLayer datos attr del articulo', () => {
+        it('when clicks in article with layout EDITORIALES should save in dataLayer data attr from article', () => {
             const articlesEditorial = [articles[0], articles[1]];
             const propsOpinion = {
                 title: 'Titulo de Nota',
@@ -330,7 +354,7 @@ describe('Viewability', () => {
             expect(window.dataLayer[7].product.name).toBe('');
         });
 
-        it('Cuando se hace click en una BOMBA debe guardar en dataLayer datos attr del articulo', () => {
+        it('when clicks in BOMBA should save in dataLayer data attr from article', () => {
             useContent.mockImplementation(() => articles[0]);
             Context.useComponentContext = jest.fn(() => ({}));
 
@@ -366,9 +390,45 @@ describe('Viewability', () => {
             expect(window.dataLayer[8].product.list).toBe('h_tema-00');
             expect(window.dataLayer[8].product.name).toBe('');
         });
+
+        it('It should increase the index of the items', () => {
+            const items = [
+                {
+                    item_id: 'ILXGTYXUWNF3HKJ3ROQQCQPRVE',
+                    index: 1
+                },
+                {
+                    item_id: 'BBU3ZCWFBRALRO4FZAHJ5XGW74',
+                    index: 1
+                },
+                {
+                    item_id: 'ILXGTYXUWNF3HKJ3ROQQCQPRVE',
+                    index: 1
+                }
+            ];
+
+            const newItems = [
+                {
+                    item_id: 'ILXGTYXUWNF3HKJ3ROQQCQPRVE',
+                    index: 1
+                },
+                {
+                    item_id: 'BBU3ZCWFBRALRO4FZAHJ5XGW74',
+                    index: 2
+                },
+                {
+                    item_id: 'ILXGTYXUWNF3HKJ3ROQQCQPRVE',
+                    index: 3
+                }
+            ];
+
+            expect(updateIndexOfItems(items)).toEqual(newItems);
+            expect(updateIndexOfItems(undefined)).toEqual([]);
+            expect(updateIndexOfItems([])).toEqual([]);
+        });
     });
 
-    describe('Encontrar posicion en renderables', () => {
+    describe('find position in renderables', () => {
         it('Deberia encontrar la posicion de una chain en una seccion de PB', () => {
             expect(
                 findPositionInsideSection('c0fHtl7v5ebsyz', renderables1)
@@ -427,7 +487,7 @@ describe('IntersectionObserver', () => {
             mockedArticle
         );
 
-        const observer = createViewabilityIntersectionObserver();
+        const observer = createIntersectionObserver();
         expect(observe).toBeCalledTimes(1);
 
         const [callback] = window.IntersectionObserver.mock.calls[0];

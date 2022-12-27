@@ -37,7 +37,7 @@ const transform = (data, query) => {
         image: { url: data.image || '' },
         node_type: 'author',
         name: data.byline,
-        canonical_url: encodeURI(`/autor/${data._id}/`),
+        canonical_url: encodeURI(`/autor/${(data && data._id) || ''}/`),
         subscription: meteringVariant
     };
 
@@ -46,12 +46,12 @@ const transform = (data, query) => {
     return {
         ...dataResp,
         image: {
-            url: createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl(
-                data.image,
-                280,
-                280,
-                imagePreset
-            )
+            url: createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl({
+                originalUrl: data.image,
+                originalWidth: 280,
+                originalHeight: 280,
+                resizeOptions: imagePreset
+            })
         },
         node_type: 'author'
     };

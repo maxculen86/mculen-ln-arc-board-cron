@@ -1,6 +1,5 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import ModheaderSection from '../../private/common/mod-headerSection';
 import StaticContent from '../../private/common/staticContent';
@@ -8,7 +7,6 @@ import StaticContent from '../../private/common/staticContent';
 const TechoFeatured = props => {
     const {
         customFields: { url, title, color, imageId },
-        id: featureId,
         outputType
     } = props;
 

@@ -5,7 +5,7 @@ import '../../../../../resources/dist/css/ln/components/title.css';
 
 const titleArticle = ({ headlines, prefix, size }) => {
     const { basic = '' } = headlines || {};
-    const prefixText = `${prefix !== '' ? `${prefix} ` : prefix}`;
+    const prefixText = prefix !== '' ? `${prefix} ` : prefix;
 
     return (
         <ComTitle

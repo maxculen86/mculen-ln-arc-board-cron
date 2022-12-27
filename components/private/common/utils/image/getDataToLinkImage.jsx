@@ -135,7 +135,7 @@ const getMediaApertura = (renderables, arcSite, isAdmin) => {
     );
 };
 
-const getResizedUrlsFromNote = (subtype, promoItems, basicDefault) => {
+const getResizedUrls = (subtype, promoItems, basicDefault) => {
     const isVideoType =
         get(promoItems, 'apertura_multimedia.type', false) === 'video';
 
@@ -181,11 +181,7 @@ const GetDataToLinkImage = ({
 
     const sectionData = {
         Nota: () => {
-            const resizedUrls = getResizedUrlsFromNote(
-                subtype,
-                promoItems,
-                basic
-            );
+            const resizedUrls = getResizedUrls(subtype, promoItems, basic);
 
             return <LinkImagePreload resizedUrls={resizedUrls} />;
         },
@@ -215,7 +211,9 @@ const GetDataToLinkImage = ({
                 renderables
             );
             const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
-            const idCollectionApertura = getIdCollectionFromGC(data);
+            const idCollectionApertura = getIdCollectionFromGC({
+                globalContent: data
+            });
 
             if (
                 !hasFeatureAcumuladoApertura ||
@@ -267,7 +265,13 @@ const GetDataToLinkImage = ({
             ) : (
                 <></>
             );
-        }
+        },
+        // En ott la section es video
+        Video: () => (
+            <LinkImagePreload
+                resizedUrls={getResizedUrls(subtype, promoItems, basic)}
+            />
+        )
     } || <></>;
 
     const sectionAsComponent = capitalizeFirstLetter(section);

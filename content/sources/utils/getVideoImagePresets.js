@@ -2,8 +2,12 @@ import getProperties from 'fusion:properties';
 import get from '../../../components/private/common/utils/get';
 
 const getVideoImagePresets = (data, siteProps, arcSite) => {
-    if (arcSite === 'la-nacion-ar') {
-        const diagramacion = get(siteProps, 'imageConfig', '');
+    if (arcSite) {
+        const diagramacion =
+            arcSite === 'la-nacion-ar'
+                ? get(siteProps, 'imageConfig', '')
+                : 'videoImage';
+
         const resize = get(getProperties(arcSite), 'imageConfig.resize', {});
         const { width, height, url } = get(data, 'promo_items.basic', {});
 

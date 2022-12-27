@@ -1,7 +1,7 @@
 import logger from '../../../../components/private/common/utils/logger';
 
 const defaultRequest = ({ queryData } = {}) =>
-    new Promise(resolve => resolve(queryData));
+    new Promise(_resolve => _resolve(queryData));
 
 const resolve = ({ response } = {}) => response;
 

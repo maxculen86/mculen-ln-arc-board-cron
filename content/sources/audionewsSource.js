@@ -11,9 +11,7 @@ const convertLastUpdated = date => {
         );
     }
 
-    const dateFormat = dateFormated.getTime();
-
-    return dateFormat;
+    return dateFormated.getTime();
 };
 
 const isValidStory = (id, date) => {

@@ -11,14 +11,13 @@ import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import {
     getBannerConfiguration,
     getSlotForDevice,
-    queueGoogletagCommand,
-    suffixDevice
+    queueGoogletagCommand
 } from '../../LN/common/utils/bannerHelper';
+import useAdsTestAndSuffix from '../hooks/useAdsTestAndSuffix';
 
 const LoadBanners = ({ blocksBanners }) => {
     const [bannersLoaded, setBannersLoaded] = useState(() => false);
     const { outputType, isAdmin } = useAppContext();
-    const [suffix, setSuffix] = useState();
     const device = useViewportSize();
 
     const subscription = isSubscribed();
@@ -43,20 +42,8 @@ const LoadBanners = ({ blocksBanners }) => {
             })
             .filter(item => item !== null);
     });
-    useEffect(() => {
-        if (getQueryParamValue('adstest', window.location) === 'true') {
-            googletag.cmd.push(() => {
-                googletag.pubads().setTargeting('adstest', ['true']);
-            });
-        }
-    }, []);
 
-    useEffect(() => {
-        if (outputType && device)
-            setSuffix(() =>
-                outputType === 'amp' ? '_amp' : suffixDevice[device]
-            );
-    }, [device, outputType]);
+    const suffix = useAdsTestAndSuffix(device, outputType);
 
     useEffect(() => {
         try {

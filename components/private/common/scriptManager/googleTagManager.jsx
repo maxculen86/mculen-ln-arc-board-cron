@@ -9,11 +9,10 @@ export default class GTM extends Component {
 
         const { id, layerName = 'dataLayer', location = 'head' } = props;
         const script = `((w,l)=>{w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});})(window,'${layerName}');`;
+        const _layerName = layerName !== 'dataLayer' ? `&l=${layerName}` : '';
         const params = {
             async: 'true',
-            src: `https://www.googletagmanager.com/gtm.js?id=${id}${
-                layerName !== 'dataLayer' ? `&l=${layerName}` : ''
-            }`
+            src: `https://www.googletagmanager.com/gtm.js?id=${id}${_layerName}`
         };
 
         switch (location) {

@@ -48,7 +48,7 @@ export const setTLQuantity = (size = 5, max = 7, min = 1, backup = 3) => {
     };
 };
 
-export const setTLArticles = (articles = [], source) => {
+export const setTLArticles = (source, articles = []) => {
     const isCollection = source === 'byCollection';
 
     return articles.map((article, index) => {

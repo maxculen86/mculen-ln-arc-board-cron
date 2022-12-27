@@ -34,7 +34,7 @@ const getCategories = (name, parent, ancestors) => {
 
 const getTopic = content =>
     content.Payload && content.Payload.items && content.Payload.items.length > 0
-        ? content.Payload.items.map(item => 'te_'.concat(item.name))
+        ? content.Payload.items.map(item => 'te_'.concat(item.slug))
         : [];
 
 const getAuthor = content => (content.slug ? ['au_'.concat(content.slug)] : []);

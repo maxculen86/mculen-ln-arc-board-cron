@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/button.css';
 
 const Button = ({ onClickHandler, name, loading, loadingIcon, textButton }) => {
+    const notesName = name ? ` de ${name.toUpperCase()}` : '';
     return (
         <div className="col-12 --loader">
             {loading && loadingIcon}
@@ -12,9 +13,7 @@ const Button = ({ onClickHandler, name, loading, loadingIcon, textButton }) => {
                 onClick={onClickHandler}
                 className="com-button --secondary"
                 disabled={loading}
-                title={`Ver más notas${
-                    name ? ` de ${name.toUpperCase()}` : ''
-                }`}
+                title={`Ver más notas${notesName}`}
             >
                 {textButton || 'VER MÁS NOTAS'}
                 {name && ` DE ${name.toUpperCase()}`}

@@ -8,6 +8,8 @@ import get from '../utils/get';
 const ShowBarrier = ({ token }) => {
     const { state, dispatch } = useContext(GlobalContext) || {};
     const { typeAlert, open, typeModal } = get(state, 'showModal', {});
+    const typeOfWindow =
+        typeof window !== 'undefined' ? window.btoa(location.href) : '';
 
     return typeModal === 'barrier' && open ? (
         <Barrier
@@ -21,9 +23,7 @@ const ShowBarrier = ({ token }) => {
                 });
             }}
             isLogged={!!token}
-            redirectCallback={
-                typeof window !== 'undefined' ? window.btoa(location.href) : ''
-            }
+            redirectCallback={typeOfWindow}
         />
     ) : (
         <></>

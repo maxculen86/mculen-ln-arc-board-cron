@@ -11,6 +11,8 @@ const targetingHome = {
     seccion: 'home'
 };
 
+const bodyBottom = 'body-bottom';
+
 const minWidth1920 = '(min-width: 1920px)';
 const minWidth1280 = '(min-width: 1280px)';
 const minWidth1024 = '(min-width: 1024px)';
@@ -116,7 +118,7 @@ export default {
         },
         ScriptCripto: {
             props: {},
-            location: ['body-bottom']
+            location: [bodyBottom]
         },
         GTM: {
             props: { id: 'GTM-GHV6', idAMP: 'GTM-PRT86FH' },
@@ -149,7 +151,7 @@ export default {
         },
         AdblockDetector: {
             props: {},
-            location: ['body-bottom']
+            location: [bodyBottom]
         },
         NewsMediaOrganization: {
             props: {},
@@ -181,15 +183,15 @@ export default {
         },
         Blockthrough: {
             props: {},
-            location: ['body-bottom']
+            location: [bodyBottom]
         },
         Queryly: {
             props: {},
-            location: ['body-bottom']
+            location: [bodyBottom]
         },
         Viafoura: {
             props: {},
-            location: ['body-bottom']
+            location: [bodyBottom]
         },
         ComscoreVideo: {
             props: {},
@@ -2824,6 +2826,7 @@ export default {
     },
     layoutsName: {
         Home: 'LN-Home_Main',
+        HomeLN10: 'LN10-Home_Main',
         Acumulado: 'LN-acumulado',
         Columnistas: 'LN-acumulado-columnistas',
         FotoAl100: 'LN-nota-foto-al-100'
