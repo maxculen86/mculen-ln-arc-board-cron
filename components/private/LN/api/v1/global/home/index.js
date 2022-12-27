@@ -139,11 +139,15 @@ const anexoMobile = element => {
 
     return null;
 };
+const discardBox = element => {
+    return null;
+};
 
 const typeBox = {
     0: storyBox,
     1: bannerBox,
-    2: anexoMobile
+    2: anexoMobile,
+    9: discardBox
 };
 
 const index = children => {

@@ -72,19 +72,20 @@ const fetch = async (query, { cachedCall }) => {
             id: sectionIdParam,
             website: query?.website
         };
-
-        resultSectionSource = await cachedCall(
-            'apiPageSectionSource',
-            sectionSource.fetch,
-            {
-                query: queryParams
-            }
-        );
+        if (!isCustom) {
+            resultSectionSource = await cachedCall(
+                'apiPageSectionSource',
+                sectionSource.fetch,
+                {
+                    query: queryParams
+                }
+            );
+        }
         const paramsSectionsSource = getParamsSectionSource(
             resultSectionSource
         );
-        title = get(paramsSectionsSource, 'title', null);
-        restriction = get(paramsSectionsSource, 'restriction', null);
+        title = get(paramsSectionsSource, 'title', title);
+        restriction = get(paramsSectionsSource, 'restriction', true);
         configuration = get(paramsSectionsSource, 'configuration', null);
 
         if (isPage || isCustom) {

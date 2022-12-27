@@ -5,7 +5,17 @@
         "types": ["LN-common/bannerRefactor"],
         "position": 2
     },
-
+    "Apertura": {
+        "quantity": 5,
+        "operatorToUse": "<=",
+        "types": [
+            "Ln_Caja_Manual",
+            "LN-common/bannerRefactor",
+            "Ln_Caja_Collection",
+            "LN-common/navigationList"
+        ],
+        "position": 4
+    },
     "Notas": {
         "quantity": 20,
         "operatorToUse": "<=",

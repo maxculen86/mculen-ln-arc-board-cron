@@ -18,10 +18,10 @@
         "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
-        "sectionId": "exclusivo-suscriptor",
+        "sectionId": "suscriptores",
         "isPage": true,
-        "isCustom": false,
-        "namePage": "exclusivo-suscriptor",
+        "isCustom": true,
+        "namePage": "suscriptores",
         "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {

@@ -18,10 +18,10 @@ const getTypesbyContainer = nameContainer => {
         'LN-acumulado/grillaNotas': 0,
         'LN-common/ranking': 0,
         'LN-acumulado/ultimasNoticias': 0,
-        default: 0
+        default: 9 // A type is set to discard
     };
 
-    return boxTypeContainer[nameContainer];
+    return boxTypeContainer[nameContainer] ?? boxTypeContainer?.default;
 };
 
 export default getTypesbyContainer;
