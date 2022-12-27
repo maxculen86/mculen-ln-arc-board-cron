@@ -29,9 +29,9 @@ const lnNotaNoticia = ({
     return (
         <GlobalProvider>
             {bannerMegatop}
-            <div id="wrapper" className={`nota noticia ${magazine} ${amp}`}>
-                <NotaMain>{children}</NotaMain>
-            </div>
+            <NotaMain className={`nota noticia ${magazine} ${amp}`}>
+                {children}
+            </NotaMain>
             <LoadBannersSSR />
             <PwaModals />
         </GlobalProvider>

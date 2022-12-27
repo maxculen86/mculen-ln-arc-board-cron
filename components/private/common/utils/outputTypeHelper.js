@@ -1,5 +1,8 @@
 import React from 'react';
 import getMetaDescriptionForAcum from './getMetaDescriptionForAcum';
+import { RECETA } from './subtypes/subtypeHelper';
+import uncapitalizeFirstLetter from './uncapitalizeFirstLetter';
+import get from './get';
 
 export const getSectionOfRequestUri = (requestUri = '') => {
     const [section] = requestUri.split('/').filter(item => item !== '');
@@ -7,18 +10,68 @@ export const getSectionOfRequestUri = (requestUri = '') => {
 };
 export const getTitle = ({
     title,
-    shortTitle,
+    basicTitle,
+    mobileTitle,
     properties = {},
     uri,
-    nodeType
+    nodeType,
+    subtype
 }) => {
     const { longTitle, title: defaultTitle } = properties;
     if (getSectionOfRequestUri(uri) === 'mis-notas') {
         return title || defaultTitle;
     }
-    if (nodeType === 'nota') return shortTitle || title || defaultTitle;
+    if (subtype === RECETA) {
+        return nodeTypeTitles.receta({ basicTitle, shortTitle: mobileTitle });
+    }
 
     return nodeType === 'home' ? longTitle : title || defaultTitle;
+};
+
+export const getTagTitle = ({
+    PBTitle,
+    basicTitle,
+    shortTitle,
+    ottTitle,
+    nodeType,
+    siteProps,
+    arcSite,
+    subtype
+}) => {
+    const { longTitle, title: defaultTitle } = siteProps;
+    if (arcSite === 'ott') {
+        return get(
+            nodeTypeTitles,
+            arcSite,
+            nodeTypeTitles.default
+        )({ ottTitle });
+    }
+    if (subtype === RECETA) {
+        return nodeTypeTitles.receta({ basicTitle, shortTitle });
+    }
+    return get(
+        nodeTypeTitles,
+        nodeType,
+        nodeTypeTitles.default
+    )({ PBTitle, shortTitle, ottTitle, longTitle, defaultTitle });
+};
+
+const nodeTypeTitles = {
+    receta: ({ basicTitle, shortTitle }) =>
+        `Receta de ${
+            shortTitle
+                ? uncapitalizeFirstLetter(shortTitle)
+                : uncapitalizeFirstLetter(basicTitle)
+        } - LA NACION`,
+    nota: ({ PBTitle, shortTitle }) =>
+        shortTitle ? `${shortTitle} - LA NACION` : PBTitle,
+    ott: ({ ottTitle }) => ottTitle,
+    home: ({ PBTitle, longTitle, defaultTitle }) => {
+        return longTitle || PBTitle || defaultTitle;
+    },
+    default: ({ PBTitle, defaultTitle }) => {
+        return PBTitle || defaultTitle;
+    }
 };
 
 export const getMetaDescriptionDefault = (
@@ -60,7 +113,13 @@ export const metasFromSiteServices = (metaTags = {}) => {
 
     if (!metas || metas.length === 0) return <></>;
 
-    return metas.map(([name, content]) => {
-        return name && content && <meta name={name} content={content} />;
-    });
+    return (
+        <>
+            {metas.map(([name, content]) => {
+                return (
+                    name && content && <meta name={name} content={content} />
+                );
+            })}
+        </>
+    );
 };

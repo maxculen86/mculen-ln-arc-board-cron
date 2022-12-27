@@ -7,7 +7,9 @@ import {
     removeFacade,
     handleClickEvent,
     withAutoPlay,
-    setIntersectionObserver
+    setIntersectionObserver,
+    setCustomErrorsVideoPlayer,
+    getClassForFacade
 } from '../utils/videoPlayerHelper';
 import ImageArticle from '../../LN/common/media/imageBase';
 
@@ -19,18 +21,21 @@ export default function BuildScriptPowaWithFacade({
     videoId,
     apiEnv,
     videoImageData,
-    outputType
+    outputType,
+    arcSite
 }) {
     const { height, width } = videoImageData || {};
-    const isVideoVertical = height > width;
-
-    const classCondition = isVideoVertical
-        ? 'content-facade --vertical-video'
-        : 'content-facade';
+    const isVerticalVideo = height > width;
 
     return (
         <>
-            <div className={classCondition} id={videoId}>
+            <div
+                className={`content-facade ${getClassForFacade(
+                    arcSite,
+                    isVerticalVideo
+                )}`}
+                id={videoId}
+            >
                 <div id="button-play" className="button-play" />
                 <ImageArticle
                     image={videoImageData}
@@ -47,8 +52,10 @@ export default function BuildScriptPowaWithFacade({
                     ${handleClickEvent}
                     ${withAutoPlay}
                     ${removeFacade}
+                    ${setCustomErrorsVideoPlayer}
 
                     window.addEventListener('load', () => {
+                        setCustomErrorsVideoPlayer()
                         const isDesktop = deviceType() === 'desktop'
                         const videoPlayerList = document.querySelectorAll('.video-player');
                         
@@ -79,7 +86,6 @@ export default function BuildScriptPowaWithFacade({
 
                             if (divFirstPowa && window.powas) {
                                 const { powa } = window.powas[divFirstPowa.id];
-
                                 powa.on('pause', () => userPause = true);
                                 powa.on('viewable', () => !userPause && powa.play());
                             }
@@ -107,7 +113,8 @@ BuildScriptPowaWithFacade.propTypes = {
         url: PropTypes.string,
         resized_urls: PropTypes.array
     }).isRequired,
-    outputType: PropTypes.string.isRequired
+    outputType: PropTypes.string.isRequired,
+    arcSite: PropTypes.string.isRequired
 };
 
 BuildScriptPowaWithFacade.defaultProps = {

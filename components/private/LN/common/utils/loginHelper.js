@@ -45,7 +45,7 @@ const convertTo24Hour = time => {
     let newDate = time;
     const hours = time.substr(0, 2);
 
-    if (time.indexOf('a.m.') != -1 && hours === 12) {
+    if (time.indexOf('a.m.') !== -1 && hours === 12) {
         newDate = time.replace('12', '00');
     }
     if (time.indexOf('p.m.') !== -1 && hours < 12) {

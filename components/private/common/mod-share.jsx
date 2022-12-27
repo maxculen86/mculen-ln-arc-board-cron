@@ -7,7 +7,7 @@ const ModShare = props => {
 
     return (
         <section
-            className={`mod-share ${classCondition ? classCondition : ``}`}
+            className={`mod-share ${classCondition ? classCondition : ''}`}
         >
             <div className="container --left">
                 <ComButton iconName="facebook-filled" />

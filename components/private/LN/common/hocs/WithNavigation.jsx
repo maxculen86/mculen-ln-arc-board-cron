@@ -35,39 +35,47 @@ export default function WithNavigation(WrappedComponent) {
                     }
                 });
 
-                const { sections, termicas } = this.getSectionTree(cached);
+                const { sectionsInTree, termicas } = this.getSectionTree(
+                    cached
+                );
 
                 this.state = {
-                    sections,
+                    sectionsInTree,
                     termicas
                 };
             }
 
             getSectionTree = results => {
-                const termicas = (results && results.Termicas) || {};
-                const sections = (results && results.sections) || [];
-                if (results) this.convertStringToBoolean(termicas);
-                return { sections, termicas };
+                let termicasInResults = (results && results.Termicas) || {};
+                const sectionsInResults = (results && results.sections) || [];
+                if (results)
+                    termicasInResults = this.convertStringToBoolean(
+                        termicasInResults
+                    );
+                return {
+                    sectionsInTree: sectionsInResults,
+                    termicas: termicasInResults
+                };
             };
 
-            convertStringToBoolean = termicas => {
-                Object.keys(termicas).forEach(key => {
-                    if (typeof termicas[key] === 'string') {
-                        termicas[key].toLowerCase().trim() === 'true'
-                            ? (termicas[key] = true)
-                            : (termicas[key] = false);
+            convertStringToBoolean = termicasObj => {
+                const nuevasTermicas = {};
+                Object.keys(termicasObj).forEach(key => {
+                    if (typeof termicasObj[key] === 'string') {
+                        nuevasTermicas[key] =
+                            termicasObj[key].toLowerCase().trim() === 'true';
                     }
                 });
-                return termicas;
+                return nuevasTermicas;
             };
 
             render() {
-                const { sections, termicas } = this.state;
+                const { sectionsInTree, termicas } = this.state;
 
                 return (
                     <WrappedComponent
                         {...this.props}
-                        sections={sections}
+                        sections={sectionsInTree}
                         termicas={termicas}
                     />
                 );

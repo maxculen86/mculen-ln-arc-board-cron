@@ -11,7 +11,7 @@ describe('private - LN - common - utils - clearArticleKey', () => {
 
     it('returns array of articles with prop clean', () => {
         const propToClear = 'paywallEnabled';
-        const result = clearArticleKey(generalMock, propToClear);
+        const result = clearArticleKey(propToClear, generalMock);
 
         expect(result).toBeInstanceOf(Array);
         expect(result.every(article => article[propToClear] === ''));
@@ -25,7 +25,7 @@ describe('private - LN - common - utils - clearArticleKey', () => {
     });
 
     it('returns the same array if key is undefined', () => {
-        const result = clearArticleKey(generalMock);
+        const result = clearArticleKey('', generalMock);
         expect(result).toMatchObject(generalMock);
     });
 });

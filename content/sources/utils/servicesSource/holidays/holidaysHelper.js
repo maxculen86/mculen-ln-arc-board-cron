@@ -30,13 +30,17 @@ const metaDataFactory = {
         if (serviceItem === '2021') {
             return {
                 title: `Feriados en ${serviceSubItem} de ${serviceItem} en Argentina. Calendario ${serviceItem} - LA NACION`,
-                description: `Calendario de feriados nacionales en ${serviceSubItem} de ${serviceItem} en Argentina: días no laborables, fines de semana largo y feriados puente en LA NACION.`,
+                description:
+                    `Calendario de feriados nacionales en ${serviceSubItem} de ${serviceItem} en Argentina: días no laborables, ` +
+                    `fines de semana largo y feriados puente en LA NACION.`,
                 paragraph: monthsDescriptions[serviceItem]
             };
         }
         return {
             title: `Feriados en ${serviceSubItem} de ${serviceItem} en Argentina. Calendario ${serviceItem} - LA NACION`,
-            description: `Calendario de feriados nacionales en ${serviceSubItem} de ${serviceItem} en Argentina: días no laborables, fines de semana largo y feriados puente en LA NACION.`,
+            description:
+                `Calendario de feriados nacionales en ${serviceSubItem} de ${serviceItem} en Argentina: días no laborables, ` +
+                `fines de semana largo y feriados puente en LA NACION.`,
             paragraph: get(
                 monthsDescriptions[serviceItem],
                 `.${serviceSubItem}`,
@@ -56,7 +60,7 @@ const metaDataFactory = {
 const getMonthNumber = (monthString = '') => {
     return monthNames.indexOf(monthString) !== -1
         ? monthNames.indexOf(monthString) + 1
-        : '';
+        : 0;
 };
 const getMonthName = monthNumber => {
     if (typeof monthNumber !== 'number') return '';

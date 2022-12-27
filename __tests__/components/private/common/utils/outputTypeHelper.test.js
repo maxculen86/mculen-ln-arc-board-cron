@@ -4,8 +4,10 @@ import {
     getTitle,
     getMetaDescriptionDefault,
     getSectionOfRequestUri,
-    metasFromSiteServices
+    metasFromSiteServices,
+    getTagTitle
 } from '../../../../../components/private/common/utils/outputTypeHelper';
+import { RECETA } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -21,7 +23,7 @@ describe('Common - utils - getTitle', () => {
     };
     const requestUri = '/page/?_website=la-nacion-ar';
 
-    test('Test de retorno para el caso de metaValue en undefined', () => {
+    test('Test of return in case of undefined metaValue', () => {
         const metaValue = undefined;
         const _nodeType = undefined;
 
@@ -35,7 +37,7 @@ describe('Common - utils - getTitle', () => {
         expect(title).toStrictEqual('LA NACION');
     });
 
-    test('Test de retorno para el caso de la home', () => {
+    test('Test of return for home', () => {
         const _nodeType = 'home';
         const title = getTitle({
             title: metaValue,
@@ -49,7 +51,7 @@ describe('Common - utils - getTitle', () => {
         );
     });
 
-    test('Test de retorno para el caso de acumulado', () => {
+    test('Test of return for acu', () => {
         const _nodeType = 'acumulado';
         const metaValue = 'Política - LA NACION';
         const layout = 'LN-acumulado';
@@ -63,7 +65,7 @@ describe('Common - utils - getTitle', () => {
         expect(title).toStrictEqual('Política - LA NACION');
     });
 
-    test('Test de retorno para el caso de una nota ', () => {
+    test('Test of return for note ', () => {
         const _nodeType = 'nota';
         const metaValue =
             'Ola de calor: la temperatura superó los 40° en la ciudad y es la segunda más alta de la historia';
@@ -80,7 +82,7 @@ describe('Common - utils - getTitle', () => {
         );
     });
 
-    test('Test de retorno para el acu Mis notas', () => {
+    test('Test of return of My Notes', () => {
         const requestUri = '/mis-notas/?_website=la-nacion-ar';
         const _nodeType = 'acumulado';
         const metaValue = 'Mis Notas guardadas - LA NACION';
@@ -95,7 +97,7 @@ describe('Common - utils - getTitle', () => {
         expect(title).toStrictEqual('Mis Notas guardadas - LA NACION');
     });
 
-    test('Test de retorno cuando requesUri no esta definida', () => {
+    test('Test of return when requesUri isnt defined', () => {
         const requestUri = undefined;
         const _nodeType = 'home';
 
@@ -111,7 +113,7 @@ describe('Common - utils - getTitle', () => {
         );
     });
 
-    test('Test de retorno para el acu Mis notas cuando el metaValue no esta definido', () => {
+    test('Test of return for acu My Notes when metaValue isnt defined', () => {
         const requestUri = '/mis-notas/?_website=la-nacion-ar';
         const _nodeType = 'acumulado';
         const metaValue = undefined;
@@ -124,21 +126,6 @@ describe('Common - utils - getTitle', () => {
         });
 
         expect(title).toStrictEqual('LA NACION');
-    });
-    test('Deberia devolver titulo corto para la nota si es que existe', () => {
-        const _nodeType = 'nota';
-        const metaValue =
-            'Ola de calor: la temperatura superó los 40° en la ciudad y es la segunda más alta de la historia';
-        const shortTitle = 'Ola de calor corto';
-        const title = getTitle({
-            title: metaValue,
-            shortTitle: shortTitle,
-            properties: siteProperties,
-            uri: requestUri,
-            nodeType: _nodeType
-        });
-
-        expect(title).toStrictEqual('Ola de calor corto');
     });
 });
 
@@ -154,7 +141,7 @@ describe('Common Util getMetaDescriptionDefault', () => {
     const name = undefined;
     const arcSite = 'la-nacion-ar';
 
-    test('Test de retorno para el caso de metaValue("description") en undefined', () => {
+    test('Test of return for metaValue("description") undefined', () => {
         const metaDescription = getMetaDescriptionDefault(
             metaValue,
             layout,
@@ -171,7 +158,7 @@ describe('Common Util getMetaDescriptionDefault', () => {
         );
     });
 
-    test('Test de retorno para acumulado', () => {
+    test('Test of return for acu', () => {
         Context.useAppContext = jest.fn(() => ({
             globalContent: {}
         }));
@@ -200,7 +187,7 @@ describe('Common Util getMetaDescriptionDefault', () => {
         );
     });
 
-    test('Test de retorno para _nodeType !== acumulado', () => {
+    test('Test of return for _nodeType !== acumulado', () => {
         const _nodeType = 'nota';
         const _id = 'WLBYLGLLX5BMNPYJRYJFP6';
 
@@ -221,7 +208,7 @@ describe('Common Util getMetaDescriptionDefault', () => {
         );
     });
 
-    test('Test de retorno para el acu Mis notas', () => {
+    test('Test of return for My Notes', () => {
         const requestUri = '/mis-notas/?_website=la-nacion-ar';
         const metaValue = 'Mis Notas guardadas - LA NACION';
 
@@ -243,7 +230,7 @@ describe('Common Util getMetaDescriptionDefault', () => {
         );
     });
 
-    test('Test de retorno para el acu Mis notas, cuando el metaValue no esta definido.', () => {
+    test('Test of return for acu My Notes, when metaValue isnt defined.', () => {
         const requestUri = '/mis-notas/?_website=la-nacion-ar';
         const metaValue = undefined;
 
@@ -269,11 +256,11 @@ describe('Common Util getMetaDescriptionDefault', () => {
 describe('Test getSectionOfRequestUri', () => {
     const requestUri = '/mis-notas/?_website=la-nacion-ar';
 
-    test('Test de retorno cuando el requestUri es correcto ', () => {
+    test('Test of return when requestUri is correct ', () => {
         expect(getSectionOfRequestUri(requestUri)).toStrictEqual('mis-notas');
     });
 
-    test('Test de retorno cuando el requestUri no esta definido', () => {
+    test('Test of return when requestUri isnt defined', () => {
         const requestUri = undefined;
 
         expect(getSectionOfRequestUri(requestUri)).toStrictEqual('');
@@ -287,7 +274,7 @@ describe('Tests - metasFromSiteServices', () => {
     };
 
     test('Return test when metaTags is defined', () => {
-        expect(metasFromSiteServices(metaTags)).toStrictEqual([
+        expect(metasFromSiteServices(metaTags).props.children).toStrictEqual([
             <meta content="noindex, nofollow" name="robots" />,
             <meta content="La Nacion" name="title" />
         ]);
@@ -302,7 +289,7 @@ describe('Tests - metasFromSiteServices', () => {
             metasFromSiteServices({
                 ...metaTags,
                 title: ''
-            })
+            }).props.children
         ).toStrictEqual([
             <meta content="noindex, nofollow" name="robots" />,
             ''
@@ -311,5 +298,133 @@ describe('Tests - metasFromSiteServices', () => {
 
     test('Return tests when the parameter received is an array', () => {
         expect(metasFromSiteServices([{}])).toStrictEqual(<></>);
+    });
+});
+
+describe('getTagTitle function test', () => {
+    describe('getTagTitle for note', () => {
+        test('Return when both titles are defined must be shortTitle', () => {
+            expect(
+                getTagTitle({
+                    basicTitle: 'Titulo de pagebuilder - LA NACION',
+                    shortTitle: 'Titulo corto',
+                    ottTitle: 'titulo ott',
+                    nodeType: 'nota',
+                    siteProps: {},
+                    arcSite: 'la-nacion-ar'
+                })
+            ).toBe('Titulo corto - LA NACION');
+        });
+        test('Return when short title isnt defined, return basic title', () => {
+            expect(
+                getTagTitle({
+                    PBTitle: 'Titulo de pagebuilder - LA NACION',
+                    shortTitle: '',
+                    ottTitle: 'titulo ott',
+                    nodeType: 'nota',
+                    siteProps: {},
+                    arcSite: 'la-nacion-ar'
+                })
+            ).toBe('Titulo de pagebuilder - LA NACION');
+        });
+    });
+
+    describe('getTagTitle for home', () => {
+        test('Return longTitle from siteProps when its defined', () => {
+            expect(
+                getTagTitle({
+                    PBTitle: 'Titulo de pagebuilder - LA NACION',
+                    shortTitle: 'Titulo corto',
+                    ottTitle: 'titulo ott',
+                    nodeType: 'home',
+                    siteProps: {
+                        longTitle:
+                            'Todas las noticias de Argentina y el mundo en LA NACION'
+                    },
+                    arcSite: 'la-nacion-ar'
+                })
+            ).toBe('Todas las noticias de Argentina y el mundo en LA NACION');
+        });
+        test('Return basic title when longTitle is not defined', () => {
+            expect(
+                getTagTitle({
+                    PBTitle: 'Titulo de pagebuilder - LA NACION',
+                    shortTitle: '',
+                    ottTitle: 'titulo ott',
+                    nodeType: 'home',
+                    siteProps: {},
+                    arcSite: 'la-nacion-ar'
+                })
+            ).toBe('Titulo de pagebuilder - LA NACION');
+        });
+    });
+    describe('getTagTitle for ott', () => {
+        test('Return ottTitle when arcSite is ott', () => {
+            expect(
+                getTagTitle({
+                    PBTitle: 'Titulo de pagebuilder - LA NACION',
+                    shortTitle: 'Titulo corto',
+                    ottTitle: 'titulo ott',
+                    nodeType: 'home',
+                    siteProps: {
+                        longTitle:
+                            'Todas las noticias de Argentina y el mundo en LA NACION'
+                    },
+                    arcSite: 'ott'
+                })
+            ).toBe('titulo ott');
+        });
+    });
+    describe('getTagTitle for acu', () => {
+        test('Return pagebuilder title when nodeType is acu', () => {
+            expect(
+                getTagTitle({
+                    PBTitle: 'Titulo de pagebuilder - LA NACION',
+                    shortTitle: 'Titulo corto',
+                    ottTitle: 'titulo ott',
+                    nodeType: 'acumulado',
+                    siteProps: {
+                        longTitle:
+                            'Todas las noticias de Argentina y el mundo en LA NACION'
+                    },
+                    arcSite: 'la-nacion-ar'
+                })
+            ).toBe('Titulo de pagebuilder - LA NACION');
+        });
+    });
+    describe('getTagTitle for recipe note', () => {
+        test('Return custom recipe title, using shortTitle as priority', () => {
+            expect(
+                getTagTitle({
+                    PBTitle: 'Titulo de receta pagebuilder - LA NACION',
+                    basicTitle: 'Titulo largo',
+                    shortTitle: 'Titulo corto',
+                    ottTitle: 'titulo ott',
+                    nodeType: 'acumulado',
+                    siteProps: {
+                        longTitle:
+                            'Todas las noticias de Argentina y el mundo en LA NACION'
+                    },
+                    arcSite: 'la-nacion-ar',
+                    subtype: RECETA
+                })
+            ).toBe('Receta de titulo corto - LA NACION');
+        });
+        test('Return custom recipe title, using basicTitle (when has not shortTitle)', () => {
+            expect(
+                getTagTitle({
+                    PBTitle: 'Titulo de receta pagebuilder - LA NACION',
+                    basicTitle: 'Titulo largo',
+                    ottTitle: 'titulo ott',
+                    nodeType: 'acumulado',
+                    siteProps: {
+                        longTitle:
+                            'Todas las noticias de Argentina y el mundo en LA NACION'
+                    },
+                    arcSite: 'la-nacion-ar',
+                    subtype: RECETA
+                })
+            ).toBe('Receta de titulo largo - LA NACION');
+        });
     });
 });

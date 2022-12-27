@@ -1,5 +1,4 @@
 import request from 'request-promise-native';
-import { LANACION_SERVICES_URL } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import get from '../../components/private/common/utils/get';
 import { isNotRecommend } from './utils/collectionsHelper';
@@ -17,7 +16,7 @@ const fetch = query => {
     const { sectionId, arcSite } = query;
     const newQuery = { ...query, ...getQuery(sectionId) };
     const { endpoint, size } = newQuery;
-    const uriArcServicesAPI = `${LANACION_SERVICES_URL}/api/v1/analytics${endpoint}`;
+    const uriArcServicesAPI = `https://arcservices.lanacion.com.ar/api/v1/analytics${endpoint}`;
     const source = 'content/sources/rankingArticlesSource';
     return request({
         uri: uriArcServicesAPI,

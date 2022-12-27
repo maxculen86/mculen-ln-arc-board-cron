@@ -3,6 +3,7 @@ import getImageResized from '../../components/private/common/utils/getImageResiz
 import getVideoImagePresets from './utils/getVideoImagePresets';
 
 // Tener en cuenta que OTT tambien usa este source
+// TODO: Unificar transform y resizer de imagenes de videos para home y nota
 
 const resolve = key => {
     const { id, url, website } = key;
@@ -16,7 +17,6 @@ const transform = (data, siteProps) => {
     const arcSite = get(siteProps, 'arc-site', '');
     const presets = getVideoImagePresets(data, siteProps, arcSite);
     if (presets) {
-        const focalPoint = [];
         const {
             width,
             height,
@@ -26,17 +26,35 @@ const transform = (data, siteProps) => {
             isInApertura
         } = presets;
 
+        const resizedUrl = getImageResized({
+            url,
+            originalHeight: height,
+            originalWidth: width,
+            options: configSizes,
+            focalPoint: [],
+            isInApertura,
+            isAdmin
+        });
+
+        if (arcSite === 'ott') {
+            const promoItems = get(data, 'promo_items.basic');
+            const urlImage = get(resizedUrl[0], 'resizedUrl', '');
+
+            return {
+                ...data,
+                promo_items: {
+                    basic: {
+                        ...promoItems,
+                        resized_urls: resizedUrl,
+                        url: urlImage
+                    }
+                }
+            };
+        }
+
         return {
             ...data,
-            resizedUrl: getImageResized({
-                url,
-                originalHeight: height,
-                originalWidth: width,
-                options: configSizes,
-                focalPoint,
-                isInApertura,
-                isAdmin
-            })
+            resizedUrl
         };
     }
 

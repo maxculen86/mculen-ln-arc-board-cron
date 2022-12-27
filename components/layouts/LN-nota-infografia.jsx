@@ -27,9 +27,9 @@ const lnNotaInfografia = ({
     return (
         <GlobalProvider>
             {bannerMegatop}
-            <div id="wrapper" className={`nota --info ${magazine} ${amp}`}>
-                <NotaMain>{children}</NotaMain>
-            </div>
+            <NotaMain className={`nota --info ${magazine} ${amp}`}>
+                {children}
+            </NotaMain>
             <LoadBannersSSR />
             <PwaModals />
         </GlobalProvider>

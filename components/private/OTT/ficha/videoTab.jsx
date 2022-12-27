@@ -10,9 +10,14 @@ class VideoTab extends PureComponent {
         super(props);
         const { globalContent } = this.props || {};
         this.videoId = get(globalContent, '_id', null);
+        this.videoData = {
+            ...get(globalContent, 'promo_items.basic', {}),
+            titleText: this.title
+        };
         this.title = get(globalContent, 'headlines.basic', null);
         this.description = get(globalContent, 'description.basic', null);
         this.date = get(globalContent, 'publish_date', null);
+        this.arcSite = get(props, 'arcSite', 'ott');
         if (this.date) this.date = dateHelper.getVideoDateFormat(this.date);
 
         globalContent.streams.sort((a, b) => {
@@ -61,7 +66,11 @@ class VideoTab extends PureComponent {
                     />
                 ))}
 
-                <Video videoId={this.videoId} />
+                <Video
+                    videoId={this.videoId}
+                    videoData={this.videoData}
+                    arcSite={this.arcSite}
+                />
                 <VideoInfo title={this.title} date={this.date} />
             </>
         );

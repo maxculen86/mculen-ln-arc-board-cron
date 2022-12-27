@@ -2,6 +2,9 @@ const index = (articleSourceNota, articleImage, articleVideo, props) => {
     if (!articleSourceNota) {
         return null;
     }
+    if (!props || !props.customFields) {
+        return null;
+    }
     const {
         noteId,
         title,

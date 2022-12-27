@@ -22,7 +22,7 @@ const useGridArticles = props => {
         sourceOrigin = '',
         hasChainBeforeGrid = false,
         isWiki = false
-    } = props;
+    } = props || {};
 
     const DEFAULT_QUANTITY = 30;
 

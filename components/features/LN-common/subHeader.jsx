@@ -2,18 +2,17 @@ import React from 'react';
 import { useContent } from 'fusion:content';
 import Subheader from '../../private/LN/common/header/subHeader';
 import useTermica from '../../private/common/hooks/useTermica';
-import filter from '../../../content/filters/LN/home/subHeaderFilter';
+import filterSubHeader from '../../../content/filters/LN/home/subHeaderFilter';
+import filterDolar from '../../../content/filters/LN/services/dolar';
 
 const SubHeader = () => {
-    /**
-     * TODO Agregar filter
-     * Todo useContent debe contener un filter
-     */
     const { data: dollar = [] } =
         useContent({
             source: 'dolarSource',
+            filter: filterDolar,
             staticMode: true
         }) || {};
+
     const weather =
         useContent({
             source: 'servicesSource',
@@ -22,7 +21,7 @@ const SubHeader = () => {
                 service: 'clima'
             },
             staticMode: true,
-            filter
+            filter: filterSubHeader
         }) || {};
 
     const dollarValue = useTermica('dolar', dollar);

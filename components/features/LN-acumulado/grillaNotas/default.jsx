@@ -26,7 +26,9 @@ const GrillaNotasFeature = props => {
             distributorId,
             node_type: nodeType,
             type,
-            isWiki
+            isWiki,
+            serviceItem = '',
+            serviceType = ''
         } = {},
         outputType = 'default',
         renderables = []
@@ -36,7 +38,7 @@ const GrillaNotasFeature = props => {
     const hasHydrateOnly = checkHydrateOnly({ nodeType });
 
     const appContextProps = {
-        _id,
+        _id: serviceType === 'feriados-mes' ? `/feriados/${serviceItem}` : _id,
         payload,
         distributorId,
         nodeType,

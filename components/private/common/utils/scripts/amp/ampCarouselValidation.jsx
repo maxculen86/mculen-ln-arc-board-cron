@@ -3,9 +3,9 @@ const ampCarouselValidator = globalContent => {
         contentElements &&
         contentElements.filter(e => e.type === 'gallery').length;
 
-    const { content_elements: contentElements = [] } = globalContent;
+    const { content_elements: _contentElements = [] } = globalContent;
 
-    return galleryInElements(contentElements) > 0;
+    return galleryInElements(_contentElements) > 0;
 };
 
 export default ampCarouselValidator;

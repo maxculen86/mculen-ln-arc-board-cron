@@ -26,11 +26,14 @@ import Favicon from '../private/common/favicon';
 import {
     getTitle,
     getMetaDescriptionDefault,
-    metasFromSiteServices
+    metasFromSiteServices,
+    getTagTitle
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
 import checkHydrateOnly from '../private/LN/common/utils/checkHydrateOnly';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
+
+const lnBuscador = 'LN-buscador';
 
 const getBodyClass = props => {
     const { className = {} } = props;
@@ -74,8 +77,7 @@ const Default = props => {
         _id,
         taxonomy,
         first_publish_date: firstPublishDate,
-        acumuladoGeneral: { metas } = {},
-        website_url: websiteUrl
+        acumuladoGeneral: { metas } = {}
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle, mobile: mobileTitle } =
@@ -89,10 +91,12 @@ const Default = props => {
     const _nodeType = getSectionName({ nodeType, type, arcSite });
     const title = getTitle({
         title: metaValue('title'),
-        shortTitle: mobileTitle,
+        basicTitle,
+        mobileTitle,
         properties: siteProperties,
         uri: requestUri,
-        nodeType: _nodeType
+        nodeType: _nodeType,
+        subtype
     });
 
     const {
@@ -104,6 +108,17 @@ const Default = props => {
         title: metaTitleBasic,
         section: _nodeType,
         siteProperties
+    });
+
+    const tagTitle = getTagTitle({
+        PBTitle: metaValue('title'),
+        basicTitle,
+        shortTitle: mobileTitle,
+        ottTitle: ottMetaTitle,
+        arcSite,
+        nodeType: _nodeType,
+        siteProps: siteProperties,
+        subtype
     });
 
     const Scripts = buildScriptComponent(
@@ -138,9 +153,7 @@ const Default = props => {
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
                 <meta name="theme-color" content="#ffffff" />
-                {layout !== 'LN-buscador' && (
-                    <title>{arcSite === 'ott' ? ottMetaTitle : title}</title>
-                )}
+                {layout !== lnBuscador && <title>{tagTitle}</title>}
                 {metasFromSiteServices(metas)}
                 <GetDataToLinkImage
                     data={globalContent}
@@ -164,17 +177,15 @@ const Default = props => {
                 <link
                     rel="preload"
                     as="script"
-                    href={`${deployment(
-                        `${contextPath}/dist/engine/react.js`
-                    )}`}
+                    href={deployment(`${contextPath}/dist/engine/react.js`)}
                     crossOrigin=""
                 />
                 <link
                     rel="preload"
                     as="script"
-                    href={`${deployment(
+                    href={deployment(
                         `${contextPath}/dist/components/combinations/default.js`
-                    )}`}
+                    )}
                     crossOrigin=""
                 />
                 <Libs />
@@ -207,7 +218,7 @@ const Default = props => {
                     Tag="script"
                     globalContent={globalContent}
                 />
-                {layout !== 'LN-buscador' && (
+                {layout !== lnBuscador && (
                     <MetasOG
                         {...props}
                         section={_nodeType}
@@ -215,6 +226,7 @@ const Default = props => {
                         metaDescription={metaDescription}
                         ottMetaTitle={ottMetaTitle}
                         ottMetaDescription={ottMetaDescription}
+                        subtype={subtype}
                     />
                 )}
                 <LinkCanonical
@@ -229,19 +241,18 @@ const Default = props => {
                     arcSite={arcSite}
                     nodeType={nodeType}
                 />
-                {layout !== 'LN-buscador' && (
+                {layout !== lnBuscador && (
                     <MetaTitle
                         arcSite={arcSite}
                         title={title}
                         defaultTitle={siteProperties.longTitle}
                         nodeType={nodeType}
                         section={_nodeType}
-                        metaValue={title}
                         ottMetaTitle={ottMetaTitle}
                         requestUri={requestUri}
                     />
                 )}
-                {layout !== 'LN-buscador' && (
+                {layout !== lnBuscador && (
                     <MetaDescription
                         subtype={subtype}
                         nodeType={nodeType}

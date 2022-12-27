@@ -124,6 +124,9 @@ describe('Test getVideoImagePresets', () => {
         const arcSite = 'ott';
         expect(
             getVideoImagePresets(responseVideoSource, siteProps, arcSite)
-        ).toStrictEqual(null);
+        ).toStrictEqual({
+            ...result,
+            configSizes: []
+        });
     });
 });

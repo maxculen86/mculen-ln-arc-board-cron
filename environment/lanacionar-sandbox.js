@@ -12,7 +12,7 @@ export default {
         'https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com',
     WIDGETS: 'li-nacion-recommended-item-template-1',
     LIFTIGNITER_X_API_KEY:
-        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHjjCjIQbRV+iUWcWbQY1D7AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDEle+nWW5GV4mVaLSQIBEIA/Ua0YpoDaeKH5wVfBNbL/Mf4yNWDloQu7B01BM90SMAB19NRVtb/Mf+gE2mxqdckaqIIoluGTVetDimzenvdp}', //NOSONAR
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH6oXmB5Oc9xSzw5eN7V621AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDDxWBK9CrT9d4MtHbQIBEIA/6Nwvwk1Lsiuz4g+jxjJkvlYpkxBMUnUf1zlQ2HrTW4ZORvA9jfO2P3FgVA35xvLdc00hm9jkkSaIVYKkUXPo}', //NOSONAR
     JSK_ID:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEVr42BnMp3X/xiq4mYxhNRAAAAbjBsBgkqhkiG9w0BBwagXzBdAgEAMFgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMMJkLlbI3ku0UaYK6AgEQgCsYTpwEAAWr+ASzy+7LguXottQzsdBvZxQgd0VZopz3OYzVquvzD0iZ2urE}', //NOSONAR
     DATADOG_CONFIG: {
@@ -48,7 +48,7 @@ export default {
     VIAFOURA_XREQUEST:
         '+A5uYQkKRlUYelDeXhW0I88A7/UVYGFtIugKIur9dtQE9dx7srvdJiI+ZSJZ2YsE',
     ARC_WIDGETS: 'https://sandbox-arc-widgets.lanacion.com.ar/widgets/',
-    LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar',
+    LANACION_SERVICES_URL: 'https://pre-arcservices.lanacion.com.ar',
     PERSONALIZACION_API:
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
     BOOKMARK_URL:

@@ -27,7 +27,6 @@ const ModMedia = props => {
         scriptForZoom,
         outputType
     } = props;
-
     return (
         <>
             <section

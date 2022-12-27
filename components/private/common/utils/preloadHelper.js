@@ -1,6 +1,6 @@
 import get from './get';
 
-export const getIdCollectionFromGC = (globalContent = {}, defaultValue) => {
+export const getIdCollectionFromGC = ({ globalContent = {}, defaultValue }) => {
     const { acumuladoGeneral = {}, node_type: nodeType } = globalContent;
 
     if (!nodeType) return undefined;
