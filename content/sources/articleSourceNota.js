@@ -164,6 +164,7 @@ const transform = async (
     const authors = get(data, 'credits.by', []);
     const layout = 'LN-nota-noticia';
 
+    // TODO: Mover logica de signingResponse a un util.
     // Get Auth cuando en el promo Items no viene el auth del tipo imagen
     // Cambiar a un modulo para evitar los eslint-disable
     if (hasPromoItemImgAuth({ dataPromoItem: data })) {
@@ -235,14 +236,6 @@ const transform = async (
 
     const primarySection = get(data, 'taxonomy.primary_section');
     const category = primarySection && getPrincipalCategory(primarySection);
-
-    // TODO: Mover logica de signingResponse a un util.
-    // Inflate ANS with token promo items -> basic -> image if there is no auth
-    // console.log(
-    //     'XXXXXXXXXXXXXXWWWWWWWWW2',
-    //     get(data, 'promo_items.basic.type') === 'image' &&
-    //         hasPromoItemImgAuth({ data })
-    // );
 
     // Data con urls Resizeadas
     const resp = {

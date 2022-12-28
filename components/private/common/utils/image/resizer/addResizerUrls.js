@@ -18,7 +18,6 @@ export const addResizedUrls = (ansDoc, options) => {
         isInApertura,
         isAdmin
     } = options;
-    console.log('🚀 ~ file: options', JSON.stringify(options, null, 2));
 
     const {
         promo_items: promoItems,
@@ -26,7 +25,6 @@ export const addResizedUrls = (ansDoc, options) => {
         credits,
         taxonomy: { primary_section: { _id: section = '' } = {} } = {}
     } = ansDoc;
-    console.log('🚀 ~ file: ansDoc', JSON.stringify(ansDoc, null, 2));
 
     if (!presets)
         throw new Error(

@@ -29,16 +29,12 @@ export const getDefaultSize = subtype => {
 
 // TODO: Hacer version sin thumbor
 export const setCropMethod = ({
-    thumbor,
     originalWidth,
     originalHeight,
-    focalPoint,
-    smartCropExcluded,
+    focalPoint = [],
     defaultResizeWithSmart = {}
 }) => {
     const { proportion, isNotSmart } = defaultResizeWithSmart;
-    console.log('🚀 ~ file: resizerHelper.js:39 ~ isNotSmart', isNotSmart);
-    console.log('🚀 ~ file: resizerHelper.js:39 ~ proportion', proportion);
     if (proportion) {
         const aspectRatio = getAspectRatio(originalWidth, originalHeight);
         const notEqualProportion = aspectRatio !== proportion;
@@ -46,36 +42,15 @@ export const setCropMethod = ({
         if (notEqualProportion) {
             const [focalX, focalY] = focalPoint;
             const hasFocalPoint = focalPoint.length === 2;
-            console.log(
-                '🚀 ~ file: resizerHelper.js:48 ~ hasFocalPoint',
-                hasFocalPoint
-            );
             const hasAnyDimensions = originalWidth || originalHeight;
-            console.log(
-                '🚀 ~ file: resizerHelper.js:50 ~ hasAnyDimensions',
-                hasAnyDimensions
-            );
-            console.log(
-                '🚀 ~ file: resizerHelper.js:53 ~ isNotSmart',
-                isNotSmart
-            );
 
             if (hasFocalPoint && hasAnyDimensions && isNotSmart) {
                 const focalFilter = setStrFocal(focalX, focalY);
-                console.log(
-                    '🚀 ~ file: resizerHelper.js:52 ~ focalFilter',
-                    focalFilter
-                );
-                // setFilter(thumbor, ['focal', focalFilter]);
+                // console.log(
+                //     '🚀 ~ file: resizerHelper.js:52 ~ focalFilter',
+                //     focalFilter
+                // );
                 return focalFilter;
-            }
-            if (!smartCropExcluded) {
-                console.log(
-                    '🚀 ~ file: resizerHelper.js:56 ~ smartCropExcluded',
-                    !smartCropExcluded
-                );
-
-                thumbor.smartCrop(true);
             }
         }
     }
@@ -85,10 +60,7 @@ export const setCropMethod = ({
 // TODO: Hacer version sin thumbor
 
 export const setStrFocal = (x = 5, y = 5) =>
-    `${x - 5}x${y + 5}:${x + 5}x${y - 5}`;
-
-const setFilter = (thumbor, [type, value]) =>
-    thumbor.filter(`${type}(${value})`);
+    `${x - 5},${y + 5}:${x + 5},${y - 5}`;
 
 export const setHeight = (width, height, proportion) => {
     const [axisX, axisY] = proportion.split(':');
@@ -126,9 +98,10 @@ export const isEmptyString = string => {
 export const buildQueryParams = ({
     newWidth,
     newHeight,
-    filterQuality,
-    focalPoint,
+    filterQuality = 80,
+    focalPoint = [],
     smartCropExcluded = false,
+    crop = null,
     arcImage
 }) => {
     // Get the _id of the Image
@@ -156,6 +129,11 @@ export const buildQueryParams = ({
             : '';
     };
 
+    // TODO: Revisar crop
+    const setCrop = () => {
+        return crop !== null ? `&crop=${crop}` : '';
+    };
+
     const smart = () => {
         return focalPoint && focalPoint.length > 0
             ? `&smart=${false}`
@@ -164,20 +142,5 @@ export const buildQueryParams = ({
 
     return `${imgId}.${ext}?${auth()}${width()}${height()}${quality()}${smart()}`;
 };
-
-// / CREATE RESIZER
-// export const createResizer = (isInApertura = false, isAdmin = false) => {
-//     const aperturaUrl =
-//         API_ENV === 'prod' ? SITE_LANACION : `https://www.lanacion.com.ar`;
-
-//     const Thumbor =
-//         // eslint-disable-next-line no-eval
-//         typeof window === 'undefined' ? eval('require("thumbor")') : () => {};
-
-//     return {
-//         resizeUrl,
-//         resizeUrls
-//     };
-// };
 
 export default getDefaultSize;
