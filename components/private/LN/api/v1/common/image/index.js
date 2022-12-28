@@ -7,11 +7,11 @@ const imageCommon = image => {
     if (!resizedUrls || resizedUrls.length === 0) return null;
 
     const newRegex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;
-    const urlv2 = /.*\/resizer\/v2\/[a-zA-Z0-9]+.jpg[?](auth=.*)/;
+    const urlv2 = /.*\/resizer\/v2\/[a-zA-Z0-9]+.*[?](auth=.*)/;
     const hrefRegex = new RegExp(
         /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
     );
-    const hrefRegexV2 = /.*(\/resizer\/v2\/[a-zA-Z0-9]+.jpg[?]auth=(.*))/;
+    const hrefRegexV2 = /.*(\/resizer\/v2\/[a-zA-Z0-9]+.*[?]auth=(.*))/;
     const isV2 = new RegExp(/\/resizer\/v2\//).exec(url) !== null;
     const absoluteUrl = resizedUrls[0].resizedUrl.replace(
         isV2 ? urlv2 : newRegex,
@@ -56,7 +56,7 @@ const imageCommon = image => {
             const alto = get(resizedUrls, `[${index}].option.height`, 0);
             let firma;
             if (isV2) {
-                const regexUrl = /.*\/resizer\/v2\/[a-zA-Z0-9]+.jpg[?](auth=.*)/;
+                const regexUrl = /.*\/resizer\/v2\/[a-zA-Z0-9]+.*[?](auth=.*)/;
                 firma =
                     (resizedUrls[index] &&
                         resizedUrls[index].resizedUrl &&
