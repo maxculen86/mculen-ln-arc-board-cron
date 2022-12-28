@@ -12,7 +12,7 @@ const imageCommon = image => {
         /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
     );
     const hrefRegexV2 = /.*(\/resizer\/v2\/[a-zA-Z0-9]+.jpg[?]auth=(.*))/;
-    const isV2 = new RegExp(/v2/).exec(url) !== null;
+    const isV2 = new RegExp(/\/resizer\/v2\//).exec(url) !== null;
     const absoluteUrl = resizedUrls[0].resizedUrl.replace(
         isV2 ? urlv2 : newRegex,
         (str, match) => {
@@ -51,13 +51,6 @@ const imageCommon = image => {
                 media = parseInt(media.match(/\d+/)[0], 10);
             } else {
                 media = get(resizedUrls, `[${index}].option.width`, 0);
-                const mediaPreload = get(
-                    resizedUrls,
-                    `[${index}].option.media_preload`
-                );
-                if (isV2 && mediaPreload) {
-                    media = parseInt(mediaPreload.match(/\d+/)[0], 10);
-                }
             }
             const ancho = get(resizedUrls, `[${index}].option.width`, 0);
             const alto = get(resizedUrls, `[${index}].option.height`, 0);
