@@ -11,7 +11,7 @@ const imageCommon = image => {
     const hrefRegex = new RegExp(
         /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
     );
-    const hrefRegexV2 = /.*(\/resizer\/v2\/[a-zA-Z0-9]+.jpg[?](auth=.*))/;
+    const hrefRegexV2 = /.*(\/resizer\/v2\/[a-zA-Z0-9]+.jpg[?]auth=(.*))/;
     const isV2 = new RegExp(/v2/).exec(url) !== null;
     const absoluteUrl = resizedUrls[0].resizedUrl.replace(
         isV2 ? urlv2 : newRegex,

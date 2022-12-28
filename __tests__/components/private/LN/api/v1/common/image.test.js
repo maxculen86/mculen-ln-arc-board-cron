@@ -50,7 +50,7 @@ describe('Json imagen common', () => {
         const resp = Image(imageResizeV2);
         expect(resp.id).toBe(imageResizeV2._id);
         expect(resp.baseUrl).toBe(
-            '/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?{{param}}'
+            '/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth={{param}}'
         );
         expect(resp.absoluteUrl).toBe(
             'https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?{{param}}'
