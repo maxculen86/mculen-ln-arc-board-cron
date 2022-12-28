@@ -16,7 +16,7 @@ const thumborMock = {
     filter: jest.fn()
 };
 
-describe.skip('Common - Resizer', () => {
+describe('Common - Resizer', () => {
     // https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=309&height=206&quality=80&smart=false
     describe('buildQueryParams', () => {
         const imgAuth = '1f6894f8d079227a933';
@@ -100,7 +100,7 @@ describe.skip('Common - Resizer', () => {
     });
 
     // TODO: Fix test que retorne las proporciones, quitar llamado de thumbor
-    it.skip('should use smartCrop', () => {
+    test('should use smartCrop', () => {
         const mockValues = {
             resizeOptions: {
                 width: 298,
@@ -120,7 +120,7 @@ describe.skip('Common - Resizer', () => {
     });
 
     // TODO: Fix test que retorne las proporciones, quitar llamado de thumbor
-    it.skip('should use filter focal', () => {
+    test('should use filter focal', () => {
         const mockValues = {
             defaultResizeWithSmart: {
                 width: 298,
