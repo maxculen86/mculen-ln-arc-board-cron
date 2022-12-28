@@ -13,7 +13,7 @@ jest.mock('fusion:environment', () => {
     };
 });
 
-describe.skip('Common - Resizer - v2 - resizerFactory', () => {
+describe('Common - Resizer - v2 - resizerFactory', () => {
     const filterQuality = 80;
     const smartCropExcluded = false;
     const focalPoint = [];

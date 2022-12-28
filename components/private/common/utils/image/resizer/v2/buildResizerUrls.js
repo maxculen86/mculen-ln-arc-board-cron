@@ -77,19 +77,17 @@ export const resizeArcImage = (
             defaultResizeWithSmart: _resizeOptions,
             focalPoint: fp,
             smartCropExcluded,
-            filterQuality: 80,
-            isInApertura: false,
-            isAdmin: false,
+            arcImage
+        }),
+        resized_urls_zoom: resizeUrlCollection({
+            originalUrl: arcImage.url,
+            originalWidth: arcImage.width,
+            originalHeight: arcImage.height,
+            defaultResizeWithSmart: _zoomSizes,
+            focalPoint: fp,
+            smartCropExcluded,
             arcImage
         })
-        // resized_urls_zoom: resizeUrls(
-        //     arcImage.url,
-        //     arcImage.width,
-        //     arcImage.height,
-        //     _zoomSizes,
-        //     fp,
-        //     smartCropExcluded
-        // )
     };
 };
 
@@ -117,20 +115,18 @@ export const resizeImgUrl = ({
 
     if (!newHeight && !newWidth) throw new Error('Height and Width required');
 
-    // TODO: Revisar el tema del Crop
-    // resizerHelper.setCropMethod({
-    //     thumbor: {},
-    //     defaultResizeWithSmart,
-    //     originalWidth,
-    //     originalHeight,
-    //     focalPoint,
-    //     smartCropExcluded
-    // });
+    // TODO: Revisar el buen funcionamiento del Crop
+    const crop = resizerHelper.setCropMethod({
+        defaultResizeWithSmart,
+        originalWidth,
+        originalHeight,
+        focalPoint
+    });
 
     proportion &&
         (newHeight = resizerHelper.setHeight(newWidth, newHeight, proportion));
 
-    const [fileName = ''] = originalUrl.match(/[^\/]+\.(jpg|png|jpeg)/gm) || [];
+    // const [fileName = ''] = originalUrl.match(/[^\/]+\.(jpg|png|jpeg)/gm) || [];
 
     return `${resizerHelper.baseUrl({
         isInApertura,
@@ -142,7 +138,8 @@ export const resizeImgUrl = ({
         filterQuality,
         smartCropExcluded,
         focalPoint,
-        arcImage
+        arcImage,
+        crop
     })}`;
 };
 
@@ -153,9 +150,6 @@ export const resizeUrlCollection = ({
     defaultResizeWithSmart,
     focalPoint = [],
     smartCropExcluded,
-    filterQuality = 80,
-    isInApertura = false,
-    isAdmin = false,
     arcImage
 }) => {
     const resp = [];

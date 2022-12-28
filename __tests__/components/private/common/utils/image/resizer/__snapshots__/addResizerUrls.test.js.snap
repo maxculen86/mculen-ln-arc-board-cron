@@ -202,6 +202,48 @@ Object {
           "resizedUrl": "https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=360&height=540&quality=80&smart=true",
         },
       ],
+      "resized_urls_zoom": Array [
+        Object {
+          "option": Object {
+            "height": 1280,
+            "media": "(min-width: 1280px)",
+            "width": 1920,
+          },
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1920&height=0&quality=80&smart=true",
+        },
+        Object {
+          "option": Object {
+            "height": 800,
+            "media": "(min-width: 1024px)",
+            "width": 1200,
+          },
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1200&height=0&quality=80&smart=true",
+        },
+        Object {
+          "option": Object {
+            "height": 682,
+            "media": "(min-width: 768px)",
+            "width": 1023,
+          },
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1023&height=0&quality=80&smart=true",
+        },
+        Object {
+          "option": Object {
+            "height": 512,
+            "media": "(min-width: 360px)",
+            "width": 768,
+          },
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=768&height=0&quality=80&smart=true",
+        },
+        Object {
+          "option": Object {
+            "height": 240,
+            "media": "(min-width: 320px)",
+            "width": 360,
+          },
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=360&height=0&quality=80&smart=true",
+        },
+      ],
       "source": Object {
         "additional_properties": Object {
           "editor": "photo center",
@@ -395,6 +437,53 @@ Object {
             "width": 360,
           },
           "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=360&height=540&quality=80&smart=false",
+        },
+      ],
+      "resized_urls_zoom": Array [
+        Object {
+          "option": Object {
+            "height": 2880,
+            "isNotSmart": true,
+            "media": "(min-width: 1280px)",
+            "width": 1920,
+          },
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1920&height=0&quality=80&smart=false",
+        },
+        Object {
+          "option": Object {
+            "height": 1800,
+            "isNotSmart": true,
+            "media": "(min-width: 1024px)",
+            "width": 1200,
+          },
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1200&height=0&quality=80&smart=false",
+        },
+        Object {
+          "option": Object {
+            "height": 1534,
+            "isNotSmart": true,
+            "media": "(min-width: 768px)",
+            "width": 1023,
+          },
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1023&height=0&quality=80&smart=false",
+        },
+        Object {
+          "option": Object {
+            "height": 1152,
+            "isNotSmart": true,
+            "media": "(min-width: 360px)",
+            "width": 768,
+          },
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=768&height=0&quality=80&smart=false",
+        },
+        Object {
+          "option": Object {
+            "height": 540,
+            "isNotSmart": true,
+            "media": "(min-width: 320px)",
+            "width": 360,
+          },
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=360&height=0&quality=80&smart=false",
         },
       ],
       "source": Object {
