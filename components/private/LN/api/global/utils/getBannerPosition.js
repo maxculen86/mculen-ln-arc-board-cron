@@ -90,7 +90,7 @@ const boxPositionLNSports = {
 };
 const getBannerPosition = layout => {
     const boxPositionsMerge = {
-        'LN-acumulados': boxPositionLNAcumulado,
+        'LN-acumulado': boxPositionLNAcumulado,
         'LN-Home_Main': boxPositionLNMain,
         'LN-Home_Sports': boxPositionLNSports
     };

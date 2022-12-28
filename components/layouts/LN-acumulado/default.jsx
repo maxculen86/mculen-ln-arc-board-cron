@@ -2,24 +2,24 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import StaticValidation from '../private/common/staticValidation';
-import Header from '../private/LN/common/header';
-import Footer from '../private/LN/common/footer';
-import GlobalProvider from '../private/common/context/globalContext';
-import AnexoDefault from '../features/LN-common/anexo/default';
+import StaticValidation from '../../private/common/staticValidation';
+import Header from '../../private/LN/common/header';
+import Footer from '../../private/LN/common/footer';
+import GlobalProvider from '../../private/common/context/globalContext';
+import AnexoDefault from '../../features/LN-common/anexo/default';
 
-import '../../resources/dist/css/ln/pages/acumulado.css';
-import '../../resources/dist/css/ln/pages/lotteries.css';
-import '../../resources/dist/css/ln/pages/wiki-tags.css';
+import '../../../resources/dist/css/ln/pages/acumulado.css';
+import '../../../resources/dist/css/ln/pages/lotteries.css';
+import '../../../resources/dist/css/ln/pages/wiki-tags.css';
 
-import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
-import get from '../private/common/utils/get';
-import getConfigForAnexo from '../private/common/utils/getConfigForAnexo';
-import getBannerMegatop from '../private/common/utils/getBannerMegatop';
-import { formatText } from '../private/common/utils/sectionUtils';
-import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
-import PwaModals from '../private/LN/common/pwaModals';
-import { getIdCollectionFromGC } from '../private/common/utils/preloadHelper';
+import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
+import get from '../../private/common/utils/get';
+import getConfigForAnexo from '../../private/common/utils/getConfigForAnexo';
+import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
+import { formatText } from '../../private/common/utils/sectionUtils';
+import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
+import PwaModals from '../../private/LN/common/pwaModals';
+import { getIdCollectionFromGC } from '../../private/common/utils/preloadHelper';
 
 const pageBuilderSections = [
     'Banner-Megatop',
@@ -82,7 +82,8 @@ const LNAcumuladoLayout = props => {
 
     const {
         anexosuperior: anexoSuperior = '',
-        anexoinferior: anexoInferior = ''
+        anexoinferior: anexoInferior = '',
+        collectionForTag = ''
     } = acumuladoGeneral;
 
     const anexoSuperiorConfig = getConfigForAnexo(anexoSuperior);
@@ -115,10 +116,10 @@ const LNAcumuladoLayout = props => {
         'props.customFields.idCollection'
     );
 
-    const idCollectionApertura = getIdCollectionFromGC({
+    const idCollectionApertura = getIdCollectionFromGC(
         globalContent,
-        defaultValue: chainCollectionId
-    });
+        chainCollectionId
+    );
 
     const idCollectionsInPage = get(
         globalContent,

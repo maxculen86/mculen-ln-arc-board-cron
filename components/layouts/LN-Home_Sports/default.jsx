@@ -14,8 +14,6 @@ import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 import pageBuilderSections from '../config/LN-Home_Sports-PageBuilder.config.json';
 
-
-
 const LNSportsHome = props => {
     const {
         children: [

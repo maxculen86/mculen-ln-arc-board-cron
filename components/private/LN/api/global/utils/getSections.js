@@ -7,7 +7,7 @@ import sectionsPageSportFront from '../../../../../layouts/config/LN-Home_Sports
 
 const getSections = layout => {
     const sectionsMerge = {
-        'LN-acumulados': {
+        'LN-acumulado': {
             front: sectionsPageAcumuladosFront,
             mobile: sectionsPageAcumuladosFront,
             rules: rulesLNAcumulado

@@ -7,6 +7,7 @@ import getSections from '../utils/getSections';
 import getBannerPosition from '../utils/getBannerPosition';
 import getTypesbyContainer from '../utils/getTypesbyContainer';
 import getSectionAliasbyFeature from '../utils/getSectionAliasbyFeature';
+import getToMovePosition from '../utils/getToMovePosition';
 
 const boxMovePosition = {
     Anexo_1: { sectionWeb: 'Apertura_1', position: 'start' },
@@ -175,8 +176,10 @@ const addProperties = (sectionChildren, elements) => {
     return newElements;
 };
 
-const moveSections = (sections, sectionWeb) => {
-    const sectionToMove = boxMovePosition[sectionWeb];
+const moveSections = (sections, sectionWeb, layoutPage) => {
+    const sectionToMove = get(getToMovePosition(layoutPage), sectionWeb, null);
+    console.log('sectionToMove');
+    console.log(sectionToMove);
     if (sectionToMove) {
         const indexSectionTo = sections.findIndex(
             x => x.sectionWeb === sectionToMove.sectionWeb
@@ -215,7 +218,7 @@ const getPageElements = props => {
     //return children;
     const pageMergeSections = getSections(layoutPage);
     const rules = get(pageMergeSections, 'rules', []);
-    // return { pageMergeSections };
+    //return { pageMergeSections };
     return (
         pageMergeSections &&
         pageMergeSections.sections &&
@@ -294,7 +297,8 @@ const getPageElements = props => {
                             }, [])
                         ) || []
                     ),
-                    sectionWeb
+                    sectionWeb,
+                    layoutPage
                 );
             }
             if (banner) {

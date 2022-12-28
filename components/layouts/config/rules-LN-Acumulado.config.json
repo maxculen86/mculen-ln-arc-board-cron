@@ -12,7 +12,9 @@
             "Ln_Caja_Manual",
             "LN-common/bannerRefactor",
             "Ln_Caja_Collection",
-            "LN-common/navigationList"
+            "LN-common/navigationList",
+            "LN-common/anexo",
+            "LN-acumulado/apertura"
         ],
         "position": 4
     },

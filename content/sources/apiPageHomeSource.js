@@ -6,26 +6,35 @@ import transform from './utils/servicesSource/pages/transform';
 
 const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
+    const aliasPages = {
+        home: '/homepage8',
+        sports: '/pf/deportes'
+    };
     try {
         let ticksCache = get(query, 'ticks', null);
+        const alias = get(query, 'namePage', 'home');
         ticksCache = ticksCache === null ? '' : ticksCache.replace('/', '');
         const website = get(query, 'website', null);
-
-        queryParams = {
-            rootPath: 'http://172.17.0.1/homepage8', //SITE_LANACION,
-            ticksCache,
-            website
-        };
         if (!SITE_LANACION) {
             throw new Error('Variable SITE_LANACION missing');
         }
-        const resultPage = await cachedCall('ApiPageHome', pages.fetch, {
-            query: queryParams,
-            ttl: 120
-        });
+        queryParams = {
+            rootPath: `http://172.17.0.1${aliasPages[alias]}`, //`SITE_LANACION${aliasPages[alias]}`,
+            ticksCache,
+            website
+        };
+
+        const resultPage = await cachedCall(
+            `ApiPageHome${alias}`,
+            pages.fetch,
+            {
+                query: queryParams,
+                ttl: 120
+            }
+        );
         //return resultPage;
         const resultPageTransform = await transform(resultPage, queryParams);
-       // return resultPageTransform;
+        //return resultPageTransform;
         const resultHome = home(resultPageTransform);
         return Array.isArray(resultHome) ? resultHome[0] : {};
     } catch (error) {
@@ -43,6 +52,7 @@ export default {
     fetch,
     params: {
         website: 'text',
+        namePage: 'text',
         ticks: 'text'
     },
     ttl: 120

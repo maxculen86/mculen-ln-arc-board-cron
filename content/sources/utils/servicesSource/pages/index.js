@@ -7,7 +7,6 @@ const resolve = query => {
 
     const arcSite = website || 'la-nacion-ar';
     const paramsTicks = ticksCache != null ? `&ticks=${ticksCache}` : '';
-
     return `${rootPath}/?_website=${arcSite}&outputType=json${paramsTicks}`;
 };
 
