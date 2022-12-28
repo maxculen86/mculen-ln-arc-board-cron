@@ -140,7 +140,9 @@ export const buildQueryParams = ({
             : `&smart=${smartCropExcluded}`;
     };
 
-    return `${imgId}.${ext}?${auth()}${width()}${height()}${quality()}${smart()}`;
+    return arcImage
+        ? `${imgId}.${ext}?${auth()}${width()}${height()}${quality()}${smart()}`
+        : '';
 };
 
 export default getDefaultSize;

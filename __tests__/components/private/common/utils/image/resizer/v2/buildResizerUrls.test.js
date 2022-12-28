@@ -7,7 +7,7 @@ import {
 jest.mock('fusion:environment', () => {
     return {
         IS_SANDBOX: 'true',
-        API_ENV: 'sandbox',
+        API_ENV: 'prod',
         SITE_LANACION: 'https://sandbox.lanacion.com.ar',
         RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com'
     };
@@ -25,9 +25,18 @@ describe('Common - Resizer - v2 - resizerFactory', () => {
     };
     const originalHeight = 549;
     const originalWidth = 976;
-    const originalUrl = `https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/wilbertJ43DRG7ZGZCANB6PYJG2VQ35QY.jpg`;
-    const imgAuth =
-        '5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069';
+    const originalUrl = `https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg`;
+
+    const arcImage = {
+        _id: 'J43DRG7ZGZCANB6PYJG2VQ35QY',
+        additional_properties: {
+            originalName: 'Wilbert.jpg'
+        },
+        auth: {
+            1: '5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069'
+        }
+    };
+
     const _resizeOptions = [
         {
             width: 309,
@@ -161,11 +170,8 @@ describe('Common - Resizer - v2 - resizerFactory', () => {
     });
 
     describe('When is not admin and is not isInapertura', () => {
-        const isInApertura = false;
-        const isAdmin = false;
-
         describe('ResizerUrl function', () => {
-            test('should return a Resized urls', () => {
+            test('Should return a Resized url with correct params and sandbox base url', () => {
                 const resizerUrl = resizeImgUrl({
                     originalUrl,
                     originalWidth,
@@ -175,16 +181,16 @@ describe('Common - Resizer - v2 - resizerFactory', () => {
                     smartCropExcluded,
                     filterQuality,
                     isInApertura: true,
-                    isAdmin,
-                    imgAuth
+                    isAdmin: false,
+                    arcImage
                 });
                 expect(resizerUrl).toEqual(
-                    'https://sandbox.lanacion.com.ar/resizer/v2/wilbertJ43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=320&height=213&quality=80'
+                    'https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=320&height=213&quality=80&smart=false'
                 );
             });
         });
 
-        describe('ResizerUrls function', () => {
+        describe('resizeUrlCollection function', () => {
             test('should return array with resized urls with options', () => {
                 const res = resizeUrlCollection({
                     originalUrl,
@@ -194,17 +200,30 @@ describe('Common - Resizer - v2 - resizerFactory', () => {
                     focalPoint,
                     smartCropExcluded,
                     filterQuality,
-                    isInApertura,
-                    isAdmin,
-                    imgAuth
+                    arcImage
                 });
                 expect(res).toMatchSnapshot();
             });
         });
     });
 
-    describe('When is not admin and is not isInapertura', () => {
-        // const isInApertura = true;
-        // const isAdmin = true;
+    describe('When is admin and is isInApertura', () => {
+        test('Should return a Resized url with correct params and glanacion base url', () => {
+            const resizerUrl = resizeImgUrl({
+                originalUrl,
+                originalWidth,
+                originalHeight,
+                defaultResizeWithSmart,
+                focalPoint,
+                smartCropExcluded,
+                filterQuality,
+                isInApertura: true,
+                isAdmin: true,
+                arcImage
+            });
+            expect(resizerUrl).toEqual(
+                'https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=320&height=213&quality=80&smart=false'
+            );
+        });
     });
 });

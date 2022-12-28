@@ -1,67 +1,75 @@
 import * as resizerHelper from '../../../../../../../../components/private/common/utils/image/resizer/v2/resizerHelper';
 
-jest.mock('thumbor', () => {
-    return jest.fn().mockImplementation();
-});
-
 jest.mock('fusion:environment', () => {
     return {
         SITE_LANACION: 'https://sandbox.lanacion.com.ar/',
-        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com/resizer/'
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com/resizer/',
+        API_ENV: 'prod'
     };
 });
-
-const thumborMock = {
-    smartCrop: jest.fn(),
-    filter: jest.fn()
-};
 
 describe('Common - Resizer', () => {
     // https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=309&height=206&quality=80&smart=false
     describe('buildQueryParams', () => {
-        const imgAuth = '1f6894f8d079227a933';
+        const arcImage = {
+            _id: 'J43DRG7ZGZCANB6PYJG2VQ35QY',
+            additional_properties: {
+                originalName: 'Wilbert.jpg'
+            },
+            auth: {
+                1: '1f6894f8d079227a933'
+            }
+        };
 
-        test('should return string with auth params', () => {
+        test('Should return empty string without arcImage data', () => {
             expect(resizerHelper.buildQueryParams({})).toEqual('');
         });
 
-        test('should return string with auth params', () => {
+        test('Should return string with auth, width, height, quality and smart params', () => {
             const queryParams = resizerHelper.buildQueryParams({
-                imgAuth,
                 newWidth: 1200,
                 newHeight: 1200,
                 filterQuality: 88,
-                smartCropExcluded: false,
-                focalPoint: [1, 2]
+                smartCropExcluded: true,
+                focalPoint: [1, 2],
+                arcImage
             });
             expect(queryParams).toEqual(
-                'auth=1f6894f8d079227a933&width=1200&height=1200&quality=88&smart=false'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=1200&height=1200&quality=88&smart=false'
             );
         });
 
-        test('should return string with auth params', () => {
+        test('Should return string with auth params', () => {
             expect(
                 resizerHelper.buildQueryParams({
-                    imgAuth: '1f6894f8d079227a933'
+                    arcImage
                 })
-            ).toEqual('auth=1f6894f8d079227a933');
-        });
-
-        test('should return string with Width params', () => {
-            expect(resizerHelper.buildQueryParams({ newWidth: 1200 })).toEqual(
-                '&width=1200'
+            ).toEqual(
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=80&smart=false'
             );
         });
 
-        test('should return string with Width params', () => {
-            expect(resizerHelper.buildQueryParams({ newWidth: [] })).toEqual(
-                ''
+        test('Should return string with Width params', () => {
+            expect(
+                resizerHelper.buildQueryParams({ newWidth: 1200, arcImage })
+            ).toEqual(
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=1200&quality=80&smart=false'
             );
         });
 
-        test('should return string with Width params', () => {
-            expect(resizerHelper.buildQueryParams({ newHeight: 1200 })).toEqual(
-                '&height=1200'
+        test('should return string with all params but without Width param', () => {
+            expect(
+                resizerHelper.buildQueryParams({ newWidth: [], arcImage })
+            ).toEqual(
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=80&smart=false'
+            );
+        });
+
+        test('should return string with Height params', () => {
+            expect(
+                resizerHelper.buildQueryParams({ newHeight: 1200, arcImage })
+            ).toEqual(
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&height=1200&quality=80&smart=false'
             );
         });
     });
@@ -96,10 +104,9 @@ describe('Common - Resizer', () => {
 
     it('should return the correct focal string', () => {
         const focalStr = resizerHelper.setStrFocal(500, 450);
-        expect(focalStr).toBe('495x455:505x445');
+        expect(focalStr).toBe('495,455:505,445');
     });
 
-    // TODO: Fix test que retorne las proporciones, quitar llamado de thumbor
     test('should use smartCrop', () => {
         const mockValues = {
             resizeOptions: {
@@ -115,11 +122,9 @@ describe('Common - Resizer', () => {
             smartCropExcluded: false
         };
 
-        resizerHelper.setCropMethod({ thumbor: thumborMock, ...mockValues });
-        expect(thumborMock.smartCrop).toBeCalledTimes(1);
+        resizerHelper.setCropMethod({ ...mockValues });
     });
 
-    // TODO: Fix test que retorne las proporciones, quitar llamado de thumbor
     test('should use filter focal', () => {
         const mockValues = {
             defaultResizeWithSmart: {
@@ -136,8 +141,7 @@ describe('Common - Resizer', () => {
             smartCropExcluded: false
         };
 
-        resizerHelper.setCropMethod({ thumbor: thumborMock, ...mockValues });
-        expect(thumborMock.filter).toBeCalledTimes(1);
+        resizerHelper.setCropMethod({ ...mockValues });
     });
 
     describe('baseUrl function', () => {

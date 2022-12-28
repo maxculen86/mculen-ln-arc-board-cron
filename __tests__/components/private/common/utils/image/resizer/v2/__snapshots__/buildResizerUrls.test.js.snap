@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Common - Resizer - v2 - resizerFactory When is not admin and is not isInapertura ResizerUrls function should return array with resized urls with options 1`] = `
+exports[`Common - Resizer - v2 - resizerFactory When is not admin and is not isInapertura resizeUrlCollection function should return array with resized urls with options 1`] = `
 Array [
   Object {
     "option": Object {
@@ -9,7 +9,7 @@ Array [
       "proportion": "3:2",
       "width": 309,
     },
-    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/wilbertJ43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=309&height=206&quality=80",
+    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=309&height=206&quality=80&smart=false",
   },
   Object {
     "option": Object {
@@ -18,7 +18,7 @@ Array [
       "proportion": "3:2",
       "width": 351,
     },
-    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/wilbertJ43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=351&height=234&quality=80",
+    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=351&height=234&quality=80&smart=false",
   },
   Object {
     "option": Object {
@@ -27,7 +27,7 @@ Array [
       "proportion": "3:2",
       "width": 768,
     },
-    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/wilbertJ43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=768&height=512&quality=80",
+    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=768&height=512&quality=80&smart=false",
   },
   Object {
     "option": Object {
@@ -37,7 +37,7 @@ Array [
       "proportion": "3:2",
       "width": 879,
     },
-    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/wilbertJ43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=879&height=586&quality=80",
+    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=879&height=586&quality=80&smart=false",
   },
   Object {
     "option": Object {
@@ -46,7 +46,7 @@ Array [
       "proportion": "3:2",
       "width": 1200,
     },
-    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/wilbertJ43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=1200&height=800&quality=80",
+    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=1200&height=800&quality=80&smart=false",
   },
 ]
 `;
@@ -79,7 +79,7 @@ Object {
         "proportion": "3:2",
         "width": 309,
       },
-      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=309&height=206&quality=80",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=309&height=206&quality=80&smart=false",
     },
     Object {
       "option": Object {
@@ -88,7 +88,7 @@ Object {
         "proportion": "3:2",
         "width": 351,
       },
-      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=351&height=234&quality=80",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=351&height=234&quality=80&smart=false",
     },
     Object {
       "option": Object {
@@ -97,7 +97,7 @@ Object {
         "proportion": "3:2",
         "width": 768,
       },
-      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=768&height=512&quality=80",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=768&height=512&quality=80&smart=false",
     },
     Object {
       "option": Object {
@@ -107,7 +107,7 @@ Object {
         "proportion": "3:2",
         "width": 879,
       },
-      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=879&height=586&quality=80",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=879&height=586&quality=80&smart=false",
     },
     Object {
       "option": Object {
@@ -116,7 +116,49 @@ Object {
         "proportion": "3:2",
         "width": 1200,
       },
-      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=1200&height=800&quality=80",
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=1200&height=800&quality=80&smart=false",
+    },
+  ],
+  "resized_urls_zoom": Array [
+    Object {
+      "option": Object {
+        "height": 1280,
+        "media": "(min-width: 1280px)",
+        "width": 1920,
+      },
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=1920&height=0&quality=80&smart=false",
+    },
+    Object {
+      "option": Object {
+        "height": 800,
+        "media": "(min-width: 1024px)",
+        "width": 1200,
+      },
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=1200&height=0&quality=80&smart=false",
+    },
+    Object {
+      "option": Object {
+        "height": 682,
+        "media": "(min-width: 768px)",
+        "width": 1023,
+      },
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=1023&height=0&quality=80&smart=false",
+    },
+    Object {
+      "option": Object {
+        "height": 512,
+        "media": "(min-width: 360px)",
+        "width": 768,
+      },
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=768&height=0&quality=80&smart=false",
+    },
+    Object {
+      "option": Object {
+        "height": 240,
+        "media": "(min-width: 320px)",
+        "width": 360,
+      },
+      "resizedUrl": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=360&height=0&quality=80&smart=false",
     },
   ],
   "source": Object {
@@ -127,7 +169,7 @@ Object {
     "system": "photo center",
   },
   "type": "image",
-  "url": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=768&height=0&quality=80",
+  "url": "https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=768&height=0&quality=80&smart=false",
   "width": 768,
 }
 `;
