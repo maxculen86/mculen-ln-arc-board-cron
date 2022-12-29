@@ -18,9 +18,9 @@ describe('CTR tracker util', () => {
             crtViewTracker(true, () => {});
             expect(window.dataLayer).toStrictEqual([
                 {
-                    event: 'CTR view',
-                    brand: 'stickyMobile_diag1',
-                    position: '101101'
+                    event: 'impressionNota',
+                    ctr_brand: 'stickyMobile_diag1',
+                    ctr_position: '101101'
                 }
             ]);
         });
@@ -58,9 +58,9 @@ describe('CTR tracker util', () => {
             handleClickForCTRcomponent('close');
             expect(window.dataLayer).toStrictEqual([
                 {
-                    event: 'CTR close',
-                    brand: 'stickyMobile_diag1',
-                    position: '101101'
+                    event: 'productClickNota',
+                    ctr_brand: 'stickyMobile_close',
+                    ctr_position: '101101'
                 }
             ]);
         });
@@ -80,9 +80,9 @@ describe('CTR tracker util', () => {
             handleClickForCTRcomponent('open');
             expect(window.dataLayer).toStrictEqual([
                 {
-                    event: 'CTR open note',
-                    brand: 'stickyMobile_diag1',
-                    position: '101101'
+                    event: 'productClickNota',
+                    ctr_brand: 'stickyMobile_diag1',
+                    ctr_position: '101101'
                 }
             ]);
         });
