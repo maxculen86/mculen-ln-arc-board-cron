@@ -4,7 +4,8 @@ import getProperties from 'fusion:properties';
 import VideoPlayer from '../../../../../components/private/common/videoPlayer';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import globalContentWithVideo from '../../../../../__mocks__/data/images/getDataToLinkImage/globalContentWithVideo';
+import globalContentWithVideo from '../../../../../__mocks__/data/images/getDataToLinkImage/globalContentWithVideo.json';
+import { prettyDOM } from '@testing-library/dom';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -167,16 +168,35 @@ describe('private - common - videoPlayer', () => {
         it('should have the powa lazyload script.', () => {
             const ScriptBuildPowa = `window.addEventListener('load',()=>{setCustomErrorsVideoPlayer()constisDesktop=deviceType()==='desktop'constvideoPlayerList=document.querySelectorAll('.video-player');constobserver=setIntersectionObserver(videoPlayerList,'sandbox',isDesktop,true,'','apertura_video_basic',true)window.addEventListener('powaReady',()=>{observer.disconnect();removeFacade();const[{shadowRoot}={}]=document.querySelectorAll('.powa-shadow');letdivFirstPowa=shadowRoot.querySelector&&shadowRoot.querySelector('[data-uuid=\"\"]');letuserPause=false;if(false&&false){divFirstPowa=undefined}if(divFirstPowa&&window.powas){const{powa}=window.powas[divFirstPowa.id];powa.on('pause',()=>userPause=true);powa.on('viewable',()=>!userPause&&powa.play());}});});`;
             const { container } = videoPlayer;
-            console.log(
-                '====>',
-                container.querySelectorAll('script')[0].innerHTML
-            );
+
             expect(
                 container
                     .querySelectorAll('script')[0]
                     .innerHTML.replace(/\s/g, '')
                     .includes(ScriptBuildPowa)
             ).toBeTruthy();
+        });
+
+        it('The image facade of the video should have the alt attribute when caption is not defined.', () => {
+            const { container } = render(
+                <VideoPlayer
+                    videoId={'apertura_video_basic'}
+                    arcSite={'la-nacion-ar'}
+                    globalContent={{
+                        ...globalContentWithVideo,
+                        type: 'story'
+                    }}
+                    videoImageData={{
+                        ...globalContentWithVideo.promo_items
+                            .apertura_multimedia.promo_items.basic,
+                        caption: undefined,
+                        altText: 'Conflicto del neumatico'
+                    }}
+                    device={'desktop'}
+                    isApertura={true}
+                />
+            );
+            console.log(prettyDOM(container));
         });
     });
 });

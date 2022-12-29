@@ -30,7 +30,6 @@ const JewishHolidaysTable = ({ id: _featureId = {} }) => {
 };
 
 JewishHolidaysTable.label = 'LN Tabla Feriados Judíos';
-JewishHolidaysTable.lazy = true;
 JewishHolidaysTable.propTypes = {
     id: PropTypes.string.isRequired
 };

@@ -31,7 +31,7 @@ import lotoHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/html/l
 import loto5Html from '../../../../../__mocks__/data/lottery/lotteryDetail/html/loto5Html.json';
 
 jest.mock(
-    '../../../../../components/private/common/staticValidation.jsx',
+    '../../../../../components/private/common/staticContent.jsx',
     () => 'mock-static-validation'
 );
 

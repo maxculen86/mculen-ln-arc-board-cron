@@ -67,7 +67,10 @@ const video = ({
                         autoPlay={autoplay}
                         device={screenUtils.device}
                         isApertura={isApertura}
-                        videoImageData={videoImageData}
+                        videoImageData={{
+                            ...videoImageData,
+                            titleText: get(mediaData, 'headlines.basic', '')
+                        }}
                     />
                 </AmpContainer>
                 <AmpContainer isForAmp>
