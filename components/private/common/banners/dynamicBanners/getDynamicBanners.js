@@ -12,7 +12,7 @@ const getDynamicBanners = ({ renderables = [], featureId = '' }) => {
     const sectionConfig = Object.entries(homeConfig)[
         getSectionId(renderables, featureId)
     ];
-    const [sectionName, sectionValues] = sectionConfig;
+    const [sectionName, sectionValues] = sectionConfig || {};
 
     const sectionChildren = getChildrenFromSectionHome(
         renderables,

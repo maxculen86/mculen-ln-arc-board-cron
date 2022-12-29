@@ -43,7 +43,6 @@ const CajaCanal = props => {
         layout: pageLayout
     } = props;
 
-    console.log('🚀 ~ file: default.jsx:34 ~ CajaCanal ~ layout', layout);
     if (hideCaja) return <></>;
 
     const {

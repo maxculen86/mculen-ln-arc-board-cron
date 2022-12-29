@@ -20,6 +20,7 @@ const AnexoFeature = props => {
         layout,
         siteProperties
     } = useAppContext();
+
     const { heightDesktop, heightTablet, heightMobile } = customFields;
 
     const isApertura = isInSection({ sectionName: 'Anexo_1', id, renderables });
@@ -34,7 +35,7 @@ const AnexoFeature = props => {
     );
 
     const { bannerMob = undefined, bannerDsk = undefined } =
-        layout === 'LN10-Home_Main' &&
+        layout === get(siteProperties, 'layoutsName.HomeLN10') &&
         getDynamicBanners({ renderables, featureId: id });
 
     const comp = () =>
