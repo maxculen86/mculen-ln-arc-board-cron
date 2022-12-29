@@ -368,7 +368,9 @@ const transformContent = async (
 
     return Promise.all(promiseArr).then(() => {
         const relatedContent = get(resp, 'related_content.basic', []);
-        resp.related_content.basic = removeInvalidRelated(relatedContent);
+        if (relatedContent.length) {
+            resp.related_content.basic = removeInvalidRelated(relatedContent);
+        }
         return resp;
     });
 };
