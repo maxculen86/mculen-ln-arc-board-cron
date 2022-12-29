@@ -3,16 +3,16 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
 import HoroscopeBox from '../../private/common/horoscopeBox';
-import StaticValidation from '../../private/common/staticValidation';
+import StaticContent from '../../private/common/staticContent';
 
-const CajaHoroscopos = ({ id: featureId, customFields }) => {
+const CajaHoroscopos = ({ customFields }) => {
     const { globalContent, deployment, contextPath, arcSite } = useAppContext();
     const { title } = customFields;
     const { _id = '' } = globalContent || {};
     const path = _id.split('/').slice(1);
 
     return (
-        <StaticValidation id={featureId} htmlOnly persistent>
+        <StaticContent>
             {(() => {
                 const { data } =
                     useContent({
@@ -34,7 +34,7 @@ const CajaHoroscopos = ({ id: featureId, customFields }) => {
                     <></>
                 );
             })()}
-        </StaticValidation>
+        </StaticContent>
     );
 };
 

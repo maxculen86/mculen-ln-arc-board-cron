@@ -12,7 +12,6 @@ import {
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import {
     validateFeature,
-    getIdsArticlesFromOtherCollections,
     getArticlesFromMyCurrentCollection
 } from '../../private/LN/common/utils/cajaTemasValidators';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
@@ -21,6 +20,7 @@ import get from '../../private/common/utils/get';
 import { getPlaceholder } from '../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../private/common/utils/viewability';
 import StaticContent from '../../private/common/staticContent';
+import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
 
 const CajaCollection = props => {
     const {
@@ -40,6 +40,7 @@ const CajaCollection = props => {
         outputType,
         renderables,
         tree = {},
+        globalContent: { node_type: nodeType } = {},
         layout: pageLayout
     } = props;
 
@@ -55,7 +56,7 @@ const CajaCollection = props => {
     } = getCommonProps(props);
 
     const { layoutsName = {} } = siteConfig || {};
-    const isHome = pageLayout === layoutsName.Home;
+    const hasHydrateOnly = checkHydrateOnly({ nodeType, layout: pageLayout });
 
     const diagramation =
         (renderables.some(
@@ -73,12 +74,13 @@ const CajaCollection = props => {
         notesQuantity
     );
 
-    const isInSiteService = articlesFromCollectionSiteService.length > 0;
+    const idCollectionsInPage = get(
+        props,
+        'globalContent.acumuladoGeneral.colecciones',
+        []
+    );
 
-    const idsArticlesToExclude = !isInSiteService
-        ? getIdsArticlesFromOtherCollections(renderables, collectionsInPage)
-        : [];
-
+    const isInSiteService = idCollectionsInPage.includes(idCollection);
     const isInsideApertura =
         tree.type === 'LN-acumulado' ? isInApertura(featureId, tree) : false;
 
@@ -94,12 +96,12 @@ const CajaCollection = props => {
               idCollection,
               20,
               Number(initialPosition) - 1,
-              idsArticlesToExclude,
+              idCollectionsInPage,
               true,
               !isInSiteService,
               layout,
               website,
-              isHome
+              hasHydrateOnly
           )
         : [];
 
@@ -157,7 +159,7 @@ const CajaCollection = props => {
     const noStaticComponent =
         (_articles && _articles.length && Component) || getPlaceholder(layout);
 
-    return isHome ? (
+    return hasHydrateOnly ? (
         <StaticContent>{Component}</StaticContent>
     ) : (
         noStaticComponent

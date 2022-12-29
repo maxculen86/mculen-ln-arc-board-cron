@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ARC_STATIC } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
-import StaticValidation from './staticValidation';
+import StaticContent from './staticContent';
 
 import ComLink from './com-link';
 import Image from './com-image';
@@ -22,7 +22,6 @@ const ComLogo = props => {
         alt,
         target,
         rel,
-        isStatic,
         folder = ''
     } = props;
 
@@ -38,12 +37,7 @@ const ComLogo = props => {
     if (!logoName) return null;
 
     const Logo = (
-        <StaticValidation
-            id={assets || `logo-${logoName}`}
-            isStatic={isStatic}
-            htmlOnly
-            persistent
-        >
+        <StaticContent id={assets || `logo-${logoName}`}>
             <Image
                 classCondition={classes}
                 width={width}
@@ -53,7 +47,7 @@ const ComLogo = props => {
                 amp={amp}
                 svg
             />
-        </StaticValidation>
+        </StaticContent>
     );
 
     const Link = (
@@ -82,8 +76,7 @@ ComLogo.propTypes = {
     alt: PropTypes.string,
     folder: PropTypes.string,
     target: PropTypes.string,
-    rel: PropTypes.bool,
-    isStatic: PropTypes.bool
+    rel: PropTypes.bool
 };
 
 ComLogo.defaultProps = {
@@ -97,8 +90,7 @@ ComLogo.defaultProps = {
     alt: '',
     folder: '',
     target: undefined,
-    rel: undefined,
-    isStatic: true
+    rel: undefined
 };
 
 export default ComLogo;

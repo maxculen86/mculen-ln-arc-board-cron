@@ -18,7 +18,10 @@ const fetch = async query => {
         json: true
     };
 
-    if (IS_DEV === 'true' && IS_SANDBOX === 'true') {
+    if (
+        (IS_DEV === 'true' && IS_SANDBOX === 'true') ||
+        endpoint.uri.includes('sandbox')
+    ) {
         endpoint.headers = {
             Cookie: 'el_arc=2c88b3e4-500e-4629-9a0d-78a032107225'
         };
@@ -33,7 +36,9 @@ const fetch = async query => {
             console.warn(
                 `Error Page Index - sources/utils/servicesSource/pages/index: ${JSON.stringify(
                     query
-                )} - uri: ${endpoint.uri} - errorMsj:${error.message}`
+                )} - uri: ${JSON.stringify(endpoint.uri)} - errorMsj:${
+                    error.message
+                }`
             );
             logger.push(error, { source: 'servicesSource/page/index', query });
         });

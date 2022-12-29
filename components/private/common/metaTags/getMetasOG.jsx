@@ -9,7 +9,7 @@ import { RECETA } from '../utils/subtypes/subtypeHelper';
 
 const getMetasOG = props => {
     const {
-        title,
+        title = '',
         section,
         siteProperties,
         arcSite,
@@ -22,7 +22,8 @@ const getMetasOG = props => {
 
     const data = getData(props);
     const metaTitleFromPB =
-        section === 'home' ? metaValue('title') || '' : title;
+        subtype === RECETA ? title : metaValue('title') || '';
+
     const pageBuilderTitle =
         getSectionOfRequestUri(requestUri) === 'mis-notas' || subtype === RECETA
             ? metaTitleFromPB

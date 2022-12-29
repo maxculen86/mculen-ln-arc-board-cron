@@ -12,6 +12,7 @@
 
 /dist
 /resources/dist
+/resources/packages
 
 **/coverage
 .scannerwork

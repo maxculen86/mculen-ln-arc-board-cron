@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import StaticValidation from '../../../private/common/staticValidation';
+import StaticContent from '../../../private/common/staticContent';
 import ComText from '../../../private/common/text';
 import { games } from '../../../../content/sources/utils/servicesSource/lottery/_config';
 import get from '../../../private/common/utils/get';
@@ -16,7 +16,7 @@ const LotteryDetailRules = ({ id: featureId }) => {
     const serviceId = lottery[0].id;
     const rules = get(games, `${serviceId}.rules`, []);
     return (
-        <StaticValidation id={featureId} htmlOnly persistent>
+        <StaticContent>
             <div
                 key={`${featureId}-lottery-rules`}
                 className="lottery-rules-box"
@@ -38,7 +38,7 @@ const LotteryDetailRules = ({ id: featureId }) => {
                     </div>
                 ))}
             </div>
-        </StaticValidation>
+        </StaticContent>
     );
 };
 

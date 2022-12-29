@@ -3,26 +3,33 @@ import get from '../../components/private/common/utils/get';
 import pages from './utils/servicesSource/pages';
 
 const fetch = async (query, { cachedCall } = {}) => {
+    let queryParams = {};
     try {
-        const ticksCache = get(query, 'ticks', null)?.replace('/', '');
-        const queryParams = {
+        let ticksCache = get(query, 'ticks', null);
+        ticksCache = ticksCache === null ? '' : ticksCache.replace('/', '');
+        const website = get(query, 'website', null);
+
+        queryParams = {
             rootPath: SITE_LANACION,
             ticksCache,
-            website: get(query, 'website', null)
+            website
         };
+
+        if (!SITE_LANACION) {
+            throw new Error('Variable SITE_LANACION missing');
+        }
         return await cachedCall('ApiPageHome', pages.fetch, {
             query: queryParams,
             ttl: 120
         });
-        //return await pages.fetch(queryParams);
     } catch (error) {
         // eslint-disable-next-line no-console
-        console.warn(
+        console.error(
             `Error content/apiPageHomeSource : ${JSON.stringify(
-                query
+                queryParams
             )} - errorMsj:${error.message}`
         );
-        throw new Error(error);
+        return null;
     }
 };
 
