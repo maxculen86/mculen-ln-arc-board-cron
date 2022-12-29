@@ -10,6 +10,7 @@ import { getChildsFromSections } from '../../../private/LN/common/utils/homeHelp
 import sectionsValidation from '../../../layouts/config/LN-Home.config.json';
 import { adjustByURL } from '../../../private/common/utils/propTypesHelper';
 import StaticContent from '../../../private/common/staticContent';
+import getDynamicBanners from '../../../private/common/banners/dynamicBanners/getDynamicBanners';
 
 const AnexoFeature = props => {
     const { id, customFields = {} } = props;
@@ -32,38 +33,51 @@ const AnexoFeature = props => {
         (!isAdmin && _type === 'Iframe' && 'skeleton-box') || ''
     );
 
+    const { bannerMob = undefined, bannerDsk = undefined } =
+        layout === 'LN10-Home_Main' &&
+        getDynamicBanners({ renderables, featureId: id });
+
     const comp = () =>
-        getComponentFromConfig(_type, {
-            ...props,
-            errorMessage,
-            extraClass: EXTRA_CLASS,
-            isAdmin
-        });
+        getComponentFromConfig(
+            _type,
+            {
+                ...props,
+                errorMessage,
+                extraClass: EXTRA_CLASS,
+                isAdmin
+            },
+            bannerMob,
+            bannerDsk
+        );
 
     useEffect(() => {
         handleIframeProps(id);
     }, [id, comp]);
 
     const iframeURLContent = (
-        <div
-            id={`anexo-responsive-${id}`}
-            className={`com-anexo ${EXTRA_CLASS}`}
-            style={{ overflow: 'hidden', width: '100%' }}
-        >
-            <style>
-                {`#anexo-responsive-${id}{height:${parseInt(
-                    heightMobile,
-                    10
-                )}px}@media(min-width:768px){#anexo-responsive-${id}{height:${
-                    // eslint-disable-next-line prettier/prettier
-                    parseInt(heightTablet, 10)
-                }px}}@media(min-width:1024px){#anexo-responsive-${id}{height:${
-                    // eslint-disable-next-line prettier/prettier
-                    parseInt(heightDesktop, 10)
-                }px}}`}
-            </style>
-            {comp()}
-        </div>
+        <>
+            <div
+                id={`anexo-responsive-${id}`}
+                className={`com-anexo ${EXTRA_CLASS}`}
+                style={{ overflow: 'hidden', width: '100%' }}
+            >
+                <style>
+                    {`#anexo-responsive-${id}{height:${parseInt(
+                        heightMobile,
+                        10
+                    )}px}@media(min-width:768px){#anexo-responsive-${id}{height:${
+                        // eslint-disable-next-line prettier/prettier
+                        parseInt(heightTablet, 10)
+                    }px}}@media(min-width:1024px){#anexo-responsive-${id}{height:${
+                        // eslint-disable-next-line prettier/prettier
+                        parseInt(heightDesktop, 10)
+                    }px}}`}
+                </style>
+                {comp()}
+            </div>
+            {bannerMob}
+            {bannerDsk}
+        </>
     );
 
     const iframeFinal =
@@ -72,10 +86,11 @@ const AnexoFeature = props => {
         ) : (
             iframeURLContent
         );
+
     return _type === 'Iframe' ? iframeFinal : comp();
 };
 
-const getComponentFromConfig = (_type, _props) => {
+const getComponentFromConfig = (_type, _props, bannerMob, bannerDsk) => {
     const components = {
         Error: ({ id, errorMessage }) => (
             <PageBuilderMessage
@@ -85,12 +100,16 @@ const getComponentFromConfig = (_type, _props) => {
             />
         ),
         Html: ({ customFields: { html = '' }, extraClass }) => (
-            <div
-                className={`com-anexo ${extraClass}`}
-                dangerouslySetInnerHTML={{
-                    __html: html
-                }}
-            />
+            <>
+                <div
+                    className={`com-anexo ${extraClass}`}
+                    dangerouslySetInnerHTML={{
+                        __html: html
+                    }}
+                />
+                {bannerMob && bannerMob}
+                {bannerDsk && bannerDsk}
+            </>
         ),
         Iframe: ({ id, customFields: { url = '' } }) => {
             const anexoId = `anexo-${id}`;

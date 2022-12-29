@@ -9,7 +9,7 @@ import {
     cajaTemasCustomsFields,
     getCommonProps,
     isInApertura
-} from '../../private/LN/common/utils/cajaTemasHelper';
+} from '../../private/LN/common/utils/cajaTemasHelperLN10';
 import {
     validateFeature,
     getIdsArticlesFromOtherCollections,
@@ -43,6 +43,7 @@ const CajaCanal = props => {
         layout: pageLayout
     } = props;
 
+    console.log('🚀 ~ file: default.jsx:34 ~ CajaCanal ~ layout', layout);
     if (hideCaja) return <></>;
 
     const {

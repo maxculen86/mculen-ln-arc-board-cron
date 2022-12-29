@@ -7,7 +7,7 @@ import {
     getCommonProps,
     getChildrenFromAperturaHome,
     getChildrenFromSectionHome
-} from '../../private/LN/common/utils/cajaTemasHelper';
+} from '../../private/LN/common/utils/cajaTemasHelperLN10';
 import { validateChainManual } from '../../private/LN/common/utils/cajaTemasValidators';
 import CajaTema from '../../private/LN/common/cajaTema';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
