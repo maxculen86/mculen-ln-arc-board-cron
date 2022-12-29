@@ -33,7 +33,6 @@ export const resizeArcImage = (
         'additional_properties.focal_point.min',
         undefined
     );
-    // console.log('🚀 ~ file: resizerHelper.js ~ line 84 ~ fp', fp);
 
     const defaultResizeWithSmart = {
         ...defaultResize,
@@ -45,11 +44,6 @@ export const resizeArcImage = (
             ? resizeOptions &&
               resizeOptions.map(e => ({ ...e, isNotSmart: true }))
             : resizeOptions;
-
-    // console.log(
-    //     '🚀 ~ file: buildResizerUrls.js:39 ~ _resizeOptions',
-    //     _resizeOptions
-    // );
 
     const _zoomSizes =
         typeof fp !== 'undefined'

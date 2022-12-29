@@ -163,14 +163,30 @@ const transform = async (
     const sections = get(data, 'taxonomy.sections', []);
     const authors = get(data, 'credits.by', []);
     const layout = 'LN-nota-noticia';
+    const primarySectioValidation = get(
+        data,
+        'taxonomy.primary_section._id',
+        null
+    );
 
     // TODO: Mover logica de signingResponse a un util.
     // Get Auth cuando en el promo Items no viene el auth del tipo imagen
     // Cambiar a un modulo para evitar los eslint-disable
-    if (hasPromoItemImgAuth({ dataPromoItem: data })) {
+    if (
+        subtype === '4' &&
+        primarySectioValidation === '/revista-living' &&
+        hasPromoItemImgAuth({ dataPromoItem: data })
+    ) {
         const id = get(data, 'promo_items.basic._id', null);
+        const storyTellingImgId = get(
+            data,
+            'promo_items.storytelling_mobile._id',
+            null
+        );
         // eslint-disable-next-line no-param-reassign
         data.promo_items.basic.auth = data.promo_items.basic.auth || {};
+        data.promo_items.storytelling_mobile.auth =
+            data.promo_items.storytelling_mobile.auth || {};
 
         const signingResponse = await cachedCall(
             'signingServiceSource Token',
@@ -181,8 +197,21 @@ const transform = async (
                 independent: true
             }
         );
+
+        // TODO: Hacer denamico la busqueda de auth en storyTellingMobile
+        const signingResponseStoryTellingMobile = await cachedCall(
+            'signingServiceSource Token',
+            signingServiceSource.fetch, // The fetch method imported fromthe resizer content source
+            {
+                query: { imageId: storyTellingImgId },
+                ttl: 31536000,
+                independent: true
+            }
+        );
         // eslint-disable-next-line no-param-reassign
         data.promo_items.basic.auth['1'] = signingResponse.hash;
+        data.promo_items.storytelling_mobile.auth['1'] =
+            (storyTellingImgId && signingResponseStoryTellingMobile.hash) || '';
     }
 
     const withFirmaDistributor = firmaDistributorValidation(

@@ -46,10 +46,6 @@ export const setCropMethod = ({
 
             if (hasFocalPoint && hasAnyDimensions && isNotSmart) {
                 const focalFilter = setStrFocal(focalX, focalY);
-                // console.log(
-                //     '🚀 ~ file: resizerHelper.js:52 ~ focalFilter',
-                //     focalFilter
-                // );
                 return focalFilter;
             }
         }

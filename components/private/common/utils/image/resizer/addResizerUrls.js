@@ -3,6 +3,7 @@
 // import * as resizerV1 from './v1/resizerHelper';
 import * as resizerV2 from './v2/resizerFactory';
 import * as resizerV1 from '../resizer';
+import get from '../../get';
 
 export const addResizedUrls = (ansDoc, options) => {
     const {
@@ -63,7 +64,7 @@ export const addResizedUrls = (ansDoc, options) => {
             })
         }),
         ...(promoItems && {
-            promo_items: isAllowSection({ subtype, section })
+            promo_items: isAllowSection({ subtype, section, promoItems })
                 ? resizerV2.resizePromoItems(
                       presetsPromoItems || presetsDefault,
                       zoomSizes,
@@ -88,11 +89,19 @@ export const addResizedUrls = (ansDoc, options) => {
     };
 };
 
-export const isAllowSection = ({ section, subtype }) => {
+export const isAllowSection = ({ section, subtype, promoItems }) => {
     const allowList = [{ section: '/revista-living', subtype: '4' }];
+    const authBasic = get(promoItems, 'basic.auth', {});
+    const authStoryTellingMobile = get(
+        promoItems,
+        'storytelling_mobile.auth',
+        {}
+    );
 
     return allowList.some(
         itemAllow =>
-            section === itemAllow.section && subtype === itemAllow.subtype
+            (authStoryTellingMobile !== {} || authBasic !== {}) &&
+            section === itemAllow.section &&
+            subtype === itemAllow.subtype
     );
 };
