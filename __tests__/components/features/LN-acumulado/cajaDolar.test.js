@@ -5,11 +5,9 @@ jest.mock('fusion:content', () => ({
 jest.mock('../../../../components/private/common/mod-dolar', () => 'ModDolar');
 
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
+import '@testing-library/jest-dom';
 import { useContent } from 'fusion:content';
 import CajaDolar from '../../../../components/features/LN-acumulado/cajaDolar';
-import ModDolar from '../../../../components/private/common/mod-dolar';
 import API_RESPONSE from '../../../../__mocks__/data/apiDolar/apiDolar';
 import { shallow } from 'enzyme';
 
@@ -25,8 +23,8 @@ describe('Features - LN-acumulado - Caja Dolar Feature =>', () => {
             }));
             const wrapper2 = shallow(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
 
-            expect(wrapper1.html()).toBeFalsy();
-            expect(wrapper2.html()).toBeFalsy();
+            expect(wrapper1.html()).toBe('<div class="hidden"></div>');
+            expect(wrapper2.html()).toBe('<div class="hidden"></div>');
         });
     });
 

@@ -1,20 +1,18 @@
-/* eslint-disable no-mixed-operators */
-/* eslint-disable no-bitwise */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
-import TePuedeInteresar from '../../../private/LN/nota/tePuedeInteresar';
 import useTermica from '../../../private/common/hooks/useTermica';
 import config from '../../../../properties/sites/la-nacion-ar';
-import getScrollPercent from '../../../private/LN/common/utils/getScrollPercent';
+import CajaTema from '../../../private/LN/common/cajaTema';
+import useSetLocalStorage from './_hooks/useSetLocalStorage';
+import useBuildMayInterest from './_hooks/useBuildMayInterest';
 
-const tePuedeInteresar = props => {
+const TePuedeInteresar = props => {
     const showLiftigniter = useTermica('liftigniter');
     if (!showLiftigniter) return <></>;
-
     const {
-        customFields: { cantidadNotas = 6 },
+        customFields: { cantidadNotas = 6 } = {},
         outputType,
         siteProperties
     } = props;
@@ -24,122 +22,63 @@ const tePuedeInteresar = props => {
     const { layoutsName = {} } = config;
     const url = `${host}${requestUri}`;
     const { _id } = globalContent;
-    const [userId, setUserId] = useState();
-    const [sessionId, setSessionId] = useState();
-    const [excludeItems, setExcludeItems] = useState([]);
-    const [isReady, setIsReady] = useState(false);
+    const { userId, sessionId, excludeItems } = useSetLocalStorage(url);
 
-    useEffect(() => {
-        if (localStorage) {
-            const { urls, sid, uid } = getVariablesFromLocalStorage();
-            const newUrlsToExclude = saveUrlToExclude(urls, url);
-            setLocalStorage(newUrlsToExclude, sid);
-            setSessionId(sid);
-            if (uid !== 'N/A') setUserId(uid);
-            setExcludeItems(urls);
-        }
-    }, [url]);
-
-    useEffect(() => {
-        const handleScrollForComments = () => {
-            const scrollPercentRounded = getScrollPercent();
-            if (!isReady && scrollPercentRounded > 60) {
-                setIsReady(true);
-                window.removeEventListener('scroll', handleScrollForComments);
-            }
-        };
-        !isReady && window.addEventListener('scroll', handleScrollForComments);
-        return () => {
-            window.removeEventListener('scroll', handleScrollForComments);
-        };
-    }, [isReady]);
-
-    // Se valida que el sessionId existe, porque en el 1er render viene nulo
-    // y llama a la api de liftIgniter 2 veces (la 1ra sin los datos necesarios)
-    // if (!sessionId) return <></>;
+    const { sectionReference, articles, isReady } = useBuildMayInterest({
+        cantidadNotas,
+        userId,
+        sessionId,
+        excludeItems,
+        arcSite,
+        url,
+        idArticle: _id
+    });
 
     return (
-        isReady && (
-            <TePuedeInteresar
-                userId={userId}
-                sessionId={sessionId}
-                cantidadNotas={cantidadNotas}
-                excludeItems={excludeItems}
-                outputType={outputType}
-                url={url}
-                idArticle={_id}
-                arcSite={arcSite}
-                dataLayerSection={
-                    layout === layoutsName.Home
-                        ? 'TePuedeInteresarHome'
-                        : 'TePuedeInteresar'
-                }
-            />
-        )
+        <>
+            {isReady && articles && articles.length > 0 && (
+                <div
+                    className="row interest"
+                    ref={sectionReference}
+                    data-module="tema_tePuedeInteresar"
+                >
+                    <CajaTema
+                        title="Te puede interesar"
+                        sectionName={
+                            layout === layoutsName.Home
+                                ? 'TePuedeInteresarHome'
+                                : 'TePuedeInteresar'
+                        }
+                        articles={articles}
+                        position="toi"
+                        outputType={outputType}
+                        withVolanta
+                    />
+                </div>
+            )}
+        </>
     );
 };
 
-tePuedeInteresar.label = 'LN-Nota-tePuedeInteresar';
+TePuedeInteresar.label = 'LN-Nota-tePuedeInteresar';
 
-tePuedeInteresar.propTypes = {
+TePuedeInteresar.propTypes = {
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({
             defaultValue: 6,
             min: 3,
             label: 'Cantidad de Notas'
         })
-    }),
+    }).isRequired,
     outputType: PropTypes.string,
     siteProperties: PropTypes.shape({
         host: PropTypes.string
     })
 };
 
-tePuedeInteresar.defaultProps = {
+TePuedeInteresar.defaultProps = {
     outputType: 'default',
     siteProperties: {}
 };
 
-export default tePuedeInteresar;
-
-const getVariablesFromLocalStorage = () => {
-    const urls = JSON.parse(localStorage.getItem('excludeItems')) || [];
-    const uid = localStorage.getItem('CDuserId') || 'N/A';
-    const sid = localStorage.getItem('sessionId') || generateSessionId();
-
-    return {
-        urls,
-        sid,
-        uid
-    };
-};
-
-const setLocalStorage = (urls, sessionId) => {
-    try {
-        localStorage.setItem('sessionId', sessionId);
-        localStorage.setItem('excludeItems', JSON.stringify(urls));
-    } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error('Error en setear Local Storage method setLocalStorage');
-    }
-};
-
-const generateSessionId = () => {
-    const cryptoNumber = ([1e7] + -1e3 + -4e3 + -8e3).replace(/[018]/g, c =>
-        (
-            c ^
-            (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
-        ).toString(16)
-    );
-
-    return `${cryptoNumber}-${Date.now()}`;
-};
-
-const saveUrlToExclude = (urls, currentUrl) => {
-    if (urls.includes(currentUrl)) return urls;
-    if (urls && urls.length > 15) {
-        urls.shift();
-    }
-    urls.push(currentUrl);
-    return urls;
-};
+export default TePuedeInteresar;

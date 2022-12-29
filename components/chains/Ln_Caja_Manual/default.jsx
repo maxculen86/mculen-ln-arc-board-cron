@@ -31,12 +31,7 @@ const CajaManual = props => {
         layout: pageLayout
     } = props;
 
-    if (hideCaja)
-        return (
-            <StaticContent id={featureId}>
-                <></>
-            </StaticContent>
-        );
+    if (hideCaja) return <></>;
 
     const {
         notesQuantity,
@@ -141,7 +136,7 @@ const CajaManual = props => {
     return isMultimedia ? (
         Component
     ) : (
-        <StaticContent id={featureId}>{Component}</StaticContent>
+        <StaticContent>{Component}</StaticContent>
     );
 };
 

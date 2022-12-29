@@ -2,27 +2,26 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
-import Static from 'fusion:static';
 import ModDolar from '../../private/common/mod-dolar';
+import StaticContent from '../../private/common/staticContent';
 import filter from '../../../content/filters/LN/services/dolar';
 import getAssetsPath from '../../private/common/utils/getAssetsPath';
 
-const CajaDolar = ({ id: featureId }) => {
+const CajaDolar = () => {
     const { contextPath, deployment, outputType } = useAppContext() || {};
 
     const response =
         useContent({
             source: 'dolarSource',
-            staticMode: true,
-            filter
+            filter,
+            staticMode: true
         }) || {};
 
     const { data, imageUrl } = response;
-
     const oddOrEven = data && (data.length % 2 ? '--odd' : '--even');
+    const extraClass = ['', '--minusThree', '--minusTwo', '--minusOne'];
 
     let fillClass = '';
-    const extraClass = ['', '--minusThree', '--minusTwo', '--minusOne'];
 
     data &&
         (data.length < 4
@@ -30,7 +29,7 @@ const CajaDolar = ({ id: featureId }) => {
             : (fillClass = data && extraClass[data.length % 4]));
 
     return (
-        <Static id={featureId}>
+        <StaticContent>
             {(() => {
                 return data ? (
                     <ModDolar
@@ -50,7 +49,7 @@ const CajaDolar = ({ id: featureId }) => {
                     <></>
                 );
             })()}
-        </Static>
+        </StaticContent>
     );
 };
 

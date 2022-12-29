@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 jest.mock(
-    '../../../../../components/private/common/staticValidation.jsx',
+    '../../../../../components/private/common/staticContent.jsx',
     () => 'mock-static-validation'
 );
 

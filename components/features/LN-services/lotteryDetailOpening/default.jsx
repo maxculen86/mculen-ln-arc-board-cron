@@ -6,10 +6,10 @@ import { useAppContext } from 'fusion:context';
 import Text from '../../../private/common/text';
 import get from '../../../private/common/utils/get';
 import ComLink from '../../../private/common/com-link';
-import StaticValidation from '../../../private/common/staticValidation';
 import LotteryCard from '../../../private/LN/services/lotteries/LotteryCard';
 import DetailsTable from '../../../private/LN/services/lotteries/DetailsTable';
 import TableHorizontalResults from '../../../private/LN/services/lotteries/TableHorizontalResults';
+import StaticContent from '../../../private/common/staticContent';
 
 import '../../../../resources/dist/css/ln/pages/lotteries.css';
 import {
@@ -17,7 +17,7 @@ import {
     reorderSubLotteries
 } from '../../../../content/sources/utils/servicesSource/lottery/_config';
 
-const LotteryDetailOpening = ({ id: featureId }) => {
+const LotteryDetailOpening = () => {
     const lottery = get(
         useAppContext(),
         'globalContent.dataService.lotteryDetail',
@@ -33,7 +33,7 @@ const LotteryDetailOpening = ({ id: featureId }) => {
 
     return (
         lottery.length && (
-            <StaticValidation id={featureId} htmlOnly persistent>
+            <StaticContent>
                 <Text
                     font="sueca"
                     size="xs"
@@ -85,7 +85,7 @@ const LotteryDetailOpening = ({ id: featureId }) => {
                         Data Factory
                     </ComLink>
                 </Text>
-            </StaticValidation>
+            </StaticContent>
         )
     );
 };
