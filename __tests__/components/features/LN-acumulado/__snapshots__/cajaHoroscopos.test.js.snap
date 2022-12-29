@@ -2,11 +2,7 @@
 
 exports[`Features - LN-acumulado - Caja Horoscopos Feature => With a valid response Render feature CajaHoroscopos and child components must be 12 1`] = `
 <div>
-  <mock-static-validation
-    htmlonly="true"
-    id="f0fTek5ovhrk51V"
-    persistent="true"
-  >
+  <mock-static-validation>
     <article
       class="horoscope-box "
     >

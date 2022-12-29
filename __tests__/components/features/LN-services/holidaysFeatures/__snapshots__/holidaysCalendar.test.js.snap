@@ -2,10 +2,8 @@
 
 exports[`Components- Features - HolidaysCalendar - default.jsx - test Should match snapshot showing all the private components 1`] = `
 <div>
-  <mock-static-validation
-    htmlonly="true"
-    id="QWERTYUIOP"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="holidays-nav --home"
@@ -3061,6 +3059,6 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         </ul>
       </div>
     </div>
-  </mock-static-validation>
+  </div>
 </div>
 `;

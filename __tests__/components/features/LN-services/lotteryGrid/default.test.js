@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 import gridLotteries from '../../../../../__mocks__/data/lottery/gridLotteries.json';
 
 jest.mock(
-    '../../../../../components/private/common/staticValidation.jsx',
+    '../../../../../components/private/common/staticContent.jsx',
     () => 'mock-static-validation'
 );
 
