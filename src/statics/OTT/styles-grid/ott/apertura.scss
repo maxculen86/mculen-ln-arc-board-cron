@@ -13,6 +13,48 @@
     padding-top: 30px;
     /* IE6 workaround*/
     height: 0;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    @keyframes spinner {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(1turn);
+        }
+    }
+
+    .button-play {
+        position: absolute;
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+        background-image: url('../img/play.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 3em;
+        cursor: pointer;
+        max-width: 1140px;
+        margin: 0 auto;
+
+        &.loader {
+            width: 25px;
+            height: 25px;
+            border-radius: 100%;
+            left: calc(50% - 12.5px);
+            top: calc(50% - 12.5px);
+            background-image: none;
+            border: 4px solid #ebebeb;
+            border-bottom-color: #1088b5;
+            animation: spinner 1s linear 0s infinite;
+            display: block;
+        }
+    }
 }
 .todos-los-programas,
 .especiales,

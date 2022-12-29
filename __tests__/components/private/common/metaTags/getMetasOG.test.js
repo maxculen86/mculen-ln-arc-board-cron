@@ -2,6 +2,7 @@ import getMetasOG from '../../../../../components/private/common/metaTags/getMet
 import Context from 'fusion:context';
 import getAssetsPath from '../../../../../components/private/common/utils/getAssetsPath';
 import getMetaDescriptionForAcum from '../../../../../components/private/common/utils/getMetaDescriptionForAcum';
+import { RECETA } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 jest.mock('fusion:content', () => ({
     useContent: () => ({
@@ -43,6 +44,8 @@ describe('Common - getMetasOG function', () => {
 
     it('metas de tipo articulo', () => {
         const props = {
+            title: 'Receta de arroz chaufa de mariscos - LA NACION',
+            subtype: RECETA,
             globalContent: {
                 _id: 'EZYG5OEVH5HSJJCUMJO5XAHTTA',
                 canonical_url:
@@ -100,7 +103,7 @@ describe('Common - getMetasOG function', () => {
             },
             {
                 property: 'og:title',
-                content: 'Arroz chaufa de mariscos'
+                content: 'Receta de arroz chaufa de mariscos - LA NACION'
             },
             {
                 property: 'og:description',
@@ -128,6 +131,7 @@ describe('Common - getMetasOG function', () => {
 
     it('metas de tipo website', () => {
         const props = {
+            title: 'Últimas noticias de Argentina y el mundo',
             siteProperties: {
                 title: 'LA NACION',
                 shareConfig: {
@@ -188,6 +192,7 @@ describe('Common - getMetasOG function', () => {
 
     it('metas og de acumulado autor', () => {
         const props = {
+            title: 'Javier Blanco',
             globalContent: {
                 _id: 'EZYG5OEVH5HSJJCUMJO5XAHTTA',
                 canonical_url: '/recetas/autor/javier-blanco-170/',

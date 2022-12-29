@@ -1,0 +1,3 @@
+@ln:registry=https://www.myget.org/F/lanacion-v1/npm/
+//www.myget.org/F/lanacion-v1/npm/:_authToken=%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHHnc1nl13oimRBCnIVxAO4AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHnp87cBZzr1G3f3FwIBEIA/n0WrTGCM7GVVwyHx+oOIYQJReAFePYxCSCNjC9j6dkxOqRUXpDbynPdEy18vIW2odxJ429Jm/rGK7WP4Dl7u}
+always-auth=true

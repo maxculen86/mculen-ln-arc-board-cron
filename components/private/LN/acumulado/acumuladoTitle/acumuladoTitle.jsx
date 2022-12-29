@@ -20,13 +20,13 @@ const setTitle = (
     return '';
 };
 
-const setUrl = globalContent => {
-    if (globalContent.node_type === 'tags')
-        return `${SITE_LANACION}${
-            globalContent.canonical_url ? globalContent.canonical_url : ''
-        }`;
-    if (globalContent.node_type === 'section')
-        return `${SITE_LANACION}${globalContent._id}/`;
+const setUrl = ({
+    _id,
+    canonical_url: canonicalUrl,
+    node_type: nodeType
+} = {}) => {
+    if (nodeType === 'tags') return `${SITE_LANACION}${canonicalUrl || ''}`;
+    if (nodeType === 'section') return `${SITE_LANACION}${_id}/`;
     return SITE_LANACION;
 };
 

@@ -6,9 +6,7 @@ import PropTypes from 'prop-types';
 import AcumuladoTitle from './acumuladoTitle';
 
 function index(props) {
-    const {
-        globalContent: { _id }
-    } = props;
+    const { globalContent: { _id } = {} } = props;
 
     return <AcumuladoTitle sectionId={_id} {...props} />;
 }

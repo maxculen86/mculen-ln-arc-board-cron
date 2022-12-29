@@ -54,7 +54,6 @@ const CatholicHolidaysTables = ({ id: _featureId }) => {
 };
 
 CatholicHolidaysTables.label = 'LN Tablas Feriados Católicos';
-CatholicHolidaysTables.lazy = true;
 CatholicHolidaysTables.propTypes = {
     id: PropTypes.string.isRequired
 };

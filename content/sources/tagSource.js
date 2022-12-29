@@ -42,12 +42,12 @@ const fetch = async (query, { cachedCall }) => {
         .then(resp => {
             if (resp.Payload && resp.Payload.items && resp.Payload.items[0]) {
                 if (resp.Payload.items[0].slug !== slug) {
-                    throw new NotFoundError('Tag no encontrado');
+                    throw new NotFoundError(`Tag no encontrado: ${slug}`);
                 }
             }
 
             if (!resp.Payload.items.length) {
-                throw new NotFoundError('Tag no encontrado');
+                throw new NotFoundError(`Tag no encontrado: ${slug}`);
             }
 
             return transform(resp, query, tagConfigData, cachedCall);

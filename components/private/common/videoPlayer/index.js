@@ -39,7 +39,8 @@ const VideoPlayer = props => {
         outputType
     } = props;
 
-    const isNote = get(globalContent, 'type', '') === 'story';
+    const withFacade =
+        get(globalContent, 'type', '') === 'story' || arcSite === 'ott';
 
     const isVideoType =
         get(globalContent, 'promo_items.basic.type') === 'video' ||
@@ -114,8 +115,13 @@ const VideoPlayer = props => {
     }, [adsURL, isAdmin, tituloVideo, videoId, streamingAnalyticInstance]);
 
     return (
-        <div className={`video-player${getClassCondition(isNote, isApertura)}`}>
-            {isNote && (
+        <div
+            className={`video-player${getClassCondition(
+                withFacade,
+                isApertura
+            )}`}
+        >
+            {withFacade && (
                 <BuildScriptPowaWithFacade
                     firstVideoCuerpoAutoplay={firstVideoCuerpoAutoplay}
                     isApertura={isApertura}
@@ -125,6 +131,7 @@ const VideoPlayer = props => {
                     apiEnv={apiEnv}
                     videoImageData={videoImageData}
                     outputType={outputType}
+                    arcSite={arcSite}
                 />
             )}
 

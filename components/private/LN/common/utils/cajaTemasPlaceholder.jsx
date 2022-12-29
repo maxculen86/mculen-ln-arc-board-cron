@@ -1,18 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const layouts = [
+    { name: 'bomba', value: 'Bomba' },
+    { name: 'focal', value: 'Focal' },
+    { name: 'notaColor', value: 'Color' },
+    { name: 'grilla', value: 'Grilla' },
+    { name: 'author', value: 'Author' },
+    { name: 'opinion', value: 'Opinion' },
+    { name: 'editoriales', value: 'Editoriales' },
+    { name: 'ranking', value: 'Ranking' }
+];
+
 export const getLayoutType = layout => {
-    return (
-        (layout.includes('bomba') && 'Bomba') ||
-        (layout.includes('focal') && 'Focal') ||
-        (layout.includes('notaColor') && 'Color') ||
-        (layout.includes('grilla') && 'Grilla') ||
-        (layout.includes('author') && 'Author') ||
-        (layout.includes('opinion') && 'Opinion') ||
-        (layout.includes('editoriales') && 'Editoriales') ||
-        (layout.includes('ranking') && 'Ranking') ||
-        ''
-    );
+    const { value = '' } =
+        layouts.find(layoutName => layout.includes(layoutName.name)) || {};
+    return value;
 };
 
 export const placeholderArticles = {
@@ -171,7 +174,7 @@ export const placeholderArticles = {
             )),
     Ranking: layout => {
         const quantityNotes = Math.abs(layout.slice(-1));
-        if (!quantityNotes) return [];
+        if (!quantityNotes) return <></>;
         return (
             <ol className="com-ordered row-gap-tablet-4">
                 {new Array(quantityNotes).fill().map(e => (
@@ -248,7 +251,7 @@ export const placeholderLayouts = {
     },
     Grilla: (articles, layout) => {
         const quantityNotes = Math.abs(layout.slice(-1));
-        if (!quantityNotes) return [];
+        if (!quantityNotes) return <></>;
         const sectionClass = {
             '1': '--cinema'
         };

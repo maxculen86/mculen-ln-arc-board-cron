@@ -173,7 +173,7 @@ function WithAcuArticlesData(
                     customFields: { filter: filterFeature }
                 } = this.props;
 
-                const { type, _id } = globalContent;
+                const { type, _id } = globalContent || {};
 
                 if (type === 'story') {
                     const {
