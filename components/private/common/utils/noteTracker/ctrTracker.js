@@ -1,3 +1,7 @@
+const position = '101101';
+const eventClick = 'productClickNota';
+const ctrBrand = 'stickyMobile_diag1';
+
 export const checkUserRealoadAction = activeWindow => {
     const pageAccessByReload = activeWindow.performance
         .getEntriesByType('navigation')
@@ -14,8 +18,8 @@ export const crtViewTracker = (tracked, trackSetter) => {
         trackSetter(false);
         dataLayer.push({
             event: 'impressionNota',
-            ctr_brand: 'stickyMobile_diag1',
-            ctr_position: '101101'
+            ctr_brand: ctrBrand,
+            ctr_position: position
         });
     }
 };
@@ -29,16 +33,16 @@ export const handleClickForCTRcomponent = action => {
 const userActions = {
     close: dataLayer => {
         return dataLayer.push({
-            event: 'productClickNota',
+            event: eventClick,
             ctr_brand: 'stickyMobile_close',
-            ctr_position: '101101'
+            ctr_position: position
         });
     },
     open: dataLayer => {
         return dataLayer.push({
-            event: 'productClickNota',
-            ctr_brand: 'stickyMobile_diag1',
-            ctr_position: '101101'
+            event: eventClick,
+            ctr_brand: ctrBrand,
+            ctr_position: position
         });
     }
 };
