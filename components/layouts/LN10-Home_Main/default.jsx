@@ -21,11 +21,13 @@ import createBannersIntersectionObserver from '../../private/common/banners/crea
 import StaticContent from '../../private/common/staticContent';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
+import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 
 const LN10Home = props => {
     const { children, outputType, isAdmin, renderables } = props;
 
     const [
+        cabezal,
         preApertura,
         apertura,
         breaking1,
@@ -60,8 +62,7 @@ const LN10Home = props => {
             {bannersHome.comercialMob}
             {getScriptForComercial('comercial_mob')}
             <div id="wrapper" className="home">
-                <Header />
-                <SubHeader />
+                <div data-section="cabezal">{cabezal}</div>
                 <main id="content">
                     {bannersHome.sticky2Mob}
                     <div>
