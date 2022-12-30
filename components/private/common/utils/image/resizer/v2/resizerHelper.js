@@ -7,6 +7,7 @@ import {
 } from '../../../subtypes/subtypeHelper';
 import { getAspectRatio } from '../../../../../../../content/sources/utils/getRatio';
 import get from '../../../get';
+import { isValidNumber } from '../../../../../../../content/sources/utils/servicesSource/weather/weatherHelper';
 
 const MEDIAMINWIDTH = '(min-width: 768px)';
 
@@ -27,7 +28,6 @@ export const getDefaultSize = subtype => {
     return { defaultResize, shouldExcludeCrop };
 };
 
-// TODO: Hacer version sin thumbor
 export const setCropMethod = ({
     originalWidth,
     originalHeight,
@@ -52,8 +52,6 @@ export const setCropMethod = ({
     }
     return null;
 };
-
-// TODO: Hacer version sin thumbor
 
 export const setStrFocal = (x = 5, y = 5) =>
     `${x - 5},${y + 5}:${x + 5},${y - 5}`;
@@ -112,11 +110,11 @@ export const buildQueryParams = ({
     };
 
     const width = () => {
-        return typeof newWidth === 'number' ? `&width=${newWidth}` : '';
+        return isValidNumber(newWidth) ? `&width=${newWidth}` : '';
     };
 
     const height = () => {
-        return typeof newHeight === 'number' ? `&height=${newHeight}` : '';
+        return isValidNumber(newHeight) ? `&height=${newHeight}` : '';
     };
 
     const quality = () => {
@@ -125,19 +123,27 @@ export const buildQueryParams = ({
             : '';
     };
 
-    // TODO: Revisar crop
-    const setCrop = () => {
-        return crop !== null ? `&crop=${crop}` : '';
+    // TODO: Revisar crop (no deberia suceder junto con focalPoint ni junto con smartCrop)
+    // const setCrop = () => {
+    //     return crop !== null ? `&crop=${crop}` : '';
+    // };
+
+    const setFocal = () => {
+        return focalPoint.length > 1 &&
+            isValidNumber(newHeight) &&
+            isValidNumber(newWidth)
+            ? `&focal=${focalPoint}`
+            : '';
     };
 
     const smart = () => {
-        return focalPoint && focalPoint.length > 0
+        return focalPoint && focalPoint.length > 1
             ? `&smart=${false}`
             : `&smart=${smartCropExcluded}`;
     };
 
     return arcImage
-        ? `${imgId}.${ext}?${auth()}${width()}${height()}${quality()}${smart()}`
+        ? `${imgId}.${ext}?${auth()}${width()}${height()}${quality()}${smart()}${setFocal()}`
         : '';
 };
 

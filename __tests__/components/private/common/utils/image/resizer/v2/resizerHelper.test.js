@@ -30,8 +30,6 @@ describe('Common - Resizer', () => {
                 newWidth: 1200,
                 newHeight: 1200,
                 filterQuality: 88,
-                smartCropExcluded: true,
-                focalPoint: [1, 2],
                 arcImage
             });
             expect(queryParams).toEqual(
@@ -70,6 +68,44 @@ describe('Common - Resizer', () => {
                 resizerHelper.buildQueryParams({ newHeight: 1200, arcImage })
             ).toEqual(
                 'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&height=1200&quality=80&smart=false'
+            );
+        });
+
+        test('should return string with height params but without focal if both height and width are not provided', () => {
+            expect(
+                resizerHelper.buildQueryParams({
+                    arcImage,
+                    newHeight: 1200,
+                    focalPoint: [10, 15]
+                })
+            ).toEqual(
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&height=1200&quality=80&smart=false'
+            );
+        });
+        test('should return string with height, width and focal params (only focal set when height and width are provided)', () => {
+            expect(
+                resizerHelper.buildQueryParams({
+                    arcImage,
+                    newHeight: 1200,
+                    newWidth: 800,
+                    smartCropExcluded: true,
+                    focalPoint: [10, 15]
+                })
+            ).toEqual(
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=800&height=1200&quality=80&smart=false&focal=10,15'
+            );
+        });
+        test('should return string with smartCrop true when focalPoint its not provided or invalid', () => {
+            expect(
+                resizerHelper.buildQueryParams({
+                    arcImage,
+                    newHeight: 1200,
+                    newWidth: 800,
+                    smartCropExcluded: true,
+                    focalPoint: []
+                })
+            ).toEqual(
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=800&height=1200&quality=80&smart=true'
             );
         });
     });

@@ -381,7 +381,7 @@ Object {
             "useFullSize": true,
             "width": 1920,
           },
-          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1920&height=1280&quality=80&smart=false",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1920&height=1280&quality=80&smart=false&focal=562,1035",
         },
         Object {
           "option": Object {
@@ -392,7 +392,7 @@ Object {
             "useFullSize": true,
             "width": 1200,
           },
-          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1200&height=800&quality=80&smart=false",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1200&height=800&quality=80&smart=false&focal=562,1035",
         },
         Object {
           "option": Object {
@@ -403,7 +403,7 @@ Object {
             "useFullSize": true,
             "width": 1023,
           },
-          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1023&height=682&quality=80&smart=false",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1023&height=682&quality=80&smart=false&focal=562,1035",
         },
         Object {
           "option": Object {
@@ -414,7 +414,7 @@ Object {
             "useFullSize": true,
             "width": 1276,
           },
-          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1276&height=1914&quality=80&smart=false",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1276&height=1914&quality=80&smart=false&focal=562,1035",
         },
         Object {
           "option": Object {
@@ -425,7 +425,7 @@ Object {
             "useFullSize": true,
             "width": 768,
           },
-          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=768&height=1152&quality=80&smart=false",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=768&height=1152&quality=80&smart=false&focal=562,1035",
         },
         Object {
           "option": Object {
@@ -436,7 +436,7 @@ Object {
             "useFullSize": true,
             "width": 360,
           },
-          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=360&height=540&quality=80&smart=false",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=360&height=540&quality=80&smart=false&focal=562,1035",
         },
       ],
       "resized_urls_zoom": Array [
@@ -447,7 +447,7 @@ Object {
             "media": "(min-width: 1280px)",
             "width": 1920,
           },
-          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1920&height=0&quality=80&smart=false",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1920&height=0&quality=80&smart=false&focal=562,1035",
         },
         Object {
           "option": Object {
@@ -456,7 +456,7 @@ Object {
             "media": "(min-width: 1024px)",
             "width": 1200,
           },
-          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1200&height=0&quality=80&smart=false",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1200&height=0&quality=80&smart=false&focal=562,1035",
         },
         Object {
           "option": Object {
@@ -465,7 +465,7 @@ Object {
             "media": "(min-width: 768px)",
             "width": 1023,
           },
-          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1023&height=0&quality=80&smart=false",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1023&height=0&quality=80&smart=false&focal=562,1035",
         },
         Object {
           "option": Object {
@@ -474,7 +474,7 @@ Object {
             "media": "(min-width: 360px)",
             "width": 768,
           },
-          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=768&height=0&quality=80&smart=false",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=768&height=0&quality=80&smart=false&focal=562,1035",
         },
         Object {
           "option": Object {
@@ -483,7 +483,7 @@ Object {
             "media": "(min-width: 320px)",
             "width": 360,
           },
-          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=360&height=0&quality=80&smart=false",
+          "resizedUrl": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=360&height=0&quality=80&smart=false&focal=562,1035",
         },
       ],
       "source": Object {
@@ -498,7 +498,7 @@ Object {
         "associated_tasks": Array [],
       },
       "type": "image",
-      "url": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1920&height=0&quality=80&smart=false",
+      "url": "https://resizer.glanacion.com/resizer/v2/HBYX74RWXVC6HLL5OCZVTCR55U.JPG?auth=ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb&width=1920&height=0&quality=80&smart=false&focal=562,1035",
       "version": "0.10.3",
       "width": 768,
     },
