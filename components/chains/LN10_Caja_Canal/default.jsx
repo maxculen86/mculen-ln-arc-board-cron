@@ -9,7 +9,7 @@ import {
     cajaTemasCustomsFields,
     getCommonProps,
     isInApertura
-} from '../../private/LN/common/utils/cajaTemasHelper';
+} from '../../private/LN/common/utils/cajaTemasHelperLN10';
 import {
     validateFeature,
     getIdsArticlesFromOtherCollections,
