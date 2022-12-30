@@ -5,12 +5,13 @@ import PropTypes from 'fusion:prop-types';
 import {
     cajaTemasCustomsFields,
     getCommonProps
-} from '../../private/LN/common/utils/cajaTemasHelper';
+} from '../../private/LN/common/utils/cajaTemasHelperLN10';
 import CajaTema from '../../private/LN/common/cajaTema';
 import { productClickFromClient } from '../../private/common/utils/viewability';
 import StaticContent from '../../private/common/staticContent';
 import getDataChainManual from '../utils/getDataChainManual';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
+import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
 
 const CajaManual = props => {
     const {
@@ -65,28 +66,37 @@ const CajaManual = props => {
 
     if (error) return <></>;
 
+    const { bannerMob = undefined, bannerDsk = undefined } = getDynamicBanners({
+        renderables,
+        featureId
+    });
+
     const Component = (
-        <CajaTema
-            title={title}
-            hideTitle={hideTitle}
-            url={url}
-            imageId={imageId}
-            outputType={outputType}
-            layout={layout}
-            classCondition={`${classCondition}${(isInApertura &&
-                layout.includes('focal') &&
-                ' --apertura') ||
-                ''}`}
-            notesQuantity={notesQuantity}
-            position={position}
-            positionInsideSection={positionInsideSection}
-            sectionName={sectionName}
-            _children={filteredChildren}
-            handleClick={productClickFromClient}
-            features={features}
-            pageLayout={pageLayout}
-            isMultimedia={isMultimedia}
-        />
+        <>
+            <CajaTema
+                title={title}
+                hideTitle={hideTitle}
+                url={url}
+                imageId={imageId}
+                outputType={outputType}
+                layout={layout}
+                classCondition={`${classCondition}${(isInApertura &&
+                    layout.includes('focal') &&
+                    ' --apertura') ||
+                    ''}`}
+                notesQuantity={notesQuantity}
+                position={position}
+                positionInsideSection={positionInsideSection}
+                sectionName={sectionName}
+                _children={filteredChildren}
+                handleClick={productClickFromClient}
+                features={features}
+                pageLayout={pageLayout}
+                isMultimedia={isMultimedia}
+            />
+            {bannerMob}
+            {bannerDsk}
+        </>
     );
     return isMultimedia ? (
         Component

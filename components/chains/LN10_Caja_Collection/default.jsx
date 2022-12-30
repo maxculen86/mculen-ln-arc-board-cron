@@ -9,12 +9,12 @@ import {
     getArticlesOfChain,
     getCommonProps,
     isInApertura
-} from '../../private/LN/common/utils/cajaTemasHelper';
+} from '../../private/LN/common/utils/cajaTemasHelperLN10';
+import { validateFeature } from '../../private/LN/common/utils/cajaTemasValidators';
 import { getPlaceholder } from '../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../private/common/utils/viewability';
 import StaticContent from '../../private/common/staticContent';
 import getDataChainCollection from '../utils/getDataChainCollection';
-import { validateFeature } from '../../private/LN/common/utils/cajaTemasValidators';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
 

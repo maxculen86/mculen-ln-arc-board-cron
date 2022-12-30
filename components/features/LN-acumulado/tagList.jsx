@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { useContent as getContent } from 'fusion:content';
@@ -15,8 +16,9 @@ import ComTitle from '../../private/common/com-title';
 import sectionsFormated from '../../private/common/utils/sectionsFormated';
 import { getArticlesIdsFromApertura } from '../../private/LN/common/utils/cajaTemasHelper';
 import StaticContent from '../../private/common/staticContent';
+import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
 
-const TagsListFeature = ({ id, title, isHome = false }) => {
+const TagsListFeature = ({ id, title, layout = '' }) => {
     const {
         globalContent: { _id: sectionId, node_type: nodeType, type } = {},
         renderables = [],
@@ -30,6 +32,7 @@ const TagsListFeature = ({ id, title, isHome = false }) => {
 
     const sectionName = getSectionName({ nodeType, type, arcSite });
     const sectionIsHome = sectionName === 'home';
+    const hasHydrateOnly = checkHydrateOnly({ nodeType, layout });
 
     const { sourceName, query } = getSectionProps({
         sectionName,
@@ -69,7 +72,7 @@ const TagsListFeature = ({ id, title, isHome = false }) => {
         </>
     )) || <></>;
 
-    return isHome ? (
+    return hasHydrateOnly ? (
         <StaticContent>{Component}</StaticContent>
     ) : (
         <Static id={id} htmlOnly persistent>
@@ -83,12 +86,11 @@ TagsListFeature.label = 'LN-Acumulado-Tag-List';
 TagsListFeature.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string,
-    isHome: PropTypes.boolean
+    layout: PropTypes.string
 };
 
 TagsListFeature.defaultProps = {
-    title: '',
-    isHome: false
+    title: ''
 };
 
 export default TagsListFeature;

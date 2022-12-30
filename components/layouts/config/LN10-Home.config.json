@@ -3,16 +3,25 @@
         "position": 0
     },
     "Apertura": {
-        "position": 1
+        "position": 1,
+        "bannersMob": ["caja1Mob"],
+        "intervalMob": 1
     },
     "Breaking_1": {
         "position": 2,
         "max": 8,
-        "min": 5
+        "min": 4,
+        "bannersMob": ["caja3Mob", "caja4Mob", "caja5Mob"],
+        "bannersDsk": ["billboard"],
+        "intervalMob": 2,
+        "intervalDsk": 3
     },
     "Breaking_2": {
         "position": 3,
-        "max": 6
+        "max": 6,
+        "min": 5,
+        "bannersMob": ["caja6Mob", "caja7Mob"],
+        "intervalMob": 2
     },
     "Hashtag": {
         "position": 4,

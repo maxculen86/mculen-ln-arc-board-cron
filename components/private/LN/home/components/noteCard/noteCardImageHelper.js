@@ -12,10 +12,12 @@ const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig, isBomba) => {
         };
     const { layoutsName = {} } = siteConfig || {};
 
+    const chains = ['Ln_Caja_Manual', 'LN10_Caja_Manual', 'LN10_Caja_Apertura'];
+
     const parent = renderables.find(
         elem =>
             get(elem, 'collection') === 'chains' &&
-            get(elem, 'type', '') === 'Ln_Caja_Manual' &&
+            chains.includes(get(elem, 'type', '')) &&
             get(elem, 'children') &&
             elem.children.some(child => get(child, 'props.id') === featureId)
     );

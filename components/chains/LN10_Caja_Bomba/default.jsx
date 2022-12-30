@@ -5,7 +5,7 @@ import PropTypes from 'fusion:prop-types';
 import {
     cajaTemasCustomsFields,
     getCommonProps
-} from '../../private/LN/common/utils/cajaTemasHelper';
+} from '../../private/LN/common/utils/cajaTemasHelperLN10';
 import CajaTema from '../../private/LN/common/cajaTema';
 import { productClickFromClient } from '../../private/common/utils/viewability';
 import StaticContent from '../../private/common/staticContent';

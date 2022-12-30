@@ -2,7 +2,8 @@
 
 exports[`Componentes - features - LN-Acumulado - CryptoCarrouse Should render live coin watch script 1`] = `
 <div>
-  <mock-static
+  <div
+    class="hidden"
     id="randomId"
   >
     <div
@@ -47,6 +48,6 @@ exports[`Componentes - features - LN-Acumulado - CryptoCarrouse Should render li
         </a>
       </span>
     </div>
-  </mock-static>
+  </div>
 </div>
 `;
