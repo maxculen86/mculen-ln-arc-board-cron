@@ -60,6 +60,10 @@ const NoteCard = ({
         setIsRenderAutor(getIsRenderAutor(customFields, layout));
     }, [articleProps, content, customFields, promoItems, withMedia, layout]);
 
+    const layoutGrillaVideo = layout === 'grillaVideo1' && '--l';
+    const titleSizeNoMedia =
+        !withMedia && get(articleProps, 'titleSizeNoMedia');
+
     return (
         (article && (
             <ModArticle
@@ -67,8 +71,8 @@ const NoteCard = ({
                 withMedia={withMedia}
                 link={get(article, 'website_url')}
                 titleSize={
-                    (layout === 'grillaVideo1' && '--l') ||
-                    (!withMedia && get(articleProps, 'titleSizeNoMedia')) ||
+                    layoutGrillaVideo ||
+                    titleSizeNoMedia ||
                     get(articleProps, 'titleSize')
                 }
                 titleText={get(article, 'headlines.basic')}

@@ -431,6 +431,8 @@ export const addResizedUrls = (ansDoc, options) => {
 
     const { defaultResize } = getDefaultSize(subtype);
 
+    const presetContentOrDefault = presetsContentElements || presetsDefault;
+
     return {
         ...ansDoc,
         ...(contentElements && {
@@ -440,7 +442,7 @@ export const addResizedUrls = (ansDoc, options) => {
                     (type === 'image' &&
                         resizeArcImage(
                             elem,
-                            presetsContentElements || presetsDefault,
+                            presetContentOrDefault,
                             resizer,
                             zoomSizes,
                             true,
@@ -452,7 +454,7 @@ export const addResizedUrls = (ansDoc, options) => {
                             basic: {
                                 ...resizeArcImage(
                                     elem.promo_items.basic,
-                                    presetsContentElements || presetsDefault,
+                                    presetContentOrDefault,
                                     resizer,
                                     zoomSizes,
                                     true,
@@ -464,7 +466,7 @@ export const addResizedUrls = (ansDoc, options) => {
                     (type === 'gallery' &&
                         resizeArcGallery(
                             elem,
-                            presetsContentElements || presetsDefault,
+                            presetContentOrDefault,
                             resizer,
                             zoomSizes,
                             true
