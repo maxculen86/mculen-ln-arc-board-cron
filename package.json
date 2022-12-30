@@ -29,7 +29,12 @@
         "postinstall": "npm run ln:copycss"
     },
     "dependencies": {
-        "@ln/common-ui-button": "^0.1.0",
+        "@ln/common-ui-button": "^1.0.0",
+        "@ln/common-ui-link": "0.0.3-beta.4",
+        "@ln/contenidos-ui-advance": "^0.1.1-beta.4",
+        "@ln/contenidos-ui-badge": "0.0.2-beta.0",
+        "@ln/contenidos-ui-sass": "0.0.1-beta.1",
+        "copyfiles": "^2.4.1",
         "lazy-child": "0.3.1",
         "node-html-parser": "1.2.14",
         "prop-types": "15.7.2",
@@ -37,8 +42,7 @@
         "react": "17.0.2",
         "react-dom": "17.0.2",
         "request-promise-native": "1.0.8",
-        "thumbor": "0.1.5",
-        "copyfiles": "^2.4.1"
+        "thumbor": "0.1.5"
     },
     "devDependencies": {
         "@arc-fusion/cli": "2.0.7",
