@@ -9,11 +9,6 @@ import getTypesbyContainer from '../utils/getTypesbyContainer';
 import getSectionAliasbyFeature from '../utils/getSectionAliasbyFeature';
 import getToMovePosition from '../utils/getToMovePosition';
 
-const boxMovePosition = {
-    Anexo_1: { sectionWeb: 'Apertura_1', position: 'start' },
-    Anexo_2: { sectionWeb: 'Apertura_1', position: 'bottom' }
-};
-
 const sectionbyDiagramation = ['grillaUltimasNoticias'];
 const setTypeElement = information => {
     if (information && (information.nameChain || information.nameFeature)) {
@@ -178,8 +173,6 @@ const addProperties = (sectionChildren, elements) => {
 
 const moveSections = (sections, sectionWeb, layoutPage) => {
     const sectionToMove = get(getToMovePosition(layoutPage), sectionWeb, null);
-    console.log('sectionToMove');
-    console.log(sectionToMove);
     if (sectionToMove) {
         const indexSectionTo = sections.findIndex(
             x => x.sectionWeb === sectionToMove.sectionWeb
@@ -215,10 +208,10 @@ const getPageElements = props => {
     const configurations = {
         arcSite
     };
-    //return children;
+
     const pageMergeSections = getSections(layoutPage);
     const rules = get(pageMergeSections, 'rules', []);
-    //return { pageMergeSections };
+
     return (
         pageMergeSections &&
         pageMergeSections.sections &&
@@ -227,10 +220,7 @@ const getPageElements = props => {
 
             // Check Section
             const sectionChildren = findSectionChildren(renderables, i);
-            /*             const ggg = {
-                res: checkIfValid(nameSectionWeb, sectionChildren, rules),
-                nameSectionWeb
-            }; */
+
             const checkElement = checkIfValid(
                 sectionWeb,
                 sectionChildren,
@@ -255,19 +245,7 @@ const getPageElements = props => {
             //  Returns a new array elements with banners according to the position of the banners of the established configuration
             const child = setBannersInPosition(elements, banner);
 
-            /*             const el = child;
-            if (i > -1 && el != null) {
-                r.push(el);
-            } */
-
             if (child && Array.isArray(child) && child.length > 0) {
-                if (sectionWeb === 'Anexo_1') {
-                    //console.log(children[i][0]?.articles);
-                    //console.log(elements[0]?.information);
-                    //console.log(elements[0]?.articles);
-                    //console.log(child[0]?.information);
-                    //console.log(child[0]?.articles);
-                }
                 return moveSections(
                     r.concat(
                         [].concat(
