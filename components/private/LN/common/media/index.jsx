@@ -79,6 +79,13 @@ const media = ({
         return !insideBody ? '--horizontal' : '';
     };
 
+    const validateHandleClick =
+        itsGallery || zoom
+            ? handleClick
+            : () => {
+                  // This is intentional
+              };
+
     if (mediaData) {
         // TODO: Sacar switch
         switch (type) {
@@ -89,9 +96,7 @@ const media = ({
                         withZoom={withZoom}
                         width={width}
                         itsGallery={itsGallery}
-                        handleClick={
-                            itsGallery || zoom ? handleClick : () => {}
-                        }
+                        handleClick={validateHandleClick} // NOSONAR
                         outputType={outputType}
                     >
                         <Image
@@ -188,7 +193,7 @@ media.propTypes = {
     scriptForZoom: PropTypes.node,
     autoplay: PropTypes.bool,
     isPowa: PropTypes.bool,
-    insideBody: PropTypes.bool,
+    insideBody: PropTypes.bool.isRequired,
     withMobileImage: PropTypes.bool,
     searchableField: PropTypes.shape({
         imageId: PropTypes.string
@@ -211,7 +216,9 @@ media.defaultProps = {
     active: undefined,
     children: undefined,
     isPowa: true,
-    handleClick: () => {},
+    handleClick: () => {
+        // This is intentional
+    },
     withMobileImage: false,
     searchableField: undefined
 };
