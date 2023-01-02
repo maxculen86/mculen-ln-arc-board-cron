@@ -31,9 +31,10 @@
     "dependencies": {
         "@ln/assets-ui-icons": "0.0.2-beta.18",
         "@ln/common-ui-button": "^0.1.0",
-        "@ln/contenidos-ui-sass": "0.0.1-beta.0",
+        "@ln/contenidos-ui-sass": "0.0.1-beta.1",
         "@ln/contenidos-ui-header": "0.0.1-beta.2",
-        "@ln/common-ui-icon": "0.0.2",
+        "@ln/contenidos-ui-preheader": "0.0.1-beta.0",
+        "@ln/common-ui-icon": "0.1.0",
         "copyfiles": "^2.4.1",
         "lazy-child": "0.3.1",
         "node-html-parser": "1.2.14",

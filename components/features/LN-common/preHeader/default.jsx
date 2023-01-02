@@ -1,12 +1,12 @@
 import React from 'react';
 import { useContent } from 'fusion:content';
-import { Header, PreHeader } from '@ln/contenidos-ui-header/index';
-import ComWeather from '../../../private/common/com-weather';
+import { PreHeader } from '@ln/contenidos-ui-preheader';
 import filterSubHeader from '../../../../content/filters/LN/home/subHeaderFilter';
 import useTermica from '../../../private/common/hooks/useTermica';
 import StaticContent from '../../../private/common/staticContent';
-import '../../../../resources/dist/css/ln/modules/mod-subheader.css';
-import '../../../../resources/packages/css/@ln/contenidos-ui-header/index.css';
+
+import '../../../../resources/packages/css/@ln/contenidos-ui-preheader/index.css';
+import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
 
 const PreHeaderFeature = () => {
     const weather =
@@ -38,46 +38,73 @@ const PreHeaderFeature = () => {
     };
 
     const { temperature, iconName } = getWeatherInfo(weatherValue);
+    const mock = {
+        weather: {
+            place: 'Capital federal',
+            temperature: '14.4º',
+            dataEvent: 'LinkClick',
+            dataSection: 'MenuLN',
+            link: '/clima',
+            callback: e => {
+                e.preventDefault();
+                console.log('click');
+            }
+        },
+        topics: [
+            {
+                title: 'esto es un titulo 1',
+                link: '/',
+                dataEvent: 'LinkClick',
+                dataSection: 'MenuLN',
+                callback: () => {
+                    console.log('click');
+                }
+            },
+            {
+                title: 'esto es un titulo 2',
+                link: '/',
+                dataEvent: 'LinkClick',
+                dataSection: 'MenuLN',
+                callback: () => {
+                    console.log('click');
+                }
+            },
+            {
+                title: 'esto es un titulo 3',
+                link: '/',
+                dataEvent: 'LinkClick',
+                dataSection: 'MenuLN',
+                callback: () => {
+                    console.log('click');
+                }
+            },
+            {
+                title: 'esto es un titulo 4',
+                link: '/',
+                dataEvent: 'LinkClick',
+                dataSection: 'MenuLN',
+                callback: () => {
+                    console.log('click');
+                }
+            },
+            {
+                title: 'esto es un titulo 5',
+                link: '/',
+                dataEvent: 'LinkClick',
+                dataSection: 'MenuLN',
+                callback: () => {
+                    console.log('click');
+                }
+            }
+        ]
+    };
 
     return (
-        <StaticContent tag="section" className="mod-subheader">
-            <Header userType="mariana">
-                <PreHeader
-                    tags={[
-                        {
-                            title: 'esto es un titulo 1',
-                            link: '/',
-                            dataEvent: 'LinkClick',
-                            dataSection: 'MenuLN',
-                            callback: () => {
-                                console.log('click');
-                            }
-                        },
-                        {
-                            title: 'esto es un titulo 2',
-                            link: '/',
-                            dataEvent: 'LinkClick',
-                            dataSection: 'MenuLN',
-                            callback: () => {
-                                console.log('click');
-                            }
-                        }
-                    ]}
-                >
-                    <PreHeader.Weather
-                        weatherData={{
-                            place: 'Capital federal',
-                            temperature: '14.4º',
-                            dataEvent: 'LinkClick',
-                            dataSection: 'MenuLN',
-                            link: '/clima',
-                            callback: () => {
-                                console.log('click');
-                            }
-                        }}
-                    />
-                </PreHeader>
-            </Header>
+        <StaticContent tag="section">
+            <PreHeader>
+                <PreHeader.Weather weatherData={mock.weather} />
+                <PreHeader.Topics tags={mock.topics} />
+            </PreHeader>
         </StaticContent>
     );
 };
