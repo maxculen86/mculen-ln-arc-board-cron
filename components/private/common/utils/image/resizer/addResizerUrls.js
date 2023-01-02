@@ -59,6 +59,21 @@ export const addResizedUrls = (ansDoc, options) => {
                             zoomSizes,
                             true
                         )) ||
+                    (type === 'video' && {
+                        ...elem,
+                        promo_items: {
+                            basic: {
+                                ...resizerV1.resizeArcImage(
+                                    elem.promo_items.basic,
+                                    presetsContentElements || presetsDefault,
+                                    resizer,
+                                    zoomSizes,
+                                    true,
+                                    defaultResize
+                                )
+                            }
+                        }
+                    }) ||
                     elem
                 );
             })

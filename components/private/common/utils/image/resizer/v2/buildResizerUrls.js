@@ -1,11 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-import {
-    SITE_LANACION,
-    API_ENV,
-    RESIZER_URL_PUBLIC,
-    CONTENT_BASE
-} from 'fusion:environment';
-// import { updateHeight, setHeight, baseUrl } from './resizerHelper';
 import * as resizerHelper from './resizerHelper';
 import get from '../../../get';
 
