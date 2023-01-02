@@ -1,6 +1,7 @@
 [
     {
         "sectionId": "economia/campo",
+        "aliasTitle": "Campo",
         "isPage": true,
         "isCustom": false,
         "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
@@ -62,6 +63,7 @@
     },
     {
         "sectionId": "ultimas-noticias",
+        "aliasTitle": "Últimas noticias",
         "isPage": true,
         "isCustom": true,
         "featureAcumuladosInPage": "LN-acumulado/ultimasNoticias"

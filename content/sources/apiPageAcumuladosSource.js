@@ -6,7 +6,6 @@ import sectionsInPages from './utils/servicesSource/pages/config/sectionsInPages
 import transform from './utils/servicesSource/pages/transform';
 import home from '../../components/private/LN/api/v1/global/home';
 
-
 const getParamsSectionSource = data => {
     const title =
         get(data, 'acumuladoGeneral.hierarchy_navigation', null) ??
@@ -49,7 +48,8 @@ const fetch = async (query, { cachedCall }) => {
 
         let regexParams = new RegExp(/size:(\d+)/);
         let matches = regexParams.exec(get(query, 'params', ''));
-        let title = sectionId?.replace('/', '');
+        let title = sectionsinPage?.aliasTitle;
+        title = title == null ? sectionId?.replace('/', '') : title;
 
         const size = matches.length > 1 ? matches[1] : 30;
         regexParams = new RegExp(/page:(\d+)/);
@@ -78,7 +78,11 @@ const fetch = async (query, { cachedCall }) => {
             resultSectionSource
         );
 
-        title = get(paramsSectionsSource, 'title', null) ?? title;
+        title =
+            get(paramsSectionsSource, 'title', null) == null
+                ? title
+                : get(paramsSectionsSource, 'title', null);
+
         restriction = get(paramsSectionsSource, 'restriction', true);
         configuration = get(paramsSectionsSource, 'configuration', null);
 
