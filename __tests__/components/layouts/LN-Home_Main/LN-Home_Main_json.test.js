@@ -1,7 +1,8 @@
 7;
 
 import * as fusionConsumer from 'fusion:consumer';
-import * as LayoutLNMainHome from '../../../../components/layouts/LN-Home_Main/json';
+//import * as LayoutLNMainHome from '../../../../components/layouts/LN-Home_Main/json';
+import * as LayoutLNMainHome from '../../../../components/private/LN/api/global/page';
 import home from '../../../../components/private/LN/api/v1/global/home';
 import pageBuilderSections from '../../../../components/layouts/config/LN-PageBuilder.config.json';
 import propsAppAnexos from '../../../../__mocks__/data/renderables/dataAppAnexos';

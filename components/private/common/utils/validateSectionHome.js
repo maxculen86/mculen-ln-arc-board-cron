@@ -10,7 +10,10 @@ export const findSectionChildren = (renderables, position) => {
 };
 
 export const checkIfValid = (name, children, paramSectionValidation) => {
-    const sectionToValidate = paramSectionValidation ?? sectionsValidation;
+    const sectionToValidate =
+        paramSectionValidation == null
+            ? sectionsValidation
+            : paramSectionValidation;
     const childrenWithoutHide = children.filter(
         child =>
             get(child, 'props.customFields.hideCaja', false) !== true &&
@@ -33,13 +36,15 @@ export const checkIfValid = (name, children, paramSectionValidation) => {
     }
     // Validacion por tipo de componente
     if (
+        sectionRule &&
+        sectionRule.types &&
         !childrenWithoutHide.every(component =>
-            sectionRule.types?.includes(component.type)
+            sectionRule.types.includes(component.type)
         )
     ) {
         return {
             isValid: false,
-            msg: `solo permite componentes del tipo ${sectionRule.types?.join(
+            msg: `solo permite componentes del tipo ${sectionRule.types.join(
                 ','
             )}`
         };

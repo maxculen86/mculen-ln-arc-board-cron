@@ -12,18 +12,23 @@ import getToMovePosition from '../utils/getToMovePosition';
 const sectionbyDiagramation = ['grillaUltimasNoticias'];
 const setTypeElement = information => {
     if (information && (information.nameChain || information.nameFeature)) {
-        return getTypesbyContainer(
-            information.nameFeature ?? information.nameChain
-        );
+        const elementContainer =
+            information.nameFeature == null
+                ? information.nameChain
+                : information.nameFeature;
+        return getTypesbyContainer(elementContainer);
     }
 
     return 0;
 };
 const setSectionAliasbyFeature = (information, sectionMobile) => {
     if (information && information.nameFeature) {
-        return (
-            getSectionAliasbyFeature(information.nameFeature) ?? sectionMobile
+        const sectionAliasbyFeature = getSectionAliasbyFeature(
+            information.nameFeature
         );
+        return sectionAliasbyFeature == null
+            ? sectionMobile
+            : sectionAliasbyFeature;
     }
     return sectionMobile;
 };
@@ -130,44 +135,66 @@ const addProperties = (sectionChildren, elements) => {
             ...render,
             information: {
                 ...get(render, 'information', null),
-                nameFeature: children?.type,
-                idRender: children?.props?.id
+                nameFeature: get(children, 'type', null),
+                idRender: get(children, 'props.id', null)
             }
         };
     };
-    const newElements = elements?.map((e, i) => {
-        if (sectionChildren[i]?.collection === 'chains') {
-            return {
-                ...e,
-                information: {
-                    ...get(e, 'information', null),
-                    nameChain: sectionChildren[i]?.type,
-                    idRender: sectionChildren[i]?.props?.id
-                },
-                articles: e?.articles?.map((a, index) => {
-                    const childrenArticle = sectionChildren[i].children[index];
-                    if (childrenArticle?.collection === 'features') {
-                        if (get(a, 'information', null) != null) {
-                            return setInformationInFeature(a, childrenArticle);
-                        }
-                        return {
-                            ...a,
-                            additionalProperties: {
-                                ...get(a, 'additionalProperties', null),
-                                nameFeature: childrenArticle?.type,
-                                idRender: childrenArticle?.props?.id
+    const newElements =
+        elements &&
+        Array.isArray(elements) &&
+        elements.map((e, i) => {
+            if (
+                sectionChildren[i] &&
+                sectionChildren[i].collection === 'chains'
+            ) {
+                return {
+                    ...e,
+                    information: {
+                        ...get(e, 'information', null),
+                        nameChain: sectionChildren[i].type,
+                        idRender: get(sectionChildren[i], 'props.id', null)
+                    },
+                    articles:
+                        Array.isArray(e.articles) &&
+                        e.articles.map((a, index) => {
+                            const childrenArticle =
+                                sectionChildren[i].children[index];
+                            if (
+                                childrenArticle &&
+                                childrenArticle.collection === 'features'
+                            ) {
+                                if (get(a, 'information', null) != null) {
+                                    return setInformationInFeature(
+                                        a,
+                                        childrenArticle
+                                    );
+                                }
+                                return {
+                                    ...a,
+                                    additionalProperties: {
+                                        ...get(a, 'additionalProperties', null),
+                                        nameFeature: childrenArticle.type,
+                                        idRender: get(
+                                            childrenArticle,
+                                            'props.id',
+                                            null
+                                        )
+                                    }
+                                };
                             }
-                        };
-                    }
-                    return a;
-                })
-            };
-        }
-        if (sectionChildren[i]?.collection === 'features') {
-            return setInformationInFeature(e, sectionChildren[i]);
-        }
-        return e;
-    });
+                            return a;
+                        })
+                };
+            }
+            if (
+                sectionChildren[i] &&
+                sectionChildren[i].collection === 'features'
+            ) {
+                return setInformationInFeature(e, sectionChildren[i]);
+            }
+            return e;
+        });
     return newElements;
 };
 

@@ -51,12 +51,15 @@ const getSections = layout => {
         }
     };
     const pageMergeSections = {};
-    pageMergeSections.sections = sectionsMerge[layout]?.front.map((e, i) => {
-        return {
-            sectionWeb: e,
-            sectionMobile: sectionsMerge[layout]?.mobile[i]
-        };
-    });
+    pageMergeSections.sections =
+        sectionsMerge[layout] &&
+        sectionsMerge[layout].front &&
+        sectionsMerge[layout].front.map((e, i) => {
+            return {
+                sectionWeb: e,
+                sectionMobile: sectionsMerge[layout].mobile[i]
+            };
+        });
     pageMergeSections.rules = sectionsMerge[layout].rules;
     return pageMergeSections;
 };

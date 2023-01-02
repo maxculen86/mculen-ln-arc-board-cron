@@ -21,7 +21,9 @@ const getTypesbyContainer = nameContainer => {
         default: 9 // A type is set to discard
     };
 
-    return boxTypeContainer[nameContainer] ?? boxTypeContainer?.default;
+    return boxTypeContainer[nameContainer] == null
+        ? boxTypeContainer.default
+        : boxTypeContainer[nameContainer];
 };
 
 export default getTypesbyContainer;
