@@ -17,67 +17,39 @@ const getSectionFromFeatureOfAcu = async queryParams => {
     });
 };
 
-const setInfoFeatureInPage = async (pageSections, featureInPage, params) => {
-    const previewSections = pageSections;
-
-    const listSectionAcu = pageSections
-        .map((v, i) => ({ v, i }))
-        .filter(
-            t => get(t.v, 'information.nameFeature', null) === featureInPage
-        );
-
-    const resp = await Promise.all(
-        listSectionAcu?.map(async t => {
-            const sections = get(
-                previewSections[t.i].information,
-                'sections',
-                []
+const getAcubyFeature = async (pageSections, featureInPage, params) => {
+    let sections = [];
+    if (pageSections) {
+        const sectionAcu = pageSections
+            .map((v, i) => ({ v, i }))
+            .find(
+                t => get(t.v, 'information.nameFeature', null) === featureInPage
             );
-
-            previewSections[t.i].information = {
-                ...previewSections[t.i].information,
-                additional_properties: {
-                    sections,
-                    ...params
-                }
-            };
-            if (
-                sections &&
-                sections.length > 0 &&
-                previewSections[t.i].information &&
-                previewSections[t.i].information.additional_properties
-            ) {
-                delete previewSections[t.i].information.sections;
-                previewSections[t.i].sectionAccumulated =
-                    (await getSectionFromFeatureOfAcu(
-                        previewSections[t.i].information.additional_properties
-                    )) || [];
-            }
-            return previewSections[t.i];
-        })
+        if (sectionAcu && sectionAcu.v) {
+            sections = get(sectionAcu.v, 'information.sections', []);
+        }
+    }
+    return (
+        Promise.resolve(
+            getSectionFromFeatureOfAcu({
+                sections,
+                ...params
+            })
+        ) || []
     );
-
-    await Promise.all(
-        resp.map(r => {
-            return r;
-        })
-    );
-    return previewSections;
 };
 
 const transform = async (data, query) => {
     const respData = data;
     try {
-        const { featureInPage } = query;
+        const { featureInPage, isPage } = query;
+        let pageSections = null;
+        if (respData) {
+            pageSections = getPageElements(respData);
+        }
 
-        let pageSections = getPageElements(respData);
-
-        if (featureInPage) {
-            pageSections = await setInfoFeatureInPage(
-                pageSections,
-                featureInPage,
-                query
-            );
+        if (!isPage) {
+            return await getAcubyFeature(pageSections, featureInPage, query);
         }
         return pageSections;
     } catch (error) {

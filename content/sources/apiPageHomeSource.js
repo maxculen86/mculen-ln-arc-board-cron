@@ -21,7 +21,8 @@ const fetch = async (query, { cachedCall } = {}) => {
         queryParams = {
             rootPath: `http://172.17.0.1${aliasPages[alias]}`, //`SITE_LANACION${aliasPages[alias]}`,
             ticksCache,
-            website
+            website,
+            isPage: true
         };
 
         const resultPage = await cachedCall(

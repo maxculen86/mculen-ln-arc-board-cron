@@ -15,9 +15,9 @@ const getTypesbyContainer = nameContainer => {
         'LN-acumulado/anexoIframe': 0,
         'LN-acumulado/apertura': 0,
         'LN-acumulado/tagList': 0,
-        'LN-acumulado/grillaNotas': 3,
-        'LN-common/ranking': 0,
-        'LN-acumulado/ultimasNoticias': 3,
+        'LN-acumulado/grillaNotas': 9,
+        'LN-common/ranking': 9,
+        'LN-acumulado/ultimasNoticias': 9,
         default: 9 // A type is set to discard
     };
 

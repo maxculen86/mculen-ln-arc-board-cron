@@ -20,13 +20,13 @@ class RankingFeature {
             notesQuantity
         } = getRankingProps(layout, featureId, globalContent);
 
-        this.title = title ?? sectionName;
+        this.title = title == null ? sectionName : title;
 
         const query = {
             sectionId,
             size: notesQuantity,
             imageConfig: 'boxArticles',
-            'arc-site': website ?? arcSite
+            'arc-site': website == null ? arcSite : website
         };
         this.fetch(query);
     }

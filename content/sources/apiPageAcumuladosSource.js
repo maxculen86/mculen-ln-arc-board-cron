@@ -7,9 +7,11 @@ import transform from './utils/servicesSource/pages/transform';
 import home from '../../components/private/LN/api/v1/global/home';
 
 const getParamsSectionSource = data => {
-    const title =
-        get(data, 'acumuladoGeneral.hierarchy_navigation', null) ??
-        get(data, 'name', null);
+    const title = get(
+        data,
+        'acumuladoGeneral.hierarchy_navigation',
+        get(data, 'name', null)
+    );
     const restriction = get(
         data,
         'acumuladoGeneral.mostrar_en_acu_apps',
@@ -28,17 +30,22 @@ const fetch = async (query, { cachedCall }) => {
 
     try {
         const { uri = '', website, versionUri } = query;
-        const ticksCache = get(query, 'ticks', '')?.replace('/', '');
-        const sectionId = get(query, 'sectionId', '')?.replace('/', '');
+        const ticksCache = get(query, 'ticks', '').replace('/', '');
+        const sectionId = get(query, 'sectionId', '').replace('/', '');
         const sectionIdParam = sectionId.substring(0, 2).includes('/')
             ? sectionId
             : `${''}`.concat(`/${sectionId || ''}`);
 
-        const categoryUri = get(query, 'categoryUri', '')?.replace('/', '');
+        const categoryUri = get(query, 'categoryUri', '').replace('/', '');
         const sectionsinPage = sectionsInPages?.find(
             e => e.sectionId === sectionId
         );
-        const sectioninPage = sectionsinPage?.namePage ?? sectionId;
+
+        const sectioninPage =
+            sectionsinPage && sectionsinPage.namePage
+                ? sectionsinPage.namePage
+                : sectionId;
+
         const sectionsCustom = sectionsInPages
             ?.filter(e => e?.isCustom)
             ?.map(e => e.sectionId);
@@ -48,18 +55,22 @@ const fetch = async (query, { cachedCall }) => {
 
         let regexParams = new RegExp(/size:(\d+)/);
         let matches = regexParams.exec(get(query, 'params', ''));
-        let title = sectionsinPage?.aliasTitle;
-        title = title == null ? sectionId?.replace('/', '') : title;
+        let title = sectionsinPage && sectionsinPage.aliasTitle;
+        title = title == null ? sectionId.replace('/', '') : title;
 
-        const size = matches.length > 1 ? matches[1] : 30;
+        const size = matches && matches.length > 1 ? matches[1] : 30;
         regexParams = new RegExp(/page:(\d+)/);
         matches = regexParams.exec(get(query, 'params', ''));
 
-        let page = matches.length > 1 ? parseInt(matches[1], 0) : 0;
-        page = page <= 0 ? 1 : page;
-        const isPage = true; //page === 0 && sectionsinPage?.isPage;
+        let page = matches && matches.length > 1 ? parseInt(matches[1], 0) : 0;
+        page = page < 0 ? 0 : page;
 
-        const isCustom = sectionsinPage?.isCustom ?? false;
+        const isPage = page === 0 && get(sectionsinPage, 'isPage', false);
+
+        const isCustom =
+            sectionsinPage && sectionsinPage.isCustom
+                ? sectionsinPage.isCustom
+                : false;
 
         queryParams = {
             id: sectionIdParam,
@@ -86,7 +97,7 @@ const fetch = async (query, { cachedCall }) => {
         restriction = get(paramsSectionsSource, 'restriction', true);
         configuration = get(paramsSectionsSource, 'configuration', null);
 
-        if (isPage || isCustom) {
+        if (isPage || sectionsinPage?.featureAcumuladosInPage) {
             queryParams = {
                 rootPath: `${SITE_LANACION}/${sectioninPage}`,
                 ticksCache: ticksCache.toString(),
@@ -98,31 +109,14 @@ const fetch = async (query, { cachedCall }) => {
                 categoryUri,
                 versionUri,
                 featureInPage: sectionsinPage?.featureAcumuladosInPage,
-                sectionSource: resultSectionSource
+                sectionSource: resultSectionSource,
+                isPage
             };
 
             resultPage = await cachedCall('ApiPageAcumulados', pages.fetch, {
                 query: queryParams,
                 ttl: 120
             });
-
-            if (sectionsinPage?.featureAcumuladosInPage) {
-                queryParams = {
-                    sectionId: sectionsCustom?.includes(sectionId)
-                        ? null
-                        : sectionIdParam,
-                    page: page > 0 ? page : 1,
-                    size,
-                    restriction,
-                    website,
-                    uri,
-                    title,
-                    configuration,
-                    categoryUri,
-                    versionUri,
-                    featureInPage: sectionsinPage?.featureAcumuladosInPage
-                };
-            }
 
             if (isPage) {
                 const resultPageTransform = await transform(
@@ -137,6 +131,23 @@ const fetch = async (query, { cachedCall }) => {
                 return Array.isArray(resultHome) ? resultHome[0] : {};
             }
         }
+        queryParams = {
+            sectionId: sectionsCustom?.includes(sectionId)
+                ? null
+                : sectionIdParam,
+            page: page > 0 ? page : 1,
+            size,
+            restriction,
+            website,
+            uri,
+            title,
+            configuration,
+            categoryUri,
+            versionUri,
+            featureInPage: sectionsinPage?.featureAcumuladosInPage,
+            isPage
+        };
+        return await transform(resultPage, queryParams);
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(

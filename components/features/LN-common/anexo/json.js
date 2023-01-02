@@ -8,7 +8,7 @@ class AnexoFeature {
     render() {
         const { hideByUrl, url, heightMobile } = this.props.customFields;
         let resp = {};
-        const urlAnexo = url?.trim() ?? '';
+        const urlAnexo = url && url.trim() ? url.trim() : '';
         const articles = urlAnexo !== '' ? [{ url, alto: heightMobile }] : [];
         resp = {
             information: {
