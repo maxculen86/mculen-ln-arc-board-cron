@@ -139,6 +139,18 @@ const anexoMobile = element => {
 
     return null;
 };
+
+const sectionAcu = element => {
+    if (
+        element &&
+        element.sectionAccumulated &&
+        element.sectionAccumulated.length > 0
+    ) {
+        return element.sectionAccumulated[0];
+    }
+
+    return null;
+};
 const discardBox = element => {
     return null;
 };
@@ -147,6 +159,7 @@ const typeBox = {
     0: storyBox,
     1: bannerBox,
     2: anexoMobile,
+    3: sectionAcu,
     9: discardBox
 };
 

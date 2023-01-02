@@ -1,19 +1,11 @@
-import {
-    SITE_LANACION,
-    CONTENT_BASE,
-    LANACION_SERVICES_URL,
-    ARC_ACCESS_TOKEN
-} from 'fusion:environment';
-import request from 'request-promise-native';
+import { SITE_LANACION } from 'fusion:environment';
 import get from '../../components/private/common/utils/get';
 import pages from './utils/servicesSource/pages';
 import sectionSource from './sectionSource';
 import sectionsInPages from './utils/servicesSource/pages/config/sectionsInPagesConfig.json';
-import getArticlesAcumulados from './utils/servicesSource/pages/apiPageAcumuladosSource/getArticlesAcumulados';
-import transformAcu from './utils/servicesSource/pages/apiPageAcumuladosSource/transform';
 import transform from './utils/servicesSource/pages/transform';
-import { getFeatureInPage } from './utils/servicesSource/pages/helper';
 import home from '../../components/private/LN/api/v1/global/home';
+
 
 const getParamsSectionSource = data => {
     const title =
@@ -63,8 +55,9 @@ const fetch = async (query, { cachedCall }) => {
         regexParams = new RegExp(/page:(\d+)/);
         matches = regexParams.exec(get(query, 'params', ''));
 
-        const page = matches.length > 1 ? parseInt(matches[1], 0) : 0;
-        const isPage = page === 0 && sectionsinPage?.isPage;
+        let page = matches.length > 1 ? parseInt(matches[1], 0) : 0;
+        page = page <= 0 ? 1 : page;
+        const isPage = true; //page === 0 && sectionsinPage?.isPage;
 
         const isCustom = sectionsinPage?.isCustom ?? false;
 
@@ -84,7 +77,8 @@ const fetch = async (query, { cachedCall }) => {
         const paramsSectionsSource = getParamsSectionSource(
             resultSectionSource
         );
-        title = get(paramsSectionsSource, 'title', title);
+
+        title = get(paramsSectionsSource, 'title', null) ?? title;
         restriction = get(paramsSectionsSource, 'restriction', true);
         configuration = get(paramsSectionsSource, 'configuration', null);
 
@@ -99,7 +93,7 @@ const fetch = async (query, { cachedCall }) => {
                 configuration: null,
                 categoryUri,
                 versionUri,
-                featureInPage: sectionsinPage?.featureInPage,
+                featureInPage: sectionsinPage?.featureAcumuladosInPage,
                 sectionSource: resultSectionSource
             };
 
@@ -108,12 +102,22 @@ const fetch = async (query, { cachedCall }) => {
                 ttl: 120
             });
 
-            if (sectionsinPage?.featureInPage && !isPage) {
-                resultPage = getFeatureInPage(
-                    resultPage,
-                    sectionsinPage?.featureInPage
-                );
-                return { resultPage };
+            if (sectionsinPage?.featureAcumuladosInPage) {
+                queryParams = {
+                    sectionId: sectionsCustom?.includes(sectionId)
+                        ? null
+                        : sectionIdParam,
+                    page: page > 0 ? page : 1,
+                    size,
+                    restriction,
+                    website,
+                    uri,
+                    title,
+                    configuration,
+                    categoryUri,
+                    versionUri,
+                    featureInPage: sectionsinPage?.featureAcumuladosInPage
+                };
             }
 
             if (isPage) {
@@ -121,39 +125,14 @@ const fetch = async (query, { cachedCall }) => {
                     resultPage,
                     queryParams
                 );
-                //return resultPageTransform;
+                // Para revisar la data antes del transform devuelve las  secciones formateadas con el campo information y otros
+                // return resultPageTransform;
                 const resultHome = home(resultPageTransform);
-                //return resultHome;
+                // Para revisar la data despues del transform, estructura final
+                // return resultHome;
                 return Array.isArray(resultHome) ? resultHome[0] : {};
             }
         }
-        queryParams = {
-            sectionId: sectionsCustom?.includes(sectionId)
-                ? null
-                : sectionIdParam,
-            sections: get(resultPage, 'sections', []),
-            page: page > 0 ? page : 1,
-            size,
-            restriction,
-            website,
-            uri,
-            title,
-            configuration,
-            categoryUri,
-            versionUri
-        };
-        //return queryParams;
-        const respAcumulados = await getArticlesAcumulados(queryParams);
-        //return respAcumulados;
-        queryParams = {
-            uri,
-            title,
-            configuration,
-            categoryUri,
-            versionUri
-        };
-        //return queryParams;
-        return transformAcu(respAcumulados, queryParams);
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(

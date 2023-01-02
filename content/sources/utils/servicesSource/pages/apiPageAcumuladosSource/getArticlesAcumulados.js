@@ -24,7 +24,7 @@ const getParamsAcus = query => {
                 .replace('[', '(')
                 .replace(']', ')'),
             sourceOrigin: 'composer',
-            size: null,
+            size,
             website
         };
     }
@@ -46,7 +46,7 @@ const getParamsAcus = query => {
 const getArticlesAcumulados = async params => {
     try {
         const queryParams = getParamsAcus(params);
-        //return { queryParams };
+
         const respAcumulados = await acuArticlesSource.fetch(queryParams);
 
         return respAcumulados;
