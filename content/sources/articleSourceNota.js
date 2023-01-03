@@ -31,8 +31,8 @@ import isNoteListenable from './utils/audioNews/helper';
 import force404AMP from './utils/force404AMP';
 import validateSponsoredLink from './utils/validateSponsoredLink';
 import { getPrincipalCategory } from '../../components/private/LN/api/v1/common/category';
-import signingServiceSource from './signingServiceSource';
 import { hasPromoItemImgAuth } from './utils/signingImageAuth';
+import getImagesAuth from './utils/signingServiceSource/getImagesAuth';
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -169,49 +169,25 @@ const transform = async (
         null
     );
 
-    // TODO: Mover logica de signingResponse a un util.
-    // Get Auth cuando en el promo Items no viene el auth del tipo imagen
-    // Cambiar a un modulo para evitar los eslint-disable
     if (
-        subtype === '4' &&
+        subtype === STORYTELLING &&
         primarySectioValidation === '/revista-living' &&
         hasPromoItemImgAuth({ dataPromoItem: data })
     ) {
-        const id = get(data, 'promo_items.basic._id', null);
-        const storyTellingImgId = get(
-            data,
-            'promo_items.storytelling_mobile._id',
-            null
-        );
-        // eslint-disable-next-line no-param-reassign
-        data.promo_items.basic.auth = data.promo_items.basic.auth || {};
-        data.promo_items.storytelling_mobile.auth =
-            data.promo_items.storytelling_mobile.auth || {};
-
-        const signingResponse = await cachedCall(
-            'signingServiceSource Token',
-            signingServiceSource.fetch, // The fetch method imported fromthe resizer content source
-            {
-                query: { imageId: id },
-                ttl: 31536000,
-                independent: true
-            }
+        const { basicHash, storytellingHash } = await getImagesAuth(
+            get(data, 'promo_items', {}),
+            cachedCall
         );
 
-        // TODO: Hacer denamico la busqueda de auth en storyTellingMobile
-        const signingResponseStoryTellingMobile = await cachedCall(
-            'signingServiceSource Token',
-            signingServiceSource.fetch, // The fetch method imported fromthe resizer content source
-            {
-                query: { imageId: storyTellingImgId },
-                ttl: 31536000,
-                independent: true
-            }
-        );
-        // eslint-disable-next-line no-param-reassign
-        data.promo_items.basic.auth['1'] = signingResponse.hash;
-        data.promo_items.storytelling_mobile.auth['1'] =
-            (storyTellingImgId && signingResponseStoryTellingMobile.hash) || '';
+        basicHash &&
+            Object.assign(data.promo_items.basic, {
+                auth: { 1: basicHash }
+            });
+
+        storytellingHash &&
+            Object.assign(data.promo_items.storytelling_mobile, {
+                auth: { 1: storytellingHash }
+            });
     }
 
     const withFirmaDistributor = firmaDistributorValidation(

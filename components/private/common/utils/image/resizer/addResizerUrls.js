@@ -4,6 +4,7 @@
 import * as resizerV2 from './v2/resizerFactory';
 import * as resizerV1 from '../resizer';
 import get from '../../get';
+import { STORYTELLING } from '../../subtypes/subtypeHelper';
 
 export const addResizedUrls = (ansDoc, options) => {
     const {
@@ -105,7 +106,7 @@ export const addResizedUrls = (ansDoc, options) => {
 };
 
 export const isAllowSection = ({ section, subtype, promoItems }) => {
-    const allowList = [{ section: '/revista-living', subtype: '4' }];
+    const allowList = [{ section: '/revista-living', subtype: STORYTELLING }];
     const authBasic = get(promoItems, 'basic.auth', {});
     const authStoryTellingMobile = get(
         promoItems,
