@@ -1,11 +1,11 @@
 const getSectionAliasbyFeature = nameContainer => {
-    const boxTypeContainer = {
+    const boxToSetSectionAliasMobile = {
         'LN-common/anexo': 'AnexoMobile',
         'LN-common/anexoMobile': 'AnexoMobile',
         'LN-acumulado/timeline': 'Timeline'
     };
 
-    return boxTypeContainer[nameContainer];
+    return boxToSetSectionAliasMobile[nameContainer];
 };
 
 export default getSectionAliasbyFeature;
