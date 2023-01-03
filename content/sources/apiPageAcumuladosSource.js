@@ -6,6 +6,10 @@ import sectionsInPages from './utils/servicesSource/pages/config/sectionsInPages
 import transform from './utils/servicesSource/pages/transform';
 import home from '../../components/private/LN/api/v1/global/home';
 
+// Run with the url http://172.17.0.1/api/mobile/v1/page/bySection/ultimas-noticias/params=size:30;page:0/32/?_website=la-nacion-ar&outputType=json
+// params: page 0 when load the page od Accumulated
+// params: page >=1 when load the accumulated with pagination.
+
 const getParamsSectionSource = data => {
     const title = get(
         data,
@@ -125,7 +129,8 @@ const fetch = async (query, { cachedCall }) => {
                 );
                 // Para revisar la data antes del transform devuelve las  secciones formateadas con el campo information y otros
                 // return resultPageTransform;
-                const resultHome = home(resultPageTransform);
+
+                const resultHome = home(resultPageTransform, queryParams);
                 // Para revisar la data despues del transform, estructura final
                 // return resultHome;
                 return Array.isArray(resultHome) ? resultHome[0] : {};

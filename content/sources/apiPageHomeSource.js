@@ -4,6 +4,7 @@ import get from '../../components/private/common/utils/get';
 import home from '../../components/private/LN/api/v1/global/home';
 import transform from './utils/servicesSource/pages/transform';
 
+// Run with url http://172.17.0.1/api/mobile/v1/home/1/?_website=la-nacion-ar&outputType=json
 const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
     const aliasPages = {
@@ -18,7 +19,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         if (!SITE_LANACION) {
             throw new Error('Variable SITE_LANACION missing');
         }
-        // Para aegurarse la prueba local colocar en rootPath:
+        // Para asegurarse la prueba local colocar en rootPath:
         // `http://172.17.0.1${aliasPages[alias]}` o en el .env SITE_LANACION=http://172.17.0.1
 
         queryParams = {
@@ -43,7 +44,8 @@ const fetch = async (query, { cachedCall } = {}) => {
         // Para revisar la data formateada con la informacion de todas la secciones
         // return resultPageTransform;
 
-        const resultHome = home(resultPageTransform);
+        // Para ver el resultado final de la home
+        const resultHome = home(resultPageTransform, queryParams);
         return Array.isArray(resultHome) ? resultHome[0] : {};
     } catch (error) {
         // eslint-disable-next-line no-console

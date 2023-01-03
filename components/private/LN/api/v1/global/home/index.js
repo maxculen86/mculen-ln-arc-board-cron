@@ -7,8 +7,11 @@ import {
     anexoItemMobile as AnexoMobile
 } from '../../common/article';
 
-// TODO: Recorrer las notas en un archivo nuevo.
-// Recibir el array y validar que tenga notas
+let paramsFromPage = {
+    rootPath:
+        'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
+};
+// Sirve para agregar información a la sección o caja desde el campo sectionAliasMobile establecido en page/index.js
 const typeSection = {
     Anticipo: { tipoSeccion: 'anticipo', idSeccion: 501 },
     Bomba: { tipoSeccion: 'bomba', idSeccion: 102 },
@@ -61,8 +64,7 @@ const articlesMap = (articles, sectionAliasMobile) => {
                 const article = Article({ ...f, storyType: 'home' });
                 result.push(article);
             } catch (error) {
-                const websiteUrl =
-                    'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json';
+                const websiteUrl = get(paramsFromPage, 'rootPath', '');
                 if (get(error, 'name', null) === 'ErrorIdArticle') {
                     // eslint-disable-next-line no-console
                     console.warn(
@@ -173,7 +175,10 @@ const typeBox = {
     9: discardBox
 };
 
-const index = children => {
+const index = (children, params = null) => {
+    if (params && params.rootPath) {
+        paramsFromPage = params;
+    }
     const ArticlesbyBox = children.reduce((result, f, i) => {
         result.push(typeBox[f.type](f));
         return result;
