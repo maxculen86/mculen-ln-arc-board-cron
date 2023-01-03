@@ -20,6 +20,7 @@ import { productClickFromServer } from '../../private/common/utils/viewability';
 import createBannersIntersectionObserver from '../../private/common/banners/createBannersIntersectionObserver';
 import StaticContent from '../../private/common/staticContent';
 import bannersHome from '../../private/common/banners/bannersDivHome';
+import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
 
 const LN10Home = props => {
     const { children, outputType, isAdmin, renderables } = props;
@@ -67,6 +68,7 @@ const LN10Home = props => {
                         <div id="content-main" className="lay-sidebar">
                             <div className="sidebar__main">
                                 <div data-section="apertura">{preApertura}</div>
+                                {hasBomba(renderables) && bannersHome.caja1Mob}
                                 <div data-section="apertura">{apertura}</div>
                                 {bannersHome.caja2Mob}
                                 {bannersHome.cabezal}

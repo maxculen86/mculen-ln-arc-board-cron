@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import StaticValidation from '../../../private/common/staticValidation';
 import HolidaysCounter from '../../../private/LN/services/holidays/HolidaysCounter';
 import { getNextHolidayData } from '../../../../content/sources/utils/servicesSource/holidays/holidaysHelper';
 import filter from '../../../../content/filters/LN/services/nextHolidayFilter';
+import StaticContent from '../../../private/common/staticContent';
 
-const HolidaysCountdown = ({ id: _featureId }) => {
+const HolidaysCountdown = () => {
     const { dataService = {} } =
         useContent({
             source: 'servicesSource',
@@ -18,7 +17,7 @@ const HolidaysCountdown = ({ id: _featureId }) => {
             filter
         }) || {};
     return (
-        <StaticValidation id={_featureId} htmlOnly persistent>
+        <StaticContent>
             {(() => {
                 const { calendars = [] } = dataService;
 
@@ -38,12 +37,10 @@ const HolidaysCountdown = ({ id: _featureId }) => {
                     <></>
                 );
             })()}
-        </StaticValidation>
+        </StaticContent>
     );
 };
 
 HolidaysCountdown.label = 'LN Feriados Contador Próximo';
-
-HolidaysCountdown.propTypes = { id: PropTypes.string.isRequired };
 
 export default HolidaysCountdown;

@@ -26,8 +26,8 @@ const useGridPagination = props => {
     } = props;
 
     const hasCollectionApertura =
-        articlesInCollection.length ||
-        get(acumuladoGeneral, 'id_collection_promo_items', null);
+        !!articlesInCollection.length ||
+        !!get(acumuladoGeneral, 'id_collection_promo_items', null);
 
     const { articles, moreArticles } = useGridArticles({
         ...props,

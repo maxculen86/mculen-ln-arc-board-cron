@@ -3,11 +3,12 @@ import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 import WithNavigation from '../../common/hocs/WithNavigation';
+import StaticContent from '../../../common/staticContent';
 
 const DATA_SECTION = 'AperturaAcuRecetas';
 function BreadcrumbSection({ sections, host, colorCategory }) {
     return (
-        <>
+        <StaticContent>
             <BreadCrumbBase
                 lastLinked
                 sections={sections}
@@ -20,7 +21,7 @@ function BreadcrumbSection({ sections, host, colorCategory }) {
                 host={host}
                 colorCategory={colorCategory}
             />
-        </>
+        </StaticContent>
     );
 }
 

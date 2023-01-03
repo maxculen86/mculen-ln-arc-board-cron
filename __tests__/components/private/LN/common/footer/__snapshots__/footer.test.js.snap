@@ -132,7 +132,23 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
               class="com-link --logo"
               href="https://www.lanacion.com.ar/"
               title="Ir a la página principal"
-            />
+            >
+              <div
+                class="hidden"
+                id="logo-lanacion.svg"
+              >
+                <img
+                  alt="Ir a la página principal"
+                  class="  com-logo la-nacion --sm"
+                  decoding="async"
+                  fetchpriority="low"
+                  height="50"
+                  loading="lazy"
+                  src="undefined/pf/resources/images/logo-lanacion.svg"
+                  width="50"
+                />
+              </div>
+            </a>
           </div>
           <div
             class="col-desksm-4 --right"
@@ -142,14 +158,46 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
               href="https://play.google.com/store/apps/details?id=app.lanacion.activity&hl=es_419"
               target="_blank"
               title="Descargar nuestra app en Google Play"
-            />
+            >
+              <div
+                class="hidden"
+                id="android-store.svg"
+              >
+                <img
+                  alt="Descargar nuestra app en Google Play"
+                  class="  com-logo android-store "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="35"
+                  loading="lazy"
+                  src="undefined/pf/resources/images/android-store.svg"
+                  width="120"
+                />
+              </div>
+            </a>
             <a
               class="com-link --logo"
               href="https://apps.apple.com/ar/app/la-nacion/id410689702"
               rel="nofollow"
               target="_blank"
               title="Descargar nuestra app en el App Store"
-            />
+            >
+              <div
+                class="hidden"
+                id="ios-store.svg"
+              >
+                <img
+                  alt="Descargar nuestra app en el App Store"
+                  class="  com-logo ios-store "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="35"
+                  loading="lazy"
+                  src="undefined/pf/resources/images/ios-store.svg"
+                  width="120"
+                />
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -259,7 +307,23 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
               rel="nofollow"
               target="_blank"
               title="gda"
-            />
+            >
+              <div
+                class="hidden"
+                id="gda.svg"
+              >
+                <img
+                  alt="gda"
+                  class="  com-logo gda "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="20"
+                  loading="lazy"
+                  src="undefined/pf/resources/images/gda.svg"
+                  width="36"
+                />
+              </div>
+            </a>
             <span
               class="com-text"
             >
@@ -271,7 +335,23 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
               rel="nofollow"
               target="_blank"
               title="Data fiscal"
-            />
+            >
+              <div
+                class="hidden"
+                id="data-fiscal.svg"
+              >
+                <img
+                  alt="Data fiscal"
+                  class="  com-logo data-fiscal "
+                  decoding="async"
+                  fetchpriority="low"
+                  height="38"
+                  loading="lazy"
+                  src="undefined/pf/resources/images/data-fiscal.svg"
+                  width="28"
+                />
+              </div>
+            </a>
           </div>
           <div
             class="col-desksm-6 --left"
@@ -279,7 +359,7 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
             <p
               class="com-text --threexs"
             >
-              Copyright 2022 SA LA NACION | Todos los derechos reservados
+              Copyright 2023 SA LA NACION | Todos los derechos reservados
             </p>
           </div>
         </div>

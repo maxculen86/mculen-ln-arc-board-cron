@@ -3,10 +3,11 @@ import { API_ENV, SITE_LANACION } from 'fusion:environment';
 import ServiceMiniCard from '../../../private/common/serviceMiniCard';
 import { meanings } from '../../../../content/sources/utils/servicesSource/lottery/_config';
 import ModHeaderSection from '../../../private/common/mod-headerSection';
+import StaticContent from '../../../private/common/staticContent';
 
 const LotteryMeanings = () => {
     return (
-        <>
+        <StaticContent>
             <ModHeaderSection
                 tag="h2"
                 title="Significado de números según los sueños"
@@ -25,11 +26,10 @@ const LotteryMeanings = () => {
                     />
                 ))}
             </div>
-        </>
+        </StaticContent>
     );
 };
 
 LotteryMeanings.label = 'LN Loteria Home Significado de Números';
-LotteryMeanings.lazy = true;
 
 export default LotteryMeanings;
