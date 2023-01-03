@@ -111,6 +111,15 @@ const storyBox = element => {
     return null;
 };
 
+const anticipoBox = element => {
+    const { information, sectionAliasMobile } = element;
+    const featureInfo = featureInformation(information, sectionAliasMobile);
+
+    if (sectionAliasMobile === 'Anticipo') return { ...featureInfo };
+
+    return null;
+};
+
 const bannerBox = element => {
     const type = typeSection[element.sectionAliasMobile];
     return {
@@ -159,7 +168,8 @@ const typeBox = {
     0: storyBox,
     1: bannerBox,
     2: anexoMobile,
-    3: sectionAcu,
+    3: anticipoBox,
+    4: sectionAcu,
     9: discardBox
 };
 

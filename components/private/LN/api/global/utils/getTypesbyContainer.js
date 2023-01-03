@@ -1,8 +1,9 @@
+// The type 1 is assign to Banner
 const getTypesbyContainer = nameContainer => {
     const boxTypeContainer = {
         Ln_Caja_Manual: 0,
         Ln_Caja_Collection: 0,
-        'LN-common/cajaAnticipo': 0,
+        'LN-common/cajaAnticipo': 3,
         'LN-common/anexo': 2,
         'LN-common/bomba': 0,
         'LN-common/opinion': 0,

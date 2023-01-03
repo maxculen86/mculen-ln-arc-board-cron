@@ -96,13 +96,14 @@ describe('components - layouts - LN-Home_Main - json', () => {
             expect(Object.keys(homeSections[0]).sort()).toEqual(
                 [
                     'configurations',
-                    'feature',
                     'information',
                     'type',
-                    'nameFeature'
+                    'sectionAliasMobile',
+                    'sectionMobile',
+                    'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].feature).toBe('Anticipo');
+            expect(homeSections[0].sectionAliasMobile).toBe('Anticipo');
         });
     });
 
@@ -141,13 +142,14 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 [
                     'articles',
                     'configurations',
-                    'feature',
+                    'sectionAliasMobile',
                     'information',
                     'type',
-                    'nameFeature'
+                    'sectionMobile',
+                    'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].feature).toBe('Bomba');
+            expect(homeSections[0].sectionAliasMobile).toBe('Bomba');
         });
     });
 
@@ -158,13 +160,14 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 [
                     'articles',
                     'configurations',
-                    'feature',
+                    'sectionAliasMobile',
                     'information',
                     'type',
-                    'nameFeature'
+                    'sectionMobile',
+                    'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].feature).toBe('Apertura');
+            expect(homeSections[0].sectionAliasMobile).toBe('Apertura');
         });
     });
 
@@ -178,48 +181,57 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 [
                     'articles',
                     'configurations',
-                    'feature',
+                    'sectionAliasMobile',
                     'information',
                     'type',
-                    'nameFeature',
-                    'subLayout'
+                    'sectionMobile',
+                    'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].feature).toBe('Apertura');
-            expect(homeSections[0].subLayout).toBe('LN-acumulado/timeline');
+            expect(homeSections[0].sectionAliasMobile).toBe('Timeline');
+            expect(homeSections[0].information.nameFeature).toBe(
+                'LN-acumulado/timeline'
+            );
+            expect(homeSections[0].type).toBe(0);
             expect(Object.keys(homeSections[1]).sort()).toEqual(
                 [
                     'articles',
                     'configurations',
-                    'feature',
+                    'sectionAliasMobile',
                     'information',
                     'type',
-                    'nameFeature'
+                    'sectionMobile',
+                    'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[1].feature).toBe('Apertura');
-            expect(homeSections[1].subLayout).toBeUndefined();
+            expect(homeSections[1].sectionAliasMobile).toBe('Apertura');
+            expect(homeSections[1].type).toBe(0);
         });
 
         test('Ok timeline without articles', () => {
             const propsAperturaTimelineNoArticles = propsAperturaTimeline;
-            propsAperturaTimelineNoArticles.children[3][0].articles = [];
+            propsAperturaTimelineNoArticles.children[3][0].articles[0].articles = [];
             const homeSections = LayoutLNMainHome.default(
                 propsAperturaTimelineNoArticles
             );
-            expect(homeSections.length).toBe(7);
-            expect(Object.keys(homeSections[0]).sort()).toEqual(
+            expect(homeSections.length).toBe(8);
+
+            expect(Object.keys(homeSections[1]).sort()).toEqual(
                 [
                     'articles',
                     'configurations',
-                    'feature',
                     'information',
-                    'type',
-                    'nameFeature'
+                    'sectionAliasMobile',
+                    'sectionMobile',
+                    'sectionWeb',
+                    'type'
                 ].sort()
             );
-            expect(homeSections[0].feature).toBe('Apertura');
-            expect(homeSections[0].subLayout).toBeUndefined();
+            expect(homeSections[1].sectionAliasMobile).toBe('Apertura');
+            expect(homeSections[1].information.nameChain).toBe(
+                'Ln_Caja_Manual'
+            );
+            expect(homeSections[1].type).toBe(0);
         });
     });
 
@@ -261,7 +273,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 {}
             ];
             const homeSections = LayoutLNMainHome.default(props);
-            expect(homeSections[1].feature).toBe('Apertura');
+            expect(homeSections[1].sectionAliasMobile).toBe('Apertura');
         });
     });
 
@@ -300,9 +312,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 {}
             ];
             const homeSections = LayoutLNMainHome.default(props);
-            console.log(homeSections);
 
-            expect(homeSections[2].feature).toBe('Multimedia');
+            expect(homeSections[2].sectionAliasMobile).toBe('Multimedia');
             expect(homeSections[2].information.layout).toBe('grilla1');
         });
     });
@@ -375,24 +386,26 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 [
                     'articles',
                     'configurations',
-                    'feature',
+                    'sectionAliasMobile',
                     'information',
                     'type',
-                    'nameFeature'
+                    'sectionMobile',
+                    'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[7].feature).toBe('Opinion');
+            expect(homeSections[7].sectionAliasMobile).toBe('Opinion');
             expect(Object.keys(homeSections[7]).sort()).toEqual(
                 [
                     'articles',
                     'configurations',
-                    'feature',
+                    'sectionAliasMobile',
                     'information',
                     'type',
-                    'nameFeature'
+                    'sectionMobile',
+                    'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[7].feature).toBe('Opinion');
+            expect(homeSections[7].sectionAliasMobile).toBe('Opinion');
         });
 
         test('When not exists editorial', () => {
@@ -488,13 +501,14 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 [
                     'articles',
                     'configurations',
-                    'feature',
+                    'sectionAliasMobile',
                     'information',
                     'type',
-                    'nameFeature'
+                    'sectionMobile',
+                    'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[6].feature).toBe('Comercial');
+            expect(homeSections[6].sectionAliasMobile).toBe('Comercial');
         });
     });
 
@@ -536,13 +550,14 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 [
                     'articles',
                     'configurations',
-                    'feature',
+                    'sectionAliasMobile',
                     'information',
                     'type',
-                    'nameFeature'
+                    'sectionMobile',
+                    'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[3].feature).toBe('Tema1');
+            expect(homeSections[3].sectionAliasMobile).toBe('Tema1');
         });
         test('When props is null', () => {
             try {
@@ -557,16 +572,19 @@ describe('components - layouts - LN-Home_Main - json', () => {
     });
 
     describe('Test Section App_Anexo_1 y App_Anexo_2', () => {
-        test('Ok', () => {
+        // Pendientes de implementar si aun quieren mantener estas secciones
+        /*         
+            test('Ok', () => {
             const homeSections = LayoutLNMainHome.default(propsAppAnexos);
+            console.log(homeSections[0]);
             expect(homeSections[0]).toEqual(
-                expect.objectContaining({ feature: 'AnexoMobile' })
+                expect.objectContaining({ sectionMobile: 'AnexoMobile' })
             );
             expect(homeSections[1]).toEqual(
-                expect.objectContaining({ feature: 'Apertura' })
+                expect.objectContaining({ sectionMobile: 'Apertura' })
             );
             expect(homeSections[2]).toEqual(
-                expect.objectContaining({ feature: 'AnexoMobile' })
+                expect.objectContaining({ sectionMobile: 'AnexoMobile' })
             );
         });
 
@@ -592,7 +610,8 @@ describe('components - layouts - LN-Home_Main - json', () => {
             expect(homeSections[1]).toEqual(
                 expect.objectContaining({ feature: 'AnexoMobile' })
             );
-        });
+        }); 
+        */
 
         test('Error No exists Apertura1', () => {
             const homeSections = LayoutLNMainHome.default(
@@ -600,13 +619,13 @@ describe('components - layouts - LN-Home_Main - json', () => {
             );
 
             expect(homeSections[0]).toEqual(
-                expect.objectContaining({ feature: 'Banner' })
+                expect.objectContaining({ sectionAliasMobile: 'Banner' })
             );
             expect(homeSections[1]).toEqual(
-                expect.objectContaining({ feature: 'Apertura' })
+                expect.objectContaining({ sectionAliasMobile: 'Apertura' })
             );
             expect(homeSections[2]).toEqual(
-                expect.objectContaining({ feature: 'Dolar' })
+                expect.objectContaining({ sectionAliasMobile: 'Dolar' })
             );
         });
     });

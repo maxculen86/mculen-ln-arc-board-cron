@@ -7,7 +7,7 @@ import transform from './utils/servicesSource/pages/transform';
 const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
     const aliasPages = {
-        home: '',
+        home: '/homepage8',
         sports: '/deportes'
     };
     try {
@@ -18,8 +18,11 @@ const fetch = async (query, { cachedCall } = {}) => {
         if (!SITE_LANACION) {
             throw new Error('Variable SITE_LANACION missing');
         }
+        // Para aegurarse la prueba local colocar en rootPath:
+        // `http://172.17.0.1${aliasPages[alias]}` o en el .env SITE_LANACION=http://172.17.0.1
+
         queryParams = {
-            rootPath: `http://172.17.0.1${aliasPages[alias]}`, //`SITE_LANACION${aliasPages[alias]}`,
+            rootPath: `${SITE_LANACION}${aliasPages[alias]}`,
             ticksCache,
             website,
             isPage: true
@@ -38,7 +41,7 @@ const fetch = async (query, { cachedCall } = {}) => {
 
         const resultPageTransform = await transform(resultPage, queryParams);
         // Para revisar la data formateada con la informacion de todas la secciones
-        // return resultPageTransform;
+        return resultPageTransform;
 
         const resultHome = home(resultPageTransform);
         return Array.isArray(resultHome) ? resultHome[0] : {};
