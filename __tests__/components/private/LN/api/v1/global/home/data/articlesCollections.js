@@ -338,3 +338,8 @@ export const articlesCollections = [
             '/economia/comercio-exterior/comercio-exterior-prueba-nid21012021/'
     }
 ];
+describe('test articles Collection', () => {
+    it('Total test boxes expected', () => {
+        expect(articlesCollections).toHaveLength(3);
+    });
+});

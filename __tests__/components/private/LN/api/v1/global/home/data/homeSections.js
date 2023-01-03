@@ -1713,3 +1713,12 @@ export const homeSections = [
         sectionWeb: 'App_Anexo_1'
     }
 ];
+
+
+
+
+describe('test home formatted from childres of features and Chains', () => {
+    it('Total test boxes expected', () => {
+        expect(homeSections).toHaveLength(38);
+    });
+});

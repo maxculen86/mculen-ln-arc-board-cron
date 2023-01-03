@@ -3375,3 +3375,9 @@ export const articlesManual = [
         }
     }
 ];
+
+describe('test articles Caja MAnual', () => {
+    it('Total test boxes expected', () => {
+        expect(articlesManual).toHaveLength(3);
+    });
+});

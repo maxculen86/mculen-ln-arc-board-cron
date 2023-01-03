@@ -41,8 +41,8 @@ export const resolve = (key, a) => {
     let basePath = `/content/v4/stories/?website=${arcSite}`;
     const uriParams = [
         `${
-            key?.sourceInclude && key?.sourceInclude !== ''
-                ? `&included_fields=${key?.sourceInclude}`
+            key && key.sourceInclude && key.sourceInclude !== ''
+                ? `&included_fields=${key.sourceInclude}`
                 : ''
         }`
     ].join('');
