@@ -7,7 +7,7 @@ import transform from './utils/servicesSource/pages/transform';
 const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
     const aliasPages = {
-        home: '/homepage8',
+        home: '/home10',
         sports: '/deportes'
     };
     try {
@@ -41,7 +41,7 @@ const fetch = async (query, { cachedCall } = {}) => {
 
         const resultPageTransform = await transform(resultPage, queryParams);
         // Para revisar la data formateada con la informacion de todas la secciones
-        return resultPageTransform;
+        // return resultPageTransform;
 
         const resultHome = home(resultPageTransform);
         return Array.isArray(resultHome) ? resultHome[0] : {};

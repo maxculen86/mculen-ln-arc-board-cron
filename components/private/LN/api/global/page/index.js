@@ -3,11 +3,34 @@ import {
     checkIfValid,
     findSectionChildren
 } from '../../../../common/utils/validateSectionHome';
+import {
+    checkIfValid as checkIfValid10,
+    findSectionChildren as findSectionChildren10
+} from '../../../../common/utils/validateSectionHomeLN10';
 import getSections from '../utils/getSections';
 import getBannerPosition from '../utils/getBannerPosition';
 import getTypesbyContainer from '../utils/getTypesbyContainer';
 import getSectionAliasbyFeature from '../utils/getSectionAliasbyFeature';
 import getToMovePosition from '../utils/getToMovePosition';
+
+const checkbyLayout = {
+    'LN-acumulado': {
+        1: findSectionChildren,
+        2: checkIfValid
+    },
+    'LN-Home_Main': {
+        1: findSectionChildren,
+        2: checkIfValid
+    },
+    'LN-Home_Sports': {
+        1: findSectionChildren,
+        2: checkIfValid
+    },
+    'LN10-Home_Main': {
+        1: findSectionChildren10,
+        2: checkIfValid10
+    }
+};
 
 const sectionbyDiagramation = ['grillaUltimasNoticias'];
 const setTypeElement = information => {
@@ -246,16 +269,23 @@ const getPageElements = props => {
             const { sectionWeb, sectionMobile } = e;
 
             // Check Section
-            const sectionChildren = findSectionChildren(renderables, i);
+            const sectionChildren = checkbyLayout[layoutPage]['1'](
+                renderables,
+                i
+            ); //findSectionChildren(renderables, i);
 
-            const checkElement = checkIfValid(
+            const checkElement = checkbyLayout[layoutPage]['2'](
                 sectionWeb,
                 sectionChildren,
                 rules
-            );
+            ); /* checkIfValid(
+                sectionWeb,
+                sectionChildren,
+                rules
+            ); */
 
             let elements =
-                get(checkElement, 'isValid', false) === true
+                get(checkElement, 'isValid', checkElement) === true
                     ? children[i]
                     : null;
 

@@ -4,11 +4,14 @@ const boxMovePositionLNMain = {
 };
 const boxMovePositionLNAcumulado = {};
 const boxMovePositionLNSports = {};
+const boxMovePositionLN10Main = {};
+
 const getToMovePosition = layout => {
     const boxPositionsMerge = {
         'LN-acumulado': boxMovePositionLNAcumulado,
         'LN-Home_Main': boxMovePositionLNMain,
-        'LN-Home_Sports': boxMovePositionLNSports
+        'LN-Home_Sports': boxMovePositionLNSports,
+        'LN10-Home_Main': boxMovePositionLN10Main
     };
 
     return boxPositionsMerge[layout];
