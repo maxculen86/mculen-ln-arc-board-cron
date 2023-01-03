@@ -1,4 +1,4 @@
-const UltimasNoticias = props => {
+const AperturaFeature = props => {
     const { customFields } = props;
     customFields.layout = customFields.layout?.toLowerCase();
 
@@ -8,6 +8,6 @@ const UltimasNoticias = props => {
     };
 };
 
-UltimasNoticias.label = 'LN Acumulado Ultimas Noticias';
+AperturaFeature.label = 'LN-Acumulado-Apertura';
 
-export default UltimasNoticias;
+export default AperturaFeature;

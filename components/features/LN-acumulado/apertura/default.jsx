@@ -35,6 +35,6 @@ AperturaFeature.propTypes = {
     }).isRequired
 };
 
-AperturaFeature.label = 'LN-Acumulado-Apertura-old';
+AperturaFeature.label = 'LN-Acumulado-Apertura';
 
 export default Consumer(AperturaFeature);

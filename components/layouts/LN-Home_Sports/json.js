@@ -1,7 +1,6 @@
 import Consumer from 'fusion:consumer';
 import pageSportsBuilderSections from '../config/LN-Home_Sports-PageBuilder.config.json';
 
-
 const LNSportsHome = props => {
     const propsHome = {
         children: props.children,

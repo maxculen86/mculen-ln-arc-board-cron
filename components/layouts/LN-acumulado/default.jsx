@@ -20,18 +20,7 @@ import { formatText } from '../../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
 import PwaModals from '../../private/LN/common/pwaModals';
 import { getIdCollectionFromGC } from '../../private/common/utils/preloadHelper';
-
-const pageBuilderSections = [
-    'Banner-Megatop',
-    'Sticky-Mobile',
-    'Pre-Apertura',
-    'Breadcrumb/Titulo',
-    'Apertura',
-    'Links',
-    'Notas',
-    'Aside',
-    'Bottom'
-];
+import pageBuilderSections from '../config/LN-Acumulado-PageBuilder.config.json';
 
 const CLASS_ACU_REVISTA = '';
 const revistas = [
