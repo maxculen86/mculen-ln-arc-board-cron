@@ -2,10 +2,8 @@
 
 exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Should match snapshot showing all the private components 1`] = `
 <div>
-  <mock-static-validation
-    htmlonly="true"
-    id="MOCKID"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="holidays-nav --month"
@@ -33,17 +31,6 @@ exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Shou
         class="year"
       >
         <li
-          class="--font-bold --fivexs"
-        >
-          <a
-            class="com-link"
-            href="/feriados/2021/"
-            title="Ir a feriados 2021"
-          >
-            2021
-          </a>
-        </li>
-        <li
           class="--font-bold --fivexs --active"
         >
           <span
@@ -61,6 +48,17 @@ exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Shou
             title="Ir a feriados 2023"
           >
             2023
+          </a>
+        </li>
+        <li
+          class="--font-bold --fivexs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2024/"
+            title="Ir a feriados 2024"
+          >
+            2024
           </a>
         </li>
       </ol>
@@ -436,6 +434,6 @@ exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Shou
         </a>
       </h3>
     </div>
-  </mock-static-validation>
+  </div>
 </div>
 `;

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
 import { useContent } from 'fusion:content';
 import { useFusionContext } from 'fusion:context';
+import StaticContent from '../../private/common/staticContent';
 import ComTitle from '../../private/common/com-title';
 import LinkList from '../../private/common/com-link-list';
 
@@ -45,12 +45,12 @@ const NavigationListFeature = ({
 
     return (
         (list && list.length && (
-            <Static id={featureId}>
+            <StaticContent>
                 <section className="mod-linklist">
                     <ComTitle size="--twoxs" content={title} />
                     <LinkList list={list} extraClass="--tags" />
                 </section>
-            </Static>
+            </StaticContent>
         )) ||
         null
     );

@@ -1,8 +1,7 @@
 const checkHydrateOnly = ({ nodeType, layout }) => {
     const conditions = [
-        layout === 'LN-Home_Main',
-        layout === 'LN10-Home_Main',
-        nodeType === 'distributor'
+        ['LN-Home_Main', 'LN10-Home_Main'].includes(layout),
+        ['distributor', 'section'].includes(nodeType)
     ];
 
     return conditions.some(Boolean);

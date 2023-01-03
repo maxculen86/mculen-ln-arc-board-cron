@@ -2,11 +2,11 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import StaticValidation from '../../private/common/staticValidation';
-import Header from '../../private/LN/common/header';
-import Footer from '../../private/LN/common/footer';
-import GlobalProvider from '../../private/common/context/globalContext';
-import AnexoDefault from '../../features/LN-common/anexo/default';
+import StaticContent from '../private/common/staticContent';
+import Header from '../private/LN/common/header';
+import Footer from '../private/LN/common/footer';
+import GlobalProvider from '../private/common/context/globalContext';
+import AnexoDefault from '../features/LN-common/anexo/default';
 
 import '../../../resources/dist/css/ln/pages/acumulado.css';
 import '../../../resources/dist/css/ln/pages/lotteries.css';
@@ -220,9 +220,9 @@ const LNAcumuladoLayout = props => {
                             </div>
                         </div>
                     </main>
-                    <StaticValidation id="StaticFooter" htmlOnly persistent>
+                    <StaticContent id="StaticFooter">
                         <Footer />
-                    </StaticValidation>
+                    </StaticContent>
                 </div>
                 <LoadBannersSSR />
                 <PwaModals />

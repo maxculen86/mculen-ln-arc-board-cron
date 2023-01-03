@@ -2,10 +2,8 @@
 
 exports[`Components- Features - HolidaysCalendar - default.jsx - test Should match snapshot showing all the private components 1`] = `
 <div>
-  <mock-static-validation
-    htmlonly="true"
-    id="QWERTYUIOP"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="holidays-nav --home"
@@ -37,10 +35,10 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         >
           <a
             class="com-link"
-            href="/feriados/2021/"
-            title="Ir a feriados 2021"
+            href="/feriados/2022/"
+            title="Ir a feriados 2022"
           >
-            2021
+            2022
           </a>
         </li>
         <li
@@ -49,7 +47,7 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
           <span
             class="com-text"
           >
-            2022
+            2023
           </span>
         </li>
         <li
@@ -57,10 +55,10 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         >
           <a
             class="com-link"
-            href="/feriados/2023/"
-            title="Ir a feriados 2023"
+            href="/feriados/2024/"
+            title="Ir a feriados 2024"
           >
-            2023
+            2024
           </a>
         </li>
       </ol>
@@ -85,8 +83,8 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="/feriados/2022/enero/"
-                  title="Ir a feriados de enero del 2022"
+                  href="/feriados/2023/enero/"
+                  title="Ir a feriados de enero del 2023"
                 >
                   Enero
                 </a>
@@ -134,6 +132,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             <div
               class="date-calendar"
             >
+              <span
+                class="com-text"
+              >
+                 
+              </span>
               <span
                 class="com-text"
               >
@@ -351,8 +354,8 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="/feriados/2022/febrero/"
-                  title="Ir a feriados de febrero del 2022"
+                  href="/feriados/2023/febrero/"
+                  title="Ir a feriados de febrero del 2023"
                 >
                   Febrero
                 </a>
@@ -400,6 +403,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             <div
               class="date-calendar"
             >
+              <span
+                class="com-text"
+              >
+                 
+              </span>
               <span
                 class="com-text"
               >
@@ -582,8 +590,8 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="/feriados/2022/marzo/"
-                  title="Ir a feriados de marzo del 2022"
+                  href="/feriados/2023/marzo/"
+                  title="Ir a feriados de marzo del 2023"
                 >
                   Marzo
                 </a>
@@ -631,6 +639,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             <div
               class="date-calendar"
             >
+              <span
+                class="com-text"
+              >
+                 
+              </span>
               <span
                 class="com-text"
               >
@@ -828,8 +841,8 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="/feriados/2022/abril/"
-                  title="Ir a feriados de abril del 2022"
+                  href="/feriados/2023/abril/"
+                  title="Ir a feriados de abril del 2023"
                 >
                   Abril
                 </a>
@@ -877,6 +890,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             <div
               class="date-calendar"
             >
+              <span
+                class="com-text"
+              >
+                 
+              </span>
               <span
                 class="com-text"
               >
@@ -1084,8 +1102,8 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="/feriados/2022/mayo/"
-                  title="Ir a feriados de mayo del 2022"
+                  href="/feriados/2023/mayo/"
+                  title="Ir a feriados de mayo del 2023"
                 >
                   Mayo
                 </a>
@@ -1133,36 +1151,6 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             <div
               class="date-calendar"
             >
-              <span
-                class="com-text"
-              >
-                 
-              </span>
-              <span
-                class="com-text"
-              >
-                 
-              </span>
-              <span
-                class="com-text"
-              >
-                 
-              </span>
-              <span
-                class="com-text"
-              >
-                 
-              </span>
-              <span
-                class="com-text"
-              >
-                 
-              </span>
-              <span
-                class="com-text"
-              >
-                 
-              </span>
               <span
                 class="com-text --transferable"
               >
@@ -1367,8 +1355,8 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="/feriados/2022/junio/"
-                  title="Ir a feriados de junio del 2022"
+                  href="/feriados/2023/junio/"
+                  title="Ir a feriados de junio del 2023"
                 >
                   Junio
                 </a>
@@ -1416,6 +1404,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             <div
               class="date-calendar"
             >
+              <span
+                class="com-text"
+              >
+                 
+              </span>
               <span
                 class="com-text"
               >
@@ -1613,8 +1606,8 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="/feriados/2022/julio/"
-                  title="Ir a feriados de julio del 2022"
+                  href="/feriados/2023/julio/"
+                  title="Ir a feriados de julio del 2023"
                 >
                   Julio
                 </a>
@@ -1662,6 +1655,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             <div
               class="date-calendar"
             >
+              <span
+                class="com-text"
+              >
+                 
+              </span>
               <span
                 class="com-text"
               >
@@ -1874,8 +1872,8 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="/feriados/2022/agosto/"
-                  title="Ir a feriados de agosto del 2022"
+                  href="/feriados/2023/agosto/"
+                  title="Ir a feriados de agosto del 2023"
                 >
                   Agosto
                 </a>
@@ -1923,6 +1921,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             <div
               class="date-calendar"
             >
+              <span
+                class="com-text"
+              >
+                 
+              </span>
               <span
                 class="com-text"
               >
@@ -2099,8 +2102,8 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="/feriados/2022/septiembre/"
-                  title="Ir a feriados de septiembre del 2022"
+                  href="/feriados/2023/septiembre/"
+                  title="Ir a feriados de septiembre del 2023"
                 >
                   Septiembre
                 </a>
@@ -2148,6 +2151,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             <div
               class="date-calendar"
             >
+              <span
+                class="com-text"
+              >
+                 
+              </span>
               <span
                 class="com-text"
               >
@@ -2334,8 +2342,8 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="/feriados/2022/octubre/"
-                  title="Ir a feriados de octubre del 2022"
+                  href="/feriados/2023/octubre/"
+                  title="Ir a feriados de octubre del 2023"
                 >
                   Octubre
                 </a>
@@ -2411,6 +2419,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               <span
                 class="com-text"
               >
+                 
+              </span>
+              <span
+                class="com-text"
+              >
                 1
               </span>
               <span
@@ -2584,8 +2597,8 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="/feriados/2022/noviembre/"
-                  title="Ir a feriados de noviembre del 2022"
+                  href="/feriados/2023/noviembre/"
+                  title="Ir a feriados de noviembre del 2023"
                 >
                   Noviembre
                 </a>
@@ -2633,6 +2646,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             <div
               class="date-calendar"
             >
+              <span
+                class="com-text"
+              >
+                 
+              </span>
               <span
                 class="com-text"
               >
@@ -2809,8 +2827,8 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
               >
                 <a
                   class="com-link"
-                  href="/feriados/2022/diciembre/"
-                  title="Ir a feriados de diciembre del 2022"
+                  href="/feriados/2023/diciembre/"
+                  title="Ir a feriados de diciembre del 2023"
                 >
                   Diciembre
                 </a>
@@ -2858,6 +2876,11 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             <div
               class="date-calendar"
             >
+              <span
+                class="com-text"
+              >
+                 
+              </span>
               <span
                 class="com-text"
               >
@@ -3061,6 +3084,6 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         </ul>
       </div>
     </div>
-  </mock-static-validation>
+  </div>
 </div>
 `;

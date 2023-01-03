@@ -9,12 +9,12 @@ const useGetArticleInCollection = (
     idCollection = null,
     size = 2,
     initialPosition = 0,
-    idsArticlesToExclude = [],
+    idCollectionsInPage = [],
     filterRecomendar = false,
     filterRepetead = false,
     layout = '',
     website = 'la-nacion-ar',
-    isHome = false
+    hasHydrateOnly = false
 ) => {
     const articleList = useContent({
         source: (idCollection && 'collectionsSource') || null,
@@ -23,7 +23,7 @@ const useGetArticleInCollection = (
             size,
             website,
             from: initialPosition,
-            idsArticlesToExclude,
+            idCollectionsInPage,
             filterRecomendar,
             filterRepetead,
             notesQuantity,
@@ -31,13 +31,14 @@ const useGetArticleInCollection = (
             isFocal: layout && layout.includes('focal'),
             diagramation
         },
-        staticMode: isHome,
+        staticMode: hasHydrateOnly,
         filter:
             (diagramation &&
                 diagramation === 'editoriales2' &&
                 filterEditoriales) ||
             filter
     });
+
     return get(articleList, 'content_elements', []);
 };
 

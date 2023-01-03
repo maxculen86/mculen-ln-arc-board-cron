@@ -74,6 +74,7 @@ class LiftIgniter extends Component {
                     e.parentNode.insertBefore(s, e);
                 })(window, document, "performance", "script", "//cdn", "$p");
                 $p("init", "8561ps8ov66e7mim");
+                $p("setNoTag", true);
                 $p("send", "pageview");
                 }
             });

@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
@@ -24,6 +24,8 @@ import get from '../private/common/utils/get';
 import FontPreloads from '../private/common/fontsPreloads';
 import { LinkImagePreload } from '../private/LN/common/utils/mediaHelper';
 import replaceUrlResizerToWWW from '../../content/sources/utils/replaceUrlResizerToWWW';
+import { getTitle } from '../private/common/utils/outputTypeHelper';
+
 /**
  * TODO: Resolver el tema de las canonicas
  * TODO: Resolver los datos estructurados por cada layout
@@ -37,41 +39,49 @@ const Amp = props => {
         metaValue,
         Resource,
         layout,
-        siteProperties: {
-            title,
-            scripts: {
-                GTM: {
-                    props: { idAMP }
-                }
-            }
-        },
+        siteProperties = {},
         renderables,
         deployment,
         contextPath,
-        globalContent
+        globalContent = {},
+        requestUri
     } = props;
+
+    const {
+        title,
+        scripts: {
+            GTM: {
+                props: { idAMP }
+            }
+        }
+    } = siteProperties;
+
     const {
         canonical_url: canonicalUrl,
         content_elements: contentElements,
-        headlines,
-        description,
+        headlines = {},
+        description = {},
         type,
         subtype,
         syndication,
-        distributor,
+        distributor = {},
         node_type: nodeType,
         name,
         Payload,
         subheadlines,
         _id,
         taxonomy,
-        website_url,
+        website_url: websiteUrl,
         content_restrictions: { content_code: contentCode } = {}
-    } = globalContent || {};
+    } = globalContent;
 
-    const { meta_title: metaTitle, basic: basicTitle } = headlines || {};
-    const { basic: descriptionBasic } = description || {};
-    const { name: distributorName } = distributor || {};
+    const {
+        meta_title: metaTitle,
+        basic: basicTitle,
+        mobile: mobileTitle
+    } = headlines;
+    const { basic: descriptionBasic } = description;
+    const { name: distributorName } = distributor;
 
     const metaTitleBasic =
         metaTitle && metaTitle !== '' ? metaTitle : basicTitle;
@@ -81,9 +91,19 @@ const Amp = props => {
         'features'
     );
 
+    const _nodeType = getSectionName({ nodeType, type });
+    const customTitle = getTitle({
+        title: metaValue('title'),
+        basicTitle,
+        mobileTitle,
+        properties: siteProperties,
+        uri: requestUri,
+        nodeType: _nodeType,
+        subtype
+    });
+
     const metaTitleValue = metaValue('title') || title || 'LA NACION';
     const dataLayerAmp = dataLayerIndexAmp(arcSite, layout, globalContent);
-    const _nodeType = getSectionName({ nodeType, type });
     const basicPromoItems = replaceUrlResizerToWWW(
         get(globalContent, 'promo_items.basic', {})
     );
@@ -104,7 +124,7 @@ const Amp = props => {
                     nodeType={nodeType}
                     _id={_id}
                     metaValue={metaTitleValue}
-                    title={metaTitleValue}
+                    title={customTitle}
                 />
                 <MetaDescription
                     subtype={subtype}
@@ -120,7 +140,12 @@ const Amp = props => {
                     subheadlines={subheadlines && subheadlines.basic}
                     arcSite={arcSite}
                 />
-                <MetasOG {...props} section={_nodeType} />
+                <MetasOG
+                    {...props}
+                    title={customTitle}
+                    section={_nodeType}
+                    subtype={subtype}
+                />
                 <Syndication
                     type={type}
                     arcSite={arcSite}
@@ -159,12 +184,12 @@ const Amp = props => {
                 <Favicon />
 
                 <Robot
-                    canonicalUrl={canonicalUrl || website_url}
+                    canonicalUrl={canonicalUrl || websiteUrl}
                     subtype={subtype}
                 />
                 <AMPSnippet {...props} />
                 <MetaSectionParsely arcSite={arcSite} taxonomy={taxonomy} />
-                <title>{metaTitleValue}</title>
+                <title>{customTitle}</title>
             </head>
             <body data-amp-auto-lightbox-disable>
                 <amp-analytics
@@ -210,7 +235,44 @@ Amp.propTypes = {
     }).isRequired,
     renderables: PropTypes.arrayOf(PropTypes.object).isRequired,
     contextPath: PropTypes.string.isRequired,
-    deployment: PropTypes.func.isRequired
+    deployment: PropTypes.func.isRequired,
+    globalContent: PropTypes.shape({
+        canonical_url: PropTypes.string,
+        content_elements: PropTypes.arrayOf(PropTypes.shape()),
+        headlines: PropTypes.shape({
+            basic: PropTypes.string,
+            mobile: PropTypes.string
+        }),
+        description: PropTypes.shape({
+            basic: PropTypes.string
+        }),
+        type: PropTypes.string,
+        subtype: PropTypes.string,
+        syndication: PropTypes.shape({
+            external_distribution: PropTypes.bool,
+            search: PropTypes.bool
+        }),
+        distributor: PropTypes.shape({
+            name: PropTypes.string
+        }),
+        node_type: PropTypes.string,
+        name: PropTypes.string,
+        subheadlines: PropTypes.shape({
+            basic: PropTypes.string
+        }),
+        _id: PropTypes.string,
+        taxonomy: PropTypes.shape({
+            primary_section: PropTypes.shape({
+                _id: PropTypes.string
+            }),
+            sections: PropTypes.arrayOf(PropTypes.shape())
+        }),
+        website_url: PropTypes.string,
+        content_restrictions: PropTypes.shape({
+            content_code: PropTypes.string.isRequired
+        })
+    }).isRequired,
+    requestUri: PropTypes.string.isRequired
 };
 
 export default Amp;
