@@ -1,6 +1,6 @@
-const stringFallback = filterType => {
-    if (typeof filterType !== 'string') return '';
-    return filterType;
+const stringFallback = string => {
+    if (typeof string !== 'string') return '';
+    return string;
 };
 
 export default stringFallback;

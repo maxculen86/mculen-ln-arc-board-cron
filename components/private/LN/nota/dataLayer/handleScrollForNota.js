@@ -9,6 +9,7 @@ export default function handleScrollForNota() {
 
     if (
         scrollPercentRounded > 25 &&
+        scrollPercentRounded < 50 &&
         !window.dataLayer.some(e => e.quartile === '25')
     ) {
         window.dataLayer.push({ event: 'trackScroll', quartile: '25' });
@@ -16,12 +17,14 @@ export default function handleScrollForNota() {
 
     if (
         scrollPercentRounded > 50 &&
+        scrollPercentRounded < 75 &&
         !window.dataLayer.some(e => e.quartile === '50')
     ) {
         window.dataLayer.push({ event: 'trackScroll', quartile: '50' });
     }
     if (
         scrollPercentRounded > 75 &&
+        scrollPercentRounded < 100 &&
         !window.dataLayer.some(e => e.quartile === '75')
     ) {
         window.dataLayer.push({ event: 'trackScroll', quartile: '75' });

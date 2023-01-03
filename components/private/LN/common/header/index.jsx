@@ -133,7 +133,7 @@ const onScrollHandler = (
     if (scrollPos && scrollPos > height && wrapper) {
         wrapper.classList.add(CLASS_SCROLL_DOWN);
     }
-    scrollPos && isScrollUp && classList.remove(CLASS_ACTIVE);
+    scrollPos && classList.remove(CLASS_ACTIVE);
 
     if (scrollPos && wrapper) {
         wrapper.classList.remove(
