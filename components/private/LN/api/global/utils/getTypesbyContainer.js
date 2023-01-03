@@ -1,3 +1,5 @@
+// Used in private/LN/api/v1/global/home/index.js
+// This parameters are used for run the methods accord the type
 // The type 1 is assign to Banner
 const getTypesbyContainer = nameContainer => {
     const boxTypeContainer = {
