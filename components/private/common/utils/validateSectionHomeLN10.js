@@ -8,11 +8,12 @@ export const findSectionChildren = (renderables, position) => {
     return (sectionFinded && sectionFinded.children) || [];
 };
 
-export const checkIfValid = (name, children, paramSectionValidation) => {
+export const checkIfValid = (name, children, paramSectionValidation = null) => {
     const sectionToValidate =
         paramSectionValidation == null
             ? sectionsValidation
             : paramSectionValidation;
+
     const childrenWithoutHide = children.filter(
         child =>
             get(child, 'props.customFields.hideCaja', false) !== true &&
