@@ -167,6 +167,9 @@ const addProperties = (sectionChildren, elements) => {
         elements &&
         Array.isArray(elements) &&
         elements.map((e, i) => {
+            if (e == null) {
+                return e;
+            }
             if (
                 sectionChildren[i] &&
                 sectionChildren[i].collection === 'chains'
@@ -272,17 +275,13 @@ const getPageElements = props => {
             const sectionChildren = checkbyLayout[layoutPage]['1'](
                 renderables,
                 i
-            ); //findSectionChildren(renderables, i);
+            );
 
             const checkElement = checkbyLayout[layoutPage]['2'](
                 sectionWeb,
                 sectionChildren,
                 rules
-            ); /* checkIfValid(
-                sectionWeb,
-                sectionChildren,
-                rules
-            ); */
+            );
 
             let elements =
                 get(checkElement, 'isValid', checkElement) === true
@@ -291,6 +290,9 @@ const getPageElements = props => {
 
             // Add fields as features
             elements = addProperties(sectionChildren, elements);
+            // Para probar en esta etapa los elementos o cuanquier cosa dentro de este reduce coloca:
+            // r.push(elements);
+            // return r;
 
             // Divide Section by configured features
             if (elements && Array.isArray(elements) && elements.length > 0) {

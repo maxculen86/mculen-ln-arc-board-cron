@@ -3,6 +3,7 @@ const getTypesbyContainer = nameContainer => {
     const boxTypeContainer = {
         Ln_Caja_Manual: 0,
         Ln_Caja_Collection: 0,
+        LN10_Caja_Bomba: 0,
         'LN-common/cajaAnticipo': 3,
         'LN-common/anexo': 2,
         'LN-common/bomba': 0,

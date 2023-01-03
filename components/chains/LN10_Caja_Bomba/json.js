@@ -3,7 +3,7 @@ import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 import respChain from '../../private/LN/api/v1/global/home/chains/respCajaCollection';
 
-class CajaManual {
+class CajaBomba {
     constructor(props) {
         this.props = props;
 
@@ -37,4 +37,4 @@ class CajaManual {
     }
 }
 
-export default Consumer(CajaManual);
+export default Consumer(CajaBomba);

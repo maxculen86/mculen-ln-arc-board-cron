@@ -7,7 +7,7 @@ import transform from './utils/servicesSource/pages/transform';
 const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
     const aliasPages = {
-        home: '/home10',
+        home: '/homepage-LN10',
         sports: '/deportes'
     };
     try {
