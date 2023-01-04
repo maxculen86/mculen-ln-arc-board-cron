@@ -15,6 +15,23 @@ export const addPositionInNote = (elem, indexElem) => {
     return true;
 };
 
+const eventListenerAttacher = (element, layer) => {
+    const { ctr_brand: ctrBrand, ctr_position: ctrPosition } = element;
+
+    const eventClick = {
+        event: 'productClickNota',
+        ctr_brand: ctrBrand,
+        ctr_position: ctrPosition
+    };
+
+    element.addEventListener('click', () => {
+        layer.push(eventClick);
+    });
+    element.addEventListener('auxclick', () => {
+        layer.push(eventClick);
+    });
+};
+
 export const createIntersectionObserverForLinks = () => {
     const { dataLayer } = window;
 
@@ -25,93 +42,45 @@ export const createIntersectionObserverForLinks = () => {
 
     const refresh = checkUserRealoadAction(window);
 
-    bodyLinks.forEach((link, i) => {
-        addPositionInNote(link, i);
-    });
-
-    buttonLinks.forEach((link, i) => {
-        addPositionInNote(link, i);
-    });
-
-    bodyLinks.forEach(paragraphlink => {
-        paragraphlink.addEventListener('click', e => {
-            if (!refresh) {
-                const { target } = e;
-                const {
-                    ctr_brand: ctrBrand,
-                    ctr_position: ctrPosition
-                } = target;
-                dataLayer.push({
-                    event: 'productClickNota',
-                    ctr_brand: ctrBrand,
-                    ctr_position: ctrPosition
-                });
-            }
+    if (!refresh) {
+        bodyLinks.forEach((paragraphlink, i) => {
+            addPositionInNote(paragraphlink, i);
+            eventListenerAttacher(paragraphlink, dataLayer);
         });
-        paragraphlink.addEventListener('auxclick', e => {
-            if (!refresh) {
-                const { target } = e;
-                const {
-                    ctr_brand: ctrBrand,
-                    ctr_position: ctrPosition
-                } = target;
-                dataLayer.push({
-                    event: 'productClickNota',
-                    ctr_brand: ctrBrand,
-                    ctr_position: ctrPosition
-                });
-            }
+
+        buttonLinks.forEach((buttonlink, i) => {
+            addPositionInNote(buttonlink, i);
+            eventListenerAttacher(buttonlink, dataLayer);
         });
-    });
 
-    buttonLinks.forEach(buttonlink => {
-        buttonlink.addEventListener('click', e => {
-            if (!refresh) {
-                dataLayer.push({
-                    event: 'productClickNota',
-                    ctr_brand: buttonlink.ctr_brand,
-                    ctr_position: buttonlink.ctr_position
-                });
-            }
+        const callback = entries => {
+            entries.forEach(linkElement => {
+                if (linkElement.isIntersecting) {
+                    const { target } = linkElement;
+
+                    const {
+                        ctr_brand: ctrBrand,
+                        ctr_position: ctrPosition
+                    } = target;
+
+                    dataLayer.push({
+                        event: 'impressionNota',
+                        ctr_brand: ctrBrand,
+                        ctr_position: ctrPosition
+                    });
+                    observer.unobserve(target);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(callback);
+
+        bodyLinks.forEach(link => {
+            observer.observe(link);
         });
-        buttonlink.addEventListener('auxclick', e => {
-            if (!refresh) {
-                dataLayer.push({
-                    event: 'productClickNota',
-                    ctr_brand: buttonlink.ctr_brand,
-                    ctr_position: buttonlink.ctr_position
-                });
-            }
+
+        buttonLinks.forEach(link => {
+            observer.observe(link);
         });
-    });
-
-    const callback = entries => {
-        entries.forEach((linkElement, i) => {
-            if (linkElement.isIntersecting && !refresh) {
-                const { target } = linkElement;
-
-                const {
-                    ctr_brand: ctrBrand,
-                    ctr_position: ctrPosition
-                } = target;
-
-                dataLayer.push({
-                    event: 'impressionNota',
-                    ctr_brand: ctrBrand,
-                    ctr_position: ctrPosition
-                });
-                observer.unobserve(target);
-            }
-        });
-    };
-
-    const observer = new IntersectionObserver(callback);
-
-    bodyLinks.forEach(link => {
-        observer.observe(link);
-    });
-
-    buttonLinks.forEach(link => {
-        observer.observe(link);
-    });
+    }
 };
