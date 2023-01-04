@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
-import Header from '../../private/LN/common/header';
+import Header from '../../private/LN10/header';
 import Footer from '../../private/LN/common/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBanners from '../../private/common/banners/LoadBanners';
@@ -11,7 +11,6 @@ import { bannersViewport } from '../../private/common/banners/bannersHome.json';
 import Metarefresh from '../../features/LN-common/metarefresh';
 import sectionHelper from '../../private/LN/common/utils/sectionHelperLN10';
 import Ranking from '../../features/LN-common/ranking/default';
-import SubHeader from '../../features/LN-common/subHeader';
 import pageBuilderSections from '../config/LN10-PageBuilder.config.json';
 import { getScriptForComercial } from '../../private/common/banners/bannersRules';
 import PwaModals from '../../private/LN/common/pwaModals';
@@ -63,6 +62,7 @@ const LN10Home = props => {
             {getScriptForComercial('comercial_mob')}
             <div id="wrapper" className="home">
                 <div data-section="cabezal">{cabezal}</div>
+                <Header />
                 <main id="content">
                     {bannersHome.sticky2Mob}
                     <div>
