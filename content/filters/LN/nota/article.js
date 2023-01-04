@@ -34,6 +34,9 @@ const image = `
     width
     subtitle
     caption
+    auth {
+        1
+    }
     additional_properties {
         iptc_source
     }
@@ -92,6 +95,9 @@ const video = `
                 iptc_source
             }
             ${image}
+            auth {
+                1
+            }
         }
     }
     additional_properties {
@@ -264,6 +270,9 @@ const gallery = `
     promo_items {
         basic {
             ${image}
+            auth {
+                1
+            }
         }
     }
 `;
@@ -319,6 +328,9 @@ export default `
             }
             ${image}
             ${video}
+            auth {
+                1
+            }
         }
         storytelling {
             _id
@@ -327,6 +339,9 @@ export default `
         storytelling_mobile {
             _id
             ${image}
+            auth {
+                1
+            }
         }
         receta {
             ${customReceta}
@@ -403,6 +418,9 @@ export default `
             referent {
                 type
                 ${image}
+                auth {
+                    1
+                }
             }
         }
         redirect {
@@ -452,6 +470,9 @@ export default `
         ${video}
         ${oembed}
         ${table}
+        auth {
+            1
+        }
         content_elements {
             _id
             content
@@ -460,6 +481,9 @@ export default `
                 content
             }
             ${image}
+            auth {
+                1
+            }
         }
     }
     display_date,
