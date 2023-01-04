@@ -6,7 +6,7 @@ import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import isAnyGrilla1 from '../../../common/utils/isAnyGrilla1';
 
-const GlobalContext = React.createContext([{}, () => {}]);
+const GlobalContext = React.createContext([]);
 
 const reducer = (state, action) => {
     switch (action.type) {

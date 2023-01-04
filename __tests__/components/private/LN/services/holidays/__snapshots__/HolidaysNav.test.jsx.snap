@@ -32,10 +32,10 @@ exports[`components - private - holidays - HolidaysNav Should match snapshot Hol
       >
         <a
           class="com-link"
-          href="/feriados/2021/"
-          title="Ir a feriados 2021"
+          href="/feriados/2022/"
+          title="Ir a feriados 2022"
         >
-          2021
+          2022
         </a>
       </li>
       <li
@@ -44,7 +44,7 @@ exports[`components - private - holidays - HolidaysNav Should match snapshot Hol
         <span
           class="com-text"
         >
-          2022
+          2023
         </span>
       </li>
       <li
@@ -52,10 +52,10 @@ exports[`components - private - holidays - HolidaysNav Should match snapshot Hol
       >
         <a
           class="com-link"
-          href="/feriados/2023/"
-          title="Ir a feriados 2023"
+          href="/feriados/2024/"
+          title="Ir a feriados 2024"
         >
-          2023
+          2024
         </a>
       </li>
     </ol>

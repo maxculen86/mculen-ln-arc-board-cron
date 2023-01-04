@@ -2,6 +2,7 @@ import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import transform from './utils/acuArticlesSource/transform';
 import logger from '../../components/private/common/utils/logger';
+import stringFallback from '../../components/private/common/utils/stringFallback';
 
 const resolve = key => {
     const {
@@ -11,8 +12,8 @@ const resolve = key => {
         authorId,
         tagId,
         subtype,
-        size,
-        page,
+        size = 30,
+        page = 1,
         website,
         distributorId,
         sectionsIds,
@@ -21,8 +22,8 @@ const resolve = key => {
     } = key;
 
     const arcSite = key['arc-site'];
-    const cant = size || 30;
-    const from = ((page || 1) - 1) * cant;
+    const cant = size;
+    const from = (page - 1) * cant;
     const basePath = `/content/v4/search/published/?website=${website ||
         arcSite}`;
 
@@ -147,16 +148,16 @@ const resolve = key => {
                             "term": {
                                 "revision.published": true
                             }
-                        ${sourceOriginFilter || ''}
-                        ${subtypeFilter || ''}
+                        ${stringFallback(sourceOriginFilter)}
+                        ${stringFallback(subtypeFilter)}
                         }
-                        ${suggestFilter || ''}
-                        ${authorFilter || ''}
-                        ${sectionFilter || ''}
-                        ${tagFilter || ''}
+                        ${stringFallback(suggestFilter)}
+                        ${stringFallback(authorFilter)}
+                        ${stringFallback(sectionFilter)}
+                        ${stringFallback(tagFilter)}
                     ]
-                    ${notSectionFiltered || ''}
-                    ${notSourceSystemFiltered || ''}
+                    ${stringFallback(notSectionFiltered)}
+                    ${stringFallback(notSourceSystemFiltered)}
                 }
             }
     }`;
