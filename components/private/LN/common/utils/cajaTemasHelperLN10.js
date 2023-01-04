@@ -339,6 +339,12 @@ export const validateoutItem = itemNota => {
     return true;
 };
 
+export const getArticlesOfChain = ({
+    isInSiteService,
+    articlesFromCollectionSiteService = [],
+    articlesToShow = []
+}) => (isInSiteService ? articlesFromCollectionSiteService : articlesToShow);
+
 export const cajaTemasCustomsFields = featuredName => {
     return {
         idCollection: PropTypes.string.tag({

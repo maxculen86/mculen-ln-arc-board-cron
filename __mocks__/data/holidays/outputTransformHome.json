@@ -1,6 +1,6 @@
 {
     "serviceType": "feriados-año",
-    "serviceItem": 2022,
+    "serviceItem": 2023,
     "dataService": {
         "calendars": [
             {
@@ -150,7 +150,7 @@
                             "content": "1 de mayo"
                         },
                         {
-                            "content": "Domingo"
+                            "content": "Lunes"
                         },
                         {
                             "content": "Día del Trabajador."
@@ -179,7 +179,7 @@
                             "content": "1 de enero"
                         },
                         {
-                            "content": "Sábado"
+                            "content": "Domingo"
                         },
                         {
                             "content": "Año nuevo"
@@ -190,7 +190,7 @@
                             "content": "28 de febrero"
                         },
                         {
-                            "content": "Lunes"
+                            "content": "Martes"
                         },
                         {
                             "content": "Carnaval"
@@ -201,7 +201,7 @@
                             "content": "24 de marzo"
                         },
                         {
-                            "content": "Jueves"
+                            "content": "Viernes"
                         },
                         {
                             "content": "Día Nacional de la Memoria por la Verdad y la Justicia."
@@ -212,7 +212,7 @@
                             "content": "25 de mayo"
                         },
                         {
-                            "content": "Miércoles"
+                            "content": "Jueves"
                         },
                         {
                             "content": "Día de la Revolución de Mayo."
@@ -223,7 +223,7 @@
                             "content": "20 de junio"
                         },
                         {
-                            "content": "Lunes"
+                            "content": "Martes"
                         },
                         {
                             "content": "Paso a la Inmortalidad del General Manuel Belgrano."
@@ -234,7 +234,7 @@
                             "content": "9 de julio"
                         },
                         {
-                            "content": "Sábado"
+                            "content": "Domingo"
                         },
                         {
                             "content": "Día de la Independencia."
@@ -245,7 +245,7 @@
                             "content": "8 de diciembre"
                         },
                         {
-                            "content": "Jueves"
+                            "content": "Viernes"
                         },
                         {
                             "content": "Inmaculada Concepción de María."
@@ -256,7 +256,7 @@
                             "content": "25 de diciembre"
                         },
                         {
-                            "content": "Domingo"
+                            "content": "Lunes"
                         },
                         {
                             "content": "Navidad."
@@ -281,7 +281,7 @@
                             "content": "2 de abril"
                         },
                         {
-                            "content": "Sábado"
+                            "content": "Domingo"
                         }
                     ]
                 ]
@@ -383,7 +383,7 @@
         }
     },
     "metaData": {
-        "description": "Calendario de feriados nacionales 2022 en Argentina: días no laborables, fines de semana largo y feriados puente del 2022 y 2023 en LA NACION.",
-        "title": "Feriados 2022 en Argentina: Calendario de feriados nacionales - LA NACION"
+        "description": "Calendario de feriados nacionales 2023 en Argentina: días no laborables, fines de semana largo y feriados puente del 2023 y 2024 en LA NACION.",
+        "title": "Feriados 2023 en Argentina: Calendario de feriados nacionales - LA NACION"
     }
 }

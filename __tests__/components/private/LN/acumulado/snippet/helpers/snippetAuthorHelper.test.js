@@ -3,7 +3,8 @@ import {
     stringToArray,
     formatForOneElementArray,
     extractAffilations,
-    getBooksAndPodcasts
+    getBooksAndPodcasts,
+    authorBasicInfo
 } from '../../../../../../../components/private/LN/acumulado/snippet/helpers/snippetAuthorHelper';
 
 describe('components - private - LN - acumulado - snippet - helpers - snippetAuthorHelper', () => {
@@ -141,6 +142,74 @@ describe('components - private - LN - acumulado - snippet - helpers - snippetAut
         });
         it('When no data is sent return undefined', () => {
             expect(getBooksAndPodcasts()).toStrictEqual(undefined);
+        });
+    });
+
+    describe('authorBasicInfo function', () => {
+        it('When the keys of the author are sent, return the correct object for schema', () => {
+            const author = {
+                byline: 'Juan Pravata',
+                location: 'Argentina',
+                bioPage: '/autor/juan-pravata-666/',
+                url:
+                    'https://resizer.glanacion.com/resizer/rwzMQDCrq7nU-uNKKDU20OHPyV4=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/5362338d-13d7-4ed6-83ef-a17dffa61167.jpg',
+                longBio:
+                    'El Desarrollador Full Stack es un profesional capacitado para desarrollar distintas etapas de un proyecto web. Trabaja tanto en el back-end como en el front-end.',
+                bio: 'Programador web'
+            };
+            const { byline, location, bioPage, url, longBio, bio } = author;
+
+            expect(
+                authorBasicInfo(byline, location, bioPage, url, longBio, bio)
+            ).toStrictEqual({
+                name: 'Juan Pravata',
+                birthPlace: 'Argentina',
+                url: 'http://www.lanacion.com.ar/autor/juan-pravata-666/',
+                image:
+                    'https://resizer.glanacion.com/resizer/rwzMQDCrq7nU-uNKKDU20OHPyV4=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/5362338d-13d7-4ed6-83ef-a17dffa61167.jpg',
+                description:
+                    'El Desarrollador Full Stack es un profesional capacitado para desarrollar distintas etapas de un proyecto web. Trabaja tanto en el back-end como en el front-end.',
+                disambiguatingDescription: 'Programador web'
+            });
+        });
+
+        it('When any of the values of the keys is empty, should not render that key', () => {
+            const author = {
+                byline: 'Juan Pravata',
+                location: '',
+                bioPage: '/autor/juan-pravata-666/',
+                url:
+                    'https://resizer.glanacion.com/resizer/rwzMQDCrq7nU-uNKKDU20OHPyV4=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/5362338d-13d7-4ed6-83ef-a17dffa61167.jpg',
+                longBio: '',
+                bio: 'Programador web'
+            };
+            const { byline, location, bioPage, url, longBio, bio } = author;
+
+            expect(
+                authorBasicInfo(byline, location, bioPage, url, longBio, bio)
+            ).toStrictEqual({
+                name: 'Juan Pravata',
+                url: 'http://www.lanacion.com.ar/autor/juan-pravata-666/',
+                image:
+                    'https://resizer.glanacion.com/resizer/rwzMQDCrq7nU-uNKKDU20OHPyV4=/280x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/5362338d-13d7-4ed6-83ef-a17dffa61167.jpg',
+                disambiguatingDescription: 'Programador web'
+            });
+        });
+
+        it('When all the values of the keys are empty, should render empty object', () => {
+            const author = {
+                byline: '',
+                location: '',
+                bioPage: '',
+                url: '',
+                longBio: '',
+                bio: ''
+            };
+            const { byline, location, bioPage, url, longBio, bio } = author;
+
+            expect(
+                authorBasicInfo(byline, location, bioPage, url, longBio, bio)
+            ).toStrictEqual({});
         });
     });
 });

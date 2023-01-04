@@ -31,7 +31,7 @@
     "dependencies": {
         "@ln/common-ui-button": "^1.0.0",
         "@ln/common-ui-link": "0.0.3-beta.4",
-        "@ln/contenidos-ui-advance": "^0.1.1-beta.4",
+        "@ln/contenidos-ui-advance": "^0.1.1-beta.6",
         "@ln/contenidos-ui-badge": "0.0.2-beta.0",
         "@ln/contenidos-ui-sass": "0.0.1-beta.1",
         "copyfiles": "^2.4.1",

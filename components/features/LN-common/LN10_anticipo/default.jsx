@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-expressions */
+/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { Advance } from '@ln/contenidos-ui-advance';
@@ -13,16 +14,29 @@ const Anticipo = ({
     customFields: { textBadge, lead, hide, title, url, video } = {}
 }) => {
     return !hide ? (
-        <StaticContent>
-            <Advance
-                href={url}
-                title={title}
-                lead={lead}
-                embedCode={video}
-                badgeText={textBadge || 'Anticipo'}
-                sticky
+        <>
+            <StaticContent>
+                <Advance
+                    href={url}
+                    title={title}
+                    lead={lead}
+                    embedCode={video}
+                    badgeText={textBadge || 'Anticipo'}
+                    sticky
+                />
+            </StaticContent>
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+            window.addEventListener('DOMContentLoaded', () => {
+                document.getElementById('closeAdvance').onclick = function() {
+                    this.parentNode && this.parentNode.parentNode && this.parentNode.parentNode.classList.add('--close')
+                };
+            });
+            `
+                }}
             />
-        </StaticContent>
+        </>
     ) : (
         <></>
     );

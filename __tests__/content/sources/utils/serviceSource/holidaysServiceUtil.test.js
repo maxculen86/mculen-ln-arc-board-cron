@@ -42,14 +42,14 @@ jest.mock('request-promise-native', () => {
 describe('Test getUri function', () => {
     it('Should return endpoint with the year', () => {
         expect(
-            getUri({ service: 'feriados', serviceItem: '2022' })
+            getUri({ service: 'feriados', serviceItem: '2023' })
         ).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/api/v1/feriados/2022'
+            'https://arcservices.lanacion.com.ar/api/v1/feriados/2023'
         );
     });
     it('Should return endpoint with the current year', () => {
         expect(getUri({ service: 'feriados' })).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/api/v1/feriados/2022'
+            'https://arcservices.lanacion.com.ar/api/v1/feriados/2023'
         );
     });
 
@@ -166,42 +166,42 @@ describe('Test previousAndNextDate helperFuction', () => {
         });
     });
     test('Should return only previous for border case', () => {
-        const result = previousAndNextDate(2023, 'diciembre');
+        const result = previousAndNextDate(2024, 'diciembre');
         expect(result).toStrictEqual({
             previous: {
-                text: 'noviembre 2023',
-                title: 'Ir a feriados de noviembre del 2023',
-                url: '/feriados/2023/noviembre/'
+                text: 'noviembre 2024',
+                title: 'Ir a feriados de noviembre del 2024',
+                url: '/feriados/2024/noviembre/'
             }
         });
     });
     test('Should return previous and next', () => {
-        const result = previousAndNextDate(2021, 'diciembre');
+        const result = previousAndNextDate(2022, 'diciembre');
         expect(result).toStrictEqual({
             next: {
-                text: 'enero 2022',
-                title: 'Ir a feriados de enero del 2022',
-                url: '/feriados/2022/enero/'
+                text: 'enero 2023',
+                title: 'Ir a feriados de enero del 2023',
+                url: '/feriados/2023/enero/'
             },
             previous: {
-                text: 'noviembre 2021',
-                title: 'Ir a feriados de noviembre del 2021',
-                url: '/feriados/2021/noviembre/'
+                text: 'noviembre 2022',
+                title: 'Ir a feriados de noviembre del 2022',
+                url: '/feriados/2022/noviembre/'
             }
         });
     });
     test('Should return previous and next even receiving year as string', () => {
-        const result = previousAndNextDate('2021', 'diciembre');
+        const result = previousAndNextDate('2022', 'diciembre');
         expect(result).toStrictEqual({
             next: {
-                text: 'enero 2022',
-                title: 'Ir a feriados de enero del 2022',
-                url: '/feriados/2022/enero/'
+                text: 'enero 2023',
+                title: 'Ir a feriados de enero del 2023',
+                url: '/feriados/2023/enero/'
             },
             previous: {
-                text: 'noviembre 2021',
-                title: 'Ir a feriados de noviembre del 2021',
-                url: '/feriados/2021/noviembre/'
+                text: 'noviembre 2022',
+                title: 'Ir a feriados de noviembre del 2022',
+                url: '/feriados/2022/noviembre/'
             }
         });
     });

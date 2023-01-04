@@ -74,3 +74,21 @@ export const getBooksAndPodcasts = (books = [], podcasts = []) => {
 
     return arraysMerged.length === 0 ? undefined : arraysMerged;
 };
+
+export const authorBasicInfo = (
+    byline,
+    location,
+    bioPage,
+    url,
+    longBio,
+    bio
+) => {
+    return {
+        ...(byline && { name: byline }),
+        ...(location && { birthPlace: location }),
+        ...(bioPage && { url: `http://www.lanacion.com.ar${bioPage}` }),
+        ...(url && { image: url }),
+        ...(longBio && { description: longBio }),
+        ...(bio && { disambiguatingDescription: bio })
+    };
+};

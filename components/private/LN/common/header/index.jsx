@@ -123,35 +123,27 @@ const onScrollHandler = (
     if (layout === layoutsName.FotoAl100) {
         const share = document.querySelector('.mod-share-container');
         const { 1: img } = Array.from(document.querySelectorAll('.com-image'));
-        img.getBoundingClientRect().y < 0
-            ? share.classList.add(CLASS_HANDLE_SHARE)
-            : share.classList.remove(CLASS_HANDLE_SHARE);
+        share.classList.toggle(
+            CLASS_HANDLE_SHARE,
+            img.getBoundingClientRect().y < 0
+        );
     }
     if (userMenu) userMenu.classList.remove(CLASS_ACTIVE);
-    if (scrollPos) {
-        if (scrollPos > height) {
-            if (wrapper) {
-                wrapper.classList.add(CLASS_SCROLL_DOWN);
-            }
-        }
-        if (isScrollUp) {
-            classList.remove(CLASS_ACTIVE);
 
-            if (wrapper) {
-                wrapper.classList.remove(CLASS_SCROLL_DOWN);
-                wrapper.classList.add(CLASS_SCROLL_UP);
-            }
-        } else {
-            classList.remove(CLASS_ACTIVE);
+    if (scrollPos && scrollPos > height && wrapper) {
+        wrapper.classList.add(CLASS_SCROLL_DOWN);
+    }
+    scrollPos && classList.remove(CLASS_ACTIVE);
 
-            if (wrapper) {
-                wrapper.classList.remove(CLASS_SCROLL_UP);
-                wrapper.classList.add(CLASS_SCROLL_DOWN);
-            }
-        }
-        if (scrollPos < 65) {
-            classList.add(CLASS_ACTIVE);
-        }
+    if (scrollPos && wrapper) {
+        wrapper.classList.remove(
+            isScrollUp ? CLASS_SCROLL_DOWN : CLASS_SCROLL_UP
+        );
+        wrapper.classList.add(isScrollUp ? CLASS_SCROLL_UP : CLASS_SCROLL_DOWN);
+    }
+
+    if (scrollPos && scrollPos < 65) {
+        classList.add(CLASS_ACTIVE);
     }
 
     lastScrollPosition = scrollPos;
