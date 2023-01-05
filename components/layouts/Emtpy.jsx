@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import LoadingIcon from '../private/LN/common/loadingIcon';
@@ -17,6 +17,11 @@ const Emtpy = props => {
         redirect: redirectNotaAsp,
         requestUri
     });
+
+    useEffect(() => {
+        window.location.replace(redirectUrl);
+    }, [redirectUrl]);
+
     if (redirectUrl) {
         return (
             <>
@@ -35,15 +40,6 @@ const Emtpy = props => {
                         </div>
                     </main>
                 </div>
-                <script
-                    type="text/javascript"
-                    dangerouslySetInnerHTML={{
-                        __html: `
-        window.addEventListener('DOMContentLoaded', () => {
-            window.location.replace("${redirectUrl}");
-        })`
-                    }}
-                />
             </>
         );
     }
