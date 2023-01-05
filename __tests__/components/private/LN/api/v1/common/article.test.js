@@ -315,23 +315,32 @@ describe('Test de index en Json', () => {
 });
 
 describe('Home test', () => {
-    /*
-    article{_id:'AVYWDWDAVVESZGD7HXMW46GTYA'} OK
-    article{html=""} El error de ahora
-    article{id=''} si deberia tirar un warning
-    article{} si deberia tirar un warning
-    */
     test('Debería retornar un info', () => {
         //CASO 1 - Anexo configurado como seccion
-        const data = {
+        const request1 = {
             _id: 'sarasa',
             templateId: '2',
             titulo: 'test',
-            html: null
+            html: 'prueba'
         };
 
         try {
-            articleItem(data);
+            articleItem(request1);
+        } catch (err) {
+            expect(err.message).toBe(
+                'Anexo configurado como parte de seccion en la home, id: sarasa'
+            );
+        }
+
+        const request2 = {
+            _id: 'sarasa',
+            templateId: '2',
+            titulo: 'test',
+            html: ''
+        };
+
+        try {
+            articleItem(request2);
         } catch (err) {
             expect(err.message).toBe(
                 'Anexo configurado como parte de seccion en la home, id: sarasa'
