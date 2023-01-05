@@ -1,7 +1,9 @@
 import React from 'react';
 import ModMedia from '../../../../components/private/common/mod-media';
+import 'regenerator-runtime/runtime';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import 'regenerator-runtime/runtime';
 
 describe('Components - Private - Common - Mod-media', () => {
     it('should test section props and children', () => {
