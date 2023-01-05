@@ -22,7 +22,7 @@ const handleScroll = comDromdownRef => {
           );
 };
 
-const Desplegable = ({ toglleDesplegable, isHome }) => {
+const Desplegable = ({ toggleDesplegable, isHome }) => {
     const despegableRef = useRef();
     const comDromdownRef = useRef();
 
@@ -51,7 +51,7 @@ const Desplegable = ({ toglleDesplegable, isHome }) => {
                 className="overlay"
                 role="button"
                 tabIndex="0"
-                onMouseDown={toglleDesplegable}
+                onMouseDown={toggleDesplegable}
             />
             <div className="com-dropdown" ref={comDromdownRef}>
                 <section className="header__dropdown">
@@ -66,7 +66,7 @@ const Desplegable = ({ toglleDesplegable, isHome }) => {
                         iconName="close"
                         title="Cerrar"
                         tabIndex="0"
-                        onMouseDown={toglleDesplegable}
+                        onMouseDown={toggleDesplegable}
                     />
                 </section>
                 <section className="menu__dropdown">
@@ -80,7 +80,7 @@ const Desplegable = ({ toglleDesplegable, isHome }) => {
 };
 
 Desplegable.propTypes = {
-    toglleDesplegable: PropTypes.func.isRequired,
+    toggleDesplegable: PropTypes.func.isRequired,
     isHome: PropTypes.bool.isRequired
 };
 
