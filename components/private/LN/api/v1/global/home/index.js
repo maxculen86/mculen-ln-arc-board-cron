@@ -42,6 +42,12 @@ const featureInformation = (information, section) => {
 
     if (section === 'Anticipo') {
         res.texto = information.title;
+        // textBadge: 'Anticipo',
+        // lead: '',
+        // hide: false,
+        // title: '',
+        // url: '',
+        // video: ''
     }
 
     if (!information.hideTitle && section !== 'Apertura') {
