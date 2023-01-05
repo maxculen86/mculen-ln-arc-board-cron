@@ -141,6 +141,7 @@ const fetch = (query, { cachedCall } = {}) => {
         })
         .catch(error => {
             // eslint-disable-next-line no-console
+            /*
             console.log(
                 '🚀 ~ file: articleSourceNota.js ~ line 90 ~ error',
                 error
@@ -150,6 +151,7 @@ const fetch = (query, { cachedCall } = {}) => {
                 { source: 'content/source/articleSourceNota', url },
                 arcSite
             );
+            */
         });
 };
 

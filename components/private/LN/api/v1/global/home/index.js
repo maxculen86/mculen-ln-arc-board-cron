@@ -30,6 +30,7 @@ const typeSection = {
     Multimedia: { tipoSeccion: 'tema', idSeccion: 305 },
     Timeline: { tipoSeccion: 'tema', idSeccion: 3000 },
     Aside: { tipoSeccion: 'aside', idSeccion: 306 },
+    EnVivo: { tipoSeccion: 'enVivo', idSeccion: 400 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 
@@ -52,7 +53,9 @@ const featureInformation = (information, section) => {
         return {
             ...res,
             tituloCaja: information.title,
-            url: information.url
+            url: information.url,
+            chapita: information.chapita,
+            chapitaStyle: information.chapitaStyle
         };
     }
     return res;

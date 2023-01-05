@@ -26,6 +26,7 @@ const getTypesbyContainer = nameContainer => {
         'LN-acumulado/grillaNotas': 9,
         'LN-common/ranking': 9,
         'LN-acumulado/ultimasNoticias': 9,
+        'LN-common/LN10_En_Vivo': 0,
         default: 9 // A type is set to discard
     };
 
