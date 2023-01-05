@@ -9,6 +9,7 @@ import dateAndTimeUtil, {
     addHoursAndFormat,
     dateAndTimeForAppsUtil
 } from '../../../../../../../components/private/common/utils/dateAndTimeUtil';
+import { articleItem } from '../../../../../../../components/private/LN/api/v1/common/article';
 const AcuList = (type, articles) => {
     return articles.map(v => {
         return type(v);
@@ -310,5 +311,58 @@ describe('Test de index en Json', () => {
         const date1 = '2021-02-05T17:34:00.624Z';
         const result1 = isOlderThanXHoursAgo(date1, 24);
         expect(result1).toBeTruthy();
+    });
+});
+
+describe('Home test', () => {
+    /*
+    article{_id:'AVYWDWDAVVESZGD7HXMW46GTYA'} OK
+    article{html=""} El error de ahora
+    article{id=''} si deberia tirar un warning
+    article{} si deberia tirar un warning
+    */
+    test('Debería retornar un info', () => {
+        //CASO 1 - Anexo configurado como seccion
+        const data = {
+            _id: 'sarasa',
+            templateId: '2',
+            titulo: 'test',
+            html: null
+        };
+
+        try {
+            articleItem(data);
+        } catch (err) {
+            expect(err.message).toBe(
+                'Anexo configurado como parte de seccion en la home, id: sarasa'
+            );
+        }
+    });
+    test('Deberia retornar un warning', () => {
+        //CASO 1 - Articulo vacio
+        try {
+            articleItem({});
+        } catch (err) {
+            expect(err.message).toBe(
+                'Revisar Parametros de Articulo en null o undefined in article with params: {}'
+            );
+        }
+
+        //CASO 2 - Sin campo _id
+        const data = {
+            id: 'sarasa',
+            templateId: '2',
+            titulo: 'test'
+        };
+
+        try {
+            articleItem(data);
+        } catch (err) {
+            expect(err.message).toBe(
+                `Revisar Parametros de Articulo en null o undefined in article with params: ${JSON.stringify(
+                    data
+                )}`
+            );
+        }
     });
 });
