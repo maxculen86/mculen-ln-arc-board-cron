@@ -30,7 +30,7 @@ const typeSection = {
     Multimedia: { tipoSeccion: 'tema', idSeccion: 305 },
     Timeline: { tipoSeccion: 'tema', idSeccion: 3000 },
     Aside: { tipoSeccion: 'aside', idSeccion: 306 },
-    EnVivo: { tipoSeccion: 'enVivo', idSeccion: 400 },
+    EnVivo: { tipoSeccion: 'enVivo', idSeccion: 700 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 
