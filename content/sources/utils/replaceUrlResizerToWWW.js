@@ -1,4 +1,4 @@
-import { RESIZER_URL_PUBLIC } from 'fusion:environment';
+import { RESIZER_URL_PUBLIC, API_ENV, SITE_LANACION } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 
 const replaceUrlResizerToWWW = (originalPromoItems = {}) => {
@@ -6,7 +6,13 @@ const replaceUrlResizerToWWW = (originalPromoItems = {}) => {
         getProperties('la-nacion-ar') || {};
     const { url = '', type, resized_urls: resizedUrls } = originalPromoItems;
 
-    const replaceUrlToWWW = _url => _url.replace(RESIZER_URL_PUBLIC, host);
+    // TODO: hacer test sobre esta funcio que cambia la url segun si usa glanacion public
+    const replaceUrlToWWW = _url => {
+        if (API_ENV === 'prod') {
+            return _url.replace(RESIZER_URL_PUBLIC, host);
+        }
+        return _url.replace(RESIZER_URL_PUBLIC, SITE_LANACION);
+    };
 
     const transformUrls = (_resizedUrls = []) =>
         _resizedUrls.map(item => {

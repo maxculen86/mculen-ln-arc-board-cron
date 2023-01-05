@@ -1,4 +1,3 @@
-import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import { createResizer } from '../../components/private/common/utils/image/resizer';
 
 const resolve = key => {
@@ -24,7 +23,7 @@ const transform = data => {
         contentElements.map(elem => {
             return {
                 ...elem,
-                resized_url: createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl({
+                resized_url: createResizer().resizeUrl({
                     originalUrl: elem.promo_image.url,
                     originalWidth: 289,
                     originalHeight: 163,

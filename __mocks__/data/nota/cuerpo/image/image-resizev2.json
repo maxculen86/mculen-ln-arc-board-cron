@@ -1,0 +1,73 @@
+{
+    "_id": "S6JROK6SOVHG7E7W6RJV74GUNQ",
+    "additional_properties": {},
+    "auth": {
+        "1": "110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794"
+    },
+    "caption": "",
+    "created_date": "2022-12-20T12:45:40Z",
+    "credits": {
+        "affiliation": [],
+        "by": [
+            {
+                "name": "Javier Picerno",
+                "type": "author"
+            }
+        ]
+    },
+    "height": 1333,
+    "resized_urls": [
+        {
+            "option": {
+                "height": 1280,
+                "media": "(min-width: 1280px)",
+                "media_preload": "(min-width: 1280.1px)",
+                "width": 1920
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1920&height=1280&quality=80&smart=true"
+        },
+        {
+            "option": {
+                "height": 800,
+                "media_preload": "(min-width: 1024.1px and max-width: 1280px)",
+                "width": 1200
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1200&height=800&quality=80&smart=true"
+        },
+        {
+            "option": {
+                "height": 682,
+                "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+                "width": 1023
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1023&height=682&quality=80&smart=true"
+        },
+        {
+            "option": {
+                "height": 1914,
+                "media_preload": "(min-width: 768px)",
+                "width": 1276
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1276&height=1914&quality=80&smart=true"
+        },
+        {
+            "option": {
+                "height": 1152,
+                "media_preload": "(min-width: 375.1px and max-width: 768px)",
+                "width": 768
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=768&height=1152&quality=80&smart=true"
+        },
+        {
+            "option": {
+                "height": 540,
+                "media_preload": "(max-width: 375px)",
+                "width": 360
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=360&height=540&quality=80&smart=true"
+        }
+    ],
+    "type": "image",
+    "url": "https://resizer.glanacion.com/resizer/v2/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg?auth=110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794&width=1920&height=0&quality=80&smart=true",
+    "width": 2000
+}
