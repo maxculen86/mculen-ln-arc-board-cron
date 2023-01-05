@@ -1,5 +1,6 @@
 import React from 'react';
 import ModMedia from '../../../../components/private/common/mod-media';
+import 'regenerator-runtime/runtime';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 

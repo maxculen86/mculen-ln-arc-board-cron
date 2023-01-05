@@ -108,6 +108,9 @@
         "globals": {
             "NODE_ENV": "test"
         },
+        "transformIgnorePatterns": [
+            "//node_modules/(?!@ln/contenidos-ui-advance/.*)"
+        ],
         "moduleFileExtensions": [
             "js",
             "jsx",

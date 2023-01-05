@@ -8,6 +8,8 @@ import '../../../../resources/packages/css/@ln/contenidos-ui-badge/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-button/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-advance/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
+import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
+
 import StaticContent from '../../../private/common/staticContent';
 
 const Anticipo = ({
