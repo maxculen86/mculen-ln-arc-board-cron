@@ -316,41 +316,25 @@ describe('Test de index en Json', () => {
 
 describe('Home test', () => {
     test('Debería retornar un info', () => {
-        //CASO 1 - Anexo configurado como seccion
-        const request1 = {
-            _id: 'sarasa',
+        const request = {
             templateId: '2',
             titulo: 'test',
             html: 'prueba'
         };
 
         try {
-            articleItem(request1);
+            articleItem(request);
         } catch (err) {
             expect(err.message).toBe(
-                'Anexo configurado como parte de seccion en la home, id: sarasa'
-            );
-        }
-
-        const request2 = {
-            _id: 'sarasa',
-            templateId: '2',
-            titulo: 'test',
-            html: ''
-        };
-
-        try {
-            articleItem(request2);
-        } catch (err) {
-            expect(err.message).toBe(
-                'Anexo configurado como parte de seccion en la home, id: sarasa'
+                'Anexo configurado como parte de seccion en la home'
             );
         }
     });
     test('Deberia retornar un warning', () => {
         //CASO 1 - Articulo vacio
+        const request = {};
         try {
-            articleItem({});
+            articleItem(request);
         } catch (err) {
             expect(err.message).toBe(
                 'Revisar Parametros de Articulo en null o undefined in article with params: {}'
@@ -358,18 +342,18 @@ describe('Home test', () => {
         }
 
         //CASO 2 - Sin campo _id
-        const data = {
+        const request2 = {
             id: 'sarasa',
             templateId: '2',
             titulo: 'test'
         };
 
         try {
-            articleItem(data);
+            articleItem(request2);
         } catch (err) {
             expect(err.message).toBe(
                 `Revisar Parametros de Articulo en null o undefined in article with params: ${JSON.stringify(
-                    data
+                    request2
                 )}`
             );
         }

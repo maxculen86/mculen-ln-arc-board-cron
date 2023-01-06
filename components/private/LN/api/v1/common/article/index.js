@@ -70,22 +70,23 @@ export const articleItem = article => {
     const id = get(article, '_id', null);
 
     const itemArticle =
-        typeof article === 'object' ? JSON.stringify(article) : '';
+        typeof article === 'object' ? JSON.stringify(article) : null;
 
-    if (!itemArticle || !id) {
+    const htmlAttr = get(article, 'html', null);
+
+    if (!id && htmlAttr)
+        throw new LNApiErrorHtmlArticle(
+            `Anexo configurado como parte de seccion en la home`,
+            'ErrorHtmlArticle'
+        );
+
+    const elements = JSON.parse(itemArticle);
+    if (!itemArticle || elements.length == 0 || !id) {
         throw new LNApiErrorArticles(
             `Revisar Parametros de Articulo en null o undefined in article with params: ${itemArticle}`,
             'ErrorIdArticle'
         );
     }
-
-    const htmlAttr = get(article, 'html', null);
-
-    if (htmlAttr || htmlAttr == '')
-        throw new LNApiErrorHtmlArticle(
-            `Anexo configurado como parte de seccion en la home, id: ${id}`,
-            'ErrorHtmlArticle'
-        );
 
     const url = get(
         article,
