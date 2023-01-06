@@ -74,7 +74,7 @@ export const articleItem = article => {
 
     const htmlAttr = get(article, 'html', null);
 
-    if (!id && htmlAttr)
+    if ((!id && htmlAttr) || htmlAttr == '')
         throw new LNApiErrorHtmlArticle(
             `Anexo configurado como parte de seccion en la home`,
             'ErrorHtmlArticle'
