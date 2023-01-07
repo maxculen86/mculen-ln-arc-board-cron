@@ -8,7 +8,8 @@ import {
     stringToArray,
     formatForOneElementArray,
     extractAffilations,
-    getBooksAndPodcasts
+    getBooksAndPodcasts,
+    authorBasicInfo
 } from './helpers/snippetAuthorHelper';
 
 const SnippetAutor = ({ globalContent = {} }) => {
@@ -42,12 +43,7 @@ const SnippetAutor = ({ globalContent = {} }) => {
     const data = {
         '@context': 'http://schema.org',
         '@type': 'Person',
-        ...(byline && { name: byline }),
-        ...(location && { birthPlace: location }),
-        ...(bioPage && { url: `http://www.lanacion.com.ar${bioPage}` }),
-        ...(url && { image: url }),
-        ...(longBio && { description: longBio }),
-        ...(bio && { disambiguatingDescription: bio }),
+        ...authorBasicInfo(byline, location, bioPage, url, longBio, bio),
         ...(knowsAbout && { knowsAbout: formatForOneElementArray(knowsAbout) }),
         ...(languajesFormated && {
             knowsLanguage: formatForOneElementArray(languajesFormated)

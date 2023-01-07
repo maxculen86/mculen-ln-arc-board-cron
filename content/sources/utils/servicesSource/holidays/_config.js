@@ -78,6 +78,13 @@ const monthsDescriptions = {
         diciembre:
             'Diciembre tiene dos feriados nacionales: el viernes 8 es el feriado inamovible de la Inmaculada Concepción de María, que formará un fin de semana largo hasta el ' +
             'domingo 10. Otro fin de semana largo comenzará el sábado 23 hasta el lunes 25, asueto generalizado por tratarse de la fiesta de la Navidad.'
+    },
+    default: (serviceItem, serviceSubItem) => {
+        return (
+            `Todos los días no laborables de ${serviceSubItem} del ${serviceItem}, asuetos, cuáles son feriados inamovibles y por qué no se trabaja esos días, ` +
+            `cuáles podrían cambiar de día, los días feriados puente y por qué son feriados para ${serviceSubItem} del ${serviceItem}. Cuándo es fin de semana ` +
+            `largo en ${serviceItem}. Calendario completo con todas las fechas patrias de la Argentina.`
+        );
     }
 };
 

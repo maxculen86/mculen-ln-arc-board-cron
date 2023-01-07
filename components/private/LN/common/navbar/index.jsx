@@ -6,7 +6,7 @@ import useTermica from '../../../common/hooks/useTermica';
 import { isSubscribed } from '../utils/contextHelper';
 import '../../../../../resources/dist/css/ln/components/nav-mobile.css';
 
-const ListMenu = ({ toglleDesplegable, amp, isHome }) => {
+const ListMenu = ({ toggleDesplegable, amp, isHome }) => {
     const withBookmark = useTermica('bookmark_web') && isSubscribed();
     const classCondition = withBookmark ? 'col-2' : 'col-3';
     const bookmarkUrl =
@@ -39,7 +39,7 @@ const ListMenu = ({ toglleDesplegable, amp, isHome }) => {
                     <button
                         type="button"
                         className={`${classCondition} item-foo`}
-                        onClick={toglleDesplegable}
+                        onClick={toggleDesplegable}
                     >
                         <Icon name="sections" />
                         <p>Secciones</p>
@@ -81,7 +81,7 @@ ListMenu.propTypes = {
     // showNav: PropTypes.string.isRequired,
     isHome: PropTypes.bool.isRequired,
     amp: PropTypes.bool,
-    toglleDesplegable: PropTypes.func.isRequired
+    toggleDesplegable: PropTypes.func.isRequired
 };
 
 ListMenu.defaultProps = {
