@@ -7,7 +7,9 @@ const fetch = async (query, { cachedCall } = {}) => {
     try {
         let ticksCache = get(query, 'ticks', null);
         ticksCache = ticksCache === null ? '' : ticksCache.replace('/', '');
-        const keyCachedCall = 'ApiPageHome'.concat(ticksCache);
+        const prefixTicksCache =
+            ticksCache === '' ? '' : '_'.concat(ticksCache);
+        const keyCachedCall = 'ApiPageHome'.concat(prefixTicksCache);
         const website = get(query, 'website', null);
 
         queryParams = {
