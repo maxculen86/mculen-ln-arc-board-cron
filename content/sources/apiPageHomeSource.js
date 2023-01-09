@@ -7,6 +7,7 @@ const fetch = async (query, { cachedCall } = {}) => {
     try {
         let ticksCache = get(query, 'ticks', null);
         ticksCache = ticksCache === null ? '' : ticksCache.replace('/', '');
+        const keyCachedCall = 'ApiPageHome'.concat(ticksCache);
         const website = get(query, 'website', null);
 
         queryParams = {
@@ -18,7 +19,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         if (!SITE_LANACION) {
             throw new Error('Variable SITE_LANACION missing');
         }
-        return await cachedCall('ApiPageHome', pages.fetch, {
+        return await cachedCall(keyCachedCall, pages.fetch, {
             query: queryParams,
             ttl: 120
         });
