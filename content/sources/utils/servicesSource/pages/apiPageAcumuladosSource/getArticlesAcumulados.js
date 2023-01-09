@@ -15,8 +15,8 @@ const getParamsAcus = query => {
         api: true
     };
 
-    if (sections && sections?.length > 0) {
-        const sectionsFormated = sections?.filter(x => x && x?.trim() !== '');
+    if (sections && sections.length && sections.length > 0) {
+        const sectionsFormated = sections.filter(x => x && x.trim() !== '');
         return {
             ...resp,
             sectionsIds: JSON.stringify(sectionsFormated)
