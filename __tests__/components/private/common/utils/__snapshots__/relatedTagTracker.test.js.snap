@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` components - private - common - utils - relatedTagsTracker intersectionObserverForRelatedTags Should match snapshot 1`] = `
+<div>
+  <script
+    type="text/javascript"
+  >
+    
+                window.addEventListener('DOMContentLoaded', () =&gt; {
+                    function checkUserRealoadAction(activeWindow) {
+  var pageAccessByReload = activeWindow.performance.getEntriesByType('navigation').map(function (nav) {
+    return nav.type;
+  }).includes('reload');
+  return pageAccessByReload;
+}
+                    const refresh = checkUserRealoadAction(window);
+                    if (!refresh) {
+                        const tags = document.querySelectorAll('section.mod-themes a');
+                        function addPositionTag(tag, idexTag) {
+  var index = idexTag + 1;
+  var position = index &lt;= 9 ? "0".concat(index) : index;
+  if (tag) return Object.assign(tag, {
+    ctr_brand: "linkTemas_".concat(position),
+    ctr_position: "0600".concat(position)
+  });
+  return true;
+}
+                        const callback = entries =&gt; {
+                            entries.forEach((tagElement, i) =&gt; {
+                                if (tagElement.isIntersecting) {
+                                    const { target } = tagElement;
+                
+                                    window.dataLayer.push({
+                                        event: 'impressionNota',
+                                        ctr_brand: target.ctr_brand,
+                                        ctr_position: target.ctr_position
+                                    });
+                
+                                    observer.unobserve(target);
+                                }
+                            });
+                        };
+                
+                        const observer = new IntersectionObserver(callback);
+                        tags.forEach((tag, i) =&gt; {
+                            addPositionTag(tag, i);
+                            const clickEvent = {
+                                event: 'productClickNota',
+                                ctr_brand: tag.ctr_brand,
+                                ctr_position: tag.ctr_position
+                            };
+                            tag.addEventListener('click', () =&gt; {
+                                window.dataLayer.push(clickEvent);
+                            });
+                            tag.addEventListener('auxclick', () =&gt; {
+                                window.dataLayer.push(clickEvent);
+                            });
+                            observer.observe(tag);
+                        });
+                    }
+                });
+                
+  </script>
+</div>
+`;
