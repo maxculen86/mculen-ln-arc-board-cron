@@ -8,21 +8,60 @@ exports[` components - private - common - utils - relatedTagsTracker intersectio
     
                 window.addEventListener('DOMContentLoaded', () =&gt; {
                     function checkUserRealoadAction(activeWindow) {
-  var pageAccessByReload = activeWindow.performance.getEntriesByType('navigation').map(function (nav) {
+  /* istanbul ignore next */
+  cov_8aa6749r9.f[0]++;
+  var pageAccessByReload =
+  /* istanbul ignore next */
+  (cov_8aa6749r9.s[4]++, activeWindow.performance.getEntriesByType('navigation').map(function (nav) {
+    /* istanbul ignore next */
+    cov_8aa6749r9.f[1]++;
+    cov_8aa6749r9.s[5]++;
     return nav.type;
-  }).includes('reload');
+  }).includes('reload'));
+
+  /* istanbul ignore next */
+  cov_8aa6749r9.s[6]++;
   return pageAccessByReload;
 }
                     const refresh = checkUserRealoadAction(window);
                     if (!refresh) {
                         const tags = document.querySelectorAll('section.mod-themes a');
                         function addPositionTag(tag, idexTag) {
-  var index = idexTag + 1;
-  var position = index &lt;= 9 ? "0".concat(index) : index;
-  if (tag) return Object.assign(tag, {
-    ctr_brand: "linkTemas_".concat(position),
-    ctr_position: "0600".concat(position)
-  });
+  /* istanbul ignore next */
+  cov_wuvzu87w9.f[0]++;
+  var index =
+  /* istanbul ignore next */
+  (cov_wuvzu87w9.s[1]++, idexTag + 1);
+  var position =
+  /* istanbul ignore next */
+  (cov_wuvzu87w9.s[2]++, index &lt;= 9 ?
+  /* istanbul ignore next */
+  (cov_wuvzu87w9.b[0][0]++, "0".concat(index)) :
+  /* istanbul ignore next */
+  (cov_wuvzu87w9.b[0][1]++, index));
+
+  /* istanbul ignore next */
+  cov_wuvzu87w9.s[3]++;
+
+  if (tag) {
+    /* istanbul ignore next */
+    cov_wuvzu87w9.b[1][0]++;
+    cov_wuvzu87w9.s[4]++;
+    return Object.assign(tag, {
+      ctr_brand:
+      /* istanbul ignore next */
+      "linkTemas_".concat(position),
+      ctr_position:
+      /* istanbul ignore next */
+      "0600".concat(position)
+    });
+  } else
+  /* istanbul ignore next */
+  {
+    cov_wuvzu87w9.b[1][1]++;
+  }
+
+  cov_wuvzu87w9.s[5]++;
   return true;
 }
                         const callback = entries =&gt; {
