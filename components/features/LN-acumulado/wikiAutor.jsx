@@ -1,23 +1,22 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Static from 'fusion:static';
 import Consumer from 'fusion:consumer';
 import WikiAuthor from '../../private/LN/acumulado/author/wikiAuthor';
 import { wikiAuthorPropTypes } from '../../private/common/utils/propTypesHelper';
+import StaticContent from '../../private/common/staticContent';
 
-const wikiAuthor = ({ id: featureId, globalContent, outputType }) => {
+const wikiAuthor = ({ globalContent, outputType }) => {
     return (
-        <Static id={featureId} htmlOnly persistent>
+        <StaticContent>
             <WikiAuthor data={globalContent} outputType={outputType} />
-        </Static>
+        </StaticContent>
     );
 };
 
 wikiAuthor.label = 'LN-Acumulado-Wiki-Autor';
 
 wikiAuthor.propTypes = {
-    id: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         ...wikiAuthorPropTypes
     }),
