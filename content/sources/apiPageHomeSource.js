@@ -1,5 +1,5 @@
 import { SITE_LANACION } from 'fusion:environment';
-import pages from './utils/servicesSource/pages';
+import pages from './utils/servicesSource/pages/index';
 import get from '../../components/private/common/utils/get';
 import home from '../../components/private/LN/api/v1/global/home';
 import transform from './utils/servicesSource/pages/transform';
@@ -14,6 +14,8 @@ const fetch = async (query, { cachedCall } = {}) => {
     try {
         let ticksCache = get(query, 'ticks', null);
         const alias = get(query, 'namePage', 'home');
+        const aliasPage =
+            aliasPages[alias] == null ? '/'.concat(alias) : aliasPages[alias];
         ticksCache = ticksCache === null ? '' : ticksCache.replace('/', '');
         const website = get(query, 'website', null);
         if (!SITE_LANACION) {
@@ -23,7 +25,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         // `http://172.17.0.1${aliasPages[alias]}` o en el .env SITE_LANACION=http://172.17.0.1
 
         queryParams = {
-            rootPath: `${SITE_LANACION}${aliasPages[alias]}`,
+            rootPath: `${SITE_LANACION}${aliasPage}`,
             ticksCache,
             website,
             isPage: true

@@ -88,6 +88,7 @@ export const articleItem = article => {
         'canonical_url',
         get(article, 'website_url', null)
     );
+
     if (!url) {
         throw new Error(
             `La nota con el id: ${id} no posee el valor canonical_url/website_url`

@@ -1,0 +1,170 @@
+[
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Últimas noticias"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Política"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Economía"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: El mundo"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Sociedad"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Opinión"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Deportes"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Lifestyle"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Espectáculos"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Edición impresa"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: LN+"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Club LA NACION"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: OHLALÁ!"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: ¡HOLA!"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: LIVING"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: JARDÍN"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: LUGARES"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: ROLLING STONE"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Bonvivir"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: LiBooks"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Colecciones"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Máster en periodismo"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Fundación LA NACION"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Mapa del sitio"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Ayuda"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Términos y condiciones"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: ¿Cómo anunciar?"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "footer",
+        "dynamic_label": "label: Suscribirse al diario impreso"
+    }
+]
