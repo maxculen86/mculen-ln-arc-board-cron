@@ -1,4 +1,21 @@
 import PropTypes from 'fusion:prop-types';
+import { useContent } from 'fusion:content';
+import liveFilter from '../../../../content/filters/LN/home/liveFilter';
+import get from '../../../private/common/utils/get';
+import getTitleText from '../../../private/common/utils/getTitleText';
+import {
+    A_FONDO,
+    LIVEBLOG,
+    LIVEBLOG_RED,
+    SPONSORED
+} from '../../../private/common/badge/types';
+
+export const typeBadge = {
+    0: A_FONDO,
+    1: LIVEBLOG,
+    2: LIVEBLOG_RED,
+    3: SPONSORED
+};
 
 export const getFieldsFromNotes = index => ({
     [`noteId${index}`]: PropTypes.string.tag({
@@ -15,33 +32,76 @@ export const getFieldsFromNotes = index => ({
     })
 });
 
-const getKeyAndGroup = string => {
-    const [, key, group] =
+export const findError = (articles = []) =>
+    articles.find(({ error = false } = {}) => error);
+
+const getCustomFieldNameAndGroup = string => {
+    const [, customFieldName, group] =
         (typeof string === 'string' && string.match(/(.*)(\d)/)) || [];
-    return { key, group };
+    return { customFieldName, group };
 };
 
-export const getListOfTitlesAndIds = (listCustomFileds = []) => {
-    return listCustomFileds.reduce((acc, [key, value] = []) => {
-        const { key: keyName, group } = getKeyAndGroup(key);
+export const getListOfNoteFields = (listCustomFields = []) => {
+    return listCustomFields.reduce((acc, [key, value] = []) => {
+        const { customFieldName, group } = getCustomFieldNameAndGroup(key);
         if (group) {
             const index = group - 1;
-            acc[index] = { ...acc[index], [keyName]: value };
+            acc[index] = { ...acc[index], [customFieldName]: value, group };
         }
         return acc;
     }, []);
 };
 
-export const validateId = id => id && id.trim();
+export const GetArticle = (noteId = '', customTitle = '', group) => {
+    const id = validateId(noteId);
+    const article = useContent({
+        source: id ? 'articleSourceNota' : null,
+        query: {
+            id,
+            published: true
+        },
+        staticMode: true,
+        filter: liveFilter
+    });
 
-export const calculateTimePublish = publishDate => {
-    const today = new Date();
-    const fechaPublicacion = new Date(publishDate);
-    // TODO: Hay que formatear la fecha a la de EU
-    const diference = (today.getTime() - fechaPublicacion.getTime()) / 1000;
-    return getPostTime(diference);
+    const headlines = get(article, 'headlines', {});
+    const publishDate = get(article, 'last_updated_date', '');
+    const currentDate = new Date();
+
+    return {
+        id: noteId,
+        title: !customTitle ? getTitleText(headlines) : customTitle,
+        url: get(article, 'canonical_url', ''),
+        timeSinceUpdate: calculateTimePublish(publishDate, currentDate),
+        error: noteId && !article,
+        group
+    };
 };
 
-export const getPostTime = minutes => {
+export const getNotesLists = (listCustomFields = []) => {
+    const fields = getListOfNoteFields(listCustomFields);
+
+    return fields.map(field => {
+        const noteId = get(field, 'noteId', '');
+        const title = get(field, 'title', '');
+        const group = get(field, 'group');
+
+        return GetArticle(noteId, title, group);
+    });
+};
+
+export const validateId = id => id && id.trim();
+
+export const convertMillisecondsToMinutes = miliseconds => {
+    const minutes = miliseconds / 1000 / 60;
+
+    return miliseconds && Math.abs(Math.round(minutes));
+};
+
+export const calculateTimePublish = (noteDate, currentDate) => {
+    const publishDate = new Date(noteDate);
+    const diference = currentDate.getTime() - publishDate.getTime();
+    const minutes = convertMillisecondsToMinutes(diference);
+
     return minutes < 45 && `Hace ${minutes} min`;
 };

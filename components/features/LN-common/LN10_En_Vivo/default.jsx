@@ -1,45 +1,47 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
+import { Live } from '@ln/contenidos-ui-live';
 import {
-    A_FONDO,
-    LIVEBLOG,
-    LIVEBLOG_RED,
-    SPONSORED,
-    EXCLUSIVE_LN
-} from '../../../private/common/badge/types';
-import Badge from '../../../private/common/badge/Badge';
-import { getFieldsFromNotes, getListOfTitlesAndIds } from './_helpers';
-import BuildNote from './BuildNotes';
-
-const styles = {
-    0: A_FONDO,
-    1: LIVEBLOG,
-    2: LIVEBLOG_RED,
-    3: SPONSORED,
-    4: EXCLUSIVE_LN
-};
+    getFieldsFromNotes,
+    getNotesLists,
+    typeBadge,
+    findError
+} from './_helpers';
+import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import StaticContent from '../../../private/common/staticContent';
+import get from '../../../private/common/utils/get';
+import '../../../../resources/packages/css/@ln/contenidos-ui-live/index.css';
+import '../../../../resources/packages/css/@ln/contenidos-ui-badge/index.css';
 
 const EnVivo = ({ customFields }) => {
-    const { chapita = 'Vivo', chapitaStyle } = customFields || {};
+    const { isAdmin } = useAppContext() || {};
+
+    if (get(customFields, 'show', false)) return <></>;
+
+    const chapita = get(customFields, 'chapita', 'vivo');
+    const chapitaStyle = get(customFields, 'chapitaStyle', 2);
     const listCustomFileds = Object.entries(customFields);
-    const fields = getListOfTitlesAndIds(listCustomFileds);
-    const typeBadge = !chapitaStyle ? 2 : chapitaStyle;
+    const articles = getNotesLists(listCustomFileds);
+    const err = findError(articles);
+
+    if (isAdmin && err) {
+        return (
+            <PageBuilderMessage
+                type="warning"
+                message={`El ID de la nota ${err.group} (ID: ${err.id}) es incorrecto`}
+            />
+        );
+    }
 
     return (
-        <div>
-            <Badge className={styles[typeBadge]} type={styles[typeBadge]}>
-                {chapita.trim() ? chapita : 'Vivo'}
-            </Badge>
-            <div>
-                {fields.map(({ noteId, title }) => (
-                    <BuildNote
-                        key={noteId}
-                        noteId={noteId}
-                        customTitle={title}
-                    />
-                ))}
-            </div>
-        </div>
+        <StaticContent>
+            <Live
+                notes={articles}
+                badgeText={chapita.trim() ? chapita : 'vivo'}
+                badgeType={typeBadge[chapitaStyle]}
+            />
+        </StaticContent>
     );
 };
 
@@ -56,11 +58,16 @@ EnVivo.propTypes = {
             default: 'Vivo',
             group: 'Chapita'
         }),
-        chapitaStyle: PropTypes.oneOf([0, 1, 2, 3, 4]).tag({
-            labels: styles,
+        chapitaStyle: PropTypes.oneOf([0, 1, 2, 3]).tag({
+            labels: typeBadge,
             label: 'Estilo Chapita',
             defaultValue: 2,
             group: 'Chapita'
+        }),
+        show: PropTypes.bool.tag({
+            name: 'Ocultar ',
+            description: 'Definí la visibilidad del "En vivo"',
+            default: false
         })
     }).isRequired
 };
