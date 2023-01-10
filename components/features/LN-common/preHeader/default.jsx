@@ -6,7 +6,7 @@ import { PreHeader } from '@ln/contenidos-ui-preheader';
 import filterSubHeader from '../../../../content/filters/LN/home/subHeaderFilter';
 import useTermica from '../../../private/common/hooks/useTermica';
 import {
-    getWeatherData,
+    setWeatherData,
     getTopicsFromCustomFields,
     setTopicsCustomFields
 } from './_helper';
@@ -14,7 +14,7 @@ import {
 import '../../../../resources/packages/css/@ln/contenidos-ui-preheader/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
 
-const PreHeaderFeature = ({ customFields }) => {
+const PreHeaderFeature = ({ customFields = {} }) => {
     const weather =
         useContent({
             source: 'servicesSource',
@@ -27,7 +27,7 @@ const PreHeaderFeature = ({ customFields }) => {
         }) || {};
 
     const weatherValue = useTermica('weather', weather);
-    const weatherData = getWeatherData(weatherValue);
+    const weatherData = setWeatherData(weatherValue);
 
     const topics = getTopicsFromCustomFields(customFields);
 

@@ -124,6 +124,16 @@
             "mocks",
             "properties"
         ],
+        "transformIgnorePatterns": [
+            "//node_modules/(?!@ln/common-ui-icon/.*)",
+            "//node_modules/(?!@ln/common-ui-preheader/.*)",
+            "//node_modules/(?!@ln/common-ui-header/.*)",
+            "//node_modules/(?!@ln/common-ui-button/.*)",
+            "//node_modules/(?!@ln/common-ui-text/.*)",
+            "//node_modules/(?!@ln/contenidos-ui-button/.*)",
+            "//node_modules/(?!@ln/contenidos-ui-header/.*)",
+            "//node_modules/(?!@ln/contenidos-ui-text/.*)"
+        ],
         "setupFiles": [
             "./setupTests.js"
         ],

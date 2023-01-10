@@ -1,18 +1,18 @@
 import PropTypes from 'fusion:prop-types';
 
-export const getWeatherData = weatherValue => {
+export const setWeatherData = weatherValue => {
     if (!weatherValue) return null;
 
     const { dataService: { locations = [] } = {} } = weatherValue;
 
-    const { current_temp: temperature = '', weather: weatherInfo = {} } =
+    const { current_temp: temperature = '' } =
         locations.find(
             ({ location_id: locationId = '' }) =>
                 locationId === 'ciudad-de-buenos-aires'
         ) || {};
 
     return {
-        iconName: weatherInfo.id || '',
+        icon: 'sun',
         temperature,
         place: 'Capital Federal',
         dataEvent: 'e_linkclick',
@@ -50,7 +50,7 @@ export const setTopicsCustomFields = (maxTopics = 7) => {
     }, {});
 };
 
-export const getTopicsFromCustomFields = customFields => {
+export const getTopicsFromCustomFields = (customFields = {}) => {
     const totalCustomFieldsKeys = Object.keys(customFields).length;
     const topicKeys = [...new Array(totalCustomFieldsKeys / 2).keys()];
 
@@ -59,12 +59,13 @@ export const getTopicsFromCustomFields = customFields => {
         link: customFields[`link ${key}`],
         dataEvent: 'e_linkclick',
         dataSection: 'MenuLN',
-        callback: () => {
+        callback: e => {
+            e.preventDefault();
             window.dataLayer.push({
                 event: 'e_linkclick',
                 dynamic_action: 'home_ln10',
                 dynamic_category: 'header_temas_hoy',
-                dynamic_label: '{tag_description}'
+                dynamic_label: customFields[`title ${key}`]
             });
         }
     }));
