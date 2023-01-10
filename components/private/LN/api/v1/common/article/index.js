@@ -6,6 +6,7 @@ import { authorHomeMobile, articleSignature } from '../author';
 import sentToApps from '../utils/sentToApps';
 import getEmbedHref from '../../../../../common/utils/getEmbedHref';
 import LNApiErrorArticles from '../utils/lnApiErrorArticles';
+import LNApiErrorHtmlArticle from '../utils/lnApiErrorHtmlArticle';
 
 const getArticleImage = article => {
     const imagedefault =
@@ -67,9 +68,20 @@ export const articleItem = article => {
     const { subtype: templateId, label } = article;
 
     const id = get(article, '_id', null);
-    if (!id) {
-        const itemArticle =
-            typeof article === 'object' ? JSON.stringify(article) : '';
+
+    const itemArticle =
+        typeof article === 'object' ? JSON.stringify(article) : null;
+
+    const htmlAttr = get(article, 'html', null);
+
+    if ((!id && htmlAttr) || htmlAttr == '')
+        throw new LNApiErrorHtmlArticle(
+            `Anexo configurado como parte de seccion en la home`,
+            'ErrorHtmlArticle'
+        );
+
+    const elements = JSON.parse(itemArticle);
+    if (!itemArticle || elements.length == 0 || !id) {
         throw new LNApiErrorArticles(
             `Revisar Parametros de Articulo en null o undefined in article with params: ${itemArticle}`,
             'ErrorIdArticle'
@@ -81,6 +93,7 @@ export const articleItem = article => {
         'canonical_url',
         get(article, 'website_url', null)
     );
+
     if (!url) {
         throw new Error(
             `La nota con el id: ${id} no posee el valor canonical_url/website_url`
