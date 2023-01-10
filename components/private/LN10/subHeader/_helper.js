@@ -1,4 +1,6 @@
 /* eslint-disable import/prefer-default-export */
+import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
+
 export const createDynamicLabel = (text = '') => {
     return text
         .replace(/ /g, '_')
@@ -27,11 +29,11 @@ export const setDollarData = dollarValue => {
         link,
         callback: e => {
             e.preventDefault();
-            window.dataLayer.push({
+            addEventToDataLayer({
                 event: 'e_linkclick',
-                dynamic_action: 'home_ln10',
-                dynamic_category: 'header_dolar',
-                dynamic_label: createDynamicLabel(titleMobile)
+                action: 'home_ln10',
+                category: 'header_dolar',
+                label: createDynamicLabel(titleMobile)
             });
         }
     }));
@@ -62,11 +64,11 @@ export const setAccessData = () => {
         ...access,
         callback: e => {
             e.prevenDefault();
-            window.dataLayer.push({
+            addEventToDataLayer({
                 event: 'e_linkclick',
-                dynamic_action: 'home_ln10',
-                dynamic_category: 'header_accesos',
-                dynamic_label: createDynamicLabel(access.text)
+                action: 'home_ln10',
+                category: 'header_accesos',
+                label: createDynamicLabel(access.text)
             });
         }
     }));

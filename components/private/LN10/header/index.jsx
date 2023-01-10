@@ -1,5 +1,13 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
+import React, { useEffect } from 'react';
 import { Header } from '@ln/contenidos-ui-header';
+import PropTypes from 'prop-types';
+import Consumer from 'fusion:consumer';
+import Desplegable from '../../LN/common/desplegable';
+import NavbarMobile from '../navbar';
+import { setUserType, onScrollHandler, toggleDesplegable } from './_helper';
+import HeaderAMP from '../../LN/common/header/headerAMP';
+import debounce from '../../common/utils/debounce';
 
 import SubHeader from '../subHeader';
 import MainHeader from '../mainHeader';
@@ -11,20 +19,77 @@ import '../../../../resources/packages/css/@ln/contenidos-ui-text/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
 
 import { isLoggedIn, isSubscribed } from '../../LN/common/utils/contextHelper';
-import { setUserType } from './_helper';
 
-const HeaderLN = () => {
+const HeaderLN = props => {
+    const {
+        outputType,
+        siteProperties: { layoutsName = {} },
+        layout
+    } = props;
+
+    useEffect(() => {
+        const header = document.getElementById('header');
+        const userMenu = document.getElementById('user-menu');
+        const fusionApp = document.getElementById('fusion-app');
+        const wrapper = fusionApp && fusionApp.querySelector('#wrapper');
+
+        if (header) {
+            const headerHeigth = header.clientHeight || header.offsetHeight;
+            window.addEventListener(
+                'scroll',
+                debounce(() => {
+                    onScrollHandler(
+                        header,
+                        headerHeigth,
+                        userMenu,
+                        wrapper,
+                        layout,
+                        layoutsName
+                    );
+                })
+            );
+        }
+    }, [layout, layoutsName]);
+
     const isUserLoggedIn = isLoggedIn();
     const isUserSubscribed = isSubscribed();
 
     const userType = setUserType(isUserLoggedIn, isUserSubscribed);
 
+    if (outputType === 'amp')
+        return <HeaderAMP toggleDesplegable={toggleDesplegable} />;
+
     return (
-        <Header userType={userType}>
-            <MainHeader userType={userType} />
-            <SubHeader />
-        </Header>
+        <>
+            <Header userType={userType}>
+                <MainHeader
+                    userType={userType}
+                    toggleDesplegable={toggleDesplegable}
+                />
+                <SubHeader />
+            </Header>
+            <NavbarMobile isHome={layoutsName.HomeLN10 === layout} />
+            <Desplegable
+                toggleDesplegable={toggleDesplegable}
+                isHome={layoutsName.HomeLN10 === layout}
+            />
+        </>
     );
 };
 
-export default HeaderLN;
+Header.propTypes = {
+    outputType: PropTypes.string,
+    siteProperties: PropTypes.shape({
+        host: PropTypes.string,
+        layoutsName: PropTypes.shape({
+            Home: PropTypes.string
+        })
+    }),
+    layout: PropTypes.string,
+    globalContent: PropTypes.shape({
+        type: PropTypes.string,
+        node_type: PropTypes.string
+    })
+};
+
+export default Consumer(HeaderLN);

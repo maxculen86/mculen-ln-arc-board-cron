@@ -4,20 +4,13 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import {
     cajaTemasCustomsFields,
-    getCommonProps,
-    getChildrenFromAperturaHome,
-    getChildrenFromSectionHome
+    getCommonProps
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
-import { validateChainManual } from '../../private/LN/common/utils/cajaTemasValidators';
 import CajaTema from '../../private/LN/common/cajaTema';
-import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import {
-    customFieldValidation,
-    childrenValidation
-} from '../utils/contentValidations';
 import { productClickFromClient } from '../../private/common/utils/viewability';
 import StaticContent from '../../private/common/staticContent';
-import setFilteredChildren from '../../private/LN/common/utils/setFilteredChildren';
+import getDataChainManual from '../utils/getDataChainManual';
+import WarningMessage from '../../private/common/warningMessage/warningMessage';
 
 const CajaBomba = props => {
     const {
@@ -46,70 +39,27 @@ const CajaBomba = props => {
         positionInsideSection
     } = getCommonProps(props);
 
-    const aperturasChildren = getChildrenFromAperturaHome(
-        renderables,
-        childProps
-    );
-
-    const multimediaChildren = getChildrenFromSectionHome(
-        renderables,
-        'Multimedia',
-        5
-    );
-
-    const isInApertura = customFieldValidation({
-        featureId,
-        sectionChildren: aperturasChildren
-    });
-
-    const isMultimedia = customFieldValidation({
-        featureId,
-        sectionChildren: multimediaChildren
-    });
-
-    const features = renderables.filter(r => r.collection === 'features');
-    const multimediaCustomFields = ['video', 'html'];
-    const filteredChildren = setFilteredChildren({
-        features,
-        children,
-        conditions: {
-            feature: f => f.type !== 'LN-acumulado/timeline',
-            children: layout !== 'grillaUltimasNoticias'
-        }
-    });
-
-    const [isVideoBackground, containsHTML] = multimediaCustomFields.map(
-        customField =>
-            childrenValidation({
-                featureId,
-                customField,
-                sectionChildren: multimediaChildren
-            })
-    );
-
-    const error = validateChainManual(
-        childProps,
-        layout,
+    const {
+        filteredChildren,
         isInApertura,
-        isVideoBackground,
-        containsHTML
-    );
+        isMultimedia,
+        features,
+        error
+    } = getDataChainManual({
+        featureId,
+        renderables,
+        childProps,
+        children,
+        layout
+    });
 
     if (isAdmin && error) {
         return (
-            <div
-                style={{
-                    marginTop: '10px',
-                    marginBottom: '10px',
-                    width: '100%'
-                }}
-            >
-                <PageBuilderMessage
-                    key={featureId}
-                    type={error.type}
-                    message={error.message}
-                />
-            </div>
+            <WarningMessage
+                id={featureId}
+                type={error.type}
+                message={error.message}
+            />
         );
     }
 

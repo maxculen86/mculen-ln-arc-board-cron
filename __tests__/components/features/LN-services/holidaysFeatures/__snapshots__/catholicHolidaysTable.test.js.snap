@@ -37,7 +37,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
             1 de enero
           </td>
           <td>
-            Sábado
+            Domingo
           </td>
           <td>
             Año nuevo
@@ -48,7 +48,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
             28 de febrero
           </td>
           <td>
-            Lunes
+            Martes
           </td>
           <td>
             Carnaval
@@ -59,7 +59,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
             24 de marzo
           </td>
           <td>
-            Jueves
+            Viernes
           </td>
           <td>
             Día Nacional de la Memoria por la Verdad y la Justicia.
@@ -70,7 +70,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
             25 de mayo
           </td>
           <td>
-            Miércoles
+            Jueves
           </td>
           <td>
             Día de la Revolución de Mayo.
@@ -81,7 +81,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
             20 de junio
           </td>
           <td>
-            Lunes
+            Martes
           </td>
           <td>
             Paso a la Inmortalidad del General Manuel Belgrano.
@@ -92,7 +92,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
             9 de julio
           </td>
           <td>
-            Sábado
+            Domingo
           </td>
           <td>
             Día de la Independencia.
@@ -103,7 +103,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
             8 de diciembre
           </td>
           <td>
-            Jueves
+            Viernes
           </td>
           <td>
             Inmaculada Concepción de María.
@@ -114,7 +114,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
             25 de diciembre
           </td>
           <td>
-            Domingo
+            Lunes
           </td>
           <td>
             Navidad.
@@ -158,7 +158,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
             1 de mayo
           </td>
           <td>
-            Domingo
+            Lunes
           </td>
           <td>
             Día del Trabajador.
@@ -199,7 +199,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
             2 de abril
           </td>
           <td>
-            Sábado
+            Domingo
           </td>
         </tr>
       </tbody>

@@ -5,6 +5,7 @@ import { Button } from '@ln/contenidos-ui-button';
 import { Text } from '@ln/contenidos-ui-text';
 import { Icon } from '@ln/contenidos-ui-icon';
 import { goToLogout } from '../../LN/common/utils/loginHelper';
+import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 
 export const setDesplegableData = () => {
     const defaultOptions = [
@@ -44,13 +45,12 @@ export const setDesplegableData = () => {
         ...option,
         callback: e => {
             e.preventDefault();
-            window.dataLayer.push({
+            addEventToDataLayer({
                 event: 'e_linkclick',
-                dynamic_action: 'home_ln10',
-                dynamic_category: 'menu_usuario',
-                dynamic_label: option.text
+                action: 'home_ln10',
+                category: 'menu_usuario',
+                label: option.text
             });
-
             option.text === 'Cerrar sesión' && goToLogout();
         }
     }));
@@ -106,12 +106,23 @@ export const RightOptions = ({
     return rightOptions[userType] || <></>;
 };
 
+export const sectionsCallback = (e, toggleDesplegable) => {
+    e.preventDefault();
+    toggleDesplegable();
+    addEventToDataLayer({
+        event: 'e_linkclick',
+        action: 'home_ln10',
+        category: 'header_logo',
+        label: 'secciones'
+    });
+};
+
 export const logoCallback = e => {
     e.preventDefault();
-    window.dataLayer.push({
+    addEventToDataLayer({
         event: 'e_linkclick',
-        dynamic_action: 'home_ln10',
-        dynamic_category: 'header_logo',
-        dynamic_label: 'logo'
+        action: 'home_ln10',
+        category: 'header_logo',
+        label: 'logo'
     });
 };
