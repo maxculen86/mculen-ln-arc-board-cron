@@ -23,7 +23,7 @@ import '../../../../resources/packages/css/@ln/contenidos-ui-text/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
 
 const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
-    const { userName = '', loading } = getLoginData() || {};
+    const { userName = '', loading, goToLoginUrl } = getLoginData() || {};
     const desplegableData = setDesplegableData() || [];
 
     return (
@@ -71,6 +71,7 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                         userType={userType}
                         userName={userName}
                         desplegableData={desplegableData}
+                        goToLoginUrl={goToLoginUrl}
                     />
                 )}
             </MainHeader.Right>

@@ -28,7 +28,6 @@ export const setDollarData = dollarValue => {
         venta,
         link,
         callback: e => {
-            e.preventDefault();
             addEventToDataLayer({
                 event: 'e_linkclick',
                 action: 'home_ln10',
@@ -63,7 +62,6 @@ export const setAccessData = () => {
     return defaultAccess.map(access => ({
         ...access,
         callback: e => {
-            e.prevenDefault();
             addEventToDataLayer({
                 event: 'e_linkclick',
                 action: 'home_ln10',

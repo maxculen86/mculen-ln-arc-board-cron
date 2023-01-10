@@ -1,4 +1,5 @@
 import PropTypes from 'fusion:prop-types';
+import addEventToDataLayer from '../../../private/LN/common/utils/addEventToDataLayer';
 
 export const setWeatherData = weatherValue => {
     if (!weatherValue) return null;
@@ -19,12 +20,11 @@ export const setWeatherData = weatherValue => {
         dataSection: 'MenuLN',
         link: '/clima',
         callback: e => {
-            e.preventDefault();
-            window.dataLayer.push({
+            addEventToDataLayer({
                 event: 'e_linkclick',
-                dynamic_action: 'home_ln10',
-                dynamic_category: 'header_clima',
-                dynamic_label: 'clima'
+                action: 'home_ln10',
+                category: 'header_clima',
+                label: 'clima'
             });
         }
     };
@@ -54,18 +54,17 @@ export const getTopicsFromCustomFields = (customFields = {}) => {
     const totalCustomFieldsKeys = Object.keys(customFields).length;
     const topicKeys = [...new Array(totalCustomFieldsKeys / 2).keys()];
 
-    return topicKeys.map((key, index) => ({
+    return topicKeys.map(key => ({
         title: customFields[`title ${key}`],
         link: customFields[`link ${key}`],
         dataEvent: 'e_linkclick',
         dataSection: 'MenuLN',
         callback: e => {
-            e.preventDefault();
-            window.dataLayer.push({
+            addEventToDataLayer({
                 event: 'e_linkclick',
-                dynamic_action: 'home_ln10',
-                dynamic_category: 'header_temas_hoy',
-                dynamic_label: customFields[`title ${key}`]
+                action: 'home_ln10',
+                category: 'header_temas_hoy',
+                label: customFields[`title ${key}`]
             });
         }
     }));

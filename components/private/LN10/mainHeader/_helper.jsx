@@ -4,6 +4,7 @@ import { MainHeader } from '@ln/contenidos-ui-header';
 import { Button } from '@ln/contenidos-ui-button';
 import { Text } from '@ln/contenidos-ui-text';
 import { Icon } from '@ln/contenidos-ui-icon';
+import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import { goToLogout } from '../../LN/common/utils/loginHelper';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 
@@ -44,7 +45,6 @@ export const setDesplegableData = () => {
     return defaultOptions.map(option => ({
         ...option,
         callback: e => {
-            e.preventDefault();
             addEventToDataLayer({
                 event: 'e_linkclick',
                 action: 'home_ln10',
@@ -59,13 +59,21 @@ export const setDesplegableData = () => {
 export const RightOptions = ({
     userType,
     userName = '',
-    desplegableData = []
+    desplegableData = [],
+    goToLoginUrl
 }) => {
     const SubscribeButton = (
         <Button
             title="Suscribirse"
             typeButton="secondary"
             className="suscribe --border-gray --d-flex --ai-center"
+            onClick={() =>
+                window.location.replace(
+                    `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                        window.location.href
+                    )}`
+                )
+            }
         >
             <Icon icon="suscriptorExclusivo" className="--mr-2xs" />
             SUSCRIBITE
@@ -95,6 +103,7 @@ export const RightOptions = ({
                     title="Iniciar sesión"
                     typeButton="secondary"
                     className="--border-gray --mr-md --mobile-none"
+                    onClick={goToLoginUrl}
                 >
                     <Text size="2xs">INICIAR SESIÓN</Text>
                 </Button>
@@ -107,7 +116,6 @@ export const RightOptions = ({
 };
 
 export const sectionsCallback = (e, toggleDesplegable) => {
-    e.preventDefault();
     toggleDesplegable();
     addEventToDataLayer({
         event: 'e_linkclick',
@@ -118,7 +126,6 @@ export const sectionsCallback = (e, toggleDesplegable) => {
 };
 
 export const logoCallback = e => {
-    e.preventDefault();
     addEventToDataLayer({
         event: 'e_linkclick',
         action: 'home_ln10',
