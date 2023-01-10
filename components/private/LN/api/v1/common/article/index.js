@@ -6,7 +6,13 @@ import { authorHomeMobile, articleSignature } from '../author';
 import sentToApps from '../utils/sentToApps';
 import getEmbedHref from '../../../../../common/utils/getEmbedHref';
 import LNApiErrorArticles from '../../../global/utils/lnApiErrorArticles';
+import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
 
+const getLastPublishDate = article => {
+    let date = get(article, 'publish_date', null);
+    date = date ? dateAndTimeForAppsUtil(date) : null;
+    return date;
+};
 const getArticleImage = article => {
     const imagedefault =
         get(article, 'additionalProperties.image.promo_items.basic', null) ||
@@ -77,13 +83,14 @@ export const articleItem = article => {
         );
     }
 
-    const url =
-        get(article, 'canonical_url', null) == null
-            ? get(article, 'website_url', null)
-            : get(article, 'canonical_url', null);
+    const url = get(
+        article,
+        'canonical_url',
+        get(article, 'website_url', null)
+    );
     if (!url) {
         throw new Error(
-            `La nota con el id: ${id} no posee el valor website_url or canonical_url`
+            `La nota con el id: ${id} no posee el valor canonical_url/website_url`
         );
     }
 
@@ -117,7 +124,8 @@ export const articleItem = article => {
         video: getArticleVideo(article),
         opinion: get(article, 'additionalProperties.opinion', false),
         videoYouTube: getYouTubeVideoLink(article),
-        enviarApps
+        enviarApps,
+        fechaPublicacion: getLastPublishDate(article)
     };
 };
 

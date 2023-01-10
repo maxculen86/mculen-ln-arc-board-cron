@@ -3,8 +3,9 @@ const getSectionAliasbyFeature = nameContainer => {
         'LN-common/anexo': 'AnexoMobile',
         'LN-common/anexoMobile': 'AnexoMobile',
         'LN-common/cajaAnticipo': 'Anticipo',
+        'LN-acumulado/timeline': 'Timeline',
         'LN-common/LN10_anticipo': 'Anticipo',
-        'LN-acumulado/timeline': 'Timeline'
+        'LN-common/LN10_En_Vivo': 'EnVivo'
     };
 
     return boxToSetSectionAliasMobile[nameContainer];
