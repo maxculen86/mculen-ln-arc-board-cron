@@ -6,6 +6,7 @@ import {
     anexoItem as Anexo,
     anexoItemMobile as AnexoMobile
 } from '../../common/article';
+import getEmbedHref from '../../../../../common/utils/getEmbedHref';
 
 let paramsFromPage = {
     rootPath:
@@ -40,12 +41,14 @@ const featureInformation = (information, section) => {
         ...type,
         diagramacion: information.layout || null
     };
-    console.log(`Information: ${JSON.stringify(information)}`);
     if (section === 'Anticipo') {
         res.chapita = information.textBadge;
         res.volanta = information.lead;
         res.url = information.url;
-        res.video = information.video;
+        if (information.video === '') {
+            res.texto = information.title;
+        }
+        res.video = getEmbedHref('src', information.video);
     }
 
     if (!information.hideTitle && section !== 'Apertura') {

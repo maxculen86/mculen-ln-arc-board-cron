@@ -1,5 +1,5 @@
 const Anticipo = ({
-    customFields: { hide, title, link, textBadge, lead, video }
+    customFields: { hide, title, url, textBadge, lead, video }
 }) => {
     if (!title) return null;
 
@@ -7,7 +7,7 @@ const Anticipo = ({
         information: {
             hideCaja: hide || false,
             title,
-            url: link,
+            url,
             textBadge,
             lead,
             video
