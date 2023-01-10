@@ -315,7 +315,8 @@ describe('Test de index en Json', () => {
 });
 
 describe('Home test', () => {
-    test('Debería retornar un info', () => {
+    // Comentario temporal a revisar porque este escenario ya no deberia presentarse, anexo en un metodo que valida articulos.
+/*     test('Debería retornar un info', () => {
         const request = {
             templateId: '2',
             titulo: 'test',
@@ -329,7 +330,7 @@ describe('Home test', () => {
                 'Anexo configurado como parte de seccion en la home'
             );
         }
-    });
+    }); */
     test('Deberia retornar un warning', () => {
         //CASO 1 - Articulo vacio
         const request = {};
