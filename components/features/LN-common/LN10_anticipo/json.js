@@ -1,4 +1,4 @@
-const LN10CajaAnticipo = ({
+const Anticipo = ({
     customFields: { hide, title, link, textBadge, lead, video }
 }) => {
     if (!title) return null;
@@ -15,4 +15,4 @@ const LN10CajaAnticipo = ({
     };
 };
 
-export default LN10CajaAnticipo;
+export default Anticipo;

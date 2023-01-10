@@ -10,6 +10,7 @@ const getTypesbyContainer = nameContainer => {
         LN10_Caja_Collection: 0,
         LN10_Caja_Canal: 0,
         LN10_Caja_Apertura: 0,
+        'LN-common/LN10_anticipo': 3,
         'LN-common/cajaAnticipo': 3,
         'LN-common/anexo': 2,
         'LN-common/bomba': 0,

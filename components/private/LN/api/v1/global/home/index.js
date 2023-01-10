@@ -39,15 +39,12 @@ const featureInformation = (information, section) => {
         ...type,
         diagramacion: information.layout || null
     };
-
+    console.log(`Information: ${JSON.stringify(information)}`);
     if (section === 'Anticipo') {
-        res.texto = information.title;
-        // textBadge: 'Anticipo',
-        // lead: '',
-        // hide: false,
-        // title: '',
-        // url: '',
-        // video: ''
+        res.chapita = information.textBadge;
+        res.volanta = information.lead;
+        res.url = information.url;
+        res.video = information.video;
     }
 
     if (!information.hideTitle && section !== 'Apertura') {
