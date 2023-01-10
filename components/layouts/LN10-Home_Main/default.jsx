@@ -3,8 +3,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
-import Header from '../../private/LN/common/header';
-import Footer from '../../private/LN/common/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBanners from '../../private/common/banners/LoadBanners';
 import { bannersViewport } from '../../private/common/banners/bannersHome.json';
@@ -21,6 +19,9 @@ import createBannersIntersectionObserver from '../../private/common/banners/crea
 import StaticContent from '../../private/common/staticContent';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
+import Header from '../../private/LN10/header';
+import Footer from '../../private/LN/common/LN10_Footer';
+import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 
 const LN10Home = props => {
     const { children, outputType, isAdmin, renderables } = props;
@@ -132,9 +133,7 @@ const LN10Home = props => {
                         </div>
                     </div>
                 </main>
-                <StaticContent>
-                    <Footer home />
-                </StaticContent>
+                <Footer />
             </div>
             <LoadBanners blocksBanners={bannersViewport} />
             <Metarefresh />

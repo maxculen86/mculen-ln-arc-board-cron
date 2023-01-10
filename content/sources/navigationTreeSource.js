@@ -53,15 +53,20 @@ const transform = (data, { sectionId }) => {
     };
 };
 
-const getSections = (results, sectionId) => {
-    const sections = [];
-    const sectionList =
+const getSectionList = sectionId => {
+    return (
         sectionId &&
         sectionId.split('/').map(el => {
             return el ? `/${el}` : '';
-        });
+        })
+    );
+};
 
+const getSections = (results, sectionId = '') => {
+    const sections = [];
+    const sectionList = getSectionList(sectionId);
     const { _id: id, name } = results;
+
     const base = id &&
         name && {
             id,
@@ -69,10 +74,8 @@ const getSections = (results, sectionId) => {
             path: id
         };
 
-    if (base) {
-        sections.push(base);
-        if (sectionList) sectionList.shift();
-    }
+    base && sections.push(base);
+    base && sectionList && sectionList.shift();
 
     let section = results;
     if (sectionId && sectionList && sectionList.length) {
@@ -83,16 +86,17 @@ const getSections = (results, sectionId) => {
                 primarySectionId &&
                 children &&
                 children.filter(el => el._id === primarySectionId);
-            if (section) {
+
+            section &&
                 sections.push({
                     id: section._id,
                     name: section.name,
                     path: section._id
                 });
-                if (sectionList.length >= 2) {
-                    sectionList[0] = sectionList[0].concat(sectionList[1]);
-                    sectionList.splice(1, 1);
-                }
+
+            if (section && sectionList.length >= 2) {
+                sectionList[0] = sectionList[0].concat(sectionList[1]);
+                sectionList.splice(1, 1);
             }
         } while (section);
     }

@@ -77,13 +77,15 @@ export const articleItem = article => {
         );
     }
 
-    const url =
-        get(article, 'canonical_url', null) == null
-            ? get(article, 'website_url', null)
-            : get(article, 'canonical_url', null);
+    const url = get(
+        article,
+        'canonical_url',
+        get(article, 'website_url', null)
+    );
+
     if (!url) {
         throw new Error(
-            `La nota con el id: ${id} no posee el valor website_url or canonical_url`
+            `La nota con el id: ${id} no posee el valor canonical_url/website_url`
         );
     }
 

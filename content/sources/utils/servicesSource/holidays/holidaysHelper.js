@@ -43,8 +43,8 @@ const metaDataFactory = {
                 `fines de semana largo y feriados puente en LA NACION.`,
             paragraph: get(
                 monthsDescriptions[serviceItem],
-                `.${serviceSubItem}`,
-                ''
+                serviceSubItem,
+                monthsDescriptions.default(serviceItem, serviceSubItem)
             )
         };
     },

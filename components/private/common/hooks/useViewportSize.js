@@ -43,10 +43,10 @@ export default function useViewportSize() {
         const mobileOrTablet = isTabletOrMobile(getUserAgent());
         const isTablet = screen.width >= 768 && screen.width < 1024;
         const isMobile = screen.width < 768;
-        if (mobileOrTablet) {
-            if (isTablet) return setViewportSize('tablet');
-            if (isMobile) return setViewportSize('mobile');
-        }
+
+        if (mobileOrTablet && isTablet) return setViewportSize('tablet');
+        if (mobileOrTablet && isMobile) return setViewportSize('mobile');
+
         return setViewportSize('desktop');
     }
 

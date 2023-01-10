@@ -1,4 +1,3 @@
-import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import {
     FOTOAL100,
@@ -48,7 +47,7 @@ const transform = (data, siteProps) => {
         presetsPromoItems ||
         presetsDefault;
 
-    const resizer = createResizer(RESIZER_KEY, RESIZER_URL);
+    const resizer = createResizer();
     return resizer.resizeUrls(data.url, 0, 0, present);
 };
 

@@ -2,9 +2,7 @@ import request from 'request-promise-native';
 import {
     SITE_LANACION,
     CONTENT_BASE,
-    LANACION_SERVICES_URL,
-    RESIZER_KEY,
-    RESIZER_URL
+    LANACION_SERVICES_URL
 } from 'fusion:environment';
 import getRequest from './utils/getRequest';
 import filter from '../filters/LN/services/dolar';
@@ -73,7 +71,7 @@ const transform = data => {
         dccl: '/tema/dolar-ccl/',
         euro: '/tema/euro-hoy-tid66142/'
     };
-    const imageUrl = createResizer(RESIZER_KEY, RESIZER_URL).resizeUrl({
+    const imageUrl = createResizer().resizeUrl({
         originalUrl: 'https://especialess3.lanacion.com.ar/LN/svg/logo-iol.svg',
         originalWidth: 49,
         originalHeight: 60,
