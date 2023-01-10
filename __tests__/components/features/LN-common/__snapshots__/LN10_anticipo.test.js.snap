@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anticipo with video 1`] = `
+<div>
+  <div
+    class="hidden"
+  >
+    <section
+      class="ln-advance --withVideo --sticky"
+    >
+      <div
+        class="lay wrapper"
+      >
+        <div>
+          <div
+            class="video"
+          >
+            <iframe
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen=""
+              frameborder="0"
+              src="https://www.youtube.com/embed/mGcFszPShHQ"
+              title="YouTube video player"
+            />
+          </div>
+          <div
+            class="text-container"
+          >
+            <span
+              class="badge ln-badge --font-2xs --advance"
+            >
+              chapita
+            </span>
+            <h2
+              class="text ln-text --title --prumo --font-l --font-bold"
+              title="texto Prueba Anticipo"
+            >
+              <a
+                class="link ln-link"
+                href="https://www.lanacion.com.ar/"
+                rel="nofollow"
+                target="_blank"
+                title="texto Prueba Anticipo"
+              >
+                <span
+                  class="lead"
+                >
+                  texto
+                   
+                </span>
+                Prueba Anticipo
+              </a>
+            </h2>
+          </div>
+        </div>
+        <button
+          class="button ln-button"
+          id="closeAdvance"
+          title="Cerrar"
+          type="button"
+        >
+          <i
+            class="icon --icon-m --light"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="m12 10.586 4.243-4.243a1 1 0 1 1 1.414 1.414L13.414 12l4.243 4.243a1 1 0 1 1-1.414 1.414L12 13.414l-4.243 4.243a1 1 0 1 1-1.414-1.414L10.586 12 6.343 7.757a1 1 0 1 1 1.414-1.414L12 10.586Z"
+                fill="#272727"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+        </button>
+      </div>
+    </section>
+  </div>
+  <script>
+    
+            window.addEventListener('DOMContentLoaded', () =&gt; {
+                document.getElementById('closeAdvance').onclick = function() {
+                    this.parentNode && this.parentNode.parentNode && this.parentNode.parentNode.classList.add('--close')
+                };
+            });
+            
+  </script>
+</div>
+`;

@@ -9,9 +9,12 @@ jest.mock('fusion:context', Component => {
         return props => <Component {...props} />;
     };
 });
+
 Context.useAppContext = jest.fn(() => ({
-    isAdmin: false
+    isAdmin: false,
+    layout: ''
 }));
+
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         return props => <Component {...props} />;
@@ -74,7 +77,7 @@ describe('features - LN-common - anexo - default', () => {
             expect(
                 component
                     .find('div')
-                    .at(1)
+                    .at(0)
                     .hasClass('com-anexo skeleton-box')
             ).toBeTruthy();
         });
@@ -99,7 +102,8 @@ describe('features - LN-common - anexo - default', () => {
         });
         it('Should set src when isAdmin (PB) and NOT data-src', () => {
             Context.useAppContext = jest.fn(() => ({
-                isAdmin: true
+                isAdmin: true,
+                layout: ''
             }));
             const component = mount(<AnexoFeature {...propsUrl} />);
             expect(component.html()).not.toBeNull();
@@ -139,7 +143,8 @@ describe('features - LN-common - anexo - default', () => {
             };
             Context.useAppContext = jest.fn(() => ({
                 isAdmin: true,
-                renderables
+                renderables,
+                layout: ''
             }));
             propsUrl.customFields.heightDesktop = 700;
             const component = render(<AnexoFeature {...propsUrl} />);

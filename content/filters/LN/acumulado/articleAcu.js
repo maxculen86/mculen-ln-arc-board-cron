@@ -13,7 +13,9 @@ const image = `
 
 export default `
 {
+    _id
     type
+    subtype
     content_elements {
         _id
         subtype
@@ -46,6 +48,8 @@ export default `
         }
         credits {
             by {
+                _id
+                slug
                 name
                 type
                 image {
@@ -75,8 +79,6 @@ export default `
         display_date
         publish_date
         website_url
-        display_date
-        website_url
         marquesina
         label  {
             recomendar {
@@ -89,6 +91,9 @@ export default `
             chapita {
                 text
                 display
+            }
+            enviar_a_apps {
+                text
             }
         }
         related_content {
