@@ -15,7 +15,7 @@ export const extractDataFromContentElements = contentElements => {
             e => e.subtype === 'power-up-receta'
         );
 
-        if (element) {
+        element &&
             element.powerUp.forEach(e => {
                 get(e, `${embedConfigTypeList}`, '') === 'ingredientes' &&
                     ingredients.push(...e.embed.config.items);
@@ -49,7 +49,6 @@ export const extractDataFromContentElements = contentElements => {
                     });
                 });
             });
-        }
     }
 
     return {

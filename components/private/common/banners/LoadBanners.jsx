@@ -57,16 +57,15 @@ const LoadBanners = ({ blocksBanners }) => {
                             validateSubscription
                         } = el;
 
-                        const slotId = getSlotForDevice(device)([
-                            {
-                                name: 'desktop',
-                                slot: desktop
-                            },
-                            { name: 'mobile', slot: mobile },
-                            { name: 'tablet', slot: tablet }
-                        ]);
-
-                        if (!slotId) return {};
+                        const slotId =
+                            getSlotForDevice(device)([
+                                {
+                                    name: 'desktop',
+                                    slot: desktop
+                                },
+                                { name: 'mobile', slot: mobile },
+                                { name: 'tablet', slot: tablet }
+                            ]) || {};
 
                         if (validateSubscription && subscription) return {};
 
