@@ -78,6 +78,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
                     userType="suscribed"
                     userName={mock.userName}
                     desplegableData={mock.desplegable}
+                    loggedIn
                 />
             );
 
@@ -96,6 +97,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
                     userType="logged"
                     userName={mock.userName}
                     desplegableData={mock.desplegable}
+                    loggedIn
                 />
             );
 
@@ -109,7 +111,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
 
         test('should returns menu user, login button and suscribe buton when userType is unlogged', () => {
             const { container, getByText } = render(
-                <RightOptions userType="unlogged" />
+                <RightOptions userType="unlogged" loggedIn={false} />
             );
             const desplegable = container.querySelector('.desplegable');
 

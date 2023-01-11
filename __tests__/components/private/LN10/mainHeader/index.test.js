@@ -19,7 +19,8 @@ jest.mock('../../../../../components/private/LN10/mainHeader/_helper', () => ({
 jest.mock(
     '../../../../../components/private/LN/common/utils/contextHelper',
     () => ({
-        getLoginData: jest.fn()
+        getLoginData: jest.fn(),
+        isLoggedIn: jest.fn()
     })
 );
 
