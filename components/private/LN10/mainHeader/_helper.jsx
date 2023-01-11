@@ -35,7 +35,7 @@ export const setDesplegableData = () => {
             target: '_self'
         },
         {
-            url: '#',
+            url: 'javascript:void(0);',
             text: 'Cerrar sesión',
             title: 'Cerrar sesión',
             target: '_self'
@@ -60,7 +60,8 @@ export const RightOptions = ({
     userType,
     userName = '',
     desplegableData = [],
-    goToLoginUrl
+    goToLoginUrl,
+    loggedIn = ''
 }) => {
     const SubscribeButton = (
         <Button
@@ -91,13 +92,13 @@ export const RightOptions = ({
 
     const rightOptions = {
         suscribed: MenuUser,
-        logged: (
+        logged: loggedIn && (
             <>
                 {MenuUser}
                 {SubscribeButton}
             </>
         ),
-        unlogged: (
+        unlogged: !loggedIn && (
             <>
                 <Button
                     title="Iniciar sesión"

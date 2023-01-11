@@ -7,7 +7,7 @@ import { Text } from '@ln/contenidos-ui-text';
 import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/contenidos-ui-icon';
 
-import { getLoginData } from '../../LN/common/utils/contextHelper';
+import { getLoginData, isLoggedIn } from '../../LN/common/utils/contextHelper';
 import {
     RightOptions,
     setDesplegableData,
@@ -24,6 +24,7 @@ import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
 
 const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
     const { userName = '', loading, goToLoginUrl } = getLoginData() || {};
+    const loggedIn = isLoggedIn();
     const desplegableData = setDesplegableData() || [];
 
     return (
@@ -72,6 +73,7 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                         userName={userName}
                         desplegableData={desplegableData}
                         goToLoginUrl={goToLoginUrl}
+                        loggedIn={loggedIn}
                     />
                 )}
             </MainHeader.Right>
