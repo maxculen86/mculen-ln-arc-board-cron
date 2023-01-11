@@ -8,6 +8,13 @@ import {
     RightOptions
 } from '../../../../../components/private/LN10/mainHeader/_helper';
 
+jest.mock('react', () => ({
+    ...jest.requireActual('react'),
+    useContext: jest.fn(() => ({
+        dispatch: jest.fn()
+    }))
+}));
+
 jest.mock('../../../../../components/private/LN10/mainHeader/_helper', () => ({
     ...jest.requireActual(
         '../../../../../components/private/LN10/mainHeader/_helper'

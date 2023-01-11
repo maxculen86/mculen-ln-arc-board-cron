@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
 import { MainHeader } from '@ln/contenidos-ui-header';
 import { Button } from '@ln/contenidos-ui-button';
 import { Text } from '@ln/contenidos-ui-text';
@@ -15,6 +15,8 @@ import {
     logoCallback
 } from './_helper';
 import { handleClickBuscar } from '../navbar/_helper';
+import { GlobalContext } from '../../common/context/globalContext';
+import { goToLogout } from '../../LN/common/utils/loginHelper';
 
 import '../../../../resources/packages/css/@ln/contenidos-ui-header/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
@@ -25,7 +27,10 @@ import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
 const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
     const { userName = '', loading, goToLoginUrl } = getLoginData() || {};
     const loggedIn = isLoggedIn();
-    const desplegableData = setDesplegableData() || [];
+    const { dispatch } = useContext(GlobalContext);
+    const logout = () => goToLogout(dispatch);
+
+    const desplegableData = setDesplegableData(logout) || [];
 
     return (
         <MainHeader>

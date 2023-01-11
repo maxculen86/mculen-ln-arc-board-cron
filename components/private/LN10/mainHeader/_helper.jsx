@@ -5,10 +5,9 @@ import { Button } from '@ln/contenidos-ui-button';
 import { Text } from '@ln/contenidos-ui-text';
 import { Icon } from '@ln/contenidos-ui-icon';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
-import { goToLogout } from '../../LN/common/utils/loginHelper';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 
-export const setDesplegableData = () => {
+export const setDesplegableData = (goToLogout = () => {}) => {
     const defaultOptions = [
         {
             url: 'https://www.lanacion.com.ar/mis-notas/',
@@ -44,7 +43,7 @@ export const setDesplegableData = () => {
 
     return defaultOptions.map(option => ({
         ...option,
-        callback: e => {
+        callback: () => {
             addEventToDataLayer({
                 event: 'e_linkclick',
                 action: 'home_ln10',
