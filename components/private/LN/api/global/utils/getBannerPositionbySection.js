@@ -88,7 +88,7 @@ const boxPositionLNSports = {
         position: 'start'
     }
 };
-const getBannerPosition = layout => {
+const getBannerPositionbySection = layout => {
     const boxPositionsMerge = {
         'LN-acumulado': boxPositionLNAcumulado,
         'LN-Home_Main': boxPositionLNMain,
@@ -99,4 +99,4 @@ const getBannerPosition = layout => {
     return boxPositionsMerge[layout];
 };
 
-export default getBannerPosition;
+export default getBannerPositionbySection;
