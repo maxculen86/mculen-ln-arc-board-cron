@@ -1,7 +1,8 @@
 import {
     monthNames,
     datesDiffInDays,
-    getSpecificDate
+    getSpecificDate,
+    getArgentinaYear
 } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 import get from '../../../../../components/private/common/utils/get';
 import { weekDays } from '../../../../../components/private/common/utils/transformISODate';
@@ -19,7 +20,7 @@ export const getHolidaysMetaData = serviceSubItem => {
 
 const metaDataFactory = {
     home: serviceItem => {
-        const year = Number(serviceItem) || new Date().getFullYear();
+        const year = Number(serviceItem) || Number(getArgentinaYear());
         return {
             title: `Feriados ${year} en Argentina: Calendario de feriados nacionales - LA NACION`,
             description: `Calendario de feriados nacionales ${year} en Argentina: días no laborables, fines de semana largo y feriados puente del ${year} y ${year +
@@ -49,7 +50,7 @@ const metaDataFactory = {
         };
     },
     default: serviceItem => {
-        const year = Number(serviceItem) || new Date().getFullYear();
+        const year = Number(serviceItem) || Number(getArgentinaYear());
         return {
             title: 'Feriados por LA NACION',
             description: `Todos los feriados de ${year} por LA NACION`
@@ -167,7 +168,7 @@ const previousAndNextDate = (year, month) => {
 };
 
 const validateNextAndPreviousDate = (nextMonth, previousMonth, numericYear) => {
-    const currentYear = new Date().getFullYear();
+    const currentYear = Number(getArgentinaYear());
     const previousYear =
         previousMonth === 'diciembre' ? numericYear - 1 : numericYear;
     const nextYear = nextMonth === 'enero' ? numericYear + 1 : numericYear;
@@ -292,7 +293,7 @@ const transformHolidays = (
 const getNextHolidayData = monthsArray => {
     if (!monthsArray || !monthsArray.length) return undefined;
     const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
+    const currentYear = Number(getArgentinaYear());
     const actualMonth = currentDate.getMonth();
     const actualDay = currentDate.getDate();
 
