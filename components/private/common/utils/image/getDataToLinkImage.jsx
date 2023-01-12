@@ -19,8 +19,10 @@ import {
     verifyChainsBeforeGrid,
     getIdCollectionFromGC,
     haveFeatureAcumuladoApertura,
-    getDataPreloadAcu
+    getDataPreloadAcu,
+    excludePreloadAcu
 } from '../preloadHelper';
+import { getUltimasNoticiasSectionsIds } from '../../../../features/LN-acumulado/tagList';
 
 const getSource = ({
     imageID = '',
@@ -214,13 +216,20 @@ const GetDataToLinkImage = ({
             const idCollectionApertura = getIdCollectionFromGC({
                 globalContent: data
             });
+            const notPreload = excludePreloadAcu({
+                nodeType,
+                id,
+                idCollectionApertura,
+                hasFeatureAcumuladoApertura,
+                hasChainBeforeGrid
+            });
 
-            if (
-                !hasFeatureAcumuladoApertura ||
-                (!idCollectionApertura && hasChainBeforeGrid)
-            )
-                return <></>;
+            if (notPreload) return <></>;
 
+            const sectionsIds =
+                id === '/ultimas-noticias'
+                    ? getUltimasNoticiasSectionsIds(renderables)
+                    : '';
             const dataPreloadAcu = getDataPreloadAcu(
                 idCollectionApertura,
                 nodeType
@@ -228,6 +237,7 @@ const GetDataToLinkImage = ({
             return (
                 <ImagePreloadlAcu
                     {...dataPreloadAcu}
+                    sectionsIds={sectionsIds}
                     arcSite={arcSite}
                     accumulated={{ id, canonicalUrl, name }}
                 />

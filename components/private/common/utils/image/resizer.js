@@ -1,7 +1,13 @@
 /* eslint-disable no-underscore-dangle */
 // TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
 
-import { RESIZER_URL_PUBLIC, SITE_LANACION, API_ENV } from 'fusion:environment';
+import {
+    RESIZER_URL_PUBLIC,
+    SITE_LANACION,
+    API_ENV,
+    RESIZER_KEY,
+    RESIZER_URL
+} from 'fusion:environment';
 import { FOTOAL100, RECETA, STORYTELLING } from '../subtypes/subtypeHelper';
 import get from '../get';
 import { getAspectRatio } from '../../../../../content/sources/utils/getRatio';
@@ -57,12 +63,7 @@ export const setCropMethod = ({
     }
 };
 
-export const createResizer = (
-    resizerKey,
-    resizerUrl,
-    isInApertura = false,
-    isAdmin = false
-) => {
+export const createResizer = (isInApertura = false, isAdmin = false) => {
     const aperturaUrl =
         API_ENV === 'prod' ? SITE_LANACION : `https://www.lanacion.com.ar`;
 
@@ -91,7 +92,7 @@ export const createResizer = (
         if (!newHeight && !newWidth)
             throw new Error('Height and Width required');
 
-        const thumbor = new Thumbor(resizerKey, resizerUrl);
+        const thumbor = new Thumbor(RESIZER_KEY, RESIZER_URL);
         const cleanedUrl = originalUrl.replace(
             /.*\/resizer\/[a-zA-Z0-9_\-=]+((?:\/[0-9x]+)?(?:\/smart)?(?:\/+(?:filters:.+?)?)?)?\/|(^\w+:\/\/|^)/,
             ''
@@ -286,7 +287,7 @@ export const resizeArcImage = (
     };
 };
 
-const resizeCredits = (credits, resizeOptions, resizer) => {
+export const resizeCredits = (credits, resizeOptions, resizer) => {
     const resp = {};
     const optionsFinal = get(resizeOptions, 'sizes', [
         {
@@ -379,7 +380,7 @@ export const resizePromoItems = (
     return resp;
 };
 
-const getDefaultSize = subtype => {
+export const getDefaultSize = subtype => {
     const defaultResize =
         subtype === FOTOAL100 || subtype === STORYTELLING
             ? {
@@ -397,8 +398,6 @@ const getDefaultSize = subtype => {
 
 export const addResizedUrls = (ansDoc, options) => {
     const {
-        resizerSecret,
-        resizerUrl,
         presets,
         presets: {
             promoItems: presetsPromoItems,
@@ -416,18 +415,12 @@ export const addResizedUrls = (ansDoc, options) => {
         content_elements: contentElements,
         credits
     } = ansDoc;
-
-    if (!resizerSecret || !resizerUrl || !presets)
+    if (!RESIZER_KEY || !RESIZER_URL || !presets)
         throw new Error(
-            'Debe proporcionar el resizerSecret, resizerUrl y presets'
+            'Debe proporcionar el resizerSecret, RESIZER_URL y presets'
         );
 
-    const resizer = createResizer(
-        resizerSecret,
-        resizerUrl,
-        isInApertura,
-        isAdmin
-    );
+    const resizer = createResizer(isInApertura, isAdmin);
 
     const { defaultResize } = getDefaultSize(subtype);
 

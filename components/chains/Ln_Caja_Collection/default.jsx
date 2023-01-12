@@ -38,7 +38,7 @@ const CajaCollection = props => {
             website
         },
         outputType,
-        renderables,
+        renderables = [],
         tree = {},
         globalContent: { node_type: nodeType } = {},
         layout: pageLayout
@@ -55,17 +55,16 @@ const CajaCollection = props => {
         positionInsideSection
     } = getCommonProps(props);
 
-    const { layoutsName = {} } = siteConfig || {};
+    const { layoutsName = {} } = siteConfig;
     const hasHydrateOnly = checkHydrateOnly({ nodeType, layout: pageLayout });
 
-    const diagramation =
-        (renderables.some(
-            elem =>
-                get(elem, 'collection') === 'layouts' &&
-                get(elem, 'type') === layoutsName.Home
-        ) &&
-            layout) ||
-        '';
+    const diagramation = renderables.some(
+        elem =>
+            get(elem, 'collection') === 'layouts' &&
+            get(elem, 'type') === layoutsName.Home
+    )
+        ? layout
+        : '';
 
     const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
         collectionsInPage,
@@ -109,11 +108,7 @@ const CajaCollection = props => {
         ? articlesFromCollectionSiteService
         : articlesToShow;
 
-    const error = validateFeature(
-        idCollection,
-        isInSiteService ? articlesFromCollectionSiteService : articlesToShow,
-        layout
-    );
+    const error = validateFeature(idCollection, _articles, layout);
 
     if (isAdmin && !!error) {
         return (

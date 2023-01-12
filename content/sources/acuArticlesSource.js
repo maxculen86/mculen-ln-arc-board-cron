@@ -2,6 +2,7 @@ import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import transform from './utils/acuArticlesSource/transform';
 import logger from '../../components/private/common/utils/logger';
+import filter from '../filters/LN/acumulado/articleAcu';
 import stringFallback from '../../components/private/common/utils/stringFallback';
 
 const resolve = key => {
@@ -23,7 +24,7 @@ const resolve = key => {
 
     const arcSite = key['arc-site'];
     const cant = size;
-    const from = (page - 1) * cant;
+    const from = ((page || 1) - 1) * cant;
     const basePath = `/content/v4/search/published/?website=${website ||
         arcSite}`;
 
@@ -208,5 +209,6 @@ export default {
         excludeSectionId: 'text',
         api: 'bool'
     },
+    filter,
     ttl: 120
 };

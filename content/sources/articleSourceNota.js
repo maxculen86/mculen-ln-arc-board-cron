@@ -1,8 +1,6 @@
 import request from 'request-promise-native';
 import {
     CONTENT_BASE,
-    RESIZER_KEY,
-    RESIZER_URL,
     ARC_ACCESS_TOKEN,
     SITE_LANACION,
     API_ENV
@@ -10,7 +8,7 @@ import {
 import getProperties from 'fusion:properties';
 import addParallaxData from './utils/addParallaxData';
 import get from '../../components/private/common/utils/get';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
 import filter from '../filters/LN/nota/article';
 import getRequest from './utils/getRequest';
 import Redirect from './utils/redirect';
@@ -33,6 +31,8 @@ import isNoteListenable from './utils/audioNews/helper';
 import force404AMP from './utils/force404AMP';
 import validateSponsoredLink from './utils/validateSponsoredLink';
 import { getPrincipalCategory } from '../../components/private/LN/api/v1/common/category';
+import { hasPromoItemImgAuth } from './utils/signingImageAuth';
+import getImagesAuth from './utils/signingServiceSource/getImagesAuth';
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -142,7 +142,7 @@ const fetch = (query, { cachedCall } = {}) => {
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
 // directamente nosotros desde el fetch
-const transform = (
+const transform = async (
     data,
     arcSite,
     properties,
@@ -163,6 +163,32 @@ const transform = (
     const sections = get(data, 'taxonomy.sections', []);
     const authors = get(data, 'credits.by', []);
     const layout = 'LN-nota-noticia';
+    const primarySectioValidation = get(
+        data,
+        'taxonomy.primary_section._id',
+        null
+    );
+
+    if (
+        subtype === STORYTELLING &&
+        primarySectioValidation === '/revista-living' &&
+        hasPromoItemImgAuth({ dataPromoItem: data })
+    ) {
+        const { basicHash, storytellingHash } = await getImagesAuth(
+            get(data, 'promo_items', {}),
+            cachedCall
+        );
+
+        basicHash &&
+            Object.assign(data.promo_items.basic, {
+                auth: { 1: basicHash }
+            });
+
+        storytellingHash &&
+            Object.assign(data.promo_items.storytelling_mobile, {
+                auth: { 1: storytellingHash }
+            });
+    }
 
     const withFirmaDistributor = firmaDistributorValidation(
         sections,
@@ -226,8 +252,6 @@ const transform = (
         withSponsoredLink: validateSponsoredLink(data),
         category: get(category, 'valor', null),
         ...addResizedUrls(data, {
-            resizerSecret: RESIZER_KEY,
-            resizerUrl: RESIZER_URL,
             presets: {
                 promoItems:
                     presetsPromoItemsCustom ||
@@ -278,43 +302,40 @@ const transformContent = async (
     };
     const subtype = get(jsonArticle, `subtype`, null);
 
-    if (resp && resp.content_elements) {
+    resp &&
+        resp.content_elements &&
         resp.content_elements.forEach((e, i) => {
-            if (e.type === 'gallery') {
+            e.type === 'gallery' &&
                 promiseArr.push(
                     addGalleryData(cachedCall, e, arcSite).then(g => {
                         resp.content_elements[i] = g;
                     })
                 );
-            }
 
             resp.content_elements[i] = replaceTagInTextListRaw(e, 'TERCERA=""');
         });
-    }
 
     /* TODO: validar si related content debe ir vacio si tiene otros
     items diferentes a reference */
     if (resp && resp.related_content && resp.related_content.basic) {
         resp.related_content.basic.forEach((element, i) => {
-            if (element.type === 'reference') {
-                const referentType = get(element, 'referent.type', '');
+            const referentType = get(element, 'referent.type', '');
 
-                if (referentType === 'image') {
-                    resp.related_content.basic[i] = element;
-                }
+            element.type === 'reference' &&
+                referentType === 'image' &&
+                (resp.related_content.basic[i] = element);
 
-                referentType === 'story' &&
-                    promiseArr.push(
-                        addFollowAnotherNoteData(
-                            cachedCall,
-                            element,
-                            arcSite,
-                            i
-                        ).then(newContent => {
-                            resp.related_content.basic[i] = newContent;
-                        })
-                    );
-            }
+            referentType === 'story' &&
+                promiseArr.push(
+                    addFollowAnotherNoteData(
+                        cachedCall,
+                        element,
+                        arcSite,
+                        i
+                    ).then(newContent => {
+                        resp.related_content.basic[i] = newContent;
+                    })
+                );
         });
     }
 
@@ -333,42 +354,43 @@ const transformContent = async (
             new Promise(resolver =>
                 resolver(get(elem, 'image.resized_urls[0].resizedUrl'))
             ).then(url => {
-                if (url)
-                    resp.credits.by[
+                url &&
+                    (resp.credits.by[
                         i
-                    ].additional_properties.original.image = url;
+                    ].additional_properties.original.image = url);
             })
         )
     );
 
     // Url Validator
-    if (resp && resp.content_elements) {
+    const validateResp = resp && resp.content_elements;
+
+    if (validateResp) {
         resp.content_elements = removeInvalidUrlTagA(
             resp.content_elements,
             arcSite,
             urlQuery,
             API_ENV
         );
-        if (subtype === RECETA) {
-            resp.content_elements = recipePowerUps(resp.content_elements);
-        }
-        if (subtype !== FOTOAL100) {
-            resp.content_elements = removeParallaxPowerUp(
+        subtype === RECETA &&
+            (resp.content_elements = recipePowerUps(resp.content_elements));
+        subtype !== FOTOAL100 &&
+            (resp.content_elements = removeParallaxPowerUp(
                 resp.content_elements
-            );
-        }
-        if (subtype === FOTOAL100) {
-            resp.content_elements = await addParallaxData(
+            ));
+        subtype === FOTOAL100 &&
+            (resp.content_elements = await addParallaxData(
                 resp.content_elements,
                 cachedCall,
                 presetsPromoItemsFotoAl100
-            );
-        }
+            ));
     }
 
     return Promise.all(promiseArr).then(() => {
         const relatedContent = get(resp, 'related_content.basic', []);
-        resp.related_content.basic = removeInvalidRelated(relatedContent);
+        if (relatedContent.length) {
+            resp.related_content.basic = removeInvalidRelated(relatedContent);
+        }
         return resp;
     });
 };
