@@ -8,7 +8,8 @@ import {
     findSectionChildren as findSectionChildren10
 } from '../../../../common/utils/validateSectionHomeLN10';
 import getSections from '../utils/getSections';
-import getBannerPosition from '../utils/getBannerPosition';
+import getBannerPositionbySection from '../utils/getBannerPositionbySection';
+import getBannerbyPosition from '../utils/getBannerbyPosition';
 import getTypesbyContainer from '../utils/getTypesbyContainer';
 import getSectionAliasbyFeature from '../utils/getSectionAliasbyFeature';
 import getToMovePosition from '../utils/getToMovePosition';
@@ -135,7 +136,7 @@ const segmentSectionbyDiagramation = elements => {
     return elementsValidate;
 };
 
-const setBannersInPosition = (elements, banner) => {
+const setBannersInPositionbySection = (elements, banner) => {
     if (elements && elements.length > 0 && banner) {
         switch (banner.position) {
             case 'middle':
@@ -149,6 +150,41 @@ const setBannersInPosition = (elements, banner) => {
                 break;
         }
     }
+    return elements;
+};
+
+const setBannersbyPosition = (elements, layoutPage) => {
+    const banners = getBannerbyPosition(layoutPage);
+
+    elements &&
+        elements.length > 0 &&
+        banners &&
+        typeof banners === 'object' &&
+        Object.keys(banners).map(x => {
+            const banner = banners[x];
+            const indexToSetBanner = elements.findIndex(
+                e =>
+                    e &&
+                    e.originPosition &&
+                    e.originPosition.toString() === x.toString()
+            );
+
+            if (indexToSetBanner && banner) {
+                switch (banner.position) {
+                    case 'start':
+                        elements.splice(indexToSetBanner, 0, banner);
+                        break;
+                    case 'bottom':
+                        elements.splice(indexToSetBanner + 1, 0, banner);
+                        break;
+                    default:
+                        // elements.push(banner);
+                        break;
+                }
+            }
+            return true;
+        });
+
     return elements;
 };
 
@@ -265,7 +301,7 @@ const getPageElements = props => {
     const pageMergeSections = getSections(layoutPage);
     const rules = get(pageMergeSections, 'rules', []);
 
-    return (
+    let elementsPage =
         pageMergeSections &&
         pageMergeSections.sections &&
         pageMergeSections.sections.reduce((r, e, i) => {
@@ -299,10 +335,10 @@ const getPageElements = props => {
                 elements = segmentSectionbyDiagramation(elements);
             }
 
-            const banner = getBannerPosition(layoutPage)[sectionWeb];
+            const banner = getBannerPositionbySection(layoutPage)[sectionWeb];
 
-            //  Returns a new array elements with banners according to the position of the banners of the established configuration
-            const child = setBannersInPosition(elements, banner);
+            //  Returns a new array elements with banners according to the section of the banners of the established configuration
+            const child = setBannersInPositionbySection(elements, banner);
 
             if (child && Array.isArray(child) && child.length > 0) {
                 return moveSections(
@@ -343,8 +379,20 @@ const getPageElements = props => {
             }
 
             return r;
-        }, [])
-    );
+        }, []);
+
+    // Add property Order to elements
+    let indiceElements = -1;
+    elementsPage = elementsPage.map((e, i) => {
+        if (e && e.type !== 1) {
+            indiceElements += 1;
+            return { ...e, originPosition: indiceElements };
+        }
+        return { ...e };
+    });
+
+    //  Returns a new array elements with banners according to the position of the banners of the established configuration
+    return setBannersbyPosition(elementsPage, layoutPage);
 };
 
 export default getPageElements;

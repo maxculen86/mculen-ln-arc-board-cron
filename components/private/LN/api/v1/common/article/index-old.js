@@ -38,10 +38,6 @@ const getArticleTitle = article => {
     return title || originalTitle;
 };
 
-const getArticleTitleVivo = article => {
-    const title = get(article, 'additionalProperties.titleVivo', null);
-    return title;
-};
 const getArticleTag = article => {
     const originalTag = get(article, 'label.chapita.text', null);
     const tag = get(article, 'additionalProperties.chapita', null);
@@ -116,7 +112,6 @@ export const articleItem = article => {
         sitioId: get(article, 'configurations.arcSite', null),
         url,
         titulo,
-        tituloVivo: getArticleTitleVivo(article),
         volanta:
             get(label, 'volanta.text', null) ||
             get(article, 'additionalProperties.lead', null),
