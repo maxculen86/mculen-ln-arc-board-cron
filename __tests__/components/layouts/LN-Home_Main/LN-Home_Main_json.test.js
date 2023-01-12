@@ -12,6 +12,15 @@ import propsAppAnexowithoutApertura from '../../../../__mocks__/data/renderables
 import propsApertura from '../../../../__mocks__/data/renderables/dataApertura.json';
 import propsAperturaTimeline from '../../../../__mocks__/data/renderables/dataAperturaTimeline.json';
 
+jest.mock(
+    '../../../../components/private/LN/api/global/utils/getBannerbyPosition.js',
+    () => {
+        return function(component) {
+            return {};
+        };
+    }
+);
+
 jest.mock('.../../../../../../components/private/LN/api/v1/global/home', () => {
     return function(component) {
         return component;
@@ -97,6 +106,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 [
                     'configurations',
                     'information',
+                    'originPosition',
                     'type',
                     'sectionAliasMobile',
                     'sectionMobile',
@@ -144,6 +154,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'sectionAliasMobile',
                     'information',
+                    'originPosition',
                     'type',
                     'sectionMobile',
                     'sectionWeb'
@@ -162,6 +173,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'sectionAliasMobile',
                     'information',
+                    'originPosition',
                     'type',
                     'sectionMobile',
                     'sectionWeb'
@@ -183,6 +195,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'sectionAliasMobile',
                     'information',
+                    'originPosition',
                     'type',
                     'sectionMobile',
                     'sectionWeb'
@@ -199,6 +212,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'sectionAliasMobile',
                     'information',
+                    'originPosition',
                     'type',
                     'sectionMobile',
                     'sectionWeb'
@@ -221,6 +235,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'articles',
                     'configurations',
                     'information',
+                    'originPosition',
                     'sectionAliasMobile',
                     'sectionMobile',
                     'sectionWeb',
@@ -388,6 +403,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'sectionAliasMobile',
                     'information',
+                    'originPosition',
                     'type',
                     'sectionMobile',
                     'sectionWeb'
@@ -400,6 +416,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'sectionAliasMobile',
                     'information',
+                    'originPosition',
                     'type',
                     'sectionMobile',
                     'sectionWeb'
@@ -503,6 +520,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'sectionAliasMobile',
                     'information',
+                    'originPosition',
                     'type',
                     'sectionMobile',
                     'sectionWeb'
@@ -552,6 +570,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'sectionAliasMobile',
                     'information',
+                    'originPosition',
                     'type',
                     'sectionMobile',
                     'sectionWeb'
