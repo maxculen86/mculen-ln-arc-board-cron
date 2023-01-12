@@ -11,6 +11,7 @@ import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import PwaModals from '../private/LN/common/pwaModals';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
+import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 
 const lnNotaFotoAl100 = ({
     children: [
@@ -80,6 +81,7 @@ const lnNotaFotoAl100 = ({
             </div>
             <LoadBannersSSR />
             <PwaModals />
+            {intersectionObserverForRelatedTags()}
         </GlobalProvider>
     );
 };

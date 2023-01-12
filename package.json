@@ -29,7 +29,21 @@
         "postinstall": "npm run ln:copycss"
     },
     "dependencies": {
-        "@ln/common-ui-button": "^0.1.0",
+        "@ln/assets-ui-icons": "0.1.1-beta.0",
+        "@ln/common-ui-icon": "0.0.1-beta.3",
+        "@ln/common-ui-text": "0.0.1",
+        "@ln/contenidos-ui-link": "0.0.2",
+        "@ln/contenidos-ui-navbarmobile": "0.0.1-beta.11",
+        "@ln/common-ui-button": "^1.0.0",
+        "@ln/common-ui-link": "0.0.3-beta.4",
+        "@ln/contenidos-ui-advance": "^0.1.1-beta.6",
+        "@ln/contenidos-ui-badge": "0.0.2-beta.0",
+        "@ln/common-ui-grid": "0.0.1-beta.0",
+        "@ln/contenidos-ui-footerhome": "0.0.1-beta.7",
+        "@ln/contenidos-ui-sass": "0.0.1-beta.1",
+        "@ln/contenidos-ui-live": "0.0.2",
+        "@ln/contenidos-ui-text": "0.0.2-beta.0",
+        "copyfiles": "^2.4.1",
         "lazy-child": "0.3.1",
         "node-html-parser": "1.2.14",
         "prop-types": "15.7.2",
@@ -37,8 +51,7 @@
         "react": "17.0.2",
         "react-dom": "17.0.2",
         "request-promise-native": "1.0.8",
-        "thumbor": "0.1.5",
-        "copyfiles": "^2.4.1"
+        "thumbor": "0.1.5"
     },
     "devDependencies": {
         "@arc-fusion/cli": "2.0.7",
@@ -101,6 +114,10 @@
         "transform": {
             "^.+\\.jsx?$": "babel-jest"
         },
+        "transformIgnorePatterns": [
+            "//node_modules/(?!@ln/contenidos-ui-advance/.*)",
+            "//node_modules/(?!@ln/common-ui-icon/.*)"
+        ],
         "globals": {
             "NODE_ENV": "test"
         },

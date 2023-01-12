@@ -1,4 +1,3 @@
-import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
 import { createResizer } from './image/resizer';
 
 // TODO: Pasar a properties por site y tomar desde allí
@@ -23,12 +22,13 @@ const getImageResized = ({
 }) => {
     return (
         url &&
-        createResizer(
-            RESIZER_KEY,
-            RESIZER_URL,
-            isInApertura,
-            isAdmin
-        ).resizeUrls(url, originalWidth, originalHeight, options, focalPoint)
+        createResizer(isInApertura, isAdmin).resizeUrls(
+            url,
+            originalWidth,
+            originalHeight,
+            options,
+            focalPoint
+        )
     );
 };
 export default getImageResized;

@@ -1,0 +1,1432 @@
+import {
+    isAllowSection,
+    addResizedUrls
+} from '../../../../../../../components/private/common/utils/image/resizer/addResizerUrls';
+
+jest.mock('fusion:environment', () => {
+    return {
+        API_ENV: 'prod',
+        RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com',
+        SITE_LANACION: 'https://www.lanacion.com.ar'
+    };
+});
+
+describe('utils - image - resizer - addResizerUrls', () => {
+    describe('addResizedUrls', () => {
+        const options = {
+            presets: {
+                promoItems: {
+                    sizes: [
+                        {
+                            width: 1920,
+                            height: 1280,
+                            media: '(min-width: 1280px)',
+                            useFullSize: true,
+                            proportion: '3:2',
+                            media_preload: '(min-width: 1280.1px)'
+                        },
+                        {
+                            width: 1200,
+                            height: 800,
+                            useFullSize: true,
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 1024.1px and max-width: 1280px)'
+                        },
+                        {
+                            width: 1023,
+                            height: 682,
+                            useFullSize: true,
+                            proportion: '3:2',
+                            media_preload:
+                                '(min-width: 768.1px and max-width: 1024px)'
+                        },
+                        {
+                            width: 1276,
+                            height: 1914,
+                            useFullSize: true,
+                            proportion: '2:3',
+                            media_preload: '(min-width: 768px)'
+                        },
+                        {
+                            width: 768,
+                            height: 1152,
+                            useFullSize: true,
+                            proportion: '2:3',
+                            media_preload:
+                                '(min-width: 375.1px and max-width: 768px)'
+                        },
+                        {
+                            width: 360,
+                            height: 540,
+                            useFullSize: true,
+                            proportion: '2:3',
+                            media_preload: '(max-width: 375px)'
+                        }
+                    ]
+                },
+                contentElements: {
+                    sizes: [
+                        {
+                            width: 879,
+                            height: 586,
+                            media: '(min-width: 1280px)'
+                        },
+                        {
+                            width: 690,
+                            height: 465,
+                            media: '(min-width: 1024px)'
+                        },
+                        {
+                            width: 768,
+                            height: 513
+                        },
+                        {
+                            width: 350,
+                            height: 438
+                        },
+                        {
+                            width: 310,
+                            height: 203
+                        }
+                    ]
+                },
+                credits: {
+                    sizes: [
+                        {
+                            width: 80,
+                            height: 80,
+                            media: '(min-width: 320px)'
+                        }
+                    ]
+                },
+                presetsDefault: [
+                    {
+                        width: 1033,
+                        height: 768,
+                        media: '(min-width: 768px)',
+                        class: 'img-desktop',
+                        media_preload: '(min-width: 768px)'
+                    }
+                ],
+                zoomSizes: [
+                    {
+                        width: 1920,
+                        height: 1280,
+                        media: '(min-width: 1280px)'
+                    },
+                    {
+                        width: 1200,
+                        height: 800,
+                        media: '(min-width: 1024px)'
+                    },
+                    {
+                        width: 1023,
+                        height: 682,
+                        media: '(min-width: 768px)'
+                    },
+                    {
+                        width: 768,
+                        height: 512,
+                        media: '(min-width: 360px)'
+                    },
+                    {
+                        width: 360,
+                        height: 240,
+                        media: '(min-width: 320px)'
+                    }
+                ]
+            },
+            subtype: '4',
+            isInApertura: false,
+            isAdmin: false
+        };
+
+        const ansDoc = {
+            _id: 'JXSEZFIGHZCUXIP27F7UYDVFUM',
+            type: 'story',
+            version: '0.10.7',
+            content_elements: [
+                {
+                    _id: 'DDEWCVNW75H7TMQHAAO5R7FMQU',
+                    type: 'text',
+                    additional_properties: {
+                        _id: 1671547769855,
+                        comments: [],
+                        inline_comments: []
+                    },
+                    content:
+                        '<a href="https://www.instagram.com/marinamassone/">Marina Massone</a> y Martín Moreno encontraron la que hoy es su casa hace quince años, cuando recién llegaban a <b>San Antonio de Areco</b>.<b> </b>La propiedad estaba en venta y había que hacerla casi a nuevo, pero los atrapó el <b>clásico frente de ladrillo visto </b>y descubrir, a través de los techos de pendientes, que <b>había sido construida en etapas y a pulmón</b>.'
+                }
+            ],
+            headlines: {
+                basic:
+                    'En San Antonio de Areco. Una joyera remodeló una antigua construcción para armar su casa-taller',
+                meta_title: '',
+                mobile:
+                    'Una joyera remodeló una antigua construcción para armar su casa-taller',
+                native: '',
+                print: '',
+                tablet: '',
+                web: ''
+            },
+            subheadlines: {
+                basic:
+                    'Enamorada de su clásico frente de ladrillo visto, Marina Massone ambientó su hogar (y galería personal) con muebles vintage y piezas propias.'
+            },
+            description: {
+                basic:
+                    'Una joyera de San Antonio de Areco remodeló una antigua construcción para armar su casa-taller ambientada con muebles vintage y piezas propias.'
+            },
+            taxonomy: {
+                primary_section: {
+                    _id: '/revista-living',
+                    _website: 'la-nacion-ar',
+                    type: 'section',
+                    version: '0.6.0',
+                    name: 'Revista Living',
+                    path: '/revista-living',
+                    parent_id: '/',
+                    parent: {
+                        default: '/'
+                    },
+                    additional_properties: {
+                        original: {
+                            _id: '/revista-living',
+                            site: {
+                                site_url:
+                                    'https://www.lanacion.com.ar/revista-living/'
+                            },
+                            migration: {
+                                id_section_ln9: '7353',
+                                migrated_mob: 'true'
+                            },
+                            _website: 'la-nacion-ar',
+                            name: 'Revista Living',
+                            inactive: false,
+                            node_type: 'section'
+                        }
+                    }
+                }
+            },
+            promo_items: {
+                basic: {
+                    _id: 'S6JROK6SOVHG7E7W6RJV74GUNQ',
+                    additional_properties: {
+                        fullSizeResizeUrl:
+                            '/resizer/IPtYYVJVJ2rf3z3KfMZZQULPZAg=/arc-anglerfish-arc2-prod-lanacionar/public/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg',
+                        galleries: [],
+                        ingestionMethod: 'manual',
+                        keywords: ['', 'casas de campo', 'living', 'comedores'],
+                        mime_type: 'image/jpeg',
+                        originalName:
+                            '3 CASA MARINA JOYERA (Benegas Picerno) B 8B 8P3A0001.jpg',
+                        originalUrl:
+                            'https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg',
+                        owner: 'palvarado@saln.onmicrosoft.com',
+                        proxyUrl:
+                            '/resizer/IPtYYVJVJ2rf3z3KfMZZQULPZAg=/arc-anglerfish-arc2-prod-lanacionar/public/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg',
+                        published: true,
+                        resizeUrl:
+                            '/resizer/IPtYYVJVJ2rf3z3KfMZZQULPZAg=/arc-anglerfish-arc2-prod-lanacionar/public/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg',
+                        restricted: false,
+                        takenOn: '2018-12-11T00:41:05Z',
+                        thumbnailResizeUrl:
+                            '/resizer/i5teVIf5DjvH0p9qmnZCtJXwdxg=/300x0/arc-anglerfish-arc2-prod-lanacionar/public/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg',
+                        version: 0,
+                        template_id: 706
+                    },
+                    address: {},
+                    alt_text:
+                        'Foto de un living comedor con juego de mesas ratonas escandinavas. Sobre una de ellas, esculturas.',
+                    auth: {
+                        '1':
+                            '110f4f488ecfaa9efe2838f7198bb9695a785a9c65a5b8aad1b4a04342d1c794'
+                    },
+                    caption: '',
+                    created_date: '2022-12-20T12:45:40Z',
+                    credits: {
+                        affiliation: [],
+                        by: [
+                            {
+                                _id: 'javier-picerno-7684',
+                                type: 'author',
+                                version: '0.5.8',
+                                name: 'Javier Picerno',
+                                image: {
+                                    url: '',
+                                    version: '0.5.8'
+                                },
+                                url: '/autor/javier-picerno-7684/',
+                                slug: 'javier-picerno-7684',
+                                social_links: [
+                                    {
+                                        site: 'email',
+                                        url: ''
+                                    },
+                                    {
+                                        site: 'twitter',
+                                        url: ''
+                                    }
+                                ],
+                                socialLinks: [
+                                    {
+                                        site: 'email',
+                                        url: '',
+                                        deprecated: true,
+                                        deprecation_msg:
+                                            'Please use social_links.'
+                                    },
+                                    {
+                                        site: 'twitter',
+                                        url: '',
+                                        deprecated: true,
+                                        deprecation_msg:
+                                            'Please use social_links.'
+                                    }
+                                ],
+                                additional_properties: {
+                                    original: {
+                                        _id: 'javier-picerno-7684',
+                                        byline: 'Javier Picerno',
+                                        firstName: 'Javier',
+                                        lastName: 'Picerno',
+                                        author_type: 'Estándar',
+                                        email: '',
+                                        image: '',
+                                        twitter: '',
+                                        status: true,
+                                        role: 'PARA LA NACION',
+                                        longBio: '',
+                                        slug: 'javier-picerno-7684',
+                                        bio_page: '/autor/javier-picerno-7684/',
+                                        last_updated_date:
+                                            '2019-10-11T20:35:23.539Z',
+                                        books: [],
+                                        podcasts: [],
+                                        education: [],
+                                        awards: []
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    height: 1333,
+                    image_type: 'photograph',
+                    last_updated_date: '2022-12-20T12:45:40Z',
+                    licensable: false,
+                    owner: {
+                        id: 'lanacionar',
+                        sponsored: false
+                    },
+                    source: {
+                        additional_properties: {
+                            editor: 'photo center'
+                        },
+                        edit_url:
+                            'https://lanacionar.arcpublishing.com/photo/S6JROK6SOVHG7E7W6RJV74GUNQ',
+                        system: 'photo center'
+                    },
+                    taxonomy: {
+                        associated_tasks: []
+                    },
+                    type: 'image',
+                    url:
+                        'https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/S6JROK6SOVHG7E7W6RJV74GUNQ.jpg',
+                    version: '0.10.3',
+                    width: 2000,
+                    syndication: {}
+                },
+                storytelling_mobile: {
+                    _id: 'HBYX74RWXVC6HLL5OCZVTCR55U',
+                    additional_properties: {
+                        fullSizeResizeUrl:
+                            '/resizer/cy_ZAJfaOXMVteWW4FyGuU1T09w=/arc-anglerfish-arc2-prod-lanacionar/public/HBYX74RWXVC6HLL5OCZVTCR55U.JPG',
+                        galleries: [],
+                        ingestionMethod: 'manual',
+                        keywords: ['', 'casas de campo'],
+                        mime_type: 'image/jpeg',
+                        originalName:
+                            '19 CASA MARINA JOYERA (Benegas Picerno) D 1D 8P3A9846.JPG',
+                        originalUrl:
+                            'https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HBYX74RWXVC6HLL5OCZVTCR55U.JPG',
+                        owner: 'palvarado@saln.onmicrosoft.com',
+                        proxyUrl:
+                            '/resizer/cy_ZAJfaOXMVteWW4FyGuU1T09w=/arc-anglerfish-arc2-prod-lanacionar/public/HBYX74RWXVC6HLL5OCZVTCR55U.JPG',
+                        published: true,
+                        resizeUrl:
+                            '/resizer/cy_ZAJfaOXMVteWW4FyGuU1T09w=/arc-anglerfish-arc2-prod-lanacionar/public/HBYX74RWXVC6HLL5OCZVTCR55U.JPG',
+                        restricted: false,
+                        thumbnailResizeUrl:
+                            '/resizer/TunrEuZgGmECAPN1NoWhrlzIt4M=/300x0/arc-anglerfish-arc2-prod-lanacionar/public/HBYX74RWXVC6HLL5OCZVTCR55U.JPG',
+                        version: 0,
+                        template_id: 706,
+                        focal_point: {
+                            max: [562, 1035],
+                            min: [562, 1035]
+                        }
+                    },
+                    address: {},
+                    alt_text:
+                        'Fachada de una casa de campo en San Antonio de Areco.',
+                    auth: {
+                        '1':
+                            'ac4db666c9e5542cc09553af6b9f41315d7765ab3ee07d465fdabac39e7935eb'
+                    },
+                    caption: '',
+                    created_date: '2022-12-20T12:45:40Z',
+                    credits: {
+                        affiliation: [],
+                        by: [
+                            {
+                                _id: 'javier-picerno-7684',
+                                type: 'author',
+                                version: '0.5.8',
+                                name: 'Javier Picerno',
+                                image: {
+                                    url: '',
+                                    version: '0.5.8'
+                                },
+                                url: '/autor/javier-picerno-7684/',
+                                slug: 'javier-picerno-7684',
+                                social_links: [
+                                    {
+                                        site: 'email',
+                                        url: ''
+                                    },
+                                    {
+                                        site: 'twitter',
+                                        url: ''
+                                    }
+                                ],
+                                socialLinks: [
+                                    {
+                                        site: 'email',
+                                        url: '',
+                                        deprecated: true,
+                                        deprecation_msg:
+                                            'Please use social_links.'
+                                    },
+                                    {
+                                        site: 'twitter',
+                                        url: '',
+                                        deprecated: true,
+                                        deprecation_msg:
+                                            'Please use social_links.'
+                                    }
+                                ],
+                                additional_properties: {
+                                    original: {
+                                        _id: 'javier-picerno-7684',
+                                        byline: 'Javier Picerno',
+                                        firstName: 'Javier',
+                                        lastName: 'Picerno',
+                                        author_type: 'Estándar',
+                                        email: '',
+                                        image: '',
+                                        twitter: '',
+                                        status: true,
+                                        role: 'PARA LA NACION',
+                                        longBio: '',
+                                        slug: 'javier-picerno-7684',
+                                        bio_page: '/autor/javier-picerno-7684/',
+                                        last_updated_date:
+                                            '2019-10-11T20:35:23.539Z',
+                                        books: [],
+                                        podcasts: [],
+                                        education: [],
+                                        awards: []
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    height: 2000,
+                    image_type: 'photograph',
+                    last_updated_date: '2022-12-20T12:45:40Z',
+                    licensable: false,
+                    owner: {
+                        id: 'lanacionar',
+                        sponsored: false
+                    },
+                    source: {
+                        additional_properties: {
+                            editor: 'photo center'
+                        },
+                        edit_url:
+                            'https://lanacionar.arcpublishing.com/photo/HBYX74RWXVC6HLL5OCZVTCR55U',
+                        system: 'photo center'
+                    },
+                    taxonomy: {
+                        associated_tasks: []
+                    },
+                    type: 'image',
+                    url:
+                        'https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HBYX74RWXVC6HLL5OCZVTCR55U.JPG',
+                    version: '0.10.3',
+                    width: 1333,
+                    syndication: {}
+                }
+            },
+            related_content: {
+                basic: [
+                    {
+                        additional_properties: {
+                            has_published_copy: true
+                        },
+                        canonical_website: 'la-nacion-ar',
+                        comments: {
+                            allow_comments: false,
+                            display_comments: true,
+                            moderation_required: false
+                        },
+                        content_elements: [
+                            {
+                                _id: 'KCCSH5XVZZAFJE2NH236RZAG7Y',
+                                additional_properties: {},
+                                content:
+                                    'Las fantasías de fuga al campo (exacerbadas en la pandemia, eso es seguro) deben ser tan antiguas como el surgimiento de sus antitéticas ciudades. Hoy evocamos la charla que tuvimos con <a class="link" href="https://www.instagram.com/p/BqoGaM9nvZb/" tercera="" data-nodeType="link">Heather Garrett</a> un par de años atrás, en la que compartió cómo logró<b> levantar una casa en seis meses.</b>',
+                                type: 'text'
+                            }
+                        ],
+                        created_date: '2020-09-02T04:51:24.993Z',
+                        credits: {
+                            by: [
+                                {
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    },
+                                    referent: {
+                                        id: 'ines-marini-6758',
+                                        type: 'author'
+                                    },
+                                    type: 'reference'
+                                },
+                                {
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    },
+                                    referent: {
+                                        id: 'violeta-quesada-7141',
+                                        type: 'author'
+                                    },
+                                    type: 'reference'
+                                }
+                            ]
+                        },
+                        display_date: '2020-08-07T03:00:00Z',
+                        distributor: {
+                            mode: 'reference',
+                            reference_id: '35aa3ee5-fd10-4532-99fa-75052b0af967'
+                        },
+                        first_publish_date: '2020-08-07T03:00:00Z',
+                        headlines: {
+                            basic:
+                                'Vida nueva: dejó todo y armó su casa soñada en Areco en solo seis meses',
+                            mobile:
+                                'Vida nueva: dejó todo y armó su casa soñada en Areco en solo seis meses'
+                        },
+                        label: {
+                            edicion: {
+                                display: true,
+                                text: 'Impresa'
+                            },
+                            livefyre_entrada_id: {
+                                display: true,
+                                text: '1264887'
+                            }
+                        },
+                        last_updated_date: '2020-09-06T17:23:20.568Z',
+                        owner: {
+                            id: 'lanacionar',
+                            sponsored: false
+                        },
+                        promo_items: {
+                            basic: {
+                                _id: 'AZTJX3T6CNG35JVXXJY2UKHMR4',
+                                additional_properties: {
+                                    _do_not_inflate: true
+                                },
+                                referent: {
+                                    id: 'AZTJX3T6CNG35JVXXJY2UKHMR4',
+                                    referent_properties: {},
+                                    type: 'image'
+                                },
+                                type: 'reference'
+                            },
+                            storytelling_mobile: {
+                                _id: 'AXDQ23PTJRHFHHARR6Z6JL3XTY',
+                                additional_properties: {
+                                    _do_not_inflate: true
+                                },
+                                referent: {
+                                    id: 'AXDQ23PTJRHFHHARR6Z6JL3XTY',
+                                    referent_properties: {},
+                                    type: 'image'
+                                },
+                                type: 'reference'
+                            }
+                        },
+                        publish_date: '2020-08-07T03:00:00Z',
+                        related_content: {
+                            basic: [
+                                {
+                                    _id: 'COBHULAOEBDDTPVUVRW6IXEPR4',
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    },
+                                    referent: {
+                                        id: 'COBHULAOEBDDTPVUVRW6IXEPR4',
+                                        referent_properties: {
+                                            caption:
+                                                '“Mis muebles son mi herencia, e hice la casa alrededor de ellos, teniendo en cuenta sus dimensiones. Pero mi vida es puertas afuera. En la galería, o directamente en el jardín”',
+                                            vanity_credits: {
+                                                by: [
+                                                    {
+                                                        name: 'Magalí Saberian',
+                                                        type: 'author'
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        type: 'image'
+                                    },
+                                    type: 'reference'
+                                },
+                                {
+                                    _id: '5RVLLS5Q3RECXIWU5PGH7ZOXAU',
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    },
+                                    referent: {
+                                        id: '5RVLLS5Q3RECXIWU5PGH7ZOXAU',
+                                        referent_properties: {
+                                            caption:
+                                                'Idea de Helen, este camastro con colchón y ruedas se hizo sobre un antiguo pallet de pino tea. El costurero de Heather nunca está demasiado lejos',
+                                            vanity_credits: {
+                                                by: [
+                                                    {
+                                                        name: 'Magalí Saberian',
+                                                        type: 'author'
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        type: 'image'
+                                    },
+                                    type: 'reference'
+                                }
+                            ]
+                        },
+                        revision: {
+                            branch: 'default',
+                            editions: ['default'],
+                            parent_id: 'BKRNTGONBNH7LCVAIZPC5BX6M4',
+                            published: true,
+                            revision_id: 'EJBVFQ3GPNEW7KCJTLAL5YG334',
+                            user_id: 'oldesarrollo@lanacion.com.ar'
+                        },
+                        source: {
+                            source_id: '2097385',
+                            source_type: 'staff',
+                            system: 'Migracion MVP 2019'
+                        },
+                        subheadlines: {
+                            basic:
+                                '¿Inglesa, australiana, pampeana? Heather Garrett dice que su casa en San Antonio de Areco conjuga esas partes de su historia, pero, sobre todo, que tiene el espíritu de quienes vinieron a construir el ferrocarril'
+                        },
+                        subtype: '4',
+                        syndication: {
+                            external_distribution: true,
+                            search: true
+                        },
+                        taxonomy: {
+                            tags: [
+                                {
+                                    description: 'San Antonio de Areco',
+                                    slug: 'san-antonio-de-areco-tid57170',
+                                    text: 'San Antonio de Areco'
+                                }
+                            ],
+                            sections: [
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/lifestyle',
+                                        type: 'section',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                },
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/revista-living',
+                                        type: 'section',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                }
+                            ],
+                            sites: [
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/lifestyle',
+                                        type: 'section',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                },
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/revista-living',
+                                        type: 'section',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                }
+                            ],
+                            primary_section: {
+                                type: 'reference',
+                                referent: {
+                                    id: '/lifestyle',
+                                    type: 'section',
+                                    website: 'la-nacion-ar'
+                                },
+                                additional_properties: {
+                                    _do_not_inflate: true
+                                }
+                            },
+                            primary_site: {
+                                type: 'reference',
+                                referent: {
+                                    id: '/lifestyle',
+                                    type: 'section',
+                                    website: 'la-nacion-ar'
+                                },
+                                additional_properties: {
+                                    _do_not_inflate: true
+                                }
+                            }
+                        },
+                        type: 'story',
+                        version: '0.10.7',
+                        workflow: {
+                            status_code: 5
+                        },
+                        _id: '22IUZZHE6BE3DGFMZYTUFDUZVI',
+                        canonical_url:
+                            '/lifestyle/vida-nueva-dejo-todo-y-se-armo-su-casa-sonada-en-areco-en-solo-seis-meses-nid2097385/',
+                        websites: {
+                            'la-nacion-ar': {
+                                website_url:
+                                    '/lifestyle/vida-nueva-dejo-todo-y-se-armo-su-casa-sonada-en-areco-en-solo-seis-meses-nid2097385/',
+                                website_section: {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/lifestyle',
+                                        type: 'section',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        additional_properties: {
+                            has_published_copy: true
+                        },
+                        canonical_website: 'la-nacion-ar',
+                        comments: {
+                            allow_comments: true,
+                            display_comments: true,
+                            moderation_required: false
+                        },
+                        content_elements: [],
+                        created_date: '2020-08-31T17:04:13.316Z',
+                        credits: {
+                            by: [
+                                {
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    },
+                                    referent: {
+                                        id: 'violeta-quesada-7141',
+                                        type: 'author'
+                                    },
+                                    type: 'reference'
+                                },
+                                {
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    },
+                                    referent: {
+                                        id: 'magali-saberian-7584',
+                                        type: 'author'
+                                    },
+                                    type: 'reference'
+                                }
+                            ]
+                        },
+                        display_date: '2017-05-19T12:44:00Z',
+                        distributor: {
+                            mode: 'reference',
+                            reference_id: '35aa3ee5-fd10-4532-99fa-75052b0af967'
+                        },
+                        first_publish_date: '2017-05-19T12:44:00Z',
+                        headlines: {
+                            basic: 'Una casa reciclada en San Antonio de Areco',
+                            mobile: 'Una casa reciclada en San Antonio de Areco'
+                        },
+                        label: {
+                            edicion: {
+                                display: true,
+                                text: 'Digital'
+                            },
+                            livefyre_entrada_id: {
+                                display: true,
+                                text: '1188726'
+                            }
+                        },
+                        last_updated_date: '2020-09-06T14:08:08.919Z',
+                        owner: {
+                            id: 'lanacionar',
+                            sponsored: false
+                        },
+                        publish_date: '2017-05-19T12:44:00Z',
+                        related_content: {
+                            basic: [
+                                {
+                                    _id: 'C25PWKG6QJEUVFOT4OASBZMLXQ',
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    },
+                                    referent: {
+                                        id: 'C25PWKG6QJEUVFOT4OASBZMLXQ',
+                                        referent_properties: {
+                                            vanity_credits: {
+                                                affiliation: [
+                                                    {
+                                                        name: 'Living',
+                                                        type: 'author'
+                                                    }
+                                                ],
+                                                by: [
+                                                    {
+                                                        name: 'Magalí Saberian',
+                                                        type: 'author'
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        type: 'image'
+                                    },
+                                    type: 'reference'
+                                }
+                            ]
+                        },
+                        revision: {
+                            branch: 'default',
+                            editions: ['default'],
+                            parent_id: 'XDKZ5CTNKZCLNC3DAI44FB5KOU',
+                            published: true,
+                            revision_id: '4ZLLJU7GWVFJHHKAVFAULTXKXI',
+                            user_id: 'oldesarrollo@lanacion.com.ar'
+                        },
+                        source: {
+                            source_id: '2024406',
+                            source_type: 'staff',
+                            system: 'Migracion MVP 2019'
+                        },
+                        subheadlines: {
+                            basic:
+                                'Esta casita fue reformada por una familia porteña para conquistar el sueño de una vida con menos ruido y más espacio para disfrutar los días.'
+                        },
+                        subtype: '1',
+                        syndication: {
+                            external_distribution: true,
+                            search: true
+                        },
+                        type: 'story',
+                        version: '0.10.7',
+                        workflow: {
+                            status_code: 5
+                        },
+                        _id: 'YTHENC5SWRDIBOFT7ZH2SG2LH4',
+                        canonical_url:
+                            '/lifestyle/una-casa-reciclada-en-san-antonio-de-areco-nid2024406/',
+                        taxonomy: {
+                            sections: [
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/lifestyle',
+                                        type: 'section',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                },
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/revista-living',
+                                        type: 'section',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                },
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/revista-living/inspiracion',
+                                        type: 'section',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                }
+                            ],
+                            sites: [
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/lifestyle',
+                                        type: 'section',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                },
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/revista-living',
+                                        type: 'section',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                },
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/revista-living/inspiracion',
+                                        type: 'section',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                }
+                            ],
+                            primary_section: {
+                                type: 'reference',
+                                referent: {
+                                    id: '/lifestyle',
+                                    type: 'section',
+                                    website: 'la-nacion-ar'
+                                },
+                                additional_properties: {
+                                    _do_not_inflate: true
+                                }
+                            },
+                            primary_site: {
+                                type: 'reference',
+                                referent: {
+                                    id: '/lifestyle',
+                                    type: 'section',
+                                    website: 'la-nacion-ar'
+                                },
+                                additional_properties: {
+                                    _do_not_inflate: true
+                                }
+                            }
+                        },
+                        websites: {
+                            'la-nacion-ar': {
+                                website_url:
+                                    '/lifestyle/una-casa-reciclada-en-san-antonio-de-areco-nid2024406/',
+                                website_section: {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/lifestyle',
+                                        type: 'section',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        additional_properties: {
+                            clipboard: {},
+                            has_published_copy: true,
+                            is_published: true,
+                            publish_date: '2022-10-21T11:51:05.837Z'
+                        },
+                        address: {},
+                        canonical_website: 'la-nacion-ar',
+                        comments: {
+                            allow_comments: false,
+                            display_comments: false,
+                            moderation_required: false
+                        },
+                        content_elements: [
+                            {
+                                _id: 'GMFA3IS7MNDJJLJRGTPVBERO2E',
+                                additional_properties: {
+                                    _id: 1638499885114,
+                                    comments: [],
+                                    inline_comments: []
+                                },
+                                content:
+                                    '<b>“Esta era mi casa. Ahora, mi casa es mi cuarto”</b>. Al contrario de lo que podría leerse, Clara Martínez dispara la frase sin resignación ni añoranza. <b>“Mudar </b><a href="https://www.instagram.com/galeriajacquesmartinez/"><b>la galería Jaques Martínez </b></a><b>acá desde Avenida de Mayo tuvo la intención específica de darle la bienvenida a la gente de un modo más personal y amable”</b>, comparte, consciente de que las famosas cajas blancas suelen inhibir más que recibir.',
+                                type: 'text'
+                            }
+                        ],
+                        content_restrictions: {
+                            content_code: 'comun'
+                        },
+                        created_date: '2021-12-02T23:20:06.335Z',
+                        credits: {
+                            by: [
+                                {
+                                    referent: {
+                                        id: 'ines-marini-6758',
+                                        provider: '',
+                                        referent_properties: {},
+                                        type: 'author'
+                                    },
+                                    type: 'reference',
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                },
+                                {
+                                    referent: {
+                                        id: 'laura-saint-agne',
+                                        provider: '',
+                                        referent_properties: {},
+                                        type: 'author'
+                                    },
+                                    type: 'reference',
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                }
+                            ]
+                        },
+                        description: {
+                            basic:
+                                'Detrás de esta fachada de 1930 firmada por los autores del Kavanagh, el corazón de la galería de arte Jacques Martínez late en un nuevo espacio subterráneo hecho tras una obra titánica y respira desde cada pared de la casa.'
+                        },
+                        display_date: '2022-10-21T03:30:00Z',
+                        distributor: {
+                            mode: 'reference',
+                            reference_id: '35aa3ee5-fd10-4532-99fa-75052b0af967'
+                        },
+                        first_publish_date: '2021-12-05T06:00:00Z',
+                        geo: {},
+                        headlines: {
+                            basic:
+                                'En San Isidro: Recorremos una casa histórica, donde una galería de arte tiene una singular sala subterránea',
+                            meta_title: '',
+                            mobile:
+                                'Recorremos una casa histórica, donde una galería de arte tiene una singular sala subterránea',
+                            native: '',
+                            print: '',
+                            tablet: '',
+                            web: ''
+                        },
+                        label: {
+                            autor: {
+                                display: true,
+                                text: 'Firma',
+                                url: ''
+                            },
+                            chapita: {
+                                display: true,
+                                text: 'Living'
+                            },
+                            edicion: {
+                                display: true,
+                                text: 'Digital',
+                                url: ''
+                            },
+                            enviar_a_apps: {
+                                display: true,
+                                text: 'Si',
+                                url: ''
+                            },
+                            mostrar_banners: {
+                                display: true,
+                                text: 'Si',
+                                url: ''
+                            },
+                            recomendar: {
+                                display: true,
+                                text: 'Si',
+                                url: ''
+                            },
+                            showcase: {
+                                display: true,
+                                text: 'No',
+                                url: ''
+                            },
+                            trust: {
+                                display: true,
+                                text: 'Noticia',
+                                url: ''
+                            },
+                            volanta: {
+                                display: true,
+                                text: 'En San Isidro.'
+                            }
+                        },
+                        language: '',
+                        last_updated_date: '2022-10-21T11:51:16.933Z',
+                        owner: {
+                            id: 'lanacionar',
+                            sponsored: false
+                        },
+                        planning: {
+                            internal_note: '',
+                            story_length: {
+                                character_count_actual: 4529,
+                                character_encoding: 'UTF-16',
+                                inch_count_actual: 6,
+                                line_count_actual: 38,
+                                word_count_actual: 773
+                            }
+                        },
+                        promo_items: {
+                            basic: {
+                                _id: 'GH6Y3OPPFVFYVE4M6B3HXUSQI4',
+                                referent: {
+                                    id: 'GH6Y3OPPFVFYVE4M6B3HXUSQI4',
+                                    provider: '',
+                                    referent_properties: {
+                                        caption: ''
+                                    },
+                                    type: 'image'
+                                },
+                                type: 'reference',
+                                additional_properties: {
+                                    _do_not_inflate: true
+                                }
+                            },
+                            storytelling_mobile: {
+                                _id: 'W3IVVC2DTNE2JG2AVFA6H7JO2E',
+                                referent: {
+                                    id: 'W3IVVC2DTNE2JG2AVFA6H7JO2E',
+                                    provider: '',
+                                    referent_properties: {
+                                        additional_properties: {
+                                            focal_point: {
+                                                max: [691, 881],
+                                                min: [691, 881]
+                                            }
+                                        },
+                                        caption: ''
+                                    },
+                                    type: 'image'
+                                },
+                                type: 'reference',
+                                additional_properties: {
+                                    _do_not_inflate: true
+                                }
+                            }
+                        },
+                        publish_date: '2022-10-21T11:51:16.248Z',
+                        related_content: {
+                            basic: [
+                                {
+                                    _id: 'PJFQFAMDDNAD5FCH3QWM2YFGTU',
+                                    referent: {
+                                        id: 'PJFQFAMDDNAD5FCH3QWM2YFGTU',
+                                        provider: '',
+                                        type: 'story'
+                                    },
+                                    type: 'reference',
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                },
+                                {
+                                    _id: 'CDFZRXXYW5G3NH7GU4SCHWJVGE',
+                                    referent: {
+                                        id: 'CDFZRXXYW5G3NH7GU4SCHWJVGE',
+                                        provider: '',
+                                        type: 'story'
+                                    },
+                                    type: 'reference',
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                },
+                                {
+                                    _id: 'ZTF477F2WZFB7BAPF33DPSIZMA',
+                                    referent: {
+                                        id: 'ZTF477F2WZFB7BAPF33DPSIZMA',
+                                        provider: '',
+                                        type: 'story'
+                                    },
+                                    type: 'reference',
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                }
+                            ],
+                            redirect: []
+                        },
+                        revision: {
+                            branch: 'default',
+                            editions: ['default'],
+                            parent_id: 'ZDQ4CL3JSVG4HIEQQNVHEJZ3AE',
+                            published: true,
+                            revision_id: '2LJCT7R5IJGQRE5QHAJ5PXRSHY',
+                            user_id: 'IMarini@lanacion.com.ar'
+                        },
+                        source: {
+                            name: 'LA NACION',
+                            source_type: 'staff',
+                            system: 'composer'
+                        },
+                        subheadlines: {
+                            basic:
+                                'Detrás de una fachada de 1930 firmada por los autores del Kavanagh, el corazón de la galería de arte Jacques Martínez late en un espacio hecho tras una obra titánica, pero también respira en cada pared de este hogar familiar.'
+                        },
+                        subtype: '4',
+                        syndication: {
+                            external_distribution: true,
+                            search: true
+                        },
+                        taxonomy: {
+                            tags: [
+                                {
+                                    description: 'Espacios de trabajo Living',
+                                    slug: 'espacios-de-trabajo-living-tid66512',
+                                    text: 'Espacios de trabajo Living'
+                                },
+                                {
+                                    description: 'Bibliotecas',
+                                    slug: 'bibliotecas',
+                                    text: 'Bibliotecas'
+                                },
+                                {
+                                    description: 'Color y textura',
+                                    slug: 'color-y-textura-tid66879',
+                                    text: 'Color y textura'
+                                },
+                                {
+                                    description: 'Dormitorios',
+                                    slug: 'dormitorios-tid50060',
+                                    text: 'Dormitorios'
+                                },
+                                {
+                                    description: 'Historias para conocer',
+                                    slug: 'historias-para-conocer-tid48008',
+                                    text: 'Historias para conocer'
+                                },
+                                {
+                                    description: 'Paisajismo',
+                                    slug: 'paisajismo-tid65247',
+                                    text: 'Paisajismo'
+                                },
+                                {
+                                    description: 'Arte y Cultura',
+                                    slug: 'arte-y-cultura-tid63627',
+                                    text: 'Arte y Cultura'
+                                },
+                                {
+                                    description: 'Antes y Después',
+                                    slug: 'antes-y-despues-tid65806',
+                                    text: 'Antes y Después'
+                                }
+                            ],
+                            sections: [
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/revista-living',
+                                        type: 'section',
+                                        provider:
+                                            'api.lanacionar.arcpublishing.com/site/v3/website',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                },
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/lifestyle',
+                                        type: 'section',
+                                        provider:
+                                            'api.lanacionar.arcpublishing.com/site/v3/website',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                }
+                            ],
+                            sites: [
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/revista-living',
+                                        type: 'section',
+                                        provider:
+                                            'api.lanacionar.arcpublishing.com/site/v3/website',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                },
+                                {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/lifestyle',
+                                        type: 'section',
+                                        provider:
+                                            'api.lanacionar.arcpublishing.com/site/v3/website',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                }
+                            ],
+                            primary_section: {
+                                type: 'reference',
+                                referent: {
+                                    id: '/revista-living',
+                                    type: 'section',
+                                    provider:
+                                        'api.lanacionar.arcpublishing.com/site/v3/website',
+                                    website: 'la-nacion-ar'
+                                },
+                                additional_properties: {
+                                    _do_not_inflate: true
+                                }
+                            },
+                            primary_site: {
+                                type: 'reference',
+                                referent: {
+                                    id: '/revista-living',
+                                    type: 'section',
+                                    provider:
+                                        'api.lanacionar.arcpublishing.com/site/v3/website',
+                                    website: 'la-nacion-ar'
+                                },
+                                additional_properties: {
+                                    _do_not_inflate: true
+                                }
+                            }
+                        },
+                        type: 'story',
+                        version: '0.10.7',
+                        workflow: {
+                            status_code: 1
+                        },
+                        _id: 'P2AINKXL4BHDDO5OODFX6YVP6M',
+                        canonical_url:
+                            '/revista-living/obra-titanica-recorremos-una-casa-historica-de-san-isidro-donde-una-galeria-de-arte-abrio-su-nueva-nid05122021/',
+                        websites: {
+                            'la-nacion-ar': {
+                                website_url:
+                                    '/revista-living/obra-titanica-recorremos-una-casa-historica-de-san-isidro-donde-una-galeria-de-arte-abrio-su-nueva-nid05122021/',
+                                website_section: {
+                                    type: 'reference',
+                                    referent: {
+                                        id: '/revista-living',
+                                        type: 'section',
+                                        provider:
+                                            'api.lanacionar.arcpublishing.com/site/v3/website',
+                                        website: 'la-nacion-ar'
+                                    },
+                                    additional_properties: {
+                                        _do_not_inflate: true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                ],
+                redirect: []
+            },
+            canonical_website: 'la-nacion-ar',
+            geo: {},
+            display_date: '2022-12-21T03:30:00Z',
+            subtype: '4',
+            first_publish_date: '2022-12-21T03:30:00.327Z',
+            additional_properties: {
+                clipboard: {},
+                has_published_copy: true
+            },
+            publishing: {
+                scheduled_operations: {
+                    publish_edition: [],
+                    unpublish_edition: []
+                }
+            },
+            website: 'la-nacion-ar'
+        };
+
+        test('should first', () => {
+            const payload = addResizedUrls(ansDoc, options);
+            expect(payload).toMatchSnapshot();
+        });
+    });
+    describe('isAllowSection', () => {
+        test('should return false when section and subtype is undefined', () => {
+            const payload = isAllowSection({
+                section: undefined,
+                subtype: undefined
+            });
+            expect(payload).toBeFalsy();
+        });
+
+        test('should return false when section = /revista-jardin and subtype = 1 is undefined', () => {
+            const payload = isAllowSection({
+                section: '/revista-jardin',
+                subtype: '1'
+            });
+            expect(payload).toBeFalsy();
+        });
+
+        test('should return true when section = /revista-living  and subtype = 4 is undefined', () => {
+            const payload = isAllowSection({
+                section: '/revista-living',
+                subtype: '4'
+            });
+            expect(payload).toBeTruthy();
+        });
+    });
+});

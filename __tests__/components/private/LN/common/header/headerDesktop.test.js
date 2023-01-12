@@ -36,7 +36,7 @@ const props = {
         goToLoginUrl: jest.fn()
     },
     goToLogout: jest.fn(),
-    toglleDesplegable: jest.fn(),
+    toggleDesplegable: jest.fn(),
     host: ''
 };
 
