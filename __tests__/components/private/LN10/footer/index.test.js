@@ -1,8 +1,7 @@
 import React from 'react';
-import Footer from '../../../../../../components/private/LN/common/LN10_Footer';
 import { render, screen } from '@testing-library/react';
-import footerEventLogResult from '../../../../../../__mocks__/data/LN10_Footer/footerEventLogResult.json';
-
+import footerEventLogResult from '../../../../../__mocks__/data/LN10_Footer/footerEventLogResult.json';
+import Footer from '../../../../../components/private/LN10/footer';
 describe('Tests - Footer - LN10', () => {
     global.window.dataLayer = [];
 

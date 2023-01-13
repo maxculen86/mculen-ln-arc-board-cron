@@ -1,4 +1,4 @@
-import commonPropsFooter from '../../../../../../components/private/LN/common/LN10_Footer/_helper';
+import commonPropsFooter from '../../../../../components/private/LN10/footer/_helper';
 
 describe('Tests function commonPropsFooter', () => {
     const dinamycParameters = ['Economia', 'https://lanacion.com.ar/economia/'];
