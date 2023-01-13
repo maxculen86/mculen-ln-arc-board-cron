@@ -31,8 +31,9 @@ describe('Content - sources - utils - replaceUrlResizerToWWW function', () => {
             );
         });
     });
+
     describe('Content - sources - utils - replaceUrlResizerToWWW function - When API_ENV is set to sandbox', () => {
-        it('Should replace RESIZER_URL_PUBLIC with provided host for resizer v1', () => {
+        test('Should replace RESIZER_URL_PUBLIC with provided host for resizer v1', () => {
             env.API_ENV = 'sandbox';
 
             const result = replaceUrlResizerToWWW(MOCK_PROMO_V1);
@@ -42,7 +43,7 @@ describe('Content - sources - utils - replaceUrlResizerToWWW function', () => {
             );
         });
 
-        test('Should replace RESIZER_URL_PUBLIC with provided host for resizer v2', () => {
+        test('Should replace RESIZER_URL_PUBLIC with provided SITE_LANACION for resizer v2', () => {
             env.API_ENV = 'sandbox';
 
             const result = replaceUrlResizerToWWW(MOCK_PROMO_V2);
