@@ -1,6 +1,6 @@
 import get from '../../../get';
-import { getDefaultSize } from './resizerHelper';
-import { resizeArcImage } from './buildResizerUrls';
+import { getDefaultSize, resizeArcGallery } from './resizerHelper';
+import { resizeArcImage, resizeUrlCollection } from './buildResizerUrls';
 
 export const resizePromoItems = (
     resizeOptions,
@@ -24,6 +24,21 @@ export const resizePromoItems = (
                 shouldExcludeCrop,
                 defaultResize
             );
+        } else if (promoItem.type === 'video') {
+            resp[key] = {
+                ...promoItem,
+                promo_items: {
+                    basic: {
+                        ...resizeArcImage(
+                            promoItem.promo_items.basic,
+                            optionsFinal,
+                            zoomSizes,
+                            shouldExcludeCrop,
+                            defaultResize
+                        )
+                    }
+                }
+            };
         } else {
             resp[key] = promoItem;
         }
@@ -31,4 +46,38 @@ export const resizePromoItems = (
     return resp;
 };
 
-export default { resizePromoItems };
+export const resizeContentElements = (
+    elem,
+    presetsContentOrDefault,
+    zoomSizes,
+    defaultResize
+) => {
+    const { type } = elem;
+    return (
+        (type === 'image' &&
+            resizeArcImage(
+                elem,
+                presetsContentOrDefault,
+                zoomSizes,
+                true,
+                defaultResize
+            )) ||
+        (type === 'gallery' &&
+            resizeArcGallery(elem, presetsContentOrDefault, zoomSizes, true)) ||
+        (type === 'video' && {
+            ...elem,
+            promo_items: {
+                basic: {
+                    ...resizeArcImage(
+                        elem.promo_items.basic,
+                        presetsContentOrDefault,
+                        zoomSizes,
+                        true,
+                        defaultResize
+                    )
+                }
+            }
+        }) ||
+        elem
+    );
+};

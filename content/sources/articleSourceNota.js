@@ -8,7 +8,10 @@ import {
 import getProperties from 'fusion:properties';
 import addParallaxData from './utils/addParallaxData';
 import get from '../../components/private/common/utils/get';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
+import {
+    addResizedUrls,
+    isAllowSection
+} from '../../components/private/common/utils/image/resizer/addResizerUrls';
 import filter from '../filters/LN/nota/article';
 import getRequest from './utils/getRequest';
 import Redirect from './utils/redirect';
@@ -31,8 +34,7 @@ import isNoteListenable from './utils/audioNews/helper';
 import force404AMP from './utils/force404AMP';
 import validateSponsoredLink from './utils/validateSponsoredLink';
 import { getPrincipalCategory } from '../../components/private/LN/api/v1/common/category';
-import { hasPromoItemImgAuth } from './utils/signingImageAuth';
-import getImagesAuth from './utils/signingServiceSource/getImagesAuth';
+import { getAllImagesAuth } from './utils/signingServiceSource/getImagesAuth';
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -155,7 +157,7 @@ const transform = async (
     isAdmin
 ) => {
     // Data
-    const subtype = get(data, `subtype`, null);
+    const subtype = get(data, 'subtype', null);
 
     // With firma distributor data
     const name = get(data, 'distributor.name', 'LA NACION');
@@ -163,31 +165,14 @@ const transform = async (
     const sections = get(data, 'taxonomy.sections', []);
     const authors = get(data, 'credits.by', []);
     const layout = 'LN-nota-noticia';
-    const primarySectioValidation = get(
-        data,
-        'taxonomy.primary_section._id',
-        null
-    );
 
     if (
-        subtype === STORYTELLING &&
-        primarySectioValidation === '/revista-living' &&
-        hasPromoItemImgAuth({ dataPromoItem: data })
+        isAllowSection({
+            section: get(data, 'taxonomy.primary_section._id')
+        })
     ) {
-        const { basicHash, storytellingHash } = await getImagesAuth(
-            get(data, 'promo_items', {}),
-            cachedCall
-        );
-
-        basicHash &&
-            Object.assign(data.promo_items.basic, {
-                auth: { 1: basicHash }
-            });
-
-        storytellingHash &&
-            Object.assign(data.promo_items.storytelling_mobile, {
-                auth: { 1: storytellingHash }
-            });
+        const newData = await getAllImagesAuth(data, cachedCall);
+        Object.assign(data, newData);
     }
 
     const withFirmaDistributor = firmaDistributorValidation(

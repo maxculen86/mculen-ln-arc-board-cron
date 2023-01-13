@@ -133,6 +133,30 @@ describe('Common - Resizer', () => {
         });
     });
 
+    describe('Common - Resizer - autoHeight fn', () => {
+        it('return correct proportional height from original height and width for vertical images', () => {
+            const height = resizerHelper.autoHeight(2000, 1000, 500);
+            expect(height).toBe(1000);
+
+            const height2 = resizerHelper.autoHeight(2880, 1944, 320);
+            expect(height2).toBe(474);
+        });
+        it('Should return correct proportional height from original height and width for horizontal images', () => {
+            const height = resizerHelper.autoHeight(1000, 2000, 1000);
+            expect(height).toBe(500);
+
+            const height2 = resizerHelper.autoHeight(1944, 2880, 320);
+            expect(height2).toBe(216);
+        });
+        it('Should return null if originalHeight originalWidth or newWidth are not valid numbers', () => {
+            expect(resizerHelper.autoHeight('2', 1944, 288)).toBe(0);
+            expect(resizerHelper.autoHeight({}, {}, {})).toBe(0);
+        });
+        it('Should not return NaN values', () => {
+            expect(resizerHelper.autoHeight(0, 0, 0)).toBe(0);
+        });
+    });
+
     it('should return height according proportion', () => {
         const height = resizerHelper.setHeight(1200, 800, '3:2');
         expect(height).toBe(800);

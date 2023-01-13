@@ -3,8 +3,7 @@
 // import * as resizerV1 from './v1/resizerHelper';
 import * as resizerV2 from './v2/resizerFactory';
 import * as resizerV1 from '../resizer';
-import get from '../../get';
-import { STORYTELLING } from '../../subtypes/subtypeHelper';
+import { isValidString } from '../../dataValidation';
 
 export const addResizedUrls = (ansDoc, options) => {
     const {
@@ -41,6 +40,14 @@ export const addResizedUrls = (ansDoc, options) => {
         ...ansDoc,
         ...(contentElements && {
             content_elements: contentElements.map(elem => {
+                if (isAllowSection({ section })) {
+                    return resizerV2.resizeContentElements(
+                        elem,
+                        presetsContentElements || presetsDefault,
+                        zoomSizes,
+                        defaultResize
+                    );
+                }
                 const { type } = elem;
                 return (
                     (type === 'image' &&
@@ -80,7 +87,7 @@ export const addResizedUrls = (ansDoc, options) => {
             })
         }),
         ...(promoItems && {
-            promo_items: isAllowSection({ subtype, section, promoItems })
+            promo_items: isAllowSection({ section })
                 ? resizerV2.resizePromoItems(
                       presetsPromoItems || presetsDefault,
                       zoomSizes,
@@ -105,19 +112,17 @@ export const addResizedUrls = (ansDoc, options) => {
     };
 };
 
-export const isAllowSection = ({ section, subtype, promoItems }) => {
-    const allowList = [{ section: '/revista-living', subtype: STORYTELLING }];
-    const authBasic = get(promoItems, 'basic.auth', {});
-    const authStoryTellingMobile = get(
-        promoItems,
-        'storytelling_mobile.auth',
-        {}
-    );
+export const isAllowSection = ({ section = '' }) => {
+    const allowList = [
+        '/revista-living',
+        '/propiedades',
+        '/seguridad',
+        '/salud',
+        '/revista-hola'
+    ];
 
     return allowList.some(
-        itemAllow =>
-            (authStoryTellingMobile !== {} || authBasic !== {}) &&
-            section === itemAllow.section &&
-            subtype === itemAllow.subtype
+        allowSection =>
+            isValidString(section) && section.startsWith(allowSection)
     );
 };

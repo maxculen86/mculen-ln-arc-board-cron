@@ -113,6 +113,14 @@ export const resizeImgUrl = ({
     proportion &&
         (newHeight = resizerHelper.setHeight(newWidth, newHeight, proportion));
 
+    if (newHeight === 0 && (focalPoint.length > 1 || smartCropExcluded)) {
+        newHeight = resizerHelper.autoHeight(
+            originalHeight,
+            originalWidth,
+            newWidth
+        );
+    }
+
     // const [fileName = ''] = originalUrl.match(/[^\/]+\.(jpg|png|jpeg)/gm) || [];
 
     return `${resizerHelper.baseUrl({
