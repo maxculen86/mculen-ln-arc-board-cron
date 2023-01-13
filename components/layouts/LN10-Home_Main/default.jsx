@@ -3,8 +3,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
-import Header from '../../private/LN/common/header';
-import Footer from '../../private/LN/common/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBanners from '../../private/common/banners/LoadBanners';
 import { bannersViewport } from '../../private/common/banners/bannersHome.json';
@@ -18,9 +16,11 @@ import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 import { productClickFromServer } from '../../private/common/utils/viewability';
 import createBannersIntersectionObserver from '../../private/common/banners/createBannersIntersectionObserver';
-import StaticContent from '../../private/common/staticContent';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
+import Header from '../../private/LN10/header';
+import Footer from '../../private/LN10/footer';
+import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 
 const LN10Home = props => {
     const { children, outputType, isAdmin, renderables } = props;
@@ -62,12 +62,12 @@ const LN10Home = props => {
             <div id="wrapper" className="home">
                 <Header />
                 <SubHeader />
+                <div data-section="apertura">{preApertura}</div>
                 <main id="content">
                     {bannersHome.sticky2Mob}
                     <div>
                         <div id="content-main" className="lay-sidebar">
                             <div className="sidebar__main">
-                                <div data-section="apertura">{preApertura}</div>
                                 {hasBomba(renderables) && bannersHome.caja1Mob}
                                 <div data-section="apertura">{apertura}</div>
                                 {bannersHome.caja2Mob}
@@ -132,9 +132,7 @@ const LN10Home = props => {
                         </div>
                     </div>
                 </main>
-                <StaticContent>
-                    <Footer home />
-                </StaticContent>
+                <Footer />
             </div>
             <LoadBanners blocksBanners={bannersViewport} />
             <Metarefresh />

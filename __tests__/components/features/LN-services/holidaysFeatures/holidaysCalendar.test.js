@@ -22,6 +22,18 @@ describe('Components- Features - HolidaysCalendar - default.jsx - test', () => {
     Context.useAppContext = jest.fn(() => ({
         globalContent: outputTransformHome
     }));
+    beforeAll(() => {
+        const mockActualDate = new Date(2022, 10, 17);
+        const mockFirstDayDate = new Date(2022, 10, 1);
+        const mockLastDayDate = new Date(2022, 11, 0);
+        const spy = jest
+            .spyOn(global, 'Date')
+            .mockImplementationOnce(() => mockActualDate)
+            .mockImplementationOnce(() => mockFirstDayDate)
+            .mockImplementationOnce(() => mockLastDayDate);
+        spy.mockRestore();
+    });
+
     it('Should match snapshot showing all the private components', () => {
         const { container } = render(<HolidaysHomeCalendar id="QWERTYUIOP" />);
         expect(container).toMatchSnapshot();

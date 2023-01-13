@@ -4,6 +4,17 @@ import '@testing-library/jest-dom';
 import HolidaysMonthNav from '../../../../../../components/private/LN/services/holidays/HolidaysMonthNav';
 
 describe('components - private - holidays - HolidaysNav', () => {
+    const mockCalendarDate = () => {
+        const mockActualDate = new Date(2022, 10, 17);
+        const mockFirstDayDate = new Date(2022, 10, 1);
+        const mockLastDayDate = new Date(2022, 10, 0);
+        const spy = jest
+            .spyOn(global, 'Date')
+            .mockImplementationOnce(() => mockActualDate)
+            .mockImplementationOnce(() => mockActualDate)
+            .mockImplementationOnce(() => mockFirstDayDate)
+            .mockImplementationOnce(() => mockLastDayDate);
+    };
     let component;
     const dataFeriadosMes = {
         calendar: {
@@ -37,10 +48,12 @@ describe('components - private - holidays - HolidaysNav', () => {
     });
 
     test('snapshot HolidaysMonthNav', () => {
+        mockCalendarDate();
         expect(component.container).toMatchSnapshot();
     });
 
     test('existance of button containing link to previous month to be false if prop "previousAndNextHolidays", "previous" property is undefined', () => {
+        mockCalendarDate();
         expect(
             component.getAllByTitle(`Ir a feriados de `, {
                 exact: false

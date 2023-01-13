@@ -9,6 +9,7 @@ import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModals from '../private/LN/common/pwaModals';
 import NotaMain from '../private/common/layouts/notaMain';
+import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 
 const lnNotaNoticia = ({
     children,
@@ -34,6 +35,7 @@ const lnNotaNoticia = ({
             </NotaMain>
             <LoadBannersSSR />
             <PwaModals />
+            {intersectionObserverForRelatedTags()}
         </GlobalProvider>
     );
 };

@@ -1,5 +1,7 @@
+import { getArgentinaYear } from './dateAndTimeUtil';
+
 const canonicalIdChecker = id =>
-    id.includes('feriados') && id === `/feriados/${new Date().getFullYear()}`
+    id.includes('feriados') && id === `/feriados/${Number(getArgentinaYear())}`
         ? '/feriados'
         : id;
 

@@ -11,11 +11,11 @@ import Hamburger from './hamburger';
 import ComIcon from '../../../common/icon';
 import '../../../../../resources/dist/css/ln/components/usuario.css';
 import '../../../../../resources/dist/css/ln/components/button.css';
-import dynamicallyLoadScript from '../utils/dynamicallyLoadScript';
 import BannerLogoHeader from '../../../common/banners/BannerLogoHeader';
 import LnLogoHeader from '../../../common/logos/LnLogoHeader';
 import useTermica from '../../../common/hooks/useTermica';
 import showSubscribeButton from '../utils/showSubscribeButton';
+import { handleClickBuscar } from '../../../LN10/navbar/_helper';
 
 const comUsuario = 'com-usuario';
 
@@ -73,7 +73,7 @@ const HeaderDesktop = ({
     loginData,
     goToLogout,
     section,
-    toglleDesplegable,
+    toggleDesplegable,
     isAdmin
 }) => {
     const { loading, goToLoginUrl } = loginData;
@@ -92,18 +92,6 @@ const HeaderDesktop = ({
         setLoadingUserData(loading ? ' hlp-none' : '');
     }, [loading, logueado]);
 
-    const handleClickBuscar = () => {
-        dynamicallyLoadScript(
-            '//www.queryly.com/js/queryly.v4.js',
-            'body'
-        ).then(() => {
-            const initScript = document.createElement('script');
-            initScript.innerHTML = `queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));`;
-            document.body.appendChild(initScript);
-            document.getElementById('querylyButton').click();
-        });
-    };
-
     return (
         <>
             <a href="#content" className="reader-only">
@@ -111,7 +99,7 @@ const HeaderDesktop = ({
             </a>
             <Header id="header" className="header">
                 <div className="col-4 header__left">
-                    <Hamburger _onMouseDown={toglleDesplegable} />
+                    <Hamburger _onMouseDown={toggleDesplegable} />
                     <label
                         onClick={handleClickBuscar}
                         id="querylyButton"
@@ -259,7 +247,7 @@ HeaderDesktop.propTypes = {
         loading: PropTypes.bool
     }).isRequired,
     goToLogout: PropTypes.func.isRequired,
-    toglleDesplegable: PropTypes.func.isRequired,
+    toggleDesplegable: PropTypes.func.isRequired,
     section: PropTypes.string.isRequired
 };
 

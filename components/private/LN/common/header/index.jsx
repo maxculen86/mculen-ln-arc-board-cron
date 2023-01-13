@@ -56,12 +56,12 @@ const Index = props => {
     }, []);
 
     if (outputType === 'amp')
-        return <HeaderAMP toglleDesplegable={toglleDesplegable} />;
+        return <HeaderAMP toggleDesplegable={toggleDesplegable} />;
 
     return (
         <>
             <HeaderDesktop
-                toglleDesplegable={toglleDesplegable}
+                toggleDesplegable={toggleDesplegable}
                 logueado={isLoggedIn()}
                 loginData={getLoginData()}
                 showNav
@@ -74,11 +74,11 @@ const Index = props => {
 
             <NavBarMobile
                 isHome={layoutsName.Home === layout}
-                toglleDesplegable={toglleDesplegable}
+                toggleDesplegable={toggleDesplegable}
             />
 
             <Desplegable
-                toglleDesplegable={toglleDesplegable}
+                toggleDesplegable={toggleDesplegable}
                 isHome={layoutsName.Home === layout}
             />
         </>
@@ -101,7 +101,7 @@ Index.propTypes = {
     })
 };
 
-const toglleDesplegable = () => {
+const toggleDesplegable = () => {
     document.body.classList.contains('dropdown')
         ? document.body.classList.remove('dropdown')
         : document.body.classList.add('dropdown');
