@@ -189,13 +189,14 @@ const setBannersbyPosition = (elements, layoutPage) => {
 };
 
 const addProperties = (sectionChildren, elements) => {
-    const setInformationInFeature = (render, children) => {
+    const setInformationInFeature = (render, children, idRenderParent) => {
         return {
             ...render,
             information: {
                 ...get(render, 'information', null),
                 nameFeature: get(children, 'type', null),
-                idRender: get(children, 'props.id', null)
+                idRender: get(children, 'props.id', null),
+                idRenderParent
             }
         };
     };
@@ -229,7 +230,12 @@ const addProperties = (sectionChildren, elements) => {
                                 if (get(a, 'information', null) != null) {
                                     return setInformationInFeature(
                                         a,
-                                        childrenArticle
+                                        childrenArticle,
+                                        get(
+                                            sectionChildren[i],
+                                            'props.id',
+                                            null
+                                        )
                                     );
                                 }
                                 return {
@@ -385,7 +391,10 @@ const getPageElements = props => {
     let indiceElements = -1;
     elementsPage = elementsPage.map((e, i) => {
         if (e && e.type !== 1) {
-            indiceElements += 1;
+            if (!get(e, 'information.idRenderParent', null)) {
+                indiceElements += 1;
+            }
+
             return { ...e, originPosition: indiceElements };
         }
         return { ...e };
