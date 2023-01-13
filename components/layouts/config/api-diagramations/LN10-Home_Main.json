@@ -1,0 +1,20 @@
+{
+    "aperturax4": [
+        {
+            "typeOrder": "T1",
+            "size": "M"
+        },
+        {
+            "typeOrder": "T2",
+            "size": "M"
+        },
+        {
+            "typeOrder": "T3",
+            "size": "M"
+        },
+        {
+            "typeOrder": "T4",
+            "size": "M"
+        }
+    ]
+}

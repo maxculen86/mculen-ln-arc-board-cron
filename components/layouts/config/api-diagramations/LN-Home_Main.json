@@ -1,0 +1,20 @@
+{
+    "grillaUltimasNoticias": [
+        {
+            "typeOrder": "T1",
+            "size": "XL"
+        },
+        {
+            "typeOrder": "T2",
+            "size": "M"
+        },
+        {
+            "typeOrder": "T3",
+            "size": "M"
+        },
+        {
+            "typeOrder": "T4",
+            "size": "M"
+        }
+    ]
+}

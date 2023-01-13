@@ -13,6 +13,7 @@ import getBannerbyPosition from '../utils/getBannerbyPosition';
 import getTypesbyContainer from '../utils/getTypesbyContainer';
 import getSectionAliasbyFeature from '../utils/getSectionAliasbyFeature';
 import getToMovePosition from '../utils/getToMovePosition';
+import getDiagramations from '../utils/getDiagramations';
 
 const checkbyLayout = {
     'LN-acumulado': {
@@ -188,7 +189,7 @@ const setBannersbyPosition = (elements, layoutPage) => {
     return elements;
 };
 
-const addProperties = (sectionChildren, elements) => {
+const addProperties = (sectionChildren, elements, diagramations) => {
     const setInformationInFeature = (render, children, idRenderParent) => {
         return {
             ...render,
@@ -211,18 +212,46 @@ const addProperties = (sectionChildren, elements) => {
                 sectionChildren[i] &&
                 sectionChildren[i].collection === 'chains'
             ) {
+                let configDiagramation = null;
+                const informationChain = get(e, 'information', null);
+                //  Get the diagramation according to the layout of the box
+                if (informationChain) {
+                    configDiagramation = get(
+                        diagramations,
+                        informationChain.layout,
+                        null
+                    );
+                }
+
                 return {
                     ...e,
                     information: {
-                        ...get(e, 'information', null),
+                        ...informationChain,
                         nameChain: sectionChildren[i].type,
                         idRender: get(sectionChildren[i], 'props.id', null)
                     },
                     articles:
                         Array.isArray(e.articles) &&
                         e.articles.map((a, index) => {
+                            // Add properties of the chain's children such as layouts and important fields
                             const childrenArticle =
                                 sectionChildren[i].children[index];
+                            const nameIndexforDiagrmation = 'T'.concat(
+                                (index + 1).toString()
+                            );
+                            // Matches the diagrmation of the article or child
+                            const configDiagramationChild =
+                                configDiagramation &&
+                                configDiagramation.find(
+                                    ch =>
+                                        ch &&
+                                        ch.typeOrder === nameIndexforDiagrmation
+                                );
+                            // Temporary code.  Only for test Diagramations
+                            // if (configDiagramation) {
+                            //     console.log('diagrmation finded');
+                            //     console.log(nameIndexforDiagrmation);
+                            // }
                             if (
                                 childrenArticle &&
                                 childrenArticle.collection === 'features'
@@ -242,6 +271,16 @@ const addProperties = (sectionChildren, elements) => {
                                     ...a,
                                     additionalProperties: {
                                         ...get(a, 'additionalProperties', null),
+                                        typeOrder: get(
+                                            configDiagramationChild,
+                                            'typeOrder',
+                                            null
+                                        ),
+                                        dimension: get(
+                                            configDiagramationChild,
+                                            'size',
+                                            null
+                                        ),
                                         nameFeature: childrenArticle.type,
                                         idRender: get(
                                             childrenArticle,
@@ -331,7 +370,11 @@ const getPageElements = props => {
                     : null;
 
             // Add fields as features
-            elements = addProperties(sectionChildren, elements);
+            elements = addProperties(
+                sectionChildren,
+                elements,
+                getDiagramations(layoutPage)
+            );
             // Para probar en esta etapa los elementos o cuanquier cosa dentro de este reduce coloca:
             // r.push(elements);
             // return r;

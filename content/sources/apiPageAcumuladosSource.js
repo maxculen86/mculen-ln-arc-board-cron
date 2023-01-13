@@ -121,13 +121,15 @@ const fetch = async (query, { cachedCall }) => {
                 query: queryParams,
                 ttl: 120
             });
+            // Para revisar la data cruda que viene del Layout
+            // return resultPage;
 
             if (isPage) {
                 const resultPageTransform = await transform(
                     resultPage,
                     queryParams
                 );
-                // Para revisar la data antes del transform devuelve las  secciones formateadas con el campo information y otros
+                // Para revisar la data formateada con la informacion de todas la secciones
                 // return resultPageTransform;
 
                 const resultHome = home(resultPageTransform, queryParams);
