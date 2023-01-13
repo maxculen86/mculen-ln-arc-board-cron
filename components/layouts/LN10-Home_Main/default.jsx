@@ -64,12 +64,12 @@ const LN10Home = props => {
                 <SubHeader />
                 <div data-section="apertura">{preApertura}</div>
                 <main id="content">
+                    <div data-section="apertura">{apertura}</div>
                     {bannersHome.sticky2Mob}
                     <div>
                         <div id="content-main" className="lay-sidebar">
                             <div className="sidebar__main">
                                 {hasBomba(renderables) && bannersHome.caja1Mob}
-                                <div data-section="apertura">{apertura}</div>
                                 {bannersHome.caja2Mob}
                                 {bannersHome.cabezal}
                                 <div data-section="breaking1">{breaking1}</div>

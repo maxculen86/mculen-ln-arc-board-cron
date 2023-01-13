@@ -2,27 +2,31 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import { Opening } from '@ln/contenidos-ui-opening';
 import {
     cajaTemasCustomsFields,
     getCommonProps
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
-import CajaTema from '../../private/LN/common/cajaTema';
-import { productClickFromClient } from '../../private/common/utils/viewability';
 import StaticContent from '../../private/common/staticContent';
 import getDataChainManual from '../utils/getDataChainManual';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
-import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
+import '../../../resources/packages/css/@ln/contenidos-ui-opening/index.css';
+import '../../../resources/dist/css/ln/components/timeline.css';
+import Timeline from '../../private/LN/common/timeline';
+import {
+    setTLDistribution,
+    setTLOrderClass
+} from '../../private/LN/common/utils/timeline';
+import getFeatureByLayout from '../../private/LN/common/utils/getFeatureByLayout';
 
 const CajaApertura = props => {
     const {
         id: featureId,
         isAdmin,
-        customFields: { url, title, layout = '', imageId, hideTitle, hideCaja },
-        outputType,
+        customFields: { layout = '', hideCaja },
         childProps,
         children,
-        renderables = [],
-        layout: pageLayout
+        renderables = []
     } = props;
 
     if (hideCaja)
@@ -32,26 +36,52 @@ const CajaApertura = props => {
             </StaticContent>
         );
 
-    const {
-        notesQuantity,
-        classCondition,
-        position,
-        sectionName,
-        positionInsideSection
-    } = getCommonProps(props);
-    const {
-        filteredChildren,
-        isInApertura,
-        isMultimedia,
-        features,
-        error
-    } = getDataChainManual({
+    const { notesQuantity, classCondition } = getCommonProps(props);
+    const features = renderables.filter(r => r.collection === 'features');
+    const layoutName = 'Timeline';
+
+    const { error } = getDataChainManual({
         featureId,
         renderables,
         childProps,
         children,
         layout
     });
+
+    const options = {
+        Timeline: () => {
+            const feature = getFeatureByLayout(features, children, layoutName);
+
+            if (!feature) return null;
+
+            const timeline = setTLDistribution(feature.props.id, children);
+            const orderClass = setTLOrderClass(timeline);
+
+            return (
+                <Timeline
+                    content={timeline.content}
+                    articles={timeline.articles}
+                    orderClass={orderClass}
+                />
+            );
+        }
+    };
+
+    const mainComponent =
+        (options[layoutName] && options[layoutName]()) || null;
+
+    /*     const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+        layoutName,
+        layout,
+        position,
+        sectionName,
+        positionInsideSection
+    ); */
+
+    // const sectionProps = {
+    //     ...extraOpts,
+    //     className: `box-articles ${classCondition}`
+    // };
 
     if (isAdmin && error) {
         return (
@@ -65,43 +95,17 @@ const CajaApertura = props => {
 
     if (error) return <></>;
 
-    const { bannerMob = undefined, bannerDsk = undefined } = getDynamicBanners({
-        renderables,
-        featureId
+    console.log({ notesQuantity });
+
+    const _children = children.map((item, index) => {
+        if (index === children.length - 1) {
+            return mainComponent;
+        }
+
+        return item;
     });
 
-    const Component = (
-        <>
-            <CajaTema
-                title={title}
-                hideTitle={hideTitle}
-                url={url}
-                imageId={imageId}
-                outputType={outputType}
-                layout={layout}
-                classCondition={`${classCondition}${(isInApertura &&
-                    layout.includes('focal') &&
-                    ' --apertura') ||
-                    ''}`}
-                notesQuantity={notesQuantity}
-                position={position}
-                positionInsideSection={positionInsideSection}
-                sectionName={sectionName}
-                _children={filteredChildren}
-                handleClick={productClickFromClient}
-                features={features}
-                pageLayout={pageLayout}
-                isMultimedia={isMultimedia}
-            />
-            {bannerMob}
-            {bannerDsk}
-        </>
-    );
-    return isMultimedia ? (
-        Component
-    ) : (
-        <StaticContent id={featureId}>{Component}</StaticContent>
-    );
+    return <Opening>{_children}</Opening>;
 };
 
 CajaApertura.label = 'LN10 Caja Apertura';
@@ -109,14 +113,9 @@ CajaApertura.label = 'LN10 Caja Apertura';
 CajaApertura.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
-    outputType: PropTypes.string,
     customFields: PropTypes.shape({
         ...cajaTemasCustomsFields('cajaManual')
     }).isRequired
-};
-
-CajaApertura.defaultProps = {
-    outputType: 'default'
 };
 
 export default Consumer(CajaApertura);
