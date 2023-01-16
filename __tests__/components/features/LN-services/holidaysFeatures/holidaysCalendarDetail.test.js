@@ -22,9 +22,22 @@ describe('Components- Features - HolidaysCalendarDetail - default.jsx - test', (
     Context.useAppContext = jest.fn(() => ({
         globalContent: outputMonthWithHolidays
     }));
+    beforeAll(() => {
+        jest.clearAllMocks();
+        const mockDate = new Date(2023, 5, 0);
+        const spy = jest
+            .spyOn(global, 'Date')
+            .mockImplementation(() => mockDate);
+    });
+
     it('Should match snapshot showing all the private components', () => {
         const { container } = render(<HolidaysCalendarDetail id="MOCKID" />);
         expect(container).toMatchSnapshot();
+    });
+
+    it('Should render the month title', () => {
+        render(<HolidaysCalendarDetail id="MOCKID" />);
+        expect(screen.getByText('Mayo')).toBeInTheDocument();
     });
 
     it('Should render the month detail calendar', () => {
@@ -33,11 +46,6 @@ describe('Components- Features - HolidaysCalendarDetail - default.jsx - test', (
             'holidays-card-calendar'
         );
         expect(gridContainer.length).toBe(1);
-    });
-
-    it('Should render the month title', () => {
-        render(<HolidaysCalendarDetail id="MOCKID" />);
-        expect(screen.getByText('Mayo')).toBeInTheDocument();
     });
 
     it('Should render the holidays of the month calendar', () => {

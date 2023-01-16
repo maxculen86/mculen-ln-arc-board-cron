@@ -40,40 +40,6 @@ jest.mock('request-promise-native', () => {
     };
 });
 
-describe('Test getUri function', () => {
-    it('Should return endpoint with the year', () => {
-        expect(
-            getUri({ service: 'feriados', serviceItem: '2023' })
-        ).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/api/v1/feriados/2023'
-        );
-    });
-    it('Should return endpoint with the current year', () => {
-        expect(getUri({ service: 'feriados' })).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/api/v1/feriados/2023'
-        );
-    });
-
-    it('Should return endpoint with the month detail', () => {
-        expect(
-            getUri({
-                service: 'feriados',
-                serviceItem: '2022',
-                serviceSubItem: 'mayo'
-            })
-        ).toStrictEqual(
-            'https://arcservices.lanacion.com.ar/api/v1/feriados/2022/5'
-        );
-    });
-    it('Should return error', () => {
-        expect(() => {
-            getUri({});
-        }).toThrow(
-            'No está solicitado ningún feriado o el feriado que desea solicitar no existe.'
-        );
-    });
-});
-
 describe('Tests holidays request', () => {
     it('Should return data from the request', () => {
         const queryObj = { service: 'feriados' };
@@ -413,47 +379,6 @@ describe('Test transform holidays ', () => {
     });
 });
 
-describe('Test next holiday data generation with getNextHolidayData', () => {
-    const {
-        dataService: { calendars }
-    } = outputTransformHome;
-
-    describe('When current date is a holiday, should return next holiday', () => {
-        it('On christmas should return new year', () => {
-            const mockDateObject = new Date(2022, 11, 25);
-            const spy = jest
-                .spyOn(global, 'Date')
-                .mockImplementation(() => mockDateObject);
-
-            expect(getNextHolidayData(calendars)).toStrictEqual({
-                countdown: 0,
-                day: 1,
-                monthName: 'Enero',
-                reason: 'Año nuevo',
-                typeHoliday: 'Inamovible'
-            });
-            spy.mockRestore();
-        });
-    });
-    describe('When current date is not holiday, should return upcoming holiday', () => {
-        it('On first of july should return independency day', () => {
-            const mockDateObject = new Date(2022, 6, 1);
-            const spy = jest
-                .spyOn(global, 'Date')
-                .mockImplementation(() => mockDateObject);
-
-            expect(getNextHolidayData(calendars)).toStrictEqual({
-                countdown: 0,
-                day: 9,
-                monthName: 'Julio',
-                reason: 'Día de la Independencia.',
-                typeHoliday: 'Inamovible'
-            });
-            spy.mockRestore();
-        });
-    });
-});
-
 describe('Tests getHolidaysDate', () => {
     it('Should return correct format for date when the array has more than two days', () => {
         expect(getHolidaysDate([1, 2, 3, 4], 4)).toStrictEqual('1-4 de abril');
@@ -501,6 +426,85 @@ describe('Test getHolidaysMetaData', () => {
                 'Feriados 2023 en Argentina: Calendario de feriados nacionales - LA NACION',
             description:
                 'Calendario de feriados nacionales 2023 en Argentina: días no laborables, fines de semana largo y feriados puente del 2023 y 2024 en LA NACION.'
+        });
+    });
+});
+describe('Test getUri function', () => {
+    it('Should return endpoint with the year', () => {
+        expect(
+            getUri({ service: 'feriados', serviceItem: '2023' })
+        ).toStrictEqual(
+            'https://arcservices.lanacion.com.ar/api/v1/feriados/2023'
+        );
+    });
+    it('Should return endpoint with the current year', () => {
+        const mockDate = new Date(2024, 6, 1);
+        const spy = jest
+            .spyOn(global, 'Date')
+            .mockImplementation(() => mockDate);
+        expect(getUri({ service: 'feriados' })).toStrictEqual(
+            'https://arcservices.lanacion.com.ar/api/v1/feriados/2024'
+        );
+        spy.mockRestore();
+    });
+
+    it('Should return endpoint with the month detail', () => {
+        expect(
+            getUri({
+                service: 'feriados',
+                serviceItem: '2022',
+                serviceSubItem: 'mayo'
+            })
+        ).toStrictEqual(
+            'https://arcservices.lanacion.com.ar/api/v1/feriados/2022/5'
+        );
+    });
+    it('Should return error', () => {
+        expect(() => {
+            getUri({});
+        }).toThrow(
+            'No está solicitado ningún feriado o el feriado que desea solicitar no existe.'
+        );
+    });
+});
+
+describe('Test next holiday data generation with getNextHolidayData', () => {
+    const {
+        dataService: { calendars }
+    } = outputTransformHome;
+
+    describe('When current date is a holiday, should return next holiday', () => {
+        it('On christmas should return new year', () => {
+            const mockActualDate = new Date(2022, 11, 31);
+            const spy = jest
+                .spyOn(global, 'Date')
+                .mockImplementation(() => mockActualDate);
+            expect(getNextHolidayData(calendars)).toStrictEqual({
+                countdown: 0,
+                day: 1,
+                monthName: 'Enero',
+                reason: 'Año nuevo',
+                typeHoliday: 'Inamovible'
+            });
+            spy.mockRestore();
+        });
+    });
+
+    describe('When current date is not holiday, should return upcoming holiday', () => {
+        it('On first of july should return independency day', () => {
+            const mockDateObject = new Date(2023, 6, 3);
+            const spy = jest
+                .spyOn(global, 'Date')
+                .mockImplementation(() => mockDateObject);
+
+            expect(getNextHolidayData(calendars)).toStrictEqual({
+                countdown: 0,
+                day: 9,
+                monthName: 'Julio',
+                reason: 'Día de la Independencia.',
+                typeHoliday: 'Inamovible'
+            });
+            spy.mockRestore();
         });
     });
 });

@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import '../../../../../resources/dist/css/ln/components/holidays-nav.css';
 import Link from '../../../common/com-link';
 import Text from '../../../common/text';
+import { getArgentinaYear } from '../../../common/utils/dateAndTimeUtil';
 
 const HolidaysNav = ({ year, layout }) => {
-    const currentYear = new Date().getFullYear();
+    const currentYear = Number(getArgentinaYear());
     const previousYear = currentYear - 1;
     const posteriorYear = currentYear + 1;
 

@@ -1,19 +1,18 @@
-import addEventToDataLayer from '../utils/addEventToDataLayer';
+import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 
 export const commonPropsFooter = (
     text,
     href,
     callback,
-    category,
     action,
+    category,
     event
 ) => {
     return {
         ...(text && { text }),
         ...(href && { href }),
         ...(callback && {
-            callback: () =>
-                callback({ category, label: `label: ${text}`, action, event })
+            callback: () => callback({ category, label: text, action, event })
         })
     };
 };
