@@ -54,18 +54,20 @@ export const getTopicsFromCustomFields = (customFields = {}) => {
     const totalCustomFieldsKeys = Object.keys(customFields).length;
     const topicKeys = [...new Array(totalCustomFieldsKeys / 2).keys()];
 
-    return topicKeys.map(key => ({
-        title: customFields[`title ${key}`],
-        link: customFields[`link ${key}`],
-        dataEvent: 'e_linkclick',
-        dataSection: 'MenuLN',
-        callback: e => {
-            addEventToDataLayer({
-                event: 'e_linkclick',
-                action: 'home_ln10',
-                category: 'header_temas_hoy',
-                label: customFields[`title ${key}`]
-            });
-        }
-    }));
+    return topicKeys
+        .map(key => ({
+            title: customFields[`title ${key}`],
+            link: customFields[`link ${key}`],
+            dataEvent: 'e_linkclick',
+            dataSection: 'MenuLN',
+            callback: e => {
+                addEventToDataLayer({
+                    event: 'e_linkclick',
+                    action: 'home_ln10',
+                    category: 'header_temas_hoy',
+                    label: customFields[`title ${key}`]
+                });
+            }
+        }))
+        .filter(topic => topic.title && topic.link);
 };

@@ -77,6 +77,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
                 <RightOptions
                     userType="suscribed"
                     userName={mock.userName}
+                    initials={mock.userName.substring(0, 2)}
                     desplegableData={mock.desplegable}
                     loggedIn
                 />
@@ -88,7 +89,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             expect(getByText('Suscriptor digital')).toBeInTheDocument();
             expect(desplegable).toBeInTheDocument();
             expect(getByText(mock.userName)).toBeInTheDocument();
-            expect(initials.textContent).toEqual('te');
+            expect(initials.textContent).toEqual(mock.userName.substring(0, 2));
         });
 
         test('should returns menu user, suscribe button and avatar when userType is logged', () => {

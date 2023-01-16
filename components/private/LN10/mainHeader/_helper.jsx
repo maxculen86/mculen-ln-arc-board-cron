@@ -57,6 +57,7 @@ export const setDesplegableData = (goToLogout = () => {}) => {
 
 export const RightOptions = ({
     userType,
+    initials = '',
     userName = '',
     desplegableData = [],
     goToLoginUrl,
@@ -84,7 +85,7 @@ export const RightOptions = ({
         <MainHeader.MenuUser
             userType={userType}
             email={userName}
-            initials={userName.substring(0, 2)}
+            initials={initials}
             desplegableData={desplegableData}
         />
     );
@@ -133,3 +134,9 @@ export const logoCallback = e => {
         label: 'logo'
     });
 };
+
+export const setInitials = (firstName = '', lastName = '', email = '') =>
+    (firstName && lastName
+        ? `${firstName[0]}${lastName[0]}`
+        : email.substring(0, 2)
+    ).toUpperCase();

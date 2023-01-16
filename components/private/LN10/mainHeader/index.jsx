@@ -12,7 +12,8 @@ import {
     RightOptions,
     setDesplegableData,
     sectionsCallback,
-    logoCallback
+    logoCallback,
+    setInitials
 } from './_helper';
 import { handleClickBuscar } from '../navbar/_helper';
 import { GlobalContext } from '../../common/context/globalContext';
@@ -25,12 +26,19 @@ import '../../../../resources/packages/css/@ln/contenidos-ui-text/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
 
 const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
-    const { userName = '', loading, goToLoginUrl } = getLoginData() || {};
+    const {
+        userName = '',
+        loading,
+        goToLoginUrl,
+        userFirstName,
+        userLastName
+    } = getLoginData() || {};
     const loggedIn = isLoggedIn();
     const { dispatch } = useContext(GlobalContext);
     const logout = () => goToLogout(dispatch);
 
     const desplegableData = setDesplegableData(logout) || [];
+    const initials = setInitials(userFirstName, userLastName, userName);
 
     return (
         <MainHeader>
@@ -39,14 +47,11 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                     title="Secciones"
                     typeButton="secondary"
                     className="--border-gray --mr-md --d-flex --ai-center --jc-center"
+                    onClick={e => sectionsCallback(e, toggleDesplegable)}
+                    onAuxClick={e => sectionsCallback(e, toggleDesplegable)}
                 >
                     <Icon icon="menu" size="s" className="--menu" />
-                    <Text
-                        className="--desktop-only"
-                        size="2xs"
-                        onClick={e => sectionsCallback(e, toggleDesplegable)}
-                        onAuxClick={e => sectionsCallback(e, toggleDesplegable)}
-                    >
+                    <Text className="--desktop-only" size="2xs">
                         SECCIONES
                     </Text>
                 </Button>
@@ -76,6 +81,7 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                     <RightOptions
                         userType={userType}
                         userName={userName}
+                        initials={initials}
                         desplegableData={desplegableData}
                         goToLoginUrl={goToLoginUrl}
                         loggedIn={loggedIn}
