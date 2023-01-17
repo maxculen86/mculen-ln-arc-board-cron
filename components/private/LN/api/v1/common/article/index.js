@@ -109,7 +109,6 @@ export const articleItem = article => {
     const enviarApps = sentToApps(article);
 
     return {
-        articuloOrden: get(article, 'additionalProperties.typeOrder', null),
         articuloTamano: get(article, 'additionalProperties.dimension', null),
         articuloTipo: get(article, 'additionalProperties.layout', 'common'),
         id,
