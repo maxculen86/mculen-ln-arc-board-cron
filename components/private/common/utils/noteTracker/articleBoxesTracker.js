@@ -5,9 +5,10 @@ const articleBoxesTracker = ({ boxType, diagramation }) => {
     const { dataLayer } = window;
     const refresh = checkUserRealoadAction(window);
 
-    const articlesToTrack = boxArticleEventBuilder[boxType]({
-        grid: diagramation
-    });
+    const articlesToTrack =
+        boxArticleEventBuilder[boxType]({
+            grid: diagramation
+        }) || [];
     if (!refresh) {
         const callback = entries => {
             entries.forEach(article => {

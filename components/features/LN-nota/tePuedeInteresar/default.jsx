@@ -62,7 +62,6 @@ const TePuedeInteresar = props => {
                     />
                 </div>
             )}
-            {}
         </>
     );
 };
