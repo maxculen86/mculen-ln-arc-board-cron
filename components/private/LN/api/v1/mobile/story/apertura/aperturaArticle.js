@@ -20,8 +20,16 @@ const imageDefault = () => {
     }
     return prodImageDefault;
 };
-const aperturaArticle = (article = {}) => {
-    const promoItem = promoItemArticle(article);
+const aperturaArticle = (article = {}, idsElements = null) => {
+    let promoItem = promoItemArticle(article);
+
+    if (
+        promoItem &&
+        idsElements &&
+        idsElements.includes(get(promoItem, '_id', null))
+    ) {
+        promoItem = null;
+    }
     const resp = {};
     if (promoItem) {
         // eslint-disable-next-line default-case

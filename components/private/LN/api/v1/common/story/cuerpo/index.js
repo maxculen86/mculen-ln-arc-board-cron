@@ -78,6 +78,26 @@ const getInfographicElement = (
     return contentElements;
 };
 
+const getElementsWithAnyPromoItems = (promoItems, subtype, contentElements) => {
+    if (!contentElements) throw new Error('The story does not have body');
+    const prioridadPromoItems = ['apertura_multimedia', 'basic'];
+    prioridadPromoItems.some(key => {
+        const promoItem = promoItems[key];
+        if (
+            promoItem &&
+            contentElements.filter(
+                x => get(x, '_id', '-1') === get(promoItem, '_id', null)
+            ).length === 0
+        ) {
+            contentElements.unshift(promoItem);
+            return true;
+        }
+        return false;
+    });
+
+    return contentElements;
+};
+
 const storyBody = (dataNota, storyBodyElements) => {
     const { _id } = dataNota || {};
     const subtype = get(dataNota, 'subtype', '');
@@ -90,15 +110,25 @@ const storyBody = (dataNota, storyBodyElements) => {
         get(dataNota, 'content_elements', ''),
         get(dataNota, 'promo_items.apertura_multimedia', null)
     );
-
+    const idsElements = contentElements.map(x => x && get(x, '_id', null));
     const templates = {
         '7': recetaCuerpo,
         '8': defaultCuerpo,
         '9': htmlCuerpo
     }[subtype];
     return templates
-        ? templates(contentElements, elementBySubtype[subtype], _id)
-        : defaultCuerpo(contentElements, elementBySubtype[1], _id);
+        ? {
+              idsElements,
+              elements: templates(
+                  contentElements,
+                  elementBySubtype[subtype],
+                  _id
+              )
+          }
+        : {
+              idsElements,
+              elements: defaultCuerpo(contentElements, elementBySubtype[1], _id)
+          };
 };
 
 export default storyBody;

@@ -5,10 +5,11 @@ import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../common/utils/responseCleaner';
 
 const indexNota = dataNota => {
+    const elements = cuerpo(dataNota);
     const resp = {
-        ...storyCommon(dataNota, cuerpo),
+        ...storyCommon(dataNota, elements.elements),
         ...storyHeadline(dataNota, 'mobile'),
-        apertura: apertura(dataNota)
+        apertura: apertura(dataNota, elements.idsElements)
     };
 
     let elmentsAdd = 0;

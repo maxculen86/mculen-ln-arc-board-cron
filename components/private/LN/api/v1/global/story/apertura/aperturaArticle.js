@@ -2,12 +2,20 @@ import {
     promoItemArticle,
     apertura
 } from '../../../common/story/apertura/aperturaArticle';
+import get from '../../../../../../common/utils/get';
 import video from '../cuerpo/elements/video';
 import image from '../cuerpo/elements/image';
 
-const aperturaArticle = (article, type) => {
+const aperturaArticle = (article, type, idsElements = null) => {
     if (article.subtype === '9' && type === 'global') return null;
-    const promoItem = promoItemArticle(article);
+    let promoItem = promoItemArticle(article);
+    if (
+        promoItem &&
+        idsElements &&
+        idsElements.includes(get(promoItem, '_id', null))
+    ) {
+        promoItem = null;
+    }
     const resp = {};
     if (promoItem) {
         // eslint-disable-next-line default-case

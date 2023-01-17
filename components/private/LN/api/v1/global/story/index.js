@@ -7,10 +7,11 @@ import aperturaArticle from './apertura/aperturaArticle';
 const indexNota = dataNota => {
     const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text', null);
     const id = get(dataNota, '_id', null);
+    const elements = cuerpo(dataNota);
     const resp = {
-        ...storyCommon(dataNota, cuerpo),
+        ...storyCommon(dataNota, elements.elements),
         ...storyHeadline(dataNota, 'global'),
-        apertura: aperturaArticle(dataNota, 'global'),
+        apertura: aperturaArticle(dataNota, 'global', elements.idsElements),
         comentariosId: comentariosId || id,
         abiertoComentarios: false
     };
