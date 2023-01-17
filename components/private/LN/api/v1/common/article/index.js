@@ -7,6 +7,7 @@ import sentToApps from '../utils/sentToApps';
 import getEmbedHref from '../../../../../common/utils/getEmbedHref';
 import LNApiErrorArticles from '../../../global/utils/lnApiErrorArticles';
 import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
+import { getPrincipalCategory } from '../category';
 
 const getLastPublishDate = article => {
     let date = get(article, 'publish_date', null);
@@ -107,6 +108,7 @@ export const articleItem = article => {
     const autor = autores ? autores[0] : null;
     const signature = get(article, 'additionalProperties.authors', null);
     const enviarApps = sentToApps(article);
+    const primarySection = get(article, 'taxonomy.primary_section');
 
     return {
         articuloTamano: get(article, 'additionalProperties.dimension', null),
@@ -133,7 +135,8 @@ export const articleItem = article => {
         opinion: get(article, 'additionalProperties.opinion', false),
         videoYouTube: getYouTubeVideoLink(article),
         enviarApps,
-        fechaPublicacion: getLastPublishDate(article)
+        fechaPublicacion: getLastPublishDate(article),
+        categoria: primarySection && getPrincipalCategory(primarySection)
     };
 };
 
