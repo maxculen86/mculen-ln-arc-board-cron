@@ -50,10 +50,6 @@ const RankingFeature = ({ id: featureId }) => {
     const { node_type: nodeType, type } = globalContent;
 
     const hasHydrateOnly = checkHydrateOnly({ layout, nodeType });
-    console.log(
-        '🚀 ~ file: default.jsx:53 ~ RankingFeature ~ hasHydrateOnly',
-        hasHydrateOnly
-    );
 
     const {
         title,
