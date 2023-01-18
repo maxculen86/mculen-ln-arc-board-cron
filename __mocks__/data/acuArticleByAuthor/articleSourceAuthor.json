@@ -1,0 +1,1782 @@
+{
+    "_id": "5c4ed2aab9439403af62443a7cebc6d3207a7aece6d4b8211066000c67894922",
+    "content_elements": [
+        {
+            "_id": "DZWJ2VUZDBGM3LTZPSPTHCMJ2A",
+            "content_elements": [
+                {
+                    "content": "Entre el miércoles y el viernes de la semana pasada se celebró en la ciudad de México <b>una reunión muy interesante de líderes regionales</b>, encabezada por expresidentes que integran una organización llamada Círculo de Montevideo, fundada hace 26 años por <b>Julio María Sanguinetti</b>, el exmandatario de Uruguay.",
+                    "type": "text"
+                }
+            ],
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "_id": "carlos-pagni-81",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "http://172.17.0.1/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                                }
+                            ],
+                            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                        },
+                        "name": "Carlos Pagni",
+                        "slug": "carlos-pagni-81",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2022-11-22T07:30:40.577Z",
+            "headlines": {
+                "basic": "Las mil formas del abrazo Perón-Balbín",
+                "mobile": "Las mil formas del abrazo Perón-Balbín"
+            },
+            "label": {
+                "chapita": {
+                    "display": true,
+                    "text": "Video"
+                },
+                "enviar_a_apps": {
+                    "text": "Si"
+                },
+                "recomendar": {
+                    "text": "Si"
+                },
+                "volanta": {
+                    "display": true,
+                    "text": "Análisis."
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "http://172.17.0.1/resizer/UpSgmLnYMqvzcjtdfdcJVZIzrEs=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CMIBHXLWKJDQXP33DCLJC6MJSE.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "http://172.17.0.1/resizer/0L4MsDu9ik5VXALzW41g0lYALLo=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CMIBHXLWKJDQXP33DCLJC6MJSE.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "http://172.17.0.1/resizer/340Z-EMcpx-iNEJs-lbmAyE9cSU=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CMIBHXLWKJDQXP33DCLJC6MJSE.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "http://172.17.0.1/resizer/UpSgmLnYMqvzcjtdfdcJVZIzrEs=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CMIBHXLWKJDQXP33DCLJC6MJSE.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "http://172.17.0.1/resizer/PnhSLjDES7fxnKa_BYyPlq99Zyo=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/CMIBHXLWKJDQXP33DCLJC6MJSE.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2022-11-22T15:04:44.553Z",
+            "related_content": {
+                "basic": [
+                    {
+                        "_id": "L5GCZODIVZGPBK6YQ4O3THV6DI",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "XWTC7E4EHJHFLNFETVOJ5JDC4Q",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "67SUR3AIKVDUVO3YEQYVEXVVZQ",
+                        "type": "story"
+                    }
+                ]
+            },
+            "subheadlines": {
+                "basic": "El pacto millonario de Qatar que se perdió la Argentina; crece la insatisfacción con la política; los límites para un hipotético acuerdo entre Macri y Cristina "
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/lnmas",
+                    "additional_properties": {
+                        "original": {
+                            "style": {
+                                "section_style_name": "ln-mas"
+                            }
+                        }
+                    },
+                    "name": "LN+",
+                    "path": "/lnmas"
+                },
+                "tags": [
+                    {
+                        "slug": "odisea-argentina-tid59697",
+                        "text": "Odisea Argentina"
+                    },
+                    {
+                        "slug": "ln-tid58215",
+                        "text": "LN+"
+                    }
+                ]
+            },
+            "website_url": "/lnmas/las-mil-formas-del-abrazo-peron-balbin-nid22112022/"
+        },
+        {
+            "_id": "YKGBK6X2QBDCLPHTKWONBNKUMQ",
+            "content_elements": [
+                {
+                    "content": "Hace muchos años, un senador brasileño solía afirmar que con<b> la política pasa como con las nubes.</b> Uno las mira y tienen un diseño, pero las deja mirar y al rato, casi sin que uno se dé cuenta, esa configuración levemente y de a poco cambió. Esto es lo que está pasando delante de nosotros en la Argentina, en estos días, en estos meses. Si uno mira con atención la forma de la nube, el diseño que va teniendo el juego, el diseño de la política, va a ver que <b>hay algunos rasgos que de a poco se van modificando</b> y es importante advertirlo porque si uno sigue mirando el mismo fenómeno con categorías anteriores, esas categorías ya nos explican menos.",
+                    "type": "text"
+                }
+            ],
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "_id": "carlos-pagni-81",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                                }
+                            ],
+                            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                        },
+                        "name": "Carlos Pagni",
+                        "slug": "carlos-pagni-81",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2022-11-15T07:15:21.623Z",
+            "headlines": {
+                "basic": "Cruje el peronismo por el malestar social ",
+                "mobile": "Cruje el peronismo por el malestar social"
+            },
+            "label": {
+                "enviar_a_apps": {
+                    "text": "Si"
+                },
+                "recomendar": {
+                    "text": "Si"
+                },
+                "volanta": {
+                    "display": true,
+                    "text": "Análisis."
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/vQ65vk9THln5yA_R6_beWZzUosA=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7QKSWBUPR5HZTJS4AAGIPKLTAM.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/iDKImevB7z9sWonbfiRd8XFCoEM=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7QKSWBUPR5HZTJS4AAGIPKLTAM.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/csv0OK6cCphCFnPWZcBn9uHuzBQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7QKSWBUPR5HZTJS4AAGIPKLTAM.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/vQ65vk9THln5yA_R6_beWZzUosA=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7QKSWBUPR5HZTJS4AAGIPKLTAM.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/0NUjHQmG8ckPfrh9wLqQQxh1U_c=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/7QKSWBUPR5HZTJS4AAGIPKLTAM.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2022-11-15T12:47:34.306Z",
+            "related_content": {
+                "basic": []
+            },
+            "subheadlines": {
+                "basic": "Se desatan tensiones en el oficialismo; es muy difícil para el kirchnerismo relacionarse con los datos que refleja el panorama sociolaboral de la Argentina; el conflicto que se abre en La Matanza "
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/lnmas",
+                    "additional_properties": {
+                        "original": {
+                            "style": {
+                                "section_style_name": "ln-mas"
+                            }
+                        }
+                    },
+                    "name": "LN+",
+                    "path": "/lnmas"
+                },
+                "tags": [
+                    {
+                        "slug": "odisea-argentina-tid59697",
+                        "text": "Odisea Argentina"
+                    },
+                    {
+                        "slug": "ln-tid58215",
+                        "text": "LN+"
+                    },
+                    {
+                        "slug": "alberto-fernandez-tid849",
+                        "text": "Alberto Fernández"
+                    }
+                ]
+            },
+            "website_url": "/lnmas/cruje-el-peronismo-por-el-malestar-social-nid15112022/"
+        },
+        {
+            "_id": "XETXKBEGTZDU7HH4ZX5TK3YBUE",
+            "content_elements": [
+                {
+                    "content": "<b>Alberto Fernández </b>se abrazó a los preceptos de autoayuda del <mark class=\"hl_yellow\">manual de presidentes en crisis</mark>. Ayer inició un <a href=\"https://www.lanacion.com.ar/politica/antes-de-partir-a-francia-el-presidente-extendio-las-sesiones-ordinarias-del-congreso-y-se-podria-nid09112022/\" target=\"_blank\">largo viaje al exterior</a>. Primero París, después Bali, donde se realizará la cumbre del G20. Disfrutará de la travesía. <b>Lejos del bullying, participará de reuniones en las que se trata la agenda que, en serio, importa: la guerra en Ucrania, la incertidumbre energética, la inflación en los Estados Unidos y los riesgos de una recesión universal</b>. En Francia, por ejemplo, intervendrá en un seminario sobre “Formas de mitigar los múltiples shocks que enfrenta el mundo fomentando un multilateralismo renovado”. Así debe ser la política, masculla. No arrastrarse en las miserabilidades locales. Esa sensación se vuelve más intensa a medida que <mark class=\"hl_yellow\">la economía va ingresando a un infierno astral</mark>, donde innumerables factores estratégicos conspiran en contra del Gobierno.",
+                    "type": "text"
+                }
+            ],
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "_id": "carlos-pagni-81",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                                }
+                            ],
+                            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                        },
+                        "name": "Carlos Pagni",
+                        "slug": "carlos-pagni-81",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2022-11-10T00:52:07.707Z",
+            "headlines": {
+                "basic": "Un infierno astral se cierne sobre el Gobierno",
+                "mobile": "Un infierno astral se cierne sobre el Gobierno"
+            },
+            "label": {
+                "enviar_a_apps": {
+                    "text": "Si"
+                },
+                "recomendar": {
+                    "text": "Si"
+                },
+                "volanta": {
+                    "display": true,
+                    "text": "Análisis."
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/uvMvtqEijWi7FdmbWT-nTE7aXwM=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GHHCG4R7HFGJVC4E6XZNHA4S2A.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/8u6q5TS6--SdY_NfvghbqE5Z7kY=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GHHCG4R7HFGJVC4E6XZNHA4S2A.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/gbooezbImYL2NM28BNksD7zmaMQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GHHCG4R7HFGJVC4E6XZNHA4S2A.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/uvMvtqEijWi7FdmbWT-nTE7aXwM=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GHHCG4R7HFGJVC4E6XZNHA4S2A.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/dgTfCFwjeVhrcLtSswo5szXtee0=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GHHCG4R7HFGJVC4E6XZNHA4S2A.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2022-11-10T12:01:00.758Z",
+            "related_content": {
+                "basic": [
+                    {
+                        "_id": "YD57EJBHU5DMHABJXB7AWJEFLU",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "CFI6ACSJ4BE4JJOYV5KIHO3LLQ",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "KKJWJYYQABEU5LA4ZIU2U7KRT4",
+                        "type": "story"
+                    }
+                ]
+            },
+            "subheadlines": {
+                "basic": " Las impugnaciones de Cristina Kirchner y sus seguidores al programa de gobierno tienen una víctima política, Alberto Fernández; y un crucificado técnico: Massa"
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/politica",
+                    "additional_properties": {
+                        "original": {}
+                    },
+                    "name": "Política",
+                    "path": "/politica"
+                },
+                "tags": [
+                    {
+                        "slug": "cristina-kirchner-tid988",
+                        "text": "Cristina Kirchner"
+                    },
+                    {
+                        "slug": "sergio-massa-tid1847",
+                        "text": "Sergio Massa"
+                    },
+                    {
+                        "slug": "alberto-fernandez-tid849",
+                        "text": "Alberto Fernández"
+                    }
+                ]
+            },
+            "website_url": "/politica/un-infierno-astral-se-cierne-sobre-el-gobierno-nid09112022/"
+        },
+        {
+            "_id": "QXVRL3ISMZBP7F77NRWCZ4JR7I",
+            "content_elements": [
+                {
+                    "content": "Embarcados en nuestra odisea, conviene no perder de vista lo central. No dejarnos ganar por lo accesorio. <b>En el centro de todo el problema argentino, hay un problema económico.</b> Y en el centro de ese problema económico está, como sucede desde hace 50 años, una crisis con el dólar y con la capacidad de la economía argentina de producir los dólares necesarios para sostener nuestros niveles de consumo y de vida.",
+                    "type": "text"
+                }
+            ],
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "_id": "carlos-pagni-81",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                                }
+                            ],
+                            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                        },
+                        "name": "Carlos Pagni",
+                        "slug": "carlos-pagni-81",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2022-11-08T07:39:03.168Z",
+            "headlines": {
+                "basic": "Un populismo sin dólares, un pez fuera del agua",
+                "mobile": "Un populismo sin dólares, un pez fuera del agua"
+            },
+            "label": {
+                "chapita": {
+                    "display": true,
+                    "text": "Video"
+                },
+                "enviar_a_apps": {
+                    "text": "Si"
+                },
+                "recomendar": {
+                    "text": "Si"
+                },
+                "volanta": {
+                    "display": true,
+                    "text": "Análisis."
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/R07_xLvIEh48aZMI4abEsrZ1fiM=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WETZM4WUWNF45H4BIFGAUB4STQ.JPG"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/WZnAz3qhizEMRjkmq1QV1UXTtjA=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WETZM4WUWNF45H4BIFGAUB4STQ.JPG"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/ZMrvq1WOsdmFaIqyGL8nB39vitU=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WETZM4WUWNF45H4BIFGAUB4STQ.JPG"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/R07_xLvIEh48aZMI4abEsrZ1fiM=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WETZM4WUWNF45H4BIFGAUB4STQ.JPG"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/kPTCCCZaTB1beSqtEaHwezd7fSE=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WETZM4WUWNF45H4BIFGAUB4STQ.JPG",
+                    "width": 768
+                }
+            },
+            "publish_date": "2022-11-08T11:28:11.094Z",
+            "related_content": {
+                "basic": []
+            },
+            "subheadlines": {
+                "basic": "En el centro de todo el desafío argentino, hay un problema económico; el papel del clima en el destino electoral del Gobierno; Massa está empeñado en un ajuste, que Cristina Kirchner debe respaldar porque no tiene un plan mejor"
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/lnmas",
+                    "additional_properties": {
+                        "original": {
+                            "style": {
+                                "section_style_name": "ln-mas"
+                            }
+                        }
+                    },
+                    "name": "LN+",
+                    "path": "/lnmas"
+                },
+                "tags": [
+                    {
+                        "slug": "odisea-argentina-tid59697",
+                        "text": "Odisea Argentina"
+                    },
+                    {
+                        "slug": "ln-tid58215",
+                        "text": "LN+"
+                    }
+                ]
+            },
+            "website_url": "/lnmas/un-populismo-sin-dolares-un-pez-fuera-del-agua-nid08112022/"
+        },
+        {
+            "_id": "BIINSG5DQRGJPBYL7MURC4W43I",
+            "content_elements": [
+                {
+                    "content": "Los dirigentes de<b> Juntos por el Cambio</b> están <mark class=\"hl_yellow\">tropezando por segunda vez con la misma piedra: la creencia en que la polarización con el kirchnerismo los absuelve de sus propio desaciertos</mark>. Esta convicción fue el velo que les impidió advertir el efecto corrosivo que la crisis económica desatada en 2018 tenía sobre su base electoral. <b>El hostigamiento a la figura de Cristina Kirchner, suponían, alcanzaba para disimular los errores propios</b>. Sobre esa alfombra roja ella regresó al poder. En estos días se advierte el mismo error. La coalición va adquiriendo el aspecto de la casa de Gran Hermano. Eso sí, sin llegar al extremo de tener que establecer un código de convivencia para evitar algún abuso. Están en la instancia previa: sólo se amenazan con romperse la cara a trompadas. Esos dirigentes <mark class=\"hl_yellow\">expresan una confianza candorosa en que sus seguidores los van a disculpar porque del otro lado está la vicepresidenta</mark>. Es la misma ingenuidad que lleva a <b>Alberto Fernández</b> a justificar sus extravíos en la pretensión de “que no vuelva la derecha”.",
+                    "type": "text"
+                }
+            ],
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "_id": "carlos-pagni-81",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                                }
+                            ],
+                            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                        },
+                        "name": "Carlos Pagni",
+                        "slug": "carlos-pagni-81",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2022-11-03T06:02:09.789Z",
+            "headlines": {
+                "basic": "La oposición insiste en tropezar con la misma piedra",
+                "mobile": "La oposición insiste en tropezar con la misma piedra"
+            },
+            "label": {
+                "enviar_a_apps": {
+                    "text": "Si"
+                },
+                "recomendar": {
+                    "text": "Si"
+                },
+                "volanta": {
+                    "display": true,
+                    "text": "Análisis."
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/xr_CI2P8nOYW9P_lgPOHASWmr2o=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/O5V6FLW4BZGU5BHHB5EDVBB4XM.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/dSL5x6N4_DkpFOilUoZoizrO3hM=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/O5V6FLW4BZGU5BHHB5EDVBB4XM.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/Lg1A4i709gwfYJbqFzBoo_WZsLs=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/O5V6FLW4BZGU5BHHB5EDVBB4XM.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/xr_CI2P8nOYW9P_lgPOHASWmr2o=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/O5V6FLW4BZGU5BHHB5EDVBB4XM.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/Hzrb6kBu-e936ajP5cTJSZlI73c=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/O5V6FLW4BZGU5BHHB5EDVBB4XM.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2022-11-03T11:57:26.612Z",
+            "related_content": {
+                "basic": [
+                    {
+                        "_id": "MQ5AFHTEWNDW3NJGIKNPWIBVZA",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "YWBRDVCQDBC6LMX3JYUXT3KX2I",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "MUJXONMNHJF7JFFYVH3BVXHUMA",
+                        "type": "story"
+                    }
+                ]
+            },
+            "subheadlines": {
+                "basic": "Los líderes de Juntos por el Cambio no advierten que la escena política se está despolarizando y creen que sus seguidores los van a disculpar porque del otro lado está Cristina Kirchner"
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/politica",
+                    "additional_properties": {
+                        "original": {}
+                    },
+                    "name": "Política",
+                    "path": "/politica"
+                },
+                "tags": [
+                    {
+                        "slug": "alberto-fernandez-tid849",
+                        "text": "Alberto Fernández"
+                    },
+                    {
+                        "slug": "cristina-kirchner-tid988",
+                        "text": "Cristina Kirchner"
+                    },
+                    {
+                        "slug": "sergio-massa-tid1847",
+                        "text": "Sergio Massa"
+                    }
+                ]
+            },
+            "website_url": "/politica/la-trompada-que-amenaza-a-juntos-por-el-cambio-nid02112022/"
+        },
+        {
+            "_id": "L7KS4HZZEZD2JG3YI6XFVPMY64",
+            "content_elements": [
+                {
+                    "content": "Muchas veces <b>es más fácil entenderse a uno mismo mirando a otros</b>. Los rasgos y las peculiaridades que caracterizan a alguien se ven más nítidamente en el espejo de otro. El espejo de Brasil nos puede permitir observar similitudes y, como en toda comparación, diferencias.",
+                    "type": "text"
+                }
+            ],
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "_id": "carlos-pagni-81",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                                }
+                            ],
+                            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                        },
+                        "name": "Carlos Pagni",
+                        "slug": "carlos-pagni-81",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2022-11-01T06:44:39.011Z",
+            "headlines": {
+                "basic": "En el espejo de Brasil",
+                "mobile": "En el espejo de Brasil"
+            },
+            "label": {
+                "enviar_a_apps": {
+                    "text": "Si"
+                },
+                "recomendar": {
+                    "text": "Si"
+                },
+                "volanta": {
+                    "display": true,
+                    "text": "Análisis."
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/xsKDsKjmXnqFN-SXqMp6kUcnVHc=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3YJU46EFHBCSXALC6ACF2DKDXQ.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/-Upnqeaua-ESKKDYnGx0KTHW4g0=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3YJU46EFHBCSXALC6ACF2DKDXQ.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/m-63q2BDyH5hb433P88YBk03bjo=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3YJU46EFHBCSXALC6ACF2DKDXQ.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/xsKDsKjmXnqFN-SXqMp6kUcnVHc=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3YJU46EFHBCSXALC6ACF2DKDXQ.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/Wbj1lDs-WQ5PB-vYqZhgmXUvnL8=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3YJU46EFHBCSXALC6ACF2DKDXQ.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2022-11-01T14:16:14.977Z",
+            "related_content": {
+                "basic": [
+                    {
+                        "_id": "DE2PHGD7DJC2ZNO67VYF4X2I5E",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "ZUZHZK4N5JCVXDUD4RYLCPDZPE",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "UCPBKHZU4RDR5B4B5WRBQHTUPU",
+                        "type": "story"
+                    }
+                ]
+            },
+            "subheadlines": {
+                "basic": "La polarización extrema: el otro como enemigo que no merece garantías; novedades sobre el espionaje a Cristina Kirchner; ¿Quién lidera al antikirchnerismo?; el dilema de las PASO"
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/lnmas",
+                    "additional_properties": {
+                        "original": {
+                            "style": {
+                                "section_style_name": "ln-mas"
+                            }
+                        }
+                    },
+                    "name": "LN+",
+                    "path": "/lnmas"
+                },
+                "tags": [
+                    {
+                        "slug": "odisea-argentina-tid59697",
+                        "text": "Odisea Argentina"
+                    },
+                    {
+                        "slug": "ln-tid58215",
+                        "text": "LN+"
+                    },
+                    {
+                        "slug": "cristina-kirchner-tid988",
+                        "text": "Cristina Kirchner"
+                    },
+                    {
+                        "slug": "lula-da-silva-tid1565",
+                        "text": "Lula da Silva"
+                    },
+                    {
+                        "slug": "alberto-fernandez-tid849",
+                        "text": "Alberto Fernández"
+                    },
+                    {
+                        "slug": "dilma-rousseff-tid47918",
+                        "text": "Dilma Rousseff"
+                    },
+                    {
+                        "slug": "brasil-tid911",
+                        "text": "Brasil"
+                    },
+                    {
+                        "slug": "elecciones-en-brasil-tid51970",
+                        "text": "Elecciones en Brasil"
+                    },
+                    {
+                        "slug": "sergio-massa-tid1847",
+                        "text": "Sergio Massa"
+                    }
+                ]
+            },
+            "website_url": "/lnmas/en-el-espejo-de-brasil-nid01112022/"
+        },
+        {
+            "_id": "R32T2FCYJFEUNMTT2J2KOQBVIU",
+            "content_elements": [
+                {
+                    "content": "La <b>normalización de la economía argentina</b> reclama medidas alrededor de las cuales no existe demasiada discusión. Entre otras cosas porque,<b> cuando las distorsiones son disparatadas, las terapias no dejan espacio a la originalidad</b>. La verdadera incógnita que aparece en el futuro <mark class=\"hl_yellow\">no es, entonces, qué. Es cómo</mark>. Dicho de otro modo: se trata de saber con qué instrumental político contará la sociedad para encarar una agenda acerca de la cual existe bastante coincidencia. Hoy más que nunca la pregunta está referida a la política, a su consistencia, a su capacidad de intervenir sobre las inercias de la historia. Saber eso es mucho más imprescindible que conocer la receta técnica. Si se lo observa a la luz de esta premisa, <mark class=\"hl_yellow\">el tratamiento del presupuesto nacional en la Cámara de Diputados presenta una radiografía muy preocupante</mark>. Porque a las <b>impericias del oficialismo</b>, que son demasiado conocidas, se agregaron las<b> miserias de la oposición</b>. El estado de dispersión fue inocultable. Anoche se dio un paso más hacia esa <b>balcanización</b>: aliados del kirchnerismo presentaron un <a href=\"https://www.lanacion.com.ar/politica/diputados-aliados-al-oficialismo-presentaron-finalmente-el-proyecto-para-derogar-las-paso-nid26102022/\" target=\"_blank\">proyecto de ley</a> para <b>eliminar las primarias obligatorias</b>. Un agradecimiento del oficialismo a los diputados que le ayudaron a aprobar el presupuesto.",
+                    "type": "text"
+                }
+            ],
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "_id": "carlos-pagni-81",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                                }
+                            ],
+                            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                        },
+                        "name": "Carlos Pagni",
+                        "slug": "carlos-pagni-81",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2022-10-27T06:35:05.972Z",
+            "headlines": {
+                "basic": "Impericias oficialistas y miserias opositoras",
+                "mobile": "Impericias oficialistas y miserias opositoras"
+            },
+            "label": {
+                "enviar_a_apps": {
+                    "text": "Si"
+                },
+                "recomendar": {
+                    "text": "Si"
+                },
+                "volanta": {
+                    "display": true,
+                    "text": "Análisis."
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/LiQYhpHeP8G8MtrTHSNnLMoVJ_w=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/J7BCZPBWO5ERZEVMFPCVYIUIJI.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/qH8Nu25TP_ICDGfqkv4iWRjnR6Y=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/J7BCZPBWO5ERZEVMFPCVYIUIJI.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/ALXeOmtlr3oKtCPM8aXkwH9Mwr0=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/J7BCZPBWO5ERZEVMFPCVYIUIJI.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/LiQYhpHeP8G8MtrTHSNnLMoVJ_w=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/J7BCZPBWO5ERZEVMFPCVYIUIJI.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/OnHkFFmjlcq_AvKLWH4N9GroXi8=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/J7BCZPBWO5ERZEVMFPCVYIUIJI.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2022-10-27T10:19:54.306Z",
+            "related_content": {
+                "basic": [
+                    {
+                        "_id": "SBZXLCQ7KRGTHPCRBBSFNO4DLI",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "23GNFWSWSBAD5J45FR7VZK4Z2M",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "SE64253KKBEIBPLJI5VBTPA66Q",
+                        "type": "story"
+                    }
+                ]
+            },
+            "subheadlines": {
+                "basic": "El tratamiento del presupuesto en la Cámara de Diputados presenta una radiografía de la política muy preocupante para el futuro de la economía"
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/politica",
+                    "additional_properties": {
+                        "original": {}
+                    },
+                    "name": "Política",
+                    "path": "/politica"
+                },
+                "tags": [
+                    {
+                        "slug": "presupuesto-2023",
+                        "text": "Presupuesto 2023"
+                    },
+                    {
+                        "slug": "juntos-por-el-cambio-tid66746",
+                        "text": "Juntos por el cambio"
+                    },
+                    {
+                        "slug": "frente-de-todos-tid66805",
+                        "text": "Frente de Todos"
+                    }
+                ]
+            },
+            "website_url": "/politica/impericias-oficialistas-y-miserias-opositoras-nid26102022/"
+        },
+        {
+            "_id": "DRICUYLLJFGPFHBN4TDL5FM5AI",
+            "content_elements": [
+                {
+                    "content": "Vamos a señalar algunos movimientos que se están registrando en la política en estos días y pueden parecer intrascendentes. Por ejemplo, el ministro de Hábitat, <b>Jorge Ferraresi</b> se retira del gabinete y vuelve a Avellaneda, de la que es intendente, o lo era con pedido de licencia. Otro ministro, el de Desarrollo Social, <b>Juan Zabaleta</b>, le dejó su lugar a <b>Victoria Tolosa Paz</b> para volver a la intendencia de Hurlingham que había dejado -riesgosamente para él- en manos de La Cámpora al asumir el Ministerio. <b>Juan Manzur</b> deja nada menos que la Jefatura de Gabinete de Ministros para volver a Tucumán, intentando encontrar la vicegobernación su provincia. Si uno mira a <b>Cristina y Máximo Kirchner</b>, va a ver que están pensando la política casi reduciendo el drama a la provincia de Buenos Aires. Ese es el ajedrez que les interesa. Y <b>Axel Kicillof</b> intenta que no lo tomen como un activo para proyectarlo en la escena nacional como candidato a presidente e insistir en cambio con la reelección bonaerense. Todo esto que acabo de enumerar se da en el oficialismo, en el Frente de Todos.",
+                    "type": "text"
+                }
+            ],
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "_id": "carlos-pagni-81",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                                }
+                            ],
+                            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                        },
+                        "name": "Carlos Pagni",
+                        "slug": "carlos-pagni-81",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2022-10-25T06:16:10.914Z",
+            "headlines": {
+                "basic": "Los políticos se repliegan por el miedo a un tsunami electoral",
+                "mobile": "Los políticos se repliegan por el miedo a un tsunami electoral"
+            },
+            "label": {
+                "enviar_a_apps": {
+                    "text": "Si"
+                },
+                "recomendar": {
+                    "text": "Si"
+                },
+                "volanta": {
+                    "display": true,
+                    "text": "Análisis."
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/Oku-YzCran4jmPmRV7-PPKlRRxk=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/B6ZYGOAGZBFWTLBIK36WKJQP5U.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/_dHcYNSMqK1w0zrfq69-3VnQ-bM=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/B6ZYGOAGZBFWTLBIK36WKJQP5U.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/CuFt_tmYnLX507yEXxeBP8rGP7E=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/B6ZYGOAGZBFWTLBIK36WKJQP5U.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/Oku-YzCran4jmPmRV7-PPKlRRxk=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/B6ZYGOAGZBFWTLBIK36WKJQP5U.jpg"
+                        }
+                    ],
+                    "subtitle": "De Mauricio Macri a Alberto Fernández o, incluso, Cristina Kirchner, todo el mundo político despidió a Quino",
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/CPjTktqIsldFKfbXEtXeKf8eyfg=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/B6ZYGOAGZBFWTLBIK36WKJQP5U.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2022-10-25T13:05:00.728Z",
+            "related_content": {
+                "basic": [
+                    {
+                        "_id": "QOYBUXWFCVBPTFBWZMCJAS5NR4",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "YPW5U3L5TRCVLFHHUK774CMWAQ",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "ZJWXJAQ765DN7B4SCTLE45H7LU",
+                        "type": "story"
+                    }
+                ]
+            },
+            "subheadlines": {
+                "basic": "Desde Cristina Kirchner hasta Mauricio Macri, los líderes hoy buscan seguridad en su propio territorio; es el temor a una rebelión de indiferencia; esa debilidad se agravaría si se suspenden las PASO"
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/politica",
+                    "additional_properties": {
+                        "original": {}
+                    },
+                    "name": "Política",
+                    "path": "/politica"
+                },
+                "tags": [
+                    {
+                        "slug": "nota-de-opinion-tid54045",
+                        "text": "Nota de Opinion"
+                    },
+                    {
+                        "slug": "cristina-kirchner-tid988",
+                        "text": "Cristina Kirchner"
+                    },
+                    {
+                        "slug": "mauricio-macri-tid447",
+                        "text": "Mauricio Macri"
+                    },
+                    {
+                        "slug": "alberto-fernandez-tid849",
+                        "text": "Alberto Fernández"
+                    },
+                    {
+                        "slug": "maximo-kirchner-tid48401",
+                        "text": "Máximo Kirchner"
+                    }
+                ]
+            },
+            "website_url": "/politica/los-politicos-se-repliegan-por-el-miedo-a-un-tsunami-electoral-nid25102022/"
+        },
+        {
+            "_id": "QARPMBTZZZBZZPULTRXTB3BXEQ",
+            "content_elements": [
+                {
+                    "content": "Maquiavelo enseñó que uno de los factores del éxito político es la <b>fortuna</b>. No se refería a la suerte, que tiene que ver con el azar. Para él, “fortuna” estaba más cerca del sentido de la oportunidad. <b>La sensibilidad para relacionarse con el tiempo, que es uno de los grandes misterios de la política</b>. <mark class=\"hl_yellow\">Alberto Fernández decidió que </mark><a href=\"https://www.lanacion.com.ar/politica/el-presidente-definio-los-cambios-junto-a-sus-intimos-dejo-un-tendal-de-enojos-pero-nadie-jugo-a-nid10102022/\" target=\"_blank\"><mark class=\"hl_yellow\">llegó el momento</mark></a><mark class=\"hl_yellow\"> de romper con quien fuera su impulsora, Cristina Kirchner</mark>. Podría haberlo hecho, como aconsejaba Maquiavelo, apenas llegó a la Casa Rosada. Tuvo otra oportunidad en la cúspide de su popularidad, durante la pandemia. La derrota en las primarias, cuando renunciaron los funcionarios de La Cámpora, pudo haber sido otro momento. O cuando la vicepresidenta lideró el rechazo al acuerdo con el Fondo Monetario Internacional, qué el había celebrado. Pero Fernández <b>procrastinó </b>también para resolver esta tensión. <mark class=\"hl_yellow\">Pensó que que ahora, sin dólares y con una inflación que camina hacia el 100%, era el momento en que la creatura debía sublevarse contra la creadora</mark>.",
+                    "type": "text"
+                }
+            ],
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "_id": "carlos-pagni-81",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                                }
+                            ],
+                            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                        },
+                        "name": "Carlos Pagni",
+                        "slug": "carlos-pagni-81",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2022-10-13T15:10:12.783Z",
+            "headlines": {
+                "basic": "Alberto Fernández eligió el peor momento para fundar el albertismo",
+                "mobile": "Fernández eligió el peor momento para fundar el albertismo"
+            },
+            "label": {
+                "enviar_a_apps": {
+                    "text": "Si"
+                },
+                "recomendar": {
+                    "text": "Si"
+                },
+                "volanta": {
+                    "display": true,
+                    "text": "Análisis."
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/niKLxUoagBft13jcLstX4IQlj4M=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/L67M3YFVURBFBOQCNXJ745GAQ4.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/LgI_jQrQG_OKVL_vN5xZXmoSR1Q=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/L67M3YFVURBFBOQCNXJ745GAQ4.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/2-Zbp-y6BwX9q1ujEeFG1XRt48I=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/L67M3YFVURBFBOQCNXJ745GAQ4.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/niKLxUoagBft13jcLstX4IQlj4M=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/L67M3YFVURBFBOQCNXJ745GAQ4.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/rOCPY1DcjwOKcSdRXmPkqBTyaOY=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/L67M3YFVURBFBOQCNXJ745GAQ4.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2022-10-13T15:10:12.783Z",
+            "related_content": {
+                "basic": [
+                    {
+                        "_id": "SBJJYNIXA5DM5D26WH5O4LOWLQ",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "WJLOREP3WFH2JJJMPDT35GNSYI",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "2ZWVIFDMXJEWBOMVK6IDGXO34A",
+                        "type": "story"
+                    }
+                ]
+            },
+            "subheadlines": {
+                "basic": "El Presidente procrastinó y decidió romper con Cristina Kirchner ahora, cuando no tiene dólares y con una inflación que camina hacia el 100%"
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/politica",
+                    "additional_properties": {
+                        "original": {}
+                    },
+                    "name": "Política",
+                    "path": "/politica"
+                },
+                "tags": [
+                    {
+                        "slug": "alberto-fernandez-tid849",
+                        "text": "Alberto Fernández"
+                    },
+                    {
+                        "slug": "cristina-kirchner-tid988",
+                        "text": "Cristina Kirchner"
+                    },
+                    {
+                        "slug": "sergio-massa-tid1847",
+                        "text": "Sergio Massa"
+                    }
+                ]
+            },
+            "website_url": "/politica/alberto-fernandez-eligio-el-peor-momento-para-fundar-el-albertismo-nid12102022/"
+        },
+        {
+            "_id": "NQR6R5OT5RECLNLTGY3SI5NCHA",
+            "content_elements": [
+                {
+                    "content": "Comentábamos hace pocos días que un experto en investigaciones de opinión pública con <i>focus groups</i> -que trata de indagar en cuál es la imagen que tiene la gente en su cabeza respecto de la política, de la vida pública y no tanto la cantidad de votos o los niveles de imagen que puede tener cada actor-, le pregunta a aquellos a los que estaba interrogando qué pasa con la política en la Argentina. ¿Por qué se lo pregunta? Porque se sorprendió de que la gente con la que él estaba conversando empezaba a hablar y al poco tiempo lloraba. Lloraba porque no tenía la posibilidad de llevar a su hijo al cine cuando salía de paseo. Lloraba porque tenía que decirle a su hija que tenía que retirarla de la universidad privada a la que le estaba mandando por no poder pagarla. Lloraba porque, a lo mejor, no veía a sus nietos durante mucho tiempo porque su hija o hijo se iban del país. <b>Hay un estado de pesadumbre, de desasosiego muy marcado</b>.",
+                    "type": "text"
+                }
+            ],
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "_id": "carlos-pagni-81",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                                }
+                            ],
+                            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                        },
+                        "name": "Carlos Pagni",
+                        "slug": "carlos-pagni-81",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2022-10-11T06:14:33.840Z",
+            "headlines": {
+                "basic": "Ya está desatada la lucha por 2023",
+                "mobile": "Ya está desatada la lucha por 2023"
+            },
+            "label": {
+                "enviar_a_apps": {
+                    "text": "Si"
+                },
+                "recomendar": {
+                    "text": "Si"
+                },
+                "volanta": {
+                    "display": true,
+                    "text": "Análisis."
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/S3k2x6Un65qbd9Tdm-Gobw1fFys=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/U6MB6BMGL5CQDPZBWZTER4AN64.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/-1uaOogAoLyNsSlgzkRdqMlU-XI=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/U6MB6BMGL5CQDPZBWZTER4AN64.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/6-h9XhUFIzwcet6DF8GATrM9kxI=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/U6MB6BMGL5CQDPZBWZTER4AN64.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/S3k2x6Un65qbd9Tdm-Gobw1fFys=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/U6MB6BMGL5CQDPZBWZTER4AN64.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/D5r07S5HuSHT9WJ_iRR9TF95jaw=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/U6MB6BMGL5CQDPZBWZTER4AN64.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2022-10-11T15:01:10.105Z",
+            "related_content": {
+                "basic": [
+                    {
+                        "_id": "J4T2MD7AKRDL5CWRZ4UKN7J3RM",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "QTMOI5JI2RBWVLMHATJULZUJM4",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "MLJSPCMHQ5CM7FRXC6YQHQOD7E",
+                        "type": "story"
+                    }
+                ]
+            },
+            "subheadlines": {
+                "basic": "Los cambios en el Gabinete son parte de un movimiento de Fernández para disputar el poder a los Kirchner; Larreta enfrenta por primera vez a Macri; un FMI complaciente espera que los ajustes los haga el próximo gobierno"
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/politica",
+                    "additional_properties": {
+                        "original": {}
+                    },
+                    "name": "Política",
+                    "path": "/politica"
+                },
+                "tags": [
+                    {
+                        "slug": "nota-de-opinion-tid54045",
+                        "text": "Nota de Opinion"
+                    },
+                    {
+                        "slug": "odisea-argentina-tid59697",
+                        "text": "Odisea Argentina"
+                    },
+                    {
+                        "slug": "alberto-fernandez-tid849",
+                        "text": "Alberto Fernández"
+                    },
+                    {
+                        "slug": "cristina-kirchner-tid988",
+                        "text": "Cristina Kirchner"
+                    },
+                    {
+                        "slug": "sergio-massa-tid1847",
+                        "text": "Sergio Massa"
+                    },
+                    {
+                        "slug": "mauricio-macri-tid447",
+                        "text": "Mauricio Macri"
+                    },
+                    {
+                        "slug": "horacio-rodriguez-larreta-tid48170",
+                        "text": "Horacio Rodríguez Larreta"
+                    },
+                    {
+                        "slug": "elecciones-2023",
+                        "text": "Elecciones 2023"
+                    }
+                ]
+            },
+            "website_url": "/politica/ya-esta-desatada-la-lucha-por-2023-nid11102022/"
+        },
+        {
+            "_id": "KVJS7W2BQJDIDI7UNNHL2HLJR4",
+            "content_elements": [
+                {
+                    "content": "El doctor <mark class=\"hl_yellow\">Facundo Manes practicó una cirugía a cielo abierto en Juntos por el Cambio</mark>, aferrado a un instrumental inesperado: el <b>amateurismo </b>y la <b>impericia</b>. <b>Recordó lo obvio: que durante el gobierno de Mauricio Macri se practicó el espionaje clandestino. Y que Macri se sirvió de operadores judiciales</b>. No aportó un solo dato nuevo. Tal vez no conozca siquiera los datos conocidos. La crónica periodística y las causas judiciales están plagadas de evidencias sobre la inteligencia irregular. Igual que existen informaciones inapelables sobre la existencia de gestores del poder en Tribunales. <b>Elisa Carrió</b>, sin ir más lejos, los denunció desde temprano. Sin embargo, Manes, al mencionarlo con total ingenuidad, introdujo a toda esa alianza en una situación de <b>extraordinaria incomodidad</b>. Encarnó el rol que los demás esperan de él: el de un <i>outsider</i>. <mark class=\"hl_yellow\">Pero se metió con un tabú</mark>. E indujo una reacción corporativa. El resto quedó, frente a ese <i>outsider</i>, como una casta. Los que le reclaman que encarne una renovación, tal vez no le pedían tanto.",
+                    "type": "text"
+                }
+            ],
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "_id": "carlos-pagni-81",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                                }
+                            ],
+                            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                        },
+                        "name": "Carlos Pagni",
+                        "slug": "carlos-pagni-81",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2022-10-06T07:02:19.821Z",
+            "headlines": {
+                "basic": "Una cirugía a cielo abierto sobre Juntos por el Cambio y los servicios de inteligencia",
+                "mobile": "Una cirugía a cielo abierto sobre Juntos por el Cambio y los servicios de inteligencia"
+            },
+            "label": {
+                "enviar_a_apps": {
+                    "text": "Si"
+                },
+                "recomendar": {
+                    "text": "Si"
+                },
+                "volanta": {
+                    "display": true,
+                    "text": "Análisis."
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/7ZS-nUswfAYr_RNdtGCyZgDq08w=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/POVVU7FHHVBADEKZEFHSC25PWE.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/WD9ujgXzmoUEyL_Nhb56A4zBLf8=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/POVVU7FHHVBADEKZEFHSC25PWE.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/39IHRsC_4iDN1qqMo5WmNg_-bS0=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/POVVU7FHHVBADEKZEFHSC25PWE.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/7ZS-nUswfAYr_RNdtGCyZgDq08w=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/POVVU7FHHVBADEKZEFHSC25PWE.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/t0wTARrtIPQGVGST73GqvZKlJFs=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/POVVU7FHHVBADEKZEFHSC25PWE.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2022-10-06T12:05:54.742Z",
+            "related_content": {
+                "basic": [
+                    {
+                        "_id": "MMCOAUQBUVDQNJSMCFOLVK2ZJQ",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "MSCB5KGQSBGFBHMUETVIPU3YVY",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "4IB32Y22ZBA5JLIV3XT5TF53HY",
+                        "type": "story"
+                    }
+                ]
+            },
+            "subheadlines": {
+                "basic": "Manes introdujo a toda la alianza opositora en una situación de extraordinaria incomodidad; encarnó el rol que los demás esperan de él, un outsider, pero se metió con un tabú"
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/politica",
+                    "additional_properties": {
+                        "original": {}
+                    },
+                    "name": "Política",
+                    "path": "/politica"
+                },
+                "tags": [
+                    {
+                        "slug": "facundo-manes-tid59903",
+                        "text": "Facundo Manes"
+                    },
+                    {
+                        "slug": "mauricio-macri-tid447",
+                        "text": "Mauricio Macri"
+                    },
+                    {
+                        "slug": "afi-tid53230",
+                        "text": "AFI"
+                    }
+                ]
+            },
+            "website_url": "/politica/una-cirugia-a-cielo-abierto-sobre-los-servicios-de-inteligencia-nid05102022/"
+        },
+        {
+            "_id": "RIHWCZ63HBEU5OSUVCTFDCAOCI",
+            "content_elements": [
+                {
+                    "content": "La geografía, igual que la Historia, nos condiciona, nos determina. Por eso <b>es importante para la Argentina lo que sucede en Brasil</b>. Estamos condenados a estar juntos. Obviamente, hay otras razones. Una de ellas es la dimensión que tiene Brasil en nuestra región, donde es el país más importante, más voluminoso y más decisivo. Si uno mira el mapa, salvo con Ecuador y con Chile, Brasil limita con todos los países de Sudamérica. Es decir, <b>lo que pasa allí nos pasa a todos</b>. Pero, además, hay otras dos razones por las cuales es relevante mirar lo que está sucediendo en la política brasileña con las elecciones.",
+                    "type": "text"
+                }
+            ],
+            "content_restrictions": {
+                "content_code": "comun"
+            },
+            "credits": {
+                "by": [
+                    {
+                        "_id": "carlos-pagni-81",
+                        "additional_properties": {
+                            "original": {
+                                "image": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                                }
+                            ],
+                            "url": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                        },
+                        "name": "Carlos Pagni",
+                        "slug": "carlos-pagni-81",
+                        "type": "author"
+                    }
+                ]
+            },
+            "display_date": "2022-10-04T07:10:17.812Z",
+            "headlines": {
+                "basic": "El mensaje de Brasil para la Argentina",
+                "mobile": "El mensaje de Brasil para la Argentina"
+            },
+            "label": {
+                "enviar_a_apps": {
+                    "text": "Si"
+                },
+                "recomendar": {
+                    "text": "Si"
+                },
+                "volanta": {
+                    "display": true,
+                    "text": "Análisis."
+                }
+            },
+            "promo_items": {
+                "basic": {
+                    "height": 513,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 240,
+                                "media": "(min-width: 1024px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/p8PBwqHyeUy8m_EuSk42Mw_8ASw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/JYGIXUJDCFHXNKOHONQJTZXQL4.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/V7KOM26wfi1gpsAWmtwwRfBUDJk=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/JYGIXUJDCFHXNKOHONQJTZXQL4.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 234,
+                                "width": 351
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/yIRnp7zxgMzXipZLL3hJKprSVmg=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/JYGIXUJDCFHXNKOHONQJTZXQL4.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/p8PBwqHyeUy8m_EuSk42Mw_8ASw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/JYGIXUJDCFHXNKOHONQJTZXQL4.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/0zf0p51FihJeJRoySAVPUGZDjaM=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/JYGIXUJDCFHXNKOHONQJTZXQL4.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2022-10-04T11:29:49.086Z",
+            "related_content": {
+                "basic": [
+                    {
+                        "_id": "RKEF6BPL3BHNBDYEDUG6HJ54KA",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "V6WKTAFRN5D27K4XTVB43C5UM4",
+                        "type": "story"
+                    },
+                    {
+                        "_id": "HSE3BEPMLVFW3IFVG2IVZTZQME",
+                        "type": "story"
+                    }
+                ]
+            },
+            "subheadlines": {
+                "basic": "La clase política local se mira en los espejos de Bolsonaro y Lula; Cristina y Máximo Kirchner empiezan a ponerle límites a Massa y complican su estrategia con el Fondo; la controversia italiana de Angelici que lanza una sombra sobre las elecciones porteñas"
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/politica",
+                    "additional_properties": {
+                        "original": {}
+                    },
+                    "name": "Política",
+                    "path": "/politica"
+                },
+                "tags": [
+                    {
+                        "slug": "nota-de-opinion-tid54045",
+                        "text": "Nota de Opinion"
+                    },
+                    {
+                        "slug": "brasil-tid911",
+                        "text": "Brasil"
+                    },
+                    {
+                        "slug": "argentina-tid434",
+                        "text": "Argentina"
+                    },
+                    {
+                        "slug": "jair-bolsonaro-tid65432",
+                        "text": "Jair Bolsonaro"
+                    },
+                    {
+                        "slug": "lula-da-silva-tid1565",
+                        "text": "Lula da Silva"
+                    },
+                    {
+                        "slug": "cristina-kirchner-tid988",
+                        "text": "Cristina Kirchner"
+                    },
+                    {
+                        "slug": "mauricio-macri-tid447",
+                        "text": "Mauricio Macri"
+                    },
+                    {
+                        "slug": "daniel-angelici-tid49739",
+                        "text": "Daniel Angelici"
+                    },
+                    {
+                        "slug": "axel-kicillof-tid47542",
+                        "text": "Axel Kicillof"
+                    },
+                    {
+                        "slug": "sergio-massa-tid1847",
+                        "text": "Sergio Massa"
+                    }
+                ]
+            },
+            "website_url": "/politica/el-mensaje-de-brasil-para-la-argentina-nid04102022/"
+        }
+    ],
+    "next": 24,
+    "type": "results"
+}
