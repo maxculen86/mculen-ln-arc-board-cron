@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { useContent as getContent } from 'fusion:content';
-import StaticValidation from '../../../private/common/staticValidation';
 import CajaTema from '../../../private/LN/common/cajaTema';
 import {
     getRankingProps,
@@ -12,8 +11,8 @@ import {
 } from './_helper';
 import StaticContent from '../../../private/common/staticContent';
 import '../../../../resources/dist/css/ln/components/ranking.css';
-import { productClickFromClient } from '../../../private/common/utils/viewability';
 import checkHydrateOnly from '../../../private/LN/common/utils/checkHydrateOnly';
+import articleBoxesTracker from '../../../private/common/utils/noteTracker/articleBoxesTracker';
 
 const getDataContent = (
     sectionId,
@@ -48,7 +47,7 @@ const RankingFeature = ({ id: featureId }) => {
         globalContent = {}
     } = useAppContext();
 
-    const { node_type: nodeType } = globalContent;
+    const { node_type: nodeType, type } = globalContent;
 
     const hasHydrateOnly = checkHydrateOnly({ layout, nodeType });
 
@@ -72,6 +71,12 @@ const RankingFeature = ({ id: featureId }) => {
         ) || {};
 
     const customTitle = name ? `Más leídas de ${name}` : 'Más leídas';
+    useEffect(() => {
+        type === 'story' &&
+            articleBoxesTracker({
+                boxType: 'ranking'
+            });
+    }, [type]);
 
     const component = articles && articles.length && (
         <CajaTema
@@ -87,13 +92,10 @@ const RankingFeature = ({ id: featureId }) => {
             withVolanta
             layout={rankingLayout}
             isHome={isHome}
-            handleClick={productClickFromClient}
         />
     );
 
-    const sectionRanking = (component && (
-        <StaticValidation id={featureId}>{component}</StaticValidation>
-    )) || <></>;
+    const sectionRanking = component || <></>;
 
     return hasHydrateOnly ? (
         <StaticContent>{component}</StaticContent>
@@ -103,6 +105,7 @@ const RankingFeature = ({ id: featureId }) => {
 };
 
 RankingFeature.label = 'LN-Common-Ranking';
+RankingFeature.lazy = true;
 
 RankingFeature.propTypes = {
     id: PropTypes.string.isRequired,
