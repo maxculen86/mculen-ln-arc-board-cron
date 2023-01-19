@@ -11,7 +11,7 @@ import getSections from '../utils/getSections';
 import getBannerPositionbySection from '../utils/getBannerPositionbySection';
 import getBannerbyPosition from '../utils/getBannerbyPosition';
 import getTypesbyContainer from '../utils/getTypesbyContainer';
-import getSectionAliasbyFeature from '../utils/getSectionAliasbyFeature';
+import getSectionAliasbyFeatureOrChain from '../utils/getSectionAliasbyFeatureOrChain';
 import getToMovePosition from '../utils/getToMovePosition';
 import getDiagramations from '../utils/getDiagramations';
 
@@ -46,10 +46,12 @@ const setTypeElement = information => {
 
     return 0;
 };
-const setSectionAliasbyFeature = (information, sectionMobile) => {
-    if (information && information.nameFeature) {
-        const sectionAliasbyFeature = getSectionAliasbyFeature(
-            information.nameFeature
+const setSectionAliasbyFeatureOrChain = (information, sectionMobile) => {
+    if (information && (information.nameFeature || information.nameChain)) {
+        const sectionAliasbyFeature = getSectionAliasbyFeatureOrChain(
+            information.nameFeature == null
+                ? information.nameChain
+                : information.nameFeature
         );
         return sectionAliasbyFeature == null
             ? sectionMobile
@@ -242,11 +244,7 @@ const addProperties = (sectionChildren, elements, diagramations) => {
                             // Matches the diagrmation of the article or child
                             const configDiagramationChild =
                                 configDiagramation &&
-                                configDiagramation.find(
-                                    ch =>
-                                        ch &&
-                                        ch.typeOrder === nameIndexforDiagrmation
-                                );
+                                configDiagramation[nameIndexforDiagrmation];
                             // Temporary code.  Only for test Diagramations
                             // if (configDiagramation) {
                             //     console.log('diagrmation finded');
@@ -271,16 +269,7 @@ const addProperties = (sectionChildren, elements, diagramations) => {
                                     ...a,
                                     additionalProperties: {
                                         ...get(a, 'additionalProperties', null),
-                                        typeOrder: get(
-                                            configDiagramationChild,
-                                            'typeOrder',
-                                            null
-                                        ),
-                                        dimension: get(
-                                            configDiagramationChild,
-                                            'size',
-                                            null
-                                        ),
+                                        diagramations: configDiagramationChild,
                                         nameFeature: childrenArticle.type,
                                         idRender: get(
                                             childrenArticle,
@@ -401,7 +390,7 @@ const getPageElements = props => {
                                     ) {
                                         return res.concat({
                                             type: setTypeElement(b.information),
-                                            sectionAliasMobile: setSectionAliasbyFeature(
+                                            sectionAliasMobile: setSectionAliasbyFeatureOrChain(
                                                 b.information,
                                                 sectionMobile
                                             ),

@@ -1,20 +1,33 @@
 {
-    "aperturax4": [
-        {
-            "typeOrder": "T1",
-            "size": "M"
-        },
-        {
-            "typeOrder": "T2",
-            "size": "M"
-        },
-        {
-            "typeOrder": "T3",
-            "size": "M"
-        },
-        {
-            "typeOrder": "T4",
-            "size": "M"
+    "focalLeft3": {
+        "T1": {
+            "articuloTamano": "XL",
+            "articuloImgPosicion": "Top"
         }
-    ]
+    },
+
+    "bombaVertical": {
+        "T1": {
+            "articuloTamano": "XL",
+            "articuloImgPosicion": "Top"
+        }
+    },
+    "aperturax4": {
+        "T1": {
+            "articuloTamano": "M",
+            "articuloImgPosicion": "Top"
+        },
+        "T2": {
+            "articuloTamano": "M",
+            "articuloImgPosicion": "Top"
+        },
+        "T3": {
+            "articuloTamano": "M",
+            "articuloImgPosicion": "Top"
+        },
+        "T4": {
+            "articuloTamano": "M",
+            "articuloImgPosicion": "Top"
+        }
+    }
 }

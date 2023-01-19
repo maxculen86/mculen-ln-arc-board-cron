@@ -1,20 +1,20 @@
 {
-    "grillaUltimasNoticias": [
-        {
-            "typeOrder": "T1",
-            "size": "XL"
+    "grillaUltimasNoticias": {
+        "T1": {
+            "articuloTamano": "M",
+            "articuloImgPosicion": "Top"
         },
-        {
-            "typeOrder": "T2",
-            "size": "M"
+        "T2": {
+            "articuloTamano": "M",
+            "articuloImgPosicion": "Top"
         },
-        {
-            "typeOrder": "T3",
-            "size": "M"
+        "T3": {
+            "articuloTamano": "M",
+            "articuloImgPosicion": "Top"
         },
-        {
-            "typeOrder": "T4",
-            "size": "M"
+        "T4": {
+            "articuloTamano": "M",
+            "articuloImgPosicion": "Top"
         }
-    ]
+    }
 }
