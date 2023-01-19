@@ -88,7 +88,7 @@ const LNNotaReceta = ({ outputType, children }) => {
             </div>
             <LoadBannersSSR />
             <PwaModals />
-            {intersectionObserverForRelatedTags()}
+            {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
 };
