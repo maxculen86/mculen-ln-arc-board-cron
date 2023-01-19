@@ -35,7 +35,6 @@ const lnNotaFotoAl100 = ({
     layout
 }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
-    console.log('🚀 ~ file: LN-nota-foto-al-100.jsx:38 ~ amp', amp);
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
     return (
@@ -82,7 +81,7 @@ const lnNotaFotoAl100 = ({
             </div>
             <LoadBannersSSR />
             <PwaModals />
-            {intersectionObserverForRelatedTags()}
+            {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
 };
