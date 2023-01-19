@@ -3,21 +3,26 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { Opening } from '@ln/contenidos-ui-opening';
-import {
-    cajaTemasCustomsFields,
-    getCommonProps
-} from '../../private/LN/common/utils/cajaTemasHelperLN10';
+import { getCommonProps } from '../../private/LN/common/utils/cajaTemasHelperLN10';
 import StaticContent from '../../private/common/staticContent';
 import getDataChainManual from '../utils/getDataChainManual';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
 import '../../../resources/packages/css/@ln/contenidos-ui-opening/index.css';
 import '../../../resources/dist/css/ln/components/timeline.css';
-import Timeline from '../../private/LN/common/timeline';
-import {
-    setTLDistribution,
-    setTLOrderClass
-} from '../../private/LN/common/utils/timeline';
-import getFeatureByLayout from '../../private/LN/common/utils/getFeatureByLayout';
+import { setFilteredRenderables, setFeaturedChildren } from './_helper';
+
+const featureRules = {
+    hideInitialPosition: true,
+    hideIdCollection: true,
+    hideHideCaja: false,
+    groupName: 'Ajuste Apertura',
+    layouts: {
+        'left-focal': 'Focal Izquierdo',
+        'center-focal': 'Focal Derecho',
+        'focal-70': 'Focal 70'
+    },
+    defaultLayout: 'focalLeft3'
+};
 
 const CajaApertura = props => {
     const {
@@ -37,8 +42,6 @@ const CajaApertura = props => {
         );
 
     const { notesQuantity, classCondition } = getCommonProps(props);
-    const features = renderables.filter(r => r.collection === 'features');
-    const layoutName = 'Timeline';
 
     const { error } = getDataChainManual({
         featureId,
@@ -48,40 +51,8 @@ const CajaApertura = props => {
         layout
     });
 
-    const options = {
-        Timeline: () => {
-            const feature = getFeatureByLayout(features, children, layoutName);
-
-            if (!feature) return null;
-
-            const timeline = setTLDistribution(feature.props.id, children);
-            const orderClass = setTLOrderClass(timeline);
-
-            return (
-                <Timeline
-                    content={timeline.content}
-                    articles={timeline.articles}
-                    orderClass={orderClass}
-                />
-            );
-        }
-    };
-
-    const mainComponent =
-        (options[layoutName] && options[layoutName]()) || null;
-
-    /*     const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
-        layoutName,
-        layout,
-        position,
-        sectionName,
-        positionInsideSection
-    ); */
-
-    // const sectionProps = {
-    //     ...extraOpts,
-    //     className: `box-articles ${classCondition}`
-    // };
+    const features = setFilteredRenderables(renderables, children);
+    const newChildren = setFeaturedChildren(features, children);
 
     if (isAdmin && error) {
         return (
@@ -95,17 +66,7 @@ const CajaApertura = props => {
 
     if (error) return <></>;
 
-    console.log({ notesQuantity });
-
-    const _children = children.map((item, index) => {
-        if (index === children.length - 1) {
-            return mainComponent;
-        }
-
-        return item;
-    });
-
-    return <Opening>{_children}</Opening>;
+    return <Opening focalType="left-focal">{newChildren}</Opening>;
 };
 
 CajaApertura.label = 'LN10 Caja Apertura';
@@ -114,7 +75,13 @@ CajaApertura.propTypes = {
     id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool.isRequired,
     customFields: PropTypes.shape({
-        ...cajaTemasCustomsFields('cajaManual')
+        layout: PropTypes.oneOf(Object.keys(featureRules.layouts)).tag({
+            label: 'Diagramación',
+            defaultValue: featureRules.defaultLayout,
+            description: 'Cambiar el diseño de la caja',
+            group: featureRules.groupName,
+            labels: featureRules.layouts
+        }).isRequired
     }).isRequired
 };
 
