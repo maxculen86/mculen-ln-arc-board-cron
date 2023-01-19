@@ -13,12 +13,13 @@ const addPositionTag = (tag, idexTag) => {
         });
     return true;
 };
-const intersectionObserverForRelatedTags = () => {
+const intersectionObserverForRelatedTags = outputType => {
     return (
-        <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={{
-                __html: `
+        outputType !== 'amp' && (
+            <script
+                type="text/javascript"
+                dangerouslySetInnerHTML={{
+                    __html: `
                 window.addEventListener('DOMContentLoaded', () => {
                     ${checkUserRealoadAction.toString()}
                     const refresh = checkUserRealoadAction(window);
@@ -60,8 +61,9 @@ const intersectionObserverForRelatedTags = () => {
                     }
                 });
                 `
-            }}
-        />
+                }}
+            />
+        )
     );
 };
 
