@@ -11,11 +11,6 @@ import WikiFeature, {
 } from '../../../../components/features/LN-acumulado/wiki/default';
 import mockWikiTagData from '../../../../__mocks__/data/wikiTag/wikiTagData.json';
 
-jest.mock(
-    '../../../../components/private/common/staticValidation',
-    () => 'mock-static-validation'
-);
-
 jest.mock('fusion:context', () => () => ({
     default: props => {
         const mockAvailableProps = {};
@@ -45,12 +40,6 @@ describe('LN-Acumulado-WikiTag test', () => {
         }));
         const { container } = render(<WikiFeature />);
 
-        expect(
-            screen.getByText(
-                (content, element) =>
-                    element.tagName.toLowerCase() === 'mock-static-validation'
-            )
-        ).toBeVisible();
         expect(screen.getByRole('article')).toBeInTheDocument();
         expect(screen.getByRole('img')).toBeInTheDocument();
         expect(screen.getAllByRole('link')).toHaveLength(5);
@@ -101,12 +90,6 @@ describe('LN-Acumulado-WikiTag test', () => {
         }));
         const { container } = render(<WikiFeature />);
 
-        expect(
-            screen.getByText(
-                (content, element) =>
-                    element.tagName.toLowerCase() === 'mock-static-validation'
-            )
-        ).toBeVisible();
         expect(screen.getByRole('article')).toBeInTheDocument();
         expect(screen.getAllByRole('link')).toHaveLength(7);
         expect(container.innerHTML.includes('<div class="social-icons')).toBe(
