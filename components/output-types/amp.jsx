@@ -25,6 +25,7 @@ import FontPreloads from '../private/common/fontsPreloads';
 import { LinkImagePreload } from '../private/LN/common/utils/mediaHelper';
 import replaceUrlResizerToWWW from '../../content/sources/utils/replaceUrlResizerToWWW';
 import { getTitle } from '../private/common/utils/outputTypeHelper';
+import hasNotAMP from './Helper/hasNotAMP';
 
 /**
  * TODO: Resolver el tema de las canonicas
@@ -109,6 +110,8 @@ const Amp = props => {
     );
 
     const { resized_urls: resizedUrls } = basicPromoItems;
+
+    hasNotAMP(layout, requestUri);
 
     return (
         <html amp={String.fromCodePoint(9889)} lang="es">
