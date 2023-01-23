@@ -1,33 +1,88 @@
 {
     "focalLeft3": {
         "T1": {
-            "articuloTamano": "XL",
-            "articuloImgPosicion": "Top"
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
         }
     },
-
-    "bombaVertical": {
+    "aperturafocalLeft": {
         "T1": {
-            "articuloTamano": "XL",
-            "articuloImgPosicion": "Top"
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        },
+        "T2": {
+            "tamano": "L",
+            "imagen_Posicion": "Top"
+        },
+        "T3": {
+            "tamano": "L",
+            "imagen_Posicion": "Top"
+        },
+        "T4": {
+            "tamano": "L",
+            "imagen_Posicion": "Top"
+        },
+        "T5": {
+            "tamano": "L",
+            "imagen_Posicion": "Top"
         }
     },
     "aperturax4": {
         "T1": {
-            "articuloTamano": "M",
-            "articuloImgPosicion": "Top"
+            "tamano": "M",
+            "imagen_Posicion": "Right"
         },
         "T2": {
-            "articuloTamano": "M",
-            "articuloImgPosicion": "Top"
+            "tamano": "M",
+            "imagen_Posicion": "Right"
         },
         "T3": {
-            "articuloTamano": "M",
-            "articuloImgPosicion": "Top"
+            "tamano": "M",
+            "imagen_Posicion": "Right"
         },
         "T4": {
-            "articuloTamano": "M",
-            "articuloImgPosicion": "Top"
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        }
+    },
+    "bombaVertical": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        }
+    },
+    "bombaHorizontal": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        }
+    },
+    "bombita": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "NA"
+        }
+    },
+    "bombitaMas4": {
+        "T1": {
+            "tamano": "M",
+            "imagen_Posicion": "NA"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T3": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T4": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T5": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
         }
     }
 }

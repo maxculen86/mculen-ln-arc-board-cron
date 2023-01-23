@@ -111,8 +111,10 @@ export const articleItem = article => {
     const primarySection = get(article, 'taxonomy.primary_section');
 
     return {
-        ...get(article, 'additionalProperties.diagramations', null),
-        articuloTipo: get(article, 'additionalProperties.layout', 'common'),
+        diseno: {
+            ...get(article, 'additionalProperties.diseno', null),
+            tipo: get(article, 'additionalProperties.layout', 'Comun')
+        },
         id,
         templateId: Number.isInteger(templateId)
             ? templateId.toString()

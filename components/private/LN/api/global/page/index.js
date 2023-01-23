@@ -269,7 +269,7 @@ const addProperties = (sectionChildren, elements, diagramations) => {
                                     ...a,
                                     additionalProperties: {
                                         ...get(a, 'additionalProperties', null),
-                                        diagramations: configDiagramationChild,
+                                        diseno: configDiagramationChild,
                                         nameFeature: childrenArticle.type,
                                         idRender: get(
                                             childrenArticle,

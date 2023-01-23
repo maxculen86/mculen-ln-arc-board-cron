@@ -61,7 +61,7 @@ const featureInformation = (information, section) => {
             tituloCaja: information.title,
             url: information.url,
             chapita: information.chapita,
-            chapitaStyle: information.chapitaStyle
+            chapita_Style: information.chapitaStyle
         };
     }
     return res;
