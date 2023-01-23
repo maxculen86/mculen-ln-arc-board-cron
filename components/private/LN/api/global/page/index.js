@@ -14,6 +14,7 @@ import getTypesbyContainer from '../utils/getTypesbyContainer';
 import getSectionAliasbyFeatureOrChain from '../utils/getSectionAliasbyFeatureOrChain';
 import getToMovePosition from '../utils/getToMovePosition';
 import getDiagramations from '../utils/getDiagramations';
+import getOrderArticlesbyDiagramation from '../utils/getOrderArticlesbyDiagramation';
 
 const checkbyLayout = {
     'LN-acumulado': {
@@ -191,7 +192,51 @@ const setBannersbyPosition = (elements, layoutPage) => {
     return elements;
 };
 
-const addProperties = (sectionChildren, elements, diagramations) => {
+const setPositionArticlesbyDiagramation = (
+    articles,
+    positionsArticlesbyDiagramation,
+    keyDiagramation
+) => {
+    const configMoveArticlesbyDiagramation =
+        positionsArticlesbyDiagramation &&
+        positionsArticlesbyDiagramation[keyDiagramation];
+
+    configMoveArticlesbyDiagramation &&
+        Array.isArray(configMoveArticlesbyDiagramation) &&
+        configMoveArticlesbyDiagramation.map(x => {
+            const indexFromSetArticle =
+                articles &&
+                articles.findIndex(
+                    e =>
+                        x &&
+                        e &&
+                        get(e, 'additionalProperties.originPosition', null) ===
+                            x.keyFrom
+                );
+            const indexToSetArticle =
+                articles &&
+                articles.findIndex(
+                    e =>
+                        x &&
+                        e &&
+                        get(e, 'additionalProperties.originPosition', null) ===
+                            x.keyTo
+                );
+            if (indexToSetArticle > -1 && indexFromSetArticle > -1) {
+                const articleRemoved = articles.splice(indexFromSetArticle, 1);
+                articles.splice(indexToSetArticle, 0, articleRemoved[0]);
+            }
+
+            return true;
+        });
+    return articles;
+};
+const addProperties = (
+    sectionChildren,
+    elements,
+    diagramations,
+    positionsArticlesbyDiagramation
+) => {
     const setInformationInFeature = (render, children, idRenderParent) => {
         return {
             ...render,
@@ -234,53 +279,64 @@ const addProperties = (sectionChildren, elements, diagramations) => {
                     },
                     articles:
                         Array.isArray(e.articles) &&
-                        e.articles.map((a, index) => {
-                            // Add properties of the chain's children such as layouts and important fields
-                            const childrenArticle =
-                                sectionChildren[i].children[index];
-                            const nameIndexforDiagrmation = 'T'.concat(
-                                (index + 1).toString()
-                            );
-                            // Matches the diagrmation of the article or child
-                            const configDiagramationChild =
-                                configDiagramation &&
-                                configDiagramation[nameIndexforDiagrmation];
-                            // Temporary code.  Only for test Diagramations
-                            // if (configDiagramation) {
-                            //     console.log('diagrmation finded');
-                            //     console.log(nameIndexforDiagrmation);
-                            // }
-                            if (
-                                childrenArticle &&
-                                childrenArticle.collection === 'features'
-                            ) {
-                                if (get(a, 'information', null) != null) {
-                                    return setInformationInFeature(
-                                        a,
-                                        childrenArticle,
-                                        get(
-                                            sectionChildren[i],
-                                            'props.id',
-                                            null
-                                        )
-                                    );
-                                }
-                                return {
-                                    ...a,
-                                    additionalProperties: {
-                                        ...get(a, 'additionalProperties', null),
-                                        diseno: configDiagramationChild,
-                                        nameFeature: childrenArticle.type,
-                                        idRender: get(
+                        setPositionArticlesbyDiagramation(
+                            e.articles.map((a, index) => {
+                                // Add properties of the chain's children such as layouts and important fields
+                                const childrenArticle =
+                                    sectionChildren[i].children[index];
+                                const nameIndexforDiagrmation = 'T'.concat(
+                                    (index + 1).toString()
+                                );
+                                // Matches the diagrmation of the article or child
+                                const configDiagramationChild =
+                                    configDiagramation &&
+                                    configDiagramation[nameIndexforDiagrmation];
+                                // Temporary code.  Only for test Diagramations
+                                // if (configDiagramation) {
+                                //     console.log('diagrmation finded');
+                                //     console.log(nameIndexforDiagrmation);
+                                // }
+                                if (
+                                    childrenArticle &&
+                                    childrenArticle.collection === 'features'
+                                ) {
+                                    // Aplica para casos de Chains que tienen LN Articles y Timeline
+                                    if (get(a, 'information', null) != null) {
+                                        return setInformationInFeature(
+                                            a,
                                             childrenArticle,
-                                            'props.id',
-                                            null
-                                        )
+                                            get(
+                                                sectionChildren[i],
+                                                'props.id',
+                                                null
+                                            )
+                                        );
                                     }
-                                };
-                            }
-                            return a;
-                        })
+                                    // Aplica para casos comunes de Chains que solo tienen LN Articles
+                                    return {
+                                        ...a,
+                                        additionalProperties: {
+                                            ...get(
+                                                a,
+                                                'additionalProperties',
+                                                null
+                                            ),
+                                            originPosition: nameIndexforDiagrmation,
+                                            diseno: configDiagramationChild,
+                                            nameFeature: childrenArticle.type,
+                                            idRender: get(
+                                                childrenArticle,
+                                                'props.id',
+                                                null
+                                            )
+                                        }
+                                    };
+                                }
+                                return a;
+                            }),
+                            positionsArticlesbyDiagramation,
+                            informationChain.layout
+                        )
                 };
             }
             if (
@@ -334,6 +390,10 @@ const getPageElements = props => {
 
     const pageMergeSections = getSections(layoutPage);
     const rules = get(pageMergeSections, 'rules', []);
+    const diagramations = getDiagramations(layoutPage);
+    const positionsArticlesbyDiagramation = getOrderArticlesbyDiagramation(
+        layoutPage
+    );
 
     let elementsPage =
         pageMergeSections &&
@@ -362,7 +422,8 @@ const getPageElements = props => {
             elements = addProperties(
                 sectionChildren,
                 elements,
-                getDiagramations(layoutPage)
+                diagramations,
+                positionsArticlesbyDiagramation
             );
             // Para probar en esta etapa los elementos o cuanquier cosa dentro de este reduce coloca:
             // r.push(elements);

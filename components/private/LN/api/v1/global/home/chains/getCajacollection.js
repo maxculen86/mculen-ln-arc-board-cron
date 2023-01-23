@@ -82,6 +82,7 @@ class GetCajaCollection {
             const { articleList, containerImage } = this.state || {};
             const { customFields } = this.props;
 
+            //  Tomar en cuenta para Cajas BN Focal 1+4 o Canal Focal 1+4, si valida que sea n5 notas.
             const error = validateFeature(
                 customFields.idCollection,
                 articleList,

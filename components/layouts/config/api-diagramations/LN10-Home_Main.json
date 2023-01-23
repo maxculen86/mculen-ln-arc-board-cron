@@ -5,6 +5,20 @@
             "imagen_Posicion": "Top"
         }
     },
+    "grilla3": {
+        "T1": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T3": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        }
+    },
     "aperturafocalLeft": {
         "T1": {
             "tamano": "XL",
@@ -27,10 +41,50 @@
             "imagen_Posicion": "Top"
         }
     },
+    "aperturafocalCenter": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        },
+        "T2": {
+            "tamano": "L",
+            "imagen_Posicion": "Top"
+        },
+        "T3": {
+            "tamano": "L",
+            "imagen_Posicion": "Top"
+        },
+        "T4": {
+            "tamano": "L",
+            "imagen_Posicion": "Top"
+        },
+        "T5": {
+            "tamano": "L",
+            "imagen_Posicion": "Top"
+        }
+    },
+    "aperturafocal70": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        },
+        "T2": {
+            "tamano": "L",
+            "imagen_Posicion": "Top"
+        },
+        "T3": {
+            "tamano": "L",
+            "imagen_Posicion": "Top"
+        },
+        "T4": {
+            "tamano": "L",
+            "imagen_Posicion": "Top"
+        }
+    },
     "aperturax4": {
         "T1": {
-            "tamano": "M",
-            "imagen_Posicion": "Right"
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
         },
         "T2": {
             "tamano": "M",
@@ -59,7 +113,7 @@
     },
     "bombita": {
         "T1": {
-            "tamano": "XL",
+            "tamano": "M",
             "imagen_Posicion": "NA"
         }
     },
@@ -83,6 +137,204 @@
         "T5": {
             "tamano": "M",
             "imagen_Posicion": "Right"
+        }
+    },
+    "bnGrilla8": {
+        "T1": {
+            "tamano": "M",
+            "imagen_Posicion": "Top"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T3": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T4": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T5": {
+            "tamano": "M",
+            "imagen_Posicion": "Top"
+        },
+        "T6": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T7": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T8": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        }
+    },
+    "bnGrilla4": {
+        "T1": {
+            "tamano": "M",
+            "imagen_Posicion": "Top"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T3": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T4": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        }
+    },
+    "bnFocal1Mas4": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Top"
+        },
+        "T3": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T4": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T5": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        }
+    },
+    "canalFocal1Mas4": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Top"
+        },
+        "T3": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T4": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T5": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        }
+    },
+    "bnFocal1Mas3": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T3": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T4": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        }
+    },
+    "canalFocal1Mas3": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T3": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T4": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        }
+    },
+    "bnFocal1Mas2": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T3": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        }
+    },
+    "canalFocal1Mas2": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T3": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        }
+    },
+    "bnFocal1Mas1": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        }
+    },
+    "bn2Focal1Mas2": {
+        "T1": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T3": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        },
+        "T4": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T5": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        }
+    },
+    "bn1Nota": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
         }
     }
 }
