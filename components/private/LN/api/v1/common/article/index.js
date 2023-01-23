@@ -113,7 +113,7 @@ export const articleItem = article => {
     return {
         diseno: {
             ...get(article, 'additionalProperties.diseno', null),
-            tipo: get(article, 'additionalProperties.layout', 'Comun')
+            tipo: get(article, 'additionalProperties.tipo', 'Comun')
         },
         id,
         templateId: Number.isInteger(templateId)
