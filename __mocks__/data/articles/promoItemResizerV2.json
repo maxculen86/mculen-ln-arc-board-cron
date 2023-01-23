@@ -1,0 +1,67 @@
+{
+    "_id": "KME4IGTK6NEVZO7O6TD6RBBWUI",
+    "additional_properties": {},
+    "auth": {
+        "1": "6aaf8a47cab740f1d00bcd323d50b1271205caa15e5616e35e3b9ef565630a9f"
+    },
+    "caption": "Rehau",
+    "created_date": "2022-11-18T18:37:04Z",
+    "credits": {
+        "affiliation": []
+    },
+    "height": 3952,
+    "resized_urls": [
+        {
+            "option": {
+                "height": 1280,
+                "media": "(min-width: 1280px)",
+                "media_preload": "(min-width: 1280.1px)",
+                "width": 1920
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/v2/KME4IGTK6NEVZO7O6TD6RBBWUI.jpg?auth=6aaf8a47cab740f1d00bcd323d50b1271205caa15e5616e35e3b9ef565630a9f&width=1920&height=1280&quality=80&smart=true"
+        },
+        {
+            "option": {
+                "height": 800,
+                "media_preload": "(min-width: 1024.1px and max-width: 1280px)",
+                "width": 1200
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/v2/KME4IGTK6NEVZO7O6TD6RBBWUI.jpg?auth=6aaf8a47cab740f1d00bcd323d50b1271205caa15e5616e35e3b9ef565630a9f&width=1200&height=800&quality=80&smart=true"
+        },
+        {
+            "option": {
+                "height": 682,
+                "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+                "width": 1023
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/v2/KME4IGTK6NEVZO7O6TD6RBBWUI.jpg?auth=6aaf8a47cab740f1d00bcd323d50b1271205caa15e5616e35e3b9ef565630a9f&width=1023&height=682&quality=80&smart=true"
+        },
+        {
+            "option": {
+                "height": 1914,
+                "media_preload": "(min-width: 768px)",
+                "width": 1276
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/v2/KME4IGTK6NEVZO7O6TD6RBBWUI.jpg?auth=6aaf8a47cab740f1d00bcd323d50b1271205caa15e5616e35e3b9ef565630a9f&width=1276&height=1914&quality=80&smart=true"
+        },
+        {
+            "option": {
+                "height": 1152,
+                "media_preload": "(min-width: 375.1px and max-width: 768px)",
+                "width": 768
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/v2/KME4IGTK6NEVZO7O6TD6RBBWUI.jpg?auth=6aaf8a47cab740f1d00bcd323d50b1271205caa15e5616e35e3b9ef565630a9f&width=768&height=1152&quality=80&smart=true"
+        },
+        {
+            "option": {
+                "height": 540,
+                "media_preload": "(max-width: 375px)",
+                "width": 360
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/v2/KME4IGTK6NEVZO7O6TD6RBBWUI.jpg?auth=6aaf8a47cab740f1d00bcd323d50b1271205caa15e5616e35e3b9ef565630a9f&width=360&height=540&quality=80&smart=true"
+        }
+    ],
+    "type": "image",
+    "url": "https://resizer.glanacion.com/resizer/v2/KME4IGTK6NEVZO7O6TD6RBBWUI.jpg?auth=6aaf8a47cab740f1d00bcd323d50b1271205caa15e5616e35e3b9ef565630a9f&width=1920&height=0&quality=80&smart=true",
+    "width": 5928
+}

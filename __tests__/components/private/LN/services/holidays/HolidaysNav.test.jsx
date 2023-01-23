@@ -5,7 +5,9 @@ import HolidaysNav from '../../../../../../components/private/LN/services/holida
 
 describe('components - private - holidays - HolidaysNav', () => {
     let component;
-    let mockYear = new Date().getFullYear();
+    const mockDate = new Date(2023, 6, 1);
+    const mockYear = mockDate.getFullYear();
+    const spy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate);
 
     beforeEach(() => {
         component = render(<HolidaysNav year={mockYear} layout="home" />);

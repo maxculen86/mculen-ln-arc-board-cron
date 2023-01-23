@@ -1,9 +1,9 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable camelcase */
 /* eslint-disable react/require-default-props */
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import StaticValidation from '../../private/common/staticValidation';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     NOTICIA,
@@ -15,7 +15,7 @@ import {
     filterType
 } from '../../private/common/utils/masNotasHelper';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import { productClickFromClient } from '../../private/common/utils/viewability';
+import articleBoxesTracker from '../../private/common/utils/noteTracker/articleBoxesTracker';
 
 const masNotas = props => {
     const {
@@ -26,7 +26,6 @@ const masNotas = props => {
         },
         globalContent,
         outputType,
-        id: featureId,
         arcSite,
         isAdmin
     } = props;
@@ -61,26 +60,28 @@ const masNotas = props => {
 
     const error = validateMasNotas(articles, cantidadNotas);
 
+    useEffect(() => {
+        articleBoxesTracker({
+            boxType: 'masNotas',
+            diagramation: cantidadNotas
+        });
+    }, [cantidadNotas]);
+
     if (isAdmin && error) {
         return <PageBuilderMessage type={error.type} message={error.message} />;
     }
 
-    return (
-        <StaticValidation id={featureId} htmlOnly persistent>
-            {!error ? (
-                <CajaTema
-                    title={title}
-                    sectionName={sectionTitle}
-                    articles={articles}
-                    position="toi"
-                    outputType={outputType}
-                    handleClick={productClickFromClient}
-                    withVolanta
-                />
-            ) : (
-                <></>
-            )}
-        </StaticValidation>
+    return !error ? (
+        <CajaTema
+            title={title}
+            sectionName={sectionTitle}
+            articles={articles}
+            position="toi"
+            outputType={outputType}
+            withVolanta
+        />
+    ) : (
+        <></>
     );
 };
 
@@ -88,7 +89,6 @@ masNotas.label = 'LN-Nota-masNotas';
 masNotas.lazy = true;
 
 masNotas.propTypes = {
-    id: PropTypes.string,
     outputType: PropTypes.string,
     customFields: PropTypes.shape({
         cantidadNotas: PropTypes.number.tag({ label: 'Cantidad de Notas' }),

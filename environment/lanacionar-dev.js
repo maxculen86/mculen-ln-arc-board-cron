@@ -9,7 +9,7 @@ export default {
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHvArd3vNTVbEIdqek5qVFOAAAA9DCB8QYJKoZIhvcNAQcGoIHjMIHgAgEAMIHaBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDGfXmCwlTipuJajo1gIBEICBrDramRDrIg5zeki6aUV1h40ZQlmNVH1jfWZTyJbmdHOMPSBQft2s64nNfhttuktf7+1Sss4g/f0arqUtcmEUTDvOMa2xO8ODNavc8EhYPE0bJpdXgnzKfzw2DyzR2Yumyw88IISoKERQWLv4nbffor8FhyVURwPQ5UBsU/Oq0X5BFNakgho251OeEKBh2ffuNLdFmRRxczyJu75GTYaF+jieSuu3YiPqpVtBm00=}', //NOSONAR
     LANACIONAR_URLASSETS: urlSandboxArcPublishing,
     OPTA_WIDGET_URL: 'https://sandbox.lanacion.com.ar/opta-embed',
-    SITE_LANACION: urlSandboxArcPublishing,
+    SITE_LANACION: 'https://sandbox.lanacion.com.ar',
     SITE_RECETAS: urlSandboxArcPublishing,
     WIDGETS: 'li-nacion-recommended-item-template-1',
     LIFTIGNITER_X_API_KEY:
@@ -27,7 +27,11 @@ export default {
             sampleRateRum: 0.02,
             service: 'lnmas',
             env: 'dev',
+            sessionReplaySampleRate: 30,
+            trackResources: true,
+            trackLongTasks: true,
             trackInteractions: true,
+            trackFrustrations: true,
             trackSessionAcrossSubdomains: false
         },
         'la-nacion-ar': {
@@ -40,7 +44,11 @@ export default {
             sampleRateRum: 100,
             service: 'lanacion-arc',
             env: 'dev',
+            sessionReplaySampleRate: 30,
+            trackResources: true,
+            trackLongTasks: true,
             trackInteractions: true,
+            trackFrustrations: true,
             trackSessionAcrossSubdomains: false
         }
     },

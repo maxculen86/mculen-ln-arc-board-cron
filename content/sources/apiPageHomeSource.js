@@ -17,6 +17,9 @@ const fetch = async (query, { cachedCall } = {}) => {
         const aliasPage =
             aliasPages[alias] == null ? '/'.concat(alias) : aliasPages[alias];
         ticksCache = ticksCache === null ? '' : ticksCache.replace('/', '');
+        const prefixTicksCache =
+            ticksCache === '' ? '' : '_'.concat(ticksCache);
+        const keyCachedCall = `ApiPageHome${alias}`.concat(prefixTicksCache);
         const website = get(query, 'website', null);
         if (!SITE_LANACION) {
             throw new Error('Variable SITE_LANACION missing');
@@ -31,14 +34,10 @@ const fetch = async (query, { cachedCall } = {}) => {
             isPage: true
         };
 
-        const resultPage = await cachedCall(
-            `ApiPageHome${alias}`,
-            pages.fetch,
-            {
-                query: queryParams,
-                ttl: 120
-            }
-        );
+        const resultPage = await cachedCall(keyCachedCall, pages.fetch, {
+            query: queryParams,
+            ttl: 120
+        });
         // Para revisar la data cruda que viene del Layout
         // return resultPage;
 

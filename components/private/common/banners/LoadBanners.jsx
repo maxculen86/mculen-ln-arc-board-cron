@@ -66,9 +66,8 @@ const LoadBanners = ({ blocksBanners }) => {
                             { name: 'tablet', slot: tablet }
                         ]);
 
-                        if (!slotId) return {};
-
-                        if (validateSubscription && subscription) return {};
+                        if (!slotId || (validateSubscription && subscription))
+                            return {};
 
                         const config = []
                             .concat(...bannersConfiguration)

@@ -78,7 +78,7 @@ const lnNotaStorytelling = ({
             </div>
             <LoadBannersSSR />
             <PwaModals />
-            {intersectionObserverForRelatedTags()}
+            {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
 };

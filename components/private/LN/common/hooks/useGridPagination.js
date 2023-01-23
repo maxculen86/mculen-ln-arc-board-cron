@@ -17,7 +17,6 @@ const useGridPagination = props => {
     const {
         outputType,
         getBanner,
-        articlesInCollection = [],
         layout,
         nodeType = '',
         isWiki = false,
@@ -26,7 +25,7 @@ const useGridPagination = props => {
     } = props;
 
     const hasCollectionApertura =
-        !!articlesInCollection.length ||
+        !!get(acumuladoGeneral, 'collectionForTag', null) ||
         !!get(acumuladoGeneral, 'id_collection_promo_items', null);
 
     const { articles, moreArticles } = useGridArticles({
