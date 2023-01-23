@@ -79,6 +79,7 @@ class EnVivo {
                         return {
                             ...x,
                             additionalProperties: {
+                                tipo: 'Liveblog',
                                 titleVivo:
                                     this.notes &&
                                     x &&
