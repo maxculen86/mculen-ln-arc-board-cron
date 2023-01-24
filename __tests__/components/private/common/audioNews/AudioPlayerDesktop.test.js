@@ -27,6 +27,13 @@ jest.mock('react', () => {
     };
 });
 
+Object.defineProperty(window, 'performance', {
+    value: {
+        getEntriesByType: jest.fn().mockReturnValue([{ type: 'navigate' }]),
+        measure: jest.fn()
+    }
+});
+
 describe('Test - AudioPlayer in desktop', () => {
     global.window.dataLayer = [];
     const props = {
@@ -70,11 +77,18 @@ describe('Test - AudioPlayer in desktop', () => {
 
             expect(container.querySelector('audio')).toBeTruthy();
             expect(window.dataLayer).toStrictEqual([
-                { clickText: 'Escuchar nota', event: 'gtm.linkClick' }
+                { clickText: 'Escuchar nota', event: 'gtm.linkClick' },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'escuchar'
+                }
             ]);
         });
 
         test('Audio speed multiplier test.', () => {
+            global.window.dataLayer = [];
             render(<AudioPlayerDesktop {...properties} />);
 
             const button = screen.getByRole('button', {

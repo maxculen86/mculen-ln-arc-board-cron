@@ -22,7 +22,7 @@ const BuildAudioPlayer = ({
 
     const audioUrl = get(data, 'audio_url', '');
 
-    useEffect(() => {
+    /*     useEffect(() => {
         if (error) {
             dispatch({
                 type: 'SHOW_MODAL',
@@ -39,17 +39,9 @@ const BuildAudioPlayer = ({
             setEnableButton(true);
             setOpenPlayer(false);
         }
-    }, [error, dispatch, setEnableButton, setOpenPlayer]);
+    }, [error, dispatch, setEnableButton, setOpenPlayer]); */
 
-    return (
-        <>
-            {!error && data ? (
-                <AudioPlayer audio={audioUrl} />
-            ) : (
-                <LoadingIcon />
-            )}
-        </>
-    );
+    return <>{true ? <AudioPlayer audio="" /> : <LoadingIcon />}</>;
 };
 
 BuildAudioPlayer.propTypes = {
