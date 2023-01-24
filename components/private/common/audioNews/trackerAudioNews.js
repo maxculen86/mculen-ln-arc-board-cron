@@ -29,7 +29,7 @@ const audioNewsActions = {
             event: 'e_linkclick',
             dynamic_action: 'escuchar',
             dynamic_category: 'nota_ln9',
-            dynamic_label: 'play'
+            dynamic_label: 'pause'
         });
     },
     playEvent: layer => {
