@@ -542,7 +542,7 @@
     @include sizeM; //all
 }
 
-.--m-xs {
+.--m-xs- {
     @include sizeXS; //mobile
     @media ($media-lm) {
         //1100

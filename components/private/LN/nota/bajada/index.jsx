@@ -13,7 +13,7 @@ const BajadaNota = props => {
     return (
         <Text
             tag="h2"
-            size="--m-xs"
+            size="--m-xs-"
             extraClass="com-subhead --bajada"
             text={subtitulo}
         />
