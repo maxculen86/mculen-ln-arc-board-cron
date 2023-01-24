@@ -22,13 +22,14 @@ const imageDefault = () => {
 };
 const aperturaArticle = (article = {}, idsElements = null) => {
     let promoItem = promoItemArticle(article);
-
+    let isPromoInContentElements = false;
     if (
         promoItem &&
         idsElements &&
         idsElements.includes(get(promoItem, '_id', null))
     ) {
         promoItem = null;
+        isPromoInContentElements = true;
     }
     const resp = {};
     if (promoItem) {
@@ -48,7 +49,11 @@ const aperturaArticle = (article = {}, idsElements = null) => {
                 break;
         }
     }
-    if (resp.video && resp.imagenes === undefined) {
+    if (
+        !isPromoInContentElements &&
+        resp.video &&
+        resp.imagenes === undefined
+    ) {
         const basic = get(article, 'promo_items.basic', null);
         if (basic && basic.type === 'image') {
             resp.imagenes = [image(basic)];

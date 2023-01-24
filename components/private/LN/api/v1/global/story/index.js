@@ -5,6 +5,7 @@ import { removeEmptyItems } from '../../common/utils/responseCleaner';
 import aperturaArticle from './apertura/aperturaArticle';
 
 const indexNota = dataNota => {
+    if (!dataNota) throw new Error(`La información de la nota esta vacia`);
     const comentariosId = get(dataNota, 'label.livefyre_entrada_id.text', null);
     const id = get(dataNota, '_id', null);
     const elements = cuerpo(dataNota);

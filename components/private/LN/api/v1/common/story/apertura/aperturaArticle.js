@@ -39,9 +39,10 @@ export const promoItemArticle = article => {
 export const apertura = article => {
     const { subtype: template } = article;
     let acuImage = null;
-    if (template === '4' || template === '8') {
-        acuImage = get(article, 'promo_items.basic', null);
-    }
+    // Preguntar si aplicar solo a subtype 4 y 8 o a todas las notas
+    //if (template === '4' || template === '8') {
+    acuImage = get(article, 'promo_items.basic', null);
+    //}
 
     const recetaPromoItem = get(article, 'promo_items.receta', null);
     const authors = get(article, 'credits.by', null);
