@@ -72,7 +72,7 @@ const articlesMap = (articles, feature) => {
                 switch (get(error, 'name', null)) {
                     case 'ErrorHtmlArticle':
                         // eslint-disable-next-line no-console
-                        console.info(
+                        console.log(
                             `SectionMobile:${feature || ''} - ${get(
                                 error,
                                 'message',

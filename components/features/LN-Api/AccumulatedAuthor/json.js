@@ -27,6 +27,7 @@ class AccumulatedAuthor {
             paramUrlId,
             requestUri
         );
+        this.page = page;
 
         this.fetchContent({
             acuArticlesSourceAuthor: {
@@ -85,7 +86,7 @@ class AccumulatedAuthor {
                 page,
                 total: acuArticlesSourceAuthor.count
             };
-            if (page === 1) {
+            if (this.page <= 1) {
                 acuData = {
                     ...acuData,
                     author
