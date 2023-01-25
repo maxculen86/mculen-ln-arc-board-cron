@@ -16,12 +16,12 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
         title="Ir a la página principal"
       >
         <i
-          class="icon --icon-inherit"
-          style="width: 200px;"
+          class="icon ln-icon --icon-inherit"
         >
           <svg
             fill="none"
             viewBox="0 0 201 21"
+            width="200"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -576,7 +576,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
                 title="Seguirnos en Facebook"
               >
                 <i
-                  class="icon --icon-m"
+                  class="icon ln-icon --icon-m"
                 >
                   <svg
                     fill="none"
@@ -600,7 +600,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
                 title="Seguirnos en Twitter"
               >
                 <i
-                  class="icon --icon-m"
+                  class="icon ln-icon --icon-m"
                 >
                   <svg
                     fill="none"
@@ -624,7 +624,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
                 title="Seguirnos en Instagram"
               >
                 <i
-                  class="icon --icon-m"
+                  class="icon ln-icon --icon-m"
                 >
                   <svg
                     fill="none"
@@ -650,7 +650,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
                 title="Ir a RSS"
               >
                 <i
-                  class="icon --icon-m"
+                  class="icon ln-icon --icon-m"
                 >
                   <svg
                     fill="none"
@@ -689,12 +689,12 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
                 title="Ir a Google Play"
               >
                 <i
-                  class="icon --icon-inherit"
-                  style="width: 100px;"
+                  class="icon ln-icon --icon-inherit"
                 >
                   <svg
                     fill="none"
                     viewBox="0 0 120 40"
+                    width="100"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <rect
@@ -844,12 +844,12 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
                 title="Ir a App Store"
               >
                 <i
-                  class="icon --icon-inherit"
-                  style="width: 100px;"
+                  class="icon ln-icon --icon-inherit"
                 >
                   <svg
                     fill="none"
                     viewBox="0 0 120 40"
+                    width="100"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <rect
@@ -882,7 +882,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
           <b
             class="--font-bold"
           >
-            Protegido por re CAPTCHA: 
+            Protegido por reCAPTCHA: 
           </b>
           <span
             class="--inline-block"
@@ -917,7 +917,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
         <p
           class="text --font-xs"
         >
-          Copyright 2021 SA LA NACION | Todos los derechos reservados
+          Copyright 2023 SA LA NACION | Todos los derechos reservados
         </p>
       </div>
       <div
@@ -931,12 +931,12 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
           title="GDA"
         >
           <i
-            class="icon --icon-inherit"
-            style="width: 37px;"
+            class="icon ln-icon --icon-inherit"
           >
             <svg
               fill="none"
               viewBox="0 0 37 21"
+              width="37"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -959,7 +959,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
           title="Data fiscal"
         >
           <i
-            class="icon --icon-l"
+            class="icon ln-icon --icon-l"
           >
             <svg
               fill="none"
