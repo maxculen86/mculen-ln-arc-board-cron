@@ -9,11 +9,11 @@ import image from '../cuerpo/elements/image';
 const aperturaArticle = (article, type, idsElements = null) => {
     if (article.subtype === '9' && type === 'global') return null;
     let promoItem = promoItemArticle(article);
-    if (
-        promoItem &&
+    const indexFindPromoInContents =
         idsElements &&
-        idsElements.includes(get(promoItem, '_id', null))
-    ) {
+        Array.isArray(idsElements) &&
+        idsElements.findIndex(x => x === get(promoItem, '_id', null));
+    if (promoItem && idsElements && indexFindPromoInContents === 0) {
         promoItem = null;
     }
     const resp = {};

@@ -23,11 +23,12 @@ const imageDefault = () => {
 const aperturaArticle = (article = {}, idsElements = null) => {
     let promoItem = promoItemArticle(article);
     let isPromoInContentElements = false;
-    if (
-        promoItem &&
+
+    const indexFindPromoInContents =
         idsElements &&
-        idsElements.includes(get(promoItem, '_id', null))
-    ) {
+        Array.isArray(idsElements) &&
+        idsElements.findIndex(x => x === get(promoItem, '_id', null));
+    if (promoItem && idsElements && indexFindPromoInContents === 0) {
         promoItem = null;
         isPromoInContentElements = true;
     }
