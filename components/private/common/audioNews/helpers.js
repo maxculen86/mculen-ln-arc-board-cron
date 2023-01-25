@@ -93,14 +93,14 @@ export const backTenSecs = (audioPlayer = {}) => {
 };
 
 export const forwardTenSecs = (duration, audioPlayer = {}) => {
+    eventHandler({
+        activeWindow: window,
+        action: 'fowardTenSecEvent',
+        eventLabel: 'adelantar_10'
+    });
     if (audioPlayer && audioPlayer.current.currentTime + 10 < duration) {
         audioPlayer.current.currentTime += 10;
         handleProgressBar();
-        eventHandler({
-            activeWindow: window,
-            action: 'fowardTenSecEvent',
-            eventLabel: 'adelantar_10'
-        });
     }
 };
 
