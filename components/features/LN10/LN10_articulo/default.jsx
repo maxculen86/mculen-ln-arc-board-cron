@@ -6,7 +6,7 @@ import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
-import { Cardregular } from '@ln/contenidos-ui-cardregular';
+import { Card } from '@ln/contenidos-ui-card';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
 import {
     getIsRenderAutor,
@@ -31,7 +31,7 @@ import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 import { getViewport } from '../../../private/LN/common/utils/homeHelper';
 import getMediaData from '../../../private/LN/common/utils/modArticleHelper';
-import '../../../../resources/packages/css/@ln/contenidos-ui-cardregular/index.css';
+import '../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-image/index.css';
 
@@ -185,7 +185,7 @@ const ArticleFeature = ({
     return (
         (!error && article && (
             <ErrorBoundary>
-                <Cardregular
+                <Card
                     lead={lead || get(article, 'label.volanta.text')}
                     title={title || get(article, 'headlines.basic', 'titulo')}
                     href={get(article, 'website_url', '')}

@@ -187,6 +187,7 @@
     }
     &.--video {
         order: -1;
+        aspect-ratio: auto;
         @media ($media-l) {
             order: initial;
         }
