@@ -105,7 +105,6 @@ const RankingFeature = ({ id: featureId }) => {
 };
 
 RankingFeature.label = 'LN-Common-Ranking';
-RankingFeature.lazy = true;
 
 RankingFeature.propTypes = {
     id: PropTypes.string.isRequired,
