@@ -25,6 +25,10 @@ const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig, isBomba) => {
     const position =
         renderables
             .filter(ren => get(ren, 'collection') === 'chains')
+            .filter(
+                chain =>
+                    get(chain, 'props.customFields.hideCaja', false) !== true
+            )
             .findIndex(
                 chain => get(chain, 'props.id') === get(parent, 'props.id')
             ) || 0;
