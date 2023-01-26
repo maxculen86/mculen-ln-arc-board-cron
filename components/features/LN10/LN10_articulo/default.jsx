@@ -35,11 +35,13 @@ import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 import '../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
+import '../../../../resources/packages/css/@ln/common-ui-video/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-image/index.css';
 
 const ArticleFeature = ({
     id: featureId,
     customFields,
+    searchableField,
     customFields: {
         noteId: id,
         imageId,
@@ -47,7 +49,8 @@ const ArticleFeature = ({
         mobileImageId,
         lead,
         title,
-        authors
+        authors,
+        hideImage
     }
 }) => {
     const {
@@ -153,7 +156,7 @@ const ArticleFeature = ({
     });
 
     const { url, marquesina } = getDataAuthor(article);
-
+    const { imagePosition, withSection, withMarquee, withMarqueeImg } = config;
     if (isAdmin && !!error) {
         return (
             <div
@@ -178,18 +181,30 @@ const ArticleFeature = ({
                 <Card
                     lead={lead || get(article, 'label.volanta.text')}
                     title={title || get(article, 'headlines.basic', 'titulo')}
-                    titleTag={get(config, 'titleTag', '')}
+                    titleTag={get(config, 'titleTag')}
                     href={get(article, 'website_url', '')}
+                    withMedia={!hideImage}
                     subhead={
                         get(config, 'skipSubhead', false)
                             ? false
                             : withSubhead && get(article, 'subheadlines.basic')
                     }
-                    subheadTag={get(config, 'subheadTag', '')}
-                    marquee={authors || marquesina}
-                    marqueeImg={url}
+                    subheadTag={get(config, 'subheadTag')}
+                    marquee={withMarquee && (authors || marquesina)}
+                    marqueeImg={withMarqueeImg && url}
                     mediaData={mediaData}
                     cardSize={get(config, 'cardSize', '')}
+                    imagePosition={imagePosition}
+                    section={
+                        withSection &&
+                        get(article, 'taxonomy.primary_section.name')
+                    }
+                    searchableField={
+                        layoutPageBuilder === layoutsName.HomeLN10 &&
+                        searchableField({
+                            imageId: '_id'
+                        })
+                    }
                 />
             </ErrorBoundary>
         )) ||
