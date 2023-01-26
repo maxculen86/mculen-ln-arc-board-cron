@@ -100,7 +100,6 @@ export const forwardTenSecs = (duration, audioPlayer = {}) => {
     });
     if (audioPlayer && audioPlayer.current.currentTime + 10 < duration) {
         audioPlayer.current.currentTime += 10;
-        handleProgressBar();
     }
 };
 
