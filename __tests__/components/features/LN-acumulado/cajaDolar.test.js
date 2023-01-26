@@ -1,54 +1,139 @@
+import React from 'react';
+import '@testing-library/jest-dom';
+import { useContent } from 'fusion:content';
+import Context from 'fusion:context';
+import { render, screen } from '@testing-library/react';
+import CajaDolar from '../../../../components/features/LN-acumulado/cajaDolar';
+import API_RESPONSE from '../../../../__mocks__/data/apiDolar/sourceFullResponse.json';
+
 jest.mock('fusion:content', () => ({
     useContent: jest.fn()
 }));
 
-jest.mock('../../../../components/private/common/mod-dolar', () => 'ModDolar');
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+        return props.children(mockAvailableProps);
+    },
+    useAppContext: jest.fn(() => ({}))
+}));
 
-import React from 'react';
-import '@testing-library/jest-dom';
-import { useContent } from 'fusion:content';
-import CajaDolar from '../../../../components/features/LN-acumulado/cajaDolar';
-import API_RESPONSE from '../../../../__mocks__/data/apiDolar/apiDolar';
-import { shallow } from 'enzyme';
+jest.mock('fusion:static', () => 'mock-static');
+
+jest.mock(
+    '../../../../components/private/common/staticContent.jsx',
+    () => 'mock-static-content'
+);
 
 describe('Features - LN-acumulado - Caja Dolar Feature =>', () => {
-    describe('without data response ', () => {
-        it('should return null', () => {
-            useContent.mockImplementation(() => {});
+    it('without data response should return null when data is undefined', () => {
+        useContent.mockImplementation(() => {});
+        Context.useAppContext = jest.fn(() => ({}));
+        const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
 
-            const wrapper1 = shallow(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
-
-            useContent.mockImplementation(() => ({
-                data: undefined
-            }));
-            const wrapper2 = shallow(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
-
-            expect(wrapper1.html()).toBe('<div class="hidden"></div>');
-            expect(wrapper2.html()).toBe('<div class="hidden"></div>');
-        });
+        expect(
+            screen.getByText(
+                (content, element) =>
+                    element.tagName.toLowerCase() === 'mock-static-content'
+            )
+        ).toBeVisible();
+        expect(container.firstChild).toBeEmptyDOMElement();
     });
 
-    describe('with a valid response', () => {
+    it('without data response should return null when data is null', () => {
+        useContent.mockImplementation(() => ({
+            data: null
+        }));
+        Context.useAppContext = jest.fn(() => ({}));
+        const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
+
+        expect(
+            screen.getByText(
+                (content, element) =>
+                    element.tagName.toLowerCase() === 'mock-static-content'
+            )
+        ).toBeVisible();
+        expect(container.firstChild).toBeEmptyDOMElement();
+    });
+});
+
+describe('with a valid response on any section', () => {
+    it('should render all 8 types of dollars from the mock with their corresponding title', () => {
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'default',
+            layout: 'LN-acumulado'
+        }));
         useContent.mockImplementation(() => API_RESPONSE);
+        render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
 
-        const wrapper = shallow(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
+        expect(screen.getByText('Dólar oficial')).toBeDefined();
+        expect(screen.getByText('Dólar blue')).toBeDefined();
+        expect(screen.getByText('Dólar tarjeta')).toBeDefined();
+        expect(screen.getByText('Dólar turista')).toBeDefined();
+        expect(screen.getByText('Dólar MEP')).toBeDefined();
+        expect(screen.getByText('Dólar CCL')).toBeDefined();
+        expect(screen.getByText('Dólar mayorista')).toBeDefined();
+        expect(screen.getByText('Euro')).toBeDefined();
+        expect(screen.getAllByRole('heading')).toHaveLength(8);
+        expect(
+            screen.getByText(
+                (content, element) =>
+                    element.tagName.toLowerCase() === 'mock-static-content'
+            )
+        ).toBeVisible();
+    });
+});
+describe('with a valid response on a note', () => {
+    it('should render all 8 types of dollars from the mock with their corresponding title when the kicker and label is enabled', () => {
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'default',
+            layout: 'LN-nota-noticia',
+            globalContent: {
+                label: {
+                    mostrar_caja_dolar: {
+                        text: 'Mostrar'
+                    }
+                }
+            }
+        }));
 
-        const result = wrapper.first();
-        const ModDolarComponent = result.find('ModDolar');
+        useContent.mockImplementation(() => API_RESPONSE);
+        render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
 
-        it('should render ModDolar component with correctly props', () => {
-            const { data, imageUrl } = ModDolarComponent.props();
-            const {
-                data: dataResponse,
-                imageUrl: urlImageResponse
-            } = API_RESPONSE;
-            expect(ModDolarComponent.exists()).toBeTruthy();
-            expect(data).toStrictEqual(dataResponse);
-            expect(data.length).toBe(3);
-            expect(data[0].sourceName).toBe('dbna');
-            expect(data[1].sourceName).toBe('dblue');
-            expect(data[2].sourceName).toBe('dccl');
-            expect(imageUrl).toStrictEqual(urlImageResponse);
-        });
+        expect(screen.getByText('Dólar oficial')).toBeDefined();
+        expect(screen.getByText('Dólar blue')).toBeDefined();
+        expect(screen.getByText('Dólar tarjeta')).toBeDefined();
+        expect(screen.getByText('Dólar turista')).toBeDefined();
+        expect(screen.getByText('Dólar MEP')).toBeDefined();
+        expect(screen.getByText('Dólar CCL')).toBeDefined();
+        expect(screen.getByText('Dólar mayorista')).toBeDefined();
+        expect(screen.getByText('Euro')).toBeDefined();
+        expect(screen.getAllByRole('heading')).toHaveLength(8);
+        expect(
+            screen.getByText(
+                (content, element) =>
+                    element.tagName.toLowerCase() === 'mock-static'
+            )
+        ).toBeVisible();
+    });
+});
+
+describe('without kicker and label in a note', () => {
+    it('should render empty fragment in a note with the kicker and label disabled', () => {
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'default',
+            layout: 'LN-nota-noticia',
+            globalContent: {
+                label: {
+                    mostrar_caja_dolar: {
+                        text: ''
+                    }
+                }
+            }
+        }));
+
+        useContent.mockImplementation(() => API_RESPONSE);
+        const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
+        expect(container).toBeEmptyDOMElement();
     });
 });
