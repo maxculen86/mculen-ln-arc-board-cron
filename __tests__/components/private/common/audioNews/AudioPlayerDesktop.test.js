@@ -27,6 +27,13 @@ jest.mock('react', () => {
     };
 });
 
+Object.defineProperty(window, 'performance', {
+    value: {
+        getEntriesByType: jest.fn().mockReturnValue([{ type: 'navigate' }]),
+        measure: jest.fn()
+    }
+});
+
 describe('Test - AudioPlayer in desktop', () => {
     global.window.dataLayer = [];
     const props = {
@@ -70,11 +77,18 @@ describe('Test - AudioPlayer in desktop', () => {
 
             expect(container.querySelector('audio')).toBeTruthy();
             expect(window.dataLayer).toStrictEqual([
-                { clickText: 'Escuchar nota', event: 'gtm.linkClick' }
+                { clickText: 'Escuchar nota', event: 'gtm.linkClick' },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'escuchar'
+                }
             ]);
         });
 
-        test('Audio speed multiplier test.', () => {
+        test('Audio speed multiplier test and dataLayer events check', () => {
+            global.window.dataLayer = [];
             render(<AudioPlayerDesktop {...properties} />);
 
             const button = screen.getByRole('button', {
@@ -94,25 +108,161 @@ describe('Test - AudioPlayer in desktop', () => {
             fireEvent.click(speedUpButton);
 
             expect(comText.innerHTML).toStrictEqual('1.25x');
+            expect(window.dataLayer).toStrictEqual([
+                { clickText: 'Escuchar nota', event: 'gtm.linkClick' },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'escuchar'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_1,25'
+                }
+            ]);
 
             fireEvent.click(speedUpButton);
 
             expect(comText.innerHTML).toStrictEqual('1.5x');
+            expect(window.dataLayer).toStrictEqual([
+                { clickText: 'Escuchar nota', event: 'gtm.linkClick' },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'escuchar'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_1,25'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_1,50'
+                }
+            ]);
 
             fireEvent.click(speedUpButton);
 
             expect(comText.innerHTML).toStrictEqual('1.75x');
+            expect(window.dataLayer).toStrictEqual([
+                { clickText: 'Escuchar nota', event: 'gtm.linkClick' },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'escuchar'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_1,25'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_1,50'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_1,75'
+                }
+            ]);
 
             fireEvent.click(speedUpButton);
 
             expect(comText.innerHTML).toStrictEqual('2x');
+            expect(window.dataLayer).toStrictEqual([
+                { clickText: 'Escuchar nota', event: 'gtm.linkClick' },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'escuchar'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_1,25'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_1,50'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_1,75'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_2'
+                }
+            ]);
 
             fireEvent.click(speedUpButton);
 
             expect(comText.innerHTML).toStrictEqual('1x');
+            expect(window.dataLayer).toStrictEqual([
+                { clickText: 'Escuchar nota', event: 'gtm.linkClick' },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'escuchar'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_1,25'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_1,50'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_1,75'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_2'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'velocidad_1'
+                }
+            ]);
         });
 
-        test('forward and back button test', () => {
+        test('forward and back button test. Check events sent to dataLayer', () => {
+            global.window.dataLayer = [];
             render(<AudioPlayerDesktop {...properties} />);
 
             const button = screen.getByRole('button', {
@@ -120,7 +270,10 @@ describe('Test - AudioPlayer in desktop', () => {
             });
 
             fireEvent.click(button);
-
+            const back = screen.getByRole('button', {
+                name: 'Retroceder 10 segundos'
+            });
+            fireEvent.click(back);
             expect(
                 screen.getByRole('button', {
                     name: 'Adelantar 10 segundos'
@@ -132,9 +285,25 @@ describe('Test - AudioPlayer in desktop', () => {
                     name: 'Retroceder 10 segundos'
                 })
             ).toBeTruthy();
+            expect(window.dataLayer).toStrictEqual([
+                { clickText: 'Escuchar nota', event: 'gtm.linkClick' },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'escuchar'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'retroceder_10'
+                }
+            ]);
         });
 
         test('play and pause button test', () => {
+            global.window.dataLayer = [];
             render(<AudioPlayerDesktop {...properties} />);
 
             const button = screen.getByRole('button', {
@@ -146,13 +315,27 @@ describe('Test - AudioPlayer in desktop', () => {
             const pause = screen.getByRole('button', {
                 name: 'Pausar'
             });
-
             expect(pause).toBeTruthy();
             expect(
                 pause.firstChild.classList.contains('icon-pause')
             ).toBeTruthy();
 
             fireEvent.click(pause);
+            expect(window.dataLayer).toStrictEqual([
+                { clickText: 'Escuchar nota', event: 'gtm.linkClick' },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'escuchar'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'pause'
+                }
+            ]);
 
             const play = screen.getByRole('button', {
                 name: 'Reproducir'
@@ -162,6 +345,29 @@ describe('Test - AudioPlayer in desktop', () => {
             expect(
                 play.firstChild.classList.contains('icon-play')
             ).toBeTruthy();
+
+            fireEvent.click(play);
+            expect(window.dataLayer).toStrictEqual([
+                { clickText: 'Escuchar nota', event: 'gtm.linkClick' },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'escuchar'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'pause'
+                },
+                {
+                    event: 'e_linkclick',
+                    dynamic_action: 'escuchar',
+                    dynamic_category: 'nota_ln9',
+                    dynamic_label: 'play'
+                }
+            ]);
         });
 
         test('It should start paused when the browser is safari', () => {
