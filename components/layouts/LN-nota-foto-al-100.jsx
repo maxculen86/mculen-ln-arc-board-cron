@@ -81,7 +81,7 @@ const lnNotaFotoAl100 = ({
             </div>
             <LoadBannersSSR />
             <PwaModals />
-            {intersectionObserverForRelatedTags()}
+            {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
 };

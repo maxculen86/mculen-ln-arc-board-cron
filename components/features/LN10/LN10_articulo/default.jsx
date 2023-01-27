@@ -9,13 +9,18 @@ import Consumer from 'fusion:consumer';
 import { Card } from '@ln/contenidos-ui-card';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
 import {
-    getIsRenderAutor,
+    // getIsRenderAutor,
     getWithMedia,
     getWithSubhead,
     isInApertura,
     transform
 } from '../../../private/LN/home/components/noteCard/noteCardHelper';
-import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
+import getChainConfig, {
+    getDataAuthor,
+    checkForId,
+    isBombaHidden,
+    getMediaData
+} from './_helper';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
@@ -26,19 +31,17 @@ import featureArticleCustomsFields, {
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
-import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelper';
 import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
-import { getViewport } from '../../../private/LN/common/utils/homeHelper';
-import getMediaData from '../../../private/LN/common/utils/modArticleHelper';
-import '../../../../resources/packages/css/@ln/contenidos-ui-cardregular/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-image/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
+import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
+import '../../../../resources/packages/css/@ln/common-ui-video/index.css';
+import '../../../../resources/packages/css/@ln/common-ui-image/index.css';
 
 const ArticleFeature = ({
     id: featureId,
     customFields,
+    searchableField,
     customFields: {
         noteId: id,
         imageId,
@@ -46,9 +49,9 @@ const ArticleFeature = ({
         mobileImageId,
         lead,
         title,
-        authors
-    },
-    isBomba = false
+        authors,
+        hideImage
+    }
 }) => {
     const {
         isAdmin,
@@ -60,32 +63,21 @@ const ArticleFeature = ({
     const { layoutsName = {} } = siteConfig || {};
     const { cajaTemaConfig } = getProperties(arcSite);
 
-    const { config, index, layout, imageConfig } = getCajaTemaConfig(
+    const { config, index, layout, imageConfig } = getChainConfig(
         featureId,
         renderables,
-        cajaTemaConfig,
-        isBomba
+        cajaTemaConfig
     );
 
-    const isBombaHidden = () => {
-        const bomba = getChildrenFromSectionHome(renderables, 'Bomba', 2) || [];
-        return get(bomba[0], 'props.customFields.hideFeature', false);
-    };
-
     const onlyOneApeturaValidateForWWW =
-        isBomba ||
-        (isBombaHidden() &&
-            isInApertura({
-                renderables,
-                featureId,
-                layoutsName,
-                layoutPageBuilder,
-                config
-            }));
-
-    const checkForId = idValue => {
-        return idValue && idValue.trim();
-    };
+        isBombaHidden(renderables) &&
+        isInApertura({
+            renderables,
+            featureId,
+            layoutsName,
+            layoutPageBuilder,
+            config
+        });
 
     const articleContent = useContent({
         source: checkForId(id) ? 'articleSourceNota' : null,
@@ -115,7 +107,7 @@ const ArticleFeature = ({
     );
     const withMedia = getWithMedia(customFields, config, article);
     const withSubhead = getWithSubhead(config, withMedia, customFields);
-    const isRenderAutor = getIsRenderAutor(customFields, layout);
+    // const isRenderAutor = getIsRenderAutor(customFields, layout);
     // const label = getLabel(article, customFields, withMedia, layout);
     // const layoutGrillaVideo = layout === 'grillaVideo1' && '--l';
     // const titleSizeNoMedia = !withMedia && get(config, 'titleSizeNoMedia');
@@ -154,17 +146,17 @@ const ArticleFeature = ({
         mobileImage,
         mobileImageId
     );
-    const { device } = getViewport();
 
-    const { mediaData } = getMediaData(
-        videoBackground,
-        device,
-        mobileImage,
-        layout,
-        isRenderAutor,
-        layout && layout.includes('author'),
-        article
-    );
+    const mediaData = getMediaData({
+        article,
+        video: videoBackground,
+        customFields,
+        image,
+        layout
+    });
+
+    const { url, marquesina } = getDataAuthor(article);
+    const { imagePosition, withSection, withMarquee, withMarqueeImg } = config;
     if (isAdmin && !!error) {
         return (
             <div
@@ -189,16 +181,30 @@ const ArticleFeature = ({
                 <Card
                     lead={lead || get(article, 'label.volanta.text')}
                     title={title || get(article, 'headlines.basic', 'titulo')}
+                    titleTag={get(config, 'titleTag')}
                     href={get(article, 'website_url', '')}
-                    src={get(article, 'promo_items.basic.url', '')}
+                    withMedia={!hideImage}
                     subhead={
                         get(config, 'skipSubhead', false)
                             ? false
                             : withSubhead && get(article, 'subheadlines.basic')
                     }
-                    marquee={authors}
+                    subheadTag={get(config, 'subheadTag')}
+                    marquee={withMarquee && (authors || marquesina)}
+                    marqueeImg={withMarqueeImg && url}
                     mediaData={mediaData}
-                    srcset={get(article, 'promo_items.basic.resized_urls', [])}
+                    cardSize={get(config, 'cardSize', '')}
+                    imagePosition={imagePosition}
+                    section={
+                        withSection &&
+                        get(article, 'taxonomy.primary_section.name')
+                    }
+                    searchableField={
+                        layoutPageBuilder === layoutsName.HomeLN10 &&
+                        searchableField({
+                            imageId: '_id'
+                        })
+                    }
                 />
             </ErrorBoundary>
         )) ||
