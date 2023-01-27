@@ -117,7 +117,7 @@ export const filterType = {
                 _website,
                 idArticle,
                 cantidadNotas,
-                isSection: true
+                isSection: false
             }),
             sectionTitle: 'UltimasNoticias',
             title: isRecetas ? 'Últimas Recetas' : 'Últimas Noticias'
@@ -185,7 +185,7 @@ export const filterType = {
             typesOfQuery,
             notFilter: shouldNotFilter(sectionId, arcSite),
             _website,
-            isSection: isSearchByTag,
+            isSection: false,
             idArticle,
             cantidadNotas
         });

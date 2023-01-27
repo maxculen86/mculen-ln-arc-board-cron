@@ -3,7 +3,10 @@ import {
     SITE_LANACION,
     API_ENV
 } from 'fusion:environment';
-import { getNavbarItems } from '../../../../../components/private/LN10/navbar/_helper';
+import {
+    getEventData,
+    getNavbarItems
+} from '../../../../../components/private/LN10/navbar/_helper';
 
 describe('Components - Private - LN10 - Helper', () => {
     it('should have Navbar Items', () => {
@@ -26,5 +29,13 @@ describe('Components - Private - LN10 - Helper', () => {
         expect(getNavbarItems(true, true, false)[3].link).toStrictEqual(
             'https://ingresar.lanacion.com.ar/suscripcion/E/1/1/?callback='
         );
+    });
+    it('should test getEventData', () => {
+        expect(getEventData('buscar')).toStrictEqual({
+            event: 'e_linkclick',
+            action: 'navbar',
+            category: 'home_ln10',
+            label: 'buscar'
+        });
     });
 });

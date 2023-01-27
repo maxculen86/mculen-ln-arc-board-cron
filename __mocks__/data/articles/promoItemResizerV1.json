@@ -1,0 +1,76 @@
+{
+    "_id": "77KREVX35FDMXC3QVJ3BRBRYZE",
+    "additional_properties": {
+        "iptc_source": "LA NACION"
+    },
+    "caption": "NENENE-TEST",
+    "created_date": "2020-05-13T21:05:16Z",
+    "credits": {
+        "by": [
+            {
+                "name": "",
+                "type": "author"
+            },
+            {
+                "byline": "martin lopez",
+                "name": "martin lopez",
+                "type": "author"
+            }
+        ]
+    },
+    "description": {
+        "basic": "NENENE-TEST"
+    },
+    "distributor": {
+        "name": ""
+    },
+    "height": 513,
+    "publish_date": "2016-03-14T12:33:00Z",
+    "resized_urls": [
+        {
+            "option": {
+                "height": 206,
+                "media_preload": "(max-width: 375px)",
+                "width": 309
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/ktceRydDnG0bLNkgjcCskBGrbY4=/309x206/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77KREVX35FDMXC3QVJ3BRBRYZE.jpg"
+        },
+        {
+            "option": {
+                "height": 234,
+                "media_preload": "(min-width: 375.1px and max-width: 768px)",
+                "width": 351
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/dZLNl_q8JubeA3oRBXCdbmqVuEc=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77KREVX35FDMXC3QVJ3BRBRYZE.jpg"
+        },
+        {
+            "option": {
+                "height": 512,
+                "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+                "width": 768
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/X27J0MQasJKv0QwKfHDfQ5zflx0=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77KREVX35FDMXC3QVJ3BRBRYZE.jpg"
+        },
+        {
+            "option": {
+                "height": 586,
+                "media": "(min-width: 1280px)",
+                "media_preload": "(min-width: 1280.1px)",
+                "width": 879
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/DMHttr9pkjEqjhqj93zqqHYmjCA=/879x586/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77KREVX35FDMXC3QVJ3BRBRYZE.jpg"
+        },
+        {
+            "option": {
+                "height": 746,
+                "media_preload": "(min-width: 1024.1px and max-width: 1280px)",
+                "width": 1200
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/nUVblmrO3FgddaUGQZwqLzY9nKc=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77KREVX35FDMXC3QVJ3BRBRYZE.jpg"
+        }
+    ],
+    "subtitle": "NENENE-TEST",
+    "type": "image",
+    "url": "https://resizer.glanacion.com/resizer/hTRLcNaCThdI-Uhvqu7bHplK88E=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77KREVX35FDMXC3QVJ3BRBRYZE.jpg",
+    "width": 768
+}

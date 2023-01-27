@@ -19,7 +19,7 @@ import createBannersIntersectionObserver from '../../private/common/banners/crea
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
 import Header from '../../private/LN10/header';
-import Footer from '../../private/LN/common/LN10_Footer';
+import Footer from '../../private/LN10/footer';
 import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 
 const LN10Home = props => {
