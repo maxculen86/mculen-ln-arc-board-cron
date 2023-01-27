@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
@@ -9,7 +8,6 @@ import Consumer from 'fusion:consumer';
 import { Card } from '@ln/contenidos-ui-card';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
 import {
-    // getIsRenderAutor,
     getWithMedia,
     getWithSubhead,
     isInApertura,
@@ -19,15 +17,16 @@ import getChainConfig, {
     getDataAuthor,
     checkForId,
     isBombaHidden,
-    getMediaData
+    getMediaData,
+    validateVariant,
+    articleCustomFields,
+    validateSubhead
 } from './_helper';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import filterVideo from '../../../../content/filters/LN/home/videoFilter';
-import featureArticleCustomsFields, {
-    GetImage
-} from '../../../private/LN/common/utils/articuloHelper';
+import { GetImage } from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
@@ -47,7 +46,10 @@ const ArticleFeature = ({
         mobileImageId,
         lead,
         title,
-        authors
+        authors,
+        chapita,
+        chapitaStyle,
+        variant = 'regular'
     }
 }) => {
     const {
@@ -89,6 +91,7 @@ const ArticleFeature = ({
         staticMode: isSSR(),
         filter
     });
+
     const image = GetImage({
         imageId,
         imageConfig,
@@ -97,11 +100,13 @@ const ArticleFeature = ({
         isAdmin,
         filterImage
     });
+
     const article = transform(
         articleContent,
         customFields,
         image && image.promo_items
     );
+
     const withMedia = getWithMedia(customFields, config, article);
     const withSubhead = getWithSubhead(config, withMedia, customFields);
     // const isRenderAutor = getIsRenderAutor(customFields, layout);
@@ -153,6 +158,7 @@ const ArticleFeature = ({
     });
 
     const { url, marquesina } = getDataAuthor(article);
+    const authorsQuantity = get(article, 'credits.by', []).length;
 
     if (isAdmin && !!error) {
         return (
@@ -178,18 +184,22 @@ const ArticleFeature = ({
                 <Card
                     lead={lead || get(article, 'label.volanta.text')}
                     title={title || get(article, 'headlines.basic', 'titulo')}
-                    titleTag={get(config, 'titleTag', '')}
+                    titleTag={get(config, 'titleTag')}
                     href={get(article, 'website_url', '')}
-                    subhead={
-                        get(config, 'skipSubhead', false)
-                            ? false
-                            : withSubhead && get(article, 'subheadlines.basic')
-                    }
-                    subheadTag={get(config, 'subheadTag', '')}
+                    subhead={validateSubhead(
+                        config,
+                        withSubhead,
+                        variant,
+                        article
+                    )}
+                    subheadTag={get(config, 'subheadTag')}
+                    badgeText={chapita}
+                    badgeType={chapitaStyle}
                     marquee={authors || marquesina}
-                    marqueeImg={url}
+                    marqueeImg={authorsQuantity === 1 && url}
                     mediaData={mediaData}
                     cardSize={get(config, 'cardSize', '')}
+                    variant={validateVariant(variant, authorsQuantity)}
                 />
             </ErrorBoundary>
         )) ||
@@ -205,7 +215,7 @@ ArticleFeature.propTypes = {
         children: PropTypes.array
     }).isRequired,
     customFields: PropTypes.shape({
-        ...(featureArticleCustomsFields('articuloGeneral') || {})
+        ...(articleCustomFields || {})
     }),
     searchableField: PropTypes.shape({
         imageId: PropTypes.string

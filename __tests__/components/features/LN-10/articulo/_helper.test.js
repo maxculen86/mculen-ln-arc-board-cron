@@ -1,10 +1,12 @@
-import { getMediaData } from '../../../../../../components/features/LN10/LN10_articulo/_helper';
-import responseVideoSource from '../../../../../../__mocks__/data/videos/responseVideoSource.json';
-import responseArticleSourceNota from '../../../../../../__mocks__/data/articles/2CIOHVMKJBHKDMMHH2WBIZGJWE.json';
-import responseRelatedImageSource from '../../../../../../__mocks__/data/images/responseRelatedImageSource.json';
-import get from '../../../../../../components/private/common/utils/get';
+import responseVideoSource from '../../../../../__mocks__/data/videos/responseVideoSource.json';
+import responseArticleSourceNota from '../../../../../__mocks__/data/articles/2CIOHVMKJBHKDMMHH2WBIZGJWE.json';
+import responseRelatedImageSource from '../../../../../__mocks__/data/images/responseRelatedImageSource.json';
+import {
+    getMediaData,
+    validateVariant
+} from '../../../../../components/features/LN-10/article/_helper';
 
-describe('Tests - helpers - LN10_Article', () => {
+describe('Components - Features - LN-10 - Article - _helper', () => {
     const getProps = ({ video, image, customFields } = {}) => {
         return {
             article: responseArticleSourceNota,
@@ -130,5 +132,10 @@ describe('Tests - helpers - LN10_Article', () => {
                 width: 768
             });
         });
+    });
+    test('should test validateVariant function', () => {
+        expect(validateVariant('author', 1)).toStrictEqual('author');
+        expect(validateVariant('author', 2)).toStrictEqual('regular');
+        expect(validateVariant('regular', 1)).toStrictEqual('regular');
     });
 });
