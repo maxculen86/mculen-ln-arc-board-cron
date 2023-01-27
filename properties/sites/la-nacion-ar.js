@@ -2830,7 +2830,8 @@ export default {
         Acumulado: 'LN-acumulado',
         Columnistas: 'LN-acumulado-columnistas',
         FotoAl100: 'LN-nota-foto-al-100',
-        Deportes: 'LN-Home_Sports'
+        Deportes: 'LN-Home_Sports',
+        Noticia: 'LN-nota-noticia'
     },
     notRecommendedSections: ['recetas']
 };
