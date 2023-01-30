@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
@@ -9,28 +8,30 @@ import Consumer from 'fusion:consumer';
 import { Card } from '@ln/contenidos-ui-card';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
 import {
-    getIsRenderAutor,
     getWithMedia,
     getWithSubhead,
     isInApertura,
     transform
 } from '../../../private/LN/home/components/noteCard/noteCardHelper';
-import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
+import getChainConfig, {
+    getDataAuthor,
+    checkForId,
+    isBombaHidden,
+    getMediaData,
+    validateVariant,
+    articleCustomFields,
+    validateSubhead
+} from './_helper';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import filterVideo from '../../../../content/filters/LN/home/videoFilter';
-import featureArticleCustomsFields, {
-    GetImage
-} from '../../../private/LN/common/utils/articuloHelper';
+import { GetImage } from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
-import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelper';
 import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
-import { getViewport } from '../../../private/LN/common/utils/homeHelper';
-import getMediaData from '../../../private/LN/common/utils/modArticleHelper';
 import '../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-image/index.css';
@@ -45,9 +46,11 @@ const ArticleFeature = ({
         mobileImageId,
         lead,
         title,
-        authors
-    },
-    isBomba = false
+        authors,
+        chapita,
+        chapitaStyle,
+        variant = 'regular'
+    }
 }) => {
     const {
         isAdmin,
@@ -59,32 +62,21 @@ const ArticleFeature = ({
     const { layoutsName = {} } = siteConfig || {};
     const { cajaTemaConfig } = getProperties(arcSite);
 
-    const { config, index, layout, imageConfig } = getCajaTemaConfig(
+    const { config, index, layout, imageConfig } = getChainConfig(
         featureId,
         renderables,
-        cajaTemaConfig,
-        isBomba
+        cajaTemaConfig
     );
 
-    const isBombaHidden = () => {
-        const bomba = getChildrenFromSectionHome(renderables, 'Bomba', 2) || [];
-        return get(bomba[0], 'props.customFields.hideFeature', false);
-    };
-
     const onlyOneApeturaValidateForWWW =
-        isBomba ||
-        (isBombaHidden() &&
-            isInApertura({
-                renderables,
-                featureId,
-                layoutsName,
-                layoutPageBuilder,
-                config
-            }));
-
-    const checkForId = idValue => {
-        return idValue && idValue.trim();
-    };
+        isBombaHidden(renderables) &&
+        isInApertura({
+            renderables,
+            featureId,
+            layoutsName,
+            layoutPageBuilder,
+            config
+        });
 
     const articleContent = useContent({
         source: checkForId(id) ? 'articleSourceNota' : null,
@@ -99,6 +91,7 @@ const ArticleFeature = ({
         staticMode: isSSR(),
         filter
     });
+
     const image = GetImage({
         imageId,
         imageConfig,
@@ -107,14 +100,16 @@ const ArticleFeature = ({
         isAdmin,
         filterImage
     });
+
     const article = transform(
         articleContent,
         customFields,
         image && image.promo_items
     );
+
     const withMedia = getWithMedia(customFields, config, article);
     const withSubhead = getWithSubhead(config, withMedia, customFields);
-    const isRenderAutor = getIsRenderAutor(customFields, layout);
+    // const isRenderAutor = getIsRenderAutor(customFields, layout);
     // const label = getLabel(article, customFields, withMedia, layout);
     // const layoutGrillaVideo = layout === 'grillaVideo1' && '--l';
     // const titleSizeNoMedia = !withMedia && get(config, 'titleSizeNoMedia');
@@ -153,17 +148,18 @@ const ArticleFeature = ({
         mobileImage,
         mobileImageId
     );
-    const { device } = getViewport();
 
-    const { mediaData } = getMediaData(
-        videoBackground,
-        device,
-        mobileImage,
-        layout,
-        isRenderAutor,
-        layout && layout.includes('author'),
-        article
-    );
+    const mediaData = getMediaData({
+        article,
+        video: videoBackground,
+        customFields,
+        image,
+        layout
+    });
+
+    const { url, marquesina } = getDataAuthor(article);
+    const authorsQuantity = get(article, 'credits.by', []).length;
+
     if (isAdmin && !!error) {
         return (
             <div
@@ -188,16 +184,22 @@ const ArticleFeature = ({
                 <Card
                     lead={lead || get(article, 'label.volanta.text')}
                     title={title || get(article, 'headlines.basic', 'titulo')}
+                    titleTag={get(config, 'titleTag')}
                     href={get(article, 'website_url', '')}
-                    src={get(article, 'promo_items.basic.url', '')}
-                    subhead={
-                        get(config, 'skipSubhead', false)
-                            ? false
-                            : withSubhead && get(article, 'subheadlines.basic')
-                    }
-                    marquee={authors}
+                    subhead={validateSubhead(
+                        config,
+                        withSubhead,
+                        variant,
+                        article
+                    )}
+                    subheadTag={get(config, 'subheadTag')}
+                    badgeText={chapita}
+                    badgeType={chapitaStyle}
+                    marquee={authors || marquesina}
+                    marqueeImg={authorsQuantity === 1 && url}
                     mediaData={mediaData}
-                    srcset={get(article, 'promo_items.basic.resized_urls', [])}
+                    cardSize={get(config, 'cardSize', '')}
+                    variant={validateVariant(variant, authorsQuantity)}
                 />
             </ErrorBoundary>
         )) ||
@@ -213,7 +215,7 @@ ArticleFeature.propTypes = {
         children: PropTypes.array
     }).isRequired,
     customFields: PropTypes.shape({
-        ...(featureArticleCustomsFields('articuloGeneral') || {})
+        ...(articleCustomFields || {})
     }),
     searchableField: PropTypes.shape({
         imageId: PropTypes.string

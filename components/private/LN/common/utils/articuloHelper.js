@@ -13,9 +13,8 @@ const featuredRules = {
     }
 };
 
-const conditionallyCallImageSource = idImage => {
-    return (idImage && idImage.trim() && 'relatedImageSource') || null;
-};
+const conditionallyCallImageSource = idImage =>
+    (idImage && idImage.trim() && 'relatedImageSource') || null;
 
 export const GetImage = ({
     imageId,
@@ -43,7 +42,7 @@ export const GetImage = ({
     );
 };
 
-const featureArticleCustomsFields = featuredName => {
+const featureArticleCustomsFields = (featuredName, isLN10) => {
     return {
         noteId: PropTypes.string.tag({
             name: 'ID de la nota',
@@ -122,6 +121,15 @@ const featureArticleCustomsFields = featuredName => {
             name: 'Foto Mobile',
             description: 'Ingrese aquí el ID de imagen Vertical.',
             default: ''
+        }),
+        ...(!isLN10 && {
+            opinion: PropTypes.bool.tag({
+                name: 'Nota Opinión',
+                description:
+                    'Seleccione si la nota debe mostrarse de tipo opinión',
+                default: false,
+                hidden: featuredRules[featuredName].hideOpinion
+            })
         })
     };
 };
