@@ -33,6 +33,10 @@ import validateSponsoredLink from './utils/validateSponsoredLink';
 import { getPrincipalCategory } from '../../components/private/LN/api/v1/common/category';
 import { hasPromoItemImgAuth } from './utils/signingImageAuth';
 import getImagesAuth from './utils/signingServiceSource/getImagesAuth';
+import {
+    addHttpsInterstitialLink,
+    addHttpsLinkInParagraphs
+} from './utils/articleSourceNota/_helper';
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -313,6 +317,18 @@ const transformContent = async (
                 );
 
             resp.content_elements[i] = replaceTagInTextListRaw(e, 'TERCERA=""');
+
+            if (e.type === 'interstitial_link') {
+                resp.content_elements[i].url = addHttpsInterstitialLink(
+                    resp.content_elements[i].url
+                );
+            }
+
+            if (e.type === 'text') {
+                resp.content_elements[i].content = addHttpsLinkInParagraphs(
+                    resp.content_elements[i].content
+                );
+            }
         });
 
     /* TODO: validar si related content debe ir vacio si tiene otros
