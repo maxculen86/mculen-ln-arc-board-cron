@@ -1,25 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Context from 'fusion:context';
 import Static from 'fusion:static';
+import PropTypes from 'fusion:prop-types';
 import getProperties from 'fusion:properties';
 import HeaderContainer from '../../private/OTT/common/header';
+import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
+import StaticContent from '../../private/common/staticContent';
 
-class Header extends Component {
-    constructor(props) {
-        super(props);
-        const siteVars = getProperties(props.arcSite);
-        this.headerHierarchy = siteVars.header.hierarchy;
-    }
+const Header = props => {
+    const { arcSite = 'ott', id: featureId, globalContent = {} } = props;
+    const { node_type: nodeType = '' } = globalContent;
+    const siteVars = getProperties(arcSite);
+    const headerHierarchy = siteVars.header.hierarchy;
+    const hasHydrateOnly = checkHydrateOnly({ nodeType });
 
-    render() {
-        const { id: featureId } = this.props;
+    return hasHydrateOnly ? (
+        <StaticContent>
+            <HeaderContainer hierarchy={headerHierarchy} />
+        </StaticContent>
+    ) : (
+        <Static id={featureId}>
+            <HeaderContainer hierarchy={headerHierarchy} />
+        </Static>
+    );
+};
 
-        return (
-            <Static id={featureId}>
-                <HeaderContainer hierarchy={this.headerHierarchy} />
-            </Static>
-        );
-    }
-}
+Header.propTypes = {
+    globalContent: PropTypes.shape({
+        node_type: PropTypes.string.isRequired
+    }).isRequired,
+    arcSite: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired
+};
 
 export default Context(Header);
