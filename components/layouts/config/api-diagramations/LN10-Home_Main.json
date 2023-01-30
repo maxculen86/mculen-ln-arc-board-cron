@@ -19,6 +19,44 @@
             "imagen_Posicion": "Top"
         }
     },
+    "grilla9": {
+        "T1": {
+            "tamano": "L",
+            "imagen_Posicion": "Center"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T3": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T4": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T5": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T6": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T7": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T8": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T9": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        }
+    },
     "grillaVideo1": {
         "T1": {
             "tamano": "XL",

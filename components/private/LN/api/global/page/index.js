@@ -238,6 +238,7 @@ const addProperties = (
     diagramations,
     positionsArticlesbyDiagramation
 ) => {
+    // Add properties to  Chain Manual o Chain Collection
     const setInformationInFeature = (render, children, idRenderParent) => {
         return {
             ...render,
@@ -249,6 +250,38 @@ const addProperties = (
             }
         };
     };
+
+    // Add properties to articles from Chain Manual o Chain Collection
+    const setInformationInArticle = (
+        article,
+        childrenArticle,
+        sectionChildrenItem,
+        configDiagramationChild,
+        nameIndexforDiagrmation
+    ) => {
+        if (childrenArticle && childrenArticle.collection === 'features') {
+            // Applies to cases of Chains that have LN Articles and Timeline
+            if (get(article, 'information', null) != null) {
+                return setInformationInFeature(
+                    article,
+                    childrenArticle,
+                    get(sectionChildrenItem, 'props.id', null)
+                );
+            }
+        }
+        // Applies to common cases of Chains that only have LN Articles or only articles
+        return {
+            ...article,
+            additionalProperties: {
+                ...get(article, 'additionalProperties', null),
+                originPosition: nameIndexforDiagrmation,
+                diseno: configDiagramationChild,
+                nameFeature: childrenArticle && childrenArticle.type,
+                idRender: get(childrenArticle, 'props.id', null)
+            }
+        };
+    };
+
     const newElements =
         elements &&
         Array.isArray(elements) &&
@@ -256,9 +289,10 @@ const addProperties = (
             if (e == null) {
                 return e;
             }
+            const sectionChildrenItem = sectionChildren[i];
             if (
-                sectionChildren[i] &&
-                sectionChildren[i].collection === 'chains'
+                sectionChildrenItem &&
+                sectionChildrenItem.collection === 'chains'
             ) {
                 let configDiagramation = null;
                 const informationChain = get(e, 'information', null);
@@ -275,8 +309,8 @@ const addProperties = (
                     ...e,
                     information: {
                         ...informationChain,
-                        nameChain: sectionChildren[i].type,
-                        idRender: get(sectionChildren[i], 'props.id', null)
+                        nameChain: sectionChildrenItem.type,
+                        idRender: get(sectionChildrenItem, 'props.id', null)
                     },
                     articles:
                         Array.isArray(e.articles) &&
@@ -284,56 +318,23 @@ const addProperties = (
                             e.articles.map((a, index) => {
                                 // Add properties of the chain's children such as layouts and important fields
                                 const childrenArticle =
-                                    sectionChildren[i].children[index];
+                                    sectionChildrenItem.children[index];
                                 const nameIndexforDiagrmation = 'T'.concat(
                                     (index + 1).toString()
                                 );
+
                                 // Matches the diagrmation of the article or child
                                 const configDiagramationChild =
                                     configDiagramation &&
                                     configDiagramation[nameIndexforDiagrmation];
-                                // Temporary code.  Only for test Diagramations
-                                // if (configDiagramation) {
-                                //     console.log('diagrmation finded');
-                                //     console.log(nameIndexforDiagrmation);
-                                // }
-                                if (
-                                    childrenArticle &&
-                                    childrenArticle.collection === 'features'
-                                ) {
-                                    // Aplica para casos de Chains que tienen LN Articles y Timeline
-                                    if (get(a, 'information', null) != null) {
-                                        return setInformationInFeature(
-                                            a,
-                                            childrenArticle,
-                                            get(
-                                                sectionChildren[i],
-                                                'props.id',
-                                                null
-                                            )
-                                        );
-                                    }
-                                    // Aplica para casos comunes de Chains que solo tienen LN Articles
-                                    return {
-                                        ...a,
-                                        additionalProperties: {
-                                            ...get(
-                                                a,
-                                                'additionalProperties',
-                                                null
-                                            ),
-                                            originPosition: nameIndexforDiagrmation,
-                                            diseno: configDiagramationChild,
-                                            nameFeature: childrenArticle.type,
-                                            idRender: get(
-                                                childrenArticle,
-                                                'props.id',
-                                                null
-                                            )
-                                        }
-                                    };
-                                }
-                                return a;
+
+                                return setInformationInArticle(
+                                    a,
+                                    childrenArticle,
+                                    sectionChildrenItem,
+                                    configDiagramationChild,
+                                    nameIndexforDiagrmation
+                                );
                             }),
                             positionsArticlesbyDiagramation,
                             informationChain.layout
@@ -341,10 +342,10 @@ const addProperties = (
                 };
             }
             if (
-                sectionChildren[i] &&
-                sectionChildren[i].collection === 'features'
+                sectionChildrenItem &&
+                sectionChildrenItem.collection === 'features'
             ) {
-                return setInformationInFeature(e, sectionChildren[i]);
+                return setInformationInFeature(e, sectionChildrenItem);
             }
             return e;
         });
