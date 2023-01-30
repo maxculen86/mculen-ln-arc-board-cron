@@ -54,14 +54,28 @@ const featureInformation = (information, section) => {
     if (!information.hideTitle && section !== 'Apertura') {
         const image = get(information.image, 'promo_items.basic', null);
         const imagenUrl = get(image, 'additional_properties.originalUrl', null);
+        let accionBoton = null;
+
         if (image && image.type === 'image') res.imagen = Image(image);
         if (imagenUrl) res.imagenUrl = imagenUrl;
+        if (information.botomText && information.botomLink)
+            res.imagenUrl = imagenUrl;
+
+        if (information.botomText && information.botomLink) {
+            accionBoton = {
+                titulo: information.botomText,
+                url: information.botomLink,
+                estilo: information.botomStyle
+            };
+        }
+
         return {
             ...res,
             tituloCaja: information.title,
             url: information.url,
             chapita: information.chapita,
-            chapita_Style: information.chapitaStyle
+            chapitaStyle: information.chapitaStyle,
+            accionBoton
         };
     }
     return res;

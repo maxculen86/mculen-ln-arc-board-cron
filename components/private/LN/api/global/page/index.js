@@ -52,7 +52,8 @@ const setSectionAliasbyFeatureOrChain = (information, sectionMobile) => {
         const sectionAliasbyFeature = getSectionAliasbyFeatureOrChain(
             information.nameFeature == null
                 ? information.nameChain
-                : information.nameFeature
+                : information.nameFeature,
+            information.typeChain
         );
         return sectionAliasbyFeature == null
             ? sectionMobile

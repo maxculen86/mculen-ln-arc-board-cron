@@ -7,8 +7,19 @@ class CajaManual {
     constructor(props) {
         this.props = props;
 
-        const imageId = get(props, 'customFields.imageId', '');
-        const idCollection = get(props, 'customFields.idCollection', '');
+        const imageId = get(this.props, 'customFields.imageId', '');
+        const idCollection = get(this.props, 'customFields.idCollection', '');
+
+        // OJO: Esto es un codigo temporal solo para simular en caso de venir los parametros del boton
+        if (imageId) {
+            this.props.customFields = {
+                ...get(this.props, 'customFields', {}),
+                botomText: 'PROGRAMA EN VIVO',
+                botomLink:
+                    'https://www.semrush.com/website/weather.com/overview/',
+                botomStyle: 'Red'
+            };
+        }
 
         imageId &&
             imageId.trim() &&

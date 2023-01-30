@@ -19,6 +19,12 @@
             "imagen_Posicion": "Top"
         }
     },
+    "grillaVideo1": {
+        "T1": {
+            "tamano": "XL",
+            "imagen_Posicion": "Top"
+        }
+    },
     "aperturafocalLeft": {
         "T1": {
             "tamano": "XL",

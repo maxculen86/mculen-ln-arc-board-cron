@@ -1,0 +1,23 @@
+{
+    "hashtag": [
+        {
+            "customFields.layout": "grilla2"
+        },
+        {
+            "customFields.subtitle": "hastag"
+        }
+    ],
+    "suscriptor": [
+        {
+            "customFields.layout": "grillaSuscriptor",
+            "customFields.hideTitle": false
+        },
+        {
+            "customFields.title": "suscriptor",
+            "customFields.hideTitle": false
+        },
+        {
+            "customFields.subtitle": "suscriptor"
+        }
+    ]
+}
