@@ -316,7 +316,7 @@ const Index = ({ home }) => {
                                 title="gda"
                                 width="36"
                                 height="20"
-                                href="http://gda.com/"
+                                href="https://gda.com/"
                                 target="_blank"
                             />
                             <Text>
@@ -327,7 +327,7 @@ const Index = ({ home }) => {
                                 title="Data fiscal"
                                 width="28"
                                 height="38"
-                                href="http://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
+                                href="https://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
                                 target="_blank"
                             />
                         </div>

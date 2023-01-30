@@ -1,4 +1,4 @@
-// import get from '../../../../common/utils/get';
+import PropTypes from 'fusion:prop-types';
 import get from '../../../private/common/utils/get';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import getAuthorsPhoto from '../../../private/common/utils/getAuthorsPhoto';
@@ -10,8 +10,26 @@ import {
 } from '../../../private/LN/common/utils/mediaHelper';
 import getStreams from '../../../private/LN/common/utils/getStreams';
 import diagramationRules from '../../../private/common/utils/diagramationRules';
+import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 
 const promoItemsBasic = 'promo_items.basic';
+
+export const validateSubhead = (config, withSubhead, variant, article) =>
+    get(config, 'skipSubhead', false) &&
+    withSubhead &&
+    variant !== 'author' &&
+    get(article, 'subheadlines.basic');
+
+export const validateVariant = (variant, authorsQuantity) =>
+    variant === 'author' && !(authorsQuantity === 1) ? 'regular' : variant;
+
+export const articleCustomFields = {
+    ...featureArticleCustomsFields('articuloGeneral', true),
+    variant: PropTypes.oneOf(['regular', 'author']).tag({
+        defaultValue: 'regular',
+        name: 'Variante'
+    })
+};
 
 export const getDataAuthor = article => {
     return {

@@ -72,7 +72,8 @@ ModDolar.propTypes = {
         sourceName: PropTypes.string,
         title: PropTypes.string,
         compra: PropTypes.string,
-        venta: PropTypes.string
+        venta: PropTypes.string,
+        link: PropTypes.string
     }).isRequired,
     informationAlt: PropTypes.string,
     providedAlt: PropTypes.string,
