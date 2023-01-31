@@ -202,6 +202,9 @@ const labels = `
             text
             display
         }
+        mostrar_caja_dolar {
+            ${label}
+        }
     }
 `;
 const table = `

@@ -68,7 +68,7 @@ export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
 };
 
 export const validateChain = (childrenProps, layout, isInOpening) => {
-    const LN10_ARTICLE = 'LN10/LN10_articulo';
+    const LN10_ARTICLE = 'LN-10/article';
     const LN_TIMELINE = 'LN-acumulado/timeline';
     const COLLECTION_FEATURES = 'features';
 

@@ -10,7 +10,6 @@ import Consumer from 'fusion:consumer';
 import { Card } from '@ln/contenidos-ui-card';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
 import {
-    // getIsRenderAutor,
     getWithMedia,
     getWithSubhead,
     isInApertura,
@@ -21,15 +20,16 @@ import getChainConfig, {
     checkForId,
     isBombaHidden,
     getMediaData,
-    getDataAttributesForViewability
+    getDataAttributesForViewability,
+    validateVariant,
+    articleCustomFields,
+    validateSubhead
 } from './_helper';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import filterVideo from '../../../../content/filters/LN/home/videoFilter';
-import featureArticleCustomsFields, {
-    GetImage
-} from '../../../private/LN/common/utils/articuloHelper';
+import { GetImage } from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
@@ -52,7 +52,10 @@ const ArticleFeature = ({
         lead,
         title,
         authors,
-        hideImage
+        hideImage,
+        chapita,
+        chapitaStyle,
+        variant = 'regular'
     }
 }) => {
     const {
@@ -98,6 +101,7 @@ const ArticleFeature = ({
         staticMode: isSSR(),
         filter
     });
+
     const image = GetImage({
         imageId,
         imageConfig,
@@ -106,11 +110,13 @@ const ArticleFeature = ({
         isAdmin,
         filterImage
     });
+
     const article = transform(
         articleContent,
         customFields,
         image && image.promo_items
     );
+
     const withMedia = getWithMedia(customFields, config, article);
     const withSubhead = getWithSubhead(config, withMedia, customFields);
     // const isRenderAutor = getIsRenderAutor(customFields, layout);
@@ -163,6 +169,8 @@ const ArticleFeature = ({
 
     const { url, marquesina } = getDataAuthor(article);
     const { imagePosition, withSection, withMarquee, withMarqueeImg } = config;
+    const authorsQuantity = get(article, 'credits.by', []).length;
+
     if (isAdmin && !!error) {
         return (
             <div
@@ -190,14 +198,9 @@ const ArticleFeature = ({
                     titleTag={get(config, 'titleTag')}
                     href={get(article, 'website_url', '')}
                     withMedia={!hideImage}
-                    subhead={
-                        get(config, 'skipSubhead', false)
-                            ? false
-                            : withSubhead && get(article, 'subheadlines.basic')
-                    }
                     subheadTag={get(config, 'subheadTag')}
                     marquee={withMarquee && (authors || marquesina)}
-                    marqueeImg={withMarqueeImg && url}
+                    marqueeImg={withMarqueeImg && authorsQuantity === 1 && url}
                     mediaData={mediaData}
                     cardSize={get(config, 'cardSize', '')}
                     imagePosition={imagePosition}
@@ -212,6 +215,15 @@ const ArticleFeature = ({
                         })
                     }
                     {...extraOpts}
+                    subhead={validateSubhead(
+                        config,
+                        withSubhead,
+                        variant,
+                        article
+                    )}
+                    badgeText={chapita}
+                    badgeType={chapitaStyle}
+                    variant={validateVariant(variant, authorsQuantity)}
                 />
             </ErrorBoundary>
         )) ||
@@ -227,7 +239,7 @@ ArticleFeature.propTypes = {
         children: PropTypes.array
     }).isRequired,
     customFields: PropTypes.shape({
-        ...(featureArticleCustomsFields('articuloGeneral') || {})
+        ...(articleCustomFields || {})
     }),
     searchableField: PropTypes.shape({
         imageId: PropTypes.string
