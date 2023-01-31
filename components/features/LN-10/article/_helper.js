@@ -14,11 +14,15 @@ import featureArticleCustomsFields from '../../../private/LN/common/utils/articu
 
 const promoItemsBasic = 'promo_items.basic';
 
-export const validateSubhead = (config, withSubhead, variant, article) =>
-    get(config, 'skipSubhead', false) &&
-    withSubhead &&
-    variant !== 'author' &&
-    get(article, 'subheadlines.basic');
+export const showSubheadText = ({ withSubhead, article, description }) =>
+    withSubhead && (description || get(article, 'subheadlines.basic'));
+
+export const validateSubhead = (config, withMedia, customFields, variant) =>
+    (variant !== 'author' &&
+        !get(customFields, 'hideDescription') &&
+        (get(customFields, 'video') || get(customFields, 'html'))) ||
+    get(config, 'withSubhead') ||
+    (!get(config, 'withSubhead') && !withMedia);
 
 export const validateVariant = (variant, authorsQuantity) =>
     variant === 'author' && !(authorsQuantity === 1) ? 'regular' : variant;

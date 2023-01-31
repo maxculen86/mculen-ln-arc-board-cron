@@ -11,7 +11,6 @@ import { Card } from '@ln/contenidos-ui-card';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
 import {
     getWithMedia,
-    getWithSubhead,
     isInApertura,
     transform
 } from '../../../private/LN/home/components/noteCard/noteCardHelper';
@@ -23,7 +22,8 @@ import getChainConfig, {
     getDataAttributesForViewability,
     validateVariant,
     articleCustomFields,
-    validateSubhead
+    validateSubhead,
+    showSubheadText
 } from './_helper';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
@@ -55,6 +55,8 @@ const ArticleFeature = ({
         hideImage,
         chapita,
         chapitaStyle,
+        description,
+        hideAuthors,
         variant = 'regular'
     }
 }) => {
@@ -118,7 +120,7 @@ const ArticleFeature = ({
     );
 
     const withMedia = getWithMedia(customFields, config, article);
-    const withSubhead = getWithSubhead(config, withMedia, customFields);
+    const withSubhead = validateSubhead(config, withMedia, customFields);
     // const isRenderAutor = getIsRenderAutor(customFields, layout);
     // const label = getLabel(article, customFields, withMedia, layout);
     // const layoutGrillaVideo = layout === 'grillaVideo1' && '--l';
@@ -199,7 +201,9 @@ const ArticleFeature = ({
                     href={get(article, 'website_url', '')}
                     withMedia={!hideImage}
                     subheadTag={get(config, 'subheadTag')}
-                    marquee={withMarquee && (authors || marquesina)}
+                    marquee={
+                        withMarquee && !hideAuthors && (authors || marquesina)
+                    }
                     marqueeImg={withMarqueeImg && authorsQuantity === 1 && url}
                     mediaData={mediaData}
                     cardSize={get(config, 'cardSize', '')}
@@ -215,12 +219,11 @@ const ArticleFeature = ({
                         })
                     }
                     {...extraOpts}
-                    subhead={validateSubhead(
-                        config,
+                    subhead={showSubheadText({
+                        description,
                         withSubhead,
-                        variant,
                         article
-                    )}
+                    })}
                     badgeText={chapita}
                     badgeType={chapitaStyle}
                     variant={validateVariant(variant, authorsQuantity)}

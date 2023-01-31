@@ -44,6 +44,7 @@ describe('Components - features - LN-10 - articulo - default', () => {
             authors: [],
             variant
         },
+        searchableField: () => {},
         isBomba: false
     });
     it('should test card autor variant', () => {

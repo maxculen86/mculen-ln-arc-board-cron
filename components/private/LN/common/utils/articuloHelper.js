@@ -75,6 +75,13 @@ const featureArticleCustomsFields = (featuredName, isLN10) => {
             description: 'Ingrese aquí el texto de la marquesina',
             default: ''
         }),
+        ...(isLN10 && {
+            hideAuthors: PropTypes.bool.tag({
+                name: 'Ocultar Firma',
+                description: 'Seleccione si no debe mostrarse la firma',
+                default: false
+            })
+        }),
         hideFeature: PropTypes.bool.tag({
             name: 'Ocultar Bomba',
             description: 'Seleccione si no debe mostrarse la bomba ',
@@ -91,11 +98,14 @@ const featureArticleCustomsFields = (featuredName, isLN10) => {
             description: 'Seleccione si no debe mostrarse la bajada en la nota',
             default: false
         }),
-        opinion: PropTypes.bool.tag({
-            name: 'Nota Opinión',
-            description: 'Seleccione si la nota debe mostrarse de tipo opinión',
-            default: false,
-            hidden: featuredRules[featuredName].hideOpinion
+        ...(!isLN10 && {
+            opinion: PropTypes.bool.tag({
+                name: 'Nota Opinión',
+                description:
+                    'Seleccione si la nota debe mostrarse de tipo opinión',
+                default: false,
+                hidden: featuredRules[featuredName].hideOpinion
+            })
         }),
         chapita: PropTypes.string.tag({
             name: 'Chapita',
@@ -117,18 +127,11 @@ const featureArticleCustomsFields = (featuredName, isLN10) => {
             description: 'Ingrese aquí el html del tablero',
             default: ''
         }),
-        mobileImageId: PropTypes.string.tag({
-            name: 'Foto Mobile',
-            description: 'Ingrese aquí el ID de imagen Vertical.',
-            default: ''
-        }),
         ...(!isLN10 && {
-            opinion: PropTypes.bool.tag({
-                name: 'Nota Opinión',
-                description:
-                    'Seleccione si la nota debe mostrarse de tipo opinión',
-                default: false,
-                hidden: featuredRules[featuredName].hideOpinion
+            mobileImageId: PropTypes.string.tag({
+                name: 'Foto Mobile',
+                description: 'Ingrese aquí el ID de imagen Vertical.',
+                default: ''
             })
         })
     };

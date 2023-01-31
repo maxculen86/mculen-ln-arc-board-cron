@@ -4,6 +4,10 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
 <div>
   <article
     class="ln-card --d-flex --flex-col --ai-start --regular --mobile-img-top --tablet-img-top --desktop-img-top"
+    data-id="2KOBND62KNFVVBFQZOADNN6WNY"
+    data-notaid="2KOBND62KNFVVBFQZOADNN6WNY"
+    data-pos="0000"
+    data-source="editor"
   >
     <a
       class="link ln-link --d-flex --flex-col --unstyled"
@@ -44,21 +48,6 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
           </span>
           Nota
         </h2>
-        <div
-          class="marquee-container --mb-xs --d-flex --ai-center"
-          title="Por "
-        >
-          <div
-            class="marquee-text --d-flex --flex-col --font-2xs"
-          >
-            <span
-              class="text ln-text marquee"
-            >
-              Por 
-              <strong />
-            </span>
-          </div>
-        </div>
       </section>
     </a>
   </article>
