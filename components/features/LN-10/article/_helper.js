@@ -17,12 +17,14 @@ const promoItemsBasic = 'promo_items.basic';
 export const showSubheadText = ({ withSubhead, article, description }) =>
     withSubhead && (description || get(article, 'subheadlines.basic'));
 
-export const validateSubhead = (config, withMedia, customFields, variant) =>
-    (variant !== 'author' &&
-        !get(customFields, 'hideDescription') &&
-        (get(customFields, 'video') || get(customFields, 'html'))) ||
-    get(config, 'withSubhead') ||
-    (!get(config, 'withSubhead') && !withMedia);
+export const validateSubhead = (config, withMedia, customFields, variant) => {
+    return (
+        (variant !== 'author' &&
+            get(config, 'withSubhead') &&
+            !get(customFields, 'hideDescription')) ||
+        (!get(config, 'withSubhead') && !withMedia)
+    );
+};
 
 export const validateVariant = (variant, authorsQuantity) =>
     variant === 'author' && !(authorsQuantity === 1) ? 'regular' : variant;

@@ -21,7 +21,7 @@ const diagramationRules = diagramation => {
                 cardSize: 'xl',
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: false,
+                withMarqueeImg: true,
                 withSubhead: false
             },
             {
@@ -30,7 +30,7 @@ const diagramationRules = diagramation => {
                 cardSize: 'xl',
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: false,
+                withMarqueeImg: true,
                 withSubhead: false
             },
             {
@@ -39,7 +39,7 @@ const diagramationRules = diagramation => {
                 cardSize: 'xl',
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: false,
+                withMarqueeImg: true,
                 imagePosition: 'img-bottom',
                 withSubhead: false
             },
@@ -49,7 +49,7 @@ const diagramationRules = diagramation => {
                 cardSize: 'xl',
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: false,
+                withMarqueeImg: true,
                 withSubhead: false
             }
         ],
@@ -59,7 +59,7 @@ const diagramationRules = diagramation => {
                 subheadTag: 'h3',
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: false,
+                withMarqueeImg: true,
                 cardSize: 'l',
                 withSubhead: false
             },
@@ -68,7 +68,7 @@ const diagramationRules = diagramation => {
                 subheadTag: 'h3',
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: false,
+                withMarqueeImg: true,
                 withSubhead: false,
                 cardSize: 'l',
                 imagePosition: {
@@ -96,7 +96,7 @@ const diagramationRules = diagramation => {
                 subheadTag: 'h3',
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: false,
+                withMarqueeImg: true,
                 withSubhead: false,
                 cardSize: 'l',
                 imagePosition: {
@@ -125,8 +125,8 @@ const diagramationRules = diagramation => {
                 titleTag: 'h2',
                 cardSize: 'xl',
                 withSection: false,
-                withMarquee: false,
-                withMarqueeImg: false,
+                withMarquee: true,
+                withMarqueeImg: true,
                 withSubhead: false
             },
             {
@@ -134,7 +134,7 @@ const diagramationRules = diagramation => {
                 subheadTag: 'h3',
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: false,
+                withMarqueeImg: true,
                 withSubhead: false,
                 cardSize: 'l'
             },
@@ -143,7 +143,7 @@ const diagramationRules = diagramation => {
                 subheadTag: 'h3',
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: false,
+                withMarqueeImg: true,
                 withSubhead: false,
                 cardSize: 'l',
                 imagePosition: {
@@ -173,8 +173,8 @@ const diagramationRules = diagramation => {
                 subheadTag: 'h3',
                 cardSize: 'l',
                 withSection: false,
-                withMarquee: false,
-                withMarqueeImg: false,
+                withMarquee: true,
+                withMarqueeImg: true,
                 withSubhead: false
             },
             {
@@ -182,7 +182,7 @@ const diagramationRules = diagramation => {
                 cardSize: 'l',
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: false,
+                withMarqueeImg: true,
                 withSubhead: false,
                 imagePosition: {
                     mobile: 'img-top',
