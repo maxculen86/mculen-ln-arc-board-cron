@@ -8,7 +8,7 @@ const getSectionAliasbyFeatureOrChain = (nameContainer, typeContainer) => {
         'LN-common/LN10_En_Vivo': 'EnVivo',
         LN10_Caja_Bomba: 'Bomba',
         LN10_Caja_Collection: {
-            hashtag: 'default'
+            hashtag: 'HashTag'
         }
     };
 
