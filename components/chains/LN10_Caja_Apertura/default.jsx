@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { Opening } from '@ln/contenidos-ui-opening';
@@ -60,12 +60,47 @@ const CajaApertura = props => {
 
     const features = setFilteredRenderables(renderables, children);
     const featuredChildren = setWrappedChildren(features, children) || [];
-
-    const slicedChildren = setSlicedChildren({
+    const orderFeaturesInitial = features.map(feature => {
+        return feature.props && feature.props.id;
+    });
+    const orderChildrenInitial = children.map(child => {
+        return child.key;
+    });
+    const slicedChildrenInitial = setSlicedChildren({
         setQuantityByLayout,
         featuredChildren,
         config: { layout, countTimeline: true }
     });
+    const [slicedChildren, setUpdateChildrens] = useState(
+        slicedChildrenInitial
+    );
+
+    useEffect(() => {
+        const isEqualOrder =
+            JSON.stringify(orderChildrenInitial) ===
+            JSON.stringify(orderFeaturesInitial);
+        if (!isEqualOrder && isAdmin) {
+            const featuresUpdated = children.map(child => {
+                return features[
+                    features.findIndex(
+                        feature =>
+                            feature &&
+                            feature.props &&
+                            feature.props.id === child.key
+                    )
+                ];
+            });
+            const featuredChildrenUpdated =
+                setWrappedChildren(featuresUpdated, children) || [];
+            const slicedChildrenUpdated = setSlicedChildren({
+                setQuantityByLayout,
+                featuredChildren: featuredChildrenUpdated,
+                config: { layout, countTimeline: true }
+            });
+            setUpdateChildrens(slicedChildrenUpdated);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [children]);
 
     const Component = (
         <Opening data-chain-id={chainId} {...extraOpts} focalType={layout}>

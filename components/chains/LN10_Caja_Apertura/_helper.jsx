@@ -59,7 +59,7 @@ export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
     const options = {
         [FOCAL_LEFT]: countTimeline ? 6 : 5,
         [FOCAL_CENTER]: 4,
-        [FOCAL_70]: 4,
+        [FOCAL_70]: 3,
         [BN_OPENING_4]: 4,
         default: Number(layout && layout.slice(-1)) || 3
     };
@@ -136,7 +136,7 @@ export const setWrappedChildren = (renderables = [], features = []) => {
     };
 
     return renderables
-        .map(({ type, props } = {}) => {
+        .map(({ type, props = {} } = {}) => {
             const feature = features.find(c => c.key === props.id);
             return customWrappers[type]
                 ? customWrappers[type](feature)

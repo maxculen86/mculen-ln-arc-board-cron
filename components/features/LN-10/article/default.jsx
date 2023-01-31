@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppContext } from 'fusion:context';
 import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';
@@ -23,7 +22,8 @@ import getChainConfig, {
     validateVariant,
     articleCustomFields,
     validateSubhead,
-    showSubheadText
+    showSubheadText,
+    getChainParentOfFeature
 } from './_helper';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
@@ -39,6 +39,7 @@ import '../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-video/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-image/index.css';
+import diagramationRules from '../../../private/common/utils/diagramationRules';
 
 const ArticleFeature = ({
     id: featureId,
@@ -71,13 +72,34 @@ const ArticleFeature = ({
     const { cajaTemaConfig } = getProperties(arcSite);
 
     const {
-        config = {},
+        config: initialConfig = {},
         index,
         layout,
         imageConfig,
         boxPosition
     } = getChainConfig(featureId, renderables, cajaTemaConfig);
-
+    const [config, setConfig] = useState(initialConfig);
+    useEffect(() => {
+        if (isAdmin) {
+            const chainParent = getChainParentOfFeature(featureId, renderables);
+            const elementChain = document.querySelector(
+                `section[data-chain-id="${get(chainParent, 'props.id')}"]`
+            );
+            const indexOfFeature =
+                elementChain &&
+                [...elementChain.querySelectorAll('article')].findIndex(
+                    featureNode =>
+                        featureNode &&
+                        featureNode.getAttribute('data-feature-id') ===
+                            featureId
+                );
+            const layoutChain =
+                elementChain &&
+                elementChain.getAttribute('data-diagramacion-id');
+            const cardConfig = diagramationRules(layoutChain);
+            setConfig(cardConfig && cardConfig[indexOfFeature]);
+        }
+    }, [featureId, isAdmin, layout, renderables]);
     const extraOpts = getDataAttributesForViewability(id, boxPosition, index);
 
     const onlyOneApeturaValidateForWWW =
@@ -170,9 +192,10 @@ const ArticleFeature = ({
     });
 
     const { url, marquesina } = getDataAuthor(article);
-    const { imagePosition, withSection, withMarquee, withMarqueeImg } = config;
     const authorsQuantity = get(article, 'credits.by', []).length;
 
+    const { imagePosition, withSection, withMarquee, withMarqueeImg } =
+        config || {};
     if (isAdmin && !!error) {
         return (
             <div
@@ -195,6 +218,7 @@ const ArticleFeature = ({
         (!error && article && (
             <ErrorBoundary>
                 <Card
+                    data-feature-id={featureId}
                     lead={lead || get(article, 'label.volanta.text')}
                     title={title || get(article, 'headlines.basic', 'titulo')}
                     titleTag={get(config, 'titleTag')}

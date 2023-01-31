@@ -4,6 +4,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
 <div>
   <article
     class="ln-card --d-flex --flex-col --ai-start --regular --mobile-img-top --tablet-img-top --desktop-img-top"
+    data-feature-id="f0f9g3fKOoHW25c"
     data-id="2KOBND62KNFVVBFQZOADNN6WNY"
     data-notaid="2KOBND62KNFVVBFQZOADNN6WNY"
     data-pos="0000"

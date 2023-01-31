@@ -181,7 +181,9 @@ export const getDataAttributesForViewability = (id, boxPosition, index) => {
     }
     return extraOpts;
 };
-
+export const getChainParentOfFeature = (featureId, renderables) => {
+    return getFeatureData(featureId, renderables);
+};
 const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
     const { layoutsName = {} } = siteConfig || {};
     const parent = getFeatureData(featureId, renderables);
