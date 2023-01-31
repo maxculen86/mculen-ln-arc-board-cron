@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/require-default-props */
 import React from 'react';
@@ -19,7 +20,8 @@ import getChainConfig, {
     getDataAuthor,
     checkForId,
     isBombaHidden,
-    getMediaData
+    getMediaData,
+    getDataAttributesForViewability
 } from './_helper';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
@@ -63,11 +65,15 @@ const ArticleFeature = ({
     const { layoutsName = {} } = siteConfig || {};
     const { cajaTemaConfig } = getProperties(arcSite);
 
-    const { config, index, layout, imageConfig } = getChainConfig(
-        featureId,
-        renderables,
-        cajaTemaConfig
-    );
+    const {
+        config = {},
+        index,
+        layout,
+        imageConfig,
+        boxPosition
+    } = getChainConfig(featureId, renderables, cajaTemaConfig);
+
+    const extraOpts = getDataAttributesForViewability(id, boxPosition, index);
 
     const onlyOneApeturaValidateForWWW =
         isBombaHidden(renderables) &&
@@ -205,6 +211,7 @@ const ArticleFeature = ({
                             imageId: '_id'
                         })
                     }
+                    {...extraOpts}
                 />
             </ErrorBoundary>
         )) ||

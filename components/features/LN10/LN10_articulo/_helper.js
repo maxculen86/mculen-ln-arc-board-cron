@@ -145,6 +145,19 @@ const getFeatureData = (featureId, renderables = []) => {
     );
 };
 
+export const getDataAttributesForViewability = (id, boxPosition, index) => {
+    const extraOpts = {};
+    if (boxPosition) {
+        extraOpts['data-pos'] = `${boxPosition}${`0${Number(index) + 1}`.slice(
+            -2
+        )}`;
+        extraOpts['data-id'] = id;
+        extraOpts['data-notaid'] = id;
+        extraOpts['data-source'] = 'editor';
+    }
+    return extraOpts;
+};
+
 const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
     const { layoutsName = {} } = siteConfig || {};
     const parent = getFeatureData(featureId, renderables);

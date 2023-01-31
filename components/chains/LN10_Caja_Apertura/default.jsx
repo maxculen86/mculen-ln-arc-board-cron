@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/prop-types */
 import React from 'react';
@@ -21,6 +22,10 @@ import checkChildInSection from '../../private/LN/common/utils/LN10/checkChildBy
 import '../../../resources/packages/css/@ln/contenidos-ui-opening/index.css';
 import '../../../resources/dist/css/ln/components/timeline.css';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
+import {
+    getCommonProps,
+    getMarkupForDatalayer
+} from '../../private/LN/common/utils/cajaTemasHelper';
 
 const CajaApertura = props => {
     const {
@@ -40,6 +45,16 @@ const CajaApertura = props => {
         }
     });
 
+    const { position, positionInsideSection } = getCommonProps(props);
+
+    const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+        '',
+        layout,
+        position,
+        '',
+        positionInsideSection
+    );
+
     const isInOpening = checkChildInSection(chainId, openingChildren);
     const error = validateChain(childProps, layout, isInOpening);
 
@@ -52,9 +67,13 @@ const CajaApertura = props => {
         config: { layout, countTimeline: true }
     });
 
-    const Component = <Opening focalType={layout}>{slicedChildren}</Opening>;
+    const Component = (
+        <Opening data-chain-id={chainId} {...extraOpts} focalType={layout}>
+            {slicedChildren}
+        </Opening>
+    );
 
-    return setRender({ isAdmin, error, hideBox, Component });
+    return setRender({ isAdmin, error, hideBox, Component, extraOptsDiv });
 };
 
 CajaApertura.label = 'LN10 Caja Apertura';

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
@@ -8,10 +9,11 @@ import StaticContent from '../../private/common/staticContent';
 const LAYOUTS = {
     FOCAL_LEFT: 'left-focal',
     FOCAL_CENTER: 'center-focal',
-    FOCAL_70: 'focal-70'
+    FOCAL_70: 'focal-70',
+    BN_OPENING_4: 'bn-opening-4'
 };
 
-const { FOCAL_LEFT, FOCAL_CENTER, FOCAL_70 } = LAYOUTS;
+const { FOCAL_LEFT, FOCAL_CENTER, FOCAL_70, BN_OPENING_4 } = LAYOUTS;
 
 export const setCustomFields = () => {
     const CUSTOM_FIELDS_CONFIG = {
@@ -23,7 +25,8 @@ export const setCustomFields = () => {
             labels: {
                 [FOCAL_LEFT]: 'Focal Izquierdo',
                 [FOCAL_CENTER]: 'Focal Central',
-                [FOCAL_70]: 'Focal al 70'
+                [FOCAL_70]: 'Focal al 70',
+                [BN_OPENING_4]: 'Apertura x 4'
             }
         },
         hideBox: {
@@ -57,6 +60,7 @@ export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
         [FOCAL_LEFT]: countTimeline ? 6 : 5,
         [FOCAL_CENTER]: 4,
         [FOCAL_70]: 4,
+        [BN_OPENING_4]: 4,
         default: Number(layout && layout.slice(-1)) || 3
     };
 
@@ -146,13 +150,19 @@ export const setFilteredRenderables = (renderables = [], features = []) => {
     return renderables.filter(f => featuresKeys.includes(f.props.id));
 };
 
-export const setRender = ({ isAdmin, error = {}, hideBox, Component }) => {
+export const setRender = ({
+    isAdmin,
+    error = {},
+    hideBox,
+    Component,
+    extraOptsDiv
+}) => {
     const options = {
         isWarning: isAdmin && error && (
             <WarningMessage type={error.type} message={error.message} />
         ),
         isEmpty: (hideBox || error) && <></>,
-        default: <StaticContent>{Component}</StaticContent>
+        default: <StaticContent {...extraOptsDiv}>{Component}</StaticContent>
     };
 
     return Object.values(options).find(Boolean);
