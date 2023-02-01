@@ -26,6 +26,7 @@ import {
     getCommonProps,
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelper';
+import checkChangeChildrenForPB from '../utils/_helpers';
 
 const CajaApertura = props => {
     const {
@@ -60,44 +61,26 @@ const CajaApertura = props => {
 
     const features = setFilteredRenderables(renderables, children);
     const featuredChildren = setWrappedChildren(features, children) || [];
-    const orderFeaturesInitial = features.map(feature => {
-        return feature.props && feature.props.id;
-    });
-    const orderChildrenInitial = children.map(child => {
-        return child.key;
-    });
+
     const slicedChildrenInitial = setSlicedChildren({
         setQuantityByLayout,
         featuredChildren,
         config: { layout, countTimeline: true }
     });
+
     const [slicedChildren, setUpdateChildrens] = useState(
         slicedChildrenInitial
     );
 
     useEffect(() => {
-        const isEqualOrder =
-            JSON.stringify(orderChildrenInitial) ===
-            JSON.stringify(orderFeaturesInitial);
-        if (!isEqualOrder && isAdmin) {
-            const featuresUpdated = children.map(child => {
-                return features[
-                    features.findIndex(
-                        feature =>
-                            feature &&
-                            feature.props &&
-                            feature.props.id === child.key
-                    )
-                ];
+        if (isAdmin) {
+            checkChangeChildrenForPB({
+                features,
+                children,
+                setUpdateChildrens,
+                layout,
+                setQuantityByLayout
             });
-            const featuredChildrenUpdated =
-                setWrappedChildren(featuresUpdated, children) || [];
-            const slicedChildrenUpdated = setSlicedChildren({
-                setQuantityByLayout,
-                featuredChildren: featuredChildrenUpdated,
-                config: { layout, countTimeline: true }
-            });
-            setUpdateChildrens(slicedChildrenUpdated);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [children]);
