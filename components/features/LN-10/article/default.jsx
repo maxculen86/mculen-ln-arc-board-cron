@@ -7,7 +7,6 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 import { Card } from '@ln/contenidos-ui-card';
-import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
 import {
     getWithMedia,
     isInApertura,
@@ -23,22 +22,27 @@ import getChainConfig, {
     articleCustomFields,
     validateSubhead,
     showSubheadText,
-    changeConfigForPB
+    changeConfigForPB,
+    validateArticleFeature,
+    getBadgetConfig,
+    getLiveblogTitles
 } from './_helper';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import filterVideo from '../../../../content/filters/LN/home/videoFilter';
+import liveblogFilter from '../../../../content/filters/LN/home/LN10/liveblogFilter';
 import { GetImage } from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
 import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
+import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import '../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-video/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-image/index.css';
-import WarningMessage from '../../../private/common/warningMessage/warningMessage';
+import '../../../../resources/packages/css/@ln/common-ui-badge/index.css';
 
 const ArticleFeature = ({
     id: featureId,
@@ -48,11 +52,9 @@ const ArticleFeature = ({
         noteId: id,
         imageId,
         video: videoId,
-        mobileImageId,
         lead,
         title,
         authors,
-        hideImage,
         chapita,
         chapitaStyle,
         description,
@@ -97,6 +99,8 @@ const ArticleFeature = ({
             config
         });
 
+    const isLiveblog = variant === 'liveblog';
+
     const articleContent = useContent({
         source: checkForId(id) ? 'articleSourceNota' : null,
         query: {
@@ -105,10 +109,11 @@ const ArticleFeature = ({
             imageConfig,
             checkExclusiveAccess: false,
             isInApertura: onlyOneApeturaValidateForWWW,
-            isAdmin
+            isAdmin,
+            variant
         },
         staticMode: isSSR(),
-        filter
+        filter: isLiveblog ? liveblogFilter : filter
     });
 
     const image = GetImage({
@@ -147,26 +152,15 @@ const ArticleFeature = ({
             filter: filterVideo
         }) || null;
 
-    const mobileImage = GetImage({
-        imageId: mobileImageId,
-        imageConfig: 'boxMultimediaMobile',
+    const error = validateArticleFeature({
         id,
-        onlyOneApeturaValidateForWWW,
-        isAdmin,
-        filterImage
-    });
-
-    const error = validateArticleFeature(
-        id,
-        article,
+        content: article,
         image,
-        videoBackground,
+        video: videoBackground,
         layout,
         imageId,
-        videoId,
-        mobileImage,
-        mobileImageId
-    );
+        videoId
+    });
 
     const mediaData = getMediaData({
         article,
@@ -175,6 +169,12 @@ const ArticleFeature = ({
         image,
         layout
     });
+
+    const { badgetStyle, badgetText } = getBadgetConfig(
+        chapitaStyle,
+        chapita,
+        isLiveblog
+    );
 
     const { url, marquesina } = getDataAuthor(article);
 
@@ -202,12 +202,14 @@ const ArticleFeature = ({
                     title={title || get(article, 'headlines.basic', 'titulo')}
                     titleTag={get(config, 'titleTag')}
                     href={get(article, 'website_url', '')}
-                    withMedia={!hideImage}
+                    withMedia={withMedia}
                     subheadTag={get(config, 'subheadTag')}
                     marquee={
                         withMarquee && !hideAuthors && (authors || marquesina)
                     }
                     marqueeImg={withMarqueeImg && authorsQuantity === 1 && url}
+                    badgeText={badgetText}
+                    badgeType={badgetStyle}
                     mediaData={mediaData}
                     cardSize={get(config, 'cardSize', '')}
                     imagePosition={imagePosition}
@@ -227,9 +229,8 @@ const ArticleFeature = ({
                         withSubhead,
                         article
                     })}
-                    badgeText={chapita}
-                    badgeType={chapitaStyle}
                     variant={validateVariant(variant, authorsQuantity)}
+                    liveblogList={getLiveblogTitles(articleContent)}
                 />
             </ErrorBoundary>
         )) ||
