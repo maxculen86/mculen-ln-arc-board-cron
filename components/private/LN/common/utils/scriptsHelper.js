@@ -30,7 +30,7 @@ const scriptList = [
     },
     {
         component: { name: 'ScriptCripto', function: ScriptCripto },
-        feature: ['LN-acumulado/cajaDolar', 'LN-acumulado/cajaCripto']
+        feature: ['LN-acumulado/CrypoCarrousel', 'LN-acumulado/cajaCripto']
     },
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },

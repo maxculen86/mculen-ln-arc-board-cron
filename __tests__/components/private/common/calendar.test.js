@@ -2,6 +2,9 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Calendar from '../../../../components/private/common/calendar/Calendar';
+import { getArgentinaYear } from '../../../../components/private/common/utils/dateAndTimeUtil';
+
+jest.mock('../../../../components/private/common/utils/dateAndTimeUtil');
 
 describe('Components - common - Calendar =>', () => {
     it('Test calendar without props', () => {
@@ -14,7 +17,6 @@ describe('Components - common - Calendar =>', () => {
             .mockImplementationOnce(() => mockFirstDayDate)
             .mockImplementationOnce(() => mockLastDayDate);
         const { container } = render(<Calendar />);
-
         expect(
             container.getElementsByClassName('labeled-calendar').length
         ).toBe(1);

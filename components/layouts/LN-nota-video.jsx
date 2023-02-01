@@ -12,6 +12,8 @@ import GlobalProvider from '../private/common/context/globalContext';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 
+import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
+
 const lnNotaVideo = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
@@ -60,6 +62,7 @@ const lnNotaVideo = ({ children, outputType, tree, isAdmin }) => {
             </div>
             <LoadBannersSSR />
             <PwaModals />
+            {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
 };

@@ -11,6 +11,7 @@ import {
     getHighlightDayClass
 } from './helper/dayHelper';
 import '../../../../resources/dist/css/ln/modules/calendar.css';
+import { getArgentinaYear } from '../utils/dateAndTimeUtil';
 
 const Calendar = ({
     year,
@@ -26,8 +27,7 @@ const Calendar = ({
         newDate.toLocaleDateString('es-ES', {
             month: 'long'
         });
-    const validYear = Number(year) || newDate.getFullYear();
-
+    const validYear = Number(year) || getArgentinaYear();
     const initialDay = getInitialDay(validYear, validMonth);
     const lastDayOfMonth = getLastDay(validYear, validMonth + 1);
     const days = Array.from({ length: lastDayOfMonth }, (_, i) => i + 1);

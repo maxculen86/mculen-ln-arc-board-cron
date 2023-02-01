@@ -17,7 +17,6 @@ import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 import { productClickFromServer } from '../../private/common/utils/viewability';
 import createBannersIntersectionObserver from '../../private/common/banners/createBannersIntersectionObserver';
-import StaticContent from '../../private/common/staticContent';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
 import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
@@ -63,12 +62,12 @@ const LN10Home = props => {
             <div id="wrapper" className="home">
                 <div data-section="cabezal">{cabezal}</div>
                 <Header />
+                <div data-section="apertura">{preApertura}</div>
                 <main id="content">
                     {bannersHome.sticky2Mob}
                     <div>
                         <div id="content-main" className="lay-sidebar">
                             <div className="sidebar__main">
-                                <div data-section="apertura">{preApertura}</div>
                                 {hasBomba(renderables) && bannersHome.caja1Mob}
                                 <div data-section="apertura">{apertura}</div>
                                 {bannersHome.caja2Mob}
@@ -133,9 +132,7 @@ const LN10Home = props => {
                         </div>
                     </div>
                 </main>
-                <StaticContent>
-                    <Footer home />
-                </StaticContent>
+                <Footer />
             </div>
             <LoadBanners blocksBanners={bannersViewport} />
             <Metarefresh />
