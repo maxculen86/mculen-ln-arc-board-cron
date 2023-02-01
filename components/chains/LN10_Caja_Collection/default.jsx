@@ -3,6 +3,8 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import { Roof } from '@ln/contenidos-ui-roof';
+import '../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
@@ -18,6 +20,35 @@ import getDataChainCollection from '../utils/getDataChainCollection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
 
+export const roofData = {
+    textButton: 'Text button',
+    hrefButton: 'https://www.lanacion.com.ar/',
+    links: [
+        {
+            text: 'LA NACION',
+            href: 'https://www.lanacion.com.ar/',
+            target: 'blank'
+        },
+        {
+            text: 'LA NACION',
+            href: 'https://www.lanacion.com.ar/',
+            target: 'blank'
+        },
+        {
+            text: 'LA NACION',
+            href: 'https://www.lanacion.com.ar/',
+            target: 'blank'
+        }
+    ],
+    logo: {
+        src:
+            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Logo_La_Naci%C3%B3n.svg/1200px-Logo_La_Naci%C3%B3n.svg.png',
+        alt: 'imagen ejemplo alt',
+        width: 55,
+        height: 55
+    }
+};
+
 const CajaCollection = props => {
     const {
         id: featureId,
@@ -31,7 +62,8 @@ const CajaCollection = props => {
             imageId,
             hideTitle,
             hideCaja,
-            website
+            website,
+            exclusiveSuscriptor = true
         },
         outputType,
         renderables,
@@ -40,6 +72,19 @@ const CajaCollection = props => {
     } = props;
 
     if (hideCaja) return <></>;
+
+    if (exclusiveSuscriptor) {
+        return (
+            <Roof roofType="exc-sub">
+                <Roof.Left text="EXCLUSIVO SUSCRIPTORES" />
+                <Roof.Right
+                    textButton={roofData.textButton}
+                    hrefButton={roofData.hrefButton}
+                    navData={roofData.links}
+                />
+            </Roof>
+        );
+    }
 
     const {
         collectionsInPage,
