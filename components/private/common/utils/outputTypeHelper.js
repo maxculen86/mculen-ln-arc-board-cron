@@ -36,7 +36,8 @@ export const getTagTitle = ({
     nodeType,
     siteProps,
     arcSite,
-    subtype
+    subtype,
+    metaTitle
 }) => {
     const { longTitle, title: defaultTitle } = siteProps;
     if (arcSite === 'ott') {
@@ -47,24 +48,32 @@ export const getTagTitle = ({
         )({ ottTitle });
     }
     if (subtype === RECETA) {
-        return nodeTypeTitles.receta({ basicTitle, shortTitle });
+        return nodeTypeTitles.receta({ basicTitle, shortTitle, metaTitle });
     }
     return get(
         nodeTypeTitles,
         nodeType,
         nodeTypeTitles.default
-    )({ PBTitle, shortTitle, ottTitle, longTitle, defaultTitle });
+    )({ PBTitle, shortTitle, ottTitle, longTitle, defaultTitle, metaTitle });
 };
 
 const nodeTypeTitles = {
-    receta: ({ basicTitle, shortTitle }) =>
-        `Receta de ${
+    receta: ({ basicTitle, shortTitle, metaTitle }) => {
+        if (metaTitle)
+            return `Receta de ${uncapitalizeFirstLetter(
+                metaTitle
+            )} - LA NACION`;
+
+        return `Receta de ${
             shortTitle
                 ? uncapitalizeFirstLetter(shortTitle)
                 : uncapitalizeFirstLetter(basicTitle)
-        } - LA NACION`,
-    nota: ({ PBTitle, shortTitle }) =>
-        shortTitle ? `${shortTitle} - LA NACION` : PBTitle,
+        } - LA NACION`;
+    },
+    nota: ({ PBTitle, shortTitle, metaTitle }) => {
+        if (metaTitle) return `${metaTitle} - LA NACION`;
+        return shortTitle ? `${shortTitle} - LA NACION` : PBTitle;
+    },
     ott: ({ ottTitle }) => ottTitle,
     home: ({ PBTitle, longTitle, defaultTitle }) => {
         return longTitle || PBTitle || defaultTitle;
