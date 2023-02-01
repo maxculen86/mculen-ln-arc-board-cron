@@ -79,10 +79,6 @@ const Default = props => {
         first_publish_date: firstPublishDate,
         acumuladoGeneral: { metas } = {}
     } = globalContent || {};
-    console.log(
-        '🚀 ~ file: default.jsx:82 ~ Default ~ globalContent',
-        globalContent
-    );
 
     const { meta_title: metaTitle, basic: basicTitle, mobile: mobileTitle } =
         headlines || {};
