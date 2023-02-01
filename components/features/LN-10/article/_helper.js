@@ -15,21 +15,21 @@ import pageBuilderValidator from '../../../private/common/utils/pageBuilderValid
 
 const promoItemsBasic = 'promo_items.basic';
 
-export const validateSubhead = (config, withSubhead, variant, article) =>
-    get(config, 'skipSubhead', false) &&
-    withSubhead &&
-    variant !== 'author' &&
-    variant !== 'liveblog' &&
-    get(article, 'subheadlines.basic');
+export const showSubheadText = ({ withSubhead, article, description }) =>
+    withSubhead && (description || get(article, 'subheadlines.basic'));
+
+export const validateSubhead = (config, withMedia, customFields, variant) => {
+    return (
+        (!['author', 'liveblog'].includes(variant) &&
+            get(config, 'withSubhead') &&
+            !get(customFields, 'hideDescription')) ||
+        (!get(config, 'withSubhead') && !withMedia)
+    );
+};
 
 export const validateVariant = (variant, authorsQuantity) =>
     variant === 'author' && !(authorsQuantity === 1) ? 'regular' : variant;
 
-export const validateMarqueeImg = ({ config, authorsQuantity, imagAuthor }) => {
-    const cardSize = get(config, 'cardSize', '');
-
-    return authorsQuantity === 1 && cardSize !== 'm' && imagAuthor;
-};
 export const getBadgetConfig = (style, text, isLiveblog) => {
     if (isLiveblog) {
         return {
@@ -200,6 +200,42 @@ const getFeatureData = (featureId, renderables = []) => {
             get(elem, 'children') &&
             elem.children.some(child => get(child, 'props.id') === featureId)
     );
+};
+
+export const getDataAttributesForViewability = (id, boxPosition, index) => {
+    const extraOpts = {};
+    if (boxPosition) {
+        extraOpts['data-pos'] = `${boxPosition}${`0${Number(index) + 1}`.slice(
+            -2
+        )}`;
+        extraOpts['data-id'] = id;
+        extraOpts['data-notaid'] = id;
+        extraOpts['data-source'] = 'editor';
+    }
+    return extraOpts;
+};
+
+export const getChainParentOfFeature = (featureId, renderables) => {
+    return getFeatureData(featureId, renderables);
+};
+
+export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
+    const chainParent = getChainParentOfFeature(featureId, renderables);
+    const elementChain = document.querySelector(
+        `section[data-chain-id="${get(chainParent, 'props.id')}"]`
+    );
+    const indexOfFeature =
+        elementChain &&
+        [...elementChain.querySelectorAll('article')].findIndex(
+            featureNode =>
+                featureNode &&
+                featureNode.getAttribute('data-feature-id') === featureId
+        );
+    const layoutChain =
+        elementChain && elementChain.getAttribute('data-diagramacion-id');
+    const cardConfig = diagramationRules(layoutChain);
+    setConfig(cardConfig && cardConfig[indexOfFeature]);
+    return true;
 };
 
 const getChainConfig = (featureId, renderables, cajaTemaConfig) => {

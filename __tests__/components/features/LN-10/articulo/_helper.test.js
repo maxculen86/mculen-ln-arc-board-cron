@@ -5,8 +5,7 @@ import {
     getMediaData,
     validateVariant,
     getBadgetConfig,
-    getLiveblogTitles,
-    validateMarqueeImg
+    getLiveblogTitles
 } from '../../../../../components/features/LN-10/article/_helper';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
 
@@ -207,31 +206,6 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             expect(
                 getLiveblogTitles(contentElementsWithoutPowerUps)
             ).toStrictEqual([]);
-        });
-    });
-
-    describe('Test function validateMarqueeImg', () => {
-        const props = {
-            config: { cardSize: 'm' },
-            authorsQuantity: 1,
-            imagAuthor:
-                'https://resizer.glanacion.com/resizer/ZnZOQF59aM1zxza6X79jrDuFP5g=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/91/2219591.png'
-        };
-
-        test('Should not return author image when cardSize is M', () => {
-            expect(validateMarqueeImg(props)).toBeFalsy();
-        });
-
-        test('Should not return author image  when there are two or more authors', () => {
-            expect(
-                validateMarqueeImg({ ...props, authorsQuantity: 2 })
-            ).toBeFalsy();
-        });
-
-        test('should return the image author', () => {
-            expect(
-                validateMarqueeImg({ ...props, config: { cardSize: '2xl' } })
-            ).toStrictEqual(props.imagAuthor);
         });
     });
 });
