@@ -181,9 +181,30 @@ export const getDataAttributesForViewability = (id, boxPosition, index) => {
     }
     return extraOpts;
 };
+
 export const getChainParentOfFeature = (featureId, renderables) => {
     return getFeatureData(featureId, renderables);
 };
+
+export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
+    const chainParent = getChainParentOfFeature(featureId, renderables);
+    const elementChain = document.querySelector(
+        `section[data-chain-id="${get(chainParent, 'props.id')}"]`
+    );
+    const indexOfFeature =
+        elementChain &&
+        [...elementChain.querySelectorAll('article')].findIndex(
+            featureNode =>
+                featureNode &&
+                featureNode.getAttribute('data-feature-id') === featureId
+        );
+    const layoutChain =
+        elementChain && elementChain.getAttribute('data-diagramacion-id');
+    const cardConfig = diagramationRules(layoutChain);
+    setConfig(cardConfig && cardConfig[indexOfFeature]);
+    return true;
+};
+
 const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
     const { layoutsName = {} } = siteConfig || {};
     const parent = getFeatureData(featureId, renderables);

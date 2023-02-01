@@ -23,9 +23,8 @@ import getChainConfig, {
     articleCustomFields,
     validateSubhead,
     showSubheadText,
-    getChainParentOfFeature
+    changeConfigForPB
 } from './_helper';
-import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import filterVideo from '../../../../content/filters/LN/home/videoFilter';
@@ -39,7 +38,7 @@ import '../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-video/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-image/index.css';
-import diagramationRules from '../../../private/common/utils/diagramationRules';
+import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 
 const ArticleFeature = ({
     id: featureId,
@@ -78,29 +77,15 @@ const ArticleFeature = ({
         imageConfig,
         boxPosition
     } = getChainConfig(featureId, renderables, cajaTemaConfig);
+
+    const extraOpts = getDataAttributesForViewability(id, boxPosition, index);
+
     const [config, setConfig] = useState(initialConfig);
     useEffect(() => {
         if (isAdmin) {
-            const chainParent = getChainParentOfFeature(featureId, renderables);
-            const elementChain = document.querySelector(
-                `section[data-chain-id="${get(chainParent, 'props.id')}"]`
-            );
-            const indexOfFeature =
-                elementChain &&
-                [...elementChain.querySelectorAll('article')].findIndex(
-                    featureNode =>
-                        featureNode &&
-                        featureNode.getAttribute('data-feature-id') ===
-                            featureId
-                );
-            const layoutChain =
-                elementChain &&
-                elementChain.getAttribute('data-diagramacion-id');
-            const cardConfig = diagramationRules(layoutChain);
-            setConfig(cardConfig && cardConfig[indexOfFeature]);
+            changeConfigForPB({ setConfig, featureId, renderables });
         }
     }, [featureId, isAdmin, layout, renderables]);
-    const extraOpts = getDataAttributesForViewability(id, boxPosition, index);
 
     const onlyOneApeturaValidateForWWW =
         isBombaHidden(renderables) &&
@@ -192,25 +177,19 @@ const ArticleFeature = ({
     });
 
     const { url, marquesina } = getDataAuthor(article);
+
     const authorsQuantity = get(article, 'credits.by', []).length;
 
     const { imagePosition, withSection, withMarquee, withMarqueeImg } =
         config || {};
+
     if (isAdmin && !!error) {
         return (
-            <div
-                style={{
-                    marginTop: '10px',
-                    marginBottom: '10px',
-                    width: '100%'
-                }}
-            >
-                <PageBuilderMessage
-                    key={featureId}
-                    type={error.type}
-                    message={error.message}
-                />
-            </div>
+            <WarningMessage
+                key={featureId}
+                type={error.type}
+                message={error.message}
+            />
         );
     }
 
