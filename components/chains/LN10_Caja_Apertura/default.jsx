@@ -20,6 +20,7 @@ import getChildrenBySection from '../../private/LN/common/utils/LN10/getChildren
 import checkChildInSection from '../../private/LN/common/utils/LN10/checkChildBySection';
 
 import '../../../resources/packages/css/@ln/contenidos-ui-opening/index.css';
+import '../../../resources/packages/css/@ln/common-ui-grid/index.css';
 import '../../../resources/dist/css/ln/components/timeline.css';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 import {
