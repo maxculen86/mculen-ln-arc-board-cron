@@ -968,27 +968,9 @@ export default {
             wikiTag: {
                 promo_items: {
                     sizes: [
-                        // {
-                        // width: 320,
-                        // height: 480,
-                        // proportion: '2:3',
-                        // media: '(max-width: 768px)'
-                        // },
                         {
                             width: 420,
                             height: 630
-                            // media: minWidth768
-                            // proportion: '2:3'
-                            // },
-                            // {
-                            //     width: 640,
-                            //     height: 960,
-                            //     proportion: '2:3'
-                            // },
-                            // {
-                            //     width: 840,
-                            //     height: 1260,
-                            //     proportion: '2:3'
                         }
                     ]
                 }
