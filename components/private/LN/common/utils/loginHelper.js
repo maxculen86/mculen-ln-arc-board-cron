@@ -109,13 +109,31 @@ const mustRelogin = () => {
 };
 
 const tryParseJSON = jsonString => {
-    const userDefault = { UsuarioDetalleEmail: '', ProductoPremiumId: '' };
+    const userDefault = {
+        UsuarioDetalleEmail: '',
+        ProductoPremiumId: '',
+        UsuarioDetalleNombre: '',
+        UsuarioDetalleApellido: ''
+    };
+
     try {
         const user = JSON.parse(jsonString);
         if (user && typeof user === 'object') {
             const { Usuario } = user;
-            const { UsuarioDetalleEmail, ProductoPremiumId } = Usuario || {};
-            return { UsuarioDetalleEmail, ProductoPremiumId };
+
+            const {
+                UsuarioDetalleEmail,
+                ProductoPremiumId,
+                UsuarioDetalleNombre,
+                UsuarioDetalleApellido
+            } = Usuario || {};
+
+            return {
+                UsuarioDetalleEmail,
+                ProductoPremiumId,
+                UsuarioDetalleNombre,
+                UsuarioDetalleApellido
+            };
         }
     } catch (e) {
         return userDefault;
@@ -128,9 +146,12 @@ const setUserData = (res, dispatch) => {
         if (!getCookie('shouldrelogin')) {
             setCookie('shouldrelogin', 'true', 12 * 60);
         }
-        const { UsuarioDetalleEmail, ProductoPremiumId } = tryParseJSON(
-            res.response
-        );
+        const {
+            UsuarioDetalleEmail,
+            UsuarioDetalleNombre,
+            UsuarioDetalleApellido,
+            ProductoPremiumId
+        } = tryParseJSON(res.response);
 
         const subscription = ProductoPremiumId
             ? ProductoPremiumId.includes('2')
@@ -146,6 +167,8 @@ const setUserData = (res, dispatch) => {
                 loginData: {
                     subscription,
                     userName,
+                    userFirstName: UsuarioDetalleNombre,
+                    userLastName: UsuarioDetalleApellido,
                     loading: false
                 }
             }
@@ -169,6 +192,14 @@ const setupCookies = ({ Usuario: obj }) => {
                     break;
                 case 'UsuarioDetalleNick':
                     aux = 'usuario%5Fdetalle%5Fnick';
+                    cookie = obj[key];
+                    break;
+                case 'UsuarioDetalleNombre':
+                    aux = 'usuario%5Fdetalle%5Fnombre';
+                    cookie = obj[key];
+                    break;
+                case 'UsuarioDetalleApellido':
+                    aux = 'usuario%5Fdetalle%5Fapellido';
                     cookie = obj[key];
                     break;
                 case 'UsuarioId':
@@ -207,7 +238,7 @@ const reMeHandler = (res, token, xvalue, dispatch) => {
         setupCookies(JSON.parse(res.response) || {});
         _UserClientLibs('RefreshAsync')();
     } else {
-        /**TODO: Chequear handler de errores borrados en la eliminación del switch */
+        /** TODO: Chequear handler de errores borrados en la eliminación del switch */
         goToLogout(dispatch);
     }
 };
@@ -241,6 +272,9 @@ export const loginSetup = dispatch => {
 
     const ProductoPremiumId = getCookie('ProductoPremiumId');
     const UsuarioDetalleEmail = getCookie('usuarioemail');
+    const UsuarioDetalleNombre = getCookie('usuario%5Fdetalle%5Fnombre');
+    const UsuarioDetalleApellido = getCookie('usuario%5Fdetalle%5Fapellido');
+
     const IS_TOKEN_CREATED = getCookie('token');
 
     IS_TOKEN_CREATED
@@ -249,7 +283,9 @@ export const loginSetup = dispatch => {
                   response: JSON.stringify({
                       Usuario: {
                           ProductoPremiumId,
-                          UsuarioDetalleEmail
+                          UsuarioDetalleEmail,
+                          UsuarioDetalleNombre,
+                          UsuarioDetalleApellido
                       }
                   })
               },
