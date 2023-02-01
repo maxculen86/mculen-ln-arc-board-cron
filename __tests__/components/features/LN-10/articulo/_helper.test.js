@@ -3,8 +3,12 @@ import responseArticleSourceNota from '../../../../../__mocks__/data/articles/2C
 import responseRelatedImageSource from '../../../../../__mocks__/data/images/responseRelatedImageSource.json';
 import {
     getMediaData,
-    validateVariant
+    validateVariant,
+    getBadgetConfig,
+    getLiveblogTitles,
+    validateMarqueeImg
 } from '../../../../../components/features/LN-10/article/_helper';
+import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
 
 describe('Components - Features - LN-10 - Article - _helper', () => {
     const getProps = ({ video, image, customFields } = {}) => {
@@ -137,5 +141,97 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         expect(validateVariant('author', 1)).toStrictEqual('author');
         expect(validateVariant('author', 2)).toStrictEqual('regular');
         expect(validateVariant('regular', 1)).toStrictEqual('regular');
+    });
+
+    describe('Tests function getBadgetConfig', () => {
+        test('Should return an object with the text and style it receives by parameter.', () => {
+            expect(
+                getBadgetConfig('sponsored', 'chapita', false)
+            ).toStrictEqual({
+                badgetStyle: 'sponsored',
+                badgetText: 'chapita'
+            });
+        });
+
+        test('Should return an object with the text "live" and the style "liveblog-red" which it receives when the variant is liveblog and the style and text parameters are undefined.', () => {
+            expect(getBadgetConfig(undefined, undefined, true)).toStrictEqual({
+                badgetStyle: 'liveblog-red',
+                badgetText: 'vivo'
+            });
+        });
+
+        test('should return an object with the text and style that it receives when the variant is liveblog..', () => {
+            expect(getBadgetConfig('a-fondo', 'A fondo', true)).toStrictEqual({
+                badgetStyle: 'a-fondo',
+                badgetText: 'A fondo'
+            });
+        });
+    });
+
+    describe('Tests function getLiveblogTitles', () => {
+        const mockArticle = {
+            _id: 'note-id',
+            type: 'story',
+            content_elements: contentElementesLiveblog
+        };
+        test('should return an array of 3 objects with the properties time and text', () => {
+            expect(getLiveblogTitles(mockArticle)).toStrictEqual([
+                {
+                    text: 'El blue, volátil ',
+                    time: '14:15'
+                },
+                {
+                    text: 'Bancos vuelven a operar',
+                    time: '13:04'
+                },
+                {
+                    text: 'Los títulos soberanos se hunden',
+                    time: '12:41'
+                }
+            ]);
+        });
+
+        test('should return a empty array when the content_elements is not defined', () => {
+            const mockArticle = {
+                _id: 'note-id',
+                type: 'story'
+            };
+            expect(getLiveblogTitles(mockArticle)).toStrictEqual([]);
+        });
+
+        test('should return a empty array when the article data is not defined or no elements of type custom_embed exist', () => {
+            const contentElementsWithoutPowerUps = contentElementesLiveblog.filter(
+                ({ type = '' }) => type !== 'custom_embed'
+            );
+            expect(getLiveblogTitles()).toStrictEqual([]);
+            expect(
+                getLiveblogTitles(contentElementsWithoutPowerUps)
+            ).toStrictEqual([]);
+        });
+    });
+
+    describe('Test function validateMarqueeImg', () => {
+        const props = {
+            config: { cardSize: 'm' },
+            authorsQuantity: 1,
+            imagAuthor:
+                'https://resizer.glanacion.com/resizer/ZnZOQF59aM1zxza6X79jrDuFP5g=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/91/2219591.png'
+        };
+
+        test('Should not return author image when cardSize is M', () => {
+            expect(validateMarqueeImg(props)).toBeFalsy();
+        });
+
+        test('Should not return author image  when there are two or more authors', () => {
+            expect(
+                validateMarqueeImg({ ...props, authorsQuantity: 2 })
+            ).toBeFalsy();
+        });
+
+        test('should return the image author', () => {
+            expect(
+                validateMarqueeImg({ ...props, config: { cardSize: '2xl' } })
+            ).toStrictEqual(props.imagAuthor);
+        });
     });
 });

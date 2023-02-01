@@ -11,6 +11,7 @@ import {
 import getStreams from '../../../private/LN/common/utils/getStreams';
 import diagramationRules from '../../../private/common/utils/diagramationRules';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
+import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
 
 const promoItemsBasic = 'promo_items.basic';
 
@@ -18,14 +19,52 @@ export const validateSubhead = (config, withSubhead, variant, article) =>
     get(config, 'skipSubhead', false) &&
     withSubhead &&
     variant !== 'author' &&
+    variant !== 'liveblog' &&
     get(article, 'subheadlines.basic');
 
 export const validateVariant = (variant, authorsQuantity) =>
     variant === 'author' && !(authorsQuantity === 1) ? 'regular' : variant;
 
+export const validateMarqueeImg = ({ config, authorsQuantity, imagAuthor }) => {
+    const cardSize = get(config, 'cardSize', '');
+
+    return authorsQuantity === 1 && cardSize !== 'm' && imagAuthor;
+};
+export const getBadgetConfig = (style, text, isLiveblog) => {
+    if (isLiveblog) {
+        return {
+            badgetStyle: style || 'liveblog-red',
+            badgetText: text || 'vivo'
+        };
+    }
+
+    return {
+        badgetStyle: style,
+        badgetText: text
+    };
+};
+
+export const getLiveblogTitles = articleData => {
+    const contentElements = get(articleData, 'content_elements', []);
+
+    return contentElements.reduce((acc, currentValue) => {
+        if (currentValue.type === 'custom_embed' && acc.length < 3) {
+            return [
+                ...acc,
+                {
+                    text: get(currentValue, 'embed.config.title', ''),
+                    time: get(currentValue, 'embed.config.time', '')
+                }
+            ];
+        }
+
+        return acc;
+    }, []);
+};
+
 export const articleCustomFields = {
     ...featureArticleCustomsFields('articuloGeneral', true),
-    variant: PropTypes.oneOf(['regular', 'author']).tag({
+    variant: PropTypes.oneOf(['regular', 'author', 'liveblog']).tag({
         defaultValue: 'regular',
         name: 'Variante'
     })
@@ -194,6 +233,51 @@ const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
         boxPosition: `0${Number(position) + 1}`.slice(-2),
         layout
     };
+};
+
+export const validateArticleFeature = ({
+    id,
+    content,
+    image,
+    video,
+    layout,
+    imageId,
+    videoId
+}) => {
+    const { streams } = video || {};
+    const { filesize } = getStreams(streams, '>') || '';
+    const maxVideoSize = 3000000;
+    const oneMegabyte = 1048576;
+
+    const rules = [
+        {
+            validation: !id,
+            message: 'El campo Id de la Nota es obligatorio.'
+        },
+        {
+            validation: !content,
+            message: 'El ID de la nota es incorrecto.'
+        },
+        {
+            validation: imageId && image === null,
+            message: 'El ID de la imagen es incorrecto.'
+        },
+        {
+            validation: videoId && video === null,
+            message: 'El ID del video es incorrecto.'
+        },
+        {
+            validation:
+                filesize &&
+                !['grilla1', 'grillaVideo1'].includes(layout) &&
+                filesize > maxVideoSize,
+            message: `El tamaño del video debe ser inferior a 3 MB. Peso actual ${(
+                filesize / oneMegabyte
+            ).toFixed(2)} MB`
+        }
+    ];
+
+    return pageBuilderValidator(rules);
 };
 
 export default getChainConfig;
