@@ -2,6 +2,7 @@ import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
 import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
 import resultArticle from '../../../private/LN/api/v1/global/home/article/index';
+import { getFieldsArticlesByTypeChain } from '../../../private/LN/api/v1/global/home/article/utils/helpers';
 import get from '../../../private/common/utils/get';
 
 class ArticleFeature {
@@ -14,8 +15,7 @@ class ArticleFeature {
         } = props;
 
         const renderables = get(props, 'renderables', null);
-        const sourceInclude =
-            'taxonomy,distributor.name,related_content.basic,_id,last_updated_date,headlines,workflow,subheadlines,description,label,promo_items,canonical_website,credits,subtype,first_publish_date,publish_date,website,website_url,taxonomy.primary_section';
+        const sourceInclude = getFieldsArticlesByTypeChain('default');
         let imageConfig = null;
         this.state = {};
         if (renderables) {

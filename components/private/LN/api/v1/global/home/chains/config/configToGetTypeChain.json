@@ -19,5 +19,10 @@
         {
             "customFields.subtitle": "suscriptor"
         }
+    ],
+    "propiedades": [
+        {
+            "customFields.layout": "grilla4"
+        }
     ]
 }

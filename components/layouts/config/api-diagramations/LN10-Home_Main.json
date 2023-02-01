@@ -19,6 +19,24 @@
             "imagen_Posicion": "Top"
         }
     },
+    "grilla6": {
+        "T1": {
+            "tamano": "M",
+            "imagen_Posicion": "Top"
+        },
+        "T2": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T3": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        },
+        "T4": {
+            "tamano": "M",
+            "imagen_Posicion": "Right"
+        }
+    },
     "grilla9": {
         "T1": {
             "tamano": "L",

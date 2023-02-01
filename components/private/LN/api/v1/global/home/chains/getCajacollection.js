@@ -6,6 +6,7 @@ import {
 } from '../../../../../common/utils/cajaTemasValidators';
 import get from '../../../../../../common/utils/get';
 import filter from '../../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
+import { getFieldsArticlesByTypeChain } from '../article/utils/helpers';
 import {
     validateFieldsChains,
     findKeyTypeChain
@@ -19,9 +20,7 @@ class GetCajaCollection {
         const query = this.getQueryElement(this.props);
 
         this.state = {};
-        const sourceInclude = this.getFieldsInArticleByTypeChain(
-            this.typeChain
-        );
+        const sourceInclude = getFieldsArticlesByTypeChain(this.typeChain);
 
         if (query.filterRepetead && query.id) {
             this.fetchContent({
@@ -53,18 +52,6 @@ class GetCajaCollection {
                 }
             });
     }
-
-    getFieldsInArticleByTypeChain = typeChain => {
-        const keyTypeChain = typeChain || 'default';
-        const boxFieldsArticlesByTypeChain = {
-            hashtag:
-                'taxonomy,distributor.name,related_content.basic,_id,last_updated_date,headlines,workflow,description,label,promo_items,canonical_website,subtype,first_publish_date,publish_date,website,website_url,taxonomy.primary_section',
-            default:
-                'taxonomy,distributor.name,related_content.basic,_id,last_updated_date,headlines,workflow,subheadlines,description,label,promo_items,canonical_website,credits,subtype,first_publish_date,publish_date,website,website_url,taxonomy.primary_section'
-        };
-
-        return boxFieldsArticlesByTypeChain[keyTypeChain];
-    };
 
     getQueryElement = props => {
         const {
