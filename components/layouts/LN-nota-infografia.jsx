@@ -34,7 +34,7 @@ const lnNotaInfografia = ({
             </NotaMain>
             <LoadBannersSSR />
             <PwaModals />
-            {intersectionObserverForRelatedTags()}
+            {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
 };

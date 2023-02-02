@@ -16,6 +16,7 @@ class AccumulatedSections {
             customFields: { size: sizeCf, page: pageCf, paramUrlId, sections }
         } = props;
         this.state = {};
+        this.sizeCf = sizeCf;
 
         const { size, page } = getSizesFrom(
             isAdmin,
@@ -80,7 +81,7 @@ class AccumulatedSections {
                 ...resp,
                 sectionsIds: sectionsFormated,
                 sourceOrigin: 'composer',
-                size: null
+                size: this.sizeCf || 30
             };
         }
 

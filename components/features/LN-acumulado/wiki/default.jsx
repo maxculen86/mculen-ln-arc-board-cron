@@ -10,8 +10,8 @@ import Text from '../../../private/common/text';
 import Icon from '../../../private/common/icon';
 import TaxonomyImportantList from '../../../private/LN/common/taxonomyImportantList';
 import SchemaInfoWiki from '../../../private/LN/acumulado/wiki/SchemaInfoWiki';
-import StaticValidation from '../../../private/common/staticValidation';
 import { wikiImagesWithWWW } from '../../../private/LN/common/utils/mediaHelper';
+import StaticContent from '../../../private/common/staticContent';
 
 const WikiFeature = () => {
     const props = get(useAppContext(), 'globalContent', {});
@@ -25,13 +25,12 @@ const WikiFeature = () => {
         related_tags: relatedTags = [],
         description,
         schemas_info: schemasInfo = {},
-        _id: featureId,
         type
     } = wikiSourceData || {};
 
     const resizedUrls = wikiImagesWithWWW(wikiSourceData) || [];
 
-    const { resizedUrl } = resizedUrls.find(e => e.option.width === 320) || '';
+    const { resizedUrl } = resizedUrls.find(e => e.option.width === 420) || '';
 
     const {
         additional_name: additionalName = '',
@@ -65,6 +64,7 @@ const WikiFeature = () => {
             value: `${birthPlace}`
         }
     ];
+
     const schemaOrganization = [
         { text: 'Nombre', value: `${legalName}` },
         {
@@ -80,7 +80,7 @@ const WikiFeature = () => {
     const isOrganization = type === 2;
 
     return (
-        <StaticValidation id={featureId} htmlOnly persistent>
+        <StaticContent>
             <article
                 className={`wiki-tags ${isOrganization && '--organization'}`}
             >
@@ -165,7 +165,7 @@ const WikiFeature = () => {
                     />
                 )}
             </article>
-        </StaticValidation>
+        </StaticContent>
     );
 };
 

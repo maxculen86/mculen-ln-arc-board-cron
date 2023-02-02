@@ -62,7 +62,7 @@ const lnNotaVideo = ({ children, outputType, tree, isAdmin }) => {
             </div>
             <LoadBannersSSR />
             <PwaModals />
-            {intersectionObserverForRelatedTags()}
+            {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
 };

@@ -1,6 +1,6 @@
 import get from './get';
 
-const getAuthorsAsString = article => {
+const getAuthorsAsString = (article, isHomeLN10) => {
     const authors = get(article, 'credits.by', []);
     const authorFiltered = authors.filter(auth => auth.type === 'author');
     const authorsConcat = authorFiltered.reduce((prevVal, currVal, idx) => {
@@ -8,6 +8,8 @@ const getAuthorsAsString = article => {
         if (idx === authors.length - 1) return `${prevVal} y ${currVal.name}`;
         return `${prevVal}, ${currVal.name}`;
     }, '');
+
+    if (isHomeLN10) return authorsConcat;
 
     return authorFiltered.length > 0 ? `Por ${authorsConcat}` : '';
 };

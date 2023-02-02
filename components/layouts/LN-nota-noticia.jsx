@@ -35,7 +35,7 @@ const lnNotaNoticia = ({
             </NotaMain>
             <LoadBannersSSR />
             <PwaModals />
-            {intersectionObserverForRelatedTags()}
+            {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
 };

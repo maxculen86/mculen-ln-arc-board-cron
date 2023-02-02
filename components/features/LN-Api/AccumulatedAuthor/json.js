@@ -27,6 +27,7 @@ class AccumulatedAuthor {
             paramUrlId,
             requestUri
         );
+        this.page = page;
 
         this.fetchContent({
             acuArticlesSourceAuthor: {
@@ -77,15 +78,20 @@ class AccumulatedAuthor {
                     paginator / acuArticlesSourceAuthor.content_elements.length
                 );
             }
-            const acuData = {
+            let acuData = {
                 tipoAcumulado: 3,
                 name: author.byline,
                 articles: acuArticlesSourceAuthor.content_elements,
                 paginator,
                 page,
-                total: acuArticlesSourceAuthor.count,
-                author
+                total: acuArticlesSourceAuthor.count
             };
+            if (this.page <= 1) {
+                acuData = {
+                    ...acuData,
+                    author
+                };
+            }
             return indexAcu(acuData);
         } catch (err) {
             return { Success: false, Message: err.message };

@@ -8,6 +8,7 @@ import { compose } from '../../../common/utils/functional';
 
 const Parrafo = props => {
     const { data, capital, size, classCondition, withSponsoredLink } = props;
+
     const content = compose(
         replaceClassForMark,
         setOtherChar,
@@ -83,6 +84,11 @@ const setExternalLinks = ({ content, withSponsoredLink } = {}) =>
                 null,
                 '#'
             ];
+            const [, , title] = href.match(/title=(["'\\])+(.*?)\1/) || [
+                null,
+                null,
+                string
+            ];
 
             return ReactDOMServer.renderToString(
                 React.createElement(
@@ -92,7 +98,7 @@ const setExternalLinks = ({ content, withSponsoredLink } = {}) =>
                         target: !href.includes(config.host)
                             ? '_blank'
                             : '_self',
-                        title: deleteTagsForTitle(string),
+                        title: deleteTagsForTitle(title),
                         withSponsoredLink
                     },
                     string

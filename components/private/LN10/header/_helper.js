@@ -6,6 +6,12 @@ const CLASS_ACTIVE = '--active';
 const CLASS_HANDLE_SHARE = '--handle-share';
 let lastScrollPosition = 0;
 
+export const setUserType = (isUserLoggedIn, isUserSubscribed) => {
+    if (isUserSubscribed) return 'suscribed';
+    if (isUserLoggedIn) return 'logged';
+    return 'unlogged';
+};
+
 export const onScrollHandler = (
     header,
     height,
