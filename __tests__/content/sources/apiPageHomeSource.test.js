@@ -3,29 +3,44 @@ import 'regenerator-runtime/runtime';
 import apiPageHomeSource from '../../../content/sources/apiPageHomeSource';
 import LN_Home_Main from '../../../__mocks__/data/pages/LN-Home_Main.json';
 
+jest.mock('../../../content/sources/utils/servicesSource/pages/index', () => {
+    return {
+        __esModule: true,
+        default: (x, y) => {
+            console.log(x);
+            return {};
+        }
+    };
+});
+
 jest.mock(
     '../../../content/sources/utils/servicesSource/pages/transform',
     () => {
         return {
             __esModule: true,
-            default: (x, y) => {
-                const transform = require.requireActual(
-                    '../../../content/sources/utils/servicesSource/pages/transform'
+            default: async (x, y) => {
+                // if I want test real change return
+                // const transform = require.requireActual(
+                //     '../../../content/sources/utils/servicesSource/pages/transform'
+                // );
+                //return await transform.default(x, y);
+                const responseHomeMobileTransformed = require.requireActual(
+                    '../../../__mocks__/data/pages/transform/LN-Home_Main-Transformed.json'
                 );
-                if (y && y.rootPath.includes('transformReal')) {
-                    return transform.default(x, y);
-                }
-                if (y && y.rootPath.includes('transformTestOk')) {
-                    return jest.fn().mockReturnValue([{}]);
-                }
 
-                return transform.default(x, y);
+                if (y && y.rootPath.includes('homereal')) {
+                    return responseHomeMobileTransformed;
+                }
+                if (y && y.rootPath.includes('hometestOk')) {
+                    return null;
+                }
+                return jest.fn().mockReturnValue([]);
             }
         };
     }
 );
 
-jest.mock('../../../components/private/LN/api/v1/global/home/index', () => {
+jest.mock('../../../components/private/LN/api/v1/mobile/home/index', () => {
     return {
         __esModule: true,
         default: (x, y) => {
@@ -34,17 +49,22 @@ jest.mock('../../../components/private/LN/api/v1/global/home/index', () => {
                     'User is not authorized to access this resource with an explicit deny'
                 );
             } */
-            const home = require.requireActual(
-                '../../../components/private/LN/api/v1/global/home/index'
-            );
+            // if I want test real change return
+            // const home = require.requireActual(
+            //     '../../../components/private/LN/api/v1/global/home/index'
+            // );
+            // return home.default(x, y);
+
             if (y && y.rootPath.includes('homereal')) {
-                return home.default(x, y);
+                const responseHomeMobile = require.requireActual(
+                    '../../../__mocks__/data/pages/transform/LN-Home_Main-TransformedToHomeMobile.json'
+                );
+                return responseHomeMobile;
             }
             if (y && y.rootPath.includes('hometestOk')) {
                 return jest.fn().mockReturnValue([{}]);
             }
-
-            return home.default(x, y);
+            return null;
             //return jest.fn().mockImplementation(() => Promise.resolve(tokenOk));
         }
     };
@@ -85,6 +105,6 @@ describe('content - sources - apiPageHomeSource', () => {
         const result = await apiPageHomeSource.fetch(query, {
             cachedCall: jest.fn().mockReturnValue(Promise.resolve(null))
         });
-        expect(result).toBeNull();
+        expect(result).toEqual({});
     });
 });

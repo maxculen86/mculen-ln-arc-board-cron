@@ -1,7 +1,7 @@
 import { SITE_LANACION } from 'fusion:environment';
 import pages from './utils/servicesSource/pages/index';
 import get from '../../components/private/common/utils/get';
-import home from '../../components/private/LN/api/v1/global/home';
+import home from '../../components/private/LN/api/v1/mobile/home';
 import transform from './utils/servicesSource/pages/transform';
 
 // Run with url http://172.17.0.1/api/mobile/v1/home/1/?_website=la-nacion-ar&outputType=json

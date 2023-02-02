@@ -4,7 +4,7 @@ import pages from './utils/servicesSource/pages';
 import sectionSource from './sectionSource';
 import sectionsInPages from './utils/servicesSource/pages/config/sectionsInPagesConfig.json';
 import transform from './utils/servicesSource/pages/transform';
-import home from '../../components/private/LN/api/v1/global/home';
+import home from '../../components/private/LN/api/v1/mobile/home';
 
 // Run with the url http://172.17.0.1/api/mobile/v1/page/bySection/ultimas-noticias/params=size:30;page:0/32/?_website=la-nacion-ar&outputType=json
 // params: page 0 when load the page od Accumulated
