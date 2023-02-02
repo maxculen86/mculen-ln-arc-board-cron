@@ -8,6 +8,8 @@ const handleCookie = () => {
         'usuarioDetalleClubNacion',
         'UsuarioDetalleGuid',
         'UsuarioDetalleNick',
+        'UsuarioDetalleNombre',
+        'UsuarioDetalleApellido',
         'UsuarioId',
         'UsuarioUsuario',
         'usuario%5Fusuario',

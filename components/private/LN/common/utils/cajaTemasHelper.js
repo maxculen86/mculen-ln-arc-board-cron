@@ -227,11 +227,15 @@ export const getCommonProps = props => {
     );
 
     const sectionName = formatText(
-        pageBuilderLayout === layoutsName.Home ? '' : `${name}_`
+        pageBuilderLayout === layoutsName.Home ||
+            pageBuilderLayout === layoutsName.HomeLN10
+            ? ''
+            : `${name}_`
     );
 
     const showDatalayerMark =
-        pageBuilderLayout === layoutsName.Home
+        pageBuilderLayout === layoutsName.Home ||
+        pageBuilderLayout === layoutsName.HomeLN10
             ? 'true'
             : get(acumuladoGeneral, 'usa_datalayer', 'false');
 

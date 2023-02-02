@@ -15,7 +15,7 @@ jest.mock('fusion:consumer', component => {
     };
 });
 describe('components - features - LN-Api - AccumulatedAuthor - json.js', () => {
-    const props = {
+    let props = {
         arcSite: 'la-nacion-ar',
         children: [],
         collection: 'features',
@@ -35,6 +35,9 @@ describe('components - features - LN-Api - AccumulatedAuthor - json.js', () => {
         });
 
         it('Si es la primera pagina muesto el author', () => {
+            props.customFields = { size: 12, page: 1, paramUrlId: '' };
+            props.requestUri =
+                '/api/v1/notas/byAuthor/carlos-pagni-81/params=size:12;page:1/?_website=la-nacion-ar&outputType=json';
             const objArticle = new AccumulatedAuthor.default(props);
             objArticle.state.acuArticlesSourceAuthor = resultsArticleOnePage;
             const result = objArticle.render();

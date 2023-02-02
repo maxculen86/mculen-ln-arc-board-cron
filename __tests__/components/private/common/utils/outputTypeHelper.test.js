@@ -311,7 +311,8 @@ describe('getTagTitle function test', () => {
                     ottTitle: 'titulo ott',
                     nodeType: 'nota',
                     siteProps: {},
-                    arcSite: 'la-nacion-ar'
+                    arcSite: 'la-nacion-ar',
+                    metaTitle: ''
                 })
             ).toBe('Titulo corto - LA NACION');
         });
@@ -323,9 +324,23 @@ describe('getTagTitle function test', () => {
                     ottTitle: 'titulo ott',
                     nodeType: 'nota',
                     siteProps: {},
-                    arcSite: 'la-nacion-ar'
+                    arcSite: 'la-nacion-ar',
+                    metaTitle: ''
                 })
             ).toBe('Titulo de pagebuilder - LA NACION');
+        });
+        test('When all titles are defined return meta_title', () => {
+            expect(
+                getTagTitle({
+                    PBTitle: 'Titulo de pagebuilder - LA NACION',
+                    shortTitle: '',
+                    ottTitle: 'titulo ott',
+                    nodeType: 'nota',
+                    siteProps: {},
+                    arcSite: 'la-nacion-ar',
+                    metaTitle: 'I am the metaTile'
+                })
+            ).toBe('I am the metaTile - LA NACION');
         });
     });
 
@@ -425,6 +440,23 @@ describe('getTagTitle function test', () => {
                     subtype: RECETA
                 })
             ).toBe('Receta de titulo largo - LA NACION');
+        });
+        test('Return custom recipe title, using meta_title with more prority than shortTitle', () => {
+            expect(
+                getTagTitle({
+                    PBTitle: 'Titulo de receta pagebuilder - LA NACION',
+                    basicTitle: 'Titulo largo',
+                    ottTitle: 'titulo ott',
+                    nodeType: 'acumulado',
+                    siteProps: {
+                        longTitle:
+                            'Todas las noticias de Argentina y el mundo en LA NACION'
+                    },
+                    arcSite: 'la-nacion-ar',
+                    subtype: RECETA,
+                    metaTitle: 'I am a recipe metaTitle'
+                })
+            ).toBe('Receta de i am a recipe metaTitle - LA NACION');
         });
     });
 });

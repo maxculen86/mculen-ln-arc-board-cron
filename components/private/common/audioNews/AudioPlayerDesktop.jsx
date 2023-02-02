@@ -8,6 +8,7 @@ import BuildAudioPlayer from './BuildAudioPlayer';
 import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import { GlobalContext } from '../context/globalContext';
 import '../../../../resources/dist/css/ln/components/audio-player-desktop.css';
+import eventHandler from './trackerAudioNews';
 
 const AudioPlayerDesktop = ({
     publishDate = '',
@@ -39,6 +40,11 @@ const AudioPlayerDesktop = ({
                                 setOpenPlayer,
                                 dispatch
                             );
+                            eventHandler({
+                                activeWindow: window,
+                                action: 'listenButton',
+                                eventLabel: 'escuchar'
+                            });
                         }}
                         textname="escuchar"
                         disabled={enableButton || openPlayer}

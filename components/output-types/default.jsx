@@ -118,7 +118,8 @@ const Default = props => {
         arcSite,
         nodeType: _nodeType,
         siteProps: siteProperties,
-        subtype
+        subtype,
+        metaTitle
     });
 
     const Scripts = buildScriptComponent(

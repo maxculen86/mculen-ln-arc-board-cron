@@ -782,27 +782,6 @@ export default {
                 promo_items: {
                     sizes: [
                         {
-                            width: 298,
-                            height: 200,
-                            media: minWidth1280,
-                            useFullSize: true,
-                            proportion: '3:2'
-                        },
-                        {
-                            width: 318,
-                            height: 213,
-                            media: minWidth1024,
-                            useFullSize: true,
-                            proportion: '3:2'
-                        },
-                        {
-                            width: 233,
-                            height: 159,
-                            media: minWidth768,
-                            useFullSize: true,
-                            proportion: '3:2'
-                        },
-                        {
                             width: 375,
                             height: 250,
                             //media: minWidth375,
@@ -810,8 +789,8 @@ export default {
                             proportion: '3:2'
                         },
                         {
-                            width: 320,
-                            height: 213,
+                            width: 300,
+                            height: 200,
                             //media: minWidth320,
                             useFullSize: true,
                             proportion: '3:2'
@@ -990,24 +969,8 @@ export default {
                 promo_items: {
                     sizes: [
                         {
-                            width: 320,
-                            height: 480,
-                            proportion: '2:3'
-                        },
-                        {
                             width: 420,
-                            height: 630,
-                            proportion: '2:3'
-                        },
-                        {
-                            width: 640,
-                            height: 960,
-                            proportion: '2:3'
-                        },
-                        {
-                            width: 840,
-                            height: 1260,
-                            proportion: '2:3'
+                            height: 630
                         }
                     ]
                 }
@@ -2829,7 +2792,9 @@ export default {
         HomeLN10: 'LN10-Home_Main',
         Acumulado: 'LN-acumulado',
         Columnistas: 'LN-acumulado-columnistas',
-        FotoAl100: 'LN-nota-foto-al-100'
+        FotoAl100: 'LN-nota-foto-al-100',
+        Deportes: 'LN-Home_Sports',
+        Noticia: 'LN-nota-noticia'
     },
     notRecommendedSections: ['recetas']
 };

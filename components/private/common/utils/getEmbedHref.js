@@ -13,7 +13,7 @@ export function getLinkDomain(url) {
 }
 
 export default function getEmbedHref(attr, nodo) {
-    const hrefRegex = new RegExp(`${attr}="([^"]+)"`);
+    const hrefRegex = new RegExp(`${attr}="([^"]+)"|${attr}='([^']+)'`);
     const attrs = hrefRegex.exec(nodo);
 
     if (!attrs) return null;
