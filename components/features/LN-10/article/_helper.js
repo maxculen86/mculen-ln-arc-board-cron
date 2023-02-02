@@ -77,14 +77,17 @@ export const getDataAuthor = article => {
     };
 };
 
+const getIsBomba = parent => get(parent, 'type', '') === 'LN10_Caja_Bomba';
+
 export const isBombaHidden = renderables => {
     const preOpeningChildren =
         getChildrenFromSectionHome(renderables, 'Pre_Apertura', 0) || [];
 
-    return preOpeningChildren.some(children => {
-        const isBomba = get(children, 'type', '') === 'LN10_Caja_Bomba';
-        return get(children, 'props.customFields.hideCaja', false) && isBomba;
-    });
+    return preOpeningChildren.some(
+        children =>
+            get(children, 'props.customFields.hideCaja', false) &&
+            getIsBomba(children)
+    );
 };
 
 export const checkForId = idValue => {
@@ -171,8 +174,13 @@ const getImageConfig = ({
     layoutsName,
     cajaTemaConfig,
     articlePosition,
-    layout
+    layout,
+    isBomba
 }) => {
+    if (isBomba) {
+        return get(cajaTemaConfig, `bomba1.articles[0].imageConfig`);
+    }
+
     return renderables.some(
         elem =>
             get(elem, 'collection') === 'layouts' &&
@@ -262,7 +270,8 @@ const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
             layoutsName,
             cajaTemaConfig,
             articlePosition: index,
-            layout
+            layout,
+            isBomba: getIsBomba(parent)
         }),
         config,
         index,
