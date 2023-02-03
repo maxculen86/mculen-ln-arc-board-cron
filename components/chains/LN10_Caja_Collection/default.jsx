@@ -3,8 +3,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import { Roof } from '@ln/contenidos-ui-roof';
-import '../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
+import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     cajaTemasCustomsFields,
@@ -12,13 +11,15 @@ import {
     getCommonProps,
     isInApertura
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
-import { validateFeature } from '../../private/LN/common/utils/cajaTemasValidators';
 import { getPlaceholder } from '../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../private/common/utils/viewability';
 import StaticContent from '../../private/common/staticContent';
 import getDataChainCollection from '../utils/getDataChainCollection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
+import { validateChain, chainStyleRules } from './_helper';
+import ExclusiveSubscriptor from '../../private/LN10/home/components/exclusiveSubscriptor/default';
+import setCommonCustomFields from '../utils/setCommonCustomFields';
 
 export const roofData = {
     textButton: 'Text button',
@@ -51,7 +52,7 @@ export const roofData = {
 
 const CajaCollection = props => {
     const {
-        id: featureId,
+        id: chainId,
         isAdmin,
         customFields: {
             idCollection,
@@ -63,7 +64,7 @@ const CajaCollection = props => {
             hideTitle,
             hideCaja,
             website,
-            exclusiveSuscriptor = true
+            chainStyle
         },
         outputType,
         renderables,
@@ -71,20 +72,17 @@ const CajaCollection = props => {
         layout: pageLayout
     } = props;
 
-    if (hideCaja) return <></>;
+    console.log({ renderables });
 
-    if (exclusiveSuscriptor) {
-        return (
-            <Roof roofType="exc-sub">
-                <Roof.Left text="EXCLUSIVO SUSCRIPTORES" />
-                <Roof.Right
-                    textButton={roofData.textButton}
-                    hrefButton={roofData.hrefButton}
-                    navData={roofData.links}
-                />
-            </Roof>
-        );
-    }
+    console.log(
+        renderables.find(
+            ({ props: rProps }) =>
+                rProps.customFields &&
+                rProps.customFields.chainStyle === 'exclusiveSub'
+        )
+    );
+
+    if (hideCaja) return <></>;
 
     const {
         collectionsInPage,
@@ -111,11 +109,14 @@ const CajaCollection = props => {
         collectionsInPage,
         tree,
         notesQuantity,
-        featureId
+        featureId: chainId
     });
+
+    const isExclusiveSuscriptor = chainStyle === 'exclusiveSub';
+
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(
-              notesQuantity,
+              isExclusiveSuscriptor ? 5 : notesQuantity,
               diagramation,
               idCollection,
               20,
@@ -135,14 +136,30 @@ const CajaCollection = props => {
         articlesToShow
     });
 
-    const error = validateFeature(idCollection, _articles, layout);
+    const error = validateChain({
+        idCollection,
+        renderables,
+        layout,
+        articles: _articles,
+        chainId
+    });
 
     if (isAdmin && !!error) {
         return (
             <WarningMessage
-                id={featureId}
+                id={chainId}
                 type={error.type}
                 message={error.message}
+            />
+        );
+    }
+
+    if (isExclusiveSuscriptor) {
+        return (
+            <ExclusiveSubscriptor
+                roof={roofData}
+                rules={chainStyleRules[chainStyle]}
+                articles={_articles}
             />
         );
     }
@@ -199,7 +216,7 @@ CajaCollection.propTypes = {
         })
     ),
     customFields: PropTypes.shape({
-        ...cajaTemasCustomsFields('cajaCollection')
+        ...setCommonCustomFields('cajaCollection')
     }),
     tree: PropTypes.shape(PropTypes.node),
     globalContent: PropTypes.shape({
