@@ -5,7 +5,7 @@ import {
     articleItem as Article,
     anexoItem as Anexo,
     anexoItemMobile as AnexoMobile
-} from '../../common/article';
+} from '../article/index';
 import getEmbedHref from '../../../../../common/utils/getEmbedHref';
 import getTypeSection from '../../global/home/config/getTypeSection';
 

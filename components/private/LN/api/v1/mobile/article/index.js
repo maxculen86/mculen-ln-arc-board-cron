@@ -7,6 +7,7 @@ import sentToApps from '../utils/sentToApps';
 import getEmbedHref from '../../../../../common/utils/getEmbedHref';
 import LNApiErrorArticles from '../../../global/utils/lnApiErrorArticles';
 import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
+import { getPrincipalCategory } from '../category';
 
 const getLastPublishDate = article => {
     let date = get(article, 'publish_date', null);
@@ -38,6 +39,10 @@ const getArticleTitle = article => {
     return title || originalTitle;
 };
 
+const getArticleTitleVivo = article => {
+    const title = get(article, 'additionalProperties.titleVivo', null);
+    return title;
+};
 const getArticleTag = article => {
     const originalTag = get(article, 'label.chapita.text', null);
     const tag = get(article, 'additionalProperties.chapita', null);
@@ -103,8 +108,13 @@ export const articleItem = article => {
     const autor = autores ? autores[0] : null;
     const signature = get(article, 'additionalProperties.authors', null);
     const enviarApps = sentToApps(article);
+    const primarySection = get(article, 'taxonomy.primary_section');
 
     return {
+        diseno: {
+            ...get(article, 'additionalProperties.diseno', null),
+            tipo: get(article, 'additionalProperties.tipo', 'Comun')
+        },
         id,
         templateId: Number.isInteger(templateId)
             ? templateId.toString()
@@ -112,6 +122,7 @@ export const articleItem = article => {
         sitioId: get(article, 'configurations.arcSite', null),
         url,
         titulo,
+        tituloVivo: getArticleTitleVivo(article),
         volanta:
             get(label, 'volanta.text', null) ||
             get(article, 'additionalProperties.lead', null),
@@ -126,7 +137,8 @@ export const articleItem = article => {
         opinion: get(article, 'additionalProperties.opinion', false),
         videoYouTube: getYouTubeVideoLink(article),
         enviarApps,
-        fechaPublicacion: getLastPublishDate(article)
+        fechaPublicacion: getLastPublishDate(article),
+        categoria: primarySection && getPrincipalCategory(primarySection)
     };
 };
 

@@ -11,6 +11,18 @@ const fetch = async (query, { cachedCall } = {}) => {
         home: '/homepage-LN10',
         sports: '/deportes'
     };
+
+/*         const apiData = {
+            global: {
+                1: IndexAcuV1,
+                2: IndexAcuV2
+            },
+            mobile: {
+                1: IndexAcuV1Mobile
+            }
+        }; */
+
+
     try {
         let ticksCache = get(query, 'ticks', null);
         const alias = get(query, 'namePage', 'home');
