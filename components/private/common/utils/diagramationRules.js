@@ -190,6 +190,87 @@ const diagramationRules = diagramation => {
                     desktop: 'img-none'
                 }
             }
+        ],
+        horizontal: [
+            {
+                titleTag: 'h1',
+                subheadTag: 'h2',
+                withImage: true,
+                withSubhead: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                cardSize: '5xl',
+                aspectRatio: 'ar-picture'
+            }
+        ],
+        vertical: [
+            {
+                titleTag: 'h1',
+                subheadTag: 'h2',
+                withImage: true,
+                withSubhead: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                cardSize: '5xl',
+                aspectRatio: 'ar-square'
+            }
+        ],
+        bombita: [
+            {
+                titleTag: 'h2',
+                subheadTag: 'h3',
+                withSubhead: true,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withImage: false
+            }
+        ],
+        bombitaMas4: [
+            {
+                titleTag: 'h2',
+                subheadTag: 'h3',
+                withImage: false,
+                withSubhead: true,
+                withMarquee: true,
+                withMarqueeImg: false,
+                cardSize: '5xl'
+            },
+            {
+                titleTag: 'h2',
+                subheadTag: 'h3',
+                withImage: true,
+                withSubhead: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                cardSize: 'm'
+            },
+            {
+                titleTag: 'h2',
+                subheadTag: 'h3',
+                withImage: true,
+                withSubhead: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                cardSize: 'm'
+            },
+            {
+                titleTag: 'h2',
+                subheadTag: 'h3',
+                withImage: true,
+                withSubhead: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                cardSize: 'm'
+            },
+            {
+                titleTag: 'h2',
+                subheadTag: 'h3',
+                withImage: true,
+                withSubhead: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                cardSize: 'm'
+            }
         ]
     };
     return diagramations[diagramation];

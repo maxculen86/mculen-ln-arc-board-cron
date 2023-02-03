@@ -61,7 +61,20 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
         >
           <i
             class="icon --icon-m --light"
-          />
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="m12 10.586 4.243-4.243a1 1 0 1 1 1.414 1.414L13.414 12l4.243 4.243a1 1 0 1 1-1.414 1.414L12 13.414l-4.243 4.243a1 1 0 1 1-1.414-1.414L10.586 12 6.343 7.757a1 1 0 1 1 1.414-1.414L12 10.586Z"
+                fill="#272727"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
         </button>
       </div>
     </section>

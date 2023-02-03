@@ -231,6 +231,7 @@ const ArticleFeature = ({
                     })}
                     variant={validateVariant(variant, authorsQuantity)}
                     liveblogList={getLiveblogTitles(articleContent)}
+                    aspectRatio={get(config, 'aspectRatio', 'ar-picture')}
                 />
             </ErrorBoundary>
         )) ||
