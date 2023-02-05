@@ -78,30 +78,31 @@ const getInfographicElement = (
     return contentElements;
 };
 
-const getElementsWithAnyPromoItems = (promoItems, subtype, contentElements) => {
+const getPromoItemsInContent = (contentElements, promoItem) => {
+    return contentElements.filter(
+        x => get(x, '_id', '-1') === get(promoItem, '_id', null)
+    );
+};
+
+// This method applies to adding elements of the promoItem that are only of type html
+const getElementsWithHtmlPromoItems = (
+    promoItems,
+    subtype,
+    contentElements
+) => {
     if (!contentElements) throw new Error('The story does not have body');
-    const prioridadPromoItems = [
-        'storytelling_mobile',
-        'apertura_multimedia',
-        'basic'
-    ];
-    const validForStoryTelling = [4, 8];
-    prioridadPromoItems.some(key => {
+
+    const priorityPromoItems = ['apertura_multimedia', 'basic'];
+    const exceptPromoHtmlForSubtypes = [4, 8]; // Exception For Types StoryTelling and Photo Al 100
+
+    priorityPromoItems.some(key => {
         const promoItem = promoItems[key];
         if (
             promoItem &&
             promoItem.type === 'raw_html' &&
-            contentElements.filter(
-                x => get(x, '_id', '-1') === get(promoItem, '_id', null)
-            ).length === 0
+            !exceptPromoHtmlForSubtypes.includes(subtype) &&
+            getPromoItemsInContent(contentElements, promoItem).length === 0
         ) {
-            if (validForStoryTelling.includes(subtype)) {
-                if (key === 'storytelling_mobile') {
-                    contentElements.unshift(promoItem);
-                    return true;
-                }
-                return false;
-            }
             contentElements.unshift(promoItem);
             return true;
         }
@@ -124,7 +125,7 @@ const storyBody = (dataNota, storyBodyElements) => {
         get(dataNota, 'promo_items.apertura_multimedia', null)
     ); */
 
-    const contentElements = getElementsWithAnyPromoItems(
+    const contentElements = getElementsWithHtmlPromoItems(
         get(dataNota, 'promo_items', {}),
         subtype,
         get(dataNota, 'content_elements', [])
