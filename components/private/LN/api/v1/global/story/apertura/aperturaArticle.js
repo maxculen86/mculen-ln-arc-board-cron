@@ -36,9 +36,7 @@ const aperturaArticle = (article, type, idsElements = null) => {
                 get(promoItem, '_id', null) !==
                     get(promoItemBasicImage, '_id', null)
             ) {
-                resp.imagenesAcumulado = [
-                    imageAcumulado(promoItemBasicImage).valor
-                ];
+                resp.imagenesAcumulado = [imageAcumulado(promoItemBasicImage)];
             }
             break;
         case 'video':
@@ -54,7 +52,7 @@ const aperturaArticle = (article, type, idsElements = null) => {
             if (promoItemBasicImage && promoItemBasicImage._id) {
                 if (validToSetImagenesAcumulado(article, isPromoInContent)) {
                     resp.imagenesAcumulado = [
-                        imageAcumulado(promoItemBasicImage).valor
+                        imageAcumulado(promoItemBasicImage)
                     ];
                 } else {
                     resp.imagenes = [image(promoItemBasicImage).valor];
