@@ -1,5 +1,5 @@
 import get from '../../../../../common/utils/get';
-import VideoCommon from '../video';
+import { videoCommon as VideoCommon } from '../video';
 import VideoThumbnail from '../video/thumbnail';
 
 const videoNota = videoData => {
