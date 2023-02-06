@@ -26,11 +26,7 @@ export default {
             sampleRateRum: 0.02,
             service: 'lnmas',
             env: 'sandbox',
-            sessionReplaySampleRate: 30,
-            trackResources: true,
-            trackLongTasks: true,
             trackInteractions: true,
-            trackFrustrations: true,
             trackSessionAcrossSubdomains: false
         },
         'la-nacion-ar': {
@@ -43,11 +39,7 @@ export default {
             sampleRateRum: 0.15,
             service: 'lanacion-arc',
             env: 'sandbox',
-            sessionReplaySampleRate: 30,
-            trackResources: true,
-            trackLongTasks: true,
             trackInteractions: true,
-            trackFrustrations: true,
             trackSessionAcrossSubdomains: false
         }
     },
