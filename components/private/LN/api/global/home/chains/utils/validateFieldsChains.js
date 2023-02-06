@@ -1,4 +1,4 @@
-import get from '../../../../../../../common/utils/get';
+import get from '../../../../../../common/utils/get';
 import configToGetTypeChain from '../config/configToGetTypeChain.json';
 import {
     setFieldsHashTagInChain,

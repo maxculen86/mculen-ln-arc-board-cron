@@ -1,7 +1,8 @@
 import { SITE_LANACION } from 'fusion:environment';
 import pages from './utils/servicesSource/pages/index';
 import get from '../../components/private/common/utils/get';
-import home from '../../components/private/LN/api/v1/mobile/home';
+import homev1 from '../../components/private/LN/api/v1/mobile/home';
+import homev2 from '../../components/private/LN/api/v2/mobile/home';
 import transform from './utils/servicesSource/pages/transform';
 
 // Run with url http://172.17.0.1/api/mobile/v1/home/1/?_website=la-nacion-ar&outputType=json
@@ -12,19 +13,14 @@ const fetch = async (query, { cachedCall } = {}) => {
         sports: '/deportes'
     };
 
-/*         const apiData = {
-            global: {
-                1: IndexAcuV1,
-                2: IndexAcuV2
-            },
-            mobile: {
-                1: IndexAcuV1Mobile
-            }
-        }; */
-
+    const homeTransform = {
+        1: homev1,
+        2: homev2
+    };
 
     try {
         let ticksCache = get(query, 'ticks', null);
+        const version = get(query, 'versionUri', 1);
         const alias = get(query, 'namePage', 'home');
         const aliasPage =
             aliasPages[alias] == null ? '/'.concat(alias) : aliasPages[alias];
@@ -58,7 +54,10 @@ const fetch = async (query, { cachedCall } = {}) => {
         // return resultPageTransform;
 
         // Para ver el resultado final de la home
-        const resultHome = home(resultPageTransform, queryParams);
+        const resultHome = homeTransform[version](
+            resultPageTransform,
+            queryParams
+        );
         return Array.isArray(resultHome) ? resultHome[0] : {};
     } catch (error) {
         // eslint-disable-next-line no-console
@@ -75,6 +74,7 @@ export default {
     fetch,
     params: {
         website: 'text',
+        versionUri: 'text',
         namePage: 'text',
         ticks: 'text'
     },

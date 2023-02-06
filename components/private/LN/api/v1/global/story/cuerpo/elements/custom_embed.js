@@ -1,6 +1,6 @@
 import get from '../../../../../../../common/utils/get';
 import header from './header';
-import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
+import htmlText from '../../../../../common/elements/story/cuerpo/elements/htmlText';
 import image from './image';
 
 const getTime = time => {

@@ -5,7 +5,7 @@ import prodImageDefault from './prodImageDefault.json';
 import {
     promoItemArticle,
     apertura
-} from '../../../common/story/apertura/aperturaArticle';
+} from '../../../../common/elements/story/apertura/aperturaArticle';
 import get from '../../../../../../common/utils/get';
 import video from '../cuerpo/elements/video';
 import image from '../cuerpo/elements/image';

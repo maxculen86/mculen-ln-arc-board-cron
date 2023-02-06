@@ -1,4 +1,4 @@
-import Video from '../../../../../../../../../components/private/LN/api/v1/common/story/video';
+import Video from '../../../../../../../../../components/private/LN/api/common/elements/story/video';
 import Apertura from '../../../../../../../../../components/private/LN/api/v1/global/story/apertura/aperturaArticle';
 import ArticleApertura from '../../../../../../../../../__mocks__/data/nota/apertura/apertura.json';
 import HistoryTellingArticle from '../../../../../../../../../__mocks__/data/articles/4HFO7YPZBFEYVB6K5XY6IFV3XY.json';

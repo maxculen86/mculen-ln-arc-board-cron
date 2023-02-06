@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
-import Configuration from '../../../v1/common/accumulated/configuration';
-import { articleItem } from '../../../v1/common/article';
-import { removeEmptyItems } from '../../../v1/common/utils/responseCleaner';
-import { getTag } from '../../../v1/common/tag';
-import { authorAcu } from '../../../v1/common/author';
+import Configuration from '../../../common/accumulated/configuration';
+import { articleItem } from '../../../common/elements/article';
+import { removeEmptyItems } from '../../../common/elements/utils/responseCleaner';
+import { getTag } from '../../../common/elements/tag';
+import { authorAcu } from '../../../common/elements/author';
 
 const banners = acuData => {
     const sectionsElements = [

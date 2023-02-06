@@ -30,7 +30,7 @@ import firmaDistributorValidation from './utils/firmaDistributorValidator';
 import isNoteListenable from './utils/audioNews/helper';
 import force404AMP from './utils/force404AMP';
 import validateSponsoredLink from './utils/validateSponsoredLink';
-import { getPrincipalCategory } from '../../components/private/LN/api/v1/common/category';
+import { getPrincipalCategory } from '../../components/private/LN/api/common/elements/category';
 import { hasPromoItemImgAuth } from './utils/signingImageAuth';
 import getImagesAuth from './utils/signingServiceSource/getImagesAuth';
 import {

@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
-import Configuration from '../../common/accumulated/configuration';
-import { articleItem } from '../../common/article/index';
-import { removeEmptyItems } from '../../common/utils/responseCleaner';
-import { getTag } from '../../common/tag';
-import { authorAcu, authorAcuFollow } from '../../common/author';
-import { getSubCategory } from '../../common/category';
+import Configuration from '../../../common/accumulated/configuration';
+import { articleItem } from '../../../common/elements/article/index';
+import { removeEmptyItems } from '../../../common/elements/utils/responseCleaner';
+import { getTag } from '../../../common/elements/tag';
+import { authorAcu, authorAcuFollow } from '../../../common/elements/author';
+import { getSubCategory } from '../../../common/elements/category';
 import get from '../../../../../common/utils/get';
 
 const topics = {

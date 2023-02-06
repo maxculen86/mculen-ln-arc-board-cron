@@ -1,8 +1,8 @@
 import Consumer from 'fusion:consumer';
 import get from '../../../private/common/utils/get';
 import sectionsFormated from '../../../private/common/utils/sectionsFormated';
-import resultArticle from '../../../private/LN/api/v1/global/home/article/index';
-import respChain from '../../../private/LN/api/v1/global/home/chains/respCajaCollection';
+import resultArticle from '../../../private/LN/api/global/home/features/article/index';
+import respChain from '../../../private/LN/api/global/home/chains/respCajaCollection';
 
 class Timeline {
     constructor(props) {

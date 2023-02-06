@@ -1,20 +1,37 @@
 import get from '../../../../../common/utils/get';
-import Image from '../../common/image';
-import { removeEmptyItems } from '../../common/utils/responseCleaner';
+import Image from '../../../common/elements/image';
+import { removeEmptyItems } from '../../../common/elements/utils/responseCleaner';
 import {
     articleItem as Article,
     anexoItem as Anexo,
     anexoItemMobile as AnexoMobile
-} from '../article/index';
-import getEmbedHref from '../../../../../common/utils/getEmbedHref';
-import getTypeSection from '../../global/home/config/getTypeSection';
+} from '../../../common/elements/article/index';
 
 let paramsFromPage = {
     rootPath:
         'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
 };
-// It is used to add information to the section or box from the sectionAliasMobile field set in page/index.js
-const typeSection = getTypeSection();
+// Sirve para agregar información a la sección o caja desde el campo sectionAliasMobile establecido en page/index.js
+const typeSection = {
+    Anticipo: { tipoSeccion: 'anticipo', idSeccion: 501 },
+    Bomba: { tipoSeccion: 'bomba', idSeccion: 102 },
+    Apertura: { tipoSeccion: 'apertura', idSeccion: 200 },
+    Anexo: { tipoSeccion: 'anexo', idSeccion: 0 },
+    AnexoMobile: { tipoSeccion: 'anexoMobile', idSeccion: 603 },
+    Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
+    Comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
+    Banner: { tipoSeccion: 'banner' },
+    Dolar: {
+        tipoSeccion: 'dolar',
+        idSeccion: 2000,
+        tituloCaja: 'Cotización hoy',
+        url: 'https://www.lanacion.com.ar/economia/dolar/'
+    },
+    Multimedia: { tipoSeccion: 'tema', idSeccion: 305 },
+    Timeline: { tipoSeccion: 'tema', idSeccion: 3000 },
+    Aside: { tipoSeccion: 'aside', idSeccion: 306 },
+    default: { tipoSeccion: 'tema', idSeccion: 305 }
+};
 
 const featureInformation = (information, section) => {
     const type = typeSection[section] || typeSection.default;
@@ -22,41 +39,20 @@ const featureInformation = (information, section) => {
         ...type,
         diagramacion: information.layout || null
     };
+
     if (section === 'Anticipo') {
-        res.chapita = information.textBadge;
-        res.volanta = information.lead;
-        res.url = information.url;
-        if (information.video === '') {
-            res.texto = information.title;
-        }
-        res.video = getEmbedHref('src', information.video);
+        res.texto = information.title;
     }
 
     if (!information.hideTitle && section !== 'Apertura') {
         const image = get(information.image, 'promo_items.basic', null);
         const imagenUrl = get(image, 'additional_properties.originalUrl', null);
-        let accionBoton = null;
-
         if (image && image.type === 'image') res.imagen = Image(image);
         if (imagenUrl) res.imagenUrl = imagenUrl;
-        if (information.botomText && information.botomLink)
-            res.imagenUrl = imagenUrl;
-
-        if (information.botomText && information.botomLink) {
-            accionBoton = {
-                titulo: information.botomText,
-                url: information.botomLink,
-                estilo: information.botomStyle
-            };
-        }
-
         return {
             ...res,
             tituloCaja: information.title,
-            url: information.url,
-            chapita: information.chapita,
-            chapitaStyle: information.chapitaStyle,
-            accionBoton
+            url: information.url
         };
     }
     return res;

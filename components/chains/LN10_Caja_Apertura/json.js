@@ -1,7 +1,7 @@
 // LN_Caja_Manual
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
-import respChain from '../../private/LN/api/v1/global/home/chains/respCajaCollection';
+import respChain from '../../private/LN/api/global/home/chains/respCajaCollection';
 
 class CajaApertura {
     constructor(props) {

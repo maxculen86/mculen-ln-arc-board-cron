@@ -19,7 +19,7 @@ jest.mock(
     }
 );
 
-jest.mock('.../../../../../../components/private/LN/api/v1/global/home', () => {
+jest.mock('.../../../../../../components/private/LN/api/v1/mobile/home', () => {
     return function(component) {
         return component;
     };

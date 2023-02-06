@@ -1,4 +1,4 @@
-import htmlText from '../../../../../../../../../../components/private/LN/api/v1/common/story/cuerpo/elements/htmlText';
+import htmlText from '../../../../../../../../../../components/private/LN/api/common/elements/story/cuerpo/elements/htmlText';
 
 describe('Test for html render inside text component', () => {
     test('Render base text', () => {

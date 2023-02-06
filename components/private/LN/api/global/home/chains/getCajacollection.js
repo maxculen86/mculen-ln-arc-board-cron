@@ -3,10 +3,10 @@ import {
     getCommonPropsJson,
     getArticlesFromMyCurrentCollection,
     getIdsArticlesFromOtherCollections
-} from '../../../../../common/utils/cajaTemasValidators';
-import get from '../../../../../../common/utils/get';
-import filter from '../../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
-import { getFieldsArticlesByTypeChain } from '../article/utils/helpers';
+} from '../../../../common/utils/cajaTemasValidators';
+import get from '../../../../../common/utils/get';
+import filter from '../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
+import { getFieldsArticlesByTypeChain } from '../features/article/utils/helpers';
 import {
     validateFieldsChains,
     findKeyTypeChain

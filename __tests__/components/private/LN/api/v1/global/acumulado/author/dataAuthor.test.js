@@ -1,5 +1,5 @@
 import dataAuthor from '../../../../../../../../../__mocks__/data/author/author.json';
-import { authorAcu } from '../../../../../../../../../components/private/LN/api/v1/common/author/index';
+import { authorAcu } from '../../../../../../../../../components/private/LN/api/common/elements/author/index';
 describe('Json que valida data del Autor', () => {
     it('Test de Autor', () => {
         const resp = authorAcu(dataAuthor[0]);

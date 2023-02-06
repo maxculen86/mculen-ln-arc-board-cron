@@ -1,4 +1,4 @@
-import get from '../../../../../../../common/utils/get';
+import get from '../../../../../../common/utils/get';
 
 export const setFieldsHashTagInChain = props => {
     const { idCollection, initialPosition, layout } = props.customFields;

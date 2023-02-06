@@ -1,7 +1,7 @@
 import {
     promoItemArticle,
     apertura
-} from '../../../common/story/apertura/aperturaArticle';
+} from '../../../../common/elements/story/apertura/aperturaArticle';
 import video from '../cuerpo/elements/video';
 import image from '../cuerpo/elements/image';
 

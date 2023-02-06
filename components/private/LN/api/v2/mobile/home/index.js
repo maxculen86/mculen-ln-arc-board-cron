@@ -1,11 +1,11 @@
 import get from '../../../../../common/utils/get';
-import Image from '../../common/image';
-import { removeEmptyItems } from '../../common/utils/responseCleaner';
+import Image from '../../../common/elements/image';
+import { removeEmptyItems } from '../../../common/elements/utils/responseCleaner';
 import {
     articleItem as Article,
     anexoItem as Anexo,
     anexoItemMobile as AnexoMobile
-} from '../../common/article';
+} from './article/index';
 import getEmbedHref from '../../../../../common/utils/getEmbedHref';
 import getTypeSection from './config/getTypeSection';
 

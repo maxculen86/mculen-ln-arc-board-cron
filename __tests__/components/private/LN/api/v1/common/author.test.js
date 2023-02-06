@@ -1,4 +1,4 @@
-import { authorCommon as acuAuthor } from '../../../../../../../components/private/LN/api/v1/common/author/index';
+import { authorCommon as acuAuthor } from '../../../../../../../components/private/LN/api/common/elements/author/index';
 import article from '../../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import { getAutorId } from '../../../../../../../components/private/common/utils/getElementId';
 import authorsData from '../../../../../../../__mocks__/data/author/author.json';

@@ -1,13 +1,16 @@
 /* eslint-disable eqeqeq */
-import get from '../../../../../common/utils/get';
-import Image from '../image';
-import Video from '../video';
-import { authorHomeMobile, articleSignature } from '../author';
-import sentToApps from '../utils/sentToApps';
-import getEmbedHref from '../../../../../common/utils/getEmbedHref';
-import LNApiErrorArticles from '../../../global/utils/lnApiErrorArticles';
-import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
-import { getPrincipalCategory } from '../category';
+import get from '../../../../../../common/utils/get';
+import Image from '../../../../common/elements/image';
+import Video from '../../../../common/elements/video';
+import {
+    authorHomeMobile,
+    articleSignature
+} from '../../../../common/elements/author';
+import sentToApps from '../../../../common/elements/utils/sentToApps';
+import getEmbedHref from '../../../../../../common/utils/getEmbedHref';
+import LNApiErrorArticles from '../../../../global/utils/lnApiErrorArticles';
+import { dateAndTimeForAppsUtil } from '../../../../../../common/utils/dateAndTimeUtil';
+import { getPrincipalCategory } from '../../../../common/elements/category';
 
 const getLastPublishDate = article => {
     let date = get(article, 'publish_date', null);

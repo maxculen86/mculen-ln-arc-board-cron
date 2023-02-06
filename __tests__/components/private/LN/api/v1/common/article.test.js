@@ -1,7 +1,6 @@
 import articlesRanking from '../../../../../../../__mocks__/data/articleRankingCollections/recetas.json';
 import articlesAcumulado from '../../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import articlesTPInteresar from '../../../../../../../__mocks__/data/articles/tePuedeInteresar.json';
-//import Article from '../../../../../../components/private/LN/api/v1/common/articles/index';
 import Article from '../../../../../../../components/private/LN/api/v1/global/accumulated/story';
 import dateAndTimeUtil, {
     isOlderThanXHoursAgo,
@@ -9,7 +8,7 @@ import dateAndTimeUtil, {
     addHoursAndFormat,
     dateAndTimeForAppsUtil
 } from '../../../../../../../components/private/common/utils/dateAndTimeUtil';
-import { articleItem } from '../../../../../../../components/private/LN/api/v1/common/article';
+import { articleItem } from '../../../../../../../components/private/LN/api/common/elements/article';
 const AcuList = (type, articles) => {
     return articles.map(v => {
         return type(v);

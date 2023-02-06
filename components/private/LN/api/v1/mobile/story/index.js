@@ -1,8 +1,11 @@
 import get from '../../../../../common/utils/get';
-import { storyCommon, storyHeadline } from '../../common/story/storyCommon';
+import {
+    storyCommon,
+    storyHeadline
+} from '../../../common/elements/story/storyCommon';
 import apertura from './apertura/aperturaArticle';
 import cuerpo from './cuerpo/index';
-import { removeEmptyItems } from '../../common/utils/responseCleaner';
+import { removeEmptyItems } from '../../../common/elements/utils/responseCleaner';
 
 const indexNota = dataNota => {
     const resp = {

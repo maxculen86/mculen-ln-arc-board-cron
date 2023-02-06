@@ -1,6 +1,6 @@
 import get from '../../../../../../../common/utils/get';
 import htmlText from './htmlText';
-import { removeEmptyItems } from '../../../../common/utils/responseCleaner';
+import { removeEmptyItems } from '../../../../../common/elements/utils/responseCleaner';
 
 const list = (nodo, dataNota) => {
     if (!nodo) return null;
