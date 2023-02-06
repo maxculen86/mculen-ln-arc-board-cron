@@ -1,98 +1,94 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+
+import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import { Bomba } from '@ln/contenidos-ui-bomba';
 import {
-    cajaTemasCustomsFields,
-    getCommonProps
+    getCommonProps,
+    getMarkupForDatalayer,
+    getChildrenFromSectionHome
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
-import CajaTema from '../../private/LN/common/cajaTema';
-import { productClickFromClient } from '../../private/common/utils/viewability';
-import StaticContent from '../../private/common/staticContent';
-import getDataChainManual from '../utils/getDataChainManual';
-import WarningMessage from '../../private/common/warningMessage/warningMessage';
+import {
+    validateChainBomba,
+    getIsPreOpening,
+    getClassCondition,
+    getChildrenOfBomba
+} from './_helper';
+import setRender from '../utils/setRender';
+import '../../../resources/packages/css/@ln/contenidos-ui-bomba/index.css';
+import '../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
+import '../../../resources/packages/css/@ln/common-ui-media/index.css';
+import '../../../resources/packages/css/@ln/common-ui-image/index.css';
+import '../../../resources/packages/css/@ln/common-ui-video/index.css';
 
 const CajaBomba = props => {
     const {
-        id: featureId,
+        id: chainId,
         isAdmin,
-        customFields: { url, title, layout = '', imageId, hideTitle, hideCaja },
-        outputType,
-        childProps,
+        customFields: { layout = 'vertical', hideCaja } = {},
         children,
-        renderables = [],
-        layout: pageLayout
+        renderables = []
     } = props;
 
-    if (hideCaja)
-        return (
-            <StaticContent id={featureId}>
-                <></>
-            </StaticContent>
-        );
-
-    const {
-        notesQuantity,
-        classCondition,
-        position,
-        sectionName,
-        positionInsideSection
-    } = getCommonProps(props);
-
-    const {
-        filteredChildren,
-        isInApertura,
-        isMultimedia,
-        features,
-        error
-    } = getDataChainManual({
-        featureId,
+    const preOpeningChildren = getChildrenFromSectionHome(
         renderables,
-        childProps,
-        children,
-        layout
-    });
+        'Pre_Apertura',
+        1
+    );
 
-    if (isAdmin && error) {
-        return (
-            <WarningMessage
-                id={featureId}
-                type={error.type}
-                message={error.message}
-            />
-        );
-    }
+    const childrenOfBomba = getChildrenOfBomba(preOpeningChildren, chainId);
 
-    if (error) return <></>;
+    const [clasCondition, setClasCondition] = useState(
+        getClassCondition(layout, childrenOfBomba, chainId)
+    );
+
+    const { classCondition, diagramation } = clasCondition;
+
+    const isPreOpening = getIsPreOpening(preOpeningChildren, chainId);
+    const error = validateChainBomba(layout, children, isPreOpening);
+
+    const { position, positionInsideSection } = getCommonProps(props);
+
+    const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+        '',
+        layout,
+        position,
+        '',
+        positionInsideSection
+    );
+
+    const sectionProps = {
+        ...extraOpts,
+        className: classCondition
+    };
+
+    useEffect(() => {
+        if (isAdmin) {
+            setClasCondition(
+                getClassCondition(layout, childrenOfBomba, chainId)
+            );
+        }
+    }, [layout, childrenOfBomba, chainId, isAdmin]);
 
     const Component = (
-        <CajaTema
-            title={title}
-            hideTitle={hideTitle}
-            url={url}
-            imageId={imageId}
-            outputType={outputType}
-            layout={layout}
-            classCondition={`${classCondition}${(isInApertura &&
-                layout.includes('focal') &&
-                ' --apertura') ||
-                ''}`}
-            notesQuantity={notesQuantity}
-            position={position}
-            positionInsideSection={positionInsideSection}
-            sectionName={sectionName}
-            _children={filteredChildren}
-            handleClick={productClickFromClient}
-            features={features}
-            pageLayout={pageLayout}
-            isMultimedia={isMultimedia}
+        <Bomba
+            data-chain-id={chainId}
+            articles={children}
+            layout={diagramation}
+            id={chainId}
+            {...sectionProps}
         />
     );
-    return isMultimedia ? (
-        Component
-    ) : (
-        <StaticContent id={featureId}>{Component}</StaticContent>
-    );
+
+    return setRender({
+        isAdmin,
+        error,
+        hideBox: hideCaja,
+        Component,
+        extraOptsDiv
+    });
 };
 
 CajaBomba.label = 'LN10 Caja Bomba';
@@ -102,8 +98,30 @@ CajaBomba.propTypes = {
     isAdmin: PropTypes.bool.isRequired,
     outputType: PropTypes.string,
     customFields: PropTypes.shape({
-        ...cajaTemasCustomsFields('cajaManual')
-    }).isRequired
+        layout: PropTypes.oneOf([
+            'vertical',
+            'horizontal',
+            'bombita',
+            'bombitaMas4'
+        ]).tag({
+            description: 'Cambiar el diseño de la caja',
+            labels: {
+                vertical: 'vertical',
+                horizontal: 'horizontal',
+                bombita: 'Bombita',
+                bombitaMas4: 'Bombita + 4'
+            },
+            group: 'Ajuste Bomba',
+            label: 'Diagramación',
+            defaultValue: 'vertical'
+        }).isRequired,
+        hideCaja: PropTypes.boolean.tag({
+            name: 'Ocultar Caja',
+            defaultValue: false,
+            description: 'Marque para ocultar la caja',
+            group: 'Ajuste Bomba'
+        })
+    })
 };
 
 CajaBomba.defaultProps = {

@@ -13,7 +13,12 @@ import '../../../../../../resources/packages/css/@ln/contenidos-ui-card/index.cs
 import '../../../../../../resources/packages/css/@ln/common-ui-grid/index.css';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 
-const ExclusiveSubscriptor = ({ articles, roof, rules }) => {
+const ExclusiveSubscriptor = ({
+    articles,
+    roof,
+    rules = [],
+    layout = 'bn_2_1_2_grid'
+}) => {
     return (
         <>
             <Roof roofType="exc-sub">
@@ -24,7 +29,7 @@ const ExclusiveSubscriptor = ({ articles, roof, rules }) => {
                     navData={roof.links}
                 />
             </Roof>
-            <Bngrid gridType="bn_2_1_2_grid" gridStyle="subExclusive">
+            <Bngrid gridType={layout} gridStyle="subExclusive">
                 {articles.map((article, index) => {
                     const promoItemsBasic = get(
                         article,
@@ -40,7 +45,9 @@ const ExclusiveSubscriptor = ({ articles, roof, rules }) => {
                             href={get(article, 'website_url', '')}
                             mediaData={setMediaData(promoItemsBasic)}
                             cardSize="l"
-                            imagePosition={rules.imagePosition}
+                            imagePosition={
+                                rules[index] && rules[index].imagePosition
+                            }
                         />
                     );
                 })}

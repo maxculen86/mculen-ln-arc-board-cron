@@ -22,7 +22,8 @@ const customFieldsRules = {
         groupName: 'Ajuste Collection',
         layouts: {
             bnGrilla4: 'BN Grilla 4',
-            bnGrilla8: 'BN Grilla 8'
+            bnGrilla8: 'BN Grilla 8',
+            bn_2_1_2_grid: 'BN 2 + Focal 1+2'
         },
         defaultLayout: 'bnGrilla4'
     },

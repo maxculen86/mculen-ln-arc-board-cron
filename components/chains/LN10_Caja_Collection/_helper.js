@@ -1,12 +1,14 @@
 import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
+import getChildrenBySection from '../../private/LN/common/utils/LN10/getChildrenBySection';
+import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 
 export const validateChain = ({
     idCollection,
     articles = [],
     layout,
     renderables = [],
-    customFields,
-    chainId
+    chainId,
+    isInBreakings
 }) => {
     const rules = [
         {
@@ -28,42 +30,27 @@ export const validateChain = ({
                     props.customFields.chainStyle === 'exclusiveSub' &&
                     props.id !== chainId
             ),
+            message: 'Ya existe una caja collection exclusivo suscriptor'
+        },
+        {
+            validation: !isInBreakings,
             message:
-                'Ya existe una caja collection con estilo exclusivo suscriptor'
+                'La caja collection exclusivo suscriptor debe estar dentro de las secciones Breaking 1 y Breaking 2'
         }
     ];
 
     return pageBuilderValidator(rules);
 };
 
-export const chainStyleRules = {
-    exclusiveSub: {
-        imagePosition: [
-            {
-                mobile: 'img-top',
-                tablet: 'img-top',
-                desktop: 'img-top'
-            },
-            {
-                mobile: 'img-right',
-                tablet: 'img-top',
-                desktop: 'img-top'
-            },
-            {
-                mobile: 'img-right',
-                tablet: 'img-none',
-                desktop: 'img-none'
-            },
-            {
-                mobile: 'img-right',
-                tablet: 'img-top',
-                desktop: 'img-top'
-            },
-            {
-                mobile: 'img-right',
-                tablet: 'img-none',
-                desktop: 'img-none'
-            }
-        ]
-    }
-};
+export const getBreakingChildren = renderables =>
+    ['Breaking_1', 'Breaking_2']
+        .map(breakingName =>
+            getChildrenBySection({
+                renderables,
+                section: {
+                    title: breakingName,
+                    validation: sectionValidation
+                }
+            })
+        )
+        .flat();

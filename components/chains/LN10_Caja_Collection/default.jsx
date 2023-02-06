@@ -6,7 +6,6 @@ import PropTypes from 'fusion:prop-types';
 import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
-    cajaTemasCustomsFields,
     getArticlesOfChain,
     getCommonProps,
     isInApertura
@@ -16,10 +15,12 @@ import { productClickFromClient } from '../../private/common/utils/viewability';
 import StaticContent from '../../private/common/staticContent';
 import getDataChainCollection from '../utils/getDataChainCollection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
-import WarningMessage from '../../private/common/warningMessage/warningMessage';
-import { validateChain, chainStyleRules } from './_helper';
+import { validateChain, getBreakingChildren } from './_helper';
 import ExclusiveSubscriptor from '../../private/LN10/home/components/exclusiveSubscriptor/default';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
+import diagramationRules from '../../private/common/utils/diagramationRules';
+import checkChildInSection from '../../private/LN/common/utils/LN10/checkChildBySection';
+import setRender from '../utils/setRender';
 
 export const roofData = {
     textButton: 'Text button',
@@ -72,18 +73,6 @@ const CajaCollection = props => {
         layout: pageLayout
     } = props;
 
-    console.log({ renderables });
-
-    console.log(
-        renderables.find(
-            ({ props: rProps }) =>
-                rProps.customFields &&
-                rProps.customFields.chainStyle === 'exclusiveSub'
-        )
-    );
-
-    if (hideCaja) return <></>;
-
     const {
         collectionsInPage,
         notesQuantity,
@@ -111,6 +100,9 @@ const CajaCollection = props => {
         notesQuantity,
         featureId: chainId
     });
+
+    const breakingsChildren = getBreakingChildren(renderables);
+    const isInBreakings = checkChildInSection(chainId, breakingsChildren);
 
     const isExclusiveSuscriptor = chainStyle === 'exclusiveSub';
 
@@ -141,28 +133,9 @@ const CajaCollection = props => {
         renderables,
         layout,
         articles: _articles,
-        chainId
+        chainId,
+        isInBreakings
     });
-
-    if (isAdmin && !!error) {
-        return (
-            <WarningMessage
-                id={chainId}
-                type={error.type}
-                message={error.message}
-            />
-        );
-    }
-
-    if (isExclusiveSuscriptor) {
-        return (
-            <ExclusiveSubscriptor
-                roof={roofData}
-                rules={chainStyleRules[chainStyle]}
-                articles={_articles}
-            />
-        );
-    }
 
     const Component = (
         <CajaTema
@@ -190,11 +163,23 @@ const CajaCollection = props => {
     const noStaticComponent =
         (_articles && _articles.length && Component) || getPlaceholder(layout);
 
-    return isHome ? (
-        <StaticContent>{Component}</StaticContent>
-    ) : (
-        noStaticComponent
-    );
+    return setRender({
+        isAdmin,
+        error,
+        hideBox: hideCaja,
+        extraOptions: {
+            isExclusiveSuscriptor: isExclusiveSuscriptor && (
+                <ExclusiveSubscriptor
+                    layout={layout}
+                    roof={roofData}
+                    rules={diagramationRules(layout)}
+                    articles={_articles}
+                />
+            ),
+            isHome: isHome && <StaticContent>{Component}</StaticContent>,
+            default: noStaticComponent
+        }
+    });
 };
 
 CajaCollection.label = 'LN10 Caja Collection';
