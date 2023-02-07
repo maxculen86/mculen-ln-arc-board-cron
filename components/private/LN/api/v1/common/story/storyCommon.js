@@ -93,8 +93,8 @@ export const storyCommon = (dataNota, cuerpo) => {
         metadata: Metadata(dataNota)
     };
 
-    if (dataNota.subtype === '9') resp.HTML = cuerpo(dataNota);
-    else resp.contenido = cuerpo(dataNota);
+    if (dataNota.subtype === '9') resp.HTML = cuerpo;
+    else resp.contenido = cuerpo;
 
     return resp;
 };
