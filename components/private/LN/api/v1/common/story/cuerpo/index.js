@@ -78,18 +78,60 @@ const getInfographicElement = (
     return contentElements;
 };
 
+const getPromoItemsInContent = (contentElements, promoItem) => {
+    return contentElements.filter(
+        x => get(x, '_id', '-1') === get(promoItem, '_id', null)
+    );
+};
+
+// This method applies to adding elements of the promoItem that are only of type html
+const getElementsWithHtmlPromoItems = (
+    promoItems,
+    subtype,
+    contentElements
+) => {
+    if (!contentElements) throw new Error('The story does not have body');
+
+    const priorityPromoItems = ['apertura_multimedia', 'basic'];
+    const exceptPromoHtmlForSubtypes = [4, 8]; // Exception For Types StoryTelling and Photo Al 100
+
+    priorityPromoItems.some(key => {
+        const promoItem = promoItems[key];
+        if (
+            promoItem &&
+            promoItem.type === 'raw_html' &&
+            !exceptPromoHtmlForSubtypes.includes(subtype) &&
+            getPromoItemsInContent(contentElements, promoItem).length === 0
+        ) {
+            contentElements.unshift(promoItem);
+            return true;
+        }
+        return false;
+    });
+
+    return contentElements;
+};
+
 const storyBody = (dataNota, storyBodyElements) => {
     const { _id } = dataNota || {};
     const subtype = get(dataNota, 'subtype', '');
     if (!subtype) throw Error('The story does not have subtype');
 
     const elementBySubtype = getStoryElementBySubtype(storyBodyElements);
-    const contentElements = getInfographicElement(
+    /*     const contentElements = getInfographicElement(
         get(dataNota, 'promo_items.basic', ''),
         subtype === '2',
         get(dataNota, 'content_elements', ''),
         get(dataNota, 'promo_items.apertura_multimedia', null)
+    ); */
+
+    const contentElements = getElementsWithHtmlPromoItems(
+        get(dataNota, 'promo_items', {}),
+        subtype,
+        get(dataNota, 'content_elements', [])
     );
+
+    const idsElements = contentElements.map(x => x && get(x, '_id', null));
 
     const templates = {
         '7': recetaCuerpo,
@@ -97,8 +139,18 @@ const storyBody = (dataNota, storyBodyElements) => {
         '9': htmlCuerpo
     }[subtype];
     return templates
-        ? templates(contentElements, elementBySubtype[subtype], _id)
-        : defaultCuerpo(contentElements, elementBySubtype[1], _id);
+        ? {
+              idsElements,
+              elements: templates(
+                  contentElements,
+                  elementBySubtype[subtype],
+                  _id
+              )
+          }
+        : {
+              idsElements,
+              elements: defaultCuerpo(contentElements, elementBySubtype[1], _id)
+          };
 };
 
 export default storyBody;
