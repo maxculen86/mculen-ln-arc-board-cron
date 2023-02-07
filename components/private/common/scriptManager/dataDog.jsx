@@ -19,11 +19,7 @@ const Datadog = ({ location = 'head' }) => {
         sampleRateRum,
         service,
         env,
-        sessionReplaySampleRate,
-        trackResources,
-        trackLongTasks,
         trackInteractions,
-        trackFrustrations,
         trackSessionAcrossSubdomains
     } = DATADOG_CONFIG[arcSite] || {};
 
@@ -105,11 +101,8 @@ const Datadog = ({ location = 'head' }) => {
           env: "${env}",
           version: "${version}",
           sampleRate: ${sampleRateRum},
-          sessionReplaySampleRate: ${sessionReplaySampleRate},
-          trackResources: ${trackResources},
-          trackLongTasks: ${trackLongTasks}, 
+          replaySampleRate: 10,
           trackInteractions: ${trackInteractions},
-          trackFrustrations: ${trackFrustrations},
           trackSessionAcrossSubdomains: ${trackSessionAcrossSubdomains},
         });
       
