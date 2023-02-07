@@ -21,9 +21,12 @@ export const addForwardSlashInParagraphsLinks = content => {
 
 export const addForwardSlashInInterstitialLink = url => {
     if (typeof url !== 'string') return null;
-    const link = url.replace(/https:\/\/"(.*?lanacion.com.ar.*?)"/g, '$1');
-    const newUrl = url.replace(link, addForwardSlash(link));
-    return newUrl;
+    const lanacionUrl = /https:\/\/(.*?lanacion.com.ar.*?)/g;
+    if (url.match(lanacionUrl)) {
+        const link = url.replace(lanacionUrl, '$1');
+        return url.replace(link, addForwardSlash(link));
+    }
+    return url;
 };
 
 export default addForwardSlash;
