@@ -1,12 +1,19 @@
 import get from '../../../../../../common/utils/get';
 import AperturaReceta from './aperturaReceta';
-import Image from '../image';
-
 import {
     authorCommon as Author,
     articleSignature as Signature
 } from '../../author';
 import { getFeaturedTag } from '../../tag';
+
+// For to set Image Basic to BookMark when PromoItems is Html regularly
+export const validToSetImagenesAcumulado = (article, isPromoInContent) => {
+    const validSubtypesForBookmark = [4, 8]; // For Types StoryTelling and Photo Al 100
+    const { subtype } = article;
+    return (
+        isPromoInContent || validSubtypesForBookmark.includes(Number(subtype))
+    );
+};
 
 export const storyTitleAndResume = article => {
     const {
@@ -24,6 +31,14 @@ export const storyTitleAndResume = article => {
     };
 };
 
+export const promoItemArticleBasicImage = article => {
+    const promoItem = get(article, 'promo_items.basic', null);
+    if (promoItem && promoItem.type !== 'image') {
+        return null;
+    }
+    return promoItem;
+};
+
 export const promoItemArticle = article => {
     const { subtype: template } = article;
     let promoItem = get(article, 'promo_items.apertura_multimedia', null);
@@ -38,10 +53,6 @@ export const promoItemArticle = article => {
 
 export const apertura = article => {
     const { subtype: template } = article;
-    let acuImage = null;
-    if (template === '4' || template === '8') {
-        acuImage = get(article, 'promo_items.basic', null);
-    }
 
     const recetaPromoItem = get(article, 'promo_items.receta', null);
     const authors = get(article, 'credits.by', null);
@@ -51,11 +62,6 @@ export const apertura = article => {
         ...storyTitleAndResume(article)
     };
 
-    if (acuImage) {
-        const images = [];
-        images.push(Image(acuImage));
-        resp.imagenesAcumulado = images;
-    }
     if (
         article.subtype === '7' &&
         recetaPromoItem &&

@@ -5,13 +5,11 @@ import articlewithOutMetadata from '../../../../../../../../../__mocks__/data/ar
 describe('Test de index en Json', () => {
     test('Test article with Metadata', () => {
         var resp = Metadata(articlewithMetadata);
-        console.log(resp);
         expect(resp).toMatchObject({ eje_subeje: 'Breaking News' });
     });
 
     test('Test article Not Metadata', () => {
         var resp = Metadata(articlewithOutMetadata);
-        console.log(resp);
         expect(resp).toBeNull();
     });
 });
