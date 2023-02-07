@@ -5,7 +5,7 @@ import {
 } from '../../../common/elements/story/storyCommon';
 import apertura from './apertura/aperturaArticle';
 import cuerpo from './cuerpo/index';
-import { removeEmptyItems } from '../../../common/elements/utils/responseCleaner';
+import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 
 const indexNota = dataNota => {
     const resp = {

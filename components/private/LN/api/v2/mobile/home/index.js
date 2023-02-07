@@ -1,22 +1,21 @@
 import get from '../../../../../common/utils/get';
 import Image from '../../../common/elements/image';
-import { removeEmptyItems } from '../../../common/elements/utils/responseCleaner';
+import { removeEmptyItems } from '../../../common/utils/responseCleaner';
+import { cardRegular as Article } from './article/cardRegular/index';
 import {
-    articleItem as Article,
-    anexoItem as Anexo,
-    anexoItemMobile as AnexoMobile
-} from './article/index';
+    cardAnexoItem as Anexo,
+    cardAnexoItemMobile as AnexoMobile
+} from '../../../common/article/cardAnexo/index';
 import getEmbedHref from '../../../../../common/utils/getEmbedHref';
-import getTypeSection from './config/getTypeSection';
+import { storyBox } from '../../../common/home/boxTypes/storyBox';
+import { anticipoBox } from '../../../common/home/boxTypes/anticipoBox';
+import { anexoMobileBox } from '../../../common/home/boxTypes/anexoMobileBox';
+import { bannerBox } from '../../../common/home/boxTypes/bannerBox';
+import { sectionAcuBox } from '../../../common/home/boxTypes/sectionAcumuladoBox';
+import configTypeSection from './config/getTypeSection';
 
-let paramsFromPage = {
-    rootPath:
-        'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
-};
-// It is used to add information to the section or box from the sectionAliasMobile field set in page/index.js
-const typeSection = getTypeSection();
-
-const featureInformation = (information, section) => {
+const featureInformation = (information, section, typeSection) => {
+    if (!information) return null;
     const type = typeSection[section] || typeSection.default;
     const res = {
         ...type,
@@ -61,142 +60,63 @@ const featureInformation = (information, section) => {
     }
     return res;
 };
-const articlesMap = (articles, sectionAliasMobile) => {
-    return articles.reduce((result, f) => {
-        if (f) {
-            try {
-                const article = Article({ ...f, storyType: 'home' });
-                result.push(article);
-            } catch (error) {
-                const websiteUrl = get(paramsFromPage, 'rootPath', '');
-                if (get(error, 'name', null) === 'ErrorIdArticle') {
-                    // eslint-disable-next-line no-console
-                    console.warn(
-                        `SectionMobile:${sectionAliasMobile || ''} - ${get(
-                            error,
-                            'message',
-                            ''
-                        )} `,
-                        {
-                            error,
-                            outputType: 'json',
-                            websiteUrl
-                        }
-                    );
-                } else {
-                    // eslint-disable-next-line no-console
-                    console.error(error.message, {
-                        error,
-                        outputType: 'json',
-                        websiteUrl
-                    });
-                }
-            }
-        }
-        return result;
-    }, []);
-};
-
-const storyBox = element => {
-    const { information, sectionAliasMobile } = element;
-    const featureInfo = featureInformation(information, sectionAliasMobile);
-
-    if (sectionAliasMobile === 'Anticipo') return { ...featureInfo };
-    const articles = get(element, 'articles', []);
-
-    const ordererArticles = orderArticles(articles, information.layout);
-
-    const resultArticles = articlesMap(ordererArticles, sectionAliasMobile);
-
-    if (Array.isArray(resultArticles) && resultArticles.length > 0) {
-        return {
-            ...featureInfo,
-            notas: resultArticles
-        };
-    }
-    return null;
-};
-
-const anticipoBox = element => {
-    const { information, sectionAliasMobile } = element;
-    const featureInfo = featureInformation(information, sectionAliasMobile);
-
-    if (sectionAliasMobile === 'Anticipo') return { ...featureInfo };
-
-    return null;
-};
-
-const bannerBox = element => {
-    const type = typeSection[element.sectionAliasMobile];
-    return {
-        ...type,
-        idSeccion: element.id
-    };
-};
-
-const anexoMobile = element => {
-    const { information, sectionAliasMobile } = element;
-    const featureInfo = featureInformation(information, sectionAliasMobile);
-    const articles = get(element, 'articles', []);
-    const ordererArticles = orderArticles(articles, information.layout);
-
-    const resultArticles =
-        sectionAliasMobile === 'Anexo'
-            ? Anexo(ordererArticles)
-            : AnexoMobile(ordererArticles);
-
-    if (Array.isArray(resultArticles) && resultArticles.length > 0) {
-        return {
-            ...featureInfo,
-            anexo: resultArticles[0]
-        };
-    }
-
-    return null;
-};
-
-const sectionAcu = element => {
-    if (
-        element &&
-        element.sectionAccumulated &&
-        element.sectionAccumulated.length > 0
-    ) {
-        return element.sectionAccumulated[0];
-    }
-
-    return null;
-};
-const discardBox = element => {
-    return null;
-};
 
 const typeBox = {
     0: storyBox,
     1: bannerBox,
-    2: anexoMobile,
+    2: anexoMobileBox,
     3: anticipoBox,
-    4: sectionAcu,
-    9: discardBox
+    4: sectionAcuBox
 };
 
-const index = (children, params = null) => {
-    if (params && params.rootPath) {
-        paramsFromPage = params;
+const index = (
+    children,
+    paramsFromPage = {
+        rootPath:
+            'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
     }
+) => {
+    const typeSection = configTypeSection();
+
     const ArticlesbyBox = children.reduce((result, f, i) => {
-        result.push(typeBox[f.type](f));
+        const { information, sectionAliasMobile } = f;
+
+        const featureInfo = featureInformation(
+            information,
+            sectionAliasMobile,
+            typeSection
+        );
+        switch (Number(f.type)) {
+            case 0:
+                // eslint-disable-next-line no-unreachable
+                result.push(
+                    typeBox[f.type](f, featureInfo, Article, paramsFromPage)
+                );
+                break;
+            case 1:
+                // eslint-disable-next-line no-unreachable
+                result.push(typeBox[f.type](f, typeSection));
+
+                break;
+            case 2:
+                // eslint-disable-next-line no-unreachable
+                result.push(
+                    typeBox[f.type](f, featureInfo, Anexo, AnexoMobile)
+                );
+                break;
+            case 3:
+                // eslint-disable-next-line no-console
+                result.push(typeBox[f.type](f, featureInfo));
+                break;
+            default:
+                //  Only to Discard the element.
+                console.log('to discard');
+                break;
+        }
+
         return result;
     }, []);
     return [removeEmptyItems(ArticlesbyBox)];
-};
-
-const orderArticles = (articles, diagramacion) => {
-    if (articles && articles.length > 0) {
-        if (diagramacion === 'focalRight2') {
-            return articles.slice(0, 2).reverse();
-        }
-    }
-    return articles;
 };
 
 export default index;

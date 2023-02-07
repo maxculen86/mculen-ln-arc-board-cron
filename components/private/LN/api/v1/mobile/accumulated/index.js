@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import Configuration from '../../../common/accumulated/configuration';
-import { articleItem } from '../../../common/elements/article/index';
-import { removeEmptyItems } from '../../../common/elements/utils/responseCleaner';
+import { cardRegular } from '../../../common/article/cardRegular/index';
+import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 import { getTag } from '../../../common/elements/tag';
 import { authorAcu, authorAcuFollow } from '../../../common/elements/author';
 import { getSubCategory } from '../../../common/elements/category';
@@ -57,7 +57,7 @@ const index = acuData => {
         resp.notas = acuData.articles.reduce((result, f) => {
             try {
                 if (f) {
-                    const article = articleItem({
+                    const article = cardRegular({
                         ...f,
                         storyType: 'accumulated'
                     });

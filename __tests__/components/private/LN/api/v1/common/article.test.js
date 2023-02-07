@@ -8,7 +8,7 @@ import dateAndTimeUtil, {
     addHoursAndFormat,
     dateAndTimeForAppsUtil
 } from '../../../../../../../components/private/common/utils/dateAndTimeUtil';
-import { articleItem } from '../../../../../../../components/private/LN/api/common/elements/article';
+import { cardRegular } from '../../../../../../../components/private/LN/api/common/article/cardRegular/index';
 const AcuList = (type, articles) => {
     return articles.map(v => {
         return type(v);
@@ -323,7 +323,7 @@ describe('Home test', () => {
         };
 
         try {
-            articleItem(request);
+            cardRegular(request);
         } catch (err) {
             expect(err.message).toBe(
                 'Anexo configurado como parte de seccion en la home'
@@ -334,7 +334,7 @@ describe('Home test', () => {
         //CASO 1 - Articulo vacio
         const request = {};
         try {
-            articleItem(request);
+            cardRegular(request);
         } catch (err) {
             expect(err.message).toBe(
                 'Revisar Parametros de Articulo en null o undefined in article with params: {}'
@@ -349,7 +349,7 @@ describe('Home test', () => {
         };
 
         try {
-            articleItem(request2);
+            cardRegular(request2);
         } catch (err) {
             expect(err.message).toBe(
                 `Revisar Parametros de Articulo en null o undefined in article with params: ${JSON.stringify(

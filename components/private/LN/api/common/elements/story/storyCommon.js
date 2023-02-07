@@ -1,5 +1,5 @@
 import get from '../../../../../common/utils/get';
-import sentToApps from '../utils/sentToApps';
+import sentToApps from '../label/sentToApps';
 import ModificadorTemplate from './modificadorTemplate';
 import Relacionados from './relacionados';
 import Metadata from './metadata';

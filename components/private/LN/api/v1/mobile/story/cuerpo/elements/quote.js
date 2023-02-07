@@ -1,5 +1,5 @@
 import get from '../../../../../../../common/utils/get';
-import { validateValueText } from '../../../../../common/elements/utils/validateValue';
+import { validateValueText } from '../../../../../common/utils/validateValue';
 
 const quote = (nodo, dataNota) => {
     if (!nodo) return null;

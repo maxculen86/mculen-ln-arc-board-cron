@@ -128,7 +128,6 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
             }
         ];
         const home = index(Seccion) || [];
-        console.log(home[0][0]);
         expect(home[0][0]).toEqual(
             expect.objectContaining({
                 diagramacion: 'focalLeft3',

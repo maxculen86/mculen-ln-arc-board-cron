@@ -1,6 +1,6 @@
 import cuerpo from './cuerpo/index';
 import { storyTitleAndResume } from '../../../common/elements/story/apertura/aperturaArticle';
-import { removeEmptyItems } from '../../../common/elements/utils/responseCleaner';
+import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 
 const indexNotaText = dataNota => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);

@@ -4,7 +4,7 @@ import {
     getSubCategory,
     getPrincipalCategory
 } from '../../../../../../../components/private/LN/api/common/elements/category/index';
-import articleItem from '../../../../../../../components/private/LN/api/common/elements/article';
+import cardRegular from '../../../../../../../components/private/LN/api/common/article/cardRegular/index';
 
 describe('Test de JSON de tags en article', () => {
     //Se puede retirar el foreach, ya que no tiene mucha cienca las categorias

@@ -3,7 +3,7 @@ import htmlText from '../../../../../common/elements/story/cuerpo/elements/htmlT
 import {
     validateValueText,
     validateArrayNull
-} from '../../../../../common/elements/utils/validateValue';
+} from '../../../../../common/utils/validateValue';
 
 const list = (nodo, dataNota) => {
     if (!nodo) return null;

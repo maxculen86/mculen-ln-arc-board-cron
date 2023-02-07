@@ -4,7 +4,7 @@ import { authorCommon as Author } from '../../../common/elements/author';
 import { getTag } from '../../../common/elements/tag';
 import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
 import { getPrincipalCategory } from '../../../common/elements/category';
-import sentToApps from '../../../common/elements/utils/sentToApps';
+import sentToApps from '../../../common/elements/label/sentToApps';
 
 const articleItem = article => {
     const {

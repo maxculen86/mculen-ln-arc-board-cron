@@ -1,0 +1,69 @@
+import get from '../../../../../common/utils/get';
+import { orderArticles } from '../utils/helpers';
+
+const articlesMap = (
+    articles,
+    sectionAliasMobile,
+    articleFn,
+    paramsFromPage
+) => {
+    return articles.reduce((result, f) => {
+        if (f) {
+            try {
+                const article = articleFn({ ...f, storyType: 'home' });
+                result.push(article);
+            } catch (error) {
+                const websiteUrl = get(paramsFromPage, 'rootPath', '');
+                if (get(error, 'name', null) === 'ErrorIdArticle') {
+                    // eslint-disable-next-line no-console
+                    console.warn(
+                        `SectionMobile:${sectionAliasMobile || ''} - ${get(
+                            error,
+                            'message',
+                            ''
+                        )} `,
+                        {
+                            error,
+                            outputType: 'json',
+                            websiteUrl
+                        }
+                    );
+                } else {
+                    // eslint-disable-next-line no-console
+                    console.error(error.message, {
+                        error,
+                        outputType: 'json',
+                        websiteUrl
+                    });
+                }
+            }
+        }
+        return result;
+    }, []);
+};
+
+export const storyBox = (element, featureInfo, articleFn, paramsFromPage) => {
+    const { information, sectionAliasMobile } = element;
+
+    if (sectionAliasMobile === 'Anticipo') return { ...featureInfo };
+    const articles = get(element, 'articles', []);
+
+    const ordererArticles = orderArticles(articles, information.layout);
+
+    const resultArticles = articlesMap(
+        ordererArticles,
+        sectionAliasMobile,
+        articleFn,
+        paramsFromPage
+    );
+
+    if (Array.isArray(resultArticles) && resultArticles.length > 0) {
+        return {
+            ...featureInfo,
+            notas: resultArticles
+        };
+    }
+    return null;
+};
+
+export default storyBox;
