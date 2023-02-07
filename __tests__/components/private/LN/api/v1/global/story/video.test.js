@@ -50,11 +50,11 @@ describe('Test unitarios de videos en nota', () => {
 
         expect(resp.multimedioFile['_t']).toBe('mmf');
         expect(resp.multimedioFile.width).toBe(
-            VideoArticle[0].streams[0].width
+            VideoArticle[0].streams[1].width
         );
         expect(resp.multimedioFile.height).toBe(
-            VideoArticle[0].streams[0].height
+            VideoArticle[0].streams[1].height
         );
-        expect(resp.multimedioFile.url).toBe(VideoArticle[0].streams[0].url);
+        expect(resp.multimedioFile.url).toBe(VideoArticle[0].streams[1].url);
     });
 });

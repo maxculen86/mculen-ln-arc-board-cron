@@ -15,9 +15,9 @@ describe('Json video common', () => {
     it('Render video common', () => {
         const resp = Video(VideoArticle[0].streams);
         expect(resp['_t']).toBe('mmf');
-        expect(resp.width).toBe(VideoArticle[0].streams[0].width);
-        expect(resp.height).toBe(VideoArticle[0].streams[0].height);
-        expect(resp.url).toBe(VideoArticle[0].streams[0].url);
+        expect(resp.width).toBe(VideoArticle[0].streams[1].width);
+        expect(resp.height).toBe(VideoArticle[0].streams[1].height);
+        expect(resp.url).toBe(VideoArticle[0].streams[1].url);
     });
 
     it('Render videos comun', () => {

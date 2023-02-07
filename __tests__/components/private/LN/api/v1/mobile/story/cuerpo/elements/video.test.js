@@ -15,10 +15,10 @@ describe('Test de json de imagen en el cuerpo de la nota', () => {
         expect(resp['showAd']).toBe('0');
         expect(resp['title']).toBe(ArticleVideo[0]['headlines']['basic']);
         expect(resp['multimediaFile']['_t']).toBe('mmf');
-        expect(resp['multimediaFile']['width']).toBe(640);
-        expect(resp['multimediaFile']['height']).toBe(360);
+        expect(resp['multimediaFile']['width']).toBe(1280);
+        expect(resp['multimediaFile']['height']).toBe(720);
         expect(resp['multimediaFile']['url']).toBe(
-            'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_640x360-600.mp4'
+            'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_1280x720-2000-v3_1.mp4'
         );
         expect(resp['thumbnailImage']['_t']).toBe('mmi');
         expect(resp['thumbnailImage']['order']).toBe(0);

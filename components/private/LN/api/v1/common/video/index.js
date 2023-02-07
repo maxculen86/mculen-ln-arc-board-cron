@@ -12,7 +12,7 @@ export const videoCommon = streams => {
         ? streams
               .filter(v => v.stream_type === 'mp4')
               .sort((a, b) => {
-                  return a.width > b.width ? 1 : -1;
+                  return a.width < b.width ? 1 : -1;
               })
         : [];
     if (orderedStreams.length === 0) return null;
