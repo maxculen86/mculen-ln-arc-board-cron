@@ -1,5 +1,5 @@
 import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
-import getChildrenBySection from '../../private/LN/common/utils/LN10/getChildrenBySection';
+import getChildrenBySection from '../utils/getChildrenBySection';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 
 export const validateChain = ({

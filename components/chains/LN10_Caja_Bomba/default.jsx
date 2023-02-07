@@ -17,6 +17,7 @@ import {
     getChildrenOfBomba
 } from './_helper';
 import setRender from '../utils/setRender';
+import StaticContent from '../../private/common/staticContent';
 import '../../../resources/packages/css/@ln/contenidos-ui-bomba/index.css';
 import '../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../resources/packages/css/@ln/common-ui-media/index.css';
@@ -51,7 +52,7 @@ const CajaBomba = props => {
 
     const { position, positionInsideSection } = getCommonProps(props);
 
-    const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+    const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
         '',
         layout,
         position,
@@ -60,7 +61,7 @@ const CajaBomba = props => {
     );
 
     const sectionProps = {
-        ...extraOpts,
+        ...viewabilityData,
         className: classCondition
     };
 
@@ -82,13 +83,19 @@ const CajaBomba = props => {
         />
     );
 
-    return setRender({
-        isAdmin,
-        error,
-        hideBox: hideCaja,
-        Component,
-        extraOptsDiv
-    });
+    return (
+        <StaticContent {...extraOptsDiv}>
+            {setRender({
+                withSection: false,
+                isAdmin,
+                error,
+                hideBox: hideCaja,
+                extraOptions: {
+                    default: Component
+                }
+            })}
+        </StaticContent>
+    );
 };
 
 CajaBomba.label = 'LN10 Caja Bomba';

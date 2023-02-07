@@ -1,12 +1,14 @@
+/* eslint-disable react/jsx-pascal-case */
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/require-default-props */
 import React from 'react';
-import { Roof } from '@ln/contenidos-ui-roof';
 import { Card } from '@ln/contenidos-ui-card';
 import { Bngrid } from '@ln/contenidos-ui-bngrid';
 
 import get from '../../../../common/utils/get';
 import { setMediaData } from './_helper';
+import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
 
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
@@ -15,20 +17,13 @@ import '../../../../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.
 
 const ExclusiveSubscriptor = ({
     articles,
-    roof,
+    roof = {},
     rules = [],
     layout = 'bn_2_1_2_grid'
 }) => {
     return (
         <>
-            <Roof roofType="exc-sub">
-                <Roof.Left text="EXCLUSIVO SUSCRIPTORES" />
-                <Roof.Right
-                    textButton={roof.textButton}
-                    hrefButton={roof.hrefButton}
-                    navData={roof.links}
-                />
-            </Roof>
+            <BuildRoof {...roof} />
             <Bngrid gridType={layout} gridStyle="subExclusive">
                 {articles.map((article, index) => {
                     const promoItemsBasic = get(

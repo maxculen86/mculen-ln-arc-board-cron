@@ -1,4 +1,4 @@
-import get from '../../../../common/utils/get';
+import get from '../../private/common/utils/get';
 
 const getChildrenBySection = ({
     renderables = [],
