@@ -81,7 +81,6 @@ const ArticleFeature = ({
     } = getChainConfig(featureId, renderables, cajaTemaConfig);
 
     const extraOpts = getDataAttributesForViewability(id, boxPosition, index);
-
     const [config, setConfig] = useState(initialConfig);
     useEffect(() => {
         if (isAdmin) {
@@ -176,12 +175,17 @@ const ArticleFeature = ({
         isLiveblog
     );
 
-    const { url, marquesina } = getDataAuthor(article);
-
-    const authorsQuantity = get(article, 'credits.by', []).length;
-
     const { imagePosition, withSection, withMarquee, withMarqueeImg } =
         config || {};
+
+    const { marqueeImg, marquee, authorsQuantity } = getDataAuthor({
+        article,
+        variant,
+        authors,
+        hideAuthors,
+        withMarquee,
+        withMarqueeImg
+    });
 
     if (isAdmin && !!error) {
         return (
@@ -204,10 +208,8 @@ const ArticleFeature = ({
                     href={get(article, 'website_url', '')}
                     withMedia={withMedia}
                     subheadTag={get(config, 'subheadTag')}
-                    marquee={
-                        withMarquee && !hideAuthors && (authors || marquesina)
-                    }
-                    marqueeImg={withMarqueeImg && authorsQuantity === 1 && url}
+                    marquee={marquee}
+                    marqueeImg={marqueeImg}
                     badgeText={badgetText}
                     badgeType={badgetStyle}
                     mediaData={mediaData}

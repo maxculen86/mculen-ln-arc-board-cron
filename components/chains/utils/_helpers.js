@@ -1,7 +1,5 @@
-import {
-    setSlicedChildren,
-    setWrappedChildren
-} from '../LN10_Caja_Apertura/_helper';
+import { setWrappedChildren } from '../LN10_Caja_Apertura/_helper';
+import setSlicedChildren from './setSliceChildren';
 
 const checkChangeChildrenForPB = ({
     features,

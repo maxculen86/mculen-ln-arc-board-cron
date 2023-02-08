@@ -15,6 +15,7 @@ export default function BuildRoof(props) {
         buttonText,
         linkButton,
         buttonStyle,
+        chainStyle,
         hideRoof,
         navigationId,
         isAdmin
@@ -41,7 +42,7 @@ export default function BuildRoof(props) {
     return (
         <>
             {!hideRoof && (
-                <Roof roofType={buttonStyle || 'generic'}>
+                <Roof roofType={chainStyle || 'generic'}>
                     <Roof.Left
                         logo={logo}
                         href={titleLink}
@@ -50,6 +51,7 @@ export default function BuildRoof(props) {
                     />
                     <Roof.Right
                         navData={links}
+                        buttonType={buttonStyle || 'generico'}
                         textButton={buttonText}
                         hrefButton={linkButton}
                     />
@@ -68,7 +70,8 @@ BuildRoof.propTypes = {
     linkButton: PropTypes.string,
     buttonStyle: PropTypes.string,
     navigationId: PropTypes.string,
-    isAdmin: PropTypes.bool.isRequired
+    isAdmin: PropTypes.bool.isRequired,
+    chainStyle: PropTypes.string
 };
 
 BuildRoof.defaultProps = {
@@ -77,5 +80,6 @@ BuildRoof.defaultProps = {
     buttonText: '',
     linkButton: '',
     buttonStyle: '',
-    navigationId: ''
+    navigationId: '',
+    chainStyle: 'generic'
 };
