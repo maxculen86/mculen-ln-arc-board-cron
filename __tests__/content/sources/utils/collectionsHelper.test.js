@@ -1,7 +1,8 @@
 import {
     isNotRecommend,
     filterArticlesInCollection,
-    getArticlesToShow
+    getArticlesToShow,
+    filterArticlesTypeStory
 } from '../../../../content/sources/utils/collectionsHelper';
 import 'regenerator-runtime/runtime';
 
@@ -138,4 +139,33 @@ describe('collectionsHelper - getArticlesToShow', () => {
 
     expect(result).toHaveLength(generalMock.notesQuantity);
     expect(resultWithoutExcluded).toBeTruthy();
+});
+
+describe('collectionsHelper - filterArticlesTypeStory', () => {
+    const collectionMock = [
+        {
+            _id: 'IZLVHK6F4FGCXJ5EGVH6UF7AFQ',
+            type: 'video'
+        },
+        {
+            _id: 'XQF2XSYVYRBQRBWV3AZ66O34EA',
+            type: 'story'
+        },
+        {
+            _id: 'IVXHUL4ZQ5F43HSNXBYOCOZJX4',
+            type: 'video'
+        }
+    ];
+
+    const result = filterArticlesTypeStory(collectionMock);
+
+    it('Should return only elements of type story', () => {
+        expect(result).toStrictEqual([
+            {
+                _id: 'XQF2XSYVYRBQRBWV3AZ66O34EA',
+                type: 'story'
+            }
+        ]);
+        expect(result).toHaveLength(1);
+    });
 });
