@@ -8,6 +8,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import contentElementsLiveblog from '.././../../../../__mocks__/data/articles/contentElementsLiveblog.json';
 import * as cajaTemasValidators from '../../../../../components/private/LN/common/utils/cajaTemasValidators';
+import * as _helper from '../../../../../components/features/LN-10/article/_helper';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -19,6 +20,21 @@ jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
+});
+
+jest.spyOn(_helper, 'getChainConfig').mockReturnValue({
+    index: 0,
+    boxPosition: '01',
+    layout: 'bn-opening-4',
+    config: {
+        titleTag: 'h1',
+        subheadTag: 'h2',
+        withSection: true,
+        withMarquee: true,
+        withMarqueeImg: true,
+        withSubhead: false,
+        withMedia: true
+    }
 });
 
 const article = (authors, content_elements) => ({
@@ -79,9 +95,9 @@ describe('Components - features - LN-10 - articulo - default', () => {
         id: 'f0f9g3fKOoHW25c',
         customFields: {
             noteId: '2KOBND62KNFVVBFQZOADNN6WNY',
-            imageId: 'asdas',
-            videoId: 'asdas',
-            mobileImageId: 'asdas',
+            imageId: '',
+            videoId: '',
+            mobileImageId: '',
             lead: 'LeadNota',
             title: 'Nota',
             authors: [],
@@ -90,13 +106,16 @@ describe('Components - features - LN-10 - articulo - default', () => {
         searchableField: () => {},
         isBomba: false
     });
+
     it('should test card autor variant', () => {
         useContent.mockReturnValue(article());
+
         const { container } = render(
             <ArticleFeature {...getProps('author')} />
         );
         expect(container).toMatchSnapshot();
     });
+
     it('should test card autor to be regular and not show marquee img with more than 2 authors', () => {
         useContent.mockReturnValue(article(['Leuco', 'Leuco JR']));
         const { container } = render(
@@ -105,6 +124,7 @@ describe('Components - features - LN-10 - articulo - default', () => {
         expect(screen.getByRole('article')).not.toHaveClass('--author');
         expect(container.innerHTML).not.toContain('marquee-img');
     });
+
     it('should render Cargando...', () => {
         useContent.mockReturnValue(null);
 
@@ -156,9 +176,9 @@ describe('Components - features - LN-10 - articulo - default', () => {
         id: 'f0f9g3fKOoHW25c',
         customFields: {
             noteId: '2KOBND62KNFVVBFQZOADNN6WNY',
-            imageId: 'asdas',
-            videoId: 'asdas',
-            mobileImageId: 'asdas',
+            imageId: '',
+            videoId: '',
+            mobileImageId: '',
             lead: 'LeadNota',
             title: 'Nota',
             variant,
@@ -230,11 +250,18 @@ describe('Components - features - LN-10 - articulo - default', () => {
             ];
             useContent.mockReturnValue(article(authors));
 
+            Context.useAppContext = jest.fn(() => ({
+                isAdmin: false,
+                renderables: [],
+                layout: 'LN10-Home_Main',
+                arcSite: 'la-nacion-ar'
+            }));
+
             const { container } = render(
                 <ArticleFeature {...getProps('liveblog', { delTest: true })} />
             );
-            //expect(screen.getByText('Carlos Pagni')).toBeVisible();
-            //expect(container.innerHTML).toContain('marquee-img');
+            expect(screen.getByText('Carlos Pagni')).toBeVisible();
+            expect(container.innerHTML).toContain('marquee-img');
         });
 
         test('It should return the titles of the note powerups instead of the subhead.', () => {

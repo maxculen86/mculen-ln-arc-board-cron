@@ -7,7 +7,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
     data-feature-id="f0f9g3fKOoHW25c"
     data-id="2KOBND62KNFVVBFQZOADNN6WNY"
     data-notaid="2KOBND62KNFVVBFQZOADNN6WNY"
-    data-pos="0000"
+    data-pos="0101"
     data-source="editor"
   >
     <a
@@ -18,27 +18,10 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
       title="LeadNota Nota"
     >
       <section
-        class="media-container --mb-xs"
-        href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
-        title="Nota"
-      >
-        <picture
-          class="ln-placeholder --d-flex --jc-center --relative --ar-picture"
-        >
-          <img
-            alt="Nota"
-            class="image --d-flex --w-100 --h-100"
-            decoding="async"
-            height="1333"
-            width="2000"
-          />
-        </picture>
-      </section>
-      <section
         class="description-container --relative --d-flex --flex-col"
         href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
       >
-        <h2
+        <h1
           class="text ln-text title --mb-xs --prumo --font-semi"
         >
           <span
@@ -48,7 +31,22 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
              
           </span>
           Nota
-        </h2>
+        </h1>
+        <div
+          class="marquee-container --mb-xs --d-flex --ai-center"
+          title="Por "
+        >
+          <div
+            class="marquee-text --d-flex --flex-col --font-2xs"
+          >
+            <span
+              class="text ln-text marquee"
+            >
+              Por 
+              <strong />
+            </span>
+          </div>
+        </div>
       </section>
     </a>
   </article>
@@ -62,7 +60,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
     data-feature-id="f0f9g3fKOoHW25c"
     data-id="2KOBND62KNFVVBFQZOADNN6WNY"
     data-notaid="2KOBND62KNFVVBFQZOADNN6WNY"
-    data-pos="0000"
+    data-pos="0101"
     data-source="editor"
   >
     <a
@@ -73,27 +71,10 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
       title="LeadNota Nota"
     >
       <section
-        class="media-container --mb-xs"
-        href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
-        title="Nota"
-      >
-        <picture
-          class="ln-placeholder --d-flex --jc-center --relative --ar-picture"
-        >
-          <img
-            alt="Nota"
-            class="image --d-flex --w-100 --h-100"
-            decoding="async"
-            height="1333"
-            width="2000"
-          />
-        </picture>
-      </section>
-      <section
         class="description-container --relative --d-flex --flex-col"
         href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
       >
-        <h2
+        <h1
           class="text ln-text title --mb-xs --prumo --font-semi"
         >
           <span
@@ -103,7 +84,8 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
              
           </span>
           Nota
-        </h2>
+        </h1>
+        
       </section>
     </a>
   </article>

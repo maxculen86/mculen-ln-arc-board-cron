@@ -8,11 +8,11 @@ import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 import { Card } from '@ln/contenidos-ui-card';
 import {
-    getWithMedia,
     isInApertura,
     transform
 } from '../../../private/LN/home/components/noteCard/noteCardHelper';
-import getChainConfig, {
+import {
+    getChainConfig,
     getDataAuthor,
     checkForId,
     isBombaHidden,
@@ -25,7 +25,11 @@ import getChainConfig, {
     changeConfigForPB,
     validateArticleFeature,
     getBadgetConfig,
-    getLiveblogTitles
+    getLiveblogTitles,
+    validateMedia,
+    showMarquee,
+    showMarqueeImage,
+    showSection
 } from './_helper';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
@@ -83,6 +87,7 @@ const ArticleFeature = ({
     const extraOpts = getDataAttributesForViewability(id, boxPosition, index);
 
     const [config, setConfig] = useState(initialConfig);
+
     useEffect(() => {
         if (isAdmin) {
             changeConfigForPB({ setConfig, featureId, renderables });
@@ -131,8 +136,14 @@ const ArticleFeature = ({
         image && image.promo_items
     );
 
-    const withMedia = getWithMedia(customFields, config, article);
-    const withSubhead = validateSubhead(config, withMedia, customFields);
+    const withMedia = validateMedia(customFields, config, article);
+
+    const withSubhead = validateSubhead(
+        config,
+        withMedia,
+        customFields,
+        variant
+    );
     // const isRenderAutor = getIsRenderAutor(customFields, layout);
     // const label = getLabel(article, customFields, withMedia, layout);
     // const layoutGrillaVideo = layout === 'grillaVideo1' && '--l';
@@ -173,7 +184,8 @@ const ArticleFeature = ({
     const { badgetStyle, badgetText } = getBadgetConfig(
         chapitaStyle,
         chapita,
-        isLiveblog
+        isLiveblog,
+        withMedia
     );
 
     const { url, marquesina } = getDataAuthor(article);
@@ -204,19 +216,24 @@ const ArticleFeature = ({
                     href={get(article, 'website_url', '')}
                     withMedia={withMedia}
                     subheadTag={get(config, 'subheadTag')}
-                    marquee={
-                        withMarquee && !hideAuthors && (authors || marquesina)
-                    }
-                    marqueeImg={withMarqueeImg && authorsQuantity === 1 && url}
+                    marquee={showMarquee({
+                        withMarquee,
+                        hideAuthors,
+                        authors,
+                        marquesina
+                    })}
+                    marqueeImg={showMarqueeImage({
+                        withMarqueeImg,
+                        authorsQuantity,
+                        authors,
+                        url
+                    })}
                     badgeText={badgetText}
                     badgeType={badgetStyle}
                     mediaData={mediaData}
                     cardSize={get(config, 'cardSize', '')}
                     imagePosition={imagePosition}
-                    section={
-                        withSection &&
-                        get(article, 'taxonomy.primary_section.name')
-                    }
+                    section={showSection({ withSection, article, authors })}
                     searchableField={
                         layoutPageBuilder === layoutsName.HomeLN10 &&
                         searchableField({

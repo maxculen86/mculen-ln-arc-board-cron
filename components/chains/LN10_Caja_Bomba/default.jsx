@@ -14,7 +14,8 @@ import {
     validateChainBomba,
     getIsPreOpening,
     getClassCondition,
-    getChildrenOfBomba
+    getChildrenOfBomba,
+    hasVariantNotRegular
 } from './_helper';
 import setRender from '../utils/setRender';
 import '../../../resources/packages/css/@ln/contenidos-ui-bomba/index.css';
@@ -22,6 +23,7 @@ import '../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../resources/packages/css/@ln/common-ui-media/index.css';
 import '../../../resources/packages/css/@ln/common-ui-image/index.css';
 import '../../../resources/packages/css/@ln/common-ui-video/index.css';
+import { setSlicedChildren } from '../utils/_helpers';
 
 const CajaBomba = props => {
     const {
@@ -40,14 +42,26 @@ const CajaBomba = props => {
 
     const childrenOfBomba = getChildrenOfBomba(preOpeningChildren, chainId);
 
+    const slicedChildren = setSlicedChildren({
+        children,
+        config: { layout }
+    });
+
     const [clasCondition, setClasCondition] = useState(
         getClassCondition(layout, childrenOfBomba, chainId)
     );
 
+    const hasNotVariantRegular = hasVariantNotRegular(childrenOfBomba);
+
     const { classCondition, diagramation } = clasCondition;
 
     const isPreOpening = getIsPreOpening(preOpeningChildren, chainId);
-    const error = validateChainBomba(layout, children, isPreOpening);
+    const error = validateChainBomba(
+        layout,
+        slicedChildren,
+        isPreOpening,
+        hasNotVariantRegular
+    );
 
     const { position, positionInsideSection } = getCommonProps(props);
 
@@ -75,7 +89,7 @@ const CajaBomba = props => {
     const Component = (
         <Bomba
             data-chain-id={chainId}
-            articles={children}
+            articles={slicedChildren}
             layout={diagramation}
             id={chainId}
             {...sectionProps}

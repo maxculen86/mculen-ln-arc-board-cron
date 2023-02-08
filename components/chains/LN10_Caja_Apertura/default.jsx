@@ -8,10 +8,7 @@ import { Opening } from '@ln/contenidos-ui-opening';
 
 import {
     setFilteredRenderables,
-    setWrappedChildren,
     validateChain,
-    setSlicedChildren,
-    setQuantityByLayout,
     setCustomFields,
     setRender
 } from './_helper';
@@ -27,7 +24,12 @@ import {
     getCommonProps,
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelper';
-import checkChangeChildrenForPB from '../utils/_helpers';
+import {
+    checkChangeChildrenForPB,
+    setWrappedChildren,
+    setSlicedChildren,
+    setQuantityByLayout
+} from '../utils/_helpers';
 
 const CajaApertura = props => {
     const {
@@ -64,8 +66,7 @@ const CajaApertura = props => {
     const featuredChildren = setWrappedChildren(features, children) || [];
 
     const slicedChildrenInitial = setSlicedChildren({
-        setQuantityByLayout,
-        featuredChildren,
+        children: featuredChildren,
         config: { layout, countTimeline: true }
     });
 
