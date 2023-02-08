@@ -8,7 +8,9 @@ import {
     getLiveblogTitles,
     showMarquee,
     showMarqueeImage,
-    validateSubhead
+    validateSubhead,
+    showExtraClass,
+    typeOfMedia
 } from '../../../../../components/features/LN-10/article/_helper';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
 
@@ -276,6 +278,70 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                     'regular'
                 )
             ).toStrictEqual(false);
+        });
+
+        test('Should return a false to show subhead if config has withSubheadAndMedia in false.', () => {
+            expect(
+                validateSubhead(
+                    {
+                        withSubhead: true,
+                        withSubheadAndMedia: false
+                    },
+                    false,
+                    {},
+                    'regular'
+                )
+            ).toStrictEqual(false);
+        });
+    });
+
+    describe('Tests function showExtraClass', () => {
+        test('Should return a class for video', () => {
+            expect(
+                showExtraClass(typeOfMedia({ video: '123' }), {
+                    video: 'ln-70-video'
+                })
+            ).toStrictEqual('ln-70-video');
+        });
+
+        test('Should return a undefined if no match type with extraClass from config', () => {
+            expect(
+                showExtraClass(typeOfMedia({ image: '123' }), {
+                    video: 'ln-70-video'
+                })
+            ).toStrictEqual(undefined);
+        });
+
+        test('Should return a class that match with video type', () => {
+            expect(
+                showExtraClass(typeOfMedia({ image: '123', video: '123' }), {
+                    video: 'ln-70-video',
+                    image: 'ln-class'
+                })
+            ).toStrictEqual('ln-70-video');
+        });
+
+        test('Should return a class that match with video type', () => {
+            expect(
+                showExtraClass(typeOfMedia({ image: '123' }), {
+                    video: 'ln-70-video',
+                    image: 'ln-class'
+                })
+            ).toStrictEqual('ln-class');
+        });
+
+        test('Should return a undefined if no match type of media with extraClass from config', () => {
+            expect(
+                showExtraClass(typeOfMedia({ video: '123' }), {
+                    image: 'ln-70-video'
+                })
+            ).toStrictEqual(undefined);
+        });
+
+        test('Should return a undefined if everything is empty', () => {
+            expect(showExtraClass(typeOfMedia({}), {})).toStrictEqual(
+                undefined
+            );
         });
     });
 

@@ -36,6 +36,7 @@ export const showSection = ({ withSection, article, authors }) =>
 export const validateSubhead = (config, withMedia, customFields, variant) => {
     return (
         !['author', 'liveblog'].includes(variant) &&
+        get(config, 'withSubheadAndMedia', true) &&
         ((get(config, 'withSubhead') &&
             !get(customFields, 'hideDescription')) ||
             (!get(config, 'withSubhead') && !withMedia))
@@ -364,4 +365,16 @@ export const validateArticleFeature = ({
     ];
 
     return pageBuilderValidator(rules);
+};
+
+export const typeOfMedia = (customFields = {}) => {
+    const { video, html } = customFields;
+
+    if (video) return 'video';
+    if (html) return 'html';
+    return 'image';
+};
+
+export const showExtraClass = (typeMedia, extraClass = {}) => {
+    return extraClass[typeMedia] || undefined;
 };

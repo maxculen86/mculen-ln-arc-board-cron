@@ -27,7 +27,9 @@ import {
     getBadgetConfig,
     getLiveblogTitles,
     validateMedia,
-    showSection
+    showSection,
+    showExtraClass,
+    typeOfMedia
 } from './_helper';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
@@ -141,6 +143,7 @@ const ArticleFeature = ({
         customFields,
         variant
     );
+
     // const isRenderAutor = getIsRenderAutor(customFields, layout);
     // const label = getLabel(article, customFields, withMedia, layout);
     // const layoutGrillaVideo = layout === 'grillaVideo1' && '--l';
@@ -185,8 +188,13 @@ const ArticleFeature = ({
         withMedia
     );
 
-    const { imagePosition, withSection, withMarquee, withMarqueeImg } =
-        config || {};
+    const {
+        imagePosition,
+        withSection,
+        withMarquee,
+        withMarqueeImg,
+        extraClass
+    } = config || {};
 
     const { marqueeImg, marquee, authorsQuantity } = getDataAuthor({
         article,
@@ -241,6 +249,10 @@ const ArticleFeature = ({
                     variant={validateVariant(variant, authorsQuantity)}
                     liveblogList={getLiveblogTitles(articleContent)}
                     aspectRatio={get(config, 'aspectRatio', 'ar-picture')}
+                    className={showExtraClass(
+                        typeOfMedia(customFields),
+                        extraClass
+                    )}
                 />
             </ErrorBoundary>
         )) ||

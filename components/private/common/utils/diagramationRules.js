@@ -145,6 +145,8 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withSubhead: false,
+                withSubheadAndMedia: false,
+                withMedia: false,
                 cardSize: 'l',
                 imagePosition: {
                     mobile: 'img-top',
@@ -161,6 +163,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withSubhead: true,
+                extraClass: { video: 'ln-70-video' },
                 cardSize: '4xl',
                 imagePosition: {
                     mobile: 'img-top',
@@ -184,6 +187,8 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withSubhead: false,
+                withSubheadAndMedia: false,
+                withMedia: false,
                 imagePosition: {
                     mobile: 'img-top',
                     tablet: 'img-top',
