@@ -39,6 +39,7 @@ export default function BuildRoof(props) {
         error,
         withSection: false,
         extraOptions: {
+            isEmpty: hideRoof && <></>,
             default: !hideRoof && (
                 <Roof roofType={buttonStyle}>
                     <Roof.Left
