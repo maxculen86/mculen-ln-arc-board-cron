@@ -6,7 +6,6 @@ describe('components - private - LN - api - v1 - mobile - storyText - index', ()
 
     it('Test Ok', () => {
         const resp = indexText(articleTest);
-        console.log(resp);
         expect(resp).toMatchObject({
             titulo: 'Prueba iOS y Android cuerpo..',
             tituloMobile: 'Prueba Mobile',

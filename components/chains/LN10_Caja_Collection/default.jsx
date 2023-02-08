@@ -1,60 +1,74 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import CajaTema from '../../private/LN/common/cajaTema';
+import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 import {
-    cajaTemasCustomsFields,
     getArticlesOfChain,
-    getCommonProps,
-    isInApertura
+    getCommonProps
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
-import { validateFeature } from '../../private/LN/common/utils/cajaTemasValidators';
-import { getPlaceholder } from '../../private/LN/common/utils/cajaTemasPlaceholder';
-import { productClickFromClient } from '../../private/common/utils/viewability';
-import StaticContent from '../../private/common/staticContent';
+import { getMarkupForDatalayer } from '../../private/LN/common/utils/cajaTemasHelper';
 import getDataChainCollection from '../utils/getDataChainCollection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
-import WarningMessage from '../../private/common/warningMessage/warningMessage';
+import { validateChain } from './_helper';
+import setCommonCustomFields from '../utils/setCommonCustomFields';
+import diagramationRules from '../../private/common/utils/diagramationRules';
+import setRender from '../utils/setRender';
+import StaticContent from '../../private/common/staticContent';
+import getGridType from '../utils/getGridType';
+import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
 
 const CajaCollection = props => {
     const {
-        id: featureId,
+        id: chainId,
         isAdmin,
         customFields: {
             idCollection,
-            url,
             title,
             layout = '',
             initialPosition,
-            imageId,
             hideTitle,
             hideCaja,
-            website
+            website,
+            chainStyle,
+            link,
+            logoId,
+            navigator,
+            buttonText,
+            linkButton,
+            buttonStyle
         },
-        outputType,
         renderables,
         tree = {},
         layout: pageLayout
     } = props;
 
-    if (hideCaja) return <></>;
-
     const {
         collectionsInPage,
         notesQuantity,
-        classCondition,
         position,
-        sectionName,
         positionInsideSection
     } = getCommonProps(props);
+
+    const roofData = {
+        title,
+        titleLink: link,
+        logoId,
+        buttonText,
+        linkButton,
+        buttonStyle,
+        hideRoof: hideTitle,
+        navigationId: navigator,
+        isAdmin,
+        chainStyle
+    };
 
     const {
         isInSiteService,
         articlesFromCollectionSiteService,
         idsArticlesToExclude,
-        titleSize,
         diagramation,
         isHome
     } = getDataChainCollection({
@@ -66,11 +80,14 @@ const CajaCollection = props => {
         collectionsInPage,
         tree,
         notesQuantity,
-        featureId
+        featureId: chainId
     });
+
+    const rules = diagramationRules(layout) || [];
+
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(
-              notesQuantity,
+              rules.length || notesQuantity,
               diagramation,
               idCollection,
               20,
@@ -90,48 +107,43 @@ const CajaCollection = props => {
         articlesToShow
     });
 
-    const error = validateFeature(idCollection, _articles, layout);
+    const error = validateChain({
+        idCollection,
+        renderables,
+        layout,
+        articles: _articles,
+        chainId
+    });
 
-    if (isAdmin && !!error) {
-        return (
-            <WarningMessage
-                id={featureId}
-                type={error.type}
-                message={error.message}
-            />
-        );
-    }
-
-    const Component = (
-        <CajaTema
-            title={title}
-            hideTitle={hideTitle}
-            url={url}
-            imageId={imageId}
-            outputType={outputType}
-            layout={layout}
-            classCondition={`${classCondition}${(isInApertura &&
-                layout.includes('focal') &&
-                ' --apertura') ||
-                ''}`}
-            notesQuantity={notesQuantity}
-            position={position}
-            positionInsideSection={positionInsideSection}
-            sectionName={sectionName}
-            articles={_articles}
-            titleSize={titleSize}
-            handleClick={productClickFromClient}
-            pageLayout={pageLayout}
-        />
+    const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
+        '',
+        layout,
+        position,
+        '',
+        positionInsideSection
     );
 
-    const noStaticComponent =
-        (_articles && _articles.length && Component) || getPlaceholder(layout);
-
-    return isHome ? (
-        <StaticContent>{Component}</StaticContent>
-    ) : (
-        noStaticComponent
+    return (
+        <StaticContent {...extraOptsDiv}>
+            {setRender({
+                chainId,
+                viewabilityData,
+                isAdmin,
+                error,
+                hideBox: hideCaja,
+                extraOptions: {
+                    default: (
+                        <CommonCollection
+                            roofData={roofData}
+                            rules={rules}
+                            gridType={getGridType(layout)}
+                            articles={_articles}
+                            layout={layout}
+                        />
+                    )
+                }
+            })}
+        </StaticContent>
     );
 };
 
@@ -154,7 +166,7 @@ CajaCollection.propTypes = {
         })
     ),
     customFields: PropTypes.shape({
-        ...cajaTemasCustomsFields('cajaCollection')
+        ...setCommonCustomFields('cajaCollection')
     }),
     tree: PropTypes.shape(PropTypes.node),
     globalContent: PropTypes.shape({

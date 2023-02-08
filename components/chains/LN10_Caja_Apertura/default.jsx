@@ -12,7 +12,6 @@ import {
     setCustomFields,
     setRender
 } from './_helper';
-
 import getChildrenBySection from '../../private/LN/common/utils/LN10/getChildrenBySection';
 import checkChildInSection from '../../private/LN/common/utils/LN10/checkChildBySection';
 

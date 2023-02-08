@@ -26,8 +26,7 @@ export const checkChangeChildrenForPB = ({
     features,
     children,
     setUpdateChildrens,
-    layout,
-    setQuantityByLayout
+    layout
 }) => {
     const orderFeaturesInitial = features.map(feature => {
         return feature.props && feature.props.id;

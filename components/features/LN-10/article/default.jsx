@@ -27,8 +27,6 @@ import {
     getBadgetConfig,
     getLiveblogTitles,
     validateMedia,
-    showMarquee,
-    showMarqueeImage,
     showSection
 } from './_helper';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
@@ -85,7 +83,6 @@ const ArticleFeature = ({
     } = getChainConfig(featureId, renderables, cajaTemaConfig);
 
     const extraOpts = getDataAttributesForViewability(id, boxPosition, index);
-
     const [config, setConfig] = useState(initialConfig);
 
     useEffect(() => {
@@ -188,12 +185,17 @@ const ArticleFeature = ({
         withMedia
     );
 
-    const { url, marquesina } = getDataAuthor(article);
-
-    const authorsQuantity = get(article, 'credits.by', []).length;
-
     const { imagePosition, withSection, withMarquee, withMarqueeImg } =
         config || {};
+
+    const { marqueeImg, marquee, authorsQuantity } = getDataAuthor({
+        article,
+        variant,
+        authors,
+        hideAuthors,
+        withMarquee,
+        withMarqueeImg
+    });
 
     if (isAdmin && !!error) {
         return (
@@ -216,18 +218,8 @@ const ArticleFeature = ({
                     href={get(article, 'website_url', '')}
                     withMedia={withMedia}
                     subheadTag={get(config, 'subheadTag')}
-                    marquee={showMarquee({
-                        withMarquee,
-                        hideAuthors,
-                        authors,
-                        marquesina
-                    })}
-                    marqueeImg={showMarqueeImage({
-                        withMarqueeImg,
-                        authorsQuantity,
-                        authors,
-                        url
-                    })}
+                    marquee={marquee}
+                    marqueeImg={marqueeImg}
                     badgeText={badgetText}
                     badgeType={badgetStyle}
                     mediaData={mediaData}
