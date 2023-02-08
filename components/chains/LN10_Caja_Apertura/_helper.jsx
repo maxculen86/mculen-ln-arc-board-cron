@@ -46,15 +46,6 @@ export const setCustomFields = () => {
     });
 };
 
-export const setSlicedChildren = ({
-    setQuantityByLayout,
-    config,
-    featuredChildren
-}) => {
-    const maxChildrenQuantity = setQuantityByLayout(config);
-    return featuredChildren.slice(0, maxChildrenQuantity);
-};
-
 export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
     const options = {
         [FOCAL_LEFT]: countTimeline ? 6 : 5,
