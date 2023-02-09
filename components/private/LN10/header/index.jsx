@@ -1,14 +1,26 @@
-/* eslint-disable react/require-default-props */
+/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
+import { Header } from '@ln/contenidos-ui-header';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import Desplegable from '../../LN/common/desplegable';
 import NavbarMobile from '../navbar';
-import { onScrollHandler, toggleDesplegable } from './_helper';
+import { setUserType, onScrollHandler, toggleDesplegable } from './_helper';
 import HeaderAMP from '../../LN/common/header/headerAMP';
 import debounce from '../../common/utils/debounce';
 
-const Header = props => {
+import SubHeader from '../subHeader';
+import MainHeader from '../mainHeader';
+
+import '../../../../resources/packages/css/@ln/contenidos-ui-header/index.css';
+import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
+import '../../../../resources/packages/css/@ln/contenidos-ui-button/index.css';
+import '../../../../resources/packages/css/@ln/contenidos-ui-text/index.css';
+import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
+
+import { isLoggedIn, isSubscribed } from '../../LN/common/utils/contextHelper';
+
+const HeaderLN = props => {
     const {
         outputType,
         siteProperties: { layoutsName = {} },
@@ -39,10 +51,23 @@ const Header = props => {
         }
     }, [layout, layoutsName]);
 
+    const isUserLoggedIn = isLoggedIn();
+    const isUserSubscribed = isSubscribed();
+
+    const userType = setUserType(isUserLoggedIn, isUserSubscribed);
+
     if (outputType === 'amp')
         return <HeaderAMP toggleDesplegable={toggleDesplegable} />;
+
     return (
         <>
+            <Header userType={userType}>
+                <MainHeader
+                    userType={userType}
+                    toggleDesplegable={toggleDesplegable}
+                />
+                <SubHeader />
+            </Header>
             <NavbarMobile isHome={layoutsName.HomeLN10 === layout} />
             <Desplegable
                 toggleDesplegable={toggleDesplegable}
@@ -67,4 +92,4 @@ Header.propTypes = {
     })
 };
 
-export default Consumer(Header);
+export default Consumer(HeaderLN);

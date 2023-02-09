@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import useTermica from '../../../private/common/hooks/useTermica';
@@ -7,6 +7,7 @@ import config from '../../../../properties/sites/la-nacion-ar';
 import CajaTema from '../../../private/LN/common/cajaTema';
 import useSetLocalStorage from './_hooks/useSetLocalStorage';
 import useBuildMayInterest from './_hooks/useBuildMayInterest';
+import articleBoxesTracker from '../../../private/common/utils/noteTracker/articleBoxesTracker';
 
 const TePuedeInteresar = props => {
     const showLiftigniter = useTermica('liftigniter');
@@ -33,6 +34,11 @@ const TePuedeInteresar = props => {
         url,
         idArticle: _id
     });
+    useEffect(() => {
+        articleBoxesTracker({
+            boxType: 'tePuedeInteresar'
+        });
+    }, [articles]);
 
     return (
         <>

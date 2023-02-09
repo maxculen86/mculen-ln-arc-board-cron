@@ -35,6 +35,10 @@ import force404AMP from './utils/force404AMP';
 import validateSponsoredLink from './utils/validateSponsoredLink';
 import { getPrincipalCategory } from '../../components/private/LN/api/v1/common/category';
 import { getAllImagesAuth } from './utils/signingServiceSource/getImagesAuth';
+import {
+    addHttpsInterstitialLink,
+    addHttpsLinkInParagraphs
+} from './utils/articleSourceNota/_helper';
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -287,43 +291,52 @@ const transformContent = async (
     };
     const subtype = get(jsonArticle, `subtype`, null);
 
-    if (resp && resp.content_elements) {
+    resp &&
+        resp.content_elements &&
         resp.content_elements.forEach((e, i) => {
-            if (e.type === 'gallery') {
+            e.type === 'gallery' &&
                 promiseArr.push(
                     addGalleryData(cachedCall, e, arcSite).then(g => {
                         resp.content_elements[i] = g;
                     })
                 );
-            }
 
             resp.content_elements[i] = replaceTagInTextListRaw(e, 'TERCERA=""');
+
+            if (e.type === 'interstitial_link') {
+                resp.content_elements[i].url = addHttpsInterstitialLink(
+                    resp.content_elements[i].url
+                );
+            }
+
+            if (e.type === 'text') {
+                resp.content_elements[i].content = addHttpsLinkInParagraphs(
+                    resp.content_elements[i].content
+                );
+            }
         });
-    }
 
     /* TODO: validar si related content debe ir vacio si tiene otros
     items diferentes a reference */
     if (resp && resp.related_content && resp.related_content.basic) {
         resp.related_content.basic.forEach((element, i) => {
-            if (element.type === 'reference') {
-                const referentType = get(element, 'referent.type', '');
+            const referentType = get(element, 'referent.type', '');
 
-                if (referentType === 'image') {
-                    resp.related_content.basic[i] = element;
-                }
+            element.type === 'reference' &&
+                referentType === 'image' &&
+                (resp.related_content.basic[i] = element);
 
-                referentType === 'story' &&
-                    promiseArr.push(
-                        addFollowAnotherNoteData(
-                            cachedCall,
-                            element,
-                            arcSite,
-                            i
-                        ).then(newContent => {
-                            resp.related_content.basic[i] = newContent;
-                        })
-                    );
-            }
+            referentType === 'story' &&
+                promiseArr.push(
+                    addFollowAnotherNoteData(
+                        cachedCall,
+                        element,
+                        arcSite,
+                        i
+                    ).then(newContent => {
+                        resp.related_content.basic[i] = newContent;
+                    })
+                );
         });
     }
 
@@ -342,37 +355,36 @@ const transformContent = async (
             new Promise(resolver =>
                 resolver(get(elem, 'image.resized_urls[0].resizedUrl'))
             ).then(url => {
-                if (url)
-                    resp.credits.by[
+                url &&
+                    (resp.credits.by[
                         i
-                    ].additional_properties.original.image = url;
+                    ].additional_properties.original.image = url);
             })
         )
     );
 
     // Url Validator
-    if (resp && resp.content_elements) {
+    const validateResp = resp && resp.content_elements;
+
+    if (validateResp) {
         resp.content_elements = removeInvalidUrlTagA(
             resp.content_elements,
             arcSite,
             urlQuery,
             API_ENV
         );
-        if (subtype === RECETA) {
-            resp.content_elements = recipePowerUps(resp.content_elements);
-        }
-        if (subtype !== FOTOAL100) {
-            resp.content_elements = removeParallaxPowerUp(
+        subtype === RECETA &&
+            (resp.content_elements = recipePowerUps(resp.content_elements));
+        subtype !== FOTOAL100 &&
+            (resp.content_elements = removeParallaxPowerUp(
                 resp.content_elements
-            );
-        }
-        if (subtype === FOTOAL100) {
-            resp.content_elements = await addParallaxData(
+            ));
+        subtype === FOTOAL100 &&
+            (resp.content_elements = await addParallaxData(
                 resp.content_elements,
                 cachedCall,
                 presetsPromoItemsFotoAl100
-            );
-        }
+            ));
     }
 
     return Promise.all(promiseArr).then(() => {

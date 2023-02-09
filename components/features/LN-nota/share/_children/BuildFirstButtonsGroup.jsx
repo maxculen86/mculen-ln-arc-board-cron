@@ -15,6 +15,7 @@ import '../../../../../resources/dist/css/ln/components/build-first-buttons-grou
 import useFetch from '../../../../private/common/hooks/useFetch';
 import get from '../../../../private/common/utils/get';
 import { conditionallyCallViafoura } from '../../../../private/common/utils/commentsHelper';
+import eventHandler from '../../../../private/common/audioNews/trackerAudioNews';
 
 const BuildFirtsButtonsGroup = ({
     termicaBookmark,
@@ -70,6 +71,11 @@ const BuildFirtsButtonsGroup = ({
                             setOpenPlayer,
                             dispatch
                         );
+                        eventHandler({
+                            activeWindow: window,
+                            action: 'listenButton',
+                            eventLabel: 'escuchar'
+                        });
                     }}
                     textname="escuchar"
                     disabled={openPlayer || enableButton}

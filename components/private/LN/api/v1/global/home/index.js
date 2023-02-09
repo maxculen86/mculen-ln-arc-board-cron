@@ -68,27 +68,46 @@ const articlesMap = (articles, feature) => {
             } catch (error) {
                 const websiteUrl =
                     'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json';
-                if (get(error, 'name', null) === 'ErrorIdArticle') {
-                    // eslint-disable-next-line no-console
-                    console.warn(
-                        `SectionMobile:${feature || ''} - ${get(
-                            error,
-                            'message',
-                            ''
-                        )} `,
-                        {
+
+                switch (get(error, 'name', null)) {
+                    case 'ErrorHtmlArticle':
+                        // eslint-disable-next-line no-console
+                        console.log(
+                            `SectionMobile:${feature || ''} - ${get(
+                                error,
+                                'message',
+                                ''
+                            )} `,
+                            {
+                                error,
+                                outputType: 'json',
+                                websiteUrl
+                            }
+                        );
+                        break;
+                    case 'ErrorIdArticle':
+                        // eslint-disable-next-line no-console
+                        console.warn(
+                            `SectionMobile:${feature || ''} - ${get(
+                                error,
+                                'message',
+                                ''
+                            )} `,
+                            {
+                                error,
+                                outputType: 'json',
+                                websiteUrl
+                            }
+                        );
+                        break;
+                    default:
+                        // eslint-disable-next-line no-console
+                        console.error(error.message, {
                             error,
                             outputType: 'json',
                             websiteUrl
-                        }
-                    );
-                } else {
-                    // eslint-disable-next-line no-console
-                    console.error(error.message, {
-                        error,
-                        outputType: 'json',
-                        websiteUrl
-                    });
+                        });
+                        break;
                 }
             }
         }

@@ -27,7 +27,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
             class="text-container"
           >
             <span
-              class="badge ln-badge --font-2xs --advance"
+              class="badge ln-badge --6xs --arial --advance"
             >
               chapita
             </span>

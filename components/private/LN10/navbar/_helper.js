@@ -3,6 +3,7 @@ import {
     SITE_LANACION,
     API_ENV
 } from 'fusion:environment';
+import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 import dynamicallyLoadScript from '../../LN/common/utils/dynamicallyLoadScript';
 import { toggleDesplegable } from '../header/_helper';
 
@@ -22,6 +23,13 @@ export const handleClickBuscar = () => {
     );
 };
 
+export const getEventData = label => ({
+    event: 'e_linkclick',
+    action: 'navbar',
+    category: 'home_ln10',
+    label
+});
+
 export const getNavbarItems = (isHome, withBookmark, isSubscribed) => [
     {
         text: 'Inicio',
@@ -29,12 +37,7 @@ export const getNavbarItems = (isHome, withBookmark, isSubscribed) => [
         target: '_self',
         link: isHome ? '#' : 'https://www.lanacion.com.ar/',
         callback: () => {
-            window.dataLayer.push({
-                event: 'e_linkclick',
-                dynamic_action: 'home_ln10',
-                dynamic_category: 'navbar',
-                dynamic_label: 'inicio'
-            });
+            addEventToDataLayer(getEventData('inicio'));
         }
     },
     {
@@ -44,12 +47,7 @@ export const getNavbarItems = (isHome, withBookmark, isSubscribed) => [
         htmlFor: 'queryly_toggle',
         callback: () => {
             handleClickBuscar();
-            window.dataLayer.push({
-                event: 'e_linkclick',
-                dynamic_action: 'home_ln10',
-                dynamic_category: 'navbar',
-                dynamic_label: 'buscar'
-            });
+            addEventToDataLayer(getEventData('buscar'));
         }
     },
     {
@@ -60,12 +58,7 @@ export const getNavbarItems = (isHome, withBookmark, isSubscribed) => [
         callback: e => {
             e.preventDefault();
             toggleDesplegable();
-            window.dataLayer.push({
-                event: 'e_linkclick',
-                dynamic_action: 'home_ln10',
-                dynamic_category: 'navbar',
-                dynamic_label: 'secciones'
-            });
+            addEventToDataLayer(getEventData('secciones'));
         }
     },
     withBookmark && {
@@ -76,12 +69,7 @@ export const getNavbarItems = (isHome, withBookmark, isSubscribed) => [
             ? bookmarkUrl
             : `${SITIO_SEGURO_REGISTRACION}/suscripcion/E/1/1/?callback=`,
         callback: () => {
-            window.dataLayer.push({
-                event: 'e_linkclick',
-                dynamic_action: 'home_ln10',
-                dynamic_category: 'navbar',
-                dynamic_label: 'mis_notas'
-            });
+            addEventToDataLayer(getEventData('mis_notas'));
         }
     },
     {
@@ -90,12 +78,7 @@ export const getNavbarItems = (isHome, withBookmark, isSubscribed) => [
         target: '_self',
         link: 'https://myaccount.lanacion.com.ar/mi-usuario/',
         callback: () => {
-            window.dataLayer.push({
-                event: 'e_linkclick',
-                dynamic_action: 'home_ln10',
-                dynamic_category: 'navbar',
-                dynamic_label: 'perfil'
-            });
+            addEventToDataLayer(getEventData('perfil'));
         }
     }
 ];

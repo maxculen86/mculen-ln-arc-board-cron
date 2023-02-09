@@ -167,5 +167,55 @@
         }
     },
     "website": "la-nacion-ar",
-    "website_url": "/video/chile-ofrece-multiples-posibilidades-para-realizar-las-compras-del-mes-vid4118a500"
+    "website_url": "/video/chile-ofrece-multiples-posibilidades-para-realizar-las-compras-del-mes-vid4118a500",
+    "resizedUrl": [
+        {
+            "option": {
+                "height": 200,
+                "media": "(min-width: 1280px)",
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 298
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/j4pw7953Ek5Kvgd5_tkGsexuFSM=/298x198/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg"
+        },
+        {
+            "option": {
+                "height": 213,
+                "media": "(min-width: 1024px)",
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 318
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/SMlVVLdoFaVHpNeiawm1qesVk7E=/318x212/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg"
+        },
+        {
+            "option": {
+                "height": 159,
+                "media": "(min-width: 768px)",
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 233
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/vpxxoKfhImzI_W82siKEcwquXAM=/233x155/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg"
+        },
+        {
+            "option": {
+                "height": 250,
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 375
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/kwNY1LRv_JTJfHDseiFuFx87BDI=/375x250/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg"
+        },
+        {
+            "option": {
+                "height": 213,
+                "proportion": "3:2",
+                "useFullSize": true,
+                "width": 320
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/6Salk6OooEpiIIlzvQEPvO6BspY=/320x213/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg"
+        }
+    ]
 }

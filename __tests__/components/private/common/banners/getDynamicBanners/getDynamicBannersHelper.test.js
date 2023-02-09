@@ -21,7 +21,7 @@ describe('Components - Private - Common - Banners - getDynamicBannersHelper', ()
         expect(hasBomba([])).toStrictEqual(undefined);
     });
     it('should test getSectionId func', () => {
-        expect(getSectionId(renderables, 'f0fS1oFDXlHk93q')).toStrictEqual(0);
+        expect(getSectionId(renderables, 'f0fS1oFDXlHk93q')).toStrictEqual(1);
     });
     it('should test validateBanner func', () => {
         expect(

@@ -49,7 +49,23 @@ Context.useAppContext = jest.fn(() => ({
     outputType: 'default'
 }));
 
+const observe = jest.fn();
+const unobserve = jest.fn();
+const takeRecords = jest.fn(() => {});
+
+window.IntersectionObserver = jest.fn(() => ({
+    observe,
+    unobserve,
+    takeRecords
+}));
+
 describe('masNotas feature Test', () => {
+    Object.defineProperty(window, 'performance', {
+        value: {
+            getEntriesByType: jest.fn().mockReturnValue([{ type: 'navigate' }]),
+            measure: jest.fn()
+        }
+    });
     const getMasNotasProps = (
         cantidadNotas,
         filter,

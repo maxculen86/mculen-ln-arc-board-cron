@@ -15,7 +15,7 @@ export const addPositionInNote = (elem, indexElem) => {
     return true;
 };
 
-const eventListenerAttacher = (element, layer) => {
+export const eventListenerAttacher = (element, layer) => {
     const { ctr_brand: ctrBrand, ctr_position: ctrPosition } = element;
 
     const eventClick = {

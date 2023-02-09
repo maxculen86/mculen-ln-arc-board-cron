@@ -51,3 +51,18 @@ export const getDataPreloadAcu = (idCollectionApertura, nodeType) => {
         imageConfig: idCollectionApertura ? 'aperturaAcu' : 'boxArticles'
     };
 };
+
+export const excludePreloadAcu = ({
+    nodeType = '',
+    id = '',
+    hasFeatureAcumuladoApertura,
+    idCollectionApertura,
+    hasChainBeforeGrid
+}) => {
+    return (
+        nodeType === 'section' &&
+        id !== '/ultimas-noticias' &&
+        (!hasFeatureAcumuladoApertura ||
+            (!idCollectionApertura && hasChainBeforeGrid))
+    );
+};

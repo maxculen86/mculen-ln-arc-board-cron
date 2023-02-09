@@ -14,9 +14,12 @@ const ImagePreloadlAcu = ({
     accumulated,
     nodeType,
     collectionId = '',
-    imageConfig = 'boxArticles'
+    imageConfig = 'boxArticles',
+    sectionsIds = ''
 }) => {
-    const typesOfQuery = setArticleQueryAcu(nodeType, accumulated);
+    const typesOfQuery = sectionsIds
+        ? { sectionsIds }
+        : setArticleQueryAcu(nodeType, accumulated);
 
     const [firstArticle] =
         useGetArticlesFromAcumSource({
@@ -26,7 +29,8 @@ const ImagePreloadlAcu = ({
             size: 1,
             website: arcSite || 'la-nacion-ar',
             staticMode: true,
-            collectionId
+            collectionId,
+            sourceOrigin: sectionsIds ? 'composer' : ''
         }) || [];
 
     const basic = get(firstArticle, 'promo_items.basic', {});

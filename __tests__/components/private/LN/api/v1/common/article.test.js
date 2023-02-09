@@ -9,6 +9,7 @@ import dateAndTimeUtil, {
     addHoursAndFormat,
     dateAndTimeForAppsUtil
 } from '../../../../../../../components/private/common/utils/dateAndTimeUtil';
+import { articleItem } from '../../../../../../../components/private/LN/api/v1/common/article';
 const AcuList = (type, articles) => {
     return articles.map(v => {
         return type(v);
@@ -310,5 +311,51 @@ describe('Test de index en Json', () => {
         const date1 = '2021-02-05T17:34:00.624Z';
         const result1 = isOlderThanXHoursAgo(date1, 24);
         expect(result1).toBeTruthy();
+    });
+});
+
+describe('Home test', () => {
+    test('Debería retornar un info', () => {
+        const request = {
+            templateId: '2',
+            titulo: 'test',
+            html: 'prueba'
+        };
+
+        try {
+            articleItem(request);
+        } catch (err) {
+            expect(err.message).toBe(
+                'Anexo configurado como parte de seccion en la home'
+            );
+        }
+    });
+    test('Deberia retornar un warning', () => {
+        //CASO 1 - Articulo vacio
+        const request = {};
+        try {
+            articleItem(request);
+        } catch (err) {
+            expect(err.message).toBe(
+                'Revisar Parametros de Articulo en null o undefined in article with params: {}'
+            );
+        }
+
+        //CASO 2 - Sin campo _id
+        const request2 = {
+            id: 'sarasa',
+            templateId: '2',
+            titulo: 'test'
+        };
+
+        try {
+            articleItem(request2);
+        } catch (err) {
+            expect(err.message).toBe(
+                `Revisar Parametros de Articulo en null o undefined in article with params: ${JSON.stringify(
+                    request2
+                )}`
+            );
+        }
     });
 });

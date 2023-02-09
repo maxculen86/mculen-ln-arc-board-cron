@@ -1,122 +1,106 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/require-default-props */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import { Opening } from '@ln/contenidos-ui-opening';
+
 import {
-    cajaTemasCustomsFields,
-    getCommonProps
-} from '../../private/LN/common/utils/cajaTemasHelperLN10';
-import CajaTema from '../../private/LN/common/cajaTema';
-import { productClickFromClient } from '../../private/common/utils/viewability';
-import StaticContent from '../../private/common/staticContent';
-import getDataChainManual from '../utils/getDataChainManual';
-import WarningMessage from '../../private/common/warningMessage/warningMessage';
-import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
+    setFilteredRenderables,
+    setWrappedChildren,
+    validateChain,
+    setSlicedChildren,
+    setQuantityByLayout,
+    setCustomFields,
+    setRender
+} from './_helper';
+
+import getChildrenBySection from '../../private/LN/common/utils/LN10/getChildrenBySection';
+import checkChildInSection from '../../private/LN/common/utils/LN10/checkChildBySection';
+
+import '../../../resources/packages/css/@ln/contenidos-ui-opening/index.css';
+import '../../../resources/packages/css/@ln/common-ui-grid/index.css';
+import '../../../resources/dist/css/ln/components/timeline.css';
+import sectionValidation from '../../layouts/config/LN10-Home.config.json';
+import {
+    getCommonProps,
+    getMarkupForDatalayer
+} from '../../private/LN/common/utils/cajaTemasHelper';
+import checkChangeChildrenForPB from '../utils/_helpers';
 
 const CajaApertura = props => {
     const {
-        id: featureId,
+        id: chainId,
         isAdmin,
-        customFields: { url, title, layout = '', imageId, hideTitle, hideCaja },
-        outputType,
+        customFields: { layout = '', hideBox },
         childProps,
         children,
-        renderables = [],
-        layout: pageLayout
+        renderables = []
     } = props;
 
-    if (hideCaja)
-        return (
-            <StaticContent id={featureId}>
-                <></>
-            </StaticContent>
-        );
+    const openingChildren = getChildrenBySection({
+        renderables,
+        section: {
+            title: 'Apertura',
+            validation: sectionValidation
+        }
+    });
 
-    const {
-        notesQuantity,
-        classCondition,
+    const { position, positionInsideSection } = getCommonProps(props);
+
+    const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+        '',
+        layout,
         position,
-        sectionName,
+        '',
         positionInsideSection
-    } = getCommonProps(props);
-    const {
-        filteredChildren,
-        isInApertura,
-        isMultimedia,
-        features,
-        error
-    } = getDataChainManual({
-        featureId,
-        renderables,
-        childProps,
-        children,
-        layout
+    );
+
+    const isInOpening = checkChildInSection(chainId, openingChildren);
+    const error = validateChain(childProps, layout, isInOpening);
+
+    const features = setFilteredRenderables(renderables, children);
+    const featuredChildren = setWrappedChildren(features, children) || [];
+
+    const slicedChildrenInitial = setSlicedChildren({
+        setQuantityByLayout,
+        featuredChildren,
+        config: { layout, countTimeline: true }
     });
 
-    if (isAdmin && error) {
-        return (
-            <WarningMessage
-                id={featureId}
-                type={error.type}
-                message={error.message}
-            />
-        );
-    }
+    const [slicedChildren, setUpdateChildrens] = useState(
+        slicedChildrenInitial
+    );
 
-    if (error) return <></>;
-
-    const { bannerMob = undefined, bannerDsk = undefined } = getDynamicBanners({
-        renderables,
-        featureId
-    });
+    useEffect(() => {
+        if (isAdmin) {
+            checkChangeChildrenForPB({
+                features,
+                children,
+                setUpdateChildrens,
+                layout,
+                setQuantityByLayout
+            });
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [children]);
 
     const Component = (
-        <>
-            <CajaTema
-                title={title}
-                hideTitle={hideTitle}
-                url={url}
-                imageId={imageId}
-                outputType={outputType}
-                layout={layout}
-                classCondition={`${classCondition}${(isInApertura &&
-                    layout.includes('focal') &&
-                    ' --apertura') ||
-                    ''}`}
-                notesQuantity={notesQuantity}
-                position={position}
-                positionInsideSection={positionInsideSection}
-                sectionName={sectionName}
-                _children={filteredChildren}
-                handleClick={productClickFromClient}
-                features={features}
-                pageLayout={pageLayout}
-                isMultimedia={isMultimedia}
-            />
-            {bannerMob}
-            {bannerDsk}
-        </>
+        <Opening data-chain-id={chainId} {...extraOpts} focalType={layout}>
+            {slicedChildren}
+        </Opening>
     );
-    return isMultimedia ? (
-        Component
-    ) : (
-        <StaticContent id={featureId}>{Component}</StaticContent>
-    );
+
+    return setRender({ isAdmin, error, hideBox, Component, extraOptsDiv });
 };
 
 CajaApertura.label = 'LN10 Caja Apertura';
 
 CajaApertura.propTypes = {
-    id: PropTypes.string.isRequired,
-    isAdmin: PropTypes.bool.isRequired,
-    outputType: PropTypes.string,
-    customFields: PropTypes.shape({
-        ...cajaTemasCustomsFields('cajaManual')
-    }).isRequired
-};
-
-CajaApertura.defaultProps = {
-    outputType: 'default'
+    id: PropTypes.string,
+    isAdmin: PropTypes.bool,
+    customFields: setCustomFields()
 };
 
 export default Consumer(CajaApertura);

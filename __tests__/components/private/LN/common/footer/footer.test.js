@@ -26,6 +26,8 @@ describe('Components- Private - footer - index.jsx - test', () => {
         contextPath: '/pf',
         deployment
     }));
+    const mockDate = new Date(2023, 6, 1);
+    const spy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate);
     it('Should match snapshot showing all the private components', () => {
         const { container } = render(<Footer />);
         expect(container).toMatchSnapshot();

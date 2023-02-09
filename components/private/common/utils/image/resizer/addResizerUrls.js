@@ -1,6 +1,3 @@
-// TODO: solo para sandbox implementacion API_ENV Sandbox
-// import { API_ENV } from 'fusion:environment';
-// import * as resizerV1 from './v1/resizerHelper';
 import * as resizerV2 from './v2/resizerFactory';
 import * as resizerV1 from '../resizer';
 import { isValidString } from '../../dataValidation';
@@ -31,6 +28,8 @@ export const addResizedUrls = (ansDoc, options) => {
         throw new Error(
             'Debe proporcionar el resizerSecret, resizerUrl y presets'
         );
+    const presetsContentOrDefault = presetsContentElements || presetsDefault;
+    const presetPromoOrDefault = presetsPromoItems || presetsDefault;
 
     const resizer = resizerV1.createResizer(isInApertura, isAdmin);
 
@@ -53,7 +52,7 @@ export const addResizedUrls = (ansDoc, options) => {
                     (type === 'image' &&
                         resizerV1.resizeArcImage(
                             elem,
-                            presetsContentElements || presetsDefault,
+                            presetsContentOrDefault,
                             resizer,
                             zoomSizes,
                             true,
@@ -62,7 +61,7 @@ export const addResizedUrls = (ansDoc, options) => {
                     (type === 'gallery' &&
                         resizerV1.resizeArcGallery(
                             elem,
-                            presetsContentElements || presetsDefault,
+                            presetsContentOrDefault,
                             resizer,
                             zoomSizes,
                             true
@@ -73,7 +72,7 @@ export const addResizedUrls = (ansDoc, options) => {
                             basic: {
                                 ...resizerV1.resizeArcImage(
                                     elem.promo_items.basic,
-                                    presetsContentElements || presetsDefault,
+                                    presetsContentOrDefault,
                                     resizer,
                                     zoomSizes,
                                     true,
@@ -89,14 +88,14 @@ export const addResizedUrls = (ansDoc, options) => {
         ...(promoItems && {
             promo_items: isAllowSection({ section })
                 ? resizerV2.resizePromoItems(
-                      presetsPromoItems || presetsDefault,
+                      presetPromoOrDefault,
                       zoomSizes,
                       subtype,
                       promoItems
                   )
                 : resizerV1.resizePromoItems(
                       promoItems,
-                      presetsPromoItems || presetsDefault,
+                      presetPromoOrDefault,
                       resizer,
                       zoomSizes,
                       subtype

@@ -10,6 +10,8 @@ import Footer from '../private/LN/common/footer';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModals from '../private/LN/common/pwaModals';
 
+import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
+
 const pageBuilderSections = [
     'Pre-Titulo',
     'Titulo',
@@ -86,6 +88,7 @@ const LNNotaReceta = ({ outputType, children }) => {
             </div>
             <LoadBannersSSR />
             <PwaModals />
+            {intersectionObserverForRelatedTags(outputType)}
         </GlobalProvider>
     );
 };

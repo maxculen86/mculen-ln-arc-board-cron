@@ -1,0 +1,59 @@
+{
+    "promo_items": {
+        "basic": {
+            "_id": "HWSYUPWYQ5DKDON4ZV74I6MWZU",
+            "additional_properties": {},
+            "address": {},
+            "auth": {
+                "1": "b11cb978063ab67239e04c9862e3476a8a781343630f6298f4a5632e060a2ff5"
+            },
+            "width": 768,
+            "height": 513,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 200,
+                        "media": "(min-width: 1280px)",
+                        "width": 298
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/vjH1_o4q0jC6lH1IpllN2UDmiDE=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg"
+                },
+                {
+                    "option": {
+                        "height": 213,
+                        "media": "(min-width: 1024px)",
+                        "width": 318
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/DRUkkKA5aC45uO9plJYdGPpsA3c=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg"
+                },
+                {
+                    "option": {
+                        "height": 159,
+                        "media": "(min-width: 768px)",
+                        "width": 233
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/Puhv2-iJdf6Y6DErcwLMgiEifCM=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg"
+                },
+                {
+                    "option": {
+                        "height": 250,
+                        "width": 375
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/g015FBRgOi_TXYHheBdlWv1aikI=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg"
+                },
+                {
+                    "option": {
+                        "height": 213,
+                        "width": 320
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/IkSjQ7MFvxSD_9GtTNQ11rKdlas=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg"
+                }
+            ]
+        },
+        "type": "image",
+        "url": "https: //resizer.glanacion.com/resizer/axM29-VutuKXUihwOgsIqJ6lhZA=/768x0/filters: format(webp): quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg",
+        "version": "0.10.3",
+        "resized_urls_zoom": []
+    },
+    "_id": "98e032e6716b66d9e99facf9cffe30e0dbb6c60b2df6dbd6422e46bca67e02f1"
+}
