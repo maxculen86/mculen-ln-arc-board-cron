@@ -153,7 +153,7 @@ describe('collectionsHelper - filterArticlesTypeStory', () => {
         },
         {
             _id: 'IVXHUL4ZQ5F43HSNXBYOCOZJX4',
-            type: 'video'
+            type: 'image'
         }
     ];
 
