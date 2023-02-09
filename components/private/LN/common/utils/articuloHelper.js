@@ -112,10 +112,25 @@ const featureArticleCustomsFields = (featuredName, isLN10) => {
             description: 'Ingrese aquí el texto de la chapita',
             default: ''
         }),
-        chapitaStyle: PropTypes.string.tag({
-            name: 'Estilo Chapita',
-            description: 'Ingrese aquí la clase CSS de la chapita',
-            default: ''
+        ...(!isLN10 && {
+            chapitaStyle: PropTypes.string.tag({
+                name: 'Estilo Chapita',
+                description: 'Ingrese aquí la clase CSS de la chapita',
+                default: ''
+            })
+        }),
+        ...(isLN10 && {
+            chapitaStyle: PropTypes.oneOf([
+                '',
+                'a-fondo',
+                'liveblog-red',
+                'exclusive-ln',
+                'sponsored'
+            ]).tag({
+                default: '',
+                name: 'Estilo Chapita',
+                description: 'Elija la clase CSS de la chapita'
+            })
         }),
         video: PropTypes.string.tag({
             name: 'VIDEO',

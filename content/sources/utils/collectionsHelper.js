@@ -10,6 +10,10 @@ export const isNotRecommend = article => {
     return recomendar.text === 'No';
 };
 
+export const filterArticlesTypeStory = (articles = []) => {
+    return articles.filter(article => article.type === 'story');
+};
+
 export const getArticlesToShow = (
     notesQuantity,
     articles = [],

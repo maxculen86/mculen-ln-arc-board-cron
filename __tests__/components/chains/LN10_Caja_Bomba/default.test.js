@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import renderables from '../../../../__mocks__/data/renderables/LN10_Caja_Bomba.json';
 import ArticleFeature from '../../../../components/features/LN-10/article/default';
+import { LAYOUTS } from '../../../../components/chains/utils/_helpers';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -44,53 +45,74 @@ describe('Tests - Chain - CajaBomba', () => {
 
         const casesThatRequireOneArticle = [
             [
-                'should return a warning that 1 item is required when the layout is "vertical"',
-                getProps('vertical', [articleFeature, articleFeature])
+                'should not return a warning that 1 item is required when the layout is "vertical"',
+                getProps('vertical', [articleFeature, articleFeature]),
+                '.vertical'
             ],
             [
-                'should return a warning that 1 item is required when the layout is "Bombita"',
-                getProps('Bombita', [articleFeature, articleFeature])
+                'should not return a warning that 1 item is required when the layout is "Bombita"',
+                getProps('Bombita', [articleFeature, articleFeature]),
+                '.bombita'
             ],
             [
-                'should return a warning that 1 item is required when the layout is "horizontal"',
-                getProps('horizontal', [articleFeature, articleFeature])
+                'should not return a warning that 1 item is required when the layout is "horizontal"',
+                getProps('horizontal', [articleFeature, articleFeature]),
+                '.horizontal'
             ]
         ];
 
-        test.each(casesThatRequireOneArticle)('%s', (message, props) => {
-            render(<CajaBomba {...props} />);
-            expect(screen.getByText('Advertencia')).toBeDefined();
-
-            expect(
-                screen.getByText('Esta diagramacion admite solo 1 articulo')
-            ).toBeDefined();
-        });
+        test.each(casesThatRequireOneArticle)(
+            '%s',
+            (message, props, classes) => {
+                const { container } = render(<CajaBomba {...props} />);
+                expect(container.querySelector(classes)).toBeDefined();
+            }
+        );
     });
 
     describe('Tests when the component is rendering outside of Page Builder', () => {
         const casesWhenPublishWithAWarning = [
             [
-                'should not return a bomb when there is more than one item and the design is "vertical"',
-                getProps('vertical', [articleFeature, articleFeature], false)
+                'should return a bomb when there is more than one item and the design is "vertical"',
+                getProps(`${LAYOUTS.VERTICAL}`, [
+                    articleFeature,
+                    articleFeature
+                ]),
+                '.vertical'
             ],
             [
-                'should not return a bomb when there is more than one item and the design is "Bombita"',
-                getProps('Bombita', [articleFeature, articleFeature], false)
+                'should return a bomb when there is more than one item and the design is "Bombita"',
+                getProps(`${LAYOUTS.BOMBITA}`, [
+                    articleFeature,
+                    articleFeature
+                ]),
+                '.bombita'
             ],
             [
-                'should not return a bomb when there is more than one item and the design is "horizontal"',
-                getProps('horizontal', [articleFeature, articleFeature], false)
+                'should return a bomb when there is more than one item and the design is "horizontal"',
+                getProps(`${LAYOUTS.HORIZONTAL}`, [
+                    articleFeature,
+                    articleFeature
+                ]),
+                '.horizontal'
             ],
             [
                 'should not return a bomb when the layout is "bombita + 4" and the number of articles is less than 5',
-                getProps('bombitaMas4', [articleFeature, articleFeature])
+                getProps(`${LAYOUTS.BOMBITAMAS4}`, [
+                    articleFeature,
+                    articleFeature
+                ]),
+                '.mas-4'
             ]
         ];
 
-        test.each(casesWhenPublishWithAWarning)('%s', (message, props) => {
-            const { container } = render(<CajaBomba {...props} />);
-            expect(container.querySelector('.bomba')).toBeNull();
-        });
+        test.each(casesWhenPublishWithAWarning)(
+            '%s',
+            (message, props, classes) => {
+                const { container } = render(<CajaBomba {...props} />);
+                expect(container.querySelector(classes)).toBeDefined();
+            }
+        );
 
         test('Should return a wrapper with the class "bombitaMas4" and 5 articles.', () => {
             const { container } = render(

@@ -16,19 +16,46 @@ const promoItemsBasic = 'promo_items.basic';
 export const showSubheadText = ({ withSubhead, article, description }) =>
     withSubhead && (description || get(article, 'subheadlines.basic'));
 
+export const showMarquee = ({
+    withMarquee,
+    hideAuthors,
+    authors,
+    marquesina
+}) => withMarquee && !hideAuthors && (authors || marquesina);
+
+export const showMarqueeImage = ({
+    withMarqueeImg,
+    authorsQuantity,
+    authors,
+    url
+}) => !authors && withMarqueeImg && authorsQuantity === 1 && url;
+
+export const showSection = ({ withSection, article, authors }) =>
+    !authors && withSection && get(article, 'taxonomy.primary_section.name');
+
 export const validateSubhead = (config, withMedia, customFields, variant) => {
     return (
-        (!['author', 'liveblog'].includes(variant) &&
-            get(config, 'withSubhead') &&
+        !['author', 'liveblog'].includes(variant) &&
+        get(config, 'withSubheadAndMedia', true) &&
+        ((get(config, 'withSubhead') &&
             !get(customFields, 'hideDescription')) ||
-        (!get(config, 'withSubhead') && !withMedia)
+            (!get(config, 'withSubhead') && !withMedia))
     );
 };
+
+export const validateMedia = (customFields, config, article) =>
+    !get(customFields, 'hideImage') &&
+    get(config, 'withMedia', true) &&
+    get(customFields, 'variant', 'regular') !== 'author' &&
+    (get(customFields, 'video') ||
+        get(customFields, 'html') ||
+        get(customFields, 'imageId') ||
+        get(article, 'promo_items.basic.type', '') === 'image');
 
 export const validateVariant = (variant, authorsQuantity) =>
     variant === 'author' && !(authorsQuantity === 1) ? 'regular' : variant;
 
-export const getBadgetConfig = (style, text, isLiveblog) => {
+export const getBadgetConfig = (style, text, isLiveblog, withMedia) => {
     if (isLiveblog) {
         return {
             badgetStyle: style || 'liveblog-red',
@@ -38,7 +65,7 @@ export const getBadgetConfig = (style, text, isLiveblog) => {
 
     return {
         badgetStyle: style,
-        badgetText: text
+        badgetText: withMedia && text
     };
 };
 
@@ -77,22 +104,32 @@ export const getDataAuthor = ({
     withMarqueeImg
 }) => {
     const authorsQuantity = get(article, 'credits.by', []).length;
-    const imageAuthor = get(getAuthorsPhoto(article), 'url', '');
 
-    const nameAuthors =
-        !hideAuthors && (authors || getAuthorsAsString(article, true));
+    const marqueeImg = showMarqueeImage({
+        withMarqueeImg,
+        authorsQuantity,
+        authors,
+        url: get(getAuthorsPhoto(article), 'url', '')
+    });
+
+    const marquee = showMarquee({
+        withMarquee,
+        hideAuthors,
+        authors,
+        marquesina: getAuthorsAsString(article, true)
+    });
 
     if (validateVariant(variant, authorsQuantity) === 'author') {
         return {
-            marqueeImg: imageAuthor,
-            marquee: nameAuthors,
+            marqueeImg,
+            marquee,
             authorsQuantity
         };
     }
 
     return {
-        marqueeImg: withMarqueeImg && imageAuthor,
-        marquee: withMarquee && nameAuthors,
+        marqueeImg,
+        marquee,
         authorsQuantity
     };
 };
@@ -251,7 +288,7 @@ export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
     return true;
 };
 
-const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
+export const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
     const { layoutsName = {} } = siteConfig || {};
     const parent = getFeatureData(featureId, renderables);
     const position =
@@ -330,4 +367,14 @@ export const validateArticleFeature = ({
     return pageBuilderValidator(rules);
 };
 
-export default getChainConfig;
+export const getTypeOfMedia = (customFields = {}) => {
+    const { video, html } = customFields;
+
+    if (video) return 'video';
+    if (html) return 'html';
+    return 'image';
+};
+
+export const showExtraClass = (typeOfMedia, extraClass = {}) => {
+    return extraClass[typeOfMedia] || undefined;
+};
