@@ -31,6 +31,7 @@ const ModCategory = props => {
                             src={imageUrl}
                             alt={category}
                             amp={outputType === 'amp'}
+                            isApertura
                         />
                     </h1>
                 </div>
