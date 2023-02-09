@@ -5,21 +5,26 @@
 import React from 'react';
 import { Card } from '@ln/contenidos-ui-card';
 import { Bngrid } from '@ln/contenidos-ui-bngrid';
+
 import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
 import getCardConfig from './_helper';
 import get from '../../../../common/utils/get';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
+import '../../../../../../resources/packages/css/@ln/contenidos-ui-contentlab/index.css';
+import { getDataAttributesForViewability } from '../../../../../features/LN-10/article/_helper';
 
 export default function CommonCollection({
     roofData,
     rules,
     gridType,
-    articles = []
+    position,
+    articles = [],
+    ContainerCards = Bngrid
 }) {
     return (
         <>
             <BuildRoof {...roofData} />
-            <Bngrid gridType={gridType}>
+            <ContainerCards gridType={gridType}>
                 {articles.map((article, index) => {
                     const {
                         withImage,
@@ -30,6 +35,12 @@ export default function CommonCollection({
                         mediaData,
                         imagePosition
                     } = getCardConfig(rules[index], article);
+
+                    const extraOpts = getDataAttributesForViewability(
+                        article._id,
+                        position,
+                        index
+                    );
 
                     return (
                         <Card
@@ -43,10 +54,11 @@ export default function CommonCollection({
                             mediaData={mediaData}
                             cardSize={cardSize}
                             imagePosition={imagePosition}
+                            {...extraOpts}
                         />
                     );
                 })}
-            </Bngrid>
+            </ContainerCards>
         </>
     );
 }
