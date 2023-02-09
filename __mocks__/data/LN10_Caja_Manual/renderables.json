@@ -1,0 +1,416 @@
+[
+    {
+        "collection": "chains",
+        "type": "LN10_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "LN10_Caja_Collection",
+            "id": "c0fuuilRMMtV6pi",
+            "name": null,
+            "customFields": {
+                "idCollection": "JYLAMSGRTRBSVEZTT7VHO2WO3U",
+                "layout": "bnGrilla4",
+                "initialPosition": null,
+                "url": "",
+                "imageId": "",
+                "title": "Caja Collection",
+                "hideTitle": false,
+                "hideCaja": false,
+                "link": "https://resizer.glanacion.com/resizer/Zxdn7YUB-jx7g4NmlPnbJqJRmdM=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg",
+                "navigator": "Politics",
+                "buttonText": "Politica",
+                "linkButton": "https://www.lanacion.com.ar/politica/"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "chains",
+        "type": "LN10_Caja_Manual",
+        "props": {
+            "collection": "chains",
+            "type": "LN10_Caja_Manual",
+            "id": "c0faDu3rJPJ41dG",
+            "name": null,
+            "customFields": {
+                "idCollection": "",
+                "layout": "bnGrilla4",
+                "initialPosition": 1,
+                "chainStyle": "bnGrilla4",
+                "title": "Titulo",
+                "link": "",
+                "logoId": "D5BZF3XZ7JDUNJZWGSNJWHIHJQ",
+                "hideTitle": false,
+                "navigator": "Economy",
+                "buttonText": "",
+                "linkButton": "",
+                "buttonStyle": null,
+                "hideCaja": false,
+                "url": "https://dev.azure.com/lndigital/Gestion%20LANACION-ARC/_boards/board/t/ARC-KANBAN/Stories/?workitem=91751",
+                "imageId": "D5BZF3XZ7JDUNJZWGSNJWHIHJQ"
+            },
+            "displayProperties": {}
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0fF1xN4SiIjb9W",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "regular",
+                        "noteId": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
+                        "hideImage": false,
+                        "lead": "",
+                        "description": "hjkvhgkvi"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0fLXtcI2JVT2S4",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "author",
+                        "noteId": "3XBEPF4OC5BGTMMGVTIGA6ULMI",
+                        "pbInternal_cloneId": "f0fLXtcI2JVT2S4",
+                        "description": "sdfsdfsdajnfjiwenfuiwasfwefwaefw",
+                        "hideImage": false
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0f9No1AYq3U2am",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "regular",
+                        "noteId": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
+                        "pbInternal_cloneId": "f0f9No1AYq3U2am"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0fLcIE6MGkT4T0",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "liveblog",
+                        "noteId": "XVJLNYZZ5FCG5GODV2SCRTPTMY",
+                        "pbInternal_cloneId": "f0fLcIE6MGkT4T0",
+                        "hideImage": false
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0fKCtrdKS9H4Yb",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "liveblog",
+                        "noteId": "XVJLNYZZ5FCG5GODV2SCRTPTMY",
+                        "pbInternal_cloneId": "f0fKCtrdKS9H4Yb",
+                        "hideImage": false
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "chains",
+        "type": "LN10_Caja_Manual",
+        "props": {
+            "collection": "chains",
+            "type": "LN10_Caja_Manual",
+            "id": "c0fi3psgquWT46h",
+            "name": null,
+            "customFields": {
+                "idCollection": "",
+                "layout": "bnGrilla8",
+                "initialPosition": 1,
+                "chainStyle": "bnGrilla4",
+                "title": "Grilla BN 8",
+                "link": "https://johnjs.com/",
+                "logoId": "",
+                "hideTitle": false,
+                "navigator": "Economy",
+                "buttonText": "Boton",
+                "linkButton": "sadsa",
+                "buttonStyle": null,
+                "hideCaja": false,
+                "pbInternal_cloneId": "c0fi3psgquWT46h"
+            },
+            "displayProperties": {}
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0fcFELEouWT4Xr",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "regular",
+                        "noteId": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
+                        "hideImage": false,
+                        "lead": ""
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0fsUJxVouWT4AN",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "author",
+                        "noteId": "3XBEPF4OC5BGTMMGVTIGA6ULMI",
+                        "pbInternal_cloneId": "f0fLXtcI2JVT2S4"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0fmUkW8puWT4S5",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "regular",
+                        "noteId": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
+                        "pbInternal_cloneId": "f0f9No1AYq3U2am"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0fqAErhd0c25hj",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "author",
+                        "noteId": "3XBEPF4OC5BGTMMGVTIGA6ULMI",
+                        "pbInternal_cloneId": "f0fqAErhd0c25hj"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0fNadSckw125Yh",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "regular",
+                        "noteId": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
+                        "pbInternal_cloneId": "f0fNadSckw125Yh"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0flSHMopuWT4JN",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "liveblog",
+                        "noteId": "XVJLNYZZ5FCG5GODV2SCRTPTMY",
+                        "pbInternal_cloneId": "f0fbSLpzWr9U2UM"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0f0GpripuWT4DJ",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "regular",
+                        "noteId": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
+                        "pbInternal_cloneId": "f0fLcIE6MGkT4T0"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0f3iT0xpuWT4D6",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "liveblog",
+                        "noteId": "XVJLNYZZ5FCG5GODV2SCRTPTMY",
+                        "pbInternal_cloneId": "f0ffDAekWmLS4Oc"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0fiBb2jc69t6bB",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": "liveblog",
+                        "noteId": "XVJLNYZZ5FCG5GODV2SCRTPTMY",
+                        "pbInternal_cloneId": "f0fiBb2jc69t6bB"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    }
+]

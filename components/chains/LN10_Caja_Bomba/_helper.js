@@ -1,5 +1,6 @@
 import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
 import get from '../../private/common/utils/get';
+import { LAYOUTS } from '../utils/_helpers';
 
 export const getChildrenOfBomba = (preOpeningChildren, chainId) => {
     const chainBomba = preOpeningChildren.find(
@@ -39,21 +40,33 @@ export const getClassCondition = (layout, childrenOfBomba) => {
     return rules[layout] || rules.default;
 };
 
-export const validateChainBomba = (layout, children, isPreOpening) => {
+export const hasVariantNotRegular = (childrenOfBomba = []) => {
+    return childrenOfBomba.some(
+        child =>
+            get(child, 'props.customFields.variant', 'regular') !== 'regular'
+    );
+};
+
+export const validateChainBomba = (
+    layout,
+    children,
+    isPreOpening,
+    hasNotVariantRegular
+) => {
     const missingNotesOnTheBomba = 5 - children.length;
     const rules = [
         {
-            validation: layout === 'bombitaMas4' && children.length < 5,
+            validation: hasNotVariantRegular,
+            message: `La variante del Articulo solo puede ser 'regular'`
+        },
+        {
+            validation: layout === LAYOUTS.BOMBITAMAS4 && children.length < 5,
             message: `La diagramacion Bombita + 4 requiere 5 articulos. Faltan ${missingNotesOnTheBomba} articulos`
         },
         {
             validation: !isPreOpening,
             message:
                 'La Caja Bomba solo se puede utilizar en la seccion Pre Apertura'
-        },
-        {
-            validation: layout !== 'bombitaMas4' && children.length > 1,
-            message: 'Esta diagramacion admite solo 1 articulo'
         }
     ];
 

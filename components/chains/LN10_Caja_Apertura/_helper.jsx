@@ -5,13 +5,7 @@ import pageBuilderValidator from '../../private/common/utils/pageBuilderValidato
 import get from '../../private/common/utils/get';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
 import StaticContent from '../../private/common/staticContent';
-
-const LAYOUTS = {
-    FOCAL_LEFT: 'left-focal',
-    FOCAL_CENTER: 'center-focal',
-    FOCAL_70: 'focal-70',
-    BN_OPENING_4: 'bn-opening-4'
-};
+import { LAYOUTS, setQuantityByLayout } from '../utils/_helpers';
 
 const { FOCAL_LEFT, FOCAL_CENTER, FOCAL_70, BN_OPENING_4 } = LAYOUTS;
 
@@ -44,27 +38,6 @@ export const setCustomFields = () => {
         layout: PropTypes.oneOf(labelsKeys).tag(CUSTOM_FIELDS_CONFIG.layout),
         hideBox: PropTypes.boolean.tag(CUSTOM_FIELDS_CONFIG.hideBox)
     });
-};
-
-export const setSlicedChildren = ({
-    setQuantityByLayout,
-    config,
-    featuredChildren
-}) => {
-    const maxChildrenQuantity = setQuantityByLayout(config);
-    return featuredChildren.slice(0, maxChildrenQuantity);
-};
-
-export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
-    const options = {
-        [FOCAL_LEFT]: countTimeline ? 6 : 5,
-        [FOCAL_CENTER]: 4,
-        [FOCAL_70]: 3,
-        [BN_OPENING_4]: 4,
-        default: Number(layout && layout.slice(-1)) || 3
-    };
-
-    return options[layout] || options.default;
 };
 
 export const validateChain = (childrenProps, layout, isInOpening) => {
@@ -124,25 +97,6 @@ export const validateChain = (childrenProps, layout, isInOpening) => {
     ];
 
     return pageBuilderValidator(rules);
-};
-
-export const setWrappedChildren = (renderables = [], features = []) => {
-    const customWrappers = {
-        'LN-acumulado/timeline': content => (
-            <div className="timeline-home">
-                <div className="timeline-content">{content}</div>
-            </div>
-        )
-    };
-
-    return renderables
-        .map(({ type, props = {} } = {}) => {
-            const feature = features.find(c => c.key === props.id);
-            return customWrappers[type]
-                ? customWrappers[type](feature)
-                : feature;
-        })
-        .filter(Boolean);
 };
 
 export const setFilteredRenderables = (renderables = [], features = []) => {

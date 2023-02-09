@@ -146,7 +146,7 @@
                                         "inherit": true
                                     },
                                     "customFields": {
-                                        "variant": null,
+                                        "variant": "regular",
                                         "noteId": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
                                         "lead": "",
                                         "video": "",
@@ -1623,7 +1623,7 @@
                                 "inherit": true
                             },
                             "customFields": {
-                                "variant": null,
+                                "variant": "regular",
                                 "noteId": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
                                 "lead": "",
                                 "video": "",
@@ -3083,7 +3083,7 @@
                         "inherit": true
                     },
                     "customFields": {
-                        "variant": null,
+                        "variant": "regular",
                         "noteId": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
                         "lead": "",
                         "video": "",
@@ -3329,7 +3329,7 @@
                 "inherit": true
             },
             "customFields": {
-                "variant": null,
+                "variant": "regular",
                 "noteId": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
                 "lead": "",
                 "video": "",

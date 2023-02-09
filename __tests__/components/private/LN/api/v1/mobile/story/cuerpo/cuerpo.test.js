@@ -28,7 +28,9 @@ describe('Test Json Text del cuerpo de la nota', () => {
 
     it('Test para validar la cantidad de elementos del cuerpo', () => {
         const resp = Cuerpo(ArticleCuerpo);
-        expect(resp.elements.length).toBe(ArticleCuerpo.content_elements.length - 1);
+        expect(resp.elements.length).toBe(
+            ArticleCuerpo.content_elements.length - 1
+        );
     });
 
     it('Test para validar si es infografia el contenido debe ser igual al contenido + 1', () => {
