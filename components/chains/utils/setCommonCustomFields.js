@@ -1,13 +1,13 @@
 import PropTypes from 'fusion:prop-types';
 
 const typesButtonStyle = {
-    'exc-sub': 'Exclusivo Suscriptor',
+    subExclusive: 'Exclusivo Suscriptor',
     generico: 'Genérico',
-    ln: 'LN'
+    ln: 'LN+'
 };
 // TODO: Renombrar las propiedades segun las clases para cada caso
 const typeStylesChain = {
-    exclusiveSub: 'Exclusivo Suscriptor',
+    subExclusive: 'Exclusivo Suscriptor',
     properties: 'Propiedades',
     camp: 'Campo',
     welfare: 'Bienestar',

@@ -272,41 +272,197 @@ const diagramationRules = diagramation => {
                 cardSize: 'm'
             }
         ],
+        bnGrilla4: [
+            {
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            }
+        ],
         bn_2_1_2_grid: [
             {
                 imagePosition: {
                     mobile: 'img-top',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l'
             },
             {
                 imagePosition: {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l'
             },
             {
                 imagePosition: {
                     mobile: 'img-right',
                     tablet: 'img-none',
                     desktop: 'img-none'
-                }
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l'
             },
             {
                 imagePosition: {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l'
             },
             {
                 imagePosition: {
                     mobile: 'img-right',
                     tablet: 'img-none',
                     desktop: 'img-none'
-                }
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l'
+            }
+        ],
+        bnGrilla8: [
+            {
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
             }
         ]
     };

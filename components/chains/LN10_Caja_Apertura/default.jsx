@@ -10,12 +10,11 @@ import {
     setFilteredRenderables,
     setWrappedChildren,
     validateChain,
-    setSlicedChildren,
     setQuantityByLayout,
     setCustomFields,
     setRender
 } from './_helper';
-
+import setSlicedChildren from '../utils/setSliceChildren';
 import getChildrenBySection from '../utils/getChildrenBySection';
 import checkChildInSection from '../utils/checkChildBySection';
 

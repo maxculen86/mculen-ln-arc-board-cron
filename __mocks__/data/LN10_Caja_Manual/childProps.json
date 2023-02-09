@@ -1,0 +1,98 @@
+[
+    {
+        "collection": "features",
+        "type": "LN-10/article",
+        "id": "f0fF1xN4SiIjb9W",
+        "contentConfig": {
+            "contentService": "",
+            "contentConfigValues": {},
+            "inherit": true
+        },
+        "customFields": {
+            "variant": "regular",
+            "noteId": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
+            "hideImage": false,
+            "lead": "",
+            "description": "hjkvhgkvi"
+        },
+        "displayProperties": {},
+        "localEdits": {},
+        "variants": {}
+    },
+    {
+        "collection": "features",
+        "type": "LN-10/article",
+        "id": "f0fLXtcI2JVT2S4",
+        "contentConfig": {
+            "contentService": "",
+            "contentConfigValues": {},
+            "inherit": true
+        },
+        "customFields": {
+            "variant": "author",
+            "noteId": "3XBEPF4OC5BGTMMGVTIGA6ULMI",
+            "pbInternal_cloneId": "f0fLXtcI2JVT2S4",
+            "description": "sdfsdfsdajnfjiwenfuiwasfwefwaefw",
+            "hideImage": false
+        },
+        "displayProperties": {},
+        "localEdits": {},
+        "variants": {}
+    },
+    {
+        "collection": "features",
+        "type": "LN-10/article",
+        "id": "f0f9No1AYq3U2am",
+        "contentConfig": {
+            "contentService": "",
+            "contentConfigValues": {},
+            "inherit": true
+        },
+        "customFields": {
+            "variant": "regular",
+            "noteId": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
+            "pbInternal_cloneId": "f0f9No1AYq3U2am"
+        },
+        "displayProperties": {},
+        "localEdits": {},
+        "variants": {}
+    },
+    {
+        "collection": "features",
+        "type": "LN-10/article",
+        "id": "f0fLcIE6MGkT4T0",
+        "contentConfig": {
+            "contentService": "",
+            "contentConfigValues": {},
+            "inherit": true
+        },
+        "customFields": {
+            "variant": "liveblog",
+            "noteId": "XVJLNYZZ5FCG5GODV2SCRTPTMY",
+            "pbInternal_cloneId": "f0fLcIE6MGkT4T0",
+            "hideImage": false
+        },
+        "displayProperties": {},
+        "localEdits": {},
+        "variants": {}
+    },
+    {
+        "collection": "features",
+        "type": "LN-10/article",
+        "id": "f0fKCtrdKS9H4Yb",
+        "contentConfig": {
+            "contentService": "",
+            "contentConfigValues": {},
+            "inherit": true
+        },
+        "customFields": {
+            "variant": "liveblog",
+            "noteId": "XVJLNYZZ5FCG5GODV2SCRTPTMY",
+            "pbInternal_cloneId": "f0fKCtrdKS9H4Yb",
+            "hideImage": false
+        },
+        "displayProperties": {},
+        "localEdits": {},
+        "variants": {}
+    }
+]

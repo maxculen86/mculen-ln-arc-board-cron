@@ -1,26 +1,25 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
-import CajaTema from '../../private/LN/common/cajaTema';
 import {
     getArticlesOfChain,
-    getCommonProps,
-    isInApertura
+    getCommonProps
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
 import { getMarkupForDatalayer } from '../../private/LN/common/utils/cajaTemasHelper';
-import { productClickFromClient } from '../../private/common/utils/viewability';
 import getDataChainCollection from '../utils/getDataChainCollection';
+import checkChildInSection from '../utils/checkChildBySection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
 import { validateChain, getBreakingChildren } from './_helper';
-import ExclusiveSubscriptor from '../../private/LN10/home/components/exclusiveSubscriptor/default';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
 import diagramationRules from '../../private/common/utils/diagramationRules';
-import checkChildInSection from '../utils/checkChildBySection';
 import setRender from '../utils/setRender';
 import StaticContent from '../../private/common/staticContent';
+import getGridType from '../utils/getGridType';
+import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
 
 const CajaCollection = props => {
     const {
@@ -28,11 +27,9 @@ const CajaCollection = props => {
         isAdmin,
         customFields: {
             idCollection,
-            url,
             title,
             layout = '',
             initialPosition,
-            imageId,
             hideTitle,
             hideCaja,
             website,
@@ -44,7 +41,6 @@ const CajaCollection = props => {
             linkButton,
             buttonStyle
         },
-        outputType,
         renderables,
         tree = {},
         layout: pageLayout
@@ -53,9 +49,7 @@ const CajaCollection = props => {
     const {
         collectionsInPage,
         notesQuantity,
-        classCondition,
         position,
-        sectionName,
         positionInsideSection
     } = getCommonProps(props);
 
@@ -68,14 +62,14 @@ const CajaCollection = props => {
         buttonStyle,
         hideRoof: hideTitle,
         navigationId: navigator,
-        isAdmin
+        isAdmin,
+        chainStyle
     };
 
     const {
         isInSiteService,
         articlesFromCollectionSiteService,
         idsArticlesToExclude,
-        titleSize,
         diagramation,
         isHome
     } = getDataChainCollection({
@@ -93,8 +87,6 @@ const CajaCollection = props => {
     const breakingsChildren = getBreakingChildren(renderables);
     const rules = diagramationRules(layout) || [];
     const isInBreakings = checkChildInSection(chainId, breakingsChildren);
-
-    const isExclusiveSuscriptor = chainStyle === 'exclusiveSub';
 
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(
@@ -127,29 +119,6 @@ const CajaCollection = props => {
         isInBreakings
     });
 
-    const Component = (
-        <CajaTema
-            title={title}
-            hideTitle={hideTitle}
-            url={url}
-            imageId={imageId}
-            outputType={outputType}
-            layout={layout}
-            classCondition={`${classCondition}${(isInApertura &&
-                layout.includes('focal') &&
-                ' --apertura') ||
-                ''}`}
-            notesQuantity={notesQuantity}
-            position={position}
-            positionInsideSection={positionInsideSection}
-            sectionName={sectionName}
-            articles={_articles}
-            titleSize={titleSize}
-            handleClick={productClickFromClient}
-            pageLayout={pageLayout}
-        />
-    );
-
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
         '',
         layout,
@@ -167,15 +136,15 @@ const CajaCollection = props => {
                 error,
                 hideBox: hideCaja,
                 extraOptions: {
-                    isExclusiveSuscriptor: isExclusiveSuscriptor && (
-                        <ExclusiveSubscriptor
-                            layout={layout}
-                            roof={roofData}
-                            rules={diagramationRules(layout)}
+                    default: (
+                        <CommonCollection
+                            roofData={roofData}
+                            rules={rules}
+                            gridType={getGridType(layout)}
                             articles={_articles}
+                            layout={layout}
                         />
-                    ),
-                    default: Component
+                    )
                 }
             })}
         </StaticContent>

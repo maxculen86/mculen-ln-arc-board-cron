@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 
@@ -73,25 +74,25 @@ const CajaBomba = props => {
         }
     }, [layout, childrenOfBomba, chainId, isAdmin]);
 
-    const Component = (
-        <Bomba
-            data-chain-id={chainId}
-            articles={children}
-            layout={diagramation}
-            id={chainId}
-            {...sectionProps}
-        />
-    );
-
     return (
         <StaticContent {...extraOptsDiv}>
             {setRender({
-                withSection: false,
+                chainId,
+                viewabilityData,
                 isAdmin,
                 error,
                 hideBox: hideCaja,
+                withSection: false,
                 extraOptions: {
-                    default: Component
+                    default: (
+                        <Bomba
+                            data-chain-id={chainId}
+                            articles={children}
+                            layout={diagramation}
+                            id={chainId}
+                            {...sectionProps}
+                        />
+                    )
                 }
             })}
         </StaticContent>

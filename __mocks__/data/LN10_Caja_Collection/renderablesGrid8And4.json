@@ -1,0 +1,102 @@
+[
+    {
+        "collection": "chains",
+        "type": "LN10_Caja_Collection",
+        "props": {
+            "collection": "chains",
+            "type": "LN10_Caja_Collection",
+            "id": "c0fuuilRMMtV6pi",
+            "name": null,
+            "customFields": {
+                "idCollection": "JYLAMSGRTRBSVEZTT7VHO2WO3U",
+                "layout": "bnGrilla4",
+                "initialPosition": null,
+                "url": "",
+                "imageId": "",
+                "title": "Caja Collection",
+                "hideTitle": false,
+                "hideCaja": false,
+                "link": "https://resizer.glanacion.com/resizer/Zxdn7YUB-jx7g4NmlPnbJqJRmdM=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HWSYUPWYQ5DKDON4ZV74I6MWZU.jpg",
+                "navigator": "Politics",
+                "buttonText": "Politica",
+                "linkButton": "https://www.lanacion.com.ar/politica/"
+            },
+            "displayProperties": {}
+        },
+        "children": []
+    },
+    {
+        "collection": "features",
+        "type": "LN-common/LN10_En_Vivo",
+        "props": {
+            "collection": "features",
+            "type": "LN-common/LN10_En_Vivo",
+            "id": "f0fK3eCCXKPu3wn",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId1": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
+                "title1": "",
+                "noteId2": "IGXB4LV3HVHYPC5DSUBL5Y74EM",
+                "title2": "Guerra -Rusia - Ucrania",
+                "noteId3": "",
+                "title3": "",
+                "chapitaStyle": 0,
+                "chapita": "hola",
+                "show": true
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "chains",
+        "type": "LN10_Caja_Bomba",
+        "props": {
+            "collection": "chains",
+            "type": "LN10_Caja_Bomba",
+            "id": "c0f1M2nf284vbpr",
+            "name": null,
+            "customFields": {
+                "hideBox": false,
+                "layout": "bombita",
+                "hideCaja": true
+            },
+            "displayProperties": {}
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "LN-10/article",
+                "props": {
+                    "collection": "features",
+                    "type": "LN-10/article",
+                    "id": "f0frgGzxgOeC2cv",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "variant": null,
+                        "noteId": "BBU3ZCWFBRALRO4FZAHJ5XGW74",
+                        "lead": "",
+                        "video": "",
+                        "html": "",
+                        "hideImage": false,
+                        "imageId": ""
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    }
+]

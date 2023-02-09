@@ -127,8 +127,7 @@ describe('Tests component BuildRoof', () => {
             );
         });
 
-        // TODO: Quitar el skip cuando front haga el fix de la imagen del logo.
-        test.skip('should return aN image logo', () => {
+        test('should return aN image logo', () => {
             useGetLogoImage.mockImplementation(() => ({
                 caption: '',
                 height: 181,

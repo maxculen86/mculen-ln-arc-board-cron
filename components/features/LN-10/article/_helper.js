@@ -4,14 +4,12 @@ import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import getAuthorsPhoto from '../../../private/common/utils/getAuthorsPhoto';
 import getAuthorsAsString from '../../../private/common/utils/getAuthorsAsString';
 import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelperLN10';
-import {
-    getShortestImage,
-    getSourceSet
-} from '../../../private/LN/common/utils/mediaHelper';
+import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
 import getStreams from '../../../private/LN/common/utils/getStreams';
 import diagramationRules from '../../../private/common/utils/diagramationRules';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
+import transformImageData from '../../../private/common/LN-10/transformImageData';
 
 const promoItemsBasic = 'promo_items.basic';
 
@@ -70,10 +68,32 @@ export const articleCustomFields = {
     })
 };
 
-export const getDataAuthor = article => {
+export const getDataAuthor = ({
+    article,
+    variant,
+    authors,
+    hideAuthors,
+    withMarquee,
+    withMarqueeImg
+}) => {
+    const authorsQuantity = get(article, 'credits.by', []).length;
+    const imageAuthor = get(getAuthorsPhoto(article), 'url', '');
+
+    const nameAuthors =
+        !hideAuthors && (authors || getAuthorsAsString(article, true));
+
+    if (validateVariant(variant, authorsQuantity) === 'author') {
+        return {
+            marqueeImg: imageAuthor,
+            marquee: nameAuthors,
+            authorsQuantity
+        };
+    }
+
     return {
-        ...getAuthorsPhoto(article),
-        marquesina: getAuthorsAsString(article, true)
+        marqueeImg: withMarqueeImg && imageAuthor,
+        marquee: withMarquee && nameAuthors,
+        authorsQuantity
     };
 };
 
@@ -112,21 +132,6 @@ const transformVideoData = videoData => {
         type,
         src: url,
         poster: resizedUrl
-    };
-};
-
-const transformImageData = (articleData, imageData) => {
-    const { height, width } = imageData || {};
-    const resizedUrls = get(imageData, 'resized_urls', []);
-    const sources = resizedUrls.filter(v => !!v.option);
-    const { resizedUrl } = getShortestImage(sources);
-
-    return {
-        height,
-        width,
-        alt: get(articleData, 'headlines.basic'),
-        src: resizedUrl,
-        srcset: getSourceSet(false, imageData, sources)
     };
 };
 
