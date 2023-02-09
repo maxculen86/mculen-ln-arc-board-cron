@@ -9,17 +9,19 @@ import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
 import getCardConfig from './_helper';
 import get from '../../../../common/utils/get';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
+import '../../../../../../resources/packages/css/@ln/contenidos-ui-cajahashtag/index.css';
 
 export default function CommonCollection({
     roofData,
     rules,
     gridType,
-    articles = []
+    articles = [],
+    ContainerCards = Bngrid
 }) {
     return (
         <>
             <BuildRoof {...roofData} />
-            <Bngrid gridType={gridType}>
+            <ContainerCards gridType={gridType}>
                 {articles.map((article, index) => {
                     const {
                         withImage,
@@ -46,7 +48,7 @@ export default function CommonCollection({
                         />
                     );
                 })}
-            </Bngrid>
+            </ContainerCards>
         </>
     );
 }

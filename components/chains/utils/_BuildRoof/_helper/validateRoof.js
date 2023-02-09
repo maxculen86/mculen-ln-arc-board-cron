@@ -8,7 +8,8 @@ const validateRoof = ({
     hideRoof,
     navigationId,
     linkButton,
-    buttonText
+    buttonText,
+    chainStyle
 }) => {
     const rules = [
         {
@@ -16,7 +17,7 @@ const validateRoof = ({
             message: `El ID de la imagen del logo es incorrecto.`
         },
         {
-            validation: !hideRoof && !title,
+            validation: !hideRoof && !title && chainStyle !== 'hashtag',
             message: 'Debe definir un titulo para el techo.'
         },
         {

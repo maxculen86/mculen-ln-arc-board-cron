@@ -3,6 +3,7 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import Consumer from 'fusion:consumer';
+import { Cajahashtag } from '@ln/contenidos-ui-cajahashtag';
 import PropTypes from 'fusion:prop-types';
 import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 import {
@@ -112,7 +113,8 @@ const CajaCollection = props => {
         renderables,
         layout,
         articles: _articles,
-        chainId
+        chainId,
+        chainStyle
     });
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
@@ -122,6 +124,10 @@ const CajaCollection = props => {
         '',
         positionInsideSection
     );
+
+    const ContainerCards = chainStyle === 'hashtag' && {
+        ContainerCards: Cajahashtag
+    };
 
     return (
         <StaticContent {...extraOptsDiv}>
@@ -139,6 +145,7 @@ const CajaCollection = props => {
                             gridType={getGridType(layout)}
                             articles={_articles}
                             layout={layout}
+                            {...ContainerCards}
                         />
                     )
                 }

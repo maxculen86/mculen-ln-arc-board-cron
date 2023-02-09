@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import diagramationRules from '../../../../../../../components/private/common/utils/diagramationRules';
 import articles from '../../../../../../../__mocks__/data/CommonCollection/articles.json';
+import { Cajahashtag } from '@ln/contenidos-ui-cajahashtag';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -37,9 +38,30 @@ describe('Tests Component CommonCollection', () => {
                 {...getProps(articles, diagramationRules('bnGrilla8'))}
             />
         );
-        screen.debug();
 
         expect(screen.getAllByRole('article')).toHaveLength(8);
+        expect(container).toMatchSnapshot();
+    });
+    test('should return hashTag with 7 articles', () => {
+        const props = {
+            ...getProps(
+                articles.slice(0, 7),
+                diagramationRules('hash-1-2-2-2_grid')
+            )
+        };
+        const { container } = render(
+            <CommonCollection {...props} ContainerCards={Cajahashtag} />
+        );
+        const articlesRendered = screen.getAllByRole('article');
+        expect(articlesRendered).toHaveLength(7);
+        expect(articlesRendered[0]).toHaveClass(
+            '--mobile-img-top --tablet-img-top --desktop-img-top'
+        );
+        articlesRendered.slice(1, 7).forEach(article => {
+            expect(article).toHaveClass(
+                '--mobile-img-right --tablet-img-top --desktop-img-top'
+            );
+        });
         expect(container).toMatchSnapshot();
     });
 });

@@ -25,6 +25,7 @@ export default function BuildRoof(props) {
     const links = useGetLinks({ navigationSection: navigationId });
 
     const error = validateRoof({
+        chainStyle,
         logoData: logo,
         linksData: links,
         title,
