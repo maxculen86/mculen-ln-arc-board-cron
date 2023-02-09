@@ -20,6 +20,7 @@ import setRender from '../utils/setRender';
 import StaticContent from '../../private/common/staticContent';
 import getGridType from '../utils/getGridType';
 import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
+import { CHAIN_STYLE } from '../utils/_helpers';
 
 const CajaCollection = props => {
     const {
@@ -45,6 +46,8 @@ const CajaCollection = props => {
         tree = {},
         layout: pageLayout
     } = props;
+
+    const { HASHTAG } = CHAIN_STYLE;
 
     const {
         collectionsInPage,
@@ -125,7 +128,7 @@ const CajaCollection = props => {
         positionInsideSection
     );
 
-    const ContainerCards = chainStyle === 'hashtag' && {
+    const ContainerCards = chainStyle === HASHTAG && {
         ContainerCards: Cajahashtag
     };
 

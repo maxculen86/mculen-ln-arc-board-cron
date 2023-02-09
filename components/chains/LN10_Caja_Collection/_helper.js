@@ -1,4 +1,7 @@
 import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
+import { CHAIN_STYLE } from '../utils/_helpers';
+
+const { HASHTAG } = CHAIN_STYLE;
 
 export const validateChain = ({
     idCollection,
@@ -16,7 +19,7 @@ export const validateChain = ({
             message: 'Se requiere el id de la colección'
         },
         {
-            validation: chainStyle === 'hashtag' && articles.length < 7,
+            validation: chainStyle === HASHTAG && articles.length < 7,
             message: 'Se requiere minimo 7 articulos para HashTag'
         },
         {

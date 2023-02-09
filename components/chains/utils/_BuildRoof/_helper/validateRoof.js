@@ -1,5 +1,7 @@
 import pageBuilderValidator from '../../../../private/common/utils/pageBuilderValidator';
+import { CHAIN_STYLE } from '../../_helpers';
 
+const { HASHTAG } = CHAIN_STYLE;
 const validateRoof = ({
     logoData,
     linksData,
@@ -17,7 +19,7 @@ const validateRoof = ({
             message: `El ID de la imagen del logo es incorrecto.`
         },
         {
-            validation: !hideRoof && !title && chainStyle !== 'hashtag',
+            validation: !hideRoof && !title,
             message: 'Debe definir un titulo para el techo.'
         },
         {
@@ -30,7 +32,7 @@ const validateRoof = ({
         }
     ];
 
-    return pageBuilderValidator(rules);
+    return chainStyle !== HASHTAG && pageBuilderValidator(rules);
 };
 
 export default validateRoof;

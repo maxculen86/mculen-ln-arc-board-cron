@@ -5,6 +5,7 @@ import { render, screen } from '@testing-library/react';
 import diagramationRules from '../../../../../../../components/private/common/utils/diagramationRules';
 import articles from '../../../../../../../__mocks__/data/CommonCollection/articles.json';
 import { Cajahashtag } from '@ln/contenidos-ui-cajahashtag';
+import { CHAIN_STYLE } from '../../../../../../../components/chains/utils/_helpers';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -13,26 +14,25 @@ jest.mock('fusion:consumer', Component => {
 });
 
 describe('Tests Component CommonCollection', () => {
-    const roofData = {
-        title: 'CommonCOllection',
-        titleLink: '',
-        logoId: '',
-        buttonText: '',
-        linkButton: '',
-        buttonStyle: '',
-        hideRoof: false,
-        navigationId: '',
-        isAdmin: true
-    };
-
-    const getProps = (articles, rules) => ({
-        roofData,
-        rules,
-        gridType: '',
-        articles
-    });
-
     test('should return 8 articles', () => {
+        const roofData = {
+            title: 'CommonCOllection',
+            titleLink: '',
+            logoId: '',
+            buttonText: '',
+            linkButton: '',
+            buttonStyle: '',
+            hideRoof: false,
+            navigationId: '',
+            isAdmin: true
+        };
+
+        const getProps = (articles, rules) => ({
+            roofData,
+            rules,
+            gridType: '',
+            articles
+        });
         const { container } = render(
             <CommonCollection
                 {...getProps(articles, diagramationRules('bnGrilla8'))}
@@ -43,6 +43,26 @@ describe('Tests Component CommonCollection', () => {
         expect(container).toMatchSnapshot();
     });
     test('should return hashTag with 7 articles', () => {
+        const { HASHTAG } = CHAIN_STYLE;
+        const roofData = {
+            title: 'CommonCOllection',
+            titleLink: '',
+            logoId: '',
+            buttonText: 'Hola mundo',
+            linkButton: 'https://lanacion.com.ar',
+            buttonStyle: '',
+            hideRoof: false,
+            navigationId: '',
+            chainStyle: HASHTAG,
+            isAdmin: true
+        };
+
+        const getProps = (articles, rules) => ({
+            roofData,
+            rules,
+            gridType: 'hash-1-2-2-2_grid',
+            articles
+        });
         const props = {
             ...getProps(
                 articles.slice(0, 7),
@@ -62,6 +82,7 @@ describe('Tests Component CommonCollection', () => {
                 '--mobile-img-right --tablet-img-top --desktop-img-top'
             );
         });
+        expect(container.querySelector('.ln-caja-hashtag')).toBeInTheDocument();
         expect(container).toMatchSnapshot();
     });
 });

@@ -12,7 +12,7 @@ const typeStylesChain = {
     camp: 'Campo',
     welfare: 'Bienestar',
     mobility: 'Movilidad',
-    hashtag: 'HashTag'
+    HashTag: 'HashTag'
 };
 
 const customFieldsRules = {
