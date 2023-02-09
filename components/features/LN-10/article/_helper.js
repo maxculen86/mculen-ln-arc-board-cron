@@ -367,7 +367,7 @@ export const validateArticleFeature = ({
     return pageBuilderValidator(rules);
 };
 
-export const typeOfMedia = (customFields = {}) => {
+export const getTypeOfMedia = (customFields = {}) => {
     const { video, html } = customFields;
 
     if (video) return 'video';
@@ -375,6 +375,6 @@ export const typeOfMedia = (customFields = {}) => {
     return 'image';
 };
 
-export const showExtraClass = (typeMedia, extraClass = {}) => {
-    return extraClass[typeMedia] || undefined;
+export const showExtraClass = (typeOfMedia, extraClass = {}) => {
+    return extraClass[typeOfMedia] || undefined;
 };

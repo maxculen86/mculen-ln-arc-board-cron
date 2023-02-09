@@ -101,7 +101,7 @@ const CajaBomba = props => {
                     default: (
                         <Bomba
                             data-chain-id={chainId}
-                            articles={children}
+                            articles={slicedChildren}
                             layout={diagramation}
                             id={chainId}
                             {...sectionProps}

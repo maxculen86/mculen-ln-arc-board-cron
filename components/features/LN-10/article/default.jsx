@@ -29,7 +29,7 @@ import {
     validateMedia,
     showSection,
     showExtraClass,
-    typeOfMedia
+    getTypeOfMedia
 } from './_helper';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
@@ -250,7 +250,7 @@ const ArticleFeature = ({
                     liveblogList={getLiveblogTitles(articleContent)}
                     aspectRatio={get(config, 'aspectRatio', 'ar-picture')}
                     className={showExtraClass(
-                        typeOfMedia(customFields),
+                        getTypeOfMedia(customFields),
                         extraClass
                     )}
                 />
