@@ -2,7 +2,7 @@ import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 import GetCajaManual from '../../private/LN/api/global/home/chains/getCajaManual';
 import { getChildrenFromSectionHome } from '../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
-import { validateChainBomba, getIsPreOpening } from './_helper';
+import { validateChainBomba, getIsPreOpening } from './common/_helper-WebApi';
 import respChain from '../../private/LN/api/global/home/chains/respCajaCollection';
 
 class CajaBomba {

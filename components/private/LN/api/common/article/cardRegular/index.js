@@ -4,7 +4,7 @@ import sentToApps from '../../elements/label/sentToApps';
 import LNApiErrorArticles from '../models/exceptions/lnApiErrorArticles';
 import { getLastPublishDate } from '../elements/date/index';
 import { getArticleImage } from '../elements/image/index';
-import { getArticleVideo, getYouTubeVideoLink } from '../elements/video/index';
+import { getArticleVideos, getYouTubeVideoLink } from '../elements/video/index';
 import { getArticleTitle } from '../elements/title/index';
 import { getArticleTag } from '../elements/tag/index';
 import { getArticleAuthor } from '../elements/author/index';
@@ -63,7 +63,7 @@ export const cardRegular = article => {
         marquesina: articleSignature(autores, signature),
         seccionPadre: getArticleOpinionSubtype(article),
         imagen: getArticleImage(article),
-        video: getArticleVideo(article),
+        video: getArticleVideos(article),
         opinion: get(article, 'additionalProperties.opinion', false),
         videoYouTube: getYouTubeVideoLink(article),
         enviarApps,

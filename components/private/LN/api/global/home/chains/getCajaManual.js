@@ -28,7 +28,7 @@ class GetCajaManual {
             }
         }
 
-        const imageId = get(this.props, 'customFields.imageId', null);
+        const imageId = get(this.props, 'customFields.imageId', '');
         const idCollection = get(this.props, 'customFields.idCollection', '');
 
         // OJO: Esto es un codigo temporal solo para simular en caso de venir los parametros del boton

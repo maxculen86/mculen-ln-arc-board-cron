@@ -1,11 +1,16 @@
 import get from '../../../../../../common/utils/get';
-import Video from '../../../elements/video';
+import {
+    videoCommon as Video,
+    videos as Videos
+} from '../../../elements/video';
 import getEmbedHref from '../../../../../../common/utils/getEmbedHref';
 
-export const getArticleVideo = article => {
+export const getArticleVideos = (article, multiple = false) => {
     const videoDefault = get(article, 'additionalProperties.video', null);
     if (videoDefault && videoDefault.type === 'video') {
-        return Video(videoDefault.streams);
+        return multiple
+            ? Videos(videoDefault.streams)
+            : Video(videoDefault.streams);
     }
     return null;
 };
@@ -17,4 +22,4 @@ export const getYouTubeVideoLink = article => {
     return videoLink;
 };
 
-export default getArticleVideo;
+export default getArticleVideos;
