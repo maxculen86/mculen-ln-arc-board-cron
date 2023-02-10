@@ -431,7 +431,9 @@ const diagramationRules = diagramation => {
                     tablet: 'img-top',
                     desktop: 'img-top'
                 },
-                cardSize: 'l'
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
             },
             {
                 imagePosition: {
@@ -439,7 +441,9 @@ const diagramationRules = diagramation => {
                     tablet: 'img-none',
                     desktop: 'img-right'
                 },
-                cardSize: 'l'
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
             },
             {
                 imagePosition: {
@@ -447,7 +451,9 @@ const diagramationRules = diagramation => {
                     tablet: 'img-none',
                     desktop: 'img-right'
                 },
-                cardSize: 'l'
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
             },
             {
                 imagePosition: {
@@ -455,7 +461,9 @@ const diagramationRules = diagramation => {
                     tablet: 'img-none',
                     desktop: 'img-right'
                 },
-                cardSize: 'l'
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
             },
             {
                 imagePosition: {
@@ -463,7 +471,9 @@ const diagramationRules = diagramation => {
                     tablet: 'img-none',
                     desktop: 'img-right'
                 },
-                cardSize: 'l'
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
             }
         ]
     };

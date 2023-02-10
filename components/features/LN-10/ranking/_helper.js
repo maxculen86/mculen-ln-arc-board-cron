@@ -1,8 +1,9 @@
+import { useContent as getContent } from 'fusion:content';
 import get from '../../../private/common/utils/get';
 import getSectionName from '../../../private/LN/common/utils/getSectionName';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
-import { useContent as getContent } from 'fusion:content';
 
+export const RANKING_LAYOUT = 'ranking-1-2-2_grid';
 export const RANKING = 'Ranking';
 
 export const getRankingProps = (layout, featureId, globalContent) => {

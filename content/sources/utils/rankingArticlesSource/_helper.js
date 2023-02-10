@@ -105,6 +105,8 @@ export const getQuery = (sectionId, layout) => {
     const { layoutsName = {} } = siteConfig;
     const finalSize = layoutsName.HomeLN10 ? MINIMUM_ITEMS + 1 : MINIMUM_ITEMS;
 
+    console.log({ finalSize });
+
     const { type, endpoint, days, name = '', size = finalSize } =
         config[sectionId] || config.home;
     return {
