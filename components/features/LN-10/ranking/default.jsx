@@ -33,7 +33,8 @@ const RankingFeature = ({ id: featureId }) => {
             sectionId,
             sectionParentId,
             website || arcSite,
-            hasHydrateOnly
+            hasHydrateOnly,
+            layout
         ) || {};
 
     useEffect(() => {

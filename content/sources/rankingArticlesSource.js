@@ -53,8 +53,8 @@ const fetch = query => {
 };
 
 const transform = (data, query) => {
-    const sectionId = get(query, 'sectionId', '');
-    const { size, name } = getQuery(sectionId);
+    const { sectionId = '', layout } = query;
+    const { size, name } = getQuery(sectionId, layout);
 
     return data.length === size
         ? { articles: transformData(data, query), size, name }
