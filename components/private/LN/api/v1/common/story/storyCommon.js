@@ -23,7 +23,10 @@ export const storyHeadline = (dataNota, type) => {
     if (dataNota.subtype === '9' && type === 'global') return null;
 
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
-    const { publish_date: publishDate, display_date: displayDate } = dataNota;
+    const {
+        first_publish_date: publishDate,
+        display_date: displayDate
+    } = dataNota;
 
     const { date: formatPublishDate, time: formatUpdateTime } = dateAndTimeUtil(
         publishDate

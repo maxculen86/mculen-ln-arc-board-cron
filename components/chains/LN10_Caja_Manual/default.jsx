@@ -3,7 +3,6 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import { Bngrid } from '@ln/contenidos-ui-bngrid';
 import {
     getCommonProps,
     getMarkupForDatalayer
@@ -17,7 +16,9 @@ import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDy
 
 import BuildRoof from '../utils/_BuildRoof/default';
 import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
+import '../../../resources/packages/css/@ln/contenidos-ui-contentlab/index.css';
 import { setSlicedChildren } from '../utils/_helpers';
+import getComponent from '../utils/getComponent';
 
 const CajaManual = props => {
     const {
@@ -78,6 +79,8 @@ const CajaManual = props => {
             featureId: chainId
         }) || {};
 
+    const ContainerCards = getComponent(chainStyle, layout);
+
     return (
         <StaticContent {...extraOptsDiv}>
             {setRender({
@@ -90,12 +93,12 @@ const CajaManual = props => {
                     default: (
                         <>
                             <BuildRoof {...roofData} />
-                            <Bngrid
+                            <ContainerCards
                                 gridType={getGridType(layout)}
                                 gridStyle={chainStyle}
                             >
                                 {articles}
-                            </Bngrid>
+                            </ContainerCards>
                             {bannerMob}
                             {bannerDsk}
                         </>

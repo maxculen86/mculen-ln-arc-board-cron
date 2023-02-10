@@ -230,6 +230,17 @@ const diagramationRules = diagramation => {
                 withMedia: false
             }
         ],
+        cajaContent1: [
+            {
+                titleTag: 'h2',
+                subheadTag: 'h3',
+                withSection: true,
+                withSubhead: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true
+            }
+        ],
         bombitaMas4: [
             {
                 titleTag: 'h2',
