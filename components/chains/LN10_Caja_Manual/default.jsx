@@ -1,107 +1,108 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import { Bngrid } from '@ln/contenidos-ui-bngrid';
 import {
-    cajaTemasCustomsFields,
-    getCommonProps
+    getCommonProps,
+    getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
-import CajaTema from '../../private/LN/common/cajaTema';
-import { productClickFromClient } from '../../private/common/utils/viewability';
+import { validateCajaManual } from './_helper';
+import getGridType from '../utils/getGridType';
+import setRender from '../utils/setRender';
+import setCommonCustomFields from '../utils/setCommonCustomFields';
 import StaticContent from '../../private/common/staticContent';
-import getDataChainManual from '../utils/getDataChainManual';
-import WarningMessage from '../../private/common/warningMessage/warningMessage';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
+
+import BuildRoof from '../utils/_BuildRoof/default';
+import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
+import { setSlicedChildren } from '../utils/_helpers';
 
 const CajaManual = props => {
     const {
-        id: featureId,
+        id: chainId,
         isAdmin,
-        customFields: { url, title, layout = '', imageId, hideTitle, hideCaja },
-        outputType,
+        customFields: {
+            title,
+            layout = '',
+            hideTitle,
+            hideCaja,
+            link,
+            linkButton,
+            chainStyle,
+            logoId,
+            buttonStyle,
+            buttonText,
+            navigator
+        },
         childProps,
         children,
-        renderables = [],
-        layout: pageLayout
+        renderables = []
     } = props;
 
-    if (hideCaja)
-        return (
-            <StaticContent id={featureId}>
-                <></>
-            </StaticContent>
-        );
+    const { position, positionInsideSection } = getCommonProps(props);
 
-    const {
-        notesQuantity,
-        classCondition,
+    const error = validateCajaManual(layout, childProps);
+
+    const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
+        '',
+        layout,
         position,
-        sectionName,
+        '',
         positionInsideSection
-    } = getCommonProps(props);
-
-    const {
-        filteredChildren,
-        isInApertura,
-        isMultimedia,
-        features,
-        error
-    } = getDataChainManual({
-        featureId,
-        renderables,
-        childProps,
-        children,
-        layout
-    });
-
-    if (isAdmin && error) {
-        return (
-            <WarningMessage
-                id={featureId}
-                type={error.type}
-                message={error.message}
-            />
-        );
-    }
-
-    if (error) return <></>;
-
-    const { bannerMob = undefined, bannerDsk = undefined } = getDynamicBanners({
-        renderables,
-        featureId
-    });
-
-    const Component = (
-        <>
-            <CajaTema
-                title={title}
-                hideTitle={hideTitle}
-                url={url}
-                imageId={imageId}
-                outputType={outputType}
-                layout={layout}
-                classCondition={`${classCondition}${(isInApertura &&
-                    layout.includes('focal') &&
-                    ' --apertura') ||
-                    ''}`}
-                notesQuantity={notesQuantity}
-                position={position}
-                positionInsideSection={positionInsideSection}
-                sectionName={sectionName}
-                _children={filteredChildren}
-                handleClick={productClickFromClient}
-                features={features}
-                pageLayout={pageLayout}
-                isMultimedia={isMultimedia}
-            />
-            {bannerMob}
-            {bannerDsk}
-        </>
     );
-    return isMultimedia ? (
-        Component
-    ) : (
-        <StaticContent id={featureId}>{Component}</StaticContent>
+
+    const articles = setSlicedChildren({
+        config: { layout },
+        children
+    });
+
+    const roofData = {
+        title,
+        titleLink: link,
+        logoId,
+        buttonText,
+        linkButton,
+        buttonStyle,
+        hideRoof: hideTitle,
+        navigationId: navigator,
+        isAdmin,
+        chainStyle,
+        isManual: true
+    };
+
+    const { bannerMob = undefined, bannerDsk = undefined } =
+        getDynamicBanners({
+            renderables,
+            featureId: chainId
+        }) || {};
+
+    return (
+        <StaticContent {...extraOptsDiv}>
+            {setRender({
+                chainId,
+                viewabilityData,
+                isAdmin,
+                error,
+                hideBox: hideCaja,
+                extraOptions: {
+                    default: (
+                        <>
+                            <BuildRoof {...roofData} />
+                            <Bngrid
+                                gridType={getGridType(layout)}
+                                gridStyle={chainStyle}
+                            >
+                                {articles}
+                            </Bngrid>
+                            {bannerMob}
+                            {bannerDsk}
+                        </>
+                    )
+                }
+            })}
+        </StaticContent>
     );
 };
 
@@ -112,7 +113,7 @@ CajaManual.propTypes = {
     isAdmin: PropTypes.bool.isRequired,
     outputType: PropTypes.string,
     customFields: PropTypes.shape({
-        ...cajaTemasCustomsFields('cajaManual')
+        ...setCommonCustomFields('cajaManual')
     }).isRequired
 };
 

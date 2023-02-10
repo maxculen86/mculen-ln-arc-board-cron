@@ -37,6 +37,10 @@ import {
     addHttpsInterstitialLink,
     addHttpsLinkInParagraphs
 } from './utils/articleSourceNota/_helper';
+import {
+    addForwardSlashInInterstitialLink,
+    addForwardSlashInParagraphsLinks
+} from '../../components/private/LN/common/utils/addForwardSlash';
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -332,14 +336,18 @@ const transformContent = async (
             resp.content_elements[i] = replaceTagInTextListRaw(e, 'TERCERA=""');
 
             if (e.type === 'interstitial_link') {
-                resp.content_elements[i].url = addHttpsInterstitialLink(
-                    resp.content_elements[i].url
+                resp.content_elements[
+                    i
+                ].url = addForwardSlashInInterstitialLink(
+                    addHttpsInterstitialLink(resp.content_elements[i].url)
                 );
             }
 
             if (e.type === 'text') {
-                resp.content_elements[i].content = addHttpsLinkInParagraphs(
-                    resp.content_elements[i].content
+                resp.content_elements[
+                    i
+                ].content = addForwardSlashInParagraphsLinks(
+                    addHttpsLinkInParagraphs(resp.content_elements[i].content)
                 );
             }
         });
