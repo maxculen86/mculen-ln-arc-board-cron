@@ -7,6 +7,7 @@ import { addResizedUrls } from '../../../../components/private/common/utils/imag
 import config, { HOT_SECTION, COLD_SECTION, DEFAULT_SECTION } from './_config';
 import get from '../../../../components/private/common/utils/get';
 import getPresets from '../presets';
+import siteConfig from '../../../../properties/sites/la-nacion-ar';
 
 const STORY_QUERY_LIMIT = 30;
 export const MINIMUM_ITEMS = 4;
@@ -94,13 +95,17 @@ export const resolveUri = key => {
     return `${requestUri}?${uriParams}&body=${encodedBody}`;
 };
 
-export const getQuery = sectionId => {
+export const getQuery = (sectionId, layout) => {
     const daysBySection = {
         [HOT_SECTION]: 2,
         [COLD_SECTION]: 7,
         [DEFAULT_SECTION]: 1
     };
-    const { type, endpoint, days, name = '', size = MINIMUM_ITEMS } =
+
+    const { layoutsName = {} } = siteConfig;
+    const finalSize = layoutsName.HomeLN10 ? MINIMUM_ITEMS + 1 : MINIMUM_ITEMS;
+
+    const { type, endpoint, days, name = '', size = finalSize } =
         config[sectionId] || config.home;
     return {
         endpoint: endpoint || `/most-readed-by-sections?Sections=${sectionId}`,

@@ -412,6 +412,48 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 cardSize: 'm'
             }
+        ],
+        'ranking-1-2-2_grid': [
+            {
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                cardSize: 'l'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-right'
+                },
+                cardSize: 'l'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-right'
+                },
+                cardSize: 'l'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-right'
+                },
+                cardSize: 'l'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-right'
+                },
+                cardSize: 'l'
+            }
         ]
     };
     return diagramations[diagramation];

@@ -13,8 +13,8 @@ import {
 } from './utils/rankingArticlesSource/_helper';
 
 const fetch = query => {
-    const { sectionId, arcSite } = query;
-    const newQuery = { ...query, ...getQuery(sectionId) };
+    const { sectionId, arcSite, layout } = query;
+    const newQuery = { ...query, ...getQuery(sectionId, layout) };
     const { endpoint, size } = newQuery;
     const uriArcServicesAPI = `https://arcservices.lanacion.com.ar/api/v1/analytics${endpoint}`;
     const source = 'content/sources/rankingArticlesSource';
@@ -55,6 +55,7 @@ const fetch = query => {
 const transform = (data, query) => {
     const sectionId = get(query, 'sectionId', '');
     const { size, name } = getQuery(sectionId);
+
     return data.length === size
         ? { articles: transformData(data, query), size, name }
         : {};
