@@ -1,7 +1,6 @@
 import pageBuilderValidator from '../../../../private/common/utils/pageBuilderValidator';
-import { CHAIN_STYLE } from '../../_helpers';
+import hasDataRoof from './hasDataRoof';
 
-const { HASHTAG } = CHAIN_STYLE;
 const validateRoof = ({
     logoData,
     linksData,
@@ -32,7 +31,7 @@ const validateRoof = ({
         }
     ];
 
-    return chainStyle !== HASHTAG && pageBuilderValidator(rules);
+    return hasDataRoof({ chainStyle }) && pageBuilderValidator(rules);
 };
 
 export default validateRoof;

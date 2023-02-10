@@ -7,7 +7,7 @@ import useGetLinks from './_helper/useGetLinks';
 import useGetLogo from './_helper/useGetLogo';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import '../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
-import { CHAIN_STYLE } from '../_helpers';
+import hasDataRoof from './_helper/hasDataRoof';
 
 export default function BuildRoof(props) {
     const {
@@ -22,8 +22,6 @@ export default function BuildRoof(props) {
         navigationId,
         isAdmin
     } = props;
-
-    const { HASHTAG } = CHAIN_STYLE;
 
     const logo = useGetLogo(logoId, title);
     const links = useGetLinks({ navigationSection: navigationId });
@@ -44,14 +42,14 @@ export default function BuildRoof(props) {
         return <WarningMessage type={error.type} message={error.message} />;
     }
 
-    const propsLeft = chainStyle !== HASHTAG && {
+    const propsLeft = hasDataRoof({ chainStyle }) && {
         logo,
         href: titleLink,
         text: !logo && title,
         title
     };
 
-    const propsRight = chainStyle !== HASHTAG && {
+    const propsRight = hasDataRoof({ chainStyle }) && {
         navData: links,
         buttonType: buttonStyle || 'generico',
         textButton: buttonText,

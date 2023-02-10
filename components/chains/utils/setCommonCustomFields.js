@@ -24,7 +24,8 @@ const customFieldsRules = {
         layouts: {
             bnGrilla4: 'BN Grilla 4',
             bnGrilla8: 'BN Grilla 8',
-            'hash-1-2-2-2_grid': 'HashTag'
+            'hash-1-2-2-2_grid': 'HashTag',
+            cajaContent1: 'Caja Content'
         },
         defaultLayout: 'bnGrilla4'
     },
@@ -35,7 +36,8 @@ const customFieldsRules = {
         groupName: 'Ajuste Manual',
         layouts: {
             bnGrilla4: 'BN Grilla 4',
-            bnGrilla8: 'BN Grilla 8'
+            bnGrilla8: 'BN Grilla 8',
+            cajaContent1: 'Caja Content'
         },
         defaultLayout: 'bnGrilla4'
     }

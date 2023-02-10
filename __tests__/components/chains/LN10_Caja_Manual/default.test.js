@@ -175,4 +175,32 @@ describe('Tests Chain CajaManual', () => {
             ).toHaveLength(8);
         });
     });
+
+    describe('Tests for the case of Content Lab', () => {
+        test('should return a grid of 1 items', () => {
+            const fields = {
+                ...customFields,
+                layout: 'cajaContent1'
+            };
+            const children = [mockedArticleFeature];
+
+            const { container } = render(
+                <CajaManual
+                    {...getProps({
+                        customFields: fields,
+                        children
+                    })}
+                />
+            );
+
+            expect(
+                container.getElementsByTagName('mocked-articlefeature')
+            ).toHaveLength(1);
+            expect(
+                container.getElementsByClassName('content-lab')
+            ).toHaveLength(1);
+
+            screen.debug();
+        });
+    });
 });
