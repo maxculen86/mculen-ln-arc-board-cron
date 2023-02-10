@@ -1,24 +1,34 @@
-import {
-    validateFeature,
-    getCommonPropsJson,
-    getArticlesFromMyCurrentCollection,
-    getIdsArticlesFromOtherCollections
-} from '../../../../common/utils/cajaTemasValidators';
 import get from '../../../../../common/utils/get';
 import {
-    validateFieldsChains,
+    validatePropsChains,
     findKeyTypeChain
-} from './utils/validateFieldsChains';
+} from './utils/validatePropsChains';
 import respChain from './respCajaCollection';
 
 class GetCajaManual {
-    constructor(props) {
-        this.typeChain = findKeyTypeChain(props);
-        this.props = validateFieldsChains(props, this.typeChain);
-
+    constructor(props, typeChain, validateFn) {
+        this.typeChain = typeChain || findKeyTypeChain(props);
+        this.props = validatePropsChains(props, this.typeChain);
         this.state = {};
+        if (validateFn) {
+            const error = validateFn(this.props);
+            const respError =
+                typeof error === 'object' ? JSON.stringify(error) : '';
+            const paramsChain =
+                this.props && this.props.customFields
+                    ? JSON.stringify(this.props.customFields)
+                    : '';
 
-        const imageId = get(this.props, 'customFields.imageId', '');
+            if (error) {
+                const respMsjError = `${respError}-${paramsChain}`;
+                // eslint-disable-next-line no-console
+                console.warn(`${respError}`, `ErrorChainManual`);
+                this.error = respMsjError;
+                return this;
+            }
+        }
+
+        const imageId = get(this.props, 'customFields.imageId', null);
         const idCollection = get(this.props, 'customFields.idCollection', '');
 
         // OJO: Esto es un codigo temporal solo para simular en caso de venir los parametros del boton
@@ -66,6 +76,10 @@ class GetCajaManual {
     render() {
         try {
             const { containerImage } = this.state || {};
+            if (this.error) {
+                console.log(this.error);
+                return null;
+            }
             return respChain(containerImage, this.props);
         } catch (err) {
             return { Success: false, Message: err.message };
