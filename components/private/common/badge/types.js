@@ -3,3 +3,6 @@ export const LIVEBLOG = 'liveblog';
 export const LIVEBLOG_RED = 'liveblog-red';
 export const SPONSORED = 'sponsored';
 export const EXCLUSIVE_LN = 'exclusive-ln';
+export const POSITIVE = 'positive';
+export const NEGATIVE = 'negative';
+export const LIVE = 'live';

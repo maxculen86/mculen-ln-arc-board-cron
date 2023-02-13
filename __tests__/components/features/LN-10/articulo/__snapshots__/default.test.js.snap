@@ -13,8 +13,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
     <a
       class="link ln-link --d-flex --flex-col --unstyled"
       href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
-      rel="nofollow"
-      target="_blank"
+      target="_self"
       title="LeadNota Nota"
     >
       <section
@@ -66,8 +65,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
     <a
       class="link ln-link --d-flex --flex-col --unstyled"
       href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
-      rel="nofollow"
-      target="_blank"
+      target="_self"
       title="LeadNota Nota"
     >
       <section

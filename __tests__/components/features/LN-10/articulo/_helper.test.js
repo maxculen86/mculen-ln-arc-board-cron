@@ -355,9 +355,9 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             });
         });
 
-        test('Should return an object with the text "live" and the style "liveblog-red" which it receives when the variant is liveblog and the style and text parameters are undefined.', () => {
+        test('Should return an object with the text "live" and the style "live" which it receives when the variant is liveblog and the style and text parameters are undefined.', () => {
             expect(getBadgetConfig(undefined, undefined, true)).toStrictEqual({
-                badgetStyle: 'liveblog-red',
+                badgetStyle: 'live',
                 badgetText: 'vivo'
             });
         });

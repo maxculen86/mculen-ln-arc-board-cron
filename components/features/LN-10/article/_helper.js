@@ -10,6 +10,19 @@ import diagramationRules from '../../../private/common/utils/diagramationRules';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
 import transformImageData from '../../../private/common/LN-10/transformImageData';
+import {
+    POSITIVE,
+    NEGATIVE,
+    LIVE,
+    EXCLUSIVE_LN
+} from '../../../private/common/badge/types';
+
+export const typeBadge = {
+    0: POSITIVE,
+    1: NEGATIVE,
+    2: LIVE,
+    3: EXCLUSIVE_LN
+};
 
 const promoItemsBasic = 'promo_items.basic';
 
@@ -58,13 +71,13 @@ export const validateVariant = (variant, authorsQuantity) =>
 export const getBadgetConfig = (style, text, isLiveblog, withMedia) => {
     if (isLiveblog) {
         return {
-            badgetStyle: style || 'liveblog-red',
+            badgetStyle: style || 'live',
             badgetText: text || 'vivo'
         };
     }
 
     return {
-        badgetStyle: style,
+        badgetStyle: style || undefined,
         badgetText: withMedia && text
     };
 };
