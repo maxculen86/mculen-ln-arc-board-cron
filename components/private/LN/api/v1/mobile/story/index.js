@@ -3,15 +3,23 @@ import {
     storyCommon,
     storyHeadline
 } from '../../../common/elements/story/storyCommon';
+import { validateIdsPromoItems } from '../../../common/elements/story/apertura/utils/helpers';
 import apertura from './apertura/aperturaArticle';
 import cuerpo from './cuerpo/index';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 
-const indexNota = dataNota => {
+const indexNota = dataNotaParam => {
+    if (!dataNotaParam) throw new Error(`La información de la nota esta vacia`);
+    const dataNota = dataNotaParam;
+    // Validate Promo_Items by Nulls ids
+    if (dataNota && dataNota.promo_items) {
+        dataNota.promo_items = validateIdsPromoItems(dataNota.promo_items);
+    }
+    const elements = cuerpo(dataNota);
     const resp = {
-        ...storyCommon(dataNota, cuerpo),
+        ...storyCommon(dataNota, elements.elements),
         ...storyHeadline(dataNota, 'mobile'),
-        apertura: apertura(dataNota)
+        apertura: apertura(dataNota, elements.idsElements)
     };
 
     let elmentsAdd = 0;

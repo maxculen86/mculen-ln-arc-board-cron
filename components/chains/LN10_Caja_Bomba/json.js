@@ -1,35 +1,38 @@
-// LN_Caja_Manual
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
+import GetCajaManual from '../../private/LN/api/global/home/chains/getCajaManual';
+import { getChildrenFromSectionHome } from '../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
+import { validateChainBomba, getIsPreOpening } from './common/_helper-WebApi';
 import respChain from '../../private/LN/api/global/home/chains/respCajaCollection';
 
 class CajaBomba {
     constructor(props) {
         this.props = props;
-
-        const imageId = get(props, 'customFields.imageId', '');
-        const idCollection = get(props, 'customFields.idCollection', '');
-
-        imageId &&
-            imageId.trim() &&
-            this.fetchContent({
-                containerImage: {
-                    source: 'relatedImageSource',
-                    query: {
-                        id: imageId.trim(),
-                        published: true,
-                        imageConfig: 'techoImagen',
-                        'arc-site': 'la-nacion-ar',
-                        nid: `idCollection: ${idCollection}`,
-                        boxType: 'CajaManual'
-                    }
-                }
-            });
+        this.Chain = Consumer(
+            new GetCajaManual(this.props, 'bomba', this.validate)
+        );
     }
+
+    validate = propsValidate => {
+        const {
+            id: chainId,
+            customFields: { layout = 'vertical' } = {},
+            children,
+            renderables = []
+        } = propsValidate;
+
+        const preOpeningChildren = getChildrenFromSectionHome(
+            renderables,
+            'Pre_Apertura',
+            1
+        );
+        const isPreOpening = getIsPreOpening(preOpeningChildren, chainId);
+        return validateChainBomba(layout, children, isPreOpening);
+    };
 
     render() {
         try {
-            const { containerImage } = this.state || {};
+            const { containerImage } = this.Chain.state || {};
             return respChain(containerImage, this.props);
         } catch (err) {
             return { Success: false, Message: err.message };

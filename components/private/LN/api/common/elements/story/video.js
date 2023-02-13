@@ -1,5 +1,5 @@
 import get from '../../../../../common/utils/get';
-import VideoCommon from '../video';
+import { videoCommon as VideoCommon, videos as Videos } from '../video';
 import VideoThumbnail from '../video/thumbnail';
 
 const videoNota = videoData => {
@@ -26,6 +26,11 @@ const videoNota = videoData => {
     if (!video) return null;
 
     resp.multimedioFile = video;
+
+    const videos = Videos(videoData.streams);
+    if (!videos) return null;
+
+    resp.multimedioFiles = videos;
 
     const thumbail = VideoThumbnail(videoData.promo_items);
     if (thumbail) {
@@ -67,6 +72,11 @@ export const videoNotaMobile = videoData => {
     if (!video) return null;
 
     resp.multimediaFile = video;
+
+    const videos = Videos(videoData.streams);
+    if (!videos) return null;
+
+    resp.multimediaFiles = videos;
 
     const thumbail = VideoThumbnail(videoData.promo_items);
     if (thumbail) {

@@ -11,7 +11,7 @@ const configToSetProperties = {
     suscriptor: setFieldsSuscriptorInChain
 };
 
-export const validateFieldsChains = (props, keyTypeChain) => {
+export const validatePropsChains = (props, keyTypeChain) => {
     if (!props) {
         throw new TypeError('The props missing in collection');
     }

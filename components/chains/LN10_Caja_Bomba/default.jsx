@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
 
@@ -14,14 +15,17 @@ import {
     validateChainBomba,
     getIsPreOpening,
     getClassCondition,
-    getChildrenOfBomba
+    getChildrenOfBomba,
+    hasVariantNotRegular
 } from './_helper';
 import setRender from '../utils/setRender';
+import StaticContent from '../../private/common/staticContent';
 import '../../../resources/packages/css/@ln/contenidos-ui-bomba/index.css';
 import '../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../resources/packages/css/@ln/common-ui-media/index.css';
 import '../../../resources/packages/css/@ln/common-ui-image/index.css';
 import '../../../resources/packages/css/@ln/common-ui-video/index.css';
+import { setSlicedChildren } from '../utils/_helpers';
 
 const CajaBomba = props => {
     const {
@@ -40,18 +44,30 @@ const CajaBomba = props => {
 
     const childrenOfBomba = getChildrenOfBomba(preOpeningChildren, chainId);
 
+    const slicedChildren = setSlicedChildren({
+        children,
+        config: { layout }
+    });
+
     const [clasCondition, setClasCondition] = useState(
         getClassCondition(layout, childrenOfBomba, chainId)
     );
 
+    const hasNotVariantRegular = hasVariantNotRegular(childrenOfBomba);
+
     const { classCondition, diagramation } = clasCondition;
 
     const isPreOpening = getIsPreOpening(preOpeningChildren, chainId);
-    const error = validateChainBomba(layout, children, isPreOpening);
+    const error = validateChainBomba(
+        layout,
+        slicedChildren,
+        isPreOpening,
+        hasNotVariantRegular
+    );
 
     const { position, positionInsideSection } = getCommonProps(props);
 
-    const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+    const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
         '',
         layout,
         position,
@@ -60,7 +76,7 @@ const CajaBomba = props => {
     );
 
     const sectionProps = {
-        ...extraOpts,
+        ...viewabilityData,
         className: classCondition
     };
 
@@ -72,23 +88,29 @@ const CajaBomba = props => {
         }
     }, [layout, childrenOfBomba, chainId, isAdmin]);
 
-    const Component = (
-        <Bomba
-            data-chain-id={chainId}
-            articles={children}
-            layout={diagramation}
-            id={chainId}
-            {...sectionProps}
-        />
+    return (
+        <StaticContent {...extraOptsDiv}>
+            {setRender({
+                chainId,
+                viewabilityData,
+                isAdmin,
+                error,
+                hideBox: hideCaja,
+                withSection: false,
+                extraOptions: {
+                    default: (
+                        <Bomba
+                            data-chain-id={chainId}
+                            articles={slicedChildren}
+                            layout={diagramation}
+                            id={chainId}
+                            {...sectionProps}
+                        />
+                    )
+                }
+            })}
+        </StaticContent>
     );
-
-    return setRender({
-        isAdmin,
-        error,
-        hideBox: hideCaja,
-        Component,
-        extraOptsDiv
-    });
 };
 
 CajaBomba.label = 'LN10 Caja Bomba';

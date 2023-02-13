@@ -8,14 +8,14 @@ import get from '../../../../../common/utils/get';
 import filter from '../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
 import { getFieldsArticlesByTypeChain } from '../features/article/utils/helpers';
 import {
-    validateFieldsChains,
+    validatePropsChains,
     findKeyTypeChain
-} from './utils/validateFieldsChains';
+} from './utils/validatePropsChains';
 
 class GetCajaCollection {
     constructor(props) {
         this.typeChain = findKeyTypeChain(props);
-        this.props = validateFieldsChains(props, this.typeChain);
+        this.props = validatePropsChains(props, this.typeChain);
 
         const query = this.getQueryElement(this.props);
 

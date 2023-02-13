@@ -13,7 +13,11 @@ import getPresets from './utils/presets';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
 import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
-import { getArticlesToShow, isNotRecommend } from './utils/collectionsHelper';
+import {
+    filterArticlesTypeStory,
+    getArticlesToShow,
+    isNotRecommend
+} from './utils/collectionsHelper';
 import { hasFutureDisplayDate } from '../../components/private/common/utils/dateAndTimeUtil';
 import siteConfig from '../../properties/sites/la-nacion-ar';
 
@@ -138,9 +142,13 @@ const filterArticlesInCollection = (siteProps, originalArticles) => {
         notesQuantity = 3
     } = siteProps || {};
 
+    const articlesStoryOnly = filterArticlesTypeStory(originalArticles);
+
     const articlesRecomended = filterRecomendar
-        ? originalArticles.filter(art => !isNotRecommend(art))
-        : originalArticles;
+        ? articlesStoryOnly.filter(art => {
+              return !isNotRecommend(art);
+          })
+        : articlesStoryOnly;
 
     const articlesNoFuture = filterFutureDisplayDate
         ? articlesRecomended.filter(

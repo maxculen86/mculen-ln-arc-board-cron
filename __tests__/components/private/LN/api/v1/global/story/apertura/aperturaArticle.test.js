@@ -123,8 +123,6 @@ describe('Test de JSON de apertura en article', () => {
             'vtffL1SBl_VEgLefu5k5MrXVvzg=/768x512/smart'
         );
         expect(resp.imagenes[0].epigrafe).toBe(imageData.caption);
-
-        console.log(resp.imagenes[0].parametros[1].firma);
     });
 
     it('Render de imagenes de Story Telling apertura', () => {

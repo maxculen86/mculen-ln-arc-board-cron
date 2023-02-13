@@ -62,7 +62,7 @@ const LN10Home = props => {
             <div id="wrapper" className="home">
                 <div data-section="cabezal">{cabezal}</div>
                 <Header />
-                <div data-section="apertura">{preApertura}</div>
+                <div data-section="pre-apertura">{preApertura}</div>
                 <main id="content">
                     <div data-section="apertura">{apertura}</div>
                     {bannersHome.sticky2Mob}
