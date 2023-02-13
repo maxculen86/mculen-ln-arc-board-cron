@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Roof } from '@ln/contenidos-ui-roof';
 import PropTypes from 'prop-types';
@@ -6,6 +7,7 @@ import useGetLinks from './_helper/useGetLinks';
 import useGetLogo from './_helper/useGetLogo';
 import setRender from '../setRender';
 import '../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
+import hasDataRoof from './_helper/hasDataRoof';
 
 export default function BuildRoof(props) {
     const {
@@ -25,6 +27,7 @@ export default function BuildRoof(props) {
     const links = useGetLinks({ navigationSection: navigationId });
 
     const error = validateRoof({
+        chainStyle,
         logoData: logo,
         linksData: links,
         title,
@@ -35,6 +38,20 @@ export default function BuildRoof(props) {
         linkButton
     });
 
+    const propsLeft = hasDataRoof({ chainStyle }) && {
+        logo,
+        href: titleLink,
+        text: !logo && title,
+        title
+    };
+
+    const propsRight = hasDataRoof({ chainStyle }) && {
+        navData: links,
+        buttonType: buttonStyle || 'generico',
+        textButton: buttonText,
+        hrefButton: linkButton
+    };
+
     return setRender({
         isAdmin,
         error,
@@ -42,19 +59,13 @@ export default function BuildRoof(props) {
         extraOptions: {
             isEmpty: hideRoof && <></>,
             default: !hideRoof && (
-                <Roof roofType={chainStyle || 'generic'}>
-                    <Roof.Left
-                        logo={logo}
-                        href={titleLink}
-                        text={!logo && title}
-                        title={title}
-                    />
-                    <Roof.Right
-                        navData={links}
-                        buttonType={buttonStyle || 'generico'}
-                        textButton={buttonText}
-                        hrefButton={linkButton}
-                    />
+                <Roof
+                    roofType={
+                        (chainStyle && chainStyle.toLowerCase()) || 'generic'
+                    }
+                >
+                    <Roof.Left {...propsLeft} />
+                    <Roof.Right {...propsRight} />
                 </Roof>
             )
         }

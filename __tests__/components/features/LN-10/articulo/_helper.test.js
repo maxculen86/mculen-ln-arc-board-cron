@@ -5,7 +5,12 @@ import {
     getMediaData,
     validateVariant,
     getBadgetConfig,
-    getLiveblogTitles
+    getLiveblogTitles,
+    showMarquee,
+    showMarqueeImage,
+    validateSubhead,
+    showExtraClass,
+    getTypeOfMedia
 } from '../../../../../components/features/LN-10/article/_helper';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
 
@@ -142,19 +147,217 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         expect(validateVariant('regular', 1)).toStrictEqual('regular');
     });
 
+    describe('Tests function showMarquee', () => {
+        test('Should return an name of Author from Marquesina.', () => {
+            expect(
+                showMarquee({ withMarquee: true, marquesina: 'Carlos Pagni' })
+            ).toStrictEqual('Carlos Pagni');
+        });
+
+        test('Should return an name of Author from custom field.', () => {
+            expect(
+                showMarquee({
+                    withMarquee: true,
+                    authors: 'Carlos Pagni',
+                    marquesina: 'Alfredo Palacios'
+                })
+            ).toStrictEqual('Carlos Pagni');
+        });
+
+        test('Should return false if has not withMarquee.', () => {
+            expect(
+                showMarquee({ withMarquee: false, marquesina: 'Carlos Pagni' })
+            ).toStrictEqual(false);
+        });
+
+        test('Should return false if has hideAuthors.', () => {
+            expect(
+                showMarquee({
+                    withMarquee: true,
+                    hideAuthors: true,
+                    marquesina: 'Carlos Pagni'
+                })
+            ).toStrictEqual(false);
+        });
+    });
+
+    describe('Tests function showMarqueeImage', () => {
+        test('Should return an image of Author.', () => {
+            expect(
+                showMarqueeImage({
+                    withMarqueeImg: true,
+                    authorsQuantity: 1,
+                    url: 'una-imagen'
+                })
+            ).toStrictEqual('una-imagen');
+        });
+
+        test('Should not return an image of Author if has custom field.', () => {
+            expect(
+                showMarqueeImage({
+                    withMarqueeImg: true,
+                    authorsQuantity: 1,
+                    authors: 'Autor por Custom Field',
+                    url: 'una-imagen'
+                })
+            ).toStrictEqual(false);
+        });
+
+        test('Should not return an image of Author if has more than 1 author.', () => {
+            expect(
+                showMarqueeImage({
+                    withMarqueeImg: true,
+                    authorsQuantity: 2,
+                    url: 'una-imagen'
+                })
+            ).toStrictEqual(false);
+        });
+
+        test('Should not return an image of Author if has not withMarqueeImg', () => {
+            expect(
+                showMarqueeImage({
+                    withMarqueeImg: false,
+                    authorsQuantity: 1,
+                    url: 'una-imagen'
+                })
+            ).toStrictEqual(false);
+        });
+    });
+
+    describe('Tests function validateSubhead', () => {
+        const config = {
+            withSubhead: false
+        };
+
+        test('Should return a true to show subhead.', () => {
+            expect(validateSubhead(config, false, {}, 'regular')).toStrictEqual(
+                true
+            );
+        });
+
+        test('Should return a true to show subhead if config say yes.', () => {
+            expect(
+                validateSubhead(
+                    {
+                        withSubhead: true
+                    },
+                    false,
+                    {},
+                    'regular'
+                )
+            ).toStrictEqual(true);
+        });
+
+        test('Should return a false to show subhead if variant is liveblog.', () => {
+            expect(
+                validateSubhead(
+                    {
+                        withSubhead: true
+                    },
+                    false,
+                    {},
+                    'liveblog'
+                )
+            ).toStrictEqual(false);
+        });
+
+        test('Should return a false to show subhead if variant is author.', () => {
+            expect(validateSubhead(config, false, {}, 'author')).toStrictEqual(
+                false
+            );
+        });
+
+        test('Should return a false to show subhead if custom field hideDescription is true.', () => {
+            expect(
+                validateSubhead(
+                    {
+                        withSubhead: true
+                    },
+                    false,
+                    { hideDescription: true },
+                    'regular'
+                )
+            ).toStrictEqual(false);
+        });
+
+        test('Should return a false to show subhead if config has withSubheadAndMedia in false.', () => {
+            expect(
+                validateSubhead(
+                    {
+                        withSubhead: true,
+                        withSubheadAndMedia: false
+                    },
+                    false,
+                    {},
+                    'regular'
+                )
+            ).toStrictEqual(false);
+        });
+    });
+
+    describe('Tests function showExtraClass', () => {
+        test('Should return a class for video', () => {
+            expect(
+                showExtraClass(getTypeOfMedia({ video: '123' }), {
+                    video: 'ln-70-video'
+                })
+            ).toStrictEqual('ln-70-video');
+        });
+
+        test('Should return a undefined if no match type with extraClass from config', () => {
+            expect(
+                showExtraClass(getTypeOfMedia({ image: '123' }), {
+                    video: 'ln-70-video'
+                })
+            ).toStrictEqual(undefined);
+        });
+
+        test('Should return a class that match with video type', () => {
+            expect(
+                showExtraClass(getTypeOfMedia({ image: '123', video: '123' }), {
+                    video: 'ln-70-video',
+                    image: 'ln-class'
+                })
+            ).toStrictEqual('ln-70-video');
+        });
+
+        test('Should return a class that match with video type', () => {
+            expect(
+                showExtraClass(getTypeOfMedia({ image: '123' }), {
+                    video: 'ln-70-video',
+                    image: 'ln-class'
+                })
+            ).toStrictEqual('ln-class');
+        });
+
+        test('Should return a undefined if no match type of media with extraClass from config', () => {
+            expect(
+                showExtraClass(getTypeOfMedia({ video: '123' }), {
+                    image: 'ln-70-video'
+                })
+            ).toStrictEqual(undefined);
+        });
+
+        test('Should return a undefined if everything is empty', () => {
+            expect(showExtraClass(getTypeOfMedia({}), {})).toStrictEqual(
+                undefined
+            );
+        });
+    });
+
     describe('Tests function getBadgetConfig', () => {
         test('Should return an object with the text and style it receives by parameter.', () => {
             expect(
-                getBadgetConfig('sponsored', 'chapita', false)
+                getBadgetConfig('sponsored', 'chapita', false, true)
             ).toStrictEqual({
                 badgetStyle: 'sponsored',
                 badgetText: 'chapita'
             });
         });
 
-        test('Should return an object with the text "live" and the style "liveblog-red" which it receives when the variant is liveblog and the style and text parameters are undefined.', () => {
+        test('Should return an object with the text "live" and the style "live" which it receives when the variant is liveblog and the style and text parameters are undefined.', () => {
             expect(getBadgetConfig(undefined, undefined, true)).toStrictEqual({
-                badgetStyle: 'liveblog-red',
+                badgetStyle: 'live',
                 badgetText: 'vivo'
             });
         });

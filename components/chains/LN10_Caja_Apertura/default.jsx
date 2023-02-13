@@ -8,13 +8,10 @@ import { Opening } from '@ln/contenidos-ui-opening';
 
 import {
     setFilteredRenderables,
-    setWrappedChildren,
     validateChain,
-    setQuantityByLayout,
     setCustomFields,
     setRender
 } from './_helper';
-import setSlicedChildren from '../utils/setSliceChildren';
 import getChildrenBySection from '../utils/getChildrenBySection';
 import checkChildInSection from '../utils/checkChildBySection';
 
@@ -26,7 +23,12 @@ import {
     getCommonProps,
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelper';
-import checkChangeChildrenForPB from '../utils/_helpers';
+import {
+    checkChangeChildrenForPB,
+    setWrappedChildren,
+    setSlicedChildren,
+    setQuantityByLayout
+} from '../utils/_helpers';
 
 const CajaApertura = props => {
     const {
@@ -63,8 +65,7 @@ const CajaApertura = props => {
     const featuredChildren = setWrappedChildren(features, children) || [];
 
     const slicedChildrenInitial = setSlicedChildren({
-        setQuantityByLayout,
-        featuredChildren,
+        children: featuredChildren,
         config: { layout, countTimeline: true }
     });
 
@@ -86,7 +87,12 @@ const CajaApertura = props => {
     }, [children]);
 
     const Component = (
-        <Opening data-chain-id={chainId} {...extraOpts} focalType={layout}>
+        <Opening
+            className="lay"
+            data-chain-id={chainId}
+            {...extraOpts}
+            focalType={layout}
+        >
             {slicedChildren}
         </Opening>
     );

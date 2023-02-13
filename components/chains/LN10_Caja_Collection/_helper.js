@@ -2,13 +2,18 @@ import pageBuilderValidator from '../../private/common/utils/pageBuilderValidato
 import getChildrenBySection from '../utils/getChildrenBySection';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 
+import { CHAIN_STYLE } from '../utils/_helpers';
+
+const { HASHTAG, EXCLUSIVE_SUB } = CHAIN_STYLE;
+
 export const validateChain = ({
     idCollection,
     articles = [],
     layout,
     renderables = [],
     chainId,
-    isInBreakings
+    isInBreakings,
+    chainStyle
 }) => {
     const rules = [
         {
@@ -20,20 +25,26 @@ export const validateChain = ({
             message: 'Se requiere el id de la colección'
         },
         {
+            validation: chainStyle === HASHTAG && articles.length < 7,
+            message: 'Se requiere minimo 7 articulos para HashTag'
+        },
+        {
             validation: idCollection && (!articles || !articles.length),
             message: `La colección ${idCollection} no encontró notas`
         },
         {
-            validation: renderables.find(
-                ({ props }) =>
-                    props.customFields &&
-                    props.customFields.chainStyle === 'exclusiveSub' &&
-                    props.id !== chainId
-            ),
+            validation:
+                chainStyle === EXCLUSIVE_SUB &&
+                renderables.find(
+                    ({ props }) =>
+                        props.customFields &&
+                        props.customFields.chainStyle === EXCLUSIVE_SUB &&
+                        props.id !== chainId
+                ),
             message: 'Ya existe una caja collection exclusivo suscriptor'
         },
         {
-            validation: !isInBreakings,
+            validation: !isInBreakings && chainStyle === EXCLUSIVE_SUB,
             message:
                 'La caja collection exclusivo suscriptor debe estar dentro de las secciones Breaking 1 y Breaking 2'
         }

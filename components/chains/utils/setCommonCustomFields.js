@@ -1,17 +1,18 @@
 import PropTypes from 'fusion:prop-types';
 
 const typesButtonStyle = {
-    subExclusive: 'Exclusivo Suscriptor',
+    'sub-exclusive': 'Exclusivo Suscriptor',
     generico: 'Genérico',
     ln: 'LN+'
 };
 // TODO: Renombrar las propiedades segun las clases para cada caso
 const typeStylesChain = {
-    subExclusive: 'Exclusivo Suscriptor',
+    'sub-exclusive': 'Exclusivo Suscriptor',
     properties: 'Propiedades',
     camp: 'Campo',
     welfare: 'Bienestar',
-    mobility: 'Movilidad'
+    mobility: 'Movilidad',
+    HashTag: 'HashTag'
 };
 
 const customFieldsRules = {
@@ -23,7 +24,9 @@ const customFieldsRules = {
         layouts: {
             bnGrilla4: 'BN Grilla 4',
             bnGrilla8: 'BN Grilla 8',
-            bn_2_1_2_grid: 'BN 2 + Focal 1+2'
+            bn_2_1_2_grid: 'BN 2 + Focal 1+2',
+            'hash-1-2-2-2_grid': 'HashTag',
+            cajaContent1: 'Caja Content'
         },
         defaultLayout: 'bnGrilla4'
     },
@@ -34,7 +37,8 @@ const customFieldsRules = {
         groupName: 'Ajuste Manual',
         layouts: {
             bnGrilla4: 'BN Grilla 4',
-            bnGrilla8: 'BN Grilla 8'
+            bnGrilla8: 'BN Grilla 8',
+            cajaContent1: 'Caja Content'
         },
         defaultLayout: 'bnGrilla4'
     }
