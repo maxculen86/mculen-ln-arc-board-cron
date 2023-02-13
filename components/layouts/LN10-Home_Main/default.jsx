@@ -131,9 +131,6 @@ const LN10Home = props => {
                             </div>
                         </div>
                     </div>
-                    <div data-section="ranking" className="lay">
-                        <Ranking {...props} id="inverse-home" />
-                    </div>
                 </main>
                 <Footer />
             </div>
