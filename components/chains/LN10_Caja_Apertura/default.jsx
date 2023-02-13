@@ -87,7 +87,12 @@ const CajaApertura = props => {
     }, [children]);
 
     const Component = (
-        <Opening data-chain-id={chainId} {...extraOpts} focalType={layout}>
+        <Opening
+            className="lay"
+            data-chain-id={chainId}
+            {...extraOpts}
+            focalType={layout}
+        >
             {slicedChildren}
         </Opening>
     );

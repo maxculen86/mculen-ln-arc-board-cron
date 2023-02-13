@@ -3,19 +3,6 @@ import { useContent } from 'fusion:content';
 import liveFilter from '../../../../content/filters/LN/home/liveFilter';
 import get from '../../../private/common/utils/get';
 import getTitleText from '../../../private/common/utils/getTitleText';
-import {
-    A_FONDO,
-    LIVEBLOG,
-    LIVEBLOG_RED,
-    SPONSORED
-} from '../../../private/common/badge/types';
-
-export const typeBadge = {
-    0: A_FONDO,
-    1: LIVEBLOG,
-    2: LIVEBLOG_RED,
-    3: SPONSORED
-};
 
 export const getFieldsFromNotes = index => ({
     [`noteId${index}`]: PropTypes.string.tag({

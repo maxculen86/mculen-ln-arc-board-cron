@@ -424,6 +424,58 @@ const diagramationRules = diagramation => {
                 cardSize: 'm'
             }
         ],
+        'ranking-1-2-2_grid': [
+            {
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-right'
+                },
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-right'
+                },
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-right'
+                },
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-right'
+                },
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
+            }
+        ],
         'hash-1-2-2-2_grid': [
             {
                 withMarquee: false,
@@ -504,6 +556,7 @@ const diagramationRules = diagramation => {
             }
         ]
     };
+
     return diagramations[diagramation];
 };
 export default diagramationRules;
