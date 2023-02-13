@@ -12,6 +12,8 @@ import get from '../../../../common/utils/get';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-cajahashtag/index.css';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-contentlab/index.css';
+import '../../../../../../resources/packages/css/@ln/contenidos-ui-cajaranking/index.css';
+
 import { getDataAttributesForViewability } from '../../../../../features/LN-10/article/_helper';
 
 export default function CommonCollection({
