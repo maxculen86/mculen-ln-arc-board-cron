@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OembedAMP Matches snapshot 1`] = `
+<div
+  class="com-embed --facebook"
+>
+  <amp-facebook
+    data-embed-as="post"
+    data-href="https://www.facebook.com/zuck/posts/10102593740125791"
+    height="310"
+    layout="responsive"
+    width="552"
+  />
+</div>
+`;
