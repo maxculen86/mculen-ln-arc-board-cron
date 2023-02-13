@@ -144,11 +144,6 @@ const ArticleFeature = ({
         variant
     );
 
-    // const isRenderAutor = getIsRenderAutor(customFields, layout);
-    // const label = getLabel(article, customFields, withMedia, layout);
-    // const layoutGrillaVideo = layout === 'grillaVideo1' && '--l';
-    // const titleSizeNoMedia = !withMedia && get(config, 'titleSizeNoMedia');
-
     const videoBackground =
         useContent({
             source: checkForId(videoId) ? 'videoSource' : null,
@@ -181,12 +176,15 @@ const ArticleFeature = ({
         layout
     });
 
-    const { badgetStyle, badgetText } = getBadgetConfig(
-        chapitaStyle,
-        chapita,
+    const typeOfMedia = getTypeOfMedia(customFields);
+
+    const { badgetStyle, badgetText } = getBadgetConfig({
+        style: chapitaStyle,
+        text: chapita,
         isLiveblog,
-        withMedia
-    );
+        withMedia,
+        typeOfMedia
+    });
 
     const {
         imagePosition,
@@ -249,10 +247,7 @@ const ArticleFeature = ({
                     variant={validateVariant(variant, authorsQuantity)}
                     liveblogList={getLiveblogTitles(articleContent)}
                     aspectRatio={get(config, 'aspectRatio', 'ar-picture')}
-                    className={showExtraClass(
-                        getTypeOfMedia(customFields),
-                        extraClass
-                    )}
+                    className={showExtraClass(typeOfMedia, extraClass)}
                 />
             </ErrorBoundary>
         )) ||
