@@ -14,7 +14,8 @@ export const addResizedUrls = (ansDoc, options) => {
         presetsDefault,
         subtype,
         isInApertura,
-        isAdmin
+        isAdmin,
+        shouldUseV2 = false
     } = options;
 
     const {
@@ -39,7 +40,7 @@ export const addResizedUrls = (ansDoc, options) => {
         ...ansDoc,
         ...(contentElements && {
             content_elements: contentElements.map(elem => {
-                if (isAllowSection({ section })) {
+                if (isAllowSection({ section }) || shouldUseV2) {
                     return resizerV2.resizeContentElements(
                         elem,
                         presetsContentElements || presetsDefault,
@@ -86,20 +87,21 @@ export const addResizedUrls = (ansDoc, options) => {
             })
         }),
         ...(promoItems && {
-            promo_items: isAllowSection({ section })
-                ? resizerV2.resizePromoItems(
-                      presetPromoOrDefault,
-                      zoomSizes,
-                      subtype,
-                      promoItems
-                  )
-                : resizerV1.resizePromoItems(
-                      promoItems,
-                      presetPromoOrDefault,
-                      resizer,
-                      zoomSizes,
-                      subtype
-                  )
+            promo_items:
+                isAllowSection({ section }) || shouldUseV2
+                    ? resizerV2.resizePromoItems(
+                          presetPromoOrDefault,
+                          zoomSizes,
+                          subtype,
+                          promoItems
+                      )
+                    : resizerV1.resizePromoItems(
+                          promoItems,
+                          presetPromoOrDefault,
+                          resizer,
+                          zoomSizes,
+                          subtype
+                      )
         }),
         ...(credits && {
             credits: resizerV1.resizeCredits(

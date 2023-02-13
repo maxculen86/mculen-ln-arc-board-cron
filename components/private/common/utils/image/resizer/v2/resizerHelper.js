@@ -7,10 +7,17 @@ import {
 } from '../../../subtypes/subtypeHelper';
 import { getAspectRatio } from '../../../../../../../content/sources/utils/getRatio';
 import get from '../../../get';
-import { isValidNumber, isEmptyString } from '../../../dataValidation';
+import {
+    isValidNumber,
+    isEmptyString,
+    isValidString
+} from '../../../dataValidation';
 import { resizeArcImage } from './buildResizerUrls';
 
 const MEDIAMINWIDTH = '(min-width: 768px)';
+
+export const isResizerV2 = url =>
+    isValidString(url) ? new RegExp(/\/resizer\/v2\//).test(url) : false;
 
 // TODO: Optener la config  por default
 export const getDefaultSize = subtype => {
@@ -108,6 +115,17 @@ export const buildQueryParams = ({
     const ext = get(arcImage, 'additional_properties.originalName', '')
         .split('.')
         .pop();
+    const parsedExtension = [
+        'webp',
+        'png',
+        'jpg',
+        'jpeg',
+        'gif',
+        'tiff',
+        'bmp'
+    ].includes(ext.toLowerCase())
+        ? `.${ext}`
+        : '';
 
     const auth = () => (isEmptyString(imgAuth) ? '' : `auth=${imgAuth}`);
 
@@ -142,7 +160,7 @@ export const buildQueryParams = ({
             : `&smart=${smartCropExcluded}`;
 
     const image = imgId
-        ? `${imgId}.${ext}`
+        ? `${imgId}${parsedExtension}`
         : encodeURIComponent(get(arcImage, 'url', ''));
 
     return arcImage

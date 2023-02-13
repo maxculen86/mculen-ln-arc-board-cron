@@ -1,6 +1,6 @@
 import get from '../../../get';
 import { getDefaultSize, resizeArcGallery } from './resizerHelper';
-import { resizeArcImage, resizeUrlCollection } from './buildResizerUrls';
+import { resizeArcImage } from './buildResizerUrls';
 
 export const resizePromoItems = (
     resizeOptions,
