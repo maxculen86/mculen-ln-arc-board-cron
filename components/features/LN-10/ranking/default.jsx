@@ -15,6 +15,8 @@ import articleBoxesTracker from '../../../private/common/utils/noteTracker/artic
 import diagramationRules from '../../../private/common/utils/diagramationRules';
 import CommonCollection from '../../../private/LN10/home/components/CommonCollection/default';
 
+// TODO: agregar test al feature
+
 const RankingFeature = ({ id: featureId }) => {
     const { website, arcSite, layout, globalContent = {} } = useAppContext();
 
