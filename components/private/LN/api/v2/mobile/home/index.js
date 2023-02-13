@@ -1,7 +1,7 @@
 import get from '../../../../../common/utils/get';
 import Image from '../../../common/elements/image';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
-import { cardRegular as Article } from './article/cardRegular/index';
+import { Article } from './article/index';
 import {
     cardAnexoItem as Anexo,
     cardAnexoItemMobile as AnexoMobile

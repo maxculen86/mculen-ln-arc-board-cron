@@ -12,7 +12,8 @@ const index = (articleSourceNota, articleImage, articleVideo, props) => {
         lead,
         chapita,
         opinion,
-        html
+        html,
+        variant
     } = props.customFields;
 
     const additionalProperties = {
@@ -24,7 +25,8 @@ const index = (articleSourceNota, articleImage, articleVideo, props) => {
         opinion,
         image: articleImage || null,
         video: articleVideo || null,
-        html
+        html,
+        variant
     };
     return { ...articleSourceNota, additionalProperties };
 };
