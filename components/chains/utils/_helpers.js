@@ -11,6 +11,15 @@ export const LAYOUTS = {
     BOMBITAMAS4: 'bombitaMas4'
 };
 
+export const CHAIN_STYLE = {
+    HASHTAG: 'HashTag',
+    EXCLUSIVE_SUB: 'Exclusivo Suscriptor',
+    PROPERTIES: 'Propiedades',
+    CAMP: 'Campo',
+    WELFARE: 'Bienestar',
+    MOBILITY: 'Movilidad'
+};
+
 const {
     FOCAL_LEFT,
     FOCAL_CENTER,

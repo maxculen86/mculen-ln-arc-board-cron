@@ -30,7 +30,6 @@
     },
     "dependencies": {
         "@ln/assets-ui-icons": "0.1.1-beta.3",
-        "@ln/common-ui-button": "1.0.1-beta.1",
         "@ln/common-ui-grid": "0.0.1-beta.1",
         "@ln/common-ui-icon": "^0.1.1-beta.3",
         "@ln/common-ui-image": "0.0.1-beta.5",
@@ -45,6 +44,9 @@
         "@ln/contenidos-ui-button": "0.0.2-beta.1",
         "@ln/contenidos-ui-cajaranking": "0.0.1-beta.1",
         "@ln/contenidos-ui-card": "0.0.1-beta.14",
+        "@ln/common-ui-button": "1.0.1-beta.1",
+        "@ln/contenidos-ui-cajahashtag": "0.0.1-beta.3",
+        "@ln/contenidos-ui-cardregular": "0.0.1-beta.6",
         "@ln/contenidos-ui-contentlab": "0.0.1-beta.2",
         "@ln/contenidos-ui-footerhome": "0.0.1-beta.10",
         "@ln/contenidos-ui-header": "0.0.2",

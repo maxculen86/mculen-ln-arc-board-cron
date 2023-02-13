@@ -113,7 +113,8 @@ const CajaCollection = props => {
         renderables,
         layout,
         articles: _articles,
-        chainId
+        chainId,
+        chainStyle
     });
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(

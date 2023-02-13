@@ -1,6 +1,14 @@
 import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
+import { CHAIN_STYLE } from '../utils/_helpers';
 
-export const validateChain = ({ idCollection, articles = [], layout }) => {
+const { HASHTAG } = CHAIN_STYLE;
+
+export const validateChain = ({
+    idCollection,
+    articles = [],
+    layout,
+    chainStyle
+}) => {
     const rules = [
         {
             validation: !layout,
@@ -9,6 +17,10 @@ export const validateChain = ({ idCollection, articles = [], layout }) => {
         {
             validation: !idCollection,
             message: 'Se requiere el id de la colección'
+        },
+        {
+            validation: chainStyle === HASHTAG && articles.length < 7,
+            message: 'Se requiere minimo 7 articulos para HashTag'
         },
         {
             validation: idCollection && (!articles || !articles.length),

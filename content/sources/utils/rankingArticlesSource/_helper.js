@@ -95,6 +95,8 @@ export const resolveUri = key => {
     return `${requestUri}?${uriParams}&body=${encodedBody}`;
 };
 
+// TODO: testear getQuery con la nueva lógica de layout
+
 export const getQuery = (sectionId, layout) => {
     const daysBySection = {
         [HOT_SECTION]: 2,
@@ -105,8 +107,6 @@ export const getQuery = (sectionId, layout) => {
     const { layoutsName = {} } = siteConfig;
     const finalSize =
         layoutsName.HomeLN10 === layout ? MINIMUM_ITEMS + 1 : MINIMUM_ITEMS;
-
-    console.log({ finalSize, layout });
 
     const { type, endpoint, days, name = '', size = finalSize } =
         config[sectionId] || config.home;

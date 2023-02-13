@@ -475,8 +475,88 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 withMarqueeImg: false
             }
+        ],
+        'hash-1-2-2-2_grid': [
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            }
         ]
     };
+
     return diagramations[diagramation];
 };
 export default diagramationRules;

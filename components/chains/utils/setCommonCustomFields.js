@@ -11,7 +11,8 @@ const typeStylesChain = {
     properties: 'Propiedades',
     camp: 'Campo',
     welfare: 'Bienestar',
-    mobility: 'Movilidad'
+    mobility: 'Movilidad',
+    HashTag: 'HashTag'
 };
 
 const customFieldsRules = {
@@ -23,6 +24,7 @@ const customFieldsRules = {
         layouts: {
             bnGrilla4: 'BN Grilla 4',
             bnGrilla8: 'BN Grilla 8',
+            'hash-1-2-2-2_grid': 'HashTag',
             cajaContent1: 'Caja Content'
         },
         defaultLayout: 'bnGrilla4'
