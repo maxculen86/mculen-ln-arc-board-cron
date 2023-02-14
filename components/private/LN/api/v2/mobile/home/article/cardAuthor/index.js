@@ -1,9 +1,11 @@
-import { cardRegular as Article } from '../../../../../common/article/cardRegular/index';
+import { CardBasic } from '../../../../../common/article/cardBasic/index';
+import { CardRegular } from '../cardRegular';
 
 export const CardAuthor = article => {
-    return {
-        ...Article(article)
-    };
+    if (CardBasic(article).autores.length > 2) {
+        return CardRegular(article);
+    }
+    return CardBasic(article);
 };
 
 export default CardAuthor;

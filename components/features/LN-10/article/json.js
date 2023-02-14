@@ -1,6 +1,5 @@
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
-import get from '../../../private/common/utils/get';
 import resultArticle from '../../../private/LN/api/global/home/features/article/index';
 import { getFieldsArticlesByTypeChain } from '../../../private/LN/api/global/home/features/article/utils/helpers';
 import { validatePropsFeatures } from '../../../private/LN/api/global/home/features/utils/validatePropsFeatures';
