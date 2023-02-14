@@ -8,7 +8,14 @@ export const LAYOUTS = {
     HORIZONTAL: 'horizontal',
     VERTICAL: 'vertical',
     BOMBITA: 'bombita',
-    BOMBITAMAS4: 'bombitaMas4'
+    BOMBITAMAS4: 'bombitaMas4',
+    BN_FOCAL_1: 'bn_1_grid',
+    BN_2_GRID: 'bn_2_grid',
+    BN_FOCAL_1_MAS_1: 'bn_1_1_grid',
+    BN_FOCAL_1_MAS_2: 'bn_1_2_grid',
+    BN_FOCAL_1_MAS_3: 'bn_1_3_grid',
+    BN_FOCAL_1_MAS_4: 'bn_1_4_grid',
+    BN_2_FOCAL_1_MAS_2: 'bn_2_1_2_grid'
 };
 
 export const CHAIN_STYLE = {
@@ -28,7 +35,14 @@ const {
     HORIZONTAL,
     VERTICAL,
     BOMBITA,
-    BOMBITAMAS4
+    BOMBITAMAS4,
+    BN_FOCAL_1,
+    BN_2_GRID,
+    BN_FOCAL_1_MAS_1,
+    BN_FOCAL_1_MAS_2,
+    BN_FOCAL_1_MAS_3,
+    BN_FOCAL_1_MAS_4,
+    BN_2_FOCAL_1_MAS_2
 } = LAYOUTS;
 
 export const checkChangeChildrenForPB = ({
@@ -101,6 +115,13 @@ export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
         [VERTICAL]: 1,
         [BOMBITA]: 1,
         [BOMBITAMAS4]: 5,
+        [BN_FOCAL_1]: 1,
+        [BN_2_GRID]: 2,
+        [BN_FOCAL_1_MAS_1]: 2,
+        [BN_FOCAL_1_MAS_2]: 3,
+        [BN_FOCAL_1_MAS_3]: 4,
+        [BN_FOCAL_1_MAS_4]: 5,
+        [BN_2_FOCAL_1_MAS_2]: 5,
         default: Number(layout && layout.slice(-1)) || 3
     };
 

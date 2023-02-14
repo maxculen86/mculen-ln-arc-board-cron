@@ -25,7 +25,14 @@ const customFieldsRules = {
             bnGrilla4: 'BN Grilla 4',
             bnGrilla8: 'BN Grilla 8',
             'hash-1-2-2-2_grid': 'HashTag',
-            cajaContent1: 'Caja Content'
+            cajaContent1: 'Caja Content',
+            bn_1_grid: 'BN 1 nota',
+            bn_2_grid: 'BN Grilla 2',
+            bn_1_1_grid: 'BN Focal 1 + 1',
+            bn_1_2_grid: 'BN Focal 1 + 2',
+            bn_1_3_grid: 'BN Focal 1 + 3',
+            bn_1_4_grid: 'BN Focal 1 + 4',
+            bn_2_1_2_grid: 'BN 2 + Focal 1 + 2'
         },
         defaultLayout: 'bnGrilla4'
     },
@@ -37,9 +44,29 @@ const customFieldsRules = {
         layouts: {
             bnGrilla4: 'BN Grilla 4',
             bnGrilla8: 'BN Grilla 8',
-            cajaContent1: 'Caja Content'
+            cajaContent1: 'Caja Content',
+            bn_1_grid: 'BN 1 nota',
+            bn_2_grid: 'BN Grilla 2',
+            bn_1_1_grid: 'BN Focal 1 + 1',
+            bn_1_2_grid: 'BN Focal 1 + 2',
+            bn_1_3_grid: 'BN Focal 1 + 3',
+            bn_1_4_grid: 'BN Focal 1 + 4',
+            bn_2_1_2_grid: 'BN 2 +Focal 1 + 2'
         },
         defaultLayout: 'bnGrilla4'
+    },
+    cajaCanal: {
+        hideInitialPosition: false,
+        hideIdCollection: false,
+        hideHideCaja: false,
+        groupName: 'Ajuste Canales',
+        layouts: {
+            bn_1_1_grid: 'Focal 1 + 1',
+            canal_1_2_grid: 'Canal Focal 1 + 2',
+            canal_1_3_grid: 'Canal Focal 1 + 3',
+            canal_1_4_grid: 'Canal Focal 1 + 4'
+        },
+        defaultLayout: 'canal_1_4_grid'
     }
 };
 

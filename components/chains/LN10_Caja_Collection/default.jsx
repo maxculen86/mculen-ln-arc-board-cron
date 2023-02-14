@@ -21,6 +21,8 @@ import getComponent from '../utils/getComponent';
 import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
 import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 
+// TODO: Pendiente por testear las diagramaciones de Grillas y focales.
+
 const CajaCollection = props => {
     const {
         id: chainId,

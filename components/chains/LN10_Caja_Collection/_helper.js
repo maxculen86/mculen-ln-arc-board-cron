@@ -1,5 +1,6 @@
 import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
-import { CHAIN_STYLE } from '../utils/_helpers';
+import { setQuantityByLayout, CHAIN_STYLE } from '../utils/_helpers';
+import get from '../../private/common/utils/get';
 
 const { HASHTAG } = CHAIN_STYLE;
 
@@ -9,6 +10,9 @@ export const validateChain = ({
     layout,
     chainStyle
 }) => {
+    const articlesLength = get(articles, 'length');
+    const minimum = setQuantityByLayout({ layout });
+
     const rules = [
         {
             validation: !layout,
@@ -25,6 +29,13 @@ export const validateChain = ({
         {
             validation: idCollection && (!articles || !articles.length),
             message: `La colección ${idCollection} no encontró notas`
+        },
+        {
+            validation: articlesLength < minimum,
+            message: `Se requiere la carga de ${minimum -
+                articlesLength} artículo${
+                minimum - articlesLength > 1 ? 's' : ''
+            }`
         }
     ];
 

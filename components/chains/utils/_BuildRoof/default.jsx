@@ -58,7 +58,11 @@ export default function BuildRoof(props) {
     return (
         <>
             {!hideRoof && (
-                <Roof roofType={chainStyle.toLowerCase() || 'generic'}>
+                <Roof
+                    roofType={
+                        (chainStyle && chainStyle.toLowerCase()) || 'generic'
+                    }
+                >
                     <Roof.Left {...propsLeft} />
                     <Roof.Right {...propsRight} />
                 </Roof>

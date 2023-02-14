@@ -81,7 +81,7 @@ describe('Tests Chain CajaManual', () => {
             ).toBeDefined();
 
             expect(
-                screen.getByText('Se requiere la carga de 3 artículos')
+                screen.getByText('Se requiere la carga de 4 artículos')
             ).toBeVisible();
         });
 
@@ -165,7 +165,8 @@ describe('Tests Chain CajaManual', () => {
                 <CajaManual
                     {...getProps({
                         customFields: fields,
-                        children
+                        children,
+                        childProps: [...mockChildProps, ...mockChildProps]
                     })}
                 />
             );
