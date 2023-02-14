@@ -1,7 +1,7 @@
 /* eslint-disable eqeqeq */
 import get from '../../../../../common/utils/get';
 import Image from '../image';
-import Video from '../video';
+import { videoCommon as Video, videos as Videos } from '../video';
 import { authorHomeMobile, articleSignature } from '../author';
 import sentToApps from '../utils/sentToApps';
 import getEmbedHref from '../../../../../common/utils/getEmbedHref';
@@ -18,10 +18,12 @@ const getArticleImage = article => {
 
     return null;
 };
-const getArticleVideo = article => {
+const getArticleVideos = (article, multiple = false) => {
     const videoDefault = get(article, 'additionalProperties.video', null);
     if (videoDefault && videoDefault.type === 'video') {
-        return Video(videoDefault.streams);
+        return multiple
+            ? Videos(videoDefault.streams)
+            : Video(videoDefault.streams);
     }
     return null;
 };
@@ -127,7 +129,8 @@ export const articleItem = article => {
         marquesina: articleSignature(autores, signature),
         seccionPadre: getArticleOpinionSubtype(article),
         imagen: getArticleImage(article),
-        video: getArticleVideo(article),
+        video: getArticleVideos(article),
+        videos: getArticleVideos(article, true),
         opinion: get(article, 'additionalProperties.opinion', false),
         videoYouTube: getYouTubeVideoLink(article),
         enviarApps

@@ -6,7 +6,7 @@ import filterEditoriales from '../../../../../content/filters/LN/acumulado/artic
 const useGetArticleInCollection = (
     notesQuantity,
     diagramation,
-    idCollection = null,
+    idCollection = '',
     size = 2,
     initialPosition = 0,
     idCollectionsInPage = [],
@@ -16,10 +16,12 @@ const useGetArticleInCollection = (
     website = 'la-nacion-ar',
     hasHydrateOnly = false
 ) => {
+    const checkIdCollection =
+        idCollection && idCollection.trim() && idCollection;
     const articleList = useContent({
-        source: (idCollection && 'collectionsSource') || null,
+        source: (checkIdCollection && 'collectionsSource') || null,
         query: {
-            id: idCollection.trim(),
+            id: checkIdCollection,
             size,
             website,
             from: initialPosition,

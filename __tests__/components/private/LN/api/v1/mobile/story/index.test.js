@@ -28,7 +28,7 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.fechaActualizacion).toBe(
             '29 de septiembre de 2020 • 06:09'
         );
-        expect(resp.fecha).toBe('29 de septiembre de 2020 • 09:09');
+        expect(resp.fecha).toBe('6 de julio de 2020 • 12:04');
     });
 
     it('Test paywallStatus cerrada', () => {
@@ -68,7 +68,7 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.enviarApps).toBe(true);
         expect(resp.paywallStatus).toBe('comun');
         expect(resp.fechaActualizacion).toBe('29 de septiembre de 2020');
-        expect(resp.fecha).toBe('29 de septiembre de 2020');
+        expect(resp.fecha).toBe('2 de abril de 2018');
         expect(resp.HTML).toBeUndefined();
     });
 
@@ -78,7 +78,7 @@ describe('Test de index en JSON de nota', () => {
         expect(resp.template).toBe('9');
         expect(resp.paywallStatus).toBe('comun');
         expect(resp.fechaActualizacion).toBe('20 de agosto de 2020 • 12:43');
-        expect(resp.fecha).toBe('25 de septiembre de 2020 • 15:54');
+        expect(resp.fecha).toBe('20 de agosto de 2020 • 12:43');
         expect(resp.apertura).not.toBe(undefined);
         expect(resp.contenido).toBeUndefined();
     });

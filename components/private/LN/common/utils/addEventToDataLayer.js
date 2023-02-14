@@ -2,6 +2,7 @@ import isSSR from './isSSR';
 
 const addEventToDataLayer = ({ category, label, action, event } = {}) => {
     !isSSR() &&
+        window.dataLayer &&
         window.dataLayer.push({
             ...(event && { event }),
             ...(action && { dynamic_action: action }),

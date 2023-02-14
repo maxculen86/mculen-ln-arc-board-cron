@@ -44,28 +44,27 @@ describe('Test aperura article imagen/video validacion defensiva', () => {
 });
 
 describe('Test apetura con raw_html', () => {
-    test('Retorna la apertura_multimedia aún teniendo configurada basic', () => {
+    test('Esto ya debe estar validadod en el content_elements por lo tanto no retorna la apertura_multimedia aún teniendo configurada basic', () => {
         const resp = aperturaArticle(articleWithBothTypes);
 
         expect(resp).not.toBeNull();
-        expect(resp.html).not.toBeNull();
-        expect(resp.html).toEqual('apertura_multimedia');
+        expect(resp.html).toBeUndefined();
+        expect(resp.imagenesAcumulado).toBeUndefined();
     });
 
-    test('Retorna la apertura basic', () => {
+    test('Retorna la apertura basic sin html porque ya debe estar en el content_elements y sin imagenesAcumulado del basic', () => {
         const resp = aperturaArticle(articleBasic);
 
         expect(resp).not.toBeNull();
-        expect(resp.html).not.toBeNull();
-        expect(resp.html).toEqual('Solo basic');
+        expect(resp.html).toBeUndefined();
+        expect(resp.imagenesAcumulado).toBeUndefined();
     });
 
-    test('Retorna la apertura_multimedia', () => {
+    test('Retorna la apertura_multimedia sin html porque este tipo de elemento solo se contempla en el content_elements para apertura', () => {
         const resp = aperturaArticle(articleMultimedia);
 
         expect(resp).not.toBeNull();
-        expect(resp.html).not.toBeNull();
-        expect(resp.html).toEqual('el contenido del html');
+        expect(resp.html).toBeUndefined();
     });
 
     test('No retorna html, configurada solo image en promo_items', () => {

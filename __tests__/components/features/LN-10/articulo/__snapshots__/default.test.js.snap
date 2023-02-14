@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - features - LN-10 - articulo - default should test card autor variant 1`] = `
+<div>
+  <article
+    class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-top --tablet-img-top --desktop-img-top"
+    data-feature-id="f0f9g3fKOoHW25c"
+    data-id="2KOBND62KNFVVBFQZOADNN6WNY"
+    data-notaid="2KOBND62KNFVVBFQZOADNN6WNY"
+    data-pos="0101"
+    data-source="editor"
+  >
+    <a
+      class="link ln-link --d-flex --flex-col --unstyled"
+      href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
+      target="_self"
+      title="LeadNota Nota"
+    >
+      <section
+        class="description-container --relative --d-flex --flex-col"
+        href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
+      >
+        <h1
+          class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+        >
+          <span
+            class="text ln-text lead --prumo --font-black"
+          >
+            LeadNota
+             
+          </span>
+          Nota
+        </h1>
+        <div
+          class="marquee-container --mb-xs --d-flex --ai-center"
+          title="Por "
+        >
+          <div
+            class="marquee-text --d-flex --flex-col --font-2xs"
+          >
+            <span
+              class="text ln-text marquee"
+            >
+              Por 
+              <strong />
+            </span>
+          </div>
+        </div>
+      </section>
+    </a>
+  </article>
+</div>
+`;
+
+exports[`Components - features - LN-10 - articulo - default should test card autor variant 2`] = `
+<div>
+  <article
+    class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-top --tablet-img-top --desktop-img-top"
+    data-feature-id="f0f9g3fKOoHW25c"
+    data-id="2KOBND62KNFVVBFQZOADNN6WNY"
+    data-notaid="2KOBND62KNFVVBFQZOADNN6WNY"
+    data-pos="0101"
+    data-source="editor"
+  >
+    <a
+      class="link ln-link --d-flex --flex-col --unstyled"
+      href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
+      target="_self"
+      title="LeadNota Nota"
+    >
+      <section
+        class="description-container --relative --d-flex --flex-col"
+        href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
+      >
+        <h1
+          class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+        >
+          <span
+            class="text ln-text lead --prumo --font-black"
+          >
+            LeadNota
+             
+          </span>
+          Nota
+        </h1>
+        
+      </section>
+    </a>
+  </article>
+</div>
+`;

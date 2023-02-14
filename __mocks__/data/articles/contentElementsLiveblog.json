@@ -1,0 +1,61 @@
+[
+    {
+        "_id": "PGKIMMMMBZA77PVDS5ZGPL5FPA",
+        "content": "<b>La volatilidad se hace presente en el dólar blue, ya que registra constantes subas y bajas en su precio. </b>En",
+        "type": "text"
+    },
+    {
+        "_id": "JWQGJJEIGZCDDHYXME7DKUVVLA",
+        "embed": {
+            "config": {
+                "date": "2022-07-04",
+                "time": "14:15",
+                "title": "El blue, volátil ",
+                "typeList": "liveblog"
+            }
+        },
+        "subtype": "custom-liveblog",
+        "type": "custom_embed"
+    },
+    {
+        "_id": "ESRXZMJR6JFOLNV7IC3W37X4DU",
+        "content": "estos momentos, se posiciona en los $267 (+11,7%). En tanto, el MEP se ofrece a $270,78 (+9,2%) y el CCL a $281,05 (+11,4%).",
+        "type": "text"
+    },
+    {
+        "_id": "ASARNE6LO5C4XAVR6RH2UXH6CY",
+        "embed": {
+            "config": {
+                "date": "2022-07-04",
+                "time": "13:04",
+                "title": "Bancos vuelven a operar",
+                "typeList": "liveblog"
+            }
+        },
+        "subtype": "custom-liveblog",
+        "type": "custom_embed"
+    },
+    {
+        "_id": "AZOVUPFWORG4JIE64UFHB2KXHM",
+        "content": "Desde las principales entidades financieras del país, aseguran que<b> las operaciones ya funcionan con normalidad.</b> Puertas para adentro indican que se trató de un problema interno<b> por la inusual demanda de clientes, lo que saturó los distintos canales de venta. </b>“No se trata de una cuestión financiera bancaria, los depósitos bancarios en dólares están a disposición de todo el mundo”, tranquilizaron.",
+        "type": "text"
+    },
+    {
+        "_id": "I77DP5VPHBFUFALMFXH6A5YVZQ",
+        "embed": {
+            "config": {
+                "date": "2022-07-04",
+                "time": "12:41",
+                "title": "Los títulos soberanos se hunden",
+                "typeList": "liveblog"
+            }
+        },
+        "subtype": "custom-liveblog",
+        "type": "custom_embed"
+    },
+    {
+        "_id": "C6PO7VJ67NDBZPU6UWVKM4VLLA",
+        "content": "Fuerte desplome para los bonos del último canje de deuda. En el exterior,<b> presentan rojos que van desde el 2,5% (Bonar 2029) hasta el 10,7% (Bonar 2041).</b> A nivel local, las mayores caídas son para el AE38 y AL41, ambos del 1,4%.",
+        "type": "text"
+    }
+]

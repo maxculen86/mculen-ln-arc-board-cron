@@ -299,8 +299,6 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 {}
             ];
             const homeSections = LayoutLNMainHome.default(props);
-            console.log(homeSections);
-
             expect(homeSections[2].feature).toBe('Multimedia');
             expect(homeSections[2].information.layout).toBe('grilla1');
         });

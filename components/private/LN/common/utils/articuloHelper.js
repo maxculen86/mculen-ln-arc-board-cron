@@ -13,9 +13,8 @@ const featuredRules = {
     }
 };
 
-const conditionallyCallImageSource = idImage => {
-    return (idImage && idImage.trim() && 'relatedImageSource') || null;
-};
+const conditionallyCallImageSource = idImage =>
+    (idImage && idImage.trim() && 'relatedImageSource') || null;
 
 export const GetImage = ({
     imageId,
@@ -43,7 +42,7 @@ export const GetImage = ({
     );
 };
 
-const featureArticleCustomsFields = featuredName => {
+const featureArticleCustomsFields = (featuredName, isLN10) => {
     return {
         noteId: PropTypes.string.tag({
             name: 'ID de la nota',
@@ -76,6 +75,13 @@ const featureArticleCustomsFields = featuredName => {
             description: 'Ingrese aquí el texto de la marquesina',
             default: ''
         }),
+        ...(isLN10 && {
+            hideAuthors: PropTypes.bool.tag({
+                name: 'Ocultar Firma',
+                description: 'Seleccione si no debe mostrarse la firma',
+                default: false
+            })
+        }),
         hideFeature: PropTypes.bool.tag({
             name: 'Ocultar Bomba',
             description: 'Seleccione si no debe mostrarse la bomba ',
@@ -92,21 +98,38 @@ const featureArticleCustomsFields = featuredName => {
             description: 'Seleccione si no debe mostrarse la bajada en la nota',
             default: false
         }),
-        opinion: PropTypes.bool.tag({
-            name: 'Nota Opinión',
-            description: 'Seleccione si la nota debe mostrarse de tipo opinión',
-            default: false,
-            hidden: featuredRules[featuredName].hideOpinion
+        ...(!isLN10 && {
+            opinion: PropTypes.bool.tag({
+                name: 'Nota Opinión',
+                description:
+                    'Seleccione si la nota debe mostrarse de tipo opinión',
+                default: false,
+                hidden: featuredRules[featuredName].hideOpinion
+            })
         }),
         chapita: PropTypes.string.tag({
             name: 'Chapita',
             description: 'Ingrese aquí el texto de la chapita',
             default: ''
         }),
-        chapitaStyle: PropTypes.string.tag({
-            name: 'Estilo Chapita',
-            description: 'Ingrese aquí la clase CSS de la chapita',
-            default: ''
+        ...(!isLN10 && {
+            chapitaStyle: PropTypes.string.tag({
+                name: 'Estilo Chapita',
+                description: 'Ingrese aquí la clase CSS de la chapita',
+                default: ''
+            })
+        }),
+        ...(isLN10 && {
+            chapitaStyle: PropTypes.oneOf([
+                'negative',
+                'positive',
+                'live',
+                'exclusive-ln'
+            ]).tag({
+                default: '',
+                name: 'Estilo Chapita',
+                description: 'Elija la clase CSS de la chapita'
+            })
         }),
         video: PropTypes.string.tag({
             name: 'VIDEO',
@@ -118,10 +141,12 @@ const featureArticleCustomsFields = featuredName => {
             description: 'Ingrese aquí el html del tablero',
             default: ''
         }),
-        mobileImageId: PropTypes.string.tag({
-            name: 'Foto Mobile',
-            description: 'Ingrese aquí el ID de imagen Vertical.',
-            default: ''
+        ...(!isLN10 && {
+            mobileImageId: PropTypes.string.tag({
+                name: 'Foto Mobile',
+                description: 'Ingrese aquí el ID de imagen Vertical.',
+                default: ''
+            })
         })
     };
 };

@@ -200,6 +200,8 @@ export const customHeading = {
     Ranking: 'h3'
 };
 
+// TODO:  reemplezar por el que esta en cajaTemasHelper
+
 export const getCommonProps = props => {
     const {
         customFields: { layout = 'grilla3', backgroundColor },
@@ -227,11 +229,11 @@ export const getCommonProps = props => {
     );
 
     const sectionName = formatText(
-        pageBuilderLayout === layoutsName.Home ? '' : `${name}_`
+        pageBuilderLayout === layoutsName.HomeLN10 ? '' : `${name}_`
     );
 
     const showDatalayerMark =
-        pageBuilderLayout === layoutsName.Home
+        pageBuilderLayout === layoutsName.HomeLN10
             ? 'true'
             : get(acumuladoGeneral, 'usa_datalayer', 'false');
 

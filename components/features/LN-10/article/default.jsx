@@ -1,53 +1,70 @@
-/* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/require-default-props */
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppContext } from 'fusion:context';
 import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 import { Card } from '@ln/contenidos-ui-card';
-import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
 import {
-    // getIsRenderAutor,
-    getWithMedia,
-    getWithSubhead,
     isInApertura,
     transform
 } from '../../../private/LN/home/components/noteCard/noteCardHelper';
-import getChainConfig, {
+import {
+    getChainConfig,
     getDataAuthor,
     checkForId,
     isBombaHidden,
-    getMediaData
+    getMediaData,
+    getDataAttributesForViewability,
+    validateVariant,
+    articleCustomFields,
+    validateSubhead,
+    showSubheadText,
+    changeConfigForPB,
+    validateArticleFeature,
+    getBadgetConfig,
+    getLiveblogTitles,
+    validateMedia,
+    showSection,
+    showExtraClass,
+    getTypeOfMedia,
+    validateImagePosition
 } from './_helper';
-import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import filterVideo from '../../../../content/filters/LN/home/videoFilter';
-import featureArticleCustomsFields, {
-    GetImage
-} from '../../../private/LN/common/utils/articuloHelper';
+import liveblogFilter from '../../../../content/filters/LN/home/LN10/liveblogFilter';
+import { GetImage } from '../../../private/LN/common/utils/articuloHelper';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
 import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
+import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import '../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
+import '../../../../resources/packages/css/@ln/common-ui-video/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-image/index.css';
+import '../../../../resources/packages/css/@ln/common-ui-badge/index.css';
 
 const ArticleFeature = ({
     id: featureId,
     customFields,
+    searchableField,
     customFields: {
         noteId: id,
         imageId,
         video: videoId,
-        mobileImageId,
         lead,
         title,
-        authors
+        authors,
+        chapita,
+        chapitaStyle,
+        description,
+        hideAuthors,
+        variant = 'regular'
     }
 }) => {
     const {
@@ -60,12 +77,17 @@ const ArticleFeature = ({
     const { layoutsName = {} } = siteConfig || {};
     const { cajaTemaConfig } = getProperties(arcSite);
 
-    const { config, index, layout, imageConfig } = getChainConfig(
-        featureId,
-        renderables,
-        cajaTemaConfig
-    );
+    const {
+        config: initialConfig = {},
+        index,
+        layout,
+        imageConfig,
+        boxPosition,
+        isBomba
+    } = getChainConfig(featureId, renderables, cajaTemaConfig);
 
+    const extraOpts = getDataAttributesForViewability(id, boxPosition, index);
+    const [config, setConfig] = useState(initialConfig);
     const onlyOneApeturaValidateForWWW =
         isBombaHidden(renderables) &&
         isInApertura({
@@ -76,6 +98,8 @@ const ArticleFeature = ({
             config
         });
 
+    const isLiveblog = variant === 'liveblog';
+
     const articleContent = useContent({
         source: checkForId(id) ? 'articleSourceNota' : null,
         query: {
@@ -84,11 +108,13 @@ const ArticleFeature = ({
             imageConfig,
             checkExclusiveAccess: false,
             isInApertura: onlyOneApeturaValidateForWWW,
-            isAdmin
+            isAdmin,
+            variant
         },
         staticMode: isSSR(),
-        filter
+        filter: isLiveblog ? liveblogFilter : filter
     });
+
     const image = GetImage({
         imageId,
         imageConfig,
@@ -97,17 +123,21 @@ const ArticleFeature = ({
         isAdmin,
         filterImage
     });
+
     const article = transform(
         articleContent,
         customFields,
         image && image.promo_items
     );
-    const withMedia = getWithMedia(customFields, config, article);
-    const withSubhead = getWithSubhead(config, withMedia, customFields);
-    // const isRenderAutor = getIsRenderAutor(customFields, layout);
-    // const label = getLabel(article, customFields, withMedia, layout);
-    // const layoutGrillaVideo = layout === 'grillaVideo1' && '--l';
-    // const titleSizeNoMedia = !withMedia && get(config, 'titleSizeNoMedia');
+
+    const withMedia = validateMedia(customFields, config, article);
+
+    const withSubhead = validateSubhead(
+        config,
+        withMedia,
+        customFields,
+        variant
+    );
 
     const videoBackground =
         useContent({
@@ -123,26 +153,35 @@ const ArticleFeature = ({
             filter: filterVideo
         }) || null;
 
-    const mobileImage = GetImage({
-        imageId: mobileImageId,
-        imageConfig: 'boxMultimediaMobile',
-        id,
-        onlyOneApeturaValidateForWWW,
-        isAdmin,
-        filterImage
-    });
+    const {
+        imagePosition,
+        withSection,
+        withMarquee,
+        withMarqueeImg,
+        extraClass,
+        variantsDisabled,
+        cardSize
+    } = config || {};
 
-    const error = validateArticleFeature(
+    const error = validateArticleFeature({
         id,
-        article,
+        content: article,
         image,
-        videoBackground,
+        video: videoBackground,
         layout,
         imageId,
         videoId,
-        mobileImage,
-        mobileImageId
-    );
+        config,
+        variant,
+        variantsDisabled,
+        isBomba
+    });
+
+    useEffect(() => {
+        if (isAdmin && !error) {
+            changeConfigForPB({ setConfig, featureId, renderables });
+        }
+    }, [featureId, isAdmin, layout, renderables, error]);
 
     const mediaData = getMediaData({
         article,
@@ -152,23 +191,34 @@ const ArticleFeature = ({
         layout
     });
 
-    const { url, marquesina } = getDataAuthor(article);
+    const typeOfMedia = getTypeOfMedia(customFields);
+
+    const { badgetStyle, badgetText } = getBadgetConfig({
+        style: chapitaStyle,
+        text: chapita,
+        isLiveblog,
+        withMedia,
+        typeOfMedia
+    });
+
+    const { marqueeImg, marquee, authorsQuantity } = getDataAuthor({
+        article,
+        variant,
+        authors,
+        hideAuthors,
+        withMarquee,
+        withMarqueeImg
+    });
 
     if (isAdmin && !!error) {
         return (
-            <div
-                style={{
-                    marginTop: '10px',
-                    marginBottom: '10px',
-                    width: '100%'
-                }}
-            >
-                <PageBuilderMessage
+            <article data-feature-id={featureId}>
+                <WarningMessage
                     key={featureId}
                     type={error.type}
                     message={error.message}
                 />
-            </div>
+            </article>
         );
     }
 
@@ -176,20 +226,41 @@ const ArticleFeature = ({
         (!error && article && (
             <ErrorBoundary>
                 <Card
+                    data-feature-id={featureId}
                     lead={lead || get(article, 'label.volanta.text')}
                     title={title || get(article, 'headlines.basic', 'titulo')}
-                    titleTag={get(config, 'titleTag', '')}
+                    titleTag={get(config, 'titleTag')}
                     href={get(article, 'website_url', '')}
-                    subhead={
-                        get(config, 'skipSubhead', false)
-                            ? false
-                            : withSubhead && get(article, 'subheadlines.basic')
-                    }
-                    subheadTag={get(config, 'subheadTag', '')}
-                    marquee={authors || marquesina}
-                    marqueeImg={url}
+                    withMedia={withMedia}
+                    subheadTag={get(config, 'subheadTag')}
+                    marquee={marquee}
+                    marqueeImg={marqueeImg}
+                    badgeText={badgetText}
+                    badgeType={badgetStyle}
                     mediaData={mediaData}
-                    cardSize={get(config, 'cardSize', '')}
+                    cardSize={cardSize}
+                    imagePosition={validateImagePosition(
+                        imagePosition,
+                        isLiveblog,
+                        cardSize
+                    )}
+                    section={showSection({ withSection, article, authors })}
+                    searchableField={
+                        layoutPageBuilder === layoutsName.HomeLN10 &&
+                        searchableField({
+                            imageId: '_id'
+                        })
+                    }
+                    {...extraOpts}
+                    subhead={showSubheadText({
+                        description,
+                        withSubhead,
+                        article
+                    })}
+                    variant={validateVariant(variant, authorsQuantity)}
+                    liveblogList={getLiveblogTitles(articleContent)}
+                    aspectRatio={get(config, 'aspectRatio', 'ar-picture')}
+                    className={showExtraClass(typeOfMedia, extraClass)}
                 />
             </ErrorBoundary>
         )) ||
@@ -205,7 +276,7 @@ ArticleFeature.propTypes = {
         children: PropTypes.array
     }).isRequired,
     customFields: PropTypes.shape({
-        ...(featureArticleCustomsFields('articuloGeneral') || {})
+        ...(articleCustomFields || {})
     }),
     searchableField: PropTypes.shape({
         imageId: PropTypes.string

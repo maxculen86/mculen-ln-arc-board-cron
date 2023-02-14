@@ -23,7 +23,10 @@ export const storyHeadline = (dataNota, type) => {
     if (dataNota.subtype === '9' && type === 'global') return null;
 
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
-    const { publish_date: publishDate, display_date: displayDate } = dataNota;
+    const {
+        first_publish_date: publishDate,
+        display_date: displayDate
+    } = dataNota;
 
     const { date: formatPublishDate, time: formatUpdateTime } = dateAndTimeUtil(
         publishDate
@@ -93,8 +96,8 @@ export const storyCommon = (dataNota, cuerpo) => {
         metadata: Metadata(dataNota)
     };
 
-    if (dataNota.subtype === '9') resp.HTML = cuerpo(dataNota);
-    else resp.contenido = cuerpo(dataNota);
+    if (dataNota.subtype === '9') resp.HTML = cuerpo;
+    else resp.contenido = cuerpo;
 
     return resp;
 };

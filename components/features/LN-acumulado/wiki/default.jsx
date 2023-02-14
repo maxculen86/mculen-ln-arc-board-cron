@@ -30,7 +30,7 @@ const WikiFeature = () => {
 
     const resizedUrls = wikiImagesWithWWW(wikiSourceData) || [];
 
-    const { resizedUrl } = resizedUrls.find(e => e.option.width === 320) || '';
+    const { resizedUrl } = resizedUrls.find(e => e.option.width === 420) || '';
 
     const {
         additional_name: additionalName = '',
