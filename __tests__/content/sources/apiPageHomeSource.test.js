@@ -3,7 +3,7 @@ import 'regenerator-runtime/runtime';
 import apiPageHomeSource from '../../../content/sources/apiPageHomeSource';
 import LN_Home_Main from '../../../__mocks__/data/pages/LN-Home_Main.json';
 
-jest.mock('../../../content/sources/utils/servicesSource/pages/index', () => {
+jest.mock('../../../content/sources/utils/pageSource/index', () => {
     return {
         __esModule: true,
         default: (x, y) => {
@@ -14,7 +14,7 @@ jest.mock('../../../content/sources/utils/servicesSource/pages/index', () => {
 });
 
 jest.mock(
-    '../../../content/sources/utils/servicesSource/pages/transform',
+    '../../../content/sources/utils/pageSource/pageHome/v1/mobile/transform',
     () => {
         return {
             __esModule: true,

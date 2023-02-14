@@ -1,35 +1,49 @@
+const boxPositionLN10Main = {
+    Apertura: {
+        id: 502,
+        type: 1,
+        sectionAliasMobile: 'Banner',
+        position: 'bottom'
+    },
+    Pre_Apertura: {
+        id: 501,
+        type: 1,
+        sectionAliasMobile: 'Banner',
+        position: 'start'
+    }
+};
 const boxPositionLNMain = {
-    1: {
+    Apertura_1: {
         id: 402,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'bottom'
     },
-    3: {
+    Apertura_2: {
         id: 2000,
         type: 1,
         sectionAliasMobile: 'Dolar',
         position: 'bottom'
     },
-    5: {
+    Breaking_1: {
         id: 403,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    7: {
+    Breaking_2: {
         id: 404,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    10: {
+    Breaking_3: {
         id: 405,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    13: {
+    Opinion: {
         id: 406,
         type: 1,
         sectionAliasMobile: 'Banner',
@@ -37,13 +51,13 @@ const boxPositionLNMain = {
     }
 };
 const boxPositionLNAcumulado = {
-    0: {
+    'Pre-Apertura': {
         id: 402,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    2: {
+    Apertura: {
         id: 403,
         type: 1,
         sectionAliasMobile: 'Banner',
@@ -51,52 +65,52 @@ const boxPositionLNAcumulado = {
     }
 };
 const boxPositionLNSports = {
-    0: {
+    Apertura_1: {
         id: 402,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'bottom'
     },
-    1: {
+    Apertura_2: {
         id: 2000,
         type: 1,
         sectionAliasMobile: 'Dolar',
         position: 'bottom'
     },
-    2: {
+    Breaking_1: {
         id: 403,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    3: {
+    Breaking_2: {
         id: 404,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    5: {
+    Breaking_3: {
         id: 405,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    7: {
+    Opinion: {
         id: 406,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     }
 };
-const getBannerbyPosition = layout => {
+const configBannerPositionbySection = layout => {
     const boxPositionsMerge = {
         'LN-acumulado': boxPositionLNAcumulado,
         'LN-Home_Main': boxPositionLNMain,
         'LN-Home_Sports': boxPositionLNSports,
-        'LN10-Home_Main': boxPositionLNMain
+        'LN10-Home_Main': boxPositionLN10Main
     };
 
     return boxPositionsMerge[layout];
 };
 
-export default getBannerbyPosition;
+export default configBannerPositionbySection;

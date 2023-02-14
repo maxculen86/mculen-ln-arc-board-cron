@@ -1,4 +1,4 @@
-const getSectionAliasbyFeatureOrChain = (nameContainer, typeContainer) => {
+const configSectionAliasbyFeatureOrChain = (nameContainer, typeContainer) => {
     const boxToSetSectionAliasMobile = {
         'LN-common/anexo': 'AnexoMobile',
         'LN-common/anexoMobile': 'AnexoMobile',
@@ -6,6 +6,8 @@ const getSectionAliasbyFeatureOrChain = (nameContainer, typeContainer) => {
         'LN-acumulado/timeline': 'Timeline',
         'LN-common/LN10_anticipo': 'Anticipo',
         'LN-common/LN10_En_Vivo': 'EnVivo',
+        'LN-common/editoriales': 'Opinion',
+        'LN-common/opinion': 'Opinion',
         LN10_Caja_Bomba: 'Bomba',
         LN10_Caja_Collection: {
             hashtag: 'HashTag'
@@ -19,4 +21,4 @@ const getSectionAliasbyFeatureOrChain = (nameContainer, typeContainer) => {
     return container;
 };
 
-export default getSectionAliasbyFeatureOrChain;
+export default configSectionAliasbyFeatureOrChain;

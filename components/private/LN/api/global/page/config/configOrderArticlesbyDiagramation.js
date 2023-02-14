@@ -6,7 +6,7 @@ const boxMoveArticlesPositionLN10Main = {
     grilla3: [{ keyFrom: 'T3', keyTo: 'T1' }]
 };
 
-const getOrderArticlesbyDiagramation = layout => {
+const configOrderArticlesbyDiagramation = layout => {
     const boxPositionsArticlesMerge = {
         'LN-acumulado': boxMoveArticlesPositionLNAcumulado,
         'LN-Home_Main': boxMoveArticlesPositionLNMain,
@@ -17,4 +17,4 @@ const getOrderArticlesbyDiagramation = layout => {
     return boxPositionsArticlesMerge[layout];
 };
 
-export default getOrderArticlesbyDiagramation;
+export default configOrderArticlesbyDiagramation;

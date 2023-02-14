@@ -1,388 +1,15 @@
 import get from '../../../../common/utils/get';
-import {
-    checkIfValid,
-    findSectionChildren
-} from '../../../../common/utils/validateSectionHome';
-import {
-    checkIfValid as checkIfValid10,
-    findSectionChildren as findSectionChildren10
-} from '../../../../common/utils/validateSectionHomeLN10';
-import getSections from '../utils/getSections';
-import getBannerPositionbySection from '../utils/getBannerPositionbySection';
-import getBannerbyPosition from '../utils/getBannerbyPosition';
-import getTypesbyContainer from '../utils/getTypesbyContainer';
-import getSectionAliasbyFeatureOrChain from '../utils/getSectionAliasbyFeatureOrChain';
-import getToMovePosition from '../utils/getToMovePosition';
-import getDiagramations from '../utils/getDiagramations';
-import getOrderArticlesbyDiagramation from '../utils/getOrderArticlesbyDiagramation';
-
-const checkbyLayout = {
-    'LN-acumulado': {
-        1: findSectionChildren,
-        2: checkIfValid
-    },
-    'LN-Home_Main': {
-        1: findSectionChildren,
-        2: checkIfValid
-    },
-    'LN-Home_Sports': {
-        1: findSectionChildren,
-        2: checkIfValid
-    },
-    'LN10-Home_Main': {
-        1: findSectionChildren10,
-        2: checkIfValid10
-    }
-};
-
-const sectionbyDiagramation = ['grillaUltimasNoticias'];
-const setTypeElement = information => {
-    if (information && (information.nameChain || information.nameFeature)) {
-        const elementContainer =
-            information.nameFeature == null
-                ? information.nameChain
-                : information.nameFeature;
-        return getTypesbyContainer(elementContainer);
-    }
-
-    return 0;
-};
-const setSectionAliasbyFeatureOrChain = (information, sectionMobile) => {
-    if (information && (information.nameFeature || information.nameChain)) {
-        const sectionAliasbyFeature = getSectionAliasbyFeatureOrChain(
-            information.nameFeature == null
-                ? information.nameChain
-                : information.nameFeature,
-            information.typeChain
-        );
-        return sectionAliasbyFeature == null
-            ? sectionMobile
-            : sectionAliasbyFeature;
-    }
-    return sectionMobile;
-};
-const segmentSectionbyDiagramation = elements => {
-    if (!elements || !Array.isArray(elements)) {
-        return elements;
-    }
-    const elementsValidate = [];
-
-    elements &&
-        elements.forEach(e => {
-            if (e && e.information) {
-                const diagramation = get(e.information, 'layout', null);
-                // Finds the section that contains a component or feature with layout included in the sectionbyDiagramation variable
-                if (
-                    e.articles &&
-                    Array.isArray(e.articles) &&
-                    sectionbyDiagramation.includes(diagramation)
-                ) {
-                    // Find position from structure how as {information, articles[{},{},{},{},articles]}
-                    const subElementNoIncludeIndex = e.articles.findIndex(
-                        x => x && x.articles && Array.isArray(x.articles)
-                    );
-                    if (subElementNoIncludeIndex >= 0) {
-                        const subElement = {
-                            ...e,
-                            articles: [
-                                ...e.articles.filter(
-                                    x => x && !Array.isArray(x.articles)
-                                )
-                            ]
-                        };
-                        elementsValidate.push(subElement);
-
-                        e.articles
-                            .filter(x => x && Array.isArray(x.articles))
-                            .forEach(elem => {
-                                const elemArray = [];
-                                const subElementArray = {
-                                    ...elem,
-                                    information: {
-                                        ...get(elem, 'information', null),
-                                        hideCaja: get(
-                                            subElement.information,
-                                            'hideCaja',
-                                            null
-                                        )
-                                    }
-                                };
-                                elemArray.push(subElementArray);
-                                const subElementLayout = segmentSectionbyDiagramation(
-                                    elemArray
-                                );
-                                if (
-                                    subElementLayout &&
-                                    subElementLayout.length &&
-                                    subElementLayout.length > 0
-                                ) {
-                                    // Place the position of the feature as a section according to the visual order on the web
-                                    if (subElementNoIncludeIndex > 0) {
-                                        elementsValidate.push(
-                                            subElementLayout[0]
-                                        );
-                                    } else {
-                                        elementsValidate.splice(
-                                            0,
-                                            0,
-                                            subElementLayout[0]
-                                        );
-                                    }
-                                }
-                            });
-                    }
-                } else {
-                    elementsValidate.push(e);
-                }
-            } else {
-                elementsValidate.push(e);
-            }
-        });
-    return elementsValidate;
-};
-
-const setBannersInPositionbySection = (elements, banner) => {
-    if (elements && elements.length > 0 && banner) {
-        switch (banner.position) {
-            case 'middle':
-                elements.splice(Math.floor(elements.length / 2), 0, banner);
-                break;
-            case 'start':
-                elements.unshift(banner);
-                break;
-            default:
-                elements.push(banner);
-                break;
-        }
-    }
-    return elements;
-};
-
-const setBannersbyPosition = (elements, layoutPage) => {
-    const banners = getBannerbyPosition(layoutPage);
-
-    elements &&
-        elements.length > 0 &&
-        banners &&
-        typeof banners === 'object' &&
-        Object.keys(banners).map(x => {
-            const banner = banners[x];
-            const indexToSetBanner = elements.findIndex(
-                e =>
-                    e &&
-                    e.originPosition &&
-                    e.originPosition.toString() === x.toString()
-            );
-
-            if (indexToSetBanner && banner) {
-                switch (banner.position) {
-                    case 'start':
-                        elements.splice(indexToSetBanner, 0, banner);
-                        break;
-                    case 'bottom':
-                        elements.splice(indexToSetBanner + 1, 0, banner);
-                        break;
-                    default:
-                        // elements.push(banner);
-                        break;
-                }
-            }
-            return true;
-        });
-
-    return elements;
-};
-
-const setPositionArticlesbyDiagramation = (
-    articles,
-    positionsArticlesbyDiagramation,
-    keyDiagramation
-) => {
-    const configMoveArticlesbyDiagramation =
-        positionsArticlesbyDiagramation &&
-        positionsArticlesbyDiagramation[keyDiagramation];
-
-    configMoveArticlesbyDiagramation &&
-        Array.isArray(configMoveArticlesbyDiagramation) &&
-        configMoveArticlesbyDiagramation.map(x => {
-            const indexFromSetArticle =
-                articles &&
-                articles.findIndex(
-                    e =>
-                        x &&
-                        e &&
-                        get(e, 'additionalProperties.originPosition', null) ===
-                            x.keyFrom
-                );
-            const indexToSetArticle =
-                articles &&
-                articles.findIndex(
-                    e =>
-                        x &&
-                        e &&
-                        get(e, 'additionalProperties.originPosition', null) ===
-                            x.keyTo
-                );
-            if (indexToSetArticle > -1 && indexFromSetArticle > -1) {
-                const articleRemoved = articles.splice(indexFromSetArticle, 1);
-                articles.splice(indexToSetArticle, 0, articleRemoved[0]);
-            }
-
-            return true;
-        });
-    return articles;
-};
-const addProperties = (
-    sectionChildren,
-    elements,
-    diagramations,
-    positionsArticlesbyDiagramation
-) => {
-    // Add properties to  Chain Manual o Chain Collection
-    const setInformationInFeature = (render, children, idRenderParent) => {
-        return {
-            ...render,
-            information: {
-                ...get(render, 'information', null),
-                nameFeature: get(children, 'type', null),
-                idRender: get(children, 'props.id', null),
-                idRenderParent
-            }
-        };
-    };
-
-    // Add properties to articles from Chain Manual o Chain Collection
-    const setInformationInArticle = (
-        article,
-        childrenArticle,
-        sectionChildrenItem,
-        configDiagramationChild,
-        nameIndexforDiagrmation
-    ) => {
-        if (childrenArticle && childrenArticle.collection === 'features') {
-            // Applies to cases of Chains that have LN Articles and Timeline
-            if (get(article, 'information', null) != null) {
-                return setInformationInFeature(
-                    article,
-                    childrenArticle,
-                    get(sectionChildrenItem, 'props.id', null)
-                );
-            }
-        }
-        // Applies to common cases of Chains that only have LN Articles or only articles
-        return {
-            ...article,
-            additionalProperties: {
-                ...get(article, 'additionalProperties', null),
-                originPosition: nameIndexforDiagrmation,
-                diseno: configDiagramationChild,
-                nameFeature: childrenArticle && childrenArticle.type,
-                idRender: get(childrenArticle, 'props.id', null)
-            }
-        };
-    };
-
-    const newElements =
-        elements &&
-        Array.isArray(elements) &&
-        elements.map((e, i) => {
-            if (e == null) {
-                return e;
-            }
-            const sectionChildrenItem = sectionChildren[i];
-            if (
-                sectionChildrenItem &&
-                sectionChildrenItem.collection === 'chains'
-            ) {
-                let configDiagramation = null;
-                const informationChain = get(e, 'information', null);
-                //  Get the diagramation according to the layout of the box
-                if (informationChain) {
-                    configDiagramation = get(
-                        diagramations,
-                        informationChain.layout,
-                        null
-                    );
-                }
-
-                return {
-                    ...e,
-                    information: {
-                        ...informationChain,
-                        nameChain: sectionChildrenItem.type,
-                        idRender: get(sectionChildrenItem, 'props.id', null)
-                    },
-                    articles:
-                        Array.isArray(e.articles) &&
-                        setPositionArticlesbyDiagramation(
-                            e.articles.map((a, index) => {
-                                // Add properties of the chain's children such as layouts and important fields
-                                const childrenArticle =
-                                    sectionChildrenItem.children[index];
-                                const nameIndexforDiagrmation = 'T'.concat(
-                                    (index + 1).toString()
-                                );
-
-                                // Matches the diagrmation of the article or child
-                                const configDiagramationChild =
-                                    configDiagramation &&
-                                    configDiagramation[nameIndexforDiagrmation];
-
-                                return setInformationInArticle(
-                                    a,
-                                    childrenArticle,
-                                    sectionChildrenItem,
-                                    configDiagramationChild,
-                                    nameIndexforDiagrmation
-                                );
-                            }),
-                            positionsArticlesbyDiagramation,
-                            informationChain.layout
-                        )
-                };
-            }
-            if (
-                sectionChildrenItem &&
-                sectionChildrenItem.collection === 'features'
-            ) {
-                return setInformationInFeature(e, sectionChildrenItem);
-            }
-            return e;
-        });
-    return newElements;
-};
-
-const moveSections = (sections, sectionWeb, layoutPage) => {
-    const sectionToMove = get(getToMovePosition(layoutPage), sectionWeb, null);
-    if (sectionToMove) {
-        const indexSectionTo = sections.findIndex(
-            x => x.sectionWeb === sectionToMove.sectionWeb
-        );
-
-        const indexSectionFrom = sections.findIndex(
-            x => x.sectionWeb === sectionWeb
-        );
-
-        if (indexSectionFrom > -1 && indexSectionTo > -1) {
-            const elementToMove = sections[indexSectionFrom];
-            if (elementToMove) {
-                sections.splice(indexSectionFrom, 1);
-                switch (sectionToMove.position) {
-                    case 'bottom':
-                        sections.splice(indexSectionTo + 1, 0, elementToMove);
-                        break;
-                    case 'start':
-                        sections.splice(indexSectionTo, 0, elementToMove);
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-    }
-
-    return sections;
-};
+import { validateChildrensByLayout } from './utils/validateChildrensByLayout';
+import configSectionsByLayout from './config/configSectionsByLayout';
+import configBannerPositionbySection from './config/configBannerPositionbySection';
+import responseElementBox from './utils/responseElementBox';
+import addPropertiesByLayout from './utils/addPropertiesByLayout';
+import configToMoveBySection from './config/configToMoveBySection';
+import configDiagramationsByLayout from './config/configDiagramationsByLayout';
+import configOrderArticlesbyDiagramation from './config/configOrderArticlesbyDiagramation';
+import { segmentSectionbyDiagramation } from './common/utils/divideElements';
+import { addElementsByKey } from './common/utils/addElements';
+import { moveElementsByKey } from './common/utils/moveElements';
 
 const getPageElements = props => {
     const { children, renderables, arcSite, layout: layoutPage } = props;
@@ -390,12 +17,13 @@ const getPageElements = props => {
         arcSite
     };
 
-    const pageMergeSections = getSections(layoutPage);
+    const pageMergeSections = configSectionsByLayout(layoutPage);
     const rules = get(pageMergeSections, 'rules', []);
-    const diagramations = getDiagramations(layoutPage);
-    const positionsArticlesbyDiagramation = getOrderArticlesbyDiagramation(
+    const diagramations = configDiagramationsByLayout(layoutPage);
+    const positionsArticlesbyDiagramation = configOrderArticlesbyDiagramation(
         layoutPage
     );
+    const configMovePositions = configToMoveBySection(layoutPage);
 
     let elementsPage =
         pageMergeSections &&
@@ -404,12 +32,12 @@ const getPageElements = props => {
             const { sectionWeb, sectionMobile } = e;
 
             // Check Section
-            const sectionChildren = checkbyLayout[layoutPage]['1'](
+            const sectionChildren = validateChildrensByLayout[layoutPage]['1'](
                 renderables,
                 i
             );
 
-            const checkElement = checkbyLayout[layoutPage]['2'](
+            const checkElement = validateChildrensByLayout[layoutPage]['2'](
                 sectionWeb,
                 sectionChildren,
                 rules
@@ -421,7 +49,7 @@ const getPageElements = props => {
                     : null;
 
             // Add fields as features
-            elements = addProperties(
+            elements = addPropertiesByLayout(
                 sectionChildren,
                 elements,
                 diagramations,
@@ -430,73 +58,94 @@ const getPageElements = props => {
             // Para probar en esta etapa los elementos o cuanquier cosa dentro de este reduce coloca:
             // r.push(elements);
             // return r;
-
-            // Divide Section by configured features
-            if (elements && Array.isArray(elements) && elements.length > 0) {
-                elements = segmentSectionbyDiagramation(elements);
-            }
-
-            const banner = getBannerPositionbySection(layoutPage)[sectionWeb];
-
-            //  Returns a new array elements with banners according to the section of the banners of the established configuration
-            const child = setBannersInPositionbySection(elements, banner);
-
+            const child = elements;
             if (child && Array.isArray(child) && child.length > 0) {
-                return moveSections(
-                    r.concat(
-                        [].concat(
-                            child.reduce((res, b) => {
-                                if (b) {
-                                    if (
-                                        b.information &&
-                                        !b.information.hideCaja
-                                    ) {
-                                        return res.concat({
-                                            type: setTypeElement(b.information),
-                                            sectionAliasMobile: setSectionAliasbyFeatureOrChain(
-                                                b.information,
-                                                sectionMobile
-                                            ),
-                                            ...b,
-                                            configurations,
+                return r.concat(
+                    [].concat(
+                        child.reduce((res, b) => {
+                            if (b) {
+                                if (b.information && !b.information.hideCaja) {
+                                    return res.concat(
+                                        responseElementBox(
+                                            b,
+                                            sectionWeb,
                                             sectionMobile,
-                                            sectionWeb
-                                        });
-                                    }
-                                    if (b.sectionAliasMobile) {
-                                        return res.concat(b);
-                                    }
+                                            configurations
+                                        )
+                                    );
                                 }
-                                return res;
-                            }, [])
-                        ) || []
-                    ),
-                    sectionWeb,
-                    layoutPage
+                                if (b.sectionAliasMobile) {
+                                    return res.concat(b);
+                                }
+                            }
+                            return res;
+                        }, [])
+                    ) || []
                 );
-            }
-            if (banner) {
-                r.push(banner);
             }
 
             return r;
         }, []);
 
+    // Add Banners by Section
+    // const configBannersBySections = configBannerPositionbySection(layoutPage);
+    // Object.keys(configBannersBySections).map(sectionWeb => {
+    //     const configElementToAdd = {
+    //         ...configBannersBySections[sectionWeb],
+    //         sectionMobile: sectionWeb,
+    //         sectionWeb
+    //     };
+    //     elementsPage = addElementsByKey(
+    //         configElementToAdd,
+    //         sectionWeb,
+    //         'sectionWeb',
+    //         elementsPage
+    //     );
+
+    //     return true;
+    // });
+
+    // Move Sections
+    // Object.keys(configMovePositions).map(sectionWeb => {
+    //     const configElementToMove = configMovePositions[sectionWeb];
+    //     elementsPage = moveElementsByKey(
+    //         configElementToMove,
+    //         sectionWeb,
+    //         'sectionWeb',
+    //         elementsPage
+    //     );
+    //     return true;
+    // });
+
+    // Divide Section by configured features
+    // if (
+    //     elementsPage &&
+    //     Array.isArray(elementsPage) &&
+    //     elementsPage.length > 0
+    // ) {
+    //     const sectionbyDiagramation = ['grillaUltimasNoticias'];
+    //     elementsPage = segmentSectionbyDiagramation(
+    //         elementsPage,
+    //         sectionbyDiagramation
+    //     );
+    // }
+
     // Add property Order to elements
-    let indiceElements = -1;
-    elementsPage = elementsPage.map((e, i) => {
-        if (e && e.type !== 1) {
-            if (!get(e, 'information.idRenderParent', null)) {
-                indiceElements += 1;
-            }
+    // let indiceElements = -1;
+    // elementsPage = elementsPage.map((e, i) => {
+    //     if (e && e.type !== 1) {
+    //         if (!get(e, 'information.idRenderParent', null)) {
+    //             indiceElements += 1;
+    //         }
 
-            return { ...e, originPosition: indiceElements };
-        }
-        return { ...e };
-    });
-
+    //         return { ...e, originPosition: indiceElements };
+    //     }
+    //     return { ...e };
+    // });
+    return { information: { layoutPage }, content_elements: elementsPage };
+    // const banners = configBannerbyPosition(layoutPage);
     //  Returns a new array elements with banners according to the position of the banners of the established configuration
-    return setBannersbyPosition(elementsPage, layoutPage);
+    // return addElementByPosition(elementsPage, 'banner', banners);
 };
 
 export default getPageElements;

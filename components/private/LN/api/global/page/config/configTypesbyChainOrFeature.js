@@ -1,7 +1,7 @@
 // Used in private/LN/api/v[1-9]/mobile/home/index.js
 // This parameters are used for run the methods accord the type
 // The type 1 is assign to Banner
-const getTypesbyContainer = nameContainer => {
+const configTypesbyChainOrFeature = nameContainer => {
     const boxTypeContainer = {
         Ln_Caja_Manual: 0,
         Ln_Caja_Collection: 0,
@@ -18,12 +18,12 @@ const getTypesbyContainer = nameContainer => {
         'LN-common/editoriales': 0,
         'LN-common/anexoMobile': 2,
         'LN-acumulado/timeline': 0,
-        'LN-common/bannerRefactor': 0,
-        'LN-acumulado/breadcrumb': 0,
-        'LN-acumulado/titulo': 0,
-        'LN-acumulado/anexoIframe': 0,
+        'LN-common/bannerRefactor': 9,
+        'LN-acumulado/breadcrumb': 9,
+        'LN-acumulado/titulo': 9,
+        'LN-acumulado/anexoIframe': 9,
         'LN-acumulado/apertura': 0,
-        'LN-acumulado/tagList': 0,
+        'LN-acumulado/tagList': 9,
         'LN-acumulado/grillaNotas': 9,
         'LN-common/ranking': 9,
         'LN-acumulado/ultimasNoticias': 9,
@@ -36,4 +36,4 @@ const getTypesbyContainer = nameContainer => {
         : boxTypeContainer[nameContainer];
 };
 
-export default getTypesbyContainer;
+export default configTypesbyChainOrFeature;

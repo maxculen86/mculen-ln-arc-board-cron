@@ -149,10 +149,10 @@ const fetch = (query, { cachedCall } = {}) => {
         })
         .catch(error => {
             // eslint-disable-next-line no-console
-            console.log(
+/*             console.log(
                 '🚀 ~ file: articleSourceNota.js ~ line 90 ~ error',
                 error
-            );
+            ); */
             return logger.push(
                 error,
                 { source: 'content/source/articleSourceNota', url },

@@ -1,35 +1,35 @@
 const boxPositionLNMain = {
-    Apertura_1: {
+    1: {
         id: 402,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'bottom'
     },
-    Apertura_2: {
+    3: {
         id: 2000,
         type: 1,
         sectionAliasMobile: 'Dolar',
         position: 'bottom'
     },
-    Breaking_1: {
+    5: {
         id: 403,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    Breaking_2: {
+    7: {
         id: 404,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    Breaking_3: {
+    10: {
         id: 405,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    Opinion: {
+    13: {
         id: 406,
         type: 1,
         sectionAliasMobile: 'Banner',
@@ -37,13 +37,13 @@ const boxPositionLNMain = {
     }
 };
 const boxPositionLNAcumulado = {
-    'Pre-Apertura': {
+    0: {
         id: 402,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    Apertura: {
+    2: {
         id: 403,
         type: 1,
         sectionAliasMobile: 'Banner',
@@ -51,44 +51,44 @@ const boxPositionLNAcumulado = {
     }
 };
 const boxPositionLNSports = {
-    Apertura_1: {
+    0: {
         id: 402,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'bottom'
     },
-    Apertura_2: {
+    1: {
         id: 2000,
         type: 1,
         sectionAliasMobile: 'Dolar',
         position: 'bottom'
     },
-    Breaking_1: {
+    2: {
         id: 403,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    Breaking_2: {
+    3: {
         id: 404,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    Breaking_3: {
+    5: {
         id: 405,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     },
-    Opinion: {
+    7: {
         id: 406,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'
     }
 };
-const getBannerPositionbySection = layout => {
+const configBannerbyPosition = layout => {
     const boxPositionsMerge = {
         'LN-acumulado': boxPositionLNAcumulado,
         'LN-Home_Main': boxPositionLNMain,
@@ -99,4 +99,4 @@ const getBannerPositionbySection = layout => {
     return boxPositionsMerge[layout];
 };
 
-export default getBannerPositionbySection;
+export default configBannerbyPosition;

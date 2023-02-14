@@ -1,5 +1,5 @@
-import page from '../../../../../../content/sources/utils/servicesSource/pages/index';
-import pageHomeMain from '../../../../../../__mocks__/data/pages/LN-Home_Main.json';
+import page from '../../../../../content/sources/utils/pageSource/index';
+import pageHomeMain from '../../../../../__mocks__/data/pages/LN-Home_Main.json';
 import 'regenerator-runtime/runtime';
 
 const mockResponse = Promise.resolve(pageHomeMain);
@@ -24,7 +24,7 @@ jest.mock('request-promise-native', () => {
     };
 });
 
-jest.mock('../../../../../../components/private/common/utils/logger', () => {
+jest.mock('../../../../../components/private/common/utils/logger', () => {
     const push = jest.fn();
     return { push };
 });

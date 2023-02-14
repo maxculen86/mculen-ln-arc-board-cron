@@ -1,13 +1,13 @@
-import rulesLNHomeMain from '../../../../../layouts/config/LN-Home.config';
-import rulesLNHomeSports from '../../../../../layouts/config/rules-LN-Home_Sports.config';
-import rulesLNAcumulado from '../../../../../layouts/config/rules-LN-Acumulado.config';
-import rulesLN10HomeMain from '../../../../../layouts/config/LN10-Home.config';
-import sectionsPageMainFront from '../../../../../layouts/config/LN-PageBuilder.config.json';
-import sectionsPageAcumuladosFront from '../../../../../layouts/config/LN-Acumulado-PageBuilder.config.json';
-import sectionsPageSportFront from '../../../../../layouts/config/LN-Home_Sports-PageBuilder.config.json';
-import sectionsPage10MainFront from '../../../../../layouts/config/LN10-PageBuilder.config.json';
+import rulesLNHomeMain from '../../../../../../layouts/config/LN-Home.config';
+import rulesLNHomeSports from '../../../../../../layouts/config/rules-LN-Home_Sports.config';
+import rulesLNAcumulado from '../../../../../../layouts/config/rules-LN-Acumulado.config';
+import rulesLN10HomeMain from '../../../../../../layouts/config/LN10-Home.config';
+import sectionsPageMainFront from '../../../../../../layouts/config/LN-PageBuilder.config.json';
+import sectionsPageAcumuladosFront from '../../../../../../layouts/config/LN-Acumulado-PageBuilder.config.json';
+import sectionsPageSportFront from '../../../../../../layouts/config/LN-Home_Sports-PageBuilder.config.json';
+import sectionsPage10MainFront from '../../../../../../layouts/config/LN10-PageBuilder.config.json';
 
-const getSections = layout => {
+const configSectionsByLayout = layout => {
     const sectionsMerge = {
         'LN-acumulado': {
             front: sectionsPageAcumuladosFront,
@@ -82,4 +82,4 @@ const getSections = layout => {
     return pageMergeSections;
 };
 
-export default getSections;
+export default configSectionsByLayout;

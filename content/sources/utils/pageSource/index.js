@@ -1,6 +1,6 @@
 import { IS_SANDBOX, IS_DEV } from 'fusion:environment';
 import request from 'request-promise-native';
-import logger from '../../../../../components/private/common/utils/logger';
+import logger from '../../../../components/private/common/utils/logger';
 
 const resolve = query => {
     const { rootPath, website, ticksCache } = query;
@@ -32,7 +32,7 @@ const fetch = async query => {
         .catch(error => {
             // eslint-disable-next-line no-console
             console.warn(
-                `Error Page Index - sources/utils/servicesSource/pages/index: ${JSON.stringify(
+                `Error Page Index - sources/utils/pageSource/index: ${JSON.stringify(
                     query
                 )} - uri: ${JSON.stringify(endpoint.uri)} - errorMsj:${
                     error.message

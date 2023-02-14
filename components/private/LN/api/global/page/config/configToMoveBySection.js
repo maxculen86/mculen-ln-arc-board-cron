@@ -4,9 +4,11 @@ const boxMovePositionLNMain = {
 };
 const boxMovePositionLNAcumulado = {};
 const boxMovePositionLNSports = {};
-const boxMovePositionLN10Main = {};
+const boxMovePositionLN10Main = {
+    App_Anexo_1: { sectionWeb: 'Apertura', position: 'start' }
+};
 
-const getToMovePosition = layout => {
+const configToMoveBySection = layout => {
     const boxPositionsMerge = {
         'LN-acumulado': boxMovePositionLNAcumulado,
         'LN-Home_Main': boxMovePositionLNMain,
@@ -17,4 +19,4 @@ const getToMovePosition = layout => {
     return boxPositionsMerge[layout];
 };
 
-export default getToMovePosition;
+export default configToMoveBySection;

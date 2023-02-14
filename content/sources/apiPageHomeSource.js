@@ -1,9 +1,10 @@
 import { SITE_LANACION } from 'fusion:environment';
-import pages from './utils/servicesSource/pages/index';
+import pages from './utils/pageSource/index';
 import get from '../../components/private/common/utils/get';
+import transformv1 from './utils/pageSource/pageHome/v1/mobile/transform';
+import transformv2 from './utils/pageSource/pageHome/v2/mobile/transform';
 import homev1 from '../../components/private/LN/api/v1/mobile/home';
 import homev2 from '../../components/private/LN/api/v2/mobile/home';
-import transform from './utils/servicesSource/pages/transform';
 
 // Run with url http://172.17.0.1/api/mobile/v1/home/1/?_website=la-nacion-ar&outputType=json
 const fetch = async (query, { cachedCall } = {}) => {
@@ -11,6 +12,11 @@ const fetch = async (query, { cachedCall } = {}) => {
     const aliasPages = {
         home: '/homepage-LN10',
         sports: '/deportes'
+    };
+
+    const pageTransform = {
+        1: transformv1,
+        2: transformv2
     };
 
     const homeTransform = {
@@ -49,7 +55,10 @@ const fetch = async (query, { cachedCall } = {}) => {
         // Para revisar la data cruda que viene del Layout
         // return resultPage;
 
-        const resultPageTransform = await transform(resultPage, queryParams);
+        const resultPageTransform = await pageTransform[version](
+            resultPage,
+            queryParams
+        );
         // Para revisar la data formateada con la informacion de todas la secciones
         // return resultPageTransform;
 
