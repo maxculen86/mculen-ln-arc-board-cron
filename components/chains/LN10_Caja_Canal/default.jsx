@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/require-default-props */
 import React from 'react';
@@ -5,7 +6,6 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
-    cajaTemasCustomsFields,
     getArticlesOfChain,
     getCommonProps,
     isInApertura
@@ -17,21 +17,33 @@ import StaticContent from '../../private/common/staticContent';
 import getDataChainCollection from '../utils/getDataChainCollection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
+import setCommonCustomFields from '../utils/setCommonCustomFields';
+import { getMarkupForDatalayer } from '../../private/LN/common/utils/cajaTemasHelper';
+import getComponent from '../utils/getComponent';
+import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
+import setRender from '../utils/setRender';
+import getGridType from '../utils/getGridType';
+import diagramationRules from '../../private/common/utils/diagramationRules';
 
 const CajaCanal = props => {
     const {
-        id: featureId,
+        id: chainId,
         isAdmin,
         customFields: {
             idCollection,
-            url,
             title,
             layout = '',
             initialPosition,
-            imageId,
             hideTitle,
             hideCaja,
-            website
+            website,
+            chainStyle,
+            link,
+            logoId,
+            navigator,
+            buttonText,
+            linkButton,
+            buttonStyle
         },
         outputType,
         renderables,
@@ -41,6 +53,19 @@ const CajaCanal = props => {
 
     if (hideCaja) return <></>;
 
+    const roofData = {
+        title,
+        titleLink: link,
+        logoId,
+        buttonText,
+        linkButton,
+        buttonStyle,
+        hideRoof: hideTitle,
+        navigationId: navigator,
+        isAdmin,
+        chainStyle
+    };
+
     const {
         collectionsInPage,
         notesQuantity,
@@ -49,6 +74,8 @@ const CajaCanal = props => {
         sectionName,
         positionInsideSection
     } = getCommonProps(props);
+
+    const rules = diagramationRules(layout) || [];
 
     const {
         isInSiteService,
@@ -67,11 +94,11 @@ const CajaCanal = props => {
         tree,
         website,
         notesQuantity,
-        featureId
+        featureId: chainId
     });
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(
-              notesQuantity,
+              rules.length || notesQuantity,
               diagramation,
               idCollection,
               20,
@@ -93,47 +120,82 @@ const CajaCanal = props => {
 
     const error = validateFeature(idCollection, _articles, layout);
 
+    const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
+        '',
+        layout,
+        position,
+        '',
+        positionInsideSection
+    );
+
+    const ContainerCards = getComponent(chainStyle, layout);
+
     if (isAdmin && !!error) {
         return (
             <WarningMessage
-                id={featureId}
+                id={chainId}
                 type={error.type}
                 message={error.message}
             />
         );
     }
 
-    const Component = (
-        <CajaTema
-            title={title}
-            hideTitle={hideTitle}
-            url={url}
-            imageId={imageId}
-            outputType={outputType}
-            layout={layout}
-            classCondition={`${classCondition}${(isInApertura &&
-                layout.includes('focal') &&
-                ' --apertura') ||
-                ''}`}
-            notesQuantity={notesQuantity}
-            position={position}
-            positionInsideSection={positionInsideSection}
-            sectionName={sectionName}
-            articles={_articles}
-            titleSize={titleSize}
-            handleClick={productClickFromClient}
-            pageLayout={pageLayout}
-        />
+    return (
+        <StaticContent {...extraOptsDiv}>
+            {setRender({
+                chainId,
+                viewabilityData,
+                isAdmin,
+                error,
+                hideBox: hideCaja,
+                extraOptions: {
+                    default: (
+                        <CommonCollection
+                            roofData={roofData}
+                            rules={rules}
+                            gridType={getGridType(layout)}
+                            articles={_articles}
+                            layout={layout}
+                            ContainerCards={ContainerCards}
+                            position={position}
+                        />
+                    )
+                }
+            })}
+        </StaticContent>
     );
 
-    const noStaticComponent =
-        (_articles && _articles.length && Component) || getPlaceholder(layout);
+    // const Component = (
+    //     <CajaTema
+    //         title={title}
+    //         hideTitle={hideTitle}
+    //         url={url}
+    //         imageId={imageId}
+    //         outputType={outputType}
+    //         layout={layout}
+    //         classCondition={`${classCondition}${(isInApertura &&
+    //             layout.includes('focal') &&
+    //             ' --apertura') ||
+    //             ''}`}
+    //         notesQuantity={notesQuantity}
+    //         position={position}
+    //         positionInsideSection={positionInsideSection}
+    //         sectionName={sectionName}
+    //         articles={_articles}
+    //         titleSize={titleSize}
+    //         handleClick={productClickFromClient}
+    //         pageLayout={pageLayout}
+    //     />
+    // );
 
-    return isHome ? (
-        <StaticContent>{Component}</StaticContent>
-    ) : (
-        noStaticComponent
-    );
+    // const noStaticComponent =
+    //     (_articles && _articles.length && Component) || getPlaceholder(layout);
+
+    // return isHome ? (
+    //     <StaticContent>{Component}</StaticContent>
+    // ) : (
+    //     noStaticComponent
+    // );
 };
 
 CajaCanal.label = 'LN10 Caja Canal';
@@ -155,7 +217,7 @@ CajaCanal.propTypes = {
         })
     ),
     customFields: PropTypes.shape({
-        ...cajaTemasCustomsFields('cajaCollection')
+        ...setCommonCustomFields('cajaCollection')
     }),
     tree: PropTypes.shape(PropTypes.node),
     globalContent: PropTypes.shape({

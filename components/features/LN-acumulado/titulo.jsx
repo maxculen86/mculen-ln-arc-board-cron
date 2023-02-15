@@ -20,6 +20,8 @@ const TitleFeature = props => {
     const { globalContent: { node_type: nodeType } = {} } = useAppContext();
     const hasHydrateOnly = checkHydrateOnly({ nodeType });
 
+    console.log({ idLogoImage });
+
     const Component = (
         <Title
             hideCategories={hidesectionslist}

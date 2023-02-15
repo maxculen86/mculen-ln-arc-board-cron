@@ -27,7 +27,7 @@ export default function CommonCollection({
     return (
         <>
             <BuildRoof {...roofData} />
-            <ContainerCards gridType={gridType}>
+            <ContainerCards gridType={gridType} gridStyle={roofData.chainStyle}>
                 {articles.map((article, index) => {
                     const {
                         withImage,
