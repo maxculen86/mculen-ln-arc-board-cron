@@ -122,7 +122,9 @@ export const buildQueryParams = ({
         'jpeg',
         'gif',
         'tiff',
-        'bmp'
+        'tif',
+        'bmp',
+        'jfif'
     ].includes(ext.toLowerCase())
         ? `.${ext}`
         : '';
@@ -155,7 +157,7 @@ export const buildQueryParams = ({
 
     // Regla: Si existe focalPoint, smart y crop deben ser siempre false.
     const smart = () =>
-        focalPoint && focalPoint.length > 1
+        !imgId || (focalPoint && focalPoint.length > 1)
             ? `&smart=${false}`
             : `&smart=${smartCropExcluded}`;
 

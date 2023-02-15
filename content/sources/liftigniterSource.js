@@ -317,7 +317,7 @@ const transform = (data, siteProps) => {
         const isV2 = isResizerV2(promoImage);
         const parsedId = isV2
             ? promoImage.match(
-                  /[A-Z0-9]{26}(.(jpg|jpeg|tiff|webp|gif|png|bmp))?/i
+                  /[A-Z0-9]{26}(.(jpe?g|tiff?|webp|gif|png|bmp|jfif))?/i
               )
             : [];
         const imageAuth = isV2
