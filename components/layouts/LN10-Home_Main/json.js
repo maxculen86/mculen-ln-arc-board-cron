@@ -9,7 +9,7 @@ const LN10Home = props => {
         arcSite: props.arcSite,
         layout: 'LN10-Home_Main'
     };
-
+    // return propsHome;
     return getPageElements(propsHome);
 };
 

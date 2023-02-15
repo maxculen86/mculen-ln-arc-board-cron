@@ -2,10 +2,7 @@ import get from '../../../../../common/utils/get';
 import Image from '../../../common/elements/image';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 import { cardRegular as Article } from '../../../common/article/cardRegular/index';
-import {
-    cardAnexoItem as Anexo,
-    cardAnexoItemMobile as AnexoMobile
-} from '../../../common/article/cardAnexo/index';
+import { cardAnexoHtmlOrUrl as Anexo } from '../../../common/article/cardAnexo/index';
 import { storyBox } from '../../../common/home/boxTypes/storyBox';
 import { anticipoBox } from '../../../common/home/boxTypes/anticipoBox';
 import { anexoMobileBox } from '../../../common/home/boxTypes/anexoMobileBox';
@@ -77,9 +74,7 @@ const index = (
                 break;
             case 2:
                 // eslint-disable-next-line no-unreachable
-                result.push(
-                    typeBox[f.type](f, featureInfo, Anexo, AnexoMobile)
-                );
+                result.push(typeBox[f.type](f, featureInfo, Anexo));
                 break;
 
             case 3:

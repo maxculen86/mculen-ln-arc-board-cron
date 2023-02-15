@@ -1,12 +1,12 @@
-import configTypesbyChainOrFeature from '../config/configTypesbyChainOrFeature';
+import configsTypesByLayout from '../config/configTypesByLayout';
 
-const setTypeElement = information => {
+const setTypeElement = (information, layoutPage) => {
     if (information && (information.nameChain || information.nameFeature)) {
         const elementContainer =
             information.nameFeature == null
                 ? information.nameChain
                 : information.nameFeature;
-        return configTypesbyChainOrFeature(elementContainer);
+        return configsTypesByLayout(layoutPage)(elementContainer);
     }
     // By default set a number for discard element
     return 9;

@@ -52,7 +52,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             query: queryParams,
             ttl: 120
         });
-        // Para revisar la data cruda que viene del Layout
+        // Para revisar la data transformada que viene del Layout
         // return resultPage;
 
         const resultPageTransform = await pageTransform[version](

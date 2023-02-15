@@ -15,3 +15,10 @@ export const cardAnexoItemMobile = article => {
     }
     return null;
 };
+
+export const cardAnexoHtmlOrUrl = article => {
+    const byUrl = cardAnexoItemMobile(article);
+    if (!byUrl) return cardAnexoItem(article);
+
+    return byUrl;
+};

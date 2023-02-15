@@ -70,7 +70,8 @@ const getPageElements = props => {
                                             b,
                                             sectionWeb,
                                             sectionMobile,
-                                            configurations
+                                            configurations,
+                                            layoutPage
                                         )
                                     );
                                 }

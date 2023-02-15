@@ -4,7 +4,7 @@ const getTypeSection = nameContainer => {
         Anticipo: { tipoSeccion: 'anticipo', idSeccion: 501 },
         Bomba: { tipoSeccion: 'bomba', idSeccion: 102 },
         Apertura: { tipoSeccion: 'apertura', idSeccion: 200 },
-        Anexo: { tipoSeccion: 'anexo', idSeccion: 0 },
+        Anexo: { tipoSeccion: 'anexoMobile', idSeccion: 603 },
         AnexoMobile: { tipoSeccion: 'anexoMobile', idSeccion: 603 },
         Opinion: { tipoSeccion: 'opinion', idSeccion: 1001 },
         Comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },

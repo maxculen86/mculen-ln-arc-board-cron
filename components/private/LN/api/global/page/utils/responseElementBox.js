@@ -2,13 +2,20 @@ import get from '../../../../../common/utils/get';
 import setTypeElement from './setTypeElement';
 import setSectionAliasbyFeatureOrChain from './setSectionAliasbyFeatureOrChain';
 
-const responseElementBox = (box, sectionWeb, sectionMobile, configurations) => {
+const responseElementBox = (
+    box,
+    sectionWeb,
+    sectionMobile,
+    configurations,
+    layoutPage
+) => {
     // For validate response from boxes into other box
     const restRespElementBox = (
         boxElement,
         sectionWebParam,
         sectionMobileParam,
-        configurationsParam
+        configurationsParam,
+        layoutPageParam
     ) => {
         // If there is a box inside this box
         if (
@@ -27,7 +34,8 @@ const responseElementBox = (box, sectionWeb, sectionMobile, configurations) => {
                             articleBox,
                             sectionWebParam,
                             sectionMobileParam,
-                            configurationsParam
+                            configurationsParam,
+                            layoutPageParam
                         );
                     }
                     return articleBox;
@@ -37,12 +45,19 @@ const responseElementBox = (box, sectionWeb, sectionMobile, configurations) => {
         return boxElement;
     };
     return {
-        type: setTypeElement(box.information),
+        type: setTypeElement(box.information, layoutPage),
         sectionAliasMobile: setSectionAliasbyFeatureOrChain(
             box.information,
-            sectionMobile
+            sectionMobile,
+            layoutPage
         ),
-        ...restRespElementBox(box, sectionWeb, sectionMobile, configurations),
+        ...restRespElementBox(
+            box,
+            sectionWeb,
+            sectionMobile,
+            configurations,
+            layoutPage
+        ),
         configurations,
         sectionMobile,
         sectionWeb

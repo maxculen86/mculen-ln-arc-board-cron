@@ -53,18 +53,7 @@ const configSectionsByLayout = layout => {
         },
         'LN10-Home_Main': {
             front: sectionsPage10MainFront,
-            mobile: [
-                'Pre_Apertura',
-                'Apertura',
-                'Tema1',
-                'Tema2',
-                'Hashtag',
-                'Content',
-                'Canales_1',
-                'Canales_2',
-                'Anexo',
-                'Anexo'
-            ],
+            mobile: sectionsPage10MainFront,
             rules: rulesLN10HomeMain
         }
     };

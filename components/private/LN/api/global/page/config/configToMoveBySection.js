@@ -1,6 +1,6 @@
 const boxMovePositionLNMain = {
-    Anexo_1: { sectionWeb: 'Apertura_1', position: 'start' },
-    Anexo_2: { sectionWeb: 'Apertura_1', position: 'bottom' }
+    App_Anexo_1: { sectionWeb: 'Apertura_1', position: 'start' },
+    App_Anexo_2: { sectionWeb: 'Apertura_1', position: 'bottom' }
 };
 const boxMovePositionLNAcumulado = {};
 const boxMovePositionLNSports = {};
