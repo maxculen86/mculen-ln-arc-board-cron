@@ -1,7 +1,7 @@
 import get from '../../../../../../../../components/private/common/utils/get';
 import transformAcu from '../../../common/transform';
 import getArticlesAcumulados from '../../../common/getArticlesAcumulados';
-import getFieldInBox from '../../../../common/transform/getFieldsBox';
+import getFieldInBox from '../../../../common/utils/getFieldsBox';
 
 const getAcumulado = async queryParams => {
     const { uri, title, configuration, categoryUri, versionUri } = queryParams;

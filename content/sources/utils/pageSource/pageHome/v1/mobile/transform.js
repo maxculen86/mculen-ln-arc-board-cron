@@ -1,9 +1,11 @@
 import get from '../../../../../../../components/private/common/utils/get';
 import configBannerPositionbySection from '../../../../../../../components/private/LN/api/global/page/config/configBannerPositionbySection';
-import { addElementsByKey } from '../../../../../../../components/private/LN/api/global/page/common/utils/addElements';
-import { moveElementsByKey } from '../../../../../../../components/private/LN/api/global/page/common/utils/moveElements';
+import { setBannersBySection } from '../../../common/elements/banners/index';
+import {
+    moveSections,
+    divideSectionsByDiagramation
+} from '../../../common/elements/sections/index';
 import configToMoveBySection from '../../../../../../../components/private/LN/api/global/page/config/configToMoveBySection';
-import { segmentSectionbyDiagramation } from '../../../../../../../components/private/LN/api/global/page/common/utils/divideElements';
 
 const transform = async (dataPage, query) => {
     const {
@@ -13,64 +15,26 @@ const transform = async (dataPage, query) => {
 
     try {
         let elementsPageHome = elementsPage;
+
         // Add Banners by Section
         const configBannersBySections = configBannerPositionbySection(
             layoutPage
         );
-        Object.keys(configBannersBySections).map(sectionWeb => {
-            const configElementToAdd = {
-                ...configBannersBySections[sectionWeb],
-                sectionMobile: sectionWeb,
-                sectionWeb
-            };
-            elementsPageHome = addElementsByKey(
-                configElementToAdd,
-                sectionWeb,
-                'sectionWeb',
-                elementsPageHome
-            );
-
-            return true;
-        });
+        elementsPageHome = setBannersBySection(
+            elementsPageHome,
+            configBannersBySections
+        );
 
         // Move Sections
         const configMovePositions = configToMoveBySection(layoutPage);
-        Object.keys(configMovePositions).map(sectionWeb => {
-            const configElementToMove = configMovePositions[sectionWeb];
-            elementsPageHome = moveElementsByKey(
-                configElementToMove,
-                sectionWeb,
-                'sectionWeb',
-                elementsPageHome
-            );
-            return true;
-        });
+        elementsPageHome = moveSections(elementsPageHome, configMovePositions);
 
-        // Divide Section by configured features
-        if (
-            elementsPageHome &&
-            Array.isArray(elementsPageHome) &&
-            elementsPageHome.length > 0
-        ) {
-            const sectionbyDiagramation = ['grillaUltimasNoticias'];
-            elementsPageHome = segmentSectionbyDiagramation(
-                elementsPageHome,
-                sectionbyDiagramation
-            );
-        }
-
-        // Add property Order to elements
-        // let indiceElements = -1;
-        // elementsPageHome = elementsPageHome.map((e, i) => {
-        //     if (e && e.type !== 1) {
-        //         if (!get(e, 'information.idRenderParent', null)) {
-        //             indiceElements += 1;
-        //         }
-
-        //         return { ...e, originPosition: indiceElements };
-        //     }
-        //     return { ...e };
-        // });
+        // Divide Section by Layout configured in features
+        const configToDividebyDiagramation = ['grillaUltimasNoticias'];
+        elementsPageHome = divideSectionsByDiagramation(
+            elementsPageHome,
+            configToDividebyDiagramation
+        );
         return elementsPageHome;
     } catch (error) {
         // eslint-disable-next-line no-console

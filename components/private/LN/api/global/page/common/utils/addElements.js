@@ -94,4 +94,26 @@ export const addElementsByKey = (
     return elements;
 };
 
+export const addElement = (elementFrom, elementAdd, position) => {
+    const elements = [];
+    if (elementFrom && elementAdd) {
+        switch (position) {
+            case 'start':
+                elements.push(elementAdd);
+                elements.push(elementFrom);
+                break;
+            case 'bottom':
+                elements.push(elementFrom);
+                elements.push(elementAdd);
+
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    return elements;
+};
+
 export default addElementByPosition;
