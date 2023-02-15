@@ -182,6 +182,7 @@ describe('Components - features - LN-10 - articulo - default', () => {
             lead: 'LeadNota',
             title: 'Nota',
             variant,
+            chapitaStyle: _helper.typeBadge[2],
             ...dinamycFields
         },
         searchableField: () => {},

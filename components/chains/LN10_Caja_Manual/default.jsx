@@ -3,12 +3,11 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import { Bngrid } from '@ln/contenidos-ui-bngrid';
 import {
     getCommonProps,
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
-import { validateCajaManual } from './_helper';
+import validateCajaManual from './_helper';
 import getGridType from '../utils/getGridType';
 import setRender from '../utils/setRender';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
@@ -16,8 +15,10 @@ import StaticContent from '../../private/common/staticContent';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
 
 import BuildRoof from '../utils/_BuildRoof/default';
-import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 import { setSlicedChildren } from '../utils/_helpers';
+import getComponent from '../utils/getComponent';
+import '../../../resources/packages/css/@ln/contenidos-ui-contentlab/index.css';
+import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 
 const CajaManual = props => {
     const {
@@ -78,6 +79,8 @@ const CajaManual = props => {
             featureId: chainId
         }) || {};
 
+    const ContainerCards = getComponent(chainStyle, layout);
+
     return (
         <StaticContent {...extraOptsDiv}>
             {setRender({
@@ -90,12 +93,12 @@ const CajaManual = props => {
                     default: (
                         <>
                             <BuildRoof {...roofData} />
-                            <Bngrid
+                            <ContainerCards
                                 gridType={getGridType(layout)}
                                 gridStyle={chainStyle}
                             >
                                 {articles}
-                            </Bngrid>
+                            </ContainerCards>
                             {bannerMob}
                             {bannerDsk}
                         </>

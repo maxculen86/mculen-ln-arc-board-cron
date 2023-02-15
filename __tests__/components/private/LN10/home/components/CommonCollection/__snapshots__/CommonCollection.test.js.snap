@@ -44,8 +44,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
           >
             <section
@@ -91,8 +90,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
           >
             <section
@@ -138,8 +136,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
           >
             <section
@@ -185,8 +182,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
           >
             <section
@@ -232,8 +228,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Historias El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
           >
             <section
@@ -284,8 +279,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/test-noticia-en-arc-nid16032021-2/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Test noticia en ARC"
           >
             <section
@@ -331,8 +325,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/revista-living/test-noticia-en-arc-nid03012023/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Test noticia en ARC"
           >
             <section
@@ -378,8 +371,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Santa Cruz Bullrich visita El Calafate y presenta libro"
           >
             <section
@@ -403,6 +395,392 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 Incidentes frente al hotel donde convocó a militantes 
               </h3>
               
+            </section>
+          </a>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tests Component CommonCollection should return hashTag with 7 articles 1`] = `
+<div>
+  <div
+    class="ln-roof --hashtag"
+  >
+    <div
+      class="--ln-roof-full --d-flex --jc-between --pt-md"
+    >
+      <div
+        class="--ln-roof-left"
+      >
+        <div
+          class="--d-flex --ai-center --uppercase"
+        >
+          <i
+            class="icon ln-icon --icon-inherit"
+          >
+            <svg
+              fill="none"
+              height="83"
+              viewBox="0 0 161 83"
+              width="161"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                clip-path="url(#hashtag_svg__a)"
+              >
+                <path
+                  d="M159.26 5.309 0 14.066l1.498 27.25 159.261-8.758-1.499-27.25ZM139.118 40.633 0 48.283l1.498 27.25 139.118-7.65-1.498-27.25Z"
+                  fill="#DBFF00"
+                />
+                <path
+                  d="m33.507 9.738-2.797.23-6.936 12.2-4.538.374 6.936-12.201-2.797.23-6.936 12.2L4.2 23.779l-.16 2.552 10.865-.893-2.338 4.115-8.757.72-.114 2.547 7.381-.606-6.978 12.25 2.797-.23 6.978-12.25 4.539-.373-6.978 12.25 2.796-.23 6.978-12.25 11.828-.972.114-2.548-10.453.86 2.339-4.116 8.344-.686.16-2.552-6.97.573 6.937-12.201ZM19.9 28.949l-4.539.373 2.339-4.115 4.538-.373-2.338 4.115ZM47.588 7.657l-10.773.886-.114 2.548 2.063-.17-1.804 30.842 8.71-.716.83-14.053c.269-4.038 2.66-4.696 3.44-4.76 1.146-.095 2.017.388 2.141 1.9.132 1.605-.819 11.376-.665 13.256.155 1.88 1.123 3.554 4.379 3.286 2.108-.173 4.62-1.072 6.187-2.216l.132-2.319c-.348.26-.799.389-1.12.415-.458.038-.798-.165-.847-.76-.083-1.01.793-11.697.635-13.623-.324-3.942-2.82-5.676-6.305-5.39-3.118.257-5.939 1.873-7.739 5.806l.85-14.932Zm41.717 26.25a2.15 2.15 0 0 1-1.074.41c-.504.042-.752-.168-.801-.764-.083-1.009.925-17.384 1.023-19.562l-1.376.113-7.47 2.322c-1.604-.976-3.762-1.398-5.687-1.24-6.74.554-10.529 7.235-9.828 15.762.482 5.868 3.122 8.79 8.12 8.379 1.833-.15 5.257-1.17 6.48-4.825-.008.462.022.829.04 1.058.148 1.788.998 3.149 4.253 2.881 2.11-.173 4.62-1.072 6.188-2.216l.132-2.319ZM78.85 29.688c-.295 4.824-2.428 5.83-3.39 5.91-1.33.109-2.085-1.214-2.323-4.102-.799-9.72 1.597-13.147 4.164-13.358.825-.068 1.623.097 2.192.281l-.643 11.269Zm20.465 7.41c-5.18.426-8.277-1.304-8.514-4.192-.166-2.018 1.1-3.46 2.98-3.615 2.109-.173 3.521.726 3.642 2.193.113 1.376-.767 2.463-2.872 2.682.992.842 2.531 1.039 4.09.91 2.797-.23 3.907-1.89 3.805-3.128-.309-3.759-9.722-3.724-10.257-10.234-.362-4.401 2.737-8.256 9.98-8.851 4.814-.396 8.002 1.327 8.239 4.215.159 1.926-1.077 3.181-3.002 3.34-2.063.169-3.518-.68-3.642-2.194-.109-1.33.633-2.406 2.601-2.614-.978-.658-2.33-.824-3.659-.714-1.788.147-2.328 1.437-2.257 2.308.366 4.447 10.202 5.07 10.68 10.892.437 5.318-4.754 8.422-11.814 9.002ZM124.31 1.352l-10.774.885-.114 2.548 2.063-.17-1.803 30.842 8.71-.716.83-14.053c.268-4.038 2.66-4.696 3.44-4.76 1.146-.094 2.016.388 2.14 1.9.132 1.605-.818 11.376-.664 13.256.155 1.88 1.123 3.554 4.378 3.286 2.109-.173 4.62-1.072 6.187-2.216l.133-2.319c-.348.26-.799.39-1.12.415-.459.038-.798-.165-.847-.76-.083-1.01.792-11.697.634-13.622-.324-3.943-2.82-5.676-6.305-5.39-3.117.256-5.938 1.873-7.738 5.805l.85-14.931Zm-70.4 47.576.159-2.551-4.355.358.335-6.028-2.842.233-6.204 6.51-2.063.17-.16 2.552 2.063-.17c-.876 14.611-.912 16.414-.882 16.78.249 3.027 2.368 4.099 6.173 3.786 2.155-.177 4.83-.766 6.645-1.7l.083-2.36c-.531.274-1.43.578-2.209.642-1.238.102-1.864-.216-1.954-1.316-.027-.321.08-2.96.855-16.548l4.355-.358Zm25.929 14.854a2.15 2.15 0 0 1-1.074.412c-.505.041-.753-.17-.802-.765-.082-1.009.925-17.385 1.023-19.562l-1.375.113-7.47 2.322c-1.604-.976-3.762-1.399-5.688-1.24-6.739.553-10.528 7.234-9.827 15.762.482 5.868 3.122 8.79 8.12 8.379 1.833-.151 5.257-1.171 6.48-4.825-.008.462.022.829.04 1.058.147 1.788.998 3.149 4.253 2.881 2.109-.173 4.62-1.072 6.187-2.216l.133-2.319Zm-10.455-4.218c-.296 4.825-2.428 5.831-3.391 5.91-1.33.11-2.085-1.213-2.322-4.102-.799-9.719 1.596-13.147 4.164-13.358.825-.067 1.623.098 2.192.282l-.643 11.268Zm27.08 6.452c-.366 6.215-3.305 7.518-5.505 7.699-1.697.14-3.453-.455-3.964-1.06 2.796-.229 3.937-2.077 3.775-4.048-.129-1.559-1.243-2.76-3.49-2.575-2.979.245-4.326 2.387-4.13 4.77.237 2.889 3.466 5.67 9.976 5.135 6.143-.505 11.645-4.327 12.272-14.67l1.153-19.665-1.376.113-7.47 2.321c-1.604-.976-3.762-1.398-5.688-1.24-6.739.554-10.562 6.822-10.016 13.47.483 5.868 3.802 9.195 8.524 8.807 1.834-.15 4.975-1.24 6.294-5.41l-.355 6.353Zm.66-12.193c-.32 5.103-1.932 6.251-3.124 6.35-1.972.161-2.81-1.616-3.048-4.504-.629-7.657 1.88-9.709 4.447-9.92.825-.068 1.623.097 2.192.281l-.467 7.793Z"
+                  fill="#1C1C1F"
+                />
+              </g>
+              <defs>
+                <clippath
+                  id="hashtag_svg__a"
+                >
+                  <path
+                    d="M0 0h161v83H0z"
+                    fill="#fff"
+                  />
+                </clippath>
+              </defs>
+            </svg>
+          </i>
+        </div>
+      </div>
+      <div
+        class="--ln-roof-right --d-flex --ai-center --generico"
+      />
+    </div>
+  </div>
+  <div
+    class="ln-caja-hashtag --hash-1-2-2-2_grid"
+  >
+    <div
+      class="grid --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+    >
+      <div
+        class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
+        <article
+          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-top --tablet-img-top --desktop-img-top"
+        >
+          <a
+            class="link ln-link --d-flex --flex-col --unstyled"
+            href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+            target="_self"
+            title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+          >
+            <section
+              class="media-container --mb-xs"
+              href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+              title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+            >
+              <picture
+                class="ln-placeholder --d-flex --jc-center --relative --ar-picture"
+              >
+                <img
+                  alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                  class="image --d-flex --w-100 --h-100"
+                  decoding="async"
+                  height="513"
+                  src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                  srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 360w, https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 768w, https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 351w, "
+                  width="768"
+                />
+              </picture>
+            </section>
+            <section
+              class="description-container --relative --d-flex --flex-col"
+              href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+            >
+              <h2
+                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+              >
+                
+                Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
+              </h2>
+            </section>
+          </a>
+        </article>
+      </div>
+      <div
+        class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
+        <article
+          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+        >
+          <a
+            class="link ln-link --d-flex --flex-col --unstyled"
+            href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+            target="_self"
+            title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+          >
+            <section
+              class="media-container --mb-xs"
+              href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+              title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+            >
+              <picture
+                class="ln-placeholder --d-flex --jc-center --relative --ar-picture"
+              >
+                <img
+                  alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                  class="image --d-flex --w-100 --h-100"
+                  decoding="async"
+                  height="513"
+                  src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                  srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 360w, https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 768w, https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 351w, "
+                  width="768"
+                />
+              </picture>
+            </section>
+            <section
+              class="description-container --relative --d-flex --flex-col"
+              href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+            >
+              <h2
+                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+              >
+                
+                Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
+              </h2>
+            </section>
+          </a>
+        </article>
+      </div>
+      <div
+        class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
+        <article
+          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+        >
+          <a
+            class="link ln-link --d-flex --flex-col --unstyled"
+            href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
+            target="_self"
+            title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
+          >
+            <section
+              class="media-container --mb-xs"
+              href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
+              title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
+            >
+              <picture
+                class="ln-placeholder --d-flex --jc-center --relative --ar-picture"
+              >
+                <img
+                  alt="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
+                  class="image --d-flex --w-100 --h-100"
+                  decoding="async"
+                  height="513"
+                  src="https://resizer.glanacion.com/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg"
+                  srcset="https://resizer.glanacion.com/resizer/Fu3kfsnTFGAe8Kt-P34acHaqgc4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg 360w, https://resizer.glanacion.com/resizer/Q8uUmueIrYd77Kp1rTfU3z88PbY=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg 768w, https://resizer.glanacion.com/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg 351w, "
+                  width="768"
+                />
+              </picture>
+            </section>
+            <section
+              class="description-container --relative --d-flex --flex-col"
+              href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
+            >
+              <h2
+                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+              >
+                
+                Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
+              </h2>
+            </section>
+          </a>
+        </article>
+      </div>
+      <div
+        class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
+        <article
+          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+        >
+          <a
+            class="link ln-link --d-flex --flex-col --unstyled"
+            href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
+            target="_self"
+            title="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
+          >
+            <section
+              class="media-container --mb-xs"
+              href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
+              title="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
+            >
+              <picture
+                class="ln-placeholder --d-flex --jc-center --relative --ar-picture"
+              >
+                <img
+                  alt="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
+                  class="image --d-flex --w-100 --h-100"
+                  decoding="async"
+                  height="513"
+                  src="https://resizer.glanacion.com/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg"
+                  srcset="https://resizer.glanacion.com/resizer/ZNcwkfsAPZKeSNfJT3QH_Q4sJkU=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg 360w, https://resizer.glanacion.com/resizer/dcXGl99iWjvLpMORfl-mqFZyaJ0=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg 768w, https://resizer.glanacion.com/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg 351w, "
+                  width="768"
+                />
+              </picture>
+            </section>
+            <section
+              class="description-container --relative --d-flex --flex-col"
+              href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
+            >
+              <h2
+                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+              >
+                
+                El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres
+              </h2>
+            </section>
+          </a>
+        </article>
+      </div>
+      <div
+        class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
+        <article
+          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+        >
+          <a
+            class="link ln-link --d-flex --flex-col --unstyled"
+            href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
+            target="_self"
+            title="Historias El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
+          >
+            <section
+              class="media-container --mb-xs"
+              href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
+              title="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
+            >
+              <picture
+                class="ln-placeholder --d-flex --jc-center --relative --ar-picture"
+              >
+                <img
+                  alt="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
+                  class="image --d-flex --w-100 --h-100"
+                  decoding="async"
+                  height="513"
+                  src="https://resizer.glanacion.com/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg"
+                  srcset="https://resizer.glanacion.com/resizer/rEUp65jkcaI8St-_G0QrexhCBsI=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg 360w, https://resizer.glanacion.com/resizer/-0CRKhU6ZKyPbBGA2T1SnRlU0Qg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg 768w, https://resizer.glanacion.com/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg 351w, "
+                  width="768"
+                />
+              </picture>
+            </section>
+            <section
+              class="description-container --relative --d-flex --flex-col"
+              href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
+            >
+              <h2
+                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+              >
+                <span
+                  class="text ln-text lead --prumo --font-black"
+                >
+                  Historias
+                   
+                </span>
+                El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
+              </h2>
+            </section>
+          </a>
+        </article>
+      </div>
+      <div
+        class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
+        <article
+          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+        >
+          <a
+            class="link ln-link --d-flex --flex-col --unstyled"
+            href="/deportes/test-noticia-en-arc-nid16032021-2/"
+            target="_self"
+            title="Test noticia en ARC"
+          >
+            <section
+              class="media-container --mb-xs"
+              href="/deportes/test-noticia-en-arc-nid16032021-2/"
+              title="Test noticia en ARC"
+            >
+              <picture
+                class="ln-placeholder --d-flex --jc-center --relative --ar-picture"
+              >
+                <img
+                  alt="Test noticia en ARC"
+                  class="image --d-flex --w-100 --h-100"
+                  decoding="async"
+                  height="513"
+                  src="https://resizer.glanacion.com/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg"
+                  srcset="https://resizer.glanacion.com/resizer/nNQd85R22QnfEjty9_GwPJSb9yc=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg 360w, https://resizer.glanacion.com/resizer/13v05lI2fYMPBVpL1jPC8RvQcTg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg 768w, https://resizer.glanacion.com/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg 351w, "
+                  width="768"
+                />
+              </picture>
+            </section>
+            <section
+              class="description-container --relative --d-flex --flex-col"
+              href="/deportes/test-noticia-en-arc-nid16032021-2/"
+            >
+              <h2
+                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+              >
+                
+                Test noticia en ARC
+              </h2>
+            </section>
+          </a>
+        </article>
+      </div>
+      <div
+        class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+      >
+        <article
+          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+        >
+          <a
+            class="link ln-link --d-flex --flex-col --unstyled"
+            href="/revista-living/test-noticia-en-arc-nid03012023/"
+            target="_self"
+            title="Test noticia en ARC"
+          >
+            <section
+              class="media-container --mb-xs"
+              href="/revista-living/test-noticia-en-arc-nid03012023/"
+              title="Test noticia en ARC"
+            >
+              <picture
+                class="ln-placeholder --d-flex --jc-center --relative --ar-picture"
+              >
+                <img
+                  alt="Test noticia en ARC"
+                  class="image --d-flex --w-100 --h-100"
+                  decoding="async"
+                  height="513"
+                  src="https://resizer.glanacion.com/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg"
+                  srcset="https://resizer.glanacion.com/resizer/_bT-GKL06Ie_uDCQKuG1nQ2hcqE=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg 360w, https://resizer.glanacion.com/resizer/-g5rNPf2Az-z6OvSdvenYWWoSQ4=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg 768w, https://resizer.glanacion.com/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg 351w, "
+                  width="768"
+                />
+              </picture>
+            </section>
+            <section
+              class="description-container --relative --d-flex --flex-col"
+              href="/revista-living/test-noticia-en-arc-nid03012023/"
+            >
+              <h2
+                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+              >
+                
+                Test noticia en ARC
+              </h2>
             </section>
           </a>
         </article>

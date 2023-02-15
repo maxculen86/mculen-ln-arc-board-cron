@@ -167,4 +167,31 @@ describe('Tests Chain CajaCollection', () => {
             // expect(screen.getByText(bajada)).toBeVisible();
         });
     });
+
+    describe('Tests for the case of Content Lab', () => {
+        const fields = {
+            ...customFields,
+            layout: 'cajaContent1',
+            idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
+        };
+
+        test('should return a grid of 1 items', () => {
+            useGetArticleInCollection.mockImplementation(() =>
+                responseSource.slice(0, 1)
+            );
+
+            const { container } = render(
+                <CajaCollection
+                    {...getProps({
+                        customFields: fields
+                    })}
+                />
+            );
+
+            expect(screen.getAllByRole('article')).toHaveLength(1);
+            expect(
+                container.getElementsByClassName('content-lab')
+            ).toHaveLength(1);
+        });
+    });
 });

@@ -1,4 +1,5 @@
 import pageBuilderValidator from '../../../../private/common/utils/pageBuilderValidator';
+import hasDataRoof from './hasDataRoof';
 
 const validateRoof = ({
     logoData,
@@ -8,7 +9,8 @@ const validateRoof = ({
     hideRoof,
     navigationId,
     linkButton,
-    buttonText
+    buttonText,
+    chainStyle
 }) => {
     const rules = [
         {
@@ -29,7 +31,7 @@ const validateRoof = ({
         }
     ];
 
-    return pageBuilderValidator(rules);
+    return hasDataRoof({ chainStyle }) && pageBuilderValidator(rules);
 };
 
 export default validateRoof;

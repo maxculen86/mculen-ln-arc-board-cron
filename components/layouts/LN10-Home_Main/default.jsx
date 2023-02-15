@@ -10,7 +10,6 @@ import LoadBanners from '../../private/common/banners/LoadBanners';
 import { bannersViewport } from '../../private/common/banners/bannersHome.json';
 import Metarefresh from '../../features/LN-common/metarefresh';
 import sectionHelper from '../../private/LN/common/utils/sectionHelperLN10';
-import Ranking from '../../features/LN-common/ranking/default';
 import pageBuilderSections from '../config/LN10-PageBuilder.config.json';
 import { getScriptForComercial } from '../../private/common/banners/bannersRules';
 import PwaModals from '../../private/LN/common/pwaModals';
@@ -20,6 +19,7 @@ import createBannersIntersectionObserver from '../../private/common/banners/crea
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
 import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
+import Ranking from '../../features/LN-10/ranking/default';
 
 const LN10Home = props => {
     const { children, outputType, isAdmin, renderables } = props;
@@ -98,9 +98,6 @@ const LN10Home = props => {
                                 {/*
                                 caja8mob - parallax3dsk -middle3tab
                                  */}
-                                <div data-section="ranking" className="lay">
-                                    <Ranking {...props} id="rankingHome" />
-                                </div>
                                 <div data-section="content">{content}</div>
                                 <div data-section="canales1">{canales1}</div>
                                 {/*
@@ -109,6 +106,9 @@ const LN10Home = props => {
                                 <div data-section="canales2">{canales2}</div>
                             </div>
                         </div>
+                    </div>
+                    <div data-section="ranking" className="lay">
+                        <Ranking {...props} id="rankingHome" />
                     </div>
                     <div id="content-main-3" className="lay-sidebar">
                         <div className="sidebar__main">
