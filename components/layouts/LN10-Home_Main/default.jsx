@@ -64,7 +64,9 @@ const LN10Home = props => {
                 <Header />
                 <div data-section="pre-apertura">{preApertura}</div>
                 <main id="content">
-                    <div data-section="apertura">{apertura}</div>
+                    <div data-section="apertura" className="lay">
+                        {apertura}
+                    </div>
                     {bannersHome.sticky2Mob}
                     <div>
                         <div id="content-main" className="lay-sidebar">
