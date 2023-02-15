@@ -9,14 +9,20 @@ import filter from '../../../content/filters/LN/services/dolar';
 import getAssetsPath from '../../private/common/utils/getAssetsPath';
 import get from '../../private/common/utils/get';
 import config from '../../../properties/sites/la-nacion-ar';
+import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
 
 const { layoutsName = {} } = config || {};
 
 const CajaDolar = ({ id }) => {
-    const { contextPath, deployment, outputType, layout, globalContent } =
+    const { contextPath, deployment, outputType, layout, globalContent = {} } =
         useAppContext() || {};
+    const { node_type: nodeType = '' } = globalContent;
+    const isAmp = outputType === 'amp';
     const shouldShowDollar =
-        get(globalContent, 'label.mostrar_caja_dolar.text', '') === 'Mostrar';
+        layout === layoutsName.Noticia
+            ? get(globalContent, 'label.mostrar_caja_dolar.text', '') ===
+              'Mostrar'
+            : true;
 
     const response =
         useContent({
@@ -44,28 +50,28 @@ const CajaDolar = ({ id }) => {
             fillClass={fillClass}
             logoByma={getAssetsPath(contextPath)(deployment)('logo-byma.svg')}
             logoIol={getAssetsPath(contextPath)(deployment)('logo-iol.svg')}
-            isAmp={outputType === 'amp'}
+            isAmp={isAmp}
         />
     ) : (
         <></>
     );
 
-    if (layout === layoutsName.Noticia) {
-        return shouldShowDollar ? (
-            <Static id={id} htmlOnly persistent>
-                {dolarComponent}
-            </Static>
-        ) : (
-            <></>
+    if (checkHydrateOnly({ nodeType, layout })) {
+        return (
+            <StaticContent>
+                {(() => {
+                    return dolarComponent;
+                })()}
+            </StaticContent>
         );
     }
 
-    return (
-        <StaticContent>
-            {(() => {
-                return dolarComponent;
-            })()}
-        </StaticContent>
+    return shouldShowDollar && !isAmp ? (
+        <Static id={id} htmlOnly persistent>
+            {dolarComponent}
+        </Static>
+    ) : (
+        <></>
     );
 };
 
