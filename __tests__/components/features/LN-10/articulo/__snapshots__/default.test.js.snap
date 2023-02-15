@@ -3,7 +3,7 @@
 exports[`Components - features - LN-10 - articulo - default should test card autor variant 1`] = `
 <div>
   <article
-    class="ln-card --d-flex --flex-col --ai-start --regular --mobile-img-top --tablet-img-top --desktop-img-top"
+    class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-top --tablet-img-top --desktop-img-top"
     data-feature-id="f0f9g3fKOoHW25c"
     data-id="2KOBND62KNFVVBFQZOADNN6WNY"
     data-notaid="2KOBND62KNFVVBFQZOADNN6WNY"
@@ -21,7 +21,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
       >
         <h1
-          class="text ln-text title --mb-xs --prumo --font-semi"
+          class="text ln-text title --mb-xs --prumo --font-semi --font-m"
         >
           <span
             class="text ln-text lead --prumo --font-black"
@@ -55,7 +55,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
 exports[`Components - features - LN-10 - articulo - default should test card autor variant 2`] = `
 <div>
   <article
-    class="ln-card --d-flex --flex-col --ai-start --regular --mobile-img-top --tablet-img-top --desktop-img-top"
+    class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-top --tablet-img-top --desktop-img-top"
     data-feature-id="f0f9g3fKOoHW25c"
     data-id="2KOBND62KNFVVBFQZOADNN6WNY"
     data-notaid="2KOBND62KNFVVBFQZOADNN6WNY"
@@ -73,7 +73,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
       >
         <h1
-          class="text ln-text title --mb-xs --prumo --font-semi"
+          class="text ln-text title --mb-xs --prumo --font-semi --font-m"
         >
           <span
             class="text ln-text lead --prumo --font-black"

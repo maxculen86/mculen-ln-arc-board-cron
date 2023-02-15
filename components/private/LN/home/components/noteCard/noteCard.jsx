@@ -30,7 +30,8 @@ const NoteCard = ({
     handleClick,
     registerSuccessEvent,
     mobileImage,
-    searchableField
+    searchableField,
+    isApertura
 }) => {
     const [article, setArticle] = useState(
         transform(content, customFields, promoItems)
@@ -112,10 +113,7 @@ const NoteCard = ({
                 device={device}
                 layout={layout}
                 handleClick={handleClick}
-                isApertura={
-                    isInHomeAperturaOrBomba &&
-                    get(articleProps, 'isApertura', false)
-                }
+                isApertura={isApertura}
                 registerSuccessEvent={registerSuccessEvent}
                 mobileImage={mobileImage}
                 searchableField={searchableField}

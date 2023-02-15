@@ -57,6 +57,16 @@ const unregister = () => {
     });
 };
 
+const savePwaInLocalStorage = () => {
+    try {
+        localStorage.setItem('pwaNotificationInit', new Date());
+    } catch (err) {
+        console.log(
+            'Error al intentar guardar pwaNotificationInit en localStorage'
+        );
+    }
+};
+
 const register = deployment => {
     const notificationModalPwa = '#notificacion-modal-pwa';
     return new Promise((resolve, reject) => {
@@ -85,16 +95,7 @@ const register = deployment => {
                             console.log(
                                 '[Service Worker] User cancelled home screen install'
                             );
-                            try {
-                                localStorage.setItem(
-                                    'pwaNotificationInit',
-                                    new Date()
-                                );
-                            } catch (err) {
-                                console.log(
-                                    'Error al intentar guardar pwaNotificationInit en localStorage'
-                                );
-                            }
+                            savePwaInLocalStorage();
                         } else {
                             setDataLayer('notificationConsent');
                         }
@@ -114,9 +115,9 @@ const register = deployment => {
             }
 
             const { isMobile } = getViewport();
-            if (validatePopupPwa() && isMobile) {
+            validatePopupPwa() &&
+                isMobile &&
                 showNoShowModal(notificationModalPwa, 'block');
-            }
 
             return false;
         });

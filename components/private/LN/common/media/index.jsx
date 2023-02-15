@@ -12,8 +12,9 @@ import {
 } from '../../../common/utils/subtypes/subtypeHelper';
 import useSubtype from '../../../common/hooks/useSubtype';
 import Icon from '../../../common/icon';
+import setClassCondition from './helpers/indexHelper';
 
-const media = ({
+const Media = ({
     mediaData,
     withZoom,
     itsGallery,
@@ -43,41 +44,23 @@ const media = ({
     const idForMedia = isApertura ? idMedia : undefined;
 
     useEffect(() => {
-        if (!itsGallery && withZoom) {
+        !itsGallery &&
+            withZoom &&
             setZoom(
                 [FOTOAL100, STORYTELLING].includes(subtipo.id)
                     ? refContainer.current.clientWidth <= 768
                     : width > refContainer.current.clientWidth
             );
-        }
 
         function handleResize() {
-            if (!itsGallery && withZoom) {
+            !itsGallery &&
+                withZoom &&
                 setZoom(width > refContainer.current.clientWidth);
-            }
         }
 
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, [itsGallery, withZoom, width, subtipo.id]);
-
-    const setClassCondition = () => {
-        const isFotoAl100 = subtipo.id === FOTOAL100;
-        const isZoomActive = withZoom && active;
-        const notFotoAl100AperturaInsideBody = !(
-            isApertura ||
-            isFotoAl100 ||
-            insideBody
-        );
-
-        if (
-            withMobileImage ||
-            (isVertical && (notFotoAl100AperturaInsideBody || isZoomActive))
-        )
-            return '--vertical';
-
-        return !insideBody ? '--horizontal' : '';
-    };
 
     const validateHandleClick =
         itsGallery || zoom
@@ -92,7 +75,15 @@ const media = ({
             case 'image':
                 item = (
                     <ComFigure
-                        classCondition={setClassCondition()}
+                        classCondition={setClassCondition({
+                            subtipo,
+                            withZoom,
+                            active,
+                            isApertura,
+                            insideBody,
+                            withMobileImage,
+                            isVertical
+                        })}
                         withZoom={withZoom}
                         width={width}
                         itsGallery={itsGallery}
@@ -165,7 +156,7 @@ const media = ({
     );
 };
 
-media.propTypes = {
+Media.propTypes = {
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
@@ -200,7 +191,7 @@ media.propTypes = {
     })
 };
 
-media.defaultProps = {
+Media.defaultProps = {
     mediaData: {},
     itsGallery: false,
     withZoom: false,
@@ -223,9 +214,4 @@ media.defaultProps = {
     searchableField: undefined
 };
 
-media.defaultProps = {
-    withZoom: false,
-    href: ''
-};
-
-export default media;
+export default Media;

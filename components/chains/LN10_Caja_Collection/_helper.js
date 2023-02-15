@@ -2,7 +2,8 @@ import pageBuilderValidator from '../../private/common/utils/pageBuilderValidato
 import getChildrenBySection from '../utils/getChildrenBySection';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 
-import { CHAIN_STYLE } from '../utils/_helpers';
+import { setQuantityByLayout, CHAIN_STYLE } from '../utils/_helpers';
+import get from '../../private/common/utils/get';
 
 const { HASHTAG, EXCLUSIVE_SUB } = CHAIN_STYLE;
 
@@ -15,6 +16,9 @@ export const validateChain = ({
     isInBreakings,
     chainStyle
 }) => {
+    const articlesLength = get(articles, 'length');
+    const minimum = setQuantityByLayout({ layout });
+
     const rules = [
         {
             validation: !layout,
@@ -47,6 +51,13 @@ export const validateChain = ({
             validation: !isInBreakings && chainStyle === EXCLUSIVE_SUB,
             message:
                 'La caja collection exclusivo suscriptor debe estar dentro de las secciones Breaking 1 y Breaking 2'
+        },
+        {
+            validation: articlesLength < minimum,
+            message: `Se requiere la carga de ${minimum -
+                articlesLength} artículo${
+                minimum - articlesLength > 1 ? 's' : ''
+            }`
         }
     ];
 

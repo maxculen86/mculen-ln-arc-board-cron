@@ -24,6 +24,12 @@ export const typeBadge = {
     3: EXCLUSIVE_LN
 };
 
+export const typeMedia = {
+    IMAGE: 'image',
+    VIDEO: 'video',
+    HTML: 'html'
+};
+
 const promoItemsBasic = 'promo_items.basic';
 
 export const showSubheadText = ({ withSubhead, article, description }) =>
@@ -68,7 +74,13 @@ export const validateMedia = (customFields, config, article) =>
 export const validateVariant = (variant, authorsQuantity) =>
     variant === 'author' && !(authorsQuantity === 1) ? 'regular' : variant;
 
-export const getBadgetConfig = (style, text, isLiveblog, withMedia) => {
+export const getBadgetConfig = ({
+    style,
+    text,
+    isLiveblog,
+    withMedia,
+    typeOfMedia
+}) => {
     if (isLiveblog) {
         return {
             badgetStyle: style || 'live',
@@ -78,7 +90,7 @@ export const getBadgetConfig = (style, text, isLiveblog, withMedia) => {
 
     return {
         badgetStyle: style || undefined,
-        badgetText: withMedia && text
+        badgetText: withMedia && typeOfMedia !== typeMedia.HTML && text
     };
 };
 
@@ -108,6 +120,13 @@ export const articleCustomFields = {
     })
 };
 
+export const validateImagePosition = (imagePosition, isLiveblog, cardSize) =>
+    isLiveblog && cardSize === 'm'
+        ? {
+              mobile: 'img-right'
+          }
+        : imagePosition;
+
 export const getDataAuthor = ({
     article,
     variant,
@@ -134,7 +153,7 @@ export const getDataAuthor = ({
 
     if (validateVariant(variant, authorsQuantity) === 'author') {
         return {
-            marqueeImg,
+            marqueeImg: get(getAuthorsPhoto(article), 'url', ''),
             marquee,
             authorsQuantity
         };
@@ -342,7 +361,9 @@ export const validateArticleFeature = ({
     video,
     layout,
     imageId,
-    videoId
+    videoId,
+    variant,
+    variantsDisabled
 }) => {
     const { streams } = video || {};
     const { filesize } = getStreams(streams, '>') || '';
@@ -350,6 +371,10 @@ export const validateArticleFeature = ({
     const oneMegabyte = 1048576;
 
     const rules = [
+        {
+            validation: variantsDisabled && variantsDisabled.includes(variant),
+            message: `Esta card no admite la variante: ${variant}`
+        },
         {
             validation: !id,
             message: 'El campo Id de la Nota es obligatorio.'
@@ -383,9 +408,9 @@ export const validateArticleFeature = ({
 export const getTypeOfMedia = (customFields = {}) => {
     const { video, html } = customFields;
 
-    if (video) return 'video';
-    if (html) return 'html';
-    return 'image';
+    if (html) return typeMedia.HTML;
+    if (video) return typeMedia.VIDEO;
+    return typeMedia.IMAGE;
 };
 
 export const showExtraClass = (typeOfMedia, extraClass = {}) => {
