@@ -8,6 +8,7 @@ import useViewportSize from '../hooks/useViewportSize';
 import { queueGoogletagCommand } from '../../LN/common/utils/bannerHelper';
 import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import useAdsTestAndSuffix from '../hooks/useAdsTestAndSuffix';
+import bannerConfigType from './helpers/loadBannersSSRHelper';
 
 let googleCmdPushed = false;
 
@@ -69,69 +70,27 @@ const LoadBannersSSR = ({ blocksBanners }) => {
                             {}
                         );
 
-                        const slotGroup =
-                            bannersToLoadFromDOM &&
-                            bannersToLoadFromDOM[0] &&
-                            bannersToLoadFromDOM[0].slotGroup;
+                        const slotGroup = get(
+                            bannersToLoadFromDOM,
+                            '[0].slotGroup',
+                            ''
+                        );
 
                         const checkAmp =
                             outputType === 'amp'
                                 ? bannerInPB.amp
                                 : !bannerInPB.amp;
 
-                        if (
-                            (bannerConfig.type === 'LN-nota/cuerpo' ||
-                                bannerConfig.type === 'LN-nota/body') &&
-                            slotGroup === 'nota'
-                        ) {
-                            Object.keys(bannerInPB)
-                                .filter(value => value.includes(device))
-                                .forEach(value => {
-                                    const bannerSetInBody =
-                                        bannerInPB[value] || '';
-
-                                    return (
-                                        !bannersInBody.includes(
-                                            bannerSetInBody
-                                        ) &&
-                                        bannerSetInBody.search(suffix) > -1 &&
-                                        Object.keys(bannersToLoadFromDOM).find(
-                                            i =>
-                                                bannersToLoadFromDOM[i]
-                                                    .opt_div === bannerSetInBody
-                                        ) &&
-                                        bannersInBody.push(bannerSetInBody)
-                                    );
-                                });
-                        }
-
-                        if (
-                            bannerConfig.type === 'LN-acumulado/grillaNotas' &&
-                            slotGroup === 'acumulado'
-                        ) {
-                            Object.keys(bannerInPB)
-                                .filter(value => value.includes(device))
-                                .forEach(value => {
-                                    const bannerSetInGrilla =
-                                        bannerInPB[value] || '';
-
-                                    return (
-                                        !bannersInGrillaNotas.includes(
-                                            bannerSetInGrilla
-                                        ) &&
-                                        bannerSetInGrilla.search(suffix) > -1 &&
-                                        Object.keys(bannersToLoadFromDOM).find(
-                                            i =>
-                                                bannersToLoadFromDOM[i]
-                                                    .opt_div ===
-                                                bannerSetInGrilla
-                                        ) &&
-                                        bannersInGrillaNotas.push(
-                                            bannerSetInGrilla
-                                        )
-                                    );
-                                });
-                        }
+                        bannerConfigType({
+                            bannerConfig,
+                            slotGroup,
+                            bannerInPB,
+                            device,
+                            bannersInBody,
+                            suffix,
+                            bannersToLoadFromDOM,
+                            bannersInGrillaNotas
+                        });
 
                         return (
                             bannerInPB &&

@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import OembedAMP from '../../../../../../components/private/LN/nota/cuerpo/oembedAMP';
+import { checkIsFalsy } from '../../../../../../components/private/LN/nota/cuerpo/helpers/oembedAMPHelper';
 
 describe('OembedAMP', () => {
     const data = (url, subtype) => {
@@ -74,5 +75,36 @@ describe('OembedAMP', () => {
             />
         );
         expect(oembedAMP).toMatchSnapshot();
+    });
+
+    describe('In checkIsFalsy', () => {
+        const cases = [
+            [
+                'Should return null if the parameter is an empty string',
+                '',
+                null
+            ],
+            [
+                'Should return null if the parameter is undefined',
+                undefined,
+                null
+            ],
+            [
+                'Should return true if the parameter is an empty object',
+                {},
+                true
+            ],
+            ['Should return true if the parameter is an empty array', [], true],
+            [
+                'Should return true if the parameter is a string with content',
+                'facebook-post',
+                true
+            ]
+        ];
+
+        test.each(cases)('%s', (message, props, data) => {
+            const result = checkIsFalsy(props);
+            expect(result).toEqual(data);
+        });
     });
 });

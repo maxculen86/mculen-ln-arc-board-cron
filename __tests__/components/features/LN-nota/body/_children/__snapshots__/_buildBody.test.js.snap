@@ -4943,7 +4943,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
   >
     <amp-facebook
       data-embed-as="post"
-      data-href="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v12.0"
+      data-href="https://www.facebook.com/premierleague/posts/3629332593757796"
       height="310"
       layout="responsive"
       width="552"
