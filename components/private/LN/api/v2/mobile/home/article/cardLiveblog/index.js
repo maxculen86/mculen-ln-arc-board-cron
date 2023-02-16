@@ -4,7 +4,7 @@ import { getLiveblogTitles } from '../../../../../../../../features/LN-10/articl
 export const CardLiveblog = article => {
     return {
         ...Article(article),
-        subtitles: getLiveblogTitles(article)
+        subtitulos: getLiveblogTitles(article)
     };
 };
 

@@ -6,7 +6,7 @@ import { CardBasic } from '../cardBasic';
 
 export const cardRegular = article => {
     return {
-        ...CardBasic,
+        ...CardBasic(article),
         bajada: get(article, 'subheadlines.basic', null),
         chapita: getArticleTag(article),
         imagen: getArticleImage(article),

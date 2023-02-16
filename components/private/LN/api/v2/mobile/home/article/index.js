@@ -11,8 +11,13 @@ const articleComponents = {
 
 export const Article = article => {
     const tipo = get(article, 'additionalProperties.variant', 'regular');
-    const Component = articleComponents[tipo] || CardRegular;
-    return Component(article);
+    const Component = articleComponents[tipo];
+    return {
+        diseno: {
+            ...get(article, 'additionalProperties.diseno', null),
+            tipo: get(article, 'additionalProperties.variant', null)
+        },
+        ...Component(article)
+    };
 };
-
 export default Article;

@@ -6,11 +6,7 @@ import { getArticleTitleVivo } from '../elements/title/index';
 export const CardRegular = article => {
     const primarySection = get(article, 'taxonomy.primary_section');
     return {
-        diseno: {
-            ...get(article, 'additionalProperties.diseno', null),
-            tipo: get(article, 'additionalProperties.variant', null)
-        },
-        tituloVivo: getArticleTitleVivo(article),
+        liveTitle: getArticleTitleVivo(article),
         categoria: primarySection && getPrincipalCategory(primarySection),
         ...Article(article)
     };
