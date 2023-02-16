@@ -4,6 +4,19 @@ import { getChildrenFromSectionHome } from '../../../../private/LN/common/utils/
 import getStreams from '../../../../private/LN/common/utils/getStreams';
 import diagramationRules from '../../../../private/common/utils/diagramationRules';
 import pageBuilderValidator from '../../../../private/common/utils/pageBuilderValidator';
+import {
+    POSITIVE,
+    NEGATIVE,
+    LIVE,
+    EXCLUSIVE_LN
+} from '../../../../private/common/badge/types';
+
+export const typeBadge = {
+    0: POSITIVE,
+    1: NEGATIVE,
+    2: LIVE,
+    3: EXCLUSIVE_LN
+};
 
 const getIsBomba = parent => get(parent, 'type', '') === 'LN10_Caja_Bomba';
 

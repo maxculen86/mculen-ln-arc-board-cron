@@ -1,4 +1,7 @@
-import get from '../../../../../common/utils/get';
+import get from '../../../../../../common/utils/get';
+import { respChildrens as respApertura } from './elements/apertura';
+import { respChildrens as respBomba } from './elements/bomba';
+import { respChildrens as respManual } from './elements/tema';
 
 const getSources = (children, storiesQuantity) => {
     return children.reduce((result, article) => {
@@ -12,7 +15,7 @@ const getSources = (children, storiesQuantity) => {
     }, []);
 };
 
-const respCajaCollection = (containerImage, props) => {
+export const responseDefault = props => {
     const { children, customFields } = props;
 
     const layout = get(customFields, 'layout', null);
@@ -27,10 +30,11 @@ const respCajaCollection = (containerImage, props) => {
     if (!sources.length) {
         return null;
     }
-
-    return {
-        information: { ...customFields, image: containerImage },
-        articles: sources
-    };
+    return sources;
 };
-export default respCajaCollection;
+export const respChildrens = {
+    apertura: respApertura,
+    bomba: respBomba,
+    chainManual: respManual,
+    dafaultResponse: responseDefault
+};

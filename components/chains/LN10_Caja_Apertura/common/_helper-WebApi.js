@@ -21,7 +21,10 @@ export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
 
     return options[layout] || options.default;
 };
-
+export const setFilteredRenderables = (renderables = [], features = []) => {
+    const featuresKeys = features.map(c => c.key);
+    return renderables.filter(f => featuresKeys.includes(f.props.id));
+};
 export const validateChain = (childrenProps, layout, isInOpening) => {
     const LN10_ARTICLE = 'LN-10/article';
     const LN_TIMELINE = 'LN-acumulado/timeline';

@@ -1,5 +1,6 @@
 import get from '../../../../../../../components/private/common/utils/get';
 import configBannerByLayout from '../../../../../../../components/private/LN/api/global/page/config/configBannerByLayout';
+import configToDividebyDiagramation from '../../../../../../../components/private/LN/api/global/page/config/configToDividebyDiagramation';
 import configTaskPositionBanners from '../../../config/configTaskPositionBanners.json';
 
 import { setBannersByConfig } from '../../../common/elements/banners/index';
@@ -31,10 +32,9 @@ const transform = async (dataPage, query) => {
         elementsPageHome = moveSections(elementsPageHome, configMovePositions);
 
         // Divide Section by Layout configured in features
-        const configToDividebyDiagramation = ['grillaUltimasNoticias'];
         elementsPageHome = divideSectionsByDiagramation(
             elementsPageHome,
-            configToDividebyDiagramation
+            configToDividebyDiagramation(layoutPage)
         );
 
         return elementsPageHome;

@@ -3,12 +3,13 @@ import {
     validatePropsChains,
     findKeyTypeChain
 } from './utils/validatePropsChains';
-import respChain from './respCajaCollection';
+import respChain from './respChain';
 
 class GetCajaManual {
-    constructor(props, typeChain, validateFn) {
-        this.typeChain = typeChain || findKeyTypeChain(props);
-        this.props = validatePropsChains(props, this.typeChain);
+    constructor(props, typeBox, validateFn) {
+        const typeChain = typeBox || findKeyTypeChain(props);
+        this.props = validatePropsChains(props, typeChain);
+        this.props.typeChain = typeChain;
         this.state = {};
         if (validateFn) {
             const error = validateFn(this.props);

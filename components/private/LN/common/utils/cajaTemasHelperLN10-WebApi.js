@@ -23,7 +23,7 @@ export const getLayoutType = (layout, artWithoutDate, _children) => {
 };
 
 // TODO:  reemplezar por el que esta en cajaTemasHelper
-export const getCommonProps = props => {
+export const getCommonPropsApi = props => {
     const {
         customFields: { layout = 'grilla3', backgroundColor },
         renderables = [],

@@ -54,7 +54,7 @@ describe('components - chains - Ln_Caja_Collection - json', () => {
     test('Test props into class', () => {
         const CajaCollection = new MockGetCajaCollection(props);
         expect(Object.keys(CajaCollection).sort()).toEqual(
-            ['getQueryElement', 'props', 'state', 'typeChain'].sort()
+            ['getQueryElement', 'props', 'state'].sort()
         );
     });
 

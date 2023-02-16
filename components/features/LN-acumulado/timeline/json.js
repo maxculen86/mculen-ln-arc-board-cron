@@ -2,18 +2,31 @@ import Consumer from 'fusion:consumer';
 import get from '../../../private/common/utils/get';
 import sectionsFormated from '../../../private/common/utils/sectionsFormated';
 import resultArticle from '../../../private/LN/api/global/home/features/article/index';
-import respChain from '../../../private/LN/api/global/home/chains/respCajaCollection';
+import respChain from '../../../private/LN/api/global/home/chains/respChain';
 
 class Timeline {
     constructor(props) {
         this.props = props;
         const {
-            customFields: { sections, size },
+            customFields: {
+                sections,
+                size,
+                sectionTagType,
+                sectionTagValue,
+                source
+            },
             arcSite
         } = props;
         this.state = {};
 
-        const query = this.getQueryElement(sections, size + 3, arcSite);
+        const query = this.getQueryElement(
+            sections,
+            size + 3,
+            arcSite,
+            sectionTagType,
+            sectionTagValue,
+            source
+        );
 
         this.fetch(query);
     }
@@ -27,7 +40,14 @@ class Timeline {
         });
     }
 
-    getQueryElement = (sections, size, arcSite) => {
+    getQueryElement = (
+        sections,
+        size,
+        arcSite,
+        sectionTagType,
+        sectionTagValue,
+        source
+    ) => {
         let sectionsValidate = sections || [];
         const resp = {
             page: 1,
@@ -36,6 +56,15 @@ class Timeline {
             size,
             website: arcSite
         };
+        const excludeSourceOrigin = 'ArcImporter-LnData';
+        if (source === 'byTagSection') {
+            return {
+                ...resp,
+                sectionId: sectionTagValue,
+                size,
+                excludeSourceOrigin
+            };
+        }
         if (!sections) {
             sectionsValidate = ['/ultimas-noticias3'];
         }

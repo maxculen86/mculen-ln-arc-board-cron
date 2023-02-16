@@ -7,6 +7,7 @@ import {
     SPONSORED,
     EXCLUSIVE_LN
 } from '../../../private/common/badge/types';
+import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
 
 class EnVivo {
     constructor(props) {
@@ -51,17 +52,9 @@ class EnVivo {
     }
 
     render() {
-        const styles = {
-            0: A_FONDO,
-            1: LIVEBLOG,
-            2: LIVEBLOG_RED,
-            3: SPONSORED,
-            4: EXCLUSIVE_LN
-        };
-
         const { acuArticlesENVIVO } = this.state || {};
-        const { chapita, chapitaStyle, show } = this.customFields;
-        const typeBadge = !chapitaStyle ? 2 : chapitaStyle;
+        const { chapita, chapitaStyle = 2, show } = this.customFields;
+        // const typeBadge = !chapitaStyle ? 2 : chapitaStyle;
         if (!acuArticlesENVIVO) {
             return null;
         }
@@ -71,7 +64,7 @@ class EnVivo {
             information: {
                 hideCaja: show == null ? false : show,
                 chapita,
-                chapitaStyle: styles[typeBadge]
+                chapitaStyle: typeBadge[chapitaStyle]
             },
             articles:
                 (acuArticlesENVIVO.content_elements &&

@@ -11,10 +11,11 @@ import {
     validatePropsChains,
     findKeyTypeChain
 } from './utils/validatePropsChains';
+import diagramationRules from '../../../../../common/utils/diagramationRules';
 
-class GetCajaCollection {
+class GetCajaCollectionLN10 {
     constructor(props, typeChainParam) {
-        const typeChain = findKeyTypeChain(props);
+        const typeChain = typeChainParam || findKeyTypeChain(props);
         this.props = validatePropsChains(props, typeChain);
         this.props.typeChain = typeChain;
 
@@ -62,6 +63,7 @@ class GetCajaCollection {
             renderables
         } = props;
 
+        const rules = diagramationRules(layout) || [];
         const { collectionsInPage, notesQuantity } = getCommonPropsJson(props);
         const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
             collectionsInPage,
@@ -83,48 +85,42 @@ class GetCajaCollection {
             idsArticlesToExclude,
             filterRecomendar: true,
             filterRepetead: !isInSiteService,
-            notesQuantity,
+            notesQuantity: rules.length || notesQuantity,
             layout
+        };
+    };
+
+    renderRespose = (props, articles, image) => {
+        const { customFields, typeChain } = props;
+
+        if (!articles) {
+            return null;
+        }
+
+        //  Tomar en cuenta para Cajas BN Focal 1+4 o Canal Focal 1+4, si valida que sea n5 notas.
+        const layout = get(customFields, 'layout', null);
+        let storiesQuantity = 0;
+        if (layout) {
+            storiesQuantity = parseInt(layout.charAt(layout.length - 1), 10);
+            articles.slice(0, storiesQuantity || articles.length);
+        }
+        return {
+            information: {
+                ...customFields,
+                image,
+                typeChain
+            },
+            articles
         };
     };
 
     render() {
         try {
-            const { articleList, containerImage } = this.state || {};
-            const { customFields, typeChain } = this.props;
-
-            //  Tomar en cuenta para Cajas BN Focal 1+4 o Canal Focal 1+4, si valida que sea n5 notas.
-            const error = validateFeature(
-                customFields.idCollection,
-                articleList,
-                customFields.layout
-            );
-
-            if (!articleList || error) {
-                return null;
-            }
-
-            const elements = get(articleList, 'content_elements', []);
-            const layout = get(customFields, 'layout', null);
-            let storiesQuantity = 0;
-            if (layout) {
-                storiesQuantity = parseInt(
-                    layout.charAt(layout.length - 1),
-                    10
-                );
-                elements.slice(0, storiesQuantity || elements.length);
-            }
-            return {
-                information: {
-                    ...customFields,
-                    image: containerImage,
-                    typeChain
-                },
-                articles: elements
-            };
+            return null;
+            // eslint-disable-next-line no-unreachable
         } catch (err) {
             return { Success: false, Message: err.message };
         }
     }
 }
-export default GetCajaCollection;
+export default GetCajaCollectionLN10;

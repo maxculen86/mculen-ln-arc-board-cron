@@ -104,6 +104,7 @@ describe('components - features - LN-common - articulo - json.js', () => {
                     'authors',
                     'chapita',
                     'image',
+                    'idRender',
                     'lead',
                     'noteId',
                     'opinion',
