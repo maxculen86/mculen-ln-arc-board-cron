@@ -1,30 +1,17 @@
 import get from '../../../private/common/utils/get';
 import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
+import {
+    LAYOUTS,
+    setQuantityByLayout
+} from '../../utils/common/_helpers-WebApi';
 
-const LAYOUTS = {
-    FOCAL_LEFT: 'left-focal',
-    FOCAL_CENTER: 'center-focal',
-    FOCAL_70: 'focal-70',
-    BN_OPENING_4: 'bn-opening-4'
-};
+const { FOCAL_LEFT } = LAYOUTS;
 
-const { FOCAL_LEFT, FOCAL_CENTER, FOCAL_70, BN_OPENING_4 } = LAYOUTS;
-
-export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
-    const options = {
-        [FOCAL_LEFT]: countTimeline ? 6 : 5,
-        [FOCAL_CENTER]: 4,
-        [FOCAL_70]: 3,
-        [BN_OPENING_4]: 4,
-        default: Number(layout && layout.slice(-1)) || 3
-    };
-
-    return options[layout] || options.default;
-};
 export const setFilteredRenderables = (renderables = [], features = []) => {
     const featuresKeys = features.map(c => c.key);
     return renderables.filter(f => featuresKeys.includes(f.props.id));
 };
+
 export const validateChain = (childrenProps, layout, isInOpening) => {
     const LN10_ARTICLE = 'LN-10/article';
     const LN_TIMELINE = 'LN-acumulado/timeline';

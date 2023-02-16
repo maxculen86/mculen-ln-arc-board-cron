@@ -1,8 +1,9 @@
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 import GetCajaManual from '../../private/LN/api/global/home/chains/getCajaManual';
-import getDataChainManualWebApi from '../utils/common/getDataChainManual-WebApi';
+
 import respChain from '../../private/LN/api/global/home/chains/respChain';
+import validateCajaManual from './common/_helper-WebApi';
 
 class CajaManual {
     constructor(props) {
@@ -25,22 +26,9 @@ class CajaManual {
         );
 
         childrenRenders = childrenRenders && childrenRenders.children;
-        const childrenRendersProps = childrenRenders.map(x => x.props);
-        const {
-            filteredChildren,
-            isInApertura,
-            isMultimedia,
-            features,
-            error
-        } = getDataChainManualWebApi({
-            featureId: chainId,
-            renderables,
-            childProps: childrenRendersProps,
-            children: childrenRenders,
-            layout
-        });
-
-        return error;
+        /*         const childrenRendersProps = childrenRenders.map(x => x.props);
+         */
+        return validateCajaManual(layout, childrenRenders);
     };
 
     render() {

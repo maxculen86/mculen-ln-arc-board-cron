@@ -3,7 +3,6 @@ import { setSlicedChildren } from '../../../../../../../../chains/utils/common/_
 
 export const respChildrens = props => {
     const {
-        renderables,
         children,
         customFields: { layout }
     } = props;

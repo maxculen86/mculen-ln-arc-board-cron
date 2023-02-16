@@ -84,15 +84,6 @@ export const setWrappedChildrenApi = (renderables = [], features = []) => {
                 : feature;
         })
         .filter(Boolean);
-    /*     return renderables
-        .map(({ type, props = {} } = {}) => {
-            const feature = features.find(c => c.key === props.id);
-            return customWrappers[type]
-                ? customWrappers[type](feature)
-                : feature;
-        })
-        .filter(Boolean);
-         */
 };
 
 export const setSlicedChildren = ({ config, children = [] }) => {

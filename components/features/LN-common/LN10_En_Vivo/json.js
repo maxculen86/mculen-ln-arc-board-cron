@@ -1,12 +1,5 @@
 import Consumer from 'fusion:consumer';
 import get from '../../../private/common/utils/get';
-import {
-    A_FONDO,
-    LIVEBLOG,
-    LIVEBLOG_RED,
-    SPONSORED,
-    EXCLUSIVE_LN
-} from '../../../private/common/badge/types';
 import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
 
 class EnVivo {

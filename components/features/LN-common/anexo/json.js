@@ -1,5 +1,4 @@
 import Consumer from 'fusion:consumer';
-import PropTypes from 'fusion:prop-types';
 import { isInSection, getErrorMessage } from './common/_helper-WebApi';
 
 class AnexoFeature {
@@ -53,16 +52,5 @@ class AnexoFeature {
         return resp;
     }
 }
-/* const adjustByHTML = 'Ajuste por HTML';
-AnexoFeature.propTypes = {
-    id: PropTypes.string.isRequired,
-    customFields: PropTypes.shape({
-        hideByHtml: PropTypes.bool.tag({
-            label: 'Ocultar',
-            group: adjustByHTML,
-            description: 'Marque para ocultar el anexo',
-            defaultValue: false
-        })
-    }).isRequired
-}; */
+
 export default Consumer(AnexoFeature);
