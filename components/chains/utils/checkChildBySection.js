@@ -1,5 +1,4 @@
-/* eslint-disable import/prefer-default-export */
-import get from '../../../../common/utils/get';
+import get from '../../private/common/utils/get';
 
 const checkChildInSection = (childId, sectionChildren) => {
     return sectionChildren.some(

@@ -1,13 +1,13 @@
 import PropTypes from 'fusion:prop-types';
 
 const typesButtonStyle = {
-    'exc-sub': 'Exclusivo Suscriptor',
+    'sub-exclusive': 'Exclusivo Suscriptor',
     generico: 'Genérico',
     ln: 'LN+'
 };
 // TODO: Renombrar las propiedades segun las clases para cada caso
 const typeStylesChain = {
-    exclusiveSub: 'Exclusivo Suscriptor',
+    'sub-exclusive': 'Exclusivo Suscriptor',
     properties: 'Propiedades',
     camp: 'Campo',
     welfare: 'Bienestar',
@@ -24,6 +24,7 @@ const customFieldsRules = {
         layouts: {
             bnGrilla4: 'BN Grilla 4',
             bnGrilla8: 'BN Grilla 8',
+            bn_2_1_2_grid: 'BN 2 + Focal 1+2',
             'hash-1-2-2-2_grid': 'HashTag',
             cajaContent1: 'Caja Content',
             bn_1_grid: 'BN 1 nota',
@@ -31,8 +32,7 @@ const customFieldsRules = {
             bn_1_1_grid: 'BN Focal 1 + 1',
             bn_1_2_grid: 'BN Focal 1 + 2',
             bn_1_3_grid: 'BN Focal 1 + 3',
-            bn_1_4_grid: 'BN Focal 1 + 4',
-            bn_2_1_2_grid: 'BN 2 + Focal 1 + 2'
+            bn_1_4_grid: 'BN Focal 1 + 4'
         },
         defaultLayout: 'bnGrilla4'
     },

@@ -20,7 +20,7 @@ export const LAYOUTS = {
 
 export const CHAIN_STYLE = {
     HASHTAG: 'HashTag',
-    EXCLUSIVE_SUB: 'Exclusivo Suscriptor',
+    EXCLUSIVE_SUB: 'sub-exclusive',
     PROPERTIES: 'Propiedades',
     CAMP: 'Campo',
     WELFARE: 'Bienestar',

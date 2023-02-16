@@ -15,7 +15,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           class="--d-flex --ai-center --uppercase"
         >
           <span
-            class="text ln-text --mt-3xs --roof-title"
+            class="text ln-text --roof-title"
           >
             CommonCOllection
           </span>

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import validateRoof from './_helper/validateRoof';
 import useGetLinks from './_helper/useGetLinks';
 import useGetLogo from './_helper/useGetLogo';
-import WarningMessage from '../../../private/common/warningMessage/warningMessage';
+import setRender from '../setRender';
 import '../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import hasDataRoof from './_helper/hasDataRoof';
 
@@ -38,10 +38,6 @@ export default function BuildRoof(props) {
         linkButton
     });
 
-    if (isAdmin && error) {
-        return <WarningMessage type={error.type} message={error.message} />;
-    }
-
     const propsLeft = hasDataRoof({ chainStyle }) && {
         logo,
         href: titleLink,
@@ -55,9 +51,14 @@ export default function BuildRoof(props) {
         textButton: buttonText,
         hrefButton: linkButton
     };
-    return (
-        <>
-            {!hideRoof && (
+
+    return setRender({
+        isAdmin,
+        error,
+        withSection: false,
+        extraOptions: {
+            isEmpty: hideRoof && <></>,
+            default: !hideRoof && (
                 <Roof
                     roofType={
                         (chainStyle && chainStyle.toLowerCase()) || 'generic'
@@ -66,9 +67,9 @@ export default function BuildRoof(props) {
                     <Roof.Left {...propsLeft} />
                     <Roof.Right {...propsRight} />
                 </Roof>
-            )}
-        </>
-    );
+            )
+        }
+    });
 }
 
 BuildRoof.propTypes = {

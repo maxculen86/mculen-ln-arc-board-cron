@@ -12,8 +12,8 @@ import {
     setCustomFields,
     setRender
 } from './_helper';
-import getChildrenBySection from '../../private/LN/common/utils/LN10/getChildrenBySection';
-import checkChildInSection from '../../private/LN/common/utils/LN10/checkChildBySection';
+import getChildrenBySection from '../utils/getChildrenBySection';
+import checkChildInSection from '../utils/checkChildBySection';
 
 import '../../../resources/packages/css/@ln/contenidos-ui-opening/index.css';
 import '../../../resources/packages/css/@ln/common-ui-grid/index.css';
@@ -87,12 +87,7 @@ const CajaApertura = props => {
     }, [children]);
 
     const Component = (
-        <Opening
-            className="lay"
-            data-chain-id={chainId}
-            {...extraOpts}
-            focalType={layout}
-        >
+        <Opening data-chain-id={chainId} {...extraOpts} focalType={layout}>
             {slicedChildren}
         </Opening>
     );

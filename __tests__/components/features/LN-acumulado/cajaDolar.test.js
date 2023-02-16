@@ -34,7 +34,7 @@ describe('Features - LN-acumulado - Caja Dolar Feature =>', () => {
         expect(
             screen.getByText(
                 (content, element) =>
-                    element.tagName.toLowerCase() === 'mock-static-content'
+                    element.tagName.toLowerCase() === 'mock-static'
             )
         ).toBeVisible();
         expect(container.firstChild).toBeEmptyDOMElement();
@@ -50,7 +50,7 @@ describe('Features - LN-acumulado - Caja Dolar Feature =>', () => {
         expect(
             screen.getByText(
                 (content, element) =>
-                    element.tagName.toLowerCase() === 'mock-static-content'
+                    element.tagName.toLowerCase() === 'mock-static'
             )
         ).toBeVisible();
         expect(container.firstChild).toBeEmptyDOMElement();
@@ -78,11 +78,12 @@ describe('with a valid response on any section', () => {
         expect(
             screen.getByText(
                 (content, element) =>
-                    element.tagName.toLowerCase() === 'mock-static-content'
+                    element.tagName.toLowerCase() === 'mock-static'
             )
         ).toBeVisible();
     });
 });
+
 describe('with a valid response on a note', () => {
     it('should render all 8 types of dollars from the mock with their corresponding title when the kicker and label is enabled', () => {
         Context.useAppContext = jest.fn(() => ({
@@ -127,6 +128,26 @@ describe('without kicker and label in a note', () => {
                 label: {
                     mostrar_caja_dolar: {
                         text: ''
+                    }
+                }
+            }
+        }));
+
+        useContent.mockImplementation(() => API_RESPONSE);
+        const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
+        expect(container).toBeEmptyDOMElement();
+    });
+});
+
+describe('when outputType is AMP', () => {
+    it('should render empty fragment when outputType is AMP ', () => {
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'amp',
+            layout: 'LN-nota-noticia',
+            globalContent: {
+                label: {
+                    mostrar_caja_dolar: {
+                        text: 'Mostrar'
                     }
                 }
             }
