@@ -554,49 +554,10 @@ const diagramationRules = diagramation => {
                     desktop: 'img-top'
                 }
             }
-        ],
-        'bn-4-8': [
-            {
-                withMarquee: true,
-                withMarqueeImg: false,
-                withSubhead: false,
-                cardSize: 'm'
-            },
-            {
-                imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
-                },
-                withMarquee: true,
-                withMarqueeImg: false,
-                withSubhead: false,
-                cardSize: 'm'
-            },
-            {
-                imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
-                },
-                withMarquee: true,
-                withMarqueeImg: false,
-                withSubhead: false,
-                cardSize: 'm'
-            },
-            {
-                imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
-                },
-                withMarquee: true,
-                withMarqueeImg: false,
-                withSubhead: false,
-                cardSize: 'm'
-            }
         ]
     };
+
+    diagramations['bn-4-8'] = diagramations.bnGrilla4;
 
     return diagramations[diagramation];
 };

@@ -25,7 +25,8 @@ const customFieldsRules = {
             bnGrilla4: 'BN Grilla 4',
             bnGrilla8: 'BN Grilla 8',
             'hash-1-2-2-2_grid': 'HashTag',
-            cajaContent1: 'Caja Content'
+            cajaContent1: 'Caja Content',
+            'bn-4-8': 'Grilla 4 Verticales'
         },
         defaultLayout: 'bnGrilla4'
     },

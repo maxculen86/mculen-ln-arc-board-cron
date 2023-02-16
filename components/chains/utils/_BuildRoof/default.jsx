@@ -8,6 +8,7 @@ import useGetLogo from './_helper/useGetLogo';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import '../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import hasDataRoof from './_helper/hasDataRoof';
+import { VERTICALS } from '../_helpers';
 
 export default function BuildRoof(props) {
     const {
@@ -17,7 +18,7 @@ export default function BuildRoof(props) {
         buttonText,
         linkButton,
         buttonStyle,
-        chainStyle,
+        chainStyle: chainStyleUncheked,
         hideRoof,
         navigationId,
         isAdmin
@@ -25,6 +26,8 @@ export default function BuildRoof(props) {
 
     const logo = useGetLogo(logoId, title);
     const links = useGetLinks({ navigationSection: navigationId });
+    const chainStyle =
+        !VERTICALS.includes(chainStyleUncheked) && chainStyleUncheked;
 
     const error = validateRoof({
         chainStyle,
@@ -58,7 +61,11 @@ export default function BuildRoof(props) {
     return (
         <>
             {!hideRoof && (
-                <Roof roofType={chainStyle.toLowerCase() || 'generic'}>
+                <Roof
+                    roofType={
+                        (chainStyle && chainStyle.toLowerCase()) || 'generic'
+                    }
+                >
                     <Roof.Left {...propsLeft} />
                     <Roof.Right {...propsRight} />
                 </Roof>

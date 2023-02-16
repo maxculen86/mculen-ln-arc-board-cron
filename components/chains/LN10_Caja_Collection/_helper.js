@@ -1,7 +1,8 @@
 import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
-import { CHAIN_STYLE } from '../utils/_helpers';
+import { CHAIN_STYLE, VERTICALS, LAYOUTS } from '../utils/_helpers';
 
 const { HASHTAG } = CHAIN_STYLE;
+const { GRILLA4VERTICALES } = LAYOUTS;
 
 export const validateChain = ({
     idCollection,
@@ -17,6 +18,14 @@ export const validateChain = ({
         {
             validation: !idCollection,
             message: 'Se requiere el id de la colección'
+        },
+        {
+            validation:
+                chainStyle &&
+                layout === GRILLA4VERTICALES &&
+                !VERTICALS.includes(chainStyle),
+            message:
+                'La diagramación Grilla 4 Verticales no permite el estilo seleccionado'
         },
         {
             validation: chainStyle === HASHTAG && articles.length < 7,

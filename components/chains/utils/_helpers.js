@@ -8,16 +8,19 @@ export const LAYOUTS = {
     HORIZONTAL: 'horizontal',
     VERTICAL: 'vertical',
     BOMBITA: 'bombita',
-    BOMBITAMAS4: 'bombitaMas4'
+    BOMBITAMAS4: 'bombitaMas4',
+    GRILLA4VERTICALES: 'bn-4-8'
 };
+
+export const VERTICALS = ['bienestar', 'campo', 'movilidad', 'propiedades'];
 
 export const CHAIN_STYLE = {
     HASHTAG: 'HashTag',
     EXCLUSIVE_SUB: 'Exclusivo Suscriptor',
-    PROPERTIES: 'Propiedades',
-    CAMP: 'Campo',
-    WELFARE: 'Bienestar',
-    MOBILITY: 'Movilidad'
+    PROPIEDADES: 'Propiedades',
+    CAMPO: 'Campo',
+    BIENESTAR: 'Bienestar',
+    MOVILIDAD: 'Movilidad'
 };
 
 const {
