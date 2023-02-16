@@ -357,6 +357,11 @@ describe('Viewability', () => {
         it('when clicks in BOMBA should save in dataLayer data attr from article', () => {
             useContent.mockImplementation(() => articles[0]);
             Context.useComponentContext = jest.fn(() => ({}));
+            Context.useAppContext = jest.fn(() => ({
+                isAdmin: false,
+                renderables: [],
+                arcSite: 'la-nacion-ar'
+            }));
 
             const articlesBomba = [articles[0]];
             const propsBomba = {

@@ -29,7 +29,8 @@ import {
     validateMedia,
     showSection,
     showExtraClass,
-    getTypeOfMedia
+    getTypeOfMedia,
+    validateImagePosition
 } from './_helper';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
@@ -81,18 +82,12 @@ const ArticleFeature = ({
         index,
         layout,
         imageConfig,
-        boxPosition
+        boxPosition,
+        isBomba
     } = getChainConfig(featureId, renderables, cajaTemaConfig);
 
     const extraOpts = getDataAttributesForViewability(id, boxPosition, index);
     const [config, setConfig] = useState(initialConfig);
-
-    useEffect(() => {
-        if (isAdmin) {
-            changeConfigForPB({ setConfig, featureId, renderables });
-        }
-    }, [featureId, isAdmin, layout, renderables]);
-
     const onlyOneApeturaValidateForWWW =
         isBombaHidden(renderables) &&
         isInApertura({
@@ -158,6 +153,16 @@ const ArticleFeature = ({
             filter: filterVideo
         }) || null;
 
+    const {
+        imagePosition,
+        withSection,
+        withMarquee,
+        withMarqueeImg,
+        extraClass,
+        variantsDisabled,
+        cardSize
+    } = config || {};
+
     const error = validateArticleFeature({
         id,
         content: article,
@@ -165,8 +170,18 @@ const ArticleFeature = ({
         video: videoBackground,
         layout,
         imageId,
-        videoId
+        videoId,
+        config,
+        variant,
+        variantsDisabled,
+        isBomba
     });
+
+    useEffect(() => {
+        if (isAdmin && !error) {
+            changeConfigForPB({ setConfig, featureId, renderables });
+        }
+    }, [featureId, isAdmin, layout, renderables, error]);
 
     const mediaData = getMediaData({
         article,
@@ -186,14 +201,6 @@ const ArticleFeature = ({
         typeOfMedia
     });
 
-    const {
-        imagePosition,
-        withSection,
-        withMarquee,
-        withMarqueeImg,
-        extraClass
-    } = config || {};
-
     const { marqueeImg, marquee, authorsQuantity } = getDataAuthor({
         article,
         variant,
@@ -205,11 +212,13 @@ const ArticleFeature = ({
 
     if (isAdmin && !!error) {
         return (
-            <WarningMessage
-                key={featureId}
-                type={error.type}
-                message={error.message}
-            />
+            <article data-feature-id={featureId}>
+                <WarningMessage
+                    key={featureId}
+                    type={error.type}
+                    message={error.message}
+                />
+            </article>
         );
     }
 
@@ -229,8 +238,12 @@ const ArticleFeature = ({
                     badgeText={badgetText}
                     badgeType={badgetStyle}
                     mediaData={mediaData}
-                    cardSize={get(config, 'cardSize', '')}
-                    imagePosition={imagePosition}
+                    cardSize={cardSize}
+                    imagePosition={validateImagePosition(
+                        imagePosition,
+                        isLiveblog,
+                        cardSize
+                    )}
                     section={showSection({ withSection, article, authors })}
                     searchableField={
                         layoutPageBuilder === layoutsName.HomeLN10 &&

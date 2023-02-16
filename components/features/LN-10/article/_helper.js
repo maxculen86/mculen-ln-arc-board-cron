@@ -120,6 +120,13 @@ export const articleCustomFields = {
     })
 };
 
+export const validateImagePosition = (imagePosition, isLiveblog, cardSize) =>
+    isLiveblog && cardSize === 'm'
+        ? {
+              mobile: 'img-right'
+          }
+        : imagePosition;
+
 export const getDataAuthor = ({
     article,
     variant,
@@ -146,7 +153,7 @@ export const getDataAuthor = ({
 
     if (validateVariant(variant, authorsQuantity) === 'author') {
         return {
-            marqueeImg,
+            marqueeImg: get(getAuthorsPhoto(article), 'url', ''),
             marquee,
             authorsQuantity
         };
@@ -354,7 +361,9 @@ export const validateArticleFeature = ({
     video,
     layout,
     imageId,
-    videoId
+    videoId,
+    variant,
+    variantsDisabled
 }) => {
     const { streams } = video || {};
     const { filesize } = getStreams(streams, '>') || '';
@@ -362,6 +371,10 @@ export const validateArticleFeature = ({
     const oneMegabyte = 1048576;
 
     const rules = [
+        {
+            validation: variantsDisabled && variantsDisabled.includes(variant),
+            message: `Esta card no admite la variante: ${variant}`
+        },
         {
             validation: !id,
             message: 'El campo Id de la Nota es obligatorio.'

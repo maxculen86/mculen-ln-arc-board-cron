@@ -9,7 +9,9 @@ import Consumer from 'fusion:consumer';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
 import {
     isInHomeAperturaOrBomba,
-    isInApertura
+    isInApertura,
+    initialElementInPB,
+    featuresValidator
 } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
@@ -87,6 +89,22 @@ const ArticleFeature = ({
         },
         staticMode: isSSR(),
         filter
+    });
+
+    const { _id: articleId = '' } = article || {};
+
+    const pbFirstElement = initialElementInPB(renderables);
+
+    const { type = '' } = pbFirstElement;
+
+    const isEager = get(
+        featuresValidator,
+        type,
+        featuresValidator.default
+    )({
+        element: pbFirstElement,
+        checkEager: true,
+        note: articleId
     });
 
     const videoBackground =
@@ -182,6 +200,7 @@ const ArticleFeature = ({
                             imageId: '_id'
                         })
                     }
+                    isApertura={isEager}
                 />
             </ErrorBoundary>
         )) ||

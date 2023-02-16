@@ -1,21 +1,14 @@
 import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
-
-export const setQuantityByLayout = ({ layout = '' } = {}) => {
-    const options = {
-        bnGrilla4: 4,
-        bnGrilla8: 8,
-        default: Number(layout.slice(-1)) || 3
-    };
-
-    return options[layout] || options.default;
-};
+import { setQuantityByLayout } from '../utils/_helpers';
+import get from '../../private/common/utils/get';
 
 // TODO: Agrupar validaciones comunes entre chains
 
-export const validateCajaManual = (layout, childProps) => {
+const validateCajaManual = (layout, childProps = []) => {
     const LN_COMMON_ARTICLE = 'LN-10/article';
     const COLLECTION_FEATURES = 'features';
-    const minimum = setQuantityByLayout(layout);
+    const minimum = setQuantityByLayout({ layout });
+    const childrenPropsLength = get(childProps, 'length');
 
     const rules = [
         {
@@ -23,9 +16,10 @@ export const validateCajaManual = (layout, childProps) => {
             message: 'Se requiere que seleccione una diagramación'
         },
         {
-            validation: childProps < minimum,
-            message: `Se requiere la carga de ${minimum - childProps} artículo${
-                minimum - childProps > 1 ? 's' : ''
+            validation: childrenPropsLength < minimum,
+            message: `Se requiere la carga de ${minimum -
+                childrenPropsLength} artículo${
+                minimum - childrenPropsLength > 1 ? 's' : ''
             }`
         },
         {
@@ -43,3 +37,5 @@ export const validateCajaManual = (layout, childProps) => {
 
     return pageBuilderValidator(rules);
 };
+
+export default validateCajaManual;

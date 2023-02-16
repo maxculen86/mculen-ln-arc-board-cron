@@ -10,8 +10,9 @@ import {
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
 import { getMarkupForDatalayer } from '../../private/LN/common/utils/cajaTemasHelper';
 import getDataChainCollection from '../utils/getDataChainCollection';
+import checkChildInSection from '../utils/checkChildBySection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
-import { validateChain } from './_helper';
+import { validateChain, getBreakingChildren } from './_helper';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
 import diagramationRules from '../../private/common/utils/diagramationRules';
 import setRender from '../utils/setRender';
@@ -20,6 +21,8 @@ import getGridType from '../utils/getGridType';
 import getComponent from '../utils/getComponent';
 import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
 import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
+
+// TODO: Pendiente por testear las diagramaciones de Grillas y focales.
 
 const CajaCollection = props => {
     const {
@@ -84,7 +87,9 @@ const CajaCollection = props => {
         featureId: chainId
     });
 
+    const breakingsChildren = getBreakingChildren(renderables);
     const rules = diagramationRules(layout) || [];
+    const isInBreakings = checkChildInSection(chainId, breakingsChildren);
 
     const articlesToShow = !isInSiteService
         ? getArticleInCollection(
@@ -114,7 +119,8 @@ const CajaCollection = props => {
         layout,
         articles: _articles,
         chainId,
-        chainStyle
+        chainStyle,
+        isInBreakings
     });
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(

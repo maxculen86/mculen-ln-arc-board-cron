@@ -12,8 +12,7 @@
     },
     "Breaking_1": {
         "position": 3,
-        "max": 8,
-        "min": 4,
+        "min": 1,
         "bannersMob": ["caja3Mob", "caja4Mob", "caja5Mob"],
         "bannersDsk": ["billboard"],
         "intervalMob": 2,
@@ -21,8 +20,7 @@
     },
     "Breaking_2": {
         "position": 4,
-        "max": 6,
-        "min": 5,
+        "min": 1,
         "bannersMob": ["caja6Mob", "caja7Mob"],
         "intervalMob": 2
     },
