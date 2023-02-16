@@ -3,8 +3,6 @@ import React from 'react';
 import { Roof } from '@ln/contenidos-ui-roof';
 import PropTypes from 'prop-types';
 import validateRoof from './_helper/validateRoof';
-import useGetLinks from './_helper/useGetLinks';
-import useGetLogo from './_helper/useGetLogo';
 import setRender from '../setRender';
 import '../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import hasDataRoof from './_helper/hasDataRoof';
@@ -14,18 +12,18 @@ export default function BuildRoof(props) {
     const {
         title,
         titleLink,
+        logo,
         logoId,
         buttonText,
         linkButton,
         buttonStyle,
         chainStyle: chainStyleUncheked,
         hideRoof,
+        links,
         navigationId,
         isAdmin
     } = props;
 
-    const logo = useGetLogo(logoId, title);
-    const links = useGetLinks({ navigationSection: navigationId });
     const chainStyle =
         !VERTICALS.includes(chainStyleUncheked) && chainStyleUncheked;
 
