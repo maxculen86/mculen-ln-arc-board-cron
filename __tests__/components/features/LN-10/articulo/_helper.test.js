@@ -298,7 +298,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
     describe('Tests function showExtraClass', () => {
         test('Should return a class for video', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ video: '123' }), {
+                showExtraClass(getTypeOfMedia({ video: '123' }), '', {
                     video: 'ln-70-video'
                 })
             ).toStrictEqual('ln-70-video');
@@ -306,7 +306,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
         test('Should return a undefined if no match type with extraClass from config', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ image: '123' }), {
+                showExtraClass(getTypeOfMedia({ image: '123' }), '', {
                     video: 'ln-70-video'
                 })
             ).toStrictEqual(undefined);
@@ -314,16 +314,20 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
         test('Should return a class that match with video type', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ image: '123', video: '123' }), {
-                    video: 'ln-70-video',
-                    image: 'ln-class'
-                })
-            ).toStrictEqual('ln-70-video');
+                showExtraClass(
+                    getTypeOfMedia({ image: '123', video: '123' }),
+                    '--className',
+                    {
+                        video: 'ln-70-video',
+                        image: 'ln-class'
+                    }
+                )
+            ).toStrictEqual('ln-70-video --className');
         });
 
         test('Should return a class that match with video type', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ image: '123' }), {
+                showExtraClass(getTypeOfMedia({ image: '123' }), '', {
                     video: 'ln-70-video',
                     image: 'ln-class'
                 })
@@ -332,14 +336,14 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
         test('Should return a undefined if no match type of media with extraClass from config', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ video: '123' }), {
+                showExtraClass(getTypeOfMedia({ video: '123' }), '', {
                     image: 'ln-70-video'
                 })
             ).toStrictEqual(undefined);
         });
 
         test('Should return a undefined if everything is empty', () => {
-            expect(showExtraClass(getTypeOfMedia({}), {})).toStrictEqual(
+            expect(showExtraClass(getTypeOfMedia({}), '', {})).toStrictEqual(
                 undefined
             );
         });

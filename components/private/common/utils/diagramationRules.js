@@ -207,7 +207,8 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 cardSize: '5xl',
-                aspectRatio: 'ar-picture'
+                aspectRatio: 'ar-picture',
+                className: '--txt-center'
             }
         ],
         vertical: [
@@ -221,7 +222,8 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 cardSize: '5xl',
-                aspectRatio: 'ar-square'
+                aspectRatio: 'ar-square',
+                className: '--txt-center'
             }
         ],
         bombita: [
@@ -233,7 +235,9 @@ const diagramationRules = diagramation => {
                 withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: false,
-                withMedia: false
+                withMedia: false,
+                cardSize: '5xl',
+                className: '--txt-center'
             }
         ],
         cajaContent1: [
@@ -256,7 +260,8 @@ const diagramationRules = diagramation => {
                 withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: '5xl'
+                cardSize: '5xl',
+                className: '--txt-center'
             },
             {
                 variantsDisabled: ['author', 'liveblog', 'html'],

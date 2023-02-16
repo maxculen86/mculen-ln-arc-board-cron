@@ -10,6 +10,7 @@ import diagramationRules from '../../../private/common/utils/diagramationRules';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
 import transformImageData from '../../../private/common/LN-10/transformImageData';
+import setClassName from '../../../private/common/utils/setClassName';
 import {
     POSITIVE,
     NEGATIVE,
@@ -413,6 +414,11 @@ export const getTypeOfMedia = (customFields = {}) => {
     return typeMedia.IMAGE;
 };
 
-export const showExtraClass = (typeOfMedia, extraClass = {}) => {
-    return extraClass[typeOfMedia] || undefined;
+export const showExtraClass = (typeOfMedia, className, extraClass = {}) => {
+    const classname = setClassName({
+        extraClass: extraClass[typeOfMedia],
+        className
+    });
+
+    return classname || undefined;
 };
