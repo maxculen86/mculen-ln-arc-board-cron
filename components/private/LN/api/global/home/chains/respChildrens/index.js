@@ -17,7 +17,13 @@ const getSources = (children, storiesQuantity) => {
 
 export const responseDefault = props => {
     const { children, customFields } = props;
-
+    if (
+        children &&
+        Array.isArray(children) &&
+        children.filter(c => c === null).length === children.length
+    ) {
+        return [];
+    }
     const layout = get(customFields, 'layout', null);
     let storiesQuantity = 0;
     if (layout) {

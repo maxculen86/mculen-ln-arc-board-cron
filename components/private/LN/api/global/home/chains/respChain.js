@@ -1,4 +1,3 @@
-import get from '../../../../../common/utils/get';
 import { respChildrens as response } from './respChildrens/index';
 
 const respChain = (containerImage, props) => {

@@ -35,7 +35,11 @@ const transform = async (dataPage, query) => {
             elementsPageHome,
             configToDividebyDiagramation
         );
-        return elementsPageHome;
+        // Returns boxes that type not >= 9, for discard
+        return (
+            elementsPageHome &&
+            elementsPageHome.filter(elem => elem && elem.type <= 9)
+        );
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(
