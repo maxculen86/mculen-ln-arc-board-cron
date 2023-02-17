@@ -151,4 +151,22 @@ export const validateArticleFeature = ({
     return pageBuilderValidator(rules);
 };
 
+export const getLiveblogTitles = articleData => {
+    const contentElements = get(articleData, 'content_elements', []);
+
+    return contentElements.reduce((acc, currentValue) => {
+        if (currentValue.type === 'custom_embed' && acc.length < 3) {
+            return [
+                ...acc,
+                {
+                    title: get(currentValue, 'embed.config.title', ''),
+                    time: get(currentValue, 'embed.config.time', '')
+                }
+            ];
+        }
+
+        return acc;
+    }, []);
+};
+
 export default getChainConfig;

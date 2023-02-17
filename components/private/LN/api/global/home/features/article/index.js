@@ -12,7 +12,8 @@ const index = (articleSourceNota, articleImage, articleVideo, props) => {
         lead,
         chapita,
         opinion,
-        html
+        html,
+        variant
     } = props.customFields;
 
     const additionalProperties = {
@@ -25,6 +26,7 @@ const index = (articleSourceNota, articleImage, articleVideo, props) => {
         image: articleImage || null,
         video: articleVideo || null,
         html,
+        variant,
         idRender: props.id //  Se usa en un metodo compartido con front para validar articulos de apertura
     };
     return { ...articleSourceNota, additionalProperties };
