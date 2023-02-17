@@ -15,7 +15,7 @@ export const Article = article => {
     return {
         diseno: {
             ...get(article, 'additionalProperties.diseno', null),
-            tipo: get(article, 'additionalProperties.variant', null)
+            tipo
         },
         ...Component(article)
     };
