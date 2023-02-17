@@ -53,7 +53,7 @@ const CajaCollection = props => {
         positionInsideSection
     } = getCommonProps(props);
 
-    const roofData = useRoofData({ ...propsForRoof, isAdmin });
+    const roofData = useRoofData({ ...propsForRoof, isAdmin, chainStyle });
 
     const {
         isInSiteService,

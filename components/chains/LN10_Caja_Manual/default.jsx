@@ -59,6 +59,7 @@ const CajaManual = props => {
     const roofData = useRoofData({
         ...propsForRoof,
         isAdmin,
+        chainStyle,
         isManual: true
     });
 
