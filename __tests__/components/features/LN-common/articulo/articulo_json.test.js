@@ -110,6 +110,7 @@ describe('components - features - LN-common - articulo - json.js', () => {
                     'opinion',
                     'html',
                     'title',
+                    'variant',
                     'video'
                 ].sort()
             );
