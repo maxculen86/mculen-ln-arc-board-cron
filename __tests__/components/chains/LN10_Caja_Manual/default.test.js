@@ -81,7 +81,7 @@ describe('Tests Chain CajaManual', () => {
             ).toBeDefined();
 
             expect(
-                screen.getByText('Se requiere la carga de 3 artículos')
+                screen.getByText('Se requiere la carga de 4 artículos')
             ).toBeVisible();
         });
 
@@ -165,7 +165,8 @@ describe('Tests Chain CajaManual', () => {
                 <CajaManual
                     {...getProps({
                         customFields: fields,
-                        children
+                        children,
+                        childProps: [...mockChildProps, ...mockChildProps]
                     })}
                 />
             );
@@ -173,6 +174,34 @@ describe('Tests Chain CajaManual', () => {
             expect(
                 container.getElementsByTagName('mocked-articlefeature')
             ).toHaveLength(8);
+        });
+    });
+
+    describe('Tests for the case of Content Lab', () => {
+        test('should return a grid of 1 items', () => {
+            const fields = {
+                ...customFields,
+                layout: 'cajaContent1'
+            };
+            const children = [mockedArticleFeature];
+
+            const { container } = render(
+                <CajaManual
+                    {...getProps({
+                        customFields: fields,
+                        children
+                    })}
+                />
+            );
+
+            expect(
+                container.getElementsByTagName('mocked-articlefeature')
+            ).toHaveLength(1);
+            expect(
+                container.getElementsByClassName('content-lab')
+            ).toHaveLength(1);
+
+            screen.debug();
         });
     });
 });

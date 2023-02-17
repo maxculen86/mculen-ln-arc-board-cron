@@ -1,13 +1,13 @@
 import Consumer from 'fusion:consumer';
-import get from '../../private/common/utils/get';
 import GetCajaManual from '../../private/LN/api/global/home/chains/getCajaManual';
 import { getChildrenFromSectionHome } from '../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 import { validateChainBomba, getIsPreOpening } from './common/_helper-WebApi';
-import respChain from '../../private/LN/api/global/home/chains/respCajaCollection';
+import respChain from '../../private/LN/api/global/home/chains/respChain';
 
 class CajaBomba {
     constructor(props) {
         this.props = props;
+        this.props.typeChain = 'bomba';
         this.Chain = Consumer(
             new GetCajaManual(this.props, 'bomba', this.validate)
         );

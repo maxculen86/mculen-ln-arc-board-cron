@@ -4,7 +4,6 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 import {
     getArticlesOfChain,
     getCommonProps
@@ -18,7 +17,11 @@ import diagramationRules from '../../private/common/utils/diagramationRules';
 import setRender from '../utils/setRender';
 import StaticContent from '../../private/common/staticContent';
 import getGridType from '../utils/getGridType';
+import getComponent from '../utils/getComponent';
 import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
+import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
+
+// TODO: Pendiente por testear las diagramaciones de Grillas y focales.
 
 const CajaCollection = props => {
     const {
@@ -112,7 +115,8 @@ const CajaCollection = props => {
         renderables,
         layout,
         articles: _articles,
-        chainId
+        chainId,
+        chainStyle
     });
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
@@ -122,6 +126,8 @@ const CajaCollection = props => {
         '',
         positionInsideSection
     );
+
+    const ContainerCards = getComponent(chainStyle, layout);
 
     return (
         <StaticContent {...extraOptsDiv}>
@@ -139,6 +145,8 @@ const CajaCollection = props => {
                             gridType={getGridType(layout)}
                             articles={_articles}
                             layout={layout}
+                            ContainerCards={ContainerCards}
+                            position={position}
                         />
                     )
                 }

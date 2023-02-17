@@ -13,14 +13,17 @@ import {
 } from './utils/validatePropsChains';
 
 class GetCajaCollection {
-    constructor(props) {
-        this.typeChain = findKeyTypeChain(props);
-        this.props = validatePropsChains(props, this.typeChain);
+    constructor(props, typeChainParam) {
+        const typeChain = findKeyTypeChain(props);
+        this.props = validatePropsChains(props, typeChain);
+        this.props.typeChain = typeChain;
 
         const query = this.getQueryElement(this.props);
 
         this.state = {};
-        const sourceInclude = getFieldsArticlesByTypeChain(this.typeChain);
+        const sourceInclude = getFieldsArticlesByTypeChain(
+            this.props.typeChain
+        );
 
         if (query.filterRepetead && query.id) {
             this.fetchContent({
@@ -88,7 +91,7 @@ class GetCajaCollection {
     render() {
         try {
             const { articleList, containerImage } = this.state || {};
-            const { customFields } = this.props;
+            const { customFields, typeChain } = this.props;
 
             //  Tomar en cuenta para Cajas BN Focal 1+4 o Canal Focal 1+4, si valida que sea n5 notas.
             const error = validateFeature(
@@ -115,7 +118,7 @@ class GetCajaCollection {
                 information: {
                     ...customFields,
                     image: containerImage,
-                    typeChain: this.typeChain
+                    typeChain
                 },
                 articles: elements
             };

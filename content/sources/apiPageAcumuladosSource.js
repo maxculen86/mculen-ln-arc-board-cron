@@ -1,9 +1,10 @@
 import { SITE_LANACION } from 'fusion:environment';
 import get from '../../components/private/common/utils/get';
-import pages from './utils/servicesSource/pages';
+import pages from './utils/pageSource/index';
 import sectionSource from './sectionSource';
-import sectionsInPages from './utils/servicesSource/pages/config/sectionsInPagesConfig.json';
-import transform from './utils/servicesSource/pages/transform';
+import sectionsInPages from './utils/pageSource/pageAcumulados/config/configSectionPage.json';
+import transform from './utils/pageSource/pageAcumulados/v1/mobile/transform';
+import transformAcu from './utils/pageSource/acumulados/v1/mobile/bySection/transform';
 import home from '../../components/private/LN/api/v1/mobile/home';
 
 // Run with the url http://172.17.0.1/api/mobile/v1/page/bySection/ultimas-noticias/params=size:30;page:0/32/?_website=la-nacion-ar&outputType=json
@@ -123,7 +124,6 @@ const fetch = async (query, { cachedCall }) => {
             });
             // Para revisar la data cruda que viene del Layout
             // return resultPage;
-
             if (isPage) {
                 const resultPageTransform = await transform(
                     resultPage,
@@ -138,6 +138,7 @@ const fetch = async (query, { cachedCall }) => {
                 return Array.isArray(resultHome) ? resultHome[0] : {};
             }
         }
+
         queryParams = {
             sectionId: sectionsCustom?.includes(sectionId)
                 ? null
@@ -154,7 +155,7 @@ const fetch = async (query, { cachedCall }) => {
             featureInPage: sectionsinPage?.featureAcumuladosInPage,
             isPage
         };
-        return await transform(resultPage, queryParams);
+        return await transformAcu(resultPage, queryParams);
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(

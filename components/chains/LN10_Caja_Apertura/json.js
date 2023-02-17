@@ -5,14 +5,14 @@ import getChildrenBySection from '../../private/LN/common/utils/LN10/getChildren
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 import checkChildInSection from '../../private/LN/common/utils/LN10/checkChildBySection';
 import { validateChain } from './common/_helper-WebApi';
-import respChain from '../../private/LN/api/global/home/chains/respCajaCollection';
+import respChain from '../../private/LN/api/global/home/chains/respChain';
 
 class CajaApertura {
     constructor(props) {
         this.props = props;
-
+        this.props.typeChain = 'apertura';
         this.Chain = Consumer(
-            new GetCajaManual(this.props, 'apertura', this.validate)
+            new GetCajaManual(this.props, this.props.typeChain, this.validate)
         );
     }
 
@@ -41,6 +41,13 @@ class CajaApertura {
     render() {
         try {
             const { containerImage } = this.Chain.state || {};
+            if (
+                this.props.customFields &&
+                this.props.customFields.hideCaja == null
+            ) {
+                this.props.customFields.hideCaja =
+                    this.props.customFields.hideBox || false;
+            }
             return respChain(containerImage, this.props);
         } catch (err) {
             return { Success: false, Message: err.message };

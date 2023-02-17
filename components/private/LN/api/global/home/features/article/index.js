@@ -26,7 +26,8 @@ const index = (articleSourceNota, articleImage, articleVideo, props) => {
         image: articleImage || null,
         video: articleVideo || null,
         html,
-        variant
+        variant,
+        idRender: props.id //  Se usa en un metodo compartido con front para validar articulos de apertura
     };
     return { ...articleSourceNota, additionalProperties };
 };

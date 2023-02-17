@@ -1,5 +1,6 @@
 import Consumer from 'fusion:consumer';
 import pageBuilderSections from '../config/LN-Acumulado-PageBuilder.config.json';
+import getPageElements from '../../private/LN/api/global/page';
 
 const LNAcumuladoLayout = props => {
     const propsHome = {
@@ -8,7 +9,7 @@ const LNAcumuladoLayout = props => {
         arcSite: props.arcSite,
         layout: 'LN-acumulado'
     };
-    return propsHome;
+    return getPageElements(propsHome);
 };
 LNAcumuladoLayout.sections = pageBuilderSections;
 export default Consumer(LNAcumuladoLayout);

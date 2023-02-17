@@ -121,11 +121,10 @@ const featureArticleCustomsFields = (featuredName, isLN10) => {
         }),
         ...(isLN10 && {
             chapitaStyle: PropTypes.oneOf([
-                '',
-                'a-fondo',
-                'liveblog-red',
-                'exclusive-ln',
-                'sponsored'
+                'negative',
+                'positive',
+                'live',
+                'exclusive-ln'
             ]).tag({
                 default: '',
                 name: 'Estilo Chapita',

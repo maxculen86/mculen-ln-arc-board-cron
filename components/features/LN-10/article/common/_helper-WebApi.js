@@ -1,22 +1,23 @@
 import get from '../../../../private/common/utils/get';
 import siteConfig from '../../../../../properties/sites/la-nacion-ar';
-import { getChildrenFromSectionHome } from '../../../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 import getStreams from '../../../../private/LN/common/utils/getStreams';
 import diagramationRules from '../../../../private/common/utils/diagramationRules';
 import pageBuilderValidator from '../../../../private/common/utils/pageBuilderValidator';
+import {
+    POSITIVE,
+    NEGATIVE,
+    LIVE,
+    EXCLUSIVE_LN
+} from '../../../../private/common/badge/types';
+
+export const typeBadge = {
+    0: POSITIVE,
+    1: NEGATIVE,
+    2: LIVE,
+    3: EXCLUSIVE_LN
+};
 
 const getIsBomba = parent => get(parent, 'type', '') === 'LN10_Caja_Bomba';
-
-export const isBombaHidden = renderables => {
-    const preOpeningChildren =
-        getChildrenFromSectionHome(renderables, 'Pre_Apertura', 0) || [];
-
-    return preOpeningChildren.some(
-        children =>
-            get(children, 'props.customFields.hideCaja', false) &&
-            getIsBomba(children)
-    );
-};
 
 // TODO: Falta modificar logica para la nueva configuracion de imagen del resizer
 

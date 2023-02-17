@@ -198,6 +198,8 @@ const diagramationRules = diagramation => {
         ],
         horizontal: [
             {
+                variantsDisabled: ['author', 'liveblog', 'html'],
+
                 titleTag: 'h1',
                 subheadTag: 'h2',
                 withMedia: true,
@@ -210,6 +212,8 @@ const diagramationRules = diagramation => {
         ],
         vertical: [
             {
+                variantsDisabled: ['author', 'liveblog', 'html'],
+
                 titleTag: 'h1',
                 subheadTag: 'h2',
                 withMedia: true,
@@ -222,6 +226,8 @@ const diagramationRules = diagramation => {
         ],
         bombita: [
             {
+                variantsDisabled: ['author', 'liveblog', 'html'],
+
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 withSubhead: true,
@@ -230,8 +236,20 @@ const diagramationRules = diagramation => {
                 withMedia: false
             }
         ],
+        cajaContent1: [
+            {
+                titleTag: 'h2',
+                subheadTag: 'h3',
+                withSection: true,
+                withSubhead: true,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true
+            }
+        ],
         bombitaMas4: [
             {
+                variantsDisabled: ['author', 'liveblog', 'html'],
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 withMedia: false,
@@ -241,6 +259,7 @@ const diagramationRules = diagramation => {
                 cardSize: '5xl'
             },
             {
+                variantsDisabled: ['author', 'liveblog', 'html'],
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 withMedia: true,
@@ -250,6 +269,7 @@ const diagramationRules = diagramation => {
                 cardSize: 'm'
             },
             {
+                variantsDisabled: ['author', 'liveblog', 'html'],
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 withMedia: true,
@@ -259,6 +279,7 @@ const diagramationRules = diagramation => {
                 cardSize: 'm'
             },
             {
+                variantsDisabled: ['author', 'liveblog', 'html'],
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 withMedia: true,
@@ -268,6 +289,7 @@ const diagramationRules = diagramation => {
                 cardSize: 'm'
             },
             {
+                variantsDisabled: ['author', 'liveblog', 'html'],
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 withMedia: true,
@@ -412,8 +434,572 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 cardSize: 'm'
             }
+        ],
+        'ranking-1-2-2_grid': [
+            {
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-right'
+                },
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-right'
+                },
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-right'
+                },
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-right'
+                },
+                cardSize: 'l',
+                withSubhead: false,
+                withMarqueeImg: false
+            }
+        ],
+        'hash-1-2-2-2_grid': [
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                withMarquee: false,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'l',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            }
+        ],
+        canal_1_4_grid: [
+            {
+                cardSize: '4xl',
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true,
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-left'
+                }
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            }
+        ],
+        bn_1_4_grid: [
+            {
+                variantsDisabled: ['author'],
+                cardSize: '4xl',
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true,
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                }
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: 'm'
+            }
+        ],
+        bn_1_grid: [
+            {
+                variantsDisabled: ['author'],
+                cardSize: '4xl',
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true,
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                }
+            }
+        ],
+        bn_2_grid: [
+            {
+                cardSize: 'm',
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                }
+            },
+            {
+                cardSize: 'm',
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                }
+            }
+        ],
+        canal_1_3_grid: [
+            {
+                cardSize: '3xl',
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true,
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            }
+        ],
+        bn_1_3_grid: [
+            {
+                variantsDisabled: ['author'],
+                cardSize: '3xl',
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true,
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            }
+        ],
+        bn_1_2_grid: [
+            {
+                variantsDisabled: ['author'],
+                cardSize: '4xl',
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true,
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                }
+            },
+            {
+                variantsDisabled: [],
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                variantsDisabled: [],
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            }
+        ],
+        canal_1_2_grid: [
+            {
+                cardSize: '4xl',
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true,
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-right',
+                    desktop: 'img-left'
+                }
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            },
+            {
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            }
+        ],
+        bn_1_1_grid: [
+            {
+                variantsDisabled: ['author'],
+                cardSize: '3xl',
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true,
+                withSubhead: true,
+                withSection: true,
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-right',
+                    desktop: 'img-right'
+                }
+            },
+            {
+                variantsDisabled: [],
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: 'm'
+            }
+        ],
+        bn_2_1_2_grid: [
+            {
+                variantsDisabled: ['liveblog', 'author'],
+                withSection: false,
+                withMarquee: false,
+                withMarqueeImg: false,
+                withMedia: true,
+                cardSize: 'xl',
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                withSection: false,
+                withMarquee: false,
+                withMarqueeImg: false,
+                withMedia: true,
+                cardSize: 'm',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                variantsDisabled: ['liveblog', 'author'],
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                cardSize: 'm',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-none'
+                }
+            },
+            {
+                withSection: false,
+                withMarquee: false,
+                withMarqueeImg: false,
+                withMedia: true,
+                cardSize: 'm',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-top',
+                    desktop: 'img-top'
+                }
+            },
+            {
+                variantsDisabled: ['liveblog', 'author'],
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                cardSize: 'm',
+                imagePosition: {
+                    mobile: 'img-right',
+                    tablet: 'img-none',
+                    desktop: 'img-none'
+                }
+            }
         ]
     };
+
     return diagramations[diagramation];
 };
 export default diagramationRules;

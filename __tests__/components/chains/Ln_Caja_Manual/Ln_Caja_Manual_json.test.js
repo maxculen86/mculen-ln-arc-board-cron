@@ -33,7 +33,9 @@ describe('components - chains - Ln_Caja_Manual - json.js', () => {
 
     it('Check Props', () => {
         const ChainCajaManual = new CajaManual.default(props);
-        expect(Object.keys(ChainCajaManual).sort()).toEqual(['props','state','typeChain'].sort());
+        expect(Object.keys(ChainCajaManual).sort()).toEqual(
+            ['props', 'state'].sort()
+        );
         expect(ChainCajaManual.props).toMatchObject(props);
     });
 

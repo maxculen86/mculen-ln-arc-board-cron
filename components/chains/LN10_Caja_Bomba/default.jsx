@@ -15,8 +15,7 @@ import {
     validateChainBomba,
     getIsPreOpening,
     getClassCondition,
-    getChildrenOfBomba,
-    hasVariantNotRegular
+    getChildrenOfBomba
 } from './_helper';
 import setRender from '../utils/setRender';
 import StaticContent from '../../private/common/staticContent';
@@ -53,17 +52,10 @@ const CajaBomba = props => {
         getClassCondition(layout, childrenOfBomba, chainId)
     );
 
-    const hasNotVariantRegular = hasVariantNotRegular(childrenOfBomba);
-
     const { classCondition, diagramation } = clasCondition;
 
     const isPreOpening = getIsPreOpening(preOpeningChildren, chainId);
-    const error = validateChainBomba(
-        layout,
-        slicedChildren,
-        isPreOpening,
-        hasNotVariantRegular
-    );
+    const error = validateChainBomba(layout, slicedChildren, isPreOpening);
 
     const { position, positionInsideSection } = getCommonProps(props);
 
@@ -86,7 +78,8 @@ const CajaBomba = props => {
                 getClassCondition(layout, childrenOfBomba, chainId)
             );
         }
-    }, [layout, childrenOfBomba, chainId, isAdmin]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [layout, chainId, isAdmin]);
 
     return (
         <StaticContent {...extraOptsDiv}>
