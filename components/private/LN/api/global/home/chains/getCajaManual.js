@@ -3,32 +3,14 @@ import {
     validatePropsChains,
     findKeyTypeChain
 } from './utils/validatePropsChains';
-import respChain from './respChain';
+import respChain from './respChildrens/index';
 
 class GetCajaManual {
-    constructor(props, typeBox, validateFn) {
+    constructor(props, typeBox) {
         const typeChain = typeBox || findKeyTypeChain(props);
         this.props = validatePropsChains(props, typeChain);
         this.props.typeChain = typeChain;
         this.state = {};
-        if (validateFn) {
-            const error = validateFn(this.props);
-            const respError =
-                typeof error === 'object' ? JSON.stringify(error) : '';
-            const paramsChain =
-                this.props && this.props.customFields
-                    ? JSON.stringify(this.props.customFields)
-                    : '';
-
-            if (error) {
-                const respMsjError = `${respError}-${paramsChain}`;
-                // eslint-disable-next-line no-console
-                console.warn(`${respError}`, `ErrorChainManual`);
-                this.error = respMsjError;
-                return this;
-            }
-        }
-
         const imageId = get(this.props, 'customFields.imageId', '');
         const idCollection = get(this.props, 'customFields.idCollection', '');
 
@@ -74,17 +56,12 @@ class GetCajaManual {
             });
     }
 
+    renderRespose = (props, image) => {
+        return respChain(props, image);
+    };
+
     render() {
-        try {
-            const { containerImage } = this.state || {};
-            if (this.error) {
-                console.log(this.error);
-                return null;
-            }
-            return respChain(containerImage, this.props);
-        } catch (err) {
-            return { Success: false, Message: err.message };
-        }
+        return null;
     }
 }
 export default GetCajaManual;

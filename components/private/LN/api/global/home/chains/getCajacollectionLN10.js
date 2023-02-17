@@ -20,7 +20,6 @@ class GetCajaCollectionLN10 {
         this.props.typeChain = typeChain;
 
         const query = this.getQueryElement(this.props);
-
         this.state = {};
         const sourceInclude = getFieldsArticlesByTypeChain(
             this.props.typeChain
@@ -115,12 +114,7 @@ class GetCajaCollectionLN10 {
     };
 
     render() {
-        try {
-            return null;
-            // eslint-disable-next-line no-unreachable
-        } catch (err) {
-            return { Success: false, Message: err.message };
-        }
+        return null;
     }
 }
 export default GetCajaCollectionLN10;

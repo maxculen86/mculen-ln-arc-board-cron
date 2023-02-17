@@ -67,7 +67,15 @@ export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
 
     return options[layout] || options.default;
 };
-
+export const validateChildrensApi = childrens => {
+    if (!childrens || !Array.isArray(childrens)) {
+        return null;
+    }
+    if (childrens.filter(c => c === null).length === childrens.length) {
+        return null;
+    }
+    return childrens;
+};
 export const setWrappedChildrenApi = (renderables = [], features = []) => {
     const customWrappers = {
         'LN-acumulado/timeline': content => {

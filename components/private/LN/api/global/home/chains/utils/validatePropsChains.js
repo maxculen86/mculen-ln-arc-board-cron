@@ -13,9 +13,8 @@ const configToSetProperties = {
 
 export const validatePropsChains = (props, keyTypeChain) => {
     if (!props) {
-        throw new TypeError('The props missing in collection');
+        throw new TypeError('The props missing in Chain');
     }
-
     // Set properties by default
     const propsValidate = props;
     // return propsValidate;

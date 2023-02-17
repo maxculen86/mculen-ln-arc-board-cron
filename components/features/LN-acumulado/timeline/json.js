@@ -2,7 +2,7 @@ import Consumer from 'fusion:consumer';
 import get from '../../../private/common/utils/get';
 import sectionsFormated from '../../../private/common/utils/sectionsFormated';
 import resultArticle from '../../../private/LN/api/global/home/features/article/index';
-import respChain from '../../../private/LN/api/global/home/chains/respChain';
+import respChain from '../../../private/LN/api/global/home/chains/respChildrens/index';
 
 class Timeline {
     constructor(props) {
@@ -129,7 +129,7 @@ class Timeline {
                 children: resultArticles || []
             };
 
-            return respChain(null, props);
+            return respChain(props, null);
         } catch (err) {
             return { Success: false, Message: err.message };
         }

@@ -1,17 +1,12 @@
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 import GetCajaManual from '../../private/LN/api/global/home/chains/getCajaManual';
-
-import respChain from '../../private/LN/api/global/home/chains/respChain';
 import validateCajaManual from './common/_helper-WebApi';
+import { validateChildrensApi } from '../utils/common/_helpers-WebApi';
 
-class CajaManual {
+class CajaManual extends GetCajaManual {
     constructor(props) {
-        this.props = props;
-        this.props.typeChain = 'chainManual';
-        this.Chain = Consumer(
-            new GetCajaManual(this.props, this.props.typeChain, this.validate)
-        );
+        super(props, 'chainManual');
     }
 
     validate = propsValidate => {
@@ -33,7 +28,15 @@ class CajaManual {
 
     render() {
         try {
-            const { containerImage } = this.Chain.state || {};
+            const { containerImage } = this.state || {};
+            const { children } = this.props;
+            if (!validateChildrensApi(children)) {
+                return null;
+            }
+            const error = this.validate(this.props);
+            if (error) {
+                return null;
+            }
             if (
                 this.props.customFields &&
                 this.props.customFields.hideCaja == null
@@ -41,11 +44,7 @@ class CajaManual {
                 this.props.customFields.hideCaja =
                     this.props.customFields.hideBox || false;
             }
-
-            if (this.Chain.error) {
-                return null;
-            }
-            return respChain(containerImage, this.props);
+            return this.renderRespose(this.props, containerImage);
         } catch (err) {
             return { Success: false, Message: err.message };
         }

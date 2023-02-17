@@ -1,4 +1,7 @@
-import { setSlicedChildren } from '../../../../../../../../chains/utils/common/_helpers-WebApi';
+import {
+    setSlicedChildren,
+    validateChildrensApi
+} from '../../../../../../../../chains/utils/common/_helpers-WebApi';
 
 export const respChildrens = props => {
     const {
@@ -6,14 +9,9 @@ export const respChildrens = props => {
         customFields: { layout }
     } = props;
 
-    if (
-        children &&
-        Array.isArray(children) &&
-        children.filter(c => c === null).length === children.length
-    ) {
+    if (!validateChildrensApi(children)) {
         return null;
     }
-
     const slicedChildrenInitial = setSlicedChildren({
         children: children.filter(c => c != null),
         config: { layout, countTimeline: true }

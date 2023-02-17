@@ -83,9 +83,9 @@ class ArticleFeature {
                 customFields: { noteId, imageId, video: videoId }
             } = this.props;
 
-            // if (!articleSourceNota) {
-            //     return null;
-            // }
+            if (!articleSourceNota) {
+                return null;
+            }
             const error = validateArticleFeature({
                 id: noteId,
                 content: articleSourceNota,
@@ -95,6 +95,9 @@ class ArticleFeature {
                 imageId,
                 videoId
             });
+            /*             if (noteId === '23GTONTWRFBZDG5CVMSLMY6WAA') {
+                const yfffffy = 0;
+            } */
             if (error) {
                 return null;
             }

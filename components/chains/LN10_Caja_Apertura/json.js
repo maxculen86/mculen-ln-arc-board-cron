@@ -1,19 +1,15 @@
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 import GetCajaManual from '../../private/LN/api/global/home/chains/getCajaManual';
-import getChildrenBySection from '../../private/LN/common/utils/LN10/getChildrenBySection';
+import getChildrenBySection from '../utils/getChildrenBySection';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
-import checkChildInSection from '../../private/LN/common/utils/LN10/checkChildBySection';
+import checkChildInSection from '../utils/checkChildBySection';
 import { validateChain } from './common/_helper-WebApi';
-import respChain from '../../private/LN/api/global/home/chains/respChain';
+import { validateChildrensApi } from '../utils/common/_helpers-WebApi';
 
-class CajaApertura {
+class CajaApertura extends GetCajaManual {
     constructor(props) {
-        this.props = props;
-        this.props.typeChain = 'apertura';
-        this.Chain = Consumer(
-            new GetCajaManual(this.props, this.props.typeChain, this.validate)
-        );
+        super(props, 'apertura');
     }
 
     validate = propsValidate => {
@@ -40,7 +36,15 @@ class CajaApertura {
 
     render() {
         try {
-            const { containerImage } = this.Chain.state || {};
+            const { containerImage } = this.state || {};
+            const { children } = this.props;
+            if (!validateChildrensApi(children)) {
+                return null;
+            }
+            const error = this.validate(this.props);
+            if (error) {
+                return null;
+            }
             if (
                 this.props.customFields &&
                 this.props.customFields.hideCaja == null
@@ -48,7 +52,7 @@ class CajaApertura {
                 this.props.customFields.hideCaja =
                     this.props.customFields.hideBox || false;
             }
-            return respChain(containerImage, this.props);
+            return this.renderRespose(this.props, containerImage);
         } catch (err) {
             return { Success: false, Message: err.message };
         }
