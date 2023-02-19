@@ -1,16 +1,12 @@
 import get from '../../../../../common/utils/get';
-import {
-    validatePropsChains,
-    findKeyTypeChain
-} from './utils/validatePropsChains';
+import { validatePropsChains } from './utils/validatePropsChains';
 import respChain from './respChildrens/index';
 
 class GetCajaManual {
-    constructor(props, typeBox) {
-        const typeChain = typeBox || findKeyTypeChain(props);
+    constructor(props, typeChain) {
         this.props = validatePropsChains(props, typeChain);
-        this.props.typeChain = typeChain;
         this.state = {};
+
         const imageId = get(this.props, 'customFields.imageId', '');
         const idCollection = get(this.props, 'customFields.idCollection', '');
 
@@ -56,9 +52,7 @@ class GetCajaManual {
             });
     }
 
-    renderRespose = (props, image) => {
-        return respChain(props, image);
-    };
+    renderRespose = (props, image) => respChain(props, image);
 
     render() {
         return null;

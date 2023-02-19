@@ -8,18 +8,15 @@ export const respChildrens = props => {
         children,
         customFields: { layout }
     } = props;
-    // const len = children.filter(c => c != null);
 
     if (!validateChildrensApi(children)) {
         return null;
     }
-
-    const slicedChildren = setSlicedChildren({
-        children: children.filter(c => c != null),
-        config: { layout }
+    const slicedChildrenInitial = setSlicedChildren({
+        children, // or children.filter(c => c != null),
+        config: { layout, countTimeline: true }
     });
-
-    return slicedChildren;
+    return slicedChildrenInitial;
 };
 
 export default respChildrens;

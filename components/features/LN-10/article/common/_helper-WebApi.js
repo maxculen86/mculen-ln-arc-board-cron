@@ -66,7 +66,7 @@ export const getChainParentOfFeature = (featureId, renderables) => {
     return getFeatureData(featureId, renderables);
 };
 
-const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
+export const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
     const { layoutsName = {} } = siteConfig || {};
     const parent = getFeatureData(featureId, renderables);
     const position =
@@ -168,5 +168,3 @@ export const getLiveblogTitles = articleData => {
         return acc;
     }, []);
 };
-
-export default getChainConfig;

@@ -1,5 +1,4 @@
 import {
-    validateFeature,
     getCommonPropsJson,
     getArticlesFromMyCurrentCollection,
     getIdsArticlesFromOtherCollections
@@ -7,20 +6,15 @@ import {
 import get from '../../../../../common/utils/get';
 import filter from '../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
 import { getFieldsArticlesByTypeChain } from '../features/article/utils/helpers';
-import {
-    validatePropsChains,
-    findKeyTypeChain
-} from './utils/validatePropsChains';
+import { validatePropsChains } from './utils/validatePropsChains';
 import diagramationRules from '../../../../../common/utils/diagramationRules';
 
 class GetCajaCollectionLN10 {
-    constructor(props, typeChainParam) {
-        const typeChain = typeChainParam || findKeyTypeChain(props);
+    constructor(props, typeChain) {
         this.props = validatePropsChains(props, typeChain);
-        this.props.typeChain = typeChain;
+        this.state = {};
 
         const query = this.getQueryElement(this.props);
-        this.state = {};
         const sourceInclude = getFieldsArticlesByTypeChain(
             this.props.typeChain
         );

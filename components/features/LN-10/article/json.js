@@ -3,34 +3,27 @@ import getProperties from 'fusion:properties';
 import resultArticle from '../../../private/LN/api/global/home/features/article/index';
 import { getFieldsArticlesByTypeChain } from '../../../private/LN/api/global/home/features/article/utils/helpers';
 import { validatePropsFeatures } from '../../../private/LN/api/global/home/features/utils/validatePropsFeatures';
-import getChainConfig, {
+import {
+    getChainConfig,
     validateArticleFeature
 } from './common/_helper-WebApi';
 
 class ArticleFeature {
     constructor(props) {
         this.props = validatePropsFeatures(props);
+        this.state = {};
         const {
             customFields: { noteId, imageId, video: videoId },
             id: featureId,
             arcSite,
-            renderables = null
+            renderables = []
         } = this.props;
 
         const sourceInclude = getFieldsArticlesByTypeChain('default');
-        let imageConfig = null;
-        let layout = null;
-        this.state = {};
+        const { cajaTemaConfig } = getProperties(arcSite);
+        this.configs = getChainConfig(featureId, renderables, cajaTemaConfig);
+        const imageConfig = this.configs && this.configs.imageConfig;
 
-        if (renderables) {
-            const { cajaTemaConfig } = getProperties(arcSite);
-            ({ layout, imageConfig } = getChainConfig(
-                featureId,
-                renderables,
-                cajaTemaConfig
-            ));
-        }
-        this.layout = layout;
         videoId &&
             videoId.trim() &&
             this.fetchContent({
@@ -80,24 +73,40 @@ class ArticleFeature {
                 this.state || {};
 
             const {
-                customFields: { noteId, imageId, video: videoId }
+                customFields: {
+                    noteId,
+                    imageId,
+                    video: videoId,
+                    variant = 'regular'
+                }
             } = this.props;
+
+            const { config = {}, layout, boxPosition, isBomba } = this.configs;
+            const { variantsDisabled } = config;
 
             if (!articleSourceNota) {
                 return null;
             }
+            if (noteId === 'BBU3ZCWFBRALRO4FZAHJ5XGW74') {
+                console.log(noteId);
+            }
             const error = validateArticleFeature({
                 id: noteId,
                 content: articleSourceNota,
-                articleImage,
+                image: articleImage,
                 video: articleVideo,
-                layout: this.layout,
+                layout,
                 imageId,
-                videoId
+                videoId,
+                config,
+                variant,
+                variantsDisabled,
+                isBomba
             });
-            /*             if (noteId === '23GTONTWRFBZDG5CVMSLMY6WAA') {
-                const yfffffy = 0;
-            } */
+
+            if (noteId === 'BBU3ZCWFBRALRO4FZAHJ5XGW74') {
+                console.log(error);
+            }
             if (error) {
                 return null;
             }

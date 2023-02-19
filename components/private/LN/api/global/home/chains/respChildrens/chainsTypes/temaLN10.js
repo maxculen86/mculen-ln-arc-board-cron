@@ -15,7 +15,7 @@ export const respChildrens = props => {
     }
 
     const slicedChildren = setSlicedChildren({
-        children: children.filter(c => c != null),
+        children,
         config: { layout }
     });
 

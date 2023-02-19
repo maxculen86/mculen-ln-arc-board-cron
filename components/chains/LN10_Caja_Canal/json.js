@@ -2,12 +2,12 @@
 // import GetCajaCollection from '../../private/LN/api/global/home/chains/getCajacollection';
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
-import GetCajaCollection from '../../private/LN/api/global/home/chains/getCajacollectionLN10';
+import GetCajaCollection from '../../private/LN/api/global/home/chains/getCajaCollectionLN10';
 import { validateChain } from '../LN10_Caja_Collection/common/_helper-WebApi';
 
 class CajaCanal extends GetCajaCollection {
     constructor(props) {
-        super(props, 'chainCanal');
+        super(props, 'canal');
     }
 
     validate = (propsValidate, articles) => {

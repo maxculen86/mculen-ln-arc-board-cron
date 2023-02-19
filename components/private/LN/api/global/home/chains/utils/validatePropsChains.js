@@ -1,36 +1,17 @@
 import get from '../../../../../../common/utils/get';
-import configToGetTypeChain from '../config/configToGetTypeChain.json';
-import {
-    setFieldsHashTagInChain,
-    setFieldsSuscriptorInChain
-} from './configToSetFieldsByChains';
+import configToGetTypeChain from '../config/jsons/configToGetTypeChain.json';
+import { configPropsByTypeChain } from '../config/configPropsByTypeChain';
 
-// Here put the same keys from configToGetTypeChain.json how as hashtag
-const configToSetProperties = {
-    hashtag: setFieldsHashTagInChain,
-    suscriptor: setFieldsSuscriptorInChain
-};
-
-export const validatePropsChains = (props, keyTypeChain) => {
-    if (!props) {
-        throw new TypeError('The props missing in Chain');
-    }
-    // Set properties by default
-    const propsValidate = props;
-    // return propsValidate;
-    if (keyTypeChain) {
-        // console.log(KeyTypeChain);
-        const callByTypeChain = configToSetProperties[keyTypeChain];
-        if (callByTypeChain) {
-            return callByTypeChain(propsValidate);
-        }
-        return propsValidate;
-    }
-    return propsValidate;
-};
-export const findKeyTypeChain = props => {
-    // console.log(get(props, 'customFields.title', 'NA'));
+export const findTypeChain = (props, typeChain) => {
     let keyTypeChainFinded = null;
+    const chainStyle = get(props, 'customFields.chainStyle', null);
+
+    if (typeChain && !['chainManual', 'chainCollection'].includes(typeChain)) {
+        return typeChain;
+    }
+    if (chainStyle) {
+        return chainStyle;
+    }
     const result = Object.keys(configToGetTypeChain).some(keyTypeChain => {
         keyTypeChainFinded = keyTypeChain;
         return (
@@ -44,5 +25,24 @@ export const findKeyTypeChain = props => {
             })
         );
     });
-    return result ? keyTypeChainFinded : null;
+    return result ? keyTypeChainFinded : typeChain;
+};
+
+export const validatePropsChains = (props, typeChain) => {
+    if (!props) {
+        throw new TypeError('The props missing in Chain');
+    }
+    // Set properties by default and others properties how us typeChain
+    const propsValidate = props;
+    propsValidate.typeChain = findTypeChain(propsValidate, typeChain);
+
+    // return propsValidate;
+    if (propsValidate.typeChain) {
+        const callByTypeChain = configPropsByTypeChain[propsValidate.typeChain];
+        if (callByTypeChain) {
+            return callByTypeChain(propsValidate);
+        }
+        return propsValidate;
+    }
+    return propsValidate;
 };
