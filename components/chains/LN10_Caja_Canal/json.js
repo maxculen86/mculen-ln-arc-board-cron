@@ -2,7 +2,7 @@
 // import GetCajaCollection from '../../private/LN/api/global/home/chains/getCajacollection';
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
-import GetCajaCollection from '../../private/LN/api/global/home/chains/getCajaCollectionLN10';
+import GetCajaCollection from '../../private/LN/api/global/home/chains/LN10/getCajaCollection';
 import { validateChain } from '../LN10_Caja_Collection/common/_helper-WebApi';
 
 class CajaCanal extends GetCajaCollection {
@@ -41,7 +41,7 @@ class CajaCanal extends GetCajaCollection {
             if (error) {
                 return null;
             }
-            return this.renderRespose(this.props, elements, containerImage);
+            return this.renderResponse(this.props, elements, containerImage);
         } catch (err) {
             return { Success: false, Message: err.message };
         }

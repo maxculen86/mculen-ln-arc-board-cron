@@ -1,11 +1,11 @@
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
-import GetCajaCollection from '../../private/LN/api/global/home/chains/getCajaCollectionLN10';
+import GetCajaCollection from '../../private/LN/api/global/home/chains/LN10/getCajaCollection';
 import { validateChain } from './common/_helper-WebApi';
 
 class CajaCollection extends GetCajaCollection {
     constructor(props) {
-        super(props, 'chainCollection');
+        super(props, null);
     }
 
     validate = (propsValidate, articles) => {
@@ -40,7 +40,7 @@ class CajaCollection extends GetCajaCollection {
             if (error) {
                 return null;
             }
-            return this.renderRespose(this.props, elements, containerImage);
+            return this.renderResponse(this.props, elements, containerImage);
         } catch (err) {
             return { Success: false, Message: err.message };
         }

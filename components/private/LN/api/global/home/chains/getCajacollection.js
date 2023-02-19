@@ -11,7 +11,7 @@ import { validatePropsChains } from './utils/validatePropsChains';
 
 class GetCajaCollection {
     constructor(props, typeChain) {
-        this.props = validatePropsChains(props, typeChain);
+        this.props = validatePropsChains(props, typeChain, 'v0');
         this.state = {};
 
         const query = this.getQueryElement(this.props);

@@ -1,7 +1,7 @@
 // Used in private/LN/api/v[1-9]/mobile/home/index.js
 // This parameters are used for run the methods accord the type
 // The type 1 is assign to Banner
-const configTypesbyChainOrFeature = nameContainer => {
+export const configTypesbyChainOrFeature = nameContainer => {
     const boxTypeContainer = {
         Ln_Caja_Manual: 0,
         Ln_Caja_Collection: 0,

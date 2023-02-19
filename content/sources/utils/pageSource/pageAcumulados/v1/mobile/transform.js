@@ -1,5 +1,4 @@
-import configBannerPositionbySection from '../../../../../../../components/private/LN/api/global/page/config/configBannerPositionbySection';
-import { setBannersBySection } from '../../../common/elements/banners/index';
+import { setBannerByLayout } from '../../../common/elements/banners/index';
 import {
     moveSections,
     divideSectionsByDiagramation
@@ -15,13 +14,9 @@ const transform = async (dataPage, query) => {
     try {
         let elementsPageHome = elementsPage;
 
-        // Add Banners by Section
-        const configBannersBySections = configBannerPositionbySection(
-            layoutPage
-        );
-        elementsPageHome = setBannersBySection(
+        elementsPageHome = setBannerByLayout[layoutPage](
             elementsPageHome,
-            configBannersBySections
+            layoutPage
         );
 
         // Move Sections

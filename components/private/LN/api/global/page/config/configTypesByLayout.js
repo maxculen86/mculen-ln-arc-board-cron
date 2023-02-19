@@ -1,14 +1,14 @@
-import configTypesbyChainOrFeature from './configTypesbyChainOrFeature';
-import { configTypesbyChainOrFeature as configV1 } from '../../../v1/mobile/home/config/configTypesbyChainOrFeature';
-import { configTypesbyChainOrFeature as configV2 } from '../../../v2/mobile/home/config/configTypesbyChainOrFeature';
+import { configTypesbyChainOrFeature as configAcu } from './config-childs/configTypesbyChainOrFeatureLNAcumulados';
+import { configTypesbyChainOrFeature as configLN } from './config-childs/configTypesbyChainOrFeatureLNMain';
+import { configTypesbyChainOrFeature as configLN10 } from './config-childs/configTypesbyChainOrFeatureLNMain10';
 
 const configsTypesByLayout = layoutPage => {
     const boxTypeContainer = {
-        'LN-acumulado': configTypesbyChainOrFeature,
-        'LN-Home_Main': configV1,
-        'LN-Home_Sports': configTypesbyChainOrFeature,
-        'LN10-Home_Main': configV2,
-        default: configTypesbyChainOrFeature
+        'LN-acumulado': configAcu,
+        'LN-Home_Main': configLN,
+        'LN-Home_Sports': configLN,
+        'LN10-Home_Main': configLN10,
+        default: configLN
     };
     return boxTypeContainer[layoutPage] == null
         ? boxTypeContainer.default

@@ -97,7 +97,7 @@ describe('content - sources - apiPageHomeSource', () => {
     });
     test('when result page is null', async () => {
         console.error = jest.fn(a => {
-            expect(a).toContain("Cannot read property 'reduce' of null");
+            expect(a).toContain('Not found page');
         });
 
         const query = paramQuery;
@@ -105,6 +105,6 @@ describe('content - sources - apiPageHomeSource', () => {
         const result = await apiPageHomeSource.fetch(query, {
             cachedCall: jest.fn().mockReturnValue(Promise.resolve(null))
         });
-        expect(result).toEqual({});
+        expect(result).toEqual(null);
     });
 });

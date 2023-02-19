@@ -1,6 +1,6 @@
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
-import GetCajaManual from '../../private/LN/api/global/home/chains/getCajaManual';
+import GetCajaManual from '../../private/LN/api/global/home/chains/LN10/getCajaManual';
 import getChildrenBySection from '../utils/getChildrenBySection';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 import checkChildInSection from '../utils/checkChildBySection';
@@ -52,7 +52,7 @@ class CajaApertura extends GetCajaManual {
                 this.props.customFields.hideCaja =
                     this.props.customFields.hideBox || false;
             }
-            return this.renderRespose(this.props, containerImage);
+            return this.renderResponse(this.props, containerImage);
         } catch (err) {
             return { Success: false, Message: err.message };
         }

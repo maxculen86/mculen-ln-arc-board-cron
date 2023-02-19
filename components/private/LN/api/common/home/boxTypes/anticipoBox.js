@@ -1,9 +1,5 @@
 export const anticipoBox = (element, featureInfo) => {
-    const { sectionAliasMobile } = element;
-
-    if (sectionAliasMobile === 'Anticipo') return { ...featureInfo };
-
-    return null;
+    return { ...featureInfo };
 };
 
 export default anticipoBox;

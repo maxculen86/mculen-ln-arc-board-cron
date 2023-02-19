@@ -50,8 +50,13 @@ const getPageElements = props => {
                 positionsArticlesbyDiagramation
             );
             // Para probar en esta etapa los elementos o cuanquier cosa dentro de este reduce coloca:
+            // if (get(checkElement, 'isValid', checkElement) !== true) {
+            //     console.log(sectionWeb);
+            //     console.log(checkElement);
+            // }
             // r.push(elements);
             // return r;
+
             const child = elements;
             if (child && Array.isArray(child) && child.length > 0) {
                 return r.concat(

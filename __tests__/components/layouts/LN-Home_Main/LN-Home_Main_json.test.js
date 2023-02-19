@@ -10,15 +10,6 @@ import propsAppAnexowithoutApertura from '../../../../__mocks__/data/renderables
 import propsApertura from '../../../../__mocks__/data/renderables/dataApertura.json';
 import propsAperturaTimeline from '../../../../__mocks__/data/renderables/dataAperturaTimeline.json';
 
-jest.mock(
-    '../../../../components/private/LN/api/global/page/config/configBannerbyPosition.js',
-    () => {
-        return function(component) {
-            return {};
-        };
-    }
-);
-
 jest.mock('.../../../../../../components/private/LN/api/v1/mobile/home', () => {
     return function(component) {
         return component;
@@ -111,7 +102,9 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].sectionAliasMobile).toBe('Anticipo');
+            expect(homeSections[0].sectionAliasMobile).toBe(
+                'LN-common/cajaAnticipo'
+            );
         });
     });
 
@@ -158,7 +151,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].sectionAliasMobile).toBe('Bomba');
+            expect(homeSections[0].sectionAliasMobile).toBe('LN-common/bomba');
         });
     });
 
@@ -177,7 +170,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].sectionAliasMobile).toBe('Apertura');
+            expect(homeSections[0].sectionAliasMobile).toBe('Apertura_1');
         });
     });
 
@@ -198,7 +191,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 ].sort()
             );
             expect(homeSections[0].articles[0].sectionAliasMobile).toBe(
-                'Timeline'
+                'LN-acumulado/timeline'
             );
             expect(homeSections[0].articles[0].information.nameFeature).toBe(
                 'LN-acumulado/timeline'
@@ -286,7 +279,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
             ];
             const homeData = LayoutLNMainHome.default(props);
             const homeSections = homeData.content_elements;
-            expect(homeSections[0].sectionAliasMobile).toBe('Apertura');
+            expect(homeSections[0].sectionAliasMobile).toBe('Apertura_2');
         });
     });
 
@@ -389,7 +382,9 @@ describe('components - layouts - LN-Home_Main - json', () => {
             ];
             const homeData = LayoutLNMainHome.default(props);
             const homeSections = homeData.content_elements;
-            expect(homeSections[0].sectionAliasMobile).toBe('Opinion');
+            expect(homeSections[0].sectionAliasMobile).toBe(
+                'LN-common/editoriales'
+            );
             expect(Object.keys(homeSections[0]).sort()).toEqual(
                 [
                     'articles',
@@ -402,7 +397,9 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 ].sort()
             );
 
-            expect(homeSections[1].sectionAliasMobile).toBe('Opinion');
+            expect(homeSections[1].sectionAliasMobile).toBe(
+                'LN-common/opinion'
+            );
             expect(Object.keys(homeSections[1]).sort()).toEqual(
                 [
                     'articles',
@@ -512,7 +509,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].sectionAliasMobile).toBe('Comercial');
+            expect(homeSections[0].sectionAliasMobile).toBe('Comercial_1');
         });
     });
 
@@ -562,7 +559,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].sectionAliasMobile).toBe('Tema1');
+            expect(homeSections[0].sectionAliasMobile).toBe('Breaking_1');
         });
         test('When props is null', () => {
             try {
@@ -626,7 +623,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
             );
             const homeSections = homeData.content_elements;
             expect(homeSections[0]).toEqual(
-                expect.objectContaining({ sectionAliasMobile: 'Apertura' })
+                expect.objectContaining({ sectionAliasMobile: 'Apertura_2' })
             );
         });
     });

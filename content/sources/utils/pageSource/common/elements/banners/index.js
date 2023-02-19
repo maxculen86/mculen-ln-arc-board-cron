@@ -6,6 +6,9 @@ import {
     addElementsByKey,
     addElement
 } from '../../../../../../../components/private/LN/api/global/page/common/utils/addElements';
+import configBannerByLayout from '../../../config/configBannerByLayout';
+import configTaskPositionBanners from '../../../config/configTaskPositionBanners.json';
+import configBannerPositionbySection from '../../../config/configBannerPositionbySection';
 
 const tasks = {
     Equal: equal,
@@ -13,7 +16,9 @@ const tasks = {
     AtLeastOne: atleastone
 };
 // Add Banners by Section
-export const setBannersBySection = (elementsPage, configBannersBySections) => {
+export const setBannersBySection = (elementsPage, layoutPage) => {
+    //export const setBannersBySection = (elementsPage, configBannersBySections) => {
+    const configBannersBySections = configBannerPositionbySection(layoutPage);
     let elementsPageHome = elementsPage;
     Object.keys(configBannersBySections).forEach(sectionWeb => {
         const configElementToAdd = {
@@ -32,7 +37,9 @@ export const setBannersBySection = (elementsPage, configBannersBySections) => {
 };
 
 // Add Banners by Section
-export const setBannersByConfig = (elementsPage, configBanner, banners) => {
+export const setBannersByConfig = (elementsPage, layoutPage) => {
+    //export const setBannersByConfig = (elementsPage, configBanner, banners) => {
+    const banners = configBannerByLayout(layoutPage);
     let elementsPageHome = [];
     let lenLastBanner = -1;
     let indexValidBanner = 0;
@@ -45,8 +52,8 @@ export const setBannersByConfig = (elementsPage, configBanner, banners) => {
                 lenLastBanner += 1;
 
                 const isValidConfig =
-                    Array.isArray(configBanner) &&
-                    configBanner.some(configItem => {
+                    Array.isArray(configTaskPositionBanners) &&
+                    configTaskPositionBanners.some(configItem => {
                         positionValid = configItem && configItem.position;
                         const isValid =
                             configItem &&
@@ -87,4 +94,11 @@ export const setBannersByConfig = (elementsPage, configBanner, banners) => {
     return elementsPageHome;
 };
 
-export default setBannersBySection;
+export const setBannerByLayout = {
+    'LN-acumulado': setBannersBySection,
+    'LN-Home_Main': setBannersBySection,
+    'LN-Home_Sports': setBannersBySection,
+    'LN10-Home_Main': setBannersByConfig
+};
+
+export default setBannerByLayout;

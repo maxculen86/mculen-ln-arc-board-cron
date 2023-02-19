@@ -10,7 +10,7 @@ import homev2 from '../../components/private/LN/api/v2/mobile/home';
 const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
     const aliasPages = {
-        home: '/homepage-LN10',
+        home: '/homepage',
         sports: '/deportes'
     };
 
@@ -52,6 +52,12 @@ const fetch = async (query, { cachedCall } = {}) => {
             query: queryParams,
             ttl: 120
         });
+        if (!resultPage) {
+            throw new Error('Not found page');
+        }
+
+        const { information } = resultPage;
+        queryParams.information = information;
         // Para revisar la data transformada que viene del Layout
         // return resultPage;
 
@@ -63,6 +69,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         // return resultPageTransform;
 
         // Para ver el resultado final de la home
+
         const resultHome = homeTransform[version](
             resultPageTransform,
             queryParams

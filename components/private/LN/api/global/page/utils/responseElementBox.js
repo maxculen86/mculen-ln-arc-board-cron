@@ -48,7 +48,7 @@ const responseElementBox = (
         type: setTypeElement(box.information, layoutPage),
         sectionAliasMobile: setSectionAliasbyFeatureOrChain(
             box.information,
-            sectionMobile,
+            sectionWeb,
             layoutPage
         ),
         ...restRespElementBox(

@@ -1,9 +1,6 @@
 import get from '../../../../../../../components/private/common/utils/get';
-import configBannerByLayout from '../../../../../../../components/private/LN/api/global/page/config/configBannerByLayout';
 import configToDividebyDiagramation from '../../../../../../../components/private/LN/api/global/page/config/configToDividebyDiagramation';
-import configTaskPositionBanners from '../../../config/configTaskPositionBanners.json';
-
-import { setBannersByConfig } from '../../../common/elements/banners/index';
+import { setBannerByLayout } from '../../../common/elements/banners/index';
 import {
     moveSections,
     divideSectionsByDiagramation
@@ -19,12 +16,10 @@ const transform = async (dataPage, query) => {
     try {
         let elementsPageHome = elementsPage;
 
-        // Add Banners by Section
-        const configBanners = configBannerByLayout(layoutPage);
-        elementsPageHome = setBannersByConfig(
+        // Add Banners by Config
+        elementsPageHome = setBannerByLayout[layoutPage](
             elementsPageHome,
-            configTaskPositionBanners,
-            configBanners
+            layoutPage
         );
 
         // Move Sections

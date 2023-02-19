@@ -4,7 +4,7 @@ import { articlesManual } from './articlesManual';
 export const homeSections = [
     {
         type: 3,
-        sectionAliasMobile: 'Anticipo',
+        sectionAliasMobile: 'LN-common/cajaAnticipo',
         information: {
             hideCaja: false,
             title:
@@ -22,7 +22,7 @@ export const homeSections = [
     },
     {
         type: 2,
-        sectionAliasMobile: 'AnexoMobile',
+        sectionAliasMobile: 'LN-common/anexo',
         information: {
             hideCaja: false,
             layout: 'grilla1',
@@ -44,7 +44,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Apertura',
+        sectionAliasMobile: 'Apertura_1',
         information: {
             layout: 'focalLeft3',
             initialPosition: 1,
@@ -65,7 +65,7 @@ export const homeSections = [
     },
     {
         type: 2,
-        sectionAliasMobile: 'AnexoMobile',
+        sectionAliasMobile: 'LN-common/anexo',
         information: {
             layout: 'grilla1',
             nameFeature: 'LN-common/anexo',
@@ -86,7 +86,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Apertura',
+        sectionAliasMobile: 'Apertura_2',
         information: {
             layout: 'grillaUltimasNoticias',
             initialPosition: 1,
@@ -107,7 +107,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Timeline',
+        sectionAliasMobile: 'LN-acumulado/timeline',
         information: {
             size: 5,
             sectionTagType: 'Tag',
@@ -248,7 +248,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema1',
+        sectionAliasMobile: 'Breaking_1',
         information: {
             layout: 'grilla9',
             initialPosition: 1,
@@ -269,7 +269,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema1',
+        sectionAliasMobile: 'Breaking_1',
         information: {
             layout: 'grilla9',
             initialPosition: 1,
@@ -290,7 +290,7 @@ export const homeSections = [
     },
     {
         type: 2,
-        sectionAliasMobile: 'AnexoMobile',
+        sectionAliasMobile: 'LN-common/anexo',
         information: {
             hideCaja: false,
             layout: 'grilla1',
@@ -318,7 +318,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema2',
+        sectionAliasMobile: 'Breaking_2',
         information: {
             layout: 'grilla9',
             initialPosition: 1,
@@ -339,7 +339,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema2',
+        sectionAliasMobile: 'Breaking_2',
         information: {
             layout: 'grilla9',
             initialPosition: 1,
@@ -365,7 +365,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema3',
+        sectionAliasMobile: 'Breaking_3',
         information: {
             layout: 'grilla3',
             initialPosition: 1,
@@ -386,7 +386,7 @@ export const homeSections = [
     },
     {
         type: 2,
-        sectionAliasMobile: 'AnexoMobile',
+        sectionAliasMobile: 'LN-common/anexo',
         information: {
             hideCaja: false,
             layout: 'grilla1',
@@ -414,7 +414,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Opinion',
+        sectionAliasMobile: 'LN-common/opinion',
         information: {
             layout: 'opinion4',
             initialPosition: 1,
@@ -435,7 +435,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Opinion',
+        sectionAliasMobile: 'LN-common/editoriales',
         information: {
             layout: 'editoriales2',
             initialPosition: 1,
@@ -455,7 +455,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema5',
+        sectionAliasMobile: 'Breaking_5',
         information: {
             layout: 'grilla6',
             initialPosition: 1,
@@ -553,7 +553,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Comercial',
+        sectionAliasMobile: 'Comercial_1',
         information: {
             layout: 'grilla1',
             initialPosition: 1,
@@ -576,7 +576,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema7',
+        sectionAliasMobile: 'Bloque_2',
         information: {
             layout: 'grilla2',
             initialPosition: 1,
@@ -674,7 +674,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Comercial',
+        sectionAliasMobile: 'Comercial_2',
         information: {
             layout: 'grilla2',
             initialPosition: 1,
@@ -773,7 +773,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema8',
+        sectionAliasMobile: 'Bloque_3',
         information: {
             layout: 'grilla6',
             initialPosition: 1,
@@ -868,7 +868,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema8',
+        sectionAliasMobile: 'Bloque_3',
         information: {
             layout: 'focalLeft3',
             initialPosition: 1,
@@ -966,7 +966,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema9',
+        sectionAliasMobile: 'Bloque_4',
         information: {
             layout: 'focalLeft3',
             initialPosition: 1,
@@ -1065,7 +1065,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema10',
+        sectionAliasMobile: 'Bloque_5',
         information: {
             layout: 'focalLeft3',
             initialPosition: 1,
@@ -1159,7 +1159,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema10',
+        sectionAliasMobile: 'Bloque_5',
         information: {
             layout: 'grilla6',
             initialPosition: 1,
@@ -1258,7 +1258,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema11',
+        sectionAliasMobile: 'Bloque_6',
         information: {
             layout: 'focalLeft3',
             initialPosition: 1,
@@ -1356,7 +1356,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema11',
+        sectionAliasMobile: 'Bloque_6',
         information: {
             layout: 'focalLeft3',
             initialPosition: 1,
@@ -1453,7 +1453,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema12',
+        sectionAliasMobile: 'Bloque_7',
         information: {
             layout: 'focalLeft3',
             initialPosition: 1,
@@ -1551,7 +1551,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema12',
+        sectionAliasMobile: 'Bloque_7',
         information: {
             layout: 'grilla2',
             initialPosition: 4,
@@ -1573,7 +1573,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema13',
+        sectionAliasMobile: 'Bloque_8',
         information: {
             layout: 'grilla6',
             initialPosition: 1,
@@ -1671,7 +1671,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Tema13',
+        sectionAliasMobile: 'Bloque_8',
         information: {
             layout: 'grilla2',
             initialPosition: 1,
@@ -1692,7 +1692,7 @@ export const homeSections = [
     },
     {
         type: 2,
-        sectionAliasMobile: 'AnexoMobile',
+        sectionAliasMobile: 'LN-common/anexoMobile',
         information: {
             hideCaja: false,
             layout: 'grilla1',
@@ -1713,9 +1713,6 @@ export const homeSections = [
         sectionWeb: 'App_Anexo_1'
     }
 ];
-
-
-
 
 describe('test home formatted from childres of features and Chains', () => {
     it('Total test boxes expected', () => {

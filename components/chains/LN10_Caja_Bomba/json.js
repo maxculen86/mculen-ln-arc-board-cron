@@ -1,5 +1,5 @@
 import Consumer from 'fusion:consumer';
-import GetCajaManual from '../../private/LN/api/global/home/chains/getCajaManual';
+import GetCajaManual from '../../private/LN/api/global/home/chains/LN10/getCajaManual';
 import { getChildrenFromSectionHome } from '../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 import { validateChainBomba, getIsPreOpening } from './common/_helper-WebApi';
 import { validateChildrensApi } from '../utils/common/_helpers-WebApi';
@@ -44,7 +44,7 @@ class CajaBomba extends GetCajaManual {
                 this.props.customFields.hideCaja =
                     this.props.customFields.hideBox || false;
             }
-            return this.renderRespose(this.props, containerImage);
+            return this.renderResponse(this.props, containerImage);
         } catch (err) {
             return { Success: false, Message: err.message };
         }

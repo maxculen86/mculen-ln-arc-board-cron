@@ -8,21 +8,26 @@ import { anticipoBox } from '../../../common/home/boxTypes/anticipoBox';
 import { anexoMobileBox } from '../../../common/home/boxTypes/anexoMobileBox';
 import { bannerBox } from '../../../common/home/boxTypes/bannerBox';
 import { sectionAcuBox } from '../../../common/home/boxTypes/sectionAcumuladoBox';
-import configTypeSection from './config/getTypeSection';
+import configInfoSectionsByLayout from '../../../common/home/config/configInfoSectionsByLayout';
 
 const featureInformation = (information, section, typeSection) => {
     if (!information) return null;
+
     const type = typeSection[section] || typeSection.default;
+
     const res = {
         ...type,
         diagramacion: information.layout || null
     };
 
-    if (section === 'Anticipo') {
+    if (section === 'LN-common/cajaAnticipo') {
         res.texto = information.title;
     }
 
-    if (!information.hideTitle && section !== 'Apertura') {
+    if (
+        !information.hideTitle &&
+        !['Apertura_1', 'Apertura_2'].includes(section)
+    ) {
         const image = get(information.image, 'promo_items.basic', null);
         const imagenUrl = get(image, 'additional_properties.originalUrl', null);
         if (image && image.type === 'image') res.imagen = Image(image);
@@ -51,7 +56,18 @@ const index = (
             'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
     }
 ) => {
-    const typeSection = configTypeSection();
+    const layoutPage = get(paramsFromPage, 'information.layoutPage', 'null');
+    const typeSection = configInfoSectionsByLayout(layoutPage);
+    if (!layoutPage || !typeSection) {
+        // eslint-disable-next-line no-console
+        console.warn(
+            `Error v1/mobile/home/index : ${JSON.stringify(
+                paramsFromPage
+            )} - errorMsj: Missing layoutPage`
+        );
+
+        return null;
+    }
 
     const ArticlesbyBox = children.reduce((result, f, i) => {
         const { information, sectionAliasMobile } = f;

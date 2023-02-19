@@ -1,12 +1,17 @@
 import { respChildrens } from '../config/configReponseByTypeChain';
-import { responseDefault } from './chainsTypes/tema';
+
+const respChainByVersion = (props, version) => {
+    return respChildrens[version]
+        ? respChildrens[version](props)
+        : respChildrens.v0(props);
+};
 
 const respChain = (props, containerImage) => {
-    const { customFields, typeChain } = props;
+    const { customFields, typeChain, version } = props;
+
     const responseChildren = respChildrens[typeChain]
         ? respChildrens[typeChain](props)
-        : responseDefault(props);
-
+        : respChainByVersion(props, version);
     return {
         information: { ...customFields, image: containerImage, typeChain },
         articles: responseChildren

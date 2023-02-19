@@ -1,14 +1,25 @@
-import get from '../../../../../common/utils/get';
-import { validatePropsChains } from './utils/validatePropsChains';
-import respChain from './respChildrens/index';
+import get from '../../../../../../common/utils/get';
+import { validatePropsChains } from '../utils/validatePropsChains';
+import respChain from '../respChildrens/index';
 
 class GetCajaManual {
     constructor(props, typeChain) {
-        this.props = validatePropsChains(props, typeChain, 'v0');
+        this.props = validatePropsChains(props, typeChain, 'v1');
         this.state = {};
 
         const imageId = get(this.props, 'customFields.imageId', '');
         const idCollection = get(this.props, 'customFields.idCollection', '');
+
+        // OJO: Esto es un codigo temporal solo para simular en caso de venir los parametros del boton
+        if (imageId) {
+            this.props.customFields = {
+                ...get(this.props, 'customFields', {}),
+                botomText: 'PROGRAMA EN VIVO',
+                botomLink:
+                    'https://www.semrush.com/website/weather.com/overview/',
+                botomStyle: 'Red'
+            };
+        }
 
         imageId &&
             imageId.trim() &&

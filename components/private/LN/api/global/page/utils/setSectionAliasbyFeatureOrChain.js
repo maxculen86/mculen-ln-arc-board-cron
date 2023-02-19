@@ -1,22 +1,18 @@
-import configSectionAliasbyLayout from '../config/configSectionAliasbyLayout';
-
 const setSectionAliasbyFeatureOrChain = (
     information,
-    sectionMobile,
+    sectionWeb,
     layoutPage
 ) => {
-    if (information && (information.nameFeature || information.nameChain)) {
-        const sectionAliasbyFeature = configSectionAliasbyLayout(layoutPage)(
-            information.nameFeature == null
-                ? information.nameChain
-                : information.nameFeature,
-            information.typeChain
-        );
-        return sectionAliasbyFeature == null
-            ? sectionMobile
-            : sectionAliasbyFeature;
+    if (information && information.nameFeature) {
+        return information.nameFeature;
     }
-    return sectionMobile;
+    if (information && information.nameChain) {
+        // console.log(sectionWeb);
+        // console.log(information.typeChain);
+        return information.typeChain ? information.typeChain : sectionWeb;
+    }
+
+    return sectionWeb;
 };
 
 export default setSectionAliasbyFeatureOrChain;

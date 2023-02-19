@@ -2,16 +2,16 @@ import {
     getCommonPropsJson,
     getArticlesFromMyCurrentCollection,
     getIdsArticlesFromOtherCollections
-} from '../../../../common/utils/cajaTemasValidators';
-import get from '../../../../../common/utils/get';
-import filter from '../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
-import { getFieldsArticlesByTypeChain } from '../features/article/utils/helpers';
-import { validatePropsChains } from './utils/validatePropsChains';
-import diagramationRules from '../../../../../common/utils/diagramationRules';
+} from '../../../../../common/utils/cajaTemasValidators';
+import get from '../../../../../../common/utils/get';
+import filter from '../../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
+import { getFieldsArticlesByTypeChain } from '../../features/article/utils/helpers';
+import { validatePropsChains } from '../utils/validatePropsChains';
+import diagramationRules from '../../../../../../common/utils/diagramationRules';
 
-class GetCajaCollectionLN10 {
+class GetCajaCollection {
     constructor(props, typeChain) {
-        this.props = validatePropsChains(props, typeChain);
+        this.props = validatePropsChains(props, typeChain, 'v1');
         this.state = {};
 
         const query = this.getQueryElement(this.props);
@@ -83,7 +83,7 @@ class GetCajaCollectionLN10 {
         };
     };
 
-    renderRespose = (props, articles, image) => {
+    renderResponse = (props, articles, image) => {
         const { customFields, typeChain } = props;
 
         if (!articles) {
@@ -111,4 +111,4 @@ class GetCajaCollectionLN10 {
         return null;
     }
 }
-export default GetCajaCollectionLN10;
+export default GetCajaCollection;
