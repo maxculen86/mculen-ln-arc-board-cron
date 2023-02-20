@@ -1,7 +1,12 @@
 const configToDividebyDiagramation = layout => {
-    const boxDiagramation = ['grillaUltimasNoticias', 'left-focal'];
+    const boxDiagramation = {
+        'LN-acumulado': ['grillaUltimasNoticias', 'left-focal'],
+        'LN-Home_Main': ['grillaUltimasNoticias', 'left-focal'],
+        'LN-Home_Sports': ['grillaUltimasNoticias', 'left-focal'],
+        'LN10-Home_Main': ['grillaUltimasNoticias', 'left-focal']
+    };
 
-    return boxDiagramation;
+    return boxDiagramation[layout];
 };
 
 export default configToDividebyDiagramation;

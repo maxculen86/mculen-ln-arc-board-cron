@@ -18,14 +18,6 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         expect(home[0]).toHaveLength(37);
     });
 
-    it('Total expected boxes test when two themes come without articles', () => {
-        let homeSections = homeDataSections;
-        homeSections[2].articles = [];
-        homeSections[8].articles = [];
-        const home = index(homeSections, paramsPage) || [];
-        expect(home[0]).toHaveLength(35);
-    });
-
     it('Test Caja Anticipo', () => {
         const homeSections = homeDataSections;
         const home = index(homeSections, paramsPage) || [];
@@ -53,20 +45,20 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
     it('Test Imagen Techo', () => {
         const homeSections = homeDataSections;
         const home = index(homeSections, paramsPage) || [];
-        expect(home[0][19].imagen.id).toBe('ZZEXVFIL2ZFHBIQVL7GN632OXU');
+        expect(home[0][21].imagen.id).toBe('ZZEXVFIL2ZFHBIQVL7GN632OXU');
     });
 
     it('Testeo Secciones Cajas Apertura', () => {
         const homeSections = homeDataSections;
         const home = index(homeSections, paramsPage) || [];
-        expect(home[0][3].tipoSeccion).toBe('apertura');
+        expect(home[0][2].tipoSeccion).toBe('apertura');
     });
 
     it('Testeo Secciones Seccion Apertura sin information', () => {
         const Seccion = [
             {
                 type: 0,
-                sectionAliasMobile: 'Apertura_1',
+                sectionAliasMobile: 'apertura',
                 articles: articlesCollections,
                 configurations: {
                     arcSite: 'la-nacion-ar'
@@ -77,7 +69,6 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         ];
         try {
             const home = index(Seccion, paramsPage) || [];
-            console.log(home);
             expect(home.length).toBe(null);
         } catch (err) {
             expect(err.message).toBe(
@@ -86,6 +77,13 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         }
     });
 
+    it('Total expected boxes test when two themes come without articles', () => {
+        const homeSectionsboxes = homeDataSections;
+        homeSectionsboxes[2].articles = [];
+        homeSectionsboxes[8].articles = [];
+        const home = index(homeSectionsboxes, paramsPage) || [];
+        expect(home[0]).toHaveLength(35);
+    });
     it('Testeo Seccion Array vacio', () => {
         const Seccion = [];
         const home = index(Seccion, paramsPage) || [];
@@ -107,7 +105,7 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         const Seccion = [
             {
                 type: 0,
-                sectionAliasMobile: 'Apertura_1',
+                sectionAliasMobile: 'apertura',
                 information: {
                     layout: 'focalLeft3',
                     backgroundColor: 'default',
@@ -236,7 +234,7 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         const Seccion = [
             {
                 type: 0,
-                sectionAliasMobile: 'Comercial_1',
+                sectionAliasMobile: 'comercial',
                 information: {
                     layout: 'grilla3',
                     backgroundColor: 'default',

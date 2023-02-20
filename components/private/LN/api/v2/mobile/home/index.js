@@ -13,7 +13,9 @@ import configInfoSectionsByLayout from '../../../common/home/config/configInfoSe
 
 const featureInformation = (information, section, typeSection) => {
     if (!information) return null;
-    const type = typeSection[section] || typeSection.default;
+    const sectionAlias = section && section.toLowerCase();
+
+    const type = typeSection[sectionAlias] || typeSection.default;
     const res = {
         ...type,
         diagramacion: information.layout || null
@@ -94,25 +96,26 @@ const index = (
             sectionAliasMobile,
             typeSection
         );
-        switch (Number(f.type)) {
+        const type = Number(f.type);
+        switch (type) {
             case 0:
                 // eslint-disable-next-line no-unreachable
                 result.push(
-                    typeBox[f.type](f, featureInfo, Article, paramsFromPage)
+                    typeBox[type](f, featureInfo, Article, paramsFromPage)
                 );
                 break;
             case 1:
                 // eslint-disable-next-line no-unreachable
-                result.push(typeBox[f.type](f, typeSection));
+                result.push(typeBox[type](f, typeSection));
 
                 break;
             case 2:
                 // eslint-disable-next-line no-unreachable
-                result.push(typeBox[f.type](f, featureInfo, Anexo));
+                result.push(typeBox[type](f, featureInfo, Anexo));
                 break;
             case 3:
                 // eslint-disable-next-line no-console
-                result.push(typeBox[f.type](f, featureInfo));
+                result.push(typeBox[type](f, featureInfo));
                 break;
             default:
                 //  Only to Discard the element.

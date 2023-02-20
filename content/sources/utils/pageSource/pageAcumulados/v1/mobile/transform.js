@@ -1,4 +1,6 @@
 import { setBannerByLayout } from '../../../common/elements/banners/index';
+import configToDividebyDiagramation from '../../../../../../../components/private/LN/api/global/page/config/configToDividebyDiagramation';
+
 import {
     moveSections,
     divideSectionsByDiagramation
@@ -24,11 +26,11 @@ const transform = async (dataPage, query) => {
         elementsPageHome = moveSections(elementsPageHome, configMovePositions);
 
         // Divide Section by Layout configured in features
-        const configToDividebyDiagramation = ['grillaUltimasNoticias'];
         elementsPageHome = divideSectionsByDiagramation(
             elementsPageHome,
-            configToDividebyDiagramation
+            configToDividebyDiagramation(layoutPage)
         );
+
         return elementsPageHome;
     } catch (error) {
         // eslint-disable-next-line no-console

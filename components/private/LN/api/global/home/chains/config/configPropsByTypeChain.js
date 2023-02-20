@@ -1,8 +1,14 @@
 const setFieldsHashTagInChain = props => {
-    const { idCollection, initialPosition, layout } = props.customFields;
+    const {
+        idCollection,
+        initialPosition,
+        layout,
+        hideCaja = false
+    } = props.customFields;
     return {
         ...props,
         customFields: {
+            hideCaja,
             hideTitle: true,
             idCollection,
             initialPosition,

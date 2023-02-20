@@ -1,4 +1,5 @@
 import get from '../../../../../../../components/private/common/utils/get';
+import configToDividebyDiagramation from '../../../../../../../components/private/LN/api/global/page/config/configToDividebyDiagramation';
 import { setBannerByLayout } from '../../../common/elements/banners/index';
 import {
     moveSections,
@@ -26,11 +27,11 @@ const transform = async (dataPage, query) => {
         elementsPageHome = moveSections(elementsPageHome, configMovePositions);
 
         // Divide Section by Layout configured in features
-        const configToDividebyDiagramation = ['grillaUltimasNoticias'];
         elementsPageHome = divideSectionsByDiagramation(
             elementsPageHome,
-            configToDividebyDiagramation
+            configToDividebyDiagramation(layoutPage)
         );
+
         // Returns boxes that type not >= 9, for discard
         return (
             elementsPageHome &&

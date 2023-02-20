@@ -44,7 +44,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Apertura_1',
+        sectionAliasMobile: 'apertura',
         information: {
             layout: 'focalLeft3',
             initialPosition: 1,
@@ -86,7 +86,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Apertura_2',
+        sectionAliasMobile: 'apertura',
         information: {
             layout: 'grillaUltimasNoticias',
             initialPosition: 1,
@@ -553,7 +553,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Comercial_1',
+        sectionAliasMobile: 'comercial',
         information: {
             layout: 'grilla1',
             initialPosition: 1,
@@ -674,7 +674,7 @@ export const homeSections = [
     },
     {
         type: 0,
-        sectionAliasMobile: 'Comercial_2',
+        sectionAliasMobile: 'comercial',
         information: {
             layout: 'grilla2',
             initialPosition: 1,

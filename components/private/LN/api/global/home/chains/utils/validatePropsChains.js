@@ -12,6 +12,7 @@ export const findTypeChain = (props, typeChain, version) => {
     if (chainStyle) {
         return chainStyle;
     }
+
     const result =
         configTypeChain[version] &&
         Object.keys(configTypeChain[version]).some(keyTypeChain => {

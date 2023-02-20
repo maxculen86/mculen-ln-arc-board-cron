@@ -170,7 +170,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].sectionAliasMobile).toBe('Apertura_1');
+            expect(homeSections[0].sectionAliasMobile).toBe('apertura');
         });
     });
 
@@ -279,7 +279,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
             ];
             const homeData = LayoutLNMainHome.default(props);
             const homeSections = homeData.content_elements;
-            expect(homeSections[0].sectionAliasMobile).toBe('Apertura_2');
+            expect(homeSections[0].sectionAliasMobile).toBe('apertura');
         });
     });
 
@@ -319,7 +319,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
             ];
             const homeData = LayoutLNMainHome.default(props);
             const homeSections = homeData.content_elements;
-            expect(homeSections[0].sectionAliasMobile).toBe('Multimedia');
+            expect(homeSections[0].sectionAliasMobile).toBe('multimedia');
             expect(homeSections[0].information.layout).toBe('grilla1');
         });
     });
@@ -509,7 +509,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].sectionAliasMobile).toBe('Comercial_1');
+            expect(homeSections[0].sectionAliasMobile).toBe('comercial');
         });
     });
 
@@ -559,7 +559,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].sectionAliasMobile).toBe('Breaking_1');
+            expect(homeSections[0].sectionAliasMobile).toBe('Ln_Caja_Manual');
         });
         test('When props is null', () => {
             try {
@@ -623,7 +623,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
             );
             const homeSections = homeData.content_elements;
             expect(homeSections[0]).toEqual(
-                expect.objectContaining({ sectionAliasMobile: 'Apertura_2' })
+                expect.objectContaining({ sectionAliasMobile: 'apertura' })
             );
         });
     });

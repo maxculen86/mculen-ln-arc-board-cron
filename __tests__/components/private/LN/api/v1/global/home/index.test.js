@@ -58,7 +58,6 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
     it('Testeo Secciones Cajas Apertura', () => {
         const homeSections = homeDataSections;
         const home = index(homeSections, paramsPage) || [];
-
         expect(home[0][3].tipoSeccion).toBe('apertura');
     });
 
@@ -107,7 +106,7 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         const Seccion = [
             {
                 type: 0,
-                sectionAliasMobile: 'Apertura_1',
+                sectionAliasMobile: 'apertura',
                 information: {
                     layout: 'focalLeft3',
                     backgroundColor: 'default',
@@ -235,7 +234,7 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         const Seccion = [
             {
                 type: 0,
-                sectionAliasMobile: 'Comercial_1',
+                sectionAliasMobile: 'comercial',
                 information: {
                     layout: 'grilla3',
                     backgroundColor: 'default',

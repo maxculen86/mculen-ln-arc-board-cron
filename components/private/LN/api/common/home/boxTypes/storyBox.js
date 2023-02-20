@@ -45,7 +45,6 @@ const articlesMap = (
 export const storyBox = (element, featureInfo, articleFn, paramsFromPage) => {
     const { information, sectionAliasMobile } = element;
 
-    if (sectionAliasMobile === 'Anticipo') return { ...featureInfo };
     const articles = get(element, 'articles', []);
 
     const ordererArticles = orderArticles(articles, information.layout);
