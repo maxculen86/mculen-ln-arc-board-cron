@@ -2,7 +2,7 @@ import Consumer from 'fusion:consumer';
 import React from 'react';
 import colecction from '../../../../__mocks__/data/collection/QJ3BOEZVQNEYZEVBXHF4C7KAWY.json';
 import get from '../../../../components/private/common/utils/get';
-import GetCajaCollection from '../../../../components/private/LN/api/global/home/chains/getCajacollection';
+import GetCajaCollection from '../../../../components/private/LN/api/global/home/chains/LN/getCajacollection';
 
 class MockGetCajaCollection extends GetCajaCollection {
     constructor(props) {

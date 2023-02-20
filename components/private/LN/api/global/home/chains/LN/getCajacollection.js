@@ -3,11 +3,11 @@ import {
     getCommonPropsJson,
     getArticlesFromMyCurrentCollection,
     getIdsArticlesFromOtherCollections
-} from '../../../../common/utils/cajaTemasValidators';
-import get from '../../../../../common/utils/get';
-import filter from '../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
-import { getFieldsArticlesByTypeChain } from '../features/article/utils/helpers';
-import { validatePropsChains } from './utils/validatePropsChains';
+} from '../../../../../common/utils/cajaTemasValidators';
+import get from '../../../../../../common/utils/get';
+import filter from '../../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
+import { getFieldsArticlesByTypeChain } from '../../features/article/utils/helpers';
+import { validatePropsChains } from '../utils/validatePropsChains';
 
 class GetCajaCollection {
     constructor(props, typeChain) {

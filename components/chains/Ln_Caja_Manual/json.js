@@ -1,6 +1,6 @@
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
-import GetCajaManual from '../../private/LN/api/global/home/chains/getCajaManual';
+import GetCajaManual from '../../private/LN/api/global/home/chains/LN/getCajaManual';
 import { validateChildrensApi } from '../utils/common/_helpers-WebApi';
 
 class CajaManual extends GetCajaManual {
