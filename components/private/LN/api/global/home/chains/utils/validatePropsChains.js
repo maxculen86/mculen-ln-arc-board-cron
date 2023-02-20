@@ -32,6 +32,18 @@ export const findTypeChain = (props, typeChain, version) => {
     return result ? keyTypeChainFinded : null;
 };
 
+export const validatePropsByTypeChain = props => {
+    const propsValidate = props;
+    if (propsValidate.typeChain) {
+        const callByTypeChain = configPropsByTypeChain[propsValidate.typeChain];
+        if (callByTypeChain) {
+            return callByTypeChain(propsValidate);
+        }
+        return propsValidate;
+    }
+    return propsValidate;
+};
+
 export const validatePropsChains = (props, typeChain, version) => {
     if (!props) {
         throw new TypeError('The props missing in Chain');
@@ -40,13 +52,6 @@ export const validatePropsChains = (props, typeChain, version) => {
     const propsValidate = props;
     propsValidate.typeChain = findTypeChain(propsValidate, typeChain, version);
     propsValidate.version = version;
-    // return propsValidate;
-    if (propsValidate.typeChain) {
-        const callByTypeChain = configPropsByTypeChain[propsValidate.typeChain];
-        if (callByTypeChain) {
-            return callByTypeChain(propsValidate);
-        }
-        return propsValidate;
-    }
+
     return propsValidate;
 };

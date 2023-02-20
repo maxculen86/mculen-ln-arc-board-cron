@@ -10,7 +10,8 @@ import homev2 from '../../components/private/LN/api/v2/mobile/home';
 const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
     const aliasPages = {
-        home: '/homepage',
+        home: '/homepage-LN10',
+        homeLN: '/homepage',
         sports: '/deportes'
     };
 
