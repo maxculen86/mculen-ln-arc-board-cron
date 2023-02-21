@@ -1,8 +1,8 @@
 import Consumer from 'fusion:consumer';
-import GetCajaManual from '../../private/LN/api/global/home/chains/LN10/getCajaManual';
+import GetCajaManual from '../../private/LN/api/global/components/chains/LN10/getCajaManual';
 import { getChildrenFromSectionHome } from '../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 import { validateChainBomba, getIsPreOpening } from './common/_helper-WebApi';
-import { validateChildrensApi } from '../utils/api/_helpers';
+import { validateChildrensApi } from '../../private/LN/api/global/components/common/utils/_helpers';
 
 class CajaBomba extends GetCajaManual {
     constructor(props) {

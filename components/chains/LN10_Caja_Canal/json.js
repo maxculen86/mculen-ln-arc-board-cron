@@ -1,7 +1,7 @@
 // import Consumer from 'fusion:consumer';
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
-import GetCajaCollection from '../../private/LN/api/global/home/chains/LN10/getCajaCollection';
+import GetCajaCollection from '../../private/LN/api/global/components/chains/LN10/getCajaCollection';
 import { validateChain } from '../LN10_Caja_Collection/common/_helper-WebApi';
 
 class CajaCanal extends GetCajaCollection {

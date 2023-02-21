@@ -1,11 +1,11 @@
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
-import GetCajaManual from '../../private/LN/api/global/home/chains/LN10/getCajaManual';
+import GetCajaManual from '../../private/LN/api/global/components/chains/LN10/getCajaManual';
 import getChildrenBySection from '../utils/getChildrenBySection';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 import checkChildInSection from '../utils/checkChildBySection';
 import { validateChain } from './common/_helper-WebApi';
-import { validateChildrensApi } from '../utils/api/_helpers';
+import { validateChildrensApi } from '../../private/LN/api/global/components/common/utils/_helpers';
 
 class CajaApertura extends GetCajaManual {
     constructor(props) {

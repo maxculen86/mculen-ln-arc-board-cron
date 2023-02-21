@@ -1,5 +1,5 @@
 import { setSlicedChildren } from '../../../../../../../../chains/utils/common/_helpers-WebApi';
-import { validateChildrensApi } from '../../../../../../../../chains/utils/api/_helpers';
+import { validateChildrensApi } from '../../../common/utils/_helpers';
 
 export const respChildrens = props => {
     const {
