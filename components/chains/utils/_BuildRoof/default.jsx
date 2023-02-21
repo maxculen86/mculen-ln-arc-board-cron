@@ -6,7 +6,7 @@ import validateRoof from './_helper/validateRoof';
 import setRender from '../setRender';
 import '../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import hasDataRoof from './_helper/hasDataRoof';
-import { VERTICALS } from '../_helpers';
+import { VERTICALS } from '../common/_helpers-WebApi';
 
 export default function BuildRoof(props) {
     const {

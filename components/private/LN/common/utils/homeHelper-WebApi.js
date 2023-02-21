@@ -4,6 +4,7 @@ import sectionsValidation from '../../../../layouts/config/LN-Home.config';
 export const getChildsFromSections = (sectionPosition, renderable = []) => {
     return get(renderable, `[${sectionPosition}].children`, []);
 };
+
 export const isBombaVisible = (renderable = []) => {
     const features = getChildsFromSections(
         get(sectionsValidation, 'Bomba.position', 2) + 1,

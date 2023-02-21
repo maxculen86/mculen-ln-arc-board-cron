@@ -89,5 +89,3 @@ export const getBreakingChildren = renderables =>
             })
         )
         .flat();
-
-export default validateChain;

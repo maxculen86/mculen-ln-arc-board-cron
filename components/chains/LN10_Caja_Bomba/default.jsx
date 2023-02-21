@@ -8,15 +8,11 @@ import PropTypes from 'fusion:prop-types';
 import { Bomba } from '@ln/contenidos-ui-bomba';
 import {
     getCommonProps,
-    getMarkupForDatalayer,
-    getChildrenFromSectionHome
+    getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
-import {
-    validateChainBomba,
-    getIsPreOpening,
-    getClassCondition,
-    getChildrenOfBomba
-} from './_helper';
+import { getChildrenFromSectionHome } from '../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
+import { validateChainBomba, getIsPreOpening } from './common/_helper-WebApi';
+import { getClassCondition, getChildrenOfBomba } from './_helper';
 import setRender from '../utils/setRender';
 import StaticContent from '../../private/common/staticContent';
 import '../../../resources/packages/css/@ln/contenidos-ui-bomba/index.css';
@@ -24,7 +20,7 @@ import '../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../resources/packages/css/@ln/common-ui-media/index.css';
 import '../../../resources/packages/css/@ln/common-ui-image/index.css';
 import '../../../resources/packages/css/@ln/common-ui-video/index.css';
-import { setSlicedChildren } from '../utils/_helpers';
+import { setSlicedChildren } from '../utils/common/_helpers-WebApi';
 
 const CajaBomba = props => {
     const {
