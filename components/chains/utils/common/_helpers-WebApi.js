@@ -30,7 +30,6 @@ export const CHAIN_STYLE = {
     SUB_EXCLUSIVE: 'sub-exclusive'
 };
 
-
 const {
     FOCAL_LEFT,
     FOCAL_CENTER,

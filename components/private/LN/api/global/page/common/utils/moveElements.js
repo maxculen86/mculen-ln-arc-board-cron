@@ -22,8 +22,6 @@ export const moveElementsByKey = (
             x => x[keyToFind] === configElementToMove[keyToFind]
         );
 
-        // console.log(elementsSectionFrom);
-        // console.log(elementsSectionTo);
 
         if (
             Array.isArray(elementsSectionFrom) &&

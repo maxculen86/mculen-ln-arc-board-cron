@@ -87,9 +87,7 @@ class ArticleFeature {
             if (!articleSourceNota) {
                 return null;
             }
-            if (noteId === 'BBU3ZCWFBRALRO4FZAHJ5XGW74') {
-                console.log(noteId);
-            }
+
             const error = validateArticleFeature({
                 id: noteId,
                 content: articleSourceNota,
@@ -104,9 +102,6 @@ class ArticleFeature {
                 isBomba
             });
 
-            if (noteId === 'BBU3ZCWFBRALRO4FZAHJ5XGW74') {
-                console.log(error);
-            }
             if (error) {
                 return null;
             }

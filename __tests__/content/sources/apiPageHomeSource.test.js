@@ -7,7 +7,6 @@ jest.mock('../../../content/sources/utils/pageSource/index', () => {
     return {
         __esModule: true,
         default: (x, y) => {
-            console.log(x);
             return {};
         }
     };

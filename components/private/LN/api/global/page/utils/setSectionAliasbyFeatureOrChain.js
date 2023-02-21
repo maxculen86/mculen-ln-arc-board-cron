@@ -28,8 +28,6 @@ const setSectionAliasbyFeatureOrChain = (
             : information.nameFeature;
     }
     if (information && information.nameChain) {
-        // console.log(sectionWeb);
-        // console.log(information.typeChain);
         return information.typeChain
             ? information.typeChain.toLowerCase()
             : findAliasSectionBySectionWeb(sectionWeb, information.nameChain);

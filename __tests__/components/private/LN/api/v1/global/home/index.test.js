@@ -76,7 +76,6 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
         ];
         try {
             const home = index(Seccion, paramsPage) || [];
-            console.log(home);
             expect(home.length).toBe(null);
         } catch (err) {
             expect(err.message).toBe(
@@ -127,7 +126,6 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
             }
         ];
         const home = index(Seccion, paramsPage) || [];
-        console.log(home[0][0]);
         expect(home[0][0]).toEqual(
             expect.objectContaining({
                 diagramacion: 'focalLeft3',

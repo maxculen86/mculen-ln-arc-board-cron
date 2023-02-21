@@ -1,7 +1,6 @@
 import get from '../../../../../../../../components/private/common/utils/get';
 
 export const equal = (element, configBanner, lengthBannersPrevious) => {
-    //  console.log(configBanner, lengthBannersPrevious);
     if (!element || !configBanner) {
         return false;
     }

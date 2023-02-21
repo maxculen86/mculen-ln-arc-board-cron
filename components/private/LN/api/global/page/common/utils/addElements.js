@@ -56,8 +56,6 @@ export const addElementsByKey = (
             x => x[keyToFind] === configElementToAdd[keyToFind]
         );
 
-        // console.log(elementsToAdd);
-        // console.log(elementsSectionTo);
 
         if (
             Array.isArray(elementsToAdd) &&

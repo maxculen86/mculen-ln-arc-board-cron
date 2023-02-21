@@ -67,8 +67,6 @@ export const setBannersByConfig = (elementsPage, layoutPage) => {
                                     lenLastBanner
                                 );
 
-                                // console.log(task, config, lenLastBanner, res);
-
                                 return res;
                             });
                         return isValid;
@@ -77,8 +75,7 @@ export const setBannersByConfig = (elementsPage, layoutPage) => {
                 if (isValidConfig && positionValid) {
                     lenLastBanner = 0;
                     indexValidBanner += 1;
-                    // console.log(element);
-                    // console.log(banner);
+
                     return result.concat(
                         addElement(element, banner, positionValid)
                     );
