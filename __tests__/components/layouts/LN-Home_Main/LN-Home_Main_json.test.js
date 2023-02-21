@@ -98,7 +98,6 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'information',
                     'type',
                     'sectionAliasMobile',
-                    'sectionMobile',
                     'sectionWeb'
                 ].sort()
             );
@@ -147,7 +146,6 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionAliasMobile',
                     'information',
                     'type',
-                    'sectionMobile',
                     'sectionWeb'
                 ].sort()
             );
@@ -166,7 +164,6 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionAliasMobile',
                     'information',
                     'type',
-                    'sectionMobile',
                     'sectionWeb'
                 ].sort()
             );
@@ -186,7 +183,6 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionAliasMobile',
                     'information',
                     'type',
-                    'sectionMobile',
                     'sectionWeb'
                 ].sort()
             );
@@ -204,7 +200,6 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionAliasMobile',
                     'information',
                     'type',
-                    'sectionMobile',
                     'sectionWeb'
                 ].sort()
             );
@@ -227,7 +222,6 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'configurations',
                     'information',
                     'sectionAliasMobile',
-                    'sectionMobile',
                     'sectionWeb',
                     'type'
                 ].sort()
@@ -392,7 +386,6 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionAliasMobile',
                     'information',
                     'type',
-                    'sectionMobile',
                     'sectionWeb'
                 ].sort()
             );
@@ -407,7 +400,6 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionAliasMobile',
                     'information',
                     'type',
-                    'sectionMobile',
                     'sectionWeb'
                 ].sort()
             );
@@ -505,7 +497,6 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionAliasMobile',
                     'information',
                     'type',
-                    'sectionMobile',
                     'sectionWeb'
                 ].sort()
             );
@@ -555,7 +546,6 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionAliasMobile',
                     'information',
                     'type',
-                    'sectionMobile',
                     'sectionWeb'
                 ].sort()
             );

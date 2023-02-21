@@ -22,9 +22,7 @@ const getPageElements = props => {
     const elementsPage =
         pageMergeSections &&
         pageMergeSections.sections &&
-        pageMergeSections.sections.reduce((r, e, i) => {
-            const { sectionWeb, sectionMobile } = e;
-
+        pageMergeSections.sections.reduce((r, sectionWeb, i) => {
             // Check Section
             const sectionChildren = validateChildrensByLayout[layoutPage]['1'](
                 renderables,
@@ -68,7 +66,6 @@ const getPageElements = props => {
                                         responseElementBox(
                                             b,
                                             sectionWeb,
-                                            sectionMobile,
                                             configurations,
                                             layoutPage
                                         )

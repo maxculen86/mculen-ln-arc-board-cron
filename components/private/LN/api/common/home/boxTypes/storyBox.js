@@ -17,7 +17,7 @@ const articlesMap = (
                 if (get(error, 'name', null) === 'ErrorIdArticle') {
                     // eslint-disable-next-line no-console
                     console.warn(
-                        `SectionMobile:${sectionAliasMobile || ''} - ${get(
+                        `SectionAliasMobile:${sectionAliasMobile || ''} - ${get(
                             error,
                             'message',
                             ''

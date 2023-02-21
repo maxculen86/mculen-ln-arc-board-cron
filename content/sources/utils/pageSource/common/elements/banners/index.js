@@ -23,7 +23,6 @@ export const setBannersBySection = (elementsPage, layoutPage) => {
     Object.keys(configBannersBySections).forEach(sectionWeb => {
         const configElementToAdd = {
             ...configBannersBySections[sectionWeb],
-            sectionMobile: sectionWeb,
             sectionWeb
         };
         elementsPageHome = addElementsByKey(

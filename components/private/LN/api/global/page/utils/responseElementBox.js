@@ -2,18 +2,11 @@ import get from '../../../../../common/utils/get';
 import setTypeElement from './setTypeElement';
 import setSectionAliasbyFeatureOrChain from './setSectionAliasbyFeatureOrChain';
 
-const responseElementBox = (
-    box,
-    sectionWeb,
-    sectionMobile,
-    configurations,
-    layoutPage
-) => {
+const responseElementBox = (box, sectionWeb, configurations, layoutPage) => {
     // For validate response from boxes into other box
     const restRespElementBox = (
         boxElement,
         sectionWebParam,
-        sectionMobileParam,
         configurationsParam,
         layoutPageParam
     ) => {
@@ -33,7 +26,6 @@ const responseElementBox = (
                         return responseElementBox(
                             articleBox,
                             sectionWebParam,
-                            sectionMobileParam,
                             configurationsParam,
                             layoutPageParam
                         );
@@ -50,15 +42,8 @@ const responseElementBox = (
             sectionWeb,
             layoutPage
         ),
-        ...restRespElementBox(
-            box,
-            sectionWeb,
-            sectionMobile,
-            configurations,
-            layoutPage
-        ),
+        ...restRespElementBox(box, sectionWeb, configurations, layoutPage),
         configurations,
-        sectionMobile,
         sectionWeb
     };
     respBox = {
