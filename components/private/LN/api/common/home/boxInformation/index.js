@@ -46,14 +46,14 @@ export const boxInfoApertura = (information, section, typeSection) => {
 
 export const boxInfoAnticipo = (information, section, typeSection) => {
     const box = boxInfoComplete(information, section, typeSection);
-    if (box && section === 'LN-common/cajaAnticipo') {
+    if (box) {
         box.texto = information.title;
     }
     return box;
 };
 export const boxInfoAnticipoLN10 = (information, section, typeSection) => {
     const box = boxInfoComplete(information, section, typeSection);
-    if (box && section === 'LN-common/cajaAnticipo') {
+    if (box) {
         box.chapita = information.textBadge;
         box.volanta = information.lead;
         box.url = information.url;
@@ -69,7 +69,8 @@ export const boxInfoBySectionAlias = {
     'LN-common/cajaAnticipo': boxInfoAnticipo,
     'LN-common/LN10_anticipo': boxInfoAnticipoLN10,
     apertura: boxInfoApertura,
-    default: boxInfoComplete
+    default: boxInfoComplete,
+    hashtag: boxInfoBasic
 };
 
 export default boxInfoBySectionAlias;
