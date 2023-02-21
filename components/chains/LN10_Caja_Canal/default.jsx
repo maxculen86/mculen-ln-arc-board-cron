@@ -18,32 +18,31 @@ import setRender from '../utils/setRender';
 import StaticContent from '../../private/common/staticContent';
 import getGridType from '../utils/getGridType';
 import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
+import { useRoofData } from '../utils/_helpers';
+
 import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
+
 // TODO: Pendiente por testear diagramaciones de esta chain
+
 const CajaCanal = props => {
     const {
         id: chainId,
         isAdmin,
-        customFields: {
-            idCollection,
-            title,
-            layout = '',
-            initialPosition,
-            hideTitle,
-            hideCaja,
-            website,
-            chainStyle,
-            link,
-            logoId,
-            navigator,
-            buttonText,
-            linkButton,
-            buttonStyle
-        },
+        customFields,
         renderables,
         tree = {},
         layout: pageLayout
     } = props;
+
+    const {
+        idCollection,
+        layout = '',
+        initialPosition,
+        hideCaja,
+        website,
+        chainStyle,
+        ...propsForRoof
+    } = customFields;
 
     const {
         collectionsInPage,
@@ -52,18 +51,7 @@ const CajaCanal = props => {
         positionInsideSection
     } = getCommonProps(props);
 
-    const roofData = {
-        title,
-        titleLink: link,
-        logoId,
-        buttonText,
-        linkButton,
-        buttonStyle,
-        hideRoof: hideTitle,
-        navigationId: navigator,
-        isAdmin,
-        chainStyle
-    };
+    const roofData = useRoofData({ ...propsForRoof, isAdmin, chainStyle });
 
     const {
         isInSiteService,
@@ -112,7 +100,8 @@ const CajaCanal = props => {
         renderables,
         layout,
         articles: _articles,
-        chainId
+        chainId,
+        chainStyle
     });
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(

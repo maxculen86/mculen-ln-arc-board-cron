@@ -1,7 +1,8 @@
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 import GetCajaCollection from '../../private/LN/api/global/home/chains/LN10/getCajaCollection';
-import { validateChain } from './common/_helper-WebApi';
+import checkChildInSection from '../utils/checkChildBySection';
+import { validateChain, getBreakingChildren } from './common/_helper-WebApi';
 
 class CajaCollection extends GetCajaCollection {
     constructor(props) {
@@ -15,12 +16,16 @@ class CajaCollection extends GetCajaCollection {
             renderables = []
         } = propsValidate;
 
+        const breakingsChildren = getBreakingChildren(renderables);
+        const isInBreakings = checkChildInSection(chainId, breakingsChildren);
+
         const error = validateChain({
             idCollection,
-            renderables,
-            layout,
             articles,
+            layout,
+            renderables,
             chainId,
+            isInBreakings,
             chainStyle
         });
 

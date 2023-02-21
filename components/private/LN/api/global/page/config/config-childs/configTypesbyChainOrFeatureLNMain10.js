@@ -8,7 +8,12 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             'bomba',
             'apertura',
             'comercial',
-            'welfare',
+            'bienestar',
+            'hashtag',
+            'sub-exclusive',
+            'propiedades',
+            'campo',
+            'movilidad',
             'canal',
             'Ln_Caja_Manual',
             'Ln_Caja_Collection',
@@ -43,7 +48,12 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
         if (
             elementsTypes &&
             Array.isArray(elementsTypes) &&
-            elementsTypes.includes(sectionAliasMobile)
+            elementsTypes.some(typeComponent => {
+                return (
+                    typeComponent.toLowerCase() ===
+                    sectionAliasMobile.toLowerCase()
+                );
+            })
         ) {
             defaultType = typeIndexBox;
             return true;

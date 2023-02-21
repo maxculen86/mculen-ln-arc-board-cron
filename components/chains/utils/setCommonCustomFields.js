@@ -5,14 +5,15 @@ const typesButtonStyle = {
     generico: 'Genérico',
     ln: 'LN+'
 };
+
 // TODO: Renombrar las propiedades segun las clases para cada caso
 const typeStylesChain = {
+    propiedades: 'Propiedades',
+    campo: 'Campo',
+    bienestar: 'Bienestar',
+    movilidad: 'Movilidad',
     'sub-exclusive': 'Exclusivo Suscriptor',
-    properties: 'Propiedades',
-    camp: 'Campo',
-    welfare: 'Bienestar',
-    mobility: 'Movilidad',
-    HashTag: 'HashTag'
+    Hashtag: 'Hashtag'
 };
 
 const customFieldsRules = {
@@ -32,7 +33,8 @@ const customFieldsRules = {
             bn_1_1_grid: 'BN Focal 1 + 1',
             bn_1_2_grid: 'BN Focal 1 + 2',
             bn_1_3_grid: 'BN Focal 1 + 3',
-            bn_1_4_grid: 'BN Focal 1 + 4'
+            bn_1_4_grid: 'BN Focal 1 + 4',
+            'bn-4-8': 'Grilla 4 Verticales'
         },
         defaultLayout: 'bnGrilla4'
     },
@@ -64,7 +66,8 @@ const customFieldsRules = {
             bn_1_1_grid: 'Focal 1 + 1',
             canal_1_2_grid: 'Canal Focal 1 + 2',
             canal_1_3_grid: 'Canal Focal 1 + 3',
-            canal_1_4_grid: 'Canal Focal 1 + 4'
+            canal_1_4_grid: 'Canal Focal 1 + 4',
+            'bn-4-8': 'Grilla 4 Verticales'
         },
         defaultLayout: 'canal_1_4_grid'
     }

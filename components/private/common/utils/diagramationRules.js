@@ -1000,6 +1000,8 @@ const diagramationRules = diagramation => {
         ]
     };
 
+    diagramations['bn-4-8'] = diagramations.bnGrilla4;
+
     return diagramations[diagramation];
 };
 export default diagramationRules;

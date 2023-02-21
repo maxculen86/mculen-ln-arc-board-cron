@@ -14,7 +14,7 @@ const findAliasSectionBySectionWeb = (sectionWeb, nameChain) => {
         }
         return false;
     });
-    return aliasSection;
+    return aliasSection ? aliasSection.toLowerCase() : aliasSection;
 };
 
 const setSectionAliasbyFeatureOrChain = (
@@ -23,13 +23,15 @@ const setSectionAliasbyFeatureOrChain = (
     layoutPage
 ) => {
     if (information && information.nameFeature) {
-        return information.nameFeature;
+        return information.nameFeature
+            ? information.nameFeature.toLowerCase()
+            : information.nameFeature;
     }
     if (information && information.nameChain) {
         // console.log(sectionWeb);
         // console.log(information.typeChain);
         return information.typeChain
-            ? information.typeChain
+            ? information.typeChain.toLowerCase()
             : findAliasSectionBySectionWeb(sectionWeb, information.nameChain);
     }
 

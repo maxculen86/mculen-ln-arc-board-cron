@@ -41,7 +41,12 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
         if (
             elementsTypes &&
             Array.isArray(elementsTypes) &&
-            elementsTypes.includes(sectionAliasMobile)
+            elementsTypes.some(typeComponent => {
+                return (
+                    typeComponent.toLowerCase() ===
+                    sectionAliasMobile.toLowerCase()
+                );
+            })
         ) {
             defaultType = typeIndexBox;
             return true;

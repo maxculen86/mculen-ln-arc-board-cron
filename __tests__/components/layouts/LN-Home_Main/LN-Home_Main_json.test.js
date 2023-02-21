@@ -103,7 +103,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 ].sort()
             );
             expect(homeSections[0].sectionAliasMobile).toBe(
-                'LN-common/cajaAnticipo'
+                'ln-common/cajaanticipo'
             );
         });
     });
@@ -151,7 +151,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].sectionAliasMobile).toBe('LN-common/bomba');
+            expect(homeSections[0].sectionAliasMobile).toBe('ln-common/bomba');
         });
     });
 
@@ -191,7 +191,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 ].sort()
             );
             expect(homeSections[0].articles[0].sectionAliasMobile).toBe(
-                'LN-acumulado/timeline'
+                'ln-acumulado/timeline'
             );
             expect(homeSections[0].articles[0].information.nameFeature).toBe(
                 'LN-acumulado/timeline'
@@ -383,7 +383,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
             const homeData = LayoutLNMainHome.default(props);
             const homeSections = homeData.content_elements;
             expect(homeSections[0].sectionAliasMobile).toBe(
-                'LN-common/editoriales'
+                'ln-common/editoriales'
             );
             expect(Object.keys(homeSections[0]).sort()).toEqual(
                 [
@@ -398,7 +398,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
             );
 
             expect(homeSections[1].sectionAliasMobile).toBe(
-                'LN-common/opinion'
+                'ln-common/opinion'
             );
             expect(Object.keys(homeSections[1]).sort()).toEqual(
                 [
@@ -559,7 +559,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                     'sectionWeb'
                 ].sort()
             );
-            expect(homeSections[0].sectionAliasMobile).toBe('Ln_Caja_Manual');
+            expect(homeSections[0].sectionAliasMobile).toBe('ln_caja_manual');
         });
         test('When props is null', () => {
             try {

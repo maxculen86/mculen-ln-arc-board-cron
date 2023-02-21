@@ -41,10 +41,10 @@ const infoLNMainLN10 = {
     'ln-common/ln10_en_vivo': { tipoSeccion: 'enVivo', idSeccion: 700 },
     hashtag: { tipoSeccion: 'hashTag', idSeccion: 701 },
     'sub-exclusive': { tipoSeccion: 'suscriptor', idSeccion: 702 },
-    properties: { tipoSeccion: 'suscriptor', idSeccion: 703 },
-    camp: { tipoSeccion: 'suscriptor', idSeccion: 704 },
-    welfare: { tipoSeccion: 'bienestar', idSeccion: 705 },
-    mobility: { tipoSeccion: 'suscriptor', idSeccion: 706 },
+    propiedades: { tipoSeccion: 'suscriptor', idSeccion: 703 },
+    campo: { tipoSeccion: 'suscriptor', idSeccion: 704 },
+    bienestar: { tipoSeccion: 'bienestar', idSeccion: 705 },
+    movilidad: { tipoSeccion: 'suscriptor', idSeccion: 706 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 

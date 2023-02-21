@@ -1,4 +1,9 @@
 import React from 'react';
+import { useContent } from 'fusion:content';
+import useGetLogoImage from '../../private/common/hooks/useGetLogoImage';
+import get from '../../private/common/utils/get';
+
+// TODO agregar tests a estos helpers
 
 export const LAYOUTS = {
     FOCAL_LEFT: 'left-focal',
@@ -9,6 +14,7 @@ export const LAYOUTS = {
     VERTICAL: 'vertical',
     BOMBITA: 'bombita',
     BOMBITAMAS4: 'bombitaMas4',
+    GRILLA4VERTICALES: 'bn-4-8',
     BN_FOCAL_1: 'bn_1_grid',
     BN_2_GRID: 'bn_2_grid',
     BN_FOCAL_1_MAS_1: 'bn_1_1_grid',
@@ -18,13 +24,15 @@ export const LAYOUTS = {
     BN_2_FOCAL_1_MAS_2: 'bn_2_1_2_grid'
 };
 
+export const VERTICALS = ['bienestar', 'campo', 'movilidad', 'propiedades'];
+
 export const CHAIN_STYLE = {
     HASHTAG: 'HashTag',
-    EXCLUSIVE_SUB: 'sub-exclusive',
-    PROPERTIES: 'Propiedades',
-    CAMP: 'Campo',
-    WELFARE: 'Bienestar',
-    MOBILITY: 'Movilidad'
+    PROPIEDADES: 'propiedades',
+    CAMPO: 'campo',
+    BIENESTAR: 'bienestar',
+    MOVILIDAD: 'movilidad',
+    SUB_EXCLUSIVE: 'sub-exclusive'
 };
 
 const {
@@ -42,7 +50,8 @@ const {
     BN_FOCAL_1_MAS_2,
     BN_FOCAL_1_MAS_3,
     BN_FOCAL_1_MAS_4,
-    BN_2_FOCAL_1_MAS_2
+    BN_2_FOCAL_1_MAS_2,
+    GRILLA4VERTICALES
 } = LAYOUTS;
 
 export const checkChangeChildrenForPB = ({
@@ -122,6 +131,7 @@ export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
         [BN_FOCAL_1_MAS_3]: 4,
         [BN_FOCAL_1_MAS_4]: 5,
         [BN_2_FOCAL_1_MAS_2]: 5,
+        [GRILLA4VERTICALES]: 4,
         default: Number(layout && layout.slice(-1)) || 3
     };
 
@@ -131,4 +141,102 @@ export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
 export const setSlicedChildren = ({ config, children = [] }) => {
     const maxChildrenQuantity = setQuantityByLayout(config);
     return children.slice(0, maxChildrenQuantity);
+};
+
+export const useGetLinks = ({ navigationSection = '' }) => {
+    const { children = [] } =
+        useContent({
+            source:
+                navigationSection && navigationSection.trim()
+                    ? 'navigationSource'
+                    : null,
+            query: {
+                hierarchy: navigationSection,
+                website: 'la-nacion-ar'
+            },
+            filter: `
+            children {
+                _id
+                name
+                display_name
+                node_type
+                url
+            }
+        `
+        }) || {};
+
+    return children.map(
+        ({
+            url,
+            node_type: nodeType,
+            name,
+            display_name: displayName,
+            _id
+        } = {}) => {
+            const target = '_blank';
+
+            if (nodeType === 'link') {
+                return {
+                    text: displayName,
+                    href: url,
+                    target
+                };
+            }
+
+            return {
+                text: name,
+                href: `${_id}/`,
+                target
+            };
+        }
+    );
+};
+
+export const useGetLogo = (logoId, title) => {
+    const id = logoId && logoId.trim() && logoId;
+    const logo = useGetLogoImage(id, true);
+
+    return (
+        logo && {
+            src: get(logo, 'url', ''),
+            alt: title,
+            height: get(logo, 'height', ''),
+            width: get(logo, 'width', '')
+        }
+    );
+};
+
+export const useRoofData = props => {
+    const {
+        title,
+        hideTitle,
+        chainStyle,
+        link,
+        logoId,
+        navigator,
+        buttonText,
+        linkButton,
+        buttonStyle,
+        isAdmin,
+        isManual
+    } = props;
+
+    const logo = useGetLogo(logoId, title);
+    const links = useGetLinks({ navigationSection: navigator });
+
+    return {
+        title,
+        titleLink: link,
+        logo,
+        logoId,
+        buttonText,
+        linkButton,
+        buttonStyle,
+        hideRoof: hideTitle,
+        links,
+        navigationId: navigator,
+        isAdmin,
+        chainStyle,
+        isManual
+    };
 };

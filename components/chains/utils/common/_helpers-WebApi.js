@@ -9,6 +9,7 @@ export const LAYOUTS = {
     VERTICAL: 'vertical',
     BOMBITA: 'bombita',
     BOMBITAMAS4: 'bombitaMas4',
+    GRILLA4VERTICALES: 'bn-4-8',
     BN_FOCAL_1: 'bn_1_grid',
     BN_2_GRID: 'bn_2_grid',
     BN_FOCAL_1_MAS_1: 'bn_1_1_grid',
@@ -18,14 +19,17 @@ export const LAYOUTS = {
     BN_2_FOCAL_1_MAS_2: 'bn_2_1_2_grid'
 };
 
+export const VERTICALS = ['bienestar', 'campo', 'movilidad', 'propiedades'];
+
 export const CHAIN_STYLE = {
     HASHTAG: 'HashTag',
-    EXCLUSIVE_SUB: 'Exclusivo Suscriptor',
-    PROPERTIES: 'Propiedades',
-    CAMP: 'Campo',
-    WELFARE: 'Bienestar',
-    MOBILITY: 'Movilidad'
+    PROPIEDADES: 'propiedades',
+    CAMPO: 'campo',
+    BIENESTAR: 'bienestar',
+    MOVILIDAD: 'movilidad',
+    SUB_EXCLUSIVE: 'sub-exclusive'
 };
+
 
 const {
     FOCAL_LEFT,
@@ -42,7 +46,8 @@ const {
     BN_FOCAL_1_MAS_2,
     BN_FOCAL_1_MAS_3,
     BN_FOCAL_1_MAS_4,
-    BN_2_FOCAL_1_MAS_2
+    BN_2_FOCAL_1_MAS_2,
+    GRILLA4VERTICALES
 } = LAYOUTS;
 
 export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
@@ -62,11 +67,13 @@ export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
         [BN_FOCAL_1_MAS_3]: 4,
         [BN_FOCAL_1_MAS_4]: 5,
         [BN_2_FOCAL_1_MAS_2]: 5,
+        [GRILLA4VERTICALES]: 4,
         default: Number(layout && layout.slice(-1)) || 3
     };
 
     return options[layout] || options.default;
 };
+
 export const validateChildrensApi = childrens => {
     if (!childrens || !Array.isArray(childrens)) {
         return null;
