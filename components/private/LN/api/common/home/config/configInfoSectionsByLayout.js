@@ -45,7 +45,8 @@ const infoLNMainLN10 = {
     campo: { tipoSeccion: 'suscriptor', idSeccion: 704 },
     bienestar: { tipoSeccion: 'bienestar', idSeccion: 705 },
     movilidad: { tipoSeccion: 'suscriptor', idSeccion: 706 },
-    default: { tipoSeccion: 'tema', idSeccion: 305 }
+    default: { tipoSeccion: 'tema', idSeccion: 305 },
+    welfare: { tipoSeccion: 'bienestar', idSeccion: 705 }
 };
 
 const configInfoSectionsByLayout = layout => {
