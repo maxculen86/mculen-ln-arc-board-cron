@@ -73,6 +73,11 @@ export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
     return options[layout] || options.default;
 };
 
+export const setSlicedChildren = ({ config, children = [] }) => {
+    const maxChildrenQuantity = setQuantityByLayout(config);
+    return children.slice(0, maxChildrenQuantity);
+};
+
 export const validateChildrensApi = childrens => {
     if (!childrens || !Array.isArray(childrens)) {
         return null;
@@ -82,26 +87,5 @@ export const validateChildrensApi = childrens => {
     }
     return childrens;
 };
-export const setWrappedChildrenApi = (renderables = [], features = []) => {
-    const customWrappers = {
-        'LN-acumulado/timeline': content => {
-            return content;
-        }
-    };
-    return features
-        .map(f => {
-            const feature = renderables.find(
-                r => get(r, 'props.id', null) === f.idRender
-            );
-            return customWrappers[feature.type]
-                ? customWrappers[feature.type](feature)
-                : feature;
-        })
-        .filter(Boolean);
-};
 
-export const setSlicedChildren = ({ config, children = [] }) => {
-    const maxChildrenQuantity = setQuantityByLayout(config);
-    return children.slice(0, maxChildrenQuantity);
-};
 export default LAYOUTS;

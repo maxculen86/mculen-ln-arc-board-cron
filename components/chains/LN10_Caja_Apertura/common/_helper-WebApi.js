@@ -1,16 +1,11 @@
-import get from '../../../private/common/utils/get';
 import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
+import get from '../../../private/common/utils/get';
 import {
     LAYOUTS,
     setQuantityByLayout
 } from '../../utils/common/_helpers-WebApi';
 
 const { FOCAL_LEFT } = LAYOUTS;
-
-export const setFilteredRenderables = (renderables = [], features = []) => {
-    const featuresKeys = features.map(c => c.key);
-    return renderables.filter(f => featuresKeys.includes(f.props.id));
-};
 
 export const validateChain = (childrenProps, layout, isInOpening) => {
     const LN10_ARTICLE = 'LN-10/article';
@@ -69,6 +64,11 @@ export const validateChain = (childrenProps, layout, isInOpening) => {
     ];
 
     return pageBuilderValidator(rules);
+};
+
+export const setFilteredRenderables = (renderables = [], features = []) => {
+    const featuresKeys = features.map(c => c.key);
+    return renderables.filter(f => featuresKeys.includes(f.props.id));
 };
 
 export default validateChain;
