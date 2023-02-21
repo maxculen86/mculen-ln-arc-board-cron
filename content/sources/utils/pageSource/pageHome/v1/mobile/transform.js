@@ -16,12 +16,6 @@ const transform = async (dataPage, query) => {
     try {
         let elementsPageHome = elementsPage;
 
-        // Add Banners by Section
-        elementsPageHome = setBannerByLayout[layoutPage](
-            elementsPageHome,
-            layoutPage
-        );
-
         // Move Sections
         const configMovePositions = configToMoveBySection(layoutPage);
         elementsPageHome = moveSections(elementsPageHome, configMovePositions);
@@ -31,7 +25,11 @@ const transform = async (dataPage, query) => {
             elementsPageHome,
             configToDividebyDiagramation(layoutPage)
         );
-
+        // Add Banners by Section
+        elementsPageHome = setBannerByLayout[layoutPage](
+            elementsPageHome,
+            layoutPage
+        );
         // Returns boxes that type not >= 9, for discard
         return (
             elementsPageHome &&

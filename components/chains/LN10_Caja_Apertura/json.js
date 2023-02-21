@@ -5,7 +5,7 @@ import getChildrenBySection from '../utils/getChildrenBySection';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 import checkChildInSection from '../utils/checkChildBySection';
 import { validateChain } from './common/_helper-WebApi';
-import { validateChildrensApi } from '../utils/common/_helpers-WebApi';
+import { validateChildrensApi } from '../utils/api/_helpers';
 
 class CajaApertura extends GetCajaManual {
     constructor(props) {
