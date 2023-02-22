@@ -66,8 +66,8 @@ export const boxInfoAnticipoLN10 = (information, section, typeSection) => {
 };
 
 export const boxInfoBySectionAlias = {
-    'LN-common/cajaAnticipo': boxInfoAnticipo,
-    'LN-common/LN10_anticipo': boxInfoAnticipoLN10,
+    'ln-common/cajaanticipo': boxInfoAnticipo,
+    'ln-common/ln10_anticipo': boxInfoAnticipoLN10,
     apertura: boxInfoApertura,
     default: boxInfoComplete,
     hashtag: boxInfoBasic
