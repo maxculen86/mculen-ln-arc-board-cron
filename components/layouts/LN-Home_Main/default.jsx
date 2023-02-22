@@ -9,7 +9,7 @@ import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBanners from '../../private/common/banners/LoadBanners';
 import { bannersViewport } from '../../private/common/banners/bannersHome.json';
 import Metarefresh from '../../features/LN-common/metarefresh';
-import { isBombaVisible } from '../../private/LN/common/utils/homeHelper-WebApi';
+import { isBombaVisible } from '../../private/LN/common/utils/homeHelper';
 import sectionHelper from '../../private/LN/common/utils/sectionHelper';
 import Ranking from '../../features/LN-common/ranking/default';
 import SubHeader from '../../features/LN-common/subHeader';

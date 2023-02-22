@@ -2,6 +2,22 @@
 /* eslint-disable no-undef */
 import useViewportSize from '../../../common/hooks/useViewportSize';
 import get from '../../../common/utils/get';
+import sectionsValidation from '../../../../layouts/config/LN-Home.config';
+
+export const isBombaVisible = (renderable = []) => {
+    const features = getChildsFromSections(
+        get(sectionsValidation, 'Bomba.position', 2) + 1,
+        renderable
+    );
+
+    const bombaFiltered = features.filter(
+        element =>
+            get(element, 'props.customFields.hideFeature', false) !== true &&
+            get(element, 'type', null) === 'LN-common/bomba'
+    );
+
+    return bombaFiltered.length === 1 || false;
+};
 
 export const getViewport = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
