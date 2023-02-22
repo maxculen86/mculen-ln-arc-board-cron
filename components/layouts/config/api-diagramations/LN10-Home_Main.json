@@ -171,14 +171,12 @@
     },
     "bombita": {
         "T1": {
-            "size": "M",
-            "imagePosition": "NA"
+            "size": "M"
         }
     },
     "bombitaMas4": {
         "T1": {
-            "size": "XL",
-            "imagePosition": "NA"
+            "size": "XL"
         },
         "T2": {
             "size": "M",
@@ -443,32 +441,25 @@
     },
     "timeline": {
         "T1": {
-            "size": "XS",
-            "imagePosition": "NA"
+            "size": "XS"
         },
         "T2": {
-            "size": "XS",
-            "imagePosition": "NA"
+            "size": "XS"
         },
         "T3": {
-            "size": "XS",
-            "imagePosition": "NA"
+            "size": "XS"
         },
         "T4": {
-            "size": "XS",
-            "imagePosition": "NA"
+            "size": "XS"
         },
         "T5": {
-            "size": "XS",
-            "imagePosition": "NA"
+            "size": "XS"
         },
         "T6": {
-            "size": "XS",
-            "imagePosition": "NA"
+            "size": "XS"
         },
         "T7": {
-            "size": "XS",
-            "imagePosition": "NA"
+            "size": "XS"
         }
     }
 }
