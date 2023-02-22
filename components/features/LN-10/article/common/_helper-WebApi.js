@@ -35,7 +35,8 @@ export const getLiveblogTitlesApi = articleData => {
     }, []);
 };
 
-const getIsBomba = parent => get(parent, 'type', '') === 'LN10_Caja_Bomba';
+export const getIsBomba = parent =>
+    get(parent, 'type', '') === 'LN10_Caja_Bomba';
 
 // TODO: Falta modificar logica para la nueva configuracion de imagen del resizer
 

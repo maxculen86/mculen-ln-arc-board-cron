@@ -1,5 +1,3 @@
-import get from '../../../private/common/utils/get';
-
 export const LAYOUTS = {
     FOCAL_LEFT: 'left-focal',
     FOCAL_CENTER: 'center-focal',
@@ -77,7 +75,3 @@ export const setSlicedChildren = ({ config, children = [] }) => {
     const maxChildrenQuantity = setQuantityByLayout(config);
     return children.slice(0, maxChildrenQuantity);
 };
-
-
-
-export default LAYOUTS;

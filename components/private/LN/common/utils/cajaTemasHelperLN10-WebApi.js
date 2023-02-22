@@ -13,8 +13,4 @@ export const getChildrenFromSectionHome = (
     return get(renderables, `[${INDEX_SECTION}].children`, []) || [];
 };
 
-export const getArticlesOfChain = ({
-    isInSiteService,
-    articlesFromCollectionSiteService = [],
-    articlesToShow = []
-}) => (isInSiteService ? articlesFromCollectionSiteService : articlesToShow);
+export default getChildrenFromSectionHome;

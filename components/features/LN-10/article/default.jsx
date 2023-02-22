@@ -12,7 +12,6 @@ import {
     transform
 } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import {
-    getChainConfig,
     getDataAuthor,
     checkForId,
     isBombaHidden,
@@ -23,7 +22,6 @@ import {
     validateSubhead,
     showSubheadText,
     changeConfigForPB,
-    validateArticleFeature,
     getBadgetConfig,
     getLiveblogTitles,
     validateMedia,
@@ -32,6 +30,10 @@ import {
     getTypeOfMedia,
     validateImagePosition
 } from './_helper';
+import {
+    getChainConfig,
+    validateArticleFeature
+} from './common/_helper-WebApi';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import filterVideo from '../../../../content/filters/LN/home/videoFilter';

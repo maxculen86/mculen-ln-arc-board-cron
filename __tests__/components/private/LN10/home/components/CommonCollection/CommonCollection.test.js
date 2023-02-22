@@ -5,7 +5,7 @@ import { render, screen } from '@testing-library/react';
 import diagramationRules from '../../../../../../../components/private/common/utils/diagramationRules';
 import articles from '../../../../../../../__mocks__/data/CommonCollection/articles.json';
 import { Cajahashtag } from '@ln/contenidos-ui-cajahashtag';
-import { CHAIN_STYLE } from '../../../../../../../components/chains/utils/_helpers';
+import { CHAIN_STYLE } from '../../../../../../../components/chains/utils/common/_helpers-WebApi';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {

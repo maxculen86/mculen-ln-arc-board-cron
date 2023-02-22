@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import renderables from '../../../../__mocks__/data/renderables/LN10_Caja_Bomba.json';
 import ArticleFeature from '../../../../components/features/LN-10/article/default';
-import { LAYOUTS } from '../../../../components/chains/utils/_helpers';
+import { LAYOUTS } from '../../../../components/chains/utils/common/_helpers-WebApi';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
