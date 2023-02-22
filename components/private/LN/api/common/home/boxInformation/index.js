@@ -22,9 +22,9 @@ export const boxInfoComplete = (information, section, typeSection) => {
         if (imagenUrl) box.imagenUrl = imagenUrl;
         if (information.buttonText && information.linkButton) {
             box.actionButton = {
-                title: information.botomText,
-                url: information.botomLink,
-                style: information.botomStyle
+                title: information.buttonText,
+                url: information.linkButton,
+                style: information.buttonStyle
             };
         }
 
