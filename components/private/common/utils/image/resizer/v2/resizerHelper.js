@@ -7,9 +7,17 @@ import {
 } from '../../../subtypes/subtypeHelper';
 import { getAspectRatio } from '../../../../../../../content/sources/utils/getRatio';
 import get from '../../../get';
-import { isValidNumber } from '../../../../../../../content/sources/utils/servicesSource/weather/weatherHelper';
+import {
+    isValidNumber,
+    isEmptyString,
+    isValidString
+} from '../../../dataValidation';
+import { resizeArcImage } from './buildResizerUrls';
 
 const MEDIAMINWIDTH = '(min-width: 768px)';
+
+export const isResizerV2 = url =>
+    isValidString(url) ? new RegExp(/\/resizer\/v2\//).test(url) : false;
 
 // TODO: Optener la config  por default
 export const getDefaultSize = subtype => {
@@ -62,6 +70,17 @@ export const setHeight = (width, height, proportion) => {
     return axisX > axisY ? parseInt((width / axisX) * axisY, 10) : height;
 };
 
+export const autoHeight = (originalHeight, originalWidth, newWidth) => {
+    if (
+        isValidNumber(originalHeight) &&
+        isValidNumber(originalWidth) &&
+        isValidNumber(newWidth)
+    ) {
+        return Math.round((newWidth / originalWidth) * originalHeight) || 0;
+    }
+    return 0;
+};
+
 export const updateHeight = (originalHeight, originalWidth, opt = {}) => {
     const { proportion } = opt;
     if (!proportion && originalWidth < originalHeight) {
@@ -82,13 +101,6 @@ export const baseUrl = ({ isInApertura, isAdmin }) => {
     return SITE_LANACION;
 };
 
-export const isEmptyString = string => {
-    if (typeof string === 'string') {
-        return !string.trim();
-    }
-    return true;
-};
-
 export const buildQueryParams = ({
     newWidth,
     newHeight,
@@ -98,53 +110,85 @@ export const buildQueryParams = ({
     crop = null,
     arcImage
 }) => {
-    // Get the _id of the Image
     const imgAuth = get(arcImage, 'auth.1', '');
     const imgId = get(arcImage, '_id', '');
     const ext = get(arcImage, 'additional_properties.originalName', '')
         .split('.')
         .pop();
+    const parsedExtension = [
+        'webp',
+        'png',
+        'jpg',
+        'jpeg',
+        'gif',
+        'tiff',
+        'tif',
+        'bmp',
+        'jfif'
+    ].includes(ext.toLowerCase())
+        ? `.${ext}`
+        : '';
 
-    const auth = () => {
-        return isEmptyString(imgAuth) ? '' : `auth=${imgAuth}`;
-    };
+    const auth = () => (isEmptyString(imgAuth) ? '' : `auth=${imgAuth}`);
 
-    const width = () => {
-        return isValidNumber(newWidth) ? `&width=${newWidth}` : '';
-    };
+    const width = () =>
+        isValidNumber(newWidth) && newWidth !== 0 ? `&width=${newWidth}` : '';
 
-    const height = () => {
-        return isValidNumber(newHeight) ? `&height=${newHeight}` : '';
-    };
-
-    const quality = () => {
-        return typeof filterQuality === 'number'
-            ? `&quality=${filterQuality}`
+    const height = () =>
+        isValidNumber(newHeight) && newHeight !== 0
+            ? `&height=${newHeight}`
             : '';
-    };
 
-    // TODO: Revisar crop (no deberia suceder junto con focalPoint ni junto con smartCrop)
-    // const setCrop = () => {
-    //     return crop !== null ? `&crop=${crop}` : '';
-    // };
+    const quality = () =>
+        isValidNumber(filterQuality) ? `&quality=${filterQuality}` : '';
 
-    const setFocal = () => {
-        return focalPoint.length > 1 &&
-            isValidNumber(newHeight) &&
-            isValidNumber(newWidth)
-            ? `&focal=${focalPoint}`
+    // TODO: Revisar crop (no deberia suceder junto con focalPoint ni junto con smart)
+    // const setCrop = () => crop !== null ? `&crop=${crop}` : '';
+
+    // Se valida height y width ya que debe tenerlos SIEMPRE para focalPoint.
+    const setFocal = () =>
+        focalPoint.length > 1 &&
+        isValidNumber(newHeight) &&
+        isValidNumber(newWidth)
+            ? `&focal=${focalPoint.map(
+                  focal => isValidNumber(focal) && Math.round(focal)
+              )}`
             : '';
-    };
 
-    const smart = () => {
-        return focalPoint && focalPoint.length > 1
+    // Regla: Si existe focalPoint, smart y crop deben ser siempre false.
+    const smart = () =>
+        !imgId || (focalPoint && focalPoint.length > 1)
             ? `&smart=${false}`
             : `&smart=${smartCropExcluded}`;
-    };
+
+    const image = imgId
+        ? `${imgId}${parsedExtension}`
+        : encodeURIComponent(get(arcImage, 'url', ''));
 
     return arcImage
-        ? `${imgId}.${ext}?${auth()}${width()}${height()}${quality()}${smart()}${setFocal()}`
+        ? `${image}?${auth()}${width()}${height()}${quality()}${smart()}${setFocal()}`
         : '';
 };
 
-export default getDefaultSize;
+export const resizeArcGallery = (
+    arcgallery,
+    resizeOptions,
+    zoomSizes,
+    smartCropExcluded = false
+) => {
+    if (arcgallery.type !== 'gallery') {
+        throw new Error(
+            'Tipo de dato no valido. Se necesita un tipo "gallery"'
+        );
+    }
+
+    return {
+        ...arcgallery,
+        content_elements:
+            arcgallery &&
+            arcgallery.content_elements &&
+            arcgallery.content_elements.map(i =>
+                resizeArcImage(i, resizeOptions, zoomSizes, smartCropExcluded)
+            )
+    };
+};

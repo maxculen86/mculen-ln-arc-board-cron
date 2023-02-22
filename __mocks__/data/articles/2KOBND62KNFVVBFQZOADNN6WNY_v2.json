@@ -251,7 +251,10 @@
             "subtitle": "",
             "type": "image",
             "url": "/resizer/cmgztF_rrNs9Tdbj3Q0lMaGKZkY=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg",
-            "width": 960
+            "width": 960,
+            "auth": {
+                "1": "MockAuth"
+            }
         },
         {
             "_id": "Y4ICKWED75D7HDGMKKUXL63GSU",
@@ -544,7 +547,10 @@
             "subtitle": "",
             "type": "image",
             "url": "/resizer/Ogi01yk-1cu26Eb2lgPjglqDkMU=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg",
-            "width": 960
+            "width": 960,
+            "auth": {
+                "1": "MockAuth"
+            }
         },
         {
             "_id": "76c88e0b-33e7-405f-b6ad-b6a98fef7c77",
@@ -561,7 +567,10 @@
             },
             "promo_items": {
                 "basic": {
-                    "url": "https://d3us6z9haan6vf.cloudfront.net/06-10-2019/t_2214b49fc13b40e9a536fe92a650694e_name_file_1280x720_2000_v3_1_.jpg"
+                    "url": "https://d3us6z9haan6vf.cloudfront.net/06-10-2019/t_2214b49fc13b40e9a536fe92a650694e_name_file_1280x720_2000_v3_1_.jpg",
+                    "auth": {
+                        "1": "MockAuth"
+                    }
                 }
             },
             "publish_date": "2020-03-18T12:35:37Z",
@@ -702,7 +711,10 @@
                     ],
                     "type": "image",
                     "url": "/resizer/aFkCOsYn9mR2GDmhiPlFk4wwkQc=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
-                    "width": 1470
+                    "width": 1470,
+                    "auth": {
+                        "1": "MockAuth"
+                    }
                 },
                 {
                     "_id": "JAYP7MR2ERD43PGG45IHUPAKPA",
@@ -755,7 +767,10 @@
                     ],
                     "type": "image",
                     "url": "/resizer/4WfOkUtykrNEIPROolWJIVEmcuo=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg",
-                    "width": 1470
+                    "width": 1470,
+                    "auth": {
+                        "1": "MockAuth"
+                    }
                 },
                 {
                     "_id": "MI45BIKTD5HY7I3I7VPP4KLTJU",
@@ -816,7 +831,10 @@
                     ],
                     "type": "image",
                     "url": "/resizer/M0r5u5gi3Q3xoqTrNMFrZqPX6fc=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg",
-                    "width": 1470
+                    "width": 1470,
+                    "auth": {
+                        "1": "MockAuth"
+                    }
                 }
             ],
             "credits": {
@@ -830,6 +848,9 @@
             },
             "promo_items": {
                 "basic": {
+                    "auth": {
+                        "1": "MockAuth"
+                    },
                     "url": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg",
                     "type": "image"
                 }
@@ -899,7 +920,10 @@
                     ],
                     "type": "image",
                     "url": "/resizer/UUTbirrpQiz5XeukpmvJo-7S7go=/0x768/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg",
-                    "width": 1333
+                    "width": 1333,
+                    "auth": {
+                        "1": "MockAuth"
+                    }
                 },
                 {
                     "_id": "FRJ46HFG4NFIHI5KMN4IIP7PUE",
@@ -967,7 +991,10 @@
                     "subtitle": "Coloccini",
                     "type": "image",
                     "url": "/resizer/XVRmoC1kFp0Sw89ZYirACIG35VM=/0x768/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg",
-                    "width": 200
+                    "width": 200,
+                    "auth": {
+                        "1": "MockAuth"
+                    }
                 },
                 {
                     "_id": "QZO4UCHCSJHWJLQBALT2PGR2EY",
@@ -1021,7 +1048,10 @@
                     ],
                     "type": "image",
                     "url": "/resizer/t737USCmr-74aOWssklLaKBhOOk=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg",
-                    "width": 2048
+                    "width": 2048,
+                    "auth": {
+                        "1": "MockAuth"
+                    }
                 },
                 {
                     "_id": "RBT4LMYB4FFBXERVOZUOHQH5UM",
@@ -1074,7 +1104,10 @@
                     ],
                     "type": "image",
                     "url": "/resizer/T9SPcrjqza8XwFoIH3tYrJ5Edmo=/0x768/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg",
-                    "width": 740
+                    "width": 740,
+                    "auth": {
+                        "1": "MockAuth"
+                    }
                 },
                 {
                     "_id": "BLRC5NG5GZBGLHSASLIQI3NABQ",
@@ -1127,7 +1160,10 @@
                     ],
                     "type": "image",
                     "url": "/resizer/gbcI2w2tZwEwFe99UOlgrg26_qg=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/BLRC5NG5GZBGLHSASLIQI3NABQ.jpg",
-                    "width": 1033
+                    "width": 1033,
+                    "auth": {
+                        "1": "MockAuth"
+                    }
                 },
                 {
                     "_id": "NZENWB5KMZC3BLBYTJEXO3TJX4",
@@ -1195,7 +1231,10 @@
                     ],
                     "type": "image",
                     "url": "/resizer/7VNc-JmjorvoSWKbZsXB12422z4=/768x0/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/NZENWB5KMZC3BLBYTJEXO3TJX4.jpg",
-                    "width": 3072
+                    "width": 3072,
+                    "auth": {
+                        "1": "MockAuth"
+                    }
                 },
                 {
                     "_id": "U4QSMFKIWRCM3NFC2RPW4FKE5Q",
@@ -1258,7 +1297,10 @@
                     "subtitle": "",
                     "type": "image",
                     "url": "/resizer/r7zPnmNPFnsi8cVscPPf7ZXkLa0=/0x768/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/U4QSMFKIWRCM3NFC2RPW4FKE5Q.jpg",
-                    "width": 210
+                    "width": 210,
+                    "auth": {
+                        "1": "MockAuth"
+                    }
                 }
             ],
             "credits": {
@@ -1558,7 +1600,10 @@
             ],
             "type": "image",
             "url": "/resizer/svEUZxJVap7IXrRcLHdWMkYJvO4=/768x513/smart/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg",
-            "width": 768
+            "width": 768,
+            "auth": {
+                "1": "MockAuth"
+            }
         }
     },
     "publish_date": "2020-06-12T20:55:26.620Z",

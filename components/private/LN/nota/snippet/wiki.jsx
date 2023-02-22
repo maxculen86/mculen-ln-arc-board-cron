@@ -11,7 +11,9 @@ const SnippetWiki = () => {
     const { schemas_info: schemasInfo = {}, image = {}, type } = wikiSourceData;
     const { resizedUrls = [] } = image;
 
-    const { resizedUrl } = resizedUrls.find(e => e.option.width === 320) || {};
+    const smallestImage = Math.min(...resizedUrls.map(url => url.option.width));
+    const { resizedUrl } =
+        resizedUrls.find(e => e.option.width === smallestImage) || {};
 
     const {
         additional_name: additionalName,
