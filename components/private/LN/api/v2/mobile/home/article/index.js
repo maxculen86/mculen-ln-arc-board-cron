@@ -13,9 +13,9 @@ export const Article = (article, informationBox) => {
     const tipo = get(article, 'additionalProperties.variant', 'regular');
     const Component = articleComponents[tipo];
     return {
-        diseno: {
+        design: {
             ...get(article, 'additionalProperties.diseno', null),
-            tipo
+            typeCard: tipo
         },
         ...Component(article)
     };
