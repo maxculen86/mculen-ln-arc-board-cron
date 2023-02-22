@@ -1,16 +1,17 @@
 import get from '../../../../../common/utils/get';
 import { orderArticles } from '../utils/helpers';
 
-const articlesMap = (
-    articles,
-    sectionAliasMobile,
-    articleFn,
-    paramsFromPage
-) => {
+const articlesMap = (articles, informationBox, articleFn, paramsFromPage) => {
+    const { sectionAliasMobile } = informationBox;
+
     return articles.reduce((result, f) => {
         if (f) {
             try {
-                const article = articleFn({ ...f, storyType: 'home' });
+                const article = articleFn({
+                    ...f,
+                    informationBox,
+                    storyType: 'home'
+                });
                 result.push(article);
             } catch (error) {
                 const websiteUrl = get(paramsFromPage, 'rootPath', '');
@@ -44,6 +45,10 @@ const articlesMap = (
 
 export const storyBox = (element, featureInfo, articleFn, paramsFromPage) => {
     const { information, sectionAliasMobile } = element;
+    const informationBox = {
+        sectionAliasMobile,
+        ...information
+    };
 
     const articles = get(element, 'articles', []);
 
@@ -51,7 +56,7 @@ export const storyBox = (element, featureInfo, articleFn, paramsFromPage) => {
 
     const resultArticles = articlesMap(
         ordererArticles,
-        sectionAliasMobile,
+        informationBox,
         articleFn,
         paramsFromPage
     );
