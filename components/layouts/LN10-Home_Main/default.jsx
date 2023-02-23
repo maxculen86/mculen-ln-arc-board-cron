@@ -18,7 +18,10 @@ import {
 } from '../../private/common/banners/bannersRules';
 import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
-import { productClickFromServer } from '../../private/common/utils/viewability';
+import {
+    createViewabilityObservers,
+    productClickFromServer
+} from '../../private/common/utils/viewability';
 import createBannersIntersectionObserver from '../../private/common/banners/createBannersIntersectionObserver';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
@@ -54,7 +57,7 @@ const LN10Home = props => {
     });
 
     useEffect(() => {
-        // createViewabilityObservers();
+        createViewabilityObservers(true);
         createBannersIntersectionObserver();
     }, []);
 

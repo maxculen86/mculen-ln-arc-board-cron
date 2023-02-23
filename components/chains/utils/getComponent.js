@@ -5,7 +5,7 @@ import { Cajahashtag } from '@ln/contenidos-ui-cajahashtag';
 const getComponent = (chainStyle, layout) => {
     const options = {
         cajaContent1: Contentlab,
-        HashTag: Cajahashtag,
+        Hashtag: Cajahashtag,
         default: Bngrid
     };
 
