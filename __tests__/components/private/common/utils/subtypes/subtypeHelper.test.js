@@ -1,6 +1,7 @@
 import {
     isFotoAl100orStorytelling,
-    Subtypes
+    Subtypes,
+    subtypeNotesWithoutAmp
 } from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
 describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
@@ -42,5 +43,23 @@ describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
         it('Should return false without a parameter', () => {
             expect(isFotoAl100orStorytelling()).toBeFalsy();
         });
+    });
+});
+
+describe('Private - Common - Utils - subtypeNotesWithoutAmp - subtypeHelper', () => {
+    it('Should return true when the subtype has no amp  ', () => {
+        expect(
+            subtypeNotesWithoutAmp(
+                '/agencias/eeuu-y-rusia-chocan-por-responsabilidad-de-ataque-con-misil-nid17112022/'
+            )
+        ).toBeTruthy();
+    });
+
+    it('Should return false when the subtype has amp  ', () => {
+        expect(
+            subtypeNotesWithoutAmp(
+                '/deportes/eeuu-y-rusia-chocan-por-responsabilidad-de-ataque-con-misil-nid17112022/'
+            )
+        ).toBeFalsy();
     });
 });
