@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
@@ -24,6 +25,7 @@ import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamic
 import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 import '../../../resources/packages/css/@ln/contenidos-ui-banners/index.css';
 import Ranking from '../../features/LN-10/ranking/default';
+import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
 
 const LN10Home = props => {
     const { children, outputType, isAdmin, renderables } = props;
@@ -148,6 +150,7 @@ const LN10Home = props => {
             <LoadBanners blocksBanners={bannersViewport} />
             <Metarefresh />
             <PwaModals />
+            <RoofEventsScript />
             {productClickFromServer()}
         </GlobalProvider>
     );
