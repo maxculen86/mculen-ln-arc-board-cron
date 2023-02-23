@@ -13,13 +13,13 @@ class ArticleFeature {
         this.props = validatePropsFeatures(props);
         this.state = {};
         const {
-            customFields: { noteId, imageId, video: videoId },
+            customFields: { noteId, imageId, video: videoId, variant },
             id: featureId,
             arcSite,
             renderables = []
         } = this.props;
-
-        const sourceInclude = getFieldsArticlesByTypeChain('default');
+        const typeCard = variant || 'default';
+        const sourceInclude = getFieldsArticlesByTypeChain(typeCard);
         const { cajaTemaConfig } = getProperties(arcSite);
         this.configs = getChainConfig(featureId, renderables, cajaTemaConfig);
         const imageConfig = this.configs && this.configs.imageConfig;

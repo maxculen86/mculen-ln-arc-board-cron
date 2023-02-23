@@ -49,7 +49,6 @@ const index = (
             ? boxInfoBySection(information, sectionAliasMobile, typeSection)
             : boxInfoComplete(information, sectionAliasMobile, typeSection);
         const type = Number(f.type);
-
         switch (type) {
             case 0:
                 // eslint-disable-next-line no-unreachable
