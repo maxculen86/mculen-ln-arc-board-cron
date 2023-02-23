@@ -1,6 +1,6 @@
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
-import resultArticle from '../../../private/LN/api/global/components/features/article/index';
+import resultArticle from '../../../private/LN/api/global/components/features/article/LN10/index';
 import { getFieldsArticlesByTypeChain } from '../../../private/LN/api/global/components/features/article/utils/helpers';
 import { validatePropsFeatures } from '../../../private/LN/api/global/components/features/utils/validatePropsFeatures';
 import {
@@ -10,7 +10,6 @@ import {
 
 class ArticleFeature {
     constructor(props) {
-        this.props = validatePropsFeatures(props);
         this.state = {};
         const {
             customFields: { noteId, imageId, video: videoId, variant },
@@ -23,6 +22,8 @@ class ArticleFeature {
         const { cajaTemaConfig } = getProperties(arcSite);
         this.configs = getChainConfig(featureId, renderables, cajaTemaConfig);
         const imageConfig = this.configs && this.configs.imageConfig;
+
+        this.props = validatePropsFeatures(props, this.configs);
 
         videoId &&
             videoId.trim() &&
@@ -110,7 +111,8 @@ class ArticleFeature {
                 articleSourceNota,
                 articleImage,
                 articleVideo,
-                this.props
+                this.props,
+                this.configs
             );
         } catch (err) {
             return { Success: false, Message: err.message };

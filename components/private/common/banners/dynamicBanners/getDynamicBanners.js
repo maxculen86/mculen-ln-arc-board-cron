@@ -1,5 +1,5 @@
 /* eslint-disable operator-assignment */
-import { getChildrenFromSectionHome } from '../../../LN/common/utils/cajaTemasHelperLN10';
+import { getChildrenFromSectionHome } from '../../../LN/common/utils/cajaTemasHelperLN10-WebApi';
 import homeConfig from '../../../../layouts/config/LN10-Home.config.json';
 import {
     getSectionId,

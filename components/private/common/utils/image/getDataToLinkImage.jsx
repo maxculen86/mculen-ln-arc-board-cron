@@ -2,7 +2,7 @@ import React from 'react';
 import getProperties from 'fusion:properties';
 import get from '../get';
 import getImage from './getImage';
-import { getChildsFromSections } from '../../../LN/common/utils/homeHelper';
+import { getChildsFromSections } from '../../../LN/common/utils/homeHelper-WebApi';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config';
 import { STORYTELLING } from '../subtypes/subtypeHelper';
 import {

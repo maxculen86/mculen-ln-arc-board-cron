@@ -24,5 +24,10 @@
         {
             "customFields.layout": "grilla4"
         }
+    ],
+    "comercial": [
+        {
+            "customFields.layout": "cajaContent1"
+        }
     ]
 }

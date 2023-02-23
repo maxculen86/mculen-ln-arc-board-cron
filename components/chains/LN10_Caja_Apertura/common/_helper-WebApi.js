@@ -70,5 +70,3 @@ export const setFilteredRenderables = (renderables = [], features = []) => {
     const featuresKeys = features.map(c => c.key);
     return renderables.filter(f => featuresKeys.includes(f.props.id));
 };
-
-export default validateChain;

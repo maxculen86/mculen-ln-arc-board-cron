@@ -8,10 +8,7 @@ import { anexoMobileBox } from '../../../common/home/boxTypes/anexoMobileBox';
 import { bannerBox } from '../../../common/home/boxTypes/bannerBox';
 import { sectionAcuBox } from '../../../common/home/boxTypes/sectionAcumuladoBox';
 import configInfoSectionsByLayout from '../../../common/home/config/configInfoSectionsByLayout';
-import {
-    boxInfoBySectionAlias,
-    boxInfoComplete
-} from '../../../common/home/boxInformation/index';
+import { boxInfoByLayoutBySectionAlias } from '../../../common/home/boxInformation/index';
 
 const typeBox = {
     0: storyBox,
@@ -44,10 +41,16 @@ const index = (
     const ArticlesbyBox = children.reduce((result, f, i) => {
         const { information, sectionAliasMobile } = f;
 
-        const boxInfoBySection = boxInfoBySectionAlias[sectionAliasMobile];
-        const boxInfo = boxInfoBySection
-            ? boxInfoBySection(information, sectionAliasMobile, typeSection)
-            : boxInfoComplete(information, sectionAliasMobile, typeSection);
+        const boxInfoFunction = boxInfoByLayoutBySectionAlias(
+            layoutPage,
+            sectionAliasMobile
+        );
+        const boxInfo = boxInfoFunction(
+            information,
+            sectionAliasMobile,
+            typeSection
+        );
+
         const type = Number(f.type);
         switch (type) {
             case 0:
