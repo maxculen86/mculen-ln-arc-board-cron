@@ -1,7 +1,7 @@
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
 import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
-import resultArticle from '../../../private/LN/api/global/components/features/article/index';
+import resultArticle from '../../../private/LN/api/global/components/features/article/LN/index';
 import { getFieldsArticlesByTypeChain } from '../../../private/LN/api/global/components/features/article/utils/helpers';
 import get from '../../../private/common/utils/get';
 

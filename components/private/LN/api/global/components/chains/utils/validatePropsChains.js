@@ -9,9 +9,9 @@ export const findTypeChain = (props, typeChain, version) => {
     if (typeChain) {
         return typeChain;
     }
-    if (chainStyle) {
-        return chainStyle;
-    }
+    // if (chainStyle) {
+    //     return chainStyle;
+    // }
 
     const result =
         configTypeChain[version] &&
@@ -29,7 +29,7 @@ export const findTypeChain = (props, typeChain, version) => {
                 })
             );
         });
-    return result ? keyTypeChainFinded : null;
+    return result ? keyTypeChainFinded : chainStyle;
 };
 
 export const validatePropsByTypeChain = props => {

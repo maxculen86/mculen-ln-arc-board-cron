@@ -1,76 +1,35 @@
-import get from '../../../../../common/utils/get';
-import getEmbedHref from '../../../../../common/utils/getEmbedHref';
-import Image from '../../elements/image';
+import { boxInfoBasic } from './common/boxBasic';
+import { boxInfoComplete } from './common/boxComplete';
+import { boxInfoApertura, boxInfoAnticipo } from './LN/index';
+import {
+    boxInfoApertura as boxInfoAperturaLN10,
+    boxInfoAnticipo as boxInfoAnticipoLN10,
+    boxInfoExclusiveSuscriptor
+} from './LN10/index';
 
-export const boxInfoBasic = (information, section, typeSection) => {
-    if (!information) return null;
-    const sectionAlias = section && section.toLowerCase();
-    const type = typeSection[sectionAlias] || typeSection.default;
-
-    const boxInfo = {
-        ...type,
-        diagramacion: information.layout || null
-    };
-    return boxInfo;
-};
-export const boxInfoComplete = (information, section, typeSection) => {
-    const box = boxInfoBasic(information, section, typeSection);
-    if (box && information && !information.hideTitle) {
-        const image = get(information.image, 'promo_items.basic', null);
-        const imagenUrl = get(image, 'additional_properties.originalUrl', null);
-        if (image && image.type === 'image') box.imagen = Image(image);
-        if (imagenUrl) box.imagenUrl = imagenUrl;
-        if (information.buttonText && information.linkButton) {
-            box.actionButton = {
-                title: information.buttonText,
-                url: information.linkButton,
-                style: information.buttonStyle
-            };
-        }
-
-        return {
-            ...box,
-            tituloCaja: information.title,
-            url: information.url,
-            chapita: information.chapita,
-            chapitaStyle: information.chapitaStyle
-        };
-    }
-    return box;
-};
-
-export const boxInfoApertura = (information, section, typeSection) => {
-    const box = boxInfoBasic(information, section, typeSection);
-    return box;
-};
-
-export const boxInfoAnticipo = (information, section, typeSection) => {
-    const box = boxInfoComplete(information, section, typeSection);
-    if (box) {
-        box.texto = information.title;
-    }
-    return box;
-};
-export const boxInfoAnticipoLN10 = (information, section, typeSection) => {
-    const box = boxInfoComplete(information, section, typeSection);
-    if (box) {
-        box.chapita = information.textBadge;
-        box.volanta = information.lead;
-        box.url = information.url;
-        if (information.video === '') {
-            box.texto = information.title;
-        }
-        box.video = getEmbedHref('src', information.video);
-    }
-    return box;
-};
-
-export const boxInfoBySectionAlias = {
+export const boxInfoBySectionAliasLN = {
     'ln-common/cajaanticipo': boxInfoAnticipo,
-    'ln-common/ln10_anticipo': boxInfoAnticipoLN10,
     apertura: boxInfoApertura,
-    default: boxInfoComplete,
-    hashtag: boxInfoBasic
+    default: boxInfoComplete
 };
 
-export default boxInfoBySectionAlias;
+export const boxInfoBySectionAliasLN10 = {
+    'ln-common/ln10_anticipo': boxInfoAnticipoLN10,
+    apertura: boxInfoAperturaLN10,
+    hashtag: boxInfoBasic,
+    'sub-exclusive': boxInfoExclusiveSuscriptor,
+    default: boxInfoComplete
+};
+
+export const boxInfoByLayoutBySectionAlias = (layoutPage, sectionAlias) => {
+    const boxesInfoByLayout = {
+        'LN-Home_Main': boxInfoBySectionAliasLN,
+        'LN10-Home_Main': boxInfoBySectionAliasLN10,
+        default: boxInfoBySectionAliasLN
+    };
+    const boxInfoByLayout =
+        boxesInfoByLayout[layoutPage] || boxInfoBySectionAliasLN;
+    return boxInfoByLayout[sectionAlias] || boxInfoComplete;
+};
+
+export default boxInfoByLayoutBySectionAlias;
