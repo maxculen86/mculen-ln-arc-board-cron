@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import renderables from '../../../../__mocks__/data/LN10_Caja_Collection/renderablesGrid8And4.json';
 import responseSource from '../../../../__mocks__/data/LN10_Caja_Collection/responseUseGetArticleInCollection.json';
+import renderablesExcSub from '../../../../__mocks__/data/LN10_Caja_Collection/renderablesExclusiveSub.json';
 import getDynamicBanners from '../../../../components/private/common/banners/dynamicBanners/getDynamicBanners';
 import useGetArticleInCollection from '../../../../components/private/LN/common/hooks/useGetArticleInCollection';
 
@@ -114,14 +115,16 @@ describe('Tests Chain CajaCollection', () => {
             idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
         };
 
-        test('should return a grid of 4 items', () => {
+        test.only('should return a grid of 4 items', () => {
             useGetArticleInCollection.mockImplementation(() => responseSource);
 
             render(
                 <CajaCollection
-                    {...getProps({
-                        customFields: fields
-                    })}
+                    {...{
+                        ...getProps({ customFields: fields }),
+                        id: 'c0fUjhrcHRHB8X',
+                        renderables: renderablesExcSub
+                    }}
                 />
             );
 

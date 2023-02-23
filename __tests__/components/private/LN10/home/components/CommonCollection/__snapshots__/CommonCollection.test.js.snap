@@ -15,7 +15,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           class="--d-flex --ai-center --uppercase"
         >
           <span
-            class="text ln-text --mt-3xs --roof-title"
+            class="text ln-text --roof-title"
           >
             CommonCOllection
           </span>
@@ -44,8 +44,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
           >
             <section
@@ -91,8 +90,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
           >
             <section
@@ -138,8 +136,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
           >
             <section
@@ -185,8 +182,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
           >
             <section
@@ -232,8 +228,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Historias El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
           >
             <section
@@ -284,8 +279,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/test-noticia-en-arc-nid16032021-2/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Test noticia en ARC"
           >
             <section
@@ -331,8 +325,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/revista-living/test-noticia-en-arc-nid03012023/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Test noticia en ARC"
           >
             <section
@@ -378,8 +371,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Santa Cruz Bullrich visita El Calafate y presenta libro"
           >
             <section
@@ -482,8 +474,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
           >
             <section
@@ -528,8 +519,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
           >
             <section
@@ -574,8 +564,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
           >
             <section
@@ -620,8 +609,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
           >
             <section
@@ -666,8 +654,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Historias El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
           >
             <section
@@ -717,8 +704,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/test-noticia-en-arc-nid16032021-2/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Test noticia en ARC"
           >
             <section
@@ -763,8 +749,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/revista-living/test-noticia-en-arc-nid03012023/"
-            rel="nofollow"
-            target="_blank"
+            target="_self"
             title="Test noticia en ARC"
           >
             <section

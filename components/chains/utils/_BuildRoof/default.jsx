@@ -3,28 +3,29 @@ import React from 'react';
 import { Roof } from '@ln/contenidos-ui-roof';
 import PropTypes from 'prop-types';
 import validateRoof from './_helper/validateRoof';
-import useGetLinks from './_helper/useGetLinks';
-import useGetLogo from './_helper/useGetLogo';
-import WarningMessage from '../../../private/common/warningMessage/warningMessage';
+import setRender from '../setRender';
 import '../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import hasDataRoof from './_helper/hasDataRoof';
+import { VERTICALS } from '../common/_helpers-WebApi';
 
 export default function BuildRoof(props) {
     const {
         title,
         titleLink,
+        logo,
         logoId,
         buttonText,
         linkButton,
         buttonStyle,
-        chainStyle,
+        chainStyle: chainStyleUncheked,
         hideRoof,
+        links,
         navigationId,
         isAdmin
     } = props;
 
-    const logo = useGetLogo(logoId, title);
-    const links = useGetLinks({ navigationSection: navigationId });
+    const chainStyle =
+        !VERTICALS.includes(chainStyleUncheked) && chainStyleUncheked;
 
     const error = validateRoof({
         chainStyle,
@@ -37,10 +38,6 @@ export default function BuildRoof(props) {
         buttonText,
         linkButton
     });
-
-    if (isAdmin && error) {
-        return <WarningMessage type={error.type} message={error.message} />;
-    }
 
     const propsLeft = hasDataRoof({ chainStyle }) && {
         logo,
@@ -55,16 +52,25 @@ export default function BuildRoof(props) {
         textButton: buttonText,
         hrefButton: linkButton
     };
-    return (
-        <>
-            {!hideRoof && (
-                <Roof roofType={chainStyle.toLowerCase() || 'generic'}>
+
+    return setRender({
+        isAdmin,
+        error,
+        withSection: false,
+        extraOptions: {
+            isEmpty: hideRoof && <></>,
+            default: !hideRoof && (
+                <Roof
+                    roofType={
+                        (chainStyle && chainStyle.toLowerCase()) || 'generic'
+                    }
+                >
                     <Roof.Left {...propsLeft} />
                     <Roof.Right {...propsRight} />
                 </Roof>
-            )}
-        </>
-    );
+            )
+        }
+    });
 }
 
 BuildRoof.propTypes = {

@@ -2,17 +2,13 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { Live } from '@ln/contenidos-ui-live';
-import {
-    getFieldsFromNotes,
-    getNotesLists,
-    typeBadge,
-    findError
-} from './_helpers';
+import { getFieldsFromNotes, getNotesLists, findError } from './_helpers';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import StaticContent from '../../../private/common/staticContent';
 import get from '../../../private/common/utils/get';
 import '../../../../resources/packages/css/@ln/contenidos-ui-live/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-badge/index.css';
+import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
 
 const EnVivo = ({ customFields }) => {
     const { isAdmin } = useAppContext() || {};
@@ -58,7 +54,7 @@ EnVivo.propTypes = {
             default: 'Vivo',
             group: 'Chapita'
         }),
-        chapitaStyle: PropTypes.oneOf([0, 1, 2, 3]).tag({
+        chapitaStyle: PropTypes.oneOf([0, 1, 2]).tag({
             labels: typeBadge,
             label: 'Estilo Chapita',
             defaultValue: 2,

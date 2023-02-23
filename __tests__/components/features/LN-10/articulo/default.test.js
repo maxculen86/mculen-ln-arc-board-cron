@@ -9,7 +9,7 @@ import '@testing-library/jest-dom';
 import contentElementsLiveblog from '.././../../../../__mocks__/data/articles/contentElementsLiveblog.json';
 import * as cajaTemasValidators from '../../../../../components/private/LN/common/utils/cajaTemasValidators';
 import * as _helper from '../../../../../components/features/LN-10/article/_helper';
-
+import * as _helperWebApi from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         return props => <Component {...props} />;
@@ -22,7 +22,7 @@ jest.mock('fusion:context', Component => {
     };
 });
 
-jest.spyOn(_helper, 'getChainConfig').mockReturnValue({
+jest.spyOn(_helperWebApi, 'getChainConfig').mockReturnValue({
     index: 0,
     boxPosition: '01',
     layout: 'bn-opening-4',
@@ -182,6 +182,7 @@ describe('Components - features - LN-10 - articulo - default', () => {
             lead: 'LeadNota',
             title: 'Nota',
             variant,
+            chapitaStyle: _helperWebApi.typeBadge[2],
             ...dinamycFields
         },
         searchableField: () => {},

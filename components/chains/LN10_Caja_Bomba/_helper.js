@@ -1,6 +1,4 @@
-import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
 import get from '../../private/common/utils/get';
-import { LAYOUTS } from '../utils/_helpers';
 
 export const getChildrenOfBomba = (preOpeningChildren, chainId) => {
     const chainBomba = preOpeningChildren.find(
@@ -9,11 +7,6 @@ export const getChildrenOfBomba = (preOpeningChildren, chainId) => {
 
     return get(chainBomba, 'children', []);
 };
-
-export const getIsPreOpening = (preOpeningChildren, chainId) =>
-    preOpeningChildren.some(
-        children => get(children, 'props.id', undefined) === chainId
-    );
 
 export const getClassCondition = (layout, childrenOfBomba) => {
     const isImageHidden = get(
@@ -45,30 +38,4 @@ export const hasVariantNotRegular = (childrenOfBomba = []) => {
         child =>
             get(child, 'props.customFields.variant', 'regular') !== 'regular'
     );
-};
-
-export const validateChainBomba = (
-    layout,
-    children,
-    isPreOpening,
-    hasNotVariantRegular
-) => {
-    const missingNotesOnTheBomba = 5 - children.length;
-    const rules = [
-        {
-            validation: hasNotVariantRegular,
-            message: `La variante del Articulo solo puede ser 'regular'`
-        },
-        {
-            validation: layout === LAYOUTS.BOMBITAMAS4 && children.length < 5,
-            message: `La diagramacion Bombita + 4 requiere 5 articulos. Faltan ${missingNotesOnTheBomba} articulos`
-        },
-        {
-            validation: !isPreOpening,
-            message:
-                'La Caja Bomba solo se puede utilizar en la seccion Pre Apertura'
-        }
-    ];
-
-    return pageBuilderValidator(rules);
 };

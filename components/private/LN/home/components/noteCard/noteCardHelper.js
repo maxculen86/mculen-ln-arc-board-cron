@@ -112,6 +112,65 @@ export const isInHomeAperturaOrBomba = (
     });
 };
 
+export const initialElementInPB = elementsToRender => {
+    const chainsAndFeatures =
+        elementsToRender.filter(elem => {
+            const { props = {} } = elem;
+            const { collection } = props;
+
+            return collection === 'features' || collection === 'chains';
+        }) || [];
+
+    const firstVisibleElement = chainsAndFeatures.find(pbElement => {
+        const { type = '' } = pbElement;
+        return get(
+            featuresValidator,
+            type,
+            featuresValidator.default
+        )({ element: pbElement, checkEager: false });
+    });
+
+    return firstVisibleElement || {};
+};
+
+export const featuresValidator = {
+    'LN-common/bomba': ({ element, checkEager, note = '' }) => {
+        const { props } = element;
+        const { customFields } = props;
+        const {
+            hideFeature,
+            hideImage,
+            video,
+            html,
+            noteId = ''
+        } = customFields;
+
+        const isFirstViewportNote = note === noteId;
+
+        return checkEager
+            ? !video && !html && isFirstViewportNote
+            : !hideFeature && !hideImage;
+    },
+    Ln_Caja_Manual: ({ element, checkEager, note = '' }) => {
+        const { props, children = [] } = element;
+
+        const { 0: chainFirstNote } = children;
+
+        const { customFields } = props;
+        const { hideCaja } = customFields;
+
+        const { props: noteProps } = chainFirstNote;
+        const { customFields: noteCustomFields } = noteProps;
+        const { hideImage, video, html, noteId = '' } = noteCustomFields;
+
+        const isFirstViewportNote = note === noteId;
+        const hasImage = !html && !video && !hideImage;
+
+        return checkEager ? isFirstViewportNote && hasImage : !hideCaja;
+    },
+    default: () => false
+};
+
 export const isInApertura = ({
     renderables,
     featureId,

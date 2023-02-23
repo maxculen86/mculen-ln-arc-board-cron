@@ -27,7 +27,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
             class="text-container"
           >
             <span
-              class="badge ln-badge --font-2xs --advance"
+              class="badge ln-badge --font-2xs --positive"
             >
               chapita
             </span>
@@ -38,8 +38,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
               <a
                 class="link ln-link"
                 href="https://www.lanacion.com.ar/"
-                rel="nofollow"
-                target="_blank"
+                target="_self"
                 title="texto Prueba Anticipo"
               >
                 <span

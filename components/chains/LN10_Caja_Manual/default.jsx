@@ -7,7 +7,7 @@ import {
     getCommonProps,
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
-import { validateCajaManual } from './_helper';
+import validateCajaManual from './common/_helper-WebApi';
 import getGridType from '../utils/getGridType';
 import setRender from '../utils/setRender';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
@@ -15,32 +15,30 @@ import StaticContent from '../../private/common/staticContent';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
 
 import BuildRoof from '../utils/_BuildRoof/default';
-import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
-import '../../../resources/packages/css/@ln/contenidos-ui-contentlab/index.css';
-import { setSlicedChildren } from '../utils/_helpers';
+import { useRoofData } from '../utils/_helpers';
+import { setSlicedChildren } from '../utils/common/_helpers-WebApi';
 import getComponent from '../utils/getComponent';
+
+import '../../../resources/packages/css/@ln/contenidos-ui-contentlab/index.css';
+import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 
 const CajaManual = props => {
     const {
         id: chainId,
         isAdmin,
-        customFields: {
-            title,
-            layout = '',
-            hideTitle,
-            hideCaja,
-            link,
-            linkButton,
-            chainStyle,
-            logoId,
-            buttonStyle,
-            buttonText,
-            navigator
-        },
+        customFields,
         childProps,
         children,
         renderables = []
     } = props;
+
+    const {
+        layout = '',
+        hideCaja,
+        website,
+        chainStyle,
+        ...propsForRoof
+    } = customFields;
 
     const { position, positionInsideSection } = getCommonProps(props);
 
@@ -59,19 +57,12 @@ const CajaManual = props => {
         children
     });
 
-    const roofData = {
-        title,
-        titleLink: link,
-        logoId,
-        buttonText,
-        linkButton,
-        buttonStyle,
-        hideRoof: hideTitle,
-        navigationId: navigator,
+    const roofData = useRoofData({
+        ...propsForRoof,
         isAdmin,
         chainStyle,
         isManual: true
-    };
+    });
 
     const { bannerMob = undefined, bannerDsk = undefined } =
         getDynamicBanners({
