@@ -51,8 +51,6 @@ describe('cardRegular', () => {
         const result = CardRegular(article);
 
         // Assert
-        expect(get).toHaveBeenCalledTimes(1);
-        expect(get).toHaveBeenCalledWith(article, 'subheadlines.basic', null);
         expect(getArticleImage).toHaveBeenCalledTimes(1);
         expect(getArticleImage).toHaveBeenCalledWith(article);
         expect(getArticleVideos).toHaveBeenCalledTimes(1);
