@@ -576,7 +576,7 @@ const diagramationRules = diagramation => {
                 withSection: true,
                 imagePosition: {
                     mobile: 'img-top',
-                    tablet: 'img-top',
+                    tablet: 'img-left',
                     desktop: 'img-left'
                 }
             },

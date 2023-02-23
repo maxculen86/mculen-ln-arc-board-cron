@@ -1,5 +1,5 @@
 import fusionConsumer from 'fusion:consumer';
-import { setFilteredRenderables } from '../../../../components/chains/LN10_Caja_Apertura/_helper';
+import { setFilteredRenderables } from '../../../../components/chains/LN10_Caja_Apertura/common/_helper-WebApi';
 import { setWrappedChildren } from '../../../../components/chains/utils/_helpers';
 
 jest.mock('fusion:consumer', component => {

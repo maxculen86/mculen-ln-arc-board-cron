@@ -15,6 +15,7 @@ export const suffixDevice = {
 };
 
 export const BANNERS_DESKTOP = [
+    'megatop_dsk',
     'comercial_dsk',
     'adhesion_dsk',
     '1x1_dsk',
