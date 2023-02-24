@@ -21,7 +21,8 @@ export const LAYOUTS = {
     BN_FOCAL_1_MAS_2: 'bn_1_2_grid',
     BN_FOCAL_1_MAS_3: 'bn_1_3_grid',
     BN_FOCAL_1_MAS_4: 'bn_1_4_grid',
-    BN_2_FOCAL_1_MAS_2: 'bn_2_1_2_grid'
+    BN_2_FOCAL_1_MAS_2: 'bn_2_1_2_grid',
+    BN_A_FONDO: 'bnFondo'
 };
 
 export const VERTICALS = ['bienestar', 'campo', 'movilidad', 'propiedades'];
@@ -51,7 +52,8 @@ const {
     BN_FOCAL_1_MAS_3,
     BN_FOCAL_1_MAS_4,
     BN_2_FOCAL_1_MAS_2,
-    GRILLA4VERTICALES
+    GRILLA4VERTICALES,
+    BN_A_FONDO
 } = LAYOUTS;
 
 export const checkChangeChildrenForPB = ({
@@ -132,6 +134,7 @@ export const setQuantityByLayout = ({ layout = '', countTimeline }) => {
         [BN_FOCAL_1_MAS_4]: 5,
         [BN_2_FOCAL_1_MAS_2]: 5,
         [GRILLA4VERTICALES]: 4,
+        [BN_A_FONDO]: 1,
         default: Number(layout && layout.slice(-1)) || 3
     };
 

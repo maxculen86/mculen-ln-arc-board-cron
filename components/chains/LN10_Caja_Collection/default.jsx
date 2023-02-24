@@ -75,6 +75,7 @@ const CajaCollection = props => {
 
     const breakingsChildren = getBreakingChildren(renderables);
     const rules = diagramationRules(layout) || [];
+
     const isInBreakings = checkChildInSection(chainId, breakingsChildren);
 
     const articlesToShow = !isInSiteService

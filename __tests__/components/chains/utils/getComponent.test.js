@@ -1,7 +1,8 @@
 import { Contentlab } from '@ln/contenidos-ui-contentlab';
 import { Bngrid } from '@ln/contenidos-ui-bngrid';
-import getComponent from '../../../../components/chains/utils/getComponent';
 import { Cajahashtag } from '@ln/contenidos-ui-cajahashtag';
+import { Cajaafondo } from '@ln/contenidos-ui-cajaafondo';
+import getComponent from '../../../../components/chains/utils/getComponent';
 
 describe('Components - Utils - getComponent', () => {
     it('should return ContentLab component', () => {
@@ -15,6 +16,13 @@ describe('Components - Utils - getComponent', () => {
 
         expect(Component).toBeTruthy();
         expect(Component).toEqual(Cajahashtag);
+    });
+
+    it('should return Cajaafondo component', () => {
+        const Component = getComponent(undefined, 'bnFondo');
+
+        expect(Component).toBeTruthy();
+        expect(Component).toEqual(Cajaafondo);
     });
 
     it('should return Bngrid component', () => {
