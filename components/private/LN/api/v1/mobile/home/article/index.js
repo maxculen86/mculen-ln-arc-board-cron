@@ -6,7 +6,8 @@ import { CardAuthor } from './cardAuthor';
 const articleComponents = {
     regular: CardRegular,
     liveblog: CardLiveblog,
-    author: CardAuthor
+    author: CardAuthor,
+    liveblogEnVivo: CardRegular
 };
 
 export const Article = article => {

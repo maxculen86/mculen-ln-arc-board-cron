@@ -1,7 +1,7 @@
 import { CardBasic } from '../../../../../common/article/cardBasic/index';
 import { CardRegular } from '../cardRegular';
 
-const CardAuthor = article => {
+export const CardAuthor = article => {
     const { autores } = CardBasic(article);
     if (autores.length > 2) {
         return CardRegular(article);

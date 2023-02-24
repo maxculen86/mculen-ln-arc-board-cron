@@ -1,8 +1,8 @@
 import get from '../../../../../../../../common/utils/get';
 
-export const getArticleTitleVivo = article => {
-    const title = get(article, 'additionalProperties.titleVivo', null);
+export const getArticleTitleEditorial = article => {
+    const title = get(article, 'additionalProperties.title', null);
     return title;
 };
 
-export default getArticleTitleVivo;
+export default getArticleTitleEditorial;
