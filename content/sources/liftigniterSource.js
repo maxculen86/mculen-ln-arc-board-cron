@@ -14,10 +14,11 @@ import {
 import get from '../../components/private/common/utils/get';
 import isvalidUrl from '../../components/private/common/utils/isvalidUrl';
 import logger from '../../components/private/common/utils/logger';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
 import getPresets from './utils/presets';
 import ArticleSourceNotas from './acuArticlesSourcebyIds';
 import parseUrl from './utils/parseUrl';
+import { isResizerV2 } from '../../components/private/common/utils/image/resizer/v2/resizerHelper';
 
 const transformArticles = (cantidadNotas, liftigniterArticles = []) =>
     liftigniterArticles &&
@@ -300,15 +301,42 @@ const transform = (data, siteProps) => {
 
     return data.map(elem => {
         const promoItems = get(elem, `promo_items`, null);
+        const promoImage = get(promoItems, 'basic.url', '');
         const subtype = get(elem, `subtype`, null);
         const isFotoAl100orStorytelling =
             subtype === FOTOAL100 || subtype === STORYTELLING;
+
+        // TODO: sacar cuando se quite resizer v1.
+        // Se obtiene _id y auth de url de imagen para resizearlo por v2, ya que liftigniter trae imagen v2.
+        const isV2 = isResizerV2(promoImage);
+        const parsedId = isV2
+            ? promoImage.match(
+                  /[A-Z0-9]{26}(.(jpe?g|tiff?|webp|gif|png|bmp|jfif))?/i
+              )
+            : [];
+        const imageAuth = isV2
+            ? new URL(promoImage).searchParams.get('auth')
+            : '';
+
         return {
             ...elem,
             ...addResizedUrls(
                 {
                     ...(promoItems && {
-                        promo_items: promoItems
+                        promo_items: {
+                            ...promoItems,
+                            ...(isV2
+                                ? {
+                                      basic: {
+                                          ...get(promoItems, 'basic', {}),
+                                          _id: parsedId ? parsedId[0] : '',
+                                          auth: {
+                                              1: imageAuth
+                                          }
+                                      }
+                                  }
+                                : {})
+                        }
                     })
                 },
                 {
@@ -321,7 +349,8 @@ const transform = (data, siteProps) => {
                     // Se pasa el subtype para que las notas de foto al 100
                     // y storytelling no sean excluidas de las validaciones del resizer
                     // y pueda aplicarse 3:2, focal point o smartcrop
-                    subtype: isFotoAl100orStorytelling ? '-1' : subtype
+                    subtype: isFotoAl100orStorytelling ? '-1' : subtype,
+                    shouldUseV2: isV2
                 }
             )
         };
