@@ -1,5 +1,6 @@
 import get from '../../../../../common/utils/get';
 import epigrafeAndCreditsData from '../../../../../common/utils/epigrafeAndCreditsData';
+import { isResizerV2 } from '../../../../../common/utils/image/resizer/v2/resizerHelper';
 
 const imageCommon = image => {
     if (!image) return null;
@@ -12,7 +13,7 @@ const imageCommon = image => {
         /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
     );
     const hrefRegexV2 = /.*(\/resizer\/v2\/[a-zA-Z0-9]+.*[?]auth=(.*))/;
-    const isV2 = new RegExp(/\/resizer\/v2\//).exec(url) !== null;
+    const isV2 = isResizerV2(url);
     const absoluteUrl = resizedUrls[0].resizedUrl.replace(
         isV2 ? urlv2 : newRegex,
         (str, match) => {

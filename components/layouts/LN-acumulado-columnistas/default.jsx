@@ -17,9 +17,6 @@ const layoutItemsColumnistas = [
     'Aside'
 ];
 
-/**
- * TODO: Consultar con daro para integrar un solo acumulado
- */
 const LNAcumuladoColumnistasLayout = props => {
     const { children } = props;
 

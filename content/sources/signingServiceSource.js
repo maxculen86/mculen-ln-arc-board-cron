@@ -7,7 +7,7 @@ const params = { imageId: 'text' };
 const fetch = ({ imageId }) => {
     const arcSite = 'la-nacion-ar';
     const opt = {
-        uri: `${CONTENT_BASE}/signing-service/v1/sign/resizer/1/${encodeURI(
+        uri: `${CONTENT_BASE}/signing-service/v2/sign/resizer/1?value=${encodeURIComponent(
             imageId
         )}`,
         json: true,

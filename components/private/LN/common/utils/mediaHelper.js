@@ -115,7 +115,7 @@ export const LinkImagePreload = ({ resizedUrls = [], isAmp }) => {
     const imagesrcset = [];
     const imagesizes = [];
 
-    const { resizedUrl, _width } = getShortestImage(resizedUrls);
+    const { resizedUrl } = getShortestImage(resizedUrls);
 
     resizedUrls.forEach(x => {
         imagesrcset.push(`${x.resizedUrl} ${x.option.width}w`);
@@ -132,7 +132,7 @@ export const LinkImagePreload = ({ resizedUrls = [], isAmp }) => {
                 rel="preload"
                 as="image"
                 {...fetchPriorityAttr}
-                href={isAmp ? `${resizedUrl} ${_width}w` : resizedUrl}
+                href={resizedUrl}
                 imagesrcset={imagesrcset}
             />
         )

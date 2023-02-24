@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from '../../../common/com-link';
 import Text from '../../../common/text';
 import Icon from '../../../common/icon';
-import { isValidNumber } from '../../../../../content/sources/utils/servicesSource/weather/weatherHelper';
+import { isValidNumber } from '../../../common/utils/dataValidation';
 
 const WeatherCard = ({ data } = {}) => {
     const {
