@@ -1,4 +1,4 @@
-const index = (
+export const renderProps = (
     articleSourceNota,
     articleImage,
     articleVideo,
@@ -39,4 +39,4 @@ const index = (
     };
     return { ...articleSourceNota, additionalProperties };
 };
-export default index;
+export default renderProps;

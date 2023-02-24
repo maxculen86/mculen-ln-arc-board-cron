@@ -1,4 +1,9 @@
-const index = (articleSourceNota, articleImage, articleVideo, props) => {
+export const renderProps = (
+    articleSourceNota,
+    articleImage,
+    articleVideo,
+    props
+) => {
     if (!articleSourceNota) {
         return null;
     }
@@ -31,4 +36,4 @@ const index = (articleSourceNota, articleImage, articleVideo, props) => {
     };
     return { ...articleSourceNota, additionalProperties };
 };
-export default index;
+export default renderProps;

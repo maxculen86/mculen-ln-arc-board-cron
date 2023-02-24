@@ -1,8 +1,10 @@
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
-import resultArticle from '../../../private/LN/api/global/components/features/article/LN10/index';
-import { getFieldsArticlesByTypeChain } from '../../../private/LN/api/global/components/features/article/utils/helpers';
-import { validatePropsFeatures } from '../../../private/LN/api/global/components/features/utils/validatePropsFeatures';
+import { renderProps } from '../../../private/LN/api/global/components/features/article/LN10/renderProps';
+import { articleSourceNotaSourceInclude } from '../../../private/LN/api/global/components/features/article/common/sources/articleSourceNotaSourceInclude';
+import { validateProps } from '../../../private/LN/api/global/components/features/article/LN10/props/validateProps';
+import { validatePropsRender } from '../../../private/LN/api/global/components/features/article/LN10/props/validatePropsRender';
+
 import {
     getChainConfig,
     validateArticleFeature
@@ -21,9 +23,9 @@ class ArticleFeature {
         const { cajaTemaConfig } = getProperties(arcSite);
         this.configs = getChainConfig(featureId, renderables, cajaTemaConfig);
         const imageConfig = this.configs && this.configs.imageConfig;
-        const sourceInclude = getFieldsArticlesByTypeChain('default');
+        const sourceInclude = articleSourceNotaSourceInclude('default');
 
-        this.props = validatePropsFeatures(props, this.configs);
+        this.props = validateProps(props, this.configs);
 
         videoId &&
             videoId.trim() &&
@@ -73,32 +75,44 @@ class ArticleFeature {
             const { articleSourceNota, articleImage, articleVideo } =
                 this.state || {};
 
-            const {
-                customFields: {
-                    noteId,
-                    imageId,
-                    video: videoId,
-                    variant = 'regular'
-                }
-            } = this.props;
-
-            const { config = {}, layout, boxPosition, isBomba } = this.configs;
+            const { config = {}, layout, isBomba } = this.configs;
             const { variantsDisabled } = config;
 
             if (!articleSourceNota) {
                 return null;
             }
 
+            const {
+                propsRender,
+                articleSourceNotaRender,
+                articleImageRender,
+                articleVideoRender
+            } = validatePropsRender(
+                articleSourceNota,
+                articleImage,
+                articleVideo,
+                this.props,
+                this.configs
+            );
+
+            const { customFields = {} } = propsRender;
+            const {
+                variant: variantRender,
+                noteId: noteIdRender,
+                imageId: imageIdRender,
+                video: videoIdRender
+            } = customFields;
+
             const error = validateArticleFeature({
-                id: noteId,
-                content: articleSourceNota,
-                image: articleImage,
-                video: articleVideo,
+                id: noteIdRender,
+                content: articleSourceNotaRender,
+                image: articleImageRender,
+                video: articleVideoRender,
                 layout,
-                imageId,
-                videoId,
+                imageIdRender,
+                videoIdRender,
                 config,
-                variant,
+                variantRender,
                 variantsDisabled,
                 isBomba
             });
@@ -109,11 +123,11 @@ class ArticleFeature {
                 return null;
             }
 
-            return resultArticle(
-                articleSourceNota,
-                articleImage,
-                articleVideo,
-                this.props,
+            return renderProps(
+                articleSourceNotaRender,
+                articleImageRender,
+                articleVideoRender,
+                propsRender,
                 this.configs
             );
         } catch (err) {
