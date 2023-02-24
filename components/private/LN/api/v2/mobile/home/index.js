@@ -52,7 +52,6 @@ const index = (
         );
 
         const type = Number(f.type);
-
         switch (type) {
             case 0:
                 // eslint-disable-next-line no-unreachable

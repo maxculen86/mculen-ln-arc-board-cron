@@ -14,17 +14,16 @@ class ArticleFeature {
     constructor(props) {
         this.state = {};
         const {
-            customFields: { noteId, imageId, video: videoId },
+            customFields: { noteId, imageId, video: videoId, variant },
             id: featureId,
             arcSite,
             renderables = []
         } = props;
-
         const { cajaTemaConfig } = getProperties(arcSite);
         this.configs = getChainConfig(featureId, renderables, cajaTemaConfig);
         const imageConfig = this.configs && this.configs.imageConfig;
-        const sourceInclude = articleSourceNotaSourceInclude('default');
-
+        const typeCard = variant || 'default';
+        const sourceInclude = articleSourceNotaSourceInclude(typeCard);
         this.props = validateProps(props, this.configs);
 
         videoId &&

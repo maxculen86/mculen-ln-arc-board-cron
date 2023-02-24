@@ -9,7 +9,7 @@ const articleComponents = {
     author: CardAuthor
 };
 
-export const Article = (article, informationBox) => {
+export const Article = article => {
     const tipo = get(article, 'additionalProperties.variant', 'regular');
     const Component = articleComponents[tipo];
     return {
