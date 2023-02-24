@@ -1,4 +1,4 @@
-import fieldsToArticles from '../config/configFieldsArticlesByTypeChain.json';
+import fieldsToArticles from '../config/articleSourceNota/configIncludeFieldsByTypeChain.json';
 
 export const getFieldsType = typeChain => {
     return { resp: typeChain };

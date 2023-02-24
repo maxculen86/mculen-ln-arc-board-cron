@@ -11,7 +11,7 @@ import diagramationRules from '../../../../../../common/utils/diagramationRules'
 
 class GetCajaCollection {
     constructor(props, typeChain) {
-        this.props = validatePropsChains(props, typeChain, 'v1');
+        this.props = validatePropsChains(props, typeChain, 'LN10');
         this.state = {};
 
         const query = this.getQueryElement(this.props);

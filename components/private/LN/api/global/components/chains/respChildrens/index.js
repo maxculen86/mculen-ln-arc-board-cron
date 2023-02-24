@@ -3,7 +3,7 @@ import { respChildrens } from '../config/configReponseByTypeChain';
 const respChainByVersion = (props, version) => {
     return respChildrens[version]
         ? respChildrens[version](props)
-        : respChildrens.v0(props);
+        : respChildrens.LN(props);
 };
 
 const respChain = (props, containerImage) => {

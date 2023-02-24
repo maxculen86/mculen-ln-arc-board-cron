@@ -9,9 +9,6 @@ export const findTypeChain = (props, typeChain, version) => {
     if (typeChain) {
         return typeChain;
     }
-    // if (chainStyle) {
-    //     return chainStyle;
-    // }
 
     const result =
         configTypeChain[version] &&

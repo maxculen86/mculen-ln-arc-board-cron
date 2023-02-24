@@ -104,6 +104,8 @@ class ArticleFeature {
             });
 
             if (error) {
+                // eslint-disable-next-line no-console
+                console.warn(error);
                 return null;
             }
 

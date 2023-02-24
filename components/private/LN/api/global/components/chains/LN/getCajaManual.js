@@ -4,7 +4,7 @@ import respChain from '../respChildrens/index';
 
 class GetCajaManual {
     constructor(props, typeChain) {
-        this.props = validatePropsChains(props, typeChain, 'v0');
+        this.props = validatePropsChains(props, typeChain, 'LN');
         this.state = {};
 
         const imageId = get(this.props, 'customFields.imageId', '');

@@ -7,8 +7,8 @@ export const respChildrens = {
     apertura: respApertura,
     bomba: respBomba,
     chainManual: respManualLN10,
-    v0: responseDefault,
-    v1: respManualLN10
+    LN: responseDefault,
+    LN10: respManualLN10
 };
 
 export default respChildrens;
