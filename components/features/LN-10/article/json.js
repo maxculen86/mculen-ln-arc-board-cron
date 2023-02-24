@@ -16,12 +16,12 @@ class ArticleFeature {
             id: featureId,
             arcSite,
             renderables = []
-        } = this.props;
-        const typeCard = variant || 'default';
-        const sourceInclude = getFieldsArticlesByTypeChain(typeCard);
+        } = props;
         const { cajaTemaConfig } = getProperties(arcSite);
         this.configs = getChainConfig(featureId, renderables, cajaTemaConfig);
         const imageConfig = this.configs && this.configs.imageConfig;
+        const typeCard = variant || 'default';
+        const sourceInclude = getFieldsArticlesByTypeChain(typeCard);
 
         this.props = validatePropsFeatures(props, this.configs);
 
