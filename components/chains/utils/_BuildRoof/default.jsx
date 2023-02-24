@@ -3,28 +3,29 @@ import React from 'react';
 import { Roof } from '@ln/contenidos-ui-roof';
 import PropTypes from 'prop-types';
 import validateRoof from './_helper/validateRoof';
-import useGetLinks from './_helper/useGetLinks';
-import useGetLogo from './_helper/useGetLogo';
 import setRender from '../setRender';
-import '../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import hasDataRoof from './_helper/hasDataRoof';
+import { VERTICALS } from '../common/_helpers-WebApi';
+import '../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 
 export default function BuildRoof(props) {
     const {
         title,
         titleLink,
+        logo,
         logoId,
         buttonText,
         linkButton,
         buttonStyle,
-        chainStyle,
+        chainStyle: chainStyleUncheked,
         hideRoof,
+        links,
         navigationId,
         isAdmin
     } = props;
 
-    const logo = useGetLogo(logoId, title);
-    const links = useGetLinks({ navigationSection: navigationId });
+    const chainStyle =
+        !VERTICALS.includes(chainStyleUncheked) && chainStyleUncheked;
 
     const error = validateRoof({
         chainStyle,
@@ -42,14 +43,16 @@ export default function BuildRoof(props) {
         logo,
         href: titleLink,
         text: !logo && title,
-        title
+        title,
+        'roof-group': 'left'
     };
 
     const propsRight = hasDataRoof({ chainStyle }) && {
         navData: links,
         buttonType: buttonStyle || 'generico',
         textButton: buttonText,
-        hrefButton: linkButton
+        hrefButton: linkButton,
+        'roof-group': 'right'
     };
 
     return setRender({
@@ -60,6 +63,7 @@ export default function BuildRoof(props) {
             isEmpty: hideRoof && <></>,
             default: !hideRoof && (
                 <Roof
+                    roof-container="roof-container"
                     roofType={
                         (chainStyle && chainStyle.toLowerCase()) || 'generic'
                     }
@@ -75,7 +79,7 @@ export default function BuildRoof(props) {
 BuildRoof.propTypes = {
     hideRoof: PropTypes.bool,
     title: PropTypes.string.isRequired,
-    titleLink: PropTypes.string.isRequired,
+    titleLink: PropTypes.string,
     logoId: PropTypes.string,
     buttonText: PropTypes.string,
     linkButton: PropTypes.string,
@@ -88,6 +92,7 @@ BuildRoof.propTypes = {
 BuildRoof.defaultProps = {
     hideRoof: false,
     logoId: '',
+    titleLink: '',
     buttonText: '',
     linkButton: '',
     buttonStyle: '',

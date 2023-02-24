@@ -80,10 +80,13 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
   </div>
   <script>
     
-            window.addEventListener('DOMContentLoaded', () =&gt; {
-                document.getElementById('closeAdvance').onclick = function() {
-                    this.parentNode && this.parentNode.parentNode && this.parentNode.parentNode.classList.add('--close')
-                };
+            window.addEventListener('load', () =&gt; {
+                const buttonCloseAdvance = document.getElementById('closeAdvance');
+                if (buttonCloseAdvance) {
+                    buttonCloseAdvance.onclick = function() {
+                        this.parentNode && this.parentNode.parentNode && this.parentNode.parentNode.classList.add('--close')
+                    };
+                } 
             });
             
   </script>

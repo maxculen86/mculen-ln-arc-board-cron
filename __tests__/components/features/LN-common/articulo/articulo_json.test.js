@@ -103,11 +103,11 @@ describe('components - features - LN-common - articulo - json.js', () => {
                 [
                     'authors',
                     'chapita',
+                    'html',
                     'image',
                     'lead',
                     'noteId',
                     'opinion',
-                    'html',
                     'title',
                     'video'
                 ].sort()

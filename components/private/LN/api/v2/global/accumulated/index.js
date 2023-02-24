@@ -66,6 +66,9 @@ const index = acuData => {
     if (acuData.configuration) {
         resp.configuracion = Configuration(acuData.configuration);
     }
+    if (acuData.slug) {
+        resp.slug = acuData.slug;
+    }
     return [removeEmptyItems(resp)];
 };
 export default index;

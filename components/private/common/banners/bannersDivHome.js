@@ -4,6 +4,15 @@ import DivBannerSSR from './DivBannerSSR';
 const megalateralSticky = '--megalateral --sticky';
 
 const bannersHome = {
+    megatopDsk: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'megatop_dsk',
+                classes: '--megatop',
+                isStatic: true
+            }}
+        />
+    ),
     cabezal: (
         <>
             <div className="container --ads">

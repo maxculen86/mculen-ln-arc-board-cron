@@ -41,3 +41,9 @@ export const isSubtypeWithAmp = response => {
 export const isFotoAl100orStorytelling = subtype => {
     return subtype === FOTOAL100 || subtype === STORYTELLING;
 };
+
+export const subtypeNotesWithoutAmp = canonicalUrl => {
+    const subtypeList = ['/agencias'];
+
+    return subtypeList.some(subtype => canonicalUrl.startsWith(subtype));
+};

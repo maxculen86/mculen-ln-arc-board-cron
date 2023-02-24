@@ -2230,6 +2230,11 @@ export default {
         },
         home: {
             desktop: {
+                megatop_dsk: {
+                    slotName: `la_nacion_desktop/Home/megatop_dsk`,
+                    dimensions: [[1360, 250]],
+                    targeting: targetingHome
+                },
                 '1x1_dsk': {
                     slotName: `la_nacion_desktop/Home/1x1_dsk`,
                     dimensions: [[1, 1]],
