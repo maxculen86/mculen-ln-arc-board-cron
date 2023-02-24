@@ -46,12 +46,6 @@ const transformArticles = (cantidadNotas, liftigniterArticles = []) =>
         };
     });
 
-/**
- * TODO: Por completar de tarea
- * 1. Mejorar armado de uri, version, endpoint y body como parametro de liftigniter
- * 2. Mejora de registro de click, enviar listado de items
- */
-
 const fetch = query => {
     const {
         referrer = SITE_LANACION,
@@ -333,11 +327,6 @@ const transform = (data, siteProps) => {
         };
     });
 };
-
-/**
- * TODO: Por completar de tarea
- * 3. Confirmar el ttl
- */
 
 export default {
     fetch,
