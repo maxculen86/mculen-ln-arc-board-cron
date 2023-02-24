@@ -69,7 +69,6 @@ const LNHome = props => {
     } = acumuladoColor;
     const amp = outputType === 'amp' ? 'amp' : '';
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
-    // TODO: agregar todas las validaciones de acu color
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
     const HEADER_BACKGROUND = headerDark === 'true' ? ' --transparent' : '';
     const idCollectionApertura = get(

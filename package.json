@@ -59,6 +59,7 @@
         "@ln/contenidos-ui-roof": "0.0.1-beta.13",
         "@ln/contenidos-ui-sass": "0.1.1-beta.4",
         "@ln/contenidos-ui-text": "0.0.2-beta.5",
+        "@ln/contenidos-ui-banners": "0.0.1-beta.1",
         "copyfiles": "^2.4.1",
         "lazy-child": "0.3.1",
         "node-html-parser": "1.2.14",

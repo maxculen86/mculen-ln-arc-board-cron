@@ -12,7 +12,7 @@ import { getMarkupForDatalayer } from '../../private/LN/common/utils/cajaTemasHe
 import getDataChainCollection from '../utils/getDataChainCollection';
 import checkChildInSection from '../utils/checkChildBySection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
-import { validateChain, getBreakingChildren } from './_helper';
+import { validateChain, getBreakingChildren } from './common/_helper-WebApi';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
 import diagramationRules from '../../private/common/utils/diagramationRules';
 import setRender from '../utils/setRender';

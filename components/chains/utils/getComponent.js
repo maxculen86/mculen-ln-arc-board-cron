@@ -6,7 +6,7 @@ import { Cajaafondo } from '@ln/contenidos-ui-cajaafondo';
 const getComponent = (chainStyle, layout) => {
     const options = {
         cajaContent1: Contentlab,
-        HashTag: Cajahashtag,
+        Hashtag: Cajahashtag,
         bnFondo: Cajaafondo,
         default: Bngrid
     };

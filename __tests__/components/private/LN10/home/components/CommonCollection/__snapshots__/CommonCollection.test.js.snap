@@ -4,6 +4,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
 <div>
   <div
     class="ln-roof --generic"
+    roof-container="roof-container"
   >
     <div
       class="--ln-roof-full --d-flex --jc-between --pt-md"
@@ -13,6 +14,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
       >
         <div
           class="--d-flex --ai-center --uppercase"
+          roof-group="left"
         >
           <span
             class="text ln-text --roof-title"
@@ -24,13 +26,14 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
       </div>
       <div
         class="--ln-roof-right --d-flex --ai-center --generico"
+        roof-group="right"
       >
         
       </div>
     </div>
   </div>
   <div
-    class="ln-bngrid"
+    class="ln-bngrid --bn-4-8"
   >
     <div
       class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
@@ -408,6 +411,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
 <div>
   <div
     class="ln-roof --hashtag"
+    roof-container="roof-container"
   >
     <div
       class="--ln-roof-full --d-flex --jc-between --pt-md"

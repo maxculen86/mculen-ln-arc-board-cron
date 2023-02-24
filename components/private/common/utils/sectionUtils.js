@@ -1,31 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-import get from './get';
-
-// TODO: Revisar si actualmente la función getSectionStyle está en uso
-export const getSectionStyle = sections => {
-    const logoSection =
-        sections &&
-        sections.find(x => {
-            return get(
-                x,
-                'additional_properties.original.style.section_style_name'
-            );
-        });
-    let sectionClass;
-    let sectionPath;
-    if (logoSection) {
-        sectionClass = get(
-            logoSection,
-            'additional_properties.original.style.section_style_name',
-            null
-        );
-        sectionPath = logoSection.path;
-    }
-    return {
-        class: `${sectionClass || ''}`,
-        path: `${sectionPath || ''}`
-    };
-};
 
 export const getFirstParentSection = section => {
     if (section) {
@@ -154,11 +127,4 @@ export const formatText = (str = '') => {
         .toLowerCase()
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '');
-};
-
-export default {
-    getSectionStyle,
-    getFirstParentSection,
-    getSectionLogo,
-    formatText
 };
