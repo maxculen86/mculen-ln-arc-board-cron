@@ -108,10 +108,10 @@ class ArticleFeature {
                 image: articleImageRender,
                 video: articleVideoRender,
                 layout,
-                imageIdRender,
-                videoIdRender,
+                imageId: imageIdRender,
+                videoId: videoIdRender,
                 config,
-                variantRender,
+                variant: variantRender,
                 variantsDisabled,
                 isBomba
             });

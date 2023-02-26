@@ -29,12 +29,17 @@ class CajaManual extends GetCajaManual {
     render() {
         try {
             const { containerImage } = this.state || {};
-            const { children } = this.props;
+            const { children, customFields: { layout = '' } = {} } = this.props;
             if (!validateChildrensApi(children)) {
                 return null;
             }
             const error = this.validate(this.props);
             if (error) {
+                console.warn(
+                    `${layout} - ${
+                        typeof error === 'object' ? JSON.stringify(error) : ''
+                    }`
+                );
                 return null;
             }
             if (

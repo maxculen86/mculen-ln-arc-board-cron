@@ -1,7 +1,12 @@
 export const customFieldsRulesByDiagramations = {
     'center-focal': {
         T1: {
-            exclude: ['video']
+            exclude: ['video'],
+            variants: {
+                author: {
+                    exclude: ['video']
+                }
+            }
         }
     }
 };

@@ -22,9 +22,9 @@ const validatePropsRenderBasic = (
     if (hideAuthors) {
         const {
             credits,
-            ...newArticleSourceNotaRender
+            ...articleSourceNotaWithoutCredits
         } = articleSourceNotaRender;
-        articleSourceNotaRender = newArticleSourceNotaRender;
+        articleSourceNotaRender = articleSourceNotaWithoutCredits;
         propsRender.customFields.authors = null;
         propsRender.customFields.variant = 'regular';
     }
@@ -64,9 +64,14 @@ export const validatePropsRender = (
 
     const { customFields = {} } = propsRender;
     const { variant = 'regular' } = customFields;
-
+    const isVariantsDisabled =
+        (configs &&
+            configs.config &&
+            Array.isArray(configs.config.variantsDisabled) &&
+            configs.config.variantsDisabled.includes(variant)) ||
+        false;
     // If card is variant author, if there are more than two authors it becomes regular
-    if (variant === 'author') {
+    if (variant === 'author' && !isVariantsDisabled) {
         if (get(articleSourceNota, 'credits.by', []).length === 1) {
             propsRender.customFields.imageId = null;
             propsRender.customFields.video = null;

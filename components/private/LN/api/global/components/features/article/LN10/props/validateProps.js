@@ -24,8 +24,8 @@ const validateRules = (rules, props, configs) => {
 
 const validatePropsBasic = (props, configs) => {
     const newProps = props;
-    if (get(props, 'customFields.hideAuthors', false)) {
-        newProps.customFields.authors = null;
+    if (get(props, 'customFields.hideImage', false)) {
+        newProps.customFields.imageId = null;
     }
     return newProps;
 };
