@@ -369,6 +369,9 @@ export default `
                 resized_urls {
                     ${imageResizedUrl}
                 }
+                auth {
+                    1
+                }
             }
             additional_properties {
                 original {
