@@ -1,6 +1,7 @@
 import { SITE_LANACION } from 'fusion:environment';
 import pages from './utils/pageSource/index';
 import get from '../../components/private/common/utils/get';
+import transformBitacorav1 from './utils/pageSource/pageHome/v1/bitacora/transform';
 import transformv1 from './utils/pageSource/pageHome/v1/mobile/transform';
 import transformv2 from './utils/pageSource/pageHome/v2/mobile/transform';
 import homev1 from '../../components/private/LN/api/v1/mobile/home';
@@ -9,28 +10,45 @@ import homev2 from '../../components/private/LN/api/v2/mobile/home';
 // Run with url http://172.17.0.1/api/mobile/v1/home/1/?_website=la-nacion-ar&outputType=json
 const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
-    const aliasPages = {
-        home: '/homepage-LN10',
-        homeLN: '/homepage',
-        sports: '/deportes'
-    };
-
-    const pageTransform = {
-        1: transformv1,
-        2: transformv2
-    };
-
-    const homeTransform = {
-        1: homev1,
-        2: homev2
+    const configPages = {
+        home: {
+            layout: '/homepage-LN10',
+            transformPage: { 1: transformv1, 2: transformv2 },
+            transformHome: { 1: homev1, 2: homev2 }
+        },
+        bitacora: {
+            layout: '/homepage-LN10',
+            transformPage: { 1: transformBitacorav1 }
+        },
+        homeLN: {
+            layout: '/homepage',
+            transformPage: { 1: transformv1, 2: transformv2 },
+            transformHome: { 1: homev1, 2: homev2 }
+        },
+        sports: {
+            layout: '/deportes',
+            transformPage: { 1: transformv1, 2: transformv2 },
+            transformHome: { 1: homev1, 2: homev2 }
+        },
+        default: {
+            transformPage: { 1: transformv1, 2: transformv2 },
+            transformHome: { 1: homev1, 2: homev2 }
+        }
     };
 
     try {
         let ticksCache = get(query, 'ticks', null);
         const version = get(query, 'versionUri', 1);
         const alias = get(query, 'namePage', 'home');
-        const aliasPage =
-            aliasPages[alias] == null ? '/'.concat(alias) : aliasPages[alias];
+        let configItemPage = configPages[alias];
+
+        if (!configItemPage) {
+            configItemPage = configPages.default;
+            configItemPage.layout = '/'.concat(alias);
+        }
+
+        const aliasPage = configItemPage.layout;
+
         ticksCache = ticksCache === null ? '' : ticksCache.replace('/', '');
         const prefixTicksCache =
             ticksCache === '' ? '' : '_'.concat(ticksCache);
@@ -61,17 +79,30 @@ const fetch = async (query, { cachedCall } = {}) => {
         queryParams.information = information;
         // Para revisar la data transformada que viene del Layout
         // return resultPage;
+        if (
+            !configItemPage.transformPage ||
+            !configItemPage.transformPage[version]
+        ) {
+            return resultPage;
+        }
 
-        const resultPageTransform = await pageTransform[version](
+        const resultPageTransform = await configItemPage.transformPage[version](
             resultPage,
             queryParams
         );
         // Para revisar la data formateada con la informacion de todas la secciones
         // return resultPageTransform;
 
+        if (
+            !configItemPage.transformHome ||
+            !configItemPage.transformHome[version]
+        ) {
+            return resultPageTransform;
+        }
+
         // Para ver el resultado final de la home
 
-        const resultHome = homeTransform[version](
+        const resultHome = configItemPage.transformHome[version](
             resultPageTransform,
             queryParams
         );
