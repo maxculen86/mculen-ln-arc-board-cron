@@ -116,6 +116,7 @@ export default {
             props: {},
             location: ['head']
         },
+        Permutive: { props: {}, location: ['head'] },
         ScriptCripto: {
             props: {},
             location: [bodyBottom]
