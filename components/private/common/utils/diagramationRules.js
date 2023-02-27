@@ -108,6 +108,7 @@ const diagramationRules = diagramation => {
         ],
         'center-focal': [
             {
+                variantsDisabled: ['author'],
                 titleTag: 'h1',
                 subheadTag: 'h2',
                 withSection: true,
@@ -122,6 +123,7 @@ const diagramationRules = diagramation => {
                 }
             },
             {
+                variantsDisabled: ['liveblog'],
                 titleTag: 'h2',
                 cardSize: 'xl',
                 withSection: true,
@@ -199,13 +201,13 @@ const diagramationRules = diagramation => {
         horizontal: [
             {
                 variantsDisabled: ['author', 'liveblog', 'html'],
-
                 titleTag: 'h1',
                 subheadTag: 'h2',
                 withMedia: true,
                 withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: true,
+                withSection: true,
                 cardSize: '5xl',
                 aspectRatio: 'ar-picture'
             }
@@ -220,6 +222,7 @@ const diagramationRules = diagramation => {
                 withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: true,
+                withSection: true,
                 cardSize: '5xl',
                 aspectRatio: 'ar-square'
             }
@@ -576,7 +579,7 @@ const diagramationRules = diagramation => {
                 withSection: true,
                 imagePosition: {
                     mobile: 'img-top',
-                    tablet: 'img-top',
+                    tablet: 'img-left',
                     desktop: 'img-left'
                 }
             },

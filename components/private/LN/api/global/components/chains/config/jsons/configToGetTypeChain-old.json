@@ -1,0 +1,33 @@
+{
+    "hashtag": [
+        {
+            "customFields.layout": "HashTag"
+        },
+        {
+            "customFields.subtitle": "hastag"
+        }
+    ],
+    "suscriptor": [
+        {
+            "customFields.layout": "grillaSuscriptor",
+            "customFields.hideTitle": false
+        },
+        {
+            "customFields.title": "suscriptor",
+            "customFields.hideTitle": false
+        },
+        {
+            "customFields.subtitle": "suscriptor"
+        }
+    ],
+    "propiedades": [
+        {
+            "customFields.layout": "grilla4"
+        }
+    ],
+    "comercial": [
+        {
+            "customFields.layout": "cajaContent1"
+        }
+    ]
+}

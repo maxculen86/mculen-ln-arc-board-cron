@@ -1,9 +1,9 @@
-import configTypeChainV0 from './jsons/v0/configToGetTypeChain.json';
-import configTypeChainV1 from './jsons/v1/configToGetTypeChain.json';
+import configTypeChainLN from './jsons/configToGetTypeChainLN.json';
+import configTypeChainLN10 from './jsons/configToGetTypeChainLN10.json';
 
 export const configTypeChain = {
-    v0: configTypeChainV0,
-    v1: configTypeChainV1
+    LN: configTypeChainLN,
+    LN10: configTypeChainLN10
 };
 
 export default configTypeChain;

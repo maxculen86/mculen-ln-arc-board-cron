@@ -65,8 +65,8 @@ class EnVivo {
                         return {
                             ...x,
                             additionalProperties: {
-                                variant: 'liveblog',
-                                titleVivo:
+                                variant: 'liveblogEnVivo',
+                                title:
                                     this.notes &&
                                     x &&
                                     // eslint-disable-next-line no-underscore-dangle

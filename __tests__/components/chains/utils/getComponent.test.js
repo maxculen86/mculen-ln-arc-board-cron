@@ -11,7 +11,7 @@ describe('Components - Utils - getComponent', () => {
         expect(Component).toEqual(Contentlab);
     });
     it('should return ContentLab component', () => {
-        const Component = getComponent('HashTag');
+        const Component = getComponent('Hashtag');
 
         expect(Component).toBeTruthy();
         expect(Component).toEqual(Cajahashtag);

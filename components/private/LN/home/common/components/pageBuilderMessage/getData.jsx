@@ -8,7 +8,6 @@ getClass.propTypes = {
     type: PropTypes.string.isRequired
 };
 
-// TODO: Acá se deberá retornar el título que corresponde agregar según el tipo del mensaje
 export const getTitle = type => {
     switch (type) {
         case 'danger':

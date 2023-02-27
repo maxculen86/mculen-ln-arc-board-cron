@@ -115,7 +115,7 @@ export const handlePlaybackRate = (
     eventHandler({
         activeWindow: window,
         action: `x${playSpeed}`,
-        eventLabel: 'adelantar_10'
+        eventLabel: `velocidad_${playSpeed}`
     });
     if (audioPlayer.current.playbackRate > 2) {
         audioPlayer.current.playbackRate = 1;

@@ -1,6 +1,16 @@
 import get from '../../../../../common/utils/get';
 import { moveElementByPosition } from '../common/utils/moveElements';
 
+// Set field diseno of config Diagramation and validate many fields
+const setDiagramationInArticle = (configDiagramation, additionalProperties) => {
+    const configDiagramationValidate = configDiagramation;
+    const { variant = 'regular' } = additionalProperties;
+
+    if (['author', 'liveblogEnVivo'].includes(variant)) {
+        configDiagramationValidate.imagePosition = null;
+    }
+    return configDiagramationValidate;
+};
 // Get configs Diagramations
 const configsDiagramationFromInformation = (
     box,
@@ -79,7 +89,10 @@ const setInformationInArticle = (
         additionalProperties: {
             ...get(article, 'additionalProperties', null),
             originPosition: nameIndexforDiagrmation,
-            diseno: configDiagramationChild,
+            diseno: setDiagramationInArticle(
+                configDiagramationChild,
+                get(article, 'additionalProperties', {})
+            ),
             nameFeature: childrenArticle && childrenArticle.type,
             idRender: get(childrenArticle, 'props.id', null)
         }
@@ -146,22 +159,7 @@ const addPropertiesByLayout = (
                 sectionChildrenItem.collection === 'chains'
             ) {
                 const informationChain = get(e, 'information', null);
-                /*    let configDiagramation = null;
-                let configMoveArticlesbyDiagramation = null;
-                
-                //  Get the diagramation according to the layout of the box
-                if (informationChain) {
-                    configDiagramation = get(
-                        diagramations,
-                        informationChain.layout,
-                        null
-                    );
-                    configMoveArticlesbyDiagramation =
-                        positionsArticlesbyDiagramation &&
-                        positionsArticlesbyDiagramation[
-                            informationChain.layout
-                        ];
-                } */
+
                 const {
                     configDiagramation,
                     configMoveArticlesbyDiagramation
@@ -188,31 +186,6 @@ const addPropertiesByLayout = (
                             diagramations,
                             positionsArticlesbyDiagramation
                         )
-                    /*  moveElementByPosition(
-                            e.articles.map((a, index) => {
-                                // Add properties of the chain's children such as layouts and important fields
-                                const childrenArticle =
-                                    sectionChildrenItem.children[index];
-                                const nameIndexforDiagrmation = 'T'.concat(
-                                    (index + 1).toString()
-                                );
-
-                                // Matches the diagrmation of the article or child
-                                const configDiagramationChild =
-                                    configDiagramation &&
-                                    configDiagramation[nameIndexforDiagrmation];
-
-                                return setInformationInArticle(
-                                    a,
-                                    childrenArticle,
-                                    sectionChildrenItem,
-                                    configDiagramationChild,
-                                    nameIndexforDiagrmation
-                                );
-                            }),
-                            configMoveArticlesbyDiagramation,
-                            'additionalProperties.originPosition'
-                        ) */
                 };
             }
             if (

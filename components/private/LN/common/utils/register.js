@@ -9,7 +9,6 @@ const { getCookie, setCookie } = handleCookie();
 let messaging = null;
 let deferredPrompt;
 
-// TODO: refactor de todo este archivo o_O
 const apiNotification = 'https://notificaciones.lanacion.com.ar/api/';
 const topicName = 'Alertas_LA_NACION'; // 'pwatemp';
 const notificationModal = '#notificacion-modal';
@@ -70,7 +69,6 @@ const savePwaInLocalStorage = () => {
 const register = deployment => {
     const notificationModalPwa = '#notificacion-modal-pwa';
     return new Promise((resolve, reject) => {
-        // TODO: pasar beforeinstallprompt a sw?
         window.addEventListener('beforeinstallprompt', e => {
             console.log('SW: app beforeinstallprompt Event fired', e);
             e.preventDefault();

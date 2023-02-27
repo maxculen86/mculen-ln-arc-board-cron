@@ -1,12 +1,30 @@
 const boxPositionLN10Main = [
     {
-        id: 801,
+        id: 402,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'bottom'
     },
     {
-        id: 802,
+        id: 403,
+        type: 1,
+        sectionAliasMobile: 'Banner',
+        position: 'start'
+    },
+    {
+        id: 404,
+        type: 1,
+        sectionAliasMobile: 'Banner',
+        position: 'bottom'
+    },
+    {
+        id: 405,
+        type: 1,
+        sectionAliasMobile: 'Banner',
+        position: 'start'
+    },
+    {
+        id: 406,
         type: 1,
         sectionAliasMobile: 'Banner',
         position: 'start'

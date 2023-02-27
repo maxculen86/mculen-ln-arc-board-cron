@@ -1,8 +1,8 @@
 import Consumer from 'fusion:consumer';
 import get from '../../../private/common/utils/get';
 import sectionsFormated from '../../../private/common/utils/sectionsFormated';
-import resultArticle from '../../../private/LN/api/global/components/features/article/LN/index';
-import respChain from '../../../private/LN/api/global/components/chains/respChildrens/index';
+import { renderProps } from '../../../private/LN/api/global/components/features/article/LN/renderProps';
+import respChain from '../../../private/LN/api/global/components/chains/common/respChildrens/index';
 
 class Timeline {
     constructor(props) {
@@ -109,7 +109,7 @@ class Timeline {
                                 title: null
                             }
                         };
-                        const element = resultArticle(
+                        const element = renderProps(
                             elem,
                             null,
                             null,

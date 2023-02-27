@@ -1,7 +1,6 @@
 import React from 'react';
 import HeaderSection from '../../../common/mod-headerSection';
 
-// TODO. reutilizar componente masNotas que ya tenemos en recetas. Este componente se agrega desde PageBuilder. NO lo llama el componente cuerpo
 export default function masNotas() {
     return (
         <div className="keep-reading">

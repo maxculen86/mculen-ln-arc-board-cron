@@ -16,8 +16,7 @@ import outputDetailTemplate from '../../../../../__mocks__/data/weather/outputWe
 // Helper functions
 import {
     validateMaxTemperature,
-    validateMinTemperature,
-    isValidNumber
+    validateMinTemperature
 } from '../../../../../content/sources/utils/servicesSource/weather/weatherHelper';
 
 const mockResponse = Promise.resolve(mockHome);
@@ -147,12 +146,6 @@ describe('Tests getTemplates function', () => {
 });
 
 describe('Testing validate util helpers for weather', () => {
-    it('isValidNumber must check for numeric values', () => {
-        expect(isValidNumber(undefined)).toBe(false);
-        expect(isValidNumber('22')).toBe(false);
-        expect(isValidNumber(22)).toBe(true);
-        expect(isValidNumber(66.6)).toBe(true);
-    });
     it('ValidateMaxTemperature should return the correct values', () => {
         expect(validateMaxTemperature(15, 25.4)).toBe(26);
         expect(validateMaxTemperature(15, 14)).toBe(15);

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
@@ -7,19 +8,27 @@ import Header from '../../private/LN10/header';
 import Footer from '../../private/LN/common/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBanners from '../../private/common/banners/LoadBanners';
-import { bannersViewport } from '../../private/common/banners/bannersHome.json';
+import { bannersViewport } from '../../private/common/banners/bannersHomeLN10.json';
 import Metarefresh from '../../features/LN-common/metarefresh';
 import sectionHelper from '../../private/LN/common/utils/sectionHelperLN10';
 import pageBuilderSections from '../config/LN10-PageBuilder.config.json';
-import { getScriptForComercial } from '../../private/common/banners/bannersRules';
+import {
+    getScriptForComercial,
+    getStickyBanner
+} from '../../private/common/banners/bannersRules';
 import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
-import { productClickFromServer } from '../../private/common/utils/viewability';
+import {
+    createViewabilityObservers,
+    productClickFromServer
+} from '../../private/common/utils/viewability';
 import createBannersIntersectionObserver from '../../private/common/banners/createBannersIntersectionObserver';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
 import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
+import '../../../resources/packages/css/@ln/contenidos-ui-banners/index.css';
 import Ranking from '../../features/LN-10/ranking/default';
+import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
 
 const LN10Home = props => {
     const { children, outputType, isAdmin, renderables } = props;
@@ -48,7 +57,7 @@ const LN10Home = props => {
     });
 
     useEffect(() => {
-        // createViewabilityObservers();
+        createViewabilityObservers(true);
         createBannersIntersectionObserver();
     }, []);
 
@@ -60,6 +69,11 @@ const LN10Home = props => {
             {bannersHome.comercialMob}
             {getScriptForComercial('comercial_mob')}
             <div id="wrapper" className="home">
+                {bannersHome.megatopDsk}
+                {getStickyBanner(
+                    '.ln-banner-container.--megatop_dsk.--megatop',
+                    'div[data-section="pre-apertura"]'
+                )}
                 <div data-section="cabezal">{cabezal}</div>
                 <Header />
                 <div data-section="pre-apertura">{preApertura}</div>
@@ -139,6 +153,7 @@ const LN10Home = props => {
             <LoadBanners blocksBanners={bannersViewport} />
             <Metarefresh />
             <PwaModals />
+            <RoofEventsScript />
             {productClickFromServer()}
         </GlobalProvider>
     );

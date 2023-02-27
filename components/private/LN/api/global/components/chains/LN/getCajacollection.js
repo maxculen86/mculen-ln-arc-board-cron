@@ -6,16 +6,16 @@ import {
 } from '../../../../../common/utils/cajaTemasValidators';
 import get from '../../../../../../common/utils/get';
 import filter from '../../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
-import { getFieldsArticlesByTypeChain } from '../../features/article/utils/helpers';
-import { validatePropsChains } from '../utils/validatePropsChains';
+import { articleSourceNotaSourceInclude } from '../../features/article/common/sources/articleSourceNotaSourceInclude';
+import { validatePropsChains } from '../common/props/validatePropsChains';
 
 class GetCajaCollection {
     constructor(props, typeChain) {
-        this.props = validatePropsChains(props, typeChain, 'v0');
+        this.props = validatePropsChains(props, typeChain, 'LN');
         this.state = {};
 
         const query = this.getQueryElement(this.props);
-        const sourceInclude = getFieldsArticlesByTypeChain(
+        const sourceInclude = articleSourceNotaSourceInclude(
             this.props.typeChain
         );
 

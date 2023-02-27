@@ -1,5 +1,4 @@
 import Consumer from 'fusion:consumer';
-import get from '../../private/common/utils/get';
 import GetCajaManual from '../../private/LN/api/global/components/chains/LN/getCajaManual';
 import { validateChildrensApi } from '../../private/LN/api/global/components/common/utils/_helpers';
 

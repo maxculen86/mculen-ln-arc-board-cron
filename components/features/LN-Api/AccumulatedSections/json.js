@@ -115,7 +115,6 @@ class AccumulatedSections {
             ) {
                 return null;
             }
-
             let title = get(
                 this.props.globalContent,
                 'acumuladoGeneral.hierarchy_navigation',
@@ -123,6 +122,7 @@ class AccumulatedSections {
             );
             if (title == null) title = name;
             const acuData = {
+                slug: get(this.props.globalContent, '_id'),
                 tipoAcumulado: 1,
                 name: title,
                 articles: acuArticlesSourceSection.content_elements,

@@ -1,10 +1,10 @@
 import get from '../../../../../../common/utils/get';
-import { validatePropsChains } from '../utils/validatePropsChains';
-import respChain from '../respChildrens/index';
+import { validatePropsChains } from '../common/props/validatePropsChains';
+import respChain from '../common/respChildrens/index';
 
 class GetCajaManual {
     constructor(props, typeChain) {
-        this.props = validatePropsChains(props, typeChain, 'v0');
+        this.props = validatePropsChains(props, typeChain, 'LN');
         this.state = {};
 
         const imageId = get(this.props, 'customFields.imageId', '');
