@@ -1,7 +1,9 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import getProperties from 'fusion:properties';
 import ArticleAcum from '../../acumulado/articleAcum';
+import siteConfig from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 
 const FocalFactory = ({
@@ -10,8 +12,10 @@ const FocalFactory = ({
     _children,
     outputType,
     boxPosition,
-    handleClick
+    handleClick,
+    pageLayout
 }) => {
+    const { layoutsName } = siteConfig;
     const articleList =
         (_children && _children.length && _children) ||
         (articles && articles.length && articles) ||
@@ -42,7 +46,12 @@ const FocalFactory = ({
                         artPosition={`0${index + 1}`}
                         boxPosition={boxPosition}
                         handleClick={handleClick}
-                        {...(articleProps || {})}
+                        {...({
+                            articleProps,
+                            ...(pageLayout === layoutsName.Home && {
+                                isApertura: false
+                            })
+                        } || {})}
                     />
                 )
             );

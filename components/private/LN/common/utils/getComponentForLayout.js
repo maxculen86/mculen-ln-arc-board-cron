@@ -37,7 +37,8 @@ const getComponentForLayout = (layoutName, props) => {
             outputType,
             position,
             _children,
-            handleClick
+            handleClick,
+            pageLayout
         }) => {
             return (
                 <FocalFactory
@@ -47,6 +48,7 @@ const getComponentForLayout = (layoutName, props) => {
                     boxPosition={position}
                     _children={_children}
                     handleClick={handleClick}
+                    pageLayout={pageLayout}
                 />
             );
         },
