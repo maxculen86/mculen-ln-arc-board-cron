@@ -2,10 +2,11 @@ import { CardBasic } from '../../../../../common/article/cardBasic/index';
 import { CardRegular } from '../cardRegular';
 
 export const CardAuthor = article => {
-    if (CardBasic(article).autores.length > 2) {
+    const cardBasic = CardBasic(article);
+    if (cardBasic && cardBasic.autores && cardBasic.autores.length > 2) {
         return CardRegular(article);
     }
-    return CardBasic(article);
+    return cardBasic;
 };
 
 export default CardAuthor;
