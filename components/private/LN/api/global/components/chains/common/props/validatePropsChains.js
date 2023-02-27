@@ -1,6 +1,6 @@
-import get from '../../../../../../common/utils/get';
-import { configTypeChain } from '../config/configTypeChain';
-import { configPropsByTypeChain } from '../config/configPropsByTypeChain';
+import get from '../../../../../../../common/utils/get';
+import { configTypeChain } from '../../config/configTypeChain';
+import { configPropsByTypeChain } from '../../config/configPropsByTypeChain';
 
 export const findTypeChain = (props, typeChain, version) => {
     let keyTypeChainFinded = null;

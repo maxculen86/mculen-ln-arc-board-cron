@@ -2,7 +2,7 @@ import Consumer from 'fusion:consumer';
 import get from '../../../private/common/utils/get';
 import sectionsFormated from '../../../private/common/utils/sectionsFormated';
 import { renderProps } from '../../../private/LN/api/global/components/features/article/LN/renderProps';
-import respChain from '../../../private/LN/api/global/components/chains/respChildrens/index';
+import respChain from '../../../private/LN/api/global/components/chains/common/respChildrens/index';
 
 class Timeline {
     constructor(props) {

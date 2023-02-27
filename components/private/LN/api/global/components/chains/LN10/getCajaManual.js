@@ -1,6 +1,6 @@
 import get from '../../../../../../common/utils/get';
-import { validatePropsChains } from '../utils/validatePropsChains';
-import respChain from '../respChildrens/index';
+import { validatePropsChains } from '../common/props/validatePropsChains';
+import respChain from '../common/respChildrens/index';
 
 class GetCajaManual {
     constructor(props, typeChain) {

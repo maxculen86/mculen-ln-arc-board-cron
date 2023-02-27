@@ -6,7 +6,7 @@ import {
 import get from '../../../../../../common/utils/get';
 import filter from '../../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
 import { articleSourceNotaSourceInclude } from '../../features/article/common/sources/articleSourceNotaSourceInclude';
-import { validatePropsChains } from '../utils/validatePropsChains';
+import { validatePropsChains } from '../common/props/validatePropsChains';
 import diagramationRules from '../../../../../../common/utils/diagramationRules';
 
 class GetCajaCollection {

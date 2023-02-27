@@ -1,4 +1,4 @@
-import { respChildrens } from '../config/configReponseByTypeChain';
+import { respChildrens } from '../../config/configReponseByTypeChain';
 
 const respChainByVersion = (props, version) => {
     return respChildrens[version]

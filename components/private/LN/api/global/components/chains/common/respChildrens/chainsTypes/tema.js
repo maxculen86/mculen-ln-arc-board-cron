@@ -1,4 +1,4 @@
-import get from '../../../../../../../common/utils/get';
+import get from '../../../../../../../../common/utils/get';
 
 const getSources = (children, storiesQuantity) => {
     return children.reduce((result, article) => {
