@@ -12,21 +12,21 @@ const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
     const configPages = {
         home: {
-            layout: '/homepage-LN10',
+            aliasPage: '/homepage-LN10',
             transformPage: { 1: transformv1, 2: transformv2 },
             transformHome: { 1: homev1, 2: homev2 }
         },
         bitacora: {
-            layout: '/homepage-LN10',
+            aliasPage: '/homepage-LN10',
             transformPage: { 1: transformBitacorav1 }
         },
         homeLN: {
-            layout: '/homepage',
+            aliasPage: '/homepage',
             transformPage: { 1: transformv1, 2: transformv2 },
             transformHome: { 1: homev1, 2: homev2 }
         },
         sports: {
-            layout: '/deportes',
+            aliasPage: '/deportes',
             transformPage: { 1: transformv1, 2: transformv2 },
             transformHome: { 1: homev1, 2: homev2 }
         },
@@ -44,10 +44,10 @@ const fetch = async (query, { cachedCall } = {}) => {
 
         if (!configItemPage) {
             configItemPage = configPages.default;
-            configItemPage.layout = '/'.concat(alias);
+            configItemPage.aliasPage = '/'.concat(alias);
         }
 
-        const aliasPage = configItemPage.layout;
+        const { aliasPage } = configItemPage;
 
         ticksCache = ticksCache === null ? '' : ticksCache.replace('/', '');
         const prefixTicksCache =
