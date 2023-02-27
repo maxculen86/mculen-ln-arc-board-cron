@@ -3,6 +3,7 @@ import pages from './utils/pageSource/index';
 import get from '../../components/private/common/utils/get';
 import transformv1 from './utils/pageSource/pageHome/v1/mobile/transform';
 import transformv2 from './utils/pageSource/pageHome/v2/mobile/transform';
+import transformBitacora from './utils/pageSource/pageHome/v1/bitacora/transform';
 import homev1 from '../../components/private/LN/api/v1/mobile/home';
 import homev2 from '../../components/private/LN/api/v2/mobile/home';
 
@@ -12,12 +13,18 @@ const fetch = async (query, { cachedCall } = {}) => {
     const aliasPages = {
         home: '/homepage-LN10',
         homeLN: '/homepage',
-        sports: '/deportes'
+        sports: '/deportes',
+        bitacora: '/bitacora'
     };
 
     const pageTransform = {
-        1: transformv1,
-        2: transformv2
+        mobile: {
+            1: transformv1,
+            2: transformv2
+        },
+        bitacora: {
+            1: transformBitacora
+        }
     };
 
     const homeTransform = {
