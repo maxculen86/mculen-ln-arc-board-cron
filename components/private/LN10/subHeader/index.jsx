@@ -10,14 +10,16 @@ import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-button/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-text/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
+import StaticContent from '../../common/staticContent';
 import useTermica from '../../common/hooks/useTermica';
+import SubHeaderEventsScript from '../../common/scriptManager/SubHeaderEventsScript';
 
 const SubHeaderLN = () => {
     const { data: dollar = [] } =
         useContent({
             source: 'dolarSource',
             filter: filterDollar,
-            staticMode: false
+            staticMode: true
         }) || {};
 
     const dollarValue = useTermica('dolar', dollar);
@@ -25,10 +27,13 @@ const SubHeaderLN = () => {
     const accessData = setAccessData() || [];
 
     return (
-        <SubHeader>
-            <SubHeader.Dollar data={dollarData} />
-            <SubHeader.Access data={accessData} />
-        </SubHeader>
+        <StaticContent>
+            <SubHeader>
+                <SubHeader.Dollar data={dollarData} />
+                <SubHeader.Access data={accessData} />
+            </SubHeader>
+            <SubHeaderEventsScript />
+        </StaticContent>
     );
 };
 
