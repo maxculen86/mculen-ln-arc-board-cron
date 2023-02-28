@@ -215,7 +215,6 @@ const diagramationRules = diagramation => {
         vertical: [
             {
                 variantsDisabled: ['author', 'liveblog', 'html'],
-
                 titleTag: 'h1',
                 subheadTag: 'h2',
                 withMedia: true,
@@ -230,7 +229,6 @@ const diagramationRules = diagramation => {
         bombita: [
             {
                 variantsDisabled: ['author', 'liveblog', 'html'],
-
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 withSubhead: true,
@@ -998,6 +996,22 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-none',
                     desktop: 'img-none'
+                }
+            }
+        ],
+        bnFondo: [
+            {
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: 'xl',
+                variantsDisabled: ['author', 'liveblog'],
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-left',
+                    desktop: 'img-left'
                 }
             }
         ]
