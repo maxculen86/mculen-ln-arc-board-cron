@@ -1,8 +1,7 @@
 import transformHomeAcuV1 from '../../../../../../../../../content/sources/utils/pageSource/acumulados/v1/mobile/bySection/transform';
 import transformLayout from '../../../../../../../../../components/private/LN/api/global/page/index';
-import pageHomeMain from '../../../../../../../../../__mocks__/data/pages/LN-Home_Main.json';
-import pageLnAcuEconomia from '../../../../../../../../../__mocks__/data/pages/Ln-Acumulado-Economia.json';
-import pageHomeMainTransformed from '../../../../../../../../../__mocks__/data/pages/transform/LN-Home_Main-Transformed.json';
+import pageHomeMain from '../../../../../../../../../__mocks__/data/pages/preLayout/LN-Home_Main.json';
+import pageLnAcuEconomia from '../../../../../../../../../__mocks__/data/pages/preLayout/Ln-Acumulado-Economia.json';
 import acuRevistaLiving from '../../../../../../../../../__mocks__/data/articlesAcum/revista-living.json';
 import acuEconomia from '../../../../../../../../../__mocks__/data/articlesAcum/economia.json';
 
@@ -12,7 +11,6 @@ const mockResponsePage = Promise.resolve(transformLayout(pageHomeMain));
 const mockResponsePageEconomia = Promise.resolve(
     transformLayout(pageLnAcuEconomia)
 );
-const mockResponsePageTransformed = pageHomeMainTransformed;
 
 const mockResponseAcuEconomia = Promise.resolve(acuEconomia);
 const mockResponseAcuRevistaLiving = Promise.resolve(acuRevistaLiving);
@@ -59,15 +57,6 @@ jest.mock(
         };
     }
 );
-
-/* jest.mock(
-    '../../../../../../components/private/LN/api/global/page/index.js',
-    () => {
-        return function(component) {
-            return mockResponsePageTransformed;
-        };
-    }
-); */
 
 jest.mock(
     '../../../../../../../../../components/private/common/utils/logger',

@@ -1,5 +1,5 @@
 import page from '../../../../../content/sources/utils/pageSource/index';
-import pageHomeMain from '../../../../../__mocks__/data/pages/LN-Home_Main.json';
+import pageHomeMain from '../../../../../__mocks__/data/pages/preLayout/LN-Home_Main.json';
 import 'regenerator-runtime/runtime';
 
 const mockResponse = Promise.resolve(pageHomeMain);
