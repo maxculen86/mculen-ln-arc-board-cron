@@ -190,7 +190,8 @@ const ArticleFeature = ({
         video: videoBackground,
         customFields,
         image,
-        layout
+        layout,
+        renderables
     });
 
     const typeOfMedia = getTypeOfMedia(customFields);

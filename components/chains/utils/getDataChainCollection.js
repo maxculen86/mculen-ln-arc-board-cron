@@ -19,7 +19,8 @@ const getDataChainCollection = ({
     featureId = ''
 }) => {
     const { layoutsName = {} } = siteConfig || {};
-    const isHome = pageLayout === layoutsName.Home;
+    const isHome =
+        pageLayout === layoutsName.Home || pageLayout === layoutsName.HomeLN10;
 
     const diagramation =
         (renderables.some(
