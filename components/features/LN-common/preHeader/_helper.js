@@ -1,5 +1,4 @@
 import PropTypes from 'fusion:prop-types';
-import addEventToDataLayer from '../../../private/LN/common/utils/addEventToDataLayer';
 
 export const setWeatherData = weatherValue => {
     if (!weatherValue) return null;
@@ -18,15 +17,7 @@ export const setWeatherData = weatherValue => {
         place: 'Capital Federal',
         dataEvent: 'e_linkclick',
         dataSection: 'MenuLN',
-        link: '/clima',
-        callback: e => {
-            addEventToDataLayer({
-                event: 'e_linkclick',
-                action: 'home_ln10',
-                category: 'header_clima',
-                label: 'clima'
-            });
-        }
+        link: '/clima'
     };
 };
 
@@ -59,15 +50,7 @@ export const getTopicsFromCustomFields = (customFields = {}) => {
             title: customFields[`title ${key}`],
             link: customFields[`link ${key}`],
             dataEvent: 'e_linkclick',
-            dataSection: 'MenuLN',
-            callback: e => {
-                addEventToDataLayer({
-                    event: 'e_linkclick',
-                    action: 'home_ln10',
-                    category: 'header_temas_hoy',
-                    label: customFields[`title ${key}`]
-                });
-            }
+            dataSection: 'MenuLN'
         }))
         .filter(topic => topic.title && topic.link);
 };
