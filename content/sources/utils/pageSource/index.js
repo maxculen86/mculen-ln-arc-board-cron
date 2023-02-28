@@ -3,11 +3,14 @@ import request from 'request-promise-native';
 import logger from '../../../../components/private/common/utils/logger';
 
 const resolve = query => {
-    const { rootPath, website, ticksCache } = query;
+    const { rootPath, website, ticksCache, versionDeploy } = query;
 
     const arcSite = website || 'la-nacion-ar';
+    const paramasVersionDeploy =
+        versionDeploy != null ? `&d=${versionDeploy}` : '';
     const paramsTicks = ticksCache != null ? `&ticks=${ticksCache}` : '';
-    return `${rootPath}/?_website=${arcSite}&outputType=json${paramsTicks}`;
+
+    return `${rootPath}/?_website=${arcSite}&outputType=json${paramsTicks}${paramasVersionDeploy}`;
 };
 
 const fetch = async query => {

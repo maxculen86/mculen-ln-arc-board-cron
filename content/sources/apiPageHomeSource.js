@@ -39,6 +39,7 @@ const fetch = async (query, { cachedCall } = {}) => {
     try {
         let ticksCache = get(query, 'ticks', null);
         const version = get(query, 'versionUri', 1);
+        const versionDeploy = get(query, 'versionDeploy', null);
         const alias = get(query, 'namePage', 'home');
         let configItemPage = configPages[alias];
 
@@ -64,7 +65,8 @@ const fetch = async (query, { cachedCall } = {}) => {
             rootPath: `${SITE_LANACION}${aliasPage}`,
             ticksCache,
             website,
-            isPage: true
+            isPage: true,
+            versionDeploy
         };
 
         const resultPage = await cachedCall(keyCachedCall, pages.fetch, {
@@ -124,7 +126,8 @@ export default {
         website: 'text',
         versionUri: 'text',
         namePage: 'text',
-        ticks: 'text'
+        ticks: 'text',
+        versionDeploy: 'text'
     },
     ttl: 120
 };
