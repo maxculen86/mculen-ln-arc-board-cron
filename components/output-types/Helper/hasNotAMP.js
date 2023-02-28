@@ -7,11 +7,8 @@ const hasNotAMP = (layout = '', requestUri = '') => {
     const { Home, HomeLN10, Acumulado, Deportes } = layoutsName;
     const layoutsWithoutAmp = [Home, HomeLN10, Acumulado, Deportes];
 
-    const rgx1 = /(\/.+\/)/g;
-    const rgx2 = /(\?.+)/g;
-
-    const [group1 = ''] = requestUri.match(rgx1) || [];
-    const [group2 = ''] = requestUri.match(rgx2) || [];
+    const [group1 = ''] = requestUri.match(/(\/.+\/)/g) || [];
+    const [group2 = ''] = requestUri.match(/(\?.+)/g) || [];
 
     const urlSplit = group2.split(/&|\?/g);
 
@@ -21,12 +18,12 @@ const hasNotAMP = (layout = '', requestUri = '') => {
     );
 
     const isValidArrayLength = queryFilter.length ? '?' : '';
-    const newQueryString = queryFilter.join('&');
-
-    const newUrl = `${group1}${isValidArrayLength}${newQueryString}`;
 
     if (typeof window === 'undefined' && layoutsWithoutAmp.includes(layout)) {
-        throw new Redirect(newUrl, 301);
+        throw new Redirect(
+            `${group1}${isValidArrayLength}${queryFilter.join('&')}`,
+            301
+        );
     }
 };
 
