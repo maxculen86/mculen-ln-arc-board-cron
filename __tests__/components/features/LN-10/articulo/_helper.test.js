@@ -13,14 +13,19 @@ import {
     getTypeOfMedia
 } from '../../../../../components/features/LN-10/article/_helper';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
+import {
+    renderablesWithBombaEager,
+    renderablesWithChainAperturaEager
+} from '../../../../../__mocks__/data/renderables/renderablesLN10eager.js';
 
 describe('Components - Features - LN-10 - Article - _helper', () => {
-    const getProps = ({ video, image, customFields } = {}) => {
+    const getProps = ({ video, image, customFields, renderables } = {}) => {
         return {
             article: responseArticleSourceNota,
             video,
             image,
-            customFields
+            customFields,
+            renderables
         };
     };
 
@@ -33,7 +38,9 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         const resultImageArticle = {
             alt:
                 '¿Wanda Nara o la China Suárez?: Martín Tetaz definió de qué lado está',
+            fetchPriority: 'low',
             height: 513,
+            loading: 'lazy',
             src:
                 'https://resizer.glanacion.com/resizer/YYmrDx8O3WnsLCiQC11HpsEf9J4=/309x206/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif',
             srcset:
@@ -77,6 +84,38 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 })
             ]
         ];
+
+        test('should return media data of Bomba with loading eager and fetchPriority high', () => {
+            expect(
+                getMediaData(
+                    getProps({
+                        customFields: { noteId: '2CIOHVMKJBHKDMMHH2WBIZGJWE' },
+                        renderables: renderablesWithBombaEager
+                    })
+                )
+            ).toStrictEqual({
+                ...resultImageArticle,
+                loading: 'eager',
+                fetchPriority: 'high'
+            });
+        });
+
+        test('should return media data of Manual with loading eager and fetchPriority high', () => {
+            expect(
+                getMediaData({
+                    article: {
+                        ...responseArticleSourceNota,
+                        _id: 'SUW6AQPARNCGLBDM2YOUGGC474'
+                    },
+                    customFields: { noteId: 'SUW6AQPARNCGLBDM2YOUGGC474' },
+                    renderables: renderablesWithChainAperturaEager
+                })
+            ).toStrictEqual({
+                ...resultImageArticle,
+                loading: 'eager',
+                fetchPriority: 'high'
+            });
+        });
 
         test.each(articleImageCases)('%s', (message, props) => {
             expect(getMediaData(props)).toStrictEqual(resultImageArticle);
@@ -132,7 +171,9 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             ).toStrictEqual({
                 alt:
                     '¿Wanda Nara o la China Suárez?: Martín Tetaz definió de qué lado está',
+                fetchPriority: 'low',
                 height: 513,
+                loading: 'lazy',
                 src:
                     'https://resizer.glanacion.com/resizer/Puhv2-iJdf6Y6DErcwLMgiEifCM=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg',
                 srcset:

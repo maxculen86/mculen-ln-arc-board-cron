@@ -190,8 +190,10 @@ const ArticleFeature = ({
         video: videoBackground,
         customFields,
         image,
-        layout
+        layout,
+        renderables
     });
+    console.log('🚀 ~ file: default.jsx:203 ~ mediaData:', mediaData);
 
     const typeOfMedia = getTypeOfMedia(customFields);
 

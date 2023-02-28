@@ -9,6 +9,7 @@ import diagramationRules from '../../../private/common/utils/diagramationRules';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import transformImageData from '../../../private/common/LN-10/transformImageData';
 import { getIsBomba, getChainParentOfFeature } from './common/_helper-WebApi';
+import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -192,12 +193,19 @@ export const getMediaData = ({
     article,
     video,
     image,
+    renderables = [],
     customFields = {}
 } = {}) => {
     const { video: videoId, imageId, html = '' } = customFields;
+    const { _id } = article || {};
 
     const outstandingImage = getImageDestacada(article);
-    const mediaDataDefault = transformImageData(article, outstandingImage);
+    const isEager = isImageEager(_id, renderables);
+    const mediaDataDefault = transformImageData(
+        article,
+        outstandingImage,
+        isEager
+    );
 
     const rules = [
         {
@@ -213,7 +221,8 @@ export const getMediaData = ({
             validation: imageId && image,
             data: transformImageData(
                 article,
-                get(image, promoItemsBasic, outstandingImage)
+                get(image, promoItemsBasic, outstandingImage),
+                isEager
             )
         }
     ];
