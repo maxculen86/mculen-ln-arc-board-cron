@@ -5,19 +5,32 @@ jest.mock('../../../../content/sources/utils/redirect');
 Redirect.mockReturnValue(Promise.reject());
 
 describe('Tests hasNotAMP function', () => {
-    it('Should not throw redirect for layout without AMP on clientside', () => {
-        let err;
-        const Redirect = jest.fn();
+    it('Should throw a redirect for the non-AMP layout on the client side keeping the query params', () => {
+        delete global.window;
+        try {
+            hasNotAMP(
+                'LN-acumulado',
+                '/horoscopo/?outputType=amp&variant=S&adtest=true&d=1302'
+            );
+        } catch (error) {}
+        expect(Redirect).toBeCalled();
+        expect(Redirect).toBeCalledWith('/horoscopo/?adtest=true&d=1302', 301);
+    });
+
+    it('Should throw redirect for layout without AMP on clientside', () => {
+        delete global.window;
         try {
             hasNotAMP(
                 'LN-Home_Sports',
-                '/deportes/?adstest=true&_website=la-nacion-ar&outputType=amp'
+                '/deportes/futbol/?adstest=true&outputType=amp'
             );
         } catch (error) {
-            err = error;
+            expect(Redirect).toBeCalled();
+            expect(Redirect).toBeCalledWith(
+                '/deportes/futbol/?adstest=true',
+                301
+            );
         }
-        expect(err).toBeUndefined();
-        expect(Redirect).not.toBeCalled();
     });
 
     it('Should not throw redirect for layout with AMP on clientside', () => {
@@ -40,14 +53,11 @@ describe('Tests hasNotAMP function', () => {
         try {
             hasNotAMP(
                 'LN-Home_Main',
-                '/homepage/?adstest=true&_website=la-nacion-ar&outputType=amp'
+                '/homepage/?variant=A&outputType=amp&adstest=true&d=2345'
             );
         } catch (error) {}
         expect(Redirect).toBeCalled();
-        expect(Redirect).toBeCalledWith(
-            '/homepage/?adstest=true&_website=la-nacion-ar',
-            301
-        );
+        expect(Redirect).toBeCalledWith('/homepage/?adstest=true&d=2345', 301);
     });
 
     it('Should not throw redirect for layout with AMP on serverside ', () => {
