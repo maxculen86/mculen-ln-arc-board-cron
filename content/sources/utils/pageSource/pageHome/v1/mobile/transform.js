@@ -9,12 +9,16 @@ import configToMoveBySection from '../../../../../../../components/private/LN/ap
 
 const transform = async (dataPage, query) => {
     const {
-        information: { layoutPage },
-        content_elements: elementsPage
+        information: { layoutPage } = {},
+        content_elements: elementsPage = []
     } = dataPage;
 
     try {
         let elementsPageHome = elementsPage;
+
+        if (!elementsPageHome || !layoutPage) {
+            throw new Error('Missing data Layout');
+        }
 
         // Move Sections
         const configMovePositions = configToMoveBySection(layoutPage);
@@ -25,11 +29,11 @@ const transform = async (dataPage, query) => {
             elementsPageHome,
             configToDividebyDiagramation(layoutPage)
         );
+
         // Add Banners by Section
-        elementsPageHome = setBannerByLayout[layoutPage](
-            elementsPageHome,
-            layoutPage
-        );
+        elementsPageHome =
+            setBannerByLayout[layoutPage] &&
+            setBannerByLayout[layoutPage](elementsPageHome, layoutPage);
         // Returns boxes that type not >= 9, for discard
         return (
             elementsPageHome &&

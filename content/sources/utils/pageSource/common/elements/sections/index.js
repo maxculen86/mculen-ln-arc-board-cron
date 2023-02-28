@@ -4,15 +4,18 @@ import { segmentSectionbyDiagramation } from '../../../../../../../components/pr
 // Move Sections
 export const moveSections = (elementsPage, configMovePositions) => {
     let elementsPageHome = elementsPage;
-    Object.keys(configMovePositions).forEach(sectionWeb => {
-        const configElementToMove = configMovePositions[sectionWeb];
-        elementsPageHome = moveElementsByKey(
-            configElementToMove,
-            sectionWeb,
-            'sectionWeb',
-            elementsPageHome
-        );
-    });
+
+    configMovePositions &&
+        Object.keys(configMovePositions).forEach(sectionWeb => {
+            const configElementToMove = configMovePositions[sectionWeb];
+
+            elementsPageHome = moveElementsByKey(
+                configElementToMove,
+                sectionWeb,
+                'sectionWeb',
+                elementsPageHome
+            );
+        });
     return elementsPageHome;
 };
 
@@ -23,6 +26,7 @@ export const divideSectionsByDiagramation = (
 ) => {
     let elementsPageHome = elementsPage;
     if (
+        configDivideByDiagramation &&
         elementsPageHome &&
         Array.isArray(elementsPageHome) &&
         elementsPageHome.length > 0

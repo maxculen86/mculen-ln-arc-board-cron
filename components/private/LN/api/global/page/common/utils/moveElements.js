@@ -8,20 +8,26 @@ export const moveElementsByKey = (
 ) => {
     const elementsWithIndex =
         elements &&
+        Array.isArray(elements) &&
         elements.map((el, index) => {
             return {
                 index,
                 ...el
             };
         });
-    if (configElementToMove && valueKeyFrom && keyToFind && elements) {
+    if (
+        configElementToMove &&
+        valueKeyFrom &&
+        keyToFind &&
+        elements &&
+        Array.isArray(elements)
+    ) {
         const elementsSectionFrom = elementsWithIndex.filter(
             x => x[keyToFind] === valueKeyFrom
         );
         const elementsSectionTo = elementsWithIndex.filter(
             x => x[keyToFind] === configElementToMove[keyToFind]
         );
-
 
         if (
             Array.isArray(elementsSectionFrom) &&

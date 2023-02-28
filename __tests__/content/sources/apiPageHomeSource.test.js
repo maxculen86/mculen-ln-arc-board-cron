@@ -77,16 +77,12 @@ describe('content - sources - apiPageHomeSource', () => {
         const pageLayoutMissing = LN_Home_Main_Page;
         pageLayoutMissing.information.layoutPage = 'XXXXXX';
 
-        console.error = jest.fn(a => {
-            expect(a).toContain('TypeError: Cannot convert undefined or null to object');
-        });
-
         const result = await apiPageHomeSource.fetch(query, {
             cachedCall: jest
                 .fn()
                 .mockReturnValue(Promise.resolve(pageLayoutMissing))
         });
-        expect(result).toEqual(null);
+        expect(result).toEqual({});
     });
 
     test('when result page is null', async () => {
