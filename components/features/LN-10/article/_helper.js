@@ -11,19 +11,6 @@ import transformImageData from '../../../private/common/LN-10/transformImageData
 import setClassName from '../../../private/common/utils/setClassName';
 import { getIsBomba, getChainParentOfFeature } from './common/_helper-WebApi';
 import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
-import {
-    POSITIVE,
-    NEGATIVE,
-    LIVE,
-    EXCLUSIVE_LN
-} from '../../../private/common/badge/types';
-
-export const typeBadge = {
-    0: POSITIVE,
-    1: NEGATIVE,
-    2: LIVE,
-    3: EXCLUSIVE_LN
-};
 
 export const typeMedia = {
     IMAGE: 'image',
