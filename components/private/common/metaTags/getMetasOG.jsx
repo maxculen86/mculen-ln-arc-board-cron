@@ -18,11 +18,8 @@ const getMetasOG = props => {
         requestUri,
         metaValue,
         subtype,
-        layout,
-        globalContent = {}
+        layout
     } = props;
-
-    const { headlines: { basic: basicHeadline } = {} } = globalContent;
 
     const data = getData(props);
     const metaTitleFromPB =
@@ -79,17 +76,13 @@ const getMetasOG = props => {
             content: data.publishDate
         });
     }
-    if (['home', 'nota', 'acumulado'].includes(section)) {
+    if (
+        ['home', 'nota', 'acumulado'].includes(section) ||
+        (arcSite === 'ott' && layout === 'OTT-ficha')
+    ) {
         metas.push({
             property: 'og:site_name',
             content: siteProperties.title
-        });
-    }
-
-    if (arcSite === 'ott' && layout === 'OTT-ficha') {
-        metas.push({
-            property: 'og:site_name',
-            content: basicHeadline
         });
     }
     return metas;
