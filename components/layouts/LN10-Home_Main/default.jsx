@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import Header from '../../private/LN10/header';
-import Footer from '../../private/LN/common/footer';
+import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBanners from '../../private/common/banners/LoadBanners';
 import { bannersViewport } from '../../private/common/banners/bannersHomeLN10.json';

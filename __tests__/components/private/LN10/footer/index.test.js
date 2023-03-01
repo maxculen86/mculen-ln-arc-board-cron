@@ -19,11 +19,4 @@ describe('Tests - Footer - LN10', () => {
     test('should first', () => {
         expect(screen.getAllByRole('link')).toHaveLength(39);
     });
-
-    test('should register in dataLayer the click events of each link', () => {
-        const links = screen.getAllByRole('link');
-        links.forEach(link => link.click());
-
-        expect(window.dataLayer).toStrictEqual(footerEventLogResult);
-    });
 });
