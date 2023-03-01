@@ -35,8 +35,6 @@ const ImageArticle = props => {
 
     const sourceActive = active ? sourcesZoom : sources;
 
-    // TODO: ver este tema de source sets con maquetacion
-
     const srcset = getSourceSet(isVertical, image, sourceActive);
     const sizes = getSizes(sourceActive);
     const { resizedUrl, _width } = getShortestImage(sourceActive);

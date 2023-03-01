@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 
-// TODO: ver de pasar las respuestas a un ENUM
 export default WrappedComponent => {
     return class extends PureComponent {
         constructor(props) {

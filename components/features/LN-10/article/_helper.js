@@ -1,16 +1,16 @@
 import PropTypes from 'fusion:prop-types';
 import get from '../../../private/common/utils/get';
-import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import getAuthorsPhoto from '../../../private/common/utils/getAuthorsPhoto';
 import getAuthorsAsString from '../../../private/common/utils/getAuthorsAsString';
-import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelperLN10';
+import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
 import getStreams from '../../../private/LN/common/utils/getStreams';
 import diagramationRules from '../../../private/common/utils/diagramationRules';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
-import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
 import transformImageData from '../../../private/common/LN-10/transformImageData';
 import setClassName from '../../../private/common/utils/setClassName';
+import { getIsBomba, getChainParentOfFeature } from './common/_helper-WebApi';
+import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import {
     POSITIVE,
     NEGATIVE,
@@ -70,7 +70,7 @@ export const validateMedia = (customFields, config, article) =>
     (get(customFields, 'video') ||
         get(customFields, 'html') ||
         get(customFields, 'imageId') ||
-        get(article, 'promo_items.basic.type', '') === 'image');
+        get(article, 'promo_items.basic.type', 'image') === 'image');
 
 export const validateVariant = (variant, authorsQuantity) =>
     variant === 'author' && !(authorsQuantity === 1) ? 'regular' : variant;
@@ -167,8 +167,6 @@ export const getDataAuthor = ({
     };
 };
 
-const getIsBomba = parent => get(parent, 'type', '') === 'LN10_Caja_Bomba';
-
 export const isBombaHidden = renderables => {
     const preOpeningChildren =
         getChildrenFromSectionHome(renderables, 'Pre_Apertura', 0) || [];
@@ -209,12 +207,19 @@ export const getMediaData = ({
     article,
     video,
     image,
+    renderables = [],
     customFields = {}
 } = {}) => {
     const { video: videoId, imageId, html = '' } = customFields;
+    const { _id } = article || {};
 
     const outstandingImage = getImageDestacada(article);
-    const mediaDataDefault = transformImageData(article, outstandingImage);
+    const isEager = isImageEager(_id, renderables);
+    const mediaDataDefault = transformImageData(
+        article,
+        outstandingImage,
+        isEager
+    );
 
     const rules = [
         {
@@ -230,7 +235,8 @@ export const getMediaData = ({
             validation: imageId && image,
             data: transformImageData(
                 article,
-                get(image, promoItemsBasic, outstandingImage)
+                get(image, promoItemsBasic, outstandingImage),
+                isEager
             )
         }
     ];
@@ -244,47 +250,6 @@ export const getMediaData = ({
 
 // TODO: Falta modificar logica para la nueva configuracion de imagen del resizer
 
-const getImageConfig = ({
-    renderables,
-    layoutsName,
-    cajaTemaConfig,
-    articlePosition,
-    layout,
-    isBomba
-}) => {
-    if (isBomba) {
-        return get(cajaTemaConfig, `bomba1.articles[0].imageConfig`);
-    }
-
-    return renderables.some(
-        elem =>
-            get(elem, 'collection') === 'layouts' &&
-            get(elem, 'type', '') === layoutsName.HomeLN10
-    )
-        ? get(
-              cajaTemaConfig,
-              `${layout}.articles[${articlePosition}].imageConfig`,
-              'boxArticles'
-          )
-        : '';
-};
-
-const getFeatureData = (featureId, renderables = []) => {
-    const chains = [
-        'LN10_Caja_Manual',
-        'LN10_Caja_Apertura',
-        'LN10_Caja_Bomba'
-    ];
-
-    return renderables.find(
-        elem =>
-            get(elem, 'collection') === 'chains' &&
-            chains.includes(get(elem, 'type', '')) &&
-            get(elem, 'children') &&
-            elem.children.some(child => get(child, 'props.id') === featureId)
-    );
-};
-
 export const getDataAttributesForViewability = (id, boxPosition, index) => {
     const extraOpts = {};
     if (boxPosition) {
@@ -296,10 +261,6 @@ export const getDataAttributesForViewability = (id, boxPosition, index) => {
         extraOpts['data-source'] = 'editor';
     }
     return extraOpts;
-};
-
-export const getChainParentOfFeature = (featureId, renderables) => {
-    return getFeatureData(featureId, renderables);
 };
 
 export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
@@ -319,91 +280,6 @@ export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
     const cardConfig = diagramationRules(layoutChain);
     setConfig(cardConfig && cardConfig[indexOfFeature]);
     return true;
-};
-
-export const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
-    const { layoutsName = {} } = siteConfig || {};
-    const parent = getFeatureData(featureId, renderables);
-    const position =
-        renderables
-            .filter(ren => get(ren, 'collection') === 'chains')
-            .findIndex(
-                chain => get(chain, 'props.id') === get(parent, 'props.id')
-            ) || 0;
-
-    const index = get(parent, 'children', []).findIndex(
-        elem => elem && get(elem, 'props.id') === featureId
-    );
-
-    const layout = get(parent, 'props.customFields.layout', '');
-    const cardConfig = diagramationRules(layout);
-    const config = cardConfig && cardConfig[index];
-
-    return {
-        imageConfig: getImageConfig({
-            renderables,
-            layoutsName,
-            cajaTemaConfig,
-            articlePosition: index,
-            layout,
-            isBomba: getIsBomba(parent)
-        }),
-        config,
-        index,
-        boxPosition: `0${Number(position) + 1}`.slice(-2),
-        layout
-    };
-};
-
-export const validateArticleFeature = ({
-    id,
-    content,
-    image,
-    video,
-    layout,
-    imageId,
-    videoId,
-    variant,
-    variantsDisabled
-}) => {
-    const { streams } = video || {};
-    const { filesize } = getStreams(streams, '>') || '';
-    const maxVideoSize = 3000000;
-    const oneMegabyte = 1048576;
-
-    const rules = [
-        {
-            validation: variantsDisabled && variantsDisabled.includes(variant),
-            message: `Esta card no admite la variante: ${variant}`
-        },
-        {
-            validation: !id,
-            message: 'El campo Id de la Nota es obligatorio.'
-        },
-        {
-            validation: !content,
-            message: 'El ID de la nota es incorrecto.'
-        },
-        {
-            validation: imageId && image === null,
-            message: 'El ID de la imagen es incorrecto.'
-        },
-        {
-            validation: videoId && video === null,
-            message: 'El ID del video es incorrecto.'
-        },
-        {
-            validation:
-                filesize &&
-                !['grilla1', 'grillaVideo1'].includes(layout) &&
-                filesize > maxVideoSize,
-            message: `El tamaño del video debe ser inferior a 3 MB. Peso actual ${(
-                filesize / oneMegabyte
-            ).toFixed(2)} MB`
-        }
-    ];
-
-    return pageBuilderValidator(rules);
 };
 
 export const getTypeOfMedia = (customFields = {}) => {

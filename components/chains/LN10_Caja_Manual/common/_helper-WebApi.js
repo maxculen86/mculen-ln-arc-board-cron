@@ -1,6 +1,6 @@
-import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
-import { setQuantityByLayout } from '../utils/_helpers';
-import get from '../../private/common/utils/get';
+import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
+import { setQuantityByLayout } from '../../utils/common/_helpers-WebApi';
+import get from '../../../private/common/utils/get';
 
 // TODO: Agrupar validaciones comunes entre chains
 

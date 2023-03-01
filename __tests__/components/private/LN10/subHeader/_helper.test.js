@@ -1,9 +1,8 @@
 import {
     setAccessData,
-    setDollarData,
-    createDynamicLabel
+    setDollarData
 } from '../../../../../components/private/LN10/subHeader/_helper';
-
+import { createDynamicLabel } from '../../../../../components/private/common/scriptManager/SubHeaderEventsScript/_helper';
 jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
     jest.fn()
 );
@@ -79,8 +78,7 @@ describe('Private - LN10 - SubHeader - Helper =>', () => {
                 'text',
                 'title',
                 'venta',
-                'link',
-                'callback'
+                'link'
             ]);
 
             expect(dollarData).toHaveLength(4);
@@ -136,12 +134,7 @@ describe('Private - LN10 - SubHeader - Helper =>', () => {
             const accessData = setAccessData();
             const [firstAccess] = accessData;
 
-            expect(Object.keys(firstAccess)).toEqual([
-                'icon',
-                'text',
-                'href',
-                'callback'
-            ]);
+            expect(Object.keys(firstAccess)).toEqual(['icon', 'text', 'href']);
 
             expect(accessData).toHaveLength(3);
         });

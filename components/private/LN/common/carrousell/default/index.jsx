@@ -1,4 +1,3 @@
-// TODO: usar este como carrousell y renombrar
 import React, { useState } from 'react';
 import Carrousell from '../../../../common/carousell';
 import GalleryItem from './galleryItem';

@@ -2,6 +2,7 @@
 import get from '../../../../../components/private/common/utils/get';
 import addForwardSlash from '../../../../../components/private/LN/common/utils/addForwardSlash';
 import removeAccents from '../../../../../components/private/common/utils/removeAccents';
+import { isValidNumber } from '../../../../../components/private/common/utils/dataValidation';
 
 export const getWeatherMetaData = (serviceItem, serviceSubItem) => {
     if (serviceSubItem)
@@ -91,7 +92,6 @@ const reorderLocations = (endpointData, children = [], serviceItem = '') => {
         return acc;
     }, []);
 };
-export const isValidNumber = number => typeof number === 'number';
 
 export const validateMinTemperature = (tempMin, currTemp) => {
     return tempMin > currTemp ? Math.floor(currTemp) : tempMin;

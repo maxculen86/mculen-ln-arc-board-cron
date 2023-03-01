@@ -1,7 +1,6 @@
 import * as resizerV2 from './v2/resizerFactory';
 import * as resizerV1 from '../resizer';
-import get from '../../get';
-import { STORYTELLING } from '../../subtypes/subtypeHelper';
+import { isValidString } from '../../dataValidation';
 
 export const addResizedUrls = (ansDoc, options) => {
     const {
@@ -15,7 +14,8 @@ export const addResizedUrls = (ansDoc, options) => {
         presetsDefault,
         subtype,
         isInApertura,
-        isAdmin
+        isAdmin,
+        shouldUseV2 = false
     } = options;
 
     const {
@@ -40,6 +40,14 @@ export const addResizedUrls = (ansDoc, options) => {
         ...ansDoc,
         ...(contentElements && {
             content_elements: contentElements.map(elem => {
+                if (isAllowSection({ section }) || shouldUseV2) {
+                    return resizerV2.resizeContentElements(
+                        elem,
+                        presetsContentElements || presetsDefault,
+                        zoomSizes,
+                        defaultResize
+                    );
+                }
                 const { type } = elem;
                 return (
                     (type === 'image' &&
@@ -79,20 +87,21 @@ export const addResizedUrls = (ansDoc, options) => {
             })
         }),
         ...(promoItems && {
-            promo_items: isAllowSection({ subtype, section, promoItems })
-                ? resizerV2.resizePromoItems(
-                      presetPromoOrDefault,
-                      zoomSizes,
-                      subtype,
-                      promoItems
-                  )
-                : resizerV1.resizePromoItems(
-                      promoItems,
-                      presetPromoOrDefault,
-                      resizer,
-                      zoomSizes,
-                      subtype
-                  )
+            promo_items:
+                isAllowSection({ section }) || shouldUseV2
+                    ? resizerV2.resizePromoItems(
+                          presetPromoOrDefault,
+                          zoomSizes,
+                          subtype,
+                          promoItems
+                      )
+                    : resizerV1.resizePromoItems(
+                          promoItems,
+                          presetPromoOrDefault,
+                          resizer,
+                          zoomSizes,
+                          subtype
+                      )
         }),
         ...(credits && {
             credits: resizerV1.resizeCredits(
@@ -104,19 +113,17 @@ export const addResizedUrls = (ansDoc, options) => {
     };
 };
 
-export const isAllowSection = ({ section, subtype, promoItems }) => {
-    const allowList = [{ section: '/revista-living', subtype: STORYTELLING }];
-    const authBasic = get(promoItems, 'basic.auth', {});
-    const authStoryTellingMobile = get(
-        promoItems,
-        'storytelling_mobile.auth',
-        {}
-    );
+export const isAllowSection = ({ section = '' }) => {
+    const allowList = [
+        '/revista-living',
+        '/propiedades',
+        '/seguridad',
+        '/salud',
+        '/revista-hola'
+    ];
 
     return allowList.some(
-        itemAllow =>
-            (authStoryTellingMobile !== {} || authBasic !== {}) &&
-            section === itemAllow.section &&
-            subtype === itemAllow.subtype
+        allowSection =>
+            isValidString(section) && section.startsWith(allowSection)
     );
 };
