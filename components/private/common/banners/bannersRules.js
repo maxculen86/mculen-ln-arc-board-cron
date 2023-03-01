@@ -11,10 +11,10 @@ export default {
                 customScript: ({ sticky }) => {
                     return (
                         sticky &&
-                        getScriptForCabezalSticky(
-                            'header',
-                            'lay-sidebar',
-                            'cabezal_dsk'
+                        getStickyBanner(
+                            '.--cabezal_dsk',
+                            '.lay-sidebar',
+                            'header'
                         )
                     );
                 }
@@ -131,6 +131,14 @@ export default {
             },
             '1x1_dsk': {
                 validateInclusion: ({ subscription }) => !subscription
+            },
+            megatop_dsk: {
+                customScript: () => {
+                    return getStickyBanner(
+                        'div[data-section="pre-apertura"]',
+                        '.ln-banner-container.--megatop_dsk.--megatop'
+                    );
+                }
             }
         },
         mobile: {
@@ -157,30 +165,30 @@ export default {
     }
 };
 
-const getScriptForCabezalSticky = (header, sidebar, classCabezal) => {
+export const getStickyBanner = (bannerClass, viewport, header) => {
     return (
         <script
             type="text/javascript"
             dangerouslySetInnerHTML={{
                 __html: `
                 window.addEventListener('DOMContentLoaded', () => {
-                    const sidebar = document.querySelector(".${sidebar}") || {};
-                    const header = document.querySelector("#${header}") || {};                    
-                    const cabezal = document.querySelector('.--${classCabezal}') || {};
+                    const banner = document.querySelector('${bannerClass}') || {};
+                    const header = document.querySelector("#${header}");                 
+                    const viewportLimit = document.querySelector('${viewport}') || {};
                     window.addEventListener('scroll', () => {
-                        const { top: topSidebar } = sidebar.getBoundingClientRect();
-                        const viewPoint = topSidebar - cabezal.clientHeight - header.clientHeight;
-                        if (viewPoint <= 0 && cabezal.classList.contains('--sticky')) {
-                            const { top: topCabezal } = cabezal.getBoundingClientRect();
-                            cabezal.classList.remove('--sticky');
-                            cabezal.style.top = Math.abs(sidebar.offsetTop - cabezal.clientHeight) + 'px';
-                            cabezal.style.position = 'relative';
-                            cabezal.style.zIndex = '101';
-                        } else if (viewPoint > 0 && !cabezal.classList.contains('--sticky')) {
-                            cabezal.classList.add('--sticky');
-                            cabezal.style.cssText = '';
+                        const { top: topViewportLimit } = viewportLimit.getBoundingClientRect();
+                        const viewPoint = topViewportLimit - banner.clientHeight - (${header} ? header.clientHeight : 0);
+                        if (viewPoint <= 0 && banner.classList.contains('--sticky')) {
+                            const { top: topBanner } = banner.getBoundingClientRect();
+                            banner.classList.remove('--sticky');
+                            banner.style.top = Math.abs(viewportLimit.offsetTop - banner.clientHeight) + 'px';
+                            banner.style.position = 'relative';
+                            banner.style.zIndex = '101';
+                        } else if (viewPoint > 0 && !banner.classList.contains('--sticky')) {
+                            banner.classList.add('--sticky');
+                            banner.style.cssText = '';
                         }
-                    });
+                    })
                 })
             `
             }}

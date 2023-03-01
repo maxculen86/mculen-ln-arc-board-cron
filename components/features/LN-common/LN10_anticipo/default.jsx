@@ -30,10 +30,13 @@ const Anticipo = ({
             <script
                 dangerouslySetInnerHTML={{
                     __html: `
-            window.addEventListener('DOMContentLoaded', () => {
-                document.getElementById('closeAdvance').onclick = function() {
-                    this.parentNode && this.parentNode.parentNode && this.parentNode.parentNode.classList.add('--close')
-                };
+            window.addEventListener('load', () => {
+                const buttonCloseAdvance = document.getElementById('closeAdvance');
+                if (buttonCloseAdvance) {
+                    buttonCloseAdvance.onclick = function() {
+                        this.parentNode && this.parentNode.parentNode && this.parentNode.parentNode.classList.add('--close')
+                    };
+                } 
             });
             `
                 }}

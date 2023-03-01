@@ -28,9 +28,6 @@ import { getTitle } from '../private/common/utils/outputTypeHelper';
 import hasNotAMP from './Helper/hasNotAMP';
 
 /**
- * TODO: Resolver el tema de las canonicas
- * TODO: Resolver los datos estructurados por cada layout
- * TODO: Evaluar cuando incluir Content Security Policy (CSP)
  * @param {nodes} props
  */
 const Amp = props => {

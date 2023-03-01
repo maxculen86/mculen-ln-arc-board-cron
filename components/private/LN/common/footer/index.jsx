@@ -327,7 +327,7 @@ const Index = ({ home }) => {
                                 title="Data fiscal"
                                 width="28"
                                 height="38"
-                                href="https://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
+                                href="https://seti.afip.gob.ar/padron-puc-constancia-internet/ConsultaConstanciaAction.do"
                                 target="_blank"
                             />
                         </div>

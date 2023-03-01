@@ -34,8 +34,7 @@ export function datesDiffInDays(firstDate, secondDate) {
 }
 
 export function formatDate(originalDate) {
-    // TODO: en  el render desde el cliente toma la hora del mismo,
-    // cuando es ssr toma la hora del servidor.
+    // En el render desde el cliente toma la hora del mismo, cuando es ssr toma la hora del servidor.
 
     const date =
         typeof window === 'object'

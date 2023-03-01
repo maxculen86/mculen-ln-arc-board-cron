@@ -1,8 +1,18 @@
 import React from 'react';
 import DivBannerSSR from '../../../../../components/private/common/banners/DivBannerSSR';
 import { render } from '@testing-library/react';
+import Context from 'fusion:context';
+
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
 
 describe('Private - Common - Banners - Div Banners SSR', () => {
+    Context.useAppContext = jest.fn(() => ({
+        layout: 'LN10-Home_Main'
+    }));
     it('should return div banner with correct tags', () => {
         const { container } = render(
             <DivBannerSSR bannerConfiguration={bannerConfig} />

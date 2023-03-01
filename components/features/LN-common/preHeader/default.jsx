@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import { useContent } from 'fusion:content';
@@ -13,6 +14,8 @@ import {
 
 import '../../../../resources/packages/css/@ln/contenidos-ui-preheader/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
+import PreHeaderEventsScript from '../../../private/common/scriptManager/PreHeaderEventsScript';
+import StaticContent from '../../../private/common/staticContent';
 
 const PreHeaderFeature = ({ customFields = {} }) => {
     const weather =
@@ -22,7 +25,7 @@ const PreHeaderFeature = ({ customFields = {} }) => {
                 id: '/clima',
                 service: 'clima'
             },
-            staticMode: false,
+            staticMode: true,
             filter: filterSubHeader
         }) || {};
 
@@ -32,10 +35,13 @@ const PreHeaderFeature = ({ customFields = {} }) => {
     const topics = getTopicsFromCustomFields(customFields);
 
     return (
-        <PreHeader>
-            <PreHeader.Weather weatherData={weatherData} />
-            <PreHeader.Topics tags={topics} />
-        </PreHeader>
+        <StaticContent>
+            <PreHeader>
+                <PreHeader.Weather weatherData={weatherData} />
+                <PreHeader.Topics tags={topics} />
+            </PreHeader>
+            <PreHeaderEventsScript />
+        </StaticContent>
     );
 };
 

@@ -8,7 +8,7 @@ import StaticContent from '../../../private/common/staticContent';
 import get from '../../../private/common/utils/get';
 import '../../../../resources/packages/css/@ln/contenidos-ui-live/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-badge/index.css';
-import { typeBadge } from '../../LN-10/article/_helper';
+import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
 
 const EnVivo = ({ customFields }) => {
     const { isAdmin } = useAppContext() || {};

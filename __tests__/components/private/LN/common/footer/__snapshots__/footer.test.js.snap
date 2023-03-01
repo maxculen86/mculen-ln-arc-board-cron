@@ -331,7 +331,7 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
             </span>
             <a
               class="com-link --logo"
-              href="https://qr.afip.gob.ar/?qr=HJMakbCpenWNdXYfqXtEDQ,,"
+              href="https://seti.afip.gob.ar/padron-puc-constancia-internet/ConsultaConstanciaAction.do"
               rel="nofollow"
               target="_blank"
               title="Data fiscal"

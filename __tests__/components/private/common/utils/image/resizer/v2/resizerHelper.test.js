@@ -133,6 +133,30 @@ describe('Common - Resizer', () => {
         });
     });
 
+    describe('Common - Resizer - autoHeight fn', () => {
+        it('return correct proportional height from original height and width for vertical images', () => {
+            const height = resizerHelper.autoHeight(2000, 1000, 500);
+            expect(height).toBe(1000);
+
+            const height2 = resizerHelper.autoHeight(2880, 1944, 320);
+            expect(height2).toBe(474);
+        });
+        it('Should return correct proportional height from original height and width for horizontal images', () => {
+            const height = resizerHelper.autoHeight(1000, 2000, 1000);
+            expect(height).toBe(500);
+
+            const height2 = resizerHelper.autoHeight(1944, 2880, 320);
+            expect(height2).toBe(216);
+        });
+        it('Should return null if originalHeight originalWidth or newWidth are not valid numbers', () => {
+            expect(resizerHelper.autoHeight('2', 1944, 288)).toBe(0);
+            expect(resizerHelper.autoHeight({}, {}, {})).toBe(0);
+        });
+        it('Should not return NaN values', () => {
+            expect(resizerHelper.autoHeight(0, 0, 0)).toBe(0);
+        });
+    });
+
     it('should return height according proportion', () => {
         const height = resizerHelper.setHeight(1200, 800, '3:2');
         expect(height).toBe(800);
@@ -222,5 +246,27 @@ describe('Common - Resizer', () => {
                 expect(result).toEqual(testResult);
             }
         );
+    });
+    describe('isResizerV2 function', () => {
+        const v1Url =
+            'https://resizer.glanacion.com/resizer/nvXI-Drw6YuzQFcRuFJ4q_7PhU8=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3IFEHM7KAFCWRJQIO4B36IHNLU.jpg';
+        const v2Url =
+            'https://resizer.glanacion.com/resizer/v2/574B3ES775FGPMKR7SZ6TMTPVA.JPG?auth=67e2472eccb2fcf95e748698005353559059303fbfff9c7df6d0d6d7a60619c9&width=768&quality=80&smart=false';
+
+        it('Should return false for v1 urls', () => {
+            expect(resizerHelper.isResizerV2(v1Url)).toBeFalsy();
+        });
+        it('Should return false for any other string urls', () => {
+            expect(resizerHelper.isResizerV2('')).toBeFalsy();
+            expect(resizerHelper.isResizerV2('prueba')).toBeFalsy();
+        });
+        it('Should return false for invalid paramethers', () => {
+            expect(resizerHelper.isResizerV2()).toBeFalsy();
+            expect(resizerHelper.isResizerV2(null)).toBeFalsy();
+            expect(resizerHelper.isResizerV2({})).toBeFalsy();
+        });
+        it('Should return true for v2 urls', () => {
+            expect(resizerHelper.isResizerV2(v2Url)).toBeTruthy();
+        });
     });
 });

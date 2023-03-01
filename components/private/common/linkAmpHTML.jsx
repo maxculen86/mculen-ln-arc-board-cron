@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import get from './utils/get';
-import { subtypesWithAmp } from './utils/subtypes/subtypeHelper';
+import {
+    subtypesWithAmp,
+    subtypeNotesWithoutAmp
+} from './utils/subtypes/subtypeHelper';
 
 const LinkAmpHTML = props => {
     const { subtype = '', canonicalUrl = '', nodeType } = props;
@@ -12,7 +15,10 @@ const LinkAmpHTML = props => {
         undefined
     );
     const slash = canonicalUrl && canonicalUrl.slice(-1) !== '/' ? '/' : '';
-    return hasAmpLink && canonicalUrl ? (
+
+    const validateSubtype = subtypeNotesWithoutAmp(canonicalUrl);
+
+    return hasAmpLink && canonicalUrl && !validateSubtype ? (
         <link
             rel="amphtml"
             href={`https://www.lanacion.com.ar${canonicalUrl}${slash}?outputType=amp`}

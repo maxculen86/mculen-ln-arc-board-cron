@@ -9,7 +9,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
       class="ln-advance --withVideo --sticky"
     >
       <div
-        class="lay wrapper"
+        class="lay-container"
       >
         <div>
           <div
@@ -32,7 +32,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
               chapita
             </span>
             <h2
-              class="text ln-text --title --prumo --font-l --font-bold"
+              class="text ln-text --title --prumo --font-xl-l-s --font-bold"
               title="texto Prueba Anticipo"
             >
               <a
@@ -53,9 +53,8 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
           </div>
         </div>
         <button
-          class="button ln-button"
+          class="button ln-button --md"
           id="closeAdvance"
-          title="Cerrar"
           type="button"
         >
           <i
@@ -80,10 +79,13 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
   </div>
   <script>
     
-            window.addEventListener('DOMContentLoaded', () =&gt; {
-                document.getElementById('closeAdvance').onclick = function() {
-                    this.parentNode && this.parentNode.parentNode && this.parentNode.parentNode.classList.add('--close')
-                };
+            window.addEventListener('load', () =&gt; {
+                const buttonCloseAdvance = document.getElementById('closeAdvance');
+                if (buttonCloseAdvance) {
+                    buttonCloseAdvance.onclick = function() {
+                        this.parentNode && this.parentNode.parentNode && this.parentNode.parentNode.classList.add('--close')
+                    };
+                } 
             });
             
   </script>

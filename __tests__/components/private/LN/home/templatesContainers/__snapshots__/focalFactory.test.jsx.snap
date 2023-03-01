@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - private - LN - home - templatesContainers - focalFactory focalFactory render tests When directionFocal is focalLeft3 when it has articles return focal 3 diagramation 1`] = `
+<div>
+  <div
+    class="col-tablet-8"
+  >
+    f0fj1U7I4DQq82U
+  </div>
+  <div
+    class="col-tablet-4"
+  >
+    f0fj1U7I4DQq821
+    f0fj1U7I4DQq822
+  </div>
+</div>
+`;
+
+exports[`components - private - LN - home - templatesContainers - focalFactory focalFactory render tests When directionFocal is focalRight2 return focal 2 diagramation 1`] = `
+<div>
+  <div
+    class="col-tablet-8"
+  >
+    f0fj1U7I4DQq82U
+  </div>
+  <div
+    class="col-tablet-4"
+  >
+    f0fj1U7I4DQq821
+  </div>
+</div>
+`;
