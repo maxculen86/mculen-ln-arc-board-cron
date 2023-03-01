@@ -17,29 +17,34 @@ const transform = async (dataPage, query) => {
     } = dataPage;
 
     try {
-        let elementsPageHome = elementsPage;
-        elementsPageHome =
-            elementsPageHome &&
-            elementsPageHome.filter(elem => elem && elem.type === 0);
-        // return elementsPageHome;
-        // Returns boxes that type equal 0, becacuse have articles
-        const cajas = elementsPageHome.map((elem, i) => {
-            const notas = elem.articles.map((article, j) => {
+        const omitSections = {
+            'ln-acumulado/timeline': true,
+            'ln-common/opinion': true,
+            'ln-common/editoriales': true
+        };
+        const cajas = elementsPage
+            ?.filter(elem => elem && elem.type === 0)
+            .map((elem, i) => {
+                if (omitSections[elem.sectionAliasMobile]) {
+                    return null; // Omitir la caja
+                }
+                const notas = elem.articles.map((article, j) => {
+                    return {
+                        // eslint-disable-next-line no-underscore-dangle
+                        id_nota: article._id,
+                        url_nota: article.website_url,
+                        posicion: (j + 1).toString().padStart(2, '0')
+                    };
+                });
                 return {
-                    // eslint-disable-next-line no-underscore-dangle
-                    id_nota: article._id,
-                    url_nota: article.website_url,
-                    posicion: (j + 1).toString().padStart(2, '0')
+                    id_caja: (i + 1).toString().padStart(2, '0'),
+                    visible: elem.information.hideCaja || true,
+                    feature: getFeature(elem.sectionAliasMobile),
+                    diagramacion_caja: elem.information.layout,
+                    notas
                 };
-            });
-            return {
-                id_caja: (i + 1).toString().padStart(2, '0'),
-                visible: elem.information.hideCaja || true,
-                feature: getFeature(elem.sectionAliasMobile),
-                diagramacion_caja: elem.information.layout,
-                notas
-            };
-        });
+            })
+            .filter(caja => caja !== null); // Eliminar cajas nulas
 
         return { cajas };
     } catch (error) {
