@@ -129,12 +129,7 @@ export const isAllowSection = ({ section = '' }) => {
         '/propiedades',
         '/seguridad',
         '/salud',
-        '/revista-hola',
-        '/economia',
-        '/sociedad',
-        '/el-mundo',
-        '/horoscopo',
-        '/loterias'
+        '/revista-hola'
     ];
 
     return allowList.some(
