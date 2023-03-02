@@ -163,7 +163,7 @@ export const buildQueryParams = ({
             : `&smart=${smartCropExcluded}`;
 
     const image = imgId
-        ? `${getSlugForImage(arcImage) + '-'}${imgId}${parsedExtension}`
+        ? `${getSlugForImage(arcImage)}${imgId}${parsedExtension}`
         : encodeURIComponent(get(arcImage, 'url', ''));
 
     return arcImage
@@ -195,21 +195,23 @@ export const resizeArcGallery = (
 };
 
 export const getSlugForImage = imageData => {
-    const slugifySeoFriendly = slugify(
-        `${get(imageData, 'alt_text', '') ||
-            get(imageData, 'caption', '') ||
-            get(imageData, 'subtitle', '')}`,
-        {
-            remove: /[<>_(){}[\]\\*+=~.,'`"¡!¿?|;:@$&%/#]/g,
-            lower: true,
-            strict: false
-        }
-    );
+    const textToBuildSlug =
+        get(imageData, 'alt_text', '') ||
+        get(imageData, 'caption', '') ||
+        get(imageData, 'subtitle', '');
+
+    if (!textToBuildSlug) return '';
+
+    const slugifySeoFriendly = slugify(`${textToBuildSlug}`, {
+        remove: /[<>_(){}[\]\\*+=~.,'`"¡!¿?|;:@$&%/#]/g,
+        lower: true,
+        strict: false
+    });
     const shorterSlug = isValidString(slugifySeoFriendly)
         ? slugifySeoFriendly.slice(0, 50)
         : '';
 
     return shorterSlug.charAt(shorterSlug.length - 1) === '-'
-        ? shorterSlug.slice(0, -1)
-        : shorterSlug.slice(0, shorterSlug.lastIndexOf('-'));
+        ? shorterSlug
+        : `${shorterSlug.slice(0, shorterSlug.lastIndexOf('-')) + '-'}`;
 };
