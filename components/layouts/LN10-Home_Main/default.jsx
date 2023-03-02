@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import Header from '../../private/LN10/header';
-import Footer from '../../private/LN/common/footer';
+import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBanners from '../../private/common/banners/LoadBanners';
 import { bannersViewport } from '../../private/common/banners/bannersHomeLN10.json';
@@ -68,87 +68,200 @@ const LN10Home = props => {
             {getScriptForComercial('comercial_dsk')}
             {bannersHome.comercialMob}
             {getScriptForComercial('comercial_mob')}
-            <div id="wrapper" className="home">
+            <div className="wrapper home-page">
                 {bannersHome.megatopDsk}
                 {getStickyBanner(
                     '.ln-banner-container.--megatop_dsk.--megatop',
                     'div[data-section="pre-apertura"]'
                 )}
-                <div data-section="cabezal">{cabezal}</div>
-                <Header />
-                <div data-section="pre-apertura">{preApertura}</div>
-                <main id="content">
-                    <div data-section="apertura" className="lay">
-                        {apertura}
-                    </div>
+                <section className="header-container">
+                    <div data-section="cabezal">{cabezal}</div>
+                    <Header />
+                </section>
+
+                <section data-section="pre-apertura" className="pre-container">
+                    {preApertura}
+                </section>
+                <section
+                    data-section="apertura"
+                    className="open-container lay-container"
+                >
+                    {apertura}
+                </section>
+                <section id="content" className="main-container">
                     {bannersHome.sticky2Mob}
-                    <div>
-                        <div id="content-main" className="lay-sidebar">
-                            <div className="sidebar__main">
-                                {hasBomba(renderables) && bannersHome.caja1Mob}
-                                {bannersHome.caja2Mob}
-                                {bannersHome.cabezal}
-                                <div data-section="breaking1">{breaking1}</div>
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {bannersHome.megalateralDsk}
-                                </div>
-                                {bannersHome.parallaxDsk}
-                                {bannersHome.middle1Tab}
-                                <div data-section="breaking2">{breaking2}</div>
-                                <div
-                                    id="content-main-2"
-                                    className="lay-sidebar"
-                                >
-                                    <div className="sidebar__aside hlp-tabletlm-none">
-                                        {bannersHome.megalateral2Dsk}
-                                    </div>
-                                </div>
-                                {/*
-                                parallax2dsk
-                                 */}
-                                {bannersHome.middle1Tab}
-                                <div data-section="hashtag">{hashtag}</div>
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {bannersHome.megalateral3Dsk}
-                                </div>
-                                {/*
-                                caja8mob - parallax3dsk -middle3tab
-                                 */}
-                                <div data-section="content">{content}</div>
-                                <div data-section="canales1">{canales1}</div>
-                                {/*
-                                caja9mob - megalateral4dsk - parallax4dsk - middle4tab
-                                 */}
-                                <div data-section="canales2">{canales2}</div>
-                            </div>
-                        </div>
+                    <div
+                        id="content-main"
+                        className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
+                    >
+                        <main className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
+                            {hasBomba(renderables) && bannersHome.caja1Mob}
+                            {bannersHome.caja2Mob}
+                            {bannersHome.cabezal}
+                            <div data-section="breaking1">{breaking1}</div>
+                        </main>
+                        <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
+                            {bannersHome.megalateralDsk}
+                        </aside>
                     </div>
-                    <div data-section="ranking" className="lay">
-                        <Ranking {...props} id="rankingHome" />
+
+                    <div
+                        style={{
+                            width: '100%',
+                            height: 300,
+                            backgroundColor: 'orange',
+                            margin: '56px 0 32px',
+                            textAlign: 'center',
+                            lineHeight: '300px'
+                        }}
+                    >
+                        Cinturon 1
                     </div>
-                    <div id="content-main-3" className="lay-sidebar">
-                        <div className="sidebar__main">
+
+                    <div
+                        id="content-main-2"
+                        className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
+                    >
+                        <main className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
+                            {bannersHome.parallaxDsk}
+                            {bannersHome.middle1Tab}
+
+                            <div data-section="breaking2">{breaking2}</div>
+                            {bannersHome.middle1Tab}
+                            {/*
+                            parallax2dsk
+                            */}
+                            {/*
+                            caja8mob - parallax3dsk -middle3tab
+                            */}
+                            {/*
+                            caja9mob - megalateral4dsk - parallax4dsk - middle4tab
+                            */}
+                        </main>
+                        <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
+                            {bannersHome.megalateral2Dsk}
+                        </aside>
+                    </div>
+
+                    <div
+                        style={{
+                            width: '100%',
+                            height: 300,
+                            backgroundColor: 'orange',
+                            margin: '56px 0 32px',
+                            textAlign: 'center',
+                            lineHeight: '300px'
+                        }}
+                    >
+                        Cinturon 2
+                    </div>
+
+                    <div
+                        id="content-main-3"
+                        className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
+                    >
+                        <main className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
+                            <div data-section="hashtag">{hashtag}</div>
+
                             {(isAdmin || outputType === 'json') && (
-                                <div>
+                                <>
                                     <section data-section="app-anexo-1">
                                         {appAnexo1}
                                     </section>
                                     <section data-section="app-anexo-2">
                                         {appAnexo2}
                                     </section>
-                                </div>
+                                </>
                             )}
-                        </div>
-                        <div className="lay-sidebar">
-                            <div className="sidebar__main">
-                                {bannersHome.adhesionDsk}
-                                {bannersHome.adhesionMob}
-                                {bannersHome.adhesionTab}
-                            </div>
-                        </div>
+                            {bannersHome.adhesionDsk}
+                            {bannersHome.adhesionMob}
+                            {bannersHome.adhesionTab}
+                        </main>
+                        <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
+                            {bannersHome.megalateral3Dsk}
+                        </aside>
                     </div>
-                </main>
-                <Footer />
+
+                    <div
+                        style={{
+                            width: '100%',
+                            height: 300,
+                            backgroundColor: 'orange',
+                            margin: '56px 0 32px',
+                            textAlign: 'center',
+                            lineHeight: '300px'
+                        }}
+                    >
+                        Cinturon 3
+                    </div>
+
+                    <div data-section="ranking" className="lay-container">
+                        <Ranking {...props} id="rankingHome" />
+                    </div>
+
+                    <div
+                        id="content-main-4"
+                        className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
+                    >
+                        <main className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
+                            <div data-section="content">{content}</div>
+                            <div data-section="canales1">{canales1}</div>
+                        </main>
+                        <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
+                            {/* {bannersHome.megalateral4Dsk} BORRA EL DIV DE ABAJO */}
+                            <div
+                                className="ln-banner-container --megalateral_dsk --megalateral --sticky"
+                                style={{
+                                    width: '100%',
+                                    height: 600,
+                                    backgroundColor: 'orange',
+                                    lineHeight: '600px'
+                                }}
+                            >
+                                Megalateral 4
+                            </div>
+                        </aside>
+                    </div>
+
+                    <div
+                        style={{
+                            width: '100%',
+                            height: 300,
+                            backgroundColor: 'orange',
+                            margin: '56px 0 32px',
+                            textAlign: 'center',
+                            lineHeight: '300px'
+                        }}
+                    >
+                        Cinturon 4
+                    </div>
+
+                    <div
+                        id="content-main-5"
+                        className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
+                    >
+                        <main className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
+                            <div data-section="canales2">{canales2}</div>
+                        </main>
+                        <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
+                            {/* {bannersHome.megalateral5Dsk} BORRAR EL DIV DE ABAJO */}
+                            <div
+                                className="ln-banner-container --megalateral_dsk --megalateral --sticky"
+                                style={{
+                                    width: '100%',
+                                    height: 600,
+                                    backgroundColor: 'orange',
+                                    lineHeight: '600px'
+                                }}
+                            >
+                                Megalateral 5
+                            </div>
+                        </aside>
+                    </div>
+                </section>
+                <section className="footer-container">
+                    <Footer />
+                </section>
             </div>
             <LoadBanners blocksBanners={bannersViewport} />
             <Metarefresh />
