@@ -68,42 +68,45 @@ const LN10Home = props => {
             {getScriptForComercial('comercial_dsk')}
             {bannersHome.comercialMob}
             {getScriptForComercial('comercial_mob')}
-            <div className="wrapper home-page">
+            <div className="wrapper homepage">
                 {bannersHome.megatopDsk}
                 {getStickyBanner(
                     '.ln-banner-container.--megatop_dsk.--megatop',
-                    'div[data-section="pre-apertura"]'
+                    'section[data-section="pre-apertura"]'
                 )}
-                <section className="header-container">
+                <div className="header-container">
                     <div data-section="cabezal">{cabezal}</div>
                     <Header />
-                </section>
+                </div>
 
-                <section data-section="pre-apertura" className="pre-container">
-                    {preApertura}
-                </section>
-                <section
-                    data-section="apertura"
-                    className="open-container lay-container"
-                >
-                    {apertura}
-                </section>
-                <section id="content" className="main-container">
+                <main className="main-container">
+                    <section
+                        data-section="pre-apertura"
+                        className="pre-container"
+                    >
+                        {preApertura}
+                    </section>
+                    <section
+                        data-section="apertura"
+                        className="open-container lay-container"
+                    >
+                        {apertura}
+                    </section>
                     {bannersHome.sticky2Mob}
-                    <div
+                    <section
                         id="content-main"
                         className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
                     >
-                        <main className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
+                        <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
                             {hasBomba(renderables) && bannersHome.caja1Mob}
                             {bannersHome.caja2Mob}
                             {bannersHome.cabezal}
                             <div data-section="breaking1">{breaking1}</div>
-                        </main>
+                        </div>
                         <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
                             {bannersHome.megalateralDsk}
                         </aside>
-                    </div>
+                    </section>
 
                     <div
                         style={{
@@ -117,15 +120,13 @@ const LN10Home = props => {
                     >
                         Cinturon 1
                     </div>
+                    {/* {bannersHome.parallaxDsk} */}
 
-                    <div
+                    <section
                         id="content-main-2"
                         className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
                     >
-                        <main className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
-                            {bannersHome.parallaxDsk}
-                            {bannersHome.middle1Tab}
-
+                        <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
                             <div data-section="breaking2">{breaking2}</div>
                             {bannersHome.middle1Tab}
                             {/*
@@ -137,11 +138,11 @@ const LN10Home = props => {
                             {/*
                             caja9mob - megalateral4dsk - parallax4dsk - middle4tab
                             */}
-                        </main>
+                        </div>
                         <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
                             {bannersHome.megalateral2Dsk}
                         </aside>
-                    </div>
+                    </section>
 
                     <div
                         style={{
@@ -156,11 +157,11 @@ const LN10Home = props => {
                         Cinturon 2
                     </div>
 
-                    <div
+                    <section
                         id="content-main-3"
                         className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
                     >
-                        <main className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
+                        <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
                             <div data-section="hashtag">{hashtag}</div>
 
                             {(isAdmin || outputType === 'json') && (
@@ -176,11 +177,11 @@ const LN10Home = props => {
                             {bannersHome.adhesionDsk}
                             {bannersHome.adhesionMob}
                             {bannersHome.adhesionTab}
-                        </main>
+                        </div>
                         <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
                             {bannersHome.megalateral3Dsk}
                         </aside>
-                    </div>
+                    </section>
 
                     <div
                         style={{
@@ -195,18 +196,21 @@ const LN10Home = props => {
                         Cinturon 3
                     </div>
 
-                    <div data-section="ranking" className="lay-container">
+                    <section data-section="ranking" className="lay-container">
                         <Ranking {...props} id="rankingHome" />
-                    </div>
+                    </section>
 
-                    <div
+                    <section data-section="content" className="lay-container">
+                        {content}
+                    </section>
+
+                    <section
                         id="content-main-4"
                         className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
                     >
-                        <main className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
-                            <div data-section="content">{content}</div>
+                        <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
                             <div data-section="canales1">{canales1}</div>
-                        </main>
+                        </div>
                         <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
                             {/* {bannersHome.megalateral4Dsk} BORRA EL DIV DE ABAJO */}
                             <div
@@ -221,7 +225,7 @@ const LN10Home = props => {
                                 Megalateral 4
                             </div>
                         </aside>
-                    </div>
+                    </section>
 
                     <div
                         style={{
@@ -236,13 +240,13 @@ const LN10Home = props => {
                         Cinturon 4
                     </div>
 
-                    <div
+                    <section
                         id="content-main-5"
                         className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
                     >
-                        <main className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
+                        <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
                             <div data-section="canales2">{canales2}</div>
-                        </main>
+                        </div>
                         <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
                             {/* {bannersHome.megalateral5Dsk} BORRAR EL DIV DE ABAJO */}
                             <div
@@ -257,11 +261,11 @@ const LN10Home = props => {
                                 Megalateral 5
                             </div>
                         </aside>
-                    </div>
-                </section>
-                <section className="footer-container">
+                    </section>
+                </main>
+                <div className="footer-container">
                     <Footer />
-                </section>
+                </div>
             </div>
             <LoadBanners blocksBanners={bannersViewport} />
             <Metarefresh />
