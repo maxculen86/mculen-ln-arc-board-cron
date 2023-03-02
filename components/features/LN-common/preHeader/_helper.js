@@ -5,7 +5,7 @@ export const setWeatherData = weatherValue => {
 
     const { dataService: { locations = [] } = {} } = weatherValue;
 
-    const { current_temp: temperature = '', weather: weatherInfo } =
+    const { current_temp: temperature = '', weather: weatherInfo = {} } =
         locations.find(
             ({ location_id: locationId = '' }) =>
                 locationId === 'ciudad-de-buenos-aires'
@@ -27,7 +27,7 @@ export const setWeatherData = weatherValue => {
 
     return {
         icon: options[weatherInfo.id] || options.sun,
-        temperature,
+        temperature: temperature ? `${temperature}º` : '',
         place: 'Capital Federal',
         dataEvent: 'e_linkclick',
         dataSection: 'MenuLN',
