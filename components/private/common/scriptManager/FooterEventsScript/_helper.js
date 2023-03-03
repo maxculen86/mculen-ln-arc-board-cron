@@ -1,50 +1,18 @@
-export const setEventsSecciones = () => {
-    const secciones = window.document.querySelectorAll(
-        '.ln-footer-home .secciones a'
+export const setEventsFooter = () => {
+    const linksFooter = window.document.querySelectorAll(
+        '.ln-footer-home .secciones a, .ln-footer-home .revistas a, .ln-footer-home .productos a'
     );
-    secciones.forEach(seccion => {
-        seccion.addEventListener('click', () => {
+    linksFooter.forEach(link => {
+        link.addEventListener('click', () => {
             window.dataLayer &&
                 window.dataLayer.push({
                     event: 'e_linkclick',
                     dynamic_action: 'footer',
                     dynamic_category: 'home_ln10',
-                    dynamic_label: `${seccion.text}`
+                    dynamic_label: `${link.text}`
                 });
         });
     });
 };
 
-export const setEventsRevistas = () => {
-    const revistas = window.document.querySelectorAll(
-        '.ln-footer-home .revistas a'
-    );
-    revistas.forEach(revista => {
-        revista.addEventListener('click', () => {
-            window.dataLayer &&
-                window.dataLayer.push({
-                    event: 'e_linkclick',
-                    dynamic_action: 'footer',
-                    dynamic_category: 'home_ln10',
-                    dynamic_label: `${revista.text}`
-                });
-        });
-    });
-};
-
-export const setEventsProductos = () => {
-    const productos = window.document.querySelectorAll(
-        '.ln-footer-home .productos a'
-    );
-    productos.forEach(producto => {
-        producto.addEventListener('click', () => {
-            window.dataLayer &&
-                window.dataLayer.push({
-                    event: 'e_linkclick',
-                    dynamic_action: 'footer',
-                    dynamic_category: 'home_ln10',
-                    dynamic_label: `${producto.text}`
-                });
-        });
-    });
-};
+export default setEventsFooter;

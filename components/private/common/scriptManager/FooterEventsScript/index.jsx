@@ -1,10 +1,6 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import {
-    setEventsSecciones,
-    setEventsRevistas,
-    setEventsProductos
-} from './_helper';
+import { setEventsFooter } from './_helper';
 
 export default function FooterEventsScript() {
     return (
@@ -12,12 +8,8 @@ export default function FooterEventsScript() {
             dangerouslySetInnerHTML={{
                 __html: `
             window.addEventListener('DOMContentLoaded', () => {
-                ${setEventsSecciones}
-                ${setEventsRevistas}
-                ${setEventsProductos}
-                setEventsSecciones();
-                setEventsRevistas();
-                setEventsProductos();
+                ${setEventsFooter}
+                setEventsFooter();
             });
         `
             }}
