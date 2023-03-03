@@ -24,6 +24,7 @@ const ModAutor = props => {
                         src={foto}
                         alt={`Ir a notas de ${author.name}`}
                         amp={amp}
+                        isApertura
                     />
                 </div>
             )}
