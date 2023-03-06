@@ -21,6 +21,7 @@ import getGridType from '../utils/getGridType';
 import getComponent from '../utils/getComponent';
 import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
 import { useRoofData } from '../utils/_helpers';
+import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
 
 import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 
@@ -118,6 +119,12 @@ const CajaCollection = props => {
         positionInsideSection
     );
 
+    const { bannerMob = undefined, bannerDsk = undefined } =
+        getDynamicBanners({
+            renderables,
+            featureId: chainId
+        }) || {};
+
     const ContainerCards = getComponent(chainStyle, layout);
 
     return (
@@ -130,15 +137,19 @@ const CajaCollection = props => {
                 hideBox: hideCaja,
                 extraOptions: {
                     default: (
-                        <CommonCollection
-                            roofData={roofData}
-                            rules={rules}
-                            gridType={getGridType(layout)}
-                            articles={_articles}
-                            layout={layout}
-                            ContainerCards={ContainerCards}
-                            position={position}
-                        />
+                        <>
+                            <CommonCollection
+                                roofData={roofData}
+                                rules={rules}
+                                gridType={getGridType(layout)}
+                                articles={_articles}
+                                layout={layout}
+                                ContainerCards={ContainerCards}
+                                position={position}
+                            />
+                            {bannerMob}
+                            {bannerDsk}
+                        </>
                     )
                 }
             })}
