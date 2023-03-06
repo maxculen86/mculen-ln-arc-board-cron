@@ -132,3 +132,12 @@ export const metasFromSiteServices = (metaTags = {}) => {
         </>
     );
 };
+
+export const addMetaNoIndexNoFollow = (siteProperties, layout = '') => {
+    return get(siteProperties, 'layoutsName.HomeLN10', 'LN10-Home_Main') ===
+        layout ? (
+        <meta name="robots" content="noindex, nofollow" />
+    ) : (
+        <></>
+    );
+};
