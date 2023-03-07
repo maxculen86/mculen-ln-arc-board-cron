@@ -249,7 +249,8 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 withMarquee: true,
                 withMarqueeImg: true,
-                withMedia: true
+                withMedia: true,
+                cardSize: '3xl'
             }
         ],
         bombitaMas4: [
@@ -1011,7 +1012,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: true,
                 withMedia: true,
                 withSubhead: false,
-                cardSize: 'xl',
+                cardSize: '3xl',
                 variantsDisabled: ['author', 'liveblog'],
                 imagePosition: {
                     mobile: 'img-top',

@@ -9,7 +9,7 @@ const { FOCAL_LEFT } = LAYOUTS;
 
 export const validateChain = (childrenProps, layout, isInOpening) => {
     const LN10_ARTICLE = 'LN-10/article';
-    const LN_TIMELINE = 'LN-acumulado/timeline';
+    const LN_TIMELINE = 'LN-10/timeline';
     const COLLECTION_FEATURES = 'features';
 
     const isLeftFocal = layout === FOCAL_LEFT;
