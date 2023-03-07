@@ -58,7 +58,7 @@ const LN10Home = props => {
 
     useEffect(() => {
         createViewabilityObservers(true);
-        createBannersIntersectionObserver();
+        createBannersIntersectionObserver(true);
     }, []);
 
     return (
@@ -86,6 +86,7 @@ const LN10Home = props => {
                     >
                         {preApertura}
                     </section>
+                    {hasBomba(renderables) && bannersHome.caja1Mob}
                     <section
                         data-section="apertura"
                         className="open-container lay-container"
@@ -98,7 +99,6 @@ const LN10Home = props => {
                         className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
                     >
                         <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
-                            {hasBomba(renderables) && bannersHome.caja1Mob}
                             {bannersHome.caja2Mob}
                             {bannersHome.cabezal}
                             <div data-section="breaking1">{breaking1}</div>
@@ -133,10 +133,10 @@ const LN10Home = props => {
                             parallax2dsk
                             */}
                             {/*
-                            caja8mob - parallax3dsk -middle3tab
+                            parallax3dsk -middle3tab
                             */}
                             {/*
-                            caja9mob - megalateral4dsk - parallax4dsk - middle4tab
+                            parallax4dsk - middle4tab
                             */}
                         </div>
                         <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
@@ -163,7 +163,7 @@ const LN10Home = props => {
                     >
                         <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
                             <div data-section="hashtag">{hashtag}</div>
-
+                            {bannersHome.caja8Mob}
                             {(isAdmin || outputType === 'json') && (
                                 <>
                                     <section data-section="app-anexo-1">
@@ -210,20 +210,10 @@ const LN10Home = props => {
                     >
                         <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
                             <div data-section="canales1">{canales1}</div>
+                            {bannersHome.caja9Mob}
                         </div>
                         <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
-                            {/* {bannersHome.megalateral4Dsk} BORRA EL DIV DE ABAJO */}
-                            <div
-                                className="ln-banner-container --megalateral_dsk --megalateral --sticky"
-                                style={{
-                                    width: '100%',
-                                    height: 600,
-                                    backgroundColor: 'orange',
-                                    lineHeight: '600px'
-                                }}
-                            >
-                                Megalateral 4
-                            </div>
+                            {bannersHome.megalateral4Dsk}
                         </aside>
                     </section>
 
@@ -248,18 +238,7 @@ const LN10Home = props => {
                             <div data-section="canales2">{canales2}</div>
                         </div>
                         <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
-                            {/* {bannersHome.megalateral5Dsk} BORRAR EL DIV DE ABAJO */}
-                            <div
-                                className="ln-banner-container --megalateral_dsk --megalateral --sticky"
-                                style={{
-                                    width: '100%',
-                                    height: 600,
-                                    backgroundColor: 'orange',
-                                    lineHeight: '600px'
-                                }}
-                            >
-                                Megalateral 5
-                            </div>
+                            {bannersHome.megalateral5Dsk}
                         </aside>
                     </section>
                 </main>

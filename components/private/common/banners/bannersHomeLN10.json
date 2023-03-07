@@ -101,6 +101,22 @@
         },
         {
             "slotGroup": "home",
+            "mobile": "caja6_mob"
+        },
+        {
+            "slotGroup": "home",
+            "mobile": "caja7_mob"
+        },
+        {
+            "slotGroup": "home",
+            "mobile": "caja8_mob"
+        },
+        {
+            "slotGroup": "home",
+            "mobile": "caja9_mob"
+        },
+        {
+            "slotGroup": "home",
             "tablet": "middle2_tab"
         },
         {
@@ -123,6 +139,14 @@
         {
             "slotGroup": "home",
             "desktop": "megalateral3_dsk"
+        },
+        {
+            "slotGroup": "home",
+            "desktop": "megalateral4_dsk"
+        },
+        {
+            "slotGroup": "home",
+            "desktop": "megalateral5_dsk"
         }
     ]
 }

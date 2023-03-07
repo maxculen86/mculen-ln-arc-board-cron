@@ -14,7 +14,10 @@ describe('Tests hasNotAMP function', () => {
             );
         } catch (error) {}
         expect(Redirect).toBeCalled();
-        expect(Redirect).toBeCalledWith('/horoscopo/?adtest=true&d=1302', 301);
+        expect(Redirect).toBeCalledWith(
+            '/horoscopo/?outputType=default&adtest=true&d=1302',
+            301
+        );
     });
 
     it('Should throw redirect for layout without AMP on clientside', () => {
@@ -27,7 +30,7 @@ describe('Tests hasNotAMP function', () => {
         } catch (error) {
             expect(Redirect).toBeCalled();
             expect(Redirect).toBeCalledWith(
-                '/deportes/futbol/?adstest=true',
+                '/deportes/futbol/?adstest=true&outputType=default',
                 301
             );
         }
@@ -57,7 +60,10 @@ describe('Tests hasNotAMP function', () => {
             );
         } catch (error) {}
         expect(Redirect).toBeCalled();
-        expect(Redirect).toBeCalledWith('/homepage/?adstest=true&d=2345', 301);
+        expect(Redirect).toBeCalledWith(
+            '/homepage/?outputType=default&adstest=true&d=2345',
+            301
+        );
     });
 
     it('Should not throw redirect for layout with AMP on serverside ', () => {

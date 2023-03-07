@@ -1465,7 +1465,10 @@
                     }
                 },
                 "image": {
-                    "url": ""
+                    "url": "mockUrl",
+                    "auth": {
+                        "1": "mockHash"
+                    }
                 },
                 "name": "Max Fisher",
                 "slug": "max-fisher-4189",
@@ -1480,7 +1483,10 @@
                     }
                 },
                 "image": {
-                    "url": ""
+                    "url": "mockUrl",
+                    "auth": {
+                        "1": "mockHash"
+                    }
                 },
                 "name": "Matias Velasquez",
                 "slug": "matias-velasquez-4189",
@@ -1495,7 +1501,10 @@
                     }
                 },
                 "image": {
-                    "url": ""
+                    "url": "mockUrl",
+                    "auth": {
+                        "1": "mockHash"
+                    }
                 },
                 "name": "Soledad Velasquez",
                 "slug": "soledad-velasquez-4189",
@@ -1510,7 +1519,10 @@
                     }
                 },
                 "image": {
-                    "url": ""
+                    "url": "mockUrl",
+                    "auth": {
+                        "1": "mockHash"
+                    }
                 },
                 "name": "Ignacio Fernandez",
                 "slug": "ignacio-fernandez-4189",

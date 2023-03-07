@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { RESIZER_URL_PUBLIC, SITE_LANACION, API_ENV } from 'fusion:environment';
+import slugify from 'slugify';
 import {
     FOTOAL100,
     RECETA,
@@ -112,7 +113,7 @@ export const buildQueryParams = ({
 }) => {
     const imgAuth = get(arcImage, 'auth.1', '');
     const imgId = get(arcImage, '_id', '');
-    const ext = get(arcImage, 'additional_properties.originalName', '')
+    const ext = get(arcImage, 'additional_properties.originalUrl', '')
         .split('.')
         .pop();
     const parsedExtension = [
@@ -162,7 +163,7 @@ export const buildQueryParams = ({
             : `&smart=${smartCropExcluded}`;
 
     const image = imgId
-        ? `${imgId}${parsedExtension}`
+        ? `${getSlugForImage(arcImage)}${imgId}${parsedExtension}`
         : encodeURIComponent(get(arcImage, 'url', ''));
 
     return arcImage
@@ -191,4 +192,26 @@ export const resizeArcGallery = (
                 resizeArcImage(i, resizeOptions, zoomSizes, smartCropExcluded)
             )
     };
+};
+
+export const getSlugForImage = imageData => {
+    const textToBuildSlug =
+        get(imageData, 'alt_text', '') ||
+        get(imageData, 'caption', '') ||
+        get(imageData, 'subtitle', '');
+
+    if (!textToBuildSlug) return '';
+
+    const slugifySeoFriendly = slugify(`${textToBuildSlug}`, {
+        remove: /[<>_(){}[\]\\*+=~.,'`"¡!¿?|;:@$&%/#]/g,
+        lower: true,
+        strict: false
+    });
+    const shorterSlug = isValidString(slugifySeoFriendly)
+        ? slugifySeoFriendly.slice(0, 50)
+        : '';
+
+    return shorterSlug.charAt(shorterSlug.length - 1) === '-'
+        ? shorterSlug
+        : `${shorterSlug.slice(0, shorterSlug.lastIndexOf('-')) + '-'}`;
 };
