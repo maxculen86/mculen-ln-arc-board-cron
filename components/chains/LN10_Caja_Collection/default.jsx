@@ -119,6 +119,7 @@ const CajaCollection = props => {
         positionInsideSection
     );
 
+    // TODO testear dynamic banners en esta chain
     const { bannerMob = undefined, bannerDsk = undefined } =
         getDynamicBanners({
             renderables,

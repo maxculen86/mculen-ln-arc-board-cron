@@ -125,6 +125,7 @@ describe('getScriptsToLoad', () => {
         expect(Object.keys(getScriptsToLoad(undefined))).toEqual([
             'Datadog',
             'AdblockDetector',
+            'Permutive',
             'GTM',
             'Comscore',
             'Microdata',
@@ -142,6 +143,7 @@ describe('getScriptsToLoad', () => {
         expect(Object.keys(result)).toEqual([
             'Datadog',
             'AdblockDetector',
+            'Permutive',
             'GTM',
             'Comscore',
             'Microdata',

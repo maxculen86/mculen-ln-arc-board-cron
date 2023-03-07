@@ -14,7 +14,8 @@ describe('Common - Resizer', () => {
         const arcImage = {
             _id: 'J43DRG7ZGZCANB6PYJG2VQ35QY',
             additional_properties: {
-                originalName: 'Wilbert.jpg'
+                originalUrl:
+                    'https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/Wilbert.jpg'
             },
             auth: {
                 1: '1f6894f8d079227a933'

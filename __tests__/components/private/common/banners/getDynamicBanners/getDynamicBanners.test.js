@@ -34,6 +34,7 @@ describe('Components -  Chains - Utils - DynamicBanner', () => {
             bannerDsk: (
                 <DivBannerSSR
                     bannerConfiguration={{
+                        classes: 'billboard_dsk',
                         isStatic: true,
                         lazyClass: 'lazy',
                         slotId: 'billboard_dsk',

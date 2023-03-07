@@ -85,6 +85,7 @@ const CajaApertura = props => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [children]);
 
+    // TODO testear dynamic banners en esta chain
     const { bannerMob = undefined, bannerDsk = undefined } =
         getDynamicBanners({
             renderables,

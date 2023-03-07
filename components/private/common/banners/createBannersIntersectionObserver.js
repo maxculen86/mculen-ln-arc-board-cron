@@ -5,6 +5,7 @@ import getViewport from '../../LN/common/utils/screenHelper';
 import { bannersLazy } from './bannersHome.json';
 import { bannersLazy as bannersLazyLN10 } from './bannersHomeLN10.json';
 
+// TODO eliminar la condicion isLN10 y reemplazar banners lazy
 const createBannersIntersectionObserver = isLN10 => {
     const { device } = getViewport();
     const banners = filterBanners(isLN10 ? bannersLazyLN10 : bannersLazy);

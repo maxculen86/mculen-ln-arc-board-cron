@@ -15,7 +15,8 @@ export const addResizedUrls = (ansDoc, options) => {
         subtype,
         isInApertura,
         isAdmin,
-        shouldUseV2 = false
+        shouldUseV2 = false,
+        shouldUseV1
     } = options;
 
     const {
@@ -40,7 +41,10 @@ export const addResizedUrls = (ansDoc, options) => {
         ...ansDoc,
         ...(contentElements && {
             content_elements: contentElements.map(elem => {
-                if (isAllowSection({ section }) || shouldUseV2) {
+                if (
+                    !shouldUseV1 &&
+                    (isAllowSection({ section }) || shouldUseV2)
+                ) {
                     return resizerV2.resizeContentElements(
                         elem,
                         presetsContentElements || presetsDefault,
@@ -88,7 +92,7 @@ export const addResizedUrls = (ansDoc, options) => {
         }),
         ...(promoItems && {
             promo_items:
-                isAllowSection({ section }) || shouldUseV2
+                !shouldUseV1 && (isAllowSection({ section }) || shouldUseV2)
                     ? resizerV2.resizePromoItems(
                           presetPromoOrDefault,
                           zoomSizes,
@@ -104,11 +108,17 @@ export const addResizedUrls = (ansDoc, options) => {
                       )
         }),
         ...(credits && {
-            credits: resizerV1.resizeCredits(
-                credits,
-                presetsCredits || presetsDefault,
-                resizer
-            )
+            credits:
+                !shouldUseV1 && isAllowSection({ section })
+                    ? resizerV2.resizeCredits(
+                          credits,
+                          presetsCredits || presetsDefault
+                      )
+                    : resizerV1.resizeCredits(
+                          credits,
+                          presetsCredits || presetsDefault,
+                          resizer
+                      )
         })
     };
 };
