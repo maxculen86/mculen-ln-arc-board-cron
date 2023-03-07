@@ -84,7 +84,8 @@ const ArticleFeature = ({
             imageConfig,
             checkExclusiveAccess: false,
             isInApertura: onlyOneApeturaValidateForWWW,
-            isAdmin
+            isAdmin,
+            shouldUseV1: true
         },
         staticMode: isSSR(),
         filter

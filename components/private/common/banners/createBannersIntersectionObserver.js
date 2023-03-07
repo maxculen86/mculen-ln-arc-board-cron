@@ -3,10 +3,12 @@ import { queueGoogletagCommand } from '../../LN/common/utils/bannerHelper';
 import { filterBanners } from './lazyBannersHelper';
 import getViewport from '../../LN/common/utils/screenHelper';
 import { bannersLazy } from './bannersHome.json';
+import { bannersLazy as bannersLazyLN10 } from './bannersHomeLN10.json';
 
-const createBannersIntersectionObserver = () => {
+// TODO eliminar la condicion isLN10 y reemplazar banners lazy
+const createBannersIntersectionObserver = isLN10 => {
     const { device } = getViewport();
-    const banners = filterBanners(bannersLazy);
+    const banners = filterBanners(isLN10 ? bannersLazyLN10 : bannersLazy);
 
     const callback = entries => {
         entries.forEach(entry => {

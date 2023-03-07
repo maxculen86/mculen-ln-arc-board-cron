@@ -72,7 +72,7 @@ const LNMainHome = props => {
 
     useEffect(() => {
         createViewabilityObservers();
-        createBannersIntersectionObserver();
+        createBannersIntersectionObserver(false);
     }, []);
 
     return (

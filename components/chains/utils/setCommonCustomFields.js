@@ -90,7 +90,7 @@ const setCommonCustomFields = featuredName => {
         ).tag({
             label: 'Diagramación',
             defaultValue: customFieldsRules[featuredName].defaultLayout,
-            description: 'Cambiar el diagramación de la caja',
+            description: 'Cambiar la diagramación de la caja',
             group: customFieldsRules[featuredName].groupName,
             labels: customFieldsRules[featuredName].layouts
         }).isRequired,

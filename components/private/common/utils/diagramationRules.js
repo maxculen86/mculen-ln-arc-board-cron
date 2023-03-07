@@ -18,7 +18,7 @@ const diagramationRules = diagramation => {
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                cardSize: 'xl',
+                cardSize: 'm-l',
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
@@ -27,7 +27,7 @@ const diagramationRules = diagramation => {
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                cardSize: 'xl',
+                cardSize: 'm-l',
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
@@ -36,7 +36,7 @@ const diagramationRules = diagramation => {
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                cardSize: 'xl',
+                cardSize: 'm-l',
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
@@ -46,7 +46,7 @@ const diagramationRules = diagramation => {
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                cardSize: 'xl',
+                cardSize: 'm-l',
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
@@ -125,12 +125,11 @@ const diagramationRules = diagramation => {
             {
                 variantsDisabled: ['liveblog'],
                 titleTag: 'h2',
-                cardSize: 'xl',
+                cardSize: 'xl-l',
                 withSection: true,
                 withMarquee: true,
                 withMarqueeImg: true,
-                withSubhead: false,
-                className: '--font-xl-l'
+                withSubhead: false
             },
             {
                 titleTag: 'h2',
@@ -250,7 +249,8 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 withMarquee: true,
                 withMarqueeImg: true,
-                withMedia: true
+                withMedia: true,
+                cardSize: '3xl'
             }
         ],
         bombitaMas4: [
@@ -1012,7 +1012,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: true,
                 withMedia: true,
                 withSubhead: false,
-                cardSize: 'xl',
+                cardSize: '3xl',
                 variantsDisabled: ['author', 'liveblog'],
                 imagePosition: {
                     mobile: 'img-top',

@@ -27,7 +27,8 @@ import {
     getTitle,
     getMetaDescriptionDefault,
     metasFromSiteServices,
-    getTagTitle
+    getTagTitle,
+    addMetaNoIndexNoFollow
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
 import checkHydrateOnly from '../private/LN/common/utils/checkHydrateOnly';
@@ -287,6 +288,7 @@ const Default = props => {
                     renderables={renderables}
                     section={_nodeType}
                 />
+                {addMetaNoIndexNoFollow(siteProperties, layout)}
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
