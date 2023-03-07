@@ -3,10 +3,7 @@
 import useViewportSize from '../../../common/hooks/useViewportSize';
 import get from '../../../common/utils/get';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config';
-
-export const getChildsFromSections = (sectionPosition, renderable = []) => {
-    return get(renderable, `[${sectionPosition}].children`, []);
-};
+import { getChildsFromSections } from './homeHelper-WebApi';
 
 export const isBombaVisible = (renderable = []) => {
     const features = getChildsFromSections(

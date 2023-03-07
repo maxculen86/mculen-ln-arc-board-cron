@@ -329,8 +329,6 @@ const transformContent = async (
             }
         });
 
-    /* TODO: validar si related content debe ir vacio si tiene otros
-    items diferentes a reference */
     if (resp && resp.related_content && resp.related_content.basic) {
         resp.related_content.basic.forEach((element, i) => {
             const referentType = get(element, 'referent.type', '');

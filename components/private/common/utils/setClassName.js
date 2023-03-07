@@ -1,5 +1,5 @@
-const setClassName = props =>
-    Object.values(props)
+const setClassName = (classNames = {}) =>
+    Object.values(classNames)
         .filter(Boolean)
         .join(' ');
 

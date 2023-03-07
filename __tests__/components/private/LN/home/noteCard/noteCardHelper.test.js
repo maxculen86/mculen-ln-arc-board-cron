@@ -1,6 +1,7 @@
 import {
     initialElementInPB,
-    featuresValidator
+    featuresValidator,
+    isImageEager
 } from '../../../../../../components/private/LN/home/components/noteCard/noteCardHelper';
 
 describe('components - private - LN - home - noteCard - noteCardHelper', () => {
@@ -238,6 +239,11 @@ describe('components - private - LN - home - noteCard - noteCardHelper', () => {
                     variants: {}
                 }
             });
+        });
+        test('The fx isImageEager should return that is eager', () => {
+            expect(
+                isImageEager('YKFWJP34VFGSFOJZJZXAKZ5IHE', renderables)
+            ).toBe(true);
         });
         test('The note with the same id in feature bomba should be eager load', () => {
             expect(shouldBeEager).toBe(true);

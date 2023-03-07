@@ -12,9 +12,6 @@ import '../../resources/dist/css/ln/layouts/grid.css';
 import '../../resources/dist/css/ln/layouts/layout.css';
 import '../../resources/dist/css/ln/modules/header-desktop.css';
 import '../../resources/dist/css/ln/modules/header-mobile.css';
-
-// TODO, REVISAR ESTOS ESTILOS MAS ADELANTE. EN ALGUNOS LADOS FUNCIONAN EN
-// EL COMPONENTE Y EN OTROS NO
 import '../../resources/dist/css/ln/components/button.css';
 import '../../resources/dist/css/ln/components/date.css';
 import '../../resources/dist/css/ln/components/tag.css';

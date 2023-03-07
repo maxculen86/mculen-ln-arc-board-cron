@@ -31,7 +31,6 @@ const getSectionsAsTags = sections => {
         : [];
 };
 
-// TODO: este componente deberia ser el que tiene el titulo de "Recetas con:"
 const Tags = ({ tags = [], sections, destacado, temas, showItems }) => {
     const categories = getSectionsAsTags(sections);
 

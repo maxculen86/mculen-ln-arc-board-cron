@@ -7,7 +7,7 @@ import {
     getCommonProps,
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
-import validateCajaManual from './_helper';
+import validateCajaManual from './common/_helper-WebApi';
 import getGridType from '../utils/getGridType';
 import setRender from '../utils/setRender';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
@@ -15,7 +15,8 @@ import StaticContent from '../../private/common/staticContent';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
 
 import BuildRoof from '../utils/_BuildRoof/default';
-import { setSlicedChildren, useRoofData } from '../utils/_helpers';
+import { useRoofData } from '../utils/_helpers';
+import { setSlicedChildren } from '../utils/common/_helpers-WebApi';
 import getComponent from '../utils/getComponent';
 
 import '../../../resources/packages/css/@ln/contenidos-ui-contentlab/index.css';

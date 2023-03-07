@@ -1,5 +1,4 @@
 /* eslint-disable no-underscore-dangle */
-// TODO: asegurar que utilice una configuracion por defecto cuando no tiene una especifica. Por ej. si no hay config para credits, o para ese subtype, o para ese tamaño de nota
 
 import {
     RESIZER_URL_PUBLIC,

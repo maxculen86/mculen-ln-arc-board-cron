@@ -5,7 +5,8 @@ import {
     getMetaDescriptionDefault,
     getSectionOfRequestUri,
     metasFromSiteServices,
-    getTagTitle
+    getTagTitle,
+    addMetaNoIndexNoFollow
 } from '../../../../../components/private/common/utils/outputTypeHelper';
 import { RECETA } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
 
@@ -388,6 +389,52 @@ describe('getTagTitle function test', () => {
                     arcSite: 'ott'
                 })
             ).toBe('titulo ott');
+        });
+    });
+    describe('addNoIndexNoFollow for LN10', () => {
+        test('Return meta robots no index no follow when layout is for LN10', () => {
+            expect(
+                addMetaNoIndexNoFollow(
+                    {
+                        layoutsName: {
+                            HomeLN10: 'LN10-Home_Main'
+                        }
+                    },
+                    'LN10-Home_Main'
+                )
+            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
+        });
+
+        test('Return fragment when layout is not LN10', () => {
+            expect(
+                addMetaNoIndexNoFollow(
+                    {
+                        layoutsName: {
+                            HomeLN10: 'LN10-Home_Main'
+                        }
+                    },
+                    ''
+                )
+            ).toStrictEqual(<React.Fragment />);
+        });
+
+        test('Return fragment when layout is Home', () => {
+            expect(
+                addMetaNoIndexNoFollow(
+                    {
+                        layoutsName: {
+                            Home: 'Home'
+                        }
+                    },
+                    ''
+                )
+            ).toStrictEqual(<React.Fragment />);
+        });
+
+        test('Return fragment when everything is undefined', () => {
+            expect(addMetaNoIndexNoFollow(undefined, undefined)).toStrictEqual(
+                <React.Fragment />
+            );
         });
     });
     describe('getTagTitle for acu', () => {

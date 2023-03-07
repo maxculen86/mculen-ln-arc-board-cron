@@ -76,7 +76,7 @@ export const RightOptions = ({
                 )
             }
         >
-            <Icon icon="suscriptorExclusivo" className="--mr-2xs" />
+            <Icon icon="suscriptorExclusivo" />
             SUSCRIBITE
         </Button>
     );
@@ -103,7 +103,7 @@ export const RightOptions = ({
                 <Button
                     title="Iniciar sesión"
                     typeButton="secondary"
-                    className="--border-gray --mr-md --mobile-none"
+                    className="--border-gray --mobile-none"
                     onClick={goToLoginUrl}
                 >
                     <Text size="2xs">INICIAR SESIÓN</Text>

@@ -3,7 +3,7 @@
 exports[`Tests - Footer - LN10 Match snapshot 1`] = `
 <div>
   <footer
-    class="ln-footer-home lay"
+    class="ln-footer-home lay-container"
   >
     <section
       class="top-module"
@@ -11,8 +11,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
       <a
         class="link"
         href="https://www.lanacion.com.ar/"
-        rel="nofollow"
-        target="_blank"
+        target="_self"
         title="Ir a la página principal"
       >
         <i
@@ -52,8 +51,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/ultimas-noticias/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Últimas noticias"
             >
               <span
@@ -69,8 +67,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/politica/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Política"
             >
               <span
@@ -86,8 +83,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/economia/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Economía"
             >
               <span
@@ -103,8 +99,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/el-mundo/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a El mundo"
             >
               <span
@@ -120,8 +115,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/sociedad/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Sociedad"
             >
               <span
@@ -137,8 +131,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/opinion/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Opinión"
             >
               <span
@@ -154,8 +147,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/deportes/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Deportes"
             >
               <span
@@ -171,8 +163,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/lifestyle/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Lifestyle"
             >
               <span
@@ -188,8 +179,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/espectaculos/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Espectáculos"
             >
               <span
@@ -205,8 +195,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/https://edicionimpresa.lanacion.com.ar/la-nacion?_ga=2.226421138.948268382.1669638459-1845108145.1619557251"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Edición impresa"
             >
               <span
@@ -222,8 +211,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://lnmas.lanacion.com.ar/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a LN+"
             >
               <span
@@ -239,8 +227,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://club.lanacion.com.ar/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Club LA NACION"
             >
               <span
@@ -269,8 +256,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.somosohlala.com/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a OHLALÁ!"
             >
               <span
@@ -286,8 +272,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/revista-hola/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a ¡HOLA!"
             >
               <span
@@ -303,8 +288,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/revista-living/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a LIVING"
             >
               <span
@@ -320,8 +304,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/revista-jardin/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a JARDÍN"
             >
               <span
@@ -337,8 +320,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/revista-lugares/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a LUGARES"
             >
               <span
@@ -354,8 +336,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://es.rollingstone.com/arg/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a ROLLING STONE"
             >
               <span
@@ -379,8 +360,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://bonvivir.com/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Bonvivir"
             >
               <span
@@ -396,8 +376,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.libooks.com/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a LiBooks"
             >
               <span
@@ -413,8 +392,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://colecciones.lanacion.com.ar/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Colecciones"
             >
               <span
@@ -430,8 +408,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Máster en periodismo"
             >
               <span
@@ -447,8 +424,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://fundacionlanacion.org.ar/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Fundación LA NACION"
             >
               <span
@@ -472,8 +448,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.com.ar/mapa-del-sitio/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Mapa del sitio"
             >
               <span
@@ -489,8 +464,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.contacto.lanacion.com.ar/ayuda?_ga=2.125953413.948268382.1669638459-1845108145.1619557251"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Ayuda"
             >
               <span
@@ -506,8 +480,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.contacto.lanacion.com.ar/tyc?_ga=2.125953413.948268382.1669638459-1845108145.1619557251"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Términos y condiciones"
             >
               <span
@@ -523,8 +496,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://www.lanacion.in/"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a ¿Cómo anunciar?"
             >
               <span
@@ -540,8 +512,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link"
               href="https://suscripciones.lanacion.com.ar/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Suscribirse al diario impreso"
             >
               <span
@@ -890,8 +861,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link --unstyled"
               href="https://policies.google.com/terms?hl=es-419"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Condiciones"
             >
               Condiciones
@@ -902,8 +872,7 @@ exports[`Tests - Footer - LN10 Match snapshot 1`] = `
             <a
               class="link --unstyled"
               href="https://policies.google.com/privacy?hl=es-419"
-              rel="nofollow"
-              target="_blank"
+              target="_self"
               title="Ir a Privacidad"
             >
               Privacidad

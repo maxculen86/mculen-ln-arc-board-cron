@@ -5,13 +5,9 @@ import React, { useEffect, useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { Opening } from '@ln/contenidos-ui-opening';
+import { setFilteredRenderables, validateChain } from './common/_helper-WebApi';
 
-import {
-    setFilteredRenderables,
-    validateChain,
-    setCustomFields,
-    setRender
-} from './_helper';
+import { setCustomFields, setRender } from './_helper';
 import getChildrenBySection from '../utils/getChildrenBySection';
 import checkChildInSection from '../utils/checkChildBySection';
 
@@ -25,10 +21,12 @@ import {
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import {
     checkChangeChildrenForPB,
-    setWrappedChildren,
+    setWrappedChildren
+} from '../utils/_helpers';
+import {
     setSlicedChildren,
     setQuantityByLayout
-} from '../utils/_helpers';
+} from '../utils/common/_helpers-WebApi';
 
 const CajaApertura = props => {
     const {

@@ -1,13 +1,13 @@
-import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
+import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
 import {
     CHAIN_STYLE,
     VERTICALS,
     LAYOUTS,
     setQuantityByLayout
-} from '../utils/_helpers';
-import getChildrenBySection from '../utils/getChildrenBySection';
-import sectionValidation from '../../layouts/config/LN10-Home.config.json';
-import get from '../../private/common/utils/get';
+} from '../../utils/common/_helpers-WebApi';
+import getChildrenBySection from '../../utils/getChildrenBySection';
+import sectionValidation from '../../../layouts/config/LN10-Home.config.json';
+import get from '../../../private/common/utils/get';
 
 const { GRILLA4VERTICALES } = LAYOUTS;
 const { HASHTAG, SUB_EXCLUSIVE } = CHAIN_STYLE;

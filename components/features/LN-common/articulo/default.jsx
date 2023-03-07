@@ -10,8 +10,7 @@ import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTem
 import {
     isInHomeAperturaOrBomba,
     isInApertura,
-    initialElementInPB,
-    featuresValidator
+    isImageEager
 } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
@@ -92,21 +91,7 @@ const ArticleFeature = ({
         filter
     });
 
-    const { _id: articleId = '' } = article || {};
-
-    const pbFirstElement = initialElementInPB(renderables);
-
-    const { type = '' } = pbFirstElement;
-
-    const isEager = get(
-        featuresValidator,
-        type,
-        featuresValidator.default
-    )({
-        element: pbFirstElement,
-        checkEager: true,
-        note: articleId
-    });
+    const isEager = isImageEager(id, renderables);
 
     const videoBackground =
         useContent({
