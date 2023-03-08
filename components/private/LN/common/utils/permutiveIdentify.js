@@ -29,6 +29,7 @@ const permutiveIdentify = usuarioDetalleEmail => {
 
     return (
         identitiesArray.length > 0 &&
+        window !== undefined &&
         window.permutive &&
         window.permutive.identify(identitiesArray)
     );

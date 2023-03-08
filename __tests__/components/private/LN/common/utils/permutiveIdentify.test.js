@@ -40,7 +40,7 @@ describe('components - private - LN - common - utils', () => {
                 return jest.fn(() => mockCookie);
             }
         );
-        test('If string is empty for email but we have cookie then permutative identify should be called', () => {
+        test('If string is empty for email but we have cookie then permutive identify should be called', () => {
             permutiveIdentify('');
             expect(window.permutive.identify).toBeCalledTimes(1);
         });
