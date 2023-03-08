@@ -22,13 +22,16 @@ import {
     createViewabilityObservers,
     productClickFromServer
 } from '../../private/common/utils/viewability';
-import createBannersIntersectionObserver from '../../private/common/banners/createBannersIntersectionObserver';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
 import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 import '../../../resources/packages/css/@ln/contenidos-ui-banners/index.css';
 import Ranking from '../../features/LN-10/ranking/default';
 import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
+import {
+    createBannersIntersectionObserver,
+    createHeaderObserver
+} from '../../private/common/banners/intersectionObservers';
 
 const LN10Home = props => {
     const { children, outputType, isAdmin, renderables } = props;
@@ -59,7 +62,8 @@ const LN10Home = props => {
     useEffect(() => {
         createViewabilityObservers(true);
         createBannersIntersectionObserver(true);
-    }, []);
+        if (!isAdmin) createHeaderObserver();
+    }, [isAdmin]);
 
     return (
         <GlobalProvider>
@@ -78,7 +82,6 @@ const LN10Home = props => {
                     <div data-section="cabezal">{cabezal}</div>
                     <Header />
                 </div>
-
                 <main className="main-container">
                     <section
                         data-section="pre-apertura"
@@ -107,7 +110,6 @@ const LN10Home = props => {
                             {bannersHome.megalateralDsk}
                         </aside>
                     </section>
-
                     <div
                         style={{
                             width: '100%',
@@ -120,8 +122,6 @@ const LN10Home = props => {
                     >
                         Cinturon 1
                     </div>
-                    {/* {bannersHome.parallaxDsk} */}
-
                     <section
                         id="content-main-2"
                         className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
@@ -129,15 +129,6 @@ const LN10Home = props => {
                         <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
                             <div data-section="breaking2">{breaking2}</div>
                             {bannersHome.middle1Tab}
-                            {/*
-                            parallax2dsk
-                            */}
-                            {/*
-                            parallax3dsk -middle3tab
-                            */}
-                            {/*
-                            parallax4dsk - middle4tab
-                            */}
                         </div>
                         <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
                             {bannersHome.megalateral2Dsk}
@@ -216,7 +207,6 @@ const LN10Home = props => {
                             {bannersHome.megalateral4Dsk}
                         </aside>
                     </section>
-
                     <div
                         style={{
                             width: '100%',
@@ -229,7 +219,6 @@ const LN10Home = props => {
                     >
                         Cinturon 4
                     </div>
-
                     <section
                         id="content-main-5"
                         className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
