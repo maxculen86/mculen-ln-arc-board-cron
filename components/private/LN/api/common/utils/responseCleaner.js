@@ -19,7 +19,11 @@ const removeEmptyItems = obj => {
         ])
         .reduce(
             (a, [k, v]) =>
-                v === null || v === undefined || v === '' || v.length === 0
+                v === null ||
+                v === undefined ||
+                v === '' ||
+                v.length === 0 ||
+                v === {}
                     ? a
                     : ((a[k] = v), a),
             {}

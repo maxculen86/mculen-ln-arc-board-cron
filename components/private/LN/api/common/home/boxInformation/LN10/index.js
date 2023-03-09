@@ -9,14 +9,14 @@ export const boxInfoApertura = (information, section, typeSection) => {
 
 export const boxInfoAnticipo = (information, section, typeSection) => {
     const box = boxInfoComplete(information, section, typeSection);
-    if (box) {
-        box.chapita = information.textBadge;
-        box.volanta = information.lead;
-        box.url = information.url;
+    if (box && box.parameters) {
+        box.parameters.badge = information.textBadge;
+        box.parameters.lead = information.lead;
+        box.parameters.url = information.url;
         if (information.video === '') {
-            box.texto = information.title;
+            box.parameters.text = information.title;
         }
-        box.video = getEmbedHref('src', information.video);
+        box.parameters.video = getEmbedHref('src', information.video);
     }
     return box;
 };

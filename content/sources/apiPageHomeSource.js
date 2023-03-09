@@ -12,7 +12,7 @@ const fetch = async (query, { cachedCall } = {}) => {
     let queryParams = {};
     const configPages = {
         home: {
-            aliasPage: '/homepage-LN10',
+            aliasPage: '/homepage',
             transformPage: { 1: transformv1, 2: transformv2 },
             transformHome: { 1: homev1, 2: homev2 }
         },
@@ -21,7 +21,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             transformPage: { 1: transformBitacorav1 }
         },
         homeLN: {
-            aliasPage: '/homepage',
+            aliasPage: '/homepage-LN10',
             transformPage: { 1: transformv1, 2: transformv2 },
             transformHome: { 1: homev1, 2: homev2 }
         },
