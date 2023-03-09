@@ -9,7 +9,7 @@ export const boxInfoApertura = (information, section, typeSection) => {
 export const boxInfoAnticipo = (information, section, typeSection) => {
     const box = boxInfoComplete(information, section, typeSection);
     if (box) {
-        box.texto = information.title;
+        box.text = information.title;
     }
     return box;
 };
