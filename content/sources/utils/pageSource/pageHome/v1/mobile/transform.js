@@ -1,4 +1,3 @@
-import get from '../../../../../../../components/private/common/utils/get';
 import configToDividebyDiagramation from '../../../../../../../components/private/LN/api/global/page/config/configToDividebyDiagramation';
 import { setBannerByLayout } from '../../../common/elements/banners/index';
 import {

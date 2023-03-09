@@ -1,4 +1,4 @@
-const infoLNMain = {
+export const infoLNMain = {
     'ln-common/cajaanticipo': { tipoSeccion: 'anticipo', idSeccion: 501 },
     'ln-common/bomba': { tipoSeccion: 'bomba', idSeccion: 102 },
     apertura: { tipoSeccion: 'apertura', idSeccion: 200 },
@@ -20,7 +20,7 @@ const infoLNMain = {
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 
-const infoLNMainLN10 = {
+export const infoLNMainLN10 = {
     'ln-common/ln10_anticipo': { tipoSeccion: 'anticipo', idSeccion: 501 },
     bomba: { tipoSeccion: 'bomba', idSeccion: 102 },
     apertura: { tipoSeccion: 'apertura', idSeccion: 200 },
