@@ -1,3 +1,5 @@
+import { escapedStringForRegex } from '../../../common/utils/dataValidation';
+
 const addForwardSlash = str => {
     if (!str || typeof str !== 'string') return null;
     if (str.charCodeAt(str.length - 1) === 47) return str;
@@ -13,7 +15,7 @@ export const addForwardSlashInParagraphsLinks = content => {
 
     newArrayLinks.forEach(etiquetaA => {
         const link = etiquetaA.replace(regLN, '$1');
-        const re = new RegExp(`"${link}"`, 'g');
+        const re = new RegExp(`"${escapedStringForRegex(link)}"`, 'g');
         newContent = newContent.replace(re, `"${addForwardSlash(link)}"`);
     });
     return newContent;

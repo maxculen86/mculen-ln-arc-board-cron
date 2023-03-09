@@ -46,12 +46,11 @@ const FocalFactory = ({
                         artPosition={`0${index + 1}`}
                         boxPosition={boxPosition}
                         handleClick={handleClick}
-                        {...({
-                            articleProps,
-                            ...(pageLayout === layoutsName.Home && {
-                                isApertura: false
-                            })
-                        } || {})}
+                        {...(articleProps || {})}
+                        {...((pageLayout === layoutsName.Home && {
+                            isApertura: false
+                        }) ||
+                            {})}
                     />
                 )
             );
