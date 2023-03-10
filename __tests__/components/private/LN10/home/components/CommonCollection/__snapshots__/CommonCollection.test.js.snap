@@ -535,7 +535,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -582,7 +582,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -629,7 +629,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -676,7 +676,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -728,7 +728,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -775,7 +775,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"

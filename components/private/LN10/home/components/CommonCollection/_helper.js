@@ -19,7 +19,8 @@ const getCardConfig = (config, articleData) => {
             withMarqueeImg && get(getAuthorsPhoto(articleData), 'url', ''),
         cardSize: get(config, 'cardSize'),
         mediaData: transformImageData(articleData, promoItems),
-        imagePosition: get(config, 'imagePosition')
+        imagePosition: get(config, 'imagePosition'),
+        className: get(config, 'className')
     };
 };
 

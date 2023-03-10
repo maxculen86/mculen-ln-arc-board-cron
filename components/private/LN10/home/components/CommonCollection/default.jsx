@@ -40,9 +40,9 @@ export default function CommonCollection({
                         marqueeImg,
                         cardSize,
                         mediaData,
-                        imagePosition
+                        imagePosition,
+                        className
                     } = getCardConfig(rules[index], article);
-
                     const extraOpts = getDataAttributesForViewability(
                         article._id,
                         position,
@@ -61,6 +61,7 @@ export default function CommonCollection({
                             mediaData={mediaData}
                             cardSize={cardSize}
                             imagePosition={imagePosition}
+                            className={className}
                             {...extraOpts}
                         />
                     );

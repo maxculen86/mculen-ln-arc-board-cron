@@ -517,7 +517,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--text-center'
             },
             {
                 withMarquee: false,
@@ -528,7 +529,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--text-center'
             },
             {
                 withMarquee: false,
@@ -539,7 +541,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--text-center'
             },
             {
                 withMarquee: false,
@@ -550,7 +553,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--text-center'
             },
             {
                 withMarquee: false,
@@ -561,7 +565,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--text-center'
             },
             {
                 withMarquee: false,
@@ -572,7 +577,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--text-center'
             }
         ],
         canal_1_4_grid: [
