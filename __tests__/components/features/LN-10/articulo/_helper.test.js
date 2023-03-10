@@ -10,7 +10,8 @@ import {
     showMarqueeImage,
     validateSubhead,
     showExtraClass,
-    getTypeOfMedia
+    getTypeOfMedia,
+    getOnlyHoursMinutes
 } from '../../../../../components/features/LN-10/article/_helper';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
 import {
@@ -519,6 +520,15 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             expect(
                 getLiveblogTitles(contentElementsWithoutPowerUps)
             ).toStrictEqual([]);
+        });
+
+        test('should return only hours and minutes', () => {
+            const time = '12:59';
+            const timeWithSeconds = '14:25:56';
+
+            expect(getOnlyHoursMinutes(time)).toEqual('12:59');
+            expect(getOnlyHoursMinutes(timeWithSeconds)).toEqual('14:25');
+            expect(getOnlyHoursMinutes()).toEqual('');
         });
     });
 });
