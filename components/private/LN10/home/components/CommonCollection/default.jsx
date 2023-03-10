@@ -7,7 +7,7 @@ import { Card } from '@ln/contenidos-ui-card';
 import { Bngrid } from '@ln/contenidos-ui-bngrid';
 
 import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
-import getCardConfig from './_helper';
+import getCardConfig, { getTitleAndLeadForHome } from './_helper';
 import get from '../../../../common/utils/get';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
@@ -49,11 +49,13 @@ export default function CommonCollection({
                         index
                     );
 
+                    const { title, lead } = getTitleAndLeadForHome(article);
+
                     return (
                         <Card
                             withMedia={withImage}
-                            title={get(article, 'headlines.basic', '')}
-                            lead={get(article, 'label.volanta.text', '')}
+                            title={title}
+                            lead={lead}
                             marquee={marquee}
                             marqueeImg={marqueeImg}
                             subhead={subhead}

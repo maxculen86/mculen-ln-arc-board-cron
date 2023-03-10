@@ -24,4 +24,15 @@ const getCardConfig = (config, articleData) => {
     };
 };
 
+export const getTitleAndLeadForHome = (article = {}) => {
+    const titleTextShort = get(article, 'headlines.mobile', '');
+    const titleTextLong = get(article, 'headlines.basic', '');
+    const lead = get(article, 'label.volanta.text', '');
+
+    return {
+        lead: titleTextShort !== '' ? lead : '',
+        title: titleTextShort !== '' ? titleTextShort : titleTextLong
+    };
+};
+
 export default getCardConfig;
