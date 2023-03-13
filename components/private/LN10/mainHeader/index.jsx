@@ -60,7 +60,7 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                     id="querylyButton"
                     htmlFor="queryly_toggle"
                     title="Ir al buscador"
-                    className="button ln-button --prl-xs --border-gray --d-flex --ai-center --jc-center"
+                    className="button ln-button --secondary --prl-xs --border-gray --d-flex --ai-center --jc-center"
                 >
                     <Icon icon="search" size="s" className="--mr-0" />
                 </label>
