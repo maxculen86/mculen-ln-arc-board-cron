@@ -11,7 +11,7 @@ import {
 import { getMarkupForDatalayer } from '../../private/LN/common/utils/cajaTemasHelper';
 import getDataChainCollection from '../utils/getDataChainCollection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
-import { validateChain } from '../LN10_Caja_Collection/_helper';
+import { validateChain } from '../LN10_Caja_Collection/common/_helper-WebApi';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
 import diagramationRules from '../../private/common/utils/diagramationRules';
 import setRender from '../utils/setRender';

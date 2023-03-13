@@ -23,17 +23,6 @@ export const transform = (content, customFields, promoItems) => {
         }) ||
         get(content, 'label', '');
 
-    const credits =
-        (get(customFields, 'hideImage') &&
-            get(content, 'credits') && {
-                ...get(content, 'credits', {}),
-                by: get(content, 'credits.by', []).map(author => ({
-                    ...author,
-                    image: undefined
-                }))
-            }) ||
-        get(content, 'credits');
-
     return (
         (content && {
             ...content,
@@ -47,8 +36,7 @@ export const transform = (content, customFields, promoItems) => {
 
             promo_items: promoItems || get(content, 'promo_items'),
             marquesina:
-                get(customFields, 'authors') || getAuthorsAsString(content),
-            credits
+                get(customFields, 'authors') || getAuthorsAsString(content)
         }) ||
         content
     );
@@ -112,6 +100,22 @@ export const isInHomeAperturaOrBomba = (
     });
 };
 
+export const isImageEager = (idArticle, renderables) => {
+    const pbFirstElement = initialElementInPB(renderables);
+
+    const { type = '' } = pbFirstElement;
+
+    return get(
+        featuresValidator,
+        type,
+        featuresValidator.default
+    )({
+        element: pbFirstElement,
+        checkEager: true,
+        note: idArticle
+    });
+};
+
 export const initialElementInPB = elementsToRender => {
     const chainsAndFeatures =
         elementsToRender.filter(elem => {
@@ -152,23 +156,33 @@ export const featuresValidator = {
             : !hideFeature && !hideImage;
     },
     Ln_Caja_Manual: ({ element, checkEager, note = '' }) => {
-        const { props, children = [] } = element;
-
-        const { 0: chainFirstNote } = children;
-
-        const { customFields } = props;
-        const { hideCaja } = customFields;
-
-        const { props: noteProps } = chainFirstNote;
-        const { customFields: noteCustomFields } = noteProps;
-        const { hideImage, video, html, noteId = '' } = noteCustomFields;
-
-        const isFirstViewportNote = note === noteId;
-        const hasImage = !html && !video && !hideImage;
-
-        return checkEager ? isFirstViewportNote && hasImage : !hideCaja;
+        return extractCommonIsEager(note, checkEager, element);
+    },
+    LN10_Caja_Apertura: ({ element, checkEager, note = '' }) => {
+        return extractCommonIsEager(note, checkEager, element);
+    },
+    LN10_Caja_Bomba: ({ element, checkEager, note = '' }) => {
+        return extractCommonIsEager(note, checkEager, element);
     },
     default: () => false
+};
+
+const extractCommonIsEager = (note, checkEager, element = {}) => {
+    const { props, children = [] } = element;
+
+    const { 0: chainFirstNote } = children;
+
+    const { customFields } = props;
+    const { hideCaja } = customFields;
+
+    const { props: noteProps } = chainFirstNote;
+    const { customFields: noteCustomFields } = noteProps;
+    const { hideImage, video, html, noteId = '' } = noteCustomFields;
+
+    const isFirstViewportNote = note === noteId;
+    const hasImage = !html && !video && !hideImage;
+
+    return checkEager ? isFirstViewportNote && hasImage : !hideCaja;
 };
 
 export const isInApertura = ({

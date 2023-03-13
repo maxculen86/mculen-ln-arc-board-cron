@@ -1,4 +1,4 @@
-import { CHAIN_STYLE } from '../../_helpers';
+import { CHAIN_STYLE } from '../../common/_helpers-WebApi';
 
 const { HASHTAG } = CHAIN_STYLE;
 

@@ -39,7 +39,7 @@ const getDataSetProps = element => {
     if (element) {
         const { dataset: articleDataSet = {} } = element;
         const { dataset: chainDataSet = {} } = (element.closest &&
-            element.closest('[data-block-name]')) || {
+            element.closest('[data-is-block]')) || {
             dataset: { blockName: '', diagramacionId: '', chainPosition: '' }
         };
 
@@ -163,8 +163,7 @@ export const createIntersectionObserver = () => {
 const shouldAddArticle = (entry, articlesSeen) => {
     const idArticle = get(entry, 'target.dataset.id');
     const sectionOfArticle =
-        get(entry, 'target') &&
-        get(entry, 'target').closest('[data-block-name]');
+        get(entry, 'target') && get(entry, 'target').closest('[data-is-block]');
 
     const blockName = get(sectionOfArticle, 'dataset.blockName');
     return (
@@ -223,39 +222,41 @@ const addEventImpressionToDataLayer = (
     }
 };
 
-export const createViewabilityObservers = () => {
+export const createViewabilityObservers = (isLN10 = false) => {
     const interSectionObserver = createIntersectionObserver();
 
-    const mutationCallback = (mutationsList, observer) => {
-        mutationsList.forEach(mutation => {
-            mutation.addedNodes.forEach(node => {
-                if (get(node, 'dataset.module')) {
-                    const arts = document.querySelectorAll(
-                        `div[data-module=${node.dataset.module}] article`
-                    );
-                    arts.forEach(element => {
-                        if (element && element.dataset.id) {
-                            interSectionObserver.observe(element);
-                        }
-                    });
-                }
+    if (!isLN10) {
+        const mutationCallback = (mutationsList, observer) => {
+            mutationsList.forEach(mutation => {
+                mutation.addedNodes.forEach(node => {
+                    if (get(node, 'dataset.module')) {
+                        const arts = document.querySelectorAll(
+                            `div[data-module=${node.dataset.module}] article`
+                        );
+                        arts.forEach(element => {
+                            if (element && element.dataset.id) {
+                                interSectionObserver.observe(element);
+                            }
+                        });
+                    }
 
-                if (node.nodeName === 'ARTICLE' && node.dataset.id) {
-                    interSectionObserver.observe(node);
-                }
+                    if (node.nodeName === 'ARTICLE' && node.dataset.id) {
+                        interSectionObserver.observe(node);
+                    }
+                });
             });
-        });
-    };
+        };
 
-    const mutationObserver = new MutationObserver(mutationCallback);
-    mutationObserver.observe(
-        document.querySelector('section[data-section=multimedia'),
-        {
-            attributes: false,
-            childList: true,
-            subtree: true
-        }
-    );
+        const mutationObserver = new MutationObserver(mutationCallback);
+        mutationObserver.observe(
+            document.querySelector('section[data-section=multimedia'),
+            {
+                attributes: false,
+                childList: true,
+                subtree: true
+            }
+        );
 
-    // mutationObserver.disconnect();
+        // mutationObserver.disconnect();
+    }
 };

@@ -70,7 +70,8 @@ const fetch = (query, { cachedCall } = {}) => {
         checkExclusiveAccess = true,
         isInApertura = false,
         isAdmin = false,
-        outputType = ''
+        outputType = '',
+        shouldUseV1 = false
     } = query;
 
     const arcSite = query['arc-site'];
@@ -133,7 +134,8 @@ const fetch = (query, { cachedCall } = {}) => {
                 paywallEnabled,
                 cachedCall,
                 isInApertura,
-                isAdmin
+                isAdmin,
+                shouldUseV1
             );
         })
         .catch(error => {
@@ -162,7 +164,8 @@ const transform = async (
     paywallEnabled,
     cachedCall,
     isInApertura,
-    isAdmin
+    isAdmin,
+    shouldUseV1
 ) => {
     // Data
     const subtype = get(data, 'subtype', null);
@@ -175,6 +178,7 @@ const transform = async (
     const layout = 'LN-nota-noticia';
 
     if (
+        !shouldUseV1 &&
         isAllowSection({
             section: get(data, 'taxonomy.primary_section._id')
         })
@@ -263,7 +267,8 @@ const transform = async (
             },
             subtype,
             isInApertura,
-            isAdmin
+            isAdmin,
+            shouldUseV1
         })
     };
     return transformContent(
@@ -324,8 +329,6 @@ const transformContent = async (
             }
         });
 
-    /* TODO: validar si related content debe ir vacio si tiene otros
-    items diferentes a reference */
     if (resp && resp.related_content && resp.related_content.basic) {
         resp.related_content.basic.forEach((element, i) => {
             const referentType = get(element, 'referent.type', '');

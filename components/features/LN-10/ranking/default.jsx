@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { Cajaranking } from '@ln/contenidos-ui-cajaranking';
@@ -6,27 +7,27 @@ import {
     getRankingProps,
     getSectionParentId,
     getDataContent,
-    RANKING_LAYOUT,
-    RANKING
+    RANKING_LAYOUT
 } from './_helper';
 import StaticContent from '../../../private/common/staticContent';
 import checkHydrateOnly from '../../../private/LN/common/utils/checkHydrateOnly';
-import articleBoxesTracker from '../../../private/common/utils/noteTracker/articleBoxesTracker';
 import diagramationRules from '../../../private/common/utils/diagramationRules';
 import CommonCollection from '../../../private/LN10/home/components/CommonCollection/default';
+import { getMarkupForDatalayer } from '../../../private/LN/common/utils/cajaTemasHelper';
 
 // TODO: agregar test al feature
 
 const RankingFeature = ({ id: featureId }) => {
     const { website, arcSite, layout, globalContent = {} } = useAppContext();
 
-    const { node_type: nodeType, type } = globalContent;
+    const { node_type: nodeType } = globalContent;
 
-    const { title, sectionId, sectionName } = getRankingProps(
+    const { title, sectionId, rankingLayout } = getRankingProps(
         layout,
         featureId,
         globalContent
     );
+
     const sectionParentId = getSectionParentId(sectionId);
     const hasHydrateOnly = checkHydrateOnly({ layout, nodeType });
 
@@ -39,26 +40,29 @@ const RankingFeature = ({ id: featureId }) => {
             layout
         ) || {};
 
-    useEffect(() => {
-        type === 'story' &&
-            articleBoxesTracker({
-                boxType: 'ranking'
-            });
-    }, [type]);
+    const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+        rankingLayout,
+        '',
+        '',
+        '',
+        ''
+    );
 
     const rules = diagramationRules(RANKING_LAYOUT) || [];
 
     const component = (
-        <section data-section={sectionId}>
-            <CommonCollection
-                roofData={{ title }}
-                rules={rules}
-                position={sectionName === RANKING ? '0190' : '0191'}
-                articles={articles}
-                gridType={RANKING_LAYOUT}
-                ContainerCards={Cajaranking}
-            />
-        </section>
+        <div {...extraOptsDiv}>
+            <section {...extraOpts}>
+                <CommonCollection
+                    roofData={{ title }}
+                    rules={rules}
+                    position="0190"
+                    articles={articles}
+                    gridType={RANKING_LAYOUT}
+                    ContainerCards={Cajaranking}
+                />
+            </section>
+        </div>
     );
 
     const sectionRanking = component || <></>;

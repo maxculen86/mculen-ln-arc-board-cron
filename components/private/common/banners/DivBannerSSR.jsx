@@ -1,11 +1,14 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from '../utils/get';
-import flatArray from '../utils/flatArray';
+import { useAppContext } from 'fusion:context';
+import { Button } from '@ln/contenidos-ui-button';
 import ComButton from '../com-button';
+import flatArray from '../utils/flatArray';
 import Icon from '../icon';
 import StaticContent from '../staticContent';
+import siteProperties from '../../../../properties/sites/la-nacion-ar';
+import get from '../utils/get';
 
 const DivBannerSSR = ({ bannerConfiguration }) => {
     const {
@@ -24,20 +27,39 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
         isStatic = false,
         lazyClass = ''
     } = bannerConfiguration;
-    const ClassNames = `mod-banner --${slotId} ${classes || ''} `;
+    const { layout } = useAppContext();
+
+    const comercialButton =
+        layout !== get(siteProperties, 'layoutsName.HomeLN10') ? (
+            <ComButton
+                classCondition="--primary --compact"
+                dataEvent="LinkClick"
+                dataSection="Comercial-home"
+                id={`${slotId}_btnCloseAd`}
+                textname="CERRAR"
+            />
+        ) : (
+            <Button
+                typeButton="primary"
+                dataEvent="LinkClick"
+                dataSection="Comercial-home"
+                id={`${slotId}_btnCloseAd`}
+                label="CERRAR"
+            />
+        );
+
+    const classNames = `${
+        layout !== get(siteProperties, 'layoutsName.HomeLN10')
+            ? 'mod-banner'
+            : 'ln-banner-container'
+    } --${slotId} ${classes || ''} `;
 
     const Comp = (
         <>
             {closeButton && (
                 <>
                     {slotId.includes('comercial') ? (
-                        <ComButton
-                            classCondition="--primary --compact"
-                            dataEvent="LinkClick"
-                            dataSection="Comercial-home"
-                            id={`${slotId}_btnCloseAd`}
-                            textname="CERRAR"
-                        />
+                        comercialButton
                     ) : (
                         <button
                             id={`${slotId}_btnCloseAd`}
@@ -65,7 +87,11 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
             )}
             <div
                 id={slotId}
-                className={`com-banner ${lazyClass}`}
+                className={`${
+                    layout !== get(siteProperties, 'layoutsName.HomeLN10')
+                        ? 'com-banner'
+                        : 'ln-banner'
+                } ${lazyClass}`}
                 data-slot-group={slotGroup}
                 data-device={device}
                 data-subscription={hideForSubscriptor || false}
@@ -80,9 +106,9 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
     );
 
     return isStatic ? (
-        <StaticContent className={ClassNames}>{Comp}</StaticContent>
+        <StaticContent className={classNames}>{Comp}</StaticContent>
     ) : (
-        <div className={ClassNames}>{Comp}</div>
+        <div className={classNames}>{Comp}</div>
     );
 };
 

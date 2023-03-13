@@ -1,0 +1,17 @@
+[
+    {
+        "icon": "bookmark",
+        "text": "Mis notas",
+        "href": "https://www.lanacion.com.ar/mis-notas/"
+    },
+    {
+        "icon": "emailOpen",
+        "text": "Newsletters",
+        "href": "https://newsletter.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274"
+    },
+    {
+        "icon": "clubLnDefault",
+        "text": "Club LA NACION",
+        "href": "https://club.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274"
+    }
+]

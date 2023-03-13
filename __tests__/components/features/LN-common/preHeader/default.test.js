@@ -1,11 +1,16 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import PreHeader from '../../../../../components/features/LN-common/preHeader/default';
 import {
     setWeatherData,
     getTopicsFromCustomFields
 } from '../../../../../components/features/LN-common/preHeader/_helper';
+import {
+    setEventsTopics,
+    setEventsWeather
+} from '../../../../../components/private/common/scriptManager/PreHeaderEventsScript/_helper';
+import preHeaderEventLogResult from '../../../../../__mocks__/data/preHeader/preHeaderEventLogResult.json';
 
 jest.mock(
     '../../../../../components/features/LN-common/preHeader/_helper',
@@ -17,6 +22,8 @@ jest.mock(
 );
 
 describe('Components - Features - LN-Common - PreHeader', () => {
+    global.window.dataLayer = [];
+
     const mock = {
         weather: {
             icon: 'sun',
@@ -24,30 +31,26 @@ describe('Components - Features - LN-Common - PreHeader', () => {
             place: 'Capital Federal',
             dataEvent: 'e_linkclick',
             dataSection: 'MenuLN',
-            link: '/clima',
-            callback: jest.fn()
+            link: '/clima'
         },
         topics: [
             {
                 title: 'First topic',
                 link: '/first-topic',
                 dataEvent: 'e_linkclick',
-                dataSection: 'MenuLN',
-                callback: jest.fn()
+                dataSection: 'MenuLN'
             },
             {
                 title: 'Second topic',
                 link: '/second-topic',
                 dataEvent: 'e_linkclick',
-                dataSection: 'MenuLN',
-                callback: jest.fn()
+                dataSection: 'MenuLN'
             },
             {
                 title: 'Third topic',
                 link: '/third-topic',
                 dataEvent: 'e_linkclick',
-                dataSection: 'MenuLN',
-                callback: jest.fn()
+                dataSection: 'MenuLN'
             }
         ]
     };
@@ -82,21 +85,25 @@ describe('Components - Features - LN-Common - PreHeader', () => {
         });
     });
 
-    test('should executes callbacks when some elements are clicked', () => {
+    test('should match snapshot of PreHeader', () => {
         setWeatherData.mockImplementation(() => mock.weather);
         getTopicsFromCustomFields.mockImplementation(() => mock.topics);
 
-        const { container, getByText } = render(<PreHeader />);
-        const weatherLink = container.querySelector('.ln-link');
+        const { container } = render(<PreHeader />);
+        const preHeader = container.querySelector('.ln-pre-header');
 
-        fireEvent.click(weatherLink);
-        expect(mock.weather.callback).toHaveBeenCalledTimes(1);
+        expect(preHeader).toMatchSnapshot();
+    });
 
-        mock.topics.forEach(topic => {
-            const topicAnchor = getByText(topic.title);
+    test('should register in dataLayer the click events of each link', () => {
+        setWeatherData.mockImplementation(() => mock.weather);
+        getTopicsFromCustomFields.mockImplementation(() => mock.topics);
 
-            fireEvent.click(topicAnchor);
-            expect(topic.callback).toHaveBeenCalledTimes(1);
-        });
+        render(<PreHeader />);
+        setEventsWeather();
+        setEventsTopics();
+        const links = screen.getAllByRole('link');
+        links.forEach(link => link.click());
+        expect(window.dataLayer).toEqual(preHeaderEventLogResult);
     });
 });

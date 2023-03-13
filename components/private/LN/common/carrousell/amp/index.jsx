@@ -5,7 +5,6 @@ import AmpImage from '../../ampImage';
 const index = props => {
     const { data } = props;
 
-    // TODO: ask the markup team for sizes ( they should probably come from a configuration file or as props, who knows ... )
     return (
         <>
             <amp-carousel

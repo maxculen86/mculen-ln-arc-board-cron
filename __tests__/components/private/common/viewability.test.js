@@ -473,6 +473,7 @@ describe('IntersectionObserver', () => {
         let section = global.document.createElement('section');
         section.dataset.blockName = 'h_opinion';
         section.setAttribute('data-block-name', 'h_opinion');
+        section.setAttribute('data-is-block', true);
         section.appendChild(article);
 
         const mockedEntries = [
@@ -559,6 +560,7 @@ describe('IntersectionObserver', () => {
         let section2 = global.document.createElement('section');
         section2.dataset.blockName = 'h_otro';
         section2.setAttribute('data-block-name', 'h_otro');
+        section2.setAttribute('data-is-block', true);
         section2.appendChild(article3);
 
         const mockedEntries3 = [

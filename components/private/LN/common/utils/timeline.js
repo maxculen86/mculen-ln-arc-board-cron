@@ -2,6 +2,7 @@ import React from 'react';
 import { addHours } from '../../../common/utils/dateAndTimeUtil';
 import { LIVEBLOG } from '../../../common/utils/subtypes/subtypeHelper';
 import ComHour from '../../../common/com-hour';
+import get from '../../../common/utils/get';
 
 export const tlSources = {
     byLastNews: 'Últimas Noticias',
@@ -57,7 +58,8 @@ export const setTLArticles = (source, articles = []) => {
             headlines = {},
             display_date: displayDate,
             content_restrictions: contentRestrictions,
-            subtype
+            subtype,
+            label = {}
         } = article;
 
         const isLiveblog = subtype === LIVEBLOG;
@@ -68,13 +70,15 @@ export const setTLArticles = (source, articles = []) => {
             artPosition,
             key: _id,
             titleText: headlines.basic,
+            cardVariant: isLiveblog ? 'liveblog' : '',
+            link: article.website_url,
+            lead: get(label, 'volanta.text', ''),
             hour: !isCollection && (
                 <ComHour
                     display_date={displayDateWithThreeHours}
                     size="--fivexs"
                 />
             ),
-            link: article.website_url,
             articleData: {
                 _id,
                 content_restrictions: contentRestrictions

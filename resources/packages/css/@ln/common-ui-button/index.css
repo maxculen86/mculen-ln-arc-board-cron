@@ -1,19 +1,46 @@
-/* End: Variables viejas de COLORES */
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
   width: -moz-max-content;
   width: max-content;
   height: -moz-max-content;
   height: max-content;
-  padding: 0.75rem 1rem;
   font-size: 0.75rem;
   line-height: 1rem;
   text-transform: uppercase;
+  white-space: nowrap;
+}
+.button, .button > .icon > svg > path {
+  transition: all 0.3s ease-in-out;
 }
 .button:hover {
   opacity: 0.8;
+}
+.button:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.button.--sm:not(.--icon-only) {
+  padding: 0.5rem 1rem;
+}
+.button.--sm.--icon-only {
+  padding: 0.5rem;
+}
+.button.--md:not(.--icon-only) {
+  padding: 0.75rem 1rem;
+}
+.button.--md.--icon-only {
+  padding: 0.75rem;
+}
+.button.--lg {
+  font-size: 0.875rem;
+  line-height: 1rem;
+}
+.button.--lg:not(.--icon-only) {
+  padding: 1rem 1.5rem;
+}
+.button.--lg.--icon-only {
+  padding: 1rem;
 }

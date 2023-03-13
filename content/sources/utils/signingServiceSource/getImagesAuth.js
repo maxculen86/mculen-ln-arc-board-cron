@@ -1,10 +1,14 @@
 import get from '../../../../components/private/common/utils/get';
 import signingServiceSource from '../../signingServiceSource';
 import logger from '../../../../components/private/common/utils/logger';
-import { isValidString } from '../../../../components/private/common/utils/dataValidation';
+import {
+    isValidString,
+    isEmptyString
+} from '../../../../components/private/common/utils/dataValidation';
 import {
     missingPromoItemImgAuth,
-    missingContentElementImgAuth
+    missingContentElementImgAuth,
+    missingCreditsImgAuth
 } from '../signingImageAuth';
 
 export const signingServiceCachedCall = async (id, cachedCall) => {
@@ -129,7 +133,7 @@ export const getAllImagesAuth = async (data, cachedCall) => {
                 }
             );
     }
-    const contentElements = get(data, 'content_elements');
+    const contentElements = get(data, 'content_elements', []);
     if (
         missingContentElementImgAuth({
             dataContentElements: contentElements
@@ -214,6 +218,30 @@ export const getAllImagesAuth = async (data, cachedCall) => {
                             );
                     }
                 }
+            }
+        }
+    }
+    const credits = get(data, 'credits.by', []);
+    if (
+        missingCreditsImgAuth({
+            dataCredits: credits
+        })
+    ) {
+        for (const [index, credit] of credits.entries()) {
+            const creditImageUrl = get(credit, 'image.url', '');
+            if (
+                !isEmptyString(creditImageUrl) &&
+                !get(credit, 'image.auth.1')
+            ) {
+                const { hash: creditHash } = await signingServiceCachedCall(
+                    creditImageUrl,
+                    cachedCall
+                );
+
+                creditHash &&
+                    Object.assign(data.credits.by[index].image, {
+                        auth: { 1: creditHash }
+                    });
             }
         }
     }

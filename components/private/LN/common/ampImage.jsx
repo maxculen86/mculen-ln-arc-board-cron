@@ -21,7 +21,6 @@ const AmpImage = props => {
     const isVertical = height > width;
     const sourceActive = active ? sourcesZoom : sources;
 
-    // TODO: ver este tema de source sets con maquetacion
     let srcset = sourceActive.map(src => {
         const {
             option: { width: _w, height: _h }

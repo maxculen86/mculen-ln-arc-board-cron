@@ -8,3 +8,10 @@ export const isEmptyString = string => {
     }
     return true;
 };
+
+export const escapedStringForRegex = string => {
+    if (isEmptyString(string)) {
+        return '';
+    }
+    return string.replace(/[\/\.\^\$\|\?\*\+\(\)\[\]\{\}]/g, '\\$&');
+};

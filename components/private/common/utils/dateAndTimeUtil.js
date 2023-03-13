@@ -34,8 +34,7 @@ export function datesDiffInDays(firstDate, secondDate) {
 }
 
 export function formatDate(originalDate) {
-    // TODO: en  el render desde el cliente toma la hora del mismo,
-    // cuando es ssr toma la hora del servidor.
+    // En el render desde el cliente toma la hora del mismo, cuando es ssr toma la hora del servidor.
 
     const date =
         typeof window === 'object'
@@ -76,7 +75,7 @@ export const getTodayDateForAcuDolar = () => {
     return `${day} de ${month}`;
 };
 
-function formatDateHoursAndMint(originalDate) {
+export function formatDateHoursAndMint(originalDate) {
     const date = formatDateTreeHoursMore(originalDate);
     const formatHours = `00${date.getHours()}`.slice(-2);
     const formatMinutes = `00${date.getMinutes()}`.slice(-2);

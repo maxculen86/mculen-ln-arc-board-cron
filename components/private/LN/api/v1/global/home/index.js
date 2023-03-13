@@ -7,8 +7,6 @@ import {
     anexoItemMobile as AnexoMobile
 } from '../../common/article';
 
-// TODO: Recorrer las notas en un archivo nuevo.
-// Recibir el array y validar que tenga notas
 const typeSection = {
     Anticipo: { tipoSeccion: 'anticipo', idSeccion: 501 },
     Bomba: { tipoSeccion: 'bomba', idSeccion: 102 },

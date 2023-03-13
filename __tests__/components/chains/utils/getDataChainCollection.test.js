@@ -19,7 +19,7 @@ describe('Components - Chains - Utils - getDataChainCollection', () => {
         expect(diagramation).toEqual('');
         expect(articlesFromCollectionSiteService.length).toEqual(0);
         expect(idsArticlesToExclude.length).toEqual(0);
-        expect(isHome).toBeFalsy();
+        expect(isHome).toBeTruthy();
     });
     it('should return data of chain collection with articles and layout grilla1', () => {
         useContent.mockImplementation(() => articleList);
@@ -40,7 +40,7 @@ describe('Components - Chains - Utils - getDataChainCollection', () => {
         expect(idsArticlesToExclude.length).toEqual(0);
 
         expect(titleSize).toEqual('--l');
-        expect(isHome).toBeFalsy();
+        expect(isHome).toBeTruthy();
     });
     it('should return data of chain collection with articles and isHome', () => {
         useContent.mockImplementation(() => articleList);
@@ -79,6 +79,6 @@ describe('Components - Chains - Utils - getDataChainCollection', () => {
         expect(diagramation).toEqual('');
         expect(articlesFromCollectionSiteService.length).toEqual(0);
         expect(idsArticlesToExclude.length).toEqual(0);
-        expect(isHome).toBeFalsy();
+        expect(isHome).toBeTruthy();
     });
 });

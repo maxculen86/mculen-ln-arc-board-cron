@@ -24,16 +24,19 @@ const Anticipo = ({
                     lead={lead}
                     embedCode={video}
                     badgeText={textBadge || 'Anticipo'}
-                    sticky
                 />
             </StaticContent>
             <script
                 dangerouslySetInnerHTML={{
                     __html: `
-            window.addEventListener('DOMContentLoaded', () => {
-                document.getElementById('closeAdvance').onclick = function() {
-                    this.parentNode && this.parentNode.parentNode && this.parentNode.parentNode.classList.add('--close')
-                };
+            window.addEventListener('load', () => {
+                const buttonCloseAdvance = document.getElementById('closeAdvance');
+                const advance = document.querySelector('.ln-advance');
+                if (buttonCloseAdvance) {
+                    buttonCloseAdvance.onclick = function() {
+                        advance && advance.classList.add('--none')
+                    };
+                } 
             });
             `
                 }}

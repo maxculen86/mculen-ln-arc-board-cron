@@ -1,9 +1,16 @@
 import React from 'react';
 import DivBannerSSR from './DivBannerSSR';
 
-const megalateralSticky = '--megalateral --sticky';
-
 const bannersHome = {
+    megatopDsk: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'megatop_dsk',
+                classes: '--megatop',
+                isStatic: true
+            }}
+        />
+    ),
     cabezal: (
         <>
             <div className="container --ads">
@@ -71,6 +78,17 @@ const bannersHome = {
             }}
         />
     ),
+    billboard: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'billboard_dsk',
+                classes: 'billboard_dsk',
+                withoutHide: true,
+                isStatic: true,
+                lazyClass: 'lazy'
+            }}
+        />
+    ),
     caja1Mob: (
         <DivBannerSSR
             bannerConfiguration={{
@@ -80,20 +98,11 @@ const bannersHome = {
             }}
         />
     ),
-    billboard: (
-        <DivBannerSSR
-            bannerConfiguration={{
-                slotId: 'billboard_dsk',
-                withoutHide: true,
-                isStatic: true,
-                lazyClass: 'lazy'
-            }}
-        />
-    ),
     caja2Mob: (
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'caja2_mob',
+                classes: '--caja2_mob',
                 withoutHide: true,
                 isStatic: true,
                 lazyClass: 'lazy'
@@ -104,6 +113,66 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'caja3_mob',
+                withoutHide: true,
+                isStatic: true,
+                lazyClass: 'lazy'
+            }}
+        />
+    ),
+    caja4Mob: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'caja4_mob',
+                withoutHide: true,
+                isStatic: true,
+                lazyClass: 'lazy'
+            }}
+        />
+    ),
+    caja5Mob: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'caja5_mob',
+                withoutHide: true,
+                isStatic: true,
+                lazyClass: 'lazy'
+            }}
+        />
+    ),
+    caja6Mob: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'caja6_mob',
+                withoutHide: true,
+                isStatic: true,
+                lazyClass: 'lazy'
+            }}
+        />
+    ),
+    caja7Mob: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'caja7_mob',
+                withoutHide: true,
+                isStatic: true,
+                lazyClass: 'lazy'
+            }}
+        />
+    ),
+    caja8Mob: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'caja8_mob',
+                withoutHide: true,
+                isStatic: true,
+                lazyClass: 'lazy'
+            }}
+        />
+    ),
+    caja9Mob: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'caja9_mob',
                 withoutHide: true,
                 isStatic: true,
                 lazyClass: 'lazy'
@@ -160,16 +229,7 @@ const bannersHome = {
             }}
         />
     ),
-    caja4Mob: (
-        <DivBannerSSR
-            bannerConfiguration={{
-                slotId: 'caja4_mob',
-                withoutHide: true,
-                isStatic: true,
-                lazyClass: 'lazy'
-            }}
-        />
-    ),
+
     middle1Tab: (
         <DivBannerSSR
             bannerConfiguration={{
@@ -190,16 +250,7 @@ const bannersHome = {
             }}
         />
     ),
-    caja5Mob: (
-        <DivBannerSSR
-            bannerConfiguration={{
-                slotId: 'caja5_mob',
-                withoutHide: true,
-                isStatic: true,
-                lazyClass: 'lazy'
-            }}
-        />
-    ),
+
     cinturon2Dsk: (
         <DivBannerSSR
             bannerConfiguration={{
@@ -274,7 +325,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'megalateral_dsk',
-                classes: megalateralSticky,
+                classes: '--megalateral_dsk --sticky',
                 isStatic: true
             }}
         />
@@ -303,7 +354,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'megalateral2_dsk',
-                classes: megalateralSticky,
+                classes: '--megalateral2_dsk --sticky',
                 isStatic: true,
                 lazyClass: 'lazy'
             }}
@@ -313,7 +364,27 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'megalateral3_dsk',
-                classes: megalateralSticky,
+                classes: '--megalateral3_dsk --sticky',
+                isStatic: true,
+                lazyClass: 'lazy'
+            }}
+        />
+    ),
+    megalateral4Dsk: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'megalateral4_dsk',
+                classes: '--megalateral4_dsk --sticky',
+                isStatic: true,
+                lazyClass: 'lazy'
+            }}
+        />
+    ),
+    megalateral5Dsk: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'megalateral5_dsk',
+                classes: '--megalateral4_dsk --sticky',
                 isStatic: true,
                 lazyClass: 'lazy'
             }}

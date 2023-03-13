@@ -3,7 +3,7 @@
 exports[`Private - Common - Banners - Div Banners SSR should return div banner with correct tags 1`] = `
 <div>
   <div
-    class="mod-banner --random_banner --random_banner --fixed --close "
+    class="ln-banner-container --random_banner --random_banner --fixed --close "
   >
     <button
       aria-label="Close"
@@ -42,7 +42,7 @@ exports[`Private - Common - Banners - Div Banners SSR should return div banner w
                             
     </script>
     <div
-      class="com-banner "
+      class="ln-banner "
       data-prebid-enabled="false"
       data-size="[]"
       data-sizemap="[]"

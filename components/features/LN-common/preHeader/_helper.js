@@ -1,32 +1,37 @@
 import PropTypes from 'fusion:prop-types';
-import addEventToDataLayer from '../../../private/LN/common/utils/addEventToDataLayer';
 
 export const setWeatherData = weatherValue => {
     if (!weatherValue) return null;
 
     const { dataService: { locations = [] } = {} } = weatherValue;
 
-    const { current_temp: temperature = '' } =
+    const { current_temp: temperature = '', weather: weatherInfo = {} } =
         locations.find(
             ({ location_id: locationId = '' }) =>
                 locationId === 'ciudad-de-buenos-aires'
         ) || {};
 
+    const options = {
+        sun: 'sun',
+        'clear-night': 'clearNight',
+        windy: 'windy',
+        'sun-cloudy': 'sunCloudy',
+        cloudy: 'cloudy',
+        'rainy-cloudy': 'rainyCloudy',
+        rain: 'rain',
+        'storm-cloudy': 'stormCloudy',
+        storm: 'storm',
+        'snow-cloudy': 'snowCloudy',
+        snow: 'snow'
+    };
+
     return {
-        icon: 'sun',
-        temperature,
+        icon: options[weatherInfo.id] || options.sun,
+        temperature: temperature ? `${temperature}º` : '',
         place: 'Capital Federal',
         dataEvent: 'e_linkclick',
         dataSection: 'MenuLN',
-        link: '/clima',
-        callback: e => {
-            addEventToDataLayer({
-                event: 'e_linkclick',
-                action: 'home_ln10',
-                category: 'header_clima',
-                label: 'clima'
-            });
-        }
+        link: '/clima'
     };
 };
 
@@ -59,15 +64,7 @@ export const getTopicsFromCustomFields = (customFields = {}) => {
             title: customFields[`title ${key}`],
             link: customFields[`link ${key}`],
             dataEvent: 'e_linkclick',
-            dataSection: 'MenuLN',
-            callback: e => {
-                addEventToDataLayer({
-                    event: 'e_linkclick',
-                    action: 'home_ln10',
-                    category: 'header_temas_hoy',
-                    label: customFields[`title ${key}`]
-                });
-            }
+            dataSection: 'MenuLN'
         }))
         .filter(topic => topic.title && topic.link);
 };

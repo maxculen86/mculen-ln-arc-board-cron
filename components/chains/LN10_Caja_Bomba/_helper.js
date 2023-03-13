@@ -1,6 +1,4 @@
-import pageBuilderValidator from '../../private/common/utils/pageBuilderValidator';
 import get from '../../private/common/utils/get';
-import { LAYOUTS } from '../utils/_helpers';
 
 export const getChildrenOfBomba = (preOpeningChildren, chainId) => {
     const chainBomba = preOpeningChildren.find(
@@ -10,11 +8,6 @@ export const getChildrenOfBomba = (preOpeningChildren, chainId) => {
     return get(chainBomba, 'children', []);
 };
 
-export const getIsPreOpening = (preOpeningChildren, chainId) =>
-    preOpeningChildren.some(
-        children => get(children, 'props.id', undefined) === chainId
-    );
-
 export const getClassCondition = (layout, childrenOfBomba) => {
     const isImageHidden = get(
         childrenOfBomba[0],
@@ -23,7 +16,7 @@ export const getClassCondition = (layout, childrenOfBomba) => {
     );
 
     const propsWithImage = {
-        classCondition: !isImageHidden && '--with-img',
+        classCondition: !isImageHidden && '--with-media',
         diagramation: layout
     };
 
@@ -45,21 +38,4 @@ export const hasVariantNotRegular = (childrenOfBomba = []) => {
         child =>
             get(child, 'props.customFields.variant', 'regular') !== 'regular'
     );
-};
-
-export const validateChainBomba = (layout, children, isPreOpening) => {
-    const missingNotesOnTheBomba = 5 - children.length;
-    const rules = [
-        {
-            validation: layout === LAYOUTS.BOMBITAMAS4 && children.length < 5,
-            message: `La diagramacion Bombita + 4 requiere 5 articulos. Faltan ${missingNotesOnTheBomba} articulos`
-        },
-        {
-            validation: !isPreOpening,
-            message:
-                'La Caja Bomba solo se puede utilizar en la seccion Pre Apertura'
-        }
-    ];
-
-    return pageBuilderValidator(rules);
 };

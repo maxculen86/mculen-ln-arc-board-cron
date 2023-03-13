@@ -46,7 +46,8 @@ class ArticleFeature {
                         id: noteId.trim(),
                         imageConfig,
                         published: true,
-                        checkExclusiveAccess: false
+                        checkExclusiveAccess: false,
+                        shouldUseV1: true
                     }
                 }
             });

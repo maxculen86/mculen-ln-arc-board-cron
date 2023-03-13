@@ -25,12 +25,12 @@ describe('Common - Resizer - v2 - resizerFactory', () => {
     };
     const originalHeight = 549;
     const originalWidth = 976;
-    const originalUrl = `https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg`;
 
     const arcImage = {
         _id: 'J43DRG7ZGZCANB6PYJG2VQ35QY',
         additional_properties: {
-            originalName: 'Wilbert.jpg'
+            originalUrl:
+                'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/Wilbert.jpg'
         },
         auth: {
             1: '5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069'
@@ -173,7 +173,6 @@ describe('Common - Resizer - v2 - resizerFactory', () => {
         describe('ResizerUrl function', () => {
             test('Should return a Resized url with correct params and sandbox base url', () => {
                 const resizerUrl = resizeImgUrl({
-                    originalUrl,
                     originalWidth,
                     originalHeight,
                     defaultResizeWithSmart,
@@ -193,7 +192,6 @@ describe('Common - Resizer - v2 - resizerFactory', () => {
         describe('resizeUrlCollection function', () => {
             test('should return array with resized urls with options', () => {
                 const res = resizeUrlCollection({
-                    originalUrl,
                     originalWidth,
                     originalHeight,
                     defaultResizeWithSmart: _resizeOptions,
@@ -210,7 +208,6 @@ describe('Common - Resizer - v2 - resizerFactory', () => {
     describe('When is admin and is isInApertura', () => {
         test('Should return a Resized url with correct params and glanacion base url', () => {
             const resizerUrl = resizeImgUrl({
-                originalUrl,
                 originalWidth,
                 originalHeight,
                 defaultResizeWithSmart,

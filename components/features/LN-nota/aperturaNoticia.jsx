@@ -1,4 +1,3 @@
-// TODO: unificar aperturas decidiendo cual agarrar segun subtype
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';

@@ -1,25 +1,37 @@
+/* eslint-disable react/no-danger */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import Header from '../../private/LN10/header';
-import Footer from '../../private/LN/common/footer';
+import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBanners from '../../private/common/banners/LoadBanners';
-import { bannersViewport } from '../../private/common/banners/bannersHome.json';
+import { bannersViewport } from '../../private/common/banners/bannersHomeLN10.json';
 import Metarefresh from '../../features/LN-common/metarefresh';
 import sectionHelper from '../../private/LN/common/utils/sectionHelperLN10';
 import pageBuilderSections from '../config/LN10-PageBuilder.config.json';
-import { getScriptForComercial } from '../../private/common/banners/bannersRules';
+import {
+    getScriptForComercial,
+    getStickyBanner
+} from '../../private/common/banners/bannersRules';
 import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
-import { productClickFromServer } from '../../private/common/utils/viewability';
-import createBannersIntersectionObserver from '../../private/common/banners/createBannersIntersectionObserver';
+import {
+    createViewabilityObservers,
+    productClickFromServer
+} from '../../private/common/utils/viewability';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
 import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
+import '../../../resources/packages/css/@ln/contenidos-ui-banners/index.css';
 import Ranking from '../../features/LN-10/ranking/default';
+import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
+import {
+    createBannersIntersectionObserver,
+    createHeaderObserver
+} from '../../private/common/banners/intersectionObservers';
 
 const LN10Home = props => {
     const { children, outputType, isAdmin, renderables } = props;
@@ -48,9 +60,10 @@ const LN10Home = props => {
     });
 
     useEffect(() => {
-        // createViewabilityObservers();
-        createBannersIntersectionObserver();
-    }, []);
+        createViewabilityObservers(true);
+        createBannersIntersectionObserver(true);
+        if (!isAdmin) createHeaderObserver();
+    }, [isAdmin]);
 
     return (
         <GlobalProvider>
@@ -59,86 +72,173 @@ const LN10Home = props => {
             {getScriptForComercial('comercial_dsk')}
             {bannersHome.comercialMob}
             {getScriptForComercial('comercial_mob')}
-            <div id="wrapper" className="home">
-                <div data-section="cabezal">{cabezal}</div>
-                <Header />
-                <div data-section="pre-apertura">{preApertura}</div>
-                <main id="content">
-                    <div data-section="apertura" className="lay">
+            <div className="wrapper homepage">
+                {bannersHome.megatopDsk}
+                {getStickyBanner(
+                    '.ln-banner-container.--megatop_dsk.--megatop',
+                    'section[data-section="pre-apertura"]'
+                )}
+                <div className="header-container">
+                    <div data-section="cabezal">{cabezal}</div>
+                    <Header />
+                </div>
+                <main className="main-container">
+                    <section
+                        data-section="pre-apertura"
+                        className="pre-container"
+                    >
+                        {preApertura}
+                    </section>
+                    {hasBomba(renderables) && bannersHome.caja1Mob}
+                    <section
+                        data-section="apertura"
+                        className="open-container lay-container"
+                    >
                         {apertura}
-                    </div>
+                    </section>
                     {bannersHome.sticky2Mob}
-                    <div>
-                        <div id="content-main" className="lay-sidebar">
-                            <div className="sidebar__main">
-                                {hasBomba(renderables) && bannersHome.caja1Mob}
-                                {bannersHome.caja2Mob}
-                                {bannersHome.cabezal}
-                                <div data-section="breaking1">{breaking1}</div>
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {bannersHome.megalateralDsk}
-                                </div>
-                                {bannersHome.parallaxDsk}
-                                {bannersHome.middle1Tab}
-                                <div data-section="breaking2">{breaking2}</div>
-                                <div
-                                    id="content-main-2"
-                                    className="lay-sidebar"
-                                >
-                                    <div className="sidebar__aside hlp-tabletlm-none">
-                                        {bannersHome.megalateral2Dsk}
-                                    </div>
-                                </div>
-                                {/*
-                                parallax2dsk
-                                 */}
-                                {bannersHome.middle1Tab}
-                                <div data-section="hashtag">{hashtag}</div>
-                                <div className="sidebar__aside hlp-tabletlm-none">
-                                    {bannersHome.megalateral3Dsk}
-                                </div>
-                                {/*
-                                caja8mob - parallax3dsk -middle3tab
-                                 */}
-                                <div data-section="content">{content}</div>
-                                <div data-section="canales1">{canales1}</div>
-                                {/*
-                                caja9mob - megalateral4dsk - parallax4dsk - middle4tab
-                                 */}
-                                <div data-section="canales2">{canales2}</div>
-                            </div>
+                    <section
+                        id="content-main"
+                        className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
+                    >
+                        <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
+                            {bannersHome.caja2Mob}
+                            {bannersHome.cabezal}
+                            <div data-section="breaking1">{breaking1}</div>
                         </div>
+                        <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
+                            {bannersHome.megalateralDsk}
+                        </aside>
+                    </section>
+                    <div
+                        style={{
+                            width: '100%',
+                            height: 300,
+                            backgroundColor: 'orange',
+                            margin: '56px 0 32px',
+                            textAlign: 'center',
+                            lineHeight: '300px'
+                        }}
+                    >
+                        Cinturon 1
                     </div>
-                    <div data-section="ranking" className="lay">
-                        <Ranking {...props} id="rankingHome" />
+                    <section
+                        id="content-main-2"
+                        className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
+                    >
+                        <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
+                            <div data-section="breaking2">{breaking2}</div>
+                            {bannersHome.middle1Tab}
+                        </div>
+                        <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
+                            {bannersHome.megalateral2Dsk}
+                        </aside>
+                    </section>
+
+                    <div
+                        style={{
+                            width: '100%',
+                            height: 300,
+                            backgroundColor: 'orange',
+                            margin: '56px 0 32px',
+                            textAlign: 'center',
+                            lineHeight: '300px'
+                        }}
+                    >
+                        Cinturon 2
                     </div>
-                    <div id="content-main-3" className="lay-sidebar">
-                        <div className="sidebar__main">
+
+                    <section
+                        id="content-main-3"
+                        className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
+                    >
+                        <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
+                            <div data-section="hashtag">{hashtag}</div>
+                            {bannersHome.caja8Mob}
                             {(isAdmin || outputType === 'json') && (
-                                <div>
+                                <>
                                     <section data-section="app-anexo-1">
                                         {appAnexo1}
                                     </section>
                                     <section data-section="app-anexo-2">
                                         {appAnexo2}
                                     </section>
-                                </div>
+                                </>
                             )}
+                            {bannersHome.adhesionDsk}
+                            {bannersHome.adhesionMob}
+                            {bannersHome.adhesionTab}
                         </div>
-                        <div className="lay-sidebar">
-                            <div className="sidebar__main">
-                                {bannersHome.adhesionDsk}
-                                {bannersHome.adhesionMob}
-                                {bannersHome.adhesionTab}
-                            </div>
-                        </div>
+                        <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
+                            {bannersHome.megalateral3Dsk}
+                        </aside>
+                    </section>
+
+                    <div
+                        style={{
+                            width: '100%',
+                            height: 300,
+                            backgroundColor: 'orange',
+                            margin: '56px 0 32px',
+                            textAlign: 'center',
+                            lineHeight: '300px'
+                        }}
+                    >
+                        Cinturon 3
                     </div>
+
+                    <section data-section="ranking" className="lay-container">
+                        <Ranking {...props} id="rankingHome" />
+                    </section>
+
+                    <section data-section="content" className="lay-container">
+                        {content}
+                    </section>
+
+                    <section
+                        id="content-main-4"
+                        className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
+                    >
+                        <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
+                            <div data-section="canales1">{canales1}</div>
+                            {bannersHome.caja9Mob}
+                        </div>
+                        <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
+                            {bannersHome.megalateral4Dsk}
+                        </aside>
+                    </section>
+                    <div
+                        style={{
+                            width: '100%',
+                            height: 300,
+                            backgroundColor: 'orange',
+                            margin: '56px 0 32px',
+                            textAlign: 'center',
+                            lineHeight: '300px'
+                        }}
+                    >
+                        Cinturon 4
+                    </div>
+                    <section
+                        id="content-main-5"
+                        className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
+                    >
+                        <div className="ln-main grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12">
+                            <div data-section="canales2">{canales2}</div>
+                        </div>
+                        <aside className="ln-aside --tablet-lg-none grid-item --1 --col-lg-4 --col-xl-4">
+                            {bannersHome.megalateral5Dsk}
+                        </aside>
+                    </section>
                 </main>
-                <Footer />
+                <div className="footer-container">
+                    <Footer />
+                </div>
             </div>
             <LoadBanners blocksBanners={bannersViewport} />
             <Metarefresh />
             <PwaModals />
+            <RoofEventsScript />
             {productClickFromServer()}
         </GlobalProvider>
     );
