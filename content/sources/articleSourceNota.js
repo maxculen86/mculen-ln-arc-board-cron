@@ -33,7 +33,7 @@ import firmaDistributorValidation from './utils/firmaDistributorValidator';
 import isNoteListenable from './utils/audioNews/helper';
 import force404AMP from './utils/force404AMP';
 import validateSponsoredLink from './utils/validateSponsoredLink';
-import { getPrincipalCategory } from '../../components/private/LN/api/v1/common/category';
+import { getPrincipalCategory } from '../../components/private/LN/api/common/elements/category';
 import { getAllImagesAuth } from './utils/signingServiceSource/getImagesAuth';
 import {
     addHttpsInterstitialLink,
@@ -49,8 +49,21 @@ export const resolve = (key, a) => {
 
     const arcSite = key['arc-site'];
     let basePath = `/content/v4/stories/?website=${arcSite}`;
+    const uriParams = [
+        `${
+            key && key.sourceInclude && key.sourceInclude !== ''
+                ? `&included_fields=${key.sourceInclude}`
+                : ''
+        }`
+    ].join('');
+
     if (published) basePath = `${basePath}&published=${published}`;
+
+    if (uriParams && uriParams !== '') {
+        basePath = `${basePath}${uriParams}`;
+    }
     if (id) return `${basePath}&_id=${id}`;
+
     if (url) {
         let urlClear = url;
         const regexUrl = /^\/api\/(?:mobile\/)?v([1-2]+)\/notas\/(byUrl(\/.+\/$)|byId\/(.+)\/$)/;
@@ -140,10 +153,10 @@ const fetch = (query, { cachedCall } = {}) => {
         })
         .catch(error => {
             // eslint-disable-next-line no-console
-            console.log(
+            /*             console.log(
                 '🚀 ~ file: articleSourceNota.js ~ line 90 ~ error',
                 error
-            );
+            ); */
             return logger.push(
                 error,
                 { source: 'content/source/articleSourceNota', url },
@@ -494,7 +507,8 @@ export default {
         meteringVariant: 'text',
         paywallUrl: 'text',
         paywallEnabled: 'text',
-        outputType: 'text'
+        outputType: 'text',
+        sourceInclude: 'text'
     },
     filter,
     ttl: 120

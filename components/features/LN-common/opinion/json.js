@@ -20,7 +20,8 @@ class Opinion {
                 return {
                     ...e,
                     additionalProperties: {
-                        subtype: 1
+                        subtype: 1,
+                        variant: 'author'
                     }
                 };
             });

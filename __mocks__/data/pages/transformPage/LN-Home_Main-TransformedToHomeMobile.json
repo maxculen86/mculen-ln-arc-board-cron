@@ -1,0 +1,238 @@
+[
+    [
+        {
+            "tipoSeccion": "anexoMobile",
+            "idSeccion": 603,
+            "diagramacion": "grilla1",
+            "anexo": []
+        },
+        {
+            "tipoSeccion": "apertura",
+            "idSeccion": 200,
+            "diagramacion": "focalLeft3",
+            "notas": []
+        },
+        { "tipoSeccion": "banner", "idSeccion": 402 },
+        { "tipoSeccion": "banner", "idSeccion": 402 },
+        {
+            "tipoSeccion": "apertura",
+            "idSeccion": 200,
+            "diagramacion": "grilla3",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "dolar",
+            "idSeccion": 2000,
+            "tituloCaja": "Cotización hoy",
+            "url": "https://www.lanacion.com.ar/economia/dolar/"
+        },
+        {
+            "tipoSeccion": "dolar",
+            "idSeccion": 2000,
+            "tituloCaja": "Cotización hoy",
+            "url": "https://www.lanacion.com.ar/economia/dolar/"
+        },
+        { "tipoSeccion": "banner", "idSeccion": 403 },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "grilla9",
+            "tituloCaja": "Actualidad",
+            "notas": []
+        },
+        { "tipoSeccion": "banner", "idSeccion": 404 },
+        { "tipoSeccion": "banner", "idSeccion": 403 },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "grillaUltimasNoticias",
+            "tituloCaja": "Actualidad Timeline",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 3000,
+            "diagramacion": "timeline",
+            "tituloCaja": "Actualidad Timeline",
+            "notas": []
+        },
+        { "tipoSeccion": "banner", "idSeccion": 405 },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "grilla9",
+            "notas": []
+        },
+        { "tipoSeccion": "banner", "idSeccion": 406 },
+        { "tipoSeccion": "banner", "idSeccion": 404 },
+        {
+            "tipoSeccion": "opinion",
+            "idSeccion": 1001,
+            "diagramacion": "opinion4",
+            "tituloCaja": "Opinión",
+            "url": "https://www.lanacion.com.ar/opinion/",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "opinion",
+            "idSeccion": 1001,
+            "diagramacion": "editoriales2",
+            "tituloCaja": "Editoriales",
+            "url": "https://www.lanacion.com.ar/editoriales/",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "grilla6",
+            "tituloCaja": "Más noticias",
+            "url": "https://www.lanacion.com.ar/tema/salidas-tid46948/",
+            "notas": []
+        },
+        { "tipoSeccion": "banner", "idSeccion": 405 },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "grillaUltimasNoticias",
+            "tituloCaja": "Timeline",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 3000,
+            "diagramacion": "timeline",
+            "tituloCaja": "Timeline",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "comercial",
+            "idSeccion": 1101,
+            "diagramacion": "grilla1",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "grilla2",
+            "imagen": [],
+            "imagenUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/X37YZJSQQBHBJOOTHYHS6TBNXY.png",
+            "tituloCaja": "LN+",
+            "notas": []
+        },
+        { "tipoSeccion": "banner", "idSeccion": 406 },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "grilla2",
+            "imagen": [],
+            "imagenUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XDW3TU62JRDFBPPR3C42T4MRMY.png",
+            "tituloCaja": "Política",
+            "url": "https://www.lanacion.com.ar/politica/",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "focalLeft3",
+            "imagen": [],
+            "imagenUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ROMIJBK7NBCFLGFU774VAOB3XI.png",
+            "tituloCaja": "Comunidad de Negocios",
+            "url": "https://www.lanacion.com.ar/economia/",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "focalLeft3",
+            "imagen": [],
+            "imagenUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/OQE5PRUUDFEEFG47BVDGPZQKVQ.png",
+            "tituloCaja": "LN Bienestar",
+            "url": "https://www.lanacion.com.ar/salud/",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "focalLeft3",
+            "imagen": [],
+            "imagenUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/UYXO7FIVS5B6JPJTEEYCLXX3PY.png",
+            "tituloCaja": "LN Movilidad",
+            "url": "https://www.lanacion.com.ar/autos/",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "focalLeft3",
+            "imagen": [],
+            "imagenUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/WAKT22CV3FDBBJEWLL3MKRGU5M.png",
+            "tituloCaja": "Propiedades",
+            "url": "https://www.lanacion.com.ar/propiedades/",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "focalLeft3",
+            "imagen": [],
+            "imagenUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AUAHRDPBBRBIFDRWAHFJZHM5OA.png",
+            "tituloCaja": "Campo",
+            "url": "https://www.lanacion.com.ar/economia/campo/",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "focalLeft3",
+            "imagen": [],
+            "imagenUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/TIT2HNQO7VDC5BT5G4AIVF7TDE.png",
+            "tituloCaja": "Espectáculos",
+            "url": "https://www.lanacion.com.ar/espectaculos/",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "focalLeft3",
+            "imagen": [],
+            "imagenUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/PKOHGOEKMVBMZBE4M6NENMEMOQ.png",
+            "tituloCaja": "Deportes",
+            "url": "https://www.lanacion.com.ar/deportes/",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "focalLeft3",
+            "imagen": [],
+            "imagenUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3IDLCADEO5AYHL3IGKT2OCR7DU.png",
+            "tituloCaja": "Lifestyle",
+            "url": "https://www.lanacion.com.ar/lifestyle/",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "grilla2",
+            "url": "https://www.lanacion.com.ar/lifestyle/",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "grilla2",
+            "tituloCaja": "Recetas",
+            "url": "https://www.lanacion.com.ar/recetas/",
+            "notas": []
+        },
+        {
+            "tipoSeccion": "tema",
+            "idSeccion": 305,
+            "diagramacion": "grilla6",
+            "imagen": [],
+            "imagenUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/ZZEXVFIL2ZFHBIQVL7GN632OXU.png",
+            "tituloCaja": "Hashtag",
+            "notas": []
+        }
+    ]
+]

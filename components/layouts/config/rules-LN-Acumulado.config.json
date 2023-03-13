@@ -1,0 +1,40 @@
+{
+    "Pre-Apertura": {
+        "quantity": 1,
+        "operatorToUse": "!==",
+        "types": ["LN-common/bannerRefactor"],
+        "position": 2
+    },
+    "Apertura": {
+        "quantity": 5,
+        "operatorToUse": "<=",
+        "types": [
+            "Ln_Caja_Manual",
+            "LN-common/bannerRefactor",
+            "Ln_Caja_Collection",
+            "LN-common/navigationList",
+            "LN-common/anexo",
+            "LN-acumulado/apertura"
+        ],
+        "position": 4
+    },
+    "Notas": {
+        "quantity": 20,
+        "operatorToUse": "<=",
+        "types": [
+            "LN-acumulado/ultimasNoticias",
+            "LN-common/bannerRefactor",
+            "Ln_Caja_Collection",
+            "LN-common/anexo",
+            "LN-acumulado/anexoIframe",
+            "LN-acumulado/grillaNotas"
+        ],
+        "position": 6
+    },
+    "Aside": {
+        "quantity": 5,
+        "operatorToUse": "<=",
+        "types": ["LN-common/ranking", "LN-common/bannerRefactor"],
+        "position": 7
+    }
+}

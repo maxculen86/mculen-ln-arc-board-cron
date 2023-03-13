@@ -1,6 +1,6 @@
 import get from '../../../../../../../common/utils/get';
-import defaultCuerpo from '../../../../common/story/cuerpo/templates/default';
-import recetaCuerpo from '../../../../common/story/cuerpo/templates/receta';
+import defaultCuerpo from '../../../../../common/elements/story/cuerpo/templates/default';
+import recetaCuerpo from '../../../../../common/elements/story/cuerpo/templates/receta';
 
 const getStoryElementBySubtype = storyBodyElements => {
     const {

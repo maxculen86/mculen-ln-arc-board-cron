@@ -1,4 +1,4 @@
-import Configuration from '../../../../../../../../components/private/LN/api/v1/common/accumulated/configuration';
+import Configuration from '../../../../../../../../components/private/LN/api/common/accumulated/configuration';
 
 describe('Test de configuracion', () => {
     const acuData = {

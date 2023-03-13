@@ -1,4 +1,4 @@
-import Image from '../../../../common/story/image';
+import Image from '../../../../../common/elements/story/image';
 
 const image = (nodo, dataNota) => {
     if (!nodo) return null;

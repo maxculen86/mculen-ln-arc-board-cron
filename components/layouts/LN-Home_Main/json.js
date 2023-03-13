@@ -1,16 +1,17 @@
 import Consumer from 'fusion:consumer';
-import getHomeElements from '../../private/LN/api/v1/global/pages';
-import home from '../../private/LN/api/v1/global/home';
 import pageBuilderSections from '../config/LN-PageBuilder.config.json';
+import getPageElements from '../../private/LN/api/global/page';
 
 const LNMainHome = props => {
+    // limpieza de datos
     const propsHome = {
         children: props.children,
         renderables: props.renderables,
-        arcSite: props.arcSite
+        arcSite: props.arcSite,
+        layout: 'LN-Home_Main'
     };
-    const homeSections = getHomeElements(propsHome);
-    return home(homeSections) || [];
+    // return propsHome;
+    return getPageElements(propsHome);
 };
 
 LNMainHome.sections = pageBuilderSections;

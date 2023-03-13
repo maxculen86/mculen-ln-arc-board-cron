@@ -1,10 +1,10 @@
 import get from '../../../../../common/utils/get';
-import Image from '../../common/image';
-import { authorCommon as Author } from '../../common/author';
-import { getTag } from '../../common/tag';
+import Image from '../../../common/elements/image';
+import { authorCommon as Author } from '../../../common/elements/author';
+import { getTag } from '../../../common/elements/tag';
 import { dateAndTimeForAppsUtil } from '../../../../../common/utils/dateAndTimeUtil';
-import { getPrincipalCategory } from '../../common/category';
-import sentToApps from '../../common/utils/sentToApps';
+import { getPrincipalCategory } from '../../../common/elements/category';
+import sentToApps from '../../../common/elements/label/sentToApps';
 
 const articleItem = article => {
     const {
