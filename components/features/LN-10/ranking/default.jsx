@@ -31,7 +31,7 @@ const RankingFeature = ({ id: featureId }) => {
     const sectionParentId = getSectionParentId(sectionId);
     const hasHydrateOnly = checkHydrateOnly({ layout, nodeType });
 
-    const { articles } =
+    const { articles = [] } =
         getDataContent(
             sectionId,
             sectionParentId,
@@ -50,7 +50,7 @@ const RankingFeature = ({ id: featureId }) => {
 
     const rules = diagramationRules(RANKING_LAYOUT) || [];
 
-    const component = (
+    const component = articles.length ? (
         <div {...extraOptsDiv}>
             <section {...extraOpts}>
                 <CommonCollection
@@ -63,14 +63,14 @@ const RankingFeature = ({ id: featureId }) => {
                 />
             </section>
         </div>
+    ) : (
+        <></>
     );
-
-    const sectionRanking = component || <></>;
 
     return hasHydrateOnly ? (
         <StaticContent>{component}</StaticContent>
     ) : (
-        sectionRanking
+        component
     );
 };
 
