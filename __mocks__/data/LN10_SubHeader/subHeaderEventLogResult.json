@@ -1,0 +1,44 @@
+[
+    {
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "header_dolar",
+        "dynamic_label": "dolar_oficial",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "header_dolar",
+        "dynamic_label": "dolar_blue",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "header_dolar",
+        "dynamic_label": "dolar_turista",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "header_dolar",
+        "dynamic_label": "dolar_ccl",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "header_accesos",
+        "dynamic_label": "mis_notas",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "header_accesos",
+        "dynamic_label": "newsletters",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "header_accesos",
+        "dynamic_label": "club_la_nacion",
+        "event": "e_linkclick"
+    }
+]

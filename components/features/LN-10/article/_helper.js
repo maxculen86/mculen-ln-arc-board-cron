@@ -81,6 +81,12 @@ export const getBadgetConfig = ({
         badgetText: withMedia && typeOfMedia !== typeMedia.HTML && text
     };
 };
+export const getOnlyHoursMinutes = (time = '') => {
+    return time
+        .split(':')
+        .slice(0, 2)
+        .join(':');
+};
 
 export const getLiveblogTitles = articleData => {
     const contentElements = get(articleData, 'content_elements', []);
@@ -91,7 +97,9 @@ export const getLiveblogTitles = articleData => {
                 ...acc,
                 {
                     text: get(currentValue, 'embed.config.title', ''),
-                    time: get(currentValue, 'embed.config.time', '')
+                    time: getOnlyHoursMinutes(
+                        get(currentValue, 'embed.config.time', '')
+                    )
                 }
             ];
         }

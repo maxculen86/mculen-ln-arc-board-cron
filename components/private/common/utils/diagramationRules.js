@@ -128,7 +128,7 @@ const diagramationRules = diagramation => {
                 cardSize: 'xl-l',
                 withSection: true,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withSubhead: false
             },
             {
@@ -141,6 +141,7 @@ const diagramationRules = diagramation => {
                 cardSize: 'l'
             },
             {
+                variantsDisabled: ['author'],
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 withSection: false,
@@ -177,12 +178,13 @@ const diagramationRules = diagramation => {
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 cardSize: 'l',
-                withSection: true,
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withSubhead: false
             },
             {
+                variantsDisabled: ['author'],
                 titleTag: 'h2',
                 cardSize: 'l',
                 withSection: false,
@@ -249,7 +251,8 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 withMarquee: true,
                 withMarqueeImg: true,
-                withMedia: true
+                withMedia: true,
+                cardSize: '3xl'
             }
         ],
         bombitaMas4: [
@@ -315,7 +318,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm'
+                cardSize: 'm-l'
             },
             {
                 imagePosition: {
@@ -361,7 +364,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm'
+                cardSize: 'm-l'
             },
             {
                 imagePosition: {
@@ -514,7 +517,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--text-center'
             },
             {
                 withMarquee: false,
@@ -525,7 +529,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--text-center'
             },
             {
                 withMarquee: false,
@@ -536,7 +541,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--text-center'
             },
             {
                 withMarquee: false,
@@ -547,7 +553,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--text-center'
             },
             {
                 withMarquee: false,
@@ -558,7 +565,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--text-center'
             },
             {
                 withMarquee: false,
@@ -569,7 +577,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--text-center'
             }
         ],
         canal_1_4_grid: [
@@ -1011,7 +1020,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: true,
                 withMedia: true,
                 withSubhead: false,
-                cardSize: 'xl',
+                cardSize: '3xl',
                 variantsDisabled: ['author', 'liveblog'],
                 imagePosition: {
                     mobile: 'img-top',

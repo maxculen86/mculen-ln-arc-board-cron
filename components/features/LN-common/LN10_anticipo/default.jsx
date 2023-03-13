@@ -24,7 +24,6 @@ const Anticipo = ({
                     lead={lead}
                     embedCode={video}
                     badgeText={textBadge || 'Anticipo'}
-                    sticky
                 />
             </StaticContent>
             <script
@@ -32,9 +31,10 @@ const Anticipo = ({
                     __html: `
             window.addEventListener('load', () => {
                 const buttonCloseAdvance = document.getElementById('closeAdvance');
+                const advance = document.querySelector('.ln-advance');
                 if (buttonCloseAdvance) {
                     buttonCloseAdvance.onclick = function() {
-                        this.parentNode && this.parentNode.parentNode && this.parentNode.parentNode.classList.add('--close')
+                        advance && advance.classList.add('--none')
                     };
                 } 
             });

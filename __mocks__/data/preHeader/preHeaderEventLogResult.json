@@ -1,0 +1,26 @@
+[
+    {
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "header_clima",
+        "dynamic_label": "clima",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "header_temas_hoy",
+        "dynamic_label": "First topic",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "header_temas_hoy",
+        "dynamic_label": "Second topic",
+        "event": "e_linkclick"
+    },
+    {
+        "dynamic_action": "home_ln10",
+        "dynamic_category": "header_temas_hoy",
+        "dynamic_label": "Third topic",
+        "event": "e_linkclick"
+    }
+]

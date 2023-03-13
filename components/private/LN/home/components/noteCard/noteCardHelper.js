@@ -23,17 +23,6 @@ export const transform = (content, customFields, promoItems) => {
         }) ||
         get(content, 'label', '');
 
-    const credits =
-        (get(customFields, 'hideImage') &&
-            get(content, 'credits') && {
-                ...get(content, 'credits', {}),
-                by: get(content, 'credits.by', []).map(author => ({
-                    ...author,
-                    image: undefined
-                }))
-            }) ||
-        get(content, 'credits');
-
     return (
         (content && {
             ...content,
@@ -47,8 +36,7 @@ export const transform = (content, customFields, promoItems) => {
 
             promo_items: promoItems || get(content, 'promo_items'),
             marquesina:
-                get(customFields, 'authors') || getAuthorsAsString(content),
-            credits
+                get(customFields, 'authors') || getAuthorsAsString(content)
         }) ||
         content
     );

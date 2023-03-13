@@ -12,6 +12,11 @@ export default `
         content_restrictions {
             content_code
         }
+        label  {
+            volanta {
+                text
+            }
+        }
     }
     next
 }`;
