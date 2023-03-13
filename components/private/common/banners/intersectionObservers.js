@@ -4,7 +4,6 @@ import { filterBanners } from './lazyBannersHelper';
 import getViewport from '../../LN/common/utils/screenHelper';
 import { bannersLazy } from './bannersHome.json';
 import { bannersLazy as bannersLazyLN10 } from './bannersHomeLN10.json';
-import get from '../utils/get';
 
 // TODO eliminar la condicion isLN10, reemplazar banners lazy y ver posibilidad de testeo
 export const createBannersIntersectionObserver = isLN10 => {
@@ -45,13 +44,10 @@ export const createHeaderObserver = () => {
             }
         });
     };
-
     const interSectionObserver = new IntersectionObserver(callback);
-    const preApertura = document.querySelector(
-        'section[data-section="pre-apertura"]'
-    );
 
+    const subHeader = document.querySelector('.ln-sub-header');
     const wrapper = document.querySelector('.wrapper.homepage');
 
-    interSectionObserver.observe(get(preApertura, 'children[0]', preApertura));
+    if (subHeader) interSectionObserver.observe(subHeader);
 };
