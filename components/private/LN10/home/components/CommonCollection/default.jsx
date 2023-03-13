@@ -19,6 +19,7 @@ import '../../../../../../resources/packages/css/@ln/contenidos-ui-cajaranking/i
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-cajaafondo/index.css';
 
 import { getDataAttributesForViewability } from '../../../../../features/LN-10/article/_helper';
+import { LAYOUTS } from '../../../../../chains/utils/common/_helpers-WebApi';
 
 export default function CommonCollection({
     roofData = {},
@@ -64,6 +65,10 @@ export default function CommonCollection({
                             cardSize={cardSize}
                             imagePosition={imagePosition}
                             className={className}
+                            badgeText={
+                                gridType === LAYOUTS.CONTENT_LAB &&
+                                get(article, 'label.chapita.text')
+                            }
                             {...extraOpts}
                         />
                     );
