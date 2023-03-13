@@ -15,7 +15,8 @@ const ModDolar = ({
     fillClass,
     logoByma,
     logoIol,
-    isAmp
+    isAmp,
+    _id
 }) => {
     return data.length ? (
         <>
@@ -38,6 +39,17 @@ const ModDolar = ({
             </div>
 
             <div className="container-logo">
+                {_id !== '/economia/dolar-oficial-historico' && (
+                    <ComLink
+                        link="https://www.lanacion.com.ar/dolar-oficial-historico/"
+                        classCondition="provider-data --fivexs"
+                        type="text/css"
+                        title="Ir a dólar oficial histórico"
+                        target="_blank"
+                    >
+                        Ver dólar oficial histórico
+                    </ComLink>
+                )}
                 <span className="--fivexs">Información de</span>
                 <ComImage
                     classCondition="logo byma"
@@ -81,7 +93,8 @@ ModDolar.propTypes = {
     fillClass: PropTypes.string,
     logoByma: PropTypes.string,
     logoIol: PropTypes.string,
-    isAmp: PropTypes.bool
+    isAmp: PropTypes.bool,
+    _id: PropTypes.string
 };
 
 ModDolar.defaultProps = {
@@ -91,7 +104,8 @@ ModDolar.defaultProps = {
     fillClass: '',
     logoByma: '',
     logoIol: '',
-    isAmp: false
+    isAmp: false,
+    _id: ''
 };
 
 export default ModDolar;
