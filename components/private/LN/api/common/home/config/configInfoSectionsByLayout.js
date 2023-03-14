@@ -29,6 +29,7 @@ export const infoLNMainLN10 = {
     'ln-common/opinion': { tipoSeccion: 'opinion', idSeccion: 1001 },
     'ln-common/editoriales': { tipoSeccion: 'opinion', idSeccion: 1001 },
     comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
+    afondo: { tipoSeccion: 'afondo', idSeccion: 1101 },
     banner: { tipoSeccion: 'banner' },
     dolar: {
         tipoSeccion: 'dolar',

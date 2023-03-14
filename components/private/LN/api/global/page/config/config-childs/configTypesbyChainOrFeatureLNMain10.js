@@ -5,6 +5,7 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
     // 9: A type is set to discard the box
     const boxTypeContainer = {
         0: [
+            'afondo',
             'bomba',
             'apertura',
             'comercial',

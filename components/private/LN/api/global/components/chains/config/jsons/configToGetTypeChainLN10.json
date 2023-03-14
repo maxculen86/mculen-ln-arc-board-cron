@@ -3,5 +3,10 @@
         {
             "customFields.layout": "cajaContent1"
         }
+    ],
+    "afondo": [
+        {
+            "customFields.layout": "bnFondo"
+        }
     ]
 }

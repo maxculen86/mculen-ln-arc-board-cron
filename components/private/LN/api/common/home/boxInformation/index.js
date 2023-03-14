@@ -8,9 +8,12 @@ export const boxInfoByLayoutBySectionAlias = (layoutPage, sectionAlias) => {
         'LN10-Home_Main': boxInfoBySectionAliasLN10,
         default: boxInfoBySectionAliasLN
     };
+    const sectionAliasDefault = 'default';
     const boxInfoByLayout =
         boxesInfoByLayout[layoutPage] || boxInfoBySectionAliasLN;
-    return boxInfoByLayout[sectionAlias] || boxInfoComplete;
+    return (
+        boxInfoByLayout[sectionAlias] || boxInfoByLayout[sectionAliasDefault]
+    );
 };
 
 export default boxInfoByLayoutBySectionAlias;
