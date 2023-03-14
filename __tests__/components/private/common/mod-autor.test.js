@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount, shallow, render } from 'enzyme';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 
 import ModAutor from '../../../../components/private/common/mod-autor';
 
@@ -15,18 +16,24 @@ describe('ModAutor', () => {
         amp: false
     };
 
-    it('Matches snapshot', () => {
-        const component = render(<ModAutor {...props} />);
-        expect(component).toMatchSnapshot();
+    it('If no image must no render author image', () => {
+        const { container } = render(<ModAutor {...props} />);
+        expect(container).toMatchSnapshot();
     });
 
-    it("Doesn't render image if there's no image", () => {
-        const component = mount(<ModAutor {...props} />);
-        expect(component.find('.container-img')).toHaveLength(0);
-    });
-
-    it("Doesn't render medio if there's no medio", () => {
-        const component = mount(<ModAutor {...props} />);
-        expect(component.find('.container-medio')).toHaveLength(0);
+    it('With image render the author image with fetchPriority high and loading eager', () => {
+        const props2 = {
+            autor: [{ name: 'Pepe', link: 'https://lanacion.com.ar' }],
+            foto:
+                'https://resizer.glanacion.com/resizer/V5K_reWbvEbIuJAS7PQaidnMVp8=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2281458.png',
+            classCondition: '--autor',
+            medio: null,
+            amp: false
+        };
+        const { container } = render(<ModAutor {...props2} />);
+        const img = container.getElementsByTagName('img');
+        expect(container).toMatchSnapshot();
+        expect(img[0].getAttribute('loading')).toBe('eager');
+        expect(img[0].getAttribute('fetchPriority')).toBe('high');
     });
 });
