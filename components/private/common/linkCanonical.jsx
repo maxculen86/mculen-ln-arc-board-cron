@@ -16,19 +16,17 @@ const LinkCanonical = (props = {}) => {
 
     const { site_url: siteUrl = null } = site;
 
+    const mustUseSiteUrl =
+        !isEmptyString(siteUrl) &&
+        !siteUrl.includes(_id) &&
+        template.includes('page');
+
+    const canonicalLink = mustUseSiteUrl
+        ? siteUrl
+        : addForwardSlash(`${host}${canonicalUrl || canonicalIdChecker(_id)}`);
+
     return host && (canonicalUrl || _id || nodeType === 'home') ? (
-        <link
-            rel="canonical"
-            href={
-                !isEmptyString(siteUrl) &&
-                !siteUrl.includes(_id) &&
-                template.includes('page')
-                    ? siteUrl
-                    : addForwardSlash(
-                          `${host}${canonicalUrl || canonicalIdChecker(_id)}`
-                      )
-            }
-        />
+        <link rel="canonical" href={canonicalLink} />
     ) : (
         <></>
     );
