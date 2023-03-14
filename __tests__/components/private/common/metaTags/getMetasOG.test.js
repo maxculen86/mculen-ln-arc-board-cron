@@ -339,7 +339,7 @@ describe('Metas home', () => {
 });
 
 describe('Metas OTT', () => {
-    it('Test para el caso de video en OTT', () => {
+    it('Test for video case in OTT', () => {
         const props = {
             globalContent: {
                 _id: '21621bbe-f267-4155-bc0e-76482ab5d1ac',

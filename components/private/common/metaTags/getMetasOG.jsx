@@ -6,6 +6,9 @@ import {
 } from '../utils/getMetasOGHelper';
 import { getSectionOfRequestUri } from '../utils/outputTypeHelper';
 import { RECETA } from '../utils/subtypes/subtypeHelper';
+import config from '../../../../properties/sites/la-nacion-ar';
+
+const { layoutsName = {} } = config || {};
 
 const getMetasOG = props => {
     const {
@@ -78,7 +81,7 @@ const getMetasOG = props => {
     }
     if (
         ['home', 'nota', 'acumulado'].includes(section) ||
-        (arcSite === 'ott' && layout === 'OTT-ficha')
+        (arcSite === 'ott' && layout === layoutsName.OttFicha)
     ) {
         metas.push({
             property: 'og:site_name',
