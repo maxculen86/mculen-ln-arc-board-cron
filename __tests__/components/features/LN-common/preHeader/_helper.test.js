@@ -58,13 +58,12 @@ describe('Features - LN-Common - PreHeader - Helper =>', () => {
                 'place',
                 'dataEvent',
                 'dataSection',
-                'link',
-                'callback'
+                'link'
             ]);
             expect(weatherData.temperature).toEqual(
-                currentLocation.current_temp
+                `${currentLocation.current_temp}º`
             );
-            expect(weatherData.icon).toEqual('sun');
+            expect(weatherData.icon).toEqual('sunCloudy');
         });
 
         it('should returns null when weatherValue is undefined', () => {
@@ -86,8 +85,7 @@ describe('Features - LN-Common - PreHeader - Helper =>', () => {
                 'title',
                 'link',
                 'dataEvent',
-                'dataSection',
-                'callback'
+                'dataSection'
             ]);
         });
 

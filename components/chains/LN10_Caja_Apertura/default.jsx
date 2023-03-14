@@ -27,6 +27,7 @@ import {
     setSlicedChildren,
     setQuantityByLayout
 } from '../utils/common/_helpers-WebApi';
+import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
 
 const CajaApertura = props => {
     const {
@@ -84,10 +85,21 @@ const CajaApertura = props => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [children]);
 
+    // TODO testear dynamic banners en esta chain
+    const { bannerMob = undefined, bannerDsk = undefined } =
+        getDynamicBanners({
+            renderables,
+            featureId: chainId
+        }) || {};
+
     const Component = (
-        <Opening data-chain-id={chainId} {...extraOpts} focalType={layout}>
-            {slicedChildren}
-        </Opening>
+        <>
+            <Opening data-chain-id={chainId} {...extraOpts} focalType={layout}>
+                {slicedChildren}
+            </Opening>
+            {bannerMob}
+            {bannerDsk}
+        </>
     );
 
     return setRender({ isAdmin, error, hideBox, Component, extraOptsDiv });

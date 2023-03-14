@@ -18,38 +18,38 @@ const diagramationRules = diagramation => {
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                cardSize: 'xl',
-                withSection: true,
+                cardSize: 'm-l',
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withSubhead: false
             },
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                cardSize: 'xl',
-                withSection: true,
+                cardSize: 'm-l',
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withSubhead: false
             },
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                cardSize: 'xl',
-                withSection: true,
+                cardSize: 'm-l',
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 imagePosition: 'img-bottom',
                 withSubhead: false
             },
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                cardSize: 'xl',
-                withSection: true,
+                cardSize: 'm-l',
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withSubhead: false
             }
         ],
@@ -57,18 +57,18 @@ const diagramationRules = diagramation => {
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                withSection: true,
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 cardSize: 'l',
                 withSubhead: false
             },
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                withSection: true,
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: 'l',
                 imagePosition: {
@@ -80,9 +80,9 @@ const diagramationRules = diagramation => {
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                withSection: true,
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: 'l',
                 imagePosition: {
@@ -94,9 +94,9 @@ const diagramationRules = diagramation => {
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                withSection: true,
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: 'l',
                 imagePosition: {
@@ -125,30 +125,31 @@ const diagramationRules = diagramation => {
             {
                 variantsDisabled: ['liveblog'],
                 titleTag: 'h2',
-                cardSize: 'xl',
+                cardSize: 'xl-l',
                 withSection: true,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withSubhead: false
             },
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                withSection: true,
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: 'l'
             },
             {
+                variantsDisabled: ['author'],
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                withSection: true,
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withSubhead: false,
                 withSubheadAndMedia: false,
-                withMedia: false,
+                withMedia: true,
                 cardSize: 'l',
                 imagePosition: {
                     mobile: 'img-top',
@@ -177,20 +178,21 @@ const diagramationRules = diagramation => {
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 cardSize: 'l',
-                withSection: true,
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withSubhead: false
             },
             {
+                variantsDisabled: ['author'],
                 titleTag: 'h2',
                 cardSize: 'l',
-                withSection: true,
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withSubhead: false,
                 withSubheadAndMedia: false,
-                withMedia: false,
+                withMedia: true,
                 imagePosition: {
                     mobile: 'img-top',
                     tablet: 'img-top',
@@ -209,13 +211,13 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: true,
                 withSection: true,
                 cardSize: '5xl',
-                aspectRatio: 'ar-picture'
+                aspectRatio: 'ar-picture',
+                className: '--txt-center'
             }
         ],
         vertical: [
             {
                 variantsDisabled: ['author', 'liveblog', 'html'],
-
                 titleTag: 'h1',
                 subheadTag: 'h2',
                 withMedia: true,
@@ -224,19 +226,21 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: true,
                 withSection: true,
                 cardSize: '5xl',
-                aspectRatio: 'ar-square'
+                aspectRatio: 'ar-square',
+                className: '--txt-center'
             }
         ],
         bombita: [
             {
                 variantsDisabled: ['author', 'liveblog', 'html'],
-
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: false,
-                withMedia: false
+                withMedia: false,
+                cardSize: '5xl',
+                className: '--txt-center'
             }
         ],
         cajaContent1: [
@@ -244,10 +248,11 @@ const diagramationRules = diagramation => {
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 withSection: true,
-                withSubhead: true,
+                withSubhead: false,
                 withMarquee: true,
                 withMarqueeImg: true,
-                withMedia: true
+                withMedia: true,
+                cardSize: '3xl'
             }
         ],
         bombitaMas4: [
@@ -259,7 +264,8 @@ const diagramationRules = diagramation => {
                 withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: '5xl'
+                cardSize: '5xl',
+                className: '--txt-center'
             },
             {
                 variantsDisabled: ['author', 'liveblog', 'html'],
@@ -312,7 +318,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm'
+                cardSize: 'm-l'
             },
             {
                 imagePosition: {
@@ -358,7 +364,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm'
+                cardSize: 'm-l'
             },
             {
                 imagePosition: {
@@ -455,7 +461,7 @@ const diagramationRules = diagramation => {
                     tablet: 'img-none',
                     desktop: 'img-right'
                 },
-                cardSize: 'l',
+                cardSize: 'm',
                 withSubhead: false,
                 withMarqueeImg: false
             },
@@ -465,7 +471,7 @@ const diagramationRules = diagramation => {
                     tablet: 'img-none',
                     desktop: 'img-right'
                 },
-                cardSize: 'l',
+                cardSize: 'm',
                 withSubhead: false,
                 withMarqueeImg: false
             },
@@ -475,7 +481,7 @@ const diagramationRules = diagramation => {
                     tablet: 'img-none',
                     desktop: 'img-right'
                 },
-                cardSize: 'l',
+                cardSize: 'm',
                 withSubhead: false,
                 withMarqueeImg: false
             },
@@ -485,7 +491,7 @@ const diagramationRules = diagramation => {
                     tablet: 'img-none',
                     desktop: 'img-right'
                 },
-                cardSize: 'l',
+                cardSize: 'm',
                 withSubhead: false,
                 withMarqueeImg: false
             }
@@ -511,7 +517,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--tab-text-center'
             },
             {
                 withMarquee: false,
@@ -522,7 +529,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--tab-text-center'
             },
             {
                 withMarquee: false,
@@ -533,7 +541,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--tab-text-center'
             },
             {
                 withMarquee: false,
@@ -544,7 +553,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--tab-text-center'
             },
             {
                 withMarquee: false,
@@ -555,7 +565,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--tab-text-center'
             },
             {
                 withMarquee: false,
@@ -566,7 +577,8 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-top',
                     desktop: 'img-top'
-                }
+                },
+                className: '--tab-text-center'
             }
         ],
         canal_1_4_grid: [
@@ -915,7 +927,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
-                withSubhead: true,
+                withSubhead: false,
                 withSection: true,
                 imagePosition: {
                     mobile: 'img-top',
@@ -998,6 +1010,22 @@ const diagramationRules = diagramation => {
                     mobile: 'img-right',
                     tablet: 'img-none',
                     desktop: 'img-none'
+                }
+            }
+        ],
+        bnFondo: [
+            {
+                withSection: false,
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: '3xl',
+                variantsDisabled: ['author', 'liveblog'],
+                imagePosition: {
+                    mobile: 'img-top',
+                    tablet: 'img-left',
+                    desktop: 'img-left'
                 }
             }
         ]

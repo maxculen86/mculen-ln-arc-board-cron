@@ -8,7 +8,9 @@ import getStreams from '../../../private/LN/common/utils/getStreams';
 import diagramationRules from '../../../private/common/utils/diagramationRules';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import transformImageData from '../../../private/common/LN-10/transformImageData';
+import setClassName from '../../../private/common/utils/setClassName';
 import { getIsBomba, getChainParentOfFeature } from './common/_helper-WebApi';
+import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -55,7 +57,7 @@ export const validateMedia = (customFields, config, article) =>
     (get(customFields, 'video') ||
         get(customFields, 'html') ||
         get(customFields, 'imageId') ||
-        get(article, 'promo_items.basic.type', '') === 'image');
+        get(article, 'promo_items.basic.type', 'image') === 'image');
 
 export const validateVariant = (variant, authorsQuantity) =>
     variant === 'author' && !(authorsQuantity === 1) ? 'regular' : variant;
@@ -79,6 +81,12 @@ export const getBadgetConfig = ({
         badgetText: withMedia && typeOfMedia !== typeMedia.HTML && text
     };
 };
+export const getOnlyHoursMinutes = (time = '') => {
+    return time
+        .split(':')
+        .slice(0, 2)
+        .join(':');
+};
 
 export const getLiveblogTitles = articleData => {
     const contentElements = get(articleData, 'content_elements', []);
@@ -89,7 +97,9 @@ export const getLiveblogTitles = articleData => {
                 ...acc,
                 {
                     text: get(currentValue, 'embed.config.title', ''),
-                    time: get(currentValue, 'embed.config.time', '')
+                    time: getOnlyHoursMinutes(
+                        get(currentValue, 'embed.config.time', '')
+                    )
                 }
             ];
         }
@@ -192,12 +202,19 @@ export const getMediaData = ({
     article,
     video,
     image,
+    renderables = [],
     customFields = {}
 } = {}) => {
     const { video: videoId, imageId, html = '' } = customFields;
+    const { _id } = article || {};
 
     const outstandingImage = getImageDestacada(article);
-    const mediaDataDefault = transformImageData(article, outstandingImage);
+    const isEager = isImageEager(_id, renderables);
+    const mediaDataDefault = transformImageData(
+        article,
+        outstandingImage,
+        isEager
+    );
 
     const rules = [
         {
@@ -213,7 +230,8 @@ export const getMediaData = ({
             validation: imageId && image,
             data: transformImageData(
                 article,
-                get(image, promoItemsBasic, outstandingImage)
+                get(image, promoItemsBasic, outstandingImage),
+                isEager
             )
         }
     ];
@@ -267,6 +285,11 @@ export const getTypeOfMedia = (customFields = {}) => {
     return typeMedia.IMAGE;
 };
 
-export const showExtraClass = (typeOfMedia, extraClass = {}) => {
-    return extraClass[typeOfMedia] || undefined;
+export const showExtraClass = (typeOfMedia, className, extraClass = {}) => {
+    const classname = setClassName({
+        extraClass: extraClass[typeOfMedia],
+        className
+    });
+
+    return classname || undefined;
 };

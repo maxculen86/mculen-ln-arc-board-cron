@@ -162,7 +162,8 @@ const ArticleFeature = ({
         withMarqueeImg,
         extraClass,
         variantsDisabled,
-        cardSize
+        cardSize,
+        className
     } = config || {};
 
     const error = validateArticleFeature({
@@ -190,7 +191,8 @@ const ArticleFeature = ({
         video: videoBackground,
         customFields,
         image,
-        layout
+        layout,
+        renderables
     });
 
     const typeOfMedia = getTypeOfMedia(customFields);
@@ -223,7 +225,6 @@ const ArticleFeature = ({
             </article>
         );
     }
-
     return (
         (!error && article && (
             <ErrorBoundary>
@@ -262,7 +263,11 @@ const ArticleFeature = ({
                     variant={validateVariant(variant, authorsQuantity)}
                     liveblogList={getLiveblogTitles(articleContent)}
                     aspectRatio={get(config, 'aspectRatio', 'ar-picture')}
-                    className={showExtraClass(typeOfMedia, extraClass)}
+                    className={showExtraClass(
+                        typeOfMedia,
+                        className,
+                        extraClass
+                    )}
                 />
             </ErrorBoundary>
         )) ||

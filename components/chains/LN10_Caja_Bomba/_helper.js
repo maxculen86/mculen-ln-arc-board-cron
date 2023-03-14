@@ -16,7 +16,7 @@ export const getClassCondition = (layout, childrenOfBomba) => {
     );
 
     const propsWithImage = {
-        classCondition: !isImageHidden && '--with-img',
+        classCondition: !isImageHidden && '--with-media',
         diagramation: layout
     };
 

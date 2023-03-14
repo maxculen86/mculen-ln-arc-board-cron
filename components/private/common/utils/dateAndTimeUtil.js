@@ -75,7 +75,7 @@ export const getTodayDateForAcuDolar = () => {
     return `${day} de ${month}`;
 };
 
-function formatDateHoursAndMint(originalDate) {
+export function formatDateHoursAndMint(originalDate) {
     const date = formatDateTreeHoursMore(originalDate);
     const formatHours = `00${date.getHours()}`.slice(-2);
     const formatMinutes = `00${date.getMinutes()}`.slice(-2);

@@ -7,7 +7,7 @@ import { Card } from '@ln/contenidos-ui-card';
 import { Bngrid } from '@ln/contenidos-ui-bngrid';
 
 import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
-import getCardConfig from './_helper';
+import getCardConfig, { getTitleAndLeadForHome } from './_helper';
 import get from '../../../../common/utils/get';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
@@ -16,8 +16,10 @@ import '../../../../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-cajahashtag/index.css';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-contentlab/index.css';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-cajaranking/index.css';
+import '../../../../../../resources/packages/css/@ln/contenidos-ui-cajaafondo/index.css';
 
 import { getDataAttributesForViewability } from '../../../../../features/LN-10/article/_helper';
+import { LAYOUTS } from '../../../../../chains/utils/common/_helpers-WebApi';
 
 export default function CommonCollection({
     roofData = {},
@@ -39,20 +41,22 @@ export default function CommonCollection({
                         marqueeImg,
                         cardSize,
                         mediaData,
-                        imagePosition
+                        imagePosition,
+                        className
                     } = getCardConfig(rules[index], article);
-
                     const extraOpts = getDataAttributesForViewability(
                         article._id,
                         position,
                         index
                     );
 
+                    const { title, lead } = getTitleAndLeadForHome(article);
+
                     return (
                         <Card
                             withMedia={withImage}
-                            title={get(article, 'headlines.basic', '')}
-                            lead={get(article, 'label.volanta.text', '')}
+                            title={title}
+                            lead={lead}
                             marquee={marquee}
                             marqueeImg={marqueeImg}
                             subhead={subhead}
@@ -60,6 +64,11 @@ export default function CommonCollection({
                             mediaData={mediaData}
                             cardSize={cardSize}
                             imagePosition={imagePosition}
+                            className={className}
+                            badgeText={
+                                gridType === LAYOUTS.CONTENT_LAB &&
+                                get(article, 'label.chapita.text')
+                            }
                             {...extraOpts}
                         />
                     );

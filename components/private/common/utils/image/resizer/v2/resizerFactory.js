@@ -81,3 +81,33 @@ export const resizeContentElements = (
         elem
     );
 };
+
+export const resizeCredits = (credits, resizeOptions) => {
+    const resp = {};
+    const optionsFinal = get(resizeOptions, 'sizes', [
+        {
+            width: 768,
+            height: 513,
+            media: '(min-width: 768px)'
+        }
+    ]);
+
+    Object.keys(credits).forEach(key => {
+        const credit = credits[key];
+        resp[key] =
+            credit &&
+            credit.map(c => {
+                if (!!c.image && !!c.image.url) {
+                    return {
+                        ...c,
+                        image: resizeArcImage(
+                            { ...c.image, type: 'image' },
+                            optionsFinal
+                        )
+                    };
+                }
+                return c;
+            });
+    });
+    return resp;
+};

@@ -1,0 +1,26 @@
+[
+    {
+        "text": "Dólar oficial",
+        "title": "Dólar oficial",
+        "venta": "205,00",
+        "link": "https://www.lanacion.com.ar/dolar-hoy/"
+    },
+    {
+        "text": "Dólar blue",
+        "title": "Dólar blue",
+        "venta": "375,00",
+        "link": "https://www.lanacion.com.ar/tema/dolar-blue-tid67294/"
+    },
+    {
+        "text": "Dólar turista",
+        "title": "Dólar turista",
+        "venta": "410",
+        "link": "https://www.lanacion.com.ar/tema/dolar-turista-tid67475/"
+    },
+    {
+        "text": "Dólar CCL",
+        "title": "Dólar CCL",
+        "venta": "365,93",
+        "link": "https://www.lanacion.com.ar/tema/dolar-ccl/"
+    }
+]

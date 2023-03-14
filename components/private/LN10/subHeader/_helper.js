@@ -1,12 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
-
-export const createDynamicLabel = (text = '') => {
-    return text
-        .replace(/ /g, '_')
-        .replace(/ó/g, 'o')
-        .toLowerCase();
-};
 
 export const setDollarData = dollarValue => {
     if (!dollarValue) return null;
@@ -26,15 +18,7 @@ export const setDollarData = dollarValue => {
         text: titleMobile,
         title: titleMobile,
         venta,
-        link,
-        callback: e => {
-            addEventToDataLayer({
-                event: 'e_linkclick',
-                action: 'home_ln10',
-                category: 'header_dolar',
-                label: createDynamicLabel(titleMobile)
-            });
-        }
+        link
     }));
 };
 
@@ -59,15 +43,5 @@ export const setAccessData = () => {
         }
     ];
 
-    return defaultAccess.map(access => ({
-        ...access,
-        callback: e => {
-            addEventToDataLayer({
-                event: 'e_linkclick',
-                action: 'home_ln10',
-                category: 'header_accesos',
-                label: createDynamicLabel(access.text)
-            });
-        }
-    }));
+    return defaultAccess;
 };

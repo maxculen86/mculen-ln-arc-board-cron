@@ -10,17 +10,23 @@ import {
     showMarqueeImage,
     validateSubhead,
     showExtraClass,
-    getTypeOfMedia
+    getTypeOfMedia,
+    getOnlyHoursMinutes
 } from '../../../../../components/features/LN-10/article/_helper';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
+import {
+    renderablesWithBombaEager,
+    renderablesWithChainAperturaEager
+} from '../../../../../__mocks__/data/renderables/renderablesLN10eager.js';
 
 describe('Components - Features - LN-10 - Article - _helper', () => {
-    const getProps = ({ video, image, customFields } = {}) => {
+    const getProps = ({ video, image, customFields, renderables } = {}) => {
         return {
             article: responseArticleSourceNota,
             video,
             image,
-            customFields
+            customFields,
+            renderables
         };
     };
 
@@ -33,11 +39,14 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         const resultImageArticle = {
             alt:
                 '¿Wanda Nara o la China Suárez?: Martín Tetaz definió de qué lado está',
+            fetchPriority: 'low',
             height: 513,
+            loading: 'lazy',
             src:
                 'https://resizer.glanacion.com/resizer/YYmrDx8O3WnsLCiQC11HpsEf9J4=/309x206/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif',
             srcset:
                 'https://resizer.glanacion.com/resizer/ukSW4gU9iBtaPSnmCq696TxMqqQ=/879x586/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 879w, https://resizer.glanacion.com/resizer/rUtO9Zp3kIlYQscYiKTu-WAmsHE=/1119x746/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 1119w, https://resizer.glanacion.com/resizer/O8Q1PaEr9K7hBEBuOSqnHFtZ3KQ=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 768w, https://resizer.glanacion.com/resizer/DyiPCWqItlg8Q2LbS-quVA7u79U=/351x234/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 351w, https://resizer.glanacion.com/resizer/YYmrDx8O3WnsLCiQC11HpsEf9J4=/309x206/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KU5FGXJCYJFDDFJPDRWQYBOTMM.jfif 309w',
+            type: 'image',
             width: 768
         };
 
@@ -77,6 +86,38 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 })
             ]
         ];
+
+        test('should return media data of Bomba with loading eager and fetchPriority high', () => {
+            expect(
+                getMediaData(
+                    getProps({
+                        customFields: { noteId: '2CIOHVMKJBHKDMMHH2WBIZGJWE' },
+                        renderables: renderablesWithBombaEager
+                    })
+                )
+            ).toStrictEqual({
+                ...resultImageArticle,
+                loading: 'eager',
+                fetchPriority: 'high'
+            });
+        });
+
+        test('should return media data of Manual with loading eager and fetchPriority high', () => {
+            expect(
+                getMediaData({
+                    article: {
+                        ...responseArticleSourceNota,
+                        _id: 'SUW6AQPARNCGLBDM2YOUGGC474'
+                    },
+                    customFields: { noteId: 'SUW6AQPARNCGLBDM2YOUGGC474' },
+                    renderables: renderablesWithChainAperturaEager
+                })
+            ).toStrictEqual({
+                ...resultImageArticle,
+                loading: 'eager',
+                fetchPriority: 'high'
+            });
+        });
 
         test.each(articleImageCases)('%s', (message, props) => {
             expect(getMediaData(props)).toStrictEqual(resultImageArticle);
@@ -132,11 +173,14 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             ).toStrictEqual({
                 alt:
                     '¿Wanda Nara o la China Suárez?: Martín Tetaz definió de qué lado está',
+                fetchPriority: 'low',
                 height: 513,
+                loading: 'lazy',
                 src:
                     'https://resizer.glanacion.com/resizer/Puhv2-iJdf6Y6DErcwLMgiEifCM=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg',
                 srcset:
                     'https://resizer.glanacion.com/resizer/vjH1_o4q0jC6lH1IpllN2UDmiDE=/298x198/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 298w, https://resizer.glanacion.com/resizer/DRUkkKA5aC45uO9plJYdGPpsA3c=/318x212/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 318w, https://resizer.glanacion.com/resizer/Puhv2-iJdf6Y6DErcwLMgiEifCM=/233x155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 233w, https://resizer.glanacion.com/resizer/g015FBRgOi_TXYHheBdlWv1aikI=/375x250/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 375w, https://resizer.glanacion.com/resizer/IkSjQ7MFvxSD_9GtTNQ11rKdlas=/320x213/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VOALGQSHQFB7FJ4CPM7LR5AICY.jpg 320w',
+                type: 'image',
                 width: 768
             });
         });
@@ -298,7 +342,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
     describe('Tests function showExtraClass', () => {
         test('Should return a class for video', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ video: '123' }), {
+                showExtraClass(getTypeOfMedia({ video: '123' }), '', {
                     video: 'ln-70-video'
                 })
             ).toStrictEqual('ln-70-video');
@@ -306,7 +350,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
         test('Should return a undefined if no match type with extraClass from config', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ image: '123' }), {
+                showExtraClass(getTypeOfMedia({ image: '123' }), '', {
                     video: 'ln-70-video'
                 })
             ).toStrictEqual(undefined);
@@ -314,16 +358,20 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
         test('Should return a class that match with video type', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ image: '123', video: '123' }), {
-                    video: 'ln-70-video',
-                    image: 'ln-class'
-                })
-            ).toStrictEqual('ln-70-video');
+                showExtraClass(
+                    getTypeOfMedia({ image: '123', video: '123' }),
+                    '--className',
+                    {
+                        video: 'ln-70-video',
+                        image: 'ln-class'
+                    }
+                )
+            ).toStrictEqual('ln-70-video --className');
         });
 
         test('Should return a class that match with video type', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ image: '123' }), {
+                showExtraClass(getTypeOfMedia({ image: '123' }), '', {
                     video: 'ln-70-video',
                     image: 'ln-class'
                 })
@@ -332,14 +380,14 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
         test('Should return a undefined if no match type of media with extraClass from config', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ video: '123' }), {
+                showExtraClass(getTypeOfMedia({ video: '123' }), '', {
                     image: 'ln-70-video'
                 })
             ).toStrictEqual(undefined);
         });
 
         test('Should return a undefined if everything is empty', () => {
-            expect(showExtraClass(getTypeOfMedia({}), {})).toStrictEqual(
+            expect(showExtraClass(getTypeOfMedia({}), '', {})).toStrictEqual(
                 undefined
             );
         });
@@ -472,6 +520,15 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             expect(
                 getLiveblogTitles(contentElementsWithoutPowerUps)
             ).toStrictEqual([]);
+        });
+
+        test('should return only hours and minutes', () => {
+            const time = '12:59';
+            const timeWithSeconds = '14:25:56';
+
+            expect(getOnlyHoursMinutes(time)).toEqual('12:59');
+            expect(getOnlyHoursMinutes(timeWithSeconds)).toEqual('14:25');
+            expect(getOnlyHoursMinutes()).toEqual('');
         });
     });
 });

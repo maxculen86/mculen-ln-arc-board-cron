@@ -17,6 +17,7 @@ import SocialEmbeds from '../../../common/scriptManager/socialEmbeds';
 import DevReactTracker from '../../../common/scriptManager/DevReactTracker';
 import AdblockDetector from '../../../common/scriptManager/adblockDetector';
 import ScriptCripto from '../../../common/scriptManager/scriptCripto';
+import Permutive from '../../../common/scriptManager/Permutive';
 import { pipe } from '../../../common/utils/functional';
 
 const scriptList = [
@@ -31,6 +32,10 @@ const scriptList = [
     {
         component: { name: 'ScriptCripto', function: ScriptCripto },
         feature: ['LN-acumulado/CrypoCarrousel', 'LN-acumulado/cajaCripto']
+    },
+    {
+        component: { name: 'Permutive', function: Permutive },
+        feature: 'none'
     },
     { component: { name: 'GTM', function: GTM }, feature: 'none' },
     { component: { name: 'Comscore', function: Comscore }, feature: 'none' },

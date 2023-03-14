@@ -6,7 +6,7 @@ import {
     validateBanner,
     getSectionId
 } from '../../../../../../components/private/common/banners/dynamicBanners/getDynamicBannersHelper';
-import renderables from '../../../../../../__mocks__/data/renderables/banners/dynamicBannersRenderables.json';
+import getRenderables from '../../../../../../__mocks__/data/renderables/banners/dynamicBannersRenderables';
 describe('Components - Private - Common - Banners - getDynamicBannersHelper', () => {
     it('should test validateInterval func', () => {
         expect(validateInterval(2, 0)).toStrictEqual(false);
@@ -17,17 +17,20 @@ describe('Components - Private - Common - Banners - getDynamicBannersHelper', ()
         expect(validateInterval(3, 2)).toStrictEqual(true);
     });
     it('should test hasBomba func', () => {
-        expect(hasBomba(renderables)).toStrictEqual(true);
+        expect(hasBomba(getRenderables())).toStrictEqual(true);
+        expect(hasBomba(getRenderables(true))).toStrictEqual(undefined);
         expect(hasBomba([])).toStrictEqual(undefined);
     });
     it('should test getSectionId func', () => {
-        expect(getSectionId(renderables, 'f0fS1oFDXlHk93q')).toStrictEqual(1);
+        expect(getSectionId(getRenderables(), 'f0fS1oFDXlHk93q')).toStrictEqual(
+            1
+        );
     });
     it('should test validateBanner func', () => {
         expect(
             validateBanner(
                 1,
-                renderables,
+                getRenderables(),
                 '',
                 {
                     position: 2,
@@ -54,7 +57,7 @@ describe('Components - Private - Common - Banners - getDynamicBannersHelper', ()
         expect(
             validateBanner(
                 2,
-                renderables,
+                getRenderables(),
                 '',
                 {
                     position: 2,
@@ -70,6 +73,7 @@ describe('Components - Private - Common - Banners - getDynamicBannersHelper', ()
         ).toStrictEqual(
             <DivBannerSSR
                 bannerConfiguration={{
+                    classes: 'billboard_dsk',
                     isStatic: true,
                     lazyClass: 'lazy',
                     slotId: 'billboard_dsk',
@@ -80,7 +84,7 @@ describe('Components - Private - Common - Banners - getDynamicBannersHelper', ()
         expect(
             validateBanner(
                 1,
-                renderables,
+                getRenderables(),
                 'Apertura',
                 {
                     position: 1,

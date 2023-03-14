@@ -183,7 +183,6 @@ export const getStickyBanner = (bannerClass, viewport, header) => {
                             banner.classList.remove('--sticky');
                             banner.style.top = Math.abs(viewportLimit.offsetTop - banner.clientHeight) + 'px';
                             banner.style.position = 'relative';
-                            banner.style.zIndex = '101';
                         } else if (viewPoint > 0 && !banner.classList.contains('--sticky')) {
                             banner.classList.add('--sticky');
                             banner.style.cssText = '';
