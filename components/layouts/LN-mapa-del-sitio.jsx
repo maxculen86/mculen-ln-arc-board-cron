@@ -38,7 +38,7 @@ const LNMapaDelSitio = ({ children }) => {
         { text: 'LN+', href: 'https://lnmas.lanacion.com.ar/' },
         {
             text: 'Suscribite',
-            href: 'https://suscripciones.lanacion.com.ar/suscribirme/'
+            href: 'https://suscripciones.lanacion.com.ar/suscribirme'
         },
         {
             text: 'Acceso a PDF',
