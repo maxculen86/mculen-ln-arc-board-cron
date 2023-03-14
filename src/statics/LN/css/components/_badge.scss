@@ -3,7 +3,6 @@
 .badge {
     background: $neutral-black;
     color: $neutral-white;
-    padding: px(4) px(8);
     display: inline-flex;
     flex-wrap: nowrap;
     overflow: hidden;
@@ -12,6 +11,7 @@
     border-radius: px(16);
     &.com-label {
         text-transform: uppercase;
+        padding: px(4) px(8);
     }
 
     &.--sponsored {

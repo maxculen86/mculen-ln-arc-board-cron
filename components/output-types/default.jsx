@@ -27,7 +27,8 @@ import {
     getTitle,
     getMetaDescriptionDefault,
     metasFromSiteServices,
-    getTagTitle
+    getTagTitle,
+    addMetaNoIndexNoFollow
 } from '../private/common/utils/outputTypeHelper';
 import FontPreloads from '../private/common/fontsPreloads';
 import checkHydrateOnly from '../private/LN/common/utils/checkHydrateOnly';
@@ -59,7 +60,8 @@ const Default = props => {
         globalContent,
         outputType,
         isAdmin,
-        requestUri
+        requestUri,
+        template
     } = props;
 
     const {
@@ -77,7 +79,8 @@ const Default = props => {
         _id,
         taxonomy,
         first_publish_date: firstPublishDate,
-        acumuladoGeneral: { metas } = {}
+        acumuladoGeneral: { metas } = {},
+        site = {}
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle, mobile: mobileTitle } =
@@ -235,6 +238,8 @@ const Default = props => {
                     canonicalUrl={canonicalUrl}
                     host={host}
                     nodeType={_nodeType}
+                    site={site}
+                    template={template}
                 />
                 <LinkAmpHTML
                     subtype={subtype}
@@ -287,6 +292,7 @@ const Default = props => {
                     renderables={renderables}
                     section={_nodeType}
                 />
+                {addMetaNoIndexNoFollow(siteProperties, layout)}
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />

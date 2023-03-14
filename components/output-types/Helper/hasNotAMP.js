@@ -13,8 +13,7 @@ const hasNotAMP = (layout = '', requestUri = '') => {
     const urlSplit = group2.split(/&|\?/g);
 
     const queryFilter = urlSplit.filter(
-        query =>
-            query && query !== 'outputType=amp' && !query.startsWith('variant')
+        query => query && query !== 'outputType=amp'
     );
 
     const isValidArrayLength = queryFilter.length ? '?' : '';

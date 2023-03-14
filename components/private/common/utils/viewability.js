@@ -119,8 +119,19 @@ export const createIntersectionObserver = () => {
                 }
             });
 
+            const articlesToAddFiltered = [];
+            articlesToAdd.forEach(data => {
+                const existElement = articlesToAddFiltered.find(
+                    element =>
+                        element.id === data.id && element.list === data.list
+                );
+                if (!existElement) {
+                    articlesToAddFiltered.push(data);
+                }
+            });
+
             addEventImpressionToDataLayer(
-                articlesToAdd,
+                articlesToAddFiltered,
                 itemsToAdd,
                 articlesSeen
             );
@@ -151,11 +162,17 @@ export const createIntersectionObserver = () => {
 
 const shouldAddArticle = (entry, articlesSeen) => {
     const idArticle = get(entry, 'target.dataset.id');
+    const sectionOfArticle =
+        get(entry, 'target') && get(entry, 'target').closest('[data-is-block]');
+
+    const blockName = get(sectionOfArticle, 'dataset.blockName');
     return (
         entry.isIntersecting &&
         idArticle &&
         Array.isArray(articlesSeen) &&
-        !articlesSeen.find(art => art.id === idArticle)
+        !articlesSeen.find(
+            art => art.id === idArticle && art.list === blockName
+        )
     );
 };
 
@@ -194,7 +211,11 @@ const addEventImpressionToDataLayer = (
             'seenArticlesScore',
             JSON.stringify(
                 articlesSeen.map(art => {
-                    return { id: art.id, name: art.name };
+                    return {
+                        id: art.id,
+                        name: art.name,
+                        list: art.list
+                    };
                 })
             )
         );

@@ -10,7 +10,7 @@ describe('Tests hasNotAMP function', () => {
         try {
             hasNotAMP(
                 'LN-acumulado',
-                '/horoscopo/?outputType=amp&variant=S&adtest=true&d=1302'
+                '/horoscopo/?outputType=amp&adtest=true&d=1302'
             );
         } catch (error) {}
         expect(Redirect).toBeCalled();
@@ -53,7 +53,7 @@ describe('Tests hasNotAMP function', () => {
         try {
             hasNotAMP(
                 'LN-Home_Main',
-                '/homepage/?variant=A&outputType=amp&adstest=true&d=2345'
+                '/homepage/?outputType=amp&adstest=true&d=2345'
             );
         } catch (error) {}
         expect(Redirect).toBeCalled();

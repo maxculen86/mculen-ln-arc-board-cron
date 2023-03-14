@@ -23,7 +23,7 @@ import {
     productClickFromServer,
     createViewabilityObservers
 } from '../../private/common/utils/viewability';
-import createBannersIntersectionObserver from '../../private/common/banners/createBannersIntersectionObserver';
+import { createBannersIntersectionObserver } from '../../private/common/banners/intersectionObservers';
 import StaticContent from '../../private/common/staticContent';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 
@@ -72,7 +72,7 @@ const LNMainHome = props => {
 
     useEffect(() => {
         createViewabilityObservers();
-        createBannersIntersectionObserver();
+        createBannersIntersectionObserver(false);
     }, []);
 
     return (

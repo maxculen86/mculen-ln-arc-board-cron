@@ -16,11 +16,11 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           class="--d-flex --ai-center --uppercase"
           roof-group="left"
         >
-          <span
-            class="text ln-text --roof-title --prumo"
+          <h3
+            class="text ln-text --roof-title --prumo --font-xl-l"
           >
             CommonCOllection
-          </span>
+          </h3>
           
         </div>
       </div>
@@ -43,7 +43,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-top --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-top --tablet-img-top --desktop-img-top"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -77,7 +77,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --mb-xs --prumo --font-semi --font-m-l"
               >
                 
                 Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
@@ -241,7 +241,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
             target="_self"
-            title="Historias El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
+            title="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
           >
             <section
               class="media-container --mb-xs"
@@ -271,12 +271,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               <h2
                 class="text ln-text title --mb-xs --prumo --font-semi --font-m"
               >
-                <span
-                  class="text ln-text lead --prumo --font-black"
-                >
-                  Historias
-                   
-                </span>
+                
                 El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
               </h2>
               
@@ -390,7 +385,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
             target="_self"
-            title="Santa Cruz Bullrich visita El Calafate y presenta libro"
+            title="Santa Cruz. Este es un titulo corto."
           >
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -402,10 +397,10 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 <span
                   class="text ln-text lead --prumo --font-black"
                 >
-                  Santa Cruz
+                  Santa Cruz.
                    
                 </span>
-                Bullrich visita El Calafate y presenta libro
+                Este es un titulo corto.
               </h2>
               <h3
                 class="text ln-text --mb-xs --font-s subhead"
@@ -535,7 +530,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -582,7 +577,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -629,7 +624,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -676,13 +671,13 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
             href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
             target="_self"
-            title="Historias El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
+            title="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
           >
             <section
               class="media-container --mb-xs"
@@ -712,12 +707,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               <h2
                 class="text ln-text title --mb-xs --prumo --font-semi --font-l"
               >
-                <span
-                  class="text ln-text lead --prumo --font-black"
-                >
-                  Historias
-                   
-                </span>
+                
                 El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
               </h2>
             </section>
@@ -728,7 +718,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -775,7 +765,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"

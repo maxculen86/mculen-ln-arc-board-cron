@@ -1,4 +1,5 @@
 import get from '../../../components/private/common/utils/get';
+import { isEmptyString } from '../../../components/private/common/utils/dataValidation';
 
 export const missingPromoItemImgAuth = ({ dataPromoItem }) => {
     return (
@@ -31,4 +32,14 @@ export const missingContentElementImgAuth = ({ dataContentElements }) => {
             )
         );
     });
+};
+
+export const missingCreditsImgAuth = ({ dataCredits }) => {
+    if (!Array.isArray(dataCredits)) return false;
+
+    return dataCredits.some(
+        credit =>
+            !isEmptyString(get(credit, 'image.url', '')) &&
+            !get(credit, 'image.auth.1')
+    );
 };
