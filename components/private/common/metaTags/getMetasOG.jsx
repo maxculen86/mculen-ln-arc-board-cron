@@ -8,8 +8,6 @@ import { getSectionOfRequestUri } from '../utils/outputTypeHelper';
 import { RECETA } from '../utils/subtypes/subtypeHelper';
 import config from '../../../../properties/sites/la-nacion-ar';
 
-const { layoutsName = {} } = config || {};
-
 const getMetasOG = props => {
     const {
         title = '',
@@ -23,6 +21,8 @@ const getMetasOG = props => {
         subtype,
         layout
     } = props;
+
+    const { layoutsName = {} } = config || {};
 
     const data = getData(props);
     const metaTitleFromPB =
