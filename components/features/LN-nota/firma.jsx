@@ -118,7 +118,8 @@ FirmaFeature.propTypes = {
         distributor: PropTypes.shape({
             name: PropTypes.string
         }),
-        withFirmaDistributor: PropTypes.bool
+        withFirmaDistributor: PropTypes.bool,
+        subtype: PropTypes.string
     })
 };
 

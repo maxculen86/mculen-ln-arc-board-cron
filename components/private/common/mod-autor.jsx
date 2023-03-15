@@ -13,11 +13,6 @@ import '../../../resources/dist/css/ln/modules/mod-autor.css';
 
 const ModAutor = props => {
     const { autor = [], medio, foto, classCondition, amp, subtype } = props;
-    console.log('🚀 ~ file: mod-autor.jsx:16 ~ ModAutor ~ subtype:', subtype);
-    console.log(
-        '🚀 ~ file: mod-autor.jsx:16 ~ ModAutor ~ subtype:',
-        !isFotoAl100orStorytelling(subtype)
-    );
     const author =
         autor.length === 1
             ? autor.reduce((acc, val) => ({ name: val.name, link: val.link }))
