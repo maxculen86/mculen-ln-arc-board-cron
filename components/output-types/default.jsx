@@ -60,7 +60,8 @@ const Default = props => {
         globalContent,
         outputType,
         isAdmin,
-        requestUri
+        requestUri,
+        template
     } = props;
 
     const {
@@ -78,7 +79,8 @@ const Default = props => {
         _id,
         taxonomy,
         first_publish_date: firstPublishDate,
-        acumuladoGeneral: { metas } = {}
+        acumuladoGeneral: { metas } = {},
+        site = {}
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle, mobile: mobileTitle } =
@@ -236,6 +238,8 @@ const Default = props => {
                     canonicalUrl={canonicalUrl}
                     host={host}
                     nodeType={_nodeType}
+                    site={site}
+                    template={template}
                 />
                 <LinkAmpHTML
                     subtype={subtype}
