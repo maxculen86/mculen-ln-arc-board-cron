@@ -15,7 +15,7 @@ export const infoLNMain = {
         url: 'https://www.lanacion.com.ar/economia/dolar/'
     },
     multimedia: { tipoSeccion: 'tema', idSeccion: 305 },
-    'ln-acumulado/timeline': { tipoSeccion: 'tema', idSeccion: 3000 },
+    'ln-acumulado/timeline': { tipoSeccion: 'tema', idSeccion: 703 },
     'ln-common/ln10_en_vivo': { tipoSeccion: 'enVivo', idSeccion: 700 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
