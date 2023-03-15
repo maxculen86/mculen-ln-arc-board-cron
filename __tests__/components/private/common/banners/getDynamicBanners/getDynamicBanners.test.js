@@ -1,12 +1,12 @@
 import React from 'react';
 import DivBannerSSR from '../../../../../../components/private/common/banners/DivBannerSSR';
 import getDynamicBanners from '../../../../../../components/private/common/banners/dynamicBanners/getDynamicBanners';
-import renderables from '../../../../../../__mocks__/data/renderables/banners/dynamicBannersRenderables.json';
+import getRenderables from '../../../../../../__mocks__/data/renderables/banners/dynamicBannersRenderables';
 describe('Components -  Chains - Utils - DynamicBanner', () => {
     it('should return dynamic banners mobile', () => {
         expect(
             getDynamicBanners({
-                renderables: renderables,
+                renderables: getRenderables(),
                 featureId: 'c0fGd77HYFVoaAh'
             })
         ).toStrictEqual({
@@ -26,7 +26,7 @@ describe('Components -  Chains - Utils - DynamicBanner', () => {
     it('should return dynamic banners dsk', () => {
         expect(
             getDynamicBanners({
-                renderables: renderables,
+                renderables: getRenderables(),
                 featureId: 'c0f95SICwdxY3BP'
             })
         ).toStrictEqual({

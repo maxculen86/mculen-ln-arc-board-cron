@@ -85,7 +85,7 @@ const LN10Home = props => {
                 <main className="main-container">
                     <section
                         data-section="pre-apertura"
-                        className="pre-container"
+                        className="pre-container --mb-lg"
                     >
                         {preApertura}
                     </section>

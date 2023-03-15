@@ -4,6 +4,7 @@
 import { RELOGIN_VALIDATION } from 'fusion:environment';
 import handleCookie from './handleCookie';
 import apiIngresar from '../../../common/services/apIngresar';
+import permutiveIdentify from './permutiveIdentify';
 
 const {
     setCookie,
@@ -173,6 +174,7 @@ const setUserData = (res, dispatch) => {
                 }
             }
         });
+        permutiveIdentify(UsuarioDetalleEmail);
     }
 };
 

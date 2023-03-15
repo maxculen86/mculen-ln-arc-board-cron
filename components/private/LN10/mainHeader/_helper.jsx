@@ -83,6 +83,7 @@ export const RightOptions = ({
 
     const MenuUser = (
         <MainHeader.MenuUser
+            title="Menu de usuario"
             userType={userType}
             email={userName}
             initials={initials}
