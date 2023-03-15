@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ModAutor If its storyTelling or fotoAl100 render the author image with fetchPriority low and loading low 1`] = `
+<div>
+  <section
+    class="mod-autor"
+  >
+    <div
+      class="container-img"
+    >
+      <a
+        class="com-link mod-image"
+        href="https://lanacion.com.ar"
+        title="Ir a notas de Pepe"
+      >
+        <img
+          alt="Ir a notas de Pepe"
+          class="com-image "
+          decoding="async"
+          fetchpriority="low"
+          loading="lazy"
+          src="https://resizer.glanacion.com/resizer/V5K_reWbvEbIuJAS7PQaidnMVp8=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2281458.png"
+        />
+      </a>
+    </div>
+    <div
+      class="container-text"
+    >
+      <div
+        class="container-firma"
+      >
+        <a
+          class="com-link --autor"
+          href="https://lanacion.com.ar"
+          title="Ir a notas de Pepe"
+        >
+          Pepe
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
 exports[`ModAutor If no image must no render author image 1`] = `
 <div>
   <section
@@ -32,6 +74,48 @@ exports[`ModAutor If no image must no render author image 1`] = `
 `;
 
 exports[`ModAutor With image render the author image with fetchPriority high and loading eager 1`] = `
+<div>
+  <section
+    class="mod-autor"
+  >
+    <div
+      class="container-img"
+    >
+      <a
+        class="com-link mod-image"
+        href="https://lanacion.com.ar"
+        title="Ir a notas de Pepe"
+      >
+        <img
+          alt="Ir a notas de Pepe"
+          class="com-image "
+          decoding="async"
+          fetchpriority="high"
+          loading="eager"
+          src="https://resizer.glanacion.com/resizer/V5K_reWbvEbIuJAS7PQaidnMVp8=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2281458.png"
+        />
+      </a>
+    </div>
+    <div
+      class="container-text"
+    >
+      <div
+        class="container-firma"
+      >
+        <a
+          class="com-link --autor"
+          href="https://lanacion.com.ar"
+          title="Ir a notas de Pepe"
+        >
+          Pepe
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`ModAutor With image, and subtype is diferent from storyTelling or fotoAl100 render the author image with fetchPriority high and loading eager 1`] = `
 <div>
   <section
     class="mod-autor"

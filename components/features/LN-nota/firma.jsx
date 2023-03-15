@@ -30,7 +30,8 @@ const FirmaFeature = props => {
             content_elements: contentElements,
             credits: { by },
             distributor = { name: 'LA NACION' },
-            withFirmaDistributor
+            withFirmaDistributor,
+            subtype
         }
     } = props;
     const { name } = distributor;
@@ -68,6 +69,7 @@ const FirmaFeature = props => {
                     classCondition="--autor"
                     medio={medio}
                     amp={outputType === 'amp'}
+                    subtype={subtype}
                 />
             </div>
         </div>
