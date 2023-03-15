@@ -277,30 +277,33 @@ exports[`When the _id !== "/economia/dolar-oficial-historico" Should match snaps
     class="container-logo"
   >
     <a
-      class="com-link provider-data --fivexs"
+      class="com-link --mb-3xs --fivexs"
       href="https://www.lanacion.com.ar/dolar-oficial-historico/"
-      target="_blank"
       title="Ir a dólar oficial histórico"
     >
       Ver dólar oficial histórico
     </a>
-    <span
-      class="--fivexs"
+    <div
+      class="--d-flex"
     >
-      Información de
-    </span>
-    <span
-      class="--fivexs"
-    >
-      provista por
-    </span>
-    <a
-      class="com-link provider-data"
-      href="https://www.invertironline.com/"
-      rel="nofollow"
-      target="_blank"
-      title="Ir a Invertir Online"
-    />
+      <span
+        class="--fivexs"
+      >
+        Información de
+      </span>
+      <span
+        class="--fivexs"
+      >
+        provista por
+      </span>
+      <a
+        class="com-link provider-data"
+        href="https://www.invertironline.com/"
+        rel="nofollow"
+        target="_blank"
+        title="Ir a Invertir Online"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -579,25 +582,29 @@ exports[`When the _id === "/economia/dolar-oficial-historico" Should match the s
     </ul>
   </div>
   <div
-    class="container-logo"
+    class="container-logo --withHistoricalDollar"
   >
-    <span
-      class="--fivexs"
+    <div
+      class="--d-flex"
     >
-      Información de
-    </span>
-    <span
-      class="--fivexs"
-    >
-      provista por
-    </span>
-    <a
-      class="com-link provider-data"
-      href="https://www.invertironline.com/"
-      rel="nofollow"
-      target="_blank"
-      title="Ir a Invertir Online"
-    />
+      <span
+        class="--fivexs"
+      >
+        Información de
+      </span>
+      <span
+        class="--fivexs"
+      >
+        provista por
+      </span>
+      <a
+        class="com-link provider-data"
+        href="https://www.invertironline.com/"
+        rel="nofollow"
+        target="_blank"
+        title="Ir a Invertir Online"
+      />
+    </div>
   </div>
 </div>
 `;
