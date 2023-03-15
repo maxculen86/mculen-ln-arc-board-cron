@@ -4,7 +4,11 @@ export const hasBomba = renderables =>
     renderables
         .filter(ren => ren.collection === 'sections')
         .find(section =>
-            section.children.find(child => child.type === 'LN10_Caja_Bomba')
+            section.children.find(
+                child =>
+                    child.type === 'LN10_Caja_Bomba' &&
+                    child.props.customFields.hideCaja !== true
+            )
         ) && true;
 
 export const getSectionId = (renderables, featureId) =>

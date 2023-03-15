@@ -95,7 +95,8 @@ const CommentsViafouraFeature = props => {
                                         setMessage({
                                             title:
                                                 'Ahora para comentar debés tener Acceso Digital.',
-                                            subtitle: 'Ingresá o suscribite',
+                                            subtitle:
+                                                'Iniciar sesión o suscribite',
                                             secondaryUrl: loginUrl,
                                             specialUrl: registracionUrl,
                                             dark: true,
