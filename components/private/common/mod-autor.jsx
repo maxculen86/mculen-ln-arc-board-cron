@@ -7,10 +7,12 @@ import ModFirma from './mod-firma';
 import ModMedio from './mod-medio';
 import ModImage from './mod-image';
 
+import { isFotoAl100orStorytelling } from './utils/subtypes/subtypeHelper';
+
 import '../../../resources/dist/css/ln/modules/mod-autor.css';
 
 const ModAutor = props => {
-    const { autor = [], medio, foto, classCondition, amp } = props;
+    const { autor = [], medio, foto, classCondition, amp, subtype } = props;
     const author =
         autor.length === 1
             ? autor.reduce((acc, val) => ({ name: val.name, link: val.link }))
@@ -24,6 +26,7 @@ const ModAutor = props => {
                         src={foto}
                         alt={`Ir a notas de ${author.name}`}
                         amp={amp}
+                        isApertura={!isFotoAl100orStorytelling(subtype)}
                     />
                 </div>
             )}
@@ -45,7 +48,8 @@ ModAutor.propTypes = {
     classCondition: PropTypes.string.isRequired,
     foto: PropTypes.string,
     medio: PropTypes.string,
-    amp: PropTypes.bool
+    amp: PropTypes.bool,
+    subtype: PropTypes.string.isRequired
 };
 
 ModAutor.defaultProps = {

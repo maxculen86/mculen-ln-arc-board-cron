@@ -19,7 +19,19 @@ const getCardConfig = (config, articleData) => {
             withMarqueeImg && get(getAuthorsPhoto(articleData), 'url', ''),
         cardSize: get(config, 'cardSize'),
         mediaData: transformImageData(articleData, promoItems),
-        imagePosition: get(config, 'imagePosition')
+        imagePosition: get(config, 'imagePosition'),
+        className: get(config, 'className')
+    };
+};
+
+export const getTitleAndLeadForHome = (article = {}) => {
+    const titleTextShort = get(article, 'headlines.mobile', '');
+    const titleTextLong = get(article, 'headlines.basic', '');
+    const lead = get(article, 'label.volanta.text', '');
+
+    return {
+        lead: titleTextShort !== '' ? lead : '',
+        title: titleTextShort !== '' ? titleTextShort : titleTextLong
     };
 };
 

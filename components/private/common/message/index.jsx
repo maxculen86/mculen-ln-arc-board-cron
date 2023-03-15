@@ -84,7 +84,7 @@ Message.defaultProps = {
     title: '',
     subtitle: '',
     special: 'Suscribite',
-    secondary: 'Ingresá',
+    secondary: 'Iniciar sesión',
     specialUrl: '',
     secondaryUrl: '',
     dark: undefined,

@@ -6,6 +6,7 @@ import diagramationRules from '../../../../../../../components/private/common/ut
 import articles from '../../../../../../../__mocks__/data/CommonCollection/articles.json';
 import { Cajahashtag } from '@ln/contenidos-ui-cajahashtag';
 import { CHAIN_STYLE } from '../../../../../../../components/chains/utils/common/_helpers-WebApi';
+import { getTitleAndLeadForHome } from '../../../../../../../components/private/LN10/home/components/CommonCollection/_helper';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -84,5 +85,53 @@ describe('Tests Component CommonCollection', () => {
         });
         expect(container.querySelector('.ln-caja-hashtag')).toBeInTheDocument();
         expect(container).toMatchSnapshot();
+    });
+});
+
+describe('Tests function getTitleAndLeadForHome', () => {
+    test('should return title short and lead', () => {
+        const article1 = {
+            headlines: {
+                basic: 'Bullrich visita El Calafate y presenta libro',
+                mobile: 'Este es un titulo corto.'
+            },
+            label: {
+                volanta: {
+                    text: 'Santa Cruz.'
+                }
+            }
+        };
+
+        expect(getTitleAndLeadForHome(article1)).toStrictEqual({
+            lead: 'Santa Cruz.',
+            title: 'Este es un titulo corto.'
+        });
+        expect(getTitleAndLeadForHome(undefined)).toStrictEqual({
+            lead: '',
+            title: ''
+        });
+        expect(getTitleAndLeadForHome(null)).toStrictEqual({
+            lead: '',
+            title: ''
+        });
+    });
+
+    test('should return title long and no lead', () => {
+        const article1 = {
+            headlines: {
+                basic: 'Bullrich visita El Calafate y presenta libro',
+                mobile: ''
+            },
+            label: {
+                volanta: {
+                    text: 'Santa Cruz.'
+                }
+            }
+        };
+
+        expect(getTitleAndLeadForHome(article1)).toStrictEqual({
+            lead: '',
+            title: 'Bullrich visita El Calafate y presenta libro'
+        });
     });
 });
