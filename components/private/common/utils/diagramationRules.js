@@ -126,7 +126,7 @@ const diagramationRules = diagramation => {
                 variantsDisabled: ['liveblog'],
                 titleTag: 'h2',
                 cardSize: 'xl-l',
-                withSection: true,
+                withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false

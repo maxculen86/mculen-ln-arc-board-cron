@@ -67,6 +67,8 @@ export default {
     ARC_WIDGETS: 'https://arc-widgets.lanacion.com.ar/widgets/',
     FONT_BOLD: '/resources/fonts/suecaslab-bold-webfont.woff2',
     FONT_MEDIUM: '/resources/fonts/suecaslab-medium-webfont.woff2',
+    FONT_PRUMO: '/resources/fonts/Prumo-LNVF.woff2',
+    FONT_PRUMO_ITALIC: '/resources/fonts/Prumo-ItalicLNVF.woff2',
     LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar',
     PERSONALIZACION_API:
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
