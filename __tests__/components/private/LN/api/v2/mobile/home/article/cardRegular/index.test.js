@@ -53,7 +53,7 @@ describe('cardRegular', () => {
         // Assert
         expect(getArticleImage).toHaveBeenCalledTimes(1);
         expect(getArticleImage).toHaveBeenCalledWith(article);
-        expect(getArticleVideos).toHaveBeenCalledTimes(1);
+        expect(getArticleVideos).toHaveBeenCalledTimes(2);
         expect(getArticleVideos).toHaveBeenCalledWith(article);
         expect(getYouTubeVideoLink).toHaveBeenCalledTimes(1);
         expect(getYouTubeVideoLink).toHaveBeenCalledWith(article);

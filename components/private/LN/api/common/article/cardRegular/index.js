@@ -11,6 +11,7 @@ export const cardRegular = article => {
         chapita: getArticleTag(article),
         imagen: getArticleImage(article),
         video: getArticleVideos(article),
+        videos: getArticleVideos(article, true),
         videoYouTube: getYouTubeVideoLink(article)
     };
 };
