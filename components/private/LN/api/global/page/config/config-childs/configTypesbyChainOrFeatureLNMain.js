@@ -7,6 +7,7 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
         0: [
             'apertura',
             'comercial',
+            'multimedia',
             'Ln_Caja_Manual',
             'Ln_Caja_Collection',
             'LN10_Caja_Bomba',
