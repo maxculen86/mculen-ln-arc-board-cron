@@ -337,3 +337,82 @@ describe('Metas home', () => {
         expect(getMetasOG(props)).toStrictEqual(metas);
     });
 });
+
+describe('Metas OTT', () => {
+    it('Test for video case in OTT', () => {
+        const props = {
+            globalContent: {
+                _id: '21621bbe-f267-4155-bc0e-76482ab5d1ac',
+                type: 'video',
+                canonical_url:
+                    '/video/noticias-fin-de-semana-04-de-febrero-2023-vid21621bbe',
+                headlines: {
+                    basic: '+ Noticias fin de semana - 04 de Febrero 2023'
+                }
+            },
+            siteProperties: {
+                title: 'LN+ Mirá todos los programas y videos online',
+                description:
+                    'Ingresá a LN+ para ver todos los programas y videos online: La Cornisa, Odisea Argentina, El diario de Leuco, Mesa chica y mucho más!',
+                shareConfig: {
+                    facebook: {
+                        appID: ''
+                    }
+                }
+            },
+            metaValue: function metaValue(name) {
+                if (name === 'title')
+                    return 'LN+ Mirá todos los programas y videos online';
+            },
+            contextPath: '/pf',
+            deployment: function deployment() {
+                return '$LATEST';
+            },
+            section: 'video',
+            arcSite: 'ott',
+            layout: 'OTT-ficha',
+            ottMetaTitle:
+                '+ Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023 - LN+',
+            ottMetaDescription:
+                'Ingresá en LN+ para ver + Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023. Los mejores programas están en LN+'
+        };
+
+        const metas = [
+            {
+                property: 'fb_app_id',
+                content: ''
+            },
+            {
+                property: 'og:type',
+                content: 'website'
+            },
+            {
+                property: 'og:title',
+                content:
+                    '+ Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023 - LN+'
+            },
+            {
+                property: 'og:description',
+                content:
+                    'Ingresá en LN+ para ver + Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023. Los mejores programas están en LN+'
+            },
+            {
+                property: 'og:image',
+                content: getAssetsPath(props.contextPath)(props.deployment)(
+                    'placeholderLN.jpg'
+                )
+            },
+            {
+                property: 'og:url',
+                content:
+                    'https://www.lanacion.com.ar/video/noticias-fin-de-semana-04-de-febrero-2023-vid21621bbe/'
+            },
+            {
+                property: 'og:site_name',
+                content: 'LN+ Mirá todos los programas y videos online'
+            }
+        ];
+
+        expect(getMetasOG(props)).toStrictEqual(metas);
+    });
+});

@@ -8,7 +8,8 @@ describe('Private - LN - Common - LinkCanonical', () => {
         const props = {
             host: 'https://www.lanacion.com.ar',
             canonicalUrl: '',
-            nodeType: 'home'
+            nodeType: 'home',
+            site: {}
         };
 
         it('Should render OK', () => {
@@ -35,7 +36,9 @@ describe('Private - LN - Common - LinkCanonical', () => {
         const props = {
             host: 'https://www.lanacion.com.ar',
             canonicalUrl: '/ciencia/roger-prueba-imagenes-nid28052020/',
-            nodeType: ''
+            nodeType: 'nota',
+            site: {},
+            _id: 'AJHSAKSJHDFAKSDHKAJS'
         };
 
         it('Should render OK', () => {
@@ -71,6 +74,9 @@ describe('Private - LN - Common - LinkCanonical', () => {
             host: 'https://www.lanacion.com.ar',
             canonicalUrl: '',
             _id: '/deportes',
+            site: {
+                site_url: ''
+            },
             nodeType: 'acumulado'
         };
 
@@ -100,6 +106,25 @@ describe('Private - LN - Common - LinkCanonical', () => {
             const { container } = render(<LinkCanonical {...props} />);
             expect(container).toMatchSnapshot();
         });
+        it('When is page, dolar-hoy case', () => {
+            const dolarHoyProps = {
+                _id: '/economia/dolar',
+                host: 'https://www.lanacion.com.ar',
+                nodeType: 'acumulado',
+                site: {
+                    site_about: '',
+                    site_url: 'https://www.lanacion.com.ar/dolar-hoy/'
+                },
+                template: 'page/pNqYuSKvntKUNh2qs'
+            };
+            const { container } = render(<LinkCanonical {...dolarHoyProps} />);
+            const link = container.getElementsByTagName('link');
+            expect(link).toHaveLength(1);
+            expect(link[0].rel).toEqual('canonical');
+            expect(link[0].href).toEqual(
+                'https://www.lanacion.com.ar/dolar-hoy/'
+            );
+        });
     });
 
     describe('At sub-sections', () => {
@@ -107,6 +132,7 @@ describe('Private - LN - Common - LinkCanonical', () => {
             host: 'https://www.lanacion.com.ar',
             canonicalUrl: '',
             _id: '/deportes/futbol/boca-juniors',
+            site: {},
             nodeType: 'acumulado'
         };
 

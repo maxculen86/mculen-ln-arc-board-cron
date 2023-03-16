@@ -41,7 +41,7 @@ const HeaderAMP = props => {
                                 )}
                                 <Link
                                     mod="com-button --secondary"
-                                    href="https://ingresar.lanacion.com.ar/ingresar/D/1/"
+                                    href="https://ingresar.lanacion.com.ar/login/ingresar/D/1/"
                                 >
                                     INGRESAR
                                 </Link>

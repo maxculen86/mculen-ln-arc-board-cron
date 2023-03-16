@@ -60,7 +60,8 @@ const Default = props => {
         globalContent,
         outputType,
         isAdmin,
-        requestUri
+        requestUri,
+        template
     } = props;
 
     const {
@@ -78,14 +79,19 @@ const Default = props => {
         _id,
         taxonomy,
         first_publish_date: firstPublishDate,
-        acumuladoGeneral: { metas } = {}
+        acumuladoGeneral: { metas } = {},
+        site = {}
     } = globalContent || {};
 
     const { meta_title: metaTitle, basic: basicTitle, mobile: mobileTitle } =
         headlines || {};
     const { basic: descriptionBasic } = description || {};
     const { name: distributorName } = distributor || {};
-    const { description: defaultDescription, host = '' } = siteProperties;
+    const {
+        description: defaultDescription,
+        layoutsName = {},
+        host = ''
+    } = siteProperties;
 
     const metaTitleBasic = metaTitle || basicTitle;
 
@@ -164,8 +170,8 @@ const Default = props => {
                     arcSite={arcSite}
                     isAdmin={isAdmin}
                 />
-                <CriticalCss />
-                <FontPreloads />
+                <CriticalCss isLN10={layoutsName.HomeLN10 === layout} />
+                <FontPreloads isLN10={layoutsName.HomeLN10 === layout} />
                 {arcSite === 'ott' ? (
                     <link
                         rel="stylesheet"
@@ -236,6 +242,8 @@ const Default = props => {
                     canonicalUrl={canonicalUrl}
                     host={host}
                     nodeType={_nodeType}
+                    site={site}
+                    template={template}
                 />
                 <LinkAmpHTML
                     subtype={subtype}

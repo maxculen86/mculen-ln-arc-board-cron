@@ -470,6 +470,12 @@ describe('IntersectionObserver', () => {
         article.dataset.notaid = '2R6O5TWUGJDYJAVGNHXCD5OZTQ';
         article.appendChild(h2DOM);
 
+        let section = global.document.createElement('section');
+        section.dataset.blockName = 'h_opinion';
+        section.setAttribute('data-block-name', 'h_opinion');
+        section.setAttribute('data-is-block', true);
+        section.appendChild(article);
+
         const mockedEntries = [
             {
                 isIntersecting: true,
@@ -503,7 +509,7 @@ describe('IntersectionObserver', () => {
         expect(window.sessionStorage.setItem).toHaveBeenCalledTimes(1);
         expect(window.sessionStorage.setItem).toHaveBeenCalledWith(
             'seenArticlesScore',
-            '[{"id":"2R6O5TWUGJDYJAVGNHXCD5OZTQ","name":"Nota de Prueba"}]'
+            '[{"id":"2R6O5TWUGJDYJAVGNHXCD5OZTQ","name":"Nota de Prueba","list":"h_opinion"}]'
         );
 
         /* Se vuelve a llamar con la misma nota que ya registro */
@@ -536,7 +542,41 @@ describe('IntersectionObserver', () => {
         expect(window.sessionStorage.setItem).toHaveBeenCalledTimes(2);
         expect(window.sessionStorage.setItem).toHaveBeenCalledWith(
             'seenArticlesScore',
-            '[{"id":"2R6O5TWUGJDYJAVGNHXCD5OZTQ","name":"Nota de Prueba"},{"id":"AAAAAAAAAAAAAAAAAaa","name":"Nota de Prueba 2"}]'
+            '[{"id":"2R6O5TWUGJDYJAVGNHXCD5OZTQ","name":"Nota de Prueba","list":"h_opinion"},{"id":"AAAAAAAAAAAAAAAAAaa","name":"Nota de Prueba 2","list":""}]'
+        );
+
+        //probamos que se agrega con distinto list
+
+        let h2DOM3 = global.document.createElement('h2');
+        h2DOM3.innerText = 'Nota de Prueba 3';
+
+        let article3 = global.document.createElement('article');
+        article3.dataset.pos = '0204';
+        article3.dataset.id = '2R6O5TWUGJDYJAVGNHXCD5OZTQ';
+        article3.dataset.source = 'editor';
+        article3.dataset.notaid = '2R6O5TWUGJDYJAVGNHXCD5OZTQ';
+        article3.appendChild(h2DOM);
+
+        let section2 = global.document.createElement('section');
+        section2.dataset.blockName = 'h_otro';
+        section2.setAttribute('data-block-name', 'h_otro');
+        section2.setAttribute('data-is-block', true);
+        section2.appendChild(article3);
+
+        const mockedEntries3 = [
+            {
+                isIntersecting: true,
+                target: article3
+            }
+        ];
+
+        callback(mockedEntries3, observer);
+        expect(unobserve).toBeCalledTimes(3);
+        expect(window.sessionStorage.getItem).toHaveBeenCalledTimes(4);
+        expect(window.sessionStorage.setItem).toHaveBeenCalledTimes(3);
+        expect(window.sessionStorage.setItem).toHaveBeenCalledWith(
+            'seenArticlesScore',
+            '[{"id":"2R6O5TWUGJDYJAVGNHXCD5OZTQ","name":"Nota de Prueba","list":"h_opinion"},{"id":"AAAAAAAAAAAAAAAAAaa","name":"Nota de Prueba 2","list":""},{"id":"2R6O5TWUGJDYJAVGNHXCD5OZTQ","name":"Nota de Prueba","list":"h_otro"}]'
         );
     });
 });
