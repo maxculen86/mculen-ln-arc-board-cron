@@ -3,10 +3,14 @@
 
 .container-logo {
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     margin-bottom: $spacing-sm;
     color: $light-neutral-900;
+    @media ($media-m) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
     .logo {
         &.byma {
             width: px(47);
@@ -23,6 +27,12 @@
             @media ($media-m) {
                 margin-left: $spacing;
             }
+        }
+    }
+    &.--withHistoricalDollar {
+        align-items: flex-end;
+        @media ($media-m) {
+            justify-content: flex-end;
         }
     }
 }

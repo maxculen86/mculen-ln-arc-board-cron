@@ -165,12 +165,12 @@ const Index = ({ home }) => {
         commonProps(
             'Ayuda',
             'Ir a las preguntas frecuentes',
-            'https://micuenta.lanacion.com.ar/ayuda/'
+            'https://www.contacto.lanacion.com.ar/ayuda'
         ),
         commonProps(
             'Términos y condiciones',
             'Ir a los términos y condiciones',
-            'https://micuenta.lanacion.com.ar/tyc/'
+            'https://www.contacto.lanacion.com.ar/tyc'
         ),
         commonProps(
             '¿Cómo anunciar?',
@@ -181,7 +181,7 @@ const Index = ({ home }) => {
         commonProps(
             'Suscribirse al diario impreso',
             'Ir a las suscripciones al diario',
-            'https://suscripciones.lanacion.com.ar/suscribirme/'
+            'https://suscripciones.lanacion.com.ar/suscribirme'
         )
     ];
 

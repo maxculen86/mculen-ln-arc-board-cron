@@ -1,9 +1,10 @@
 import React from 'react';
-import { FONT_BOLD } from 'fusion:environment';
+import PropTypes from 'fusion:prop-types';
+import { FONT_BOLD, FONT_PRUMO } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import { getWebFont } from './fontface';
 
-const FontPreloads = () => {
+const FontPreloads = ({ isLN10 = false }) => {
     const { contextPath, deployment } = useAppContext();
 
     return (
@@ -12,11 +13,19 @@ const FontPreloads = () => {
                 rel="preload"
                 as="font"
                 type="font/woff2"
-                href={getWebFont({ font: FONT_BOLD, contextPath, deployment })}
+                href={getWebFont({
+                    font: isLN10 ? FONT_PRUMO : FONT_BOLD,
+                    contextPath,
+                    deployment
+                })}
                 crossOrigin=""
             />
         </>
     );
+};
+
+FontPreloads.propTypes = {
+    isLN10: PropTypes.boolean.isRequired
 };
 
 export default FontPreloads;

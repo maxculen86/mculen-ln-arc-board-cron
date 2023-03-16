@@ -52,10 +52,11 @@ const fetch = query => {
 };
 
 const resolve = (query = {}) => {
+    const { uri = '' } = query;
     const website = `website=${query.website || query['arc-site']}`;
     const published = `&published=${query.published || 'true'}`;
 
-    if (query.uri === '/nota.asp') {
+    if (uri.includes('/nota.asp')) {
         return {
             path: '',
             typeFilter: 'nota_id'

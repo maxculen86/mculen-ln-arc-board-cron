@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
-import { getStyleFontsInLine } from './fontface';
+import { getStyleFontsInLine, getStyleFontsInLineForLN10 } from './fontface';
 
 export const CriticalCSSString =
     '.com-title{font-family:"SuecaSlab"}.row{display:flex;flex-wrap:wrap;width:100%}[class*=col-]{width:100%;position:relative}' +
@@ -88,16 +89,18 @@ export const CriticalCSSString =
     '.com-nav-mobile .row .item-foo i{margin-bottom:.25rem}.com-nav-mobile .row .item-foo.--active p{color:#0250c9}.com-nav-mobile .row .item-foo' +
     '.--active i{color:#0250c9}.com-nav-mobile .row .item-foo:first-child{margin:-.3125rem}@media (min-width:64em){.com-nav-mobile{display:none}}';
 
-const CriticalCSS = () => {
+const CriticalCSS = ({ isLN10 = false }) => {
     const { contextPath, deployment } = useAppContext();
-
+    const fontCss = isLN10
+        ? getStyleFontsInLineForLN10({ contextPath, deployment })
+        : getStyleFontsInLine({
+              contextPath,
+              deployment
+          });
     return (
         <style
             dangerouslySetInnerHTML={{
-                __html: `${getStyleFontsInLine({
-                    contextPath,
-                    deployment
-                })}${CriticalCSSString}`
+                __html: `${fontCss}${CriticalCSSString}`
             }}
         />
     );
