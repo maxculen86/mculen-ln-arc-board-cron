@@ -17,7 +17,6 @@ const tasks = {
 };
 // Add Banners by Section
 export const setBannersBySection = (elementsPage, layoutPage) => {
-    //export const setBannersBySection = (elementsPage, configBannersBySections) => {
     const configBannersBySections = configBannerPositionbySection(layoutPage);
     let elementsPageHome = elementsPage;
     Object.keys(configBannersBySections).forEach(sectionWeb => {
@@ -37,7 +36,6 @@ export const setBannersBySection = (elementsPage, layoutPage) => {
 
 // Add Banners by Section
 export const setBannersByConfig = (elementsPage, layoutPage) => {
-    //export const setBannersByConfig = (elementsPage, configBanner, banners) => {
     const banners = configBannerByLayout(layoutPage);
     let elementsPageHome = [];
     let lenLastBanner = -1;

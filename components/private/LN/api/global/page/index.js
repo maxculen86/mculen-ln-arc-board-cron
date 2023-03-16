@@ -47,7 +47,7 @@ const getPageElements = props => {
                 diagramations,
                 positionsArticlesbyDiagramation
             );
-            // Para probar en esta etapa los elementos o cuanquier cosa dentro de este reduce coloca:
+            // Para probar en esta etapa los elementos o cualquier cosa dentro de este reduce coloca:
             // if (get(checkElement, 'isValid', checkElement) !== true) {
             //     console.log(sectionWeb);
             //     console.log(checkElement);

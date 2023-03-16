@@ -1,6 +1,6 @@
-import CardAuthor from '../../../../../../../../../../components/private/LN/api/v2/mobile/home/article/cardAuthor/index';
+import CardAuthor from '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/cardAuthor/index';
 import { CardBasic } from '../../../../../../../../../../components/private/LN/api/common/article/cardBasic/index';
-import { CardRegular } from '../../../../../../../../../../components/private/LN/api/v2/mobile/home/article/cardRegular/index';
+import { CardRegular } from '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/cardRegular/index';
 
 jest.mock(
     '../../../../../../../../../../components/private/LN/api/common/article/cardBasic/index',
@@ -10,7 +10,7 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../../../../../../components/private/LN/api/v2/mobile/home/article/cardRegular/index',
+    '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/cardRegular/index',
     () => ({
         CardRegular: jest.fn()
     })
@@ -54,7 +54,7 @@ describe('CardAuthor', () => {
 
         // Assert
         expect(result).toEqual(expected);
-        expect(CardBasic).toHaveBeenCalledTimes(2);
+        expect(CardBasic).toHaveBeenCalledTimes(1);
         expect(CardBasic).toHaveBeenCalledWith(article);
         expect(CardRegular).not.toHaveBeenCalled();
     });

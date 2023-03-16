@@ -1,10 +1,11 @@
-import CardLiveblog from '../../../../../../../../../../components/private/LN/api/v2/mobile/home/article/cardLiveblog';
+import CardLiveblog from '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/cardLiveblog';
 import article from '../../../../../../../../../../__mocks__/data/LN10_CardLiveblog/DODDGBRGDFESPCHYA7CYYYYCDU.json';
 
 describe('Test-CardLiveblog', () => {
     it('ok', () => {
         const resp = CardLiveblog(article);
         expect(resp.subtitles).not.toBeNull();
+        console.log(resp);
         expect(resp.subtitles.length).toBe(3);
         expect(resp.subtitles[0].title).toBe(
             article.content_elements[0].embed.config.title

@@ -1,6 +1,4 @@
 export const addElementByPosition = (elements, typeElement, configElements) => {
-    //const element = getBannerbyPosition(layoutPage);
-
     elements &&
         elements.length > 0 &&
         configElements &&
@@ -55,7 +53,6 @@ export const addElementsByKey = (
         const elementsSectionTo = elementsWithIndex.filter(
             x => x[keyToFind] === configElementToAdd[keyToFind]
         );
-
 
         if (
             Array.isArray(elementsToAdd) &&

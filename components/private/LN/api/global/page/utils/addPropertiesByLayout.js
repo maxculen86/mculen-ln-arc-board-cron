@@ -11,6 +11,7 @@ const setDiagramationInArticle = (configDiagramation, additionalProperties) => {
     }
     return configDiagramationValidate;
 };
+
 // Get configs Diagramations
 const configsDiagramationFromInformation = (
     box,

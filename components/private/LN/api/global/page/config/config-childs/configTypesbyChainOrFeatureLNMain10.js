@@ -27,6 +27,7 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             'LN-common/opinion',
             'LN-common/editoriales',
             'LN-acumulado/timeline',
+            'ln-10/timeline',
             'LN-common/LN10_En_Vivo',
             'LN-acumulado/apertura'
         ],

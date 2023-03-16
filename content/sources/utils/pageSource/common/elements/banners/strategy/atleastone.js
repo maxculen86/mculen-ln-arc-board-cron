@@ -1,5 +1,5 @@
 import get from '../../../../../../../../components/private/common/utils/get';
-import equal from './equal';
+import { equal } from './equal';
 
 export const atleastone = (element, configBanner, lengthBannersPrevious) => {
     if (!element || !configBanner) {

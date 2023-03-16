@@ -1,5 +1,5 @@
 import get from '../../../../../../../../../../components/private/common/utils/get';
-import CardRegular from '../../../../../../../../../../components/private/LN/api/v2/mobile/home/article/cardRegular/index';
+import CardRegular from '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/cardRegular/index';
 import { getArticleImage } from '../../../../../../../../../../components/private/LN/api/common/article/elements/image/index';
 import {
     getArticleVideos,

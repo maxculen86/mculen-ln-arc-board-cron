@@ -31,7 +31,7 @@ describe('Test transform page', () => {
         const pageLayoutLNMain = transformLayout(pageHomeMain);
         expect(pageLayoutLNMain.content_elements.length).toBe(25);
         const result = await transformHomeV1(pageLayoutLNMain, queryParams);
-        expect(result.length).toBe(33);
+        expect(result.length).toBe(31);
     });
 
     test('When data received is Empty', async () => {

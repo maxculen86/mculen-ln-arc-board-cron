@@ -11,7 +11,9 @@ const articleComponents = {
 };
 
 export const Article = article => {
-    const tipo = get(article, 'additionalProperties.variant', 'regular');
+    const tipo =
+        get(article, 'additionalProperties.variant', 'regular') || 'regular';
+
     const Component = articleComponents[tipo];
     return {
         design: {

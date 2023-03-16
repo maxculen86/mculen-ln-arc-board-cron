@@ -1,6 +1,6 @@
 import { configSectionAliasByFeatureOrChain } from '../config/configSectionAliasByFeatureOrChain';
 
-// this method is temporal for  keeping the old version
+// this method is temporal for  keeping the old version LN9
 const findAliasSectionBySectionWeb = (sectionWeb, nameChain) => {
     let aliasSection = nameChain;
     Object.keys(configSectionAliasByFeatureOrChain).some(alias => {

@@ -28,16 +28,17 @@ const transform = async (dataPage, query) => {
             elementsPageHome,
             configToDividebyDiagramation(layoutPage)
         );
+        // Returns boxes that type not >= 9, for discard
+        elementsPageHome =
+            Array.isArray(elementsPageHome) &&
+            elementsPageHome.filter(elem => elem && elem.type < 9);
 
-        // Add Banners by Section
+        // Add Banners by Configuration set in file /pageSource/config/configTaskPositionBanners.json
         elementsPageHome =
             setBannerByLayout[layoutPage] &&
             setBannerByLayout[layoutPage](elementsPageHome, layoutPage);
-        // Returns boxes that type not >= 9, for discard
-        return (
-            elementsPageHome &&
-            elementsPageHome.filter(elem => elem && elem.type <= 9)
-        );
+
+        return elementsPageHome;
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(
