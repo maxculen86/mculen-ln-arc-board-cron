@@ -9,10 +9,10 @@ import get from '../../../private/common/utils/get';
 import '../../../../resources/packages/css/@ln/contenidos-ui-live/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-badge/index.css';
 import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
+import getDynamicBanners from '../../../private/common/banners/dynamicBanners/getDynamicBanners';
 
-const EnVivo = ({ customFields }) => {
-    const { isAdmin } = useAppContext() || {};
-
+const EnVivo = ({ customFields, id: featureId }) => {
+    const { isAdmin, renderables } = useAppContext() || {};
     if (get(customFields, 'show', false)) return <></>;
 
     const chapita = get(customFields, 'chapita', 'vivo');
@@ -29,6 +29,11 @@ const EnVivo = ({ customFields }) => {
             />
         );
     }
+    const { bannerMob = undefined } =
+        getDynamicBanners({
+            renderables,
+            featureId
+        }) || {};
 
     return (
         <StaticContent>
@@ -37,6 +42,7 @@ const EnVivo = ({ customFields }) => {
                 badgeText={chapita.trim() ? chapita : 'vivo'}
                 badgeType={typeBadge[chapitaStyle]}
             />
+            {bannerMob}
         </StaticContent>
     );
 };
@@ -44,6 +50,7 @@ const EnVivo = ({ customFields }) => {
 EnVivo.label = 'LN10_En_Vivo';
 
 EnVivo.propTypes = {
+    id: PropTypes.string.isRequired,
     customFields: PropTypes.shape({
         ...getFieldsFromNotes(1),
         ...getFieldsFromNotes(2),
