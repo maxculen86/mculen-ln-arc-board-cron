@@ -5,6 +5,7 @@ import Live from '../../../../../components/features/LN-common/LN10_En_Vivo/defa
 import { useContent } from 'fusion:content';
 import Context from 'fusion:context';
 import Consumer from 'fusion:consumer';
+import getRenderables from '../../../../../__mocks__/data/renderables/banners/dynamicBannersRenderables';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -20,7 +21,8 @@ jest.mock('fusion:context', Component => {
 
 describe('Tests - feature - EnVivo', () => {
     Context.useAppContext = jest.fn(() => ({
-        isAdmin: true
+        isAdmin: true,
+        renderables: getRenderables()
     }));
 
     const articleMock = {
@@ -34,6 +36,8 @@ describe('Tests - feature - EnVivo', () => {
     };
 
     const props = {
+        id: 'c0fvslLv0jJl95K',
+        featureId: 'c0fvslLv0jJl95K',
         customFields: {
             noteId1: 'GD7P4ZTE2FFBDAVBMLAK7V3Y6M',
             chapitaStyle: null,
@@ -68,6 +72,8 @@ describe('Tests - feature - EnVivo', () => {
 
     describe('Tests when settings are added to custom fields.', () => {
         const props = {
+            id: 'c0fvslLv0jJl95K',
+            featureId: 'c0fvslLv0jJl95K',
             customFields: {
                 noteId1: 'GD7P4ZTE2FFBDAVBMLAK7V3Y6M',
                 chapitaStyle: 1,
@@ -103,6 +109,8 @@ describe('Tests - feature - EnVivo', () => {
 
     describe('Tests when the note id is not defined', () => {
         const properties = {
+            id: 'c0fvslLv0jJl95K',
+            featureId: 'c0fvslLv0jJl95K',
             customFields: {
                 ...props.customFields,
                 noteId1: 'wrongId'
@@ -124,6 +132,8 @@ describe('Tests - feature - EnVivo', () => {
 
     describe('Tests when the custom field "show", is setting true', () => {
         const properties = {
+            id: 'c0fvslLv0jJl95K',
+            featureId: 'c0fvslLv0jJl95K',
             customFields: {
                 ...props.customFields,
                 show: true

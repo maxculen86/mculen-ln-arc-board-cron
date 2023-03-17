@@ -29,7 +29,7 @@ export const infoLNMainLN10 = {
     'ln-common/anexomobile': { tipoSeccion: 'anexoMobile', idSeccion: 603 },
     'ln-common/opinion': { tipoSeccion: 'opinion', idSeccion: 1001 },
     'ln-common/editoriales': { tipoSeccion: 'opinion', idSeccion: 1001 },
-    comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
+    contentlab: { tipoSeccion: 'contentlab', idSeccion: 1101 },
     afondo: { tipoSeccion: 'afondo', idSeccion: 1101 },
     banner: { tipoSeccion: 'banner' },
     dolar: {
