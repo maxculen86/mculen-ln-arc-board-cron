@@ -3,6 +3,9 @@ import { moveElementByPosition } from '../common/utils/moveElements';
 
 // Set field diseno of config Diagramation and validate many fields
 const setDiagramationInArticle = (configDiagramation, additionalProperties) => {
+    if (!configDiagramation) {
+        return null;
+    }
     const configDiagramationValidate = configDiagramation;
     const { variant = 'regular' } = additionalProperties;
 
@@ -20,17 +23,29 @@ const configsDiagramationFromInformation = (
 ) => {
     let configDiagramation = null;
     let configMoveArticlesbyDiagramation = null;
-    const informationChain = get(box, 'information', null);
+    const informationBox = get(box, 'information', null);
     //  Get the diagramation according to the layout of the box
-    if (informationChain) {
-        configDiagramation = get(diagramations, informationChain.layout, null);
+    if (informationBox && informationBox.layout) {
+        configDiagramation = get(diagramations, informationBox.layout, null);
         configMoveArticlesbyDiagramation =
             positionsArticlesbyDiagramation &&
-            positionsArticlesbyDiagramation[informationChain.layout];
+            positionsArticlesbyDiagramation[informationBox.layout];
     }
     return {
         configDiagramation,
         configMoveArticlesbyDiagramation
+    };
+};
+
+// Add properties to  Chain Manual o Chain Collection
+const setInformationInChain = (render, children) => {
+    return {
+        ...render,
+        information: {
+            ...get(render, 'information', null),
+            nameChain: get(children, 'type', null),
+            idRender: get(children, 'props.id', null)
+        }
     };
 };
 
@@ -94,7 +109,7 @@ const setInformationInArticle = (
                 configDiagramationChild,
                 get(article, 'additionalProperties', {})
             ),
-            nameFeature: childrenArticle && childrenArticle.type,
+            nameFeature: get(childrenArticle, 'type', null),
             idRender: get(childrenArticle, 'props.id', null)
         }
     };
@@ -157,10 +172,8 @@ const addPropertiesByLayout = (
             const sectionChildrenItem = sectionChildren[i];
             if (
                 sectionChildrenItem &&
-                sectionChildrenItem.collection === 'chains'
+                ['chains', 'features'].includes(sectionChildrenItem.collection)
             ) {
-                const informationChain = get(e, 'information', null);
-
                 const {
                     configDiagramation,
                     configMoveArticlesbyDiagramation
@@ -169,15 +182,19 @@ const addPropertiesByLayout = (
                     diagramations,
                     positionsArticlesbyDiagramation
                 );
+                let boxElement = {};
+                if (sectionChildrenItem.collection === 'chains') {
+                    boxElement = setInformationInChain(e, sectionChildrenItem);
+                }
+                if (sectionChildrenItem.collection === 'features') {
+                    boxElement = setInformationInFeature(
+                        e,
+                        sectionChildrenItem
+                    );
+                }
 
-                return {
-                    ...e,
-                    information: {
-                        ...informationChain,
-                        nameChain: sectionChildrenItem.type,
-                        idRender: get(sectionChildrenItem, 'props.id', null)
-                    },
-                    articles:
+                if (e && e.articles && Array.isArray(e.articles)) {
+                    boxElement.articles =
                         Array.isArray(e.articles) &&
                         addPropertiesChilds(
                             e.articles,
@@ -186,14 +203,9 @@ const addPropertiesByLayout = (
                             configMoveArticlesbyDiagramation,
                             diagramations,
                             positionsArticlesbyDiagramation
-                        )
-                };
-            }
-            if (
-                sectionChildrenItem &&
-                sectionChildrenItem.collection === 'features'
-            ) {
-                return setInformationInFeature(e, sectionChildrenItem);
+                        );
+                }
+                return boxElement;
             }
             return e;
         });

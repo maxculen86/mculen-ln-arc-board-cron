@@ -50,15 +50,23 @@ export const segmentSectionbyDiagramation = (
                                     }
                                 };
                                 elemArray.push(subElementArray);
+
                                 const subElementLayout = segmentSectionbyDiagramation(
                                     elemArray,
                                     sectionbyDiagramation
                                 );
+
                                 if (
                                     subElementLayout &&
                                     subElementLayout.length &&
                                     subElementLayout.length > 0
                                 ) {
+                                    let positionSubSection =
+                                        elementsValidate.length - 1;
+                                    positionSubSection =
+                                        positionSubSection >= 0
+                                            ? positionSubSection
+                                            : 0;
                                     // Place the position of the feature as a section according to the visual order on the web
                                     if (subElementNoIncludeIndex > 0) {
                                         elementsValidate.push(
@@ -66,7 +74,7 @@ export const segmentSectionbyDiagramation = (
                                         );
                                     } else {
                                         elementsValidate.splice(
-                                            0,
+                                            positionSubSection,
                                             0,
                                             subElementLayout[0]
                                         );
