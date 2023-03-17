@@ -9,7 +9,7 @@ import Embed from './elements/embed';
 import Html from './elements/htmlContent';
 import Button from './elements/button';
 import CustomEmbed from './elements/custom_embed';
-import StoryBody from '../../../common/story/cuerpo/index';
+import StoryBody from '../../../../common/elements/story/cuerpo/index';
 
 const cuerpoIndex = dataNota => {
     const storyBodyElements = {

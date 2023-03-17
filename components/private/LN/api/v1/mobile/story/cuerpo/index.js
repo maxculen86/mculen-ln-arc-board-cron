@@ -9,7 +9,7 @@ import Image from './elements/image';
 import Video from './elements/video';
 import Gallery from './elements/gallery';
 import CustomEmbed from './elements/custom_embed';
-import StoryBody from '../../../common/story/cuerpo/index';
+import StoryBody from '../../../../common/elements/story/cuerpo/index';
 
 const cuerpoIndex = dataNota => {
     const storyBodyElements = {

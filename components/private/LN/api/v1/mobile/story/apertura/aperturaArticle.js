@@ -7,11 +7,11 @@ import {
     promoItemArticleBasicImage,
     apertura,
     validToSetImagenesAcumulado
-} from '../../../common/story/apertura/aperturaArticle';
+} from '../../../../common/elements/story/apertura/aperturaArticle';
 import get from '../../../../../../common/utils/get';
 import video from '../cuerpo/elements/video';
 import image from '../cuerpo/elements/image';
-import imageAcumulado from '../../../common/story/image';
+import imageAcumulado from '../../../../common/elements/story/image';
 
 const imageDefault = () => {
     if (IS_DEV === 'true') {

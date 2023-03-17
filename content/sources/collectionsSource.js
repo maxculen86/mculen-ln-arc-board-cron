@@ -30,8 +30,21 @@ const resolve = key => {
     if (!website)
         throw new Error('Debe indicar el website - Collections Source');
 
-    return `/content/v4/collections/?_id=${id}&website=${website}&published=true&size=${size ||
+    const uriParams = [
+        `${
+            key && key.sourceInclude && key.sourceInclude !== ''
+                ? `&included_fields=${key.sourceInclude}`
+                : ''
+        }`
+    ].join('');
+
+    let basePath = `/content/v4/collections/?_id=${id}&website=${website}&published=true&size=${size ||
         2}&from=${from}`;
+
+    if (uriParams && uriParams !== '') {
+        basePath = `${basePath}${uriParams}`;
+    }
+    return basePath;
 };
 
 const fetch = query => {
@@ -158,7 +171,8 @@ export default {
         id: 'text',
         size: 'text',
         imageConfig: 'text',
-        website: 'text'
+        website: 'text',
+        sourceInclude: 'text'
     },
     ttl: 120
 };

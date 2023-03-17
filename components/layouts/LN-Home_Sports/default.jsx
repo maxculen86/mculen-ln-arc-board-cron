@@ -12,15 +12,7 @@ import getBannerMegatop from '../../private/common/utils/getBannerMegatop';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
 import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
-
-const pageBuilderSections = [
-    'Banner-Megatop',
-    'Sticky-Mobile',
-    'Cabezal',
-    'Apertura',
-    'Cuerpo',
-    'Aside'
-];
+import pageBuilderSections from '../config/LN-Home_Sports-PageBuilder.config.json';
 
 const LNSportsHome = props => {
     const {

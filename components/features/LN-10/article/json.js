@@ -1,38 +1,38 @@
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
-import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
-import resultArticle from '../../../private/LN/api/v1/global/home/article/index';
-import get from '../../../private/common/utils/get';
+import { renderProps } from '../../../private/LN/api/global/components/features/article/LN10/renderProps';
+import { articleSourceNotaSourceInclude } from '../../../private/LN/api/global/components/features/article/common/sources/articleSourceNotaSourceInclude';
+import { validateProps } from '../../../private/LN/api/global/components/features/article/LN10/props/validateProps';
+import { validatePropsRender } from '../../../private/LN/api/global/components/features/article/LN10/props/validatePropsRender';
+
+import {
+    getChainConfig,
+    validateArticleFeature
+} from './common/_helper-WebApi';
 
 class ArticleFeature {
     constructor(props) {
-        this.props = props;
-        const {
-            customFields: { noteId, imageId, video },
-            id: featureId,
-            arcSite
-        } = props;
-
-        const renderables = get(props, 'renderables', null);
-        let imageConfig = null;
         this.state = {};
-        if (renderables) {
-            const { cajaTemaConfig } = getProperties(arcSite);
+        const {
+            customFields: { noteId, imageId, video: videoId, variant },
+            id: featureId,
+            arcSite,
+            renderables = []
+        } = props;
+        const { cajaTemaConfig } = getProperties(arcSite);
+        this.configs = getChainConfig(featureId, renderables, cajaTemaConfig);
+        const imageConfig = this.configs && this.configs.imageConfig;
+        const typeCard = variant || 'default';
+        const sourceInclude = articleSourceNotaSourceInclude(typeCard);
+        this.props = validateProps(props, this.configs);
 
-            imageConfig = getCajaTemaConfig(
-                featureId,
-                renderables,
-                cajaTemaConfig,
-                false
-            ).imageConfig;
-        }
-        video &&
-            video.trim() &&
+        videoId &&
+            videoId.trim() &&
             this.fetchContent({
                 articleVideo: {
                     source: 'videoSource',
                     query: {
-                        id: video && video.trim(),
+                        id: videoId && videoId.trim(),
                         website: 'la-nacion-ar'
                     }
                 }
@@ -46,7 +46,8 @@ class ArticleFeature {
                         id: noteId.trim(),
                         imageConfig,
                         published: true,
-                        checkExclusiveAccess: false
+                        checkExclusiveAccess: false,
+                        sourceInclude
                     }
                 }
             });
@@ -72,14 +73,61 @@ class ArticleFeature {
         try {
             const { articleSourceNota, articleImage, articleVideo } =
                 this.state || {};
+
+            const { config = {}, layout, isBomba } = this.configs;
+            const { variantsDisabled } = config;
+
             if (!articleSourceNota) {
                 return null;
             }
-            return resultArticle(
+
+            const {
+                propsRender,
+                articleSourceNotaRender,
+                articleImageRender,
+                articleVideoRender
+            } = validatePropsRender(
                 articleSourceNota,
                 articleImage,
                 articleVideo,
-                this.props
+                this.props,
+                this.configs
+            );
+
+            const { customFields = {} } = propsRender;
+            const {
+                variant: variantRender,
+                noteId: noteIdRender,
+                imageId: imageIdRender,
+                video: videoIdRender
+            } = customFields;
+
+            const error = validateArticleFeature({
+                id: noteIdRender,
+                content: articleSourceNotaRender,
+                image: articleImageRender,
+                video: articleVideoRender,
+                layout,
+                imageId: imageIdRender,
+                videoId: videoIdRender,
+                config,
+                variant: variantRender,
+                variantsDisabled,
+                isBomba
+            });
+
+            if (error) {
+                // eslint-disable-next-line no-console
+                console.warn(error);
+                return null;
+            }
+
+            return renderProps(
+                articleSourceNotaRender,
+                articleImageRender,
+                articleVideoRender,
+                propsRender,
+                this.configs
             );
         } catch (err) {
             return { Success: false, Message: err.message };

@@ -1,0 +1,20 @@
+{
+    "grillaUltimasNoticias": {
+        "T1": {
+            "articuloTamano": "M",
+            "articuloImgPosicion": "Top"
+        },
+        "T2": {
+            "articuloTamano": "M",
+            "articuloImgPosicion": "Top"
+        },
+        "T3": {
+            "articuloTamano": "M",
+            "articuloImgPosicion": "Top"
+        },
+        "T4": {
+            "articuloTamano": "M",
+            "articuloImgPosicion": "Top"
+        }
+    }
+}

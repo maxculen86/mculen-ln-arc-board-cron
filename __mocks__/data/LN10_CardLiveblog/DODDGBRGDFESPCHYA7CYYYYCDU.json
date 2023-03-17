@@ -1,0 +1,747 @@
+{
+    "_id": "DODDGBRGDFESPCHYA7CYYYYCDU",
+    "category": "Dólar Hoy",
+    "content_elements": [
+        {
+            "_id": "EGRW7RMP7VHLBM3PGTPHNBZD34",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "date": "2023-02-14",
+                    "time": "18:30",
+                    "title": "Qué pasó con cada tipo de dólar",
+                    "typeList": "liveblog"
+                }
+            },
+            "subtype": "custom-liveblog",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "GHCZ7HTS4ZDNDCXGI3GADUHK34",
+            "items": [
+                {
+                    "_id": "CNQ4WZUZ6JARVEV5DGHE5AOGJM",
+                    "content": "<b>Mayorista</b>: $191,99\t\t\t\t\t",
+                    "type": "text"
+                },
+                {
+                    "_id": "GEH5JIVAGRALTOT4OL4WUSW2GM",
+                    "content": "<b>Tarjeta</b>: $346,50",
+                    "type": "text"
+                },
+                {
+                    "_id": "QHJSMVNFCBDYRGZOQMKTIVZBTE",
+                    "content": "<b>Qatar</b>: $396\t",
+                    "type": "text"
+                },
+                {
+                    "_id": "P4EEVUOQ3JG3DMI7HEA7TZZG7E",
+                    "content": "<b>MEP</b>: $355,28\t",
+                    "type": "text"
+                },
+                {
+                    "_id": "UICOF3644RDGZL7FZULJFQNTVM",
+                    "content": "<b>CCL</b>: $369,94",
+                    "type": "text"
+                }
+            ],
+            "list_type": "unordered",
+            "type": "list"
+        },
+        {
+            "_id": "OYJUIHAR4ZFQFPEN5PWEFER34E",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "date": "2023-02-14",
+                    "time": "18:00",
+                    "title": "¿A cuánto se vendió el dólar oficial?",
+                    "typeList": "liveblog"
+                }
+            },
+            "subtype": "custom-liveblog",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "ALLNUNHMKZCY3MAT5KJL45TEJM",
+            "additional_properties": {},
+            "content": "El <b>dólar minorista</b>, que es controlado por el <b>Banco Central (BCRA)</b>, aumentó y cerró en <b>$198</b> para la venta. Por otra parte, el <b>riesgo país</b> subió 0,7 por ciento y se posicionó en los <b>1980</b> puntos básicos.",
+            "type": "text"
+        },
+        {
+            "_id": "L3WPVZJYCNESDH6DVQASEXTYN4",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "date": "2023-02-14",
+                    "time": "17:40",
+                    "title": "¿Cómo cerró el dólar blue?",
+                    "typeList": "liveblog"
+                }
+            },
+            "subtype": "custom-liveblog",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "5ZE3T67FF5DMDD7CQXHHWWZNAI",
+            "additional_properties": {},
+            "content": "Tras amagar con una suba, la divisa paralela cerró la jornada en <b>$379 </b>para la venta y <b>$375</b> para la compra. Por su parte, el<b> dólar MEP o “Bolsa”</b> operó a <b>$355,05</b> y el <b>contado con liqui</b> cedió 0,2 por ciento hasta <b>$370,13</b>.",
+            "type": "text"
+        },
+        {
+            "_id": "2SRIALAWCVDCBICFFIUEOKYX6M",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "date": "2023-02-14",
+                    "time": "17:20",
+                    "title": "¿Qué pasa si me excedo del cupo de US$300 mensuales en el dólar tarjeta?",
+                    "typeList": "liveblog"
+                }
+            },
+            "subtype": "custom-liveblog",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "SNWLKH5XYNGYPAHL5A6LCNHXMU",
+            "additional_properties": {},
+            "content": "En el caso de las personas que superen los montos de <b>US$300 mensuales</b> en moneda extranjera con tarjeta de crédito o débito, la <b>cotización del dólar </b>a aplicar, por la totalidad del dinero en esa moneda, automáticamente será de $396. Estos se debe a que al <b>dólar oficial minorista </b>se le suma un 30 por ciento por el <b>impuesto PAIS</b>, un 45 por ciento a cuenta de <b>Ganancias </b>y un 25 por ciento por <b>Bienes Personales</b>.",
+            "type": "text"
+        },
+        {
+            "_id": "QQIB5IA3ENCV7JMAQKJA7M5BTE",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "date": "2023-02-14",
+                    "time": "16:56",
+                    "title": "La inflación de enero fue del 6%",
+                    "typeList": "liveblog"
+                }
+            },
+            "subtype": "custom-liveblog",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "VXWTJLP2VFDABLM4GO5SLZ6YBI",
+            "additional_properties": {},
+            "content": "Según el último informe del <b>Indec (Instituto de Estadísticas y Censos)</b>, el 2023 comenzó con una aceleración de la <b>inflación</b>. <a href=\"https://www.lanacion.com.ar/economia/la-inflacion-de-enero-fue-de-6-y-el-aumento-interanual-llego-a-988-nid14022023/\" target=\"_blank\">El índice de precios al consumidor (<b>IPC</b>) marcó un alza del 6 por ciento y la medida interanual un 98,8 por ciento.</a>",
+            "type": "text"
+        },
+        {
+            "_id": "NNJ3TKQOH5FZXB7E245CYNE4WA",
+            "additional_properties": {},
+            "content": "Este dato se ve reflejado en el <b>aumento de los alimentos </b>-principalmente, la carne-, la <b>regulación de varios precios</b> y la<b> volatilidad del dólar</b>. En ese sentido, es importante resaltar que la tendencia creciente de los precios ocurre luego de las desaceleraciones en noviembre (4,9 por ciento) y diciembre (5,1 por ciento).",
+            "type": "text"
+        },
+        {
+            "_id": "GWRQLOU6MBAU5BTX3VWOOFQ2EA",
+            "additional_properties": {},
+            "auth": {
+                "1": "e2a6e110fb15e26040cb25efe58f13339901964bac888926d9cf54075d3fa71f"
+            },
+            "caption": "En enero el segmento que mostró el mayor aumento fue Alimentos y bebidas, impulsado principalmente por las subas en los precios de la carne",
+            "created_date": "2022-11-10T13:48:47Z",
+            "credits": {
+                "affiliation": [],
+                "by": [
+                    {
+                        "byline": "Rodrigo Azevedo",
+                        "name": "Rodrigo Azevedo",
+                        "type": "author"
+                    }
+                ]
+            },
+            "height": 1872,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 200,
+                        "media": "(min-width: 1280px)",
+                        "width": 298
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/iX0LCPJvpscLyYpVHfG6_mVzN6w=/298x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GWRQLOU6MBAU5BTX3VWOOFQ2EA.jpg"
+                },
+                {
+                    "option": {
+                        "height": 213,
+                        "media": "(min-width: 1024px)",
+                        "width": 318
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/_8X3d5DqpRY8KwzNpkyKhu9my_A=/318x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GWRQLOU6MBAU5BTX3VWOOFQ2EA.jpg"
+                },
+                {
+                    "option": {
+                        "height": 159,
+                        "media": "(min-width: 768px)",
+                        "width": 233
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/z_QkB770rr1Kt6bNFpirnZ9Se3w=/233x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GWRQLOU6MBAU5BTX3VWOOFQ2EA.jpg"
+                },
+                {
+                    "option": {
+                        "height": 250,
+                        "width": 375
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/gTMob_kF5jQRy2DFkSmB2LOV2cE=/375x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GWRQLOU6MBAU5BTX3VWOOFQ2EA.jpg"
+                },
+                {
+                    "option": {
+                        "height": 213,
+                        "width": 320
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/o72VQobSHG1G9hXkx_053Rp9PLk=/320x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GWRQLOU6MBAU5BTX3VWOOFQ2EA.jpg"
+                }
+            ],
+            "subtitle": "Rubaiyat Rio",
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/6Duj9miWAKLnQPOxsyCEsgeG5k0=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/GWRQLOU6MBAU5BTX3VWOOFQ2EA.jpg",
+            "width": 2808
+        },
+        {
+            "_id": "TTV24AIVO5CU3JTUJLJKFW5Q4Q",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "date": "2023-02-14",
+                    "time": "16:35",
+                    "title": "Quiénes no pueden comprar dólar ahorro",
+                    "typeList": "liveblog"
+                }
+            },
+            "subtype": "custom-liveblog",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "5S4JEUGEJFGMJIAEYWJC4ESFFM",
+            "additional_properties": {},
+            "content": "Si una persona no tiene acceso a la adquisición de dólar ahorro es porque se encuentra dentro de alguno de estos grupos:",
+            "type": "text"
+        },
+        {
+            "_id": "GIE5HYO6FFHXFHIYWQGG2ZDLHM",
+            "additional_properties": {},
+            "items": [
+                {
+                    "_id": "4DRFKGT5SZHBRHSB5NX27VA3C4",
+                    "content": "Los que hayan adquirido <b>dólar “Bolsa”</b> o <b>contado con liquidación</b> en los 90 días anteriores",
+                    "type": "text"
+                },
+                {
+                    "_id": "IRWEJLFLTNAQRBQXENSSVRTMJY",
+                    "content": "Los argentinos que operaron <b>Cedears</b>, <b>obligaciones negociables</b> o <b>criptomonedas </b>en los 90 días anteriores",
+                    "type": "text"
+                },
+                {
+                    "_id": "6IDBFREKCZDAPN2TZHDSKSN7RE",
+                    "content": "Beneficiarios de un <b>plan o programa de la Administración Nacional de la Seguridad Social (Anses)</b>, como la Asignación Universal por Hijo (AUH) o la Asignación Universal por Embarazo (AUE)",
+                    "type": "text"
+                },
+                {
+                    "_id": "VNNPJZXVRFDOLMFXXVHJVSPN2Y",
+                    "content": "Trabajadores en relación de dependencia que hayan recibido parte de su salario a través del programa de <b>Asistencia al Trabajo y la Producción (ATP) </b>o <b>REPRO</b>",
+                    "type": "text"
+                },
+                {
+                    "_id": "K2FSI4HIVVAR3JBWOKC4IEDKYA",
+                    "content": "Personas sin ingresos declarados o “<b>consistentes</b>”",
+                    "type": "text"
+                },
+                {
+                    "_id": "ZU37YYZEGZGKNENM2FM6NRMDBY",
+                    "content": "<b>Cotitulares </b>de cuentas bancarias",
+                    "type": "text"
+                },
+                {
+                    "_id": "5MROJY4RTJCBTCFN5NIG7BZBEM",
+                    "content": "Quienes ya utilizaron la <b>totalidad de su cupo</b> (US$200 mensuales) a través de compras con tarjeta de crédito o débito",
+                    "type": "text"
+                },
+                {
+                    "_id": "B3WJGKWBHVHANMALJP7LAHQFUM",
+                    "content": "Quienes hayan refinanciado algún saldo de la <b>tarjeta de crédito</b> a 12 meses",
+                    "type": "text"
+                },
+                {
+                    "_id": "2K3VF7H5JVFI7MYIMP6GPBGWHM",
+                    "content": "<b>Monotributistas </b>que hayan tramitado los <b>créditos a tasa cero</b>",
+                    "type": "text"
+                },
+                {
+                    "_id": "6DRKGQZHPJESLIV3MOSK7435BQ",
+                    "content": "Los <b>titulares de créditos UVA</b> que accedieron al <b>congelamiento </b>de las cuotas durante la pandemia",
+                    "type": "text"
+                },
+                {
+                    "_id": "LOG5VWJOIBA6PBUHKXVCKPAAYM",
+                    "content": "Dueños de <b>pymes </b>que hayan recibido <b>créditos al 24 por ciento</b>",
+                    "type": "text"
+                },
+                {
+                    "_id": "SQYB6P4NERDUPITLDRGUVRGYF4",
+                    "content": "Quienes tengan <b>subsidios </b>en las <b>tarifas de luz, agua y gas</b>",
+                    "type": "text"
+                },
+                {
+                    "_id": "2WACU5GDCZBJLLJRFT4UIB53GY",
+                    "content": "Empresas que liquidaron dólar <b>soja</b>",
+                    "type": "text"
+                }
+            ],
+            "list_type": "unordered",
+            "type": "list"
+        },
+        {
+            "_id": "CHAJERVYDJC4PPT45VBVVV2HAA",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "date": "2023-02-14",
+                    "time": "16:14",
+                    "title": "El dólar blue desacelera su suba",
+                    "typeList": "liveblog"
+                }
+            },
+            "subtype": "custom-liveblog",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "5ETE5SARUVGMJPSX74UEWV2TW4",
+            "additional_properties": {},
+            "content": "La divisa estadounidense paralela pierde un peso y cotiza a <b>$380</b> para la venta.",
+            "type": "text"
+        },
+        {
+            "_id": "FHPPHMHQPJA4PBCSA4QCXQDXLA",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "date": "2023-02-14",
+                    "time": "15:48",
+                    "title": "La última cotización del dólar mayorista",
+                    "typeList": "liveblog"
+                }
+            },
+            "subtype": "custom-liveblog",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "DCMWKTJO75AFHJQDPTDR3FITIA",
+            "additional_properties": {},
+            "content": "<iframe class=\"pym\" id=\"LNcreativa\" frameborder=\"0\" width=\"100%\" height=\"800\" scrolling=\"no\" src=\"https://especialess3.lanacion.com.ar/monitor-economia-real/#/indicador/d%C3%B3lar_mayorista\"></iframe>",
+            "type": "raw_html"
+        },
+        {
+            "_id": "TYRTLEWKWBGB5HKWO5ZKA7KWD4",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "date": "2023-02-14",
+                    "time": "15:20:34",
+                    "title": "Ingreso de divisas: la balanza del turismo tuvo superávit en diciembre de 2022 ",
+                    "typeList": "liveblog"
+                }
+            },
+            "subtype": "custom-liveblog",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "7DFDB7SKC5AKPAMYEQDZO3JLJU",
+            "additional_properties": {},
+            "content": "Los registros del <b>Ministerio de Turismo y Deportes</b> reflejaron que <a href=\"https://www.lanacion.com.ar/economia/turismo-internacional-aunque-llegan-mas-turistas-sigue-la-salida-de-divisas-por-viajes-nid13022023/\" target=\"_blank\">las visitas al país superaron, en el último mes del año pasado, a los egresos de argentinos al exterior</a>. En este período, se realizaron más de 484.000 viajes hacia la <b>Argentina</b>, mientras que 457.000 partieron del territorio nacional para unas vacaciones en alguna parte del mundo. De esta forma, el superávit en la balanza turística se mantiene por segundo mes consecutivo: durante noviembre de 2022 hubo 483.000 visitas de turistas al país y se registraron 450.000 salidas de residentes en la <b>Argentina</b> hacia el exterior con fecha de regreso.",
+            "type": "text"
+        },
+        {
+            "_id": "M4I74AGFYBF6XAYRAS7RGXVPZ4",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "date": "2023-02-14",
+                    "time": "15:00",
+                    "title": "¿A cuánto cotiza el euro y el real?",
+                    "typeList": "liveblog"
+                }
+            },
+            "subtype": "custom-liveblog",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "YXBCVXTRZRGAZH3K6PJKA26PDE",
+            "additional_properties": {},
+            "content": "Según el <b>Banco Nación</b>, la <b>divisa europea</b> aumenta hasta <b>$202</b> para la compra y <b>$211 </b>para la venta. En tanto, la <b>moneda brasileña</b> se mantiene a<b> $36</b> y <b>$40</b>, respectivamente.",
+            "type": "text"
+        },
+        {
+            "_id": "UPMDWF7ITBBI5P4EG5H5DBOM5Y",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "date": "2023-02-14",
+                    "time": "14:38",
+                    "title": "¿Cuántos dólares MEP se pueden comprar por mes?",
+                    "typeList": "liveblog"
+                }
+            },
+            "subtype": "custom-liveblog",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "NSIURWPROFHOXDBH7WNE76UN2A",
+            "additional_properties": {},
+            "content": "Quienes estén interesados en adquirir <b>dólar MEP </b>deben saber que, para ello, no hay un cupo mensual que deba respetarse. Sin embargo, sí hay <b>limitaciones </b>para su adquisición. En agosto de 2021 se reglamentó que las operaciones que se realizan en el mercado de valores con <b>dólares financieros </b>tienen que pasar por la cuenta bancaria en dólares del cliente y no de terceros, como las sociedades de bolsa.",
+            "type": "text"
+        },
+        {
+            "_id": "HFKUL57VANG2HAUBYTJBUHYMC4",
+            "additional_properties": {},
+            "content": "Desde septiembre de 2021, al querer realizar más de una transacción al mes, los usuarios reciben una notificación del banco mediante la cual se les advierte que ya han cumplido con su <b>transferencia </b>mensual en <b>dólares</b>. Más allá de esto, la reglamentación permite realizar más de una transferencia en dólares por mes, pero para eso es necesario justificar el origen de los fondos ante la entidad bancaria.",
+            "type": "text"
+        },
+        {
+            "_id": "XGZ3VJXZX5BNVHQBEPKHPK4QEQ",
+            "additional_properties": {
+                "iptc_source": ""
+            },
+            "auth": {
+                "1": "0042260601d8fec8481db68e0d751d2cda3691bb772df6cd3c25d4334aba3ca4"
+            },
+            "caption": "El dólar MEP se adquiere a través del mercado de capitales",
+            "created_date": "2020-11-27T00:11:39Z",
+            "credits": {
+                "by": [
+                    {
+                        "name": "Pixabay",
+                        "type": "author"
+                    }
+                ]
+            },
+            "description": {
+                "basic": "Diferentes tipos y formas de comprar dólares como el blue, ahorro, turista, MEP y CCL"
+            },
+            "distributor": {
+                "name": ""
+            },
+            "height": 1333,
+            "publish_date": "2020-11-20T16:23:00Z",
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 200,
+                        "media": "(min-width: 1280px)",
+                        "width": 298
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/6luhmeE7wx7q8QuBOhbHjwFqZbw=/298x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XGZ3VJXZX5BNVHQBEPKHPK4QEQ.png"
+                },
+                {
+                    "option": {
+                        "height": 213,
+                        "media": "(min-width: 1024px)",
+                        "width": 318
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/vHq1duue2f5iU9pCZpoA9cPK0ns=/318x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XGZ3VJXZX5BNVHQBEPKHPK4QEQ.png"
+                },
+                {
+                    "option": {
+                        "height": 159,
+                        "media": "(min-width: 768px)",
+                        "width": 233
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/YvTIeIpGAODMsuHsGKrX8H5hjA0=/233x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XGZ3VJXZX5BNVHQBEPKHPK4QEQ.png"
+                },
+                {
+                    "option": {
+                        "height": 250,
+                        "width": 375
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v7Iq6L1KJJV4lTur0opPZq9S1SY=/375x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XGZ3VJXZX5BNVHQBEPKHPK4QEQ.png"
+                },
+                {
+                    "option": {
+                        "height": 213,
+                        "width": 320
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/x9haTmrtTYT8Tyy5pRrjw5En8EA=/320x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XGZ3VJXZX5BNVHQBEPKHPK4QEQ.png"
+                }
+            ],
+            "subtitle": "Diferentes tipos y formas de comprar dólares como el blue, ahorro, turista, MEP y CCL",
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/bzvbUylWSLPqgtJfURqxJIDqM0g=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/XGZ3VJXZX5BNVHQBEPKHPK4QEQ.png",
+            "width": 2000
+        }
+    ],
+    "credits": {
+        "by": []
+    },
+    "description": {
+        "basic": ""
+    },
+    "distributor": {
+        "name": "LA NACION"
+    },
+    "first_publish_date": "2023-02-14T10:40:00.239Z",
+    "headlines": {
+        "basic": "Dólar hoy, dólar blue hoy: a cuánto cotizó este martes 14 de febrero",
+        "meta_title": "",
+        "mobile": "¿A cuánto cotizan el dólar oficial y el blue?"
+    },
+    "isListenable": false,
+    "label": {
+        "chapita": {
+            "display": true,
+            "text": "EN VIVO"
+        },
+        "edicion": {
+            "display": true,
+            "text": "Digital"
+        },
+        "eje_subeje": {
+            "display": true,
+            "text": "Trends"
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "recomendar": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "showcase": {
+            "display": true,
+            "text": "No"
+        },
+        "trust": {
+            "text": "No mostrar Trust"
+        },
+        "volanta": {
+            "display": true,
+            "text": "Minuto a minuto."
+        }
+    },
+    "last_updated_date": "2023-02-14T21:34:38.396Z",
+    "paywallEnabled": "",
+    "promo_items": {
+        "basic": {
+            "_id": "6BLE4TJJ4VHUPAWMRKTVII4VEA",
+            "additional_properties": {},
+            "auth": {
+                "1": "cff128e9fedc33f52cbf1da66312f479b1557a274a7723efb7d1908d1e360475"
+            },
+            "caption": "La cotización del dólar oficial y el blue este 14 de febrero",
+            "created_date": "2022-08-01T19:17:03Z",
+            "credits": {
+                "affiliation": []
+            },
+            "height": 513,
+            "publish_date": "2022-08-01T16:17:02.2495098-03:00",
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 250,
+                        "width": 375
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/K_LtsPT3BrDJnbqZKvNDK1LXplE=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6BLE4TJJ4VHUPAWMRKTVII4VEA"
+                },
+                {
+                    "option": {
+                        "height": 200,
+                        "width": 300
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/i2HmqcmIMJYxbePKAn_IXh2mwX4=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6BLE4TJJ4VHUPAWMRKTVII4VEA"
+                }
+            ],
+            "subtitle": "Archivo - August 11, 2021, LIMA, PERU: tipo de cambio del dolar llego a 4.10 en casas de cambio",
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/3zsoXMnaZGec4eW0_f2ePWZFWKw=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/6BLE4TJJ4VHUPAWMRKTVII4VEA",
+            "width": 768
+        }
+    },
+    "publish_date": "2023-02-14T21:34:37.745Z",
+    "related_content": {
+        "basic": [
+            {
+                "_id": "L7QRS327DJFU3DXT5YJFOEKPQA",
+                "canonical_url": "/economia/dolar/dolar-mep-que-es-y-quienes-pueden-comprarlo-nid11012023/",
+                "headlines": {
+                    "basic": "Dólar MEP: qué es y quiénes pueden comprarlo",
+                    "mobile": "Qué es el dólar MEP y quiénes pueden comprarlo"
+                },
+                "label": {
+                    "edicion": {
+                        "display": true,
+                        "text": "Digital"
+                    },
+                    "eje_subeje": {
+                        "display": true,
+                        "text": "Trends"
+                    },
+                    "enviar_a_apps": {
+                        "display": true,
+                        "text": "Si",
+                        "url": ""
+                    },
+                    "mostrar_banners": {
+                        "display": true,
+                        "text": "Si",
+                        "url": ""
+                    },
+                    "recomendar": {
+                        "display": true,
+                        "text": "Si",
+                        "url": ""
+                    },
+                    "showcase": {
+                        "display": true,
+                        "text": "No"
+                    },
+                    "trust": {
+                        "text": "No mostrar Trust"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Lo que hay que saber."
+                    }
+                },
+                "type": "story"
+            },
+            {
+                "_id": "RCWJVWT7BFDYJC7PTLJ2DXAKJY",
+                "canonical_url": "/economia/dolar/dolar-ahorro-y-tarjeta-como-pedir-la-devolucion-de-las-percepciones-del-35-a-la-afip-nid02012023/",
+                "headlines": {
+                    "basic": "Cómo pedir ante la AFIP la devolución del 35% por la compra de dólar ahorro y los gastos con tarjeta de 2022",
+                    "mobile": "Cómo pedir la devolución del 35% por la compra de dólar ahorro y los gastos con tarjeta de 2022"
+                },
+                "label": {
+                    "edicion": {
+                        "display": true,
+                        "text": "Digital"
+                    },
+                    "eje_subeje": {
+                        "display": true,
+                        "text": "Trends"
+                    },
+                    "enviar_a_apps": {
+                        "display": true,
+                        "text": "Si",
+                        "url": ""
+                    },
+                    "mostrar_banners": {
+                        "display": true,
+                        "text": "Si",
+                        "url": ""
+                    },
+                    "recomendar": {
+                        "display": true,
+                        "text": "Si",
+                        "url": ""
+                    },
+                    "showcase": {
+                        "display": true,
+                        "text": "No"
+                    },
+                    "trust": {
+                        "text": "No mostrar Trust"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "AFIP."
+                    }
+                },
+                "type": "story"
+            },
+            {
+                "_id": "4DJL2EQHVJGTVKTR72YU32CYHA",
+                "canonical_url": "/economia/dolar/por-que-no-puedo-comprar-dolares-nid20112022/",
+                "headlines": {
+                    "basic": "¿Por qué no puedo comprar dólares?",
+                    "mobile": "¿Por qué no puedo comprar dólares?"
+                },
+                "label": {
+                    "edicion": {
+                        "display": true,
+                        "text": "Digital"
+                    },
+                    "eje_subeje": {
+                        "display": true,
+                        "text": "Trends"
+                    },
+                    "enviar_a_apps": {
+                        "display": true,
+                        "text": "Si",
+                        "url": ""
+                    },
+                    "mostrar_banners": {
+                        "display": true,
+                        "text": "Si",
+                        "url": ""
+                    },
+                    "recomendar": {
+                        "display": true,
+                        "text": "Si",
+                        "url": ""
+                    },
+                    "showcase": {
+                        "display": true,
+                        "text": "No"
+                    },
+                    "trust": {
+                        "text": "No mostrar Trust"
+                    },
+                    "volanta": {
+                        "display": true,
+                        "text": "Los motivos, uno por uno."
+                    }
+                },
+                "type": "story"
+            }
+        ]
+    },
+    "subheadlines": {
+        "basic": "La divisa estadounidense paralela cerró la jornada a $375 para la compra y $379 para la venta; en tanto, el oficial aumentó y se posicionó en los $198"
+    },
+    "subtype": "1",
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/economia/dolar",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {},
+                    "migration": {
+                        "id_section_ln9": "8014",
+                        "migrated_mob": "false"
+                    },
+                    "site": {}
+                }
+            },
+            "name": "Dólar Hoy",
+            "parent_id": "/economia",
+            "path": "/economia/dolar",
+            "type": "section"
+        },
+        "sections": null
+    },
+    "website_url": "/economia/dolar/dolar-hoy-dolar-blue-hoy-a-cuanto-cotiza-este-martes-14-de-febrero-nid14022023/",
+    "withFirmaDistributor": true,
+    "withSponsoredLink": false,
+    "additionalProperties": {
+        "noteId": "DODDGBRGDFESPCHYA7CYYYYCDU",
+        "image": null,
+        "video": null,
+        "variant": "liveblog",
+        "idRender": "f0f0q1Ejvcpg2Fb",
+        "originPosition": "T1",
+        "diseno": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "nameFeature": "LN-10/article"
+    }
+}

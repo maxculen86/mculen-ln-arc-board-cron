@@ -1,9 +1,9 @@
 import get from '../../../../../../../common/utils/get';
-import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
+import htmlText from '../../../../../common/elements/story/cuerpo/elements/htmlText';
 import {
     validateValueText,
     validateArrayNull
-} from '../../../../common/utils/validateValue';
+} from '../../../../../common/utils/validateValue';
 
 const list = (nodo, dataNota) => {
     if (!nodo) return null;

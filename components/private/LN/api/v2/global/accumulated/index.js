@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
-import Configuration from '../../../v1/common/accumulated/configuration';
-import { articleItem } from '../../../v1/common/article';
-import { removeEmptyItems } from '../../../v1/common/utils/responseCleaner';
-import { getTag } from '../../../v1/common/tag';
-import { authorAcu } from '../../../v1/common/author';
+import Configuration from '../../../common/accumulated/configuration';
+import { cardRegular } from '../../../common/article/cardRegular/index';
+import { removeEmptyItems } from '../../../common/utils/responseCleaner';
+import { getTag } from '../../../common/elements/tag';
+import { authorAcu } from '../../../common/elements/author';
 
 const banners = acuData => {
     const sectionsElements = [
@@ -42,7 +42,7 @@ const index = acuData => {
         resp.notas = acuData.articles.reduce((result, f) => {
             try {
                 if (f) {
-                    const article = articleItem({
+                    const article = cardRegular({
                         ...f,
                         storyType: 'accumulated'
                     });

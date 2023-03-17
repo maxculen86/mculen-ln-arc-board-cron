@@ -18,8 +18,19 @@ const resolve = key => {
     const { Ids, website } = key;
 
     const arcSite = key['arc-site'];
-    const basePath = `/content/v4/ids/?website=${website || arcSite}`;
+    const uriParams = [
+        `${
+            key && key.sourceInclude && key.sourceInclude !== ''
+                ? `&included_fields=${key.sourceInclude}`
+                : ''
+        }`
+    ].join('');
 
+    let basePath = '';
+    basePath = `/content/v4/ids/?website=${website || arcSite}`;
+    if (uriParams && uriParams !== '') {
+        basePath = `${basePath}${uriParams}`;
+    }
     if (Ids) return `${basePath}&ids=${Ids}`;
 
     throw new Error('Debe definir los Ids para obtener las notas');
@@ -137,7 +148,8 @@ export default {
     fetch,
     params: {
         Ids: 'text',
-        sizeMax: 'text'
+        sizeMax: 'text',
+        sourceInclude: 'text'
     },
     ttl: 120
 };

@@ -60,7 +60,7 @@ const diagramationRules = diagramation => {
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: 'm-l',
+                cardSize: 'l-m',
                 withSubhead: false
             },
             {
@@ -70,7 +70,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm-l',
+                cardSize: 'l-m',
                 imagePosition: {
                     mobile: 'img-right',
                     tablet: 'img-top',
@@ -84,7 +84,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm-l',
+                cardSize: 'l-m',
                 imagePosition: {
                     mobile: 'img-right',
                     tablet: 'img-top',
@@ -98,7 +98,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm-l',
+                cardSize: 'l-m',
                 imagePosition: {
                     mobile: 'img-right',
                     tablet: 'img-top',
@@ -126,7 +126,7 @@ const diagramationRules = diagramation => {
                 variantsDisabled: ['liveblog'],
                 titleTag: 'h2',
                 cardSize: 'xl-l',
-                withSection: true,
+                withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false

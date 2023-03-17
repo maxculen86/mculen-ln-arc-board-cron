@@ -1,7 +1,6 @@
 import articlesRanking from '../../../../../../../__mocks__/data/articleRankingCollections/recetas.json';
 import articlesAcumulado from '../../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import articlesTPInteresar from '../../../../../../../__mocks__/data/articles/tePuedeInteresar.json';
-//import Article from '../../../../../../components/private/LN/api/v1/common/articles/index';
 import Article from '../../../../../../../components/private/LN/api/v1/global/accumulated/story';
 import dateAndTimeUtil, {
     isOlderThanXHoursAgo,
@@ -9,7 +8,7 @@ import dateAndTimeUtil, {
     addHoursAndFormat,
     dateAndTimeForAppsUtil
 } from '../../../../../../../components/private/common/utils/dateAndTimeUtil';
-import { articleItem } from '../../../../../../../components/private/LN/api/v1/common/article';
+import { cardRegular } from '../../../../../../../components/private/LN/api/common/article/cardRegular/index';
 const AcuList = (type, articles) => {
     return articles.map(v => {
         return type(v);
@@ -315,7 +314,8 @@ describe('Test de index en Json', () => {
 });
 
 describe('Home test', () => {
-    test('Debería retornar un info', () => {
+    // Comentario temporal a revisar porque este escenario ya no deberia presentarse, anexo en un metodo que valida articulos.
+    /*     test('Debería retornar un info', () => {
         const request = {
             templateId: '2',
             titulo: 'test',
@@ -323,18 +323,18 @@ describe('Home test', () => {
         };
 
         try {
-            articleItem(request);
+            cardRegular(request);
         } catch (err) {
             expect(err.message).toBe(
                 'Anexo configurado como parte de seccion en la home'
             );
         }
-    });
+    }); */
     test('Deberia retornar un warning', () => {
         //CASO 1 - Articulo vacio
         const request = {};
         try {
-            articleItem(request);
+            cardRegular(request);
         } catch (err) {
             expect(err.message).toBe(
                 'Revisar Parametros de Articulo en null o undefined in article with params: {}'
@@ -349,7 +349,7 @@ describe('Home test', () => {
         };
 
         try {
-            articleItem(request2);
+            cardRegular(request2);
         } catch (err) {
             expect(err.message).toBe(
                 `Revisar Parametros de Articulo en null o undefined in article with params: ${JSON.stringify(

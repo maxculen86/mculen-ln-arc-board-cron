@@ -1,0 +1,483 @@
+{
+    "focalLeft3": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        }
+    },
+    "grilla3": {
+        "T1": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "XL",
+            "imagePosition": "Top"
+        }
+    },
+    "grilla6": {
+        "T1": {
+            "size": "M",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "grilla9": {
+        "T1": {
+            "size": "L",
+            "imagePosition": "Center"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T5": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T6": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T7": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T8": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T9": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "grillaVideo1": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        }
+    },
+    "left-focal": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "L",
+            "imagePosition": "Top"
+        },
+        "T3": {
+            "size": "L",
+            "imagePosition": "Top"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T5": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "center-focal": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "L",
+            "imagePosition": "Top"
+        },
+        "T3": {
+            "size": "L",
+            "imagePosition": "Top"
+        },
+        "T4": {
+            "size": "L",
+            "imagePosition": "Top"
+        },
+        "T5": {
+            "size": "L",
+            "imagePosition": "Top"
+        }
+    },
+    "focal-70": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "L",
+            "imagePosition": "Top"
+        },
+        "T3": {
+            "size": "L",
+            "imagePosition": "Top"
+        }
+    },
+    "bn-opening-4": {
+        "T1": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "vertical": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        }
+    },
+    "horizontal": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        }
+    },
+    "bombita": {
+        "T1": {
+            "size": "M"
+        }
+    },
+    "bombitaMas4": {
+        "T1": {
+            "size": "XL"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T5": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "bn_1_4_grid": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "L",
+            "imagePosition": "Top"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T5": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "bn_1_3_grid": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "bn_1_2_grid": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "bn_1_1_grid": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "bn_2_1_2_grid": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T5": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "bn_1_grid": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        }
+    },
+    "bn_2_grid": {
+        "T1": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "bnGrilla4": {
+        "T1": {
+            "size": "L",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "bnGrilla8": {
+        "T1": {
+            "size": "L",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T5": {
+            "size": "L",
+            "imagePosition": "Top"
+        },
+        "T6": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T7": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T8": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "cajaContent1": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        }
+    },
+    "canal_1_2_grid": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "canal_1_3_grid": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "canal_1_4_grid": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Top"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T5": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "hash-1-2-2-2_grid": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T5": {
+            "size": "M",
+            "imagePosition": "Top"
+        },
+        "T6": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T7": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "bn-4-8": {
+        "T1": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T2": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T3": {
+            "size": "M",
+            "imagePosition": "Right"
+        },
+        "T4": {
+            "size": "M",
+            "imagePosition": "Right"
+        }
+    },
+    "timeline": {
+        "T1": {
+            "size": "XS"
+        },
+        "T2": {
+            "size": "XS"
+        },
+        "T3": {
+            "size": "XS"
+        },
+        "T4": {
+            "size": "XS"
+        },
+        "T5": {
+            "size": "XS"
+        },
+        "T6": {
+            "size": "XS"
+        },
+        "T7": {
+            "size": "XS"
+        }
+    }
+}

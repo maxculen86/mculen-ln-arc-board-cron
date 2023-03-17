@@ -1,0 +1,36 @@
+{
+    "Cabezal": {
+        "quantity": 5,
+        "operatorToUse": "<=",
+        "types": [
+            "LN-common/bannerRefactor",
+            "LN-acumulado/breadcrumb",
+            "LN-acumulado/titulo",
+            "LN-acumulado/tagList"
+        ],
+        "position": 2
+    },
+    "Apertura": {
+        "quantity": 5,
+        "operatorToUse": "<=",
+        "types": ["Ln_Caja_Manual", "Ln_Caja_Collection", "LN-common/anexo"],
+        "position": 3
+    },
+    "Cuerpo": {
+        "quantity": 1,
+        "operatorToUse": "!==",
+        "types": [
+            "LN-common/bannerRefactor",
+            "LN-common/metarefresh",
+            "Ln_Caja_Manual",
+            "Ln_Caja_Collection"
+        ],
+        "position": 4
+    },
+    "Aside": {
+        "quantity": 5,
+        "operatorToUse": "<=",
+        "types": ["LN-common/ranking", "LN-common/bannerRefactor"],
+        "position": 5
+    }
+}
