@@ -8,5 +8,18 @@
         {
             "customFields.layout": "bnFondo"
         }
+    ],
+    "bombita": [
+        {
+            "customFields.layout": "bombita"
+        }
+    ],
+    "bomba": [
+        {
+            "customFields.layout": "bombaVertical"
+        },
+        {
+            "customFields.layout": "bombaHorizontal"
+        }
     ]
 }

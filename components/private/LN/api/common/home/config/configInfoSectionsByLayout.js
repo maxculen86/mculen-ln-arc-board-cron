@@ -23,6 +23,7 @@ export const infoLNMain = {
 export const infoLNMainLN10 = {
     'ln-common/ln10_anticipo': { tipoSeccion: 'anticipo', idSeccion: 501 },
     bomba: { tipoSeccion: 'bomba', idSeccion: 102 },
+    bombita: { tipoSeccion: 'bombita', idSeccion: 102 },
     apertura: { tipoSeccion: 'apertura', idSeccion: 200 },
     'ln-common/anexo': { tipoSeccion: 'anexoMobile', idSeccion: 603 },
     'ln-common/anexomobile': { tipoSeccion: 'anexoMobile', idSeccion: 603 },
