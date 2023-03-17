@@ -12,14 +12,17 @@
     "bombita": [
         {
             "customFields.layout": "bombita"
+        },
+        {
+            "customFields.layout": "bombitaMas4"
         }
     ],
     "bomba": [
         {
-            "customFields.layout": "bombaVertical"
+            "customFields.layout": "vertical"
         },
         {
-            "customFields.layout": "bombaHorizontal"
+            "customFields.layout": "horizontal"
         }
     ]
 }
