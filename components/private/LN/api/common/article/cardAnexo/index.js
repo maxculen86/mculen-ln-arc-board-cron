@@ -22,3 +22,9 @@ export const cardAnexoHtmlOrUrl = article => {
 
     return byUrl;
 };
+
+export const cardAnexoSrc = article => {
+    const url = get(article[0], 'url', null);
+    const html = get(article[0], 'html', null);
+    return [{ src: url || html }];
+};

@@ -1,5 +1,5 @@
-import get from '../../../../../common/utils/get';
-import { orderArticles } from '../utils/helpers';
+import get from '../../../../../../common/utils/get';
+import { orderArticles } from '../../utils/helpers';
 
 const articlesMap = (articles, informationBox, articleFn, paramsFromPage) => {
     const { sectionAliasMobile } = informationBox;
