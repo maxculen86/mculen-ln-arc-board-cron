@@ -76,11 +76,11 @@ describe('Tests Component CommonCollection', () => {
 
         expect(articlesRendered).toHaveLength(7);
         expect(articlesRendered[0]).toHaveClass(
-            '--mobile-img-top --tablet-img-top --desktop-img-top'
+            'ln-card --d-flex --flex-col --ai-start --l --regular'
         );
         articlesRendered.slice(1, 7).forEach(article => {
             expect(article).toHaveClass(
-                '--mobile-img-right --tablet-img-top --desktop-img-top'
+                'ln-card --d-flex --flex-col --ai-start --tab-text-center --l --regular --mobile-img-right'
             );
         });
         expect(container.querySelector('.ln-caja-hashtag')).toBeInTheDocument();
