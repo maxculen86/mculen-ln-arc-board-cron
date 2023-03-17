@@ -12,6 +12,8 @@ export const boxInfoComplete = (information, section, typeSection) => {
         if (imagenUrl) box.imageUrl = imagenUrl;
         return {
             ...box,
+            tituloCaja: information.title,
+            url: information.url,
             parameters: {
                 title: information.title,
                 url: information.url,
