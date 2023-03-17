@@ -3,7 +3,7 @@
 exports[`Components - features - LN-10 - articulo - default should test card autor variant 1`] = `
 <div>
   <article
-    class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-top"
+    class="ln-card --d-flex --flex-col --ai-start --m --regular"
     data-feature-id="f0f9g3fKOoHW25c"
     data-id="2KOBND62KNFVVBFQZOADNN6WNY"
     data-notaid="2KOBND62KNFVVBFQZOADNN6WNY"
@@ -55,7 +55,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
 exports[`Components - features - LN-10 - articulo - default should test card autor variant 2`] = `
 <div>
   <article
-    class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-top"
+    class="ln-card --d-flex --flex-col --ai-start --m --regular"
     data-feature-id="f0f9g3fKOoHW25c"
     data-id="2KOBND62KNFVVBFQZOADNN6WNY"
     data-notaid="2KOBND62KNFVVBFQZOADNN6WNY"

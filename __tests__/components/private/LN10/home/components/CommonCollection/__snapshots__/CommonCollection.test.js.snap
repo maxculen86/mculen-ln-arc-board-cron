@@ -43,7 +43,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-top --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -91,7 +91,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -139,7 +139,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -187,7 +187,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -235,7 +235,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-top --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -269,7 +269,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --mb-xs --prumo --font-semi --font-m-l"
               >
                 
                 El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
@@ -283,7 +283,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -331,7 +331,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -379,7 +379,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --7 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -433,7 +433,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
           class="--d-flex --ai-center --uppercase"
         >
           <i
-            class="icon ln-icon --icon-inherit"
+            class="icon ln-icon"
           >
             <svg
               fill="none"
@@ -483,7 +483,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --l --regular --mobile-img-top --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -517,7 +517,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                class="text ln-text title --mb-xs --prumo --font-semi --font-m-l"
               >
                 
                 Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
@@ -530,7 +530,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -564,7 +564,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
               >
                 
                 Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
@@ -577,7 +577,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -611,7 +611,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
               >
                 
                 Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
@@ -624,7 +624,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -658,7 +658,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
               >
                 
                 El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres
@@ -671,7 +671,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -705,7 +705,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
               >
                 
                 El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
@@ -718,7 +718,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -752,7 +752,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/test-noticia-en-arc-nid16032021-2/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
               >
                 
                 Test noticia en ARC
@@ -765,7 +765,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --l --regular --mobile-img-right --tablet-img-top --desktop-img-top"
+          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -799,7 +799,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/revista-living/test-noticia-en-arc-nid03012023/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
               >
                 
                 Test noticia en ARC

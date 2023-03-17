@@ -8,6 +8,7 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             'afondo',
             'bomba',
             'apertura',
+            'contentlab',
             'comercial',
             'bienestar',
             'hashtag',

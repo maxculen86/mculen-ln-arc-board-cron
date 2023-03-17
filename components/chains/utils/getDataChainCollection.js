@@ -6,6 +6,7 @@ import {
     getIdsArticlesFromOtherCollections
 } from '../../private/LN/common/utils/cajaTemasValidators';
 import siteConfig from '../../../properties/sites/la-nacion-ar';
+import withResizerV2 from '../../private/common/utils/image/enableResizerV2';
 
 const getDataChainCollection = ({
     idCollection = '',
@@ -19,14 +20,14 @@ const getDataChainCollection = ({
     featureId = ''
 }) => {
     const { layoutsName = {} } = siteConfig || {};
-    const isHome =
-        pageLayout === layoutsName.Home || pageLayout === layoutsName.HomeLN10;
-
+    const isHomeLN10 = pageLayout === layoutsName.HomeLN10;
+    const isHome = pageLayout === layoutsName.Home || isHomeLN10;
     const diagramation =
         (renderables.some(
             elem =>
-                get(elem, 'collection') === 'layouts' &&
-                get(elem, 'type') === layoutsName.Home
+                (get(elem, 'collection') === 'layouts' &&
+                    get(elem, 'type') === layoutsName.Home) ||
+                get(elem, 'type') === layoutsName.HomeLN10
         ) &&
             layout) ||
         '';
@@ -58,7 +59,8 @@ const getDataChainCollection = ({
         idsArticlesToExclude,
         titleSize,
         diagramation,
-        isHome
+        isHome,
+        shouldUseV2: isHomeLN10 && withResizerV2
     };
 };
 

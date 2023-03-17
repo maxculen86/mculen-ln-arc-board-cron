@@ -24,7 +24,7 @@ export const LAYOUTS = {
 export const VERTICALS = ['bienestar', 'campo', 'movilidad', 'propiedades'];
 
 export const CHAIN_STYLE = {
-    HASHTAG: 'HashTag',
+    HASHTAG: 'Hashtag',
     PROPIEDADES: 'propiedades',
     CAMPO: 'campo',
     BIENESTAR: 'bienestar',

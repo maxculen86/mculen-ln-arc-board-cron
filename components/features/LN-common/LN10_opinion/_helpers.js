@@ -29,35 +29,35 @@ export const getDataOpinion = ({
     isHome
 }) => {
     const articlesOpinion = !isInSiteService
-        ? getArticleInCollection(
-              rules.length || notesQuantity,
+        ? getArticleInCollection({
+              notesQuantity: rules.length || notesQuantity,
               diagramation,
-              idCollectionOpinion,
-              20,
-              Number(initialPosition) - 1,
-              idsArticlesToExclude,
-              true,
-              !isInSiteService,
+              idCollection: idCollectionOpinion,
+              size: 20,
+              initialPosition: Number(initialPosition) - 1,
+              idCollectionsInPage: idsArticlesToExclude,
+              filterRecomendar: true,
+              filterRepetead: !isInSiteService,
               layout,
               website,
-              isHome
-          )
+              hasHydrateOnly: isHome
+          })
         : [];
 
     const articlesEditorial = !isInSiteService
-        ? getArticleInCollection(
-              2,
+        ? getArticleInCollection({
+              notesQuantity: 2,
               diagramation,
-              idCollectionEditorial,
-              20,
-              0,
-              [],
-              true,
-              !isInSiteService,
+              idCollection: idCollectionEditorial,
+              size: 20,
+              initialPosition: 0,
+              idCollectionsInPage: [],
+              filterRecomendar: true,
+              filterRepetead: !isInSiteService,
               layout,
               website,
-              isHome
-          )
+              hasHydrateOnly: isHome
+          })
         : [];
     return {
         articlesOpinion,

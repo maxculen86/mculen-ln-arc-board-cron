@@ -58,7 +58,8 @@ const CajaCanal = props => {
         articlesFromCollectionSiteService,
         idsArticlesToExclude,
         diagramation,
-        isHome
+        isHome,
+        shouldUseV2
     } = getDataChainCollection({
         idCollection,
         pageLayout,
@@ -74,19 +75,20 @@ const CajaCanal = props => {
     const rules = diagramationRules(layout) || [];
 
     const articlesToShow = !isInSiteService
-        ? getArticleInCollection(
-              rules.length || notesQuantity,
+        ? getArticleInCollection({
+              notesQuantity: rules.length || notesQuantity,
               diagramation,
               idCollection,
-              20,
-              Number(initialPosition) - 1,
-              idsArticlesToExclude,
-              true,
-              !isInSiteService,
+              size: 20,
+              initialPosition: Number(initialPosition) - 1,
+              idCollectionsInPage: idsArticlesToExclude,
+              filterRecomendar: true,
+              filterRepetead: !isInSiteService,
               layout,
               website,
-              isHome
-          )
+              hasHydrateOnly: isHome,
+              shouldUseV2
+          })
         : [];
 
     const _articles = getArticlesOfChain({

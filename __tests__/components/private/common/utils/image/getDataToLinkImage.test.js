@@ -1,20 +1,17 @@
 import React from 'react';
 import * as fusionConsumer from 'fusion:consumer';
 import { shallow, mount } from 'enzyme';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import getProperties from 'fusion:properties';
-
 import GetDataToLinkImage from '../../../../../../components/private/common/utils/image/getDataToLinkImage';
-import getImage from '../../../../../../components/private/common/utils/image/getImage';
-import getVideoPosterResized from '../../../../../../components/private/common/utils/video/getVideoPosterResized';
-
+import useGetMediaData from '../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/useGetMediaData';
 // Data
 import dataAccumulatedAuthor from '../../../../../../__mocks__/data/renderables/dataAccumulatedAuthor.json';
 import dataAccumulatedEconomy from '../../../../../../__mocks__/data/renderables/dataAccumulatedEconomy.json';
 import dataAccumulatedCulture from '../../../../../../__mocks__/data/renderables/dataAccumulatedCulture.json';
 import bombaOculta from '../../../../../../__mocks__/data/renderables/bomba/bombaOculta';
-import bombaVisible from '../../../../../../__mocks__/data/renderables/bomba/bombaVisible';
+import bombaVisible from '../../../../../../__mocks__/data/renderables/bomba/bombaVisible.json';
 import dataApertura from '../../../../../../__mocks__/data/renderables/dataApertura2.json';
 import bombaVisibleOnlyNoteId from '../../../../../../__mocks__/data/renderables/bomba/bombaVisibleOnlyNoteId';
 import articleToExclude from '../../../../../../__mocks__/data/images/getDataToLinkImage/articleToExclude';
@@ -27,12 +24,7 @@ import dataAperturaWithVideo from '../../../../../../__mocks__/data/renderables/
 import responseGetVideoPosterResized from '../../../../../../__mocks__/data/videos/getDataToLinkImage/responseGetVideoPosterResized.json';
 
 jest.mock(
-    '../../../../../../components/private/common/utils/image/getImage',
-    () => jest.fn()
-);
-
-jest.mock(
-    '../../../../../../components/private/common/utils/video/getVideoPosterResized',
+    '../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/useGetMediaData',
     () => jest.fn()
 );
 
@@ -115,89 +107,152 @@ describe('Common - GetDataToLinkImage', () => {
 
     /////////// HOME ///////////
     describe('When section is home', () => {
-        const resizedUrls = `<link rel=\"preload\" as=\"image\" fetchPriority=\"high\" href=\"https://resizer.glanacion.com/resizer/FtoYG9gG-lYJTikOJudK9UNhnWA=/320x480/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg\" imagesrcset=\"https://resizer.glanacion.com/resizer/0-_Q3j7WaTgvazaqaWo1TlsdFYg=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg 768w,https://resizer.glanacion.com/resizer/v0nB_sKZ3HeDxcpmmYhzX6P49i0=/375x562/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg 375w,https://resizer.glanacion.com/resizer/FtoYG9gG-lYJTikOJudK9UNhnWA=/320x480/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg 320w\"/>`;
-
         it('without renderables, return empty fragment', () => {
-            const wrapper = mount(
-                GetDataToLinkImage({
-                    data: {},
-                    section: 'home',
-                    renderables: []
-                })
+            const { container } = render(
+                <GetDataToLinkImage
+                    {...{
+                        data: {},
+                        section: 'home',
+                        renderables: []
+                    }}
+                />
             );
-            expect(wrapper).toEqual({});
+
+            expect(container).toMatchInlineSnapshot(`<div />`);
         });
 
         describe('with Bomba', () => {
             it('Visible with imageId, return Array with imageResizedUrls', () => {
-                const renderables = bombaVisible;
-                getImage.mockImplementation(() => responseRelatedImageSource);
-                const wrapper = shallow(
-                    GetDataToLinkImage({
-                        data: {},
-                        section: 'home',
-                        renderables
-                    })
+                useGetMediaData.mockImplementation(
+                    () => responseRelatedImageSource
                 );
-                expect(wrapper.html()).toEqual(resizedUrls);
+
+                const { container } = render(
+                    <GetDataToLinkImage
+                        {...{
+                            data: {},
+                            section: 'home',
+                            renderables: bombaVisible
+                        }}
+                    />
+                );
+
+                const linkPreload = container.querySelector('link');
+
+                expect(linkPreload).toBeInTheDocument();
+                expect(linkPreload).toMatchInlineSnapshot(`
+                    <link
+                      as="image"
+                      fetchpriority="high"
+                      href="https://resizer.glanacion.com/resizer/FtoYG9gG-lYJTikOJudK9UNhnWA=/320x480/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg"
+                      imagesrcset="https://resizer.glanacion.com/resizer/0-_Q3j7WaTgvazaqaWo1TlsdFYg=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg 768w,https://resizer.glanacion.com/resizer/v0nB_sKZ3HeDxcpmmYhzX6P49i0=/375x562/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg 375w,https://resizer.glanacion.com/resizer/FtoYG9gG-lYJTikOJudK9UNhnWA=/320x480/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg 320w"
+                      rel="preload"
+                    />
+                `);
             });
 
             it('Visible with noteId, return Array with imageResizedUrls', () => {
-                const renderables = bombaVisibleOnlyNoteId;
-                const wrapper = shallow(
-                    GetDataToLinkImage({
-                        data: {},
-                        section: 'home',
-                        renderables
-                    })
+                useGetMediaData.mockImplementation(
+                    () => responseArticleSourceNota
                 );
-                getImage.mockImplementation(() => responseArticleSourceNota);
-                expect(wrapper.html()).toEqual(resizedUrls);
+
+                const { container } = render(
+                    <GetDataToLinkImage
+                        {...{
+                            data: {},
+                            section: 'home',
+                            renderables: bombaVisibleOnlyNoteId
+                        }}
+                    />
+                );
+
+                const linkPreload = container.querySelector('link');
+
+                expect(linkPreload).toBeInTheDocument();
+                expect(linkPreload).toMatchInlineSnapshot(`
+                    <link
+                      as="image"
+                      fetchpriority="high"
+                      href="https://resizer.glanacion.com/resizer/FtoYG9gG-lYJTikOJudK9UNhnWA=/320x480/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg"
+                      imagesrcset="https://resizer.glanacion.com/resizer/0-_Q3j7WaTgvazaqaWo1TlsdFYg=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg 768w,https://resizer.glanacion.com/resizer/v0nB_sKZ3HeDxcpmmYhzX6P49i0=/375x562/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg 375w,https://resizer.glanacion.com/resizer/FtoYG9gG-lYJTikOJudK9UNhnWA=/320x480/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg 320w"
+                      rel="preload"
+                    />
+                `);
             });
 
             it('Hiden, return Empty Array', () => {
-                const renderables = bombaOculta;
-                getImage.mockImplementation(() => {});
-                const wrapper = mount(
-                    GetDataToLinkImage({
-                        data: {},
-                        section: 'home',
-                        renderables
-                    })
+                useGetMediaData.mockImplementation(() => {});
+
+                const { container } = render(
+                    <GetDataToLinkImage
+                        {...{
+                            data: {},
+                            section: 'home',
+                            renderables: bombaOculta
+                        }}
+                    />
                 );
-                expect(wrapper).toEqual({});
+                const linkPreload = container.querySelector('link');
+
+                expect(linkPreload).toBeNull();
+                expect(container).toMatchInlineSnapshot(`<div />`);
             });
         });
         describe('with Apertura', () => {
-            it('Return Array with imageResizedUrls', () => {
-                const renderables = dataApertura;
-                getImage.mockImplementation(() => responseRelatedImageSource);
-                const wrapper = shallow(
-                    GetDataToLinkImage({
-                        data: {},
-                        section: 'home',
-                        renderables
-                    })
+            test('Return Array with imageResizedUrls', () => {
+                useGetMediaData.mockImplementation(
+                    () => responseRelatedImageSource
                 );
 
-                expect(wrapper.html()).toEqual(resizedUrls);
-            });
+                const { container } = render(
+                    <GetDataToLinkImage
+                        {...{
+                            data: {},
+                            section: 'home',
+                            renderables: dataApertura
+                        }}
+                    />
+                );
 
-            it('Return array images resized from video', () => {
-                const resizedUrlsPosterVideo = `<link rel=\"preload\" as=\"image\" fetchPriority=\"high\" href=\"https://resizer.glanacion.com/resizer/w5UA7cfSRbm0OCe8l7RIB5aOTjc=/465x311/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/03-30-2022/t_4d232f9022d74394a511f30b4a7db176_name_file_1280x720_2000_v3_1_.jpg\" imagesrcset=\"https://resizer.glanacion.com/resizer/sOXHJ3BvskEeCkq1HN8F29gRsxY=/595x399/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/03-30-2022/t_4d232f9022d74394a511f30b4a7db176_name_file_1280x720_2000_v3_1_.jpg 595w,https://resizer.glanacion.com/resizer/frSnc4fMVEI_4x5qPr4_5e1z0mM=/635x424/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/03-30-2022/t_4d232f9022d74394a511f30b4a7db176_name_file_1280x720_2000_v3_1_.jpg 635w,https://resizer.glanacion.com/resizer/w5UA7cfSRbm0OCe8l7RIB5aOTjc=/465x311/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/03-30-2022/t_4d232f9022d74394a511f30b4a7db176_name_file_1280x720_2000_v3_1_.jpg 465w\"/>`;
-                const renderables = dataAperturaWithVideo;
-                getVideoPosterResized.mockImplementation(
+                const linkPreload = container.querySelector('link');
+
+                expect(linkPreload).toBeInTheDocument();
+                expect(linkPreload).toMatchInlineSnapshot(`
+                    <link
+                      as="image"
+                      fetchpriority="high"
+                      href="https://resizer.glanacion.com/resizer/FtoYG9gG-lYJTikOJudK9UNhnWA=/320x480/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg"
+                      imagesrcset="https://resizer.glanacion.com/resizer/0-_Q3j7WaTgvazaqaWo1TlsdFYg=/768x512/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg 768w,https://resizer.glanacion.com/resizer/v0nB_sKZ3HeDxcpmmYhzX6P49i0=/375x562/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg 375w,https://resizer.glanacion.com/resizer/FtoYG9gG-lYJTikOJudK9UNhnWA=/320x480/smart/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/H53R624KARDARCICFNEC7ZC7YA.jpg 320w"
+                      rel="preload"
+                    />
+                `);
+            });
+            test('Return array images resized from video', () => {
+                useGetMediaData.mockImplementation(
                     () => responseGetVideoPosterResized
                 );
 
-                const wrapper = shallow(
-                    GetDataToLinkImage({
-                        data: {},
-                        section: 'home',
-                        renderables
-                    })
+                const { container } = render(
+                    <GetDataToLinkImage
+                        {...{
+                            data: {},
+                            section: 'home',
+                            renderables: dataAperturaWithVideo
+                        }}
+                    />
                 );
-                expect(wrapper.html()).toEqual(resizedUrlsPosterVideo);
+                const linkPreload = container.querySelector('link');
+
+                expect(linkPreload).toBeInTheDocument();
+                expect(linkPreload).toMatchInlineSnapshot(`
+                    <link
+                      as="image"
+                      fetchpriority="high"
+                      href="https://resizer.glanacion.com/resizer/vpxxoKfhImzI_W82siKEcwquXAM=/233x155/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg"
+                      imagesrcset="https://resizer.glanacion.com/resizer/j4pw7953Ek5Kvgd5_tkGsexuFSM=/298x198/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg 298w,https://resizer.glanacion.com/resizer/SMlVVLdoFaVHpNeiawm1qesVk7E=/318x212/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg 318w,https://resizer.glanacion.com/resizer/vpxxoKfhImzI_W82siKEcwquXAM=/233x155/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg 233w,https://resizer.glanacion.com/resizer/kwNY1LRv_JTJfHDseiFuFx87BDI=/375x250/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg 375w,https://resizer.glanacion.com/resizer/6Salk6OooEpiIIlzvQEPvO6BspY=/320x213/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg 320w"
+                      rel="preload"
+                    />
+                `);
             });
         });
     });

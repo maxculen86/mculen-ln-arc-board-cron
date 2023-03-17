@@ -62,7 +62,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
             type="button"
           >
             <i
-              class="icon --icon-m --light"
+              class="icon --icon-24 --light"
             >
               <svg
                 fill="none"

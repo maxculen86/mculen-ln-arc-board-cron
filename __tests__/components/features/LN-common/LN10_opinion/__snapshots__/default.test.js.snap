@@ -55,7 +55,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --0 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --2xl --author --with-media --mobile-img-top"
+                class="ln-card --d-flex --flex-col --ai-start --2xl --author --with-media"
                 data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
                 data-notaid="UV32UCCHWZH6LKMZKHGOQJHR4I"
                 data-pos="9801"
@@ -133,7 +133,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                 class="opinion-flex-col"
               >
                 <article
-                  class="ln-card --d-flex --flex-col --ai-start --l --author --mobile-img-top"
+                  class="ln-card --d-flex --flex-col --ai-start --l --author"
                   data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
                   data-notaid="M3JPASZJAVBIRIZPVCSSVBUAHI"
                   data-pos="9802"
@@ -183,7 +183,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                   </a>
                 </article>
                 <article
-                  class="ln-card --d-flex --flex-col --ai-start --l --author --mobile-img-top"
+                  class="ln-card --d-flex --flex-col --ai-start --l --author"
                   data-id="PUTOXECLIZCMDI4Z5WDWQI5CUY"
                   data-notaid="PUTOXECLIZCMDI4Z5WDWQI5CUY"
                   data-pos="9803"
@@ -366,7 +366,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                   </section>
                 </div>
                 <article
-                  class="ln-card --d-flex --flex-col --ai-start --l --author --mobile-img-top"
+                  class="ln-card --d-flex --flex-col --ai-start --l --author"
                   data-id="KLCMCRBJMFCUBFE55NDGERCTJQ"
                   data-notaid="KLCMCRBJMFCUBFE55NDGERCTJQ"
                   data-pos="9804"
@@ -421,7 +421,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --l --author --mobile-img-top"
+                class="ln-card --d-flex --flex-col --ai-start --l --author"
                 data-id="VD7B5NVJQFEVDP4CACDCKLACFQ"
                 data-notaid="VD7B5NVJQFEVDP4CACDCKLACFQ"
                 data-pos="9805"
@@ -475,7 +475,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --l --author --mobile-img-top"
+                class="ln-card --d-flex --flex-col --ai-start --l --author"
                 data-id="AVYWDWDAVVESZGD7HXMW46GTYA"
                 data-notaid="AVYWDWDAVVESZGD7HXMW46GTYA"
                 data-pos="9806"
@@ -529,7 +529,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --l --author --mobile-img-top"
+                class="ln-card --d-flex --flex-col --ai-start --l --author"
                 data-id="52CYTDWKNFCUTI3YX74GJM3GKU"
                 data-notaid="52CYTDWKNFCUTI3YX74GJM3GKU"
                 data-pos="9807"
@@ -583,7 +583,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --l --author --mobile-img-top"
+                class="ln-card --d-flex --flex-col --ai-start --l --author"
                 data-id="KEBYELHATJHPRNAWO24GRV6YCQ"
                 data-notaid="KEBYELHATJHPRNAWO24GRV6YCQ"
                 data-pos="9808"
