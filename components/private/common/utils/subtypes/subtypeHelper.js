@@ -43,7 +43,7 @@ export const isFotoAl100orStorytelling = subtype => {
 };
 
 export const subtypeNotesWithoutAmp = canonicalUrl => {
-    const subtypeList = ['/agencias'];
+    const subtypeList = ['/agencias', '/estados-unidos/'];
 
     return subtypeList.some(subtype => canonicalUrl.startsWith(subtype));
 };
