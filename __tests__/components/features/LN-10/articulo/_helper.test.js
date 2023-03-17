@@ -11,22 +11,32 @@ import {
     validateSubhead,
     showExtraClass,
     getTypeOfMedia,
-    getOnlyHoursMinutes
+    getOnlyHoursMinutes,
+    isInApertura
 } from '../../../../../components/features/LN-10/article/_helper';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
 import {
     renderablesWithBombaEager,
     renderablesWithChainAperturaEager
 } from '../../../../../__mocks__/data/renderables/renderablesLN10eager.js';
+import configLN10 from '../../../../../components/layouts/config/LN10-Home.config.json';
+import { getMockRenderables } from '../../../../../__mocks__/data/renderables/renderablesForPreload';
 
 describe('Components - Features - LN-10 - Article - _helper', () => {
-    const getProps = ({ video, image, customFields, renderables } = {}) => {
+    const getProps = ({
+        video,
+        image,
+        customFields,
+        renderables,
+        shouldUseV2 = false
+    } = {}) => {
         return {
             article: responseArticleSourceNota,
             video,
             image,
             customFields,
-            renderables
+            renderables,
+            shouldUseV2
         };
     };
 
@@ -148,12 +158,13 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                             imageId
                         },
                         video: responseVideoSource,
-                        image: responseRelatedImageSource
+                        image: responseRelatedImageSource,
+                        shouldUseV2: true
                     })
                 )
             ).toStrictEqual({
                 poster:
-                    'https://resizer.glanacion.com/resizer/vpxxoKfhImzI_W82siKEcwquXAM=/233x155/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg',
+                    'https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F03-02-2023%2Ft_5d96c8dea565416da3f6f8875641a5ff_name_file_1280x720_2000_v3_1_.jpg?auth=e74e861f0ae9b8af4da45668d1d52202c5edfb13c0928ff93167d6fcf83308d8&width=768&quality=80&smart=false',
                 src:
                     'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/LA_NACION/20220329/6243689bd601800001be77da/b7958f59-3bc1-4144-b134-eaec19e21716/t_4591bda568ae4e53b9e6fde00bf71c0f_name_VIDEO_SUPER/file_1280x720-2000-v3_1.mp4',
                 type: 'video'
@@ -529,6 +540,67 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             expect(getOnlyHoursMinutes(time)).toEqual('12:59');
             expect(getOnlyHoursMinutes(timeWithSeconds)).toEqual('14:25');
             expect(getOnlyHoursMinutes()).toEqual('');
+        });
+    });
+
+    describe('Test function IsInApertura', () => {
+        const props = {
+            layoutPageBuilder: 'LN10-Home_Main',
+            config: { withPreload: true },
+            renderables: getMockRenderables(),
+            featureId: 'f0fvqs5a1iKxLV'
+        };
+
+        const casesTruthy = [
+            ['should return true when exist a bomba with image', props],
+            [
+                'should return true when there is no "bomba" but there is an opening with an image.',
+                {
+                    ...props,
+                    renderables: getMockRenderables({ hideBomba: true }),
+                    featureId: 'f0fVAKwVPNa22W4'
+                }
+            ]
+        ];
+
+        test.each(casesTruthy)('%s', (message, props) => {
+            expect(isInApertura(props)).toBeTruthy();
+        });
+
+        const casesFalsy = [
+            [
+                'Should return false when the "bomba" has a hidden image',
+                {
+                    ...props,
+                    renderables: getMockRenderables({ hideImageBomba: true })
+                }
+            ],
+            [
+                'Should return false when  there is no "bomba" and the opening has a hidden image',
+                {
+                    ...props,
+                    renderables: getMockRenderables({
+                        hideImageApertura: true,
+                        hideBomba: true
+                    }),
+                    featureId: 'f0fVAKwVPNa22W4'
+                }
+            ],
+            [
+                'Should return false when withPreload is false',
+                {
+                    ...props,
+                    config: { withPreload: false }
+                }
+            ],
+            [
+                'Should return false when the parameters is not defined',
+                undefined
+            ]
+        ];
+
+        test.each(casesFalsy)('%s', (message, props) => {
+            expect(isInApertura(props)).toBeFalsy();
         });
     });
 });

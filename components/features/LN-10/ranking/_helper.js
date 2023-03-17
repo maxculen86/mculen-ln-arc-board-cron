@@ -2,6 +2,7 @@ import { useContent as getContent } from 'fusion:content';
 import get from '../../../private/common/utils/get';
 import getSectionName from '../../../private/LN/common/utils/getSectionName';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
+import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 
 // TODO: agregar test a todas las funciones helper
 
@@ -103,7 +104,10 @@ export const getDataContent = (
                 sectionId: section,
                 imageConfig: 'boxArticles',
                 website,
-                layout
+                layout,
+                shouldUseV2:
+                    withResizerV2 &&
+                    layout === get(siteConfig, 'layoutsName.HomeLN10', '')
             },
             staticMode: hasHydrateOnly
         });

@@ -83,12 +83,12 @@ describe('Test getVideoImagePresets', () => {
                 media_preload: '(min-width: 768.1px and max-width: 1024px)'
             }
         ],
-        height: 720,
+        height: 513,
         isAdmin: false,
         isInApertura: true,
         url:
-            'https://d3us6z9haan6vf.cloudfront.net/03-30-2022/t_5f8a3d21151443b99020143df7290b7a_name_file_1280x720_2000_v3_1_.jpg',
-        width: 1280
+            'https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F03-02-2023%2Ft_5d96c8dea565416da3f6f8875641a5ff_name_file_1280x720_2000_v3_1_.jpg?auth=e74e861f0ae9b8af4da45668d1d52202c5edfb13c0928ff93167d6fcf83308d8&width=768&quality=80&smart=false',
+        width: 768
     };
 
     test('Return test when imageConfig are not defined ', () => {

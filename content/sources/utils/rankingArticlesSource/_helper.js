@@ -3,11 +3,12 @@ import {
     FOTOAL100,
     STORYTELLING
 } from '../../../../components/private/common/utils/subtypes/subtypeHelper';
-import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer';
+import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
 import config, { HOT_SECTION, COLD_SECTION, DEFAULT_SECTION } from './_config';
 import get from '../../../../components/private/common/utils/get';
 import getPresets from '../presets';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
+import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
 
 const STORY_QUERY_LIMIT = 30;
 export const MINIMUM_ITEMS = 4;
@@ -118,46 +119,55 @@ export const getQuery = (sectionId, layout) => {
     };
 };
 
-export const transformData = (data, query) => {
-    const { presets, presetsDefault } = getPresets(query);
+export const transformData = (data, query, cachedCall) => {
+    const { presets, presetsDefault, shouldUseV2 } = getPresets(query);
     const presetsPromoItems = get(presets, 'promo_items', null);
-    return data.map(elem => {
-        const headlines = get(elem, `headlines`, {});
-        const promoItems = get(elem, `promo_items`);
-        const websiteUrl = get(elem, `website_url`);
-        const canonicalUrl = get(elem, `canonical_url`);
-        const subtype = get(elem, `subtype`);
-        const volanta = get(elem, `label.volanta`);
-        const isFotoAl100orStorytelling =
-            subtype === FOTOAL100 || subtype === STORYTELLING;
-        return {
-            ...elem,
-            ...addResizedUrls(
-                {
-                    ...(promoItems && {
-                        promo_items: promoItems
-                    })
-                },
-                {
-                    resizerSecret: RESIZER_KEY,
-                    resizerUrl: RESIZER_URL,
-                    presets: {
-                        promoItems: presetsPromoItems,
-                        presetsDefault
-                    },
-                    // Se pasa el subtype para que las notas de foto al 100
-                    // y storytelling no sean excluidas de las validaciones del resizer
-                    // y pueda aplicarse 3:2, focal point o smartcrop
-                    subtype: isFotoAl100orStorytelling ? '-1' : subtype
-                }
-            ),
-            headlines,
-            website_url: websiteUrl || canonicalUrl,
-            label: {
-                volanta
+
+    return Promise.all(
+        data.map(async elem => {
+            if (shouldUseV2) {
+                const newElem = await getAllImagesAuth(elem, cachedCall);
+                Object.assign(elem, newElem);
             }
-        };
-    });
+
+            const headlines = get(elem, `headlines`, {});
+            const promoItems = get(elem, `promo_items`);
+            const websiteUrl = get(elem, `website_url`);
+            const canonicalUrl = get(elem, `canonical_url`);
+            const subtype = get(elem, `subtype`);
+            const volanta = get(elem, `label.volanta`);
+            const isFotoAl100orStorytelling =
+                subtype === FOTOAL100 || subtype === STORYTELLING;
+            return {
+                ...elem,
+                ...addResizedUrls(
+                    {
+                        ...(promoItems && {
+                            promo_items: promoItems
+                        })
+                    },
+                    {
+                        resizerSecret: RESIZER_KEY,
+                        resizerUrl: RESIZER_URL,
+                        presets: {
+                            promoItems: presetsPromoItems,
+                            presetsDefault
+                        },
+                        // Se pasa el subtype para que las notas de foto al 100
+                        // y storytelling no sean excluidas de las validaciones del resizer
+                        // y pueda aplicarse 3:2, focal point o smartcrop
+                        subtype: isFotoAl100orStorytelling ? '-1' : subtype,
+                        shouldUseV2
+                    }
+                ),
+                headlines,
+                website_url: websiteUrl || canonicalUrl,
+                label: {
+                    volanta
+                }
+            };
+        })
+    );
 };
 
 export const sortData = (articles, stories, size) =>

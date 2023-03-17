@@ -2,7 +2,8 @@ import {
     isNotRecommend,
     filterArticlesInCollection,
     getArticlesToShow,
-    filterArticlesTypeStory
+    filterArticlesTypeStory,
+    getImageConfig
 } from '../../../../content/sources/utils/collectionsHelper';
 import 'regenerator-runtime/runtime';
 
@@ -167,5 +168,43 @@ describe('collectionsHelper - filterArticlesTypeStory', () => {
             }
         ]);
         expect(result).toHaveLength(1);
+    });
+});
+
+describe('collectionsHelper -  getImageConfig', () => {
+    test('should return "xxl" with the diagramation of ln10 "horizontal"', () => {
+        expect(getImageConfig('horizontal', false, 0)).toStrictEqual('xxl');
+    });
+
+    test('should return "l" with the diagramation of ln10 "left-focal"', () => {
+        expect(getImageConfig('bn-opening-4', false, 0)).toStrictEqual('l');
+    });
+
+    test('should return "featuredFocalIzquierdo" with the diagramation of ln9 "focalLeft3"', () => {
+        expect(getImageConfig('focalLeft3', false, 0)).toStrictEqual(
+            'featuredFocalIzquierdo'
+        );
+    });
+
+    test('Should return "l" when the position is 0, there is no diagramation and isFocal is true (ln9)', () => {
+        expect(getImageConfig(undefined, true, 0)).toStrictEqual('l');
+    });
+
+    test('Should return falsy when position is greater than 0, there is no layout, and isFocal is true (ln9)', () => {
+        expect(getImageConfig(undefined, true, 1)).toBeFalsy();
+    });
+
+    test('should return falsy when there is no diagramation and isFocal is false', () => {
+        expect(getImageConfig(undefined, false, 0)).toBeFalsy();
+    });
+
+    test('should return falsy when the all props is not defined', () => {
+        expect(getImageConfig()).toBeFalsy();
+    });
+
+    test('should return a empty string when the position is not defiend in LN10', () => {
+        expect(getImageConfig('center-focal', false, undefined)).toStrictEqual(
+            ''
+        );
     });
 });

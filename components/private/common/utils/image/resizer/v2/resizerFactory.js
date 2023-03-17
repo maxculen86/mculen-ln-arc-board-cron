@@ -6,7 +6,8 @@ export const resizePromoItems = (
     resizeOptions,
     zoomSizes,
     subtype,
-    promoItems = {}
+    promoItems = {},
+    isInApertura = false
 ) => {
     const resp = {};
 
@@ -22,7 +23,8 @@ export const resizePromoItems = (
                 optionsFinal,
                 zoomSizes,
                 shouldExcludeCrop,
-                defaultResize
+                defaultResize,
+                isInApertura
             );
         } else if (promoItem.type === 'video') {
             resp[key] = {
@@ -34,7 +36,8 @@ export const resizePromoItems = (
                             optionsFinal,
                             zoomSizes,
                             shouldExcludeCrop,
-                            defaultResize
+                            defaultResize,
+                            isInApertura
                         )
                     }
                 }

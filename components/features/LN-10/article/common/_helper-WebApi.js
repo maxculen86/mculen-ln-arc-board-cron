@@ -37,28 +37,20 @@ export const getLiveblogTitlesApi = articleData => {
 export const getIsBomba = parent =>
     get(parent, 'type', '') === 'LN10_Caja_Bomba';
 
-// TODO: Falta modificar logica para la nueva configuracion de imagen del resizer
-
 const getImageConfig = ({
     renderables,
     layoutsName,
-    cajaTemaConfig,
     articlePosition,
-    layout,
-    isBomba
+    layout
 }) => {
-    if (isBomba) {
-        return get(cajaTemaConfig, `bomba1.articles[0].imageConfig`);
-    }
-
     return renderables.some(
         elem =>
             get(elem, 'collection') === 'layouts' &&
             get(elem, 'type', '') === layoutsName.HomeLN10
     )
         ? get(
-              cajaTemaConfig,
-              `${layout}.articles[${articlePosition}].imageConfig`,
+              diagramationRules(layout),
+              `[${articlePosition}].imageConfig`,
               'boxArticles'
           )
         : '';
@@ -108,8 +100,7 @@ export const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
             layoutsName,
             cajaTemaConfig,
             articlePosition: index,
-            layout,
-            isBomba: getIsBomba(parent)
+            layout
         }),
         config,
         index,
