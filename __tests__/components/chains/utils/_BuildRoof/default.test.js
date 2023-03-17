@@ -194,5 +194,17 @@ describe('Tests component BuildRoof', () => {
                     .getAttribute('href')
             ).toStrictEqual(props.linkButton);
         });
+
+        test('shoul', () => {
+            const properties = {
+                ...props,
+                title: '',
+                chainStyle: 'Hashtag'
+            };
+
+            const { container } = render(<BuildRoof {...properties} />);
+
+            expect(container.querySelector('.--hashtag')).toBeVisible();
+        });
     });
 });
