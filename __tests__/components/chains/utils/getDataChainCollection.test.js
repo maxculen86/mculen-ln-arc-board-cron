@@ -16,7 +16,7 @@ describe('Components - Chains - Utils - getDataChainCollection', () => {
         } = getDataChainCollection(cajaCollection);
         expect(titleSize).toBeUndefined();
         expect(isInSiteService).toBeFalsy;
-        expect(diagramation).toEqual('');
+        expect(diagramation).toEqual('grilla3');
         expect(articlesFromCollectionSiteService.length).toEqual(0);
         expect(idsArticlesToExclude.length).toEqual(0);
         expect(isHome).toBeTruthy();
@@ -35,7 +35,7 @@ describe('Components - Chains - Utils - getDataChainCollection', () => {
             layout: 'grilla1'
         });
         expect(isInSiteService).toBeFalsy;
-        expect(diagramation).toEqual('');
+        expect(diagramation).toEqual('grilla1');
         expect(articlesFromCollectionSiteService.length).toEqual(0);
         expect(idsArticlesToExclude.length).toEqual(0);
 
@@ -57,7 +57,7 @@ describe('Components - Chains - Utils - getDataChainCollection', () => {
         });
         expect(isInSiteService).toBeFalsy;
         expect(titleSize).toBeUndefined();
-        expect(diagramation).toEqual('');
+        expect(diagramation).toEqual('grilla3');
         expect(articlesFromCollectionSiteService.length).toEqual(0);
         expect(idsArticlesToExclude.length).toEqual(0);
         expect(isHome).toBeTruthy();
@@ -76,7 +76,7 @@ describe('Components - Chains - Utils - getDataChainCollection', () => {
         });
         expect(titleSize).toBeUndefined();
         expect(isInSiteService).toBeFalsy;
-        expect(diagramation).toEqual('');
+        expect(diagramation).toEqual('grilla3');
         expect(articlesFromCollectionSiteService.length).toEqual(0);
         expect(idsArticlesToExclude.length).toEqual(0);
         expect(isHome).toBeTruthy();

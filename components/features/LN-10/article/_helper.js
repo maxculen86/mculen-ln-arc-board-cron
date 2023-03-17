@@ -11,6 +11,7 @@ import transformImageData from '../../../private/common/LN-10/transformImageData
 import setClassName from '../../../private/common/utils/setClassName';
 import { getIsBomba, getChainParentOfFeature } from './common/_helper-WebApi';
 import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
+import { getValidElementForPreload } from '../../../private/common/utils/image/getDataToLinkImage/_helper/_homeHelper';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -184,9 +185,12 @@ const getImageDestacada = articleData => {
     return type === 'image' ? mediaDataOfTheOpening : null;
 };
 
-const transformVideoData = videoData => {
+const transformVideoData = (videoData, shouldUseV2) => {
     const streams = get(videoData, 'streams', []);
-    const videoImagesResized = get(videoData, 'resizedUrl', []);
+    // TODO: Quitar validacion de shouldUseV2 cuando salga resizer 2 por completo. Mantener la constante con: "get(videoData, 'promo_items.basic.resized_urls', [])"
+    const videoImagesResized = shouldUseV2
+        ? get(videoData, 'promo_items.basic.resized_urls', [])
+        : get(videoData, 'resizedUrl', []);
     const type = get(videoData, 'type', '');
     const { resizedUrl } = getShortestImage(videoImagesResized);
     const { url = '' } = getStreams(streams, '>') || {};
@@ -203,7 +207,8 @@ export const getMediaData = ({
     video,
     image,
     renderables = [],
-    customFields = {}
+    customFields = {},
+    shouldUseV2 = false
 } = {}) => {
     const { video: videoId, imageId, html = '' } = customFields;
     const { _id } = article || {};
@@ -223,7 +228,7 @@ export const getMediaData = ({
         },
         {
             validation: videoId && video,
-            data: transformVideoData(video)
+            data: transformVideoData(video, shouldUseV2)
         },
 
         {
@@ -242,8 +247,6 @@ export const getMediaData = ({
         mediaDataDefault
     );
 };
-
-// TODO: Falta modificar logica para la nueva configuracion de imagen del resizer
 
 export const getDataAttributesForViewability = (id, boxPosition, index) => {
     const extraOpts = {};
@@ -292,4 +295,27 @@ export const showExtraClass = (typeOfMedia, className, extraClass = {}) => {
     });
 
     return classname || undefined;
+};
+
+export const isInApertura = ({
+    layoutPageBuilder,
+    config,
+    renderables = [],
+    featureId = ''
+} = {}) => {
+    const element = getValidElementForPreload(layoutPageBuilder, renderables);
+
+    const { withPreload = false } = config || {};
+
+    const isImageHide = get(
+        element,
+        'children[0].props.customFields.hideImage',
+        false
+    );
+
+    return (
+        get(element, 'children[0].props.id') === featureId &&
+        withPreload &&
+        !isImageHide
+    );
 };

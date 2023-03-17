@@ -3,37 +3,52 @@
         "basic": {
             "resized_urls": [
                 {
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/sOXHJ3BvskEeCkq1HN8F29gRsxY=/595x399/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/03-30-2022/t_4d232f9022d74394a511f30b4a7db176_name_file_1280x720_2000_v3_1_.jpg",
                     "option": {
-                        "width": 595,
-                        "height": 399,
+                        "height": 200,
                         "media": "(min-width: 1280px)",
-                        "useFullSize": true,
                         "proportion": "3:2",
-                        "media_preload": "(min-width: 1280.1px)"
-                    }
+                        "useFullSize": true,
+                        "width": 298
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/j4pw7953Ek5Kvgd5_tkGsexuFSM=/298x198/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg"
                 },
                 {
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/frSnc4fMVEI_4x5qPr4_5e1z0mM=/635x424/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/03-30-2022/t_4d232f9022d74394a511f30b4a7db176_name_file_1280x720_2000_v3_1_.jpg",
                     "option": {
-                        "width": 635,
-                        "height": 424,
+                        "height": 213,
                         "media": "(min-width: 1024px)",
-                        "useFullSize": true,
                         "proportion": "3:2",
-                        "media_preload": "(min-width: 1024.1px and max-width: 1280px)"
-                    }
+                        "useFullSize": true,
+                        "width": 318
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/SMlVVLdoFaVHpNeiawm1qesVk7E=/318x212/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg"
                 },
                 {
-                    "resizedUrl": "https://resizer.glanacion.com/resizer/w5UA7cfSRbm0OCe8l7RIB5aOTjc=/465x311/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/03-30-2022/t_4d232f9022d74394a511f30b4a7db176_name_file_1280x720_2000_v3_1_.jpg",
                     "option": {
-                        "width": 465,
-                        "height": 311,
+                        "height": 159,
                         "media": "(min-width: 768px)",
-                        "useFullSize": true,
                         "proportion": "3:2",
-                        "media_preload": "(min-width: 768.1px and max-width: 1024px)"
-                    }
+                        "useFullSize": true,
+                        "width": 233
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/vpxxoKfhImzI_W82siKEcwquXAM=/233x155/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg"
+                },
+                {
+                    "option": {
+                        "height": 250,
+                        "proportion": "3:2",
+                        "useFullSize": true,
+                        "width": 375
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/kwNY1LRv_JTJfHDseiFuFx87BDI=/375x250/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg"
+                },
+                {
+                    "option": {
+                        "height": 213,
+                        "proportion": "3:2",
+                        "useFullSize": true,
+                        "width": 320
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/6Salk6OooEpiIIlzvQEPvO6BspY=/320x213/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg"
                 }
             ]
         }

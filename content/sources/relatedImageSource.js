@@ -1,11 +1,14 @@
-import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
+import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import request from 'request-promise-native';
 import {
     FOTOAL100,
     STORYTELLING
 } from '../../components/private/common/utils/subtypes/subtypeHelper';
 import get from '../../components/private/common/utils/get';
 import getPresets from './utils/presets';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
+import logger from '../../components/private/common/utils/logger';
+import { getAllImagesAuth } from './utils/signingServiceSource/getImagesAuth';
 
 const resolve = key => {
     const { id, nid, boxType, subtype, imageConfig, isAddRelated } = key;
@@ -21,8 +24,42 @@ const resolve = key => {
     return `/photo/api/v2/photos/${id}`;
 };
 
-const transform = (data, siteProps) => {
-    const { presets, presetsDefault } = getPresets(siteProps);
+const fetch = (query, { cachedCall } = {}) => {
+    const { id = '' } = query;
+
+    const arcSite = query['arc-site'];
+    const opt = {
+        uri: `${CONTENT_BASE}${resolve(query)}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
+        };
+    }
+
+    return request(opt)
+        .then(resp => transform(resp, query, cachedCall))
+        .catch(err => {
+            logger.push(
+                err,
+                {
+                    source: 'content/sources/relatedImageSource',
+                    id
+                },
+                arcSite
+            );
+        });
+};
+
+const transform = async (data, siteProps, cachedCall) => {
+    const { presets, presetsDefault, shouldUseV2 } = getPresets(siteProps);
+
+    if (shouldUseV2) {
+        const newData = await getAllImagesAuth(data, cachedCall);
+        Object.assign(data, newData);
+    }
+
     const presetsPromoItems = get(presets, 'promo_items', null);
     const subtype = get(siteProps, `subtype`, null);
     const isInApertura = get(siteProps, `isInApertura`, false);
@@ -34,8 +71,6 @@ const transform = (data, siteProps) => {
         ...addResizedUrls(
             { promo_items: { basic: { ...data } } },
             {
-                resizerSecret: RESIZER_KEY,
-                resizerUrl: RESIZER_URL,
                 presets: {
                     promoItems: presetsPromoItems,
                     presetsDefault
@@ -45,14 +80,15 @@ const transform = (data, siteProps) => {
                 // y pueda aplicarse 3:2, focal point o smartcrop
                 subtype: isFotoAl100orStorytelling ? '-1' : subtype,
                 isInApertura,
-                isAdmin
+                isAdmin,
+                shouldUseV2
             }
         )
     };
 };
 
 export default {
-    resolve,
+    fetch,
     params: {
         id: 'text',
         subtype: 'text',
@@ -61,6 +97,5 @@ export default {
         nid: 'text',
         boxType: 'text'
     },
-    transform,
     ttl: 600
 };
