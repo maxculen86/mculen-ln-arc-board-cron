@@ -1,6 +1,12 @@
+import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
+import request from 'request-promise-native';
 import get from '../../components/private/common/utils/get';
-import getImageResized from '../../components/private/common/utils/getImageResized';
-import getVideoImagePresets from './utils/getVideoImagePresets';
+import logger from '../../components/private/common/utils/logger';
+import {
+    resizeVideoImagesV1,
+    resizeVideoImagesV2
+} from './utils/videoSource/_helper';
+import getPresets from './utils/presets';
 
 // Tener en cuenta que OTT tambien usa este source
 // TODO: Unificar transform y resizer de imagenes de videos para home y nota
@@ -13,62 +19,57 @@ const resolve = key => {
     throw new Error('Debe definir url o id para obtener el video');
 };
 
-const transform = (data, siteProps) => {
-    const arcSite = get(siteProps, 'arc-site', '');
-    const presets = getVideoImagePresets(data, siteProps, arcSite);
-    if (presets) {
-        const {
-            width,
-            height,
-            url,
-            configSizes,
-            isAdmin,
-            isInApertura
-        } = presets;
+const fetch = (query, { cachedCall } = {}) => {
+    const { id = '' } = query;
 
-        const resizedUrl = getImageResized({
-            url,
-            originalHeight: height,
-            originalWidth: width,
-            options: configSizes,
-            focalPoint: [],
-            isInApertura,
-            isAdmin
-        });
-
-        if (arcSite === 'ott') {
-            const promoItems = get(data, 'promo_items.basic');
-            const urlImage = get(resizedUrl[0], 'resizedUrl', '');
-
-            return {
-                ...data,
-                promo_items: {
-                    basic: {
-                        ...promoItems,
-                        resized_urls: resizedUrl,
-                        url: urlImage
-                    }
-                }
-            };
-        }
-
-        return {
-            ...data,
-            resizedUrl
+    const arcSite = query['arc-site'];
+    const opt = {
+        uri: `${CONTENT_BASE}${resolve(query)}`,
+        json: true
+    };
+    if (ARC_ACCESS_TOKEN) {
+        opt.auth = {
+            bearer: ARC_ACCESS_TOKEN
         };
     }
 
-    return data;
+    return request(opt)
+        .then(resp => transform(resp, query, cachedCall))
+        .catch(err => {
+            logger.push(
+                err,
+                {
+                    source: 'content/sources/videoSource',
+                    id
+                },
+                arcSite
+            );
+        });
+};
+
+const transform = async (data, siteProps, cachedCall) => {
+    const arcSite = get(siteProps, 'arc-site', '');
+    const { presets, presetsDefault, shouldUseV2 } = getPresets(siteProps);
+
+    if (shouldUseV2) {
+        return resizeVideoImagesV2({
+            data,
+            presets,
+            cachedCall,
+            presetsDefault
+        });
+    }
+
+    return resizeVideoImagesV1({ data, arcSite, siteProps });
 };
 
 export default {
-    resolve,
+    fetch,
     schemaName: 'video-schema',
     params: {
         id: 'text',
         url: 'text',
         website: 'text'
     },
-    transform,
     ttl: 600
 };

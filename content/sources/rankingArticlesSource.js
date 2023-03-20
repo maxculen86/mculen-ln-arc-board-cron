@@ -12,7 +12,7 @@ import {
     MINIMUM_ITEMS
 } from './utils/rankingArticlesSource/_helper';
 
-const fetch = query => {
+const fetch = (query, { cachedCall } = {}) => {
     const { sectionId, arcSite, layout } = query;
     const newQuery = { ...query, ...getQuery(sectionId, layout) };
     const { endpoint, size } = newQuery;
@@ -34,12 +34,16 @@ const fetch = query => {
                       json: true
                   })
                       .then(articles =>
-                          sortData(
-                              get(articles, 'content_elements', []).filter(
-                                  art => !isNotRecommend(art)
+                          transform(
+                              sortData(
+                                  get(articles, 'content_elements', []).filter(
+                                      art => !isNotRecommend(art)
+                                  ),
+                                  stories,
+                                  size
                               ),
-                              stories,
-                              size
+                              query,
+                              cachedCall
                           )
                       )
                       .catch(error => {
@@ -52,18 +56,17 @@ const fetch = query => {
         });
 };
 
-const transform = (data, query) => {
+const transform = async (data, query, cachedCall) => {
     const { sectionId = '', layout } = query;
     const { size, name } = getQuery(sectionId, layout);
 
     return data.length === size
-        ? { articles: transformData(data, query), size, name }
+        ? { articles: await transformData(data, query, cachedCall), size, name }
         : {};
 };
 
 export default {
     fetch,
-    transform,
     params: {
         endpoint: 'text',
         days: 'number',
