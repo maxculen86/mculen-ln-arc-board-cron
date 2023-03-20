@@ -5,7 +5,7 @@ jest.mock('../../../../content/sources/utils/redirect');
 Redirect.mockReturnValue(Promise.reject());
 
 describe('Tests hasNotAMP function', () => {
-    it('Should throw a redirect for the non-AMP layout on the client side keeping the query params', () => {
+    it('Should throw a redirect for the non-AMP pages horoscope on server side', () => {
         delete global.window;
         try {
             hasNotAMP(
@@ -14,10 +14,10 @@ describe('Tests hasNotAMP function', () => {
             );
         } catch (error) {}
         expect(Redirect).toBeCalled();
-        expect(Redirect).toBeCalledWith('/horoscopo/?adtest=true&d=1302', 301);
+        expect(Redirect).toBeCalledWith('/horoscopo/?outputType=default', 301);
     });
 
-    it('Should throw redirect for layout without AMP on clientside', () => {
+    it('Should throw a redirect for the non-AMP pages sport on server side', () => {
         delete global.window;
         try {
             hasNotAMP(
@@ -27,13 +27,26 @@ describe('Tests hasNotAMP function', () => {
         } catch (error) {
             expect(Redirect).toBeCalled();
             expect(Redirect).toBeCalledWith(
-                '/deportes/futbol/?adstest=true',
+                '/deportes/futbol/?outputType=default',
                 301
             );
         }
     });
 
-    it('Should not throw redirect for layout with AMP on clientside', () => {
+    it('Should throw a redirect for the non-AMP pages home on server side', () => {
+        delete global.window;
+        try {
+            hasNotAMP(
+                'LN-Home_Main',
+                '/homepage/?outputType=amp&adstest=true&d=2345'
+            );
+        } catch (error) {}
+        expect(Redirect).toBeCalled();
+        expect(Redirect).toBeCalledWith('/homepage/?outputType=default', 301);
+    });
+
+    it('Should not throw redirect for layout with AMP on serverside ', () => {
+        delete global.window;
         let err;
         const Redirect = jest.fn();
         try {
@@ -48,20 +61,7 @@ describe('Tests hasNotAMP function', () => {
         expect(Redirect).not.toBeCalled();
     });
 
-    it('Should throw redirect to not AMP url with 301 status code on serverside', () => {
-        delete global.window;
-        try {
-            hasNotAMP(
-                'LN-Home_Main',
-                '/homepage/?outputType=amp&adstest=true&d=2345'
-            );
-        } catch (error) {}
-        expect(Redirect).toBeCalled();
-        expect(Redirect).toBeCalledWith('/homepage/?adstest=true&d=2345', 301);
-    });
-
-    it('Should not throw redirect for layout with AMP on serverside ', () => {
-        delete global.window;
+    it('Should not throw redirect for layout with AMP on clientside', () => {
         let err;
         const Redirect = jest.fn();
         try {
