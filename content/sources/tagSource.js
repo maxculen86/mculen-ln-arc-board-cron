@@ -11,6 +11,8 @@ import NotFoundError from './utils/notFoundError';
 import getRequest from './utils/getRequest';
 import transformWikiTagData from './utils/transformWikiTagData';
 
+export const SUSCRIPTOR_SECTION = 'la-nacion-cerca';
+
 const resolve = key => {
     const { slug, outputType } = key;
 
@@ -38,6 +40,13 @@ const fetch = async (query, { cachedCall }) => {
         independent: true
     });
 
+    const { acumuladoGeneral: { colecciones = [] } = {} } =
+        slug === SUSCRIPTOR_SECTION
+            ? await cachedCall('sectionSource', getRequest, {
+                  query: `${CONTENT_BASE}/site/v3/navigation/la-nacion-ar/?_id=/suscriptores`
+              })
+            : {};
+
     return request(opt)
         .then(resp => {
             if (resp.Payload && resp.Payload.items && resp.Payload.items[0]) {
@@ -50,7 +59,13 @@ const fetch = async (query, { cachedCall }) => {
                 throw new NotFoundError(`Tag no encontrado: ${slug}`);
             }
 
-            return transform(resp, query, tagConfigData, cachedCall);
+            return transform(
+                resp,
+                query,
+                tagConfigData,
+                cachedCall,
+                colecciones
+            );
         })
         .catch(error => {
             logger.push(
@@ -61,7 +76,13 @@ const fetch = async (query, { cachedCall }) => {
         });
 };
 
-const transform = async (data, query, tagConfigData, cachedCall) => {
+const transform = async (
+    data,
+    query,
+    tagConfigData,
+    cachedCall,
+    colecciones
+) => {
     const { meteringVariant, slug } = query || {};
 
     const { tagConfigGroup } = tagConfigData || {};
@@ -76,7 +97,8 @@ const transform = async (data, query, tagConfigData, cachedCall) => {
     const acumuladoGeneral = {
         anexosuperior: getDataForTag(anexoSuperiorTag, slug),
         anexoinferior: getDataForTag(anexoInferiorTag, slug),
-        collectionForTag: getDataForTag(collectionTag, slug)
+        collectionForTag: getDataForTag(collectionTag, slug),
+        colecciones
     };
     const isWiki = typeof wikiList[slug] !== 'undefined';
 
