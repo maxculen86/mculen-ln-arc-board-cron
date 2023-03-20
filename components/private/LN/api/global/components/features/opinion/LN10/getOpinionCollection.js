@@ -1,0 +1,149 @@
+import {
+    getCommonPropsJson,
+    getArticlesFromMyCurrentCollection,
+    getIdsArticlesFromOtherCollections
+} from '../../../../../../common/utils/cajaTemasValidators';
+import get from '../../../../../../../common/utils/get';
+import filter from '../../../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
+import { articleSourceNotaSourceInclude } from '../../article/common/sources/articleSourceNotaSourceInclude';
+import diagramationRules from '../../../../../../../common/utils/diagramationRules';
+
+class GetOpinionCollection {
+    constructor(props, typeChain) {
+        this.props = props;
+        this.state = {};
+        const sourceInclude = articleSourceNotaSourceInclude('default');
+
+        let query = this.getQueryElement(
+            this.props,
+            'customFields.idCollectionOpinion'
+        );
+
+        if (query.filterRepetead && query.id) {
+            this.fetchContent({
+                articleListOpinion: {
+                    source: 'collectionsSource',
+                    query,
+                    filter,
+                    sourceInclude
+                }
+            });
+        }
+
+        query = this.getQueryElement(
+            this.props,
+            'customFields.idCollectionEditorial'
+        );
+
+        if (query.filterRepetead && query.id) {
+            this.fetchContent({
+                articleListEditorial: {
+                    source: 'collectionsSource',
+                    query,
+                    filter,
+                    sourceInclude
+                }
+            });
+        }
+
+        const imageId = get(this.props, 'customFields.imageId', '');
+        const idCollection = get(
+            this.props,
+            'customFields.idCollectionOpinion',
+            ''
+        );
+
+        imageId &&
+            imageId.trim() &&
+            this.fetchContent({
+                containerImageOpinion: {
+                    source: 'relatedImageSource',
+                    query: {
+                        id: imageId.trim(),
+                        published: true,
+                        imageConfig: 'techoImagen',
+                        'arc-site': 'la-nacion-ar',
+                        nid: `IdCollection ${idCollection}`,
+                        boxType: 'GetCajaCollection'
+                    }
+                }
+            });
+    }
+
+    getQueryElement = (props, paramIdCollection) => {
+        const {
+            customFields: { initialPosition, layout = '' },
+            renderables
+        } = props;
+        const idCollection = get(props, paramIdCollection, null);
+
+        const rules = diagramationRules(layout) || [];
+        const { collectionsInPage, notesQuantity } = getCommonPropsJson(props);
+        const articlesFromCollectionSiteService = getArticlesFromMyCurrentCollection(
+            collectionsInPage,
+            idCollection,
+            Number(initialPosition) - 1,
+            Number(notesQuantity)
+        );
+        const isInSiteService = articlesFromCollectionSiteService.length > 0;
+
+        const idsArticlesToExclude = !isInSiteService
+            ? getIdsArticlesFromOtherCollections(renderables, collectionsInPage)
+            : [];
+
+        return {
+            id: idCollection && idCollection.trim(),
+            size: 20,
+            website: 'la-nacion-ar',
+            from: Number(initialPosition) - 1,
+            idsArticlesToExclude,
+            filterRecomendar: true,
+            filterRepetead: !isInSiteService,
+            notesQuantity: rules.length || notesQuantity,
+            layout
+        };
+    };
+
+    renderResponse = (props, articlesOpinion, articlesEditorial, image) => {
+        const { customFields } = props;
+
+        if (!articlesOpinion || !articlesEditorial) {
+            return null;
+        }
+
+        //  Tomar en cuenta para Cajas BN Focal 1+4 o Canal Focal 1+4, si valida que sea n5 notas.
+        const layout = get(customFields, 'layout', null);
+        let storiesQuantity = 0;
+        if (layout) {
+            storiesQuantity = parseInt(layout.charAt(layout.length - 1), 10);
+            articlesOpinion.slice(0, storiesQuantity || articlesOpinion.length);
+            articlesEditorial.slice(
+                0,
+                storiesQuantity || articlesEditorial.length
+            );
+        }
+
+        const boxEditorial = {
+            information: {
+                ...customFields,
+                layout: customFields && '_'.concat(customFields.layout),
+                nameFeature: 'LN-common/LN10_editorial',
+                image
+            },
+            articles: articlesEditorial
+        };
+
+        return {
+            information: {
+                ...customFields,
+                image
+            },
+            articles: [].concat([boxEditorial], articlesOpinion)
+        };
+    };
+
+    render() {
+        return null;
+    }
+}
+export default GetOpinionCollection;
