@@ -24,12 +24,12 @@ import {
     showSection,
     showExtraClass,
     getTypeOfMedia,
-    validateImagePosition,
-    isInApertura
+    validateImagePosition
 } from './_helper';
 import {
     getChainConfig,
-    validateArticleFeature
+    validateArticleFeature,
+    isInApertura
 } from './common/_helper-WebApi';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';

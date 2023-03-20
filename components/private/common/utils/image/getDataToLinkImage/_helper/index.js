@@ -1,7 +1,6 @@
 import get from '../../../get';
 import { STORYTELLING } from '../../../subtypes/subtypeHelper';
 import { replaceAllUrlsResizerArray } from '../../../../../LN/common/utils/mediaHelper';
-import siteProperties from '../../../../../../../properties/sites/la-nacion-ar';
 
 export const getResizedUrls = (subtype, promoItems, basicDefault) => {
     const isVideoType =
@@ -45,6 +44,3 @@ export const getPromoItems = items => {
 };
 
 export const checkForId = id => (id && id.trim() ? id : '');
-
-export const isHomeLN10 = layout =>
-    get(siteProperties, 'layoutsName.HomeLN10', '') === layout;

@@ -11,7 +11,6 @@ import transformImageData from '../../../private/common/LN-10/transformImageData
 import setClassName from '../../../private/common/utils/setClassName';
 import { getIsBomba, getChainParentOfFeature } from './common/_helper-WebApi';
 import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
-import { getValidElementForPreload } from '../../../private/common/utils/image/getDataToLinkImage/_helper/_homeHelper';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -295,27 +294,4 @@ export const showExtraClass = (typeOfMedia, className, extraClass = {}) => {
     });
 
     return classname || undefined;
-};
-
-export const isInApertura = ({
-    layoutPageBuilder,
-    config,
-    renderables = [],
-    featureId = ''
-} = {}) => {
-    const element = getValidElementForPreload(layoutPageBuilder, renderables);
-
-    const { withPreload = false } = config || {};
-
-    const isImageHide = get(
-        element,
-        'children[0].props.customFields.hideImage',
-        false
-    );
-
-    return (
-        get(element, 'children[0].props.id') === featureId &&
-        withPreload &&
-        !isImageHide
-    );
 };

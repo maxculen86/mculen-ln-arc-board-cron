@@ -2,7 +2,8 @@ import { useContent } from 'fusion:content';
 import filterArticle from '../../../../../../../../content/filters/LN/nota/articleAcu';
 import useGetVideoPosterResized from './useGetVideoPosterResizer';
 import isSSR from '../../../../../../LN/common/utils/isSSR';
-import { checkForId, isHomeLN10 } from '../index';
+import { checkForId } from '../index';
+import { isHomeLN10 } from '../common/helper-WebApi';
 import withResizerV2 from '../../../enableResizerV2';
 
 const conditionallyCallSource = (

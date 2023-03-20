@@ -11,9 +11,9 @@ import {
     validateSubhead,
     showExtraClass,
     getTypeOfMedia,
-    getOnlyHoursMinutes,
-    isInApertura
+    getOnlyHoursMinutes
 } from '../../../../../components/features/LN-10/article/_helper';
+import { isInApertura } from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
 import {
     renderablesWithBombaEager,

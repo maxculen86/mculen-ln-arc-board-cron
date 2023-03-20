@@ -1,11 +1,10 @@
 import getProperties from 'fusion:properties';
 import get from '../../../../get';
 import useGetMediaData from './useGetMediaData';
-import sectionsValidation from '../../../../../../../layouts/config/LN-Home.config.json';
-import sectionsValidationLN10 from '../../../../../../../layouts/config/LN10-Home.config.json';
-import { getcustomFieldsData, getPromoItems, isHomeLN10 } from '../index';
-import getElementFromRenderables from '../../../../getElementFromRenderables';
+import { getcustomFieldsData, getPromoItems } from '../index';
+import { isHomeLN10 } from '../common/helper-WebApi';
 import diagramationRules from '../../../../diagramationRules';
+import { getValidElementForPreload } from './common/helper-WebApi';
 
 const getImageConfig = (
     configArticle,
@@ -59,50 +58,6 @@ const getArticleAndConfig = (diagramacion, element, isBombaFeature, layout) => {
     }
 
     return { article: children[0] };
-};
-
-export const getValidElementForPreload = (layout, renderables) => {
-    // TODO: Remover el return default cuando salga home ln 10
-    if (isHomeLN10(layout)) {
-        const bomba = getElementFromRenderables({
-            position: 'Pre_Apertura.position',
-            config: sectionsValidationLN10,
-            typeElement: 'LN10_Caja_Bomba',
-            renderables,
-            propNameHide: 'hideCaja'
-        });
-
-        return (
-            bomba ||
-            getElementFromRenderables({
-                position: 'Apertura.position',
-                config: sectionsValidationLN10,
-                typeElement: 'LN10_Caja_Apertura',
-                renderables
-            }) ||
-            []
-        );
-    }
-
-    const bomba = getElementFromRenderables({
-        position: 'Bomba.position',
-        config: sectionsValidation,
-        typeElement: 'LN-common/bomba',
-        renderables,
-        propNameHide: 'hideFeature'
-    });
-
-    return (
-        bomba ||
-        getElementFromRenderables({
-            position: 'Apertura_1.position',
-            config: sectionsValidation,
-            typeElement: 'Ln_Caja_Manual',
-            renderables,
-            propNameHide: 'hideCaja'
-        }) ||
-        []
-    );
 };
 
 const useGetMediaApertura = ({
