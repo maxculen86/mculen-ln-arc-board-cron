@@ -1116,6 +1116,106 @@ const diagramationRules = diagramation => {
                     desktop: 'img-left'
                 }
             }
+        ],
+        opinion4: [
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true,
+                cardSize: '2xl',
+                titleTag: 'h2',
+                subheadTag: 'h3'
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: 'l',
+                titleTag: 'h2',
+                subheadTag: 'h3'
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: 'l',
+                titleTag: 'h2',
+                subheadTag: 'h3'
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: 'l',
+                titleTag: 'h2',
+                subheadTag: 'h3'
+            }
+        ],
+        opinion8: [
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: true,
+                cardSize: '2xl',
+                titleTag: 'h2',
+                subheadTag: 'h3'
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: 'l',
+                titleTag: 'h2',
+                subheadTag: 'h3'
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: 'l',
+                titleTag: 'h2',
+                subheadTag: 'h3'
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: 'l',
+                titleTag: 'h2',
+                subheadTag: 'h3'
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: 'l',
+                titleTag: 'h2',
+                subheadTag: 'h3'
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: 'l',
+                titleTag: 'h2',
+                subheadTag: 'h3'
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: 'l',
+                titleTag: 'h2',
+                subheadTag: 'h3'
+            },
+            {
+                withMarquee: true,
+                withMarqueeImg: true,
+                withMedia: false,
+                cardSize: 'l',
+                titleTag: 'h2',
+                subheadTag: 'h3'
+            }
         ]
     };
 

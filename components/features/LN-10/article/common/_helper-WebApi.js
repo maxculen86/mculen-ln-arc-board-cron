@@ -9,6 +9,7 @@ import {
     LIVE,
     EXCLUSIVE_LN
 } from '../../../../private/common/badge/types';
+import { getValidElementForPreload } from '../../../../private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/common/helper-WebApi';
 
 export const typeBadge = {
     0: POSITIVE,
@@ -158,4 +159,27 @@ export const validateArticleFeature = ({
     ];
 
     return pageBuilderValidator(rules);
+};
+
+export const isInApertura = ({
+    layoutPageBuilder,
+    config,
+    renderables = [],
+    featureId = ''
+} = {}) => {
+    const element = getValidElementForPreload(layoutPageBuilder, renderables);
+
+    const { withPreload = false } = config || {};
+
+    const isImageHide = get(
+        element,
+        'children[0].props.customFields.hideImage',
+        false
+    );
+
+    return (
+        get(element, 'children[0].props.id') === featureId &&
+        withPreload &&
+        !isImageHide
+    );
 };

@@ -6,6 +6,7 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
     const boxTypeContainer = {
         0: [
             'afondo',
+            'bombita',
             'bomba',
             'apertura',
             'contentlab',

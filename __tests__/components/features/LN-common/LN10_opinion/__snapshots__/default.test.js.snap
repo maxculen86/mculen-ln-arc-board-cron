@@ -1,0 +1,642 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests - helpers - feature - Opinion should should return feature 1`] = `
+<div>
+  <div
+    class="hidden"
+  >
+    <div
+      data-module="tema_opinion"
+    >
+      <section
+        data-block-name="h_opinion"
+        data-chain-position="00"
+        data-diagramacion-id="0"
+        data-is-block="true"
+      >
+        <div
+          class="ln-roof --generic"
+          roof-container="roof-container"
+        >
+          <div
+            class="--ln-roof-full --d-flex --jc-between --pt-md"
+          >
+            <div
+              class="--ln-roof-left"
+            >
+              <div
+                class="--d-flex --ai-center --uppercase"
+                roof-group="left"
+              >
+                <h3
+                  class="text ln-text --roof-title --prumo --font-xl-l"
+                >
+                  Opinión
+                </h3>
+                
+              </div>
+            </div>
+            <div
+              class="--ln-roof-right --d-flex --ai-center --generico"
+              roof-group="right"
+            >
+              
+            </div>
+          </div>
+        </div>
+        <section
+          class="ln-cajaopinion --opinion_2_1_2_4_grid"
+          data-testid="opinion-test-id"
+        >
+          <div
+            class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+          >
+            <div
+              class="grid-item --0 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
+            >
+              <article
+                class="ln-card --d-flex --flex-col --ai-start --2xl --author --with-media"
+                data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
+                data-notaid="UV32UCCHWZH6LKMZKHGOQJHR4I"
+                data-pos="9801"
+                data-source="editor"
+              >
+                <a
+                  class="link ln-link --d-flex --flex-col --unstyled"
+                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  target="_self"
+                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                >
+                  <section
+                    class="media-container --mb-xs"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                    title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                  >
+                    <picture
+                      class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
+                    >
+                      <img
+                        alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                        class="image --d-flex --w-100 --h-100"
+                        decoding="async"
+                        fetchpriority="low"
+                        height="513"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                        srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 360w, https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 768w, https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 351w, "
+                        width="768"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container --relative --d-flex --flex-col"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  >
+                    <h2
+                      class="text ln-text title --mb-xs --prumo --font-semi --font-2xl"
+                    >
+                      Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
+                    </h2>
+                    <div
+                      class="marquee-container --mb-xs --d-flex --ai-center"
+                      title="Por Celina Chatruc"
+                    >
+                      <img
+                        alt="Celina Chatruc"
+                        class="image --d-flex marquee-img --mr-2xs"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/VjOcNLPpTWMTXH79NkWuOzOmZWs=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/349d9032-c3ed-4e83-aaba-751f272c8bf1.png"
+                      />
+                      <div
+                        class="marquee-text --d-flex --flex-col --font-2xs"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Celina Chatruc
+                          </strong>
+                        </span>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <div
+                class="opinion-flex-col"
+              >
+                <article
+                  class="ln-card --d-flex --flex-col --ai-start --l --author"
+                  data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
+                  data-notaid="M3JPASZJAVBIRIZPVCSSVBUAHI"
+                  data-pos="9802"
+                  data-source="editor"
+                >
+                  <a
+                    class="link ln-link --d-flex --flex-col --unstyled"
+                    href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                    target="_self"
+                    title="Bullrich visita El Calafate y presenta libro"
+                  >
+                    <section
+                      class="description-container --relative --d-flex --flex-col"
+                      href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                    >
+                      <h2
+                        class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                      >
+                        Bullrich visita El Calafate y presenta libro
+                      </h2>
+                      <div
+                        class="marquee-container --mb-xs --d-flex --ai-center"
+                        title="Por Mariela Arias"
+                      >
+                        <img
+                          alt="Mariela Arias"
+                          class="image --d-flex marquee-img --mr-2xs"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/g4VYwZ8Hijs79Uo1sktVzEm-tsI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/7b02b8e3-1247-4b47-aa72-c7376081b387.png"
+                        />
+                        <div
+                          class="marquee-text --d-flex --flex-col --font-2xs"
+                        >
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Mariela Arias
+                            </strong>
+                          </span>
+                        </div>
+                      </div>
+                    </section>
+                  </a>
+                </article>
+                <article
+                  class="ln-card --d-flex --flex-col --ai-start --l --author"
+                  data-id="PUTOXECLIZCMDI4Z5WDWQI5CUY"
+                  data-notaid="PUTOXECLIZCMDI4Z5WDWQI5CUY"
+                  data-pos="9803"
+                  data-source="editor"
+                >
+                  <a
+                    class="link ln-link --d-flex --flex-col --unstyled"
+                    href="/salud/beliz-cavallo-una-alianza-ya-imposible-nid14032022/"
+                    target="_self"
+                    title="Beliz-Cavallo, una alianza ya imposible"
+                  >
+                    <section
+                      class="description-container --relative --d-flex --flex-col"
+                      href="/salud/beliz-cavallo-una-alianza-ya-imposible-nid14032022/"
+                    >
+                      <h2
+                        class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                      >
+                        Beliz-Cavallo, una alianza ya imposible
+                      </h2>
+                      <div
+                        class="marquee-container --mb-xs --d-flex --ai-center"
+                        title="Por Joaquín Morales Solá"
+                      >
+                        <img
+                          alt="Joaquín Morales Solá"
+                          class="image --d-flex marquee-img --mr-2xs"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/dzh5nyJx0on_ewhKSXBKBavSnuw=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/55/2089255.png"
+                        />
+                        <div
+                          class="marquee-text --d-flex --flex-col --font-2xs"
+                        >
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Joaquín Morales Solá
+                            </strong>
+                          </span>
+                        </div>
+                      </div>
+                    </section>
+                  </a>
+                </article>
+              </div>
+            </div>
+            <div
+              class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <div
+                class="opinion-flex-col"
+              >
+                <div
+                  data-module="tema_editoriales"
+                >
+                  <section
+                    class="ln-card-editoriales"
+                    data-block-name="h_editoriales"
+                    data-chain-position="00"
+                    data-diagramacion-id="0"
+                    data-is-block="true"
+                    data-testid="opinion-test-id"
+                  >
+                    <a
+                      class="link ln-link --unstyled"
+                      href="https://www.lanacion.com.ar/editoriales/"
+                      target="_self"
+                      title="Editoriales"
+                    >
+                      <p
+                        class="text ln-text --editoriales-roof --prumo --font-s"
+                      >
+                        EDITORIALES
+                      </p>
+                    </a>
+                    <div
+                      class="grid container-op-top --grid-cols-8 --grid-cols-md-3 --grid-cols-lg-3 --grid-cols-xl-3 --gap-none --grid-ai-stretch"
+                    >
+                      <div
+                        class="grid-item --editoriales-0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+                      >
+                        <article
+                          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right --tablet-img-bottom --desktop-img-bottom"
+                          data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
+                          data-notaid="UV32UCCHWZH6LKMZKHGOQJHR4I"
+                          data-pos="9901"
+                          data-source="editor"
+                        >
+                          <a
+                            class="link ln-link --d-flex --flex-col --unstyled"
+                            href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                            target="_self"
+                            title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                          >
+                            <section
+                              class="media-container --mb-xs"
+                              href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                              title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                            >
+                              <picture
+                                class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
+                              >
+                                <img
+                                  alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                                  class="image --d-flex --w-100 --h-100"
+                                  decoding="async"
+                                  fetchpriority="low"
+                                  height="513"
+                                  loading="lazy"
+                                  src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                                  srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 360w, https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 768w, https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 351w, "
+                                  width="768"
+                                />
+                              </picture>
+                            </section>
+                            <section
+                              class="description-container --relative --d-flex --flex-col"
+                              href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                            >
+                              <h2
+                                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                              >
+                                Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
+                              </h2>
+                            </section>
+                          </a>
+                        </article>
+                      </div>
+                      <div
+                        class="grid-item --editoriales-1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+                      >
+                        <article
+                          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-none --tablet-img-none --desktop-img-none"
+                          data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
+                          data-notaid="M3JPASZJAVBIRIZPVCSSVBUAHI"
+                          data-pos="9902"
+                          data-source="editor"
+                        >
+                          <a
+                            class="link ln-link --d-flex --flex-col --unstyled"
+                            href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                            target="_self"
+                            title="Bullrich visita El Calafate y presenta libro"
+                          >
+                            <section
+                              class="media-container --mb-xs"
+                              href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                              title="Bullrich visita El Calafate y presenta libro"
+                            >
+                              <picture
+                                class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
+                              >
+                                <img
+                                  alt="Bullrich visita El Calafate y presenta libro"
+                                  class="image --d-flex --w-100 --h-100"
+                                  decoding="async"
+                                  fetchpriority="low"
+                                  loading="lazy"
+                                />
+                              </picture>
+                            </section>
+                            <section
+                              class="description-container --relative --d-flex --flex-col"
+                              href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                            >
+                              <h2
+                                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                              >
+                                Bullrich visita El Calafate y presenta libro
+                              </h2>
+                            </section>
+                          </a>
+                        </article>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+                <article
+                  class="ln-card --d-flex --flex-col --ai-start --l --author"
+                  data-id="KLCMCRBJMFCUBFE55NDGERCTJQ"
+                  data-notaid="KLCMCRBJMFCUBFE55NDGERCTJQ"
+                  data-pos="9804"
+                  data-source="editor"
+                >
+                  <a
+                    class="link ln-link --d-flex --flex-col --unstyled"
+                    href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
+                    target="_self"
+                    title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
+                  >
+                    <section
+                      class="description-container --relative --d-flex --flex-col"
+                      href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
+                    >
+                      <h2
+                        class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                      >
+                        Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
+                      </h2>
+                      <div
+                        class="marquee-container --mb-xs --d-flex --ai-center"
+                        title="Por Francisco Jueguen"
+                      >
+                        <img
+                          alt="Francisco Jueguen"
+                          class="image --d-flex marquee-img --mr-2xs"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/C4IikfKm6-8pBeC-UUl6_0N8rAw=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2089241.png"
+                        />
+                        <div
+                          class="marquee-text --d-flex --flex-col --font-2xs"
+                        >
+                          <span
+                            class="text ln-text marquee"
+                          >
+                            Por 
+                            <strong>
+                              Francisco Jueguen
+                            </strong>
+                          </span>
+                        </div>
+                      </div>
+                    </section>
+                  </a>
+                </article>
+              </div>
+            </div>
+            <div
+              class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card --d-flex --flex-col --ai-start --l --author"
+                data-id="VD7B5NVJQFEVDP4CACDCKLACFQ"
+                data-notaid="VD7B5NVJQFEVDP4CACDCKLACFQ"
+                data-pos="9805"
+                data-source="editor"
+              >
+                <a
+                  class="link ln-link --d-flex --flex-col --unstyled"
+                  href="/economia/dolar-libre-la-jugada-del-banco-central-que-impidio-una-suba-mayor-nid14042020/"
+                  target="_self"
+                  title="Dólar libre. La jugada del Banco Central que impidió una suba mayor"
+                >
+                  <section
+                    class="description-container --relative --d-flex --flex-col"
+                    href="/economia/dolar-libre-la-jugada-del-banco-central-que-impidio-una-suba-mayor-nid14042020/"
+                  >
+                    <h2
+                      class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                    >
+                      Dólar libre. La jugada del Banco Central que impidió una suba mayor
+                    </h2>
+                    <div
+                      class="marquee-container --mb-xs --d-flex --ai-center"
+                      title="Por Javier Blanco, Diego Japas y José Del Rio"
+                    >
+                      <img
+                        alt="Javier Blanco, Diego Japas y José Del Rio"
+                        class="image --d-flex marquee-img --mr-2xs"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/ul__ravfTXHGsE9dUj5-Lf2QC50=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png"
+                      />
+                      <div
+                        class="marquee-text --d-flex --flex-col --font-2xs"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Javier Blanco, Diego Japas y José Del Rio
+                          </strong>
+                        </span>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card --d-flex --flex-col --ai-start --l --author"
+                data-id="AVYWDWDAVVESZGD7HXMW46GTYA"
+                data-notaid="AVYWDWDAVVESZGD7HXMW46GTYA"
+                data-pos="9806"
+                data-source="editor"
+              >
+                <a
+                  class="link ln-link --d-flex --flex-col --unstyled"
+                  href="/economia/el-gobierno-evalua-postular-a-una-diplomatica-de-carrera-para-la-embajada-en-el-vaticano-nid23012020/"
+                  target="_self"
+                  title="El Gobierno evalúa postular a una diplomática de carrera para la embajada en el Vaticano....LARGOoOoO"
+                >
+                  <section
+                    class="description-container --relative --d-flex --flex-col"
+                    href="/economia/el-gobierno-evalua-postular-a-una-diplomatica-de-carrera-para-la-embajada-en-el-vaticano-nid23012020/"
+                  >
+                    <h2
+                      class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                    >
+                      El Gobierno evalúa postular a una diplomática de carrera para la embajada en el Vaticano....LARGOoOoO
+                    </h2>
+                    <div
+                      class="marquee-container --mb-xs --d-flex --ai-center"
+                      title="Por Alan Soria Guadalupe"
+                    >
+                      <img
+                        alt="Alan Soria Guadalupe"
+                        class="image --d-flex marquee-img --mr-2xs"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/NoyW7c4YoIHQ4QmAuiuwPclIzLg=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/9eb87bcc-8cb9-4632-8e99-0945ee6697a6.png"
+                      />
+                      <div
+                        class="marquee-text --d-flex --flex-col --font-2xs"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Alan Soria Guadalupe
+                          </strong>
+                        </span>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card --d-flex --flex-col --ai-start --l --author"
+                data-id="52CYTDWKNFCUTI3YX74GJM3GKU"
+                data-notaid="52CYTDWKNFCUTI3YX74GJM3GKU"
+                data-pos="9807"
+                data-source="editor"
+              >
+                <a
+                  class="link ln-link --d-flex --flex-col --unstyled"
+                  href="/deportes/una-nueva-prueba-en-vivo-nid17032021/"
+                  target="_self"
+                  title="Una nueva prueba en vivo"
+                >
+                  <section
+                    class="description-container --relative --d-flex --flex-col"
+                    href="/deportes/una-nueva-prueba-en-vivo-nid17032021/"
+                  >
+                    <h2
+                      class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                    >
+                      Una nueva prueba en vivo
+                    </h2>
+                    <div
+                      class="marquee-container --mb-xs --d-flex --ai-center"
+                      title="Por Javier Fuego Simondet"
+                    >
+                      <img
+                        alt="Javier Fuego Simondet"
+                        class="image --d-flex marquee-img --mr-2xs"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/YxQXCJUlsX8WgJCVtpLdw89mZKA=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2c5ce33a-d9b3-43bf-8eb9-705b70081e77.png"
+                      />
+                      <div
+                        class="marquee-text --d-flex --flex-col --font-2xs"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Javier Fuego Simondet
+                          </strong>
+                        </span>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card --d-flex --flex-col --ai-start --l --author"
+                data-id="KEBYELHATJHPRNAWO24GRV6YCQ"
+                data-notaid="KEBYELHATJHPRNAWO24GRV6YCQ"
+                data-pos="9808"
+                data-source="editor"
+              >
+                <a
+                  class="link ln-link --d-flex --flex-col --unstyled"
+                  href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
+                  target="_self"
+                  title="Cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
+                >
+                  <section
+                    class="description-container --relative --d-flex --flex-col"
+                    href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
+                  >
+                    <h2
+                      class="text ln-text title --mb-xs --prumo --font-semi --font-l"
+                    >
+                      Cómo evitar que los perros sufran cuando vuelvan a quedarse solos
+                    </h2>
+                    <div
+                      class="marquee-container --mb-xs --d-flex --ai-center"
+                      title="Por Patricia Osuna Gutiérrez"
+                    >
+                      <img
+                        alt="Patricia Osuna Gutiérrez"
+                        class="image --d-flex marquee-img --mr-2xs"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/JaK-x5J-Gtv0WsL0PnG8JXOAPYk=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/e9cd9db6-82f1-4de8-b34b-d6a30b2ce169.png"
+                      />
+                      <div
+                        class="marquee-text --d-flex --flex-col --font-2xs"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Patricia Osuna Gutiérrez
+                          </strong>
+                        </span>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </article>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </div>
+</div>
+`;
