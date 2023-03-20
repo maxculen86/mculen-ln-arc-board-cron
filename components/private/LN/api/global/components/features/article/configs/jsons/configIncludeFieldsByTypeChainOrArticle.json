@@ -1,0 +1,6 @@
+{
+    "hashtag": "taxonomy,distributor.name,related_content.basic,_id,last_updated_date,headlines,workflow,description,label,promo_items,canonical_website,subtype,first_publish_date,publish_date,website,website_url,taxonomy.primary_section",
+    "default": "taxonomy,distributor.name,related_content.basic,_id,last_updated_date,headlines,workflow,subheadlines,description,label,promo_items,canonical_website,credits,subtype,first_publish_date,publish_date,website,website_url,taxonomy.primary_section",
+    "liveblog": "taxonomy,distributor.name,related_content.basic,_id,last_updated_date,headlines,workflow,subheadlines,description,label,promo_items,canonical_website,credits,subtype,first_publish_date,publish_date,website,website_url,taxonomy.primary_section,content_elements",
+    "regular": "taxonomy,distributor.name,related_content.basic,_id,last_updated_date,headlines,workflow,subheadlines,description,label,promo_items,canonical_website,credits,subtype,first_publish_date,publish_date,website,website_url,taxonomy.primary_section"
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import Context from 'fusion:context';
 import Consumer from 'fusion:consumer';
-import UltimasNoticias from '../../../../components/features/LN-acumulado/ultimasNoticias';
+import UltimasNoticias from '../../../../components/features/LN-acumulado/ultimasNoticias/default.jsx';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import mockArticlesHtml from '../../../../__mocks__/data/ultimasNoticias/mockArticlesHtml';

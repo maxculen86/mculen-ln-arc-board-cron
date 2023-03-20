@@ -1,4 +1,4 @@
-import { videoNotaMobile } from '../../../../common/story/video';
+import { videoNotaMobile } from '../../../../../common/elements/story/video';
 
 const video = nodo => {
     if (!nodo) return null;

@@ -1,4 +1,4 @@
-import htmlText from '../../../../common/story/cuerpo/elements/htmlText';
+import htmlText from '../../../../../common/elements/story/cuerpo/elements/htmlText';
 
 const text = (nodo, dataNota) => {
     if (!nodo) return null;

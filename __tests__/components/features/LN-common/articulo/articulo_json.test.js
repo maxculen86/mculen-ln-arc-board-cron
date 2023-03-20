@@ -105,10 +105,12 @@ describe('components - features - LN-common - articulo - json.js', () => {
                     'chapita',
                     'html',
                     'image',
+                    'idRender',
                     'lead',
                     'noteId',
                     'opinion',
                     'title',
+                    'variant',
                     'video'
                 ].sort()
             );

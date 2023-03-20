@@ -9,7 +9,11 @@ export const findSectionChildren = (renderables, position) => {
     return (sectionFinded && sectionFinded.children) || [];
 };
 
-export const checkIfValid = (name, children) => {
+export const checkIfValid = (name, children, paramSectionValidation = null) => {
+    const sectionToValidate =
+        paramSectionValidation == null
+            ? sectionsValidation
+            : paramSectionValidation;
     const childrenWithoutHide = children.filter(
         child =>
             get(child, 'props.customFields.hideCaja', false) !== true &&
@@ -18,7 +22,7 @@ export const checkIfValid = (name, children) => {
             get(child, 'props.customFields.hideFeature', false) !== true
     );
 
-    const sectionRule = sectionsValidation[name] || {};
+    const sectionRule = sectionToValidate[name] || {};
 
     // Validacion por cantidad
     if (
@@ -32,6 +36,8 @@ export const checkIfValid = (name, children) => {
     }
     // Validacion por tipo de componente
     if (
+        sectionRule &&
+        sectionRule.types &&
         !childrenWithoutHide.every(component =>
             sectionRule.types.includes(component.type)
         )

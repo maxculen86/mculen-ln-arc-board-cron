@@ -1,6 +1,6 @@
 import articlesRecetas from '../../../../../../../../__mocks__/data/articleCollections/recetas.json';
 import AcuIndex from '../../../../../../../../components/private/LN/api/v2/global/accumulated/index';
-import { getFeaturedTag } from '../../../../../../../../components/private/LN/api/v1/common/tag/index';
+import { getFeaturedTag } from '../../../../../../../../components/private/LN/api/common/elements/tag/index';
 import ArticleTagDestacado from '../../../../../../../../__mocks__/data/nota/apertura/tagDestacado/tagDestacado.json';
 
 describe('Test unitarios para espacio patrocinado y content lab', () => {

@@ -1,0 +1,71 @@
+[
+    {
+        "sectionId": "economia/campo",
+        "aliasTitle": "Campo",
+        "isPage": true,
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
+    },
+    {
+        "sectionId": "economia",
+        "isPage": true,
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
+    },
+    {
+        "sectionId": "deportes",
+        "isPage": true,
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
+    },
+    {
+        "sectionId": "suscriptores",
+        "isPage": true,
+        "isCustom": true,
+        "namePage": "suscriptores",
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
+    },
+    {
+        "sectionId": "canchallena",
+        "isPage": true,
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
+    },
+    {
+        "sectionId": "propiedades",
+        "isPage": true,
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
+    },
+    {
+        "sectionId": "campo",
+        "isPage": true,
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
+    },
+    {
+        "sectionId": "bienestar",
+        "isPage": true,
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
+    },
+    {
+        "sectionId": "movilidad",
+        "isPage": true,
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
+    },
+    {
+        "sectionId": "opinión",
+        "isPage": true,
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
+    },
+    {
+        "sectionId": "ultimas-noticias",
+        "aliasTitle": "Últimas noticias",
+        "isPage": true,
+        "isCustom": true,
+        "featureAcumuladosInPage": "LN-acumulado/ultimasNoticias"
+    }
+]

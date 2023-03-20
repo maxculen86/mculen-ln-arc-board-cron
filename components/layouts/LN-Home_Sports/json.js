@@ -1,49 +1,17 @@
 import Consumer from 'fusion:consumer';
-import bitacora from '../../private/LN/api/v1/global/bitacora';
-import pageBuilderSections from '../config/LN-PageBuilder.config.json';
-
-const homeMobileSections = [
-    'Banner-Megatop',
-    'Sticky-Mobile',
-    'Cabezal',
-    'Apertura',
-    'Cuerpo',
-    'Aside'
-];
-
-const getHomeElements = props => {
-    const { children, arcSite } = props;
-    const configurations = {
-        arcSite
-    };
-    return pageBuilderSections.reduce((r, e, i) => {
-        const child = children[i];
-        if (child && Array.isArray(child) && child.length > 0) {
-            return r.concat(
-                [].concat(
-                    child
-                        .filter(
-                            b => b && b.information && !b.information.hideCaja
-                        )
-                        .map(b => {
-                            const addedInfo = { ...b, configurations };
-                            return {
-                                feature: homeMobileSections[i],
-                                ...addedInfo
-                            };
-                        })
-                ) || []
-            );
-        }
-        return r;
-    }, []);
-};
+import pageSportsBuilderSections from '../config/LN-Home_Sports-PageBuilder.config.json';
+import getPageElements from '../../private/LN/api/global/page';
 
 const LNSportsHome = props => {
-    const homeSections = getHomeElements(props);
-    return bitacora(homeSections) || null;
+    const propsHome = {
+        children: props.children,
+        renderables: props.renderables,
+        arcSite: props.arcSite,
+        layout: 'LN-Home_Sports'
+    };
+    return getPageElements(propsHome);
 };
 
-LNSportsHome.sections = homeMobileSections;
+LNSportsHome.sections = pageSportsBuilderSections;
 
 export default Consumer(LNSportsHome);

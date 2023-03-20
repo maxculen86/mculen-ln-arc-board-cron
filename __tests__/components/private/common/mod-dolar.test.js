@@ -45,11 +45,54 @@ describe('With data list', () => {
         expect(screen.getByText('Dólar MEP')).toBeVisible();
         expect(screen.getByText('Dólar mayorista')).toBeVisible();
     });
+});
 
+describe('When the _id !== "/economia/dolar-oficial-historico"', () => {
     it('Should match snapshot showing correct data for all 8 type of dolars', () => {
         const { container } = render(
             <ModDolar {...SOURCE_RESPONSE} oddOrEven="--even" />
         );
         expect(container).toMatchSnapshot();
+    });
+
+    it('Should render link: go to historical official dollar', () => {
+        render(
+            <ModDolar {...SOURCE_RESPONSE} _id="/economia" oddOrEven="--even" />
+        );
+        const historicalOfficialDollarLink = screen.getByRole('link', {
+            name: 'Ir a dólar oficial histórico'
+        });
+        expect(historicalOfficialDollarLink).toHaveAttribute(
+            'href',
+            'https://www.lanacion.com.ar/dolar-oficial-historico/'
+        );
+        expect(historicalOfficialDollarLink).toBeVisible();
+    });
+});
+
+describe('When the _id === "/economia/dolar-oficial-historico"', () => {
+    it('Should match the snapshot showing the correct data for all 8 dollar types without showing the: Go to historical official dollar link', () => {
+        const { container } = render(
+            <ModDolar
+                _id="/economia/dolar-oficial-historico"
+                {...SOURCE_RESPONSE}
+                oddOrEven="--even"
+            />
+        );
+        expect(container).toMatchSnapshot();
+    });
+
+    it('Should not render link: go to historical official dollar', () => {
+        render(
+            <ModDolar
+                {...SOURCE_RESPONSE}
+                _id="/economia/dolar-oficial-historico"
+                oddOrEven="--even"
+            />
+        );
+        const historicalOfficialDollarLink = screen.queryByRole('link', {
+            name: 'Ir a dólar oficial histórico'
+        });
+        expect(historicalOfficialDollarLink).not.toBeInTheDocument();
     });
 });

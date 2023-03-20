@@ -1,7 +1,8 @@
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
 import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
-import resultArticle from '../../../private/LN/api/v1/global/home/article/index';
+import { renderProps } from '../../../private/LN/api/global/components/features/article/LN/renderProps';
+import { articleSourceNotaSourceInclude } from '../../../private/LN/api/global/components/features/article/common/sources/articleSourceNotaSourceInclude';
 import get from '../../../private/common/utils/get';
 
 class ArticleFeature {
@@ -14,6 +15,7 @@ class ArticleFeature {
         } = props;
 
         const renderables = get(props, 'renderables', null);
+        const sourceInclude = articleSourceNotaSourceInclude('default');
         let imageConfig = null;
         this.state = {};
         if (renderables) {
@@ -47,7 +49,8 @@ class ArticleFeature {
                         imageConfig,
                         published: true,
                         checkExclusiveAccess: false,
-                        shouldUseV1: true
+                        shouldUseV1: true,
+                        sourceInclude
                     }
                 }
             });
@@ -76,7 +79,7 @@ class ArticleFeature {
             if (!articleSourceNota) {
                 return null;
             }
-            return resultArticle(
+            return renderProps(
                 articleSourceNota,
                 articleImage,
                 articleVideo,

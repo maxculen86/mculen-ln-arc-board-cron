@@ -1,7 +1,7 @@
 import {
     displayComments,
     openComments
-} from '../../../../../../../components/private/LN/api/v1/common/story/comments';
+} from '../../../../../../../components/private/LN/api/common/elements/story/comments';
 import Article from '../../../../../../../__mocks__/data/nota/cuerpo/notaCuerpo.json';
 
 describe('Test unitarios para espacio patrocinado y content lab', () => {

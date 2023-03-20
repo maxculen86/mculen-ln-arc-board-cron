@@ -1,4 +1,4 @@
-import Image from '../../../../../../../components/private/LN/api/v1/common/image/index';
+import Image from '../../../../../../../components/private/LN/api/common/elements/image/index';
 import article from '../../../../../../../__mocks__/data/articles/newsNoteWithCompleteAttrs.json';
 import articleFoto from '../../../../../../../__mocks__/data/nota/cuerpo/image/imageNoResize.json';
 import imageResizeV2 from '../../../../../../../__mocks__/data/nota/cuerpo/image/image-resizev2.json';

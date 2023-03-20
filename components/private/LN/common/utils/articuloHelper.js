@@ -22,7 +22,8 @@ export const GetImage = ({
     id,
     onlyOneApeturaValidateForWWW,
     isAdmin,
-    filterImage
+    filterImage,
+    shouldUseV2 = false
 }) => {
     return (
         useContent({
@@ -35,7 +36,8 @@ export const GetImage = ({
                 nid: id,
                 boxType: 'ArticleFeature',
                 isInApertura: onlyOneApeturaValidateForWWW,
-                isAdmin
+                isAdmin,
+                shouldUseV2
             },
             filter: filterImage
         }) || null

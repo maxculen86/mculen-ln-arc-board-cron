@@ -225,7 +225,7 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
               <li>
                 <a
                   class="com-link"
-                  href="https://micuenta.lanacion.com.ar/ayuda/"
+                  href="https://www.contacto.lanacion.com.ar/ayuda"
                   title="Ir a las preguntas frecuentes"
                 >
                   Ayuda
@@ -234,7 +234,7 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
               <li>
                 <a
                   class="com-link"
-                  href="https://micuenta.lanacion.com.ar/tyc/"
+                  href="https://www.contacto.lanacion.com.ar/tyc"
                   title="Ir a los términos y condiciones"
                 >
                   Términos y condiciones
@@ -253,7 +253,7 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
               <li>
                 <a
                   class="com-link"
-                  href="https://suscripciones.lanacion.com.ar/suscribirme/"
+                  href="https://suscripciones.lanacion.com.ar/suscribirme"
                   title="Ir a las suscripciones al diario"
                 >
                   Suscribirse al diario impreso
