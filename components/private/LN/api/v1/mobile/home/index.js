@@ -2,14 +2,25 @@ import get from '../../../../../common/utils/get';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 import { Article as ArticleLN10 } from './article/index';
 import { cardRegular as Article } from '../../../common/article/cardRegular/index';
+import { cardAnexoItemMobile as CardAnexoLN } from '../../../common/article/cardAnexo/index';
+import { CardAnexo as CardAnexoLN10 } from './article/cardAnexo/index';
 import configInfoSectionsByLayout from '../../../common/home/config/configInfoSectionsByLayout';
 import { boxInfoByLayoutBySectionAlias } from '../../../common/home/boxInformation/index';
 import { boxTypeByLayout } from '../../../common/home/boxTypes/index';
 
-const ArticleByLayout = {
-    'LN-Home_Main': Article,
-    'LN10-Home_Main': ArticleLN10,
-    default: Article
+const FunctionsBoxContentsByLayout = {
+    'LN-Home_Main': {
+        article: Article,
+        anexo: CardAnexoLN
+    },
+    'LN10-Home_Main': {
+        article: ArticleLN10,
+        anexo: CardAnexoLN10
+    },
+    default: {
+        article: Article,
+        anexo: CardAnexoLN
+    }
 };
 
 const index = (
@@ -21,7 +32,6 @@ const index = (
 ) => {
     const layoutPage = get(paramsFromPage, 'information.layoutPage', 'null');
     const typeSection = configInfoSectionsByLayout(layoutPage);
-    const articleFn = ArticleByLayout[layoutPage] || Article;
 
     if (!layoutPage || !typeSection) {
         // eslint-disable-next-line no-console
@@ -49,23 +59,50 @@ const index = (
         const type = Number(f.type);
         switch (type) {
             case 0:
-                // eslint-disable-next-line no-unreachable
-                result.push(
-                    boxTypeByLayout(layoutPage, type)(
-                        f,
-                        boxInfo,
-                        articleFn,
-                        paramsFromPage
-                    )
-                );
+                {
+                    const articleFn =
+                        get(
+                            FunctionsBoxContentsByLayout,
+                            `${layoutPage}.article`,
+                            null
+                        ) ||
+                        get(
+                            FunctionsBoxContentsByLayout,
+                            `default.article`,
+                            null
+                        );
+                    result.push(
+                        boxTypeByLayout(layoutPage, type)(
+                            f,
+                            boxInfo,
+                            articleFn,
+                            paramsFromPage
+                        )
+                    );
+                }
                 break;
             case 1:
                 // eslint-disable-next-line no-unreachable
                 result.push(boxTypeByLayout(layoutPage, type)(f, typeSection));
                 break;
             case 2:
-                // eslint-disable-next-line no-unreachable
-                result.push(boxTypeByLayout(layoutPage, type)(f, boxInfo));
+                {
+                    const anexoFn =
+                        get(
+                            FunctionsBoxContentsByLayout,
+                            `${layoutPage}.anexo`,
+                            null
+                        ) ||
+                        get(
+                            FunctionsBoxContentsByLayout,
+                            `default.anexo`,
+                            null
+                        );
+                    result.push(
+                        boxTypeByLayout(layoutPage, type)(f, boxInfo, anexoFn)
+                    );
+                }
+
                 break;
 
             case 3:
