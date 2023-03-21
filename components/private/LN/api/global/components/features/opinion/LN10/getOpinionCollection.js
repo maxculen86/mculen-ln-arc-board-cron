@@ -123,6 +123,32 @@ class GetOpinionCollection {
             );
         }
 
+        let articlesListOpinion =
+            Array.isArray(articlesOpinion) &&
+            articlesOpinion.map(o => {
+                return {
+                    ...o,
+                    additionalProperties: {
+                        variant: 'author'
+                    }
+                };
+            });
+
+        let articlesListEditorial =
+            Array.isArray(articlesEditorial) &&
+            articlesEditorial.map(o => {
+                return {
+                    ...o,
+                    additionalProperties: {
+                        variant: 'author'
+                    }
+                };
+            });
+        articlesListOpinion = !articlesListOpinion ? [] : articlesListOpinion;
+        articlesListEditorial = !articlesListEditorial
+            ? []
+            : articlesListEditorial;
+
         const boxEditorial = {
             information: {
                 ...customFields,
@@ -130,7 +156,7 @@ class GetOpinionCollection {
                 nameFeature: 'LN-common/LN10_editorial',
                 image
             },
-            articles: articlesEditorial
+            articles: articlesListEditorial
         };
 
         return {
@@ -138,7 +164,7 @@ class GetOpinionCollection {
                 ...customFields,
                 image
             },
-            articles: [].concat([boxEditorial], articlesOpinion)
+            articles: [].concat([boxEditorial], articlesListOpinion)
         };
     };
 
