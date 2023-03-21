@@ -99,9 +99,33 @@ const setInformationInArticle = (
             return subBoxItem;
         }
     }
+
+    const element = article;
+
+    // Applies to add properties to articles inside nested boxes such as opinion
+    if (element && element.articles && Array.isArray(element.articles)) {
+        const {
+            configDiagramation,
+            configMoveArticlesbyDiagramation
+        } = configsDiagramationFromInformation(
+            element,
+            diagramations,
+            positionsArticlesbyDiagramation
+        );
+
+        element.articles = addPropertiesInArticles(
+            element.articles,
+            sectionChildrenItem,
+            configDiagramation,
+            configMoveArticlesbyDiagramation,
+            diagramations,
+            positionsArticlesbyDiagramation
+        );
+    }
+
     // Applies to common cases of Chains that only have LN Articles or only articles
     return {
-        ...article,
+        ...element,
         additionalProperties: {
             ...get(article, 'additionalProperties', null),
             originPosition: nameIndexforDiagrmation,
@@ -152,6 +176,27 @@ const addPropertiesChilds = (
     );
 };
 
+const addPropertiesInArticles = (
+    articles,
+    sectionChildrenItem,
+    configDiagramation,
+    configMoveArticlesbyDiagramation,
+    diagramations,
+    positionsArticlesbyDiagramation
+) => {
+    return (
+        Array.isArray(articles) &&
+        addPropertiesChilds(
+            articles,
+            sectionChildrenItem,
+            configDiagramation,
+            configMoveArticlesbyDiagramation,
+            diagramations,
+            positionsArticlesbyDiagramation
+        )
+    );
+};
+
 // childrenArticle, childs' chain, feature LN/article or common/timeline
 // sectionChildrenItem, chain LN_Caja_MAnual or feature accord position
 // sectionChildren, rendereables
@@ -194,16 +239,14 @@ const addPropertiesByLayout = (
                 }
 
                 if (e && e.articles && Array.isArray(e.articles)) {
-                    boxElement.articles =
-                        Array.isArray(e.articles) &&
-                        addPropertiesChilds(
-                            e.articles,
-                            sectionChildrenItem,
-                            configDiagramation,
-                            configMoveArticlesbyDiagramation,
-                            diagramations,
-                            positionsArticlesbyDiagramation
-                        );
+                    boxElement.articles = addPropertiesInArticles(
+                        e.articles,
+                        sectionChildrenItem,
+                        configDiagramation,
+                        configMoveArticlesbyDiagramation,
+                        diagramations,
+                        positionsArticlesbyDiagramation
+                    );
                 }
                 return boxElement;
             }
