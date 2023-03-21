@@ -195,7 +195,7 @@ const diagramationRules = diagramation => {
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                cardSize: 'l',
+                cardSize: 'l-m',
                 imageConfig: 'l',
                 withSection: false,
                 withMarquee: true,
@@ -205,7 +205,7 @@ const diagramationRules = diagramation => {
             {
                 variantsDisabled: ['author'],
                 titleTag: 'h2',
-                cardSize: 'l',
+                cardSize: 'l-m',
                 withSection: false,
                 imageConfig: 'l',
                 withMarquee: true,
