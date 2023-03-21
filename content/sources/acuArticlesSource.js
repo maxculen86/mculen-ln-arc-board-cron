@@ -4,7 +4,7 @@ import transform from './utils/acuArticlesSource/transform';
 import logger from '../../components/private/common/utils/logger';
 import filter from '../filters/LN/acumulado/articleAcu';
 import stringFallback from '../../components/private/common/utils/stringFallback';
-import { SUSCRIPTOR_SECTION } from './tagSource';
+import { SUSCRIPTOR_SECTION } from '../../components/private/common/utils/subtypes/subtypeHelper';
 
 const resolve = key => {
     const {
