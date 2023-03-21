@@ -46,7 +46,7 @@ class EnVivo {
 
     render() {
         const { acuArticlesENVIVO } = this.state || {};
-        const { chapita, chapitaStyle = 2, show } = this.customFields;
+        const { chapita = 'VIVO', chapitaStyle = 2, show } = this.customFields;
         // const typeBadge = !chapitaStyle ? 2 : chapitaStyle;
         if (!acuArticlesENVIVO) {
             return null;

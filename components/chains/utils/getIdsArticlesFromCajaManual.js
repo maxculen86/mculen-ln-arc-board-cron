@@ -11,7 +11,7 @@ const getIdsArticlesFromCajaManual = (renderables = []) => {
     cajaManualFeatures.forEach(caja => {
         const { children = [] } = caja;
         children.forEach(child => {
-            const { props } = child;
+            const { props = {} } = child;
             articlesIds.push(get(props, 'customFields.noteId', ''));
         });
     });

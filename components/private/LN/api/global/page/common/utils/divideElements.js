@@ -81,6 +81,8 @@ export const segmentSectionbyDiagramation = (
                                     }
                                 }
                             });
+                    } else {
+                        elementsValidate.push(e);
                     }
                 } else {
                     elementsValidate.push(e);
