@@ -4,7 +4,7 @@ import { boxInfoComplete } from './boxInfoComplete';
 export const boxInfoAnticipo = (information, section, typeSection) => {
     const box = boxInfoComplete(information, section, typeSection);
     if (box && box.parameters) {
-        box.parameters.badge = information.textBadge;
+        box.parameters.badge = information.textBadge || 'ANTICIPO';
         box.parameters.lead = information.lead;
         box.parameters.url = information.url;
         if (information.video === '') {

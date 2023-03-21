@@ -1,86 +1,4 @@
 {
-    "focalLeft3": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
-        }
-    },
-    "grilla3": {
-        "T1": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "XL",
-            "imagePosition": "Top"
-        }
-    },
-    "grilla6": {
-        "T1": {
-            "size": "M",
-            "imagePosition": "Top"
-        },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T4": {
-            "size": "M",
-            "imagePosition": "Right"
-        }
-    },
-    "grilla9": {
-        "T1": {
-            "size": "L",
-            "imagePosition": "Center"
-        },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T4": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T5": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T6": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T7": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T8": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T9": {
-            "size": "M",
-            "imagePosition": "Right"
-        }
-    },
-    "grillaVideo1": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
-        }
-    },
     "left-focal": {
         "T1": {
             "size": "XL",
@@ -95,12 +13,12 @@
             "imagePosition": "Top"
         },
         "T4": {
-            "size": "M",
-            "imagePosition": "Right"
+            "size": "L",
+            "imagePosition": "Top"
         },
         "T5": {
-            "size": "M",
-            "imagePosition": "Right"
+            "size": "L",
+            "imagePosition": "Top"
         }
     },
     "center-focal": {
@@ -171,7 +89,7 @@
     },
     "bombita": {
         "T1": {
-            "size": "M"
+            "size": "XL"
         }
     },
     "bombitaMas4": {
@@ -201,8 +119,8 @@
             "imagePosition": "Top"
         },
         "T2": {
-            "size": "L",
-            "imagePosition": "Top"
+            "size": "M",
+            "imagePosition": "Right"
         },
         "T3": {
             "size": "M",
@@ -213,8 +131,8 @@
             "imagePosition": "Right"
         },
         "T5": {
-            "size": "M",
-            "imagePosition": "Right"
+            "size": "L",
+            "imagePosition": "Top"
         }
     },
     "bn_1_3_grid": {
@@ -355,6 +273,12 @@
             "imagePosition": "Top"
         }
     },
+    "bnFondo": {
+        "T1": {
+            "size": "XL",
+            "imagePosition": "Top"
+        }
+    },
     "canal_1_2_grid": {
         "T1": {
             "size": "XL",
@@ -394,7 +318,7 @@
         },
         "T2": {
             "size": "M",
-            "imagePosition": "Top"
+            "imagePosition": "Right"
         },
         "T3": {
             "size": "M",
@@ -405,13 +329,13 @@
             "imagePosition": "Right"
         },
         "T5": {
-            "size": "M",
-            "imagePosition": "Right"
+            "size": "L",
+            "imagePosition": "Top"
         }
     },
     "hash-1-2-2-2_grid": {
         "T1": {
-            "size": "XL",
+            "size": "M",
             "imagePosition": "Top"
         },
         "T2": {
@@ -428,7 +352,7 @@
         },
         "T5": {
             "size": "M",
-            "imagePosition": "Top"
+            "imagePosition": "Right"
         },
         "T6": {
             "size": "M",
@@ -441,8 +365,8 @@
     },
     "bn-4-8": {
         "T1": {
-            "size": "M",
-            "imagePosition": "Right"
+            "size": "L",
+            "imagePosition": "Top"
         },
         "T2": {
             "size": "M",
@@ -478,6 +402,46 @@
         },
         "T7": {
             "size": "XS"
+        }
+    },
+    "opinion4": {
+        "T1": {
+            "size": "M"
+        },
+        "T2": {
+            "size": "M"
+        },
+        "T3": {
+            "size": "M"
+        },
+        "T4": {
+            "size": "M"
+        }
+    },
+    "opinion8": {
+        "T1": {
+            "size": "M"
+        },
+        "T2": {
+            "size": "M"
+        },
+        "T3": {
+            "size": "M"
+        },
+        "T4": {
+            "size": "M"
+        },
+        "T5": {
+            "size": "M"
+        },
+        "T6": {
+            "size": "M"
+        },
+        "T7": {
+            "size": "M"
+        },
+        "T8": {
+            "size": "M"
         }
     }
 }
