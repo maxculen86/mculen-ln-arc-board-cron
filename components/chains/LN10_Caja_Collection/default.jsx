@@ -4,6 +4,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import { Bannersubscriber } from '@ln/contenidos-ui-bannersubscriber';
 import {
     getArticlesOfChain,
     getCommonProps
@@ -22,6 +23,7 @@ import getComponent from '../utils/getComponent';
 import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
 import { useRoofData } from '../utils/_helpers';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
+import DivBannerSSR from '../../private/common/banners/DivBannerSSR';
 
 import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 
@@ -128,6 +130,33 @@ const CajaCollection = props => {
 
     const ContainerCards = getComponent(chainStyle, layout);
 
+    // TODO testear banner caja suscriptor
+    const bannersCajaSuscriptor = (
+        <>
+            <DivBannerSSR
+                bannerConfiguration={{
+                    slotId: 'cajasuscriptores_dsk',
+                    isStatic: true,
+                    lazyClass: 'lazy'
+                }}
+            />
+            <DivBannerSSR
+                bannerConfiguration={{
+                    slotId: 'cajasuscriptores_mob',
+                    isStatic: true,
+                    lazyClass: 'lazy'
+                }}
+            />
+            <DivBannerSSR
+                bannerConfiguration={{
+                    slotId: 'cajasuscriptores_tab',
+                    isStatic: true,
+                    lazyClass: 'lazy'
+                }}
+            />
+        </>
+    );
+
     return (
         <StaticContent {...extraOptsDiv}>
             {setRender({
@@ -148,6 +177,11 @@ const CajaCollection = props => {
                                 ContainerCards={ContainerCards}
                                 position={position}
                             />
+                            {chainStyle === 'sub-exclusive' && (
+                                <Bannersubscriber>
+                                    {bannersCajaSuscriptor}
+                                </Bannersubscriber>
+                            )}
                             {bannerMob}
                             {bannerDsk}
                         </>

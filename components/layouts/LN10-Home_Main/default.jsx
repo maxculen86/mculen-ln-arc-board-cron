@@ -26,6 +26,8 @@ import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
 import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 import '../../../resources/packages/css/@ln/contenidos-ui-banners/index.css';
+import '../../../resources/packages/css/@ln/contenidos-ui-bannersubscriber/index.css';
+
 import Ranking from '../../features/LN-10/ranking/default';
 import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
 import {
@@ -110,18 +112,7 @@ const LN10Home = props => {
                             {bannersHome.megalateralDsk}
                         </aside>
                     </section>
-                    <div
-                        style={{
-                            width: '100%',
-                            height: 300,
-                            backgroundColor: 'orange',
-                            margin: '56px 0 32px',
-                            textAlign: 'center',
-                            lineHeight: '300px'
-                        }}
-                    >
-                        Cinturon 1
-                    </div>
+                    {bannersHome.cinturonDsk}
                     <section
                         id="content-main-2"
                         className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
@@ -134,20 +125,7 @@ const LN10Home = props => {
                             {bannersHome.megalateral2Dsk}
                         </aside>
                     </section>
-
-                    <div
-                        style={{
-                            width: '100%',
-                            height: 300,
-                            backgroundColor: 'orange',
-                            margin: '56px 0 32px',
-                            textAlign: 'center',
-                            lineHeight: '300px'
-                        }}
-                    >
-                        Cinturon 2
-                    </div>
-
+                    {bannersHome.cinturon2Dsk}
                     <section
                         id="content-main-3"
                         className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
@@ -173,20 +151,7 @@ const LN10Home = props => {
                             {bannersHome.megalateral3Dsk}
                         </aside>
                     </section>
-
-                    <div
-                        style={{
-                            width: '100%',
-                            height: 300,
-                            backgroundColor: 'orange',
-                            margin: '56px 0 32px',
-                            textAlign: 'center',
-                            lineHeight: '300px'
-                        }}
-                    >
-                        Cinturon 3
-                    </div>
-
+                    {bannersHome.cinturon3Dsk}
                     <section data-section="ranking" className="lay-container">
                         <Ranking {...props} id="rankingHome" />
                     </section>
@@ -207,18 +172,7 @@ const LN10Home = props => {
                             {bannersHome.megalateral4Dsk}
                         </aside>
                     </section>
-                    <div
-                        style={{
-                            width: '100%',
-                            height: 300,
-                            backgroundColor: 'orange',
-                            margin: '56px 0 32px',
-                            textAlign: 'center',
-                            lineHeight: '300px'
-                        }}
-                    >
-                        Cinturon 4
-                    </div>
+                    {bannersHome.cinturon4Dsk}
                     <section
                         id="content-main-5"
                         className="lay-container grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-sm --grid-ai-stretch"
