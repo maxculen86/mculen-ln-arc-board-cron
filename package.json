@@ -56,6 +56,7 @@
         "@ln/contenidos-ui-footerhome": "^0.0.1-beta.18",
         "@ln/contenidos-ui-header": "^0.0.3-beta.18",
         "@ln/contenidos-ui-icon": "^0.0.1-beta.8",
+        "@ln/contenidos-ui-dropdown": "0.0.1-beta.15",
         "@ln/contenidos-ui-interfaces": "^0.0.1-beta.5",
         "@ln/contenidos-ui-link": "^0.0.4-beta.10",
         "@ln/contenidos-ui-live": "^0.0.4-beta.38",
