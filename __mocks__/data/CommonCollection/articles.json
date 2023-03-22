@@ -43,6 +43,9 @@
             },
             "recomendar": {
                 "text": "Si"
+            },
+            "volanta": {
+                "text": "Esto es una volanta"
             }
         },
         "promo_items": {
@@ -730,7 +733,7 @@
         "display_date": "2021-03-11T18:55:00Z",
         "headlines": {
             "basic": "Bullrich visita El Calafate y presenta libro",
-            "mobile": ""
+            "mobile": "Este es un titulo corto."
         },
         "label": {
             "enviar_a_apps": {
@@ -741,7 +744,7 @@
             },
             "volanta": {
                 "display": true,
-                "text": "Santa Cruz"
+                "text": "Santa Cruz."
             }
         },
         "promo_items": {

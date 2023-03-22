@@ -1,9 +1,12 @@
 import get from '../../../../../common/utils/get';
-import { storyCommon, storyHeadline } from '../../common/story/storyCommon';
-import { validateIdsPromoItems } from '../../common/story/apertura/utils/helpers';
+import {
+    storyCommon,
+    storyHeadline
+} from '../../../common/elements/story/storyCommon';
+import { validateIdsPromoItems } from '../../../common/elements/story/apertura/utils/helpers';
 import apertura from './apertura/aperturaArticle';
 import cuerpo from './cuerpo/index';
-import { removeEmptyItems } from '../../common/utils/responseCleaner';
+import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 
 const indexNota = dataNotaParam => {
     if (!dataNotaParam) throw new Error(`La información de la nota esta vacia`);

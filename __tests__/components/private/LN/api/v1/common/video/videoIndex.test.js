@@ -1,7 +1,7 @@
 import {
     videoCommon as Video,
     videos as Videos
-} from '../../../../../../../../components/private/LN/api/v1/common/video/index';
+} from '../../../../../../../../components/private/LN/api/common/elements/video/index';
 import VideoArticle from '../../../../../../../../__mocks__/data/nota/cuerpo/video/video.json';
 
 describe('Json video common', () => {

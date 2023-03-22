@@ -217,9 +217,9 @@ const HeaderDesktop = ({
                                 id="btningresar"
                                 onClick={() => goToLoginUrl()}
                                 type="button"
-                                title="Ingresar"
+                                title="Iniciar sesión"
                             >
-                                INGRESAR
+                                INICIAR SESIÓN
                             </button>
                         )}
                     </div>

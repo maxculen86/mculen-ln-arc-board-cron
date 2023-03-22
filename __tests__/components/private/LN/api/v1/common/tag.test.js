@@ -1,4 +1,4 @@
-import { getFeaturedTag } from '../../../../../../../components/private/LN/api/v1/common/tag/index';
+import { getFeaturedTag } from '../../../../../../../components/private/LN/api/common/elements/tag/index';
 
 import ArticleTagDestacado from '../../../../../../../__mocks__/data/nota/apertura/tagDestacado/tagDestacado.json';
 

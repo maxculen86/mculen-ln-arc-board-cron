@@ -107,8 +107,8 @@ const getComponentFromConfig = (_type, _props, bannerMob, bannerDsk) => {
                         __html: html
                     }}
                 />
-                {bannerMob && bannerMob}
-                {bannerDsk && bannerDsk}
+                {bannerMob}
+                {bannerDsk}
             </>
         ),
         Iframe: ({ id, customFields: { url = '' } }) => {

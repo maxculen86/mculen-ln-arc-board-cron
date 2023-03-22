@@ -9,6 +9,7 @@ import {
     LIVE,
     EXCLUSIVE_LN
 } from '../../../../private/common/badge/types';
+import { getValidElementForPreload } from '../../../../private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/common/helper-WebApi';
 
 export const typeBadge = {
     0: POSITIVE,
@@ -19,7 +20,6 @@ export const typeBadge = {
 
 export const getLiveblogTitlesApi = articleData => {
     const contentElements = get(articleData, 'content_elements', []);
-
     return contentElements.reduce((acc, currentValue) => {
         if (currentValue.type === 'custom_embed' && acc.length < 3) {
             return [
@@ -38,28 +38,20 @@ export const getLiveblogTitlesApi = articleData => {
 export const getIsBomba = parent =>
     get(parent, 'type', '') === 'LN10_Caja_Bomba';
 
-// TODO: Falta modificar logica para la nueva configuracion de imagen del resizer
-
 const getImageConfig = ({
     renderables,
     layoutsName,
-    cajaTemaConfig,
     articlePosition,
-    layout,
-    isBomba
+    layout
 }) => {
-    if (isBomba) {
-        return get(cajaTemaConfig, `bomba1.articles[0].imageConfig`);
-    }
-
     return renderables.some(
         elem =>
             get(elem, 'collection') === 'layouts' &&
             get(elem, 'type', '') === layoutsName.HomeLN10
     )
         ? get(
-              cajaTemaConfig,
-              `${layout}.articles[${articlePosition}].imageConfig`,
+              diagramationRules(layout),
+              `[${articlePosition}].imageConfig`,
               'boxArticles'
           )
         : '';
@@ -109,8 +101,7 @@ export const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
             layoutsName,
             cajaTemaConfig,
             articlePosition: index,
-            layout,
-            isBomba: getIsBomba(parent)
+            layout
         }),
         config,
         index,
@@ -168,4 +159,27 @@ export const validateArticleFeature = ({
     ];
 
     return pageBuilderValidator(rules);
+};
+
+export const isInApertura = ({
+    layoutPageBuilder,
+    config,
+    renderables = [],
+    featureId = ''
+} = {}) => {
+    const element = getValidElementForPreload(layoutPageBuilder, renderables);
+
+    const { withPreload = false } = config || {};
+
+    const isImageHide = get(
+        element,
+        'children[0].props.customFields.hideImage',
+        false
+    );
+
+    return (
+        get(element, 'children[0].props.id') === featureId &&
+        withPreload &&
+        !isImageHide
+    );
 };

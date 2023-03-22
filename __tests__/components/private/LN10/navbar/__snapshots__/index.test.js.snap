@@ -7,7 +7,7 @@ exports[`Components - Private - LN10 - Navbar should match snapshot 1`] = `
   >
     <ul>
       <li
-        class="--item"
+        class="--item home"
       >
         <a
           class="link ln-link --font-2xs"
@@ -16,7 +16,7 @@ exports[`Components - Private - LN10 - Navbar should match snapshot 1`] = `
           title="Ir a Inicio"
         >
           <i
-            class="icon ln-icon --icon-s2"
+            class="icon --icon-20"
           >
             <svg
               fill="none"
@@ -35,7 +35,7 @@ exports[`Components - Private - LN10 - Navbar should match snapshot 1`] = `
         </a>
       </li>
       <li
-        class="--item"
+        class="--item search"
       >
         <label
           class="--font-2xs"
@@ -44,7 +44,7 @@ exports[`Components - Private - LN10 - Navbar should match snapshot 1`] = `
           title="Ir al buscador"
         >
           <i
-            class="icon ln-icon --icon-s2"
+            class="icon --icon-20"
           >
             <svg
               fill="none"
@@ -61,7 +61,7 @@ exports[`Components - Private - LN10 - Navbar should match snapshot 1`] = `
         </label>
       </li>
       <li
-        class="--item"
+        class="--item sections"
       >
         <a
           class="link ln-link --font-2xs"
@@ -70,7 +70,7 @@ exports[`Components - Private - LN10 - Navbar should match snapshot 1`] = `
           title="Ir a Secciones"
         >
           <i
-            class="icon ln-icon --icon-s2"
+            class="icon --icon-20"
           >
             <svg
               fill="none"
@@ -89,7 +89,7 @@ exports[`Components - Private - LN10 - Navbar should match snapshot 1`] = `
         </a>
       </li>
       <li
-        class="--item"
+        class="--item bookmark"
       >
         <a
           class="link ln-link --font-2xs"
@@ -98,7 +98,7 @@ exports[`Components - Private - LN10 - Navbar should match snapshot 1`] = `
           title="Ir a Mis Notas"
         >
           <i
-            class="icon ln-icon --icon-s2"
+            class="icon --icon-20"
           >
             <svg
               fill="none"
@@ -115,7 +115,7 @@ exports[`Components - Private - LN10 - Navbar should match snapshot 1`] = `
         </a>
       </li>
       <li
-        class="--item"
+        class="--item profile"
       >
         <a
           class="link ln-link --font-2xs"
@@ -124,7 +124,7 @@ exports[`Components - Private - LN10 - Navbar should match snapshot 1`] = `
           title="Ir a Perfil"
         >
           <i
-            class="icon ln-icon --icon-s2"
+            class="icon --icon-20"
           >
             <svg
               fill="none"

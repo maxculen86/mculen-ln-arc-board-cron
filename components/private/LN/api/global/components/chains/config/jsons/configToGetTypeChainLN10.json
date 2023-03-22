@@ -1,0 +1,28 @@
+{
+    "contentlab": [
+        {
+            "customFields.layout": "cajaContent1"
+        }
+    ],
+    "afondo": [
+        {
+            "customFields.layout": "bnFondo"
+        }
+    ],
+    "bombita": [
+        {
+            "customFields.layout": "bombita"
+        },
+        {
+            "customFields.layout": "bombitaMas4"
+        }
+    ],
+    "bomba": [
+        {
+            "customFields.layout": "vertical"
+        },
+        {
+            "customFields.layout": "horizontal"
+        }
+    ]
+}

@@ -8,27 +8,9 @@ const hasNotAMP = (layout = '', requestUri = '') => {
     const layoutsWithoutAmp = [Home, HomeLN10, Acumulado, Deportes];
 
     const [group1 = ''] = requestUri.match(/(\/.+\/)/g) || [];
-    const [group2 = ''] = requestUri.match(/(\?.+)/g) || [];
-
-    const urlSplit = group2.split(/&|\?/g);
-
-    const queryFilter = urlSplit.filter(
-        query => query && !query.startsWith('variant')
-    );
-
-    const indexOutputType = queryFilter.indexOf('outputType=amp');
-
-    if (indexOutputType !== -1) {
-        queryFilter[indexOutputType] = 'outputType=default';
-    }
-
-    const isValidArrayLength = queryFilter.length ? '?' : '';
 
     if (typeof window === 'undefined' && layoutsWithoutAmp.includes(layout)) {
-        throw new Redirect(
-            `${group1}${isValidArrayLength}${queryFilter.join('&')}`,
-            301
-        );
+        throw new Redirect(`${group1}?outputType=default`, 301);
     }
 };
 

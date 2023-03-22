@@ -1,0 +1,122 @@
+import get from '../../../../../common/utils/get';
+import { removeEmptyItems } from '../../../common/utils/responseCleaner';
+import { Article as ArticleLN10 } from './article/index';
+import { cardRegular as Article } from '../../../common/article/cardRegular/index';
+import { cardAnexoItemMobile as CardAnexoLN } from '../../../common/article/cardAnexo/index';
+import { CardAnexo as CardAnexoLN10 } from './article/cardAnexo/index';
+import configInfoSectionsByLayout from '../../../common/home/config/configInfoSectionsByLayout';
+import { boxInfoByLayoutBySectionAlias } from '../../../common/home/boxInformation/index';
+import { boxTypeByLayout } from '../../../common/home/boxTypes/index';
+
+const FunctionsBoxContentsByLayout = {
+    'LN-Home_Main': {
+        article: Article,
+        anexo: CardAnexoLN
+    },
+    'LN10-Home_Main': {
+        article: ArticleLN10,
+        anexo: CardAnexoLN10
+    },
+    default: {
+        article: Article,
+        anexo: CardAnexoLN
+    }
+};
+
+const index = (
+    children,
+    paramsFromPage = {
+        rootPath:
+            'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
+    }
+) => {
+    const layoutPage = get(paramsFromPage, 'information.layoutPage', 'null');
+    const typeSection = configInfoSectionsByLayout(layoutPage);
+
+    if (!layoutPage || !typeSection) {
+        // eslint-disable-next-line no-console
+        console.warn(
+            `Error v1/mobile/home/index : ${JSON.stringify(
+                paramsFromPage
+            )} - errorMsj: Missing layoutPage`
+        );
+
+        return null;
+    }
+
+    const ArticlesbyBox = children.reduce((result, f, i) => {
+        const { information, sectionAliasMobile } = f;
+
+        const boxInfoFunction = boxInfoByLayoutBySectionAlias(
+            layoutPage,
+            sectionAliasMobile
+        );
+        const boxInfo = boxInfoFunction(
+            information,
+            sectionAliasMobile,
+            typeSection
+        );
+        const type = Number(f.type);
+        switch (type) {
+            case 0:
+                {
+                    const articleFn =
+                        get(
+                            FunctionsBoxContentsByLayout,
+                            `${layoutPage}.article`,
+                            null
+                        ) ||
+                        get(
+                            FunctionsBoxContentsByLayout,
+                            `default.article`,
+                            null
+                        );
+                    result.push(
+                        boxTypeByLayout(layoutPage, type)(
+                            f,
+                            boxInfo,
+                            articleFn,
+                            paramsFromPage
+                        )
+                    );
+                }
+                break;
+            case 1:
+                // eslint-disable-next-line no-unreachable
+                result.push(boxTypeByLayout(layoutPage, type)(f, typeSection));
+                break;
+            case 2:
+                {
+                    const anexoFn =
+                        get(
+                            FunctionsBoxContentsByLayout,
+                            `${layoutPage}.anexo`,
+                            null
+                        ) ||
+                        get(
+                            FunctionsBoxContentsByLayout,
+                            `default.anexo`,
+                            null
+                        );
+                    result.push(
+                        boxTypeByLayout(layoutPage, type)(f, boxInfo, anexoFn)
+                    );
+                }
+
+                break;
+
+            case 3:
+                result.push(boxTypeByLayout(layoutPage, type)(f, boxInfo));
+                break;
+            default:
+                // eslint-disable-next-line no-console
+                console.log('to discard');
+                break;
+        }
+
+        return result;
+    }, []);
+    return [removeEmptyItems(ArticlesbyBox)];
+};
+
+export default index;

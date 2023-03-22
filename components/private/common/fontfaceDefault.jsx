@@ -2,6 +2,7 @@ import React from 'react';
 import { FONT_BOLD, FONT_MEDIUM } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import { getWebFont } from './fontface';
+// TODO: evaluar si se puede borrar. Ver con julito
 
 const FontFaceDefault = () => {
     const { contextPath, deployment } = useAppContext();

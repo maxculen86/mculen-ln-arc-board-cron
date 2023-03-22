@@ -8,7 +8,7 @@ export default {
     API_INGRESAR: 'https://api-ingresar.lanacion.com.ar',
     RELOGIN_VALIDATION: '8121600000',
     SITIO_SEGURO_REGISTRACION: 'https://suscripciones.lanacion.com.ar',
-    LOGIN_URL: 'https://ingresar.lanacion.com.ar/ingresar/D/1/?callback=',
+    LOGIN_URL: 'https://ingresar.lanacion.com.ar/login/ingresar/D/1/?callback=',
     COOKIE_EXPIRATION: '8640000000',
     DOMINIO_COOKIE: '.lanacion.com.ar',
     RANKING_URL:
@@ -30,8 +30,8 @@ export default {
             applicationId: '4021f7bc-025e-422c-a79d-1fac9a7a0767',
             site: 'datadoghq.com',
             forwardErrorsToLogs: true,
-            sampleRateLog: 0.2,
-            sampleRateRum: 0.2,
+            sampleRateLog: 20,
+            sampleRateRum: 20,
             service: 'lnmas',
             env: 'prod',
             sessionReplaySampleRate: 30,
@@ -67,6 +67,8 @@ export default {
     ARC_WIDGETS: 'https://arc-widgets.lanacion.com.ar/widgets/',
     FONT_BOLD: '/resources/fonts/suecaslab-bold-webfont.woff2',
     FONT_MEDIUM: '/resources/fonts/suecaslab-medium-webfont.woff2',
+    FONT_PRUMO: '/resources/fonts/Prumo-LNVF.woff2',
+    FONT_PRUMO_ITALIC: '/resources/fonts/Prumo-ItalicLNVF.woff2',
     LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar',
     PERSONALIZACION_API:
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',

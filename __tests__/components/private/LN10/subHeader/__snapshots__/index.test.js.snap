@@ -106,7 +106,7 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
               title="Ir a Mis notas"
             >
               <i
-                class="icon ln-icon --mr-3xs --icon-s2"
+                class="icon ln-icon --mr-3xs --icon-20"
               >
                 <svg
                   fill="none"
@@ -132,7 +132,7 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
               title="Ir a Newsletters"
             >
               <i
-                class="icon ln-icon --mr-3xs --icon-s2"
+                class="icon ln-icon --mr-3xs --icon-20"
               >
                 <svg
                   fill="none"
@@ -158,7 +158,7 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
               title="Ir a Club LA NACION"
             >
               <i
-                class="icon ln-icon --mr-3xs --icon-s2"
+                class="icon ln-icon --mr-3xs --icon-20"
               >
                 <svg
                   fill="none"

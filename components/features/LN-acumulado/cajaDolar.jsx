@@ -16,7 +16,7 @@ const { layoutsName = {} } = config || {};
 const CajaDolar = ({ id }) => {
     const { contextPath, deployment, outputType, layout, globalContent = {} } =
         useAppContext() || {};
-    const { node_type: nodeType = '' } = globalContent;
+    const { node_type: nodeType = '', _id = '' } = globalContent;
     const isAmp = outputType === 'amp';
     const shouldShowDollar =
         layout === layoutsName.Noticia
@@ -44,6 +44,7 @@ const CajaDolar = ({ id }) => {
 
     const dolarComponent = data ? (
         <ModDolar
+            _id={_id}
             imageUrl={imageUrl}
             data={data}
             oddOrEven={oddOrEven}

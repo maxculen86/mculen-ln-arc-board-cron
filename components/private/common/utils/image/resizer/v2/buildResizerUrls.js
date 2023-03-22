@@ -13,7 +13,8 @@ export const resizeArcImage = (
         width: 768,
         height: 513,
         media: MEDIAMINWIDTH
-    }
+    },
+    isInApertura = false
 ) => {
     if (arcImage.type !== 'image' || !arcImage.url)
         throw new Error(
@@ -54,7 +55,8 @@ export const resizeArcImage = (
             defaultResizeWithSmart,
             focalPoint: fp,
             smartCropExcluded,
-            arcImage
+            arcImage,
+            isInApertura
         }),
         // TODO: Hacer logica del resizerUrls
         resized_urls: resizeUrlCollection({
@@ -64,7 +66,8 @@ export const resizeArcImage = (
             defaultResizeWithSmart: _resizeOptions,
             focalPoint: fp,
             smartCropExcluded,
-            arcImage
+            arcImage,
+            isInApertura
         }),
         resized_urls_zoom: resizeUrlCollection({
             originalUrl: arcImage.url,
@@ -145,7 +148,8 @@ export const resizeUrlCollection = ({
     defaultResizeWithSmart,
     focalPoint = [],
     smartCropExcluded,
-    arcImage
+    arcImage,
+    isInApertura
 }) => {
     const resp = [];
     const finalPreset = defaultResizeWithSmart;
@@ -158,7 +162,8 @@ export const resizeUrlCollection = ({
                 defaultResizeWithSmart: opt,
                 focalPoint,
                 smartCropExcluded,
-                arcImage
+                arcImage,
+                isInApertura
             });
             resp.push({
                 resizedUrl,

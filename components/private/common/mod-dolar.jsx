@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { SITE_LANACION } from 'fusion:environment';
 
 import CurrencyData from './currencyData/CurrencyData';
 import ComLink from './com-link';
 import ComImage from './com-image';
 
 import '../../../resources/dist/css/ln/modules/mod-dolar.css';
+import setClassName from './utils/setClassName';
 
 const ModDolar = ({
     data = [],
@@ -15,8 +17,16 @@ const ModDolar = ({
     fillClass,
     logoByma,
     logoIol,
-    isAmp
+    isAmp,
+    _id
 }) => {
+    const pageDolarOficialHistorico =
+        _id !== '/economia/dolar-oficial-historico';
+    const containerLogoClass = setClassName({
+        baseClass: 'container-logo',
+        withHistoricalDollar:
+            !pageDolarOficialHistorico && '--withHistoricalDollar'
+    });
     return data.length ? (
         <>
             <div className="dolar">
@@ -37,29 +47,39 @@ const ModDolar = ({
                 </ul>
             </div>
 
-            <div className="container-logo">
-                <span className="--fivexs">Información de</span>
-                <ComImage
-                    classCondition="logo byma"
-                    alt={informationAlt}
-                    amp={isAmp}
-                    src={logoByma}
-                />
-                <span className="--fivexs">provista por</span>
-                <ComLink
-                    link="https://www.invertironline.com/"
-                    classCondition="provider-data"
-                    type="text/css"
-                    title="Ir a Invertir Online"
-                    target="_blank"
-                >
+            <div className={containerLogoClass}>
+                {pageDolarOficialHistorico && (
+                    <ComLink
+                        link={`${SITE_LANACION}/dolar-oficial-historico/`}
+                        classCondition="--mb-3xs --fivexs"
+                        title="Ir a dólar oficial histórico"
+                    >
+                        Ver dólar oficial histórico
+                    </ComLink>
+                )}
+                <div className="--d-flex">
+                    <span className="--fivexs">Información de</span>
                     <ComImage
-                        classCondition="logo iol"
-                        alt={providedAlt}
+                        classCondition="logo byma"
+                        alt={informationAlt}
                         amp={isAmp}
-                        src={logoIol}
+                        src={logoByma}
                     />
-                </ComLink>
+                    <span className="--fivexs">provista por</span>
+                    <ComLink
+                        link="https://www.invertironline.com/"
+                        classCondition="provider-data"
+                        title="Ir a Invertir Online"
+                        target="_blank"
+                    >
+                        <ComImage
+                            classCondition="logo iol"
+                            alt={providedAlt}
+                            amp={isAmp}
+                            src={logoIol}
+                        />
+                    </ComLink>
+                </div>
             </div>
         </>
     ) : (
@@ -81,7 +101,8 @@ ModDolar.propTypes = {
     fillClass: PropTypes.string,
     logoByma: PropTypes.string,
     logoIol: PropTypes.string,
-    isAmp: PropTypes.bool
+    isAmp: PropTypes.bool,
+    _id: PropTypes.string
 };
 
 ModDolar.defaultProps = {
@@ -91,7 +112,8 @@ ModDolar.defaultProps = {
     fillClass: '',
     logoByma: '',
     logoIol: '',
-    isAmp: false
+    isAmp: false,
+    _id: ''
 };
 
 export default ModDolar;

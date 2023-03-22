@@ -1,8 +1,12 @@
 import get from '../../../../../common/utils/get';
-import { storyCommon, storyHeadline } from '../../common/story/storyCommon';
-import { validateIdsPromoItems } from '../../common/story/apertura/utils/helpers';
+import {
+    storyCommon,
+    storyHeadline
+} from '../../../common/elements/story/storyCommon';
+import { validateIdsPromoItems } from '../../../common/elements/story/apertura/utils/helpers';
+
 import cuerpo from './cuerpo/index';
-import { removeEmptyItems } from '../../common/utils/responseCleaner';
+import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 import aperturaArticle from './apertura/aperturaArticle';
 
 const indexNota = dataNotaParam => {

@@ -1,6 +1,6 @@
 import get from '../../../../../../../../../components/private/common/utils/get';
 import articleFull from '../../../../../../../../../__mocks__/data/articles/2KOBND62KNFVVBFQZOADNN6WNY.json';
-import NotaRelacionadas from '../../../../../../../../../components/private/LN/api/v1/common/story/relacionados/notaRelacionada';
+import NotaRelacionadas from '../../../../../../../../../components/private/LN/api/common/elements/story/relacionados/notaRelacionada';
 
 describe('Test de JSON de notas relacionadas en article', () => {
     it('Elementos de nota la nota relacionada, con todos los datos', () => {

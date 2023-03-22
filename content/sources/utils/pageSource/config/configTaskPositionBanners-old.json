@@ -1,0 +1,38 @@
+[
+    {
+        "position": "bottom",
+        "conditions": [
+            {
+                "task": "Equal",
+                "keyFind": "articles",
+                "typeValue": [],
+                "minLength": 3,
+                "maxLength": 90
+            },
+            {
+                "task": "Equal",
+                "keyFind": "type",
+                "value": 0
+            },
+            {
+                "task": "AtLeastOne",
+                "keyFind": "type",
+                "conditions": [
+                    {
+                        "minLengthBannersPrevious": 0
+                    },
+                    { "minLengthBannersPrevious": 3 }
+                ]
+            }
+        ]
+    },
+    {
+        "position": "start",
+        "conditions": [
+            {
+                "task": "NotEqual",
+                "minLengthBannersPrevious": 2
+            }
+        ]
+    }
+]

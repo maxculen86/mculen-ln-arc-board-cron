@@ -33,7 +33,7 @@ import firmaDistributorValidation from './utils/firmaDistributorValidator';
 import isNoteListenable from './utils/audioNews/helper';
 import force404AMP from './utils/force404AMP';
 import validateSponsoredLink from './utils/validateSponsoredLink';
-import { getPrincipalCategory } from '../../components/private/LN/api/v1/common/category';
+import { getPrincipalCategory } from '../../components/private/LN/api/common/elements/category';
 import { getAllImagesAuth } from './utils/signingServiceSource/getImagesAuth';
 import {
     addHttpsInterstitialLink,
@@ -49,8 +49,21 @@ export const resolve = (key, a) => {
 
     const arcSite = key['arc-site'];
     let basePath = `/content/v4/stories/?website=${arcSite}`;
+    const uriParams = [
+        `${
+            key && key.sourceInclude && key.sourceInclude !== ''
+                ? `&included_fields=${key.sourceInclude}`
+                : ''
+        }`
+    ].join('');
+
     if (published) basePath = `${basePath}&published=${published}`;
+
+    if (uriParams && uriParams !== '') {
+        basePath = `${basePath}${uriParams}`;
+    }
     if (id) return `${basePath}&_id=${id}`;
+
     if (url) {
         let urlClear = url;
         const regexUrl = /^\/api\/(?:mobile\/)?v([1-2]+)\/notas\/(byUrl(\/.+\/$)|byId\/(.+)\/$)/;
@@ -71,7 +84,8 @@ const fetch = (query, { cachedCall } = {}) => {
         isInApertura = false,
         isAdmin = false,
         outputType = '',
-        shouldUseV1 = false
+        shouldUseV1 = false,
+        shouldUseV2
     } = query;
 
     const arcSite = query['arc-site'];
@@ -135,7 +149,8 @@ const fetch = (query, { cachedCall } = {}) => {
                 cachedCall,
                 isInApertura,
                 isAdmin,
-                shouldUseV1
+                shouldUseV1,
+                shouldUseV2
             );
         })
         .catch(error => {
@@ -154,6 +169,7 @@ const fetch = (query, { cachedCall } = {}) => {
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
 // directamente nosotros desde el fetch
+
 const transform = async (
     data,
     arcSite,
@@ -165,7 +181,8 @@ const transform = async (
     cachedCall,
     isInApertura,
     isAdmin,
-    shouldUseV1
+    shouldUseV1,
+    shouldUseV2
 ) => {
     // Data
     const subtype = get(data, 'subtype', null);
@@ -178,7 +195,7 @@ const transform = async (
     const layout = 'LN-nota-noticia';
 
     if (
-        !shouldUseV1 &&
+        (!shouldUseV1 && shouldUseV2) ||
         isAllowSection({
             section: get(data, 'taxonomy.primary_section._id')
         })
@@ -268,7 +285,8 @@ const transform = async (
             subtype,
             isInApertura,
             isAdmin,
-            shouldUseV1
+            shouldUseV1,
+            shouldUseV2
         })
     };
     return transformContent(
@@ -494,7 +512,8 @@ export default {
         meteringVariant: 'text',
         paywallUrl: 'text',
         paywallEnabled: 'text',
-        outputType: 'text'
+        outputType: 'text',
+        sourceInclude: 'text'
     },
     filter,
     ttl: 120

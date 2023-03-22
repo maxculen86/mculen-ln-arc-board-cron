@@ -3,7 +3,8 @@ import React from 'react';
 import { MainHeader } from '@ln/contenidos-ui-header';
 import { Button } from '@ln/contenidos-ui-button';
 import { Text } from '@ln/contenidos-ui-text';
-import { Icon } from '@ln/contenidos-ui-icon';
+import { Icon } from '@ln/common-ui-icon';
+import { SuscriptorExclusivo } from '@ln/assets-ui-icons';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 
@@ -76,13 +77,16 @@ export const RightOptions = ({
                 )
             }
         >
-            <Icon icon="suscriptorExclusivo" />
+            <Icon icon="suscriptorExclusivo" size={24}>
+                <SuscriptorExclusivo />
+            </Icon>
             SUSCRIBITE
         </Button>
     );
 
     const MenuUser = (
         <MainHeader.MenuUser
+            title="Menu de usuario"
             userType={userType}
             email={userName}
             initials={initials}

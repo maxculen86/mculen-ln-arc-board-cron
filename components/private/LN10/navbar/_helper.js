@@ -1,8 +1,10 @@
+import * as React from 'react';
 import {
     SITIO_SEGURO_REGISTRACION,
     SITE_LANACION,
     API_ENV
 } from 'fusion:environment';
+import { Home, Search, Sections, Bookmark, Profile } from '@ln/assets-ui-icons';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 import dynamicallyLoadScript from '../../LN/common/utils/dynamicallyLoadScript';
 
@@ -37,8 +39,8 @@ export const getNavbarItems = (
 ) => [
     {
         text: 'Inicio',
-        icon: 'home',
-        target: '_self',
+        icon: <Home />,
+        className: 'home',
         link: isHome ? '#' : 'https://www.lanacion.com.ar/',
         callback: () => {
             addEventToDataLayer(getEventData('inicio'));
@@ -46,7 +48,8 @@ export const getNavbarItems = (
     },
     {
         text: 'Buscar',
-        icon: 'search',
+        icon: <Search />,
+        className: 'search',
         id: 'querylyButton',
         htmlFor: 'queryly_toggle',
         callback: () => {
@@ -56,8 +59,8 @@ export const getNavbarItems = (
     },
     {
         text: 'Secciones',
-        icon: 'sections',
-        target: '_self',
+        icon: <Sections />,
+        className: 'sections',
         link: '#',
         callback: e => {
             e.preventDefault();
@@ -67,8 +70,8 @@ export const getNavbarItems = (
     },
     withBookmark && {
         text: 'Mis Notas',
-        icon: 'bookmark',
-        target: '_self',
+        icon: <Bookmark />,
+        className: 'bookmark',
         link: isSubscribed
             ? bookmarkUrl
             : `${SITIO_SEGURO_REGISTRACION}/suscripcion/E/1/1/?callback=`,
@@ -78,8 +81,8 @@ export const getNavbarItems = (
     },
     {
         text: 'Perfil',
-        icon: 'profile',
-        target: '_self',
+        icon: <Profile />,
+        className: 'profile',
         link: 'https://myaccount.lanacion.com.ar/mi-usuario/',
         callback: () => {
             addEventToDataLayer(getEventData('perfil'));

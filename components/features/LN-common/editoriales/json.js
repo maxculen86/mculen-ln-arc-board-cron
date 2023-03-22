@@ -20,7 +20,8 @@ class Editoriales {
                 return {
                     ...e,
                     additionalProperties: {
-                        subtype: 2
+                        subtype: 2,
+                        variant: 'author'
                     }
                 };
             });

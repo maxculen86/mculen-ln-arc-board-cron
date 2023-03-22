@@ -89,19 +89,19 @@ const CajaCollection = props => {
         undefined;
 
     const articlesToShow = !isInSiteService
-        ? getArticleInCollection(
+        ? getArticleInCollection({
               notesQuantity,
               diagramation,
               idCollection,
-              20,
-              Number(initialPosition) - 1,
+              size: 20,
+              initialPosition: Number(initialPosition) - 1,
               idCollectionsInPage,
-              true,
-              !isInSiteService,
+              filterRecomendar: true,
+              filterRepetead: !isInSiteService,
               layout,
               website,
               hasHydrateOnly
-          )
+          })
         : [];
 
     const _articles = isInSiteService

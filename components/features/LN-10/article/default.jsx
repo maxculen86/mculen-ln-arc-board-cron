@@ -7,14 +7,10 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 import { Card } from '@ln/contenidos-ui-card';
-import {
-    isInApertura,
-    transform
-} from '../../../private/LN/home/components/noteCard/noteCardHelper';
+import { transform } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import {
     getDataAuthor,
     checkForId,
-    isBombaHidden,
     getMediaData,
     getDataAttributesForViewability,
     validateVariant,
@@ -32,10 +28,12 @@ import {
 } from './_helper';
 import {
     getChainConfig,
-    validateArticleFeature
+    validateArticleFeature,
+    isInApertura
 } from './common/_helper-WebApi';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
+import videoFilterLN10 from '../../../../content/filters/LN/home/LN10/videoFilterLN10';
 import filterVideo from '../../../../content/filters/LN/home/videoFilter';
 import liveblogFilter from '../../../../content/filters/LN/home/LN10/liveblogFilter';
 import { GetImage } from '../../../private/LN/common/utils/articuloHelper';
@@ -45,6 +43,7 @@ import ErrorBoundary from '../../../private/common/ErrorBoundary';
 import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
+import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 import '../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-video/index.css';
@@ -78,7 +77,8 @@ const ArticleFeature = ({
 
     const { layoutsName = {} } = siteConfig || {};
     const { cajaTemaConfig } = getProperties(arcSite);
-
+    const shouldUseV2 =
+        withResizerV2 && layoutPageBuilder === layoutsName.HomeLN10;
     const {
         config: initialConfig = {},
         index,
@@ -90,15 +90,12 @@ const ArticleFeature = ({
 
     const extraOpts = getDataAttributesForViewability(id, boxPosition, index);
     const [config, setConfig] = useState(initialConfig);
-    const onlyOneApeturaValidateForWWW =
-        isBombaHidden(renderables) &&
-        isInApertura({
-            renderables,
-            featureId,
-            layoutsName,
-            layoutPageBuilder,
-            config
-        });
+    const onlyOneApeturaValidateForWWW = isInApertura({
+        layoutPageBuilder,
+        renderables,
+        featureId,
+        config
+    });
 
     const isLiveblog = variant === 'liveblog';
 
@@ -111,7 +108,9 @@ const ArticleFeature = ({
             checkExclusiveAccess: false,
             isInApertura: onlyOneApeturaValidateForWWW,
             isAdmin,
-            variant
+            variant,
+            shouldUseV2,
+            shouldUseV1: !shouldUseV2
         },
         staticMode: isSSR(),
         filter: isLiveblog ? liveblogFilter : filter
@@ -123,7 +122,8 @@ const ArticleFeature = ({
         id,
         onlyOneApeturaValidateForWWW,
         isAdmin,
-        filterImage
+        filterImage,
+        shouldUseV2
     });
 
     const article = transform(
@@ -150,9 +150,11 @@ const ArticleFeature = ({
                 website: 'la-nacion-ar',
                 imageConfig,
                 isInApertura: onlyOneApeturaValidateForWWW,
-                isAdmin
+                isAdmin,
+                arcSite,
+                shouldUseV2
             },
-            filter: filterVideo
+            filter: shouldUseV2 ? videoFilterLN10 : filterVideo
         }) || null;
 
     const {
@@ -192,7 +194,8 @@ const ArticleFeature = ({
         customFields,
         image,
         layout,
-        renderables
+        renderables,
+        shouldUseV2: withResizerV2
     });
 
     const typeOfMedia = getTypeOfMedia(customFields);

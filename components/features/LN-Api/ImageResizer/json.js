@@ -1,6 +1,6 @@
 import Consumer from 'fusion:consumer';
 import browser from '../../../private/common/utils/browser';
-import ImageV1 from '../../../private/LN/api/v1/common/story/image';
+import ImageV1 from '../../../private/LN/api/common/elements/story/image';
 
 // Responde al resolver que permite pasar las versiones existentes
 // Regex actual: ^\/api\/(?:mobile\/)?v([1-2]+)\/images\/(byId\/(.+)\/$)

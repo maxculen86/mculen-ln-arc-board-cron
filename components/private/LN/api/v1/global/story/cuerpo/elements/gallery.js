@@ -1,6 +1,6 @@
 import get from '../../../../../../../common/utils/get';
 import { dateAndTimeForAppsUtil } from '../../../../../../../common/utils/dateAndTimeUtil';
-import Image from '../../../../common/story/image';
+import Image from '../../../../../common/elements/story/image';
 
 const gallery = (nodo, dataNota) => {
     if (!nodo) return null;

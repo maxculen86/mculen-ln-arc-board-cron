@@ -1,4 +1,4 @@
-import Video from '../../../../common/story/video';
+import Video from '../../../../../common/elements/story/video';
 
 const video = nodo => {
     if (!nodo) return null;

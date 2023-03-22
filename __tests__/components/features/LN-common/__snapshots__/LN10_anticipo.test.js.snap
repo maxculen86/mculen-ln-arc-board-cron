@@ -6,74 +6,79 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
     class="hidden"
   >
     <section
-      class="ln-advance --withVideo --sticky"
+      class="ln-advance --withVideo"
     >
       <div
-        class="lay-container"
+        class="wrap"
       >
-        <div>
-          <div
-            class="video"
-          >
-            <iframe
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen=""
-              frameborder="0"
-              src="https://www.youtube.com/embed/mGcFszPShHQ"
-              title="YouTube video player"
-            />
-          </div>
-          <div
-            class="text-container"
-          >
-            <span
-              class="badge ln-badge --font-2xs --positive"
+        <div
+          class="lay-container"
+        >
+          <article>
+            <div
+              class="video"
             >
-              chapita
-            </span>
-            <h2
-              class="text ln-text --title --prumo --font-xl-l-s --font-bold"
-              title="texto Prueba Anticipo"
+              <iframe
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen=""
+                frameborder="0"
+                src="https://www.youtube.com/embed/mGcFszPShHQ"
+                title="YouTube video player"
+              />
+            </div>
+            <div
+              class="text-container"
             >
-              <a
-                class="link ln-link"
-                href="https://www.lanacion.com.ar/"
-                target="_self"
+              <span
+                class="badge ln-badge --font-2xs --positive"
+              >
+                chapita
+              </span>
+              <h2
+                class="text ln-text --title --prumo --font-xl-l-s --font-bold"
                 title="texto Prueba Anticipo"
               >
-                <span
-                  class="lead"
+                <a
+                  class="link ln-link"
+                  href="https://www.lanacion.com.ar/"
+                  target="_self"
+                  title="texto Prueba Anticipo"
                 >
-                  texto
-                   
-                </span>
-                Prueba Anticipo
-              </a>
-            </h2>
-          </div>
-        </div>
-        <button
-          class="button ln-button --md"
-          id="closeAdvance"
-          type="button"
-        >
-          <i
-            class="icon --icon-m --light"
+                  <span
+                    class="lead"
+                  >
+                    texto
+                     
+                  </span>
+                  Prueba Anticipo
+                </a>
+              </h2>
+            </div>
+          </article>
+          <button
+            class="button ln-button --md"
+            id="closeAdvance"
+            title="Cerrar"
+            type="button"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+            <i
+              class="icon --icon-24 --light"
             >
-              <path
-                clip-rule="evenodd"
-                d="m12 10.586 4.243-4.243a1 1 0 1 1 1.414 1.414L13.414 12l4.243 4.243a1 1 0 1 1-1.414 1.414L12 13.414l-4.243 4.243a1 1 0 1 1-1.414-1.414L10.586 12 6.343 7.757a1 1 0 1 1 1.414-1.414L12 10.586Z"
-                fill="#272727"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </i>
-        </button>
+              <svg
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="m12 10.586 4.243-4.243a1 1 0 1 1 1.414 1.414L13.414 12l4.243 4.243a1 1 0 1 1-1.414 1.414L12 13.414l-4.243 4.243a1 1 0 1 1-1.414-1.414L10.586 12 6.343 7.757a1 1 0 1 1 1.414-1.414L12 10.586Z"
+                  fill="#272727"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </button>
+        </div>
       </div>
     </section>
   </div>
@@ -81,9 +86,10 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
     
             window.addEventListener('load', () =&gt; {
                 const buttonCloseAdvance = document.getElementById('closeAdvance');
+                const advance = document.querySelector('.ln-advance');
                 if (buttonCloseAdvance) {
                     buttonCloseAdvance.onclick = function() {
-                        this.parentNode && this.parentNode.parentNode && this.parentNode.parentNode.classList.add('--close')
+                        advance && advance.classList.add('--none')
                     };
                 } 
             });

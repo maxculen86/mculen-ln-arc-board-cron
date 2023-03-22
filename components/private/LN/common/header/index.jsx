@@ -3,7 +3,7 @@ import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import HeaderDesktop from './headerDesktop';
-import NavBarMobile from '../navbar';
+import NavBarMobile from '../navbar/index';
 import HeaderAMP from './headerAMP';
 import { goToLogout } from '../utils/loginHelper';
 import Desplegable from '../desplegable';
@@ -71,11 +71,7 @@ const Index = props => {
                 section={section}
                 isAdmin={isAdmin}
             />
-
-            <NavBarMobile
-                isHome={layoutsName.Home === layout}
-                toggleDesplegable={toggleDesplegable}
-            />
+            <NavBarMobile toggleDesplegable={toggleDesplegable} />
 
             <Desplegable
                 toggleDesplegable={toggleDesplegable}

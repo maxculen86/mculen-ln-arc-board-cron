@@ -1,40 +1,54 @@
-// LN_Caja_Manual
 import Consumer from 'fusion:consumer';
-import get from '../../private/common/utils/get';
-import respChain from '../../private/LN/api/v1/global/home/chains/respCajaCollection';
+import GetCajaManual from '../../private/LN/api/global/components/chains/LN10/getCajaManual';
+import { getChildrenFromSectionHome } from '../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
+import { validateChainBomba, getIsPreOpening } from './common/_helper-WebApi';
+import { validateChildrensApi } from '../../private/LN/api/global/components/common/utils/_helpers';
 
-class CajaManual {
+class CajaBomba extends GetCajaManual {
     constructor(props) {
-        this.props = props;
-
-        const imageId = get(props, 'customFields.imageId', '');
-        const idCollection = get(props, 'customFields.idCollection', '');
-
-        imageId &&
-            imageId.trim() &&
-            this.fetchContent({
-                containerImage: {
-                    source: 'relatedImageSource',
-                    query: {
-                        id: imageId.trim(),
-                        published: true,
-                        imageConfig: 'techoImagen',
-                        'arc-site': 'la-nacion-ar',
-                        nid: `idCollection: ${idCollection}`,
-                        boxType: 'CajaManual'
-                    }
-                }
-            });
+        super(props, null);
     }
+
+    validate = propsValidate => {
+        const {
+            id: chainId,
+            customFields: { layout = 'vertical' } = {},
+            children,
+            renderables = []
+        } = propsValidate;
+
+        const preOpeningChildren = getChildrenFromSectionHome(
+            renderables,
+            'Pre_Apertura',
+            1
+        );
+        const isPreOpening = getIsPreOpening(preOpeningChildren, chainId);
+        return validateChainBomba(layout, children, isPreOpening);
+    };
 
     render() {
         try {
             const { containerImage } = this.state || {};
-            return respChain(containerImage, this.props);
+            const { children } = this.props;
+            if (!validateChildrensApi(children)) {
+                return null;
+            }
+            const error = this.validate(this.props);
+            if (error) {
+                return null;
+            }
+            if (
+                this.props.customFields &&
+                this.props.customFields.hideCaja == null
+            ) {
+                this.props.customFields.hideCaja =
+                    this.props.customFields.hideBox || false;
+            }
+            return this.renderResponse(this.props, containerImage);
         } catch (err) {
             return { Success: false, Message: err.message };
         }
     }
 }
 
-export default Consumer(CajaManual);
+export default Consumer(CajaBomba);

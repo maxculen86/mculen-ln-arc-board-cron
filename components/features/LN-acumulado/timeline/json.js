@@ -1,18 +1,32 @@
 import Consumer from 'fusion:consumer';
 import get from '../../../private/common/utils/get';
 import sectionsFormated from '../../../private/common/utils/sectionsFormated';
-import resultArticle from '../../../private/LN/api/v1/global/home/article/index';
-import respChain from '../../../private/LN/api/v1/global/home/chains/respCajaCollection';
+import { renderProps } from '../../../private/LN/api/global/components/features/article/LN/renderProps';
+import respChain from '../../../private/LN/api/global/components/chains/common/respChildrens/index';
 
 class Timeline {
     constructor(props) {
         this.props = props;
-        const { customFields, arcSite } = props;
+        const {
+            customFields: {
+                sections,
+                size,
+                sectionTagType,
+                sectionTagValue,
+                source
+            },
+            arcSite
+        } = props;
         this.state = {};
 
-        const { sections, size } = customFields;
-
-        const query = this.getQueryElement(sections, size + 3, arcSite);
+        const query = this.getQueryElement(
+            sections,
+            size + 3,
+            arcSite,
+            sectionTagType,
+            sectionTagValue,
+            source
+        );
 
         this.fetch(query);
     }
@@ -26,7 +40,14 @@ class Timeline {
         });
     }
 
-    getQueryElement = (sections, size, arcSite) => {
+    getQueryElement = (
+        sections,
+        size,
+        arcSite,
+        sectionTagType,
+        sectionTagValue,
+        source
+    ) => {
         let sectionsValidate = sections || [];
         const resp = {
             page: 1,
@@ -35,6 +56,15 @@ class Timeline {
             size,
             website: arcSite
         };
+        const excludeSourceOrigin = 'ArcImporter-LnData';
+        if (source === 'byTagSection') {
+            return {
+                ...resp,
+                sectionId: sectionTagValue,
+                size,
+                excludeSourceOrigin
+            };
+        }
         if (!sections) {
             sectionsValidate = ['/ultimas-noticias3'];
         }
@@ -79,7 +109,7 @@ class Timeline {
                                 title: null
                             }
                         };
-                        const element = resultArticle(
+                        const element = renderProps(
                             elem,
                             null,
                             null,
@@ -99,7 +129,7 @@ class Timeline {
                 children: resultArticles || []
             };
 
-            return respChain(null, props);
+            return respChain(props, null);
         } catch (err) {
             return { Success: false, Message: err.message };
         }
