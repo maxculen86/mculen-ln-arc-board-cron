@@ -394,49 +394,107 @@ describe('getTagTitle function test', () => {
     describe('addNoIndexNoFollow for LN10', () => {
         test('Return meta robots no index no follow when layout is for LN10', () => {
             expect(
-                addMetaNoIndexNoFollow(
-                    {
+                addMetaNoIndexNoFollow({
+                    siteProperties: {
                         layoutsName: {
                             HomeLN10: 'LN10-Home_Main'
                         }
                     },
-                    'LN10-Home_Main'
-                )
+                    layout: 'LN10-Home_Main'
+                })
             ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
         });
 
         test('Return fragment when layout is not LN10', () => {
             expect(
-                addMetaNoIndexNoFollow(
-                    {
+                addMetaNoIndexNoFollow({
+                    siteProperties: {
                         layoutsName: {
                             HomeLN10: 'LN10-Home_Main'
                         }
                     },
-                    ''
-                )
+                    layout: ''
+                })
             ).toStrictEqual(<React.Fragment />);
         });
 
         test('Return fragment when layout is Home', () => {
             expect(
-                addMetaNoIndexNoFollow(
-                    {
+                addMetaNoIndexNoFollow({
+                    siteProperties: {
                         layoutsName: {
                             Home: 'Home'
                         }
                     },
-                    ''
-                )
+                    layout: ''
+                })
             ).toStrictEqual(<React.Fragment />);
         });
 
         test('Return fragment when everything is undefined', () => {
-            expect(addMetaNoIndexNoFollow(undefined, undefined)).toStrictEqual(
+            expect(
+                addMetaNoIndexNoFollow({
+                    siteProperties: undefined,
+                    layout: undefined
+                })
+            ).toStrictEqual(<React.Fragment />);
+        });
+    });
+
+    describe('addNoIndexNoFollow for outputType widgets and opta-embeds', () => {
+        test('Return meta robots no index no follow when outputType is widgets', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    outputType: 'widgets'
+                })
+            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
+        });
+
+        test('Return meta robots no index no follow when outputType is opta-embeds', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    outputType: 'opta'
+                })
+            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
+        });
+
+        test('Return fragment when the layout is not home', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    siteProperties: {
+                        layoutsName: {
+                            HomeLN10: 'LN10-Home_Main'
+                        }
+                    },
+                    layout: 'LN-Home-Sports',
+                    outputType: 'default'
+                })
+            ).toStrictEqual(<React.Fragment />);
+        });
+
+        test('Return fragment when receiving an empty object', () => {
+            expect(addMetaNoIndexNoFollow({})).toStrictEqual(
                 <React.Fragment />
             );
         });
+
+        test('Return fragment when receiving outputType undefined', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    outputType: undefined
+                })
+            ).toStrictEqual(<React.Fragment />);
+        });
+
+        test('Return fragment when receiving outputType as an empty string', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    outputType: ''
+                })
+            ).toStrictEqual(<React.Fragment />);
+        });
     });
+
     describe('getTagTitle for acu', () => {
         test('Return pagebuilder title when nodeType is acu', () => {
             expect(

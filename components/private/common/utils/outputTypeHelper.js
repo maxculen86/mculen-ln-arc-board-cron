@@ -133,9 +133,13 @@ export const metasFromSiteServices = (metaTags = {}) => {
     );
 };
 
-export const addMetaNoIndexNoFollow = (siteProperties, layout = '') => {
+export const addMetaNoIndexNoFollow = ({
+    siteProperties = {},
+    layout = '',
+    outputType = 'default'
+}) => {
     return get(siteProperties, 'layoutsName.HomeLN10', 'LN10-Home_Main') ===
-        layout ? (
+        layout || ['opta', 'widgets'].includes(outputType) ? (
         <meta name="robots" content="noindex, nofollow" />
     ) : (
         <></>
