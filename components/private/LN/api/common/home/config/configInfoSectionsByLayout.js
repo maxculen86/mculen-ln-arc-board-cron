@@ -23,12 +23,13 @@ export const infoLNMain = {
 export const infoLNMainLN10 = {
     'ln-common/ln10_anticipo': { tipoSeccion: 'anticipo', idSeccion: 501 },
     bomba: { tipoSeccion: 'bomba', idSeccion: 102 },
+    bombita: { tipoSeccion: 'bombita', idSeccion: 102 },
     apertura: { tipoSeccion: 'apertura', idSeccion: 200 },
     'ln-common/anexo': { tipoSeccion: 'anexoMobile', idSeccion: 603 },
     'ln-common/anexomobile': { tipoSeccion: 'anexoMobile', idSeccion: 603 },
-    'ln-common/opinion': { tipoSeccion: 'opinion', idSeccion: 1001 },
-    'ln-common/editoriales': { tipoSeccion: 'opinion', idSeccion: 1001 },
-    comercial: { tipoSeccion: 'comercial', idSeccion: 1101 },
+    'ln-common/ln10_opinion': { tipoSeccion: 'opinion', idSeccion: 1001 },
+    'ln-common/ln10_editorial': { tipoSeccion: 'editorial', idSeccion: 1001 },
+    contentlab: { tipoSeccion: 'contentlab', idSeccion: 1101 },
     afondo: { tipoSeccion: 'afondo', idSeccion: 1101 },
     banner: { tipoSeccion: 'banner' },
     dolar: {

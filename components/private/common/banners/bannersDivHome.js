@@ -250,11 +250,30 @@ const bannersHome = {
             }}
         />
     ),
-
     cinturon2Dsk: (
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'cinturon2_dsk',
+                withoutHide: true,
+                isStatic: true,
+                lazyClass: 'lazy'
+            }}
+        />
+    ),
+    cinturon3Dsk: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'cinturon3_dsk',
+                withoutHide: true,
+                isStatic: true,
+                lazyClass: 'lazy'
+            }}
+        />
+    ),
+    cinturon4Dsk: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'cinturon4_dsk',
                 withoutHide: true,
                 isStatic: true,
                 lazyClass: 'lazy'

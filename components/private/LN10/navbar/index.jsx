@@ -8,17 +8,23 @@ import { getNavbarItems } from './_helper';
 import useTermica from '../../common/hooks/useTermica';
 import { isSubscribed } from '../../LN/common/utils/contextHelper';
 
-const Navbar = ({ isHome }) => {
+const Navbar = ({ isHome, toggleDesplegable }) => {
     const withBookmark = useTermica('bookmark_web');
     return (
         <Navbarmobile
-            data={getNavbarItems(isHome, withBookmark, isSubscribed)}
+            data={getNavbarItems(
+                isHome,
+                withBookmark,
+                isSubscribed,
+                toggleDesplegable
+            )}
         />
     );
 };
 
 Navbar.propTypes = {
-    isHome: PropTypes.bool.isRequired
+    isHome: PropTypes.bool.isRequired,
+    toggleDesplegable: PropTypes.func.isRequired
 };
 
 export default Navbar;

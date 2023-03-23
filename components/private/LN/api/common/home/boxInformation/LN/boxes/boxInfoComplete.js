@@ -22,9 +22,7 @@ export const boxInfoComplete = (information, section, typeSection) => {
         return {
             ...box,
             tituloCaja: information.title,
-            url: information.url,
-            chapita: information.chapita,
-            chapitaStyle: information.chapitaStyle
+            url: information.url
         };
     }
     return box;

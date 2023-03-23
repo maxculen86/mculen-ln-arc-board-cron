@@ -3,6 +3,9 @@ import { CONTENT_BASE } from 'fusion:environment';
 import getRequest from './getRequest';
 import { hasFutureDisplayDate } from '../../../components/private/common/utils/dateAndTimeUtil';
 import logger from '../../../components/private/common/utils/logger';
+import diagramationRules from '../../../components/private/common/utils/diagramationRules';
+import siteConfig from '../../../properties/sites/la-nacion-ar';
+import get from '../../../components/private/common/utils/get';
 
 export const isNotRecommend = article => {
     const { label = {} } = article;
@@ -88,4 +91,21 @@ export const filterArticlesInCollection = async ({
             true
         );
     }
+};
+
+export const getImageConfig = (diagramation, isFocal, position) => {
+    const configChainLN10 = diagramationRules(diagramation);
+
+    if (configChainLN10) {
+        return get(configChainLN10[position], 'imageConfig', '');
+    }
+
+    return (
+        (diagramation &&
+            get(
+                siteConfig,
+                `cajaTemaConfig.${diagramation}.articles[${position}].imageConfig`
+            )) ||
+        (isFocal && position === 0 && 'l')
+    );
 };

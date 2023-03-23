@@ -13,20 +13,30 @@ import {
     getTypeOfMedia,
     getOnlyHoursMinutes
 } from '../../../../../components/features/LN-10/article/_helper';
+import { isInApertura } from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
 import {
     renderablesWithBombaEager,
     renderablesWithChainAperturaEager
 } from '../../../../../__mocks__/data/renderables/renderablesLN10eager.js';
+import configLN10 from '../../../../../components/layouts/config/LN10-Home.config.json';
+import { getMockRenderables } from '../../../../../__mocks__/data/renderables/renderablesForPreload';
 
 describe('Components - Features - LN-10 - Article - _helper', () => {
-    const getProps = ({ video, image, customFields, renderables } = {}) => {
+    const getProps = ({
+        video,
+        image,
+        customFields,
+        renderables,
+        shouldUseV2 = false
+    } = {}) => {
         return {
             article: responseArticleSourceNota,
             video,
             image,
             customFields,
-            renderables
+            renderables,
+            shouldUseV2
         };
     };
 
@@ -148,12 +158,13 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                             imageId
                         },
                         video: responseVideoSource,
-                        image: responseRelatedImageSource
+                        image: responseRelatedImageSource,
+                        shouldUseV2: true
                     })
                 )
             ).toStrictEqual({
                 poster:
-                    'https://resizer.glanacion.com/resizer/vpxxoKfhImzI_W82siKEcwquXAM=/233x155/smart/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-23-2021/t_e27fe874604b4ba4b7a9de68ea999a82_name_file_1280x720_2000_v3_1_.jpg',
+                    'https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F03-02-2023%2Ft_5d96c8dea565416da3f6f8875641a5ff_name_file_1280x720_2000_v3_1_.jpg?auth=e74e861f0ae9b8af4da45668d1d52202c5edfb13c0928ff93167d6fcf83308d8&width=768&quality=80&smart=false',
                 src:
                     'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/LA_NACION/20220329/6243689bd601800001be77da/b7958f59-3bc1-4144-b134-eaec19e21716/t_4591bda568ae4e53b9e6fde00bf71c0f_name_VIDEO_SUPER/file_1280x720-2000-v3_1.mp4',
                 type: 'video'
@@ -340,19 +351,30 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
     });
 
     describe('Tests function showExtraClass', () => {
+        const withMedia = true;
         test('Should return a class for video', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ video: '123' }), '', {
-                    video: 'ln-70-video'
-                })
+                showExtraClass(
+                    getTypeOfMedia({ video: '123' }),
+                    '',
+                    withMedia,
+                    {
+                        video: 'ln-70-video'
+                    }
+                )
             ).toStrictEqual('ln-70-video');
         });
 
         test('Should return a undefined if no match type with extraClass from config', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ image: '123' }), '', {
-                    video: 'ln-70-video'
-                })
+                showExtraClass(
+                    getTypeOfMedia({ image: '123' }),
+                    '',
+                    withMedia,
+                    {
+                        video: 'ln-70-video'
+                    }
+                )
             ).toStrictEqual(undefined);
         });
 
@@ -361,6 +383,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 showExtraClass(
                     getTypeOfMedia({ image: '123', video: '123' }),
                     '--className',
+                    withMedia,
                     {
                         video: 'ln-70-video',
                         image: 'ln-class'
@@ -371,25 +394,62 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
         test('Should return a class that match with video type', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ image: '123' }), '', {
-                    video: 'ln-70-video',
-                    image: 'ln-class'
-                })
+                showExtraClass(
+                    getTypeOfMedia({ image: '123' }),
+                    '',
+                    withMedia,
+                    {
+                        video: 'ln-70-video',
+                        image: 'ln-class'
+                    }
+                )
             ).toStrictEqual('ln-class');
         });
 
         test('Should return a undefined if no match type of media with extraClass from config', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ video: '123' }), '', {
-                    image: 'ln-70-video'
-                })
+                showExtraClass(
+                    getTypeOfMedia({ video: '123' }),
+                    '',
+                    withMedia,
+                    {
+                        image: 'ln-70-video'
+                    }
+                )
             ).toStrictEqual(undefined);
         });
 
         test('Should return a undefined if everything is empty', () => {
-            expect(showExtraClass(getTypeOfMedia({}), '', {})).toStrictEqual(
-                undefined
-            );
+            expect(
+                showExtraClass(getTypeOfMedia({}), '', withMedia, {})
+            ).toStrictEqual(undefined);
+        });
+
+        test('Should return class "--no-mc" when there is no media', () => {
+            const withMedia = false;
+            expect(
+                showExtraClass(
+                    getTypeOfMedia({ video: '123' }),
+                    '',
+                    withMedia,
+                    {
+                        withoutMedia: '--no-mc'
+                    }
+                )
+            ).toStrictEqual('--no-mc');
+        });
+
+        test('Should not return class "--no-mc" when there is multimedia', () => {
+            expect(
+                showExtraClass(
+                    getTypeOfMedia({ video: '123' }),
+                    '',
+                    withMedia,
+                    {
+                        withoutMedia: '--no-mc'
+                    }
+                )
+            ).toStrictEqual(undefined);
         });
     });
 
@@ -529,6 +589,67 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             expect(getOnlyHoursMinutes(time)).toEqual('12:59');
             expect(getOnlyHoursMinutes(timeWithSeconds)).toEqual('14:25');
             expect(getOnlyHoursMinutes()).toEqual('');
+        });
+    });
+
+    describe('Test function IsInApertura', () => {
+        const props = {
+            layoutPageBuilder: 'LN10-Home_Main',
+            config: { withPreload: true },
+            renderables: getMockRenderables(),
+            featureId: 'f0fvqs5a1iKxLV'
+        };
+
+        const casesTruthy = [
+            ['should return true when exist a bomba with image', props],
+            [
+                'should return true when there is no "bomba" but there is an opening with an image.',
+                {
+                    ...props,
+                    renderables: getMockRenderables({ hideBomba: true }),
+                    featureId: 'f0fVAKwVPNa22W4'
+                }
+            ]
+        ];
+
+        test.each(casesTruthy)('%s', (message, props) => {
+            expect(isInApertura(props)).toBeTruthy();
+        });
+
+        const casesFalsy = [
+            [
+                'Should return false when the "bomba" has a hidden image',
+                {
+                    ...props,
+                    renderables: getMockRenderables({ hideImageBomba: true })
+                }
+            ],
+            [
+                'Should return false when  there is no "bomba" and the opening has a hidden image',
+                {
+                    ...props,
+                    renderables: getMockRenderables({
+                        hideImageApertura: true,
+                        hideBomba: true
+                    }),
+                    featureId: 'f0fVAKwVPNa22W4'
+                }
+            ],
+            [
+                'Should return false when withPreload is false',
+                {
+                    ...props,
+                    config: { withPreload: false }
+                }
+            ],
+            [
+                'Should return false when the parameters is not defined',
+                undefined
+            ]
+        ];
+
+        test.each(casesFalsy)('%s', (message, props) => {
+            expect(isInApertura(props)).toBeFalsy();
         });
     });
 });

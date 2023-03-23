@@ -56,6 +56,23 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
 
     const Comp = (
         <>
+            <div
+                id={slotId}
+                className={`${
+                    layout !== get(siteProperties, 'layoutsName.HomeLN10')
+                        ? 'com-banner'
+                        : 'ln-banner'
+                } ${lazyClass}`}
+                data-slot-group={slotGroup}
+                data-device={device}
+                data-subscription={hideForSubscriptor || false}
+                data-ad-unit-path={dfpId ? `/${dfpId}/${slotName}` : null}
+                data-targeting={JSON.stringify(targeting)}
+                data-without-hide={withoutHide || false}
+                data-size={JSON.stringify(flatArray(dimensions))}
+                data-sizemap={JSON.stringify([])}
+                data-prebid-enabled={get(bidding, 'prebid.enabled', false)}
+            />
             {closeButton && (
                 <>
                     {slotId.includes('comercial') ? (
@@ -85,23 +102,6 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                     />
                 </>
             )}
-            <div
-                id={slotId}
-                className={`${
-                    layout !== get(siteProperties, 'layoutsName.HomeLN10')
-                        ? 'com-banner'
-                        : 'ln-banner'
-                } ${lazyClass}`}
-                data-slot-group={slotGroup}
-                data-device={device}
-                data-subscription={hideForSubscriptor || false}
-                data-ad-unit-path={dfpId ? `/${dfpId}/${slotName}` : null}
-                data-targeting={JSON.stringify(targeting)}
-                data-without-hide={withoutHide || false}
-                data-size={JSON.stringify(flatArray(dimensions))}
-                data-sizemap={JSON.stringify([])}
-                data-prebid-enabled={get(bidding, 'prebid.enabled', false)}
-            />
         </>
     );
 

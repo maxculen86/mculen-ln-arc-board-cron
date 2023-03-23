@@ -63,9 +63,3 @@ export const onScrollHandler = (
 
     return { isScrollDown, isScrollUp };
 };
-
-export const toggleDesplegable = () => {
-    document.body.classList.contains('dropdown')
-        ? document.body.classList.remove('dropdown')
-        : document.body.classList.add('dropdown');
-};

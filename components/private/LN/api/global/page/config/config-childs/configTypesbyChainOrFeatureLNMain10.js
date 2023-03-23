@@ -5,9 +5,12 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
     // 9: A type is set to discard the box
     const boxTypeContainer = {
         0: [
+            'defaultAFondo',
             'afondo',
+            'bombita',
             'bomba',
             'apertura',
+            'contentlab',
             'comercial',
             'bienestar',
             'hashtag',
@@ -24,10 +27,8 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             'LN10_Caja_Canal',
             'LN10_Caja_Apertura',
             'LN-common/bomba',
-            'LN-common/opinion',
-            'LN-common/editoriales',
-            'LN-acumulado/timeline',
-            'ln-10/timeline',
+            'LN-common/LN10_editorial',
+            'LN-common/LN10_opinion',
             'LN-common/LN10_En_Vivo',
             'LN-acumulado/apertura'
         ],
@@ -41,7 +42,8 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             'LN-common/bannerRefactor',
             'LN-acumulado/breadcrumb',
             'LN-acumulado/titulo',
-            'LN-acumulado/anexoIframe'
+            'LN-acumulado/anexoIframe',
+            'ln-10/timeline'
         ]
     };
     let defaultType = 9; // For discard box
