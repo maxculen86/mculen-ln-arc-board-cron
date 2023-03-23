@@ -234,7 +234,8 @@ const diagramationRules = diagramation => {
                 imageConfig: 'xxl',
                 aspectRatio: 'ar-picture',
                 className: '--txt-center',
-                withPreload: true
+                withPreload: true,
+                extraClass: { withoutMedia: '--no-mc' }
             }
         ],
         vertical: [

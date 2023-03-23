@@ -85,6 +85,14 @@
         },
         {
             "slotGroup": "home",
+            "desktop": "cinturon3_dsk"
+        },
+        {
+            "slotGroup": "home",
+            "desktop": "cinturon4_dsk"
+        },
+        {
+            "slotGroup": "home",
             "desktop": "caja3_dsk"
         },
         {
@@ -129,11 +137,6 @@
         },
         {
             "slotGroup": "home",
-            "desktop": "parallax_dsk",
-            "mobile": "parallax_mob"
-        },
-        {
-            "slotGroup": "home",
             "desktop": "megalateral2_dsk"
         },
         {
@@ -147,6 +150,18 @@
         {
             "slotGroup": "home",
             "desktop": "megalateral5_dsk"
+        },
+        {
+            "slotGroup": "home",
+            "desktop": "cajasuscriptores_dsk"
+        },
+        {
+            "slotGroup": "home",
+            "mobile": "cajasuscriptores_mob"
+        },
+        {
+            "slotGroup": "home",
+            "tablet": "cajasuscriptores_tab"
         }
     ]
 }

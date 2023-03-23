@@ -2398,8 +2398,8 @@ export default {
                     ],
                     targeting: targetingHome
                 },
-                parallax_dsk: {
-                    slotName: `la_nacion_desktop/Home/parallax_dsk`,
+                cinturon3_dsk: {
+                    slotName: `la_nacion_desktop/Home/cinturon3_dsk`,
                     dimensions: [
                         [1, 1],
                         [728, 90],
@@ -2409,6 +2409,24 @@ export default {
                         [970, 250],
                         [1260, 300]
                     ],
+                    targeting: targetingHome
+                },
+                cinturon4_dsk: {
+                    slotName: `la_nacion_desktop/Home/cinturon4_dsk`,
+                    dimensions: [
+                        [1, 1],
+                        [728, 90],
+                        [920, 100],
+                        [920, 170],
+                        [920, 250],
+                        [970, 250],
+                        [1260, 300]
+                    ],
+                    targeting: targetingHome
+                },
+                cajasuscriptores_dsk: {
+                    slotName: `la_nacion_desktop/Home/cajasuscriptores_dsk`,
+                    dimensions: [[920, 120]],
                     targeting: targetingHome
                 }
             },
@@ -2559,6 +2577,11 @@ export default {
                         [360, 450]
                     ],
                     targeting: targetingHome
+                },
+                cajasuscriptores_mob: {
+                    slotName: `la_nacion_desktop/Home/cajasuscriptores_mob`,
+                    dimensions: [[300, 250]],
+                    targeting: targetingHome
                 }
             },
             tablet: {
@@ -2613,6 +2636,11 @@ export default {
                 logo_tag_tab: {
                     slotName: `la_nacion_tablet/Home/logo_tag_tab`,
                     dimensions: [[40, 280]],
+                    targeting: targetingHome
+                },
+                cajasuscriptores_tab: {
+                    slotName: `la_nacion_desktop/Home/cajasuscriptores_tab`,
+                    dimensions: [[720, 110]],
                     targeting: targetingHome
                 }
             },

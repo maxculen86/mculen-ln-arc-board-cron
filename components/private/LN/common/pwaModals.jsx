@@ -10,33 +10,6 @@ const PwaModals = () => {
 
     return outputType === 'default' ? (
         <>
-            <div
-                id="notificacion-modal-pwa"
-                className="modal --notification --apps"
-            >
-                <ComLogo
-                    logoName="la-nacion"
-                    href="https://www.lanacion.com.ar/"
-                    title="LA NACION"
-                />
-                {/* <LogoLN /> */}
-                <Text tag="p" font="sueca" size="3xs">
-                    Descargá la aplicación de LA NACION. Es rápida y liviana.
-                </Text>
-                <div className="--bottom">
-                    <ComButton
-                        textname="No, gracias"
-                        classCondition="--secondary --compact"
-                        id="notificacion-pwa-no"
-                    />
-                    <ComButton
-                        textname="Aceptar"
-                        classCondition="--primary --compact"
-                        id="notificacion-pwa-si"
-                    />
-                </div>
-            </div>
-
             <div id="notificacion-modal" className="modal --notification">
                 <ComLogo
                     logoName="la-nacion"

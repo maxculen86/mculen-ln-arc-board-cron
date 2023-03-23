@@ -3,6 +3,8 @@ import useGetArticlesFromAcuSource from './useGetArticlesFromAcumSource';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import { getIdsArticlesFromOtherCollections } from '../utils/cajaTemasValidators';
 import excludeUrlNacion from '../utils/excludeUrlNacion';
+import getIdsArticlesFromCajaManual from '../../../../chains/utils/getIdsArticlesFromCajaManual';
+import { SUSCRIPTOR_SECTION } from '../../../common/utils/subtypes/subtypeHelper';
 
 const useGridArticles = props => {
     const {
@@ -39,13 +41,19 @@ const useGridArticles = props => {
     const sectionId = nodeType === 'section' ? _id : null;
     const size = outputType === 'amp' ? DEFAULT_QUANTITY : articlesQuantity;
 
+    const cajaManualArticles =
+        tagId === SUSCRIPTOR_SECTION
+            ? getIdsArticlesFromCajaManual(renderables)
+            : [];
+
     const idsArticlesFromOtherCollection = getIdsArticlesFromOtherCollections(
         renderables,
         collectionsInPage
     );
 
     const idsArticlesToExclude = idsArticlesFromOtherCollection.concat(
-        articlesInCollection.map(art => art._id)
+        articlesInCollection.map(art => art._id),
+        cajaManualArticles
     );
 
     const excludeUrl = excludeUrlNacion({

@@ -5,6 +5,15 @@ exports[`Private - Common - Banners - Div Banners SSR should return div banner w
   <div
     class="ln-banner-container --random_banner --random_banner --fixed --close "
   >
+    <div
+      class="ln-banner "
+      data-prebid-enabled="false"
+      data-size="[]"
+      data-sizemap="[]"
+      data-subscription="true"
+      data-without-hide="false"
+      id="random_banner"
+    />
     <button
       aria-label="Close"
       class="icon-close"
@@ -41,15 +50,6 @@ exports[`Private - Common - Banners - Div Banners SSR should return div banner w
                             });
                             
     </script>
-    <div
-      class="ln-banner "
-      data-prebid-enabled="false"
-      data-size="[]"
-      data-sizemap="[]"
-      data-subscription="true"
-      data-without-hide="false"
-      id="random_banner"
-    />
   </div>
 </div>
 `;

@@ -2,7 +2,6 @@
 import React from 'react';
 import { MainHeader } from '@ln/contenidos-ui-header';
 import { Button } from '@ln/contenidos-ui-button';
-import { Text } from '@ln/contenidos-ui-text';
 import { Icon } from '@ln/common-ui-icon';
 import { SuscriptorExclusivo } from '@ln/assets-ui-icons';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
@@ -67,8 +66,7 @@ export const RightOptions = ({
     const SubscribeButton = (
         <Button
             title="Suscribirse"
-            typeButton="secondary"
-            className="suscribe --border-gray --d-flex --ai-center"
+            typeButton="subscribe"
             onClick={() =>
                 window.location.replace(
                     `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
@@ -77,7 +75,7 @@ export const RightOptions = ({
                 )
             }
         >
-            <Icon icon="suscriptorExclusivo" size={24}>
+            <Icon icon="suscriptorExclusivo" size={18}>
                 <SuscriptorExclusivo />
             </Icon>
             SUSCRIBITE
@@ -107,10 +105,10 @@ export const RightOptions = ({
                 <Button
                     title="Iniciar sesión"
                     typeButton="secondary"
-                    className="--border-gray --mobile-none"
+                    className="--mobile-none"
                     onClick={goToLoginUrl}
                 >
-                    <Text size="2xs">INICIAR SESIÓN</Text>
+                    INICIAR SESIÓN
                 </Button>
                 {SubscribeButton}
             </>

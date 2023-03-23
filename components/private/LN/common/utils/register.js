@@ -3,29 +3,14 @@ import handleCookie from './handleCookie';
 
 import siteConfig from '../../../../../properties/sites/la-nacion-ar';
 import dynamicallyLoadScript from './dynamicallyLoadScript';
-import getViewport from './screenHelper';
 
 const { getCookie, setCookie } = handleCookie();
 let messaging = null;
-let deferredPrompt;
 
 const apiNotification = 'https://notificaciones.lanacion.com.ar/api/';
 const topicName = 'Alertas_LA_NACION'; // 'pwatemp';
 const notificationModal = '#notificacion-modal';
 const aplicationJson = 'application/json';
-
-const validatePopupPwa = () => {
-    const pwaInit = localStorage.getItem('pwaNotificationInit');
-    if (!pwaInit) {
-        return true;
-    }
-
-    const diff = (new Date(pwaInit) - new Date()) / 1000 / 60 / 60 / 24;
-    if (diff >= 30) {
-        return true;
-    }
-    return false;
-};
 
 const verify = () => {
     return true && 'serviceWorker' in navigator;
@@ -56,70 +41,8 @@ const unregister = () => {
     });
 };
 
-const savePwaInLocalStorage = () => {
-    try {
-        localStorage.setItem('pwaNotificationInit', new Date());
-    } catch (err) {
-        console.log(
-            'Error al intentar guardar pwaNotificationInit en localStorage'
-        );
-    }
-};
-
 const register = deployment => {
-    const notificationModalPwa = '#notificacion-modal-pwa';
     return new Promise((resolve, reject) => {
-        window.addEventListener('beforeinstallprompt', e => {
-            console.log('SW: app beforeinstallprompt Event fired', e);
-            e.preventDefault();
-            deferredPrompt = e;
-            const notificacionPwaSi = document.querySelector(
-                '#notificacion-pwa-si'
-            );
-            const notificacionPwaNo = document.querySelector(
-                '#notificacion-pwa-no'
-            );
-            if (notificacionPwaSi && notificacionPwaNo) {
-                notificacionPwaSi.addEventListener('click', () => {
-                    showNoShowModal(notificationModalPwa, 'none');
-                    e.prompt();
-                    setDataLayer('notificationPrompt');
-
-                    // e.userChoice will return a Promise.
-                    // For more details read: https://developers.google.com/web/fundamentals/getting-started/primers/promises
-                    e.userChoice.then(choiceResult => {
-                        console.log(choiceResult.outcome);
-                        if (choiceResult.outcome === 'dismissed') {
-                            console.log(
-                                '[Service Worker] User cancelled home screen install'
-                            );
-                            savePwaInLocalStorage();
-                        } else {
-                            setDataLayer('notificationConsent');
-                        }
-                    });
-                });
-
-                notificacionPwaNo.addEventListener('click', () => {
-                    try {
-                        localStorage.setItem('pwaNotificationInit', new Date());
-                        showNoShowModal(notificationModalPwa, 'none');
-                    } catch (err) {
-                        console.log(
-                            'Error al intentar guardar pwaNotificationInit en localStorage'
-                        );
-                    }
-                });
-            }
-
-            const { isMobile } = getViewport();
-            validatePopupPwa() &&
-                isMobile &&
-                showNoShowModal(notificationModalPwa, 'block');
-
-            return false;
-        });
-
         if ('serviceWorker' in navigator) {
             console.log('[Service Worker] Will the service worker register?');
             navigator.serviceWorker
