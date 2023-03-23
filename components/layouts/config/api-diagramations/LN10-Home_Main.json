@@ -1,447 +1,721 @@
 {
-    "left-focal": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    "left-focal": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T3": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T4": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T5": {
+                "size": "L",
+                "imagePosition": "Top"
+            }
         },
-        "T2": {
-            "size": "L",
-            "imagePosition": "Top"
-        },
-        "T3": {
-            "size": "L",
-            "imagePosition": "Top"
-        },
-        "T4": {
-            "size": "L",
-            "imagePosition": "Top"
-        },
-        "T5": {
-            "size": "L",
-            "imagePosition": "Top"
+        {
+            "variants": ["author"],
+            "T1": {
+                "size": "XL"
+            },
+            "T2": {
+                "size": "L"
+            },
+            "T3": {
+                "size": "L"
+            },
+            "T4": {
+                "size": "L"
+            },
+            "T5": {
+                "size": "L"
+            }
         }
-    },
-    "center-focal": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "center-focal": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T3": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T4": {
+                "size": "L",
+                "imagePosition": "Top"
+            }
         },
-        "T2": {
-            "size": "L",
-            "imagePosition": "Top"
-        },
-        "T3": {
-            "size": "L",
-            "imagePosition": "Top"
-        },
-        "T4": {
-            "size": "L",
-            "imagePosition": "Top"
-        },
-        "T5": {
-            "size": "L",
-            "imagePosition": "Top"
+        {
+            "variants": ["author"],
+            "T2": {
+                "size": "L"
+            },
+            "T3": {
+                "size": "L"
+            }
         }
-    },
-    "focal-70": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "focal-70": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T3": {
+                "size": "L",
+                "imagePosition": "Top"
+            }
         },
-        "T2": {
-            "size": "L",
-            "imagePosition": "Top"
-        },
-        "T3": {
-            "size": "L",
-            "imagePosition": "Top"
+        {
+            "variants": ["author"],
+            "T1": {
+                "size": "XL"
+            },
+            "T2": {
+                "size": "L"
+            }
         }
-    },
-    "bn-opening-4": {
-        "T1": {
-            "size": "M",
-            "imagePosition": "Right"
+    ],
+    "bn-opening-4": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T4": {
-            "size": "M",
-            "imagePosition": "Right"
+        {
+            "variants": ["author"],
+            "T1": {
+                "size": "L"
+            },
+            "T2": {
+                "size": "L"
+            },
+            "T3": {
+                "size": "L"
+            },
+            "T4": {
+                "size": "L"
+            }
         }
-    },
-    "vertical": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "vertical": [
+        {
+            "variants": ["regular"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            }
         }
-    },
-    "horizontal": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "horizontal": [
+        {
+            "variants": ["regular"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            }
         }
-    },
-    "bombita": {
-        "T1": {
-            "size": "XL"
+    ],
+    "bombita": [
+        {
+            "variants": ["regular"],
+            "T1": {
+                "size": "XL"
+            }
         }
-    },
-    "bombitaMas4": {
-        "T1": {
-            "size": "XL"
-        },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T4": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T5": {
-            "size": "M",
-            "imagePosition": "Right"
+    ],
+    "bombitaMas4": [
+        {
+            "variants": ["regular"],
+            "T1": {
+                "size": "XL"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T5": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         }
-    },
-    "bn_1_4_grid": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "bn_1_4_grid": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T5": {
+                "size": "L",
+                "imagePosition": "Top"
+            }
         },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T4": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T5": {
-            "size": "L",
-            "imagePosition": "Top"
+        {
+            "variants": ["author"],
+            "T1": {
+                "size": "XL"
+            },
+            "T2": {
+                "size": "M"
+            },
+            "T3": {
+                "size": "M"
+            },
+            "T4": {
+                "size": "M"
+            },
+            "T5": {
+                "size": "L"
+            }
         }
-    },
-    "bn_1_3_grid": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "bn_1_3_grid": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T4": {
-            "size": "M",
-            "imagePosition": "Right"
+        {
+            "variants": ["author"],
+            "T2": {
+                "size": "M"
+            },
+            "T3": {
+                "size": "M"
+            },
+            "T4": {
+                "size": "M"
+            }
         }
-    },
-    "bn_1_2_grid": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "bn_1_2_grid": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
+        {
+            "variants": ["author"],
+            "T2": {
+                "size": "M"
+            },
+            "T3": {
+                "size": "M"
+            }
         }
-    },
-    "bn_1_1_grid": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "bn_1_1_grid": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
+        {
+            "variants": ["author"],
+            "T2": {
+                "size": "M"
+            }
         }
-    },
-    "bn_2_1_2_grid": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "bn_2_1_2_grid": [
+        {
+            "variants": ["regular"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T5": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
+        {
+            "variants": ["author"],
+            "T3": {
+                "size": "M"
+            },
+            "T4": {
+                "size": "M"
+            }
         },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T4": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T5": {
-            "size": "M",
-            "imagePosition": "Right"
+        {
+            "variants": ["liveblog"],
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         }
-    },
-    "bn_1_grid": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "bn_1_grid": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            }
         }
-    },
-    "bn_2_grid": {
-        "T1": {
-            "size": "M",
-            "imagePosition": "Right"
+    ],
+    "bn_2_grid": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
+        {
+            "variants": ["author"],
+            "T1": {
+                "size": "M"
+            },
+            "T2": {
+                "size": "M"
+            }
         }
-    },
-    "bnGrilla4": {
-        "T1": {
-            "size": "L",
-            "imagePosition": "Top"
+    ],
+    "bnGrilla4": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T4": {
-            "size": "M",
-            "imagePosition": "Right"
+        {
+            "variants": ["author"],
+            "T1": {
+                "size": "L"
+            },
+            "T2": {
+                "size": "M"
+            },
+            "T3": {
+                "size": "M"
+            },
+            "T4": {
+                "size": "M"
+            }
         }
-    },
-    "bnGrilla8": {
-        "T1": {
-            "size": "L",
-            "imagePosition": "Top"
+    ],
+    "bnGrilla8": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T5": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T6": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T7": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T8": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T4": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T5": {
-            "size": "L",
-            "imagePosition": "Top"
-        },
-        "T6": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T7": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T8": {
-            "size": "M",
-            "imagePosition": "Right"
+        {
+            "variants": ["author"],
+            "T1": {
+                "size": "L"
+            },
+            "T2": {
+                "size": "M"
+            },
+            "T3": {
+                "size": "M"
+            },
+            "T4": {
+                "size": "M"
+            },
+            "T5": {
+                "size": "L"
+            },
+            "T6": {
+                "size": "M"
+            },
+            "T7": {
+                "size": "M"
+            },
+            "T8": {
+                "size": "M"
+            }
         }
-    },
-    "cajaContent1": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "cajaContent1": [
+        {
+            "variants": ["regular"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            }
         }
-    },
-    "bnFondo": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "bnFondo": [
+        {
+            "variants": ["regular"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            }
         }
-    },
-    "canal_1_2_grid": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
-        },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
+    ],
+    "canal_1_2_grid": [
+        {
+            "variants": ["regular"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         }
-    },
-    "canal_1_3_grid": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "canal_1_3_grid": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T4": {
-            "size": "M",
-            "imagePosition": "Right"
+        {
+            "variants": ["author"],
+            "T2": {
+                "size": "M"
+            },
+            "T3": {
+                "size": "M"
+            },
+            "T4": {
+                "size": "M"
+            }
         }
-    },
-    "canal_1_4_grid": {
-        "T1": {
-            "size": "XL",
-            "imagePosition": "Top"
+    ],
+    "canal_1_4_grid": [
+        {
+            "variants": ["regular", "liveblog"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T5": {
+                "size": "L",
+                "imagePosition": "Top"
+            }
         },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T4": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T5": {
-            "size": "L",
-            "imagePosition": "Top"
+        {
+            "variants": ["author"],
+            "T1": {
+                "size": "XL"
+            },
+            "T2": {
+                "size": "M"
+            },
+            "T3": {
+                "size": "M"
+            },
+            "T4": {
+                "size": "M"
+            },
+            "T5": {
+                "size": "L"
+            }
         }
-    },
-    "hash-1-2-2-2_grid": {
-        "T1": {
-            "size": "M",
-            "imagePosition": "Top"
-        },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T4": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T5": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T6": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T7": {
-            "size": "M",
-            "imagePosition": "Right"
+    ],
+    "hash-1-2-2-2_grid": [
+        {
+            "variants": ["regular"],
+            "T1": {
+                "size": "M",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T5": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T6": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T7": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         }
-    },
-    "bn-4-8": {
-        "T1": {
-            "size": "L",
-            "imagePosition": "Top"
-        },
-        "T2": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T3": {
-            "size": "M",
-            "imagePosition": "Right"
-        },
-        "T4": {
-            "size": "M",
-            "imagePosition": "Right"
+    ],
+    "bn-4-8": [
+        {
+            "variants": ["regular"],
+            "T1": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "M",
+                "imagePosition": "Right"
+            }
         }
-    },
-    "timeline": {
-        "T1": {
-            "size": "XS"
-        },
-        "T2": {
-            "size": "XS"
-        },
-        "T3": {
-            "size": "XS"
-        },
-        "T4": {
-            "size": "XS"
-        },
-        "T5": {
-            "size": "XS"
-        },
-        "T6": {
-            "size": "XS"
-        },
-        "T7": {
-            "size": "XS"
+    ],
+    "timeline": [
+        {
+            "variants": ["regular"],
+            "T1": {
+                "size": "XS"
+            },
+            "T2": {
+                "size": "XS"
+            },
+            "T3": {
+                "size": "XS"
+            },
+            "T4": {
+                "size": "XS"
+            },
+            "T5": {
+                "size": "XS"
+            },
+            "T6": {
+                "size": "XS"
+            },
+            "T7": {
+                "size": "XS"
+            }
         }
-    },
-    "opinion4": {
-        "T1": {
-            "size": "M"
-        },
-        "T2": {
-            "size": "M"
-        },
-        "T3": {
-            "size": "M"
-        },
-        "T4": {
-            "size": "M"
+    ],
+    "opinion4": [
+        {
+            "variants": ["author"],
+            "T1": {
+                "size": "M"
+            },
+            "T2": {
+                "size": "M"
+            },
+            "T3": {
+                "size": "M"
+            },
+            "T4": {
+                "size": "M"
+            }
         }
-    },
-    "opinion8": {
-        "T1": {
-            "size": "M"
-        },
-        "T2": {
-            "size": "M"
-        },
-        "T3": {
-            "size": "M"
-        },
-        "T4": {
-            "size": "M"
-        },
-        "T5": {
-            "size": "M"
-        },
-        "T6": {
-            "size": "M"
-        },
-        "T7": {
-            "size": "M"
-        },
-        "T8": {
-            "size": "M"
+    ],
+    "opinion8": [
+        {
+            "variants": ["author"],
+            "T1": {
+                "size": "M"
+            },
+            "T2": {
+                "size": "M"
+            },
+            "T3": {
+                "size": "M"
+            },
+            "T4": {
+                "size": "M"
+            },
+            "T5": {
+                "size": "M"
+            },
+            "T6": {
+                "size": "M"
+            },
+            "T7": {
+                "size": "M"
+            },
+            "T8": {
+                "size": "M"
+            }
         }
-    }
+    ]
 }
