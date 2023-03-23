@@ -269,6 +269,7 @@ const ArticleFeature = ({
                     className={showExtraClass(
                         typeOfMedia,
                         className,
+                        withMedia,
                         extraClass
                     )}
                 />

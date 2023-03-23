@@ -287,9 +287,16 @@ export const getTypeOfMedia = (customFields = {}) => {
     return typeMedia.IMAGE;
 };
 
-export const showExtraClass = (typeOfMedia, className, extraClass = {}) => {
+export const showExtraClass = (
+    typeOfMedia,
+    className,
+    withMedia,
+    extraClass = {}
+) => {
+    const witoutMedia = !withMedia && extraClass.withoutMedia;
     const classname = setClassName({
         extraClass: extraClass[typeOfMedia],
+        witoutMedia,
         className
     });
 
