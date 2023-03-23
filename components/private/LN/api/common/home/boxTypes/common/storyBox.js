@@ -1,8 +1,8 @@
-import get from '../../../../../common/utils/get';
-import { orderArticles } from '../utils/helpers';
+import get from '../../../../../../common/utils/get';
+import { orderArticles } from '../../utils/helpers';
 
 const articlesMap = (articles, informationBox, articleFn, paramsFromPage) => {
-    const { sectionAliasMobile } = informationBox;
+    const { sectionWeb } = informationBox;
 
     return articles.reduce((result, f) => {
         if (f) {
@@ -18,7 +18,7 @@ const articlesMap = (articles, informationBox, articleFn, paramsFromPage) => {
                 if (get(error, 'name', null) === 'ErrorIdArticle') {
                     // eslint-disable-next-line no-console
                     console.warn(
-                        `SectionAliasMobile:${sectionAliasMobile || ''} - ${get(
+                        `sectionWeb:${sectionWeb || ''} - ${get(
                             error,
                             'message',
                             ''
@@ -44,9 +44,10 @@ const articlesMap = (articles, informationBox, articleFn, paramsFromPage) => {
 };
 
 export const storyBox = (element, featureInfo, articleFn, paramsFromPage) => {
-    const { information, sectionAliasMobile } = element;
+    const { information, sectionAliasMobile, sectionWeb } = element;
     const informationBox = {
         sectionAliasMobile,
+        sectionWeb,
         ...information
     };
 

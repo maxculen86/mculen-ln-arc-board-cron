@@ -3,7 +3,7 @@ import get from '../../../common/utils/get';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import filterEditoriales from '../../../../../content/filters/LN/acumulado/articleEditoriales';
 
-const useGetArticleInCollection = (
+const useGetArticleInCollection = ({
     notesQuantity,
     diagramation,
     idCollection = '',
@@ -14,8 +14,9 @@ const useGetArticleInCollection = (
     filterRepetead = false,
     layout = '',
     website = 'la-nacion-ar',
-    hasHydrateOnly = false
-) => {
+    hasHydrateOnly = false,
+    shouldUseV2 = false
+}) => {
     const checkIdCollection =
         idCollection && idCollection.trim() && idCollection;
     const articleList = useContent({
@@ -31,7 +32,9 @@ const useGetArticleInCollection = (
             notesQuantity,
             imageConfig: 'm',
             isFocal: layout && layout.includes('focal'),
-            diagramation
+            diagramation,
+            shouldUseV2,
+            shouldUseV1: !shouldUseV2
         },
         staticMode: hasHydrateOnly,
         filter:

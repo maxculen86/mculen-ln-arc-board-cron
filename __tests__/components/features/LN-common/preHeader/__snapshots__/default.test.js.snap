@@ -27,7 +27,7 @@ exports[`Components - Features - LN-Common - PreHeader should match snapshot of 
             Capital Federal
           </span>
           <i
-            class="icon ln-icon --mr-3xs --icon-s"
+            class="icon ln-icon --mr-3xs --icon-16"
           >
             <svg
               fill="none"

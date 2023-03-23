@@ -14,7 +14,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
       title="Ir a la página principal"
     >
       <i
-        class="icon ln-icon --icon-inherit"
+        class="icon ln-icon"
       >
         <svg
           fill="none"
@@ -546,7 +546,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
               title="Seguirnos en Facebook"
             >
               <i
-                class="icon ln-icon --icon-m"
+                class="icon ln-icon"
               >
                 <svg
                   fill="none"
@@ -570,7 +570,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
               title="Seguirnos en Twitter"
             >
               <i
-                class="icon ln-icon --icon-m"
+                class="icon ln-icon"
               >
                 <svg
                   fill="none"
@@ -594,7 +594,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
               title="Seguirnos en Instagram"
             >
               <i
-                class="icon ln-icon --icon-m"
+                class="icon ln-icon"
               >
                 <svg
                   fill="none"
@@ -620,7 +620,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
               title="Ir a RSS"
             >
               <i
-                class="icon ln-icon --icon-m"
+                class="icon ln-icon"
               >
                 <svg
                   fill="none"
@@ -659,7 +659,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
               title="Ir a Google Play"
             >
               <i
-                class="icon ln-icon --icon-inherit"
+                class="icon ln-icon"
               >
                 <svg
                   fill="none"
@@ -814,7 +814,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
               title="Ir a App Store"
             >
               <i
-                class="icon ln-icon --icon-inherit"
+                class="icon ln-icon"
               >
                 <svg
                   fill="none"
@@ -899,7 +899,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         title="GDA"
       >
         <i
-          class="icon ln-icon --icon-inherit"
+          class="icon ln-icon"
         >
           <svg
             fill="none"
@@ -927,7 +927,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         title="Data fiscal"
       >
         <i
-          class="icon ln-icon --icon-l"
+          class="icon ln-icon --icon-32"
         >
           <svg
             fill="none"

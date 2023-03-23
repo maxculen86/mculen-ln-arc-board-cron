@@ -3,6 +3,9 @@ import { moveElementByPosition } from '../common/utils/moveElements';
 
 // Set field diseno of config Diagramation and validate many fields
 const setDiagramationInArticle = (configDiagramation, additionalProperties) => {
+    if (!configDiagramation) {
+        return null;
+    }
     const configDiagramationValidate = configDiagramation;
     const { variant = 'regular' } = additionalProperties;
 
@@ -20,17 +23,29 @@ const configsDiagramationFromInformation = (
 ) => {
     let configDiagramation = null;
     let configMoveArticlesbyDiagramation = null;
-    const informationChain = get(box, 'information', null);
+    const informationBox = get(box, 'information', null);
     //  Get the diagramation according to the layout of the box
-    if (informationChain) {
-        configDiagramation = get(diagramations, informationChain.layout, null);
+    if (informationBox && informationBox.layout) {
+        configDiagramation = get(diagramations, informationBox.layout, null);
         configMoveArticlesbyDiagramation =
             positionsArticlesbyDiagramation &&
-            positionsArticlesbyDiagramation[informationChain.layout];
+            positionsArticlesbyDiagramation[informationBox.layout];
     }
     return {
         configDiagramation,
         configMoveArticlesbyDiagramation
+    };
+};
+
+// Add properties to  Chain Manual o Chain Collection
+const setInformationInChain = (render, children) => {
+    return {
+        ...render,
+        information: {
+            ...get(render, 'information', null),
+            nameChain: get(children, 'type', null),
+            idRender: get(children, 'props.id', null)
+        }
     };
 };
 
@@ -84,9 +99,33 @@ const setInformationInArticle = (
             return subBoxItem;
         }
     }
+
+    const element = article;
+
+    // Applies to add properties to articles inside nested boxes such as opinion
+    if (element && element.articles && Array.isArray(element.articles)) {
+        const {
+            configDiagramation,
+            configMoveArticlesbyDiagramation
+        } = configsDiagramationFromInformation(
+            element,
+            diagramations,
+            positionsArticlesbyDiagramation
+        );
+
+        element.articles = addPropertiesInArticles(
+            element.articles,
+            sectionChildrenItem,
+            configDiagramation,
+            configMoveArticlesbyDiagramation,
+            diagramations,
+            positionsArticlesbyDiagramation
+        );
+    }
+
     // Applies to common cases of Chains that only have LN Articles or only articles
     return {
-        ...article,
+        ...element,
         additionalProperties: {
             ...get(article, 'additionalProperties', null),
             originPosition: nameIndexforDiagrmation,
@@ -94,7 +133,7 @@ const setInformationInArticle = (
                 configDiagramationChild,
                 get(article, 'additionalProperties', {})
             ),
-            nameFeature: childrenArticle && childrenArticle.type,
+            nameFeature: get(childrenArticle, 'type', null),
             idRender: get(childrenArticle, 'props.id', null)
         }
     };
@@ -137,6 +176,27 @@ const addPropertiesChilds = (
     );
 };
 
+const addPropertiesInArticles = (
+    articles,
+    sectionChildrenItem,
+    configDiagramation,
+    configMoveArticlesbyDiagramation,
+    diagramations,
+    positionsArticlesbyDiagramation
+) => {
+    return (
+        Array.isArray(articles) &&
+        addPropertiesChilds(
+            articles,
+            sectionChildrenItem,
+            configDiagramation,
+            configMoveArticlesbyDiagramation,
+            diagramations,
+            positionsArticlesbyDiagramation
+        )
+    );
+};
+
 // childrenArticle, childs' chain, feature LN/article or common/timeline
 // sectionChildrenItem, chain LN_Caja_MAnual or feature accord position
 // sectionChildren, rendereables
@@ -157,10 +217,8 @@ const addPropertiesByLayout = (
             const sectionChildrenItem = sectionChildren[i];
             if (
                 sectionChildrenItem &&
-                sectionChildrenItem.collection === 'chains'
+                ['chains', 'features'].includes(sectionChildrenItem.collection)
             ) {
-                const informationChain = get(e, 'information', null);
-
                 const {
                     configDiagramation,
                     configMoveArticlesbyDiagramation
@@ -169,31 +227,28 @@ const addPropertiesByLayout = (
                     diagramations,
                     positionsArticlesbyDiagramation
                 );
+                let boxElement = {};
+                if (sectionChildrenItem.collection === 'chains') {
+                    boxElement = setInformationInChain(e, sectionChildrenItem);
+                }
+                if (sectionChildrenItem.collection === 'features') {
+                    boxElement = setInformationInFeature(
+                        e,
+                        sectionChildrenItem
+                    );
+                }
 
-                return {
-                    ...e,
-                    information: {
-                        ...informationChain,
-                        nameChain: sectionChildrenItem.type,
-                        idRender: get(sectionChildrenItem, 'props.id', null)
-                    },
-                    articles:
-                        Array.isArray(e.articles) &&
-                        addPropertiesChilds(
-                            e.articles,
-                            sectionChildrenItem,
-                            configDiagramation,
-                            configMoveArticlesbyDiagramation,
-                            diagramations,
-                            positionsArticlesbyDiagramation
-                        )
-                };
-            }
-            if (
-                sectionChildrenItem &&
-                sectionChildrenItem.collection === 'features'
-            ) {
-                return setInformationInFeature(e, sectionChildrenItem);
+                if (e && e.articles && Array.isArray(e.articles)) {
+                    boxElement.articles = addPropertiesInArticles(
+                        e.articles,
+                        sectionChildrenItem,
+                        configDiagramation,
+                        configMoveArticlesbyDiagramation,
+                        diagramations,
+                        positionsArticlesbyDiagramation
+                    );
+                }
+                return boxElement;
             }
             return e;
         });

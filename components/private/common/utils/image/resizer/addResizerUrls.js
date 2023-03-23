@@ -97,7 +97,8 @@ export const addResizedUrls = (ansDoc, options) => {
                           presetPromoOrDefault,
                           zoomSizes,
                           subtype,
-                          promoItems
+                          promoItems,
+                          isInApertura
                       )
                     : resizerV1.resizePromoItems(
                           promoItems,
@@ -109,7 +110,7 @@ export const addResizedUrls = (ansDoc, options) => {
         }),
         ...(credits && {
             credits:
-                !shouldUseV1 && isAllowSection({ section })
+                !shouldUseV1 && (isAllowSection({ section }) || shouldUseV2)
                     ? resizerV2.resizeCredits(
                           credits,
                           presetsCredits || presetsDefault

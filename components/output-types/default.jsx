@@ -169,6 +169,7 @@ const Default = props => {
                     renderables={renderables}
                     arcSite={arcSite}
                     isAdmin={isAdmin}
+                    layout={layout}
                 />
                 <CriticalCss isLN10={layoutsName.HomeLN10 === layout} />
                 <FontPreloads isLN10={layoutsName.HomeLN10 === layout} />

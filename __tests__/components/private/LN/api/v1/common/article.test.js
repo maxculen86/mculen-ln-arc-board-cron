@@ -315,7 +315,7 @@ describe('Test de index en Json', () => {
 
 describe('Home test', () => {
     // Comentario temporal a revisar porque este escenario ya no deberia presentarse, anexo en un metodo que valida articulos.
-/*     test('Debería retornar un info', () => {
+    /*     test('Debería retornar un info', () => {
         const request = {
             templateId: '2',
             titulo: 'test',

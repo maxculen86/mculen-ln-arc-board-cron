@@ -84,7 +84,8 @@ const fetch = (query, { cachedCall } = {}) => {
         isInApertura = false,
         isAdmin = false,
         outputType = '',
-        shouldUseV1 = false
+        shouldUseV1 = false,
+        shouldUseV2
     } = query;
 
     const arcSite = query['arc-site'];
@@ -148,7 +149,8 @@ const fetch = (query, { cachedCall } = {}) => {
                 cachedCall,
                 isInApertura,
                 isAdmin,
-                shouldUseV1
+                shouldUseV1,
+                shouldUseV2
             );
         })
         .catch(error => {
@@ -167,6 +169,7 @@ const fetch = (query, { cachedCall } = {}) => {
 
 // Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
 // directamente nosotros desde el fetch
+
 const transform = async (
     data,
     arcSite,
@@ -178,7 +181,8 @@ const transform = async (
     cachedCall,
     isInApertura,
     isAdmin,
-    shouldUseV1
+    shouldUseV1,
+    shouldUseV2
 ) => {
     // Data
     const subtype = get(data, 'subtype', null);
@@ -191,7 +195,7 @@ const transform = async (
     const layout = 'LN-nota-noticia';
 
     if (
-        !shouldUseV1 &&
+        (!shouldUseV1 && shouldUseV2) ||
         isAllowSection({
             section: get(data, 'taxonomy.primary_section._id')
         })
@@ -281,7 +285,8 @@ const transform = async (
             subtype,
             isInApertura,
             isAdmin,
-            shouldUseV1
+            shouldUseV1,
+            shouldUseV2
         })
     };
     return transformContent(
