@@ -64,10 +64,16 @@
         },
         {
             "variants": ["author"],
+            "T1": {
+                "size": "L"
+            },
             "T2": {
                 "size": "L"
             },
             "T3": {
+                "size": "L"
+            },
+            "T4": {
                 "size": "L"
             }
         }
@@ -94,6 +100,9 @@
                 "size": "XL"
             },
             "T2": {
+                "size": "L"
+            },
+            "T3": {
                 "size": "L"
             }
         }
@@ -249,6 +258,9 @@
         },
         {
             "variants": ["author"],
+            "T1": {
+                "size": "XL"
+            },
             "T2": {
                 "size": "M"
             },
@@ -300,6 +312,9 @@
         },
         {
             "variants": ["author"],
+            "T1": {
+                "size": "XL"
+            },
             "T2": {
                 "size": "M"
             }
@@ -331,10 +346,19 @@
         },
         {
             "variants": ["author"],
+            "T1": {
+                "size": "XL"
+            },
+            "T2": {
+                "size": "M"
+            },
             "T3": {
                 "size": "M"
             },
             "T4": {
+                "size": "M"
+            },
+            "T5": {
                 "size": "M"
             }
         },
@@ -538,6 +562,9 @@
         },
         {
             "variants": ["author"],
+            "T1": {
+                "size": "XL"
+            },
             "T2": {
                 "size": "M"
             },
