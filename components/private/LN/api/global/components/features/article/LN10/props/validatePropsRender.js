@@ -59,8 +59,14 @@ export const validatePropsRender = (
     const propsRender = paramsBasic && paramsBasic.propsRender;
     const articleSourceNotaRender =
         paramsBasic && paramsBasic.articleSourceNotaRender;
-    let articleImageRender = paramsBasic && paramsBasic.articleImageRender;
-    let articleVideoRender = paramsBasic && paramsBasic.articleVideoRender;
+    let articleImageRender =
+        paramsBasic && paramsBasic.articleImageRender
+            ? paramsBasic.articleImageRender
+            : null;
+    let articleVideoRender =
+        paramsBasic && paramsBasic.articleVideoRender
+            ? paramsBasic.articleVideoRender
+            : null;
 
     const { customFields = {} } = propsRender;
     const { variant = 'regular' } = customFields;
@@ -79,6 +85,7 @@ export const validatePropsRender = (
             articleImageRender = null;
         }
     }
+
     return {
         propsRender,
         articleSourceNotaRender,

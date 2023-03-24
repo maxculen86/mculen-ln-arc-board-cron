@@ -11,6 +11,8 @@ import {
     validateArticleFeature,
     isInApertura
 } from './common/_helper-WebApi';
+import videoFilterLN10 from '../../../../content/filters/LN/home/LN10/videoFilterLN10';
+import filterVideo from '../../../../content/filters/LN/home/videoFilter';
 
 class ArticleFeature {
     constructor(props) {
@@ -50,7 +52,8 @@ class ArticleFeature {
                         website: 'la-nacion-ar',
                         isInApertura: this.onlyOneApeturaValidateForWWW,
                         shouldUseV2: this.shouldUseV2
-                    }
+                    },
+                    filter: this.shouldUseV2 ? videoFilterLN10 : filterVideo
                 }
             });
 
