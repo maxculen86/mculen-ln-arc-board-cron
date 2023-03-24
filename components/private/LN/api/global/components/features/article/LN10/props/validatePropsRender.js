@@ -77,8 +77,6 @@ export const validatePropsRender = (
             propsRender.customFields.video = null;
             articleVideoRender = null;
             articleImageRender = null;
-        } else {
-            propsRender.customFields.variant = 'regular';
         }
     }
     return {
