@@ -2579,12 +2579,21 @@ export default {
                     targeting: targetingHome
                 },
                 cajasuscriptores_mob: {
-                    slotName: `la_nacion_desktop/Home/cajasuscriptores_mob`,
+                    slotName: `la_nacion_mobile/Home/cajasuscriptores_mob`,
                     dimensions: [[300, 250]],
                     targeting: targetingHome
                 }
             },
             tablet: {
+                megatop_tab: {
+                    slotName: `la_nacion_desktop/Home/megatop_tab`,
+                    dimensions: [
+                        [1270, 120],
+                        [768, 120],
+                        [728, 90]
+                    ],
+                    targeting: targetingHome
+                },
                 cabezal_tab: {
                     slotName: `la_nacion_tablet/Home/cabezal_tab`,
                     dimensions: [[728, 90]],
@@ -2639,7 +2648,7 @@ export default {
                     targeting: targetingHome
                 },
                 cajasuscriptores_tab: {
-                    slotName: `la_nacion_desktop/Home/cajasuscriptores_tab`,
+                    slotName: `la_nacion_tablet/Home/cajasuscriptores_tab`,
                     dimensions: [[720, 110]],
                     targeting: targetingHome
                 }
