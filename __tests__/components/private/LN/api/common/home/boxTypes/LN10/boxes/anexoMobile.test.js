@@ -1,22 +1,9 @@
-import { anexoMobileBox } from '../../../../../../../../../../components/private/LN/api/common/home/boxTypes/LN/boxes/anexoMobileBox';
+import { anexoMobileBox } from '../../../../../../../../../../components/private/LN/api/common/home/boxTypes/LN10/boxes/anexoMobileBox';
 
-describe('anexoMobileBox LN9', () => {
+describe('anexoMobileBox LN10', () => {
     it('should return null when no articles are provided', () => {
         const element = {
-            index: 29,
-            type: 2,
-            sectionAliasMobile: 'ln-common/anexomobile',
-            information: {
-                hideCaja: false,
-                layout: 'grilla1',
-                nameFeature: 'LN-common/anexoMobile',
-                idRender: 'f0ft67VXRbWkaTp'
-            },
-            articles: [{}],
-            configurations: {
-                arcSite: 'la-nacion-ar'
-            },
-            sectionWeb: 'App_Anexo_1'
+            articles: [{}]
         };
         const featureInfo = {
             typeSection: {
@@ -47,6 +34,8 @@ describe('anexoMobileBox LN9', () => {
         const result = anexoMobileBox(element, featureInfo);
         expect(result).toEqual({
             anexo: {
+                src:
+                    'https://especialess3.lanacion.com.ar/21/08/elecciones2021_anexo_paso/index.html',
                 url:
                     'https://especialess3.lanacion.com.ar/21/08/elecciones2021_anexo_paso/index.html',
                 alto: 200
