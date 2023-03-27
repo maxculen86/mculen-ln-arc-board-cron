@@ -8,7 +8,8 @@ export const CardRegular = article => {
     return {
         badgeStyle: getArticleChapitaStyle(article),
         categoria: primarySection && getPrincipalCategory(primarySection),
-        ...Article(article)
+        ...Article(article),
+        opinion: false
     };
 };
 

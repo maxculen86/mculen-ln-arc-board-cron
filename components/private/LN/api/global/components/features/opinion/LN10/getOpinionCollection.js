@@ -129,7 +129,7 @@ class GetOpinionCollection {
                 return {
                     ...o,
                     additionalProperties: {
-                        variant: 'author'
+                        variant: 'opinion'
                     }
                 };
             });
@@ -140,7 +140,7 @@ class GetOpinionCollection {
                 return {
                     ...o,
                     additionalProperties: {
-                        variant: 'author'
+                        variant: 'opinion'
                     }
                 };
             });

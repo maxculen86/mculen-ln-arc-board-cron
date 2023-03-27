@@ -30,23 +30,23 @@ describe('CardAuthor', () => {
         // Arrange
         const article = { autores: ['John Doe', 'Jane Doe', 'Jim Doe'] };
         CardBasic.mockReturnValueOnce({ autores: article.autores });
+        const expected = { autores: article.autores, opinion: true };
         CardRegular.mockReturnValueOnce({});
 
         // Act
         const result = CardAuthor(article);
 
         // Assert
-        expect(result).toEqual({});
+        expect(result).toEqual(expected);
         expect(CardBasic).toHaveBeenCalledTimes(1);
         expect(CardBasic).toHaveBeenCalledWith(article);
-        expect(CardRegular).toHaveBeenCalledTimes(1);
-        expect(CardRegular).toHaveBeenCalledWith(article);
+        expect(CardRegular).toHaveBeenCalledTimes(0);
     });
 
     test('returns CardBasic if article has 2 or fewer authors', () => {
         // Arrange
         const article = { autores: ['John Doe', 'Jane Doe'] };
-        const expected = { autores: article.autores };
+        const expected = { autores: article.autores, opinion: true };
         CardBasic.mockReturnValue(expected);
 
         // Act

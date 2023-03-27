@@ -6,7 +6,8 @@ export const CardLiveblog = article => {
     return {
         ...Article(article),
         badgeStyle: getArticleChapitaStyle(article),
-        subtitles: getLiveblogTitlesApi(article)
+        subtitles: getLiveblogTitlesApi(article),
+        opinion: false
     };
 };
 
