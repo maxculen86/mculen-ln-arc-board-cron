@@ -6,7 +6,7 @@ export const CardAuthor = article => {
     if (cardBasic && cardBasic.autores && cardBasic.autores.length > 2) {
         return CardRegular(article);
     }
-    return cardBasic;
+    return { ...cardBasic, opinion: true };
 };
 
 export default CardAuthor;
