@@ -701,7 +701,7 @@
     ],
     "opinion4": [
         {
-            "variants": ["author"],
+            "variants": ["opinion"],
             "T1": {
                 "size": "M"
             },
@@ -718,7 +718,7 @@
     ],
     "opinion8": [
         {
-            "variants": ["author"],
+            "variants": ["opinion"],
             "T1": {
                 "size": "M"
             },
