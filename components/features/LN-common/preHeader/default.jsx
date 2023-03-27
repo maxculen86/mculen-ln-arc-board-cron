@@ -38,7 +38,7 @@ const PreHeaderFeature = ({ customFields = {} }) => {
         <StaticContent>
             <PreHeader>
                 <PreHeader.Weather weatherData={weatherData} />
-                <PreHeader.Topics tags={topics} />
+                {topics.length && <PreHeader.Topics tags={topics} />}
             </PreHeader>
             <PreHeaderEventsScript />
         </StaticContent>

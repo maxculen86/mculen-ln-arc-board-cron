@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from '@ln/contenidos-ui-header';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
-import Desplegable from '../../LN/common/desplegable';
+import Desplegable from '../desplegable';
 import NavbarMobile from '../navbar';
-import { setUserType, onScrollHandler, toggleDesplegable } from './_helper';
+import { setUserType, onScrollHandler } from './_helper';
 import HeaderAMP from '../../LN/common/header/headerAMP';
 import debounce from '../../common/utils/debounce';
 
@@ -24,8 +24,13 @@ const HeaderLN = props => {
     const {
         outputType,
         siteProperties: { layoutsName = {} },
-        layout
+        layout,
+        arcSite
     } = props;
+
+    const [dropdown, setDropdown] = useState(false);
+
+    const toggleDesplegable = () => setDropdown(prev => !prev);
 
     useEffect(() => {
         const header = document.getElementById('header');
@@ -68,10 +73,15 @@ const HeaderLN = props => {
                 />
                 <SubHeader />
             </Header>
-            <NavbarMobile isHome={layoutsName.HomeLN10 === layout} />
+            <NavbarMobile
+                isHome={layoutsName.HomeLN10 === layout}
+                toggleDesplegable={toggleDesplegable}
+            />
             <Desplegable
+                isActive={dropdown}
                 toggleDesplegable={toggleDesplegable}
                 isHome={layoutsName.HomeLN10 === layout}
+                arcSite={arcSite}
             />
         </>
     );

@@ -2,17 +2,29 @@ import get from '../../../../../common/utils/get';
 import { moveElementByPosition } from '../common/utils/moveElements';
 
 // Set field diseno of config Diagramation and validate many fields
-const setDiagramationInArticle = (configDiagramation, additionalProperties) => {
-    if (!configDiagramation) {
+const setDiagramationInArticle = (
+    configDiagramationBox,
+    nameIndexforDiagrmation,
+    additionalProperties
+) => {
+    if (!configDiagramationBox || !Array.isArray(configDiagramationBox)) {
         return null;
     }
-    const configDiagramationValidate = configDiagramation;
+
     const { variant = 'regular' } = additionalProperties;
 
-    if (['author', 'liveblogEnVivo'].includes(variant)) {
-        configDiagramationValidate.imagePosition = null;
+    const configDiagramationBoxByVariant = configDiagramationBox.find(f => {
+        return f && f.variants && f.variants.includes(variant);
+    });
+
+    if (
+        !configDiagramationBoxByVariant ||
+        !configDiagramationBoxByVariant[nameIndexforDiagrmation]
+    ) {
+        return null;
     }
-    return configDiagramationValidate;
+
+    return configDiagramationBoxByVariant[nameIndexforDiagrmation];
 };
 
 // Get configs Diagramations
@@ -67,7 +79,7 @@ const setInformationInArticle = (
     article,
     childrenArticle,
     sectionChildrenItem,
-    configDiagramationChild,
+    configDiagramationBox,
     nameIndexforDiagrmation,
     diagramations,
     positionsArticlesbyDiagramation
@@ -99,14 +111,39 @@ const setInformationInArticle = (
             return subBoxItem;
         }
     }
+
+    const element = article;
+
+    // Applies to add properties to articles inside nested boxes such as opinion
+    if (element && element.articles && Array.isArray(element.articles)) {
+        const {
+            configDiagramation,
+            configMoveArticlesbyDiagramation
+        } = configsDiagramationFromInformation(
+            element,
+            diagramations,
+            positionsArticlesbyDiagramation
+        );
+
+        element.articles = addPropertiesInArticles(
+            element.articles,
+            sectionChildrenItem,
+            configDiagramation,
+            configMoveArticlesbyDiagramation,
+            diagramations,
+            positionsArticlesbyDiagramation
+        );
+    }
+
     // Applies to common cases of Chains that only have LN Articles or only articles
     return {
-        ...article,
+        ...element,
         additionalProperties: {
             ...get(article, 'additionalProperties', null),
             originPosition: nameIndexforDiagrmation,
             diseno: setDiagramationInArticle(
-                configDiagramationChild,
+                configDiagramationBox,
+                nameIndexforDiagrmation,
                 get(article, 'additionalProperties', {})
             ),
             nameFeature: get(childrenArticle, 'type', null),
@@ -133,15 +170,12 @@ const addPropertiesChilds = (
             const nameIndexforDiagrmation = 'T'.concat((index + 1).toString());
 
             // Matches the diagrmation of the article or child
-            const configDiagramationChild =
-                configDiagramation &&
-                configDiagramation[nameIndexforDiagrmation];
 
             return setInformationInArticle(
                 a,
                 childrenArticle,
                 sectionChildrenItem,
-                configDiagramationChild,
+                configDiagramation,
                 nameIndexforDiagrmation,
                 diagramations,
                 positionsArticlesbyDiagramation
@@ -149,6 +183,27 @@ const addPropertiesChilds = (
         }),
         configMoveArticlesbyDiagramation,
         'additionalProperties.originPosition'
+    );
+};
+
+const addPropertiesInArticles = (
+    articles,
+    sectionChildrenItem,
+    configDiagramation,
+    configMoveArticlesbyDiagramation,
+    diagramations,
+    positionsArticlesbyDiagramation
+) => {
+    return (
+        Array.isArray(articles) &&
+        addPropertiesChilds(
+            articles,
+            sectionChildrenItem,
+            configDiagramation,
+            configMoveArticlesbyDiagramation,
+            diagramations,
+            positionsArticlesbyDiagramation
+        )
     );
 };
 
@@ -194,16 +249,14 @@ const addPropertiesByLayout = (
                 }
 
                 if (e && e.articles && Array.isArray(e.articles)) {
-                    boxElement.articles =
-                        Array.isArray(e.articles) &&
-                        addPropertiesChilds(
-                            e.articles,
-                            sectionChildrenItem,
-                            configDiagramation,
-                            configMoveArticlesbyDiagramation,
-                            diagramations,
-                            positionsArticlesbyDiagramation
-                        );
+                    boxElement.articles = addPropertiesInArticles(
+                        e.articles,
+                        sectionChildrenItem,
+                        configDiagramation,
+                        configMoveArticlesbyDiagramation,
+                        diagramations,
+                        positionsArticlesbyDiagramation
+                    );
                 }
                 return boxElement;
             }

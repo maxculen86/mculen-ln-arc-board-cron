@@ -1,0 +1,591 @@
+[
+    {
+        "el": "ul",
+        "extraClass": "list__nav  first--nav",
+        "childs": [
+            {
+                "_id": "/ultimas-noticias",
+                "el": "li",
+                "name": "Últimas noticias",
+                "extraClass": "item--últimas noticias",
+                "url": "/ultimas-noticias",
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": [
+                            {
+                                "_id": "/transito",
+                                "el": "li",
+                                "name": "Tránsito",
+                                "url": "/transito"
+                            },
+                            {
+                                "_id": "link-0ETKAHPHD90G526WJJH5VU50PG",
+                                "el": "li",
+                                "name": "Clima",
+                                "url": "https://servicios.lanacion.com.ar/pronostico-del-tiempo"
+                            },
+                            {
+                                "_id": "/data",
+                                "el": "li",
+                                "name": "LA NACION Data",
+                                "url": "/data"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_id": "/politica",
+                "el": "li",
+                "name": "Política",
+                "extraClass": "item--política",
+                "url": "/politica",
+                "site": {
+                    "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/politica/"
+                },
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": []
+                    }
+                ]
+            },
+            {
+                "_id": "/economia",
+                "el": "li",
+                "name": "Economía",
+                "extraClass": "item--economía",
+                "url": "/economia",
+                "site": {
+                    "site_url": "https://www.lanacion.com.ar/economia/"
+                },
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": [
+                            {
+                                "_id": "/economia/dolar",
+                                "el": "li",
+                                "name": "Dólar Hoy",
+                                "url": "/economia/dolar",
+                                "site": {
+                                    "site_title": "",
+                                    "site_url": "https://www.lanacion.com.ar/dolar-hoy/"
+                                }
+                            },
+                            {
+                                "_id": "/economia/campo",
+                                "el": "li",
+                                "name": "Campo",
+                                "url": "/economia/campo",
+                                "site": {
+                                    "site_url": null
+                                }
+                            },
+                            {
+                                "_id": "/propiedades",
+                                "el": "li",
+                                "name": "Propiedades",
+                                "url": "/propiedades"
+                            },
+                            {
+                                "_id": "/economia/comercio-exterior",
+                                "el": "li",
+                                "name": "Comercio Exterior",
+                                "url": "/economia/comercio-exterior"
+                            },
+                            {
+                                "_id": "link-GB00T9CX4N1WFFTRQB42VVQN9G",
+                                "el": "li",
+                                "name": "Movilidad",
+                                "url": "/autos"
+                            },
+                            {
+                                "_id": "link-2HHC4226W90FBE7W248NEFNDVC",
+                                "el": "li",
+                                "name": "Índices",
+                                "url": "https://www.lanacion.com.ar/economia/indices/"
+                            },
+                            {
+                                "_id": "link-5B8ZG9HUN90MNEVBJWM9FGBM8M",
+                                "el": "li",
+                                "name": "Calculadora de ganancias",
+                                "url": "https://www.lanacion.com.ar/economia/calcula-cuanto-vas-pagar-ganancias-2019-nid2201209"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_id": "/el-mundo",
+                "el": "li",
+                "name": "El Mundo",
+                "extraClass": "item--el mundo",
+                "url": "/el-mundo",
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": []
+                    }
+                ]
+            },
+            {
+                "_id": "/sociedad",
+                "el": "li",
+                "name": "Sociedad",
+                "extraClass": "item--sociedad",
+                "url": "/sociedad",
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": [
+                            {
+                                "_id": "/buenos-aires",
+                                "el": "li",
+                                "name": "Buenos Aires",
+                                "url": "/buenos-aires",
+                                "site": {
+                                    "site_url": "/buenos-aires"
+                                }
+                            },
+                            {
+                                "_id": "/seguridad",
+                                "el": "li",
+                                "name": "Seguridad",
+                                "url": "/seguridad"
+                            },
+                            {
+                                "_id": "/educacion",
+                                "el": "li",
+                                "name": "Educación",
+                                "url": "/educacion"
+                            },
+                            {
+                                "_id": "/cultura",
+                                "el": "li",
+                                "name": "Cultura",
+                                "url": "/cultura"
+                            },
+                            {
+                                "_id": "/comunidad",
+                                "el": "li",
+                                "name": "Comunidad",
+                                "url": "/comunidad"
+                            },
+                            {
+                                "_id": "link-UZY441TJKT5G560HVCGH3QAQFW",
+                                "el": "li",
+                                "name": "Bienestar",
+                                "url": "/salud/"
+                            },
+                            {
+                                "_id": "/ciencia",
+                                "el": "li",
+                                "name": "Ciencia",
+                                "url": "/ciencia"
+                            },
+                            {
+                                "_id": "/comunidad/hablemos-de-todo",
+                                "el": "li",
+                                "name": "Hablemos de todo",
+                                "url": "/comunidad/hablemos-de-todo",
+                                "site": {
+                                    "site_url": null,
+                                    "site_tagline": null,
+                                    "site_description": null,
+                                    "pagebuilder_path_for_native_apps": null,
+                                    "site_title": null,
+                                    "site_about": null,
+                                    "site_keywords": null
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_id": "/opinion",
+                "el": "li",
+                "name": "Opinión",
+                "extraClass": "item--opinión",
+                "url": "/opinion",
+                "site": {
+                    "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/opinion/"
+                },
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": [
+                            {
+                                "_id": "link-52Q1XGH3BX53X3N9Q40N4BGUBC",
+                                "el": "li",
+                                "name": "Columnistas",
+                                "url": "https://www.lanacion.com.ar/opinion/columnistas"
+                            },
+                            {
+                                "_id": "/editoriales",
+                                "el": "li",
+                                "name": "Editoriales",
+                                "url": "/editoriales"
+                            },
+                            {
+                                "_id": "/opinion/carta-de-lectores",
+                                "el": "li",
+                                "name": "Carta de lectores",
+                                "url": "/opinion/carta-de-lectores"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_id": "/deportes",
+                "el": "li",
+                "name": "Deportes",
+                "extraClass": "item--deportes",
+                "url": "/deportes",
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": [
+                            {
+                                "_id": "/deportes/futbol",
+                                "el": "li",
+                                "name": "Fútbol",
+                                "url": "/deportes/futbol"
+                            },
+                            {
+                                "_id": "/deportes/rugby",
+                                "el": "li",
+                                "name": "Rugby",
+                                "url": "/deportes/rugby"
+                            },
+                            {
+                                "_id": "/deportes/tenis",
+                                "el": "li",
+                                "name": "Tenis",
+                                "url": "/deportes/tenis"
+                            },
+                            {
+                                "_id": "/deportes/canchallena",
+                                "el": "li",
+                                "name": "Canchallena",
+                                "url": "/deportes/canchallena",
+                                "site": {
+                                    "site_url": null,
+                                    "site_title": null,
+                                    "pagebuilder_path_for_native_apps": null,
+                                    "site_about": null,
+                                    "site_tagline": null,
+                                    "site_keywords": null,
+                                    "site_description": null
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_id": "/lifestyle",
+                "el": "li",
+                "name": "Lifestyle",
+                "extraClass": "item--lifestyle",
+                "url": "/lifestyle",
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": [
+                            {
+                                "_id": "/turismo",
+                                "el": "li",
+                                "name": "Turismo",
+                                "url": "/turismo",
+                                "site": {
+                                    "site_url": "/turismo/"
+                                }
+                            },
+                            {
+                                "_id": "/tecnologia",
+                                "el": "li",
+                                "name": "Tecnología",
+                                "url": "/tecnologia"
+                            },
+                            {
+                                "_id": "/horoscopo",
+                                "el": "li",
+                                "name": "Horóscopo",
+                                "url": "/horoscopo",
+                                "site": {
+                                    "site_title": null,
+                                    "site_tagline": null,
+                                    "site_about": null,
+                                    "site_keywords": null,
+                                    "site_description": null,
+                                    "site_url": "/horoscopo/",
+                                    "pagebuilder_path_for_native_apps": null
+                                }
+                            },
+                            {
+                                "_id": "link-V20G27482T1BZ263TQC3EBQ9CM",
+                                "el": "li",
+                                "name": "Feriados",
+                                "url": "https://www.lanacion.com.ar/feriados"
+                            },
+                            {
+                                "_id": "link-NWYZA1Q7811ZZ3999K5YK16VRM",
+                                "el": "li",
+                                "name": "Loterías y quinielas",
+                                "url": "https://servicios.lanacion.com.ar/loterias"
+                            },
+                            {
+                                "_id": "/recetas",
+                                "el": "li",
+                                "name": "Recetas",
+                                "url": "/recetas",
+                                "site": {
+                                    "site_title": "Cocina y Recetas - LA NACION",
+                                    "site_url": "/recetas/"
+                                }
+                            },
+                            {
+                                "_id": "link-RCD5M5XCD140F0A2VAZJFKPHYC",
+                                "el": "li",
+                                "name": "Podcast",
+                                "url": "https://www.lanacion.com.ar/tema/podcasts-tid64878/"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_id": "/espectaculos",
+                "el": "li",
+                "name": "Espectáculos",
+                "extraClass": "item--espectáculos",
+                "url": "/espectaculos",
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": [
+                            {
+                                "_id": "link-EFQE0UHF6T1RZ5BG67CQYBZNJ0",
+                                "el": "li",
+                                "name": "Cartelera de cine",
+                                "url": "https://www.lanacion.com.ar/cartelera-de-cine"
+                            },
+                            {
+                                "_id": "link-6PA7PFJD8T2Y15V563UJKH5PFW",
+                                "el": "li",
+                                "name": "Cartelera de teatro",
+                                "url": "https://www.lanacion.com.ar/cartelera-de-teatro"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "_id": "e821827f2a07c3d6eb46644f365eb57985d9e8d64755aaea299fc0f587a985c6"
+    },
+    {
+        "el": "ul",
+        "extraClass": "list__nav  secondary--nav",
+        "childs": [
+            {
+                "_id": "/edicion-empresa",
+                "el": "li",
+                "name": "Edicion Empresa",
+                "extraClass": "item--edicion empresa",
+                "url": "/edicion-empresa",
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": [
+                            {
+                                "_id": "link-VKT2483C1X0MNDBDZJ02DXDFJG",
+                                "el": "li",
+                                "name": "+Cerca",
+                                "url": "/tema/la-nacion-cerca/"
+                            },
+                            {
+                                "_id": "link-XMPY4JV5NT5T134UW74CK9FD04",
+                                "el": "li",
+                                "name": "Acceso PDF",
+                                "url": "https://edicionimpresa.lanacion.com.ar/la-nacion"
+                            },
+                            {
+                                "_id": "/la-nacion-revista",
+                                "el": "li",
+                                "name": "LA NACION Revista",
+                                "url": "/la-nacion-revista"
+                            },
+                            {
+                                "_id": "/sabado",
+                                "el": "li",
+                                "name": "Sábado",
+                                "url": "/sabado"
+                            },
+                            {
+                                "_id": "/ideas",
+                                "el": "li",
+                                "name": "Ideas",
+                                "url": "/ideas"
+                            },
+                            {
+                                "_id": "/editoriales",
+                                "el": "li",
+                                "name": "Editoriales",
+                                "url": "/editoriales"
+                            },
+                            {
+                                "_id": "/opinion/carta-de-lectores",
+                                "el": "li",
+                                "name": "Carta de lectores",
+                                "url": "/opinion/carta-de-lectores"
+                            },
+                            {
+                                "_id": "link-B8ABNKRZ690H9EN9X65W7E6874",
+                                "el": "li",
+                                "name": "Avisos fúnebres",
+                                "url": "https://servicios.lanacion.com.ar/edicion-impresa/avisos-funebres"
+                            },
+                            {
+                                "_id": "link-998TBTF1DX2ZK6DNHTVKXUA3PW",
+                                "el": "li",
+                                "name": "Avisos sociales",
+                                "url": "https://servicios.lanacion.com.ar/edicion-impresa/avisos-sociales"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_id": "/revistas",
+                "el": "li",
+                "name": "Revistas",
+                "extraClass": "item--revistas",
+                "url": "/revistas",
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": [
+                            {
+                                "_id": "/revista-ohlala",
+                                "el": "li",
+                                "name": "Revista OHLALÁ!",
+                                "url": "/revista-ohlala",
+                                "site": {
+                                    "site_url": "https://www.somosohlala.com"
+                                }
+                            },
+                            {
+                                "_id": "/revista-hola",
+                                "el": "li",
+                                "name": "Revista ¡HOLA!",
+                                "url": "/revista-hola"
+                            },
+                            {
+                                "_id": "/revista-rolling-stone",
+                                "el": "li",
+                                "name": "Revista Rolling Stone",
+                                "url": "/revista-rolling-stone"
+                            },
+                            {
+                                "_id": "/revista-lugares",
+                                "el": "li",
+                                "name": "Revista Lugares",
+                                "url": "/revista-lugares"
+                            },
+                            {
+                                "_id": "/revista-living",
+                                "el": "li",
+                                "name": "Revista Living",
+                                "url": "/revista-living"
+                            },
+                            {
+                                "_id": "/revista-brando",
+                                "el": "li",
+                                "name": "Revista Brando",
+                                "url": "/revista-brando"
+                            },
+                            {
+                                "_id": "/revista-jardin",
+                                "el": "li",
+                                "name": "Revista Jardín",
+                                "url": "/revista-jardin"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "_id": "link-6MG15X9PMH2GT076C9CAJDZYV0",
+                "el": "li",
+                "name": "Suscriptores",
+                "extraClass": "item--suscriptores",
+                "url": "/suscriptores",
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": []
+                    }
+                ]
+            },
+            {
+                "_id": "link-NGAG7ED2Q53AK43YQTMRG9P340",
+                "el": "li",
+                "name": "LN+",
+                "extraClass": "item--ln+",
+                "url": "https://lnmas.lanacion.com.ar/",
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": []
+                    }
+                ]
+            },
+            {
+                "_id": "link-UBCA41ZHQ17TZ8AU1JUEH8G5WM",
+                "el": "li",
+                "name": "Kiosco LA NACION",
+                "extraClass": "item--kiosco la nacion",
+                "url": "https://pdf.lanacion.com.ar/",
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": []
+                    }
+                ]
+            },
+            {
+                "_id": "link-TEN3ZDZ1D96FD74XC3TJ9WNGFG",
+                "el": "li",
+                "name": "Club LA NACION",
+                "extraClass": "item--club la nacion",
+                "url": "https://club.lanacion.com.ar/",
+                "childs": [
+                    {
+                        "el": "ul",
+                        "extraClass": "sublist__nav",
+                        "childs": []
+                    }
+                ]
+            }
+        ],
+        "_id": "837039dc55424f5d50f3edfafb548e561fe56de66b637a843b1221fafef28bdf"
+    }
+]

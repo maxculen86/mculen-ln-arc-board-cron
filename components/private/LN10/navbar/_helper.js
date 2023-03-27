@@ -4,10 +4,9 @@ import {
     SITE_LANACION,
     API_ENV
 } from 'fusion:environment';
+import { Home, Search, Sections, Bookmark, Profile } from '@ln/assets-ui-icons';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 import dynamicallyLoadScript from '../../LN/common/utils/dynamicallyLoadScript';
-import { toggleDesplegable } from '../header/_helper';
-import { Home, Search, Sections, Bookmark, Profile } from '@ln/assets-ui-icons';
 
 const bookmarkUrl =
     API_ENV === 'prod'
@@ -32,7 +31,12 @@ export const getEventData = label => ({
     label
 });
 
-export const getNavbarItems = (isHome, withBookmark, isSubscribed) => [
+export const getNavbarItems = (
+    isHome,
+    withBookmark,
+    isSubscribed,
+    toggleDesplegable
+) => [
     {
         text: 'Inicio',
         icon: <Home />,
