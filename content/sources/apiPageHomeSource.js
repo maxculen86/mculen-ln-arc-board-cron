@@ -100,7 +100,7 @@ const fetch = async (query, { cachedCall } = {}) => {
             queryParams
         );
         // Para revisar la data formateada con la informacion de todas la secciones
-        //return resultPageTransform;
+        // return resultPageTransform;
 
         if (
             !configItemPage.transformHome ||
