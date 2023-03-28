@@ -34,7 +34,6 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
   </div>
   <section
     class="ln-bngrid --bn-4-8"
-    data-testid="bn-test-id"
   >
     <div
       class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"

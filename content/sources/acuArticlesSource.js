@@ -4,6 +4,7 @@ import transform from './utils/acuArticlesSource/transform';
 import logger from '../../components/private/common/utils/logger';
 import filter from '../filters/LN/acumulado/articleAcu';
 import stringFallback from '../../components/private/common/utils/stringFallback';
+import { SUSCRIPTOR_SECTION } from '../../components/private/common/utils/subtypes/subtypeHelper';
 
 const resolve = key => {
     const {
@@ -90,6 +91,14 @@ const resolve = key => {
             }
         }`;
 
+    const suscriptorFilter =
+        tagId === SUSCRIPTOR_SECTION &&
+        `,{
+        "match":{
+            "content_restrictions.content_code":"cerrada"
+        }
+    }`;
+
     let excludeSection = `"/newsletters"`;
     if (excludeSectionId) excludeSection += `,"/recetas"`;
 
@@ -156,6 +165,7 @@ const resolve = key => {
                         ${stringFallback(authorFilter)}
                         ${stringFallback(sectionFilter)}
                         ${stringFallback(tagFilter)}
+                        ${stringFallback(suscriptorFilter)}
                     ]
                     ${stringFallback(notSectionFiltered)}
                     ${stringFallback(notSourceSystemFiltered)}

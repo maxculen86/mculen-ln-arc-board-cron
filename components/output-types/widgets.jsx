@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
+import { addMetaNoIndexNoFollow } from '../private/common/utils/outputTypeHelper';
 
 const TAGS_BY_WIDGET = {
     viafoura: ({ globalContent, contextPath, deployment }) => {
@@ -67,8 +68,14 @@ const TAGS_BY_WIDGET = {
 };
 
 const Widgets = props => {
-    const { children, globalContent = {}, CssLinks, contextPath, deployment } =
-        props || {};
+    const {
+        children,
+        globalContent = {},
+        CssLinks,
+        contextPath,
+        deployment,
+        outputType
+    } = props || {};
     const { widget } = globalContent;
     const widgetScripts = TAGS_BY_WIDGET[widget];
     const { head, bodyBottom } =
@@ -83,6 +90,7 @@ const Widgets = props => {
                 {head}
                 <noscript>Your browser does not suport javascript</noscript>
                 <CssLinks />
+                {addMetaNoIndexNoFollow({ outputType })}
             </head>
             <body>
                 <section className="widget">

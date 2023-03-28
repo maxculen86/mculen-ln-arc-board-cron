@@ -351,19 +351,30 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
     });
 
     describe('Tests function showExtraClass', () => {
+        const withMedia = true;
         test('Should return a class for video', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ video: '123' }), '', {
-                    video: 'ln-70-video'
-                })
+                showExtraClass(
+                    getTypeOfMedia({ video: '123' }),
+                    '',
+                    withMedia,
+                    {
+                        video: 'ln-70-video'
+                    }
+                )
             ).toStrictEqual('ln-70-video');
         });
 
         test('Should return a undefined if no match type with extraClass from config', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ image: '123' }), '', {
-                    video: 'ln-70-video'
-                })
+                showExtraClass(
+                    getTypeOfMedia({ image: '123' }),
+                    '',
+                    withMedia,
+                    {
+                        video: 'ln-70-video'
+                    }
+                )
             ).toStrictEqual(undefined);
         });
 
@@ -372,6 +383,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 showExtraClass(
                     getTypeOfMedia({ image: '123', video: '123' }),
                     '--className',
+                    withMedia,
                     {
                         video: 'ln-70-video',
                         image: 'ln-class'
@@ -382,25 +394,62 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
         test('Should return a class that match with video type', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ image: '123' }), '', {
-                    video: 'ln-70-video',
-                    image: 'ln-class'
-                })
+                showExtraClass(
+                    getTypeOfMedia({ image: '123' }),
+                    '',
+                    withMedia,
+                    {
+                        video: 'ln-70-video',
+                        image: 'ln-class'
+                    }
+                )
             ).toStrictEqual('ln-class');
         });
 
         test('Should return a undefined if no match type of media with extraClass from config', () => {
             expect(
-                showExtraClass(getTypeOfMedia({ video: '123' }), '', {
-                    image: 'ln-70-video'
-                })
+                showExtraClass(
+                    getTypeOfMedia({ video: '123' }),
+                    '',
+                    withMedia,
+                    {
+                        image: 'ln-70-video'
+                    }
+                )
             ).toStrictEqual(undefined);
         });
 
         test('Should return a undefined if everything is empty', () => {
-            expect(showExtraClass(getTypeOfMedia({}), '', {})).toStrictEqual(
-                undefined
-            );
+            expect(
+                showExtraClass(getTypeOfMedia({}), '', withMedia, {})
+            ).toStrictEqual(undefined);
+        });
+
+        test('Should return class "--no-mc" when there is no media', () => {
+            const withMedia = false;
+            expect(
+                showExtraClass(
+                    getTypeOfMedia({ video: '123' }),
+                    '',
+                    withMedia,
+                    {
+                        withoutMedia: '--no-mc'
+                    }
+                )
+            ).toStrictEqual('--no-mc');
+        });
+
+        test('Should not return class "--no-mc" when there is multimedia', () => {
+            expect(
+                showExtraClass(
+                    getTypeOfMedia({ video: '123' }),
+                    '',
+                    withMedia,
+                    {
+                        withoutMedia: '--no-mc'
+                    }
+                )
+            ).toStrictEqual(undefined);
         });
     });
 
