@@ -169,6 +169,7 @@ const Default = props => {
                     renderables={renderables}
                     arcSite={arcSite}
                     isAdmin={isAdmin}
+                    layout={layout}
                 />
                 <CriticalCss isLN10={layoutsName.HomeLN10 === layout} />
                 <FontPreloads isLN10={layoutsName.HomeLN10 === layout} />
@@ -296,7 +297,7 @@ const Default = props => {
                     renderables={renderables}
                     section={_nodeType}
                 />
-                {addMetaNoIndexNoFollow(siteProperties, layout)}
+                {addMetaNoIndexNoFollow({ siteProperties, layout })}
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />

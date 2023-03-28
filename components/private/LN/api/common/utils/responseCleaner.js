@@ -17,17 +17,20 @@ const removeEmptyItems = obj => {
             k,
             v && typeof v === 'object' ? removeEmptyItems(v) : v
         ])
-        .reduce(
-            (a, [k, v]) =>
-                v === null ||
-                v === undefined ||
-                v === '' ||
-                v.length === 0 ||
-                v === {}
-                    ? a
-                    : ((a[k] = v), a),
-            {}
-        );
+        .reduce((a, [k, v]) => {
+            if (v === null || v === undefined || v === '' || v.length === 0) {
+                return a;
+            }
+            if (typeof v === 'object' && Object.keys(v).length === 0) {
+                return a;
+            }
+            // eslint-disable-next-line no-param-reassign
+            return (a[k] = v), a;
+        }, {});
+
+    if (Object.keys(obj).length === 0) {
+        return null;
+    }
 };
 
 export { removeEmptyItems };

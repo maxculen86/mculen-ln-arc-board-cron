@@ -1,4 +1,4 @@
-import get from '../../../../../common/utils/get';
+import get from '../../../../../../common/utils/get';
 
 export const anexoMobileBox = (element, featureInfo, anexoFn) => {
     const articles = get(element, 'articles', []);

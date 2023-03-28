@@ -51,12 +51,13 @@ const featuredRules = {
         defaultLayout: 'focalLeft3'
     },
     cajaOpinion: {
-        hideInitialPosition: true,
-        hideIdCollection: false,
+        hideInitialPosition: false,
+        hideIdCollection: true,
         hideHideCaja: false,
         groupName: ajustCollection,
         layouts: {
-            opinion4: 'Home Opinion'
+            opinion8: 'Opinion x 8',
+            opinion4: 'Opinion x 4'
         },
         defaultLayout: 'opinion4'
     },

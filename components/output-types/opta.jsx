@@ -1,9 +1,10 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import config from '../../properties/sites/la-nacion-ar';
+import { addMetaNoIndexNoFollow } from '../private/common/utils/outputTypeHelper';
 
 const Opta = props => {
-    const { globalContent } = props;
+    const { globalContent, outputType } = props;
     const { content_elements: contentElement } = globalContent || {};
     const { content = '' } = contentElement || {};
 
@@ -25,6 +26,7 @@ const Opta = props => {
                 <script src="https://secure.widget.cloud.opta.net/v3/v3.opta-widgets.js" />
                 <script dangerouslySetInnerHTML={{ __html: script }} />
                 <noscript>Your browser does not suport javascript</noscript>
+                {addMetaNoIndexNoFollow({ outputType })}
             </head>
             <body>
                 <div dangerouslySetInnerHTML={{ __html: content }} />

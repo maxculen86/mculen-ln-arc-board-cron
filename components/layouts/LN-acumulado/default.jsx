@@ -53,20 +53,22 @@ const LNAcumuladoLayout = props => {
         outputType,
         tree,
         isAdmin,
-        renderables
+        renderables,
+        requestUri = ''
     } = props;
 
     const { style, name = '', node_type: nodeType } = globalContent || {};
 
-    const sectionStyleName =
-        style && style.section_style_name ? style.section_style_name : '';
+    const sectionStyleName = get(style, 'section_style_name', '');
 
     const classRevista =
         revistas.indexOf(sectionStyleName || '') !== -1
             ? `${CLASS_ACU_REVISTA} ${sectionStyleName}`
             : '';
 
-    const sectionClass = sections.find(sec => sec === formatText(name)) || '';
+    const classMisNotas = requestUri.includes('/mis-notas/') && 'mis-notas';
+    const sectionClass =
+        sections.find(sec => sec === formatText(name)) || classMisNotas || '';
     const acumuladoGeneral = get(globalContent, 'acumuladoGeneral', {});
 
     const {
@@ -221,6 +223,7 @@ const LNAcumuladoLayout = props => {
 LNAcumuladoLayout.propTypes = {
     children: PropTypes.node,
     outputType: PropTypes.string,
+    requestUri: PropTypes.string,
     tree: PropTypes.shape(PropTypes.arrayOf(PropTypes.node)),
     isAdmin: PropTypes.bool,
     renderables: PropTypes.arrayOf(PropTypes.node),

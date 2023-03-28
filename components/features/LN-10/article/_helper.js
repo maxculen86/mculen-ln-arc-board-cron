@@ -67,7 +67,8 @@ export const getBadgetConfig = ({
     text,
     isLiveblog,
     withMedia,
-    typeOfMedia
+    typeOfMedia,
+    hideBadget
 }) => {
     if (isLiveblog) {
         return {
@@ -76,10 +77,12 @@ export const getBadgetConfig = ({
         };
     }
 
-    return {
-        badgetStyle: style || undefined,
-        badgetText: withMedia && typeOfMedia !== typeMedia.HTML && text
-    };
+    return !hideBadget
+        ? {
+              badgetStyle: style || undefined,
+              badgetText: withMedia && typeOfMedia !== typeMedia.HTML && text
+          }
+        : {};
 };
 export const getOnlyHoursMinutes = (time = '') => {
     return time
@@ -184,9 +187,12 @@ const getImageDestacada = articleData => {
     return type === 'image' ? mediaDataOfTheOpening : null;
 };
 
-const transformVideoData = videoData => {
+const transformVideoData = (videoData, shouldUseV2) => {
     const streams = get(videoData, 'streams', []);
-    const videoImagesResized = get(videoData, 'resizedUrl', []);
+    // TODO: Quitar validacion de shouldUseV2 cuando salga resizer 2 por completo. Mantener la constante con: "get(videoData, 'promo_items.basic.resized_urls', [])"
+    const videoImagesResized = shouldUseV2
+        ? get(videoData, 'promo_items.basic.resized_urls', [])
+        : get(videoData, 'resizedUrl', []);
     const type = get(videoData, 'type', '');
     const { resizedUrl } = getShortestImage(videoImagesResized);
     const { url = '' } = getStreams(streams, '>') || {};
@@ -203,7 +209,8 @@ export const getMediaData = ({
     video,
     image,
     renderables = [],
-    customFields = {}
+    customFields = {},
+    shouldUseV2 = false
 } = {}) => {
     const { video: videoId, imageId, html = '' } = customFields;
     const { _id } = article || {};
@@ -223,7 +230,7 @@ export const getMediaData = ({
         },
         {
             validation: videoId && video,
-            data: transformVideoData(video)
+            data: transformVideoData(video, shouldUseV2)
         },
 
         {
@@ -242,8 +249,6 @@ export const getMediaData = ({
         mediaDataDefault
     );
 };
-
-// TODO: Falta modificar logica para la nueva configuracion de imagen del resizer
 
 export const getDataAttributesForViewability = (id, boxPosition, index) => {
     const extraOpts = {};
@@ -285,9 +290,16 @@ export const getTypeOfMedia = (customFields = {}) => {
     return typeMedia.IMAGE;
 };
 
-export const showExtraClass = (typeOfMedia, className, extraClass = {}) => {
+export const showExtraClass = (
+    typeOfMedia,
+    className,
+    withMedia,
+    extraClass = {}
+) => {
+    const witoutMedia = !withMedia && extraClass.withoutMedia;
     const classname = setClassName({
         extraClass: extraClass[typeOfMedia],
+        witoutMedia,
         className
     });
 

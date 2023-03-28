@@ -14,6 +14,7 @@ export default `
         anexosuperior
         anexoinferior
         collectionForTag
+        colecciones
     }
     isWiki
     imageId

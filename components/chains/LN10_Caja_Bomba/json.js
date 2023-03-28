@@ -6,7 +6,7 @@ import { validateChildrensApi } from '../../private/LN/api/global/components/com
 
 class CajaBomba extends GetCajaManual {
     constructor(props) {
-        super(props, 'bomba');
+        super(props, null);
     }
 
     validate = propsValidate => {

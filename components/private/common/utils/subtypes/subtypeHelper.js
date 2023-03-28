@@ -10,6 +10,8 @@ export const FOTOAL100 = '8';
 export const HTMLLIBRE = '9';
 export const AGENCIA = '10';
 
+export const SUSCRIPTOR_SECTION = 'la-nacion-cerca';
+
 export const Subtypes = [
     { id: '1', nombre: 'Noticia' },
     { id: '2', nombre: 'Infografia' },

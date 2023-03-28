@@ -1,0 +1,31 @@
+export default `{
+    type
+    promo_items {
+        basic {
+            url
+            width
+            height
+            resized_urls {
+                resizedUrl
+                media
+                option {
+                    width
+                    height
+                    media
+                    useFullSize
+                    proportion
+                    media_preload
+                }
+            }
+        }
+    }
+    streams {
+        url
+        stream_type
+        width
+        height
+    }
+    headlines {
+        basic
+    }
+}`;

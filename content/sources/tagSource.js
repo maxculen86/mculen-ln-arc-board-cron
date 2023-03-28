@@ -10,6 +10,7 @@ import logger from '../../components/private/common/utils/logger';
 import NotFoundError from './utils/notFoundError';
 import getRequest from './utils/getRequest';
 import transformWikiTagData from './utils/transformWikiTagData';
+import { SUSCRIPTOR_SECTION } from '../../components/private/common/utils/subtypes/subtypeHelper';
 
 const resolve = key => {
     const { slug, outputType } = key;
@@ -69,14 +70,20 @@ const transform = async (data, query, tagConfigData, cachedCall) => {
     const {
         anexosuperiortag: anexoSuperiorTag = '',
         anexoinferiortag: anexoInferiorTag = '',
-        collectiontag: collectionTag = '',
-        wikilist: wikiList = {}
+        collectiontag: collectionTagApertura = '',
+        wikilist: wikiList = {},
+        collections_in_tag_page: collectionsInTagPage = {}
     } = tagConfigGroup || {};
+
+    const colecciones = collectionsInTagPage[slug]
+        ? collectionsInTagPage[slug].replace(/ /g, '').split('|')
+        : [];
 
     const acumuladoGeneral = {
         anexosuperior: getDataForTag(anexoSuperiorTag, slug),
         anexoinferior: getDataForTag(anexoInferiorTag, slug),
-        collectionForTag: getDataForTag(collectionTag, slug)
+        collectionForTag: getDataForTag(collectionTagApertura, slug),
+        ...(colecciones.length && { colecciones })
     };
     const isWiki = typeof wikiList[slug] !== 'undefined';
 

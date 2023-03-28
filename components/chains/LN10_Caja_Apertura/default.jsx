@@ -86,7 +86,7 @@ const CajaApertura = props => {
     }, [children]);
 
     // TODO testear dynamic banners en esta chain
-    const { bannerMob = undefined, bannerDsk = undefined } =
+    const { bannerMob = undefined } =
         getDynamicBanners({
             renderables,
             featureId: chainId
@@ -98,7 +98,6 @@ const CajaApertura = props => {
                 {slicedChildren}
             </Opening>
             {bannerMob}
-            {bannerDsk}
         </>
     );
 
