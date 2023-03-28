@@ -1,4 +1,5 @@
 import { anexoMobileBox } from '../../../../../../../../../../components/private/LN/api/common/home/boxTypes/LN/boxes/anexoMobileBox';
+import { cardAnexoItemMobile } from '../../../../../../../../../../components/private/LN/api/common/article/cardAnexo/index';
 
 describe('anexoMobileBox LN9', () => {
     it('should return null when no articles are provided', () => {
@@ -19,14 +20,14 @@ describe('anexoMobileBox LN9', () => {
             sectionWeb: 'App_Anexo_1'
         };
         const featureInfo = {
-            typeSection: {
-                'ln-common/anexomobile': {
-                    tipoSeccion: 'anexoMobile',
-                    idSeccion: 603
-                }
-            }
+            tipoSeccion: 'anexoMobile',
+            idSeccion: 603
         };
-        const result = anexoMobileBox(element, featureInfo);
+        const result = anexoMobileBox(
+            element,
+            featureInfo,
+            cardAnexoItemMobile
+        );
         expect(result).toBeNull();
     });
 
@@ -44,7 +45,11 @@ describe('anexoMobileBox LN9', () => {
             tipoSeccion: 'anexoMobile',
             idSeccion: 603
         };
-        const result = anexoMobileBox(element, featureInfo);
+        const result = anexoMobileBox(
+            element,
+            featureInfo,
+            cardAnexoItemMobile
+        );
         expect(result).toEqual({
             anexo: {
                 url:
@@ -56,12 +61,12 @@ describe('anexoMobileBox LN9', () => {
         });
     });
 
-    it('should return the first result item with html content', () => {
+    it('should return null from result when the height is not provided', () => {
         const element = {
             articles: [
                 {
-                    html:
-                        '<iframe width="560" height="315" src="https://www.youtube.com/embed/6tXZfcCV4ZY?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+                    url:
+                        'https://especialess3.lanacion.com.ar/21/08/elecciones2021_anexo_paso/index.html'
                 }
             ]
         };
@@ -69,14 +74,11 @@ describe('anexoMobileBox LN9', () => {
             tipoSeccion: 'anexoMobile',
             idSeccion: 603
         };
-        const result = anexoMobileBox(element, featureInfo);
-        expect(result).toEqual({
-            anexo: {
-                html:
-                    '<iframe width="560" height="315" src="https://www.youtube.com/embed/6tXZfcCV4ZY?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
-            },
-            tipoSeccion: 'anexoMobile',
-            idSeccion: 603
-        });
+        const result = anexoMobileBox(
+            element,
+            featureInfo,
+            cardAnexoItemMobile
+        );
+        expect(result).toBeNull();
     });
 });
