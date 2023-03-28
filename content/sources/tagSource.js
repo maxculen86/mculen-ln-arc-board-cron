@@ -39,13 +39,6 @@ const fetch = async (query, { cachedCall }) => {
         independent: true
     });
 
-    const { acumuladoGeneral: { colecciones = [] } = {} } =
-        slug === SUSCRIPTOR_SECTION
-            ? await cachedCall('sectionSource', getRequest, {
-                  query: `${CONTENT_BASE}/site/v3/navigation/la-nacion-ar/?_id=/suscriptores`
-              })
-            : {};
-
     return request(opt)
         .then(resp => {
             if (resp.Payload && resp.Payload.items && resp.Payload.items[0]) {
@@ -58,13 +51,7 @@ const fetch = async (query, { cachedCall }) => {
                 throw new NotFoundError(`Tag no encontrado: ${slug}`);
             }
 
-            return transform(
-                resp,
-                query,
-                tagConfigData,
-                cachedCall,
-                colecciones
-            );
+            return transform(resp, query, tagConfigData, cachedCall);
         })
         .catch(error => {
             logger.push(
@@ -75,13 +62,7 @@ const fetch = async (query, { cachedCall }) => {
         });
 };
 
-const transform = async (
-    data,
-    query,
-    tagConfigData,
-    cachedCall,
-    colecciones
-) => {
+const transform = async (data, query, tagConfigData, cachedCall) => {
     const { meteringVariant, slug } = query || {};
 
     const { tagConfigGroup } = tagConfigData || {};
@@ -89,15 +70,20 @@ const transform = async (
     const {
         anexosuperiortag: anexoSuperiorTag = '',
         anexoinferiortag: anexoInferiorTag = '',
-        collectiontag: collectionTag = '',
-        wikilist: wikiList = {}
+        collectiontag: collectionTagApertura = '',
+        wikilist: wikiList = {},
+        collections_in_tag_page: collectionsInTagPage = {}
     } = tagConfigGroup || {};
+
+    const colecciones = collectionsInTagPage[slug]
+        ? collectionsInTagPage[slug].replace(/ /g, '').split('|')
+        : [];
 
     const acumuladoGeneral = {
         anexosuperior: getDataForTag(anexoSuperiorTag, slug),
         anexoinferior: getDataForTag(anexoInferiorTag, slug),
-        collectionForTag: getDataForTag(collectionTag, slug),
-        colecciones
+        collectionForTag: getDataForTag(collectionTagApertura, slug),
+        ...(colecciones.length && { colecciones })
     };
     const isWiki = typeof wikiList[slug] !== 'undefined';
 
