@@ -11,6 +11,15 @@ const bannersHome = {
             }}
         />
     ),
+    megatopTab: (
+        <DivBannerSSR
+            bannerConfiguration={{
+                slotId: 'megatop_tab',
+                classes: '--megatop',
+                isStatic: true
+            }}
+        />
+    ),
     cabezal: (
         <>
             <div className="container --ads">

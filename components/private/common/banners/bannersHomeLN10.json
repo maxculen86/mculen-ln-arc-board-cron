@@ -6,6 +6,10 @@
         },
         {
             "slotGroup": "home",
+            "tablet": "megatop_tab"
+        },
+        {
+            "slotGroup": "home",
             "desktop": "comercial_dsk",
             "mobile": "comercial_mob"
         },
