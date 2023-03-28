@@ -370,5 +370,8 @@
     "configurations": {
         "arcSite": "la-nacion-ar"
     },
+    "aditional_properties": {
+        "variant": "regular"
+    },
     "sectionWeb": "Pre_Apertura"
 }
