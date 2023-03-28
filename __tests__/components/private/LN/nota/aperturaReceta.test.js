@@ -2,10 +2,9 @@ import React from 'react';
 import Context from 'fusion:context';
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
-import { mount, render } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
-import AperturaConDestacado from '../../../../../components/private/LN/nota/apertura/AperturaReceta/AperturaConDestacado';
-import AperturaSinDestacado from '../../../../../components/private/LN/nota/apertura/AperturaReceta/AperturaSinDestacado';
 import AperturaReceta from '../../../../../components/private/LN/nota/apertura/AperturaReceta/aperturaReceta';
 
 jest.mock('fusion:consumer', Component => {
@@ -29,31 +28,43 @@ jest.mock('fusion:environment', () => {
     };
 });
 
+jest.mock(
+    '../../../../../components/private/LN/nota/apertura/AperturaReceta/AperturaConDestacado',
+    () => 'mock-apertura-con-destacado'
+);
+jest.mock(
+    '../../../../../components/private/LN/nota/apertura/AperturaReceta/AperturaSinDestacado',
+    () => 'mock-apertura-sin-destacado'
+);
+
 describe('features - La Nacion - Components - Nota - AperturaReceta', () => {
     it('Debe renderizar correctamente, con destacado', () => {
-        const component = mount(<AperturaReceta globalContent={nota} />);
+        const { container } = render(<AperturaReceta globalContent={nota} />);
 
-        expect(component).toBeDefined();
-        expect(component.find(AperturaSinDestacado)).toHaveLength(0);
-        expect(component.find(AperturaConDestacado)).toHaveLength(1);
+        expect(container).toBeDefined();
+        expect(
+            container.getElementsByTagName('mock-apertura-con-destacado')[0]
+        ).toBeInTheDocument();
     });
     it('Snapshot - anexo con destacado', () => {
-        const component = render(<AperturaReceta globalContent={nota} />);
-        expect(component).toMatchSnapshot();
-    });
+        const { container } = render(<AperturaReceta globalContent={nota} />);
 
+        expect(container).toMatchSnapshot();
+    });
     it('Sin promo_items basic debe renderizar correctamente, sin destacado', () => {
         nota.promo_items.basic = undefined;
-        const component = mount(<AperturaReceta globalContent={nota} />);
+        const { container } = render(<AperturaReceta globalContent={nota} />);
 
-        expect(component).toBeDefined();
-        expect(component.find(AperturaSinDestacado)).toHaveLength(1);
-        expect(component.find(AperturaConDestacado)).toHaveLength(0);
+        expect(container).toBeDefined();
+        expect(
+            container.getElementsByTagName('mock-apertura-sin-destacado')[0]
+        ).toBeInTheDocument();
     });
     it('Snapshot - sin promo_items basic debe renderizar correctamente, sin destacado', () => {
         nota.promo_items.basic = undefined;
-        const component = render(<AperturaReceta globalContent={nota} />);
-        expect(component).toMatchSnapshot();
+        const { container } = render(<AperturaReceta globalContent={nota} />);
+
+        expect(container).toMatchSnapshot();
     });
 
     it('Sin tags, sectios ni promo_items debe retornar null', () => {
@@ -61,11 +72,8 @@ describe('features - La Nacion - Components - Nota - AperturaReceta', () => {
         nota.taxonomy.tags = [];
         nota.taxonomy.primary_section = undefined;
         nota.taxonomy.sections = [];
-        const component = mount(<AperturaReceta globalContent={nota} />);
+        const { container } = render(<AperturaReceta globalContent={nota} />);
 
-        expect(component).toBeDefined();
-        expect(component.find(AperturaSinDestacado)).toHaveLength(0);
-        expect(component.find(AperturaConDestacado)).toHaveLength(0);
-        expect(component.html()).toBeNull();
+        expect(container).toBeEmptyDOMElement();
     });
 });
