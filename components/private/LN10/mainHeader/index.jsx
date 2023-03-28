@@ -47,7 +47,7 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                 <Button
                     title="Secciones"
                     typeButton="secondary"
-                    className="--border-gray --d-flex --ai-center --jc-center secciones"
+                    className="secciones"
                     onClick={e => sectionsCallback(e, toggleDesplegable)}
                     onAuxClick={e => sectionsCallback(e, toggleDesplegable)}
                 >
@@ -63,9 +63,9 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                     id="querylyButton"
                     htmlFor="queryly_toggle"
                     title="Ir al buscador"
-                    className="button ln-button --secondary --prl-xs --border-gray --d-flex --ai-center --jc-center"
+                    className="button ln-button --secondary search --md"
                 >
-                    <Icon size={16} className="--mr-0">
+                    <Icon size={16}>
                         <Search />
                     </Icon>
                 </label>

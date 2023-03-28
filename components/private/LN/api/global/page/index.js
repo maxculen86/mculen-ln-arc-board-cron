@@ -40,7 +40,7 @@ const getPageElements = props => {
                     ? children[i]
                     : null;
 
-            // Add fields as features
+            // Add more fields and properties.
             elements = addPropertiesByLayout(
                 sectionChildren,
                 elements,
