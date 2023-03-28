@@ -1,7 +1,65 @@
 import React from 'react';
+import { useAppContext } from 'fusion:context';
+import handleCookie from '../../LN/common/utils/handleCookie';
 
 const Permutive = () => {
+    const {
+        layout,
+        globalContent: {
+            publish_date: publishDate = '',
+            credits: { by: creditsBy = [] } = {},
+            headlines: { basic: basicHeadline } = {},
+            taxonomy: {
+                tags = [],
+                primary_section: { name: primarySectionName } = {}
+            } = {}
+        } = {}
+    } = useAppContext();
+
+    const { getCookie } = handleCookie();
+
+    const getTemplateType = layoutName => {
+        if (['LN-Home_Main', 'LN10-Home_Main'].includes(layoutName))
+            return 'home';
+        if (layoutName.includes('nota')) return 'article';
+        return 'section';
+    };
+
+    const authorNames =
+        creditsBy.length &&
+        creditsBy.map(author => author.name).filter(Boolean);
+
+    const tagNames = tags.length && tags.map(tag => tag.text).filter(Boolean);
+
+    const article = {
+        ...(publishDate && { publishedAt: publishDate }),
+        ...(authorNames && authorNames.length && { authors: authorNames }),
+        ...(tagNames && tagNames.length && { keywords: tagNames }),
+        ...(primarySectionName && { section: primarySectionName }),
+        ...(basicHeadline && { title: basicHeadline })
+    };
+
+    const conditionalArticleData = Object.keys(article).length
+        ? `"article": ${JSON.stringify(article)}`
+        : '';
+
+    const type = getTemplateType(layout);
+
     const permutiveScript = `
+    ${getTemplateType.toString()}
+    const permutiveGetCookie = ${getCookie};
+    const userCookie = permutiveGetCookie('ProductoPremiumId') || [];
+    const isUserLoggedIn = !!permutiveGetCookie('token');
+    const isUserSubscribed = userCookie.includes('2');
+
+    const user = {
+        loggedIn: isUserLoggedIn,
+        suscribed: isUserSubscribed,
+        ...(userCookie &&
+            userCookie.length && {typeOfSuscription: userCookie.split(',')})
+      }
+
+
     !function(e,o,n,i){if(!e){e=e||{},window.permutive=e,e.q=[];var t=function(){return([1e7]+-1e3+-4e3+-8e3+-1e11)
     .replace(/[018]/g,function(e){return(e^(window.crypto||window.msCrypto).getRandomValues(new Uint8Array(1))[0]&15>>e/4)
     .toString(16)})};e.config=i||{},e.config.apiKey=o,e.config.workspaceId=n,e.config.environment=e.config.environment||"production",
@@ -25,7 +83,10 @@ const Permutive = () => {
           "entities": "$alchemy_entities",
           "keywords": "$alchemy_keywords",
           "sentiment": "$alchemy_document_sentiment"
-        }
+        },
+        "type": "${type}",
+        "user": user,
+        ${conditionalArticleData}
       }
     });
     `;

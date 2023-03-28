@@ -165,7 +165,8 @@ const ArticleFeature = ({
         extraClass,
         variantsDisabled,
         cardSize,
-        className
+        className,
+        hideBadget
     } = config || {};
 
     const error = validateArticleFeature({
@@ -205,7 +206,8 @@ const ArticleFeature = ({
         text: chapita,
         isLiveblog,
         withMedia,
-        typeOfMedia
+        typeOfMedia,
+        hideBadget
     });
 
     const { marqueeImg, marquee, authorsQuantity } = getDataAuthor({

@@ -539,6 +539,19 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 badgetText: false
             });
         });
+
+        test('should return an empty object with the prop hideBadget is true', () => {
+            expect(
+                getBadgetConfig({
+                    style: 'a-fondo',
+                    text: 'A fondo',
+                    isLiveblog: false,
+                    withMedia: false,
+                    typeOfMedia: 'image',
+                    hideBadget: true
+                })
+            ).toStrictEqual({});
+        });
     });
 
     describe('Tests function getLiveblogTitles', () => {

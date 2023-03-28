@@ -67,7 +67,8 @@ export const getBadgetConfig = ({
     text,
     isLiveblog,
     withMedia,
-    typeOfMedia
+    typeOfMedia,
+    hideBadget
 }) => {
     if (isLiveblog) {
         return {
@@ -76,10 +77,12 @@ export const getBadgetConfig = ({
         };
     }
 
-    return {
-        badgetStyle: style || undefined,
-        badgetText: withMedia && typeOfMedia !== typeMedia.HTML && text
-    };
+    return !hideBadget
+        ? {
+              badgetStyle: style || undefined,
+              badgetText: withMedia && typeOfMedia !== typeMedia.HTML && text
+          }
+        : {};
 };
 export const getOnlyHoursMinutes = (time = '') => {
     return time
