@@ -17,11 +17,16 @@ const fetch = async (query, { cachedCall } = {}) => {
             transformHome: { 1: homev1, 2: homev2 }
         },
         bitacora: {
-            aliasPage: '/homepage-LN10',
+            aliasPage: '/homepage-ln10',
             transformPage: { 1: transformBitacorav1 }
         },
         homeLN: {
             aliasPage: '/homepage-LN10',
+            transformPage: { 1: transformv1, 2: transformv2 },
+            transformHome: { 1: homev1, 2: homev2 }
+        },
+        homeLN10: {
+            aliasPage: '/homepage-ln10',
             transformPage: { 1: transformv1, 2: transformv2 },
             transformHome: { 1: homev1, 2: homev2 }
         },
@@ -41,6 +46,7 @@ const fetch = async (query, { cachedCall } = {}) => {
         const version = get(query, 'versionUri', 1);
         const versionDeploy = get(query, 'versionDeploy', null);
         const alias = get(query, 'namePage', 'home');
+        const cookie = get(query, 'useCookie', null);
         let configItemPage = configPages[alias];
 
         if (!configItemPage) {
@@ -66,7 +72,8 @@ const fetch = async (query, { cachedCall } = {}) => {
             ticksCache,
             website,
             isPage: true,
-            versionDeploy
+            versionDeploy,
+            cookie
         };
 
         const resultPage = await cachedCall(keyCachedCall, pages.fetch, {
@@ -127,7 +134,8 @@ export default {
         versionUri: 'text',
         namePage: 'text',
         ticks: 'text',
-        versionDeploy: 'text'
+        versionDeploy: 'text',
+        useCookie: 'text'
     },
     ttl: 120
 };

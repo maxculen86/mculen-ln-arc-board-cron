@@ -76,8 +76,14 @@ const LN10Home = props => {
             {getScriptForComercial('comercial_mob')}
             <div className="wrapper homepage">
                 {bannersHome.megatopDsk}
+                {bannersHome.megatopTab}
                 {getStickyBanner(
                     '.ln-banner-container.--megatop_dsk.--megatop',
+                    'section[data-section="pre-apertura"]'
+                )}
+                {/* TODO hacer script dinamico para ambos banners */}
+                {getStickyBanner(
+                    '.ln-banner-container.--megatop_tab.--megatop',
                     'section[data-section="pre-apertura"]'
                 )}
                 <div className="header-container">
