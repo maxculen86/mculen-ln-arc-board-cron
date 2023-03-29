@@ -1,4 +1,3 @@
-import { IS_SANDBOX, IS_DEV } from 'fusion:environment';
 import request from 'request-promise-native';
 import logger from '../../../../components/private/common/utils/logger';
 
@@ -14,17 +13,15 @@ const resolve = query => {
 };
 
 const fetch = async query => {
+    const { cookie } = query;
     const endpoint = {
         uri: `${resolve(query)}`,
         json: true
     };
 
-    if (
-        (IS_DEV === 'true' && IS_SANDBOX === 'true') ||
-        endpoint.uri.includes('sandbox')
-    ) {
+    if (cookie && cookie.trim() !== '') {
         endpoint.headers = {
-            Cookie: 'el_arc=2c88b3e4-500e-4629-9a0d-78a032107225'
+            Cookie: cookie
         };
     }
 
