@@ -3,30 +3,84 @@ import {
     infoLNMain
 } from '../../../../../../../components/private/LN/api/common/home/config/configInfoSectionsByLayout';
 
+const specialBox = {
+    'ln-acumulado/timeline': 'timeline',
+    'ln-common/ln10_timeline': 'timeline',
+    'ln-10/timeline': 'timeline',
+    'ln-common/ln10_editorial': 'h_editoriales'
+};
+const omitSections = {
+    'ln-common/ln10_en_vivo': true
+};
+const specialBoxRoot = {
+    'ln-common/opinion': 'h_opinion',
+    'ln-common/ln10_opinion': 'h_opinion'
+};
+
+const createBoxAndNotas = (elem, cajaCount, cajas) => {
+    const { sectionAliasMobile, information } = elem;
+    const notas = createNotasArray(elem);
+    const isSpecialBox = specialBoxRoot[sectionAliasMobile];
+    const boxId = isSpecialBox
+        ? specialBoxRoot[sectionAliasMobile]
+        : cajaCount.toString().padStart(2, '0');
+    const hideCaja = information ? information.hideCaja : undefined;
+    const layout = information ? information.layout : undefined;
+    const caja = createBox(
+        boxId,
+        hideCaja,
+        getFeature(sectionAliasMobile),
+        layout,
+        notas.notasArray
+    );
+    cajas.push(caja);
+    if (notas.specialBox) cajas.push(notas.specialBox);
+    // eslint-disable-next-line no-param-reassign
+    if (!isSpecialBox) cajaCount += 1;
+    return cajaCount;
+};
+
+const createNota = (article, index) => ({
+    // eslint-disable-next-line no-underscore-dangle
+    id_nota: article._id,
+    url_nota: article.website_url,
+    posicion: (index + 1).toString().padStart(2, '0')
+});
+
+const createBox = (id, visible, feature, layout, notas) => ({
+    id_caja: id,
+    visible: visible || true,
+    feature,
+    diagramacion_caja: layout,
+    notas
+});
+
 const createNotasArray = elem => {
     const notasArray = [];
     const resp = {};
     for (let j = 0; j < elem.articles.length; j += 1) {
         const article = elem.articles[j];
-        if (article.sectionAliasMobile === 'ln-acumulado/timeline') {
+        if (specialBox[article.sectionAliasMobile]) {
             const notas = createNotasArray(article);
-            const timelineCaja = createCaja(
-                'timeline',
+            const box = createBox(
+                specialBox[article.sectionAliasMobile],
                 article.information && article.information.hideCaja,
                 getFeature(elem.sectionAliasMobile),
                 article.information && article.information.layout,
                 notas.notasArray
             );
-            resp.timelineCaja = timelineCaja;
+            resp.specialBox = box;
             // eslint-disable-next-line no-continue
             continue;
         }
-        const nota = {
-            // eslint-disable-next-line no-underscore-dangle
-            id_nota: article._id,
-            url_nota: article.website_url,
-            posicion: (j + 1).toString().padStart(2, '0')
-        };
+        if (
+            article.additionalProperties &&
+            article.additionalProperties.originPosition === 'T3'
+        ) {
+            // eslint-disable-next-line no-continue
+            continue;
+        }
+        const nota = createNota(article, j);
         notasArray.push(nota);
     }
     return {
@@ -35,15 +89,6 @@ const createNotasArray = elem => {
     };
 };
 
-const createCaja = (id, visible, feature, layout, notas) => {
-    return {
-        id_caja: id,
-        visible: visible || true,
-        feature,
-        diagramacion_caja: layout,
-        notas
-    };
-};
 const getFeature = sectionAliasMobile => {
     let infoEntry = infoLNMainLN10[sectionAliasMobile];
     infoEntry = infoEntry || infoLNMain[sectionAliasMobile];
@@ -51,34 +96,19 @@ const getFeature = sectionAliasMobile => {
 
     return infoEntry.tipoSeccion;
 };
+
 const transform = async (dataPage, query) => {
     const {
         information: { layoutPage },
         content_elements: elementsPage
     } = dataPage;
     try {
-        const omitSections = {
-            'ln-common/opinion': true,
-            'ln-common/editoriales': true
-        };
         let cajaCount = 1;
         const cajas = [];
         elementsPage.forEach((elem, i) => {
             if (elem.type !== 0) return; // Ignorar elementos que no son cajas
             if (omitSections[elem.sectionAliasMobile]) return; // Ignorar cajas que deben omitirse
-
-            const notas = createNotasArray(elem);
-            const caja = createCaja(
-                cajaCount.toString().padStart(2, '0'),
-                elem.information.hideCaja,
-                getFeature(elem.sectionAliasMobile),
-                elem.information.layout,
-                notas.notasArray
-            );
-
-            cajaCount += 1;
-            cajas.push(caja);
-            if (notas.timelineCaja) cajas.push(notas.timelineCaja);
+            cajaCount = createBoxAndNotas(elem, cajaCount, cajas);
         });
         return { cajas };
     } catch (error) {
