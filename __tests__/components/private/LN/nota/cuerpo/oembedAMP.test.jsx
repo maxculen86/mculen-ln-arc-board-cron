@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import OembedAMP from '../../../../../../components/private/LN/nota/cuerpo/oembedAMP';
 import { checkIsFalsy } from '../../../../../../components/private/LN/nota/cuerpo/helpers/oembedAMPHelper';
 
@@ -22,14 +23,14 @@ describe('OembedAMP', () => {
     const media = [
         {
             url: 'https://www.facebook.com/zuck/posts/10102593740125791',
-            subtype: 'facebook-post'
+            subtype: 'facebook'
         },
         {
             url: 'https://twitter.com/tinch/status/1481053797397024768?s=24',
             subtype: 'twitter'
         },
         {
-            url: 'https://www.youtube.com/watch?v=5q7u6OtCA_I',
+            url: 'https://www.youtube.com/embed/ZJD2y7u1mQA?feature=oembed',
             subtype: 'youtube'
         },
         {
@@ -38,31 +39,48 @@ describe('OembedAMP', () => {
             subtype: 'instagram'
         },
         {
-            url: 'https://www.facebook.com/zuck/posts/10102593740125791',
+            url:
+                'https://player.vimeo.com/video/747666103?h=2c819739d8&amp;app_id=122963',
             subtype: 'vimeo'
         },
         {
-            url: 'https://www.facebook.com/zuck/posts/10102593740125791',
+            url: 'https://vine.co/v/5j0jHBdqerF/embed/simple',
             subtype: 'vine'
         },
         {
-            url: 'https://www.facebook.com/zuck/posts/10102593740125791',
+            url:
+                'https://www.dailymotion.com/embed/video/x589c8d?pubtool=oembed',
             subtype: 'dailymotion'
-        },
-        { url: '', subtype: '' }
+        }
     ];
 
-    let component;
-
-    afterEach(() => {
-        component = null;
-    });
+    const mediaError = media.map(({ subtype }) => ({
+        url: 'https://www.mock-wrong-urls.com/embebidos/prueba',
+        subtype
+    }));
 
     test.each(media)('Cheks oembed props for each social media type', media => {
-        component = mount(<OembedAMP data={data(media.url, media.subtype)} />);
-        expect(component.props().data).toStrictEqual(
-            data(media.url, media.subtype)
+        const { container } = render(
+            <OembedAMP data={data(media.url, media.subtype)} />
         );
+        expect(
+            container.getElementsByClassName(`com-embed --${media.subtype}`)
+        ).toBeTruthy();
+        expect(
+            container.getElementsByTagName(`amp-${media.subtype}`)
+        ).toBeTruthy();
+    });
+
+    test.each(mediaError)('Should not break or throw error', mediaError => {
+        const component = render(
+            <OembedAMP data={data(mediaError.url, mediaError.subtype)} />
+        );
+        const { container } = component;
+        expect(() => component).not.toThrow();
+        expect(
+            screen.queryByRole(`amp-${mediaError.subtype}`)
+        ).not.toBeInTheDocument();
+        expect(container).toBeEmptyDOMElement();
     });
 
     it('Matches snapshot', () => {
