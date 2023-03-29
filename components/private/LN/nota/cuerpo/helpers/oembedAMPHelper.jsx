@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../../../../../resources/dist/css/ln/components/com-embed.css';
 import get from '../../../../common/utils/get';
+import '../../../../../../resources/dist/css/ln/components/com-embed.css';
 
 export const getValue = (
     valueFromProps,
@@ -9,8 +9,9 @@ export const getValue = (
     regexGroup,
     defaultValue
 ) => {
-    const { html } = rawOembed || '';
+    const { html = '' } = rawOembed || {};
     const valueFromRegex = regex.exec(html);
+
     return (
         valueFromProps ||
         (valueFromRegex && valueFromRegex[regexGroup]) ||
@@ -24,12 +25,15 @@ export const checkIsFalsy = oembed => {
 };
 
 const embedSubtypes = {
-    facebook: ({ url, rawEmbed, width, height, subtype }) => {
-        const urlRegex = /data-href\s*=\s*"([^"]+)"/;
+    facebook: ({ url = '', rawEmbed, width, height, subtype }) => {
+        const fbUrl = /https?:\/\/(?:www\.)?facebook\.com\/.*/;
+        const urlRegex = /data-href\s*=\s*"(https?:\/\/(?:www\.)?facebook\.com\/.+?)"/;
         const widthRegex = /width="([0-9]+)"/;
         const heightRegex = /height="([0-9]+)"/;
 
-        const oembedUrl = getValue(url, rawEmbed, urlRegex, 1);
+        const validFbUrl = url.match(fbUrl) ? url : null;
+
+        const oembedUrl = getValue(validFbUrl, rawEmbed, urlRegex, 1);
         const oembedWidth = getValue(width, rawEmbed, widthRegex, 1, 500);
         const oembedHeight = getValue(height, rawEmbed, heightRegex, 1, 310);
 
@@ -51,7 +55,8 @@ const embedSubtypes = {
     },
     twitter: ({ rawEmbed, subtype }) => {
         const twitterRegex = /(https?:\/\/(www\.)?)?twitter\.com\/(\w*())\/?status?\/([0-9]*)?\/?/;
-        const tweetId = rawEmbed.html.match(twitterRegex)[5];
+        const regexMatch = get(rawEmbed, 'html', '').match(twitterRegex) || [];
+        const tweetId = regexMatch[5];
 
         return (
             checkIsFalsy(tweetId) && (
@@ -88,7 +93,7 @@ const embedSubtypes = {
         );
     },
     instagram: ({ rawEmbed, subtype }) => {
-        const instaRegex = /(https?:\/\/(www\.)?)?instagram\.com\/p\/(\w*([-'])?(\w*)?)/;
+        const instaRegex = /(https?:\/\/(www\.)?)?instagram\.com\/(?:p|tv)\/(\w*([-'])?(\w*)?)/;
         const instaId = get(rawEmbed, 'html', '').match(instaRegex);
 
         return instaId && instaId[3] ? (

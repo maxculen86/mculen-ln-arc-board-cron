@@ -1,7 +1,8 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import CurrencyData from '../../../../components/private/common/currencyData/CurrencyData';
-import { render } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -20,67 +21,66 @@ jest.mock(
 );
 jest.mock('../../../../components/private/common/text', () => 'mock-Text');
 
-const props = {
-    outputType: 'default',
-    contextPath: '/pf',
-    title: 'Dólar hoy',
-    link: 'https://www.lanacion.com.ar/dolar-hoy/',
-    purchaseValue: '104,25',
-    saleValue: '110,25',
-    sourceName: 'dbna',
-    informationAlt: 'BYMA',
-    providedAlt: 'InvertirOnline'
-};
-
 describe('Common private currencyData - with dbna', () => {
-    const wrapper = render(<CurrencyData {...props} />);
-    const result = wrapper.first();
-    const children = result.children();
-    const linkComponent = children[0];
-    const paragraph = children[1];
-    const textComponent = linkComponent.children[0];
+    const props = {
+        outputType: 'default',
+        contextPath: '/pf',
+        title: 'Dólar hoy',
+        link: 'https://www.lanacion.com.ar/dolar-hoy/',
+        purchaseValue: '104,25',
+        saleValue: '110,25',
+        sourceName: 'dbna',
+        informationAlt: 'BYMA',
+        providedAlt: 'InvertirOnline'
+    };
     it('Check com-link component', () => {
+        const { container } = render(<CurrencyData {...props} />);
+
+        const linkComponent = container.querySelector('mock-com-link');
+
         expect(linkComponent).toBeTruthy();
-        expect(linkComponent.attribs.link).toBe(
-            'https://www.lanacion.com.ar/dolar-hoy/'
-        );
-        expect(linkComponent.attribs.classcondition).toBe(
-            'link-container-currency-data'
-        );
-        expect(linkComponent.attribs.title).toBe('Dólar hoy');
+        expect(linkComponent.getAttribute('link')).toBe(props.link);
+        expect(linkComponent.getAttribute('title')).toBe(props.title);
     });
     it('Check text component', () => {
+        const { container } = render(<CurrencyData {...props} />);
+
+        const textComponent = container.querySelector('mock-Text');
+
         expect(textComponent).toBeTruthy;
-        expect(textComponent.name).toBe('mock-text');
-        expect(textComponent.attribs.size).toBe('--fourxs');
-        expect(textComponent.attribs.text).toBe('Dólar hoy');
-        expect(textComponent.attribs.extraclass).toBe('dolar-title');
+        expect(textComponent.getAttribute('size')).toBe('--fourxs');
+        expect(textComponent.getAttribute('text')).toBe('Dólar hoy');
+        expect(textComponent.getAttribute('extraclass')).toBe('dolar-title');
     });
     it('Check paragraph', () => {
-        expect(paragraph.children.length).toBe(4);
-        expect(paragraph.children[1].children[0].data).toBe('$104,25');
+        render(<CurrencyData {...props} />);
+
+        expect(screen.getByText(`$${props.purchaseValue}`));
+        expect(screen.getByText(`$${props.saleValue}`));
     });
     it('CurrencyData snapshot', () => {
-        expect(result).toMatchSnapshot();
+        const { container } = render(<CurrencyData {...props} />);
+
+        expect(container).toMatchSnapshot();
     });
 });
 
 describe('Currency data - with dblue', () => {
-    props.sourceName = 'dblue';
-    props.link = 'https://www.lanacion.com.ar/tema/dolar-blue-tid67294/';
-    props.title = 'Dólar blue';
-    const wrapper = render(<CurrencyData {...props} />);
-    const result = wrapper.first();
-    const children = result.children();
-    const linkComponent = children[0];
+    const properties = {
+        sourceName: 'dblue',
+        link: 'https://www.lanacion.com.ar/tema/dolar-blue-tid67294/',
+        title: 'Dólar blue'
+    };
     it('Should return dblue link and text', () => {
+        const { container } = render(<CurrencyData {...properties} />);
+
+        const linkComponent = container.querySelector('mock-com-link');
+
         expect(linkComponent).toBeTruthy();
-        expect(linkComponent.attribs.link).toBe(
-            'https://www.lanacion.com.ar/tema/dolar-blue-tid67294/'
-        );
-        expect(linkComponent.attribs.classcondition).toBe(
+        expect(linkComponent.getAttribute('link')).toBe(properties.link);
+        expect(linkComponent.getAttribute('title')).toBe(properties.title);
+        expect(linkComponent.getAttribute('classCondition')).toBe(
             'link-container-currency-data'
         );
-        expect(linkComponent.attribs.title).toBe('Dólar blue');
     });
 });

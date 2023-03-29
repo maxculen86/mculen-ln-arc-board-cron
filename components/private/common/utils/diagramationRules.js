@@ -131,7 +131,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withSubhead: true,
-                cardSize: '5xl',
+                cardSize: '4xl',
                 imageConfig: 'xxl',
                 imagePosition: {
                     mobile: 'img-top',
@@ -558,7 +558,7 @@ const diagramationRules = diagramation => {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm-l',
+                cardSize: 'm',
                 imageConfig: 'l',
                 imagePosition: {
                     mobile: 'img-top',

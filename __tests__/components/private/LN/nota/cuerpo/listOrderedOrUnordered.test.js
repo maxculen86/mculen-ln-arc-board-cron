@@ -1,5 +1,6 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { render, screen, within } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 import ListOrderedOrUnordered from '../../../../../../components/private/LN/nota/cuerpo/listOrderedOrUnordered';
 
@@ -22,26 +23,36 @@ describe('features - LaNacion - Nota - unordered', () => {
                 {
                     type: 'text',
                     content: `<a href="https://lac.wetlands.org/" target="_blank"><mark class="hl_yellow"><b>Fundación Humedales/Wetlands International:</b></mark></a><mark class="hl_yellow"><b> </b></mark><a href="https://twitter.com/fundachumedales?lang=en" target="_blank">Twitter </a>/ <a href="https://es-la.facebook.com/fundacion.humedales/" target="_blank">Facebook</a> / Instagram. Por el Día de los Humedales, junto al Museo Scasso lanzó <a href="https://www.youtube.com/watch?v=xl0lgozO_HU&feature=youtu.be" target="_blank">este video</a>`,
-                    _id: 'KPDZ2RRIUZE5XOBKXMXYF254JY'
+                    _id: 'KPDZ2RRIUZE5XOBKXMXYF254JYZ'
                 },
                 {
                     type: 'text',
                     content: `<a href="https://lac.wetlands.org/" class="com-link" target="_blank"><mark class="hl_yellow"><b>Fundación Humedales/Wetlands International:</b></mark></a><mark class="hl_yellow"><b> </b></mark><a href="https://twitter.com/fundachumedales?lang=en" class="com-link" target="_blank">Twitter </a>/ <a href="https://es-la.facebook.com/fundacion.humedales/" class="com-link" target="_blank">Facebook</a> / Instagram. Por el Día de los Humedales, junto al Museo Scasso lanzó <a href="https://www.youtube.com/watch?v=xl0lgozO_HU&amp;feature=youtu.be" class="com-link" target="_blank">este video</a>`,
-                    _id: 'KPDZ2RRIUZE5XOBKXMXYF254JY'
+                    _id: 'KPDZ2RRIUZE5XOBKXMXYF254JYP'
                 }
             ]
         }
     };
-    const component = render(<ListOrderedOrUnordered {...props} />);
     it('Test de snapshot ListOrderedOrUnordered', () => {
-        expect(component).toMatchSnapshot();
+        const { container } = render(<ListOrderedOrUnordered {...props} />);
+
+        expect(container).toMatchSnapshot();
     });
-    it('Should have one <a> tag with class com-link', () => {
-        expect(component.find('li > a').hasClass('com-link')).toBe(true);
-        expect(component.find('.com-link').last().length).toBe(1);
-        expect(component.find('.link').last().length).toBe(0);
+    it('Should have props attributes', () => {
+        render(<ListOrderedOrUnordered {...props} />);
+
+        const list = screen.getByRole('list');
+        const items = within(list).getAllByRole('listitem');
+        const anchors = within(list).getAllByRole('link');
+
+        expect(list.getAttribute('class')).toBe('com-unordered');
+        expect(items).toHaveLength(props.data.items.length);
+        expect(items[0].getAttribute('class')).toBe('com-item');
+        expect(anchors[0].getAttribute('class')).toBe('com-link');
+        expect(anchors[0].getAttribute('href')).toBeDefined();
     });
 });
+
 describe('features - LaNacion - Nota - unordered wrong list', () => {
     const propsTwo = {
         data: {
@@ -55,18 +66,20 @@ describe('features - LaNacion - Nota - unordered wrong list', () => {
                 {
                     type: 'list',
                     content: `chau <a class="link" href="https://www.lanacion.com.ar/politica/alberto-fernandez-vicentin-nid2376255" class="com-link" >intervenir una compañía</a>`,
-                    _id: 'KPDZ2RRIUZE5XOBKXMXYF254JY'
+                    _id: 'KPDZ2RRIUZE5XOBKXMXYF254JYK'
                 },
                 {
                     type: 'list',
-                    _id: 'KPDZ2RRIUZE5XOBKXMXYF254JY'
+                    _id: 'KPDZ2RRIUZE5XOBKXMXYF254JYL'
                 }
             ]
         }
     };
-    const componentWrong = render(<ListOrderedOrUnordered {...propsTwo} />);
+
     it('Should not render wrong lists example: nested lists', () => {
-        expect(componentWrong.find('ul').length).toEqual(0);
-        expect(componentWrong).toMatchSnapshot();
+        const { container } = render(<ListOrderedOrUnordered {...propsTwo} />);
+
+        expect(container).toMatchSnapshot();
+        expect(screen.queryByRole('list')).toBeNull();
     });
 });

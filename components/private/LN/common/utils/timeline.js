@@ -58,8 +58,7 @@ export const setTLArticles = (source, articles = []) => {
             headlines = {},
             display_date: displayDate,
             content_restrictions: contentRestrictions,
-            subtype,
-            label = {}
+            subtype
         } = article;
 
         const isLiveblog = subtype === LIVEBLOG;
@@ -72,7 +71,6 @@ export const setTLArticles = (source, articles = []) => {
             titleText: headlines.basic,
             cardVariant: isLiveblog ? 'liveblog' : '',
             link: article.website_url,
-            lead: get(label, 'volanta.text', ''),
             hour: !isCollection && (
                 <ComHour
                     display_date={displayDateWithThreeHours}

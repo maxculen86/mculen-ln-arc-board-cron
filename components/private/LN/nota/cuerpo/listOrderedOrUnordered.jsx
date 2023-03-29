@@ -20,16 +20,10 @@ const ListOrderedOrUnordered = ({ data }) => {
         });
     };
 
-    const validateList = list => {
-        if (list.some(e => e.type === 'list' || e.content === undefined)) {
-            return false;
-        }
-        return true;
-    };
-
-    if (!validateList(data.items)) {
+    if (data.items.some(e => e.type === 'list' || e.content === undefined)) {
         return <></>;
     }
+
     return (
         <ul className={classList}>
             {data.items.map(element => (

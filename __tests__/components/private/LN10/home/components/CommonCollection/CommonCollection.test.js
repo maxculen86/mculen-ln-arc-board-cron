@@ -76,7 +76,7 @@ describe('Tests Component CommonCollection', () => {
 
         expect(articlesRendered).toHaveLength(7);
         expect(articlesRendered[0]).toHaveClass(
-            'ln-card --d-flex --flex-col --ai-start --m-l --regular'
+            'ln-card --d-flex --flex-col --ai-start --m --regular'
         );
         articlesRendered.slice(1, 7).forEach(article => {
             expect(article).toHaveClass(

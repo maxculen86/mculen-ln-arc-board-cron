@@ -51,7 +51,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
               title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
             >
@@ -76,7 +76,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m-l"
+                class="text ln-text title --prumo --font-semi --font-m-l"
               >
                 
                 Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
@@ -99,7 +99,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
               title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
             >
@@ -124,7 +124,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --prumo --font-semi --font-m"
               >
                 
                 Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
@@ -147,7 +147,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
               title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
             >
@@ -172,7 +172,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --prumo --font-semi --font-m"
               >
                 
                 Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
@@ -195,7 +195,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             title="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
               title="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
             >
@@ -220,7 +220,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --prumo --font-semi --font-m"
               >
                 
                 El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres
@@ -243,7 +243,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             title="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
               title="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
             >
@@ -268,7 +268,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m-l"
+                class="text ln-text title --prumo --font-semi --font-m-l"
               >
                 
                 El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
@@ -291,7 +291,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             title="Test noticia en ARC"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/deportes/test-noticia-en-arc-nid16032021-2/"
               title="Test noticia en ARC"
             >
@@ -316,7 +316,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/test-noticia-en-arc-nid16032021-2/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --prumo --font-semi --font-m"
               >
                 
                 Test noticia en ARC
@@ -339,7 +339,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
             title="Test noticia en ARC"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/revista-living/test-noticia-en-arc-nid03012023/"
               title="Test noticia en ARC"
             >
@@ -364,7 +364,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/revista-living/test-noticia-en-arc-nid03012023/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --prumo --font-semi --font-m"
               >
                 
                 Test noticia en ARC
@@ -378,7 +378,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --7 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -391,7 +391,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --prumo --font-semi --font-m"
               >
                 <span
                   class="text ln-text lead --prumo --font-black"
@@ -402,7 +402,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 Este es un titulo corto.
               </h2>
               <h3
-                class="text ln-text --mb-xs --font-s subhead"
+                class="text ln-text subhead --font-s"
               >
                 Incidentes frente al hotel donde convocó a militantes 
               </h3>
@@ -482,7 +482,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
+          class="ln-card --d-flex --flex-col --ai-start --m --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -491,7 +491,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
             title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
               title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
             >
@@ -516,7 +516,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m-l"
+                class="text ln-text title --prumo --font-semi --font-m"
               >
                 
                 Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
@@ -538,7 +538,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
             title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
               title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
             >
@@ -563,7 +563,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --prumo --font-semi --font-m"
               >
                 
                 Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
@@ -585,7 +585,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
             title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
               title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
             >
@@ -610,7 +610,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --prumo --font-semi --font-m"
               >
                 
                 Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
@@ -632,7 +632,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
             title="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
               title="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
             >
@@ -657,7 +657,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --prumo --font-semi --font-m"
               >
                 
                 El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres
@@ -679,7 +679,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
             title="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
               title="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
             >
@@ -704,7 +704,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --prumo --font-semi --font-m"
               >
                 
                 El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
@@ -726,7 +726,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
             title="Test noticia en ARC"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/deportes/test-noticia-en-arc-nid16032021-2/"
               title="Test noticia en ARC"
             >
@@ -751,7 +751,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/test-noticia-en-arc-nid16032021-2/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --prumo --font-semi --font-m"
               >
                 
                 Test noticia en ARC
@@ -773,7 +773,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
             title="Test noticia en ARC"
           >
             <section
-              class="media-container --mb-xs"
+              class="media-container"
               href="/revista-living/test-noticia-en-arc-nid03012023/"
               title="Test noticia en ARC"
             >
@@ -798,7 +798,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/revista-living/test-noticia-en-arc-nid03012023/"
             >
               <h2
-                class="text ln-text title --mb-xs --prumo --font-semi --font-m"
+                class="text ln-text title --prumo --font-semi --font-m"
               >
                 
                 Test noticia en ARC
