@@ -37,7 +37,7 @@ export const setCustomFields = () => {
         hideBox: PropTypes.boolean.tag(CUSTOM_FIELDS_CONFIG.hideBox)
     });
 };
-
+// TODO: Evaluar usar el setRender que esta en /components/chains/utils/setRender.js
 export const setRender = ({
     isAdmin,
     error = {},
@@ -50,7 +50,11 @@ export const setRender = ({
             <WarningMessage type={error.type} message={error.message} />
         ),
         isEmpty: (hideBox || error) && <></>,
-        default: <StaticContent {...extraOptsDiv}>{Component}</StaticContent>
+        default: isAdmin ? (
+            Component
+        ) : (
+            <StaticContent {...extraOptsDiv}>{Component}</StaticContent>
+        )
     };
 
     return Object.values(options).find(Boolean);

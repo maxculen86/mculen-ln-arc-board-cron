@@ -1,5 +1,10 @@
 import fusionConsumer from 'fusion:consumer';
 import CajaApertura from '../../../../components/chains/LN10_Caja_Apertura/default';
+import ArticleFeature from '../../../../components/features/LN-10/article/default';
+import React from 'react';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import renderables from '../../../../__mocks__/data/renderables/LN10_Caja_Bomba.json';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -7,8 +12,71 @@ jest.mock('fusion:consumer', component => {
     };
 });
 
+jest.mock(
+    '../../../../components/features/LN-10/article/default',
+    () => 'mocked-ArticleFeature'
+);
+
 describe('components - chains - LN10_Caja_Apertura - helper', () => {
+    const articleFeature = <ArticleFeature id="noteId" />;
+
+    const getProps = (layout, children, isAdmin = true) => ({
+        id: 'c0fGiApKcEVS2BX',
+        isAdmin,
+        customFields: { layout, hideCaja: false },
+        children,
+        childProps: renderables[3].children[0].children,
+        renderables
+    });
+
     describe('helper - setFeaturedChildren', () => {
         it('Check Props', () => {});
+    });
+
+    describe('Tests validation by section', () => {
+        test('should return a warning, when the component is not render in the section "Apertura"', () => {
+            render(
+                <section data-section="pre-apertura">
+                    <CajaApertura {...getProps('focal-70', [articleFeature])} />
+                </section>
+            );
+
+            expect(screen.getByText('Advertencia')).toBeDefined();
+
+            expect(
+                screen.getByText(
+                    'La chain debe estar dentro de la sección Apertura'
+                )
+            ).toBeDefined();
+        });
+
+        test('should return the component, when the section is correct', () => {
+            const { container } = render(
+                <section data-section="apertura">
+                    <CajaApertura
+                        {...getProps('bn-opening-4', [
+                            articleFeature,
+                            articleFeature,
+                            articleFeature,
+                            articleFeature
+                        ])}
+                    />
+                </section>
+            );
+
+            expect(container.querySelector('.focal-70')).toBeDefined();
+        });
+
+        test('should not render the component if there is an error outside the page builder', () => {
+            const { container } = render(
+                <section data-section="pre-apertura">
+                    <CajaApertura
+                        {...getProps('focal-70', [articleFeature], false)}
+                    />
+                </section>
+            );
+
+            expect(container.querySelector('.focal-70')).toBeNull();
+        });
     });
 });

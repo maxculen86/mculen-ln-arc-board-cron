@@ -6,11 +6,7 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { Opening } from '@ln/contenidos-ui-opening';
 import { setFilteredRenderables, validateChain } from './common/_helper-WebApi';
-
 import { setCustomFields, setRender } from './_helper';
-import getChildrenBySection from '../utils/getChildrenBySection';
-import checkChildInSection from '../utils/checkChildBySection';
-
 import '../../../resources/packages/css/@ln/contenidos-ui-opening/index.css';
 import '../../../resources/packages/css/@ln/common-ui-grid/index.css';
 import '../../../resources/dist/css/ln/components/timeline.css';
@@ -28,6 +24,7 @@ import {
     setQuantityByLayout
 } from '../utils/common/_helpers-WebApi';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
+import useValidateChain from '../../private/LN10/common/hooks/useValidateChain';
 
 const CajaApertura = props => {
     const {
@@ -39,12 +36,16 @@ const CajaApertura = props => {
         renderables = []
     } = props;
 
-    const openingChildren = getChildrenBySection({
+    const error = useValidateChain({
+        isAdmin,
+        chainId,
         renderables,
-        section: {
-            title: 'Apertura',
-            validation: sectionValidation
-        }
+        sectionValidation,
+        hideChain: hideBox,
+        nameSection: 'Apertura',
+        dataSection: 'apertura',
+        callbackValidation: isInOpening =>
+            validateChain(childProps, layout, isInOpening)
     });
 
     const { position, positionInsideSection } = getCommonProps(props);
@@ -56,9 +57,6 @@ const CajaApertura = props => {
         '',
         positionInsideSection
     );
-
-    const isInOpening = checkChildInSection(chainId, openingChildren);
-    const error = validateChain(childProps, layout, isInOpening);
 
     const features = setFilteredRenderables(renderables, children);
     const featuredChildren = setWrappedChildren(features, children) || [];

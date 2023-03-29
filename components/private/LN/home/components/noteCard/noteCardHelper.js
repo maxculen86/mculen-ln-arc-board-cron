@@ -166,7 +166,7 @@ export const featuresValidator = {
     },
     default: () => false
 };
-
+// TODO: Evaluar usar la misma funcion isInApertura para agregar fetchPriority high y evitar usar renderables
 const extractCommonIsEager = (note, checkEager, element = {}) => {
     const { props, children = [] } = element;
 
@@ -175,9 +175,9 @@ const extractCommonIsEager = (note, checkEager, element = {}) => {
     const { customFields } = props;
     const { hideCaja } = customFields;
 
-    const { props: noteProps } = chainFirstNote;
-    const { customFields: noteCustomFields } = noteProps;
-    const { hideImage, video, html, noteId = '' } = noteCustomFields;
+    const { props: noteProps } = chainFirstNote || {};
+    const { customFields: noteCustomFields } = noteProps || {};
+    const { hideImage, video, html, noteId = '' } = noteCustomFields || {};
 
     const isFirstViewportNote = note === noteId;
     const hasImage = !html && !video && !hideImage;

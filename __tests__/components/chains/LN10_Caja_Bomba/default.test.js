@@ -43,6 +43,43 @@ describe('Tests - Chain - CajaBomba', () => {
             ).toBeDefined();
         });
 
+        test('should return a warning, when the component is not render in the section "pre-apertura"', () => {
+            render(
+                <section
+                    data-section="apertura"
+                    className="open-container lay-container"
+                >
+                    <CajaBomba {...getProps('horizontal', [articleFeature])} />
+                </section>
+            );
+
+            expect(screen.getByText('Advertencia')).toBeDefined();
+
+            expect(
+                screen.getByText(
+                    'La Caja Bomba solo se puede utilizar en la seccion Pre Apertura'
+                )
+            ).toBeDefined();
+        });
+
+        test('should return the component, when the section is correct', () => {
+            const { container } = render(
+                <section
+                    data-section="pre-apertura"
+                    className="pre-container --mb-lg"
+                >
+                    <CajaBomba {...getProps('horizontal', [articleFeature])} />
+                </section>
+            );
+
+            const wrapperBomba = container.querySelector('.horizontal');
+
+            expect(wrapperBomba).toBeDefined();
+            expect(
+                wrapperBomba.querySelectorAll('mocked-ArticleFeature')
+            ).toHaveLength(1);
+        });
+
         const casesThatRequireOneArticle = [
             [
                 'should not return a warning that 1 item is required when the layout is "vertical"',

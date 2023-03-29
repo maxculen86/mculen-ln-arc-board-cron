@@ -389,10 +389,10 @@
                 "children": [
                     {
                         "collection": "chains",
-                        "type": "LN10_Caja_Manual",
+                        "type": "LN10_Caja_Apertura",
                         "props": {
                             "collection": "chains",
-                            "type": "LN10_Caja_Manual",
+                            "type": "LN10_Caja_Apertura",
                             "id": "c0fGiApKcEVS2BX",
                             "name": null,
                             "customFields": {
@@ -1866,10 +1866,10 @@
         "children": [
             {
                 "collection": "chains",
-                "type": "LN10_Caja_Manual",
+                "type": "LN10_Caja_Apertura",
                 "props": {
                     "collection": "chains",
-                    "type": "LN10_Caja_Manual",
+                    "type": "LN10_Caja_Apertura",
                     "id": "c0fGiApKcEVS2BX",
                     "name": null,
                     "customFields": {
@@ -1880,11 +1880,74 @@
                         "imageId": "",
                         "title": "",
                         "hideTitle": true,
-                        "hideCaja": true
+                        "hideCaja": false
                     },
                     "displayProperties": {}
                 },
                 "children": [
+                    {
+                        "collection": "features",
+                        "type": "LN-10/article",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-10/article",
+                            "id": "f0f3gOxinSQT2Li",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "variant": "regular"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-10/article",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-10/article",
+                            "id": "f0f3gOxinSQT2Li",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "variant": "regular"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "LN-10/article",
+                        "props": {
+                            "collection": "features",
+                            "type": "LN-10/article",
+                            "id": "f0f3gOxinSQT2Li",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "variant": "regular"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
                     {
                         "collection": "features",
                         "type": "LN-10/article",
