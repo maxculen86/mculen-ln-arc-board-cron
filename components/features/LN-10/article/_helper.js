@@ -119,13 +119,6 @@ export const articleCustomFields = {
     })
 };
 
-export const validateImagePosition = (imagePosition, isLiveblog, cardSize) =>
-    isLiveblog && cardSize === 'm'
-        ? {
-              mobile: 'img-right'
-          }
-        : imagePosition;
-
 export const getDataAuthor = ({
     article,
     variant,

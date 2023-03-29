@@ -23,8 +23,7 @@ import {
     validateMedia,
     showSection,
     showExtraClass,
-    getTypeOfMedia,
-    validateImagePosition
+    getTypeOfMedia
 } from './_helper';
 import {
     getChainConfig,
@@ -247,11 +246,7 @@ const ArticleFeature = ({
                     badgeType={badgetStyle}
                     mediaData={mediaData}
                     cardSize={cardSize}
-                    imagePosition={validateImagePosition(
-                        imagePosition,
-                        isLiveblog,
-                        cardSize
-                    )}
+                    imagePosition={imagePosition}
                     section={showSection({ withSection, article, authors })}
                     searchableField={
                         layoutPageBuilder === layoutsName.HomeLN10 &&
