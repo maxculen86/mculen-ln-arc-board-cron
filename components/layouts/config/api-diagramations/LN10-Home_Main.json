@@ -322,7 +322,7 @@
     ],
     "bn_2_1_2_grid": [
         {
-            "variants": ["regular"],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -360,17 +360,6 @@
             },
             "T5": {
                 "size": "M"
-            }
-        },
-        {
-            "variants": ["liveblog"],
-            "T3": {
-                "size": "M",
-                "imagePosition": "Right"
-            },
-            "T4": {
-                "size": "M",
-                "imagePosition": "Right"
             }
         }
     ],
