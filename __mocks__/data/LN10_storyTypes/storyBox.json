@@ -1,0 +1,377 @@
+{
+    "type": 0,
+    "sectionAliasMobile": "bomba",
+    "information": {
+        "idCollection": "",
+        "layout": "horizontal",
+        "initialPosition": 1,
+        "url": "",
+        "imageId": "",
+        "title": "Caja Bomba",
+        "hideTitle": false,
+        "hideCaja": false,
+        "typeChain": "bomba",
+        "nameChain": "LN10_Caja_Bomba",
+        "idRender": "c0feIXOTIR6679u"
+    },
+    "articles": [
+        {
+            "_id": "K642LPFKHBDKLFIU5KNYC6FBBY",
+            "category": "Sociedad",
+            "credits": {
+                "by": [
+                    {
+                        "_id": "alfredo-leuco-330",
+                        "additional_properties": {
+                            "original": {
+                                "author_type": "Estándar",
+                                "bio_page": "/autor/alfredo-leuco-330/",
+                                "byline": "Alfredo Leuco",
+                                "image": "https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg",
+                                "role": ""
+                            }
+                        },
+                        "image": {
+                            "resized_urls": [
+                                {
+                                    "option": {
+                                        "height": 80,
+                                        "media": "(min-width: 320px)",
+                                        "width": 80
+                                    },
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/HL0DujbSSDIRYf-nZCfi0gausOM=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/53/1413553.jpg"
+                                }
+                            ],
+                            "url": "https://bucket.glanacion.com/anexos/fotos/53/1413553.jpg"
+                        },
+                        "name": "Alfredo Leuco",
+                        "slug": "alfredo-leuco-330",
+                        "type": "author",
+                        "url": "/autor/alfredo-leuco-330/"
+                    }
+                ]
+            },
+            "description": {
+                "basic": ""
+            },
+            "first_publish_date": "2023-01-27T11:10:38.041Z",
+            "headlines": {
+                "basic": "El “holocausto olvidado” perpetrado por los nazis durante la Segunda Guerra Mundial",
+                "meta_title": "",
+                "mobile": ""
+            },
+            "isListenable": false,
+            "label": {
+                "edicion": {
+                    "display": true,
+                    "text": "Digital"
+                },
+                "enviar_a_apps": {
+                    "display": true,
+                    "text": "Si",
+                    "url": ""
+                },
+                "mostrar_banners": {
+                    "display": true,
+                    "text": "Si",
+                    "url": ""
+                },
+                "recomendar": {
+                    "display": true,
+                    "text": "Si",
+                    "url": ""
+                },
+                "trust": {
+                    "text": "Noticia"
+                }
+            },
+            "last_updated_date": "2023-01-27T15:16:07.930Z",
+            "paywallEnabled": "",
+            "promo_items": {
+                "basic": {
+                    "_id": "GP55RG7KIBCVFHFRJ6OAZQFAME",
+                    "additional_properties": {},
+                    "auth": {
+                        "1": "f5f1844251e22a63426c4e3bfdb4f748197cd8972f0619c5ec7d980acac1e35e"
+                    },
+                    "caption": "Hinta Gheorghe dice que generaciones de romaníes sufrieron odio y discriminación.",
+                    "created_date": "2023-01-27T11:10:10Z",
+                    "height": 513,
+                    "publish_date": "2023-01-27T08:10:06.2176048-03:00",
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 1280,
+                                "media": "(min-width: 1280px)",
+                                "media_preload": "(min-width: 1280.1px)",
+                                "width": 1920
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/yCtsofM26Xy0ujX3hYnc6oFl_0w=/1920x1280/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GP55RG7KIBCVFHFRJ6OAZQFAME.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 800,
+                                "media_preload": "(min-width: 1024.1px and max-width: 1280px)",
+                                "width": 1200
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/l-S7Gucis-2DniDXL24S06ykGMM=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GP55RG7KIBCVFHFRJ6OAZQFAME.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 682,
+                                "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+                                "width": 1023
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/e7MrMZAoNQ9hOHGg7v8hkffJ5XI=/1023x682/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GP55RG7KIBCVFHFRJ6OAZQFAME.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 512,
+                                "media_preload": "(min-width: 375.1px and max-width: 768px)",
+                                "width": 768
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/hs9kPjlmNMRQPujqBRE_IoCYYEw=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GP55RG7KIBCVFHFRJ6OAZQFAME.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 240,
+                                "media_preload": "(max-width: 375px)",
+                                "width": 360
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/XWUnS5uUBg_45Ozvd_1Bb7XB4BE=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GP55RG7KIBCVFHFRJ6OAZQFAME.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/3V_r4sDOGeBgyXLqVivD6uHASTo=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/GP55RG7KIBCVFHFRJ6OAZQFAME.jpg",
+                    "width": 768
+                }
+            },
+            "publish_date": "2023-01-27T15:16:07.514Z",
+            "related_content": {
+                "basic": []
+            },
+            "subheadlines": {
+                "basic": "\n                Los nazis mataron a más de 11 millones de personas durante el Holocausto, incluidos seis millones de judíos. Un grupo de nómadas marginados, los romaníes, fueron también víctimas de la masacre.\n            "
+            },
+            "subtype": "1",
+            "taxonomy": {
+                "primary_section": {
+                    "_id": "/sociedad",
+                    "_website": "la-nacion-ar",
+                    "additional_properties": {
+                        "original": {
+                            "ancestors": {},
+                            "migration": {
+                                "id_section_ln9": "7773",
+                                "migrated_mob": "false"
+                            }
+                        }
+                    },
+                    "name": "Sociedad",
+                    "parent_id": "/",
+                    "path": "/sociedad",
+                    "type": "section"
+                },
+                "sections": [
+                    {
+                        "_id": "/sociedad",
+                        "_website": "la-nacion-ar",
+                        "additional_properties": {
+                            "original": {
+                                "ancestors": {},
+                                "migration": {
+                                    "id_section_ln9": "7773",
+                                    "migrated_mob": "false"
+                                }
+                            }
+                        },
+                        "name": "Sociedad",
+                        "parent_id": "/",
+                        "path": "/sociedad",
+                        "type": "section"
+                    }
+                ],
+                "sites": [
+                    {
+                        "additional_properties": {
+                            "original": {
+                                "_id": "/sociedad",
+                                "migration": {
+                                    "id_section_ln9": "7773",
+                                    "migrated_mob": "false"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "website_url": "/sociedad/el-holocausto-olvidado-perpetrado-por-los-nazis-durante-la-segunda-guerra-mundial-nid27012023/",
+            "withFirmaDistributor": false,
+            "withSponsoredLink": false,
+            "additionalProperties": {
+                "noteId": "K642LPFKHBDKLFIU5KNYC6FBBY",
+                "title": "Messi finalmente levanta la copa mas esperada por todos los argentinos.",
+                "authors": "",
+                "lead": "ARGENTINA CAMPEON. ",
+                "chapita": "VIDEO",
+                "image": {
+                    "promo_items": {
+                        "basic": {
+                            "_id": "TR5C3TK6F5BWRCYRR3AUO4RMQ4",
+                            "additional_properties": {
+                                "countryId": 176,
+                                "fullSizeResizeUrl": "/resizer/SpW45JLj0ZtZooY48giUeZFdgpk=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg",
+                                "galleries": [],
+                                "ingestionMethod": "manual",
+                                "iptc_job_identifier": "SPANTH124",
+                                "iptc_source": "AP",
+                                "iptc_title": "STF",
+                                "keywords": [
+                                    "fifa",
+                                    "final",
+                                    "katar",
+                                    "qatar",
+                                    "qatar2022",
+                                    "qatar22",
+                                    "worldcup",
+                                    "worldcup2022",
+                                    "worldcup22"
+                                ],
+                                "mime_type": "image/jpeg",
+                                "originalName": "3N3LCXCIT5B4HMOIOAU7EYX7OM.jpeg",
+                                "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg",
+                                "owner": "fcaino@lanacion.com.ar",
+                                "proxyUrl": "/resizer/SpW45JLj0ZtZooY48giUeZFdgpk=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg",
+                                "published": true,
+                                "resizeUrl": "/resizer/SpW45JLj0ZtZooY48giUeZFdgpk=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg",
+                                "restricted": false,
+                                "takenOn": "2022-12-18T18:30:44Z",
+                                "thumbnailResizeUrl": "/resizer/J3qKG8B8CZZUxe_GspXvLqnqyv4=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg",
+                                "version": 0,
+                                "template_id": 770
+                            },
+                            "address": {
+                                "locality": "Lusail",
+                                "country_name": "QAT"
+                            },
+                            "auth": {
+                                "1": "280ee101695619353dc6daec55ef9febe10e37c84cabf7bf3534732e593bab22"
+                            },
+                            "caption": "Lionel Messi, de la selección de Argentina, besa la Copa del Mundo y sostiene el trofeo al mejor jugador de ésta, el 18 de diciembre de 2022, en Lusail, Qatar (AP Foto/Natacha Pisarenko)",
+                            "copyright": "LA NACION",
+                            "created_date": "2023-02-03T14:17:01Z",
+                            "credits": {
+                                "affiliation": [
+                                    {
+                                        "name": "AP",
+                                        "type": "author"
+                                    }
+                                ],
+                                "by": [
+                                    {
+                                        "byline": "Natacha Pisarenko",
+                                        "name": "Natacha Pisarenko",
+                                        "type": "author"
+                                    }
+                                ]
+                            },
+                            "height": 513,
+                            "image_type": "photograph",
+                            "last_updated_date": "2023-02-03T14:17:01Z",
+                            "licensable": false,
+                            "owner": {
+                                "id": "sandbox.lanacionar",
+                                "sponsored": false
+                            },
+                            "slug": "MUNDIAL-MESSI",
+                            "source": {
+                                "additional_properties": {
+                                    "editor": "photo center"
+                                },
+                                "edit_url": "",
+                                "system": "photo center"
+                            },
+                            "taxonomy": {
+                                "associated_tasks": []
+                            },
+                            "type": "image",
+                            "url": "https://resizer.glanacion.com/resizer/N9q6xqSb3aNezCvRrew5CHwmHHU=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg",
+                            "version": "0.10.9",
+                            "width": 768,
+                            "syndication": {},
+                            "creditIPTC": "AP",
+                            "country_name": "Qatar",
+                            "resized_urls": [
+                                {
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/YUOnmEFPRR24kgOY_cF3pZN5fPA=/1920x1280/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg",
+                                    "option": {
+                                        "width": 1920,
+                                        "height": 1280,
+                                        "media": "(min-width: 1280px)",
+                                        "proportion": "3:2",
+                                        "media_preload": "(min-width: 1280.1px)"
+                                    }
+                                },
+                                {
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/LC_AjK6-A7-Q6HFI0uKohSnCWUw=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg",
+                                    "option": {
+                                        "width": 1200,
+                                        "height": 800,
+                                        "proportion": "3:2",
+                                        "media_preload": "(min-width: 1024.1px and max-width: 1280px)"
+                                    }
+                                },
+                                {
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/hdl5k-EyrHaSqvQEEUoyAK2jIcU=/1023x682/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg",
+                                    "option": {
+                                        "width": 1023,
+                                        "height": 682,
+                                        "proportion": "3:2",
+                                        "media_preload": "(min-width: 768.1px and max-width: 1024px)"
+                                    }
+                                },
+                                {
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/RbVoad92IQhS9y3Sw8TmeT3d9do=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg",
+                                    "option": {
+                                        "width": 768,
+                                        "height": 512,
+                                        "proportion": "3:2",
+                                        "media_preload": "(min-width: 375.1px and max-width: 768px)"
+                                    }
+                                },
+                                {
+                                    "resizedUrl": "https://resizer.glanacion.com/resizer/0CSnmJ249VR0iqxE0TcXbqQORsM=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg",
+                                    "option": {
+                                        "width": 360,
+                                        "height": 240,
+                                        "proportion": "3:2",
+                                        "media_preload": "(max-width: 375px)"
+                                    }
+                                }
+                            ],
+                            "resized_urls_zoom": []
+                        }
+                    },
+                    "_id": "225431db6c9e60256d22529d535b8c51c3987199118fe4497b07dc838f637026"
+                },
+                "video": null,
+                "html": "",
+                "variant": "regular",
+                "idRender": "f0fvqs5a1iKxLV",
+                "originPosition": "T1",
+                "diseno": {
+                    "size": "XL",
+                    "imagePosition": "Top"
+                },
+                "nameFeature": "LN-10/article"
+            }
+        }
+    ],
+    "configurations": {
+        "arcSite": "la-nacion-ar"
+    },
+    "aditional_properties": {
+        "variant": "regular"
+    },
+    "sectionWeb": "Pre_Apertura"
+}

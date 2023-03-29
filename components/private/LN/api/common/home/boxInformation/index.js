@@ -1,4 +1,3 @@
-import { boxInfoComplete } from './common/boxInfoComplete';
 import { boxInfoBySectionAliasLN } from './LN/index';
 import { boxInfoBySectionAliasLN10 } from './LN10/index';
 
