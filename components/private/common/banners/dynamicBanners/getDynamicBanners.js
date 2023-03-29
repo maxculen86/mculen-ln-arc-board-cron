@@ -9,10 +9,10 @@ import {
 import get from '../../utils/get';
 
 const getDynamicBanners = ({ renderables = [], featureId = '' }) => {
-    const sectionConfig = Object.entries(homeConfig)[
-        getSectionId(renderables, featureId)
-    ];
-    const [sectionName, sectionValues] = sectionConfig || {};
+    const sectionId = getSectionId(renderables, featureId);
+    const sectionConfig = sectionId && Object.entries(homeConfig)[sectionId];
+
+    const [sectionName, sectionValues = {}] = sectionConfig || [];
 
     const sectionChildren = getChildrenFromSectionHome(
         renderables,

@@ -11,16 +11,18 @@ import {
     getMarkupForDatalayer
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
 import { getChildrenFromSectionHome } from '../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
-import { validateChainBomba, getIsPreOpening } from './common/_helper-WebApi';
+import { validateChainBomba } from './common/_helper-WebApi';
 import { getClassCondition, getChildrenOfBomba } from './_helper';
 import setRender from '../utils/setRender';
 import StaticContent from '../../private/common/staticContent';
+import { setSlicedChildren } from '../utils/common/_helpers-WebApi';
+import useValidateChain from '../../private/LN10/common/hooks/useValidateChain';
+import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 import '../../../resources/packages/css/@ln/contenidos-ui-bomba/index.css';
 import '../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../resources/packages/css/@ln/common-ui-media/index.css';
 import '../../../resources/packages/css/@ln/common-ui-image/index.css';
 import '../../../resources/packages/css/@ln/common-ui-video/index.css';
-import { setSlicedChildren } from '../utils/common/_helpers-WebApi';
 
 const CajaBomba = props => {
     const {
@@ -50,8 +52,17 @@ const CajaBomba = props => {
 
     const { classCondition, diagramation } = clasCondition;
 
-    const isPreOpening = getIsPreOpening(preOpeningChildren, chainId);
-    const error = validateChainBomba(layout, slicedChildren, isPreOpening);
+    const error = useValidateChain({
+        isAdmin,
+        chainId,
+        renderables,
+        sectionValidation,
+        hideChain: hideCaja,
+        nameSection: 'Pre_Apertura',
+        dataSection: 'pre-apertura',
+        callbackValidation: isPreOpening =>
+            validateChainBomba(layout, slicedChildren, isPreOpening)
+    });
 
     const { position, positionInsideSection } = getCommonProps(props);
 
@@ -77,28 +88,30 @@ const CajaBomba = props => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [layout, chainId, isAdmin]);
 
-    return (
-        <StaticContent {...extraOptsDiv}>
-            {setRender({
-                chainId,
-                viewabilityData,
-                isAdmin,
-                error,
-                hideBox: hideCaja,
-                withSection: false,
-                extraOptions: {
-                    default: (
-                        <Bomba
-                            data-chain-id={chainId}
-                            articles={slicedChildren}
-                            layout={diagramation}
-                            id={chainId}
-                            {...sectionProps}
-                        />
-                    )
-                }
-            })}
-        </StaticContent>
+    const Component = setRender({
+        chainId,
+        viewabilityData,
+        isAdmin,
+        error,
+        hideBox: hideCaja,
+        withSection: false,
+        extraOptions: {
+            default: (
+                <Bomba
+                    data-chain-id={chainId}
+                    articles={slicedChildren}
+                    layout={diagramation}
+                    id={chainId}
+                    {...sectionProps}
+                />
+            )
+        }
+    });
+
+    return isAdmin ? (
+        Component
+    ) : (
+        <StaticContent {...extraOptsDiv}>{Component}</StaticContent>
     );
 };
 

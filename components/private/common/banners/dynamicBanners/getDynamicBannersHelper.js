@@ -1,3 +1,4 @@
+import get from '../../utils/get';
 import bannersHome from '../bannersDivHome';
 
 export const hasBomba = renderables =>
@@ -11,12 +12,15 @@ export const hasBomba = renderables =>
             )
         ) && true;
 
-export const getSectionId = (renderables, featureId) =>
-    renderables
+export const getSectionId = (renderables, featureId) => {
+    const layoutSection = renderables
         .filter(ren => ren.collection === 'sections')
         .find(section =>
             section.children.find(child => child.props.id === featureId)
-        ).props.id;
+        );
+
+    return get(layoutSection, 'props.id');
+};
 
 export const validateInterval = (interval, index) =>
     (index + 1) % interval === 0;
