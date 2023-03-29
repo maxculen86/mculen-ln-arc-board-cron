@@ -42,23 +42,30 @@ const fetch = async (query, { cachedCall } = {}) => {
     };
 
     try {
-        let ticksCache = get(query, 'ticks', null);
-        const version = get(query, 'versionUri', 1);
-        const versionDeploy = get(query, 'versionDeploy', null);
-        const alias = get(query, 'namePage', 'home');
-        const cookie = get(query, 'useCookie', null);
-        let configItemPage = configPages[alias];
+        const regexVersionDeploy = new RegExp('[0-9]+');
+        let versionDeploy = get(query, 'versionDeploy', null);
+        versionDeploy =
+            regexVersionDeploy.exec(versionDeploy) &&
+            regexVersionDeploy.exec(versionDeploy).length > 0
+                ? regexVersionDeploy.exec(versionDeploy)[0]
+                : null;
 
+        const version = get(query, 'versionUri', 1);
+        const cookie = get(query, 'useCookie', null);
+        const alias = get(query, 'namePage', 'home');
+
+        let configItemPage = configPages[alias];
         if (!configItemPage) {
             configItemPage = configPages.default;
             configItemPage.aliasPage = '/'.concat(alias);
         }
-
         const { aliasPage } = configItemPage;
 
+        let ticksCache = get(query, 'ticks', null);
         ticksCache = ticksCache === null ? '' : ticksCache.replace('/', '');
         const prefixTicksCache =
             ticksCache === '' ? '' : '_'.concat(ticksCache);
+
         const keyCachedCall = `ApiPageHome${alias}`.concat(prefixTicksCache);
         const website = get(query, 'website', null);
         if (!SITE_LANACION) {
