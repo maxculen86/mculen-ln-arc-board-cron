@@ -84,7 +84,7 @@ describe('OembedAMP', () => {
     });
 
     it('Matches snapshot', () => {
-        const oembedAMP = render(
+        const { container } = render(
             <OembedAMP
                 data={data(
                     'https://www.facebook.com/zuck/posts/10102593740125791',
@@ -92,7 +92,7 @@ describe('OembedAMP', () => {
                 )}
             />
         );
-        expect(oembedAMP).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
     });
 
     describe('In checkIsFalsy', () => {
