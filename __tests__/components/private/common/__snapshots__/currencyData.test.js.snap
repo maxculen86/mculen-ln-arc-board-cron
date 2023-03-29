@@ -1,41 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Common private currencyData - with dbna CurrencyData snapshot 1`] = `
-<div
-  class=" currency-data"
->
-  <mock-com-link
-    classcondition="link-container-currency-data"
-    link="https://www.lanacion.com.ar/dolar-hoy/"
-    title="Dólar hoy"
-    type="text/css"
+<div>
+  <div
+    class=" currency-data"
   >
-    <mock-text
-      extraclass="dolar-title"
-      size="--fourxs"
-      tag="h2"
-      text="Dólar hoy"
-    />
-  </mock-com-link>
-  <p
-    class="com-text --sixxs"
-  >
-    <span>
-      Compra
-    </span>
-    <strong
-      class="--fourxs"
+    <mock-com-link
+      classcondition="link-container-currency-data"
+      link="https://www.lanacion.com.ar/dolar-hoy/"
+      title="Dólar hoy"
+      type="text/css"
     >
-      $104,25
-    </strong>
-    <span>
-      Venta
-    </span>
-    <strong
-      class="--fourxs"
+      <mock-text
+        extraclass="dolar-title"
+        size="--fourxs"
+        tag="h2"
+        text="Dólar hoy"
+      />
+    </mock-com-link>
+    <p
+      class="com-text --sixxs"
     >
-      $110,25
-    </strong>
-  </p>
+      <span>
+        Compra
+      </span>
+      <strong
+        class="--fourxs"
+      >
+        $
+        104,25
+      </strong>
+      <span>
+        Venta
+      </span>
+      <strong
+        class="--fourxs"
+      >
+        $
+        110,25
+      </strong>
+    </p>
+  </div>
 </div>
 `;
