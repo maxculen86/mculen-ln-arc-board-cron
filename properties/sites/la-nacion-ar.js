@@ -96,6 +96,16 @@ const promoItemsSizes = {
     ]
 };
 
+const creditsSizes = {
+    sizes: [
+        {
+            width: 80,
+            height: 80,
+            media: minWidth320
+        }
+    ]
+};
+
 export default {
     longTitle: 'Últimas noticias de Argentina y el mundo - LA NACION',
     title: 'LA NACION',
@@ -618,15 +628,7 @@ export default {
                         }
                     ]
                 },
-                credits: {
-                    sizes: [
-                        {
-                            width: 80,
-                            height: 80,
-                            media: minWidth320
-                        }
-                    ]
-                }
+                credits: creditsSizes
             },
             columnistas: {
                 credits: {
@@ -1042,15 +1044,7 @@ export default {
                     ]
                 },
                 content_elements: contentElementSizes,
-                credits: {
-                    sizes: [
-                        {
-                            width: 80,
-                            height: 80,
-                            media: minWidth320
-                        }
-                    ]
-                }
+                credits: creditsSizes
             },
             fotoAl100: {
                 promo_items: {
@@ -1236,15 +1230,7 @@ export default {
                         }
                     ]
                 },
-                credits: {
-                    sizes: [
-                        {
-                            width: 80,
-                            height: 80,
-                            media: minWidth320
-                        }
-                    ]
-                }
+                credits: creditsSizes
             },
             xl: {
                 promo_items: promoItemsSizes,
@@ -1277,15 +1263,7 @@ export default {
                         }
                     ]
                 },
-                credits: {
-                    sizes: [
-                        {
-                            width: 80,
-                            height: 80,
-                            media: minWidth320
-                        }
-                    ]
-                }
+                credits: creditsSizes
             },
             l: {
                 promo_items: promoItemsSizes,
@@ -1303,30 +1281,21 @@ export default {
                         },
                         {
                             width: 768,
-                            height: 513
-                            //media: minWidth768
+                            height: 513,
+                            media: minWidth768
                         },
                         {
                             width: 350,
-                            height: 438
-                            //media: minWidth360
+                            height: 438,
+                            media: minWidth360
                         },
                         {
                             width: 310,
-                            height: 203
-                            //media: minWidth320
-                        }
-                    ]
-                },
-                credits: {
-                    sizes: [
-                        {
-                            width: 80,
-                            height: 80,
                             media: minWidth320
                         }
                     ]
-                }
+                },
+                credits: creditsSizes
             },
             m: {
                 promo_items: {
@@ -1340,34 +1309,202 @@ export default {
                         {
                             width: 768,
                             height: 512,
-                            //media: minWidth768,
+                            media: minWidth768,
                             proportion: '3:2'
                         },
                         {
                             width: 351,
                             height: 234,
-                            //media: minWidth360,
+                            media: minWidth360,
                             proportion: '3:2'
                         },
                         {
                             width: 360,
                             height: 240,
-                            //media: minWidth320,
+                            media: minWidth320,
                             proportion: '3:2'
                         }
                     ]
                 },
                 content_elements: contentElementSizes,
-                credits: {
+                credits: creditsSizes
+            },
+            // HOME LN10
+            s: {
+                promo_items: {
                     sizes: [
                         {
-                            width: 80,
-                            height: 80,
-                            media: minWidth320
+                            width: 300,
+                            height: 200,
+                            proportion: '3:2',
+                            media: minWidth768,
+                            media_preload: minWidth768
+                        },
+                        {
+                            width: 571,
+                            height: 380,
+                            proportion: '3:2',
+                            media: min375max768,
+                            media_preload: min375max768
+                        },
+                        {
+                            width: 300,
+                            height: 200,
+                            proportion: '3:2',
+                            media: minWidth320,
+                            media_preload: minWidth320
+                        }
+                    ]
+                },
+                credits: creditsSizes
+            },
+            xs: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 300,
+                            height: 200,
+                            proportion: '3:2',
+                            media: minWidth768,
+                            media_preload: minWidth768
+                        },
+                        {
+                            width: 126,
+                            height: 84,
+                            proportion: '3:2',
+                            media: minWidth320,
+                            media_preload: minWidth320
+                        }
+                    ]
+                },
+                credits: creditsSizes
+            },
+            bombaVertical: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 667,
+                            height: 667,
+                            media: minWidth1280,
+                            proportion: '1:1',
+                            media_preload: minWidthPreload1280
+                        },
+                        {
+                            width: 627,
+                            height: 837,
+                            proportion: '3:4',
+                            media: minWidth768,
+                            media_preload: minWidth768
+                        },
+                        {
+                            width: 767,
+                            height: 1023,
+                            proportion: '3:4',
+                            media: minWidth768,
+                            media_preload: min375max768
+                        },
+                        {
+                            width: 360,
+                            height: 427,
+                            proportion: '3:4',
+                            media: minWidth320,
+                            media_preload: minWidth320
+                        }
+                    ]
+                },
+                credits: creditsSizes
+            },
+            bombaHorizontal: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 1136,
+                            height: 757,
+                            proportion: '3:2',
+                            media: minWidth1280,
+                            media_preload: minWidth1280
+                        },
+                        {
+                            width: 1021,
+                            height: 680,
+                            proportion: '3:2',
+                            media: minWidth1024,
+                            media_preload: minWidth1024
+                        },
+                        {
+                            width: 767,
+                            height: 511,
+                            proportion: '3:2',
+                            media: min768max1024,
+                            media_preload: min768max1024
+                        },
+                        {
+                            width: 375,
+                            height: 250,
+                            proportion: '3:2',
+                            media: minWidth320,
+                            media_preload: minWidth320
+                        }
+                    ]
+                },
+                credits: creditsSizes
+            },
+            T1: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 436,
+                            height: 290,
+                            proportion: '3:2',
+                            media: minWidth1280,
+                            media_preload: minWidth1280
+                        },
+                        {
+                            width: 604,
+                            height: 402,
+                            proportion: '3:2',
+                            media: minWidth768,
+                            media_preload: minWidth768
+                        },
+                        {
+                            width: 348,
+                            height: 232,
+                            proportion: '3:2',
+                            media: min768max1024,
+                            media_preload: min768max1024
+                        },
+                        {
+                            width: 571,
+                            height: 380,
+                            proportion: '3:2',
+                            media: minWidth375,
+                            media_preload: minWidth375
+                        },
+                        {
+                            width: 375,
+                            height: 250,
+                            proportion: '3:2',
+                            media: minWidth320,
+                            media_preload: minWidth320
+                        }
+                    ]
+                },
+                credits: creditsSizes
+            },
+            ranking: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 126,
+                            height: 126,
+                            proportion: '1:1',
+                            media: minWidth320,
+                            media_preload: minWidth320
                         }
                     ]
                 }
             },
+            credits: creditsSizes,
             default: [
                 {
                     width: 1033,
