@@ -1505,7 +1505,6 @@ export default {
                     ]
                 }
             },
-            credits: creditsSizes,
             default: [
                 {
                     width: 1033,
