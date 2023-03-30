@@ -175,11 +175,14 @@ export const getStickyBanner = (bannerClass, viewport, header) => {
                     const banner = document.querySelector('${bannerClass}') || {};
                     const header = document.querySelector("#${header}");                 
                     const viewportLimit = document.querySelector('${viewport}') || {};
+                    let oldScrollY = window.scrollY;
+                    
                     window.addEventListener('scroll', () => {
+                        const isScrollUp = oldScrollY > window.scrollY
                         const { top: topViewportLimit } = viewportLimit.getBoundingClientRect();
                         const viewPoint = topViewportLimit - banner.clientHeight - (${header} ? header.clientHeight : 0);
+
                         if (viewPoint <= 0 && banner.classList.contains('--sticky')) {
-                            const { top: topBanner } = banner.getBoundingClientRect();
                             banner.classList.remove('--sticky');
                             banner.style.top = Math.abs(viewportLimit.offsetTop - banner.clientHeight) + 'px';
                             banner.style.position = 'relative';
@@ -187,6 +190,13 @@ export const getStickyBanner = (bannerClass, viewport, header) => {
                             banner.classList.add('--sticky');
                             banner.style.cssText = '';
                         }
+
+                        if (isScrollUp) {
+                            banner.classList.remove('--sticky');
+                            banner.style.top = '0';
+                        }
+
+                        oldScrollY = window.scrollY;
                     })
                 })
             `
