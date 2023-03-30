@@ -6,7 +6,10 @@ import diagramationRules from '../../../../../../../components/private/common/ut
 import articles from '../../../../../../../__mocks__/data/CommonCollection/articles.json';
 import { Cajahashtag } from '@ln/contenidos-ui-cajahashtag';
 import { CHAIN_STYLE } from '../../../../../../../components/chains/utils/common/_helpers-WebApi';
-import { getTitleAndLeadForHome } from '../../../../../../../components/private/LN10/home/components/CommonCollection/_helper';
+import {
+    getTitleAndLeadForHome,
+    getDataAuthorCollection
+} from '../../../../../../../components/private/LN10/home/components/CommonCollection/_helper';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -133,5 +136,21 @@ describe('Tests function getTitleAndLeadForHome', () => {
             lead: '',
             title: 'Bullrich visita El Calafate y presenta libro'
         });
+    });
+});
+
+describe('Tests function getDataAuthorCollection', () => {
+    const getArticle = withCredits => ({
+        credits: {
+            by: [withCredits && { name: 'Juan Perez' }]
+        }
+    });
+    test('should return only one name author', () => {
+        expect(getDataAuthorCollection(getArticle(true))).toStrictEqual(
+            'Juan Perez'
+        );
+    });
+    test('shoudl return null if no credits', () => {
+        expect(getDataAuthorCollection(getArticle(false))).toStrictEqual(null);
     });
 });

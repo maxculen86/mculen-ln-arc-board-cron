@@ -18,7 +18,10 @@ import '../../../../../../resources/packages/css/@ln/contenidos-ui-contentlab/in
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-cajaranking/index.css';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-cajaafondo/index.css';
 
-import { getDataAttributesForViewability } from '../../../../../features/LN-10/article/_helper';
+import {
+    getDataAttributesForViewability,
+    showSection
+} from '../../../../../features/LN-10/article/_helper';
 import { LAYOUTS } from '../../../../../chains/utils/common/_helpers-WebApi';
 
 export default function CommonCollection({
@@ -42,7 +45,8 @@ export default function CommonCollection({
                         cardSize,
                         mediaData,
                         imagePosition,
-                        className
+                        className,
+                        withSection
                     } = getCardConfig(rules[index], article);
                     const extraOpts = getDataAttributesForViewability(
                         article._id,
@@ -65,6 +69,10 @@ export default function CommonCollection({
                             cardSize={cardSize}
                             imagePosition={imagePosition}
                             className={className}
+                            section={showSection({
+                                withSection,
+                                article
+                            })}
                             badgeText={
                                 gridType === LAYOUTS.CONTENT_LAB &&
                                 get(article, 'label.chapita.text')

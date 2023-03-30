@@ -81,7 +81,23 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 
                 Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
               </h2>
-              
+              <div
+                class="marquee-container --d-flex --ai-center"
+                title="Por Carlos Pagni"
+              >
+                <div
+                  class="marquee-text --d-flex --flex-col --font-2xs"
+                >
+                  <span
+                    class="text ln-text marquee"
+                  >
+                    Por 
+                    <strong>
+                      Carlos Pagni
+                    </strong>
+                  </span>
+                </div>
+              </div>
             </section>
           </a>
         </article>
@@ -129,7 +145,23 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 
                 Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
               </h2>
-              
+              <div
+                class="marquee-container --d-flex --ai-center"
+                title="Por Celina Chatruc"
+              >
+                <div
+                  class="marquee-text --d-flex --flex-col --font-2xs"
+                >
+                  <span
+                    class="text ln-text marquee"
+                  >
+                    Por 
+                    <strong>
+                      Celina Chatruc
+                    </strong>
+                  </span>
+                </div>
+              </div>
             </section>
           </a>
         </article>
@@ -177,7 +209,23 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 
                 Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
               </h2>
-              
+              <div
+                class="marquee-container --d-flex --ai-center"
+                title="Por Francisco Jueguen"
+              >
+                <div
+                  class="marquee-text --d-flex --flex-col --font-2xs"
+                >
+                  <span
+                    class="text ln-text marquee"
+                  >
+                    Por 
+                    <strong>
+                      Francisco Jueguen
+                    </strong>
+                  </span>
+                </div>
+              </div>
             </section>
           </a>
         </article>
@@ -225,7 +273,23 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 
                 El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres
               </h2>
-              
+              <div
+                class="marquee-container --d-flex --ai-center"
+                title="Por Redacción - BBC News Mundo"
+              >
+                <div
+                  class="marquee-text --d-flex --flex-col --font-2xs"
+                >
+                  <span
+                    class="text ln-text marquee"
+                  >
+                    Por 
+                    <strong>
+                      Redacción - BBC News Mundo
+                    </strong>
+                  </span>
+                </div>
+              </div>
             </section>
           </a>
         </article>
@@ -273,7 +337,23 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 
                 El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
               </h2>
-              
+              <div
+                class="marquee-container --d-flex --ai-center"
+                title="Por José Luis Domínguez"
+              >
+                <div
+                  class="marquee-text --d-flex --flex-col --font-2xs"
+                >
+                  <span
+                    class="text ln-text marquee"
+                  >
+                    Por 
+                    <strong>
+                      José Luis Domínguez
+                    </strong>
+                  </span>
+                </div>
+              </div>
             </section>
           </a>
         </article>
@@ -321,7 +401,23 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 
                 Test noticia en ARC
               </h2>
-              
+              <div
+                class="marquee-container --d-flex --ai-center"
+                title="Por Tomás Girón"
+              >
+                <div
+                  class="marquee-text --d-flex --flex-col --font-2xs"
+                >
+                  <span
+                    class="text ln-text marquee"
+                  >
+                    Por 
+                    <strong>
+                      Tomás Girón
+                    </strong>
+                  </span>
+                </div>
+              </div>
             </section>
           </a>
         </article>
@@ -369,7 +465,6 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 
                 Test noticia en ARC
               </h2>
-              
             </section>
           </a>
         </article>
@@ -406,7 +501,23 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               >
                 Incidentes frente al hotel donde convocó a militantes 
               </h3>
-              
+              <div
+                class="marquee-container --d-flex --ai-center"
+                title="Por Mariela Arias"
+              >
+                <div
+                  class="marquee-text --d-flex --flex-col --font-2xs"
+                >
+                  <span
+                    class="text ln-text marquee"
+                  >
+                    Por 
+                    <strong>
+                      Mariela Arias
+                    </strong>
+                  </span>
+                </div>
+              </div>
             </section>
           </a>
         </article>
