@@ -66,7 +66,7 @@ const diagramationRules = diagramation => {
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: 'l-m',
+                cardSize: 'm',
                 withSubhead: false,
                 imageConfig: 'l',
                 withPreload: true,
@@ -83,7 +83,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'l-m',
+                cardSize: 'm',
                 imageConfig: 'l',
                 imagePosition: {
                     mobile: 'img-right',
@@ -98,7 +98,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'l-m',
+                cardSize: 'm',
                 imageConfig: 'l',
                 imagePosition: {
                     mobile: 'img-right',
@@ -113,7 +113,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'l-m',
+                cardSize: 'm',
                 imageConfig: 'l',
                 imagePosition: {
                     mobile: 'img-right',
@@ -157,7 +157,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'l',
+                cardSize: 'm',
                 imageConfig: 'l'
             },
             {
@@ -170,7 +170,7 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 withSubheadAndMedia: false,
                 withMedia: true,
-                cardSize: 'l',
+                cardSize: 'm',
                 imageConfig: 'l',
                 imagePosition: {
                     mobile: 'img-top',
@@ -200,7 +200,7 @@ const diagramationRules = diagramation => {
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                cardSize: 'l',
+                cardSize: 'm',
                 imageConfig: 'l',
                 withSection: false,
                 withMarquee: true,
@@ -212,7 +212,7 @@ const diagramationRules = diagramation => {
                 titleTag: 'h2',
                 cardSize: 'l',
                 withSection: false,
-                imageConfig: 'l',
+                imageConfig: 'm',
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
@@ -712,7 +712,7 @@ const diagramationRules = diagramation => {
         bn_1_4_grid: [
             {
                 variantsDisabled: ['author'],
-                cardSize: '4xl',
+                cardSize: '3xl',
                 imageConfig: 'xl',
                 withMarquee: true,
                 withMarqueeImg: true,
@@ -781,7 +781,7 @@ const diagramationRules = diagramation => {
         bn_1_grid: [
             {
                 variantsDisabled: ['author'],
-                cardSize: '4xl',
+                cardSize: '3xl',
                 imageConfig: 'xl',
                 withMarquee: true,
                 withMarqueeImg: true,
@@ -931,7 +931,7 @@ const diagramationRules = diagramation => {
         bn_1_2_grid: [
             {
                 variantsDisabled: ['author'],
-                cardSize: '4xl',
+                cardSize: '3xl',
                 imageConfig: 'xxl',
                 withMarquee: true,
                 withMarqueeImg: true,
