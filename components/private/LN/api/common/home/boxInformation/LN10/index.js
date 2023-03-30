@@ -4,6 +4,7 @@ import { boxInfoAFondo } from './boxes/boxInfoAFondo';
 import { boxInfoApertura } from './boxes/boxInfoApertura';
 import { boxInfoAnticipo } from './boxes/boxInfoAnticipo';
 import { boxInfoExclusiveSuscriptor } from './boxes/boxInfoExclusiveSuscriptor';
+import { boxInfoBomba } from './boxes/boxInfoBomba';
 
 export const boxInfoBySectionAliasLN10 = {
     'ln-common/ln10_anticipo': boxInfoAnticipo,
@@ -11,6 +12,8 @@ export const boxInfoBySectionAliasLN10 = {
     hashtag: boxInfoHashTag,
     'sub-exclusive': boxInfoExclusiveSuscriptor,
     afondo: boxInfoAFondo,
+    bomba: boxInfoBomba,
+    bombita: boxInfoBomba,
     default: boxInfoComplete
 };
 
