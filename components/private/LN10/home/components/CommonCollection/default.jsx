@@ -8,6 +8,7 @@ import { Bngrid } from '@ln/contenidos-ui-bngrid';
 
 import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
 import getCardConfig, { getTitleAndLeadForHome } from './_helper';
+import { LAYOUTS } from '../../../../../chains/utils/common/_helpers-WebApi';
 import get from '../../../../common/utils/get';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
@@ -22,7 +23,6 @@ import {
     getDataAttributesForViewability,
     showSection
 } from '../../../../../features/LN-10/article/_helper';
-import { LAYOUTS } from '../../../../../chains/utils/common/_helpers-WebApi';
 
 export default function CommonCollection({
     roofData = {},
@@ -30,7 +30,8 @@ export default function CommonCollection({
     gridType,
     position,
     articles = [],
-    ContainerCards = Bngrid
+    ContainerCards = Bngrid,
+    setExtraClassName
 }) {
     return (
         <>
@@ -54,6 +55,10 @@ export default function CommonCollection({
                         index
                     );
 
+                    const extraClassName = setExtraClassName
+                        ? setExtraClassName(index)
+                        : '';
+
                     const { title, lead } = getTitleAndLeadForHome(article);
 
                     return (
@@ -68,7 +73,7 @@ export default function CommonCollection({
                             mediaData={mediaData}
                             cardSize={cardSize}
                             imagePosition={imagePosition}
-                            className={className}
+                            className={`${className || ''} ${extraClassName}`}
                             section={showSection({
                                 withSection,
                                 article
