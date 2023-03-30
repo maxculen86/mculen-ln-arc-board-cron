@@ -8,6 +8,8 @@ import configInfoSectionsByLayout from '../../../common/home/config/configInfoSe
 import { boxInfoByLayoutBySectionAlias } from '../../../common/home/boxInformation/index';
 import { boxTypeByLayout } from '../../../common/home/boxTypes/index';
 
+const excludeUrlsInBoxInfo = ['https://www.lanacion.com.ar/suscriptores/'];
+
 const FunctionsBoxContentsByLayout = {
     'LN-Home_Main': {
         article: Article,
@@ -21,6 +23,18 @@ const FunctionsBoxContentsByLayout = {
         article: Article,
         anexo: CardAnexoLN
     }
+};
+
+const validateInfoBox = information => {
+    const informationValid = information;
+    const urlLink = informationValid
+        ? informationValid.url || informationValid.link
+        : null;
+    if (excludeUrlsInBoxInfo.includes(urlLink)) {
+        if (informationValid.url) informationValid.url = null;
+        if (informationValid.link) informationValid.link = null;
+    }
+    return informationValid;
 };
 
 const index = (
@@ -46,17 +60,20 @@ const index = (
 
     const ArticlesbyBox = children.reduce((result, f, i) => {
         const { information, sectionAliasMobile } = f;
+        const sectionBox = f;
+        const informationValid = validateInfoBox(information);
+        sectionBox.information = informationValid;
 
         const boxInfoFunction = boxInfoByLayoutBySectionAlias(
             layoutPage,
             sectionAliasMobile
         );
         const boxInfo = boxInfoFunction(
-            information,
+            informationValid,
             sectionAliasMobile,
             typeSection
         );
-        const type = Number(f.type);
+        const type = Number(sectionBox.type);
         switch (type) {
             case 0:
                 {
@@ -73,7 +90,7 @@ const index = (
                         );
                     result.push(
                         boxTypeByLayout(layoutPage, type)(
-                            f,
+                            sectionBox,
                             boxInfo,
                             articleFn,
                             paramsFromPage
@@ -83,7 +100,9 @@ const index = (
                 break;
             case 1:
                 // eslint-disable-next-line no-unreachable
-                result.push(boxTypeByLayout(layoutPage, type)(f, typeSection));
+                result.push(
+                    boxTypeByLayout(layoutPage, type)(sectionBox, typeSection)
+                );
                 break;
             case 2:
                 {
@@ -99,14 +118,20 @@ const index = (
                             null
                         );
                     result.push(
-                        boxTypeByLayout(layoutPage, type)(f, boxInfo, anexoFn)
+                        boxTypeByLayout(layoutPage, type)(
+                            sectionBox,
+                            boxInfo,
+                            anexoFn
+                        )
                     );
                 }
 
                 break;
 
             case 3:
-                result.push(boxTypeByLayout(layoutPage, type)(f, boxInfo));
+                result.push(
+                    boxTypeByLayout(layoutPage, type)(sectionBox, boxInfo)
+                );
                 break;
             default:
                 // eslint-disable-next-line no-console
