@@ -172,12 +172,14 @@ describe('collectionsHelper - filterArticlesTypeStory', () => {
 });
 
 describe('collectionsHelper -  getImageConfig', () => {
-    test('should return "xxl" with the diagramation of ln10 "horizontal"', () => {
-        expect(getImageConfig('horizontal', false, 0)).toStrictEqual('xxl');
+    test('should return "bombaHorizontal" with the diagramation of ln10 "horizontal"', () => {
+        expect(getImageConfig('horizontal', false, 0)).toStrictEqual(
+            'bombaHorizontal'
+        );
     });
 
-    test('should return "l" with the diagramation of ln10 "left-focal"', () => {
-        expect(getImageConfig('bn-opening-4', false, 0)).toStrictEqual('l');
+    test('should return "xs" with the diagramation of ln10 "left-focal"', () => {
+        expect(getImageConfig('bn-opening-4', false, 0)).toStrictEqual('xs');
     });
 
     test('should return "featuredFocalIzquierdo" with the diagramation of ln9 "focalLeft3"', () => {
