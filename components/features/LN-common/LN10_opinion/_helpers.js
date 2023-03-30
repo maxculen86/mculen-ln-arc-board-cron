@@ -100,7 +100,7 @@ const createCards = ({ articles = [], skipCard = 0, rules }) => {
                 index
             );
 
-            const { title } = getTitleAndLeadForHome(article);
+            const { title } = getTitleAndLeadForHome(article, true);
             const author = getAuthorsAsString(article, true);
             return (
                 <Card
@@ -156,7 +156,7 @@ export const getCardsEditorial = (articlesEditorial = []) => {
                 index
             );
 
-            const { title } = getTitleAndLeadForHome(article);
+            const { title } = getTitleAndLeadForHome(article, true);
             return (
                 <Card
                     title={title}

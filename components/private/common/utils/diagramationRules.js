@@ -200,7 +200,7 @@ const diagramationRules = diagramation => {
             {
                 titleTag: 'h2',
                 subheadTag: 'h3',
-                cardSize: 'xl-l',
+                cardSize: 'l',
                 imageConfig: 'l',
                 withSection: false,
                 withMarquee: true,
@@ -210,7 +210,7 @@ const diagramationRules = diagramation => {
             {
                 variantsDisabled: ['author'],
                 titleTag: 'h2',
-                cardSize: 'l-m',
+                cardSize: 'l',
                 withSection: false,
                 imageConfig: 'l',
                 withMarquee: true,
@@ -1014,7 +1014,7 @@ const diagramationRules = diagramation => {
         bn_1_1_grid: [
             {
                 variantsDisabled: ['author'],
-                cardSize: '3xl',
+                cardSize: '2xl',
                 imageConfig: 'xl',
                 withMarquee: true,
                 withMarqueeImg: true,

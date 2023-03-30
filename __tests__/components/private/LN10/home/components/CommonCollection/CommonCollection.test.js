@@ -137,6 +137,44 @@ describe('Tests function getTitleAndLeadForHome', () => {
             title: 'Bullrich visita El Calafate y presenta libro'
         });
     });
+
+    test('Should always return the long title when required (when the requireTitleLong parameter is true).', () => {
+        const article1 = {
+            headlines: {
+                basic: 'Bullrich visita El Calafate y presenta libro',
+                mobile: 'Bullrich en el calafate.'
+            },
+            label: {
+                volanta: {
+                    text: 'Santa Cruz.'
+                }
+            }
+        };
+
+        expect(getTitleAndLeadForHome(article1, true)).toStrictEqual({
+            lead: '',
+            title: 'Bullrich visita El Calafate y presenta libro'
+        });
+    });
+
+    test('In case the long title is required, but does not exist, it must return the short title.', () => {
+        const article1 = {
+            headlines: {
+                basic: '',
+                mobile: 'Bullrich en el calafate.'
+            },
+            label: {
+                volanta: {
+                    text: 'Santa Cruz.'
+                }
+            }
+        };
+
+        expect(getTitleAndLeadForHome(article1, true)).toStrictEqual({
+            lead: '',
+            title: 'Bullrich en el calafate.'
+        });
+    });
 });
 
 describe('Tests function getDataAuthorCollection', () => {
