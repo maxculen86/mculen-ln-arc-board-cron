@@ -26,10 +26,17 @@ const getCardConfig = (config, articleData) => {
     };
 };
 
-export const getTitleAndLeadForHome = (article = {}) => {
+export const getTitleAndLeadForHome = (
+    article = {},
+    requireTitleLong = false
+) => {
     const titleTextShort = get(article, 'headlines.mobile', '');
     const titleTextLong = get(article, 'headlines.basic', '');
     const lead = get(article, 'label.volanta.text', '');
+
+    if (requireTitleLong) {
+        return { lead: '', title: titleTextLong || titleTextShort };
+    }
 
     return {
         lead: titleTextShort !== '' ? lead : '',

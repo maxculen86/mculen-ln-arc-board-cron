@@ -593,7 +593,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                   class="link ln-link --d-flex --flex-col --unstyled"
                   href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
                   target="_self"
-                  title="Cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
+                  title="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
                 >
                   <section
                     class="description-container --relative --d-flex --flex-col"
@@ -602,7 +602,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                     <h2
                       class="text ln-text title --prumo --font-semi --font-l"
                     >
-                      Cómo evitar que los perros sufran cuando vuelvan a quedarse solos
+                      Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos
                     </h2>
                     <div
                       class="marquee-container --d-flex --ai-center"
