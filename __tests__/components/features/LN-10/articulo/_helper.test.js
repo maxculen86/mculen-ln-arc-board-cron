@@ -1,6 +1,7 @@
 import responseVideoSource from '../../../../../__mocks__/data/videos/responseVideoSource.json';
 import responseArticleSourceNota from '../../../../../__mocks__/data/articles/2CIOHVMKJBHKDMMHH2WBIZGJWE.json';
 import responseRelatedImageSource from '../../../../../__mocks__/data/images/responseRelatedImageSource.json';
+import article from '../../../../../__mocks__/data/articles/RGC7MFGFYBGJJGPGZJ5OITBFI4.json';
 import {
     getMediaData,
     validateVariant,
@@ -11,7 +12,8 @@ import {
     validateSubhead,
     showExtraClass,
     getTypeOfMedia,
-    getOnlyHoursMinutes
+    getOnlyHoursMinutes,
+    validateMedia
 } from '../../../../../components/features/LN-10/article/_helper';
 import { isInApertura } from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
@@ -663,6 +665,103 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
         test.each(casesFalsy)('%s', (message, props) => {
             expect(isInApertura(props)).toBeFalsy();
+        });
+    });
+
+    describe('Test function validateMedia', () => {
+        describe('Custom fields and config', () => {
+            it('should return invalid hideImage', () => {
+                const customFields = {
+                    hideImage: true
+                };
+
+                const mockArticle = { ...article };
+
+                expect(mockArticle.credits.by).toHaveLength(1);
+                expect(
+                    validateMedia(customFields, {}, mockArticle)
+                ).toBeFalsy();
+            });
+            it('should return invalid withMedia false', () => {
+                const customFields = { hideImage: false };
+                const config = { withMedia: false };
+                const mockArticle = { ...article };
+
+                expect(mockArticle.credits.by).toHaveLength(1);
+                expect(
+                    validateMedia(customFields, config, mockArticle)
+                ).toBeFalsy();
+            });
+        });
+        describe('Cards Author', () => {
+            it('should return true because card author not have author ', () => {
+                const customFields = {
+                    hideImage: false,
+                    variant: 'author'
+                };
+
+                const mockArticle = { ...article, credits: { by: [] } };
+
+                expect(mockArticle.credits.by).toHaveLength(0);
+                expect(
+                    validateMedia(customFields, {}, mockArticle)
+                ).toBeTruthy();
+            });
+            it('should return true because card author have 2 authors ', () => {
+                const customFields = {
+                    hideImage: false,
+                    variant: 'author'
+                };
+
+                const mockArticle = { ...article, credits: { by: [1, 2] } };
+
+                expect(mockArticle.credits.by).toHaveLength(2);
+                expect(
+                    validateMedia(customFields, {}, mockArticle)
+                ).toBeTruthy();
+            });
+            it('should return false because card author have 1 author ', () => {
+                const customFields = {
+                    hideImage: false,
+                    variant: 'author'
+                };
+
+                const mockArticle = { ...article };
+
+                expect(mockArticle.credits.by).toHaveLength(1);
+                expect(
+                    validateMedia(customFields, {}, mockArticle)
+                ).toBeFalsy();
+            });
+        });
+
+        describe('Cards Regular', () => {
+            it('should return true card regular 1 author', () => {
+                const customFields = {
+                    hideImage: false,
+                    variant: 'regular'
+                };
+
+                const mockArticle = { ...article };
+
+                expect(mockArticle.credits.by).toHaveLength(1);
+                expect(
+                    validateMedia(customFields, {}, mockArticle)
+                ).toBeTruthy();
+            });
+            it('should return true card regular 0 author', () => {
+                const customFields = {
+                    hideImage: false,
+                    variant: 'regular'
+                };
+
+                const mockArticle = { ...article, credits: { by: [] } };
+
+                expect(mockArticle.credits.by).toHaveLength(0);
+                expect(
+                    validateMedia(customFields, {}, mockArticle)
+                ).toBeTruthy();
+            });
         });
     });
 });
