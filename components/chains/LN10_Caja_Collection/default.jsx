@@ -9,6 +9,7 @@ import {
     getArticlesOfChain,
     getCommonProps
 } from '../../private/LN/common/utils/cajaTemasHelperLN10';
+import { CHAIN_STYLE } from '../utils/common/_helpers-WebApi';
 import { getMarkupForDatalayer } from '../../private/LN/common/utils/cajaTemasHelper';
 import getDataChainCollection from '../utils/getDataChainCollection';
 import checkChildInSection from '../utils/checkChildBySection';
@@ -159,6 +160,11 @@ const CajaCollection = props => {
         </>
     );
 
+    const setExtraClassName = index =>
+        index === 0 &&
+        chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE &&
+        '--tab-text-center';
+
     return (
         <StaticContent {...extraOptsDiv}>
             {setRender({
@@ -178,8 +184,9 @@ const CajaCollection = props => {
                                 layout={layout}
                                 ContainerCards={ContainerCards}
                                 position={position}
+                                setExtraClassName={setExtraClassName}
                             />
-                            {chainStyle === 'sub-exclusive' && (
+                            {chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE && (
                                 <Bannersubscriber>
                                     {bannersCajaSuscriptor}
                                 </Bannersubscriber>

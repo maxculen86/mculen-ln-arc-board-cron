@@ -53,7 +53,9 @@ export const validateSubhead = (config, withMedia, customFields, variant) => {
 export const validateMedia = (customFields, config, article) =>
     !get(customFields, 'hideImage') &&
     get(config, 'withMedia', true) &&
-    get(customFields, 'variant', 'regular') !== 'author' &&
+    (get(customFields, 'variant', 'regular') !== 'author' ||
+        (get(article, 'credits.by', []).length !== 1 &&
+            get(customFields, 'variant', 'regular') === 'author')) &&
     (get(customFields, 'video') ||
         get(customFields, 'html') ||
         get(customFields, 'imageId') ||
