@@ -28,15 +28,13 @@ jest.mock(
 describe('Features - LN-acumulado - Caja Dolar Feature =>', () => {
     it('without data response should return null when data is undefined', () => {
         useContent.mockImplementation(() => {});
-        Context.useAppContext = jest.fn(() => ({}));
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'default',
+            layout: 'LN-acumulado',
+            globalContent: { node_type: 'section' }
+        }));
         const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
 
-        expect(
-            screen.getByText(
-                (content, element) =>
-                    element.tagName.toLowerCase() === 'mock-static'
-            )
-        ).toBeVisible();
         expect(container.firstChild).toBeEmptyDOMElement();
     });
 
@@ -44,15 +42,13 @@ describe('Features - LN-acumulado - Caja Dolar Feature =>', () => {
         useContent.mockImplementation(() => ({
             data: null
         }));
-        Context.useAppContext = jest.fn(() => ({}));
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'default',
+            layout: 'LN-acumulado',
+            globalContent: { node_type: 'section' }
+        }));
         const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
 
-        expect(
-            screen.getByText(
-                (content, element) =>
-                    element.tagName.toLowerCase() === 'mock-static'
-            )
-        ).toBeVisible();
         expect(container.firstChild).toBeEmptyDOMElement();
     });
 });
@@ -61,31 +57,45 @@ describe('with a valid response on any section', () => {
     it('should render all 8 types of dollars from the mock with their corresponding title', () => {
         Context.useAppContext = jest.fn(() => ({
             outputType: 'default',
-            layout: 'LN-acumulado'
+            layout: 'LN-acumulado',
+            globalContent: { node_type: 'section' }
         }));
         useContent.mockImplementation(() => API_RESPONSE);
         render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
 
-        expect(screen.getByText('Dólar oficial')).toBeDefined();
-        expect(screen.getByText('Dólar blue')).toBeDefined();
-        expect(screen.getByText('Dólar tarjeta')).toBeDefined();
-        expect(screen.getByText('Dólar turista')).toBeDefined();
-        expect(screen.getByText('Dólar MEP')).toBeDefined();
-        expect(screen.getByText('Dólar CCL')).toBeDefined();
-        expect(screen.getByText('Dólar mayorista')).toBeDefined();
-        expect(screen.getByText('Euro')).toBeDefined();
-        expect(screen.getAllByRole('heading')).toHaveLength(8);
+        expect(screen.queryByText('Cotización del dólar de hoy')).toBeNull();
+        expect(screen.queryByText('Dólar oficial')).toBeDefined();
+        expect(screen.queryByText('Dólar blue')).toBeDefined();
+        expect(screen.queryByText('Dólar tarjeta')).toBeDefined();
+        expect(screen.queryByText('Dólar turista')).toBeDefined();
+        expect(screen.queryByText('Dólar MEP')).toBeDefined();
+        expect(screen.queryByText('Dólar CCL')).toBeDefined();
+        expect(screen.queryByText('Dólar mayorista')).toBeDefined();
+        expect(screen.queryByText('Euro')).toBeDefined();
+        expect(screen.queryAllByRole('heading')).toHaveLength(8);
         expect(
-            screen.getByText(
+            screen.queryByText(
                 (content, element) =>
-                    element.tagName.toLowerCase() === 'mock-static'
+                    element.tagName.toLowerCase() === 'mock-static-content'
             )
         ).toBeVisible();
+    });
+
+    it('should not render when theres no data', () => {
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'default',
+            layout: 'LN-acumulado',
+            globalContent: { node_type: 'section' }
+        }));
+        useContent.mockImplementation(() => {});
+        const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
+
+        expect(container.firstChild).toBeEmptyDOMElement();
     });
 });
 
 describe('with a valid response on a note', () => {
-    it('should render all 8 types of dollars from the mock with their corresponding title when the kicker and label is enabled', () => {
+    it('should render all 8 types of dollars from the mock with their corresponding title and the general title when the kicker and label is enabled', () => {
         Context.useAppContext = jest.fn(() => ({
             outputType: 'default',
             layout: 'LN-nota-noticia',
@@ -101,6 +111,7 @@ describe('with a valid response on a note', () => {
         useContent.mockImplementation(() => API_RESPONSE);
         render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
 
+        expect(screen.getByText('Cotización del dólar de hoy')).toBeDefined();
         expect(screen.getByText('Dólar oficial')).toBeDefined();
         expect(screen.getByText('Dólar blue')).toBeDefined();
         expect(screen.getByText('Dólar tarjeta')).toBeDefined();
@@ -109,7 +120,7 @@ describe('with a valid response on a note', () => {
         expect(screen.getByText('Dólar CCL')).toBeDefined();
         expect(screen.getByText('Dólar mayorista')).toBeDefined();
         expect(screen.getByText('Euro')).toBeDefined();
-        expect(screen.getAllByRole('heading')).toHaveLength(8);
+        expect(screen.getAllByRole('heading')).toHaveLength(9);
         expect(
             screen.getByText(
                 (content, element) =>
