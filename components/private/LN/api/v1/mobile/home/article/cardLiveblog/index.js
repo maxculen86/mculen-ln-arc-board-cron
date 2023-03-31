@@ -8,8 +8,8 @@ import {
 export const CardLiveblog = article => {
     return {
         ...Article(article),
-        badgeStyle: getArticleChapitaStyle(article),
-        badge: getArticleChapita(article),
+        badgeStyle: getArticleChapitaStyle(article) || 'live',
+        badge: getArticleChapita(article) || 'VIVO',
         chapita: getArticleChapita(article),
         subtitles: getLiveblogTitlesApi(article),
         opinion: false
