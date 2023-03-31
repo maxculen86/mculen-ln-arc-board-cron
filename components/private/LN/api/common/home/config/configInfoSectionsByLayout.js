@@ -48,7 +48,8 @@ export const infoLNMainLN10 = {
     bienestar: { tipoSeccion: 'bienestar', idSeccion: 305 },
     movilidad: { tipoSeccion: 'movilidad', idSeccion: 305 },
     default: { tipoSeccion: 'tema', idSeccion: 305 },
-    welfare: { tipoSeccion: 'bienestar', idSeccion: 305 }
+    welfare: { tipoSeccion: 'bienestar', idSeccion: 305 },
+    title: { tipoSeccion: 'title', idSeccion: 704 }
 };
 
 const configInfoSectionsByLayout = layout => {

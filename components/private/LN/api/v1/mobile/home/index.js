@@ -108,6 +108,10 @@ const index = (
             case 3:
                 result.push(boxTypeByLayout(layoutPage, type)(f, boxInfo));
                 break;
+            case 4:
+                // eslint-disable-next-line no-unreachable
+                result.push(boxTypeByLayout(layoutPage, type)(f, typeSection));
+                break;
             default:
                 // eslint-disable-next-line no-console
                 console.log('to discard');

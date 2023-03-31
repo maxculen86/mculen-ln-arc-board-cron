@@ -1,5 +1,6 @@
 import configToDividebyDiagramation from '../../../../../../../components/private/LN/api/global/page/config/configToDividebyDiagramation';
 import { setBannerByLayout } from '../../../common/elements/banners/index';
+import { setTitleByLayout } from '../../../common/elements/titles/index';
 import {
     moveSections,
     divideSectionsByDiagramation
@@ -30,13 +31,20 @@ const transform = async (dataPage, query) => {
         );
         // Returns boxes that type not >= 9, for discard
         elementsPageHome =
-            Array.isArray(elementsPageHome) &&
-            elementsPageHome.filter(elem => elem && elem.type < 9);
+            (Array.isArray(elementsPageHome) &&
+                elementsPageHome.filter(elem => elem && elem.type < 9)) ||
+            elementsPageHome;
 
+        // Add Component Title set file /pageSource/common/elements/titles/config/configTitlePositionbySection.js
+        elementsPageHome =
+            (setTitleByLayout[layoutPage] &&
+                setTitleByLayout[layoutPage](elementsPageHome, layoutPage)) ||
+            elementsPageHome;
         // Add Banners by Configuration set in file /pageSource/config/configTaskPositionBanners.json
         elementsPageHome =
-            setBannerByLayout[layoutPage] &&
-            setBannerByLayout[layoutPage](elementsPageHome, layoutPage);
+            (setBannerByLayout[layoutPage] &&
+                setBannerByLayout[layoutPage](elementsPageHome, layoutPage)) ||
+            elementsPageHome;
 
         return elementsPageHome;
     } catch (error) {
