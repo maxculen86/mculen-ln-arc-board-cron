@@ -14,17 +14,27 @@ export const setTitleBySectionAlias = (elementsPage, layoutPage) => {
                 ...configTitlesBySections[sectionAliasMobile]
             };
             if (configSectionAliasMobile) {
-                if (configSectionAliasMobile.parameterSectionToClone) {
+                if (configSectionAliasMobile.parameterToClone) {
+                    const {
+                        keyFind,
+                        value,
+                        fieldToClone
+                    } = configSectionAliasMobile.parameterToClone;
                     const elementToClone = elementsPageHome.find(
                         x =>
                             x &&
-                            x.sectionAliasMobile &&
-                            x.sectionAliasMobile.toLowerCase() ===
-                                configSectionAliasMobile.parameterSectionToClone.toLowerCase()
+                            keyFind &&
+                            value &&
+                            x[keyFind] &&
+                            x[keyFind].toLowerCase() === value.toLowerCase()
                     );
-                    if (elementToClone && elementToClone.information) {
-                        configElementToAdd.information =
-                            elementToClone.information;
+                    if (
+                        fieldToClone &&
+                        elementToClone &&
+                        elementToClone[fieldToClone]
+                    ) {
+                        configElementToAdd[fieldToClone] =
+                            elementToClone[fieldToClone];
                     }
                 }
 

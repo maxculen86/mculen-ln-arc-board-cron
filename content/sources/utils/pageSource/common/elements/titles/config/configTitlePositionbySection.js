@@ -2,7 +2,11 @@ const boxPositionLN10Main = {
     'ln-common/ln10_editorial': {
         type: 4,
         sectionAliasMobile: 'Title',
-        parameterSectionToClone: 'ln-common/ln10_opinion',
+        parameterToClone: {
+            keyFind: 'sectionAliasMobile',
+            value: 'ln-common/ln10_opinion',
+            fieldToClone: 'information'
+        },
         position: 'start'
     }
 };
