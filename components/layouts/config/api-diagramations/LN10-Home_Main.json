@@ -688,7 +688,7 @@
             }
         }
     ],
-    "opinion4": [
+    "editoriales2": [
         {
             "variants": ["opinion"],
             "T1": {
@@ -696,11 +696,25 @@
             },
             "T2": {
                 "size": "M"
+            }
+        }
+    ],
+    "opinion4": [
+        {
+            "variants": ["opinion"],
+            "T1": {
+                "size": "M"
+            },
+            "T2": {
+                "size": "XL"
             },
             "T3": {
                 "size": "M"
             },
             "T4": {
+                "size": "M"
+            },
+            "T5": {
                 "size": "M"
             }
         }
@@ -712,7 +726,7 @@
                 "size": "M"
             },
             "T2": {
-                "size": "M"
+                "size": "XL"
             },
             "T3": {
                 "size": "M"
@@ -730,6 +744,9 @@
                 "size": "M"
             },
             "T8": {
+                "size": "M"
+            },
+            "T9": {
                 "size": "M"
             }
         }
