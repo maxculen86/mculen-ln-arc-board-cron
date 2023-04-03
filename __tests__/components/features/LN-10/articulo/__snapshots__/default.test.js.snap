@@ -40,7 +40,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
       >
         <h1
-          class="text ln-text title --prumo --font-semi --font-m"
+          class="text ln-text title --prumo --font-medium --font-m"
         >
           <span
             class="text ln-text lead --prumo --font-black"
@@ -111,7 +111,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
       >
         <h1
-          class="text ln-text title --prumo --font-semi --font-m"
+          class="text ln-text title --prumo --font-medium --font-m"
         >
           <span
             class="text ln-text lead --prumo --font-black"
