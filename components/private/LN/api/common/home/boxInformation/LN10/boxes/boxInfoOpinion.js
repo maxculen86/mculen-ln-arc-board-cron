@@ -11,6 +11,7 @@ export const boxInfoOpinion = (information, section, typeSection) => {
             box.parameters.title = box.parameters.title || 'Opinión';
         }
         if (box.parameters && box.parameters.url) {
+            box.url = 'https://www.lanacion.com.ar/opinion/';
             box.parameters.url = 'https://www.lanacion.com.ar/opinion/';
         }
     }

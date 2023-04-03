@@ -13,10 +13,10 @@ export const titleBox = (element, typeSection) => {
     return {
         ...type,
         tituloCaja: information.title || 'Opinión',
-        url: information.url,
+        url: !information.hideTitle ? information.url : null,
         parameters: {
             title: information.title || 'Opinión',
-            url: information.url
+            url: !information.hideTitle ? information.url : null
         }
     };
 };

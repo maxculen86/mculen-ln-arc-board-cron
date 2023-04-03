@@ -12,6 +12,7 @@ export const boxInfoEditorial = (information, section, typeSection) => {
             box.parameters.title = 'Editoriales';
         }
         if (box.parameters && box.parameters.url) {
+            box.url = 'https://www.lanacion.com.ar/editoriales/';
             box.parameters.url = 'https://www.lanacion.com.ar/editoriales/';
         }
     }
