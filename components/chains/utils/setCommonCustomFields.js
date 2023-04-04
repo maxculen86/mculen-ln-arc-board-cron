@@ -14,7 +14,11 @@ const typeStylesChain = {
     movilidad: 'Movilidad',
     'sub-exclusive': 'Exclusivo Suscriptor',
     Hashtag: 'Hashtag',
-    defaultAFondo: 'A Fondo (Celeste/Negro)'
+    generic: 'A Fondo (Celeste Claro)',
+    white: 'A Fondo (Blanco)',
+    red: 'A Fondo (Rojo)',
+    green: 'A Fondo (Verde)',
+    lightblue: 'A Fondo (Celeste)'
 };
 
 const customFieldsRules = {

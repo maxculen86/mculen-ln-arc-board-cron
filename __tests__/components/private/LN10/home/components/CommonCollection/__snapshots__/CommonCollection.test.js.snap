@@ -489,7 +489,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 class="text ln-text title --prumo --font-medium --font-m"
               >
                 <span
-                  class="text ln-text lead --prumo --font-black"
+                  class="text ln-text lead --prumo --font-extra"
                 >
                   Santa Cruz.
                    
