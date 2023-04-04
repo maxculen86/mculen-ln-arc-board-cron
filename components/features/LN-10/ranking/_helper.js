@@ -11,6 +11,7 @@ export const RANKING = 'Ranking';
 
 export const getRankingProps = (layout, featureId, globalContent) => {
     const { layoutsName = {} } = siteConfig;
+
     const isHome =
         layout === layoutsName.Home || layout === layoutsName.HomeLN10;
     const isInverse = featureId === 'inverse-home';
@@ -114,7 +115,9 @@ export const getDataContent = (
 
     const data = getRankingData(sectionId);
 
-    if (!sectionId || !sectionParentId) return data || {};
+    if (!sectionId || !sectionParentId) {
+        return data || {};
+    }
 
     return (hasArticles(data) && data) || getRankingData(sectionParentId);
 };

@@ -2,10 +2,10 @@ import React from 'react';
 import Ranking from '../../../../../components/features/LN-10/ranking/default';
 import { getDataContent } from '../../../../../components/features/LN-10/ranking/_helper';
 import '@testing-library/jest-dom';
-import { useContent } from 'fusion:content';
 import Context from 'fusion:context';
-import { render, screen, fireEvent } from '@testing-library/react';
-import menuData from '../../../../../__mocks__/data/menu/menu.json';
+import checkHydrateOnly from '../../../../../components/private/LN/common/utils/checkHydrateOnly';
+import { render } from '@testing-library/react';
+import mockArticles from '../../../../../__mocks__/data/ranking/homeLN10Response.json';
 
 jest.mock('fusion:context', () => () => ({
     default: props => {
@@ -14,6 +14,8 @@ jest.mock('fusion:context', () => () => ({
     },
     useAppContext: jest.fn(() => ({}))
 }));
+
+jest.mock('../../../../../components/private/LN/common/utils/checkHydrateOnly');
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -30,10 +32,28 @@ jest.mock('../../../../../components/features/LN-10/ranking/_helper', () => ({
 
 describe('features - LN10 - Ranking', () => {
     Context.useAppContext = jest.fn(() => ({}));
-    getDataContent.mockImplementation(() => ({ articles: [] }));
 
     test('should returns fragment if articles length is empty', () => {
+        getDataContent.mockImplementation(() => ({ articles: [] }));
+
         const { container } = render(<Ranking />);
         expect(container).toBeEmptyDOMElement();
+    });
+
+    test('should returns the right articles length', () => {
+        getDataContent.mockImplementation(() => ({ articles: mockArticles }));
+
+        const { container } = render(<Ranking />);
+        const articles = container.querySelectorAll('article');
+
+        expect(articles).toHaveLength(mockArticles.length);
+    });
+
+    test('should returns static component when hydrateOnly is true', () => {
+        getDataContent.mockImplementation(() => ({ articles: mockArticles }));
+        checkHydrateOnly.mockImplementation(() => true);
+
+        const { container, debug } = render(<Ranking />);
+        expect(container.querySelector('.hidden')).toBeInTheDocument();
     });
 });

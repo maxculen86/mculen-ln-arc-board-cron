@@ -7,7 +7,10 @@ import { Card } from '@ln/contenidos-ui-card';
 import { Bngrid } from '@ln/contenidos-ui-bngrid';
 
 import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
-import getCardConfig, { getTitleAndLeadForHome } from './_helper';
+import getCardConfig, {
+    getTitleAndLeadForHome,
+    setFinalClassName
+} from './_helper';
 import { LAYOUTS } from '../../../../../chains/utils/common/_helpers-WebApi';
 import get from '../../../../common/utils/get';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
@@ -30,8 +33,7 @@ export default function CommonCollection({
     gridType,
     position,
     articles = [],
-    ContainerCards = Bngrid,
-    setExtraClassName
+    ContainerCards = Bngrid
 }) {
     return (
         <>
@@ -46,20 +48,22 @@ export default function CommonCollection({
                         cardSize,
                         mediaData,
                         imagePosition,
-                        className,
+                        className = '',
                         withSection
                     } = getCardConfig(rules[index], article);
+
                     const extraOpts = getDataAttributesForViewability(
                         article._id,
                         position,
                         index
                     );
 
-                    const extraClassName = setExtraClassName
-                        ? setExtraClassName(index)
-                        : '';
-
                     const { title, lead } = getTitleAndLeadForHome(article);
+                    const finalClassName = setFinalClassName(
+                        index,
+                        roofData.chainStyle,
+                        className
+                    );
 
                     return (
                         <Card
@@ -73,7 +77,7 @@ export default function CommonCollection({
                             mediaData={mediaData}
                             cardSize={cardSize}
                             imagePosition={imagePosition}
-                            className={`${className || ''} ${extraClassName}`}
+                            className={finalClassName}
                             section={showSection({
                                 withSection,
                                 article

@@ -16,11 +16,8 @@ import CommonCollection from '../../../private/LN10/home/components/CommonCollec
 import { getMarkupForDatalayer } from '../../../private/LN/common/utils/cajaTemasHelper';
 import { replaceUrlsByEnvironment } from '../../../private/common/utils/replaceProductiveImgDomain';
 
-// TODO: agregar test al feature
-
 const RankingFeature = ({ id: featureId }) => {
     const { website, arcSite, layout, globalContent = {} } = useAppContext();
-
     const { node_type: nodeType } = globalContent;
 
     const { title, sectionId, rankingLayout } = getRankingProps(

@@ -1,6 +1,7 @@
 import get from '../../../../common/utils/get';
 import getAuthorsPhoto from '../../../../common/utils/getAuthorsPhoto';
 import transformImageData from '../../../../common/LN-10/transformImageData';
+import { CHAIN_STYLE } from '../../../../../chains/utils/common/_helpers-WebApi';
 
 const getCardConfig = (config, articleData) => {
     const { withMarquee, withMarqueeImg, withSubhead, withMedia, withSection } =
@@ -48,6 +49,17 @@ export const getDataAuthorCollection = article => {
     const authors = get(article, 'credits.by', []);
     const [author] = authors;
     return get(author, 'name', null);
+};
+
+export const setFinalClassName = (
+    index,
+    chainStyle,
+    className,
+    newClass = ' --tab-text-center'
+) => {
+    return index === 0 && chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE
+        ? className.concat(newClass)
+        : className;
 };
 
 export default getCardConfig;

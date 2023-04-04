@@ -160,11 +160,6 @@ const CajaCollection = props => {
         </>
     );
 
-    const setExtraClassName = index =>
-        index === 0 &&
-        chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE &&
-        '--tab-text-center';
-
     return (
         <StaticContent {...extraOptsDiv}>
             {setRender({
@@ -184,7 +179,6 @@ const CajaCollection = props => {
                                 layout={layout}
                                 ContainerCards={ContainerCards}
                                 position={position}
-                                setExtraClassName={setExtraClassName}
                             />
                             {chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE && (
                                 <Bannersubscriber>
