@@ -99,7 +99,6 @@ const index = (
                 }
                 break;
             case 1:
-                // eslint-disable-next-line no-unreachable
                 result.push(
                     boxTypeByLayout(layoutPage, type)(sectionBox, typeSection)
                 );
@@ -134,8 +133,12 @@ const index = (
                 );
                 break;
             case 4:
-                // eslint-disable-next-line no-unreachable
                 result.push(boxTypeByLayout(layoutPage, type)(f, typeSection));
+                break;
+            case 5:
+                result.push(
+                    boxTypeByLayout(layoutPage, type)(sectionBox, typeSection)
+                );
                 break;
             default:
                 // eslint-disable-next-line no-console

@@ -1,6 +1,7 @@
 import configToDividebyDiagramation from '../../../../../../../components/private/LN/api/global/page/config/configToDividebyDiagramation';
 import { setBannerByLayout } from '../../../common/elements/banners/index';
 import { setTitleByLayout } from '../../../common/elements/titles/index';
+import { setDolarByLayout } from '../../../common/elements/dolars/index';
 import {
     moveSections,
     divideSectionsByDiagramation
@@ -40,6 +41,13 @@ const transform = async (dataPage, query) => {
             (setTitleByLayout[layoutPage] &&
                 setTitleByLayout[layoutPage](elementsPageHome, layoutPage)) ||
             elementsPageHome;
+
+        // Add Component Dolar set file /pageSource/common/elements/dolar/config/configDolarPositionbySection.js
+        elementsPageHome =
+            (setDolarByLayout[layoutPage] &&
+                setDolarByLayout[layoutPage](elementsPageHome, layoutPage)) ||
+            elementsPageHome;
+
         // Add Banners by Configuration set in file /pageSource/config/configTaskPositionBanners.json
         elementsPageHome =
             (setBannerByLayout[layoutPage] &&
