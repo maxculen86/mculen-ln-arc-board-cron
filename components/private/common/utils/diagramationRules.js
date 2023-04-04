@@ -169,7 +169,7 @@ const diagramationRules = diagramation => {
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: 'l-m',
+                cardSize: 'm',
                 withSubhead: false,
                 imageConfig: 'xs',
                 withPreload: true
@@ -181,7 +181,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'l-m',
+                cardSize: 'm',
                 imageConfig: 'xs',
                 imagePosition: {
                     mobile: 'img-right',
@@ -196,7 +196,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'l-m',
+                cardSize: 'm',
                 imageConfig: 'xs',
                 imagePosition: {
                     mobile: 'img-right',
@@ -211,7 +211,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'l-m',
+                cardSize: 'm',
                 imageConfig: 'xs',
                 imagePosition: {
                     mobile: 'img-right',
@@ -630,7 +630,7 @@ const diagramationRules = diagramation => {
         bn_1_4_grid: [
             {
                 variantsDisabled: ['author'],
-                cardSize: '4xl',
+                cardSize: '3xl',
                 imageConfig: 'T1',
                 withMarquee: true,
                 withMarqueeImg: true,
@@ -954,7 +954,7 @@ const diagramationRules = diagramation => {
         bn_1_2_grid: [
             {
                 variantsDisabled: ['author'],
-                cardSize: '4xl',
+                cardSize: '3xl',
                 imageConfig: 'T1',
                 withMarquee: true,
                 withMarqueeImg: true,
@@ -1027,9 +1027,9 @@ const diagramationRules = diagramation => {
         bn_2_1_2_grid: [
             {
                 variantsDisabled: ['liveblog', 'author'],
-                withSection: true,
+                withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withMedia: true,
                 cardSize: 'xl',
                 imageConfig: 'xs',
