@@ -51,7 +51,7 @@ export const addElementsByKey = (
             : [configElementToAdd];
 
         const elementsSectionTo = elementsWithIndex.filter(
-            x => x[keyToFind] === configElementToAdd[keyToFind]
+            x => x[keyToFind] === valueKeyFrom
         );
 
         if (

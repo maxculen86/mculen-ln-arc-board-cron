@@ -1,7 +1,7 @@
 import get from '../../../../../../../components/private/common/utils/get';
-import { equal } from './strategy/equal';
-import { notequal } from './strategy/notequal';
-import { atleastone } from './strategy/atleastone';
+import { equal } from '../common/strategy/equal';
+import { notequal } from '../common/strategy/notequal';
+import { atleastone } from '../common/strategy/atleastone';
 import {
     addElementsByKey,
     addElement

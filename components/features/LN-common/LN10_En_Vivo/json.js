@@ -46,12 +46,13 @@ class EnVivo {
 
     render() {
         const { acuArticlesENVIVO } = this.state || {};
-        const { chapita = 'VIVO', chapitaStyle = 2, show } = this.customFields;
-        // const typeBadge = !chapitaStyle ? 2 : chapitaStyle;
+        const { show } = this.customFields;
         if (!acuArticlesENVIVO) {
             return null;
         }
         let resp = {};
+        const chapita = get(this.customFields, 'chapita', 'VIVO') || 'VIVO';
+        const chapitaStyle = get(this.customFields, 'chapitaStyle', 2) || 2;
 
         resp = {
             information: {
@@ -79,7 +80,6 @@ class EnVivo {
                     })) ||
                 []
         };
-
         return resp;
     }
 }

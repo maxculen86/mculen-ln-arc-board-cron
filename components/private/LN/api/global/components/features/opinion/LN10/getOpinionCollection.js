@@ -152,7 +152,7 @@ class GetOpinionCollection {
         const boxEditorial = {
             information: {
                 ...customFields,
-                layout: get(customFields, 'layout', null),
+                layout: 'editoriales2',
                 nameFeature: 'LN-common/LN10_editorial',
                 image
             },

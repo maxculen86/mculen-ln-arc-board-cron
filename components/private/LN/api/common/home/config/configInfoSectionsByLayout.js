@@ -32,12 +32,7 @@ export const infoLNMainLN10 = {
     contentlab: { tipoSeccion: 'contentlab', idSeccion: 1101 },
     afondo: { tipoSeccion: 'afondo', idSeccion: 1101 },
     banner: { tipoSeccion: 'banner' },
-    dolar: {
-        tipoSeccion: 'dolar',
-        idSeccion: 2000,
-        tituloCaja: 'Cotización hoy',
-        url: 'https://www.lanacion.com.ar/economia/dolar/'
-    },
+    dolar: { tipoSeccion: 'dolar', idSeccion: 2000 },
     multimedia: { tipoSeccion: 'tema', idSeccion: 305 },
     'ln-10/timeline': { tipoSeccion: 'timeline', idSeccion: 703 },
     'ln-common/ln10_en_vivo': { tipoSeccion: 'enVivo', idSeccion: 700 },
@@ -48,7 +43,8 @@ export const infoLNMainLN10 = {
     bienestar: { tipoSeccion: 'bienestar', idSeccion: 305 },
     movilidad: { tipoSeccion: 'movilidad', idSeccion: 305 },
     default: { tipoSeccion: 'tema', idSeccion: 305 },
-    welfare: { tipoSeccion: 'bienestar', idSeccion: 305 }
+    welfare: { tipoSeccion: 'bienestar', idSeccion: 305 },
+    title: { tipoSeccion: 'title', idSeccion: 704 }
 };
 
 const configInfoSectionsByLayout = layout => {
