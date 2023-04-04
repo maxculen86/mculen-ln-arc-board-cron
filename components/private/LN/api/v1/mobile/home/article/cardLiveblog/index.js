@@ -10,7 +10,7 @@ export const CardLiveblog = article => {
         ...Article(article),
         badgeStyle: getArticleChapitaStyle(article) || 'live',
         badge: getArticleChapita(article) || 'VIVO',
-        chapita: getArticleChapita(article),
+        chapita: getArticleChapita(article) || 'VIVO',
         subtitles: getLiveblogTitlesApi(article),
         opinion: false
     };
