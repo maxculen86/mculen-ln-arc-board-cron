@@ -1,0 +1,132 @@
+{
+    "_id": "RGC7MFGFYBGJJGPGZJ5OITBFI4",
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "credits": {
+        "by": [
+            {
+                "_id": "max-fisher-4189",
+                "additional_properties": {
+                    "original": {
+                        "role": "The New York Times"
+                    }
+                },
+                "image": {
+                    "url": "mockUrl",
+                    "auth": {
+                        "1": "mockHash"
+                    }
+                },
+                "name": "Max Fisher",
+                "slug": "max-fisher-4189",
+                "type": "author",
+                "url": "/autor/max-fisher-4189/"
+            },
+            {
+                "_id": "carlos-pagni-81",
+                "additional_properties": {
+                    "original": {
+                        "image": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                    }
+                },
+                "image": {
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 80,
+                                "media": "(min-width: 320px)",
+                                "width": 80
+                            },
+                            "resizedUrl": "http://172.17.0.1/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                        }
+                    ],
+                    "url": "https://s3.amazonaws.com/arc-authors/lanacionar/2219591.png"
+                },
+                "name": "Carlos Pagni",
+                "slug": "carlos-pagni-81",
+                "type": "author"
+            }
+        ]
+    },
+    "display_date": "2023-03-22T23:10:59.250Z",
+    "headlines": {
+        "basic": "\"Los homosexuales no tienen espacio aquí\": el Parlamento de Uganda aprueba una dura ley que castiga con cárcel el identificarse como gay"
+    },
+    "label": {
+        "recomendar": {
+            "text": "Si"
+        }
+    },
+    "promo_items": {
+        "basic": {
+            "height": 513,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 206,
+                        "media_preload": "(max-width: 375px)",
+                        "width": 309
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/C-0YE0PfI3aug8TO2wPySj3kJBI=/309x206/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/K26G6XPGKRDATDVHW3YWIG225M.png"
+                },
+                {
+                    "option": {
+                        "height": 234,
+                        "media_preload": "(min-width: 375.1px and max-width: 768px)",
+                        "width": 351
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/LsH8kP3xvCP_j3BOVySX3FNrd7w=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/K26G6XPGKRDATDVHW3YWIG225M.png"
+                },
+                {
+                    "option": {
+                        "height": 512,
+                        "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+                        "width": 768
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/fryyshuWXhkQZhVC2U7OxRJc-HA=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/K26G6XPGKRDATDVHW3YWIG225M.png"
+                },
+                {
+                    "option": {
+                        "height": 586,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1280.1px)",
+                        "width": 879
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/B0pTqd0vDdSfIUe3Gq1FkKEs10Q=/879x586/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/K26G6XPGKRDATDVHW3YWIG225M.png"
+                },
+                {
+                    "option": {
+                        "height": 746,
+                        "media_preload": "(min-width: 1024.1px and max-width: 1280px)",
+                        "width": 1200
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/gGogqnFQDSoovPgflRx_8a_uQYA=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/K26G6XPGKRDATDVHW3YWIG225M.png"
+                }
+            ],
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/YhPJj4zABJms62AOcCYSGR2EkKo=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/K26G6XPGKRDATDVHW3YWIG225M.png",
+            "width": 768
+        }
+    },
+    "publish_date": "2023-03-22T23:10:59.250Z",
+    "related_content": {
+        "basic": []
+    },
+    "subheadlines": {
+        "basic": "\n                Las personas que se identifican como homosexuales en Uganda se arriesgan a ser condenadas a cadena perpetua después de que el Parlamento de la nación africana aprobara un nuevo proyecto de ley.\n            "
+    },
+    "subtype": "1",
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/sociedad",
+            "additional_properties": {
+                "original": {}
+            },
+            "name": "Sociedad",
+            "path": "/sociedad"
+        }
+    },
+    "website_url": "/sociedad/los-homosexuales-no-tienen-espacio-aqui-el-parlamento-de-uganda-aprueba-una-dura-ley-que-castiga-con-nid22032023/",
+    "marquesina": ""
+}
