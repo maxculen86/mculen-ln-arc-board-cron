@@ -3,7 +3,8 @@ import React from 'react';
 import {
     createDynamicLabel,
     setEventsDollar,
-    setEventsAccess
+    setEventsAccess,
+    setEventSubscribe
 } from './_helper';
 
 export default function SubHeaderEventsScript() {
@@ -15,8 +16,10 @@ export default function SubHeaderEventsScript() {
                 ${createDynamicLabel}
                 ${setEventsDollar}
                 ${setEventsAccess}
+                ${setEventSubscribe}
                 setEventsDollar();
                 setEventsAccess();
+                setEventSubscribe();
             });
         `
             }}

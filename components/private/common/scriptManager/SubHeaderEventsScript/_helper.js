@@ -4,6 +4,7 @@ export const createDynamicLabel = (text = '') => {
         .replace(/ó/g, 'o')
         .toLowerCase();
 };
+
 export const setEventsDollar = () => {
     const dollars = window.document.querySelectorAll('.dollar a');
 
@@ -33,5 +34,19 @@ export const setEventsAccess = () => {
                     dynamic_label: createDynamicLabel(access.text)
                 });
         });
+    });
+};
+
+export const setEventSubscribe = () => {
+    const btnSuscribite = window.document.querySelector('#btnsuscribite');
+
+    btnSuscribite.addEventListener('click', () => {
+        window.dataLayer &&
+            window.dataLayer.push({
+                event: 'e_linkclick',
+                dynamic_action: 'header_logo',
+                dynamic_category: 'home_ln10',
+                dynamic_label: 'suscribite'
+            });
     });
 };

@@ -21,7 +21,8 @@ export default function BuildRoof(props) {
         hideRoof,
         links,
         navigationId,
-        isAdmin
+        isAdmin,
+        isAFondo
     } = props;
 
     const chainStyle =
@@ -38,6 +39,9 @@ export default function BuildRoof(props) {
         buttonText,
         linkButton
     });
+
+    const roofType =
+        isAFondo || !chainStyle ? 'generic' : chainStyle.toLowerCase();
 
     const propsLeft = hasDataRoof({ chainStyle }) && {
         logo,
@@ -62,12 +66,7 @@ export default function BuildRoof(props) {
         extraOptions: {
             isEmpty: hideRoof && <></>,
             default: !hideRoof && (
-                <Roof
-                    roof-container="roof-container"
-                    roofType={
-                        (chainStyle && chainStyle.toLowerCase()) || 'generic'
-                    }
-                >
+                <Roof roof-container="roof-container" roofType={roofType}>
                     <Roof.Left {...propsLeft} />
                     <Roof.Right {...propsRight} />
                 </Roof>
