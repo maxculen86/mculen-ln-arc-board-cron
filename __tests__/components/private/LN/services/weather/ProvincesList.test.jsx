@@ -58,14 +58,17 @@ describe('Components - private - services - weather - ProvincesList =>', () => {
                 name: 'mendoza'
             }
         ];
-        const { container } = render(<ProvincesList provinces={provinces} />);
+        const { container, debug } = render(
+            <ProvincesList provinces={provinces} />
+        );
+        debug();
         expect(container).toMatchSnapshot();
         expect(
             container.getElementsByClassName(modHeaderSectionClass).length
         ).toBe(1);
         expect(
             container.innerHTML.includes(
-                '<h3 class="com-title --l">Provincias</h3>'
+                '<h3 class="com-title --font-primary --xl --font-extra">Provincias</h3>'
             )
         ).toBe(true);
         expect(container.innerHTML.includes('<a href=')).toBe(true);
@@ -109,7 +112,7 @@ describe('Components - private - services - weather - ProvincesList =>', () => {
         ).toBe(1);
         expect(
             container.innerHTML.includes(
-                '<h3 class="com-title --l">Provincias</h3>'
+                '<h3 class="com-title --font-primary --xl --font-extra">Provincias</h3>'
             )
         ).toBe(true);
         expect(container.innerHTML.includes('<a href=')).toBe(false);

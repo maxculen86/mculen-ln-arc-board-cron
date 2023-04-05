@@ -38,7 +38,7 @@ const BookmarkLayout = () => {
     return (
         <div className="bookmark-layout">
             <div className="bookmark-header">
-                <Text tag="h2" size="--xs" font="--sueca">
+                <Text tag="h2" size="--l" font="--font-primary">
                     <span className="--font-bold">{bookmarkCount || 0}</span>
                     <span>
                         {bookmarkCount === 1

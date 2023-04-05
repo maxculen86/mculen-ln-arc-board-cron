@@ -2,10 +2,10 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
-import { getStyleFontsInLine, getStyleFontsInLineForLN10 } from './fontface';
+import { getStyleFontsInLineForLN10 } from './fontface';
 
 export const CriticalCSSString =
-    '.com-title{font-family:"SuecaSlab"}.row{display:flex;flex-wrap:wrap;width:100%}[class*=col-]{width:100%;position:relative}' +
+    '.--font-primary{font-family:"Prumo","Georgia"}.row{display:flex;flex-wrap:wrap;width:100%}[class*=col-]{width:100%;position:relative}' +
     '.col{flex-basis:0%;flex-grow:1;max-width:100%}.col-1{flex:0 0 8.3333333333%;max-width:8.3333333333%}.col-2{flex:0 0 16.6666666667%;max-width:16.6666666667%}' +
     '.col-3{flex:0 0 25%;max-width:25%}.col-4{flex:0 0 33.3333333333%;max-width:33.3333333333%}.col-5{flex:0 0 41.6666666667%;max-width:41.6666666667%}' +
     '.col-6{flex:0 0 50%;max-width:50%}.col-7{flex:0 0 58.3333333333%;max-width:58.3333333333%}.col-8{flex:0 0 66.6666666667%;max-width:66.6666666667%}' +
@@ -89,18 +89,16 @@ export const CriticalCSSString =
     '.com-nav-mobile .row .item-foo i{margin-bottom:.25rem}.com-nav-mobile .row .item-foo.--active p{color:#0250c9}.com-nav-mobile .row .item-foo' +
     '.--active i{color:#0250c9}.com-nav-mobile .row .item-foo:first-child{margin:-.3125rem}@media (min-width:64em){.com-nav-mobile{display:none}}';
 
-const CriticalCSS = ({ isLN10 = false }) => {
+const CriticalCSS = () => {
     const { contextPath, deployment } = useAppContext();
-    const fontCss = isLN10
-        ? getStyleFontsInLineForLN10({ contextPath, deployment })
-        : getStyleFontsInLine({
-              contextPath,
-              deployment
-          });
+
     return (
         <style
             dangerouslySetInnerHTML={{
-                __html: `${fontCss}${CriticalCSSString}`
+                __html: `${getStyleFontsInLineForLN10({
+                    contextPath,
+                    deployment
+                })}${CriticalCSSString}`
             }}
         />
     );

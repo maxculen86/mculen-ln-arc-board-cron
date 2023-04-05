@@ -19,7 +19,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
           role="contentinfo"
         >
           <h3
-            class="com-title --l"
+            class="com-title --font-primary --xl --font-extra"
           >
             Más leídas de Política
           </h3>
@@ -81,7 +81,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
                 >
                   
                   <h3
-                    class="com-title --xs"
+                    class="com-title --font-primary --xs --font-medium"
                   >
                     <a
                       class="com-link"
@@ -152,7 +152,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
                 >
                   
                   <h3
-                    class="com-title --xs"
+                    class="com-title --font-primary --xs --font-medium"
                   >
                     <a
                       class="com-link"
@@ -223,7 +223,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
                 >
                   
                   <h3
-                    class="com-title --xs"
+                    class="com-title --font-primary --xs --font-medium"
                   >
                     <a
                       class="com-link"
@@ -294,7 +294,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
                 >
                   
                   <h3
-                    class="com-title --xs"
+                    class="com-title --font-primary --xs --font-medium"
                   >
                     <a
                       class="com-link"
@@ -341,7 +341,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
           role="contentinfo"
         >
           <h3
-            class="com-title --l"
+            class="com-title --font-primary --xl --font-extra"
           >
             Más leídas
           </h3>
@@ -401,7 +401,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                 >
                   
                   <h2
-                    class="com-title --xs"
+                    class="com-title --font-primary --xs --font-medium"
                   >
                     <a
                       class="com-link"
@@ -470,7 +470,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                 >
                   
                   <h2
-                    class="com-title --xs"
+                    class="com-title --font-primary --xs --font-medium"
                   >
                     <a
                       class="com-link"
@@ -539,7 +539,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                 >
                   
                   <h2
-                    class="com-title --xs"
+                    class="com-title --font-primary --xs --font-medium"
                   >
                     <a
                       class="com-link"
@@ -608,7 +608,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
                 >
                   
                   <h2
-                    class="com-title --xs"
+                    class="com-title --font-primary --xs --font-medium"
                   >
                     <a
                       class="com-link"
@@ -655,7 +655,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
           role="contentinfo"
         >
           <h3
-            class="com-title --l"
+            class="com-title --font-primary --xl --font-extra"
           >
             Te puede interesar
           </h3>
@@ -711,7 +711,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
             >
               
               <h2
-                class="com-title --xs"
+                class="com-title --font-primary --xs --font-medium"
               >
                 <a
                   class="com-link"
@@ -778,7 +778,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
             >
               
               <h2
-                class="com-title --xs"
+                class="com-title --font-primary --xs --font-medium"
               >
                 <a
                   class="com-link"
@@ -845,7 +845,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
             >
               
               <h2
-                class="com-title --xs"
+                class="com-title --font-primary --xs --font-medium"
               >
                 <a
                   class="com-link"
@@ -912,7 +912,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
             >
               
               <h2
-                class="com-title --xs"
+                class="com-title --font-primary --xs --font-medium"
               >
                 <a
                   class="com-link"
@@ -979,7 +979,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
             >
               
               <h2
-                class="com-title --xs"
+                class="com-title --font-primary --xs --font-medium"
               >
                 <a
                   class="com-link"
@@ -1046,7 +1046,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
             >
               
               <h2
-                class="com-title --xs"
+                class="com-title --font-primary --xs --font-medium"
               >
                 <a
                   class="com-link"

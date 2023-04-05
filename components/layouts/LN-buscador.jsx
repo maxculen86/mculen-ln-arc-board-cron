@@ -36,7 +36,8 @@ const lnBuscador = ({
                         <ComTitle
                             tag="h1"
                             content={`Estos son los resultados que encontramos para la búsqueda que realizaste de: ${searchResults}`}
-                            size="--xl"
+                            size="--threexl"
+                            weight="--font-extra"
                         />
                         {children[0]}
                     </div>

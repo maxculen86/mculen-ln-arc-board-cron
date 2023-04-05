@@ -3,7 +3,7 @@
 /* subtitles */
 
 .com-subtitle-nota-1 {
-    font-family: $font-SuecaSlab;
+    font-family: $font-primary;
     font-size: px(22);
     font-weight: 700;
     line-height: px(32);
@@ -30,7 +30,7 @@
 //Valores de tablet para arriba
 @media (min-width: 768px) {
     .com-subtitle-nota-2 {
-        font-family: $font-SuecaSlab;
+        font-family: $font-primary;
         font-size: px(22);
         font-weight: 600;
         line-height: px(29);
@@ -42,13 +42,13 @@
 //Valores de desk chico para arriba
 @media (min-width: 1025px) {
     .com-subtitle-nota-1 {
-        font-family: $font-SuecaSlab;
+        font-family: $font-primary;
         font-size: px(24);
         font-weight: 700;
         line-height: px(31);
     }
     .com-subtitle-nota-2 {
-        font-family: $font-SuecaSlab;
+        font-family: $font-primary;
         font-size: px(24);
         font-weight: 500;
         line-height: px(31);

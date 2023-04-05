@@ -56,7 +56,7 @@ exports[`components - private - common - mod-category Mod category snapshot test
       
     </button>
     <ul
-      class="com-unordered  --category"
+      class="com-unordered --no-scrollbar  --category --font-primary --l --font-medium"
     >
       <li
         class="item"

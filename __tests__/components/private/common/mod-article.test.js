@@ -27,6 +27,7 @@ describe('Private - Common - ModArticle', () => {
     const authors = ['Mariano Grondona'];
 
     const props = {
+        anexo: undefined,
         artPosition: undefined,
         articleData: article,
         dataSection: '',
@@ -36,7 +37,14 @@ describe('Private - Common - ModArticle', () => {
         titleTag: 'h1',
         titleSize: '--s',
         titleText: 'Este es el titulo',
+        titleWeight: '',
         authors: authors,
+        authorSize: undefined,
+        leadText: undefined,
+        mobileImage: undefined,
+        noMedia: undefined,
+        registerSuccessEvent: undefined,
+        searchableField: undefined,
         boxPosition: undefined,
         dateText: '2020-06-02T15:28:04.694Z',
         device: 'desktop',
@@ -77,7 +85,7 @@ describe('Private - Common - ModArticle', () => {
         expect(component.find('.mod-marquee')).toHaveLength(1);
         expect(component.find('.com-date')).toHaveLength(1);
         expect(component.find('.com-title').html()).toBe(
-            '<h1 class="com-title --s"><a href="http://google.com" title="Este es el titulo" class="com-link">Este es el titulo</a></h1>'
+            '<h1 class="com-title --font-primary --s --font-medium"><a href="http://google.com" title="Este es el titulo" class="com-link">Este es el titulo</a></h1>'
         );
     });
 

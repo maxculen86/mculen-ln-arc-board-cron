@@ -24,7 +24,7 @@ exports[`Private - Common - ModArticle ModArticle - Snapshots 1`] = `
     class="mod-description"
   >
     <h1
-      class="com-title --s"
+      class="com-title --font-primary --s --font-medium"
     >
       <a
         class="com-link"

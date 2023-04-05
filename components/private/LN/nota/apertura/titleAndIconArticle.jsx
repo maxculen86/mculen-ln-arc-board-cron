@@ -51,7 +51,7 @@ const TitleAndIconArticle = ({
             )}
             <TitleArticle
                 prefix={prefix || ''}
-                size={subtype === VIDEO && '--xl'}
+                size={subtype === VIDEO && '--fourxl'}
                 headlines={headlines}
             />
         </>

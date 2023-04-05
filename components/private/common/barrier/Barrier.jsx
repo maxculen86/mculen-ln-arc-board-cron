@@ -62,7 +62,7 @@ const Barrier = ({
                 <div className="description">
                     {title && (
                         <span
-                            className="com-text --sueca --m"
+                            className="com-text --font-primary --l --font-medium"
                             // eslint-disable-next-line react/no-danger
                             dangerouslySetInnerHTML={{ __html: title }}
                         />

@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
+import setClassName from './utils/setClassName';
 
 import '../../../resources/dist/css/ln/modules/mod-linklist.css';
 
@@ -13,10 +14,15 @@ const ComLinkList = ({
     isEditoriales = false,
     isHome = false
 }) => {
+    const classes = setClassName({
+        baseClass: 'com-unordered',
+        noScroll: '--no-scrollbar',
+        extraClass
+    });
     const extraOpts = {};
     return (
         (list && list.length && (
-            <ul className={`com-unordered ${extraClass}`} ref={_ref}>
+            <ul className={classes} ref={_ref}>
                 {list.map((element, i) => {
                     if (isEditoriales) {
                         extraOpts['data-pos'] = `990${i + 1}`;

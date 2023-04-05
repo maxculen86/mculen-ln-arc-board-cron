@@ -9,7 +9,8 @@
     padding: px(4);
     border: 1px $light-neutral-400 solid;
     border-radius: px(4);
-
+    font-size: px(16);
+    line-height: 150%;
     column-gap: px(24);
     grid-template-areas:
         'image'
@@ -21,15 +22,19 @@
     & .placeholder {
         grid-area: image;
     }
+
     & .extra-info {
         grid-area: info;
     }
+
     & .social-networks {
         grid-area: rrss;
     }
+
     & .wiki-description {
         grid-area: description;
     }
+
     & .tags-buttons {
         grid-area: tags;
     }
@@ -51,6 +56,7 @@
             height: auto;
             margin: 0;
             background: white;
+
             @media ($media-m) {
                 height: 100%;
                 object-fit: contain;
@@ -88,11 +94,6 @@
             .label {
                 color: $light-neutral-500;
             }
-            .com-link {
-                font-family: $font-SuecaSlab;
-                font-size: 16px;
-                font-weight: 400;
-            }
         }
     }
 
@@ -116,14 +117,12 @@
     }
 
     .wiki-description {
-        font-family: $font-SuecaSlab;
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 24px;
         width: auto;
+
         a {
             color: $blue-500;
         }
+
         p {
             margin-bottom: px(16);
         }
@@ -148,11 +147,13 @@
         .extra-info {
             flex-wrap: wrap;
             max-height: px(250);
+
             .description {
                 max-width: px(220);
                 margin-right: px(4);
             }
         }
+
         .social-networks {
             margin: 0 0 px(16) px(16);
         }
@@ -183,10 +184,12 @@
 
         .social-networks {
             margin: 0 px(24) 0 px(16);
+
             .com-text {
                 margin-bottom: 0;
             }
         }
+
         .tags-buttons {
             margin-bottom: px(8);
         }
@@ -201,13 +204,16 @@
         .wiki-description {
             padding: px(24) 0;
         }
+
         .social-networks {
             margin-top: 0;
             margin-left: 0;
+
             .com-text {
                 margin-left: 0;
             }
         }
+
         .tags-buttons {
             margin-top: 0;
         }

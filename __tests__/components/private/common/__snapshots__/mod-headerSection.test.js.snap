@@ -56,7 +56,7 @@ exports[`Private - Common - ModheaderSection =>  Snapshot ModheaderSection con l
   role="contentinfo"
 >
   <h3
-    class="com-title --l"
+    class="com-title --font-primary --l --font-extra"
   >
     <a
       class="com-link"
@@ -75,7 +75,7 @@ exports[`Private - Common - ModheaderSection =>  Snapshots ModheaderSection 1`] 
   role="contentinfo"
 >
   <h3
-    class="com-title --l"
+    class="com-title --font-primary --l --font-extra"
   >
     Titulo Separador
   </h3>

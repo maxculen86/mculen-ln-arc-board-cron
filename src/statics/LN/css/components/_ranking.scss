@@ -10,8 +10,8 @@
                 top: px(1);
                 left: px(1);
                 z-index: 2;
-                font-family: $font-SuecaSlab;
-                font-size: px(16);
+                font-family: $font-primary;
+                font-size: px(18);
                 font-weight: 400;
                 width: 1.4rem;
                 height: 2.4rem;
@@ -30,8 +30,6 @@
                         .content-media {
                             .mod-media {
                                 margin-bottom: 0;
-                                //.mod-figure {
-                                //&.--horizontal {
                                 .placeholder {
                                     padding-top: $box;
                                     width: px(120);
@@ -41,10 +39,11 @@
                         .mod-description {
                             margin-left: $spacing-sm;
                             .com-title {
-                                //font-weight: 500;
                                 font-family: $font-arial;
-                                font-size: 1rem;
-                                line-height: 1.5rem;
+                                &.--xs {
+                                    font-size: px(16);
+                                    line-height: 120%;
+                                }
                             }
                         }
                     }

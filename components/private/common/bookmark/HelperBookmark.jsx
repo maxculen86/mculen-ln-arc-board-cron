@@ -28,7 +28,7 @@ const HelperBookmark = ({ show, handleHelper }) => {
                                 tag="h3"
                                 size="m"
                                 weight="bold"
-                                font="--sueca"
+                                font="--font-primary"
                                 title="Guardar notas"
                                 line
                             />

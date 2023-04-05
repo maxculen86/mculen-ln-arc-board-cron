@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import ModNavigation from './mod-navigation';
 import withImage from './hocs/withImage';
 import ComImage from './com-image';
+import ComTitle from './com-title';
 
 import '../../../resources/dist/css/ln/modules/mod-category.css';
 
@@ -10,7 +11,7 @@ const ModCategory = props => {
     const {
         revista,
         category,
-        style,
+        style = undefined,
         navigation,
         image,
         outputType,
@@ -36,19 +37,20 @@ const ModCategory = props => {
                     </h1>
                 </div>
             ) : (
-                <h1 className="com-title --xl" style={style}>
-                    <a
-                        href={url}
-                        className="com-link --black"
-                        title={`Ir a ${category}`}
-                    >
-                        {category}
-                    </a>
-                </h1>
+                <ComTitle
+                    link={url}
+                    tag="h1"
+                    size="--threexl"
+                    weight="--font-extra"
+                    style={style}
+                    customTitle={`Ir a ${category}`}
+                    content={category}
+                    classCondition="--black"
+                />
             )}
             <ModNavigation
                 navigation={navigation}
-                classCondition="--category"
+                classCondition="--category --font-primary --l --font-medium"
                 style={style}
             />
         </div>

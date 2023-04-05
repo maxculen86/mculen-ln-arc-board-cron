@@ -58,7 +58,7 @@ describe('LN-Private-Common-ComLinkList ', () => {
 
         it('returns ul tag with class "com-unordered" and 2 children', () => {
             expect(element).toBeTruthy();
-            expect(className).toBe('com-unordered ');
+            expect(className).toBe('com-unordered --no-scrollbar');
             expect(children.length).toBe(list.length);
         });
 
@@ -84,7 +84,7 @@ describe('LN-Private-Common-ComLinkList ', () => {
             );
             const { className } = wrapper.props();
             it('return ul tag with extra class. Example: --tags', () => {
-                expect(className).toBe('com-unordered --tags');
+                expect(className).toBe('com-unordered --no-scrollbar --tags');
             });
             it('Snapshot', () => {
                 expect(wrapper.render()).toMatchSnapshot();
