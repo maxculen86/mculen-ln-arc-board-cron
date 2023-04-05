@@ -65,7 +65,8 @@ export const RightOptions = ({
 }) => {
     const SubscribeButton = (
         <Button
-            title="Suscribirse"
+            id="btnsuscribite"
+            title="Suscribite"
             typeButton="subscribe"
             onClick={() =>
                 window.location.replace(

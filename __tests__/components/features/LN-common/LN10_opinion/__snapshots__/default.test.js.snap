@@ -55,7 +55,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --0 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --2xl --author --with-media"
+                class="ln-card --d-flex --flex-col --ai-start --3xl --author --with-media"
                 data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
                 data-notaid="UV32UCCHWZH6LKMZKHGOQJHR4I"
                 data-pos="9801"
@@ -93,7 +93,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
                     <h2
-                      class="text ln-text --prumo-italic --font-semi title"
+                      class="text ln-text title --prumo-italic --font-semi --font-3xl"
                     >
                       Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                     </h2>
@@ -150,7 +150,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                     >
                       <h2
-                        class="text ln-text --prumo-italic --font-semi title"
+                        class="text ln-text title --prumo-italic --font-semi --font-l"
                       >
                         Bullrich visita El Calafate y presenta libro
                       </h2>
@@ -200,7 +200,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       href="/salud/beliz-cavallo-una-alianza-ya-imposible-nid14032022/"
                     >
                       <h2
-                        class="text ln-text --prumo-italic --font-semi title"
+                        class="text ln-text title --prumo-italic --font-semi --font-l"
                       >
                         Beliz-Cavallo, una alianza ya imposible
                       </h2>
@@ -308,7 +308,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                             >
                               <h2
-                                class="text ln-text title --prumo --font-semi --font-m"
+                                class="text ln-text title --prumo --font-medium --font-m"
                               >
                                 Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                               </h2>
@@ -354,7 +354,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                               href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                             >
                               <h2
-                                class="text ln-text title --prumo --font-semi --font-m"
+                                class="text ln-text title --prumo --font-medium --font-m"
                               >
                                 Bullrich visita El Calafate y presenta libro
                               </h2>
@@ -383,7 +383,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
                     >
                       <h2
-                        class="text ln-text --prumo-italic --font-semi title"
+                        class="text ln-text title --prumo-italic --font-semi --font-l"
                       >
                         Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
                       </h2>
@@ -438,7 +438,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                     href="/economia/dolar-libre-la-jugada-del-banco-central-que-impidio-una-suba-mayor-nid14042020/"
                   >
                     <h2
-                      class="text ln-text --prumo-italic --font-semi title"
+                      class="text ln-text title --prumo-italic --font-semi --font-l"
                     >
                       Dólar libre. La jugada del Banco Central que impidió una suba mayor
                     </h2>
@@ -492,7 +492,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                     href="/economia/el-gobierno-evalua-postular-a-una-diplomatica-de-carrera-para-la-embajada-en-el-vaticano-nid23012020/"
                   >
                     <h2
-                      class="text ln-text --prumo-italic --font-semi title"
+                      class="text ln-text title --prumo-italic --font-semi --font-l"
                     >
                       El Gobierno evalúa postular a una diplomática de carrera para la embajada en el Vaticano....LARGOoOoO
                     </h2>
@@ -546,7 +546,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                     href="/deportes/una-nueva-prueba-en-vivo-nid17032021/"
                   >
                     <h2
-                      class="text ln-text --prumo-italic --font-semi title"
+                      class="text ln-text title --prumo-italic --font-semi --font-l"
                     >
                       Una nueva prueba en vivo
                     </h2>
@@ -600,7 +600,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                     href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
                   >
                     <h2
-                      class="text ln-text --prumo-italic --font-semi title"
+                      class="text ln-text title --prumo-italic --font-semi --font-l"
                     >
                       Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos
                     </h2>

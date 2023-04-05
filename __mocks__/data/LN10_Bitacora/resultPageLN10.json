@@ -4833,7 +4833,7 @@
                 "title": "Caja Multimedia",
                 "hideTitle": true,
                 "pbInternal_cloneId": "c0fm7B1g476C1c8",
-                "chainStyle": "defaultAFondo",
+                "chainStyle": "generic",
                 "hideCaja": false,
                 "typeChain": "afondo",
                 "nameChain": "LN10_Caja_Manual",

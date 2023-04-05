@@ -1,4 +1,5 @@
 const diagramationRules = diagramation => {
+    // TODO: Guardar en una variable configuraciones que sean iguales para no repetir codigo.
     const diagramations = {
         'left-focal': [
             {
@@ -1116,7 +1117,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
-                cardSize: '2xl',
+                cardSize: '3xl',
                 titleTag: 'h2',
                 subheadTag: 'h3'
             },
@@ -1150,7 +1151,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
-                cardSize: '2xl',
+                cardSize: '3xl',
                 titleTag: 'h2',
                 subheadTag: 'h3'
             },
