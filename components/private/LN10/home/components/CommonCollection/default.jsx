@@ -76,7 +76,8 @@ export default function CommonCollection({
                             className={`${className || ''} ${extraClassName}`}
                             section={showSection({
                                 withSection,
-                                article
+                                article,
+                                authorPhoto: marqueeImg
                             })}
                             badgeText={
                                 gridType === LAYOUTS.CONTENT_LAB &&

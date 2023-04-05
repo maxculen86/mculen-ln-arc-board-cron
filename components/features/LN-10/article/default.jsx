@@ -247,7 +247,12 @@ const ArticleFeature = ({
                     mediaData={mediaData}
                     cardSize={cardSize}
                     imagePosition={imagePosition}
-                    section={showSection({ withSection, article, authors })}
+                    section={showSection({
+                        withSection,
+                        article,
+                        authors,
+                        authorPhoto: marqueeImg
+                    })}
                     searchableField={
                         layoutPageBuilder === layoutsName.HomeLN10 &&
                         searchableField({
