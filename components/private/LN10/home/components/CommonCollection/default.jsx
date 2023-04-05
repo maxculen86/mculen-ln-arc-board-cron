@@ -31,11 +31,12 @@ export default function CommonCollection({
     position,
     articles = [],
     ContainerCards = Bngrid,
-    setExtraClassName
+    setExtraClassName,
+    layout
 }) {
     return (
         <>
-            <BuildRoof {...roofData} />
+            <BuildRoof {...roofData} isAFondo={layout === 'bnFondo'} />
             <ContainerCards gridType={gridType} gridStyle={roofData.chainStyle}>
                 {articles.map((article, index) => {
                     const {
