@@ -43,7 +43,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
           class="text ln-text title --prumo --font-medium --font-m"
         >
           <span
-            class="text ln-text lead --prumo --font-black"
+            class="text ln-text lead --prumo --font-extra"
           >
             LeadNota
              
@@ -114,7 +114,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
           class="text ln-text title --prumo --font-medium --font-m"
         >
           <span
-            class="text ln-text lead --prumo --font-black"
+            class="text ln-text lead --prumo --font-extra"
           >
             LeadNota
              
