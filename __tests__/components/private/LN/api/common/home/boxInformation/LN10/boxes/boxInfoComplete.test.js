@@ -18,7 +18,7 @@ describe('boxInfoComplete', () => {
         jest.clearAllMocks();
     });
 
-    test('returns boxInfoBasic when box is falsy', () => {
+    it('returns boxInfoBasic when box is falsy', () => {
         const information = {
             textBadge: 'Custom Badge',
             lead: 'Lead',
@@ -37,7 +37,7 @@ describe('boxInfoComplete', () => {
         expect(result).toEqual(box);
     });
 
-    test('returns boxInfoBasic when information is falsy', () => {
+    it('returns boxInfoBasic when information is falsy', () => {
         const information = null;
         const section = 'section';
         const typeSection = 'typeSection';
@@ -49,7 +49,7 @@ describe('boxInfoComplete', () => {
 
         expect(result).toEqual(box);
     });
-    test('returns boxInfoBasic when information.hideTitle is true', () => {
+    it('returns boxInfoBasic when information.hideTitle is true', () => {
         const information = {
             hideTitle: true
         };
@@ -63,7 +63,7 @@ describe('boxInfoComplete', () => {
 
         expect(result).toEqual(box);
     });
-    test('returns complete box when box, information and information.hideTitle are all true', () => {
+    it('returns complete box when box, information and information.hideTitle are all true', () => {
         const image = {
             promo_items: {
                 basic: {

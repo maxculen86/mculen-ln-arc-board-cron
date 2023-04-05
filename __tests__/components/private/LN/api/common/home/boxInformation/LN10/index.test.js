@@ -7,7 +7,7 @@ import boxInfoAFondo from '../../../../../../../../../components/private/LN/api/
 import boxInfoComplete from '../../../../../../../../../components/private/LN/api/common/home/boxInformation/LN10/boxes/boxInfoComplete';
 
 describe('boxInfoBySectionAliasLN10', () => {
-    test('should contain expected keys and values', () => {
+    it('should contain expected keys and values', () => {
         expect(boxInfoBySectionAliasLN10).toEqual({
             'ln-common/ln10_anticipo': boxInfoAnticipo,
             apertura: boxInfoApertura,

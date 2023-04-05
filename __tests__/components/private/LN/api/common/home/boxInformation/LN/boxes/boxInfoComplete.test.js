@@ -1,11 +1,11 @@
 import { boxInfoComplete } from '../../../../../../../../../../components/private/LN/api/common/home/boxInformation/LN/boxes/boxInfoComplete';
 import * as information from '../../../../../../../../../../__mocks__/data/LN10_BoxInformation/information.json';
 describe('boxInfoComplete', () => {
-    test('returns null if information is not provided', () => {
+    it('returns null if information is not provided', () => {
         expect(boxInfoComplete(null)).toBeNull();
     });
 
-    test('returns a complete box object', () => {
+    it('returns a complete box object', () => {
         const section = 'Section';
         const typeSection = { default: { type: 'default' } };
 
@@ -73,7 +73,7 @@ describe('boxInfoComplete', () => {
         );
     });
 
-    test('returns a box object without image or actionButton if information.hideTitle is true', () => {
+    it('returns a box object without image or actionButton if information.hideTitle is true', () => {
         const information = {
             hideTitle: true
         };
