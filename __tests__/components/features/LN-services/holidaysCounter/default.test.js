@@ -37,6 +37,7 @@ describe('It renders holidays countdown', () => {
             container.getElementsByTagName('mock-static-validation')[0]
         ).toBeInTheDocument();
     });
+    
     it('Should pass props to component', () => {
         useContent.mockReturnValueOnce(mockCalendar);
         const { container } = render(<HolidaysCountdown />);
