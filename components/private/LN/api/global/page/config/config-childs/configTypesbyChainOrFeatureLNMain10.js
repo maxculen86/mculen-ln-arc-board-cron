@@ -5,7 +5,11 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
     // 9: A type is set to discard the box
     const boxTypeContainer = {
         0: [
-            'defaultAFondo',
+            'generic',
+            'white',
+            'red',
+            'lightblue',
+            'green',
             'afondo',
             'bombita',
             'bomba',
