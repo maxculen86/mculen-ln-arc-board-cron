@@ -70,13 +70,12 @@ export const RightOptions = ({
             title="Suscribite"
             typeButton="subscribe"
             className={!loading ? '' : '--none'}
-            onClick={() =>
-                window.location.replace(
-                    `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                        window.location.href
-                    )}`
-                )
-            }
+            // eslint-disable-next-line no-return-assign
+            onClick={() => {
+                window.location.href = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                    window.location.href
+                )}`;
+            }}
         >
             <Icon icon="suscriptorExclusivo" size={18}>
                 <SuscriptorExclusivo />
