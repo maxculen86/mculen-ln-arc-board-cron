@@ -266,6 +266,12 @@ describe('Test getSectionOfRequestUri', () => {
 
         expect(getSectionOfRequestUri(requestUri)).toStrictEqual('');
     });
+
+    test('Test of return when requestUri is null', () => {
+        const requestUri = null;
+
+        expect(getSectionOfRequestUri(requestUri)).toStrictEqual('');
+    });
 });
 
 describe('Tests - metasFromSiteServices', () => {
@@ -392,7 +398,23 @@ describe('getTagTitle function test', () => {
         });
     });
     describe('addNoIndexNoFollow for LN10', () => {
-        test('Return meta robots no index no follow when layout is for LN10', () => {
+        test('Return meta robots no index no follow when the page is home-vivo', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: '/home-vivo/?_website=la-nacion-ar'
+                })
+            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
+        });
+
+        test('Return meta robots no index no follow when the page is home-temas', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: '/home-temas/?_website=la-nacion-ar'
+                })
+            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
+        });
+
+        test('Return meta robots no index no follow when the page is home LN10', () => {
             expect(
                 addMetaNoIndexNoFollow({
                     siteProperties: {
@@ -405,15 +427,32 @@ describe('getTagTitle function test', () => {
             ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
         });
 
-        test('Return fragment when layout is not LN10', () => {
+        test('Return meta robots no index no follow when the page is not LN10', () => {
             expect(
                 addMetaNoIndexNoFollow({
                     siteProperties: {
                         layoutsName: {
-                            HomeLN10: 'LN10-Home_Main'
+                            HomeLN10: 'LN10-Home_Main',
+                            Acumulado: 'LN-acumulado'
                         }
                     },
-                    layout: ''
+                    layout: 'LN-acumulado'
+                })
+            ).toStrictEqual(<React.Fragment />);
+        });
+
+        test('Return fragment when layout is not LN10', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: 'politica'
+                })
+            ).toStrictEqual(<React.Fragment />);
+        });
+
+        test('Return fragment when layout is Home', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: ''
                 })
             ).toStrictEqual(<React.Fragment />);
         });
@@ -436,6 +475,22 @@ describe('getTagTitle function test', () => {
                 addMetaNoIndexNoFollow({
                     siteProperties: undefined,
                     layout: undefined
+                })
+            ).toStrictEqual(<React.Fragment />);
+        });
+
+        test('Return fragment when everything is undefined', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: undefined
+                })
+            ).toStrictEqual(<React.Fragment />);
+        });
+
+        test('Return fragment when everything is null', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: null
                 })
             ).toStrictEqual(<React.Fragment />);
         });
