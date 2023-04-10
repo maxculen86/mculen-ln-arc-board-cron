@@ -61,13 +61,15 @@ export const RightOptions = ({
     userName = '',
     desplegableData = [],
     goToLoginUrl,
-    loggedIn = ''
+    loggedIn = '',
+    loading = false
 }) => {
     const SubscribeButton = (
         <Button
             id="btnsuscribite"
             title="Suscribite"
             typeButton="subscribe"
+            className={!loading ? '' : '--none'}
             onClick={() =>
                 window.location.replace(
                     `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
@@ -95,13 +97,8 @@ export const RightOptions = ({
 
     const rightOptions = {
         suscribed: MenuUser,
-        logged: loggedIn && (
-            <>
-                {MenuUser}
-                {SubscribeButton}
-            </>
-        ),
-        unlogged: !loggedIn && (
+        logged: loggedIn && <>{MenuUser}</>,
+        unlogged: !loggedIn && !loading && (
             <>
                 <Button
                     title="Iniciar sesión"
@@ -111,12 +108,16 @@ export const RightOptions = ({
                 >
                     INICIAR SESIÓN
                 </Button>
-                {SubscribeButton}
             </>
         )
     };
 
-    return rightOptions[userType] || <></>;
+    return (
+        <>
+            {rightOptions[userType] || <></>}
+            {userType !== 'suscribed' && SubscribeButton}
+        </>
+    );
 };
 
 export const sectionsCallback = (e, toggleDesplegable) => {

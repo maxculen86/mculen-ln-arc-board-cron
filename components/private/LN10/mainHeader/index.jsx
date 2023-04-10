@@ -82,16 +82,15 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                 </Link>
             </MainHeader.Center>
             <MainHeader.Right>
-                {!loading && (
-                    <RightOptions
-                        userType={userType}
-                        userName={userName}
-                        initials={initials}
-                        desplegableData={desplegableData}
-                        goToLoginUrl={goToLoginUrl}
-                        loggedIn={loggedIn}
-                    />
-                )}
+                <RightOptions
+                    userType={userType}
+                    userName={userName}
+                    initials={initials}
+                    desplegableData={desplegableData}
+                    goToLoginUrl={goToLoginUrl}
+                    loggedIn={loggedIn}
+                    loading={loading}
+                />
             </MainHeader.Right>
         </MainHeader>
     );

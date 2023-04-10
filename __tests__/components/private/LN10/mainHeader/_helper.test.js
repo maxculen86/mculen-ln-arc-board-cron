@@ -67,11 +67,6 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             ]
         };
 
-        test('should returns empty div without props', () => {
-            const { container } = render(<RightOptions />);
-            expect(container).toBeEmptyDOMElement();
-        });
-
         test('should returns menu user and avatar when userType is suscribed', () => {
             const { container, getByText } = render(
                 <RightOptions
