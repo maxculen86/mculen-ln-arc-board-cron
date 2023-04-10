@@ -8,6 +8,7 @@ import filter from '../../../../../../../../content/filters/LN/acumulado/article
 import { articleSourceNotaSourceInclude } from '../../features/article/common/sources/articleSourceNotaSourceInclude';
 import { validatePropsChains } from '../common/props/validatePropsChains';
 import diagramationRules from '../../../../../../common/utils/diagramationRules';
+import withResizerV2 from '../../../../../../common/utils/image/enableResizerV2';
 
 class GetCajaCollection {
     constructor(props, typeChain) {
@@ -79,7 +80,12 @@ class GetCajaCollection {
             filterRecomendar: true,
             filterRepetead: !isInSiteService,
             notesQuantity: rules.length || notesQuantity,
-            layout
+            layout,
+            diagramation: layout,
+            imageConfig: 'm',
+            isFocal: layout && layout.includes('focal'),
+            shouldUseV2: withResizerV2,
+            shouldUseV1: !withResizerV2
         };
     };
 
