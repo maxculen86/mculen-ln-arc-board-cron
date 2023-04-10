@@ -297,7 +297,7 @@ const Default = props => {
                     renderables={renderables}
                     section={_nodeType}
                 />
-                {addMetaNoIndexNoFollow({ requestUri, layout, siteProperties })}
+                {addMetaNoIndexNoFollow({ requestUri })}
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />

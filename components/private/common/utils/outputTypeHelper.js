@@ -137,16 +137,11 @@ export const metasFromSiteServices = (metaTags = {}) => {
 
 export const addMetaNoIndexNoFollow = ({
     outputType = 'default',
-    requestUri,
-    layout,
-    siteProperties
+    requestUri
 }) => {
-    return get(siteProperties, 'layoutsName.HomeLN10', 'LN10-Home_Main') ===
-        layout ||
-        ['home-vivo', 'home-temas'].includes(
-            getSectionOfRequestUri(requestUri)
-        ) ||
-        ['opta', 'widgets'].includes(outputType) ? (
+    return ['home-vivo', 'home-temas'].includes(
+        getSectionOfRequestUri(requestUri)
+    ) || ['opta', 'widgets'].includes(outputType) ? (
         <meta name="robots" content="noindex, nofollow" />
     ) : (
         <></>

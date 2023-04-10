@@ -414,20 +414,15 @@ describe('getTagTitle function test', () => {
             ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
         });
 
-        test('Return meta robots no index no follow when the page is home LN10', () => {
+        test('Return fragment when when the page is home LN10', () => {
             expect(
                 addMetaNoIndexNoFollow({
-                    siteProperties: {
-                        layoutsName: {
-                            HomeLN10: 'LN10-Home_Main'
-                        }
-                    },
-                    layout: 'LN10-Home_Main'
+                    requestUri: '/homepage-ln10/'
                 })
-            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
+            ).toStrictEqual(<React.Fragment />);
         });
 
-        test('Return meta robots no index no follow when the page is not LN10', () => {
+        test('Return fragment when when the page is not LN10', () => {
             expect(
                 addMetaNoIndexNoFollow({
                     siteProperties: {
@@ -449,23 +444,10 @@ describe('getTagTitle function test', () => {
             ).toStrictEqual(<React.Fragment />);
         });
 
-        test('Return fragment when layout is Home', () => {
+        test('Return fragment when requestUri is a empty string', () => {
             expect(
                 addMetaNoIndexNoFollow({
                     requestUri: ''
-                })
-            ).toStrictEqual(<React.Fragment />);
-        });
-
-        test('Return fragment when layout is Home', () => {
-            expect(
-                addMetaNoIndexNoFollow({
-                    siteProperties: {
-                        layoutsName: {
-                            Home: 'Home'
-                        }
-                    },
-                    layout: ''
                 })
             ).toStrictEqual(<React.Fragment />);
         });
