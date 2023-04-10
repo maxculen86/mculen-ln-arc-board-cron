@@ -2740,7 +2740,7 @@ export default {
             },
             tablet: {
                 megatop_tab: {
-                    slotName: `la_nacion_desktop/Home/megatop_tab`,
+                    slotName: `la_nacion_tablet/Home/megatop_tab`,
                     dimensions: [
                         [1270, 120],
                         [768, 120],

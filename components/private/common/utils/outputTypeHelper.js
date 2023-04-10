@@ -5,7 +5,9 @@ import uncapitalizeFirstLetter from './uncapitalizeFirstLetter';
 import get from './get';
 
 export const getSectionOfRequestUri = (requestUri = '') => {
-    const [section] = requestUri.split('/').filter(item => item !== '');
+    const [section] = requestUri
+        ? requestUri.split('/').filter(item => item !== '')
+        : [];
     return section || '';
 };
 export const getTitle = ({
@@ -134,12 +136,17 @@ export const metasFromSiteServices = (metaTags = {}) => {
 };
 
 export const addMetaNoIndexNoFollow = ({
-    siteProperties = {},
-    layout = '',
-    outputType = 'default'
+    outputType = 'default',
+    requestUri,
+    layout,
+    siteProperties
 }) => {
     return get(siteProperties, 'layoutsName.HomeLN10', 'LN10-Home_Main') ===
-        layout || ['opta', 'widgets'].includes(outputType) ? (
+        layout ||
+        ['home-vivo', 'home-temas'].includes(
+            getSectionOfRequestUri(requestUri)
+        ) ||
+        ['opta', 'widgets'].includes(outputType) ? (
         <meta name="robots" content="noindex, nofollow" />
     ) : (
         <></>

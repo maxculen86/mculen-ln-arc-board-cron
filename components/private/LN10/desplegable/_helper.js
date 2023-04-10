@@ -1,12 +1,12 @@
 export const setDropdownData = root =>
     root &&
     root.map(({ childs }) =>
-        childs.map(({ name, url, childs: children }) => {
+        childs.map(({ name, url, childs: children, site }) => {
             const list = (children && setDropdownData(children).flat()) || [];
 
             return {
                 name,
-                href: url,
+                href: (site && site.site_url) || url,
                 title: name,
                 ...(list.length && { list })
             };
