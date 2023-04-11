@@ -4,8 +4,8 @@ export const listBadgetsByConfigs = [
     {
         fieldsBadge: {
             badgeStyle: 'exclusive-ln',
-            badge: 'EXCLUSIVO SUSCRIPTOR',
-            chapita: 'EXCLUSIVO SUSCRIPTOR'
+            badge: 'Exclusivo suscriptor',
+            chapita: 'Exclusivo suscriptor'
         },
         Equal: [
             {
