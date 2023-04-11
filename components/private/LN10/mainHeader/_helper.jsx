@@ -43,7 +43,8 @@ export const setDesplegableData = (goToLogout = () => {}) => {
 
     return defaultOptions.map(option => ({
         ...option,
-        callback: () => {
+        callback: e => {
+            e.preventDefault();
             addEventToDataLayer({
                 event: 'e_linkclick',
                 action: 'home_ln10',
