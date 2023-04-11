@@ -77,7 +77,7 @@ describe('boxInfoComplete', () => {
         const information = {
             textBadge: 'Custom Badge',
             lead: 'Lead',
-            url: 'https://www.example.com',
+            link: 'https://www.example.com',
             video: '',
             title: 'Title',
             image,
@@ -100,10 +100,10 @@ describe('boxInfoComplete', () => {
         expect(result).toEqual({
             ...box,
             tituloCaja: information.title,
-            url: information.url,
+            url: information.link,
             parameters: {
                 title: information.title,
-                url: information.url,
+                url: information.link,
                 badge: information.chapita,
                 badgeStyle: information.chapitaStyle,
                 actionButton: {
