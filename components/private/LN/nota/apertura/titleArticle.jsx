@@ -10,7 +10,8 @@ const titleArticle = ({ headlines, prefix, size }) => {
     return (
         <ComTitle
             tag="h1"
-            size={size || '--threexl'}
+            weight="--font-extra"
+            size={size || '--sixxl'}
             content={`${prefixText}${basic}`}
         />
     );

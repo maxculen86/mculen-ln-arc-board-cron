@@ -20,7 +20,8 @@ const PowerUpLiveBlog = ({ data = {} }) => {
         <StaticValidation id={_id} htmlOnly persistent>
             <ComTitle
                 tag="h2"
-                size="--l"
+                size="--xl"
+                weight="--font-extra"
                 content={`${timeWithoutSeconds(time)} | ${title}`}
             />
         </StaticValidation>

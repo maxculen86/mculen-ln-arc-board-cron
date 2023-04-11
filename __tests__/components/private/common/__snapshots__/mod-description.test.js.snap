@@ -9,6 +9,7 @@ exports[`Private - Common - ModDescription ModDescription - Snapshots 1`] = `
     link="http://google.com"
     size="--s"
     tag="h1"
+    weight="--font-bold"
   />
   <text-mock
     extraclass="com-subhead"

@@ -96,7 +96,7 @@ const WikiFeature = () => {
                     sources={resizedUrls}
                     isApertura
                 />
-                <div className="extra-info">
+                <div className="extra-info --font-primary --font-medium">
                     {(isOrganization ? schemaOrganization : schemaPerson).map(
                         ({ text, value }) =>
                             value.length > 2 && (
@@ -118,10 +118,8 @@ const WikiFeature = () => {
                     )}
                 </div>
                 {socialNetworks.length > 0 && (
-                    <div className="social-networks">
-                        <Text font="sueca" size="2xs" weight="regular">
-                            Conectar:
-                        </Text>
+                    <div className="social-networks --font-primary --font-medium">
+                        <Text>Conectar:</Text>
                         {socialNetworks.map(iconInfo => {
                             const {
                                 type: iconType = '',
@@ -147,7 +145,7 @@ const WikiFeature = () => {
                         })}
                     </div>
                 )}
-                <div className="wiki-description">
+                <div className="wiki-description --georgia">
                     <div
                         dangerouslySetInnerHTML={{
                             __html: description

@@ -26,11 +26,6 @@
     @font-face {
         font-family: '#{$name}';
         src: url('../../fonts/#{$file}.woff') format('woff');
-        // src: url('../../fonts/#{$file}.eot');
-        // src: url('../../fonts/#{$file}.eot?#iefix') format('embedded-opentype'),
-        //     url('../../fonts/#{$file}.woff') format('woff'),
-        //     url('../../fonts/#{$file}.ttf') format('truetype'),
-        //     url('../../fonts/#{$file}.svg?#webfont') format('svg');
         font-weight: $weight;
         font-display: swap;
         font-style: normal;
@@ -70,48 +65,35 @@
     }
 }
 
-// @mixin headerBlanco {
-//     background: $neutral-white;
-//     border-bottom: 1px solid $light-neutral-300;
-//     .logo-la-nacion {
-//         color: $ln;
-//     }
-//     .--btn.--secondary {
-//         background-color: $neutral-white;
-//         border: 1px solid $link;
-//         color: $link;
-//     }
-//     .com-hamburger:before {
-//         color: $neutral-black;
-//     }
-// }
 @mixin flex($display, $direction: null, $ejeX: null, $ejeY: null) {
     //Sólo agregamos el "@include flex($display, $direction, $ejeX, $ejeY);"
-    @if $display == flex {
+    @if $display ==flex {
         $display: flex;
-    } @else if $display == inline {
+    } @else if $display ==inline {
         $display: inline-flex;
     }
-    @if $ejeX == start {
+
+    @if $ejeX ==start {
         $ejeX: flex-start;
-    } @else if $ejeX == end {
+    } @else if $ejeX ==end {
         $ejeX: flex-end;
-    } @else if $ejeX == center {
+    } @else if $ejeX ==center {
         $ejeX: center;
-    } @else if $ejeX == between {
+    } @else if $ejeX ==between {
         $ejeX: space-between;
-    } @else if $ejeX == around {
+    } @else if $ejeX ==around {
         $ejeX: space-around;
     }
-    @if $ejeY == start {
+
+    @if $ejeY ==start {
         $ejeY: flex-start;
-    } @else if $ejeY == end {
+    } @else if $ejeY ==end {
         $ejeY: flex-end;
-    } @else if $ejeY == center {
+    } @else if $ejeY ==center {
         $ejeY: center;
-    } @else if $ejeY == stretch {
+    } @else if $ejeY ==stretch {
         $ejeY: stretch;
-    } @else if $ejeY == baseline {
+    } @else if $ejeY ==baseline {
         $ejeY: baseline;
     }
 
@@ -139,6 +121,7 @@
     //.mod-opening
 
     margin-top: px(-48); //header mobile sin linea
+
     @media ($media-l) {
         margin-top: px(-72); //header sin linea
     }
@@ -168,6 +151,7 @@
                     .com-image {
                         display: none;
                     }
+
                     video {
                         display: block;
                         position: relative;
@@ -212,9 +196,11 @@
         [class*='logo-'] {
             margin: 0;
             margin-bottom: $spacing;
+
             &::before {
                 color: $neutral-white;
             }
+
             @media ($media-m) {
                 margin-bottom: $spacing-sm;
             }
@@ -233,16 +219,9 @@
 
         .lay {
             .com-title {
-                font-family: $font-SuecaSlab;
-                font-size: px(24);
-                line-height: px(32);
                 color: $neutral-white;
-
-                @media ($media-m) {
-                    font-size: px(46);
-                    line-height: px(54);
-                }
             }
+
             @media (min-width: 769px) {
                 width: auto;
                 display: inline-block;
@@ -250,9 +229,11 @@
             }
         }
     }
+
     .mod-figcaption {
         border-bottom: 1px solid $light-neutral-400;
         margin-top: $spacing;
+
         .--credit,
         .--caption {
             margin-bottom: $spacing;
@@ -260,50 +241,12 @@
     }
 }
 
-//MIXIN viejo para borrar cuanod suba acumulado
-// @mixin revista($logo, $primario) {
-//     &.acu-revista .subheader-acu i.logo-revista:before {
-//         content: $logo;
-//     }
-//     .cont-figure .figure .content-pic:before {
-//         content: $logo;
-//         color: $primario;
-//         opacity: 0.2;
-//         font-size: px(35);
-//     }
-//     @media (min-width: 1023px) {
-//         .row-gap-deskxl-2 .cont-figure .figure .content-pic:before {
-//             font-size: px(65);
-//         }
-//     }
-//     .com-tag a {
-//         color: $primario;
-//         border-color: $primario;
-//         &:hover {
-//             background: $primario;
-//         }
-//     }
-//     .com-secondary-tag a,
-//     .com-secondary-tag a:after,
-//     [class^='logo-']:not(.logo-la-nacion),
-//     [class*=' logo-'] {
-//         color: $primario;
-//     }
-//     &.fondo-revista,
-//     //.mod-newsletter,
-//     .mod-opening:before {
-//         background-color: $primario;
-//     }
-//     .subheader-acu {
-//         background: $primario;
-//     }
-// }
-
 //=======================================
 // MIXIN GRID REPEDITOS o ÚNICOS
 //=======================================
 
 $guion: '-';
+
 @mixin grid-repeat($col, $screen: false) {
     @if $screen {
         .grid-#{$screen}#{$guion}#{$col} {
@@ -317,6 +260,7 @@ $guion: '-';
         }
     }
 }
+
 @mixin grid-repeat-gap($col, $screen: false) {
     @if $screen {
         .grid-#{$screen}#{$guion}#{$col} {
@@ -330,6 +274,7 @@ $guion: '-';
         }
     }
 }
+
 @mixin grid-norepeat(
     $col,
     $fr1: null,
@@ -350,6 +295,7 @@ $guion: '-';
         }
     }
 }
+
 @mixin grid-norepeat-gap(
     $col,
     $fr1: null,
@@ -370,6 +316,7 @@ $guion: '-';
         }
     }
 }
+
 @mixin column-grid($start, $end) {
     grid-column-start: $start;
     grid-column-end: $end;
@@ -404,7 +351,8 @@ $guion: '-';
                 'deportes': $deportes,
                 'salud': $salud,
                 'autos': $autos,
-                'campo': $campo
+                'campo': $campo,
+                'propiedades': $propiedades
             )
     {
         .acumulado.#{$section} {
@@ -434,25 +382,30 @@ $guion: '-';
             .mod-keepreading a {
                 color: $primario;
             }
+
             .cuerpo__nota .com-button {
                 &.--secondary {
                     color: $primario;
                     border-color: $primario;
+
                     &:hover {
                         background-color: $primario;
                         color: $neutral-white;
+
                         .com-icon {
                             path {
                                 fill: $neutral-white;
                             }
                         }
                     }
+
                     .com-icon {
                         path {
                             fill: $primario;
                         }
                     }
                 }
+
                 &.--primary {
                     border-color: $primario;
                     background-color: $primario;
@@ -469,13 +422,80 @@ $guion: '-';
         width: 66.666666%;
         max-width: $width_nota100_l;
     }
+
     @media ($media-lm) {
         max-width: $width_nota100_lm;
     }
+
     @media ($media-lg) {
         max-width: $width_nota100_lg;
     }
+
     @media ($media-xl) {
         max-width: $width_nota100_xl;
     }
+}
+
+//=============================
+// MEDIDAS DE FONT
+//=============================
+
+@mixin size3XL {
+    font-size: px(48);
+    line-height: px(56);
+}
+
+@mixin size2XL {
+    font-size: px(40);
+    line-height: px(52);
+}
+
+@mixin sizeXL {
+    font-size: px(32);
+    line-height: px(40);
+}
+
+@mixin sizeL {
+    font-size: px(24);
+    line-height: px(32);
+}
+
+@mixin sizeM {
+    font-size: px(20);
+    line-height: px(28);
+}
+
+@mixin sizeS {
+    font-size: px(19);
+    line-height: px(30);
+}
+
+@mixin sizeXS {
+    font-size: px(18);
+    line-height: px(26);
+}
+
+@mixin size2XS {
+    font-size: px(16);
+    line-height: px(24);
+}
+
+@mixin size3XS {
+    font-size: px(15);
+    line-height: px(22);
+}
+
+@mixin size4XS {
+    font-size: px(14);
+    line-height: px(16);
+}
+
+@mixin size5XS {
+    font-size: px(12);
+    line-height: px(16);
+}
+
+@mixin size6XS {
+    font-size: px(11);
+    line-height: px(16);
 }

@@ -10,6 +10,7 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             'red',
             'lightblue',
             'green',
+            'yellow',
             'afondo',
             'bombita',
             'bomba',

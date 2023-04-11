@@ -1,4 +1,5 @@
 @import '../abstracts/variables';
+@import '../abstracts/mixins';
 
 //oculto hasta 1100
 @media (max-width: 68.75em) {
@@ -7,13 +8,8 @@
     }
 }
 
-@media (max-width: 64em - 1) {
-    .hlp-tablet-none {
-        display: none;
-    }
-}
 //visible desde 767
-@media (max-width: 48em - 1) {
+@media (max-width: 47em) {
     .hlp-mobile-show {
         display: inline-block;
     }
@@ -24,143 +20,52 @@
     .hlp-none {
         display: none;
     }
-    .hlp-mobile-none {
-        display: none;
-    }
-}
-
-@media ($media-m) {
-    .hlp-mobile-none {
-        display: inherit;
-    }
 }
 
 @media ($media-l) {
-    .hlp-mobile-none {
-        display: inherit;
-    }
     .hlp-desksm-none {
         display: none;
     }
 }
 
 @media ($media-xl) {
-    .hlp-mobile-none {
-        display: inherit;
-    }
     .hlp-desksm-none {
         display: inherit;
     }
+
     .hlp-desk-none {
         display: none;
     }
 }
 
-// .hlp-overflow-scroll {
-//     overflow: scroll;
-// }
-
-.hlp-bold {
-    font-weight: bold;
-}
-// ::selection {
-//     background-color: $ln;
-//     color: $neutral-white;
-// }
-
-//=============================
-// MEDIDAS DE FONT
-//=============================
-@mixin size3XL {
-    font-size: px(48);
-    line-height: px(56);
-}
-
-@mixin size2XL {
-    font-size: px(40);
-    line-height: px(52);
-}
-
-@mixin sizeXL {
-    font-size: px(32);
-    line-height: px(40);
-}
-
-@mixin sizeL {
-    font-size: px(24);
-    line-height: px(32);
-}
-
-@mixin sizeM {
-    font-size: px(20);
-    line-height: px(28);
-}
-
-@mixin sizeS {
-    font-size: px(19);
-    line-height: px(30);
-}
-
-@mixin sizeXS {
-    font-size: px(18);
-    line-height: px(26);
-}
-
-@mixin size2XS {
-    font-size: px(16);
-    line-height: px(24);
-}
-
-@mixin size3XS {
-    font-size: px(15);
-    line-height: px(17);
-}
-
-@mixin size4XS {
-    font-size: px(14);
-    line-height: px(16);
-}
-
-@mixin size5XS {
-    font-size: px(12);
-    line-height: px(16);
-}
-
-@mixin size6XS {
-    font-size: px(11);
-    line-height: px(16);
-}
-
 //TABLA DE CONVERSIÓN
+
 .--threexl {
     @include sizeL; //mobile
+
     @media (max-width: 767px) {
         //mobile home
         .mod-article & {
             @include sizeM;
-            // .--bomba & {
-            //     @include sizeL;
-            // }
         }
     }
+
     @media ($media-m) {
         //768
         @include size2XL;
-    }
-    @media ($media-lm) {
-        //1100
-        @include size3XL;
     }
 }
 
 .--twoxl {
     @include sizeXL; //mobile
+
     @media (max-width: 767px) {
         //mobile home
         .mod-article & {
             @include sizeM;
         }
     }
+
     @media ($media-m) {
         //768
         @include size2XL;
@@ -169,6 +74,7 @@
 
 .--xl {
     @include sizeXL; //mobile
+
     @media (max-width: 767px) {
         //mobile home
         .mod-article & {
@@ -179,6 +85,7 @@
 
 .--l {
     @include sizeM; //mobile
+
     @media ($media-m) {
         //768
         @include sizeL;
@@ -191,10 +98,6 @@
 
 .--m-xs- {
     @include sizeXS; //mobile
-    @media ($media-lm) {
-        //1100
-        @include sizeM;
-    }
 }
 
 .--s {
@@ -203,6 +106,7 @@
 
 .--xs {
     @include sizeM; //mobile
+
     @media ($media-m) {
         //768
         @include sizeXS;
@@ -233,31 +137,10 @@
 // FONT WEIGHT
 //=============================
 
-.--font-thin {
-    font-weight: 100;
-}
-
-.--font-light {
-    font-weight: 300;
-}
-
-.--font-regular {
-    font-weight: 400;
-}
-
-.--font-medium {
-    font-weight: 500;
-}
-
 strong,
-b, //vienen en las notas
+b,
 .--font-bold {
     font-weight: 700;
-}
-
-.--font-black {
-    font-weight: 900;
-    color: $neutral-black;
 }
 
 //=============================
@@ -272,17 +155,54 @@ b, //vienen en las notas
     font-family: $font-georgia;
 }
 
-.--sueca {
-    font-family: $font-SuecaSlab;
-}
-
 @media ($media-m) {
     .--capital::first-letter {
         text-transform: uppercase;
         font-size: px(64);
-        font-family: $font-SuecaSlab;
+        font-family: $font-primary;
         font-weight: bold;
-        margin: px(16) px(8) px(8) 0;
+        margin: px(20) px(12) 0 0;
         float: left;
     }
+}
+
+// LN 10
+.--font-primary {
+    font-family: $font-georgia;
+
+    &.--l {
+        line-height: 130%;
+        font-size: px(20);
+    }
+
+    &.--xl {
+        line-height: 116%;
+        font-size: px(24);
+    }
+
+    &.--fourxl {
+        line-height: 116%;
+        font-size: px(24);
+
+        @media ($media-m) {
+            font-size: px(32);
+        }
+    }
+
+    &.--sixxl {
+        line-height: 110%;
+        font-size: px(28);
+
+        @media ($media-m) {
+            font-size: px(40);
+        }
+    }
+}
+
+.--font-extra {
+    font-weight: 700;
+}
+
+.--font-medium {
+    font-weight: 500;
 }

@@ -4,6 +4,8 @@ import { bannerBox } from '../../../../../../../../../components/private/LN/api/
 import { anexoMobileBox } from '../../../../../../../../../components/private/LN/api/common/home/boxTypes/LN/boxes/anexoMobileBox';
 import { anticipoBox } from '../../../../../../../../../components/private/LN/api/common/home/boxTypes/LN/boxes/anticipoBox';
 import { sectionAcuBox } from '../../../../../../../../../components/private/LN/api/common/home/boxTypes/LN/boxes/sectionAcumuladoBox';
+import { titleBox } from '../../../../../../../../../components/private/LN/api/common/home/boxTypes/LN/boxes/titleBox';
+import { dolarBox } from '../../../../../../../../../components/private/LN/api/common/home/boxTypes/LN/boxes/dolarBox';
 
 describe('boxTypesLN', () => {
     it('should contain the story box', () => {
@@ -22,7 +24,14 @@ describe('boxTypesLN', () => {
         expect(boxTypesLN[3]).toBe(anticipoBox);
     });
 
+    it('should contain the accumulated section title box', () => {
+        expect(boxTypesLN[4]).toBe(titleBox);
+    });
+    it('should contain the Dolar box', () => {
+        expect(boxTypesLN[5]).toBe(dolarBox);
+    });
+
     it('should contain the accumulated section box', () => {
-        expect(boxTypesLN[4]).toBe(sectionAcuBox);
+        expect(boxTypesLN[6]).toBe(sectionAcuBox);
     });
 });

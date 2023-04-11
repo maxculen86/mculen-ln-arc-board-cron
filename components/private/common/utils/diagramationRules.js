@@ -1001,10 +1001,10 @@ const diagramationRules = diagramation => {
                 cardSize: '2xl',
                 imageConfig: 'T1',
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withMedia: true,
-                withSubhead: false,
-                withSection: true,
+                withSubhead: true,
+                withSection: false,
                 imagePosition: {
                     mobile: 'img-top',
                     tablet: 'img-right',

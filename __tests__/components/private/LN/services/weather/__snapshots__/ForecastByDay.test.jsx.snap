@@ -6,7 +6,7 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
     class="extend-forecast"
   >
     <h2
-      class="com-text --sueca --l"
+      class="com-title --font-primary --font-medium --xl"
     >
       Pronóstico del tiempo en
       <strong>
@@ -417,7 +417,7 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
     class="extend-forecast"
   >
     <h2
-      class="com-text --sueca --l"
+      class="com-title --font-primary --font-medium --xl"
     >
       Pronóstico del tiempo en
       <strong>
@@ -828,7 +828,7 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
     class="extend-forecast"
   >
     <h2
-      class="com-text --sueca --l"
+      class="com-title --font-primary --font-medium --xl"
     >
       Pronóstico del tiempo en
       <strong>

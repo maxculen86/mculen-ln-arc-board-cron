@@ -18,7 +18,7 @@ const EmptyBookmark = () => {
                 <ComImage src={placeholder} alt="Marcador de notas vacío" />
             </div>
             <div>
-                <Text tag="h3" size="--m" weight="bold" font="--sueca">
+                <Text tag="h3" size="--m" weight="bold" font="--font-primary">
                     ¡Todavía no guardaste ninguna nota!
                 </Text>
                 <Text extraClass="instruction" size="--twoxs" font="--arial">

@@ -37,6 +37,7 @@ describe('Private - Common - ModDescription', () => {
         titleTag: 'h1',
         titleSize: '--s',
         titleText: 'Este es el titulo',
+        titleWeight: '--font-bold',
         authors: ['Mariano Grondona'],
         subheadText: 'Este es el subtitulo',
         subheadSize: '',

@@ -15,6 +15,7 @@ const ModDescription = props => {
         titleTag,
         titleSize,
         titleText,
+        titleWeight,
         authorSize,
         authors,
         subheadText,
@@ -52,6 +53,7 @@ const ModDescription = props => {
             <ComTitle
                 tag={titleTag}
                 size={titleSize}
+                weight={titleWeight}
                 link={link}
                 content={titleText}
                 lead={lead}
@@ -143,6 +145,7 @@ ModDescription.propTypes = {
         PropTypes.bool,
         PropTypes.arrayOf(PropTypes.object)
     ]),
+    titleWeight: PropTypes.string,
     titleSize: PropTypes.string,
     titleTag: PropTypes.string,
     titleText: PropTypes.string.isRequired,
@@ -168,7 +171,8 @@ ModDescription.defaultProps = {
     subheadTag: 'h3',
     subheadText: false,
     tags: undefined,
-    titleSize: '--xs',
+    titleWeight: undefined,
+    titleSize: '--l',
     titleTag: 'h2',
     contentRestrictions: {
         content_code: 'comun'
