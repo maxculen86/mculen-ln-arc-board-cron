@@ -201,6 +201,7 @@ const ArticleFeature = ({
     const typeOfMedia = getTypeOfMedia(customFields);
 
     const { badgetStyle, badgetText } = getBadgetConfig({
+        article,
         style: chapitaStyle,
         text: chapita,
         isLiveblog,
