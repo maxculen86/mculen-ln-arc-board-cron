@@ -119,7 +119,7 @@ AcumuladoTitle.propTypes = {
 
 AcumuladoTitle.defaultProps = {
     idLogoImage: '',
-    colorCategory: ''
+    colorCategory: undefined
 };
 
 export default withAcuCategories(AcumuladoTitle);

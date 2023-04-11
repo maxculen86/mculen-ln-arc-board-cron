@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Private - Common - ComTitle =>  Snapshot con classCondition y size  1`] = `
+exports[`Private - Common - ComTitle =>  Snapshot con classCondition, size y weight 1`] = `
 <h2
-  class="com-title --s --modificador"
+  class="com-title --font-primary --xl --font-medium --modificador"
 >
   Título de impacto H2
 </h2>
@@ -10,7 +10,7 @@ exports[`Private - Common - ComTitle =>  Snapshot con classCondition y size  1`]
 
 exports[`Private - Common - ComTitle =>  Snapshot h2 con content tags  y link 1`] = `
 <h2
-  class="com-title"
+  class="com-title --font-primary --l --font-medium"
 >
   <a
     class="com-link"
@@ -24,7 +24,7 @@ exports[`Private - Common - ComTitle =>  Snapshot h2 con content tags  y link 1`
 
 exports[`Private - Common - ComTitle =>  Snapshot h2 con link 1`] = `
 <h2
-  class="com-title"
+  class="com-title --font-primary --l --font-medium"
 >
   <a
     class="com-link"
@@ -39,22 +39,22 @@ exports[`Private - Common - ComTitle =>  Snapshot h2 con link 1`] = `
 exports[`Private - Common - ComTitle =>  Snapshots con tags h1, h2, h3, h4 1`] = `
 Array [
   <h1
-    class="com-title"
+    class="com-title --font-primary --l --font-medium"
   >
     Título de impacto H1
   </h1>,
   <h2
-    class="com-title"
+    class="com-title --font-primary --l --font-medium"
   >
     Título de impacto H2
   </h2>,
   <h3
-    class="com-title"
+    class="com-title --font-primary --l --font-medium"
   >
     Título de impacto H3
   </h3>,
   <h4
-    class="com-title"
+    class="com-title --font-primary --l --font-medium"
   >
     Título de impacto H4
   </h4>,
@@ -64,12 +64,12 @@ Array [
 exports[`Private - Common - ComTitle =>  Snapshots tags no permitidos 1`] = `
 Array [
   <h4
-    class="com-title"
+    class="com-title --font-primary --l --font-medium"
   >
     Título de impacto H5
   </h4>,
   <h4
-    class="com-title"
+    class="com-title --font-primary --l --font-medium"
   >
     Título de impacto SPAN
   </h4>,

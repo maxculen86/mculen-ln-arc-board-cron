@@ -49,7 +49,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -76,7 +76,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -139,7 +139,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -166,7 +166,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -229,7 +229,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -256,7 +256,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -319,7 +319,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -346,7 +346,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -409,7 +409,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -436,7 +436,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -499,7 +499,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -526,7 +526,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -589,7 +589,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -616,7 +616,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -679,7 +679,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -706,7 +706,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -769,7 +769,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -796,7 +796,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -859,7 +859,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -886,7 +886,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -949,7 +949,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -976,7 +976,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -1039,7 +1039,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -1066,7 +1066,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -1129,7 +1129,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -1156,7 +1156,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -1219,7 +1219,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -1246,7 +1246,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -1309,7 +1309,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -1336,7 +1336,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -1399,7 +1399,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -1426,7 +1426,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -1489,7 +1489,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -1516,7 +1516,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -1579,7 +1579,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -1606,7 +1606,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -1669,7 +1669,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -1696,7 +1696,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -1759,7 +1759,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -1786,7 +1786,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -1849,7 +1849,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -1876,7 +1876,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -1939,7 +1939,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -2018,7 +2018,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -2045,7 +2045,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -2108,7 +2108,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -2187,7 +2187,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -2214,7 +2214,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -2277,7 +2277,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -2304,7 +2304,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -2367,7 +2367,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -2394,7 +2394,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -2457,7 +2457,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -2536,7 +2536,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -2563,7 +2563,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -2626,7 +2626,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -2714,7 +2714,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -2741,7 +2741,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -2804,7 +2804,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -2831,7 +2831,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -2894,7 +2894,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -2921,7 +2921,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -2984,7 +2984,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -3011,7 +3011,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -3074,7 +3074,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -3101,7 +3101,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -3164,7 +3164,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -3191,7 +3191,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -3254,7 +3254,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -3281,7 +3281,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -3344,7 +3344,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -3371,7 +3371,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -3434,7 +3434,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -3461,7 +3461,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -3524,7 +3524,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -3551,7 +3551,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -3614,7 +3614,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -3641,7 +3641,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -3704,7 +3704,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -3731,7 +3731,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -3794,7 +3794,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -3821,7 +3821,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -3884,7 +3884,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -3911,7 +3911,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -3974,7 +3974,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -4001,7 +4001,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -4064,7 +4064,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -4091,7 +4091,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -4154,7 +4154,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -4181,7 +4181,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -4244,7 +4244,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -4271,7 +4271,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -4334,7 +4334,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -4361,7 +4361,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -4424,7 +4424,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -4451,7 +4451,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -4514,7 +4514,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -4541,7 +4541,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -4604,7 +4604,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -4683,7 +4683,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -4710,7 +4710,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -4773,7 +4773,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -4852,7 +4852,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -4879,7 +4879,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -4942,7 +4942,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -4969,7 +4969,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -5032,7 +5032,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -5059,7 +5059,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -5122,7 +5122,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -5201,7 +5201,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -5228,7 +5228,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -5291,7 +5291,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -5379,7 +5379,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -5406,7 +5406,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -5469,7 +5469,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -5496,7 +5496,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -5559,7 +5559,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -5586,7 +5586,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -5649,7 +5649,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -5676,7 +5676,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -5739,7 +5739,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -5766,7 +5766,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -5829,7 +5829,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -5856,7 +5856,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -5919,7 +5919,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -5946,7 +5946,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -6009,7 +6009,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -6036,7 +6036,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -6099,7 +6099,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -6126,7 +6126,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -6189,7 +6189,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -6216,7 +6216,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -6279,7 +6279,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -6306,7 +6306,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -6369,7 +6369,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -6396,7 +6396,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -6459,7 +6459,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -6486,7 +6486,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -6549,7 +6549,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -6576,7 +6576,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -6639,7 +6639,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -6666,7 +6666,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -6729,7 +6729,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -6756,7 +6756,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -6819,7 +6819,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -6846,7 +6846,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -6909,7 +6909,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -6936,7 +6936,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -6999,7 +6999,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -7026,7 +7026,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -7089,7 +7089,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -7116,7 +7116,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -7179,7 +7179,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -7206,7 +7206,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -7269,7 +7269,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -7348,7 +7348,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -7375,7 +7375,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -7438,7 +7438,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -7517,7 +7517,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -7544,7 +7544,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -7607,7 +7607,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -7634,7 +7634,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -7697,7 +7697,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -7724,7 +7724,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -7787,7 +7787,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -7866,7 +7866,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -7893,7 +7893,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -7956,7 +7956,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -8044,7 +8044,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -8071,7 +8071,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -8134,7 +8134,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -8161,7 +8161,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -8224,7 +8224,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -8251,7 +8251,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -8314,7 +8314,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -8341,7 +8341,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -8404,7 +8404,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -8431,7 +8431,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -8494,7 +8494,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -8521,7 +8521,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -8584,7 +8584,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -8611,7 +8611,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -8674,7 +8674,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -8701,7 +8701,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -8764,7 +8764,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -8791,7 +8791,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -8854,7 +8854,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -8881,7 +8881,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -8944,7 +8944,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -8971,7 +8971,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -9034,7 +9034,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -9061,7 +9061,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -9124,7 +9124,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -9151,7 +9151,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -9214,7 +9214,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -9241,7 +9241,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -9304,7 +9304,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -9331,7 +9331,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -9394,7 +9394,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -9421,7 +9421,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -9484,7 +9484,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -9511,7 +9511,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -9574,7 +9574,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -9601,7 +9601,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -9664,7 +9664,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -9691,7 +9691,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -9754,7 +9754,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -9781,7 +9781,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -9844,7 +9844,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -9871,7 +9871,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -9934,7 +9934,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -10013,7 +10013,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -10040,7 +10040,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -10103,7 +10103,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -10182,7 +10182,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -10209,7 +10209,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -10272,7 +10272,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -10299,7 +10299,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -10362,7 +10362,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -10389,7 +10389,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -10452,7 +10452,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -10531,7 +10531,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -10558,7 +10558,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -10621,7 +10621,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -10709,7 +10709,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -10736,7 +10736,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -10799,7 +10799,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -10826,7 +10826,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -10889,7 +10889,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -10916,7 +10916,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -10979,7 +10979,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -11006,7 +11006,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -11069,7 +11069,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -11096,7 +11096,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -11159,7 +11159,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -11186,7 +11186,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -11249,7 +11249,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -11276,7 +11276,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -11339,7 +11339,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -11366,7 +11366,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -11429,7 +11429,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -11456,7 +11456,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -11519,7 +11519,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -11546,7 +11546,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -11609,7 +11609,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -11636,7 +11636,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -11699,7 +11699,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -11726,7 +11726,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -11789,7 +11789,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -11816,7 +11816,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -11879,7 +11879,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -11906,7 +11906,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -11969,7 +11969,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -11996,7 +11996,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -12059,7 +12059,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -12086,7 +12086,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -12149,7 +12149,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -12176,7 +12176,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -12239,7 +12239,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -12266,7 +12266,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -12329,7 +12329,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -12356,7 +12356,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -12419,7 +12419,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -12446,7 +12446,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -12509,7 +12509,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -12536,7 +12536,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -12599,7 +12599,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -12678,7 +12678,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -12705,7 +12705,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -12768,7 +12768,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -12847,7 +12847,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -12874,7 +12874,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -12937,7 +12937,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -12964,7 +12964,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -13027,7 +13027,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -13054,7 +13054,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -13117,7 +13117,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -13196,7 +13196,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"
@@ -13223,7 +13223,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
             </a>
           </strong>
           <h3
-            class="com-title --fourxs --tags --bullet"
+            class="com-title --font-primary --fourxs --font-medium --tags --bullet"
           >
             <a
               class="com-link --tags --bullet"
@@ -13286,7 +13286,7 @@ exports[`Components - Private - LN - Acumulado - ArticlesAcum Should return arti
       >
         
         <h2
-          class="com-title --xs"
+          class="com-title --font-primary --l --font-medium"
         >
           <a
             class="com-link"

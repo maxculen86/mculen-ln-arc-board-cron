@@ -82,6 +82,7 @@ const NoteCard = ({
                         get(articleProps, 'titleTagApertura')) ||
                     get(articleProps, 'titleTag', 'h2')
                 }
+                titleWeight={get(articleProps, 'titleWeight')}
                 authors={get(article, 'marquesina')}
                 subheadText={
                     get(articleProps, 'skipSubhead', false)

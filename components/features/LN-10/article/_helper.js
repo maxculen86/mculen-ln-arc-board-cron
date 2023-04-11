@@ -37,8 +37,11 @@ export const showMarqueeImage = ({
     url
 }) => !authors && withMarqueeImg && authorsQuantity === 1 && url;
 
-export const showSection = ({ withSection, article, authors }) =>
-    !authors && withSection && get(article, 'taxonomy.primary_section.name');
+export const showSection = ({ withSection, article, authors, authorPhoto }) =>
+    !authors &&
+    authorPhoto &&
+    withSection &&
+    get(article, 'taxonomy.primary_section.name');
 
 export const validateSubhead = (config, withMedia, customFields, variant) => {
     return (

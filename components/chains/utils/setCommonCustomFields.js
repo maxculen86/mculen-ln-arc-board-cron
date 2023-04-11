@@ -14,7 +14,7 @@ const typeStylesChain = {
     movilidad: 'Movilidad',
     'sub-exclusive': 'Exclusivo Suscriptor',
     Hashtag: 'Hashtag',
-    generic: 'A Fondo (Celeste Claro)',
+    yellow: 'A Fondo (Amarillo)',
     white: 'A Fondo (Blanco)',
     red: 'A Fondo (Rojo)',
     green: 'A Fondo (Verde)',

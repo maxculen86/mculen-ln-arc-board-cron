@@ -8,7 +8,7 @@ exports[`Components - private - LN - nota - cuerpo. Liveblog powerUp test Should
     persistent="true"
   >
     <h2
-      class="com-title --l"
+      class="com-title --font-primary --xl --font-extra"
     >
       02:27 | Dos combatientes de EE.UU desaparecidos en Ucrania: se teme que los hayan capturado
     </h2>

@@ -17,7 +17,7 @@ const TechoFeatured = props => {
             <ModheaderSection
                 title={title}
                 link={url}
-                size="--l"
+                size="--xl"
                 classCondition={color !== 'default' && `--bg ${color}`}
                 imageId={imageId}
                 outputType={outputType}

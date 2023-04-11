@@ -9,7 +9,7 @@ exports[`components - private - holidays - HolidaysCounter snapshot HolidaysCoun
       class="number-counter --immovable"
     >
       <span
-        class="com-text --sueca --font-bold --threexl"
+        class="com-text sueca --font-bold --threexl"
       >
         8
       </span>

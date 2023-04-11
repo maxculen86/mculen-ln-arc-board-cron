@@ -64,7 +64,7 @@
         "@ln/contenidos-ui-opening": "^0.2.2",
         "@ln/contenidos-ui-preheader": "^0.0.2-beta.4",
         "@ln/contenidos-ui-roof": "0.0.2-beta.4",
-        "@ln/contenidos-ui-sass": "^0.2.1-beta.0",
+        "@ln/contenidos-ui-sass": "^0.2.1-beta.4",
         "@ln/contenidos-ui-text": "^0.0.2-beta.9",
         "@ln/contenidos-ui-timeline": "^0.1.1-beta.1",
         "classnames": "^2.3.2",

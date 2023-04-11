@@ -64,6 +64,7 @@ const ModheaderSection = props => {
                     content={title}
                     link={addForwardSLash(link)}
                     customTitle={customTitle}
+                    weight="--font-extra"
                 />
             ) : (
                 <div className="mod-logo">{modLogoImage}</div>
@@ -98,7 +99,7 @@ ModheaderSection.defaultProps = {
     title: null,
     classCondition: '',
     line: true,
-    size: '--l',
+    size: '--xl',
     tag: 'h3',
     image: {},
     outputType: 'default',

@@ -14,7 +14,7 @@ exports[`Private - Feature - CajaAnticipo => with a valid response Snapshot Feat
         EN VIVO
       </span>
       <h2
-        class="com-title --md"
+        class="com-title --font-primary --md --font-medium"
       >
         <a
           class="com-link"

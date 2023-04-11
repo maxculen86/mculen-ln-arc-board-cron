@@ -10,7 +10,9 @@ describe('Private - Common - ComTitle => ', () => {
         );
         expect(component).toBeDefined();
         expect(component.isEmptyRender()).toBeFalsy();
-        expect(component.props().className).toBe('com-title');
+        expect(component.props().className).toBe(
+            'com-title --font-primary --l --font-medium'
+        );
         expect(component.html()).toContain('Título Principal');
     });
 
@@ -45,7 +47,18 @@ describe('Private - Common - ComTitle => ', () => {
         );
         expect(component.find('h4')).toHaveLength(4);
     });
-
+    it('Validacion del valor de la prop font por defecto, --font-primary', () => {
+        const component = shallow(
+            <ComTitle
+                tag="h2"
+                size="xxl"
+                link="/ultimas-noticias"
+                content="Título de impacto H2 con ComLink"
+                classCondition="--noticia"
+            />
+        );
+        expect(component.hasClass('--font-primary')).toBeTruthy();
+    });
     it('Validación de propiedades size y classCondition (opcionales)', () => {
         const withSize = shallow(
             <ComTitle tag="h1" size="xl" content="Título" />
@@ -56,14 +69,20 @@ describe('Private - Common - ComTitle => ', () => {
         const fullTitle = shallow(
             <ComTitle
                 tag="h1"
-                size="xxl"
+                size="--twoxl"
                 content="Título"
                 classCondition="--mod"
             />
         );
-        expect(withSize.props().className).toBe('com-title xl');
-        expect(withClass.props().className).toBe('com-title --mod');
-        expect(fullTitle.props().className).toBe('com-title xxl --mod');
+        expect(withSize.props().className).toBe(
+            'com-title --font-primary xl --font-medium'
+        );
+        expect(withClass.props().className).toBe(
+            'com-title --font-primary --l --font-medium --mod'
+        );
+        expect(fullTitle.props().className).toBe(
+            'com-title --font-primary --twoxl --font-medium --mod'
+        );
     });
 
     it('Cuando recibe como props link debe renderizar el componente ComLink', () => {
@@ -78,6 +97,33 @@ describe('Private - Common - ComTitle => ', () => {
         );
         expect(component.find('a')).toBeTruthy();
         expect(component.find('h2')).toBeTruthy();
+    });
+    it('Cuando recibe como props weight debe agregar la prop como clase extra', () => {
+        const _weight = '--font-extra';
+        const component = shallow(
+            <ComTitle
+                tag="h2"
+                size="xl"
+                content="Título de impacto H2 con ComLink"
+                classCondition="--noticia"
+                weight={_weight}
+            />
+        );
+        expect(component.hasClass(_weight)).toBeTruthy();
+    });
+    it('Cuando recibe como props font debe agregar la prop como clase extra', () => {
+        const _font = '--arial';
+        const component = shallow(
+            <ComTitle
+                tag="h2"
+                size="xl"
+                font={_font}
+                content="Título de impacto H2 con ComLink"
+                classCondition="--noticia"
+                weight="--font-extra"
+            />
+        );
+        expect(component.hasClass(_font)).toBeTruthy();
     });
 
     it('Snapshots con tags h1, h2, h3, h4', () => {
@@ -124,13 +170,14 @@ describe('Private - Common - ComTitle => ', () => {
         expect(component).toMatchSnapshot();
     });
 
-    it('Snapshot con classCondition y size ', () => {
+    it('Snapshot con classCondition, size y weight', () => {
         const component = render(
             <ComTitle
                 tag="h2"
-                size="--s"
+                size="--xl"
                 classCondition="--modificador"
                 content="Título de impacto H2"
+                weight="--font-medium"
             />
         );
         expect(component).toMatchSnapshot();

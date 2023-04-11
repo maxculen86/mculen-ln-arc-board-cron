@@ -83,7 +83,10 @@ const CajaManual = props => {
                 extraOptions: {
                     default: (
                         <>
-                            <BuildRoof {...roofData} />
+                            <BuildRoof
+                                {...roofData}
+                                isAFondo={layout === 'bnFondo'}
+                            />
                             <ContainerCards
                                 gridType={getGridType(layout)}
                                 gridStyle={chainStyle}

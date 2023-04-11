@@ -125,7 +125,8 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             const result = showSection({
                 withSection: true,
                 article,
-                authors: ''
+                authors: '',
+                authorPhoto: true
             });
             expect(result).toBeTruthy();
         });

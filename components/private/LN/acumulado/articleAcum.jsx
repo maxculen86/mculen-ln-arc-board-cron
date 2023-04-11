@@ -45,6 +45,7 @@ const ArticleAcum = ({
     outputType,
     titleTag,
     titleSize,
+    titleWeight,
     withSubhead,
     withVolanta,
     isRenderAuthor,
@@ -100,6 +101,7 @@ const ArticleAcum = ({
                 titleText={
                     titleTextShort !== '' ? titleTextShort : titleTextLong
                 }
+                titleWeight={titleWeight}
                 leadText={titleTextShort !== '' ? leadText : ''}
                 authors={authors}
                 dateText={!typeAcumRules[typeArticle].withHour && display_date}
@@ -155,6 +157,7 @@ ArticleAcum.propTypes = {
     withTags: PropTypes.bool,
     titleTag: PropTypes.string,
     titleSize: PropTypes.string,
+    titleWeight: PropTypes.string,
     withSubhead: PropTypes.bool,
     withVolanta: PropTypes.bool,
     isRenderAuthor: PropTypes.bool,
@@ -169,6 +172,7 @@ ArticleAcum.defaultProps = {
     dataSection: '',
     titleSize: undefined,
     titleTag: undefined,
+    titleWeight: undefined,
     artPosition: '',
     typeArticle: 'Grilla',
     outputType: 'default',

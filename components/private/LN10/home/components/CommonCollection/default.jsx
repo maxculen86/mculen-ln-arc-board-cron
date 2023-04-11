@@ -31,11 +31,12 @@ export default function CommonCollection({
     position,
     articles = [],
     ContainerCards = Bngrid,
-    setExtraClassName
+    setExtraClassName,
+    layout
 }) {
     return (
         <>
-            <BuildRoof {...roofData} />
+            <BuildRoof {...roofData} isAFondo={layout === 'bnFondo'} />
             <ContainerCards gridType={gridType} gridStyle={roofData.chainStyle}>
                 {articles.map((article, index) => {
                     const {
@@ -76,7 +77,8 @@ export default function CommonCollection({
                             className={`${className || ''} ${extraClassName}`}
                             section={showSection({
                                 withSection,
-                                article
+                                article,
+                                authorPhoto: marqueeImg
                             })}
                             badgeText={
                                 gridType === LAYOUTS.CONTENT_LAB &&

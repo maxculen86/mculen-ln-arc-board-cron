@@ -9,6 +9,7 @@ import Text from '../../private/common/text';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
 import PwaModals from '../../private/LN/common/pwaModals';
+import ComTitle from '../../private/common/com-title';
 
 const layoutItemsColumnistas = [
     'Pre-Apertura',
@@ -38,16 +39,15 @@ const LNAcumuladoColumnistasLayout = props => {
                                         htmlOnly
                                         persistent
                                     >
-                                        <Text
+                                        <ComTitle
                                             tag="h1"
-                                            size="--l"
-                                            extraClass="com-title"
-                                            text="Columnas y opinión: política, economía, internacionales y más"
+                                            size="--xl"
+                                            weight="--font-extra"
+                                            content="Columnas y opinión: política, economía, internacionales y más"
                                         />
                                         <Text
                                             tag="p"
-                                            size="--m"
-                                            extraClass="com-text --mb-lg --sueca --font-regular --m"
+                                            extraClass="com-text --mb-lg --font-primary --l --font-medium"
                                             text={
                                                 'Leé los análisis de los columnistas, periodistas y escritores más destacados de la redacción. ' +
                                                 'Además, descubrí contenidos especializados de nuestros colaboradores. Informate con LA NACION.'

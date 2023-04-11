@@ -5,6 +5,7 @@
     margin-bottom: $spacing-sm;
     display: flex;
     flex-direction: column;
+
     .com-itemlist {
         @include flex(flex, row, start, start);
         margin-bottom: $spacing-xs;
@@ -27,11 +28,17 @@
         }
     }
 }
+
 @media ($media-l) {
     .mod-descriptionlist {
         &.--membresia,
         &.--idiomas {
             @include flex(inline, row, center, start);
+
+            .com-title {
+                margin: 0;
+                margin-right: $spacing-xs;
+            }
         }
     }
 }

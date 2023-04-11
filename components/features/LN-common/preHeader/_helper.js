@@ -31,7 +31,7 @@ export const setWeatherData = weatherValue => {
         place: 'Capital Federal',
         dataEvent: 'e_linkclick',
         dataSection: 'MenuLN',
-        link: '/clima'
+        link: '/clima/'
     };
 };
 

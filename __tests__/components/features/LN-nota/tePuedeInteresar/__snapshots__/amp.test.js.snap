@@ -20,7 +20,7 @@ exports[`TePuedeIneresarAmp should render the component with AMP tags when therm
           role="contentinfo"
         >
           <h3
-            class="com-title --l"
+            class="com-title --font-primary --xl --font-extra"
           >
             Te puede interesar
           </h3>
@@ -73,7 +73,7 @@ exports[`TePuedeIneresarAmp should render the component with AMP tags when therm
             >
               
               <h2
-                class="com-title --xs"
+                class="com-title --font-primary --l --font-medium"
               >
                 <a
                   class="com-link"
@@ -137,7 +137,7 @@ exports[`TePuedeIneresarAmp should render the component with AMP tags when therm
             >
               
               <h2
-                class="com-title --xs"
+                class="com-title --font-primary --l --font-medium"
               >
                 <a
                   class="com-link"

@@ -4,13 +4,25 @@ import ComTitle from '../../../common/com-title';
 
 const Subtitle = ({ data }) => {
     const tagConfigByLevel = {
-        1: { tag: 'h2', size: '--l', classCondition: '' },
-        2: { tag: 'h3', size: '--m', classCondition: '' },
-        3: { tag: 'h4', size: '--twoxs', classCondition: '--arial' },
-        4: { tag: 'h4', size: '--twoxs', classCondition: '--arial' },
-        5: { tag: 'h4', size: '--twoxs', classCondition: '--arial' },
-        6: { tag: 'h4', size: '--twoxs', classCondition: '--arial' },
-        default: { tag: 'h2', size: '--l', classCondition: '' }
+        1: {
+            tag: 'h2',
+            size: '--xl',
+            weight: '--font-extra'
+        },
+        2: {
+            tag: 'h3',
+            size: '--l',
+            weight: '--font-extra'
+        },
+        3: { tag: 'h4', size: '--twoxs', font: '--arial' },
+        4: { tag: 'h4', size: '--twoxs', font: '--arial' },
+        5: { tag: 'h4', size: '--twoxs', font: '--arial' },
+        6: { tag: 'h4', size: '--twoxs', font: '--arial' },
+        default: {
+            tag: 'h2',
+            size: '--xl',
+            weight: '--font-extra'
+        }
     };
     const { level, content } = data;
     const _props = tagConfigByLevel[level] || tagConfigByLevel.default;
@@ -20,6 +32,8 @@ const Subtitle = ({ data }) => {
             size={_props.size}
             classCondition={_props.classCondition}
             content={content}
+            weight={_props.weight}
+            font={_props.font}
         />
     );
 };
