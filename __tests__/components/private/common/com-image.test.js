@@ -1,5 +1,4 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import ComImage from '../../../../components/private/common/com-image';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
@@ -21,113 +20,108 @@ describe('components - private - common - ComImage', () => {
         searchableField: {
             'data-feature': 'f0fEPgosxQPZ4i8',
             'data-field-editable': 'imageId=_id',
-            contenteditable: 'false',
+            contentEditable: 'false',
             'data-searchable': 'true',
             'data-searchable-type': 'image'
         }
     };
     describe('Test searchableField prop', () => {
-        render(<ComImage {...props} />);
         it('should render searchableField properties in img', () => {
+            render(<ComImage {...props} />);
             Object.entries(props.searchableField).forEach(([key, value]) => {
                 expect(screen.getByRole('img')).toHaveAttribute(key, value);
             });
         });
     });
     describe('Props on default outputType, with svg, lazy and href', () => {
-        const component = shallow(<ComImage {...props} />);
         it('Should return image with correct props and with link', () => {
-            const imageTag = component.find('img');
-            const imageProps = imageTag.props();
-            const linkImage = component.find('ComLink');
-            const linkProps = linkImage.props();
+            const { getByRole } = render(<ComImage {...props} />);
+            const imageTag = getByRole('img');
+            const linkImage = getByRole('link');
 
-            expect(imageTag).toHaveLength(1);
-            expect(imageProps.loading).toBe('lazy');
-            expect(imageProps.alt).toBe(props.alt);
-            expect(imageProps.width).toBe(props.width);
-            expect(imageProps.height).toBe(props.height);
-            expect(imageProps.className).toBe(` ${props.classCondition}`);
-            expect(component.find('ComLink')).toHaveLength(1);
-            expect(linkProps.link).toBe(props.href);
+            expect(imageTag).toBeInTheDocument();
+            expect(imageTag).toHaveAttribute('loading', 'lazy');
+            expect(imageTag).toHaveAttribute('alt', props.alt);
+            expect(imageTag).toHaveAttribute('width', props.width);
+            expect(imageTag).toHaveAttribute('height', props.height);
+            expect(imageTag).toHaveClass(props.classCondition);
+            expect(linkImage).toBeInTheDocument();
+            expect(linkImage).toHaveAttribute('href', props.href);
         });
     });
-
     describe('Props on default outputType, without svg, lazy nor href', () => {
-        const propsTwo = {
-            ...props,
-            svg: false,
-            href: undefined
-        };
-
-        const component = shallow(<ComImage {...propsTwo} />);
         it('Should return link and image with correct props', () => {
-            const imageTag = component.find('img');
-            const imageProps = imageTag.props();
-
-            expect(imageTag).toHaveLength(1);
-            expect(component.find('ComLink')).toHaveLength(0);
-            expect(imageProps.loading).toBe('lazy');
-            expect(imageProps.alt).toBe(propsTwo.alt);
-            expect(imageProps.width).toBe(propsTwo.width);
-            expect(imageProps.height).toBe(propsTwo.height);
-            expect(imageProps.className).toBe(
-                `com-image ${propsTwo.classCondition}`
+            const propsTwo = {
+                ...props,
+                svg: false,
+                href: undefined
+            };
+            const { getByRole, queryByRole } = render(
+                <ComImage {...propsTwo} />
             );
+            const imageTag = getByRole('img');
+            const linkImage = queryByRole('link');
+
+            expect(imageTag).toBeInTheDocument();
+            expect(linkImage).not.toBeInTheDocument();
+            expect(imageTag).toHaveAttribute('loading', 'lazy');
+            expect(imageTag).toHaveAttribute('alt', propsTwo.alt);
+            expect(imageTag).toHaveAttribute('width', propsTwo.width);
+            expect(imageTag).toHaveAttribute('height', propsTwo.height);
+            expect(imageTag).toHaveClass('com-image', propsTwo.classCondition);
         });
     });
 
     describe('Props on amp outputType, without layout, target nor classCondition', () => {
-        const propsThree = {
-            ...props,
-            amp: true,
-            layout: undefined,
-            target: undefined,
-            classCondition: undefined,
-            srcset: 'mock'
-        };
-
-        const component = shallow(<ComImage {...propsThree} />);
         it('Should return link and amp-img with correct props', () => {
-            const imageTag = component.find('amp-img');
-            const imageProps = imageTag.props();
-            console.log(imageProps);
-            const linkImage = component.find('ComLink');
-            const linkProps = linkImage.props();
+            const propsThree = {
+                ...props,
+                amp: true,
+                layout: undefined,
+                target: undefined,
+                classCondition: undefined,
+                srcset: 'mock',
+                alt: 'test-amp-image'
+            };
+            const { queryByRole, getByAltText, getByRole } = render(
+                <ComImage {...propsThree} />
+            );
 
-            expect(component.find('img')).toHaveLength(0);
-            expect(imageTag).toHaveLength(1);
-            expect(imageProps.width).toBe(propsThree.width);
-            expect(imageProps.height).toBe(propsThree.height);
-            expect(imageProps.layout).toBe('responsive');
-            expect(imageProps.class).toBe(' ');
-            expect(imageProps.srcSet).toBe(propsThree.srcset);
-            expect(imageProps['data-hero']).toBe(undefined);
-            expect(linkProps.link).toBe(propsThree.href);
+            const ampImageTag = getByAltText('test-amp-image');
+            const linkImage = getByRole('link');
+
+            expect(queryByRole('img')).toBeNull();
+            expect(ampImageTag).toBeInTheDocument();
+            expect(ampImageTag).toHaveAttribute('width', propsThree.width);
+            expect(ampImageTag).toHaveAttribute('height', propsThree.height);
+            expect(ampImageTag).toHaveAttribute('layout', 'responsive');
+            expect(ampImageTag).toHaveAttribute('class', ' ');
+            expect(ampImageTag).toHaveAttribute('srcSet', propsThree.srcset);
+            expect(ampImageTag.getAttribute('data-hero')).toBeNull();
+            expect(linkImage).toHaveAttribute('href', propsThree.href);
         });
     });
+
     describe('Props on amp outputType, with isApertura', () => {
-        const propsFour = {
-            ...props,
-            amp: true,
-            isApertura: true
-        };
-
-        const component = shallow(<ComImage {...propsFour} />);
         it('Should return amp-img with data-hero set to true', () => {
-            const imageTag = component.find('amp-img');
-            const imageProps = imageTag.props();
+            const propsFour = {
+                ...props,
+                amp: true,
+                isApertura: true,
+                alt: 'test-amp-image'
+            };
+            const { getByAltText } = render(<ComImage {...propsFour} />);
+            const imageTag = getByAltText('test-amp-image');
 
-            expect(imageProps['data-hero']).toBe(true);
+            expect(imageTag.getAttribute('data-hero')).toBeTruthy();
         });
     });
 
     describe('Without src', () => {
-        props.src = null;
-        const component = shallow(<ComImage {...props} />);
         it('Should return null', () => {
-            expect(component.find('img')).toHaveLength(0);
-            expect(component.html()).toBeNull();
+            props.src = null;
+            const { queryByRole } = render(<ComImage {...props} />);
+            expect(queryByRole('img')).not.toBeInTheDocument();
         });
     });
 });
