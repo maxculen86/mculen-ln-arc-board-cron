@@ -13,6 +13,11 @@
                 "task": "Equal",
                 "keyFind": "type",
                 "value": 0
+            },
+            {
+                "task": "NotEqual",
+                "keyFind": "sectionAliasMobile",
+                "value": "ln-common/ln10_en_vivo"
             }
         ]
     }

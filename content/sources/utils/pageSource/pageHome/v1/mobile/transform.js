@@ -48,7 +48,7 @@ const transform = async (dataPage, query) => {
                 setDolarByLayout[layoutPage](elementsPageHome, layoutPage)) ||
             elementsPageHome;
 
-        // Add Banners by Configuration set in file /pageSource/config/configTaskPositionBanners.json
+        // Add Banners by Configuration set in file /pageSource/common/elements/banners/config/configTaskPositionBanners.json
         elementsPageHome =
             (setBannerByLayout[layoutPage] &&
                 setBannerByLayout[layoutPage](elementsPageHome, layoutPage)) ||
