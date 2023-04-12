@@ -145,10 +145,10 @@ describe('boxInfoComplete', () => {
 
         const expectedBox = {
             tituloCaja: information.title,
-            url: information.url,
+            url: information.link,
             parameters: {
                 title: information.title,
-                url: information.url,
+                url: information.link,
                 badge: information.chapita,
                 badgeStyle: information.chapitaStyle,
                 actionButton: null
