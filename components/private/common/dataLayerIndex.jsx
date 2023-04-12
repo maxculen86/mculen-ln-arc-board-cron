@@ -16,7 +16,8 @@ const config = {
         'LN-nota-opta': NotaDataLayer,
         'LN-nota-video': NotaDataLayer,
         'LN-Home_Sports': HomeDataLayer,
-        'LN-Home_Main': HomeDataLayer
+        'LN-Home_Main': HomeDataLayer,
+        'LN10-Home_Main': HomeDataLayer
     }
 };
 
