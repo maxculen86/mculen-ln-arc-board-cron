@@ -32,7 +32,15 @@ const revistas = [
     'jardin',
     'rolling-stone'
 ];
-const sections = ['economia', 'deportes', 'opinion', 'salud', 'autos', 'campo'];
+const sections = [
+    'economia',
+    'deportes',
+    'opinion',
+    'salud',
+    'autos',
+    'campo',
+    'propiedades'
+];
 
 const acumToSearchAperturaChain = ['tags'];
 

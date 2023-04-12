@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import ComTitle from './com-title';
 import Text from './text';
 import HoroscopeItem from './horoscopeItem';
 import '../../../resources/dist/css/ln/components/horoscope-box.css';
@@ -15,9 +15,12 @@ const HoroscopeBox = ({
     return (
         <article className={`horoscope-box ${classCondition}`}>
             {title && (
-                <Text tag="h3" extraClass="com-title" size="--m">
-                    {title}
-                </Text>
+                <ComTitle
+                    tag="h3"
+                    content={title}
+                    size="--l"
+                    weight="font-semi"
+                />
             )}
             <div className="--items">
                 <div className="zodiaco row-gap-2 row-gap-tablet-3 row-gap-desksm-4 row-gap-deskxl-6">

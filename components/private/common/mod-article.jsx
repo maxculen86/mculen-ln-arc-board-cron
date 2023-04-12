@@ -25,6 +25,7 @@ const ModArticle = props => {
         titleTag,
         titleSize,
         titleText,
+        titleWeight,
         authors,
         authorSize,
         isRenderAuthor,
@@ -127,8 +128,9 @@ const ModArticle = props => {
             <ModDescription
                 link={link}
                 titleTag={titleTag}
-                titleSize={noMedia || isRenderAuthor ? '--m' : titleSize}
+                titleSize={noMedia || isRenderAuthor ? '--l' : titleSize}
                 titleText={titleText}
+                titleWeight={titleWeight}
                 authors={authors}
                 authorSize={isRenderAuthor ? '--twoxs' : authorSize}
                 subheadText={subheadText}
@@ -207,6 +209,7 @@ ModArticle.propTypes = {
     titleSize: PropTypes.string,
     titleTag: PropTypes.string,
     titleText: PropTypes.string.isRequired,
+    titleWeight: PropTypes.string,
     videoBackground: PropTypes.shape({
         _id: PropTypes.number,
         streams: PropTypes.array,
@@ -255,6 +258,7 @@ ModArticle.defaultProps = {
     subheadTag: undefined,
     titleSize: undefined,
     titleTag: undefined,
+    titleWeight: undefined,
     tags: undefined,
     videoBackground: undefined,
     withMedia: false,

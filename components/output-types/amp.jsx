@@ -21,7 +21,6 @@ import getSectionName from '../private/LN/common/utils/getSectionName';
 import MeteringAMP from '../private/common/scriptManager/meteringAMP';
 import Favicon from '../private/common/favicon';
 import get from '../private/common/utils/get';
-import FontPreloads from '../private/common/fontsPreloads';
 import { LinkImagePreload } from '../private/LN/common/utils/mediaHelper';
 import replaceUrlResizerToWWW from '../../content/sources/utils/replaceUrlResizerToWWW';
 import { getTitle } from '../private/common/utils/outputTypeHelper';
@@ -152,7 +151,6 @@ const Amp = props => {
                     subtype={subtype}
                     syndication={syndication}
                 />
-                <FontPreloads />
                 <AMPCustomStyle
                     layout={layout}
                     arcSite={arcSite}

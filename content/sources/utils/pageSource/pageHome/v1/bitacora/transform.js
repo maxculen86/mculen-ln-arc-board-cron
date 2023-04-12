@@ -74,8 +74,9 @@ const createNotasArray = elem => {
             continue;
         }
         if (
-            article.additionalProperties &&
-            article.additionalProperties.originPosition === 'T3'
+            // eslint-disable-next-line no-underscore-dangle
+            !article._id &&
+            !article.website_url
         ) {
             // eslint-disable-next-line no-continue
             continue;

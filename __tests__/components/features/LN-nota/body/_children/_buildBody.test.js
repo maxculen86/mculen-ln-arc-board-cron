@@ -79,7 +79,6 @@ describe('BuildBody', () => {
                 globalContent
             })
         );
-
         expect(container).toBeTruthy();
         expect(container).toMatchSnapshot();
         /* paragraph */
@@ -101,13 +100,19 @@ describe('BuildBody', () => {
         ).toHaveLength(1);
         /* subtitles */
         expect(
-            container.querySelectorAll(`h2[class*="com-title --l"]`)
+            container.querySelectorAll(
+                `h2[class*="com-title --font-primary --xl --font-extra"]`
+            )
         ).toHaveLength(1);
         expect(
-            container.querySelectorAll(`h3[class*="com-title --m"]`)
-        ).toHaveLength(3);
+            container.querySelectorAll(
+                `h3[class*="com-title --font-primary --l --font-medium"]`
+            )
+        ).toHaveLength(1);
         expect(
-            container.querySelectorAll(`h4[class*="com-title --twoxs --arial"]`)
+            container.querySelectorAll(
+                `h4[class*="com-title --arial --twoxs --font-medium"]`
+            ) // TODO: REVISAR COMPORTAMIENTO DE FONT EN TITLE
         ).toHaveLength(1);
         /* oembed_response */
         expect(
@@ -212,13 +217,19 @@ describe('BuildBody', () => {
         ).toHaveLength(1);
         /* subtitles */
         expect(
-            container.querySelectorAll(`h2[class*="com-title --l"]`)
+            container.querySelectorAll(
+                `h2[class*="com-title --font-primary --xl --font-extra"]`
+            )
         ).toHaveLength(1);
         expect(
-            container.querySelectorAll(`h3[class*="com-title --m"]`)
-        ).toHaveLength(3);
+            container.querySelectorAll(
+                `h3[class*="com-title --font-primary --l --font-medium"]`
+            )
+        ).toHaveLength(1);
         expect(
-            container.querySelectorAll(`h4[class*="com-title --twoxs --arial"]`)
+            container.querySelectorAll(
+                `h4[class*="com-title --arial --twoxs --font-medium"]`
+            )
         ).toHaveLength(1);
         /* oembed_response */
         expect(container.querySelectorAll(`amp-facebook`)).toHaveLength(1);
@@ -311,13 +322,19 @@ describe('BuildBody', () => {
         ).toHaveLength(0);
         /* subtitles */
         expect(
-            container.querySelectorAll(`h2[class*="com-title --l"]`)
+            container.querySelectorAll(
+                `h2[class*="com-title --font-primary --xl --font-extra"]`
+            )
         ).toHaveLength(1);
         expect(
-            container.querySelectorAll(`h3[class*="com-title --m"]`)
+            container.querySelectorAll(
+                `h3[class*="com-title --font-primary --l --font-extra"]`
+            )
         ).toHaveLength(1);
         expect(
-            container.querySelectorAll(`h4[class*="com-title --twoxs --arial"]`)
+            container.querySelectorAll(
+                `h4[class*="com-title --arial --twoxs --font-medium"]`
+            )
         ).toHaveLength(1);
         /* oembed_response */
         expect(
@@ -388,6 +405,7 @@ describe('BuildBody', () => {
         expect(
             container.querySelectorAll(`div[class*="divider"]`)
         ).toHaveLength(1);
+        expect(container).toMatchSnapshot();
     });
     it('deberia ejecutar funcion para transformar el oembedScript', () => {
         jest.spyOn(utils, 'transformEmbedScript').mockImplementation(() =>

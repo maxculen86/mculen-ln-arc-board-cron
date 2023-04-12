@@ -1,0 +1,83 @@
+{
+    "title": "Title",
+    "url": "https://example.com",
+    "chapita": "Chapita",
+    "chapitaStyle": "ChapitaStyle",
+    "image": {
+        "promo_items": {
+            "basic": {
+                "_id": "KXKPEAFIRZGT7PHAQ7RK2ZOGDE",
+                "auth": {
+                    "1": "5a213a7fba7130e3075ea9de05aaae64f4c4eaa09e2fea198450ecfa10236015"
+                },
+                "caption": "Sergio Berni fue agredido durante la protesta de colectiveros",
+                "created_date": "2023-04-03T15:20:22Z",
+                "credits": {
+                    "affiliation": [],
+                    "by": [
+                        {
+                            "name": "Fabián Marelli",
+                            "type": "author"
+                        }
+                    ]
+                },
+                "height": 513,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 373,
+                            "media": "(min-width: 1280px)",
+                            "media_preload": "(min-width: 1280.1px)",
+                            "width": 560
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/St345WHZ7M-ivyh4DePogW29w-k=/560x373/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KXKPEAFIRZGT7PHAQ7RK2ZOGDE.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 424,
+                            "media": "(min-width: 1024px)",
+                            "media_preload": "(min-width: 1024.1px and max-width: 1280px)",
+                            "width": 637
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Rx3JFxSgMONWXophvajfVYYPIQA=/637x424/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KXKPEAFIRZGT7PHAQ7RK2ZOGDE.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 310,
+                            "media": "(min-width: 768px)",
+                            "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+                            "width": 465
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/TpAWRk_uqohJlLdbSYgbJlWVFDo=/465x310/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KXKPEAFIRZGT7PHAQ7RK2ZOGDE.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 250,
+                            "media_preload": "(min-width: 375.1px and max-width: 768px)",
+                            "width": 375
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/P3s3-YCliwZt5e3Q-RDDQPWcVgM=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KXKPEAFIRZGT7PHAQ7RK2ZOGDE.JPG"
+                    },
+                    {
+                        "option": {
+                            "height": 213,
+                            "media_preload": "(max-width: 375px)",
+                            "width": 320
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/NO6XCiHmu6x51IbIMNSnNJd1AZQ=/320x213/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KXKPEAFIRZGT7PHAQ7RK2ZOGDE.JPG"
+                    }
+                ],
+                "type": "image",
+                "url": "https://resizer.glanacion.com/resizer/7pBjlc6_ktuRFofVaVo3WTjhFzM=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/KXKPEAFIRZGT7PHAQ7RK2ZOGDE.JPG",
+                "width": 768,
+                "additional_properties": {
+                    "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HFIF34USKFA4NFO3QFLQHPBEZI.png"
+                }
+            }
+        }
+    },
+    "buttonText": "Button text",
+    "linkButton": "https://example.com/button",
+    "buttonStyle": "Button style",
+    "layout": "Layout"
+}

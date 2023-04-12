@@ -2,7 +2,7 @@
 
 exports[`Subtitle matches snapshot 1`] = `
 <h3
-  class="com-title --m"
+  class="com-title --font-primary --l --font-extra"
 >
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 </h3>

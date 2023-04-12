@@ -38,7 +38,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  --info"
         >
           <h1
-            class="com-title --l"
+            class="com-title --font-primary --xl --font-extra"
           >
             Joaquín Morales Solá
           </h1>
@@ -635,7 +635,7 @@ exports[`private - LN - acumulado - Author - wikiAuthor Test de snapshot Bio Aut
           class="com-container  --info"
         >
           <h1
-            class="com-title --l"
+            class="com-title --font-primary --xl --font-extra"
           >
             Joaquín Morales Solá
           </h1>

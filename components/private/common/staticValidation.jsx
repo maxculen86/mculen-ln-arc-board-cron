@@ -22,7 +22,7 @@ export default function StaticValidation({ children, id, isStatic, ...props }) {
 StaticValidation.propTypes = {
     children: PropTypes.node.isRequired,
     id: PropTypes.string.isRequired,
-    isStatic: PropTypes.boolean
+    isStatic: PropTypes.bool
 };
 
 StaticValidation.defaultProps = {

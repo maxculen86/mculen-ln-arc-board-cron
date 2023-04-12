@@ -43,7 +43,8 @@ export const setDesplegableData = (goToLogout = () => {}) => {
 
     return defaultOptions.map(option => ({
         ...option,
-        callback: () => {
+        callback: e => {
+            e.preventDefault();
             addEventToDataLayer({
                 event: 'e_linkclick',
                 action: 'home_ln10',
@@ -61,20 +62,21 @@ export const RightOptions = ({
     userName = '',
     desplegableData = [],
     goToLoginUrl,
-    loggedIn = ''
+    loggedIn = '',
+    loading = false
 }) => {
     const SubscribeButton = (
         <Button
             id="btnsuscribite"
             title="Suscribite"
             typeButton="subscribe"
-            onClick={() =>
-                window.location.replace(
-                    `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                        window.location.href
-                    )}`
-                )
-            }
+            className={!loading ? '' : '--none'}
+            // eslint-disable-next-line no-return-assign
+            onClick={() => {
+                window.location.href = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                    window.location.href
+                )}`;
+            }}
         >
             <Icon icon="suscriptorExclusivo" size={18}>
                 <SuscriptorExclusivo />
@@ -95,13 +97,8 @@ export const RightOptions = ({
 
     const rightOptions = {
         suscribed: MenuUser,
-        logged: loggedIn && (
-            <>
-                {MenuUser}
-                {SubscribeButton}
-            </>
-        ),
-        unlogged: !loggedIn && (
+        logged: loggedIn && <>{MenuUser}</>,
+        unlogged: !loggedIn && !loading && (
             <>
                 <Button
                     title="Iniciar sesión"
@@ -111,12 +108,16 @@ export const RightOptions = ({
                 >
                     INICIAR SESIÓN
                 </Button>
-                {SubscribeButton}
             </>
         )
     };
 
-    return rightOptions[userType] || <></>;
+    return (
+        <>
+            {rightOptions[userType] || <></>}
+            {userType !== 'suscribed' && SubscribeButton}
+        </>
+    );
 };
 
 export const sectionsCallback = (e, toggleDesplegable) => {

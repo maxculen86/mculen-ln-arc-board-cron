@@ -261,11 +261,6 @@
             .mod-article .mod-description > div .com-link.--tags {
                 color: $hola;
             }
-            .mod-article {
-                .com-label {
-                    background-color: $hola;
-                }
-            }
         }
     }
     &.living {
@@ -318,7 +313,7 @@
 
         .mod-article {
             .com-hour {
-                font-family: $font-SuecaSlab;
+                font-family: $font-primary;
                 font-weight: 700;
                 color: $neutral-black;
                 margin: -5px 0 5px;
@@ -392,7 +387,6 @@
             padding-right: $spacing-sm;
             flex-wrap: nowrap;
             .com-link {
-                font-size: px(18);
                 color: $light-neutral-700;
             }
         }

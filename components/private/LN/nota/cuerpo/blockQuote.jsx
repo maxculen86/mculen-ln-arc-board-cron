@@ -15,8 +15,8 @@ const blockQuote = ({
         <ModParagraph>
             {content && (
                 <Paragraph
-                    size="--m"
-                    classCondition="--sueca --font-bold"
+                    size="--l"
+                    classCondition="--font-primary --font-extra"
                     data={{ content }}
                 />
             )}

@@ -9,13 +9,14 @@ export const DATA_SECTION = 'CuerpoAcu';
 export const typeAcumRules = {
     Grilla: {
         withSubhead: false,
-        titleSize: '--xs',
+        titleSize: '--l',
         withCategory: false,
         withTags: true
     },
     Listado: {
         withSubhead: true,
-        titleSize: '--m',
+        titleSize: '--l',
+        titleWeight: '--font-medium',
         withCategory: true,
         withTags: true
     },
@@ -69,6 +70,7 @@ const ArticlesAcum = ({
                         article={art}
                         typeArticle={typeArticle}
                         titleSize={typeAcumRules[typeArticle].titleSize}
+                        titleWeight={typeAcumRules[typeArticle].titleWeight}
                         outputType={outputType}
                         withSubhead={typeAcumRules[typeArticle].withSubhead}
                         withCategory={typeAcumRules[typeArticle].withCategory}

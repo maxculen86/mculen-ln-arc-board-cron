@@ -6,7 +6,7 @@ import { validateChain } from '../LN10_Caja_Collection/common/_helper-WebApi';
 
 class CajaCanal extends GetCajaCollection {
     constructor(props) {
-        super(props, 'canal');
+        super(props, null);
     }
 
     validate = (propsValidate, articles) => {
