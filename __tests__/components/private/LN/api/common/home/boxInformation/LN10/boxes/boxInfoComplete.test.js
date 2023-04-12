@@ -133,7 +133,7 @@ describe('boxInfoComplete', () => {
             chapita: 'Custom Badge',
             chapitaStyle: 'example-chapita-style',
             lead: 'Lead',
-            url: 'https://www.example.com',
+            link: 'https://www.example.com',
             image: null,
             title: 'Title',
             hideTitle: false
@@ -167,7 +167,7 @@ describe('boxInfoComplete', () => {
     it('when information.url is truthy should return the correct url value in root and parameters', () => {
         const information = {
             title: 'Test title',
-            url: 'https://test-url.com',
+            link: 'https://test-url.com',
             image: {},
             hideTitle: false
         };
