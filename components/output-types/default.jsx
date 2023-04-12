@@ -33,6 +33,7 @@ import {
 import FontPreloads from '../private/common/fontsPreloads';
 import checkHydrateOnly from '../private/LN/common/utils/checkHydrateOnly';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
+import CssLinksLn10 from './Helper/cssLinksLn10';
 
 const lnBuscador = 'LN-buscador';
 
@@ -181,7 +182,12 @@ const Default = props => {
                         )}
                     />
                 ) : (
-                    <CssLinks />
+                    <CssLinksLn10
+                        CssLinks={CssLinks}
+                        isLN10={layoutsName.HomeLN10 === layout}
+                        deployment={deployment}
+                        contextPath={contextPath}
+                    />
                 )}
                 <link
                     rel="preload"
