@@ -456,9 +456,24 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
     });
 
     describe('Tests function getBadgetConfig', () => {
+        test('Should return an object with the text of composer.', () => {
+            expect(
+                getBadgetConfig({
+                    article,
+                    style: undefined,
+                    text: '',
+                    isLiveblog: false,
+                    withMedia: true
+                })
+            ).toStrictEqual({
+                badgetStyle: undefined,
+                badgetText: 'chapita composer'
+            });
+        });
         test('Should return an object with the text and style it receives by parameter.', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: 'sponsored',
                     text: 'chapita',
                     isLiveblog: false,
@@ -473,6 +488,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         test('Should return an object with the text "live" and the style "live" which it receives when the variant is liveblog and the style and text parameters are undefined.', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: undefined,
                     text: undefined,
                     isLiveblog: true,
@@ -487,6 +503,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         test('should return an object with the text and style that it receives when the variant is liveblog..', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: 'a-fondo',
                     text: 'A fondo',
                     isLiveblog: true
@@ -500,6 +517,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         test('should return an object with the text and style when receives a typeOfMedia different of html.', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: 'a-fondo',
                     text: 'A fondo',
                     isLiveblog: false,
@@ -515,6 +533,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         test('should return an object with the text false when receives a typeOfMedia html.', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: 'a-fondo',
                     text: 'A fondo',
                     isLiveblog: false,
@@ -530,6 +549,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         test('should return an object with the text false when receives a withMedia false.', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: 'a-fondo',
                     text: 'A fondo',
                     isLiveblog: false,
@@ -545,6 +565,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         test('should return an empty object with the prop hideBadget is true', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: 'a-fondo',
                     text: 'A fondo',
                     isLiveblog: false,

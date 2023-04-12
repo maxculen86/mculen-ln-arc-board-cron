@@ -8,7 +8,6 @@ import { Bngrid } from '@ln/contenidos-ui-bngrid';
 
 import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
 import getCardConfig, { getTitleAndLeadForHome } from './_helper';
-import { LAYOUTS } from '../../../../../chains/utils/common/_helpers-WebApi';
 import get from '../../../../common/utils/get';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
@@ -80,10 +79,7 @@ export default function CommonCollection({
                                 article,
                                 authorPhoto: marqueeImg
                             })}
-                            badgeText={
-                                gridType === LAYOUTS.CONTENT_LAB &&
-                                get(article, 'label.chapita.text')
-                            }
+                            badgeText={get(article, 'label.chapita.text')}
                             {...extraOpts}
                         />
                     );

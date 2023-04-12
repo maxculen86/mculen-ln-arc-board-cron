@@ -68,6 +68,7 @@ export const validateVariant = (variant, authorsQuantity) =>
     variant === 'author' && !(authorsQuantity === 1) ? 'regular' : variant;
 
 export const getBadgetConfig = ({
+    article,
     style,
     text,
     isLiveblog,
@@ -85,7 +86,10 @@ export const getBadgetConfig = ({
     return !hideBadget
         ? {
               badgetStyle: style || undefined,
-              badgetText: withMedia && typeOfMedia !== typeMedia.HTML && text
+              badgetText:
+                  withMedia &&
+                  typeOfMedia !== typeMedia.HTML &&
+                  (text || get(article, 'label.chapita.text'))
           }
         : {};
 };
