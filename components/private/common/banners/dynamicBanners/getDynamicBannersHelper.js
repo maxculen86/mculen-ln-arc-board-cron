@@ -1,3 +1,4 @@
+import { getViewport } from '../../../LN/common/utils/homeHelper';
 import get from '../../utils/get';
 import bannersHome from '../bannersDivHome';
 
@@ -20,6 +21,15 @@ export const getSectionId = (renderables, featureId) => {
         );
 
     return get(layoutSection, 'props.id');
+};
+
+export const filterChildrenWithNoRoof = sectionChildren => {
+    const { device } = getViewport();
+    return device === 'mobile'
+        ? sectionChildren
+        : sectionChildren.filter(
+              children => !children.props.customFields.hideTitle
+          );
 };
 
 export const validateInterval = (interval, index) =>
