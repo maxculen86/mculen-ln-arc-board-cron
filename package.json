@@ -12,7 +12,7 @@
         "watch": "npm run build-watch & npm run start",
         "build": "npm run clean && npm run webpack",
         "build-dev": "npm run ln:home-ln10 && npm run clean && npm run webpack-dev",
-        "build-watch": "npm run clean && npm run webpack-watch",
+        "build-watch": "npm run ln:home-ln10 && npm run clean && npm run webpack-watch",
         "clean": "rm -rf resources/dist",
         "eslint": "eslint --ext=js,jsx",
         "prettier": "prettier --write **/*.{js,jsx,scss}",
