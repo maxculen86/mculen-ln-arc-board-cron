@@ -3,7 +3,7 @@
 exports[`Components- Private - footer - index.jsx - test Should match snapshot showing all the private components 1`] = `
 <div>
   <footer
-    class="footer-site --threexs"
+    class="footer-site --threexs --no-app"
     id="footer"
   >
     <div

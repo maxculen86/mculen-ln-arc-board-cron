@@ -60,7 +60,7 @@
         "@ln/contenidos-ui-interfaces": "^0.0.1-beta.8",
         "@ln/contenidos-ui-link": "^0.0.4-beta.11",
         "@ln/contenidos-ui-live": "^0.0.4-beta.42",
-        "@ln/contenidos-ui-navbarmobile": "^0.0.1-beta.19",
+        "@ln/contenidos-ui-navbarmobile": "^0.0.1-beta.24",
         "@ln/contenidos-ui-opening": "^0.2.2",
         "@ln/contenidos-ui-preheader": "^0.0.2-beta.4",
         "@ln/contenidos-ui-roof": "0.0.2-beta.4",

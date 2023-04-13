@@ -18,6 +18,7 @@ const Navbar = ({ isHome, toggleDesplegable }) => {
                 isSubscribed,
                 toggleDesplegable
             )}
+            className="--no-app"
         />
     );
 };
