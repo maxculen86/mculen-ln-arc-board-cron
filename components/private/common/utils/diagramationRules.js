@@ -1039,7 +1039,7 @@ const diagramationRules = diagramation => {
                 withMedia: true,
                 withSubhead: true,
                 cardSize: 'xl',
-                imageConfig: 'xs',
+                imageConfig: 'T1',
                 imagePosition: {
                     mobile: 'img-top',
                     tablet: 'img-top',
