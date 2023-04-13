@@ -1,0 +1,248 @@
+.ln-banner-container {
+  background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 4px, rgba(0, 0, 0, 0.15) 6px);
+  background-color: var(--light-neutral-0);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+  margin-bottom: 0.75rem;
+  margin-top: 3.5rem;
+}
+.ln-banner-container .ln-banner {
+  width: 100%;
+  text-align: center;
+}
+.ln-banner-container:before {
+  content: "PUBLICIDAD";
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  background: var(--light-neutral-0);
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+.ln-banner-container.--comercial {
+  align-items: center;
+  position: fixed;
+  z-index: 1100000;
+  background: var(--light-neutral-0);
+  height: 100vh;
+  top: 0;
+  margin: 0;
+}
+.ln-banner-container.--comercial:before {
+  display: none;
+}
+.ln-banner-container.--comercial .ln-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.ln-banner-container.--sticky {
+  position: sticky;
+  top: 0;
+}
+.ln-aside .ln-banner-container.--sticky {
+  top: 3.5625rem;
+}
+.ln-banner-container.--sticky.--sticky2_mob {
+  position: fixed;
+  width: 100%;
+  height: 3.125rem;
+  z-index: 1000;
+  background: var(--light-neutral-0);
+  margin: 0;
+}
+.ln-banner-container.--fixed {
+  position: fixed;
+  bottom: 3.625rem;
+  z-index: 103;
+  left: calc((100% - 320px) / 2);
+  background: #ffffff;
+  margin: 0;
+}
+.ln-banner-container.--close .icon-close {
+  width: 1.25rem;
+  height: 1.25rem;
+  background: #000000;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+@media (min-width: 370px) {
+  .ln-banner-container.--close .icon-close {
+    position: relative;
+  }
+}
+.ln-banner-container.--adhesion_mob {
+  background-color: transparent;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.ln-banner-container.--adhesion_mob .ln-banner {
+  height: 3.75rem;
+  border-bottom: 0.625rem solid #ffffff;
+}
+.ln-banner-container.--adhesion_mob .icon-close {
+  top: auto;
+  height: auto;
+}
+.ln-banner-container.--adhesion_mob:before {
+  margin: 1rem auto;
+}
+.ln-banner-container.--caja1_mob, .ln-banner-container.--caja2_mob, .ln-banner-container.--caja3_mob {
+  width: 100%;
+  height: 28.125rem;
+}
+.homepage .ln-banner-container.--caja4_mob, .homepage .ln-banner-container.--caja5_mob, .homepage .ln-banner-container.--caja6_mob, .homepage .ln-banner-container.--caja7_mob, .homepage .ln-banner-container.--caja8_mob, .homepage .ln-banner-container.--caja9_mob {
+  width: 100%;
+  height: 28.125rem;
+}
+.ln-banner-container.--cajasuscriptores_mob {
+  background-color: #333333;
+  overflow: hidden;
+  width: 18.75rem;
+  height: 15.625rem;
+  margin: 0;
+}
+@media (min-width: 48rem) {
+  .ln-banner-container.--fixed {
+    bottom: 3.625rem;
+    left: calc((100% - 728px) / 2);
+  }
+  .ln-banner-container.--cajasuscriptores_tab {
+    background-color: #333333;
+    overflow: hidden;
+    width: 45rem;
+    height: 6.875rem;
+    margin: 0;
+  }
+  .ln-banner-container.--megatop {
+    margin: 0rem;
+    height: 7.5rem;
+    max-width: 100%;
+    z-index: 1100;
+  }
+  .homepage .ln-banner-container.--cabezal_tab, .homepage .ln-banner-container.--middle_1_tab, .homepage .ln-banner-container.--middle_2_tab, .homepage .ln-banner-container.--middle_3_tab, .homepage .ln-banner-container.--middle_4_tab {
+    height: 5.625rem;
+  }
+  .ln-banner-container.--adhesion_tab {
+    background-color: transparent;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .ln-banner-container.--adhesion_tab .ln-banner {
+    height: 6.25rem;
+    border-bottom: 0.625rem solid #ffffff;
+  }
+  .ln-banner-container.--adhesion_tab .close {
+    top: auto;
+    height: auto;
+  }
+  .ln-banner-container.--adhesion_tab:before {
+    margin: 1.25rem auto 0 auto;
+  }
+}
+@media (min-width: 64rem) {
+  .ln-aside .ln-banner-container {
+    background: none;
+  }
+  .ln-banner-container.--fixed {
+    bottom: 0;
+    left: calc((100% - 940px) / 2);
+  }
+  .ln-banner-container.--fixed.--small {
+    left: calc((100% - 760px) / 2);
+  }
+  .ln-banner-container.--logo {
+    position: absolute;
+    margin: 0;
+    width: 28.75rem;
+    height: 3.3125rem;
+    background: #ffffff;
+  }
+}
+@media (min-width: 64rem) and (min-width: 48rem) {
+  .ln-banner-container.--logo {
+    width: 18.125rem;
+    height: 2.1875rem;
+  }
+}
+@media (min-width: 64rem) and (min-width: 64rem) {
+  .ln-banner-container.--logo {
+    width: 28.75rem;
+    height: 3.3125rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+@media (min-width: 64rem) {
+  .ln-banner-container.--logo:before {
+    content: "";
+  }
+}
+@media (min-width: 64rem) {
+  .ln-banner-container.--megatop {
+    height: 15.625rem;
+  }
+}
+@media (min-width: 64rem) {
+  .homepage .ln-banner-container.--cajasuscriptores_dsk {
+    background-color: #333333;
+    overflow: hidden;
+    width: 100%;
+    max-width: 57.5rem;
+    height: 7.5rem;
+    margin: 0;
+  }
+  .homepage .ln-banner-container.--cabezal_dsk {
+    height: 6.25rem;
+  }
+  .homepage .ln-banner-container.--adhesion_dsk {
+    width: -moz-fit-content;
+    width: fit-content;
+    background-color: transparent;
+  }
+  .homepage .ln-banner-container.--adhesion_dsk .ln-banner {
+    height: 6.25rem;
+    text-align: center;
+  }
+  .homepage .ln-banner-container.--adhesion_dsk .close {
+    top: auto;
+    height: auto;
+  }
+  .homepage .ln-banner-container.--adhesion_dsk:before {
+    margin: 1.25rem auto 0 auto;
+  }
+  .homepage .ln-banner-container.--billboard_dsk {
+    height: 15.625rem;
+  }
+  .homepage .ln-banner-container.--cinturon1_dsk, .homepage .ln-banner-container.--cinturon2_dsk, .homepage .ln-banner-container.--cinturon3_dsk, .homepage .ln-banner-container.--cinturon4_dsk {
+    height: 18.75rem;
+    margin: 3.5rem 0 2rem;
+  }
+  .homepage .ln-banner-container.--cinturon1_dsk .ln-banner, .homepage .ln-banner-container.--cinturon2_dsk .ln-banner, .homepage .ln-banner-container.--cinturon3_dsk .ln-banner, .homepage .ln-banner-container.--cinturon4_dsk .ln-banner {
+    align-self: center;
+  }
+  .homepage .ln-banner-container.--megalateral_dsk, .homepage .ln-banner-container.--megalateral2_dsk, .homepage .ln-banner-container.--megalateral3_dsk, .homepage .ln-banner-container.--megalateral4_dsk {
+    margin: 0;
+  }
+}
+@media (min-width: 68.75rem) {
+  .ln-banner-container.--fixed {
+    left: calc((100% - 940px) / 2);
+  }
+  .ln-banner-container.--fixed.--small {
+    left: calc((100% - 1098px) / 2);
+  }
+}

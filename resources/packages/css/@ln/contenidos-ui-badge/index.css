@@ -1,0 +1,67 @@
+.live-animation {
+  display: flex;
+}
+.live-animation .circle {
+  position: relative;
+  align-self: center;
+  width: 0.25rem;
+  height: 0.25rem;
+  left: 0.25rem;
+  top: 0;
+  background: var(--light-neutral-0);
+  border-radius: 50%;
+}
+.live-animation .ringring {
+  position: relative;
+  border: 0.125rem solid var(--light-neutral-0);
+  height: 0.75rem;
+  width: 0.75rem;
+  right: 0.25rem;
+  border-radius: 1.875rem;
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
+}
+@keyframes pulsate {
+  0% {
+    -webkit-transform: scale(0.1, 0.1);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1.2, 1.2);
+    opacity: 0;
+  }
+}
+.badge.ln-badge {
+  background: var(--dark-neutral-0);
+  color: var(--light-neutral-0);
+  flex-wrap: nowrap;
+  overflow: hidden;
+  text-transform: uppercase;
+  z-index: 1;
+}
+.badge.ln-badge.--negative {
+  background: var(--dark-neutral-0);
+}
+.badge.ln-badge.--positive {
+  background: var(--light-neutral-0);
+  color: var(--dark-neutral-0);
+}
+.badge.ln-badge.--live {
+  background: var(--danger-600);
+}
+.badge.ln-badge.--exclusive-ln, .badge.ln-badge.--bold {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.25rem 0.5rem 0.25rem 0.25rem;
+  background: var(--light-neutral-50);
+  border: 1px solid var(--light-neutral-300);
+  text-transform: none;
+  color: var(--dark-neutral-0);
+}
+.badge.ln-badge.--exclusive-ln .icon.--icon-m, .badge.ln-badge.--bold .icon.--icon-m {
+  width: 1.125rem;
+  height: 1.125rem;
+}
