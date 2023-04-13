@@ -45,7 +45,12 @@ export const isFotoAl100orStorytelling = subtype => {
 };
 
 export const subtypeNotesWithoutAmp = canonicalUrl => {
-    const subtypeList = ['/agencias/'];
+    const subtypeList = [
+        '/agencias/',
+        '/juegos/',
+        '/recetas/',
+        '/propiedades/'
+    ];
 
     return subtypeList.some(subtype => canonicalUrl.startsWith(subtype));
 };
