@@ -1,6 +1,8 @@
+/* eslint-disable no-underscore-dangle */
 import get from '../../../../common/utils/get';
 import getAuthorsPhoto from '../../../../common/utils/getAuthorsPhoto';
 import transformImageData from '../../../../common/LN-10/transformImageData';
+import { LIVEBLOG } from '../../../../common/utils/subtypes/subtypeHelper';
 
 const getCardConfig = (config, articleData) => {
     const { withMarquee, withMarqueeImg, withSubhead, withMedia, withSection } =
@@ -48,6 +50,36 @@ export const getDataAuthorCollection = article => {
     const authors = get(article, 'credits.by', []);
     const [author] = authors;
     return get(author, 'name', null);
+};
+
+export const getBadge = ({ article, isExclusiveSub }) => {
+    if (
+        get(article, 'content_restrictions.content_code') === 'cerrada' &&
+        !isExclusiveSub
+    ) {
+        return {
+            badgeStyle: 'exclusive-ln',
+            badgeText: 'Exclusivo suscriptores'
+        };
+    }
+    if (get(article, 'subtype') === LIVEBLOG) {
+        return {
+            badgeStyle: 'live',
+            badgeText: 'vivo'
+        };
+    }
+
+    if (get(article, 'owner.sponsored')) {
+        return {
+            badgeStyle: 'contentlab',
+            badgeText: 'CONTENT LAB'
+        };
+    }
+
+    return {
+        badgeStyle: 'negative',
+        badgeText: get(article, 'label.chapita.text')
+    };
 };
 
 export default getCardConfig;

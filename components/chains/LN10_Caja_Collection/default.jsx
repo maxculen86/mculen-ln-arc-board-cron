@@ -190,6 +190,9 @@ const CajaCollection = props => {
                                     layout,
                                     renderables
                                 )}
+                                isExclusiveSub={
+                                    chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE
+                                }
                             />
                             {chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE && (
                                 <Bannersubscriber>

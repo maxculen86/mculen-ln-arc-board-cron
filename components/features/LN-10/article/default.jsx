@@ -49,6 +49,7 @@ import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-video/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-image/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-badge/index.css';
+import { LIVEBLOG } from '../../../private/common/utils/subtypes/subtypeHelper';
 
 const ArticleFeature = ({
     id: featureId,
@@ -211,7 +212,7 @@ const ArticleFeature = ({
         article,
         style: chapitaStyle,
         text: chapita,
-        isLiveblog,
+        isLiveblog: isLiveblog || get(article, 'subtype') === LIVEBLOG,
         withMedia,
         typeOfMedia,
         hideBadget

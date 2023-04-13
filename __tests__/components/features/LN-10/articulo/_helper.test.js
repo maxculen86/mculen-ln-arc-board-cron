@@ -466,7 +466,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                     withMedia: true
                 })
             ).toStrictEqual({
-                badgetStyle: undefined,
+                badgetStyle: 'negative',
                 badgetText: 'chapita composer'
             });
         });
