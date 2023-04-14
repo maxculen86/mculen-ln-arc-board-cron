@@ -158,7 +158,7 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
         const element = {
             type: 0,
             information: {},
-            articles: 'a',
+            articles: [],
             configurations: { arcSite: 'la-nacion-ar' },
             sectionWeb: 'Apertura'
         };
@@ -166,8 +166,7 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
             task: 'NotEqual',
             keyFind: 'articles',
             typeValue: [],
-            minLength: 0,
-            maxLength: 90
+            minLength: 0
         };
 
         const lengthBannersPrevious = 1;
