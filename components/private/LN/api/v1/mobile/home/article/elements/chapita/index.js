@@ -9,10 +9,6 @@ export const listBadgetsByConfigs = [
         },
         Equal: [
             {
-                key: 'informationBox.sectionAliasMobile',
-                value: 'sub-exclusive'
-            },
-            {
                 key: 'additionalProperties.chapitaStyle',
                 value: 'exclusive-ln'
             },
@@ -46,6 +42,22 @@ export const getArticleChapita = article => {
 
 export const getBadgebyConfig = article => {
     let fieldsBadge = {};
+    fieldsBadge.badgeStyle = null;
+    fieldsBadge.badge = null;
+    fieldsBadge.chapita = null;
+
+    if (
+        ['afondo', 'sub-exclusive'].includes(
+            get(article, 'informationBox.sectionAliasMobile', null)
+        )
+    ) {
+        return fieldsBadge;
+    }
+
+    if (get(article, 'additionalProperties.diseno.size', null) === 'M') {
+        return fieldsBadge;
+    }
+
     listBadgetsByConfigs &&
         listBadgetsByConfigs.some(configBadge => {
             return (
