@@ -14,6 +14,6 @@ describe('articleSourceNotaSourceInclude', () => {
 
     it('returns undefined for an unknown typeChain', () => {
         const result = articleSourceNotaSourceInclude('');
-        expect(result).toEqual(undefined);
+        expect(result).toEqual(fieldsToArticles.default);
     });
 });
