@@ -1066,7 +1066,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withMedia: true,
                 cardSize: 'm',
-                imageConfig: 'T1',
+                imageConfig: 'xs',
                 imagePosition: {
                     mobile: 'img-right',
                     tablet: 'img-none',
