@@ -53,6 +53,21 @@ describe('Private - Common - Utils - subtypeNotesWithoutAmp - subtypeHelper', ()
                 '/agencias/eeuu-y-rusia-chocan-por-responsabilidad-de-ataque-con-misil-nid17112022/'
             )
         ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/juegos/mock-juego-inexistente-nid18122022/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/recetas/cocina/camarones-dinamita-nid31012023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/propiedades/inmuebles-comerciales/los-barrios-que-vienen-nid02122020/'
+            )
+        ).toBeTruthy();
     });
 
     it('Should return false when the subtype has amp  ', () => {
