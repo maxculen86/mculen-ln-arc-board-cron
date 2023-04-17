@@ -52,10 +52,10 @@ export const getBadgebyConfig = article => {
     if (['afondo', 'sub-exclusive'].includes(typeSeccion)) {
         return fieldsBadge;
     }
-    // If the typeCard is size M and sectionAliasMobile not is contentLab and not is sponsored
+    // If the typeCard is size M  and not is sponsored
     if (
         get(article, 'additionalProperties.diseno.size', null) === 'M' &&
-        !(['contentlab'].includes(typeSeccion) && isSponsored)
+        !isSponsored
     ) {
         return fieldsBadge;
     }
