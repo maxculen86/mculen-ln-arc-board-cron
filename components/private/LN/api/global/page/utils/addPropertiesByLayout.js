@@ -11,7 +11,8 @@ const setDiagramationInArticle = (
         return null;
     }
 
-    const { variant = 'regular' } = additionalProperties;
+    const variant =
+        get(additionalProperties, 'variant', 'regular') || 'regular';
 
     const configDiagramationBoxByVariant = configDiagramationBox.find(f => {
         return f && f.variants && f.variants.includes(variant);
