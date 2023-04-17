@@ -55,14 +55,12 @@ describe('should register in dataLayer the click event of the logo with the alt 
         window.dataLayer = [];
     });
 
-    test.only('should register in dataLayer the click event of the logo with the alt of the image as description', () => {
+    test('should register in dataLayer the click event of the logo with the alt of the image as description', () => {
         render(getMockRoof({ childrenLeft: mockAnchorWithImage('left') }));
         setEventsRoof();
 
         const link = screen.getByRole('link');
         fireEvent.click(link);
-
-        console.log(window.dataLayer[0]);
 
         expect(
             window.dataLayer[0].dynamic_label.includes('programas')
@@ -120,7 +118,6 @@ describe('should register in dataLayer the click event of the logo with the alt 
             })
         );
         setEventsRoof();
-        screen.debug();
 
         const links = screen.getAllByRole('link');
 
