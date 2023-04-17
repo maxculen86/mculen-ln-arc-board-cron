@@ -19,6 +19,7 @@ import {
 import { handleClickBuscar } from '../navbar/_helper';
 import { GlobalContext } from '../../common/context/globalContext';
 import { goToLogout } from '../../LN/common/utils/loginHelper';
+import MainHeaderEventsScript from '../../common/scriptManager/MainHeaderEventsScript';
 
 import '../../../../resources/packages/css/@ln/contenidos-ui-header/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
@@ -92,6 +93,7 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                     loading={loading}
                 />
             </MainHeader.Right>
+            <MainHeaderEventsScript />
         </MainHeader>
     );
 };
