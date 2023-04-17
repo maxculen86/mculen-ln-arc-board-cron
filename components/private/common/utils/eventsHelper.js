@@ -177,7 +177,9 @@ export const setEventsNavigationLinks = () => {
 
     navigationLinks.forEach(link => {
         const roofElement = link.parentNode.parentNode;
-        const roofTitle = roofElement.outerText.split('\n')[0];
+        const logo = roofElement.querySelector('.image');
+        const title = roofElement.querySelector('.--roof-title');
+        const roofTitle = (logo && logo.alt) || (title && title.innerText);
 
         const payload = {
             action: createDynamicLabel(`caja_${roofTitle}`),
@@ -201,11 +203,13 @@ export const setEventsRoof = () => {
         } = getAnchorsFromGroup(roof);
 
         const addEventRoof = (elem, action) => {
-            const [firstChildren] = elem.target.children;
+            const elemChildren = elem.target.children;
+
             const description =
                 elem.target.innerText ||
                 elem.target.alt ||
-                (firstChildren && firstChildren.alt);
+                (elemChildren[0] &&
+                    (elemChildren[0].alt || elemChildren[0].innerHTML));
 
             const payload = {
                 action,
