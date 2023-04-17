@@ -9,7 +9,7 @@ import {
 import {
     setEventsTopics,
     setEventsWeather
-} from '../../../../../components/private/common/scriptManager/PreHeaderEventsScript/_helper';
+} from '../../../../../components/private/common/utils/eventsHelper';
 import preHeaderEventLogResult from '../../../../../__mocks__/data/preHeader/preHeaderEventLogResult.json';
 
 jest.mock(

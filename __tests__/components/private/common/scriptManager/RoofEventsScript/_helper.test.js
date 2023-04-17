@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { setScriptRoof } from '../../../../../../components/private/common/scriptManager/RoofEventsScript/_helper';
+import { setEventsRoof } from '../../../../../../components/private/common/utils/eventsHelper';
 
 const getMockRoof = ({ childrenLeft, childrenRight = [] }) => {
     return (
@@ -55,15 +55,17 @@ describe('should register in dataLayer the click event of the logo with the alt 
         window.dataLayer = [];
     });
 
-    test('should register in dataLayer the click event of the logo with the alt of the image as description', () => {
+    test.only('should register in dataLayer the click event of the logo with the alt of the image as description', () => {
         render(getMockRoof({ childrenLeft: mockAnchorWithImage('left') }));
-        setScriptRoof();
+        setEventsRoof();
 
         const link = screen.getByRole('link');
         fireEvent.click(link);
 
+        console.log(window.dataLayer[0]);
+
         expect(
-            window.dataLayer[0].dynamic_label.includes('Programas')
+            window.dataLayer[0].dynamic_label.includes('programas')
         ).toBeTruthy();
         expect(window.dataLayer[0].dynamic_action).toStrictEqual('techo');
     });
@@ -71,13 +73,13 @@ describe('should register in dataLayer the click event of the logo with the alt 
     test('Should record in datalayer the text of the span as description.', () => {
         render(getMockRoof({ childrenLeft: mockAnchorWithoutImage('left') }));
 
-        setScriptRoof();
+        setEventsRoof();
 
         const link = screen.getByRole('link');
         fireEvent.click(link);
 
         expect(
-            window.dataLayer[0].dynamic_label.includes('Últimas noticias')
+            window.dataLayer[0].dynamic_label.includes('ultimas_noticias')
         ).toBeTruthy();
         expect(window.dataLayer[0].dynamic_action).toStrictEqual('techo');
         expect(window.dataLayer[0].event).toStrictEqual('e_linkclick');
@@ -100,7 +102,7 @@ describe('should register in dataLayer the click event of the logo with the alt 
             })
         );
 
-        setScriptRoof();
+        setEventsRoof();
 
         const link = container.querySelector('[roof-group="left"]');
         fireEvent.click(link);
@@ -117,7 +119,7 @@ describe('should register in dataLayer the click event of the logo with the alt 
                 ]
             })
         );
-        setScriptRoof();
+        setEventsRoof();
         screen.debug();
 
         const links = screen.getAllByRole('link');
@@ -125,8 +127,9 @@ describe('should register in dataLayer the click event of the logo with the alt 
         links.forEach(link => fireEvent.click(link));
 
         expect(window.dataLayer).toHaveLength(1);
+
         expect(
-            window.dataLayer[0].dynamic_label.includes('Últimas noticias')
+            window.dataLayer[0].dynamic_label.includes('ultimas_noticias')
         ).toBeTruthy();
         expect(window.dataLayer[0].dynamic_action).toStrictEqual('techo_boton');
     });

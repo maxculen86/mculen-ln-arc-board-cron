@@ -95,21 +95,23 @@ export const RightOptions = ({
         />
     );
 
+    const SignInButton = (
+        <>
+            <Button
+                title="Iniciar sesión"
+                typeButton="secondary"
+                className={!loggedIn && !loading ? '--mobile-none' : '--none'}
+                onClick={goToLoginUrl}
+            >
+                INICIAR SESIÓN
+            </Button>
+        </>
+    );
+
     const rightOptions = {
         suscribed: MenuUser,
-        logged: loggedIn && <>{MenuUser}</>,
-        unlogged: !loggedIn && !loading && (
-            <>
-                <Button
-                    title="Iniciar sesión"
-                    typeButton="secondary"
-                    className="--mobile-none"
-                    onClick={goToLoginUrl}
-                >
-                    INICIAR SESIÓN
-                </Button>
-            </>
-        )
+        logged: loggedIn && MenuUser,
+        unlogged: SignInButton
     };
 
     return (
