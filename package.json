@@ -5,7 +5,7 @@
     "private": true,
     "main": "index.js",
     "scripts": {
-        "ln:home-ln10": "find resources/packages/css/@ln/ -type f -name '*.css' -exec cat {} ';' > resources/packages/css/all.css",
+        "ln:home-ln10": "find resources/packages/css/@ln/ -type f -name '*.css' -exec cat {} ';' > resources/packages/css/homeln10-style.css",
         "ln:copycss": "copyfiles --up 1 node_modules/@ln/*-ui*/**/*.css resources/packages/css/",
         "dev": "npm run build-dev && npm run start",
         "prod": "npm run build && npm run start",
