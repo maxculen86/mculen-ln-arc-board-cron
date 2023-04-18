@@ -65,7 +65,9 @@ describe('should register in dataLayer the click event of the logo with the alt 
         expect(
             window.dataLayer[0].dynamic_label.includes('programas')
         ).toBeTruthy();
-        expect(window.dataLayer[0].dynamic_action).toStrictEqual('techo');
+        expect(window.dataLayer[0].dynamic_action).toStrictEqual(
+            'caja_programas'
+        );
     });
 
     test('Should record in datalayer the text of the span as description.', () => {
@@ -79,7 +81,9 @@ describe('should register in dataLayer the click event of the logo with the alt 
         expect(
             window.dataLayer[0].dynamic_label.includes('ultimas_noticias')
         ).toBeTruthy();
-        expect(window.dataLayer[0].dynamic_action).toStrictEqual('techo');
+        expect(window.dataLayer[0].dynamic_action).toStrictEqual(
+            'caja_ultimas_noticias'
+        );
         expect(window.dataLayer[0].event).toStrictEqual('e_linkclick');
         expect(window.dataLayer[0].dynamic_category).toStrictEqual('home_ln10');
     });
@@ -128,6 +132,8 @@ describe('should register in dataLayer the click event of the logo with the alt 
         expect(
             window.dataLayer[0].dynamic_label.includes('ultimas_noticias')
         ).toBeTruthy();
-        expect(window.dataLayer[0].dynamic_action).toStrictEqual('techo_boton');
+        expect(window.dataLayer[0].dynamic_action).toStrictEqual(
+            'caja_ultimas_noticias'
+        );
     });
 });

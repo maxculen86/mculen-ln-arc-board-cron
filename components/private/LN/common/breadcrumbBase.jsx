@@ -97,7 +97,7 @@ const BreadcrumbBase = props => {
         );
 
     return (
-        <nav className={`com-breadcrumb ${extraClasses || ''}`}>
+        <nav className={`com-breadcrumb --no-app ${extraClasses || ''}`}>
             {listSections}
             {/* Último item */}
             {tooltip && (

@@ -166,8 +166,15 @@ export const getAnchorsFromGroup = roof => {
         anchorLeft: isAnchorLeft && groupLeft,
         actionLeft: 'techo',
         anchorRight: isButtonLink && anchorRight,
-        actionRight: 'techo_boton'
+        actionRight: 'cta'
     };
+};
+
+export const getRoofTitle = container => {
+    const logo = container.querySelector('.image');
+    const title = container.querySelector('.--roof-title');
+
+    return (logo && logo.alt) || (title && title.innerText);
 };
 
 export const setEventsNavigationLinks = () => {
@@ -176,10 +183,7 @@ export const setEventsNavigationLinks = () => {
     );
 
     navigationLinks.forEach(link => {
-        const roofElement = link.parentNode.parentNode;
-        const logo = roofElement.querySelector('.image');
-        const title = roofElement.querySelector('.--roof-title');
-        const roofTitle = (logo && logo.alt) || (title && title.innerText);
+        const roofTitle = getRoofTitle(link.parentNode.parentNode);
 
         const payload = {
             action: createDynamicLabel(`caja_${roofTitle}`),
@@ -202,7 +206,9 @@ export const setEventsRoof = () => {
             actionRight
         } = getAnchorsFromGroup(roof);
 
-        const addEventRoof = (elem, action) => {
+        const roofTitle = getRoofTitle(roof);
+
+        const addEventRoof = (elem, type, title) => {
             const elemChildren = elem.target.children;
 
             const description =
@@ -212,8 +218,8 @@ export const setEventsRoof = () => {
                     (elemChildren[0].alt || elemChildren[0].innerHTML));
 
             const payload = {
-                action,
-                label: createDynamicLabel(`label_${description}`)
+                action: createDynamicLabel(`caja_${title || description}`),
+                label: createDynamicLabel(`${type}_${description}`)
             };
 
             addEventToDataLayer(payload);
@@ -227,7 +233,7 @@ export const setEventsRoof = () => {
 
         if (anchorRight) {
             addEventListeners(anchorRight, null, elem =>
-                addEventRoof(elem, actionRight)
+                addEventRoof(elem, actionRight, roofTitle)
             );
         }
     });

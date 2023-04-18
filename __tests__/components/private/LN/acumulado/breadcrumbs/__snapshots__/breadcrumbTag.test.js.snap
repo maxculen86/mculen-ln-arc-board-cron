@@ -6,7 +6,7 @@ exports[`components - private - LN - acumulado - breadcrumbs - breadcrumbTag Sho
     class="hidden"
   >
     <nav
-      class="com-breadcrumb "
+      class="com-breadcrumb --no-app "
     >
       <a
         class="com-link --fourxs"

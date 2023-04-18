@@ -9,10 +9,6 @@ export const listBadgetsByConfigs = [
         },
         Equal: [
             {
-                key: 'informationBox.sectionAliasMobile',
-                value: 'sub-exclusive'
-            },
-            {
                 key: 'additionalProperties.chapitaStyle',
                 value: 'exclusive-ln'
             },
@@ -45,7 +41,25 @@ export const getArticleChapita = article => {
 };
 
 export const getBadgebyConfig = article => {
+    const typeSeccion = get(article, 'informationBox.sectionAliasMobile', null);
+    const isSponsored = get(article, 'owner.sponsored', false) || false;
+
     let fieldsBadge = {};
+    fieldsBadge.badgeStyle = null;
+    fieldsBadge.badge = null;
+    fieldsBadge.chapita = null;
+
+    if (['afondo', 'sub-exclusive'].includes(typeSeccion)) {
+        return fieldsBadge;
+    }
+    // If the typeCard is size M  and not is sponsored
+    if (
+        get(article, 'additionalProperties.diseno.size', null) === 'M' &&
+        !isSponsored
+    ) {
+        return fieldsBadge;
+    }
+
     listBadgetsByConfigs &&
         listBadgetsByConfigs.some(configBadge => {
             return (
