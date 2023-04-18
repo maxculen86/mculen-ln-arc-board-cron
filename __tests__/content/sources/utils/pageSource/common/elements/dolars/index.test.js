@@ -108,7 +108,7 @@ const elements = [
         sectionWeb: 'Apertura'
     }
 ];
-describe('Test Methods Dolars sources-utils-pageSource-common-elements-dolars-config-configDolarPositionbySection ', () => {
+describe('Test Methods Dolars sources-utils-pageSource-common-elements-dolars-index ', () => {
     test('setDolarBySection position Bottom Ok', () => {
         const newElements = Object.assign([], elements);
         const result = setDolarBySection(newElements, 'LN10-Home_Main_bottom');
@@ -143,7 +143,7 @@ describe('Test Methods Dolars sources-utils-pageSource-common-elements-dolars-co
     });
 });
 
-describe('Test Methods Dolars Mock addElementsByKey sources-utils-pageSource-common-elements-dolars-config-configDolarPositionbySection ', () => {
+describe('Test Methods Dolars Mock addElementsByKey sources-utils-pageSource-common-elements-dolars-index ', () => {
     test('setDolarBySection when addElementsByKey return value OK', () => {
         const result = setDolarBySection([], 'addElementsByKeyOK');
         expect(result.length).toEqual(2);
