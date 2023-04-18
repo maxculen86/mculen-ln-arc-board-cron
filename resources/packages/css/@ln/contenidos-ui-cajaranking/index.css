@@ -7,12 +7,12 @@
 .ln-caja-ranking .ln-link {
   justify-content: space-between;
 }
-.ln-caja-ranking .description-container {
+.ln-caja-ranking .ln-card .description-container.description-container {
   margin-left: 1.8125rem;
   width: auto;
 }
 @media (min-width: 48rem) {
-  .ln-caja-ranking .description-container {
+  .ln-caja-ranking .ln-card .description-container.description-container {
     margin-left: 2.5rem;
   }
 }
@@ -156,7 +156,6 @@
     position: absolute;
     background-color: #e4e4e4;
     right: -0.78125rem;
-    left: none;
   }
 }
 @media (min-width: 80rem) {
@@ -167,7 +166,6 @@
     position: absolute;
     background-color: #e4e4e4;
     right: -1.03125rem;
-    left: none;
   }
 }
 @media (min-width: 48rem) {
@@ -185,7 +183,6 @@
     position: absolute;
     background-color: #e4e4e4;
     left: 0rem;
-    right: none;
     bottom: 0rem;
   }
 }
@@ -197,7 +194,6 @@
     position: absolute;
     background-color: #e4e4e4;
     left: 0rem;
-    right: none;
     bottom: 0rem;
   }
 }
@@ -209,7 +205,6 @@
     position: absolute;
     background-color: #e4e4e4;
     right: -0.78125rem;
-    left: none;
   }
 }
 @media (min-width: 80rem) {
@@ -220,7 +215,6 @@
     position: absolute;
     background-color: #e4e4e4;
     right: -1.03125rem;
-    left: none;
   }
 }
 @media (min-width: 48rem) {
@@ -231,7 +225,6 @@
     position: absolute;
     background-color: #e4e4e4;
     right: -0.78125rem;
-    left: none;
   }
 }
 @media (min-width: 80rem) {
@@ -242,7 +235,6 @@
     position: absolute;
     background-color: #e4e4e4;
     right: -1.03125rem;
-    left: none;
   }
 }
 @media (min-width: 48rem) {
@@ -254,7 +246,6 @@
     position: absolute;
     background-color: #e4e4e4;
     left: 0rem;
-    right: none;
     bottom: 0rem;
   }
 }

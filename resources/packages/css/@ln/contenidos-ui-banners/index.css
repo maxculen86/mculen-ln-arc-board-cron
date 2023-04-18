@@ -229,7 +229,7 @@
   }
   .homepage .ln-banner-container.--cinturon1_dsk, .homepage .ln-banner-container.--cinturon2_dsk, .homepage .ln-banner-container.--cinturon3_dsk, .homepage .ln-banner-container.--cinturon4_dsk {
     height: 18.75rem;
-    margin: 3.5rem 0 2rem;
+    margin: 3.5rem 0 0.75rem;
   }
   .homepage .ln-banner-container.--cinturon1_dsk .ln-banner, .homepage .ln-banner-container.--cinturon2_dsk .ln-banner, .homepage .ln-banner-container.--cinturon3_dsk .ln-banner, .homepage .ln-banner-container.--cinturon4_dsk .ln-banner {
     align-self: center;
@@ -245,4 +245,30 @@
   .ln-banner-container.--fixed.--small {
     left: calc((100% - 1098px) / 2);
   }
+}
+
+[class*=_tab],
+[class*=_dsk] {
+  display: none;
+}
+
+@media (min-width: 48rem) {
+  [class*=_tab] {
+    display: flex;
+  }
+  [class*=_mob] {
+    display: none;
+  }
+}
+@media (min-width: 64rem) {
+  [class*=_dsk] {
+    display: flex;
+  }
+  [class*=_tab] {
+    display: none;
+  }
+}
+[class*="--1x1_"] {
+  margin: 0;
+  position: absolute;
 }

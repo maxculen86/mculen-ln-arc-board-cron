@@ -62,7 +62,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'comercial_dsk',
-                classes: '--comercial hlp-none',
+                classes: '--comercial --none',
                 closeButton: true,
                 isStatic: true
             }}
@@ -72,7 +72,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'comercial_mob',
-                classes: '--comercial hlp-none',
+                classes: '--comercial --none',
                 closeButton: true,
                 isStatic: true
             }}
@@ -422,7 +422,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'adhesion_dsk',
-                classes: '--adhesion_dsk --fixed --close hlp-none',
+                classes: '--adhesion_dsk --fixed --close --none',
                 hideForSubscriptor: true,
                 closeButton: true,
                 isStatic: true
@@ -433,7 +433,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'adhesion_mob',
-                classes: '--adhesion_mob --fixed --close hlp-none',
+                classes: '--adhesion_mob --fixed --close --none',
                 hideForSubscriptor: true,
                 closeButton: true,
                 isStatic: true
@@ -444,7 +444,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'adhesion_tab',
-                classes: '--adhesion_tab --fixed --close hlp-none',
+                classes: '--adhesion_tab --fixed --close --none',
                 hideForSubscriptor: true,
                 closeButton: true,
                 isStatic: true

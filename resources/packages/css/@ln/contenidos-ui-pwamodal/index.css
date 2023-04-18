@@ -1,0 +1,24 @@
+.ln-pwa-modal {
+  display: none;
+  z-index: 1500;
+  max-width: 22.8125rem;
+  border-left: 0.3125rem solid #000000;
+  box-shadow: 0 0 1.75rem 0.1875rem rgba(0, 0, 0, 0.5);
+  background: #ffffff;
+  bottom: 3.75rem;
+  left: 50%;
+  transform: translate(-50%);
+  -webkit-transform: translate(-50%);
+}
+.ln-pwa-modal .ln-text {
+  color: #000000;
+}
+@media (min-width: 64rem) {
+  .ln-pwa-modal {
+    top: 0.0625rem;
+    left: 5.625rem;
+    bottom: auto;
+    transform: none;
+    -webkit-transform: none;
+  }
+}

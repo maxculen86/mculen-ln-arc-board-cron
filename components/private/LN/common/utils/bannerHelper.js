@@ -243,7 +243,7 @@ export const buildBannerClasses = (config, customFields) => {
     if (sticky) classes += '--sticky ';
     if (fixed) classes += '--fixed ';
     if (closeButton) classes += '--close ';
-    if (!withoutHide) classes += 'hlp-none ';
+    if (!withoutHide) classes += '--none ';
     if (slotName.includes('comercial')) classes += '--comercial ';
 
     return classes;
