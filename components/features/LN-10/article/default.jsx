@@ -67,6 +67,7 @@ const ArticleFeature = ({
         variant = 'regular'
     }
 }) => {
+    const articleId = checkForId(id);
     const {
         isAdmin,
         arcSite,
@@ -87,7 +88,11 @@ const ArticleFeature = ({
         isBomba
     } = getChainConfig(featureId, renderables, cajaTemaConfig);
 
-    const extraOpts = getDataAttributesForViewability(id, boxPosition, index);
+    const extraOpts = getDataAttributesForViewability(
+        articleId,
+        boxPosition,
+        index
+    );
     const [config, setConfig] = useState(initialConfig);
     const onlyOneApeturaValidateForWWW = isInApertura({
         layoutPageBuilder,
@@ -99,9 +104,9 @@ const ArticleFeature = ({
     const isLiveblog = variant === 'liveblog';
 
     const articleContent = useContent({
-        source: checkForId(id) ? 'articleSourceNota' : null,
+        source: articleId ? 'articleSourceNota' : null,
         query: {
-            id: checkForId(id),
+            id: articleId,
             published: true,
             imageConfig,
             checkExclusiveAccess: false,

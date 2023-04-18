@@ -166,7 +166,7 @@ export const getAnchorsFromGroup = roof => {
         anchorLeft: isAnchorLeft && groupLeft,
         actionLeft: 'techo',
         anchorRight: isButtonLink && anchorRight,
-        actionRight: 'techo_boton'
+        actionRight: 'cta'
     };
 };
 
@@ -202,7 +202,7 @@ export const setEventsRoof = () => {
             actionRight
         } = getAnchorsFromGroup(roof);
 
-        const addEventRoof = (elem, action) => {
+        const addEventRoof = (elem, type) => {
             const elemChildren = elem.target.children;
 
             const description =
@@ -212,8 +212,8 @@ export const setEventsRoof = () => {
                     (elemChildren[0].alt || elemChildren[0].innerHTML));
 
             const payload = {
-                action,
-                label: createDynamicLabel(`label_${description}`)
+                action: createDynamicLabel(`caja_${description}`),
+                label: createDynamicLabel(`${type}_${description}`)
             };
 
             addEventToDataLayer(payload);

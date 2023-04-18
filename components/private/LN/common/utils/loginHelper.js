@@ -193,7 +193,7 @@ const setupCookies = ({ Usuario: obj }) => {
             switch (key) {
                 case 'UsuarioDetalleGuid':
                     aux = 'usuario%5Fdetalle%5Fguid';
-                    cookie = `{${getCookie('token')}}`;
+                    cookie = '';
                     break;
                 case 'UsuarioDetalleNick':
                     aux = 'usuario%5Fdetalle%5Fnick';
@@ -221,7 +221,7 @@ const setupCookies = ({ Usuario: obj }) => {
                     break;
                 case 'TokenJWT':
                     aux = 'PersoTKN';
-                    cookie = obj[key];
+                    cookie = '';
                     break;
                 default:
                     aux = key;
