@@ -31,7 +31,8 @@ export default function CommonCollection({
     articles = [],
     ContainerCards = Bngrid,
     setExtraClassName,
-    layout
+    layout,
+    isContentLab100
 }) {
     return (
         <>
@@ -71,7 +72,7 @@ export default function CommonCollection({
                             subhead={subhead}
                             href={get(article, 'website_url', '')}
                             mediaData={mediaData}
-                            cardSize={cardSize}
+                            cardSize={isContentLab100 ? '4xl' : cardSize}
                             imagePosition={imagePosition}
                             className={`${className || ''} ${extraClassName}`}
                             section={showSection({

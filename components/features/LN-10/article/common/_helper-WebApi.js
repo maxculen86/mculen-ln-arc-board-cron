@@ -115,7 +115,8 @@ export const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
         config,
         index,
         boxPosition: `0${Number(position) + 1}`.slice(-2),
-        layout
+        layout,
+        chainId: get(parent, 'props.id', '')
     };
 };
 

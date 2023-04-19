@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import renderables from '../../../../__mocks__/data/LN10_Caja_Collection/renderablesGrid8And4.json';
 import responseSource from '../../../../__mocks__/data/LN10_Caja_Collection/responseUseGetArticleInCollection.json';
+import renderablesWithContentLab from '../../../../__mocks__/data/renderables/renderablesWithContentLab.json';
 import renderablesExcSub from '../../../../__mocks__/data/LN10_Caja_Collection/renderablesExclusiveSub.json';
 import getDynamicBanners from '../../../../components/private/common/banners/dynamicBanners/getDynamicBanners';
 import useGetArticleInCollection from '../../../../components/private/LN/common/hooks/useGetArticleInCollection';
@@ -40,12 +41,16 @@ describe('Tests Chain CajaCollection', () => {
         idCollection: '',
         initialPosition: 0
     };
-    const getProps = ({ customFields }) => ({
-        id: 'c0fuuilRMMtV6pi',
+    const getProps = ({
+        customFields,
+        id = 'c0fuuilRMMtV6pi',
+        renderablesData = renderables
+    }) => ({
+        id,
         isAdmin: true,
         customFields,
         tree: {},
-        renderables
+        renderables: renderablesData
     });
 
     describe('Tests for the case warnning', () => {
@@ -106,6 +111,60 @@ describe('Tests Chain CajaCollection', () => {
                 )
             ).toBeVisible();
         });
+
+        test('should return a warning when the layout is bn-4-8 and chainStyle is not include in VERTICALS chains', () => {
+            const fields = {
+                ...customFields,
+                layout: 'bn-4-8',
+                chainStyle: 'Hashtag',
+                idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
+            };
+            useGetArticleInCollection.mockImplementation(() => responseSource);
+            render(
+                <CajaCollection
+                    {...getProps({
+                        customFields: fields
+                    })}
+                />
+            );
+
+            expect(
+                screen.getByRole('heading', { name: 'Advertencia' })
+            ).toBeDefined();
+
+            expect(
+                screen.getByText(
+                    'La diagramación Grilla 4 Verticales no permite el estilo seleccionado'
+                )
+            ).toBeVisible();
+        });
+
+        test('Should return a warning when the layout is hashtag and the number of articles is less than 7 ', () => {
+            const fields = {
+                ...customFields,
+                layout: 'Hashtag',
+                chainStyle: 'Hashtag',
+                idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
+            };
+
+            useGetArticleInCollection.mockImplementation(() => responseSource);
+
+            render(
+                <CajaCollection
+                    {...getProps({
+                        customFields: fields
+                    })}
+                />
+            );
+
+            expect(
+                screen.getByRole('heading', { name: 'Advertencia' })
+            ).toBeDefined();
+
+            expect(
+                screen.getByText('Se requiere minimo 7 articulos para HashTag')
+            ).toBeVisible();
+        });
     });
 
     describe('Tests for the case of BN grid 8 and 4', () => {
@@ -115,7 +174,7 @@ describe('Tests Chain CajaCollection', () => {
             idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
         };
 
-        test.only('should return a grid of 4 items', () => {
+        test('should return a grid of 4 items', () => {
             useGetArticleInCollection.mockImplementation(() => responseSource);
 
             render(
@@ -148,26 +207,32 @@ describe('Tests Chain CajaCollection', () => {
             expect(screen.getAllByRole('article')).toHaveLength(8);
         });
 
-        test('should show the download when the article has no imaget', () => {
+        test('should show the "bajada" when the article has no imaget', () => {
             useGetArticleInCollection.mockImplementation(() => [
-                responseSource
+                responseSource[3]
             ]);
+
+            const customFields = {
+                ...fields,
+                layout: 'bn_1_grid'
+            };
 
             const { container } = render(
                 <CajaCollection
                     {...getProps({
-                        customFields: fields
+                        customFields
                     })}
+                    isTest={true}
                 />
             );
-            screen.debug();
+
             const bajada =
-                'Incidentes frente al hotel donde convocó a militantes ';
+                'Incidentes frente al hotel donde convocó a militantes';
 
             const articleWithSubhead = container.querySelector('.subhead');
 
             expect(articleWithSubhead).toBeDefined();
-            // expect(screen.getByText(bajada)).toBeVisible();
+            expect(screen.getByText(bajada)).toBeVisible();
         });
     });
 
@@ -195,6 +260,42 @@ describe('Tests Chain CajaCollection', () => {
             expect(
                 container.getElementsByClassName('content-lab')
             ).toHaveLength(1);
+        });
+
+        test('Should render the box with the --4xl class when rendering in the content section.', () => {
+            useGetArticleInCollection.mockImplementation(() =>
+                responseSource.slice(0, 1)
+            );
+
+            const { container } = render(
+                <CajaCollection
+                    {...getProps({
+                        customFields: fields,
+                        id: 'c0fe2FW0maz0cI0',
+                        renderablesData: renderablesWithContentLab
+                    })}
+                />
+            );
+
+            expect(container.querySelector('.--4xl')).toBeDefined();
+        });
+
+        test('Should render the box with the 3xl class when rendering in sections other than content.', () => {
+            useGetArticleInCollection.mockImplementation(() =>
+                responseSource.slice(0, 1)
+            );
+
+            const { container } = render(
+                <CajaCollection
+                    {...getProps({
+                        customFields: fields,
+                        id: 'c0faEuBOlaz0cwr',
+                        renderablesData: renderablesWithContentLab
+                    })}
+                />
+            );
+
+            expect(container.querySelector('.--3xl')).toBeDefined();
         });
     });
 });

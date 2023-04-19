@@ -1223,7 +1223,7 @@ const diagramationRules = diagramation => {
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 withSection: true,
-                withSubhead: false,
+                withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
