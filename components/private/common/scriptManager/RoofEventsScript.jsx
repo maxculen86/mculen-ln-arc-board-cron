@@ -6,7 +6,8 @@ import {
     setEventsNavigationLinks,
     getAnchorsFromGroup,
     addEventListeners,
-    addEventToDataLayer
+    addEventToDataLayer,
+    getRoofTitle
 } from '../utils/eventsHelper';
 
 export default function RoofEventsScript() {
@@ -20,6 +21,7 @@ export default function RoofEventsScript() {
                         ${addEventListeners}
                         ${setEventsRoof}
                         ${getAnchorsFromGroup}
+                        ${getRoofTitle}
                         ${setEventsRoof}
                         ${setEventsNavigationLinks}
 
