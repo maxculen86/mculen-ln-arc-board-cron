@@ -1,5 +1,20 @@
 import { atleastone } from '../../../../../../../../../content/sources/utils/pageSource/common/elements/common/strategy/atleastone';
 
+jest.mock(
+    '../../../../../../../../../content/sources/utils/pageSource/common/elements/common/strategy/equal.js',
+    () => {
+        return {
+            __esModule: true,
+            equal: (element, configElement, lengthBannersPrevious) => {
+                if (element) {
+                    return true;
+                }
+                return false;
+            }
+        };
+    }
+);
+
 describe('Test Method atleastone sources-utils-pageSource-common-elements-common-strategy-atleastone.js ', () => {
     const configBanner = {
         task: 'AtLeastOne',
@@ -12,7 +27,7 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
         ]
     };
 
-    test('atleastone False Ok', () => {
+    test('atleastone when 1 equal is true', () => {
         const element = {
             type: 0,
             sectionAliasMobile: 'apertura',
@@ -41,10 +56,10 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
             configElement,
             lengthBannersPrevious
         );
-        expect(elementsWithAtLeastOne).toEqual(false);
+        expect(elementsWithAtLeastOne).toEqual(true);
     });
 
-    test('atleastone True Ok', () => {
+    test('atleastone when all equals is false', () => {
         const element = {
             type: 0,
             sectionAliasMobile: 'apertura',
@@ -69,10 +84,10 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
         const configElement = Object.assign([], configBanner);
         const lengthBannersPrevious = 2;
         const elementsWithAtLeastOne = atleastone(
-            element,
+            null,
             configElement,
             lengthBannersPrevious
         );
-        expect(elementsWithAtLeastOne).toEqual(true);
+        expect(elementsWithAtLeastOne).toEqual(false);
     });
 });

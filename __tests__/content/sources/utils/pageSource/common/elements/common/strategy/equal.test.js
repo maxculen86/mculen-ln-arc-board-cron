@@ -66,4 +66,90 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
         );
         expect(elementsWithAtLeastOne).toEqual(true);
     });
+    test('Equal when element is null', () => {
+        const configElement = Object.assign([], configBanner);
+        const lengthBannersPrevious = 2;
+        const elementsWithAtLeastOne = equal(
+            null,
+            configElement,
+            lengthBannersPrevious
+        );
+        expect(elementsWithAtLeastOne).toEqual(false);
+    });
+
+    test('Equal when lengthBannersPrevious >= configElement.minLengthBannersPrevious', () => {
+        const element = {
+            type: 0,
+            sectionAliasMobile: 'apertura',
+            information: {},
+            articles: [
+                {
+                    _id: '2PVUOH2SZVCTPFYRJXJW2N574A'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMM'
+                }
+            ],
+            configurations: { arcSite: 'la-nacion-ar' },
+            sectionWeb: 'Apertura'
+        };
+        const configElement = Object.assign([], configBanner);
+        configElement.minLengthBannersPrevious = 1;
+        const lengthBannersPrevious = 2;
+        const elementsWithAtLeastOne = equal(
+            element,
+            configElement,
+            lengthBannersPrevious
+        );
+        expect(elementsWithAtLeastOne).toEqual(false);
+    });
+
+    test('Equal when elementFind is null', () => {
+        const element = {
+            type: 0,
+            sectionAliasMobile: 'apertura',
+            information: {},
+            articles: [
+                {
+                    _id: '2PVUOH2SZVCTPFYRJXJW2N574A'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMM'
+                }
+            ],
+            configurations: { arcSite: 'la-nacion-ar' },
+            sectionWeb: 'Apertura'
+        };
+        const configElement = Object.assign([], configBanner);
+        configElement.keyFind = 'lalala';
+        const lengthBannersPrevious = 2;
+        const elementsWithAtLeastOne = equal(
+            element,
+            configElement,
+            lengthBannersPrevious
+        );
+        expect(elementsWithAtLeastOne).toEqual(false);
+    });
+    /* 
+    test('Equal when typeValue is not equal', () => {
+        const element = {
+            type: 0,
+            sectionAliasMobile: 'apertura',
+            information: {},
+            articles: null,
+            configurations: { arcSite: 'la-nacion-ar' },
+            sectionWeb: 'Apertura'
+        };
+        const configElement = Object.assign([], configBanner);
+
+        console.log(element);
+console.log(configElement);
+        const lengthBannersPrevious = 2;
+        const elementsWithAtLeastOne = equal(
+            element,
+            configElement,
+            lengthBannersPrevious
+        );
+        expect(elementsWithAtLeastOne).toEqual(false);
+    }); */
 });

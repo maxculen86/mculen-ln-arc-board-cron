@@ -1,4 +1,3 @@
-import get from '../../../../../../../../components/private/common/utils/get';
 import { equal } from './equal';
 
 export const atleastone = (element, configElement, lengthBannersPrevious) => {
