@@ -1,8 +1,52 @@
 import 'regenerator-runtime/runtime';
 import transformHomeV1 from '../../../../../../../../content/sources/utils/pageSource/pageHome/v1/mobile/transform';
-import transformLayout from '../../../../../../../../components/private/LN/api/global/page/index';
-import pageHomeMain from '../../../../../../../../__mocks__/data/pages/preLayout/LN-Home_Main.json';
-/* 
+
+const pageLayoutLNMain = {
+    information: {
+        layoutPage: 'LN10-Home_Main'
+    },
+    content_elements: [
+        {
+            type: 0,
+            sectionAliasMobile: 'envivo',
+            information: {},
+            articles: [
+                {
+                    _id: '2PVUOH2SZVCTPFYRJXJW2N574A'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMM'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMN'
+                }
+            ],
+            configurations: { arcSite: 'la-nacion-ar' },
+            sectionWeb: 'Apertura'
+        },
+        {
+            type: 0,
+            sectionAliasMobile: 'apertura',
+            information: {},
+            articles: [
+                {
+                    _id: '2PVUOH2SZVCTPFYRJXJW2N574A'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMM'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMN'
+                }
+            ],
+            configurations: { arcSite: 'la-nacion-ar' },
+            sectionWeb: 'Apertura'
+        }
+    ]
+};
+const mockSetVar = jest.fn();
+const mockPageLayoutLNMainContent = jest.fn();
+
 jest.mock(
     '../../../../../../../../components/private/common/utils/logger',
     () => {
@@ -16,68 +60,51 @@ jest.mock(
     () => {
         return {
             __esModule: true,
-            configToDividebyDiagramation: layout => {
-                switch (layout) {
-                    case 'LN10-Home_Main':
-                        return [
-                            'grillaUltimasNoticias',
-                            'left-focal',
-                            'opinion4',
-                            'opinion8'
-                        ];
-                        break;
-                    case 'configIsNull':
-                        return null;
-
-                    default:
-                        return [];
-                        break;
+            default: () => {
+                if (mockSetVar() === 'OK') {
+                    return [
+                        'grillaUltimasNoticias',
+                        'left-focal',
+                        'opinion4',
+                        'opinion8'
+                    ];
                 }
+                return null;
             }
         };
     }
 );
-
 
 jest.mock(
     '../../../../../../../../content/sources/utils/pageSource/common/elements/banners/index.js',
     () => {
         return {
             __esModule: true,
-            setBannerByLayout: layout => {
-                switch (layout) {
-                   return [];
-                }
+            setBannerByLayout: () => {
+                return [];
             }
         };
     }
 );
-
 
 jest.mock(
     '../../../../../../../../content/sources/utils/pageSource/common/elements/titles/index.js',
     () => {
         return {
             __esModule: true,
-            setTitleByLayout: layout => {
-                switch (layout) {
-                   return [];
-                }
+            setTitleByLayout: () => {
+                return [];
             }
         };
     }
 );
-
-
 jest.mock(
     '../../../../../../../../content/sources/utils/pageSource/common/elements/dolars/index.js',
     () => {
         return {
             __esModule: true,
-            setDolarByLayout: layout => {
-                switch (layout) {
-                   return [];
-                }
+            setDolarByLayout: () => {
+                return [];
             }
         };
     }
@@ -88,49 +115,118 @@ jest.mock(
     () => {
         return {
             __esModule: true,
-            moveSections: layout => {
-                switch (layout) {
-                   return [];
+            moveSections: () => {
+                if (mockSetVar() === 'OK') {
+                    return mockPageLayoutLNMainContent();
                 }
+                return null;
             },
-            divideSectionsByDiagramation: layout => {
-                switch (layout) {
-                   return [];
+            divideSectionsByDiagramation: () => {
+                if (mockSetVar() === 'OK') {
+                    const resp = mockPageLayoutLNMainContent();
+                    return resp;
                 }
+                return null;
             }
         };
     }
 );
 
- */
-describe('Test transform page', () => {
-    test('When data received is Ok', async () => {
-        const queryParams = {
-            rootPath: `http://localhost/homepage`,
-            ticksCache: '01',
-            website: 'la-nacion-ar',
-            isPage: true
+jest.mock(
+    '../../../../../../../../components/private/LN/api/global/page/config/configToMoveBySection.js',
+    () => {
+        return {
+            __esModule: true,
+            default: () => {
+                if (mockSetVar() === 'OK') {
+                    return {
+                        App_Anexo_1: {
+                            sectionWeb: 'Apertura',
+                            position: 'start'
+                        }
+                    };
+                }
+                return {};
+            }
         };
-        const pageLayoutLNMain = transformLayout(pageHomeMain);
-        expect(pageLayoutLNMain.content_elements.length).toBe(25);
-        const result = await transformHomeV1(pageLayoutLNMain, queryParams);
-        expect(result.length).toBe(31);
+    }
+);
+
+describe('Test transform page', () => {
+    beforeEach(() => {
+        jest.resetModules();
+    });
+    const paramsQuery = {
+        website: 'la-nacion-ar',
+        versionUri: 1,
+        namePage: 'home',
+        ticks: '01',
+        versionDeploy: null,
+        useCookie: null
+    };
+    test('When transform v1 is Ok', async () => {
+        mockSetVar.mockImplementation(() => 'OK');
+        mockPageLayoutLNMainContent.mockImplementation(() => {
+            return pageLayoutLNMain.content_elements;
+        });
+
+        const newPageLayoutLNMain = Object.assign([], pageLayoutLNMain);
+        const result = await transformHomeV1(newPageLayoutLNMain, paramsQuery);
+        expect(result.length).toBe(2);
     });
 
-    test('When data received is Empty', async () => {
+    test('When transform v1 when LayoutPage is null', async () => {
         try {
-            console.warn = jest.fn(a => {
-                expect(a).toContain('Missing data Layout');
-            });
-            const queryParams = {
-                rootPath: `http://localhost/homepage`,
-                ticksCache: '01',
-                website: 'la-nacion-ar',
-                isPage: true
-            };
-            await transformHomeV1({}, queryParams);
+            const newPageLayoutLNMain = JSON.parse(
+                JSON.stringify(pageLayoutLNMain)
+            );
+
+            newPageLayoutLNMain.information.layoutPage = null;
+            const result = await transformHomeV1(
+                newPageLayoutLNMain,
+                paramsQuery
+            );
         } catch (error) {
             expect(error.message).toContain('Missing data Layout');
         }
+    });
+
+    test('When transform v1 when information is undefined', async () => {
+        try {
+            const newPageLayoutLNMain = Object.assign([], pageLayoutLNMain);
+            newPageLayoutLNMain.information = undefined;
+            const result = await transformHomeV1(
+                newPageLayoutLNMain,
+                paramsQuery
+            );
+        } catch (error) {
+            expect(error.message).toContain('Missing data Layout');
+        }
+    });
+
+    test('When transform v1 when content_elements is undefined', async () => {
+        try {
+            const newPageLayoutLNMain = Object.assign([], pageLayoutLNMain);
+            newPageLayoutLNMain.content_elements = undefined;
+            const result = await transformHomeV1(
+                newPageLayoutLNMain,
+                paramsQuery
+            );
+        } catch (error) {
+            expect(error.message).toContain(
+                "Cannot read property 'information' of null"
+            );
+        }
+    });
+    test('When transform v1 when content_elements have type 9', async () => {
+        const newPageLayoutLNMain = JSON.parse(
+            JSON.stringify(pageLayoutLNMain)
+        );
+        newPageLayoutLNMain.content_elements[0].type = 9;
+        mockPageLayoutLNMainContent.mockImplementation(() => {
+            return newPageLayoutLNMain.content_elements;
+        });
+        const result = await transformHomeV1(newPageLayoutLNMain, paramsQuery);
+        expect(result.length).toBe(1);
     });
 });
