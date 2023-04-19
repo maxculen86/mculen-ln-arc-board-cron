@@ -58,7 +58,7 @@ const TAGS_BY_WIDGET = {
                         id="VIAFOURA"
                         type="text/javascript"
                         async
-                        src="//cdn.viafoura.net/vf-v2.js"
+                        src="https://cdn.viafoura.net/vf-v2.js"
                     />
                 ]
             }) ||
