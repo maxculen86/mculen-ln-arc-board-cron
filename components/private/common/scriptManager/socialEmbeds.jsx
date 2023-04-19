@@ -70,7 +70,7 @@ const SocialEmbeds = props => {
         <>
             {instagramEmbed && (
                 <>
-                    <script defer src="http://www.instagram.com/embed.js" />
+                    <script defer src="https://www.instagram.com/embed.js" />
                     <script
                         type="text/javascript"
                         dangerouslySetInnerHTML={{ __html: processInstaEmbeds }}
