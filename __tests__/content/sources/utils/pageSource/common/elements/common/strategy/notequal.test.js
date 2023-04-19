@@ -177,4 +177,50 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
         );
         expect(elementsWithAtLeastOne).toEqual(false);
     });
+
+    test('NotEqual when minLength is <= element.lenght', () => {
+        const element = {
+            type: 0,
+            information: {},
+            articles: [1, 2, 3],
+            configurations: { arcSite: 'la-nacion-ar' },
+            sectionWeb: 'Apertura'
+        };
+        const configElement = {
+            task: 'NotEqual',
+            keyFind: 'articles',
+            typeValue: 0,
+            minLength: 2
+        };
+        const lengthBannersPrevious = 1;
+        const elementsWithAtLeastOne = notequal(
+            element,
+            configElement,
+            lengthBannersPrevious
+        );
+        expect(elementsWithAtLeastOne).toEqual(false);
+    });
+
+    test('NotEqual when maxLength is >= element.lenght', () => {
+        const element = {
+            type: 0,
+            information: {},
+            articles: [1, 2, 3],
+            configurations: { arcSite: 'la-nacion-ar' },
+            sectionWeb: 'Apertura'
+        };
+        const configElement = {
+            task: 'NotEqual',
+            keyFind: 'articles',
+            typeValue: 0,
+            maxLength: 4
+        };
+        const lengthBannersPrevious = 1;
+        const elementsWithAtLeastOne = notequal(
+            element,
+            configElement,
+            lengthBannersPrevious
+        );
+        expect(elementsWithAtLeastOne).toEqual(false);
+    });
 });
