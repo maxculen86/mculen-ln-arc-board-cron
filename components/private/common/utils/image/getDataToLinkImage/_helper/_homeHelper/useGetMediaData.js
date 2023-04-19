@@ -75,7 +75,8 @@ const useGetMediaData = ({
             isInApertura,
             isAdmin,
             arcSite,
-            shouldUseV2
+            shouldUseV2,
+            shouldUseV1: !shouldUseV2
         },
         filter: filterArticle,
         staticMode: isSSR()
