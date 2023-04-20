@@ -17,7 +17,7 @@ const Buscador = () => {
                 crossOrigin="anonymous"
             />
 
-            <script src="//www.queryly.com/js/queryly.v4.js" />
+            <script src="https://www.queryly.com/js/queryly.v4.js" />
             <script
                 defer
                 type="text/javascript"

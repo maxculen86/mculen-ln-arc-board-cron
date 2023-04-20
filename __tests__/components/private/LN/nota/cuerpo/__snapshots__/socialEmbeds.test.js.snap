@@ -89,7 +89,7 @@ Our anniversary has a lot of meaning to me as an opportunity to reflect on how..
   >
     <script
       defer={true}
-      src="//www.instagram.com/embed.js"
+      src="https://www.instagram.com/embed.js"
     />
     <script
       dangerouslySetInnerHTML={
@@ -99,7 +99,7 @@ Our anniversary has a lot of meaning to me as an opportunity to reflect on how..
             instgrm.Embeds.process();
             var t = document.querySelector(\\".cuerpo__nota\\").getElementsByTagName(\\"script\\");
             HTMLCollection.prototype.filter = Array.prototype.filter, t.filter(function(e) {
-                return \\"//www.instagram.com/embed.js\\" === e.getAttribute(\\"src\\")
+                return \\"https://www.instagram.com/embed.js\\" === e.getAttribute(\\"src\\")
             }).forEach(function(e) {
                 return e.remove()
             })
