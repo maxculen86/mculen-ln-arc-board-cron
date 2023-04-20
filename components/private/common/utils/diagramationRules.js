@@ -1,87 +1,119 @@
 const diagramationRules = diagramation => {
-    // TODO: Guardar en una variable configuraciones que sean iguales para no repetir codigo.
+    const img = {
+        bottom: 'img-bottom',
+        top: 'img-top',
+        right: 'img-right',
+        left: 'img-left',
+        none: 'img-none'
+    };
+    const tag = {
+        h1: 'h1',
+        h2: 'h2',
+        h3: 'h3'
+    };
+    const size = {
+        XS: 'xs',
+        S: 's',
+        M: 'm',
+        ML: 'm-l',
+        L: 'l',
+        XL: 'xl',
+        XLL: 'xl-l',
+        threeXL: '3xl',
+        fourXL: '4xl',
+        fiveXL: '5xl',
+        sixXL: '6xl',
+        T1: 'T1'
+    };
+    const author = 'author';
+    const liveblog = 'liveblog';
+    const html = 'html';
+    const ranking = 'ranking';
+    const txtCenter = '--txt-center';
+    const tabTextCenter = '--tab-text-center';
+
     const diagramations = {
         'left-focal': [
             {
-                titleTag: 'h1',
-                subheadTag: 'h2',
+                titleTag: tag.h1,
+                subheadTag: tag.h2,
                 withSection: true,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withSubhead: true,
-                cardSize: '4xl',
+                cardSize: size.fourXL,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-bottom',
-                    desktop: 'img-bottom'
+                    mobile: img.top,
+                    tablet: img.bottom,
+                    desktop: img.bottom
                 },
-                imageConfig: 'T1',
+                imageConfig: size.T1,
                 withPreload: true
             },
             {
-                titleTag: 'h2',
-                subheadTag: 'h3',
-                cardSize: 'm-l',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                cardSize: size.ML,
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                imageConfig: 's'
+                imageConfig: size.S
             },
             {
-                titleTag: 'h2',
-                subheadTag: 'h3',
-                cardSize: 'm-l',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                cardSize: size.ML,
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                imageConfig: 's'
+                imageConfig: size.S
             },
             {
-                titleTag: 'h2',
-                subheadTag: 'h3',
-                cardSize: 'm-l',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                cardSize: size.ML,
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                imagePosition: 'img-bottom',
+                imagePosition: img.bottom,
                 withSubhead: false,
-                imageConfig: 's'
+                imageConfig: size.S
             },
             {
-                titleTag: 'h2',
-                subheadTag: 'h3',
-                cardSize: 'm-l',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                cardSize: size.ML,
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                imageConfig: 's'
+                imageConfig: size.S
             }
         ],
         'center-focal': [
             {
-                variantsDisabled: ['author'],
-                titleTag: 'h1',
-                subheadTag: 'h2',
+                variantsDisabled: [author],
+                titleTag: tag.h1,
+                subheadTag: tag.h2,
                 withSection: true,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withSubhead: true,
-                cardSize: '4xl',
-                imageConfig: 's',
+                cardSize: size.fourXL,
+                imageConfig: size.S,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-none',
-                    desktop: 'img-none'
+                    mobile: img.top,
+                    tablet: img.none,
+                    desktop: img.none
                 }
             },
             {
-                variantsDisabled: ['liveblog'],
-                titleTag: 'h2',
-                cardSize: 'xl-l',
-                imageConfig: 'T1',
+                variantsDisabled: [liveblog],
+                titleTag: tag.h2,
+                cardSize: size.XLL,
+                imageConfig: size.T1,
                 withPreload: true,
                 withSection: false,
                 withMarquee: true,
@@ -89,449 +121,449 @@ const diagramationRules = diagramation => {
                 withSubhead: false
             },
             {
-                titleTag: 'h2',
-                subheadTag: 'h3',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 's'
+                cardSize: size.M,
+                imageConfig: size.S
             },
             {
-                variantsDisabled: ['author'],
-                titleTag: 'h2',
-                subheadTag: 'h3',
+                variantsDisabled: [author],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
                 withSubheadAndMedia: false,
                 withMedia: true,
-                cardSize: 'm',
-                imageConfig: 's',
+                cardSize: size.M,
+                imageConfig: size.S,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-none',
-                    desktop: 'img-none'
+                    mobile: img.top,
+                    tablet: img.none,
+                    desktop: img.none
                 }
             }
         ],
         'focal-70': [
             {
-                titleTag: 'h1',
-                subheadTag: 'h2',
+                titleTag: tag.h1,
+                subheadTag: tag.h2,
                 withSection: true,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withSubhead: true,
                 extraClass: { video: 'ln-70-video' },
-                cardSize: '4xl',
-                imageConfig: 'T1',
+                cardSize: size.fourXL,
+                imageConfig: size.T1,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-top',
-                    desktop: 'img-right'
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.right
                 },
                 withPreload: true
             },
             {
-                titleTag: 'h2',
-                subheadTag: 'h3',
-                cardSize: 'm',
-                imageConfig: 's',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
+                cardSize: size.M,
+                imageConfig: size.S,
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false
             },
             {
-                variantsDisabled: ['author'],
-                titleTag: 'h2',
-                cardSize: 'm',
+                variantsDisabled: [author],
+                titleTag: tag.h2,
+                cardSize: size.M,
                 withSection: false,
-                imageConfig: 's',
+                imageConfig: size.S,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
                 withSubheadAndMedia: false,
                 withMedia: true,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-top',
-                    desktop: 'img-none'
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.none
                 }
             }
         ],
         'bn-opening-4': [
             {
-                titleTag: 'h2',
-                subheadTag: 'h3',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: 'm',
+                cardSize: size.M,
                 withSubhead: false,
-                imageConfig: 'xs',
+                imageConfig: size.XS,
                 withPreload: true
             },
             {
-                titleTag: 'h2',
-                subheadTag: 'h3',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 }
             },
             {
-                titleTag: 'h2',
-                subheadTag: 'h3',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 }
             },
             {
-                titleTag: 'h2',
-                subheadTag: 'h3',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 }
             }
         ],
         horizontal: [
             {
-                variantsDisabled: ['author', 'liveblog', 'html'],
-                titleTag: 'h1',
-                subheadTag: 'h2',
+                variantsDisabled: [author, liveblog, html],
+                titleTag: tag.h1,
+                subheadTag: tag.h2,
                 withMedia: true,
                 withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withSection: true,
-                cardSize: '6xl',
+                cardSize: size.sixXL,
                 imageConfig: 'bombaHorizontal',
                 aspectRatio: 'ar-picture',
-                className: '--txt-center',
+                className: txtCenter,
                 withPreload: true,
                 extraClass: { withoutMedia: '--no-mc' }
             }
         ],
         vertical: [
             {
-                variantsDisabled: ['author', 'liveblog', 'html'],
-                titleTag: 'h1',
-                subheadTag: 'h2',
+                variantsDisabled: [author, liveblog, html],
+                titleTag: tag.h1,
+                subheadTag: tag.h2,
                 withMedia: true,
                 withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withSection: true,
-                cardSize: '6xl',
+                cardSize: size.sixXL,
                 imageConfig: 'bombaVertical',
                 aspectRatio: 'ar-square',
-                className: '--txt-center',
+                className: txtCenter,
                 withPreload: true
             }
         ],
         bombita: [
             {
-                variantsDisabled: ['author', 'liveblog', 'html'],
-                titleTag: 'h2',
-                subheadTag: 'h3',
+                variantsDisabled: [author, liveblog, html],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: false,
-                cardSize: '5xl',
-                className: '--txt-center'
+                cardSize: size.fiveXL,
+                className: txtCenter
             }
         ],
         bombitaMas4: [
             {
-                variantsDisabled: ['author', 'liveblog', 'html'],
-                titleTag: 'h2',
-                subheadTag: 'h3',
+                variantsDisabled: [author, liveblog, html],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withMedia: false,
                 withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: '5xl',
-                className: '--txt-center',
+                cardSize: size.fiveXL,
+                className: txtCenter,
                 hideBadget: true
             },
             {
-                variantsDisabled: ['author', 'liveblog', 'html'],
-                titleTag: 'h2',
-                subheadTag: 'h3',
+                variantsDisabled: [author, liveblog, html],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withMedia: true,
                 withSubhead: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 hideBadget: true
             },
             {
-                variantsDisabled: ['author', 'liveblog', 'html'],
-                titleTag: 'h2',
-                subheadTag: 'h3',
+                variantsDisabled: [author, liveblog, html],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withMedia: true,
                 withSubhead: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 hideBadget: true
             },
             {
-                variantsDisabled: ['author', 'liveblog', 'html'],
-                titleTag: 'h2',
-                subheadTag: 'h3',
+                variantsDisabled: [author, liveblog, html],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withMedia: true,
                 withSubhead: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 hideBadget: true
             },
             {
-                variantsDisabled: ['author', 'liveblog', 'html'],
-                titleTag: 'h2',
-                subheadTag: 'h3',
+                variantsDisabled: [author, liveblog, html],
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withMedia: true,
                 withSubhead: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 hideBadget: true
             }
         ],
         bnGrilla4: [
             {
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm-l',
-                imageConfig: 'T1'
+                cardSize: size.ML,
+                imageConfig: size.T1
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             }
         ],
         bnGrilla8: [
             {
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm-l',
-                imageConfig: 's'
+                cardSize: size.ML,
+                imageConfig: size.S
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm-l',
-                imageConfig: 's'
+                cardSize: size.ML,
+                imageConfig: size.S
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             }
         ],
         'ranking-1-2-2_grid': [
             {
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
                 },
-                cardSize: 'l',
-                imageConfig: 's',
+                cardSize: size.L,
+                imageConfig: size.S,
                 withSubhead: false,
                 withMarqueeImg: false
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-none',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.none,
+                    desktop: img.right
                 },
-                cardSize: 'm',
-                imageConfig: 'ranking',
+                cardSize: size.M,
+                imageConfig: ranking,
                 withSubhead: false,
                 withMarqueeImg: false
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-none',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.none,
+                    desktop: img.right
                 },
-                cardSize: 'm',
-                imageConfig: 'ranking',
+                cardSize: size.M,
+                imageConfig: ranking,
                 withSubhead: false,
                 withMarqueeImg: false
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-none',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.none,
+                    desktop: img.right
                 },
-                imageConfig: 'ranking',
-                cardSize: 'm',
+                imageConfig: ranking,
+                cardSize: size.M,
                 withSubhead: false,
                 withMarqueeImg: false
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-none',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.none,
+                    desktop: img.right
                 },
-                cardSize: 'm',
-                imageConfig: 'm',
+                cardSize: size.M,
+                imageConfig: size.M,
                 withSubhead: false,
                 withMarqueeImg: false
             }
@@ -541,503 +573,503 @@ const diagramationRules = diagramation => {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 's',
+                cardSize: size.M,
+                imageConfig: size.S,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
                 }
             },
             {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
-                className: '--tab-text-center'
+                className: tabTextCenter
             },
             {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
-                className: '--tab-text-center'
+                className: tabTextCenter
             },
             {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
-                className: '--tab-text-center'
+                className: tabTextCenter
             },
             {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
-                className: '--tab-text-center'
+                className: tabTextCenter
             },
             {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
-                className: '--tab-text-center'
+                className: tabTextCenter
             },
             {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
-                className: '--tab-text-center'
+                className: tabTextCenter
             }
         ],
         bn_1_4_grid: [
             {
-                variantsDisabled: ['author'],
-                cardSize: '3xl',
-                imageConfig: 'T1',
+                variantsDisabled: [author],
+                cardSize: size.threeXL,
+                imageConfig: size.T1,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
                 withSubhead: true,
                 withSection: true,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
                 }
             },
             {
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: false,
-                cardSize: 'm-l',
-                imageConfig: 's'
+                cardSize: size.ML,
+                imageConfig: size.S
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             }
         ],
         bn_1_grid: [
             {
-                variantsDisabled: ['author'],
-                cardSize: '3xl',
-                imageConfig: 'm',
+                variantsDisabled: [author],
+                cardSize: size.threeXL,
+                imageConfig: size.M,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
                 withSubhead: true,
                 withSection: true,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
                 }
             }
         ],
         bn_2_grid: [
             {
-                cardSize: 'm',
-                imageConfig: 'T1',
+                cardSize: size.M,
+                imageConfig: size.T1,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: false,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.right,
+                    desktop: img.right
                 }
             },
             {
-                cardSize: 'm',
-                imageConfig: 's',
+                cardSize: size.M,
+                imageConfig: size.S,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: false,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.right,
+                    desktop: img.right
                 }
             }
         ],
         canal_1_2_grid: [
             {
-                variantsDisabled: ['author'],
-                cardSize: '3xl',
-                imageConfig: 'T1',
+                variantsDisabled: [author],
+                cardSize: size.threeXL,
+                imageConfig: size.T1,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
                 withSubhead: true,
                 withSection: true,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-right',
-                    desktop: 'img-left'
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.left
                 }
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.right,
+                    desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'm'
+                cardSize: size.M,
+                imageConfig: size.M
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.right,
+                    desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'm'
+                cardSize: size.M,
+                imageConfig: size.M
             }
         ],
         canal_1_3_grid: [
             {
-                cardSize: '3xl',
-                imageConfig: 'T1',
+                cardSize: size.threeXL,
+                imageConfig: size.T1,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
                 withSubhead: true,
                 withSection: true,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
                 }
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.right,
+                    desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.right,
+                    desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.right,
+                    desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             }
         ],
         canal_1_4_grid: [
             {
-                cardSize: '3xl',
-                imageConfig: 'T1',
+                cardSize: size.threeXL,
+                imageConfig: size.T1,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
                 withSubhead: true,
                 withSection: true,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-left',
-                    desktop: 'img-left'
+                    mobile: img.top,
+                    tablet: img.left,
+                    desktop: img.left
                 }
             },
             {
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 's'
+                cardSize: size.M,
+                imageConfig: size.S
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             }
         ],
         bn_1_3_grid: [
             {
-                variantsDisabled: ['author'],
-                cardSize: '3xl',
-                imageConfig: 'T1',
+                variantsDisabled: [author],
+                cardSize: size.threeXL,
+                imageConfig: size.T1,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
                 withSubhead: true,
                 withSection: true,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
                 }
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.right,
+                    desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.right,
+                    desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.right,
+                    desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'm'
+                cardSize: size.M,
+                imageConfig: size.M
             }
         ],
         bn_1_2_grid: [
             {
-                variantsDisabled: ['author'],
-                cardSize: '3xl',
-                imageConfig: 'T1',
+                variantsDisabled: [author],
+                cardSize: size.threeXL,
+                imageConfig: size.T1,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
                 withSubhead: true,
                 withSection: true,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
                 }
             },
             {
                 variantsDisabled: [],
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.right,
+                    desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             },
             {
                 variantsDisabled: [],
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.right,
+                    tablet: img.right,
+                    desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'xs'
+                cardSize: size.M,
+                imageConfig: size.XS
             }
         ],
         bn_1_1_grid: [
             {
-                variantsDisabled: ['author'],
+                variantsDisabled: [author],
                 cardSize: '2xl',
-                imageConfig: 'T1',
+                imageConfig: size.T1,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: true,
                 withSection: false,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-right',
-                    desktop: 'img-right'
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
                 }
             },
             {
                 variantsDisabled: [],
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
-                imageConfig: 'm'
+                cardSize: size.M,
+                imageConfig: size.M
             }
         ],
         bn_2_1_2_grid: [
             {
-                variantsDisabled: ['liveblog', 'author'],
+                variantsDisabled: [liveblog, author],
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
-                cardSize: 'xl',
-                imageConfig: 'xs',
+                cardSize: size.XL,
+                imageConfig: size.XS,
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
                 }
             },
             {
@@ -1045,26 +1077,26 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 }
             },
             {
-                variantsDisabled: ['liveblog', 'author'],
+                variantsDisabled: [liveblog, author],
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
-                cardSize: 'm',
-                imageConfig: 'T1',
+                cardSize: size.M,
+                imageConfig: size.T1,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-none',
-                    desktop: 'img-none'
+                    mobile: img.right,
+                    tablet: img.none,
+                    desktop: img.none
                 }
             },
             {
@@ -1072,26 +1104,26 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-top',
-                    desktop: 'img-top'
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
                 }
             },
             {
-                variantsDisabled: ['liveblog', 'author'],
+                variantsDisabled: [liveblog, author],
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
-                cardSize: 'm',
-                imageConfig: 'xs',
+                cardSize: size.M,
+                imageConfig: size.XS,
                 imagePosition: {
-                    mobile: 'img-right',
-                    tablet: 'img-none',
-                    desktop: 'img-none'
+                    mobile: img.right,
+                    tablet: img.none,
+                    desktop: img.none
                 }
             }
         ],
@@ -1102,13 +1134,13 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: true,
                 withMedia: true,
                 withSubhead: false,
-                cardSize: '3xl',
-                imageConfig: 'm',
-                variantsDisabled: ['author', 'liveblog'],
+                cardSize: size.threeXL,
+                imageConfig: size.M,
+                variantsDisabled: [author, liveblog],
                 imagePosition: {
-                    mobile: 'img-top',
-                    tablet: 'img-left',
-                    desktop: 'img-left'
+                    mobile: img.top,
+                    tablet: img.left,
+                    desktop: img.left
                 }
             }
         ],
@@ -1117,33 +1149,33 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
-                cardSize: '3xl',
-                titleTag: 'h2',
-                subheadTag: 'h3'
+                cardSize: size.threeXL,
+                titleTag: tag.h2,
+                subheadTag: tag.h3
             },
             {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: 'l',
-                titleTag: 'h2',
-                subheadTag: 'h3'
+                cardSize: size.L,
+                titleTag: tag.h2,
+                subheadTag: tag.h3
             },
             {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: 'l',
-                titleTag: 'h2',
-                subheadTag: 'h3'
+                cardSize: size.L,
+                titleTag: tag.h2,
+                subheadTag: tag.h3
             },
             {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: 'l',
-                titleTag: 'h2',
-                subheadTag: 'h3'
+                cardSize: size.L,
+                titleTag: tag.h2,
+                subheadTag: tag.h3
             }
         ],
         opinion8: [
@@ -1151,78 +1183,78 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
-                cardSize: '3xl',
-                titleTag: 'h2',
-                subheadTag: 'h3'
+                cardSize: size.threeXL,
+                titleTag: tag.h2,
+                subheadTag: tag.h3
             },
             {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: 'l',
-                titleTag: 'h2',
-                subheadTag: 'h3'
+                cardSize: size.L,
+                titleTag: tag.h2,
+                subheadTag: tag.h3
             },
             {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: 'l',
-                titleTag: 'h2',
-                subheadTag: 'h3'
+                cardSize: size.L,
+                titleTag: tag.h2,
+                subheadTag: tag.h3
             },
             {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: 'l',
-                titleTag: 'h2',
-                subheadTag: 'h3'
+                cardSize: size.L,
+                titleTag: tag.h2,
+                subheadTag: tag.h3
             },
             {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: 'l',
-                titleTag: 'h2',
-                subheadTag: 'h3'
+                cardSize: size.L,
+                titleTag: tag.h2,
+                subheadTag: tag.h3
             },
             {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: 'l',
-                titleTag: 'h2',
-                subheadTag: 'h3'
+                cardSize: size.L,
+                titleTag: tag.h2,
+                subheadTag: tag.h3
             },
             {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: 'l',
-                titleTag: 'h2',
-                subheadTag: 'h3'
+                cardSize: size.L,
+                titleTag: tag.h2,
+                subheadTag: tag.h3
             },
             {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: 'l',
-                titleTag: 'h2',
-                subheadTag: 'h3'
+                cardSize: size.L,
+                titleTag: tag.h2,
+                subheadTag: tag.h3
             }
         ],
         cajaContent1: [
             {
-                titleTag: 'h2',
-                subheadTag: 'h3',
+                titleTag: tag.h2,
+                subheadTag: tag.h3,
                 withSection: true,
                 withSubhead: false,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,
-                cardSize: '3xl',
-                imageConfig: 'm'
+                cardSize: size.threeXL,
+                imageConfig: size.M
             }
         ]
     };
