@@ -206,5 +206,19 @@ describe('Tests component BuildRoof', () => {
 
             expect(container.querySelector('.--hashtag')).toBeVisible();
         });
+
+        test('should return roof exclusive-sub', () => {
+            const properties = {
+                ...props,
+                title: 'suscripcion',
+                buttonStyle: 'sub-exclusive',
+                buttonText: 'suscribite',
+                chainStyle: 'sub-exclusive',
+                linkButton: 'https://linkDelBoton.com.ar'
+            };
+
+            const { container } = render(<BuildRoof {...properties} />);
+            expect(container).toMatchSnapshot();
+        });
     });
 });

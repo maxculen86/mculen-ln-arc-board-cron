@@ -561,6 +561,58 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 badgetText: false
             });
         });
+        test('should return an badget with style exclusive-ln priority 1.', () => {
+            const articleMock = {
+                ...article,
+                content_restrictions: { content_code: 'cerrada' },
+                owner: { sponsored: true }
+            };
+            expect(
+                getBadgetConfig({
+                    article: articleMock,
+                    style: '',
+                    text: '',
+                    isLiveblog: true,
+                    withMedia: false,
+                    typeOfMedia: 'image'
+                })
+            ).toStrictEqual({
+                badgetStyle: 'exclusive-ln',
+                badgetText: 'Exclusivo suscriptores'
+            });
+        });
+        test('should return an badget with style live priority 2.', () => {
+            const articleMock = { ...article, owner: { sponsored: true } };
+            expect(
+                getBadgetConfig({
+                    article: articleMock,
+                    style: '',
+                    text: '',
+                    isLiveblog: true,
+                    withMedia: false,
+                    typeOfMedia: 'image'
+                })
+            ).toStrictEqual({
+                badgetStyle: 'live',
+                badgetText: 'vivo'
+            });
+        });
+        test('should return an badget with style contentlab priority 3.', () => {
+            const articleMock = { ...article, owner: { sponsored: true } };
+            expect(
+                getBadgetConfig({
+                    article: articleMock,
+                    style: '',
+                    text: '',
+                    isLiveblog: false,
+                    withMedia: false,
+                    typeOfMedia: 'image'
+                })
+            ).toStrictEqual({
+                badgetStyle: 'contentlab',
+                badgetText: 'CONTENT LAB'
+            });
+        });
 
         test('should return an empty object with the prop hideBadget is true', () => {
             expect(
