@@ -15,7 +15,7 @@ const ListMenu = ({ toggleDesplegable, amp, isHome }) => {
             : `${SITE_LANACION}/pf/mis-notas/?_website=la-nacion-ar`;
 
     return (
-        <nav className="com-nav-mobile">
+        <nav className="com-nav-mobile --no-app">
             <div className="row">
                 <Icon
                     name="home"

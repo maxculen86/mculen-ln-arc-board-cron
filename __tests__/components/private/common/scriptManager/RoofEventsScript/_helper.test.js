@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { setScriptRoof } from '../../../../../../components/private/common/scriptManager/RoofEventsScript/_helper';
+import { setEventsRoof } from '../../../../../../components/private/common/utils/eventsHelper';
 
 const getMockRoof = ({ childrenLeft, childrenRight = [] }) => {
     return (
@@ -57,29 +57,33 @@ describe('should register in dataLayer the click event of the logo with the alt 
 
     test('should register in dataLayer the click event of the logo with the alt of the image as description', () => {
         render(getMockRoof({ childrenLeft: mockAnchorWithImage('left') }));
-        setScriptRoof();
+        setEventsRoof();
 
         const link = screen.getByRole('link');
         fireEvent.click(link);
 
         expect(
-            window.dataLayer[0].dynamic_label.includes('Programas')
+            window.dataLayer[0].dynamic_label.includes('programas')
         ).toBeTruthy();
-        expect(window.dataLayer[0].dynamic_action).toStrictEqual('techo');
+        expect(window.dataLayer[0].dynamic_action).toStrictEqual(
+            'caja_programas'
+        );
     });
 
     test('Should record in datalayer the text of the span as description.', () => {
         render(getMockRoof({ childrenLeft: mockAnchorWithoutImage('left') }));
 
-        setScriptRoof();
+        setEventsRoof();
 
         const link = screen.getByRole('link');
         fireEvent.click(link);
 
         expect(
-            window.dataLayer[0].dynamic_label.includes('Últimas noticias')
+            window.dataLayer[0].dynamic_label.includes('ultimas_noticias')
         ).toBeTruthy();
-        expect(window.dataLayer[0].dynamic_action).toStrictEqual('techo');
+        expect(window.dataLayer[0].dynamic_action).toStrictEqual(
+            'caja_ultimas_noticias'
+        );
         expect(window.dataLayer[0].event).toStrictEqual('e_linkclick');
         expect(window.dataLayer[0].dynamic_category).toStrictEqual('home_ln10');
     });
@@ -100,7 +104,7 @@ describe('should register in dataLayer the click event of the logo with the alt 
             })
         );
 
-        setScriptRoof();
+        setEventsRoof();
 
         const link = container.querySelector('[roof-group="left"]');
         fireEvent.click(link);
@@ -117,17 +121,19 @@ describe('should register in dataLayer the click event of the logo with the alt 
                 ]
             })
         );
-        setScriptRoof();
-        screen.debug();
+        setEventsRoof();
 
         const links = screen.getAllByRole('link');
 
         links.forEach(link => fireEvent.click(link));
 
         expect(window.dataLayer).toHaveLength(1);
+
         expect(
-            window.dataLayer[0].dynamic_label.includes('Últimas noticias')
+            window.dataLayer[0].dynamic_label.includes('ultimas_noticias')
         ).toBeTruthy();
-        expect(window.dataLayer[0].dynamic_action).toStrictEqual('techo_boton');
+        expect(window.dataLayer[0].dynamic_action).toStrictEqual(
+            'caja_ultimas_noticias'
+        );
     });
 });

@@ -257,7 +257,8 @@ export const findPositionInPageBuilder = (idFeature, renderables = []) => {
             .filter(ren => ren.collection === 'chains')
             .filter(
                 chain =>
-                    get(chain, 'props.customFields.hideCaja', false) !== true
+                    get(chain, 'props.customFields.hideCaja', false) !== true &&
+                    get(chain, 'props.customFields.hideBox', false) !== true
             )
             .findIndex(chain => chain.props.id === idFeature) || 0
     );

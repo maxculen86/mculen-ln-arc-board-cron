@@ -25,7 +25,6 @@
 }
 @media (max-width: 47.9375rem) {
   .container-op.--left-focal .--0 .ln-card .description-container .title, .container-op.--center-focal .--0 .ln-card .description-container .title, .container-op.--focal-70 .--0 .ln-card .description-container .title {
-    font-variation-settings: "wght" 110;
     letter-spacing: -0.04rem;
     line-height: var(--line-110);
   }
@@ -48,18 +47,6 @@
 .container-op .ln-opening-container .grid .grid-item {
   position: relative;
   border-bottom: 0.0625rem solid #e4e4e4;
-}
-.container-op .ln-opening-container .grid .grid-item .ln-card .ln-link .description-container .--font-m.title,
-.container-op .ln-opening-container .grid .grid-item .ln-card .ln-link .description-container .--font-l.title,
-.container-op .ln-opening-container .grid .grid-item .ln-card .ln-link .description-container .--font-s.title,
-.container-op .ln-opening-container .grid .grid-item .ln-card .ln-link .description-container .--font-xs.title {
-  letter-spacing: -0.6px;
-}
-.container-op .ln-opening-container .grid .grid-item .ln-card .ln-link .description-container .--font-m.title .lead,
-.container-op .ln-opening-container .grid .grid-item .ln-card .ln-link .description-container .--font-l.title .lead,
-.container-op .ln-opening-container .grid .grid-item .ln-card .ln-link .description-container .--font-s.title .lead,
-.container-op .ln-opening-container .grid .grid-item .ln-card .ln-link .description-container .--font-xs.title .lead {
-  letter-spacing: normal;
 }
 @media (min-width: 48rem) {
   .container-op .ln-opening-container .grid .grid-item {

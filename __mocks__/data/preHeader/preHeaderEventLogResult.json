@@ -1,26 +1,26 @@
 [
     {
-        "dynamic_action": "home_ln10",
-        "dynamic_category": "header_clima",
+        "dynamic_action": "header_clima",
+        "dynamic_category": "home_ln10",
         "dynamic_label": "clima",
         "event": "e_linkclick"
     },
     {
-        "dynamic_action": "home_ln10",
-        "dynamic_category": "header_temas_hoy",
-        "dynamic_label": "First topic",
+        "dynamic_action": "header_temas_hoy",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "first_topic",
         "event": "e_linkclick"
     },
     {
-        "dynamic_action": "home_ln10",
-        "dynamic_category": "header_temas_hoy",
-        "dynamic_label": "Second topic",
+        "dynamic_action": "header_temas_hoy",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "second_topic",
         "event": "e_linkclick"
     },
     {
-        "dynamic_action": "home_ln10",
-        "dynamic_category": "header_temas_hoy",
-        "dynamic_label": "Third topic",
+        "dynamic_action": "header_temas_hoy",
+        "dynamic_category": "home_ln10",
+        "dynamic_label": "third_topic",
         "event": "e_linkclick"
     }
 ]

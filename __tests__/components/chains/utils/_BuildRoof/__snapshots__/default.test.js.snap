@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests component BuildRoof Return tests outside page Builder should return roof exclusive-sub 1`] = `
+<div>
+  <div
+    class="ln-roof --sub-exclusive"
+    roof-container="roof-container"
+  >
+    <div
+      class="--ln-roof-full --d-flex --jc-between --pt-md"
+    >
+      <div
+        class="--ln-roof-left"
+      >
+        <a
+          class="link ln-link --d-flex --ai-center --uppercase"
+          href="https://lanacion.com.ar"
+          roof-group="left"
+          target="_self"
+          title="Ir a suscripcion"
+        >
+          <i
+            class="icon ln-icon --suscriptor-logo --icon-28"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 99 99"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                fill="#333"
+                height="99"
+                rx="49.5"
+                width="99"
+              />
+              <g
+                clip-path="url(#suscriptorExclusivo_svg__a)"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M34.938 31.084H14.141v3.86h4.827V62.58h-4.827v3.861h30.4V51.44H40.66v2.226c0 3.65-1.186 5.806-2.998 7.092-1.868 1.325-4.53 1.822-7.653 1.822h-.387V34.944h5.317v-3.86Zm27.188 0h-15.11v3.86h1.575a2.975 2.975 0 0 1 2.93 3.013v21.94c0 1.323-.354 1.92-.721 2.222-.403.33-1.005.46-1.8.46h-2.152v3.862h13.437V62.58h-1.684c-.745 0-1.343-.03-1.825-.107s-.801-.195-1.018-.342c-.363-.244-.644-.708-.644-1.984V40.506L75.08 66.44h5.107V36.756c0-.377.158-.809.556-1.158.398-.349 1.085-.654 2.19-.654h1.923v-3.86h-13.46v3.86h2.193c1.139 0 1.89.213 2.338.535.402.289.638.72.638 1.426v12.869l-14.438-18.69Z"
+                  fill="#FDB727"
+                  fill-rule="evenodd"
+                />
+              </g>
+              <defs>
+                <clippath
+                  id="suscriptorExclusivo_svg__a"
+                >
+                  <path
+                    d="M0 0h70.714v70.714H0z"
+                    fill="#fff"
+                    transform="translate(14.143 14.143)"
+                  />
+                </clippath>
+              </defs>
+            </svg>
+          </i>
+          <h3
+            class="text ln-text --roof-title --prumo --font-xl-l"
+          >
+            suscripcion
+          </h3>
+          <i
+            class="icon ln-icon --roof-href-arrow"
+          >
+            <svg
+              fill="none"
+              height="16.8"
+              viewBox="0 0 10 17"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m0 16.014 8.04-7.44v-.08L0 .974v-.88l9.88 8.12v.64L0 16.894v-.88Z"
+                fill="#CCC"
+              />
+            </svg>
+          </i>
+        </a>
+      </div>
+      <div
+        class="--ln-roof-right --d-flex --ai-center --sub-exclusive"
+        roof-group="right"
+      >
+        <a
+          class="link ln-link button ln-button --sm --roof-button --subscribe"
+          href="https://linkDelBoton.com.ar"
+          target="_self"
+          title="suscribite"
+        >
+          suscribite
+        </a>
+      </div>
+    </div>
+  </div>
+  <script
+    type="text/javascript"
+  >
+    
+                     window.addEventListener('DOMContentLoaded', () =&gt; {
+                        const parts = document.cookie.split("; ProductoPremiumId=");
+                        const productsPremium = parts.length === 2
+                            ? parts.pop().split(';').shift()
+                            : '';  
+                            if(productsPremium && productsPremium.includes("2")){
+                                const button = document.querySelector(
+                                    'a.--roof-button.--subscribe'
+                                );
+                                button && button.classList.add('--none');
+                            }      
+                     })
+                 
+  </script>
+</div>
+`;

@@ -27,11 +27,8 @@ describe('Tests - helpers - feature - EnVivo', () => {
                 }
             ];
             expect(findError(articles)).toStrictEqual({
-                id: 'BAWOBUYWA',
-                title: '',
-                url: '',
-                error: true,
-                group: 1
+                message: 'El ID de la nota 1 (ID: BAWOBUYWA) es incorrecto',
+                type: 'warning'
             });
         });
 

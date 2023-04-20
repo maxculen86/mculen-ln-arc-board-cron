@@ -95,7 +95,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: 'm',
+                cardSize: 'm-l',
                 imageConfig: 's'
             },
             {
@@ -108,7 +108,7 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 withSubheadAndMedia: false,
                 withMedia: true,
-                cardSize: 'm',
+                cardSize: 'm-l',
                 imageConfig: 's',
                 imagePosition: {
                     mobile: 'img-top',
@@ -1039,7 +1039,7 @@ const diagramationRules = diagramation => {
                 withMedia: true,
                 withSubhead: true,
                 cardSize: 'xl',
-                imageConfig: 'xs',
+                imageConfig: 'T1',
                 imagePosition: {
                     mobile: 'img-top',
                     tablet: 'img-top',
@@ -1066,7 +1066,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withMedia: true,
                 cardSize: 'm',
-                imageConfig: 'T1',
+                imageConfig: 'xs',
                 imagePosition: {
                     mobile: 'img-right',
                     tablet: 'img-none',
@@ -1105,7 +1105,7 @@ const diagramationRules = diagramation => {
             {
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: false,
                 cardSize: '3xl',
@@ -1223,7 +1223,7 @@ const diagramationRules = diagramation => {
                 titleTag: 'h2',
                 subheadTag: 'h3',
                 withSection: true,
-                withSubhead: false,
+                withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,

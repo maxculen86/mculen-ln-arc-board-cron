@@ -3,7 +3,7 @@
 exports[`components - private - LN - acumulado - breadcrumbs - BreadcrumbColumnista Should render columnista breadcrumb correctly with two bullets and "Columnistas" 1`] = `
 <div>
   <nav
-    class="com-breadcrumb "
+    class="com-breadcrumb --no-app "
   >
     <a
       class="com-link --fourxs"

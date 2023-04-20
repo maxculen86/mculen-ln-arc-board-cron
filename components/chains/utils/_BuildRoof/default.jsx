@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { Roof } from '@ln/contenidos-ui-roof';
@@ -5,7 +6,7 @@ import PropTypes from 'prop-types';
 import validateRoof from './_helper/validateRoof';
 import setRender from '../setRender';
 import hasDataRoof from './_helper/hasDataRoof';
-import { VERTICALS } from '../common/_helpers-WebApi';
+import { CHAIN_STYLE, VERTICALS } from '../common/_helpers-WebApi';
 import '../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 
 export default function BuildRoof(props) {
@@ -58,6 +59,31 @@ export default function BuildRoof(props) {
         hrefButton: linkButton,
         'roof-group': 'right'
     };
+    const isSubExclusive = chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE;
+
+    const scriptBtnSuscription = isSubExclusive ? (
+        <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+                __html: `
+                     window.addEventListener('DOMContentLoaded', () => {
+                        const parts = document.cookie.split("; ProductoPremiumId=");
+                        const productsPremium = parts.length === 2
+                            ? parts.pop().split(';').shift()
+                            : '';  
+                            if(productsPremium && productsPremium.includes("2")){
+                                const button = document.querySelector(
+                                    'a.--roof-button.--subscribe'
+                                );
+                                button && button.classList.add('--none');
+                            }      
+                     })
+                 `
+            }}
+        />
+    ) : (
+        <></>
+    );
 
     return setRender({
         isAdmin,
@@ -66,10 +92,13 @@ export default function BuildRoof(props) {
         extraOptions: {
             isEmpty: hideRoof && <></>,
             default: !hideRoof && (
-                <Roof roof-container="roof-container" roofType={roofType}>
-                    <Roof.Left {...propsLeft} />
-                    <Roof.Right {...propsRight} />
-                </Roof>
+                <>
+                    <Roof roof-container="roof-container" roofType={roofType}>
+                        <Roof.Left {...propsLeft} />
+                        <Roof.Right {...propsRight} />
+                    </Roof>
+                    {scriptBtnSuscription}
+                </>
             )
         }
     });

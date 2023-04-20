@@ -2,7 +2,8 @@ import {
     setAccessData,
     setDollarData
 } from '../../../../../components/private/LN10/subHeader/_helper';
-import { createDynamicLabel } from '../../../../../components/private/common/scriptManager/SubHeaderEventsScript/_helper';
+import { createDynamicLabel } from '../../../../../components/private/common/utils/eventsHelper';
+
 jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
     jest.fn()
 );

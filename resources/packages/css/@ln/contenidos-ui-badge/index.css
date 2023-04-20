@@ -42,7 +42,7 @@
   text-transform: uppercase;
   z-index: 1;
 }
-.badge.ln-badge.--negative {
+.badge.ln-badge.--negative, .badge.ln-badge.--contentlab {
   background: var(--dark-neutral-0);
 }
 .badge.ln-badge.--positive {

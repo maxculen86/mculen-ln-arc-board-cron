@@ -22,7 +22,6 @@
 }
 @media (max-width: 47.9375rem) {
   .ln-bngrid.--bn_1_2_grid .--0 .ln-card .description-container .title, .ln-bngrid.--canal_1_2_grid .--0 .ln-card .description-container .title, .ln-bngrid.--bn_1_1_grid .--0 .ln-card .description-container .title, .ln-bngrid.--canal_1_4_grid .--0 .ln-card .description-container .title, .ln-bngrid.--bn_1_4_grid .--0 .ln-card .description-container .title, .ln-bngrid.--bn_1_3_grid .--0 .ln-card .description-container .title, .ln-bngrid.--canal_1_3_grid .--0 .ln-card .description-container .title, .ln-bngrid.--bn_2_1_2_grid .--0 .ln-card .description-container .title {
-    font-variation-settings: "wght" 110;
     letter-spacing: -0.04rem;
     line-height: var(--line-110);
   }
@@ -89,18 +88,6 @@
 .ln-bngrid .grid .grid-item {
   position: relative;
   border-bottom: 0.0625rem solid var(--light-neutral-300);
-}
-.ln-bngrid .grid .grid-item .ln-card .ln-link .description-container .--font-m.title,
-.ln-bngrid .grid .grid-item .ln-card .ln-link .description-container .--font-l.title,
-.ln-bngrid .grid .grid-item .ln-card .ln-link .description-container .--font-s.title,
-.ln-bngrid .grid .grid-item .ln-card .ln-link .description-container .--font-xs.title {
-  letter-spacing: -0.6px;
-}
-.ln-bngrid .grid .grid-item .ln-card .ln-link .description-container .--font-m.title .lead,
-.ln-bngrid .grid .grid-item .ln-card .ln-link .description-container .--font-l.title .lead,
-.ln-bngrid .grid .grid-item .ln-card .ln-link .description-container .--font-s.title .lead,
-.ln-bngrid .grid .grid-item .ln-card .ln-link .description-container .--font-xs.title .lead {
-  letter-spacing: normal;
 }
 @media (min-width: 48rem) {
   .ln-bngrid .grid .grid-item {
@@ -387,6 +374,16 @@
     position: absolute;
     background-color: #e4e4e4;
     right: -0.78125rem;
+  }
+}
+@media (min-width: 80rem) {
+  .ln-bngrid.--bn_1_3_grid .grid .--0 article::after, .ln-bngrid.--canal_1_3_grid .grid .--0 article::after {
+    content: "";
+    height: calc(100% - 0.25rem);
+    width: 0.0625rem;
+    position: absolute;
+    background-color: #e4e4e4;
+    right: -1.03125rem;
   }
 }
 @media (min-width: 48rem) {

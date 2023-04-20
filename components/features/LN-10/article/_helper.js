@@ -76,6 +76,13 @@ export const getBadgetConfig = ({
     typeOfMedia,
     hideBadget
 }) => {
+    if (get(article, 'content_restrictions.content_code') === 'cerrada') {
+        return {
+            badgetStyle: 'exclusive-ln',
+            badgetText: 'Exclusivo suscriptores'
+        };
+    }
+
     if (isLiveblog) {
         return {
             badgetStyle: style || 'live',
@@ -83,9 +90,16 @@ export const getBadgetConfig = ({
         };
     }
 
+    if (get(article, 'owner.sponsored')) {
+        return {
+            badgetStyle: 'contentlab',
+            badgetText: 'CONTENT LAB'
+        };
+    }
+
     return !hideBadget
         ? {
-              badgetStyle: style || undefined,
+              badgetStyle: style || 'negative',
               badgetText:
                   withMedia &&
                   typeOfMedia !== typeMedia.HTML &&
