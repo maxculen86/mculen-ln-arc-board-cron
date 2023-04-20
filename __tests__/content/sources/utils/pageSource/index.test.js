@@ -1,6 +1,6 @@
+import 'regenerator-runtime/runtime';
 import page from '../../../../../content/sources/utils/pageSource/index';
 import pageHomeMain from '../../../../../__mocks__/data/pages/preLayout/LN-Home_Main.json';
-import 'regenerator-runtime/runtime';
 
 const mockResponse = Promise.resolve(pageHomeMain);
 jest.mock('fusion:environment', () => {
@@ -14,11 +14,13 @@ jest.mock('fusion:environment', () => {
 jest.mock('request-promise-native', () => {
     return {
         __esModule: true,
-        default: x => {
+        default: async x => {
             if (x.uri.includes('Error')) {
                 throw new Error('Error');
             }
-
+            if (x.uri.includes('Cookie')) {
+                return mockResponse;
+            }
             return mockResponse;
         }
     };
@@ -43,6 +45,65 @@ describe('Test page', () => {
         );
     });
 
+    test('fetch with is not param website', async () => {
+        const queryParams = {
+            rootPath: `http://localhost/homepage`,
+            ticksCache: '01',
+            isPage: true
+        };
+        const result = await page.fetch(queryParams);
+        expect(Object.keys(result).sort()).toEqual(
+            ['arcSite', 'children', 'layout', 'renderables'].sort()
+        );
+    });
+
+    test('fetch with is not param ticksCache', async () => {
+        const queryParams = {
+            rootPath: `http://localhost/homepage`,
+            website: 'la-nacion-ar',
+            isPage: true
+        };
+        const result = await page.fetch(queryParams);
+        expect(Object.keys(result).sort()).toEqual(
+            ['arcSite', 'children', 'layout', 'renderables'].sort()
+        );
+    });
+
+    test('fetch with param versionDeploy', async () => {
+        const queryParams = {
+            rootPath: `http://localhost/homepage`,
+            ticksCache: '01',
+            website: 'la-nacion-ar',
+            versionDeploy: 14,
+            isPage: true
+        };
+        const result = await page.fetch(queryParams);
+        expect(Object.keys(result).sort()).toEqual(
+            ['arcSite', 'children', 'layout', 'renderables'].sort()
+        );
+    });
+
+    test('fetch with param cookie', async () => {
+        const queryParams = {
+            rootPath: `http://localhost/homepageCookie`,
+            ticksCache: '01',
+            website: 'la-nacion-ar',
+            isPage: true,
+            cookie: 'abc'
+        };
+        const result = await page.fetch(queryParams);
+        expect(Object.keys(result).sort()).toEqual(
+            ['arcSite', 'children', 'layout', 'renderables'].sort()
+        );
+    });
+
+    test('fetch query params null', async () => {
+        try {
+            await page.fetch(null);
+        } catch (err) {
+            expect(err.message).toBe("Cannot read property 'cookie' of null");
+        }
+    });
     test('fetch Error', async () => {
         try {
             const queryParams = {

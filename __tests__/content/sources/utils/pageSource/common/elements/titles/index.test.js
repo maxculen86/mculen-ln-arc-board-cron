@@ -67,7 +67,6 @@ jest.mock(
                 keySectionAliasMobile,
                 elementsPageHome
             ) => {
-                console.log(sectionAliasMobile);
                 if (sectionAliasMobile === 'addElementsByKeyNull') {
                     return null;
                 }
