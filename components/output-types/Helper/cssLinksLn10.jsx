@@ -9,7 +9,7 @@ const CssLinksLn10 = props => {
             rel="stylesheet"
             type="text/css"
             href={deployment(
-                `${contextPath}/resources/packages/css/homeln10-style.css`
+                `${contextPath}/resources/packages/css/homeln10-style.min.css`
             )}
         />
     );
