@@ -165,20 +165,23 @@ export const isInApertura = ({
     layoutPageBuilder,
     config,
     renderables = [],
-    featureId = ''
+    featureId = '',
+    articlePosition
 } = {}) => {
-    const element = getValidElementForPreload(layoutPageBuilder, renderables);
-
+    const { children = [] } =
+        getValidElementForPreload(layoutPageBuilder, renderables) || {};
     const { withPreload = false } = config || {};
+    const articleIndex = withPreload ? articlePosition : 0;
+    const articleFeature = children[articleIndex];
 
     const isImageHide = get(
-        element,
-        'children[0].props.customFields.hideImage',
+        articleFeature,
+        'props.customFields.hideImage',
         false
     );
 
     return (
-        get(element, 'children[0].props.id') === featureId &&
+        get(articleFeature, 'props.id') === featureId &&
         withPreload &&
         !isImageHide
     );

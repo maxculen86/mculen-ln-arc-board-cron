@@ -93,7 +93,8 @@ const ArticleFeature = ({
         layoutPageBuilder,
         renderables,
         featureId,
-        config
+        config,
+        articlePosition: index
     });
 
     const isLiveblog = variant === 'liveblog';

@@ -69,6 +69,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withSubhead: true,
+                withPreload: true,
                 cardSize: '4xl',
                 imageConfig: 's',
                 imagePosition: {
@@ -82,7 +83,6 @@ const diagramationRules = diagramation => {
                 titleTag: 'h2',
                 cardSize: 'xl-l',
                 imageConfig: 'T1',
-                withPreload: true,
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,

@@ -785,7 +785,8 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             layoutPageBuilder: 'LN10-Home_Main',
             config: { withPreload: true },
             renderables: getMockRenderables(),
-            featureId: 'f0fvqs5a1iKxLV'
+            featureId: 'f0fvqs5a1iKxLV',
+            articlePosition: 0
         };
 
         const casesTruthy = [
