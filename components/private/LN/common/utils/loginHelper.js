@@ -21,7 +21,8 @@ const _UserClientLibs = func =>
 export const goToLogout = dispatch => {
     _UserClientLibs('LogoutAsync')({
         embedShortCircuit: true,
-        redirectToLogin: false
+        redirectToLogin: false,
+        isVoluntary: true
     }).then(() => {
         eraseCookie('shouldrelogin');
         dispatch({

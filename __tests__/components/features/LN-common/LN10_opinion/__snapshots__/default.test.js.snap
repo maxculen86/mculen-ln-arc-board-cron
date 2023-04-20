@@ -101,14 +101,18 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       class="marquee-container --d-flex --ai-center"
                       title="Por Celina Chatruc"
                     >
-                      <img
-                        alt="Celina Chatruc"
-                        class="image --d-flex marquee-img"
-                        decoding="async"
-                        fetchpriority="low"
-                        loading="lazy"
-                        src="https://resizer.glanacion.com/resizer/VjOcNLPpTWMTXH79NkWuOzOmZWs=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/349d9032-c3ed-4e83-aaba-751f272c8bf1.png"
-                      />
+                      <picture
+                        class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                      >
+                        <img
+                          alt="Celina Chatruc"
+                          class="image --d-flex marquee-img"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/VjOcNLPpTWMTXH79NkWuOzOmZWs=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/349d9032-c3ed-4e83-aaba-751f272c8bf1.png"
+                        />
+                      </picture>
                       <div
                         class="marquee-text --d-flex --flex-col --font-2xs"
                       >
@@ -158,14 +162,18 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         class="marquee-container --d-flex --ai-center"
                         title="Por Mariela Arias"
                       >
-                        <img
-                          alt="Mariela Arias"
-                          class="image --d-flex marquee-img"
-                          decoding="async"
-                          fetchpriority="low"
-                          loading="lazy"
-                          src="https://resizer.glanacion.com/resizer/g4VYwZ8Hijs79Uo1sktVzEm-tsI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/7b02b8e3-1247-4b47-aa72-c7376081b387.png"
-                        />
+                        <picture
+                          class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                        >
+                          <img
+                            alt="Mariela Arias"
+                            class="image --d-flex marquee-img"
+                            decoding="async"
+                            fetchpriority="low"
+                            loading="lazy"
+                            src="https://resizer.glanacion.com/resizer/g4VYwZ8Hijs79Uo1sktVzEm-tsI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/7b02b8e3-1247-4b47-aa72-c7376081b387.png"
+                          />
+                        </picture>
                         <div
                           class="marquee-text --d-flex --flex-col --font-2xs"
                         >
@@ -208,14 +216,18 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         class="marquee-container --d-flex --ai-center"
                         title="Por Joaquín Morales Solá"
                       >
-                        <img
-                          alt="Joaquín Morales Solá"
-                          class="image --d-flex marquee-img"
-                          decoding="async"
-                          fetchpriority="low"
-                          loading="lazy"
-                          src="https://resizer.glanacion.com/resizer/dzh5nyJx0on_ewhKSXBKBavSnuw=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/55/2089255.png"
-                        />
+                        <picture
+                          class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                        >
+                          <img
+                            alt="Joaquín Morales Solá"
+                            class="image --d-flex marquee-img"
+                            decoding="async"
+                            fetchpriority="low"
+                            loading="lazy"
+                            src="https://resizer.glanacion.com/resizer/dzh5nyJx0on_ewhKSXBKBavSnuw=/80x0/filters:format(webp):quality(80)/bucket.glanacion.com/anexos/fotos/55/2089255.png"
+                          />
+                        </picture>
                         <div
                           class="marquee-text --d-flex --flex-col --font-2xs"
                         >
@@ -391,14 +403,18 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         class="marquee-container --d-flex --ai-center"
                         title="Por Francisco Jueguen"
                       >
-                        <img
-                          alt="Francisco Jueguen"
-                          class="image --d-flex marquee-img"
-                          decoding="async"
-                          fetchpriority="low"
-                          loading="lazy"
-                          src="https://resizer.glanacion.com/resizer/C4IikfKm6-8pBeC-UUl6_0N8rAw=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2089241.png"
-                        />
+                        <picture
+                          class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                        >
+                          <img
+                            alt="Francisco Jueguen"
+                            class="image --d-flex marquee-img"
+                            decoding="async"
+                            fetchpriority="low"
+                            loading="lazy"
+                            src="https://resizer.glanacion.com/resizer/C4IikfKm6-8pBeC-UUl6_0N8rAw=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2089241.png"
+                          />
+                        </picture>
                         <div
                           class="marquee-text --d-flex --flex-col --font-2xs"
                         >
@@ -446,14 +462,18 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       class="marquee-container --d-flex --ai-center"
                       title="Por Javier Blanco, Diego Japas y José Del Rio"
                     >
-                      <img
-                        alt="Javier Blanco, Diego Japas y José Del Rio"
-                        class="image --d-flex marquee-img"
-                        decoding="async"
-                        fetchpriority="low"
-                        loading="lazy"
-                        src="https://resizer.glanacion.com/resizer/ul__ravfTXHGsE9dUj5-Lf2QC50=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png"
-                      />
+                      <picture
+                        class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                      >
+                        <img
+                          alt="Javier Blanco, Diego Japas y José Del Rio"
+                          class="image --d-flex marquee-img"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/ul__ravfTXHGsE9dUj5-Lf2QC50=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/ded21cfd-b9a6-4cee-9a7b-22ad1fb00d1a.png"
+                        />
+                      </picture>
                       <div
                         class="marquee-text --d-flex --flex-col --font-2xs"
                       >
@@ -500,14 +520,18 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       class="marquee-container --d-flex --ai-center"
                       title="Por Alan Soria Guadalupe"
                     >
-                      <img
-                        alt="Alan Soria Guadalupe"
-                        class="image --d-flex marquee-img"
-                        decoding="async"
-                        fetchpriority="low"
-                        loading="lazy"
-                        src="https://resizer.glanacion.com/resizer/NoyW7c4YoIHQ4QmAuiuwPclIzLg=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/9eb87bcc-8cb9-4632-8e99-0945ee6697a6.png"
-                      />
+                      <picture
+                        class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                      >
+                        <img
+                          alt="Alan Soria Guadalupe"
+                          class="image --d-flex marquee-img"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/NoyW7c4YoIHQ4QmAuiuwPclIzLg=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/9eb87bcc-8cb9-4632-8e99-0945ee6697a6.png"
+                        />
+                      </picture>
                       <div
                         class="marquee-text --d-flex --flex-col --font-2xs"
                       >
@@ -554,14 +578,18 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       class="marquee-container --d-flex --ai-center"
                       title="Por Javier Fuego Simondet"
                     >
-                      <img
-                        alt="Javier Fuego Simondet"
-                        class="image --d-flex marquee-img"
-                        decoding="async"
-                        fetchpriority="low"
-                        loading="lazy"
-                        src="https://resizer.glanacion.com/resizer/YxQXCJUlsX8WgJCVtpLdw89mZKA=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2c5ce33a-d9b3-43bf-8eb9-705b70081e77.png"
-                      />
+                      <picture
+                        class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                      >
+                        <img
+                          alt="Javier Fuego Simondet"
+                          class="image --d-flex marquee-img"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/YxQXCJUlsX8WgJCVtpLdw89mZKA=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2c5ce33a-d9b3-43bf-8eb9-705b70081e77.png"
+                        />
+                      </picture>
                       <div
                         class="marquee-text --d-flex --flex-col --font-2xs"
                       >
@@ -608,14 +636,18 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       class="marquee-container --d-flex --ai-center"
                       title="Por Patricia Osuna Gutiérrez"
                     >
-                      <img
-                        alt="Patricia Osuna Gutiérrez"
-                        class="image --d-flex marquee-img"
-                        decoding="async"
-                        fetchpriority="low"
-                        loading="lazy"
-                        src="https://resizer.glanacion.com/resizer/JaK-x5J-Gtv0WsL0PnG8JXOAPYk=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/e9cd9db6-82f1-4de8-b34b-d6a30b2ce169.png"
-                      />
+                      <picture
+                        class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                      >
+                        <img
+                          alt="Patricia Osuna Gutiérrez"
+                          class="image --d-flex marquee-img"
+                          decoding="async"
+                          fetchpriority="low"
+                          loading="lazy"
+                          src="https://resizer.glanacion.com/resizer/JaK-x5J-Gtv0WsL0PnG8JXOAPYk=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/e9cd9db6-82f1-4de8-b34b-d6a30b2ce169.png"
+                        />
+                      </picture>
                       <div
                         class="marquee-text --d-flex --flex-col --font-2xs"
                       >
