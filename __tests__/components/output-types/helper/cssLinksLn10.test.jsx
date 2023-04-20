@@ -44,7 +44,7 @@ describe('Components - outputType - helper - CssLinksLn10', () => {
         expect(asFragment()).toMatchInlineSnapshot(`
             <DocumentFragment>
               <link
-                href="pf/resources/packages/css/homeln10-style.css"
+                href="pf/resources/packages/css/homeln10-style.min.css"
                 id="fusion-output-type-styles"
                 rel="stylesheet"
                 type="text/css"
