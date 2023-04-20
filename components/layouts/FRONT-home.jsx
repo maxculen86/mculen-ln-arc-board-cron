@@ -12,8 +12,9 @@ import ModPromo from '../private/common/mod-promo';
 import NewFooter from '../private/LN/common/footer';
 import SubHeader from '../private/LN/common/header/subHeader';
 import Toast from '../private/common/toast/Toast';
-
 import { GlobalProviderAcu } from '../private/LN/acumulado/context/globalContextAcu';
+
+import '../../resources/dist/css/ln/pages/home.css';
 
 const pageBuilderSections = ['Sección 1'];
 
