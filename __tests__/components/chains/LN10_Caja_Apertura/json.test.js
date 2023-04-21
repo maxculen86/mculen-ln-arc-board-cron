@@ -1,34 +1,11 @@
 import GetCajaManual from '../../../../components/private/LN/api/global/components/chains/LN10/getCajaManual';
-import * as LN10CajaManual from '../../../../components/chains/LN10_Caja_Manual/json';
+import LN10CajaManual from '../../../../components/chains/LN10_Caja_Manual/json';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
-        const newComponent = component;
-        newComponent.fetchContent = { c: 'lalala' };
-        return newComponent;
+        return component;
     };
 });
-/*
-jest.mock('fusion:consumer', component => {
-    return function(component) {
-        class element extends component {
-            constructor(props) {
-                super(props);
-                this.props = props;
-            }
-            fetchContent(param) {
-                return {};
-            }
-        }
-    };
-});
-*/
-/* class MockLN10CajaManual extends LN10CajaManual {
-    constructor(props) {
-        super(props);
-    }
-}
- */
 
 jest.mock(
     '../../../../components/private/LN/api/global/components/common/utils/_helpers.js',
@@ -36,11 +13,16 @@ jest.mock(
         return {
             __esModule: true,
             default: children => {
-                console.log(children);
                 if (!children) {
                     return null;
                 }
-                return [{ a: 1 }, { b: 2 }];
+                return children;
+            },
+            validateChildrensApi: children => {
+                if (!children) {
+                    return null;
+                }
+                return children;
             }
         };
     }
@@ -52,7 +34,6 @@ jest.mock(
         return {
             __esModule: true,
             default: (layout, childProps = []) => {
-                console.log(layout);
                 if (layout === 'error') {
                     return { message: 'error lalala' };
                 }
@@ -62,6 +43,35 @@ jest.mock(
     }
 );
 
+jest.mock(
+    '../../../../components/private/LN/api/global/components/chains/common/respChildrens/index',
+    () => {
+        return {
+            __esModule: true,
+            default: (props, containerImage) => {
+                if (props.flagError === 'error') {
+                    throw new Error('Error');
+                }
+                return {
+                    information: { ...props.customFields },
+                    articles: []
+                };
+            }
+        };
+    }
+);
+
+jest.mock(
+    '../../../../components/private/LN/api/global/components/chains/common/props/validatePropsChains.js',
+    () => {
+        return {
+            __esModule: true,
+            validatePropsChains: (props, typeChain, version) => {
+                return props;
+            }
+        };
+    }
+);
 /* jest.mock(
     '../../../../components/private/LN/api/global/components/chains/LN10/getCajaManual',
     () => {
@@ -75,7 +85,14 @@ jest.mock(
 );
  */
 describe('components - chains - LN10_Caja_Manual - json', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+        jest.resetModules();
+        jest.spyOn(console, 'warn');
+        console.warn.mockImplementation(() => null);
+    });
     const propsChain = {};
+    propsChain.id = 1;
     propsChain.customFields = {
         layout: 'bn_1_3_grid',
         initialPosition: 1,
@@ -89,21 +106,134 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         nameChain: 'LN10_Caja_Manual',
         idRender: 'c0fw64w2jaz0cQV'
     };
-    /*     test('LN10 Caja Manual OK', () => {
-        const props = Object.assign({}, propsChain);
-        const resultChain = new LN10CajaManual.default(props);
-        resultChain.validate(props);
-        expect(Object.keys(resultChain).sort()).toEqual(['validate'].sort());
-    }); */
+    propsChain.children = [1, 2, 3];
+    propsChain.renderables = [
+        {
+            props: {
+                id: '1'
+            },
+            children: [1, 2, 3]
+        },
+        {
+            props: {
+                id: '2'
+            },
+            children: [1, 2, 3]
+        }
+    ];
 
+    test('LN10 Caja Manual OK', () => {
+        const props = Object.assign({}, propsChain);
+        const customFields = Object.assign({}, propsChain.customFields);
+        customFields.imageId = 'AAAAAABBBBBB';
+        props.customFields = customFields;
+
+        // Mock fetchContent in exteded class
+        const getCajaManual = Object.getPrototypeOf(LN10CajaManual.prototype);
+        getCajaManual.fetchContent = jest.fn();
+        const cajaManual = LN10CajaManual;
+        cajaManual.prototype.prototype = getCajaManual;
+        const resultChain = new cajaManual(props);
+
+        resultChain.state.containerImage = {
+            promo_items: {},
+            _id:
+                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+        };
+        const resultCajaManual = resultChain.render();
+
+        const resultGetCajaManual = getCajaManual.render();
+        console.log(resultCajaManual);
+        expect(Object.keys(resultChain).sort()).toEqual(
+            ['props', 'renderResponse', 'state', 'validate'].sort()
+        );
+        expect(resultCajaManual.information).toMatchObject({
+            layout: 'bn_1_3_grid',
+            initialPosition: 1,
+            hideTitle: false,
+            hideCaja: false,
+            title: 'Tensión política',
+            url: 'https://www.lanacion.com.ar/ultimas-noticias/',
+            pbInternal_cloneId: 'c0fUbCAOj3bz5Bd',
+            idCollection: 'LJSSBABHGJGGDLLAOOGFOFXXIY',
+            typeChain: null,
+            nameChain: 'LN10_Caja_Manual',
+            idRender: 'c0fw64w2jaz0cQV'
+        });
+        expect(resultGetCajaManual).toBeNull();
+    });
+
+    test('LN10 Caja Manual when children is invalid', () => {
+        const props = Object.assign({}, propsChain);
+        props.children = null;
+        const resultChain = new LN10CajaManual(props);
+        resultChain.state.containerImage = {
+            promo_items: {},
+            _id:
+                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+        };
+        const result = resultChain.render();
+        expect(Object.keys(resultChain).sort()).toEqual(
+            ['props', 'renderResponse', 'state', 'validate'].sort()
+        );
+        expect(result).toBeNull();
+    });
+
+    test('LN10 Caja Manual when hideCaja is null', () => {
+        const props = Object.assign({}, propsChain);
+
+        const customFields = Object.assign({}, propsChain.customFields);
+        customFields.hideCaja = null;
+        props.customFields = customFields;
+
+        const resultChain = new LN10CajaManual(props);
+        resultChain.state.containerImage = {
+            promo_items: {},
+            _id:
+                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+        };
+        const result = resultChain.render();
+        expect(Object.keys(resultChain).sort()).toEqual(
+            ['props', 'renderResponse', 'state', 'validate'].sort()
+        );
+        expect(result.information.hideCaja).toBe(false);
+    });
     test('LN10 Caja Manual with validate Error', () => {
         const props = Object.assign({}, propsChain);
-        props.layout = 'error';
-        console.log(LN10CajaManual);
-        const resultChain = new LN10CajaManual.default(props);
+        const customFields = Object.assign({}, propsChain.customFields);
+        customFields.layout = 'error';
+        props.customFields = customFields;
+
+        const resultChain = new LN10CajaManual(props);
+        resultChain.state.containerImage = {
+            promo_items: {},
+            _id:
+                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+        };
         resultChain.render();
         expect(Object.keys(resultChain).sort()).toEqual(
             ['props', 'renderResponse', 'state', 'validate'].sort()
         );
+        expect(console.warn).toHaveBeenCalledTimes(1);
+        expect(console.warn.mock.calls[0][0]).toBe(
+            'error - {"message":"error lalala"}'
+        );
+    });
+
+    test('LN10 Caja Manual when throw Error', () => {
+        const props = Object.assign({}, propsChain);
+        props.flagError = 'error';
+        const resultChain = new LN10CajaManual(props);
+        resultChain.state.containerImage = {
+            promo_items: {},
+            _id:
+                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+        };
+        const result = resultChain.render();
+        expect(Object.keys(resultChain).sort()).toEqual(
+            ['props', 'renderResponse', 'state', 'validate'].sort()
+        );
+        expect(result.Message).toBe('Error');
+        expect(result.Success).toBe(false);
     });
 });
