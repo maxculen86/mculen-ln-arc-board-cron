@@ -86,7 +86,7 @@ const LN10Home = props => {
                     '.ln-banner-container.--megatop_tab.--megatop',
                     'section[data-section="pre-apertura"]'
                 )}
-                <div className="header-container">
+                <div className="header-container --no-app">
                     <div data-section="cabezal">{cabezal}</div>
                     <Header />
                 </div>
@@ -191,7 +191,7 @@ const LN10Home = props => {
                         </aside>
                     </section>
                 </main>
-                <div className="footer-container">
+                <div className="footer-container --no-app">
                     <Footer />
                 </div>
             </div>

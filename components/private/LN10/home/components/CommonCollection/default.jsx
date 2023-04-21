@@ -7,8 +7,7 @@ import { Card } from '@ln/contenidos-ui-card';
 import { Bngrid } from '@ln/contenidos-ui-bngrid';
 
 import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
-import getCardConfig, { getTitleAndLeadForHome } from './_helper';
-import { LAYOUTS } from '../../../../../chains/utils/common/_helpers-WebApi';
+import getCardConfig, { getBadge, getTitleAndLeadForHome } from './_helper';
 import get from '../../../../common/utils/get';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
@@ -32,7 +31,9 @@ export default function CommonCollection({
     articles = [],
     ContainerCards = Bngrid,
     setExtraClassName,
-    layout
+    layout,
+    isContentLab100,
+    isExclusiveSub
 }) {
     return (
         <>
@@ -62,6 +63,11 @@ export default function CommonCollection({
 
                     const { title, lead } = getTitleAndLeadForHome(article);
 
+                    const { badgeText, badgeStyle } = getBadge({
+                        article,
+                        isExclusiveSub
+                    });
+
                     return (
                         <Card
                             withMedia={withImage}
@@ -72,7 +78,7 @@ export default function CommonCollection({
                             subhead={subhead}
                             href={get(article, 'website_url', '')}
                             mediaData={mediaData}
-                            cardSize={cardSize}
+                            cardSize={isContentLab100 ? '4xl' : cardSize}
                             imagePosition={imagePosition}
                             className={`${className || ''} ${extraClassName}`}
                             section={showSection({
@@ -80,10 +86,8 @@ export default function CommonCollection({
                                 article,
                                 authorPhoto: marqueeImg
                             })}
-                            badgeText={
-                                gridType === LAYOUTS.CONTENT_LAB &&
-                                get(article, 'label.chapita.text')
-                            }
+                            badgeText={badgeText}
+                            badgeType={badgeStyle}
                             {...extraOpts}
                         />
                     );

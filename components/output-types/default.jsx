@@ -30,7 +30,6 @@ import {
     getTagTitle,
     addMetaNoIndexNoFollow
 } from '../private/common/utils/outputTypeHelper';
-import FontPreloads from '../private/common/fontsPreloads';
 import checkHydrateOnly from '../private/LN/common/utils/checkHydrateOnly';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 
@@ -172,7 +171,6 @@ const Default = props => {
                     layout={layout}
                 />
                 <CriticalCss isLN10={layoutsName.HomeLN10 === layout} />
-                <FontPreloads isLN10={layoutsName.HomeLN10 === layout} />
                 {arcSite === 'ott' ? (
                     <link
                         rel="stylesheet"

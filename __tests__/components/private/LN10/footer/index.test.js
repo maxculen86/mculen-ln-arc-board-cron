@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import footerEventLogResult from '../../../../../__mocks__/data/LN10_Footer/footerEventLogResult.json';
 import Footer from '../../../../../components/private/LN10/footer';
-import { setEventsFooter } from '../../../../../components/private/common/scriptManager/FooterEventsScript/_helper';
+import { setEventsFooter } from '../../../../../components/private/common/utils/eventsHelper';
 
 describe('Tests - Footer - LN10', () => {
     global.window.dataLayer = [];

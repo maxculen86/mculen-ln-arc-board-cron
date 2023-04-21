@@ -61,7 +61,9 @@ const getFeatureData = (featureId, renderables = []) => {
     const chains = [
         'LN10_Caja_Manual',
         'LN10_Caja_Apertura',
-        'LN10_Caja_Bomba'
+        'LN10_Caja_Bomba',
+        'LN10_Caja_Collection',
+        'LN10_Caja_Canal'
     ];
 
     return renderables.find(
@@ -77,12 +79,19 @@ export const getChainParentOfFeature = (featureId, renderables) => {
     return getFeatureData(featureId, renderables);
 };
 
+// TODO: agregar test (sin mockear return) y reemplazar codigo repetido a esta logica que se encuentra en otros arhivos como noteCardImageHelper.js y cajaTemasHelperLN10.js
+// TODO: unificar custom field hideBox que tiene la chain apertura por hideCaja que tiene el resto de chains
 export const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
     const { layoutsName = {} } = siteConfig || {};
     const parent = getFeatureData(featureId, renderables);
     const position =
         renderables
             .filter(ren => get(ren, 'collection') === 'chains')
+            .filter(
+                chain =>
+                    get(chain, 'props.customFields.hideCaja', false) !== true &&
+                    get(chain, 'props.customFields.hideBox', false) !== true
+            )
             .findIndex(
                 chain => get(chain, 'props.id') === get(parent, 'props.id')
             ) || 0;
@@ -106,7 +115,8 @@ export const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
         config,
         index,
         boxPosition: `0${Number(position) + 1}`.slice(-2),
-        layout
+        layout,
+        chainId: get(parent, 'props.id', '')
     };
 };
 
