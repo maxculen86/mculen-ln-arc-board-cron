@@ -1,5 +1,5 @@
 import GetCajaManual from '../../../../components/private/LN/api/global/components/chains/LN10/getCajaManual';
-import LN10CajaApertura from '../../../../components/chains/LN10_Caja_Apertura/json';
+import LN10CajaBomba from '../../../../components/chains/LN10_Caja_Bomba/json';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -7,17 +7,17 @@ jest.mock('fusion:consumer', component => {
     };
 });
 
-jest.mock('../../../../components/chains/utils/getChildrenBySection.js', () => {
-    return {
-        __esModule: true,
-        default: params => {
-            if (!params) {
-                return null;
+jest.mock(
+    '../../../../components/private/LN/common/utils/cajaTemasHelperLN10-WebApi',
+    () => {
+        return {
+            __esModule: true,
+            getChildrenFromSectionHome: (renderables, section, position) => {
+                return [1, 2, 3];
             }
-            return params.renderables;
-        }
-    };
-});
+        };
+    }
+);
 
 jest.mock(
     '../../../../components/private/LN/api/global/components/common/utils/_helpers.js',
@@ -35,15 +35,18 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../components/chains/LN10_Caja_Apertura/common/_helper-WebApi.js',
+    '../../../../components/chains/LN10_Caja_Bomba/common/_helper-WebApi.js',
     () => {
         return {
             __esModule: true,
-            validateChain: (childrenRenders, layout, isInOpening) => {
+            validateChainBomba: (layout, children, isPreOpening) => {
                 if (layout === 'error') {
                     return { message: 'error lalala' };
                 }
                 return null;
+            },
+            getIsPreOpening: (preOpeningChildren, chainId) => {
+                return false;
             }
         };
     }
@@ -61,7 +64,7 @@ jest.mock(
     }
 );
 
-describe('components - chains - LN10_Caja_Apertura - json', () => {
+describe('components - chains - LN10_Caja_Bomba - json', () => {
     beforeEach(() => {
         jest.clearAllMocks();
         jest.resetModules();
@@ -71,7 +74,7 @@ describe('components - chains - LN10_Caja_Apertura - json', () => {
     const propsChain = {};
     propsChain.id = '1';
     propsChain.customFields = {
-        layout: 'bn_1_3_grid',
+        layout: 'horizontal',
         initialPosition: 1,
         hideTitle: false,
         hideCaja: false,
@@ -80,7 +83,7 @@ describe('components - chains - LN10_Caja_Apertura - json', () => {
         pbInternal_cloneId: 'c0fUbCAOj3bz5Bd',
         idCollection: 'LJSSBABHGJGGDLLAOOGFOFXXIY',
         typeChain: null,
-        nameChain: 'LN10_Caja_Manual',
+        nameChain: 'LN10_Caja_Bomba',
         idRender: 'c0fw64w2jaz0cQV'
     };
     propsChain.children = [1, 2, 3];
@@ -111,11 +114,11 @@ describe('components - chains - LN10_Caja_Apertura - json', () => {
         }
     ];
 
-    test('LN10 Caja Apertura OK', () => {
+    test('LN10 Caja Bomba OK', () => {
         const props = Object.assign({}, propsChain);
 
-        const cajaApertura = LN10CajaApertura;
-        const resultChain = new cajaApertura(props);
+        const cajaBomba = LN10CajaBomba;
+        const resultChain = new cajaBomba(props);
         resultChain.renderResponse = jest.fn().mockImplementation(props => {
             return {
                 information: { ...props.customFields },
@@ -130,21 +133,21 @@ describe('components - chains - LN10_Caja_Apertura - json', () => {
             _id:
                 '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
-        const resultCajaApertura = resultChain.render();
+        const resultCajaBomba = resultChain.render();
 
         expect(Object.keys(resultChain).sort()).toEqual(
             ['props', 'renderResponse', 'state', 'validate'].sort()
         );
-        expect(Object.keys(resultCajaApertura).sort()).toEqual(
+        expect(Object.keys(resultCajaBomba).sort()).toEqual(
             ['articles', 'information'].sort()
         );
     });
 
-    test('LN10 Caja Apertura when children is null', () => {
+    test('LN10 Caja Bomba when children is null', () => {
         const props = Object.assign({}, propsChain);
         props.children = null;
-        const cajaApertura = LN10CajaApertura;
-        const resultChain = new cajaApertura(props);
+        const cajaBomba = LN10CajaBomba;
+        const resultChain = new cajaBomba(props);
         resultChain.renderResponse = jest.fn().mockImplementation(props => {
             return {
                 information: { ...props.customFields },
@@ -159,22 +162,22 @@ describe('components - chains - LN10_Caja_Apertura - json', () => {
             _id:
                 '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
-        const resultCajaApertura = resultChain.render();
+        const resultCajaBomba = resultChain.render();
 
         expect(Object.keys(resultChain).sort()).toEqual(
             ['props', 'renderResponse', 'state', 'validate'].sort()
         );
-        expect(resultCajaApertura).toBeNull();
+        expect(resultCajaBomba).toBeNull();
     });
 
-    test('LN10 Caja Apertura when validate is Error', () => {
+    test('LN10 Caja Bomba when validate is Error', () => {
         const props = Object.assign({}, propsChain);
         const customFields = Object.assign({}, propsChain.customFields);
         customFields.layout = 'error';
         props.customFields = customFields;
 
-        const cajaApertura = LN10CajaApertura;
-        const resultChain = new cajaApertura(props);
+        const cajaBomba = LN10CajaBomba;
+        const resultChain = new cajaBomba(props);
         resultChain.renderResponse = jest.fn().mockImplementation(props => {
             return {
                 information: { ...props.customFields },
@@ -189,23 +192,22 @@ describe('components - chains - LN10_Caja_Apertura - json', () => {
             _id:
                 '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
-        const resultCajaApertura = resultChain.render();
+        const resultCajaBomba = resultChain.render();
 
         expect(Object.keys(resultChain).sort()).toEqual(
             ['props', 'renderResponse', 'state', 'validate'].sort()
         );
-        expect(resultCajaApertura).toBeNull();
+        expect(resultCajaBomba).toBeNull();
     });
 
-    test('LN10 Caja Manual when hideCaja is null', () => {
+    test('LN10 Caja Bomba when hideCaja is null', () => {
         const props = Object.assign({}, propsChain);
-
         const customFields = Object.assign({}, propsChain.customFields);
         customFields.hideCaja = null;
         props.customFields = customFields;
 
-        const cajaApertura = LN10CajaApertura;
-        const resultChain = new cajaApertura(props);
+        const cajaBomba = LN10CajaBomba;
+        const resultChain = new cajaBomba(props);
         resultChain.renderResponse = jest.fn().mockImplementation(props => {
             return {
                 information: { ...props.customFields },
@@ -220,17 +222,22 @@ describe('components - chains - LN10_Caja_Apertura - json', () => {
             _id:
                 '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
-        const resultCajaApertura = resultChain.render();
+        const resultCajaBomba = resultChain.render();
+
         expect(Object.keys(resultChain).sort()).toEqual(
             ['props', 'renderResponse', 'state', 'validate'].sort()
         );
-        expect(resultCajaApertura.information.hideCaja).toBe(false);
+        expect(resultCajaBomba.information.hideCaja).toBe(false);
     });
-    test('LN10 Caja Apertura when throw Error', () => {
-        const props = Object.assign({}, propsChain);
 
-        const cajaApertura = LN10CajaApertura;
-        const resultChain = new cajaApertura(props);
+    test('LN10 Caja Bomba when throw Error', () => {
+        const props = Object.assign({}, propsChain);
+        const customFields = Object.assign({}, propsChain.customFields);
+        customFields.hideCaja = null;
+        props.customFields = customFields;
+
+        const cajaBomba = LN10CajaBomba;
+        const resultChain = new cajaBomba(props);
         resultChain.renderResponse = jest.fn().mockImplementation(props => {
             throw new Error('Error');
         });
@@ -242,12 +249,12 @@ describe('components - chains - LN10_Caja_Apertura - json', () => {
             _id:
                 '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
-        const resultCajaApertura = resultChain.render();
+        const resultCajaBomba = resultChain.render();
 
         expect(Object.keys(resultChain).sort()).toEqual(
             ['props', 'renderResponse', 'state', 'validate'].sort()
         );
-        expect(resultCajaApertura.Message).toBe('Error');
-        expect(resultCajaApertura.Success).toBe(false);
+        expect(resultCajaBomba.Message).toBe('Error');
+        expect(resultCajaBomba.Success).toBe(false);
     });
 });
