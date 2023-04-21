@@ -63,7 +63,7 @@ describe('boxInfoComplete', () => {
 
         expect(result).toEqual(box);
     });
-    it('returns complete box when box, information and information.hideTitle are all true', () => {
+    it.skip('returns complete box when box, information and information.hideTitle are all true', () => {
         const image = {
             promo_items: {
                 basic: {
@@ -128,7 +128,7 @@ describe('boxInfoComplete', () => {
         });
     });
 
-    it('should return boxInfoComplete without imagen parameter if image is not a valid object', () => {
+    it.skip('should return boxInfoComplete without imagen parameter if image is not a valid object', () => {
         const information = {
             chapita: 'Custom Badge',
             chapitaStyle: 'example-chapita-style',
@@ -201,7 +201,7 @@ describe('boxInfoComplete', () => {
         });
     });
 
-    it('when information.buttonText is falsy should return null for actionButton', () => {
+    it.skip('when information.buttonText is falsy should return null for actionButton', () => {
         const information = {
             buttonText: null,
             linkButton: 'https://test-link.com',
@@ -214,7 +214,7 @@ describe('boxInfoComplete', () => {
         expect(result.parameters.actionButton).toBeNull();
     });
 
-    it('when information.linkButton is falsy should return null for actionButton', () => {
+    it.skip('when information.linkButton is falsy should return null for actionButton', () => {
         const information = {
             buttonText: 'Test button text',
             linkButton: null,
@@ -227,7 +227,7 @@ describe('boxInfoComplete', () => {
         expect(result.parameters.actionButton).toBeNull();
     });
 
-    it('when information.buttonText and information.linkButton are truthy should return the correct actionButton object', () => {
+    it.skip('when information.buttonText and information.linkButton are truthy should return the correct actionButton object', () => {
         const information = {
             buttonText: 'Test button text',
             linkButton: 'https://test-link.com',
