@@ -94,7 +94,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                             window.addEventListener('DOMContentLoaded', () => {
                                 document.getElementById('${slotId}_btnCloseAd').onclick = function() {
                                     
-                                    this.parentNode && this.parentNode.classList.add('hlp-none')
+                                    this.parentNode && this.parentNode.classList.add('--none')
                                 };
                             });
                             `

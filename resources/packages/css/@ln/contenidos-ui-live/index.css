@@ -1,0 +1,102 @@
+@charset "UTF-8";
+.lay-container .hidden .ln-live .live-body {
+  padding-top: 0rem;
+}
+.lay-container .hidden .ln-live .live-hidden {
+  top: -0.625rem;
+  width: 3.125rem;
+}
+
+.ln-live {
+  position: relative;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  isolation: isolate;
+  position: relative;
+}
+.ln-live .live-body {
+  display: flex;
+  border-bottom: 0.0625rem solid #e4e4e4;
+  scrollbar-width: none;
+  width: 100%;
+  overflow-x: scroll;
+  padding: 1rem 1rem;
+  overscroll-behavior-x: contain;
+}
+.ln-live .live-body::-webkit-scrollbar {
+  display: none;
+}
+.ln-live .live-body .ln-badge {
+  flex: none;
+  margin-right: var(--size-2xs);
+}
+.ln-live .live-body .notes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.25rem;
+  flex-direction: row;
+  white-space: nowrap;
+  color: #272727;
+}
+.ln-live .live-body .notes :first-child {
+  line-height: 120%;
+}
+.ln-live .live-body .notes .time-since {
+  margin-bottom: 0.125rem;
+  color: var(--danger-600);
+}
+.ln-live .live-body .notes :last-child {
+  padding: 0rem 0.5rem 0rem 0.25rem;
+}
+.ln-live .live-body .notes:not(:last-child):after {
+  content: "•";
+  position: relative;
+  margin-right: 0.5rem;
+}
+.ln-live .live-body .notes:last-child {
+  padding-right: 1.875rem;
+}
+.ln-live .live-hidden {
+  width: 4.5625rem;
+  height: 4.5625rem;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+  position: absolute;
+  right: 0rem;
+  top: 0rem;
+  width: 4.375rem;
+  height: 100%;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  z-index: 2;
+}
+@media (min-width: 80rem) {
+  .ln-live {
+    align-items: center;
+    flex-direction: auto;
+  }
+  .ln-live .live-body {
+    overflow-x: auto;
+    overscroll-behavior-x: auto;
+    height: auto;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .ln-live .live-body :last-child {
+    padding-right: 0rem;
+  }
+  .ln-live .live-body .notes:last-child {
+    padding-right: 0rem;
+  }
+  .ln-live .live-hidden {
+    display: none;
+  }
+}

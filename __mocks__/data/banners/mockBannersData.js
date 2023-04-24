@@ -568,5 +568,5 @@ export const caja1_dsk = {
     slotId: 'caja1_dsk',
     slotGroup: 'home',
     dfpId: 133919216,
-    classes: 'hlp-none '
+    classes: '--none '
 };

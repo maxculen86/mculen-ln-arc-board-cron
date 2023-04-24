@@ -97,7 +97,6 @@ const initialize = () => {
 
     const notifButtonNo = document.querySelector('#notificacion-no');
     const notifButtonYes = document.querySelector('#notificacion-si');
-
     if (notifButtonNo && notifButtonYes) {
         notifButtonNo.addEventListener('click', e => {
             e.preventDefault();
