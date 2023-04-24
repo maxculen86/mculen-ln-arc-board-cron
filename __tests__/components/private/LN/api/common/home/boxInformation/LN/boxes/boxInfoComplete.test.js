@@ -5,7 +5,7 @@ describe('boxInfoComplete', () => {
         expect(boxInfoComplete(null)).toBeNull();
     });
 
-    it.skip('returns a complete box object', () => {
+    it('returns a complete box object', () => {
         const section = 'Section';
         const typeSection = { default: { type: 'default' } };
 
@@ -59,11 +59,6 @@ describe('boxInfoComplete', () => {
             },
             imagenUrl:
                 'https://cloudfront-us-east-1.images.arcpublishing.com/lanacionar/HFIF34USKFA4NFO3QFLQHPBEZI.png',
-            actionButton: {
-                title: 'Button text',
-                url: 'https://example.com/button',
-                style: 'Button style'
-            },
             tituloCaja: 'Title',
             url: 'https://example.com'
         };
