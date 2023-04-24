@@ -72,6 +72,9 @@ export default `
         subheadlines {
             basic
         }
+        owner {
+            sponsored
+        }
         content_elements {
             type
             content

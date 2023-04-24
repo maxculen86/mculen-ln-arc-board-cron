@@ -43,11 +43,13 @@ import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
+import isContentLabAt100 from '../../../chains/utils/isContentLabAt100';
 import '../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-video/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-image/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-badge/index.css';
+import { LIVEBLOG } from '../../../private/common/utils/subtypes/subtypeHelper';
 
 const ArticleFeature = ({
     id: featureId,
@@ -67,6 +69,7 @@ const ArticleFeature = ({
         variant = 'regular'
     }
 }) => {
+    const articleId = checkForId(id);
     const {
         isAdmin,
         arcSite,
@@ -84,24 +87,30 @@ const ArticleFeature = ({
         layout,
         imageConfig,
         boxPosition,
-        isBomba
+        isBomba,
+        chainId
     } = getChainConfig(featureId, renderables, cajaTemaConfig);
 
-    const extraOpts = getDataAttributesForViewability(id, boxPosition, index);
+    const extraOpts = getDataAttributesForViewability(
+        articleId,
+        boxPosition,
+        index
+    );
     const [config, setConfig] = useState(initialConfig);
     const onlyOneApeturaValidateForWWW = isInApertura({
         layoutPageBuilder,
         renderables,
         featureId,
-        config
+        config,
+        articlePosition: index
     });
 
     const isLiveblog = variant === 'liveblog';
 
     const articleContent = useContent({
-        source: checkForId(id) ? 'articleSourceNota' : null,
+        source: articleId ? 'articleSourceNota' : null,
         query: {
-            id: checkForId(id),
+            id: articleId,
             published: true,
             imageConfig,
             checkExclusiveAccess: false,
@@ -201,9 +210,10 @@ const ArticleFeature = ({
     const typeOfMedia = getTypeOfMedia(customFields);
 
     const { badgetStyle, badgetText } = getBadgetConfig({
+        article,
         style: chapitaStyle,
         text: chapita,
-        isLiveblog,
+        isLiveblog: isLiveblog || get(article, 'subtype') === LIVEBLOG,
         withMedia,
         typeOfMedia,
         hideBadget
@@ -245,7 +255,11 @@ const ArticleFeature = ({
                     badgeText={badgetText}
                     badgeType={badgetStyle}
                     mediaData={mediaData}
-                    cardSize={cardSize}
+                    cardSize={
+                        isContentLabAt100(chainId, layout, renderables)
+                            ? '4xl'
+                            : cardSize
+                    }
                     imagePosition={imagePosition}
                     section={showSection({
                         withSection,

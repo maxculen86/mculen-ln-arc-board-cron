@@ -35,12 +35,14 @@ const Opinion = props => {
         layout,
         hideCaja,
         initialPosition,
+        url,
         ...propsForRoof
     } = customFields;
 
     const roofData = useRoofData({
         ...propsForRoof,
         title: propsForRoof.title || 'Opinión',
+        link: url,
         isAdmin
     });
 

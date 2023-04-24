@@ -3,7 +3,7 @@
 exports[`Components - Private - LN10 - Navbar should match snapshot 1`] = `
 <div>
   <nav
-    class="ln-navbar"
+    class="ln-navbar --no-app"
   >
     <ul>
       <li

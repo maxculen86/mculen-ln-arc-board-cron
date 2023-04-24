@@ -68,6 +68,7 @@ export const validateVariant = (variant, authorsQuantity) =>
     variant === 'author' && !(authorsQuantity === 1) ? 'regular' : variant;
 
 export const getBadgetConfig = ({
+    article,
     style,
     text,
     isLiveblog,
@@ -75,6 +76,13 @@ export const getBadgetConfig = ({
     typeOfMedia,
     hideBadget
 }) => {
+    if (get(article, 'content_restrictions.content_code') === 'cerrada') {
+        return {
+            badgetStyle: 'exclusive-ln',
+            badgetText: 'Exclusivo suscriptores'
+        };
+    }
+
     if (isLiveblog) {
         return {
             badgetStyle: style || 'live',
@@ -82,10 +90,20 @@ export const getBadgetConfig = ({
         };
     }
 
+    if (get(article, 'owner.sponsored')) {
+        return {
+            badgetStyle: 'contentlab',
+            badgetText: 'CONTENT LAB'
+        };
+    }
+
     return !hideBadget
         ? {
-              badgetStyle: style || undefined,
-              badgetText: withMedia && typeOfMedia !== typeMedia.HTML && text
+              badgetStyle: style || 'negative',
+              badgetText:
+                  withMedia &&
+                  typeOfMedia !== typeMedia.HTML &&
+                  (text || get(article, 'label.chapita.text'))
           }
         : {};
 };

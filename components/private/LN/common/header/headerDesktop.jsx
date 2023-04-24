@@ -97,7 +97,7 @@ const HeaderDesktop = ({
             <a href="#content" className="reader-only">
                 Ir al contenido
             </a>
-            <Header id="header" className="header">
+            <Header id="header" className="header --no-app">
                 <div className="col-4 header__left">
                     <Hamburger _onMouseDown={toggleDesplegable} />
                     <label

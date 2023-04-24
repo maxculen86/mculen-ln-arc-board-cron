@@ -11,7 +11,7 @@ const HeaderAMP = props => {
     const paywallActive = useTermica('paywall') || false;
     return (
         <>
-            <header id="header" className="header">
+            <header id="header" className="header --no-app">
                 <div className="lay">
                     <div className="row">
                         <div className="col-4 header__left">

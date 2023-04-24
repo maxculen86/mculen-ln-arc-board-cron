@@ -202,7 +202,7 @@ const Index = ({ home }) => {
     ];
 
     return (
-        <footer id="footer" className="footer-site --threexs">
+        <footer id="footer" className="footer-site --threexs --no-app">
             <div className="lay">
                 <section className="top">
                     <div className="row">

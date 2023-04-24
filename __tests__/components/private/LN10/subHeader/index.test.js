@@ -6,10 +6,12 @@ import {
     setDollarData,
     setAccessData
 } from '../../../../../components/private/LN10/subHeader/_helper';
+
 import {
     setEventsAccess,
     setEventsDollar
-} from '../../../../../components/private/common/scriptManager/SubHeaderEventsScript/_helper';
+} from '../../../../../components/private/common/utils/eventsHelper';
+
 import dollarData from '../../../../../__mocks__/data/LN10_SubHeader/dollarData.json';
 import accessData from '../../../../../__mocks__/data/LN10_SubHeader/accessData.json';
 import subHeaderEventLog from '../../../../../__mocks__/data/LN10_SubHeader/subHeaderEventLogResult.json';
