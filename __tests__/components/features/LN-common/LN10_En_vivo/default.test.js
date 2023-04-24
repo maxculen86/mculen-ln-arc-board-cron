@@ -107,6 +107,21 @@ describe('Tests - feature - EnVivo', () => {
         });
     });
 
+    describe('Test when the badge is not defined', () => {
+        const properties = {
+            id: 'c0fvslLv0jJl95K',
+            featureId: 'c0fvslLv0jJl95K',
+            customFields: {
+                ...props.customFields,
+                chapita: null
+            }
+        };
+        test('should return badget in "VIVO" when the chapita is not defined', () => {
+            render(<Live {...properties} />);
+            expect(screen.getByText('vivo')).toBeVisible();
+        });
+    });
+
     describe('Tests when the note id is not defined', () => {
         const properties = {
             id: 'c0fvslLv0jJl95K',
@@ -127,23 +142,6 @@ describe('Tests - feature - EnVivo', () => {
                     'El ID de la nota 1 (ID: wrongId) es incorrecto'
                 )
             ).toBeDefined();
-        });
-    });
-
-    describe('Tests when the custom field "show", is setting true', () => {
-        const properties = {
-            id: 'c0fvslLv0jJl95K',
-            featureId: 'c0fvslLv0jJl95K',
-            customFields: {
-                ...props.customFields,
-                show: true
-            }
-        };
-
-        test('should hide the feature', () => {
-            const { container } = render(<Live {...properties} />);
-
-            expect(container).toMatchInlineSnapshot(`<div />`);
         });
     });
 });

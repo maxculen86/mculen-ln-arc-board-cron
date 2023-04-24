@@ -1,0 +1,139 @@
+[
+    {},
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 0
+        },
+        "children": []
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 1
+        },
+        "children": []
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 2
+        },
+        "children": []
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 3
+        },
+        "children": []
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 4
+        },
+        "children": []
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 5
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "LN10_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "LN10_Caja_Collection",
+                    "id": "c0faEuBOlaz0cwr",
+                    "name": null,
+                    "customFields": {
+                        "layout": "cajaContent1",
+                        "initialPosition": 1,
+                        "hideTitle": false,
+                        "idCollection": "CYXQVFZFCRCQTCAMO7CURLVPIQ",
+                        "title": "Hashtag",
+                        "hideCaja": false,
+                        "imageId": "ZZEXVFIL2ZFHBIQVL7GN632OXU",
+                        "url": "",
+                        "chainStyle": "Hashtag"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 6
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "LN10_Caja_Collection",
+                "props": {
+                    "collection": "chains",
+                    "type": "LN10_Caja_Collection",
+                    "id": "c0fe2FW0maz0cI0",
+                    "name": null,
+                    "customFields": {
+                        "layout": "cajaContent1",
+                        "initialPosition": 1,
+                        "hideTitle": true,
+                        "idCollection": "K63QH2H6TJBXLKQVM256T4NW2E",
+                        "title": "",
+                        "hideCaja": false,
+                        "imageId": "",
+                        "url": "",
+                        "noteId": "KKO6QURXZZG43EUE6NKOZUHMTY"
+                    },
+                    "displayProperties": {}
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 7
+        },
+        "children": []
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 8
+        },
+        "children": []
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 9
+        },
+        "children": []
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 10
+        },
+        "children": []
+    }
+]

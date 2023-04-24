@@ -55,6 +55,7 @@ const transform = async (data, siteProps, cachedCall) => {
         return resizeVideoImagesV2({
             data,
             presets,
+            siteProps,
             cachedCall,
             presetsDefault
         });
