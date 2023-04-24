@@ -117,9 +117,10 @@ class Timeline {
                         );
                         return element;
                     });
-            const resultArticles = results.content_elements?.filter(
-                x => x != null
-            );
+            const resultArticles =
+                (results.content_elements &&
+                    results.content_elements.filter(x => x != null)) ||
+                [];
             const props = {
                 ...this.props,
                 customFields: {
