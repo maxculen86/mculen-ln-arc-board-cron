@@ -454,9 +454,9 @@ export const queueGoogletagCommand = bannersToLoad => {
                     !isEmpty &&
                     bannersWithoutHide.indexOf(slot.getSlotElementId()) === -1
                 )
-                    banner.parentNode.classList.remove('hlp-none');
+                    banner.parentNode.classList.remove('--none');
                 if (isEmpty && hiddenBanners[slot.getSlotElementId()]) {
-                    banner.parentNode.classList.add('hlp-none');
+                    banner.parentNode.classList.add('--none');
                 }
             });
     });
