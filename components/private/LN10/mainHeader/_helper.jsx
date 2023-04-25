@@ -28,7 +28,7 @@ export const setDesplegableData = (goToLogout = () => {}) => {
             target: '_self'
         },
         {
-            url: 'https://micuenta.lanacion.com.ar/mis-suscripciones/',
+            url: 'https://myaccount.lanacion.com.ar/mis-suscripciones/',
             text: 'Mis suscripciones',
             title: 'Ir a mis suscripciones',
             target: '_self'

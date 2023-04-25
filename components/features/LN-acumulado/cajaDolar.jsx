@@ -69,7 +69,9 @@ const CajaDolar = ({ id }) => {
 
     return shouldShowDollar && !isAmp ? (
         <Static id={id} htmlOnly persistent>
-            <h2 className="com-title --l">Cotización del dólar de hoy</h2>
+            <h2 className="com-title --font-primary --xl --font-extra">
+                Cotización del dólar de hoy
+            </h2>
             {dolarComponent}
         </Static>
     ) : (
