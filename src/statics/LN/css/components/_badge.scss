@@ -1,5 +1,4 @@
 @import '../abstracts/variables';
-
 .badge {
     background: $neutral-black;
     color: $neutral-white;
@@ -13,7 +12,6 @@
         text-transform: uppercase;
         padding: px(4) px(8);
     }
-
     &.--sponsored {
         background: $neutral-white;
         border: thin solid $neutral-black;
@@ -24,21 +22,20 @@
         background: $red-400;
     }
     &.--liveblog-red {
-        list-style: none;
         .badge-container & {
             margin-bottom: $spacing-sm;
         }
         background: $red-700;
+        font-size: 0.75rem;
+        line-height: 100%;
         &:before {
             content: '';
-            display: list-item;
-            position: relative;
-            top: px(4.5);
             width: px(5.33);
             height: px(5.33);
             border-radius: 50%;
             background: $neutral-white;
-            margin-right: px(7.33);
+            margin-left: px(4);
+            margin-right: px(4);
         }
     }
     &.--exclusive-ln {

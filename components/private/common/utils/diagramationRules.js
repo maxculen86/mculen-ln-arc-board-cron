@@ -101,6 +101,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withSubhead: true,
+                withPreload: true,
                 cardSize: size.fourXL,
                 imageConfig: size.S,
                 imagePosition: {
@@ -110,11 +111,10 @@ const diagramationRules = diagramation => {
                 }
             },
             {
-                variantsDisabled: [liveblog],
+                variantsDisabled: ['liveblog'],
                 titleTag: tag.h2,
                 cardSize: size.XLL,
                 imageConfig: size.T1,
-                withPreload: true,
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
@@ -127,7 +127,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.S
             },
             {
@@ -140,7 +140,7 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 withSubheadAndMedia: false,
                 withMedia: true,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.S,
                 imagePosition: {
                     mobile: img.top,
@@ -170,7 +170,7 @@ const diagramationRules = diagramation => {
             {
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.S,
                 withSection: false,
                 withMarquee: true,
@@ -178,9 +178,9 @@ const diagramationRules = diagramation => {
                 withSubhead: false
             },
             {
-                variantsDisabled: [author],
+                variantsDisabled: ['author'],
                 titleTag: tag.h2,
-                cardSize: size.M,
+                cardSize: size.ML,
                 withSection: false,
                 imageConfig: size.S,
                 withMarquee: true,
@@ -205,7 +205,12 @@ const diagramationRules = diagramation => {
                 cardSize: size.M,
                 withSubhead: false,
                 imageConfig: size.XS,
-                withPreload: true
+                withPreload: true,
+                imagePosition: {
+                    mobile: img.right,
+                    tablet: img.top,
+                    desktop: img.top
+                }
             },
             {
                 titleTag: tag.h2,
@@ -1064,8 +1069,9 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
+                withSubhead: true,
                 cardSize: size.XL,
-                imageConfig: size.XS,
+                imageConfig: size.T1,
                 imagePosition: {
                     mobile: img.top,
                     tablet: img.top,
@@ -1092,7 +1098,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withMedia: true,
                 cardSize: size.M,
-                imageConfig: size.T1,
+                imageConfig: size.XS,
                 imagePosition: {
                     mobile: img.right,
                     tablet: img.none,
@@ -1131,7 +1137,7 @@ const diagramationRules = diagramation => {
             {
                 withSection: false,
                 withMarquee: true,
-                withMarqueeImg: true,
+                withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: false,
                 cardSize: size.threeXL,
@@ -1249,7 +1255,7 @@ const diagramationRules = diagramation => {
                 titleTag: tag.h2,
                 subheadTag: tag.h3,
                 withSection: true,
-                withSubhead: false,
+                withSubhead: true,
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: true,

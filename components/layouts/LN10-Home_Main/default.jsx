@@ -4,6 +4,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
+import { Pwamodal } from '@ln/contenidos-ui-pwamodal';
 import Header from '../../private/LN10/header';
 import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
@@ -16,7 +17,6 @@ import {
     getScriptForComercial,
     getStickyBanner
 } from '../../private/common/banners/bannersRules';
-import PwaModals from '../../private/LN/common/pwaModals';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
 import {
     createViewabilityObservers,
@@ -86,7 +86,7 @@ const LN10Home = props => {
                     '.ln-banner-container.--megatop_tab.--megatop',
                     'section[data-section="pre-apertura"]'
                 )}
-                <div className="header-container">
+                <div className="header-container --no-app">
                     <div data-section="cabezal">{cabezal}</div>
                     <Header />
                 </div>
@@ -191,13 +191,13 @@ const LN10Home = props => {
                         </aside>
                     </section>
                 </main>
-                <div className="footer-container">
+                <div className="footer-container --no-app">
                     <Footer />
                 </div>
             </div>
             <LoadBanners blocksBanners={bannersViewport} />
             <Metarefresh />
-            <PwaModals />
+            <Pwamodal outputType={outputType} />
             <RoofEventsScript />
             {productClickFromServer()}
         </GlobalProvider>

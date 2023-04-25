@@ -814,7 +814,7 @@ describe('getBannerConfiguration =>', () => {
             slotName: 'la_nacion_mobile/Nota/1x1_mob',
             slotGroup: 'nota',
             dfpId: 133919216,
-            classes: 'hlp-none '
+            classes: '--none '
         };
 
         const config1x1SinSuscripcion = getBannerConfiguration(
@@ -862,7 +862,7 @@ describe('getBannerConfiguration =>', () => {
             slotId: 'adhesion_mob',
             slotGroup: 'nota',
             dfpId: 133919216,
-            classes: '--fixed --close hlp-none '
+            classes: '--fixed --close --none '
         };
 
         customFields = {
@@ -942,17 +942,17 @@ describe('getBannerConfiguration =>', () => {
     it('Validar que las clases css se construyan bien segun la configuracion del banner', () => {
         expect(
             buildBannerClasses({ closeButton: true }, { fixed: true })
-        ).toEqual('--fixed --close hlp-none ');
-        expect(buildBannerClasses({}, {})).toEqual('hlp-none ');
+        ).toEqual('--fixed --close --none ');
+        expect(buildBannerClasses({}, {})).toEqual('--none ');
         expect(
             buildBannerClasses(
                 { closeButton: true, withoutHide: false },
                 { fixed: true, sticky: true, background: true }
             )
-        ).toEqual('--bg-banner --sticky --fixed --close hlp-none ');
+        ).toEqual('--bg-banner --sticky --fixed --close --none ');
         expect(
             buildBannerClasses({ slotName: 'Nota/comercial_dsk' }, {})
-        ).toEqual('hlp-none --comercial ');
+        ).toEqual('--none --comercial ');
     });
 
     it('Validar que el banner no se muestra si recibe por termicas, por section o por composer el valor', () => {

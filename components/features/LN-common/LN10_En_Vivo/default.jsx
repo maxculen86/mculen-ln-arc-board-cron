@@ -3,32 +3,23 @@ import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { Live } from '@ln/contenidos-ui-live';
 import { getFieldsFromNotes, getNotesLists, findError } from './_helpers';
-import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import StaticContent from '../../../private/common/staticContent';
 import get from '../../../private/common/utils/get';
 import '../../../../resources/packages/css/@ln/contenidos-ui-live/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-badge/index.css';
 import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
 import getDynamicBanners from '../../../private/common/banners/dynamicBanners/getDynamicBanners';
+import setRender from '../../../chains/utils/setRender';
 
 const EnVivo = ({ customFields, id: featureId }) => {
     const { isAdmin, renderables } = useAppContext() || {};
-    if (get(customFields, 'show', false)) return <></>;
-
+    const hideFeature = get(customFields, 'show', false);
     const chapita = get(customFields, 'chapita', 'vivo');
     const chapitaStyle = get(customFields, 'chapitaStyle', 2);
     const listCustomFileds = Object.entries(customFields);
     const articles = getNotesLists(listCustomFileds);
-    const err = findError(articles);
+    const error = findError(articles);
 
-    if (isAdmin && err) {
-        return (
-            <PageBuilderMessage
-                type="warning"
-                message={`El ID de la nota ${err.group} (ID: ${err.id}) es incorrecto`}
-            />
-        );
-    }
     const { bannerMob = undefined } =
         getDynamicBanners({
             renderables,
@@ -37,12 +28,26 @@ const EnVivo = ({ customFields, id: featureId }) => {
 
     return (
         <StaticContent>
-            <Live
-                notes={articles}
-                badgeText={chapita.trim() ? chapita : 'vivo'}
-                badgeType={typeBadge[chapitaStyle]}
-            />
-            {bannerMob}
+            {setRender({
+                isAdmin,
+                error,
+                withSection: false,
+                extraOptions: {
+                    isEmpty: hideFeature && <></>,
+                    default: !hideFeature && (
+                        <>
+                            <Live
+                                notes={articles}
+                                badgeText={
+                                    chapita && chapita.trim() ? chapita : 'vivo'
+                                }
+                                badgeType={typeBadge[chapitaStyle]}
+                            />
+                            {bannerMob}
+                        </>
+                    )
+                }
+            })}
         </StaticContent>
     );
 };

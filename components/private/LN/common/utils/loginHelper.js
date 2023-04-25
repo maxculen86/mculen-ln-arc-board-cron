@@ -21,7 +21,8 @@ const _UserClientLibs = func =>
 export const goToLogout = dispatch => {
     _UserClientLibs('LogoutAsync')({
         embedShortCircuit: true,
-        redirectToLogin: false
+        redirectToLogin: false,
+        isVoluntary: true
     }).then(() => {
         eraseCookie('shouldrelogin');
         dispatch({
@@ -193,7 +194,7 @@ const setupCookies = ({ Usuario: obj }) => {
             switch (key) {
                 case 'UsuarioDetalleGuid':
                     aux = 'usuario%5Fdetalle%5Fguid';
-                    cookie = `{${getCookie('token')}}`;
+                    cookie = '';
                     break;
                 case 'UsuarioDetalleNick':
                     aux = 'usuario%5Fdetalle%5Fnick';
@@ -221,7 +222,7 @@ const setupCookies = ({ Usuario: obj }) => {
                     break;
                 case 'TokenJWT':
                     aux = 'PersoTKN';
-                    cookie = obj[key];
+                    cookie = '';
                     break;
                 default:
                     aux = key;

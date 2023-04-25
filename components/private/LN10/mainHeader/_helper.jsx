@@ -48,8 +48,8 @@ export const setDesplegableData = (goToLogout = () => {}) => {
             e.preventDefault();
             addEventToDataLayer({
                 event: 'e_linkclick',
-                action: 'home_ln10',
-                category: 'menu_usuario',
+                action: 'menu_usuario',
+                category: 'home_ln10',
                 label: option.text
             });
             option.text === LogoutText && goToLogout();
@@ -96,21 +96,23 @@ export const RightOptions = ({
         />
     );
 
+    const SignInButton = (
+        <>
+            <Button
+                title="Iniciar sesión"
+                typeButton="secondary"
+                className={!loggedIn && !loading ? '--mobile-none' : '--none'}
+                onClick={goToLoginUrl}
+            >
+                INICIAR SESIÓN
+            </Button>
+        </>
+    );
+
     const rightOptions = {
         suscribed: MenuUser,
-        logged: loggedIn && <>{MenuUser}</>,
-        unlogged: !loggedIn && !loading && (
-            <>
-                <Button
-                    title="Iniciar sesión"
-                    typeButton="secondary"
-                    className="--mobile-none"
-                    onClick={goToLoginUrl}
-                >
-                    INICIAR SESIÓN
-                </Button>
-            </>
-        )
+        logged: loggedIn && MenuUser,
+        unlogged: SignInButton
     };
 
     return (
@@ -125,8 +127,8 @@ export const sectionsCallback = (e, toggleDesplegable) => {
     toggleDesplegable();
     addEventToDataLayer({
         event: 'e_linkclick',
-        action: 'home_ln10',
-        category: 'header_logo',
+        action: 'header_logo',
+        category: 'home_ln10',
         label: 'secciones'
     });
 };
@@ -134,8 +136,8 @@ export const sectionsCallback = (e, toggleDesplegable) => {
 export const logoCallback = e => {
     addEventToDataLayer({
         event: 'e_linkclick',
-        action: 'home_ln10',
-        category: 'header_logo',
+        action: 'header_logo',
+        category: 'home_ln10',
         label: 'logo'
     });
 };

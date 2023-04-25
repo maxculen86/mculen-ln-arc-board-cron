@@ -1,0 +1,89 @@
+.ln-advance {
+  background: var(--light-neutral-900);
+}
+.ln-advance .wrap {
+  padding: var(--size-2xs) 0;
+}
+@media (min-width: 48rem) {
+  .ln-advance .wrap {
+    padding: var(--size-md) 0;
+  }
+}
+.ln-advance .wrap .lay-container .ln-badge {
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.ln-advance .wrap .lay-container .text-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2xs);
+}
+@media (min-width: 48rem) {
+  .ln-advance .wrap .lay-container .text-container {
+    flex-direction: row;
+    gap: var(--size-sm);
+  }
+}
+.ln-advance .wrap .lay-container .text-container .--title,
+.ln-advance .wrap .lay-container .text-container .link {
+  color: #ffffff;
+}
+.ln-advance .wrap .lay-container .text-container .--title .lead,
+.ln-advance .wrap .lay-container .text-container .link .lead {
+  color: #85b4fe;
+}
+@media (min-width: 48rem) {
+  .ln-advance.--withVideo .wrap {
+    padding: 0;
+  }
+}
+.ln-advance.--withVideo .wrap .lay-container {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--size-2xs);
+}
+@media (min-width: 48rem) {
+  .ln-advance.--withVideo .wrap .lay-container {
+    gap: var(--size-sm);
+  }
+}
+.ln-advance.--withVideo .wrap .lay-container > article {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--size-2xs);
+}
+.ln-advance.--withVideo .wrap .lay-container > article .video {
+  display: flex;
+  border: 0.0625rem solid #333333;
+}
+.ln-advance.--withVideo .wrap .lay-container > article .video iframe {
+  width: 6.875rem;
+  aspect-ratio: 16/9;
+}
+.ln-advance.--withVideo .wrap .lay-container > article .text-container {
+  display: flex;
+  flex-direction: column;
+}
+.ln-advance.--withVideo .wrap .lay-container .button {
+  padding: 0;
+}
+@media (min-width: 48rem) {
+  .ln-advance.--withVideo .wrap .lay-container > article {
+    gap: var(--size-sm);
+  }
+  .ln-advance.--withVideo .wrap .lay-container > article .video iframe {
+    width: 15.625rem;
+  }
+  .ln-advance.--withVideo .wrap .lay-container > article .text-container {
+    padding: var(--size-md) 0;
+    gap: var(--size-2xs);
+  }
+  .ln-advance.--withVideo .wrap .lay-container .button {
+    padding: var(--size-md) 0;
+  }
+}

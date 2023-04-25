@@ -5,7 +5,7 @@ import {
     getArticleVideos,
     getYouTubeVideoLink
 } from '../../../../../../../../../../components/private/LN/api/common/article/elements/video/index';
-import { getArticleTag } from '../../../../../../../../../../components/private/LN/api/common/article/elements/tag/index';
+import { getBadgebyConfig } from '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/elements/chapita/index';
 import { CardBasic } from '../../../../../../../../../../components/private/LN/api/common/article/cardBasic/index';
 
 jest.mock('../../../../../../../../../../components/private/common/utils/get');
@@ -16,7 +16,7 @@ jest.mock(
     '../../../../../../../../../../components/private/LN/api/common/article/elements/video/index'
 );
 jest.mock(
-    '../../../../../../../../../../components/private/LN/api/common/article/elements/tag/index'
+    '../../../../../../../../../../components/private/LN/api/v1/mobile/home/article/elements/chapita/index'
 );
 jest.mock(
     '../../../../../../../../../../components/private/LN/api/common/article/cardBasic/index'
@@ -30,18 +30,23 @@ describe('cardRegular', () => {
     });
 
     test('returns correct cardRegular object', () => {
+        const objbadget = {
+            chapita: 'VIDEO',
+            badge: 'VIDEO',
+            badgeStyle: 'positive'
+        };
         // Arrange
         get.mockReturnValueOnce('subheadline');
         getArticleImage.mockReturnValueOnce('image');
         getArticleVideos.mockReturnValueOnce('videos');
         getYouTubeVideoLink.mockReturnValueOnce('youtubeLink');
-        getArticleTag.mockReturnValueOnce('tag');
+        getBadgebyConfig.mockReturnValueOnce(objbadget);
         CardBasic.mockReturnValueOnce({ title: article.title });
 
         const expectedCardRegular = {
             title: article.title,
             bajada: 'subheadline',
-            chapita: 'tag',
+            ...objbadget,
             imagen: 'image',
             video: 'videos',
             videoYouTube: 'youtubeLink'
@@ -57,8 +62,8 @@ describe('cardRegular', () => {
         expect(getArticleVideos).toHaveBeenCalledWith(article);
         expect(getYouTubeVideoLink).toHaveBeenCalledTimes(1);
         expect(getYouTubeVideoLink).toHaveBeenCalledWith(article);
-        expect(getArticleTag).toHaveBeenCalledTimes(1);
-        expect(getArticleTag).toHaveBeenCalledWith(article);
+        expect(getBadgebyConfig).toHaveBeenCalledTimes(1);
+        expect(getBadgebyConfig).toHaveBeenCalledWith(article);
         expect(CardBasic).toHaveBeenCalledTimes(1);
         expect(CardBasic).toHaveBeenCalledWith(article);
     });

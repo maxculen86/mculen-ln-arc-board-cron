@@ -11,14 +11,6 @@ export const boxInfoComplete = (information, section, typeSection) => {
         if (image && image.type === 'image') box.imagen = Image(image);
         if (imagenUrl) box.imagenUrl = imagenUrl;
 
-        if (information.buttonText && information.linkButton) {
-            box.actionButton = {
-                title: information.buttonText,
-                url: information.linkButton,
-                style: information.buttonStyle
-            };
-        }
-
         return {
             ...box,
             tituloCaja: information.title,

@@ -1,0 +1,85 @@
+.ln-timeline > div .--bbt {
+  line-height: 120%;
+  border-bottom: 0.0625rem solid var(--light-neutral-400);
+  width: 100%;
+}
+.ln-timeline > div .--tm-weight {
+  font-variation-settings: "wght" 130;
+}
+@media (min-width: 48rem) and (max-width: 79.9375rem) {
+  .ln-timeline .ln-timeline-list {
+    display: grid;
+    grid-auto-columns: 1fr;
+  }
+  .ln-timeline .ln-timeline-list > li:first-child {
+    padding-left: 0rem;
+  }
+  .ln-timeline .ln-timeline-list > li:not(:first-child) {
+    padding-left: 1.5rem;
+  }
+  .ln-timeline .ln-timeline-list > li {
+    grid-row: 1;
+  }
+}
+.ln-timeline .ln-timeline-list li {
+  padding-left: 0.65625rem;
+}
+.ln-timeline .ln-timeline-list li div {
+  margin-top: -0.25rem;
+  gap: var(--size-2xs);
+  flex-direction: column;
+}
+.ln-timeline .ln-timeline-list li div time {
+  color: var(--light-neutral-600);
+}
+.ln-timeline .ln-timeline-list li div time .--tl-vivo {
+  text-transform: uppercase;
+  color: var(--danger-600);
+  font-size: 0.6875rem;
+  margin-bottom: 10px;
+  margin-left: 0.375rem;
+}
+.ln-timeline .ln-timeline-list li div h3 {
+  margin-top: -0.375rem;
+  line-height: 120%;
+}
+@media (min-width: 20rem) and (max-width: 47.9375rem) {
+  .ln-timeline .ln-timeline-list li {
+    position: relative;
+    border-left: 0.0625rem solid var(--light-neutral-300);
+  }
+  .ln-timeline .ln-timeline-list li:before {
+    content: "";
+    width: 0.3125rem;
+    height: 0.3125rem;
+    border-radius: var(--size-2xs);
+    background: var(--dark-neutral-50);
+    top: 0;
+    left: -0.1875rem;
+    z-index: 2;
+    position: absolute;
+  }
+  .ln-timeline .ln-timeline-list li:last-child {
+    border: none;
+  }
+}
+@media (min-width: 80rem) {
+  .ln-timeline .ln-timeline-list li {
+    position: relative;
+    border-left: 0.0625rem solid var(--light-neutral-300);
+  }
+  .ln-timeline .ln-timeline-list li:before {
+    content: "";
+    width: 0.3125rem;
+    height: 0.3125rem;
+    border-radius: var(--size-2xs);
+    background: var(--dark-neutral-50);
+    top: 0;
+    left: -0.1875rem;
+    z-index: 2;
+    position: absolute;
+  }
+  .ln-timeline .ln-timeline-list li:last-child {
+    border: none;
+  }
+}

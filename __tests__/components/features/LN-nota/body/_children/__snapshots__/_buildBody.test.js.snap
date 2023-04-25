@@ -192,7 +192,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     persistent="true"
   >
     <div
-      class="mod-banner --caja1_amp hlp-none  "
+      class="mod-banner --caja1_amp --none  "
     >
       <div
         class="com-banner "
@@ -251,7 +251,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     persistent="true"
   >
     <div
-      class="mod-banner --caja2_amp hlp-none  "
+      class="mod-banner --caja2_amp --none  "
     >
       <div
         class="com-banner "
@@ -2945,7 +2945,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     persistent="true"
   >
     <div
-      class="mod-banner --caja1_amp hlp-none  "
+      class="mod-banner --caja1_amp --none  "
     >
       <div
         class="com-banner "
@@ -3004,7 +3004,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     persistent="true"
   >
     <div
-      class="mod-banner --caja2_amp hlp-none  "
+      class="mod-banner --caja2_amp --none  "
     >
       <div
         class="com-banner "
@@ -8429,7 +8429,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     persistent="true"
   >
     <div
-      class="mod-banner --caja1_amp hlp-none  "
+      class="mod-banner --caja1_amp --none  "
     >
       <div
         class="com-banner "
@@ -8488,7 +8488,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     persistent="true"
   >
     <div
-      class="mod-banner --caja2_amp hlp-none  "
+      class="mod-banner --caja2_amp --none  "
     >
       <div
         class="com-banner "

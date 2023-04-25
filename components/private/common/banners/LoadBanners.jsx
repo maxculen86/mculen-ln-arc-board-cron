@@ -133,7 +133,7 @@ const LoadBanners = ({ blocksBanners }) => {
         bannersConfiguration
     ]);
 
-    return <div className="hlp-none">Cargando banners ...</div>;
+    return <div className="--none">Cargando banners ...</div>;
 };
 
 LoadBanners.propTypes = {
