@@ -191,6 +191,11 @@
     left: -1.03125rem;
   }
 }
+@media (min-width: 80rem) {
+  .ln-bngrid.--bn_1_grid .grid-item:first-child > article a, .ln-bngrid.--bn_1_2_grid .grid-item:first-child > article a, .ln-bngrid.--bn_1_4_grid .grid-item:first-child > article a {
+    --gap-img: 2rem;
+  }
+}
 @media (min-width: 48rem) and (min-width: 48rem) {
   .ln-bngrid.--bn_2_grid .grid .--0 article::after {
     content: "";
