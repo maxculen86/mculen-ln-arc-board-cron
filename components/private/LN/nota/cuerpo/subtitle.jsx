@@ -25,7 +25,6 @@ const Subtitle = ({ data }) => {
             weight: fontExtra
         }
     };
-    console.log('subtitle:', tagConfigByLevel);
     const { level, content } = data;
     const _props = tagConfigByLevel[level] || tagConfigByLevel.default;
     return (
