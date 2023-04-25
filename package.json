@@ -142,7 +142,7 @@
         "verbose": true,
         "testURL": "http://localhost/",
         "transform": {
-            ".+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "globals": {
             "NODE_ENV": "test"
