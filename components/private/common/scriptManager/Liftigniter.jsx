@@ -50,6 +50,7 @@ class LiftIgniter extends Component {
         const leadText = get(label, 'volanta.text', '');
         const scriptRum = `
             window.addEventListener("DOMContentLoaded", (event) => {
+                const userId = localStorage.getItem('CDUserId')
                 if (typeof $igniter_var === "undefined") {
                 !(function n(t, c, o, r, a, i, e, s, f) {
                     (f = null != t[o] && "function" == typeof t[o].now ? t[o].now() : null),
@@ -74,6 +75,7 @@ class LiftIgniter extends Component {
                     e.parentNode.insertBefore(s, e);
                 })(window, document, "performance", "script", "//cdn", "$p");
                 $p("init", "8561ps8ov66e7mim");
+                $p("setUserId", userId);
                 $p("setNoTag", true);
                 $p("send", "pageview");
                 }
