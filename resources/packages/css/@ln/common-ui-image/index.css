@@ -1,0 +1,5 @@
+.image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.2s ease-in-out;
+}
