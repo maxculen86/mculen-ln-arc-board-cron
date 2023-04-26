@@ -4,16 +4,39 @@ import articles from '../../../../../__mocks__/data/acuArticlesSourcebyIds/artic
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
-        return class extends component {
-            constructor(props) {
-                super(props);
-                this.props = props;
-                this.state.acuArticlesENVIVO = null;
-            }
-            fetchContent(param) {}
-        };
+        const newComponent = component;
+        // Mock fetchContent
+        newComponent.prototype.fetchContent = jest.fn();
+        return newComponent;
     };
 });
+jest.mock('../../../../../components/private/common/utils/get.js', () => {
+    return {
+        __esModule: true,
+        default: (element, key, defaultValue) => {
+            if (element[key]) {
+                return element[key];
+            }
+
+            return null;
+        }
+    };
+});
+
+jest.mock(
+    '../../../../../components/features/LN-10/article/common/_helper-WebApi.js',
+    () => {
+        return {
+            __esModule: true,
+            typeBadge: {
+                0: 'POSITIVE',
+                1: 'NEGATIVE',
+                2: 'LIVE',
+                3: 'EXCLUSIVE_LN'
+            }
+        };
+    }
+);
 
 describe('components - features - LN-common - LN10_En_Vivo - json.js', () => {
     const props = {
@@ -65,6 +88,11 @@ describe('components - features - LN-common - LN10_En_Vivo - json.js', () => {
             expect(Object.keys(result.information).sort()).toEqual(
                 ['chapita', 'chapitaStyle', 'hideCaja'].sort()
             );
+            expect(result.information).toMatchObject({
+                hideCaja: false,
+                chapita: 'Vivo',
+                chapitaStyle: 'LIVE'
+            });
 
             expect(result.articles).toHaveLength(3);
         });
@@ -80,6 +108,68 @@ describe('components - features - LN-common - LN10_En_Vivo - json.js', () => {
                     `Cannot read property 'additionalProperties' of null`
                 );
             }
+        });
+
+        it('When fetch this.state is null', () => {
+            const objArticle = new FeatureLNENVIVO.default(props);
+            objArticle.state = null;
+            const result = objArticle.render();
+            expect(result).toBe(null);
+        });
+
+        it('When chapita or chapitaStyle is null', () => {
+            const newProps = props;
+            const customFields = Object.assign({}, props.customFields);
+            customFields.chapitaStyle = null;
+            customFields.chapita = null;
+            newProps.customFields = customFields;
+            const objArticle = new FeatureLNENVIVO.default(newProps);
+            objArticle.state.acuArticlesENVIVO = articles;
+
+            const result = objArticle.render();
+
+            expect(result.information).toMatchObject({
+                hideCaja: false,
+                chapita: 'VIVO',
+                chapitaStyle: 'LIVE'
+            });
+        });
+
+        it('When customFields show is true', () => {
+            const newProps = props;
+            const customFields = Object.assign({}, props.customFields);
+            customFields.show = true;
+            newProps.customFields = customFields;
+
+            const objArticle = new FeatureLNENVIVO.default(newProps);
+            objArticle.state.acuArticlesENVIVO = articles;
+            const result = objArticle.render();
+            expect(Object.keys(result.information).sort()).toEqual(
+                ['chapita', 'chapitaStyle', 'hideCaja'].sort()
+            );
+            expect(result.information).toMatchObject({
+                hideCaja: true,
+                chapita: 'VIVO',
+                chapitaStyle: 'LIVE'
+            });
+
+            expect(result.articles).toHaveLength(3);
+        });
+
+        it('When articles is null', () => {
+            const objArticle = new FeatureLNENVIVO.default(props);
+            objArticle.state.acuArticlesENVIVO = {};
+            const result = objArticle.render();
+            expect(Object.keys(result.information).sort()).toEqual(
+                ['chapita', 'chapitaStyle', 'hideCaja'].sort()
+            );
+            expect(result.information).toMatchObject({
+                hideCaja: true,
+                chapita: 'VIVO',
+                chapitaStyle: 'LIVE'
+            });
+
+            expect(result.articles).toHaveLength(0);
         });
     });
 });

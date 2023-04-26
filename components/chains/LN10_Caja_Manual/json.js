@@ -21,8 +21,7 @@ class CajaManual extends GetCajaManual {
         );
 
         childrenRenders = childrenRenders && childrenRenders.children;
-        /*         const childrenRendersProps = childrenRenders.map(x => x.props);
-         */
+
         return validateCajaManual(layout, childrenRenders);
     };
 
