@@ -79,9 +79,6 @@
   border-top: none;
   padding-top: 0;
 }
-.ln-roof.--sub-exclusive .--ln-roof-full .--suscriptor-logo rect {
-  fill: #0d0d0d;
-}
 @media (max-width: 47.9375rem) {
   .ln-roof.--sub-exclusive .--ln-roof-full .--roof-button {
     padding-left: 0.625rem;
