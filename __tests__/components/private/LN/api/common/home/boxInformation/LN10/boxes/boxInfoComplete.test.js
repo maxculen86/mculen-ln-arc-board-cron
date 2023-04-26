@@ -63,7 +63,7 @@ describe('boxInfoComplete', () => {
 
         expect(result).toEqual(box);
     });
-    it.skip('returns complete box when box, information and information.hideTitle are all true', () => {
+    it('returns complete box when box, information and information.hideTitle are all true', () => {
         const image = {
             promo_items: {
                 basic: {
@@ -105,12 +105,7 @@ describe('boxInfoComplete', () => {
                 title: information.title,
                 url: information.link,
                 badge: information.chapita,
-                badgeStyle: information.chapitaStyle,
-                actionButton: {
-                    title: information.buttonText,
-                    url: information.linkButton,
-                    style: information.buttonStyle
-                }
+                badgeStyle: information.chapitaStyle
             },
             imagen: 'Image',
             imageUrl: 'https://www.example.com/image.jpg'
@@ -128,7 +123,7 @@ describe('boxInfoComplete', () => {
         });
     });
 
-    it.skip('should return boxInfoComplete without imagen parameter if image is not a valid object', () => {
+    it('should return boxInfoComplete without imagen parameter if image is not a valid object', () => {
         const information = {
             chapita: 'Custom Badge',
             chapitaStyle: 'example-chapita-style',
@@ -150,8 +145,7 @@ describe('boxInfoComplete', () => {
                 title: information.title,
                 url: information.link,
                 badge: information.chapita,
-                badgeStyle: information.chapitaStyle,
-                actionButton: null
+                badgeStyle: information.chapitaStyle
             }
         };
         const result = boxInfoComplete(information, section, typeSection);
@@ -198,50 +192,6 @@ describe('boxInfoComplete', () => {
             parameters: {
                 url: 'https://test-link.com'
             }
-        });
-    });
-
-    it.skip('when information.buttonText is falsy should return null for actionButton', () => {
-        const information = {
-            buttonText: null,
-            linkButton: 'https://test-link.com',
-            hideTitle: false
-        };
-        boxInfoBasic.mockReturnValue({});
-
-        const result = boxInfoComplete(information, 'section', 'typeSection');
-
-        expect(result.parameters.actionButton).toBeNull();
-    });
-
-    it.skip('when information.linkButton is falsy should return null for actionButton', () => {
-        const information = {
-            buttonText: 'Test button text',
-            linkButton: null,
-            hideTitle: false
-        };
-        boxInfoBasic.mockReturnValue({});
-
-        const result = boxInfoComplete(information, 'section', 'typeSection');
-
-        expect(result.parameters.actionButton).toBeNull();
-    });
-
-    it.skip('when information.buttonText and information.linkButton are truthy should return the correct actionButton object', () => {
-        const information = {
-            buttonText: 'Test button text',
-            linkButton: 'https://test-link.com',
-            buttonStyle: 'style-button',
-            hideTitle: false
-        };
-
-        boxInfoBasic.mockReturnValue({});
-        const result = boxInfoComplete(information, 'section', 'typeSection');
-
-        expect(result.parameters.actionButton).toEqual({
-            title: 'Test button text',
-            url: 'https://test-link.com',
-            style: 'style-button'
         });
     });
 });

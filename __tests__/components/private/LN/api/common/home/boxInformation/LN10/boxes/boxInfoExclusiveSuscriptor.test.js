@@ -32,7 +32,7 @@ describe('boxInfoExclusiveSuscriptor', () => {
         expect(box.tituloCaja).toBe('Exclusivo suscriptores');
     });
 
-    it.skip('should set buttonText and linkButton of information to null', () => {
+    it('should set buttonText and linkButton of information to null', () => {
         const information = {
             title: 'titulo',
             buttonText: 'Botón',
@@ -49,9 +49,7 @@ describe('boxInfoExclusiveSuscriptor', () => {
         };
 
         const expectedBox = {
-            parameters: {
-                actionButton: null
-            }
+            parameters: {}
         };
         const box = boxInfoExclusiveSuscriptor(
             information,
@@ -62,7 +60,7 @@ describe('boxInfoExclusiveSuscriptor', () => {
         expect(information.linkButton).toBeNull();
         expect(box).toMatchObject(expectedBox);
     });
-    it.skip('should call boxInfoComplete with modified information', () => {
+    it('should call boxInfoComplete with modified information', () => {
         const information = {
             title: 'titulo',
             buttonText: 'Botón',
@@ -85,8 +83,7 @@ describe('boxInfoExclusiveSuscriptor', () => {
                 title: 'titulo',
                 url: undefined,
                 badge: undefined,
-                badgeStyle: undefined,
-                actionButton: null
+                badgeStyle: undefined
             }
         };
 
