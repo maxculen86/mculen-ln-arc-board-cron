@@ -8,7 +8,8 @@ import { Cajahashtag } from '@ln/contenidos-ui-cajahashtag';
 import { CHAIN_STYLE } from '../../../../../../../components/chains/utils/common/_helpers-WebApi';
 import {
     getTitleAndLeadForHome,
-    getDataAuthorCollection
+    getDataAuthorCollection,
+    getBadge
 } from '../../../../../../../components/private/LN10/home/components/CommonCollection/_helper';
 
 jest.mock('fusion:consumer', Component => {
@@ -190,5 +191,61 @@ describe('Tests function getDataAuthorCollection', () => {
     });
     test('shoudl return null if no credits', () => {
         expect(getDataAuthorCollection(getArticle(false))).toStrictEqual(null);
+    });
+});
+
+describe('Test function getBadge', () => {
+    test('should return an badge with style live because is in CajaExclusivoSuscriptor.', () => {
+        const articleMock = {
+            ...articles[0],
+            content_restrictions: { content_code: 'cerrada' },
+            owner: { sponsored: true },
+            subtype: '6'
+        };
+        expect(
+            getBadge({ article: articleMock, isExclusiveSub: true })
+        ).toEqual({
+            badgeStyle: 'live',
+            badgeText: 'vivo'
+        });
+    });
+    test('should return an badge with style exclusive-ln priority 1.', () => {
+        const articleMock = {
+            ...articles[0],
+            content_restrictions: { content_code: 'cerrada' },
+            owner: { sponsored: true },
+            subtype: '6'
+        };
+        expect(
+            getBadge({ article: articleMock, isExclusiveSub: false })
+        ).toEqual({
+            badgeStyle: 'exclusive-ln',
+            badgeText: 'Exclusivo suscriptores'
+        });
+    });
+    test('should return an badge with style live priority 2.', () => {
+        const articleMock = {
+            ...articles[0],
+            owner: { sponsored: true },
+            subtype: '6'
+        };
+        expect(
+            getBadge({ article: articleMock, isExclusiveSub: false })
+        ).toEqual({
+            badgeStyle: 'live',
+            badgeText: 'vivo'
+        });
+    });
+    test('should return an badge with style contentlab priority 3.', () => {
+        const articleMock = {
+            ...articles[0],
+            owner: { sponsored: true }
+        };
+        expect(
+            getBadge({ article: articleMock, isExclusiveSub: false })
+        ).toEqual({
+            badgeStyle: 'contentlab',
+            badgeText: 'CONTENT LAB'
+        });
     });
 });

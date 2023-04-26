@@ -2,11 +2,7 @@ import configToDividebyDiagramation from '../../../../../../../components/privat
 import { setBannerByLayout } from '../../../common/elements/banners/index';
 import { setTitleByLayout } from '../../../common/elements/titles/index';
 import { setDolarByLayout } from '../../../common/elements/dolars/index';
-import {
-    moveSections,
-    divideSectionsByDiagramation
-} from '../../../common/elements/sections/index';
-import configToMoveBySection from '../../../../../../../components/private/LN/api/global/page/config/configToMoveBySection';
+import { divideSectionsByDiagramation } from '../../../common/elements/sections/index';
 
 const transform = async (dataPage, query) => {
     const {
@@ -20,10 +16,6 @@ const transform = async (dataPage, query) => {
         if (!elementsPageHome || !layoutPage) {
             throw new Error('Missing data Layout');
         }
-
-        // Move Sections
-        const configMovePositions = configToMoveBySection(layoutPage);
-        elementsPageHome = moveSections(elementsPageHome, configMovePositions);
 
         // Divide Section by Layout configured in features
         elementsPageHome = divideSectionsByDiagramation(
@@ -48,7 +40,7 @@ const transform = async (dataPage, query) => {
                 setDolarByLayout[layoutPage](elementsPageHome, layoutPage)) ||
             elementsPageHome;
 
-        // Add Banners by Configuration set in file /pageSource/config/configTaskPositionBanners.json
+        // Add Banners by Configuration set in file /pageSource/common/elements/banners/config/configTaskPositionBanners.json
         elementsPageHome =
             (setBannerByLayout[layoutPage] &&
                 setBannerByLayout[layoutPage](elementsPageHome, layoutPage)) ||

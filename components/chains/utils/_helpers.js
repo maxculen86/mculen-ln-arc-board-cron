@@ -95,20 +95,20 @@ export const useGetLinks = ({ navigationSection = '' }) => {
             display_name: displayName,
             _id
         } = {}) => {
-            const target = '_blank';
+            const TARGET = '_self';
 
             if (nodeType === 'link') {
                 return {
                     text: displayName,
                     href: url,
-                    target
+                    target: TARGET
                 };
             }
 
             return {
                 text: name,
                 href: `${_id}/`,
-                target
+                target: TARGET
             };
         }
     );

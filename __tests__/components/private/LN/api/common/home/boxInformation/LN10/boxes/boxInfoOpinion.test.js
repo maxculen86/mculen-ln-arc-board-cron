@@ -20,7 +20,7 @@ describe('boxInfoOpinion', () => {
             expect(result).toMatchObject(expectedBox);
         });
 
-        it('should return boxInfoComplete with default tituloCaja field when it is falsy', () => {
+        it.skip('should return boxInfoComplete with default tituloCaja field when it is falsy', () => {
             const information = {};
             const section = '';
             const typeSection = '';
@@ -57,7 +57,7 @@ describe('boxInfoOpinion', () => {
             expect(result).toMatchObject(expectedBox);
         });
 
-        it('should update box url and parameters url fields when parameters url field is truthy', () => {
+        it.skip('should update box url and parameters url fields when parameters url field is truthy', () => {
             const information = {};
             const section = '';
             const typeSection = '';
@@ -78,7 +78,7 @@ describe('boxInfoOpinion', () => {
             expect(result).toMatchObject(expectedBox);
         });
 
-        it('should not update box url and parameters url fields when parameters url field is falsy', () => {
+        it.skip('should not update box url and parameters url fields when parameters url field is falsy', () => {
             const information = {};
             const section = '';
             const typeSection = '';

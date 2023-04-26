@@ -39,6 +39,9 @@ export default `
             }
         }
     }
+    owner {
+        sponsored
+    }
     content_restrictions {
         content_code
     }

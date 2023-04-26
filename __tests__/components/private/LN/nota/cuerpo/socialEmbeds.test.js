@@ -114,7 +114,7 @@ describe('Test de las embebidos en el cuerpo de una nota', () => {
                 .find('script')
                 .at(0)
                 .props().src
-        ).toEqual('//www.instagram.com/embed.js');
+        ).toEqual('https://www.instagram.com/embed.js');
     });
 
     it('Snapshots', () => {

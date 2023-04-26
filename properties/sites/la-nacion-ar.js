@@ -11,6 +11,7 @@ const targetingHome = {
     seccion: 'home'
 };
 
+const fontExtra = '--font-extra';
 const bodyBottom = 'body-bottom';
 
 const minWidth1920 = '(min-width: 1920px)';
@@ -2521,7 +2522,9 @@ export default {
                         [920, 120],
                         [920, 170],
                         [920, 250],
-                        [920, 300]
+                        [920, 300],
+                        [1260, 300],
+                        [970, 250]
                     ],
                     targeting: targetingHome
                 },
@@ -2534,7 +2537,9 @@ export default {
                         [920, 120],
                         [920, 170],
                         [920, 250],
-                        [920, 300]
+                        [920, 300],
+                        [1260, 300],
+                        [970, 250]
                     ],
                     targeting: targetingHome
                 },
@@ -2867,7 +2872,7 @@ export default {
             articles: {
                 0: {
                     titleSize: '--threexl',
-                    titleWeight: '--font-extra',
+                    titleWeight: fontExtra,
                     titleTagApertura: 'h1',
                     subheadTagApertura: 'h2',
                     withSubheadAndMedia: true,
@@ -2897,7 +2902,7 @@ export default {
                 },
                 1: {
                     titleSize: '--threexl',
-                    titleWeight: '--font-extra',
+                    titleWeight: fontExtra,
                     titleTagApertura: 'h1',
                     subheadTagApertura: 'h2',
                     withSubheadAndMedia: true,
@@ -2944,7 +2949,7 @@ export default {
             articles: {
                 0: {
                     titleSize: '--xl',
-                    titleWeight: '--font-extra',
+                    titleWeight: fontExtra,
                     skipRenderAuthor: true,
                     skipHtml: true,
                     skipSubhead: true,
@@ -2961,12 +2966,12 @@ export default {
             articles: {
                 0: {
                     titleSize: '--xl',
-                    titleWeight: '--font-extra',
+                    titleWeight: fontExtra,
                     imageConfig: 'boxArticlesTwoArticles'
                 },
                 1: {
                     titleSize: '--xl',
-                    titleWeight: '--font-extra',
+                    titleWeight: fontExtra,
                     imageConfig: 'boxArticlesTwoArticles'
                 }
             }

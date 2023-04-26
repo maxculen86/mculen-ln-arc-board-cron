@@ -139,6 +139,21 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               class="description-container --relative --d-flex --flex-col"
               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
             >
+              <span
+                class="badge ln-badge --font-2xs --live"
+              >
+                <div
+                  class="live-animation"
+                >
+                  <div
+                    class="circle"
+                  />
+                  <div
+                    class="ringring"
+                  />
+                </div>
+                vivo
+              </span>
               <h2
                 class="text ln-text title --prumo --font-medium --font-m"
               >
@@ -543,13 +558,12 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
           class="--d-flex --ai-center --uppercase"
         >
           <i
-            class="icon ln-icon"
+            class="icon"
+            style="width: 161px; height: 83px;"
           >
             <svg
               fill="none"
-              height="83"
               viewBox="0 0 161 83"
-              width="161"
               xmlns="http://www.w3.org/2000/svg"
             >
               <g
@@ -673,6 +687,21 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               class="description-container --relative --d-flex --flex-col"
               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
             >
+              <span
+                class="badge ln-badge --font-2xs --live"
+              >
+                <div
+                  class="live-animation"
+                >
+                  <div
+                    class="circle"
+                  />
+                  <div
+                    class="ringring"
+                  />
+                </div>
+                vivo
+              </span>
               <h2
                 class="text ln-text title --prumo --font-medium --font-m"
               >

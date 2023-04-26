@@ -27,12 +27,15 @@ class ArticleFeature {
         const { cajaTemaConfig } = getProperties(arcSite);
         const { layoutsName = {} } = siteConfig || {};
 
-        this.configs = getChainConfig(featureId, renderables, cajaTemaConfig);
+        this.configs =
+            getChainConfig(featureId, renderables, cajaTemaConfig) || {};
+        const { config = {}, index } = this.configs;
         this.onlyOneApeturaValidateForWWW = isInApertura({
             layoutPageBuilder,
             renderables,
             featureId,
-            config: this.configs
+            config,
+            articlePosition: index
         });
         this.shouldUseV2 =
             withResizerV2 && layoutPageBuilder === layoutsName.HomeLN10;
