@@ -8,6 +8,8 @@ import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 
 export const setDesplegableData = (goToLogout = () => {}) => {
+    const LogoutText = 'Cerrar sesión';
+
     const defaultOptions = [
         {
             url: 'https://www.lanacion.com.ar/mis-notas/',
@@ -28,19 +30,18 @@ export const setDesplegableData = (goToLogout = () => {}) => {
             target: '_self'
         },
         {
-            url: 'https://micuenta.lanacion.com.ar/mis-suscripciones/',
+            url: 'https://myaccount.lanacion.com.ar/mis-suscripciones/',
             text: 'Mis suscripciones',
             title: 'Ir a mis suscripciones',
             target: '_self'
         },
         {
             url: 'javascript:void(0);',
-            text: 'Cerrar sesión',
-            title: 'Cerrar sesión',
+            text: LogoutText,
+            title: LogoutText,
             target: '_self'
         }
     ];
-
     return defaultOptions.map(option => ({
         ...option,
         callback: e => {
@@ -51,7 +52,7 @@ export const setDesplegableData = (goToLogout = () => {}) => {
                 category: 'home_ln10',
                 label: option.text
             });
-            option.text === 'Cerrar sesión' && goToLogout();
+            option.text === LogoutText && goToLogout();
         }
     }));
 };

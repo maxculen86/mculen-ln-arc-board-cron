@@ -3,7 +3,7 @@ import { WIDGETS } from 'fusion:environment';
 
 export const getVariablesFromLocalStorage = () => {
     const urls = JSON.parse(localStorage.getItem('excludeItems')) || [];
-    const uid = localStorage.getItem('CDuserId') || 'N/A';
+    const uid = localStorage.getItem('CDUserId') || 'N/A';
     const sid = localStorage.getItem('sessionId') || generateSessionId();
 
     return {
