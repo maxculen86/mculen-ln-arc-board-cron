@@ -6,7 +6,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
     class="extend-forecast"
   >
     <h2
-      class="com-text --sueca --l"
+      class="com-title --font-primary --font-medium --xl"
     >
       Pronóstico del tiempo en
       <strong>
@@ -282,7 +282,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
     class="extend-forecast"
   >
     <h2
-      class="com-text --sueca --l"
+      class="com-title --font-primary --font-medium --xl"
     >
       Pronóstico del tiempo en
       <strong>
@@ -688,7 +688,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
     class="extend-forecast"
   >
     <h2
-      class="com-text --sueca --l"
+      class="com-title --font-primary --font-medium --xl"
     >
       Pronóstico del tiempo en
       <strong>
@@ -964,7 +964,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
     class="extend-forecast"
   >
     <h2
-      class="com-text --sueca --l"
+      class="com-title --font-primary --font-medium --xl"
     >
       Pronóstico del tiempo en
       <strong>
@@ -1240,7 +1240,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
     class="extend-forecast"
   >
     <h2
-      class="com-text --sueca --l"
+      class="com-title --font-primary --font-medium --xl"
     >
       Pronóstico del tiempo en
       <strong>
@@ -1516,7 +1516,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
     class="extend-forecast"
   >
     <h2
-      class="com-text --sueca --l"
+      class="com-title --font-primary --font-medium --xl"
     >
       Pronóstico del tiempo en
       <strong>
@@ -1792,7 +1792,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
     class="extend-forecast"
   >
     <h2
-      class="com-text --sueca --l"
+      class="com-title --font-primary --font-medium --xl"
     >
       Pronóstico del tiempo en
       <strong>
@@ -2072,7 +2072,7 @@ exports[`Components- Features - WeatherForecast - default.jsx - test Should rend
       role="contentinfo"
     >
       <h3
-        class="com-title --l"
+        class="com-title --font-primary --xl --font-extra"
       >
         Referencias del clima
       </h3>

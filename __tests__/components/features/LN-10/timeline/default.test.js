@@ -1,0 +1,117 @@
+import React from 'react';
+import Timeline from '../../../../../components/features/LN-10/timeline/default';
+import '@testing-library/jest-dom';
+import Context from 'fusion:context';
+import { render } from '@testing-library/react';
+import mockArticles from '../../../../../__mocks__/data/timeline/articles.json';
+import useTimeline from '../../../../../components/private/LN/common/hooks/useTimeline';
+import pageBuilderValidator from '../../../../../components/private/common/utils/pageBuilderValidator';
+
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+        return props.children(mockAvailableProps);
+    },
+    useAppContext: jest.fn(() => ({}))
+}));
+
+jest.mock('fusion:consumer', component => {
+    return function(component) {
+        return component;
+    };
+});
+
+jest.mock('../../../../../components/private/LN/common/hooks/useTimeline', () =>
+    jest.fn()
+);
+
+jest.mock(
+    '../../../../../components/private/common/utils/pageBuilderValidator',
+    () => jest.fn()
+);
+
+describe('features - LN10 - Timeline', () => {
+    useTimeline.mockReturnValue(mockArticles);
+
+    const props = {
+        featureId: 'f0fYWHrfxEP7b4r',
+        customFields: {
+            size: 5,
+            sectionTagType: 'section',
+            sectionTagValue: '/politica',
+            collectionId: '',
+            url: '',
+            title: 'Últimas Noticias',
+            hideTitle: false,
+            source: 'byTagSection'
+        },
+        collection: 'features',
+        type: 'LN-10/timeline',
+        name: null,
+        contentConfig: {
+            contentService: '',
+            contentConfigValues: {},
+            inherit: true
+        },
+        displayProperties: {},
+        variants: {},
+        children: []
+    };
+
+    test('should render timeline component when source is truthy and isAdmin and error are falsy', () => {
+        Context.useAppContext = jest.fn(() => ({
+            arcSite: 'la-nacion-ar',
+            isAdmin: false
+        }));
+
+        pageBuilderValidator.mockReturnValue(false);
+
+        const { container } = render(<Timeline {...props} />);
+
+        expect(container.querySelector('.ln-timeline')).toBeVisible();
+        expect(container).toMatchSnapshot();
+    });
+
+    test('should render pagebuilder message component when isAdmin and error are truthy', () => {
+        Context.useAppContext = jest.fn(() => ({
+            arcSite: 'la-nacion-ar',
+            isAdmin: true
+        }));
+
+        const error = {
+            type: 'warning',
+            message: 'Mock error message'
+        };
+
+        pageBuilderValidator.mockReturnValue(error);
+
+        const { container } = render(<Timeline {...props} />);
+
+        expect(container.querySelector('.ln-timeline')).toBeVisible();
+        expect(container).toMatchSnapshot();
+    });
+
+    test('should not render timeline component if source is falsy', () => {
+        Context.useAppContext = jest.fn(() => ({
+            arcSite: 'la-nacion-ar',
+            isAdmin: false
+        }));
+
+        pageBuilderValidator.mockReturnValue(false);
+
+        const { container } = render(
+            <Timeline
+                {...{
+                    ...props,
+                    customFields: {
+                        ...props.customFields,
+                        source: false
+                    }
+                }}
+            />
+        );
+
+        expect(container.querySelector('.ln-timeline')).toBeNull();
+        expect(container).toMatchSnapshot();
+    });
+});

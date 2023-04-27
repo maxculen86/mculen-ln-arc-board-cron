@@ -100,7 +100,7 @@ exports[`Viewability Evento productClick del script viewability when clicks in a
         line={true}
         link={null}
         outputType="default"
-        size="--l"
+        size="--xl"
         tag="h3"
         title="Titulo de Nota"
       >
@@ -111,13 +111,15 @@ exports[`Viewability Evento productClick del script viewability when clicks in a
           <ComTitle
             content="Titulo de Nota"
             customTitle="Titulo de Nota"
+            font=""
             link={null}
             preTitle=""
-            size="--l"
+            size="--xl"
             tag="h3"
+            weight="--font-extra"
           >
             <h3
-              className="com-title --l"
+              className="com-title --font-primary --xl --font-extra"
               dangerouslySetInnerHTML={
                 Object {
                   "__html": "Titulo de Nota",
@@ -386,7 +388,7 @@ exports[`Viewability Evento productClick del script viewability when clicks in a
                     subheadTag="h3"
                     subheadText={false}
                     tags={false}
-                    titleSize="--xs"
+                    titleSize="--l"
                     titleTag="h2"
                     titleText="Prueba Newsletter de propiedades"
                   >
@@ -396,14 +398,15 @@ exports[`Viewability Evento productClick del script viewability when clicks in a
                       <ComTitle
                         content="Prueba Newsletter de propiedades"
                         customTitle=""
+                        font=""
                         lead=""
                         link="/propiedades/prueba-newsletter-de-propiedades-nid11112020/"
                         preTitle=""
-                        size="--xs"
+                        size="--l"
                         tag="h2"
                       >
                         <h2
-                          className="com-title --xs"
+                          className="com-title --font-primary --l --font-medium"
                         >
                           <ComLink
                             classCondition=""
@@ -676,7 +679,7 @@ exports[`Viewability Evento productClick del script viewability when clicks in a
                     subheadTag="h3"
                     subheadText={false}
                     tags={false}
-                    titleSize="--xs"
+                    titleSize="--l"
                     titleTag="h2"
                     titleText="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
                   >
@@ -686,14 +689,15 @@ exports[`Viewability Evento productClick del script viewability when clicks in a
                       <ComTitle
                         content="Coronavirus. Motín en Devoto: “Nos negamos a morir en la cárcel”"
                         customTitle=""
+                        font=""
                         lead=""
                         link="/sociedad/seguridad/coronavirus-motin-en-devoto-nos-negamos-a-morir-en-la-carcel-nid24042020/"
                         preTitle=""
-                        size="--xs"
+                        size="--l"
                         tag="h2"
                       >
                         <h2
-                          className="com-title --xs"
+                          className="com-title --font-primary --l --font-medium"
                         >
                           <ComLink
                             classCondition=""
@@ -966,7 +970,7 @@ exports[`Viewability Evento productClick del script viewability when clicks in a
                     subheadTag="h3"
                     subheadText={false}
                     tags={false}
-                    titleSize="--xs"
+                    titleSize="--l"
                     titleTag="h2"
                     titleText="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
                   >
@@ -976,14 +980,15 @@ exports[`Viewability Evento productClick del script viewability when clicks in a
                       <ComTitle
                         content="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
                         customTitle=""
+                        font=""
                         lead=""
                         link="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
                         preTitle=""
-                        size="--xs"
+                        size="--l"
                         tag="h2"
                       >
                         <h2
-                          className="com-title --xs"
+                          className="com-title --font-primary --l --font-medium"
                         >
                           <ComLink
                             classCondition=""

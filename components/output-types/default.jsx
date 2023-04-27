@@ -30,9 +30,9 @@ import {
     getTagTitle,
     addMetaNoIndexNoFollow
 } from '../private/common/utils/outputTypeHelper';
-import FontPreloads from '../private/common/fontsPreloads';
 import checkHydrateOnly from '../private/LN/common/utils/checkHydrateOnly';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
+import CssLinksLn10 from './Helper/cssLinksLn10';
 
 const lnBuscador = 'LN-buscador';
 
@@ -172,7 +172,6 @@ const Default = props => {
                     layout={layout}
                 />
                 <CriticalCss isLN10={layoutsName.HomeLN10 === layout} />
-                <FontPreloads isLN10={layoutsName.HomeLN10 === layout} />
                 {arcSite === 'ott' ? (
                     <link
                         rel="stylesheet"
@@ -181,13 +180,17 @@ const Default = props => {
                         )}
                     />
                 ) : (
-                    <CssLinks />
+                    <CssLinksLn10
+                        CssLinks={CssLinks}
+                        isLN10={layoutsName.HomeLN10 === layout}
+                        deployment={deployment}
+                        contextPath={contextPath}
+                    />
                 )}
                 <link
                     rel="preload"
                     as="script"
                     href={deployment(`${contextPath}/dist/engine/react.js`)}
-                    crossOrigin=""
                 />
                 <link
                     rel="preload"
@@ -195,7 +198,6 @@ const Default = props => {
                     href={deployment(
                         `${contextPath}/dist/components/combinations/default.js`
                     )}
-                    crossOrigin=""
                 />
                 <Libs />
                 <TagsLoadingList
@@ -297,7 +299,7 @@ const Default = props => {
                     renderables={renderables}
                     section={_nodeType}
                 />
-                {addMetaNoIndexNoFollow({ siteProperties, layout })}
+                {addMetaNoIndexNoFollow({ requestUri })}
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />

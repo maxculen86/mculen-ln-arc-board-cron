@@ -19,9 +19,15 @@ export const getFieldsFromNotes = index => ({
     })
 });
 
-export const findError = (articles = []) =>
-    articles.find(({ error = false } = {}) => error);
-
+export const findError = (articles = []) => {
+    const articleWithError = articles.find(({ error = false } = {}) => error);
+    return (
+        articleWithError && {
+            type: 'warning',
+            message: `El ID de la nota ${articleWithError.group} (ID: ${articleWithError.id}) es incorrecto`
+        }
+    );
+};
 const getCustomFieldNameAndGroup = string => {
     const [, customFieldName, group] =
         (typeof string === 'string' && string.match(/(.*)(\d)/)) || [];

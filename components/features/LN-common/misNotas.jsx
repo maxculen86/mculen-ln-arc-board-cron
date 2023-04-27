@@ -7,7 +7,12 @@ const MisNotasFeature = () => {
     return (
         <section className="bookmark">
             <div className="title">
-                <Text tag="h1" size="--l" font="--sueca" weight="bold">
+                <Text
+                    tag="h1"
+                    size="--xl"
+                    font="--font-primary"
+                    weight="--font-extra"
+                >
                     Mis notas guardadas
                 </Text>
             </div>

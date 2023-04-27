@@ -2,6 +2,7 @@
 import { getChildrenFromSectionHome } from '../../../LN/common/utils/cajaTemasHelperLN10-WebApi';
 import homeConfig from '../../../../layouts/config/LN10-Home.config.json';
 import {
+    filterChildrenWithNoRoof,
     getSectionId,
     validateBanner,
     validateInterval
@@ -14,10 +15,12 @@ const getDynamicBanners = ({ renderables = [], featureId = '' }) => {
 
     const [sectionName, sectionValues = {}] = sectionConfig || [];
 
-    const sectionChildren = getChildrenFromSectionHome(
-        renderables,
-        sectionName,
-        sectionValues.position
+    const sectionChildren = filterChildrenWithNoRoof(
+        getChildrenFromSectionHome(
+            renderables,
+            sectionName,
+            sectionValues.position
+        )
     );
 
     let currentBanner = 0;

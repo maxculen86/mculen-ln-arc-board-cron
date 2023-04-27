@@ -17,6 +17,10 @@ const fetch = async (query, { cachedCall } = {}) => {
             transformHome: { 1: homev1, 2: homev2 }
         },
         bitacora: {
+            aliasPage: '/homepage',
+            transformPage: { 1: transformBitacorav1 }
+        },
+        bitacoraLN10: {
             aliasPage: '/homepage-ln10',
             transformPage: { 1: transformBitacorav1 }
         },

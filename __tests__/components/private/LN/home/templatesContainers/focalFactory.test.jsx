@@ -16,7 +16,8 @@ jest.mock('fusion:properties', () => () => ({
                 className: '--focal --left',
                 articles: {
                     '0': {
-                        titleSize: '--xl',
+                        titleSize: '--threexl',
+                        titleWeight: '--font-extra',
                         titleTagApertura: 'h1',
                         subheadTagApertura: 'h2',
                         withSubheadAndMedia: true,
@@ -25,12 +26,12 @@ jest.mock('fusion:properties', () => () => ({
                         isApertura: true
                     },
                     '1': {
-                        titleSize: '--xs',
+                        titleSize: '--m',
                         withSubheadAndMedia: false,
                         imageConfig: 'mediumFocalIzquierdo'
                     },
                     '2': {
-                        titleSize: '--xs',
+                        titleSize: '--m',
                         withSubheadAndMedia: false,
                         imageConfig: 'mediumFocalIzquierdo'
                     }
@@ -40,12 +41,13 @@ jest.mock('fusion:properties', () => () => ({
                 className: '--focal --right',
                 articles: {
                     '0': {
-                        titleSize: '--l',
+                        titleSize: '--m',
                         withSubheadAndMedia: true,
                         imageConfig: 'featuredFocalDerecho'
                     },
                     '1': {
-                        titleSize: '--xl',
+                        titleSize: '--threexl',
+                        titleWeight: '--font-extra',
                         titleTagApertura: 'h1',
                         subheadTagApertura: 'h2',
                         withSubheadAndMedia: true,

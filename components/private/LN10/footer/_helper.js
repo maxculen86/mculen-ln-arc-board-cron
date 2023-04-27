@@ -23,7 +23,7 @@ export const secciones = [
     ),
     commonPropsFooter(
         'Edición impresa',
-        'https://www.lanacion.com.ar/https://edicionimpresa.lanacion.com.ar/la-nacion?_ga=2.226421138.948268382.1669638459-1845108145.1619557251'
+        'https://edicionimpresa.lanacion.com.ar/la-nacion?_ga=2.226421138.948268382.1669638459-1845108145.1619557251'
     ),
     commonPropsFooter('LN+', 'https://lnmas.lanacion.com.ar/'),
     commonPropsFooter('Club LA NACION', 'https://club.lanacion.com.ar/')

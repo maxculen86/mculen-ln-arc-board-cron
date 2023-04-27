@@ -130,6 +130,7 @@ const CajaCanal = props => {
                             gridType={getGridType(layout)}
                             articles={_articles}
                             layout={layout}
+                            position={position}
                         />
                     )
                 }

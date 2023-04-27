@@ -36,7 +36,7 @@
 @media (min-width: 768px) {
     .text.capital {
         &:first-letter {
-            font-family: $font-SuecaSlab;
+            font-family: $font-primary;
             font-size: px(55);
             line-height: px(57);
             float: left;

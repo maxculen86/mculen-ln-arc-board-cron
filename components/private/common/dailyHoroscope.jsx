@@ -35,7 +35,12 @@ const DailyHoroscope = ({ classCondition, data, deployment, contextPath }) => {
                     />
                 </div>
                 <div>
-                    <Text tag="h2" extraClass="title" size="--m">
+                    <Text
+                        tag="h2"
+                        extraClass="title --font-primary"
+                        size="--l"
+                        weight="--font-medium"
+                    >
                         Horóscopo de
                         <strong> {nombre} HOY</strong>
                     </Text>

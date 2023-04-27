@@ -13,20 +13,12 @@ export const boxInfoComplete = (information, section, typeSection) => {
         return {
             ...box,
             tituloCaja: information.title,
-            url: information.url || information.link,
+            url: information.link,
             parameters: {
                 title: information.title,
-                url: information.url || information.link,
+                url: information.link,
                 badge: information.chapita,
-                badgeStyle: information.chapitaStyle,
-                actionButton:
-                    information.buttonText && information.linkButton
-                        ? {
-                              title: information.buttonText,
-                              url: information.linkButton,
-                              style: information.buttonStyle
-                          }
-                        : null
+                badgeStyle: information.chapitaStyle
             }
         };
     }

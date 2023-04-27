@@ -39,14 +39,15 @@ describe('Components - private - services - weather - IconsReferences =>', () =>
         }));
         const modHeaderSectionClass = 'mod-headersection  --line';
         const expectedClass = 'content-icon';
-        const { container } = render(<IconsReferences />);
+        const { container, debug } = render(<IconsReferences />);
+        debug();
         expect(container).toMatchSnapshot();
         expect(
             container.getElementsByClassName(modHeaderSectionClass).length
         ).toBe(1);
         expect(
             container.innerHTML.includes(
-                '<h3 class="com-title --l">Referencias del clima</h3>'
+                '<h3 class="com-title --font-primary --xl --font-extra">Referencias del clima</h3>'
             )
         ).toBe(true);
         expect(container.getElementsByClassName(expectedClass).length).toBe(1);

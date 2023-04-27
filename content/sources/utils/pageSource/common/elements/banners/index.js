@@ -1,20 +1,13 @@
 import get from '../../../../../../../components/private/common/utils/get';
-import { equal } from './strategy/equal';
-import { notequal } from './strategy/notequal';
-import { atleastone } from './strategy/atleastone';
+import { tasks } from '../common/strategy/index';
 import {
     addElementsByKey,
     addElement
 } from '../../../../../../../components/private/LN/api/global/page/common/utils/addElements';
 import configBannerByLayout from '../../../config/configBannerByLayout';
-import configTaskPositionBanners from '../../../config/configTaskPositionBanners.json';
+import configTaskPositionBanners from './config/configTaskPositionBanners.json';
 import configBannerPositionbySection from '../../../config/configBannerPositionbySection';
 
-const tasks = {
-    Equal: equal,
-    NotEqual: notequal,
-    AtLeastOne: atleastone
-};
 // Add Banners by Section
 export const setBannersBySection = (elementsPage, layoutPage) => {
     const configBannersBySections = configBannerPositionbySection(layoutPage);

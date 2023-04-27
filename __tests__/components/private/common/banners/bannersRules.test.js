@@ -8,7 +8,7 @@ describe('Private - Common - Banners - bannerRules', () => {
                 'div[data-section="pre-apertura"]'
             ).props.dangerouslySetInnerHTML.__html
         ).toContain(
-            `const banner = document.querySelector('.ln-banner-container.--megatop_dsk.--megatop') || {};`
+            `const banners = document.querySelectorAll('.ln-banner-container.--megatop_dsk.--megatop') || [];`
         );
     });
     it('should test getStickyBanner with cabezal', () => {
@@ -16,7 +16,7 @@ describe('Private - Common - Banners - bannerRules', () => {
             getStickyBanner('.--cabezal_dsk', '.lay-sidebar', 'header').props
                 .dangerouslySetInnerHTML.__html
         ).toContain(
-            `const banner = document.querySelector('.--cabezal_dsk') || {};`
+            `const banners = document.querySelectorAll('.--cabezal_dsk') || [];`
         );
     });
 });

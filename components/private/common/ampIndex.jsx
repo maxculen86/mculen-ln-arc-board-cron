@@ -2,7 +2,6 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useAppContext } from 'fusion:context';
 import {
     embedElements,
     embedsForNote,
@@ -11,7 +10,6 @@ import {
     config
 } from './utils/scripts/amp/helper';
 import getOembedScripts from './scriptManager/getOembedScripts';
-import { getStyleFontsInLine } from './fontface';
 import { CriticalCSSString } from './criticalcss';
 import get from './utils/get';
 
@@ -66,7 +64,6 @@ export const _AMPBoilerplate = `
 export const AMPCustomStyle = props => {
     const { arcSite, layout, Resource } = props;
     const { [layout]: StylesConfig } = styleConfig[arcSite] || {};
-    const { contextPath, deployment } = useAppContext();
 
     return StylesConfig ? (
         <Resource path={StylesConfig}>
@@ -76,7 +73,6 @@ export const AMPCustomStyle = props => {
                         amp-custom="amp-custom"
                         dangerouslySetInnerHTML={{
                             __html: `
-                            ${getStyleFontsInLine({ contextPath, deployment })}
                             ${CriticalCSSString}
                             ${data.replace('@charset "UTF-8";', '')}`
                         }}

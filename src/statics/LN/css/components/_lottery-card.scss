@@ -111,20 +111,6 @@
 
     .extra-results {
         margin: auto 0;
-        &.--loto-plus {
-            .result-item:first-child .results-secondary .com-text {
-                &:nth-last-child(-n + 2) {
-                    color: $light-neutral-500;
-                }
-            }
-
-            .result-item:last-child .results-secondary .com-text {
-                &:nth-last-child(-n + 4) {
-                    color: $light-neutral-500;
-                }
-            }
-        }
-
         &.--jackpot-details {
             display: flex;
             flex-direction: column;

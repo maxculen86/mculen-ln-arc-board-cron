@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Text from '../text';
 import Link from '../com-link';
 import Icon from '../icon';
+import ComTitle from '../com-title';
 
 import '../../../../resources/dist/css/ln/modules/message.css';
 
@@ -37,9 +38,12 @@ const Message = props => {
                 )}
             </div>
             <div className={`${withLinks ? 'col-tablet-7' : 'col-12'} --left`}>
-                <Text extraClass="com-title" tag="h3" size="--s">
-                    {title}
-                </Text>
+                <ComTitle
+                    content={title}
+                    tag="h3"
+                    size="--l"
+                    weight="--font-bold"
+                />
                 <Text tag="p" size="--twoxs">
                     {subtitle}
                 </Text>

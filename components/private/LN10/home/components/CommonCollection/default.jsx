@@ -8,10 +8,10 @@ import { Bngrid } from '@ln/contenidos-ui-bngrid';
 
 import BuildRoof from '../../../../../chains/utils/_BuildRoof/default';
 import getCardConfig, {
+    getBadge,
     getTitleAndLeadForHome,
     setFinalClassName
 } from './_helper';
-import { LAYOUTS } from '../../../../../chains/utils/common/_helpers-WebApi';
 import get from '../../../../common/utils/get';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 import '../../../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
@@ -33,11 +33,14 @@ export default function CommonCollection({
     gridType,
     position,
     articles = [],
-    ContainerCards = Bngrid
+    ContainerCards = Bngrid,
+    layout,
+    isContentLab100,
+    isExclusiveSub
 }) {
     return (
         <>
-            <BuildRoof {...roofData} />
+            <BuildRoof {...roofData} isAFondo={layout === 'bnFondo'} />
             <ContainerCards gridType={gridType} gridStyle={roofData.chainStyle}>
                 {articles.map((article, index) => {
                     const {
@@ -65,6 +68,11 @@ export default function CommonCollection({
                         className
                     );
 
+                    const { badgeText, badgeStyle } = getBadge({
+                        article,
+                        isExclusiveSub
+                    });
+
                     return (
                         <Card
                             withMedia={withImage}
@@ -75,17 +83,16 @@ export default function CommonCollection({
                             subhead={subhead}
                             href={get(article, 'website_url', '')}
                             mediaData={mediaData}
-                            cardSize={cardSize}
+                            cardSize={isContentLab100 ? '4xl' : cardSize}
                             imagePosition={imagePosition}
                             className={finalClassName}
                             section={showSection({
                                 withSection,
-                                article
+                                article,
+                                authorPhoto: marqueeImg
                             })}
-                            badgeText={
-                                gridType === LAYOUTS.CONTENT_LAB &&
-                                get(article, 'label.chapita.text')
-                            }
+                            badgeText={badgeText}
+                            badgeType={badgeStyle}
                             {...extraOpts}
                         />
                     );

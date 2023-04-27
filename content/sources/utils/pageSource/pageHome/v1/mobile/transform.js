@@ -1,10 +1,8 @@
 import configToDividebyDiagramation from '../../../../../../../components/private/LN/api/global/page/config/configToDividebyDiagramation';
 import { setBannerByLayout } from '../../../common/elements/banners/index';
-import {
-    moveSections,
-    divideSectionsByDiagramation
-} from '../../../common/elements/sections/index';
-import configToMoveBySection from '../../../../../../../components/private/LN/api/global/page/config/configToMoveBySection';
+import { setTitleByLayout } from '../../../common/elements/titles/index';
+import { setDolarByLayout } from '../../../common/elements/dolars/index';
+import { divideSectionsByDiagramation } from '../../../common/elements/sections/index';
 
 const transform = async (dataPage, query) => {
     const {
@@ -19,10 +17,6 @@ const transform = async (dataPage, query) => {
             throw new Error('Missing data Layout');
         }
 
-        // Move Sections
-        const configMovePositions = configToMoveBySection(layoutPage);
-        elementsPageHome = moveSections(elementsPageHome, configMovePositions);
-
         // Divide Section by Layout configured in features
         elementsPageHome = divideSectionsByDiagramation(
             elementsPageHome,
@@ -30,13 +24,27 @@ const transform = async (dataPage, query) => {
         );
         // Returns boxes that type not >= 9, for discard
         elementsPageHome =
-            Array.isArray(elementsPageHome) &&
-            elementsPageHome.filter(elem => elem && elem.type < 9);
+            (Array.isArray(elementsPageHome) &&
+                elementsPageHome.filter(elem => elem && elem.type < 9)) ||
+            elementsPageHome;
 
-        // Add Banners by Configuration set in file /pageSource/config/configTaskPositionBanners.json
+        // Add Component Title set file /pageSource/common/elements/titles/config/configTitlePositionbySection.js
         elementsPageHome =
-            setBannerByLayout[layoutPage] &&
-            setBannerByLayout[layoutPage](elementsPageHome, layoutPage);
+            (setTitleByLayout[layoutPage] &&
+                setTitleByLayout[layoutPage](elementsPageHome, layoutPage)) ||
+            elementsPageHome;
+
+        // Add Component Dolar set file /pageSource/common/elements/dolar/config/configDolarPositionbySection.js
+        elementsPageHome =
+            (setDolarByLayout[layoutPage] &&
+                setDolarByLayout[layoutPage](elementsPageHome, layoutPage)) ||
+            elementsPageHome;
+
+        // Add Banners by Configuration set in file /pageSource/common/elements/banners/config/configTaskPositionBanners.json
+        elementsPageHome =
+            (setBannerByLayout[layoutPage] &&
+                setBannerByLayout[layoutPage](elementsPageHome, layoutPage)) ||
+            elementsPageHome;
 
         return elementsPageHome;
     } catch (error) {

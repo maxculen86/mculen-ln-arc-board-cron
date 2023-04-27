@@ -19,6 +19,7 @@ import {
 import { handleClickBuscar } from '../navbar/_helper';
 import { GlobalContext } from '../../common/context/globalContext';
 import { goToLogout } from '../../LN/common/utils/loginHelper';
+import MainHeaderEventsScript from '../../common/scriptManager/MainHeaderEventsScript';
 
 import '../../../../resources/packages/css/@ln/contenidos-ui-header/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
@@ -82,17 +83,17 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                 </Link>
             </MainHeader.Center>
             <MainHeader.Right>
-                {!loading && (
-                    <RightOptions
-                        userType={userType}
-                        userName={userName}
-                        initials={initials}
-                        desplegableData={desplegableData}
-                        goToLoginUrl={goToLoginUrl}
-                        loggedIn={loggedIn}
-                    />
-                )}
+                <RightOptions
+                    userType={userType}
+                    userName={userName}
+                    initials={initials}
+                    desplegableData={desplegableData}
+                    goToLoginUrl={goToLoginUrl}
+                    loggedIn={loggedIn}
+                    loading={loading}
+                />
             </MainHeader.Right>
+            <MainHeaderEventsScript />
         </MainHeader>
     );
 };

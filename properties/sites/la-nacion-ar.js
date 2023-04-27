@@ -2370,7 +2370,10 @@ export default {
             desktop: {
                 megatop_dsk: {
                     slotName: `la_nacion_desktop/Home/megatop_dsk`,
-                    dimensions: [[1360, 250]],
+                    dimensions: [
+                        [1360, 250],
+                        [1260, 250]
+                    ],
                     targeting: targetingHome
                 },
                 '1x1_dsk': {
@@ -2518,7 +2521,9 @@ export default {
                         [920, 120],
                         [920, 170],
                         [920, 250],
-                        [920, 300]
+                        [920, 300],
+                        [1260, 300],
+                        [970, 250]
                     ],
                     targeting: targetingHome
                 },
@@ -2531,7 +2536,9 @@ export default {
                         [920, 120],
                         [920, 170],
                         [920, 250],
-                        [920, 300]
+                        [920, 300],
+                        [1260, 300],
+                        [970, 250]
                     ],
                     targeting: targetingHome
                 },
@@ -2564,6 +2571,20 @@ export default {
                 cajasuscriptores_dsk: {
                     slotName: `la_nacion_desktop/Home/cajasuscriptores_dsk`,
                     dimensions: [[920, 120]],
+                    targeting: targetingHome
+                },
+                // TODO: Eliminar cuando salga home LN10
+                parallax_dsk: {
+                    slotName: `la_nacion_desktop/Home/parallax_dsk`,
+                    dimensions: [
+                        [1, 1],
+                        [728, 90],
+                        [920, 100],
+                        [920, 170],
+                        [920, 250],
+                        [970, 250],
+                        [1260, 300]
+                    ],
                     targeting: targetingHome
                 }
             },
@@ -2723,7 +2744,7 @@ export default {
             },
             tablet: {
                 megatop_tab: {
-                    slotName: `la_nacion_desktop/Home/megatop_tab`,
+                    slotName: `la_nacion_tablet/Home/megatop_tab`,
                     dimensions: [
                         [1270, 120],
                         [768, 120],
@@ -2849,7 +2870,8 @@ export default {
             className: '--focal --left',
             articles: {
                 0: {
-                    titleSize: '--xl',
+                    titleSize: '--threexl',
+                    titleWeight: '--font-extra',
                     titleTagApertura: 'h1',
                     subheadTagApertura: 'h2',
                     withSubheadAndMedia: true,
@@ -2858,12 +2880,12 @@ export default {
                     isApertura: true
                 },
                 1: {
-                    titleSize: '--xs',
+                    titleSize: '--l',
                     withSubheadAndMedia: false,
                     imageConfig: 'mediumFocalIzquierdo'
                 },
                 2: {
-                    titleSize: '--xs',
+                    titleSize: '--l',
                     withSubheadAndMedia: false,
                     imageConfig: 'mediumFocalIzquierdo'
                 }
@@ -2878,7 +2900,8 @@ export default {
                     imageConfig: 'featuredFocalDerecho'
                 },
                 1: {
-                    titleSize: '--xl',
+                    titleSize: '--threexl',
+                    titleWeight: '--font-extra',
                     titleTagApertura: 'h1',
                     subheadTagApertura: 'h2',
                     withSubheadAndMedia: true,
@@ -2924,7 +2947,8 @@ export default {
             className: '--cinema',
             articles: {
                 0: {
-                    titleSize: '--l',
+                    titleSize: '--xl',
+                    titleWeight: '--font-extra',
                     skipRenderAuthor: true,
                     skipHtml: true,
                     skipSubhead: true,
@@ -2939,8 +2963,16 @@ export default {
         grilla2: {
             className: '',
             articles: {
-                0: { titleSize: '--l', imageConfig: 'boxArticlesTwoArticles' },
-                1: { titleSize: '--l', imageConfig: 'boxArticlesTwoArticles' }
+                0: {
+                    titleSize: '--xl',
+                    titleWeight: '--font-extra',
+                    imageConfig: 'boxArticlesTwoArticles'
+                },
+                1: {
+                    titleSize: '--xl',
+                    titleWeight: '--font-extra',
+                    imageConfig: 'boxArticlesTwoArticles'
+                }
             }
         },
         grilla3: {

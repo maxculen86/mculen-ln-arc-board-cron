@@ -4,7 +4,7 @@
 export const fonts = {
     arial: '--arial',
     georgia: '--georgia',
-    sueca: '--sueca'
+    prumo: '--font-primary'
 };
 
 export const getFontFamily = font => fonts[font] || font;

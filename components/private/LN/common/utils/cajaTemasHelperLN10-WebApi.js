@@ -10,7 +10,14 @@ export const getChildrenFromSectionHome = (
     const INDEX_SECTION =
         get(sectionsValidation, `${sectionName}.position`, sectionPosition) + 1;
 
-    return get(renderables, `[${INDEX_SECTION}].children`, []) || [];
+    return (
+        get(renderables, `[${INDEX_SECTION}].children`, []).filter(
+            children =>
+                (children.props.customFields.hideCaja ||
+                    (children.props.customFields.hideByUrl &&
+                        children.props.customFields.hideByHtml)) !== true
+        ) || []
+    );
 };
 
 export default getChildrenFromSectionHome;

@@ -1,82 +1,103 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import ComLink from '../../../../components/private/common/com-link';
-
-describe('Components - private - - common -ComLink', () => {
-    const props = {
-        children: 'Ir al sitio',
-        dataEvent: 'click',
-        dataSection: 'Link click',
-        link: 'https://www.lanacion.com.ar/',
-        textname: 'Ir a link',
-        target: '_blank',
-        title: 'link',
-        classCondition: undefined,
-        size: '',
-        rel: '',
-        style: '',
-        withSponsoredLink: false
+jest.mock('react', () => {
+    const originReact = jest.requireActual('react');
+    const mUseRef = jest.fn();
+    return {
+        ...originReact,
+        useRef: mUseRef
     };
+});
 
-    describe(' Tests when the link property exists', () => {
-        render(<ComLink {...props} />);
-        const link = screen.getByRole('link');
-        test('Should return an anchor when a link exists', () => {
-            expect(link).toBeTruthy();
-        });
+import React, { useRef } from 'react';
+import { render, mount, shallow } from 'enzyme';
 
-        test('Should have the com-link class', () => {
-            expect(link.getElementsByClassName('com-link')).toBeTruthy();
-        });
+import ComLinkList from '../../../../components/private/common/com-link-list';
 
-        test('It should have the target attribute in _blank', () => {
-            expect(link.getAttribute('target')).toStrictEqual('_blank');
-        });
-
-        test('should have a title', () => {
-            expect(link.getAttribute('title')).toStrictEqual('link');
-        });
-
-        test('It should not have the rel attribute when the link is from LN', () => {
-            expect(link.getAttribute('rel')).toBeNull();
-        });
-
-        test('It should have the rel attribute set to nofollow when it is an external link and not sponsored.', () => {
-            const properties = {
-                ...props,
-                link: 'https://dolarhoy.com/'
-            };
-            render(<ComLink {...properties} />);
-            expect(screen.getByRole('link').getAttribute('rel')).toStrictEqual(
-                'nofollow'
-            );
-        });
-
-        test('It should not have the rel attribute when the external link is sponsored.', () => {
-            const properties = {
-                ...props,
-                link: 'https://dolarhoy.com/',
-                withSponsoredLink: true
-            };
-            render(<ComLink {...properties} />);
-            expect(screen.getByRole('link').getAttribute('rel')).toBeNull();
+describe('LN-Private-Common-ComLinkList ', () => {
+    describe('passing an empty list by params', () => {
+        const list = [];
+        it('return null', () => {
+            const wrapper1 = render(<ComLinkList />);
+            const wrapper2 = render(<ComLinkList list={list} />);
+            expect(wrapper1.html() && wrapper2.html()).toBeNull();
         });
     });
 
-    describe('Tests when the link is not defiend', () => {
-        const properties = {
-            ...props,
-            link: undefined
-        };
-        const { container } = render(<ComLink {...properties} />);
-        const element = container.querySelector('span');
+    describe('passing a filled list by params', () => {
+        const list = [
+            {
+                classCondition: '',
+                dataEvent: '',
+                dataSection: '',
+                link: 'http://www.google.com',
+                size: '',
+                style: '',
+                target: '_blank',
+                textname: 'LN Link Custom',
+                title: 'LN Link Custom',
+                withSponsoredLink: false,
+                rel: undefined
+            },
+            {
+                classCondition: '',
+                dataEvent: '',
+                dataSection: '',
+                link: '/revista-ohlala',
+                size: '',
+                style: '',
+                target: '',
+                textname: 'OHLALA',
+                title: 'OHLALA',
+                withSponsoredLink: false,
+                rel: undefined
+            }
+        ];
 
-        test('It should return a span tag', () => {
-            expect(element).toBeDefined();
+        const wrapper = shallow(<ComLinkList list={list} />);
+        const element = wrapper.find('ul');
+        const { children, className } = element.props();
+
+        it('returns ul tag with class "com-unordered" and 2 children', () => {
+            expect(element).toBeTruthy();
+            expect(className).toBe('com-unordered --no-scrollbar');
+            expect(children.length).toBe(list.length);
         });
 
-        test('Should have the com-text class', () => {
-            expect(element.getElementsByClassName('com-text')).toBeTruthy();
+        it('returns children of type li with correct props', () => {
+            children.forEach((element, index) => {
+                const {
+                    props: { children: { props: ComLinkProps } } = {}
+                } = element;
+                expect(element.type).toBe('li');
+                expect(ComLinkProps).toStrictEqual(list[index]);
+            });
+        });
+
+        describe('without extra class', () => {
+            it('Snapshot', () => {
+                expect(wrapper.render()).toMatchSnapshot();
+            });
+        });
+
+        describe('with extra class', () => {
+            const wrapper = shallow(
+                <ComLinkList list={list} extraClass="--tags" />
+            );
+            const { className } = wrapper.props();
+            it('return ul tag with extra class. Example: --tags', () => {
+                expect(className).toBe('com-unordered --no-scrollbar --tags');
+            });
+            it('Snapshot', () => {
+                expect(wrapper.render()).toMatchSnapshot();
+            });
+        });
+
+        describe('with _ref', () => {
+            it('return ul tag with reference', () => {
+                const _ref = useRef();
+                const wrapper = mount(<ComLinkList list={list} _ref={_ref} />);
+                const { ref } = wrapper.props();
+                expect(ref).toBe(_ref);
+            });
         });
     });
 });

@@ -64,7 +64,7 @@ const Timeline = ({ id: featureId, customFields = {}, ...restProps }) => {
                     tag="h2"
                     content={roof}
                     link={url}
-                    classCondition="roof --m --sueca"
+                    classCondition="roof --m --font-primary"
                 />
             )}
 

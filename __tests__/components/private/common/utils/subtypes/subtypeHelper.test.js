@@ -55,10 +55,19 @@ describe('Private - Common - Utils - subtypeNotesWithoutAmp - subtypeHelper', ()
         ).toBeTruthy();
         expect(
             subtypeNotesWithoutAmp(
-                '/estados-unidos/muertes-por-sobredosis-en-eeuu-aumentaron-15-en-2021-a-mas-de-100000-nid13052022/'
+                '/juegos/mock-juego-inexistente-nid18122022/'
             )
         ).toBeTruthy();
-        expect(subtypeNotesWithoutAmp('/juegos/')).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/recetas/cocina/camarones-dinamita-nid31012023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/propiedades/inmuebles-comerciales/los-barrios-que-vienen-nid02122020/'
+            )
+        ).toBeTruthy();
     });
 
     it('Should return false when the subtype has amp  ', () => {

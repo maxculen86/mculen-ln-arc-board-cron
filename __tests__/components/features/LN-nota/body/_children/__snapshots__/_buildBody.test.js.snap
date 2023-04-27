@@ -192,7 +192,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     persistent="true"
   >
     <div
-      class="mod-banner --caja1_amp hlp-none  "
+      class="mod-banner --caja1_amp --none  "
     >
       <div
         class="com-banner "
@@ -251,7 +251,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     persistent="true"
   >
     <div
-      class="mod-banner --caja2_amp hlp-none  "
+      class="mod-banner --caja2_amp --none  "
     >
       <div
         class="com-banner "
@@ -1290,7 +1290,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
   <h2
-    class="com-title --l"
+    class="com-title --font-primary --xl --font-extra"
   >
     Subtitulo 1
   </h2>
@@ -1300,7 +1300,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
   <h3
-    class="com-title --m"
+    class="com-title --font-primary --l --font-extra"
   >
     Subtitulo 2
   </h3>
@@ -1310,7 +1310,2760 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
   <h4
-    class="com-title --twoxs --arial"
+    class="com-title --arial --twoxs --font-medium"
+  >
+    Subtitulo 3
+  </h4>
+  <p
+    class="com-paragraph   --s"
+  >
+    Esto es un párrafo. Lorem ipsum dolor sit amet, 
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.google.com/"
+      rel="nofollow"
+      target="_blank"
+      title="consectetuer adipiscing eli"
+    >
+      consectetuer adipiscing eli
+    </a>
+    t, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+  </p>
+  <div
+    class="content-media"
+  >
+    <section
+      class="mod-media --zoom  "
+      role="button"
+    >
+      <figure
+        class="mod-figure "
+        role="button"
+      >
+        <div
+          class="placeholder "
+        >
+          <img
+            alt="Esto es un epígrafe de la imagen"
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="640"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/mkqssNVKegkv_9IQvpMob2lRw5Y=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg"
+            srcset="https://resizer.glanacion.com/resizer/dla5EV0o010mFdMPKHv93gskiio=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg 879w, https://resizer.glanacion.com/resizer/OvmQTf_V5a_Jfb5TI6VFnx8mTf0=/690x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg 690w, https://resizer.glanacion.com/resizer/E2ePCZ-58tWv3uP62imQbTknii0=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg 768w, https://resizer.glanacion.com/resizer/QIHUCxUB5TWSHO17OW_IDew397w=/350x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg 350w, https://resizer.glanacion.com/resizer/mkqssNVKegkv_9IQvpMob2lRw5Y=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TVQDULM5R5AUZBRLAOBMLQQEOE.jpg 310w"
+            width="960"
+          />
+        </div>
+        <figcaption
+          class="mod-figcaption"
+        >
+          <span
+            class="com-text --caption --twoxs"
+          >
+            Esto es un epígrafe de la imagen
+          </span>
+          <span
+            class="com-text --credit --twoxs"
+          >
+            Ignacio Madrid - Fuente Isaias
+          </span>
+        </figcaption>
+        <i
+          class="com-icon icon-close  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill="#272727"
+              fill-rule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </svg>
+        </i>
+        <i
+          class="com-icon icon-zoom  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </figure>
+    </section>
+    
+  </div>
+  <p
+    class="com-paragraph   --s"
+  >
+    Esto es un párrafo mas largo. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    Lista desordenada
+  </p>
+  <ul
+    class="com-unordered"
+  >
+    <li
+      class="com-item"
+    >
+      Tipo de letra normal
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra cursiva
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra subrayado
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita y cursiva
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita y subrayado
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra cursiva y subrayado
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita, cursita y subrayado
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra normal con subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita con subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra cursiva con subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra subrayado con subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita con cursiva y subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita con subrayado y subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra cursiva y subrayado y subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negritam cursiva, subrayado y subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        Link 
+      </a>
+      en lista ordenada
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/politica/mauricio-macri-viaja-europa-junto-su-familia-nid2408396"
+        target="_blank"
+      >
+        Link 
+      </a>
+      en negrita
+    </li>
+    <li
+      class="com-item"
+    >
+      Negrita No Negrita Negrita otra vez, Negrita con cursiva
+    </li>
+  </ul>
+  <p
+    class="com-paragraph   --s"
+  >
+    Lista ordenada
+  </p>
+  <ul
+    class="com-ordered"
+  >
+    <li
+      class="com-item"
+    >
+      Tipo de letra normal
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra cursiva
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra subrayado
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita y cursiva
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita y subrayado
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra cursiva y subrayado
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita, cursita y subrayado
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra normal con subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita con subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra cursiva con subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra subrayado con subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita con cursiva y subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negrita con subrayado y subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra cursiva y subrayado y subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      Tipo de letra negritam cursiva, subrayado y subrayado de color
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/economia/de-pablo-tenemos-dos-problemas-coronavirus-gobierno-nid2408308"
+      >
+        Link 
+      </a>
+      en lista ordenada
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/politica/alberto-fernandez-corte-suprema-reforma-judicial-nid2408318"
+      >
+        Link 
+      </a>
+      en negrita
+    </li>
+    <li
+      class="com-item"
+    >
+      Negrita No Negrita Negrita otra vez, Negrita con cursiva
+    </li>
+  </ul>
+  <div
+    class="content-media"
+  >
+    <section
+      class="mod-media --zoom  "
+      role="button"
+    >
+      <figure
+        class="mod-figure "
+        role="button"
+      >
+        <div
+          class="placeholder "
+        >
+          <img
+            alt=""
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="640"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/xOIFC3t6MBupovBYd0XZOq100D4=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg"
+            srcset="https://resizer.glanacion.com/resizer/cPcTzl7f2iZt_9piGx93bjrF9H4=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg 879w, https://resizer.glanacion.com/resizer/Pcw6BmRurXWznlfKwbVu80vAr3I=/690x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg 690w, https://resizer.glanacion.com/resizer/ignqGMrkDaBiTdMBQKOJ9lKz-Vk=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg 768w, https://resizer.glanacion.com/resizer/XKxHufzCranY2ftGG8Lzbeqehf8=/350x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg 350w, https://resizer.glanacion.com/resizer/xOIFC3t6MBupovBYd0XZOq100D4=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg 310w"
+            width="960"
+          />
+        </div>
+        <figcaption
+          class="mod-figcaption"
+        >
+          
+          <span
+            class="com-text --credit --twoxs"
+          >
+            Miguel Acevedo Riu - LA NACION
+          </span>
+        </figcaption>
+        <i
+          class="com-icon icon-close  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill="#272727"
+              fill-rule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </svg>
+        </i>
+        <i
+          class="com-icon icon-zoom  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </figure>
+    </section>
+    
+  </div>
+  <p
+    class="com-paragraph   --s"
+  >
+    Esto es un 
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352"
+      target="_self"
+      title="LINK"
+    >
+      LINK
+    </a>
+    .
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <em>
+      Esto es italic.
+    </em>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <strong>
+      Esto es bold.
+    </strong>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <u>
+      Esto es underline.
+    </u>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <u>
+      <strong>
+        Esto es una combinacion de Bold y underline
+      </strong>
+    </u>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <em>
+      <strong>
+        Esto es una combinacion de Bold e Italic
+      </strong>
+    </em>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <em>
+      Inicio del parrafo en Cursiva. 
+    </em>
+    Fuente sin decoracion
+    <em>
+      <strong>
+        , Esto es una combinacion de Bold e Italic, 
+      </strong>
+    </em>
+    <strong>
+      Esto es una prueba
+    </strong>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <em>
+      <u>
+        Esto es una combinacion de Italic y underline
+      </u>
+    </em>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <em>
+      <u>
+        <strong>
+          Esto es una combinación de todas.
+        </strong>
+      </u>
+    </em>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <mark
+      class="hl_underline"
+    >
+      Eso es con color
+    </mark>
+  </p>
+  <section
+    class="mod-media --zoom  --slider"
+    role="button"
+  >
+    <div
+      class="slide"
+    >
+      <figure
+        class="mod-figure --horizontal"
+        role="button"
+      >
+        <div
+          class="placeholder "
+        >
+          <img
+            alt=""
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="980"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/vcSgDm4GKF0xXaBmGjVLPI4fNpw=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
+            srcset="https://resizer.glanacion.com/resizer/hqNc_IqMP8BB5cC2ihgt-ro3624=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg 879w, https://resizer.glanacion.com/resizer/_VpJ1pXFvjvGRvwDIkHWoK8m9BA=/690x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg 690w, https://resizer.glanacion.com/resizer/l3gJRqdcT_kvl5MtANLeQkXUdc8=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg 768w, https://resizer.glanacion.com/resizer/fAqPasFP_bIcBqWlMtPjlTKAf9M=/350x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg 350w, https://resizer.glanacion.com/resizer/vcSgDm4GKF0xXaBmGjVLPI4fNpw=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg 310w"
+            width="1470"
+          />
+        </div>
+        <figcaption
+          class="mod-figcaption"
+        >
+          <span
+            class="--credit --twoxs"
+          >
+            Agustina de Alba
+          </span>
+          <span
+            class="com-text --paginator"
+          >
+            1
+             de 
+            3
+          </span>
+        </figcaption>
+        <i
+          class="com-icon icon-close  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill="#272727"
+              fill-rule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </svg>
+        </i>
+        <i
+          class="com-icon icon-zoom  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </figure>
+      <figure
+        class="mod-figure --horizontal"
+        role="button"
+      >
+        <div
+          class="placeholder "
+        >
+          <img
+            alt=""
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="980"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/hbMH01BBHeS7PJ1JtqxqIEYVJfs=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg"
+            srcset="https://resizer.glanacion.com/resizer/Uxt7TqSlgJVEQPSVqBm8wnn1a2A=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg 879w, https://resizer.glanacion.com/resizer/hanhAod5egmehQ3SD7ObgWmHVEA=/690x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg 690w, https://resizer.glanacion.com/resizer/0x6zrhGDMIB2ddjEbb3cqP__6Aw=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg 768w, https://resizer.glanacion.com/resizer/4w_DAKrqs5AZQBbdkER7CJyq_Ek=/350x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg 350w, https://resizer.glanacion.com/resizer/hbMH01BBHeS7PJ1JtqxqIEYVJfs=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg 310w"
+            width="1470"
+          />
+        </div>
+        <figcaption
+          class="mod-figcaption"
+        >
+          <span
+            class="com-text --paginator"
+          >
+            2
+             de 
+            3
+          </span>
+        </figcaption>
+        <i
+          class="com-icon icon-close  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill="#272727"
+              fill-rule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </svg>
+        </i>
+        <i
+          class="com-icon icon-zoom  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </figure>
+      <figure
+        class="mod-figure --horizontal"
+        role="button"
+      >
+        <div
+          class="placeholder "
+        >
+          <img
+            alt="leyenda"
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="980"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/cex414gv2tjhHBkIzrE_m-TPnbM=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg"
+            srcset="https://resizer.glanacion.com/resizer/VOR8OQv9sT5cPHtvansgJE_5SH0=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg 879w, https://resizer.glanacion.com/resizer/IUCXIy364YQ6jUujHGGYfkhkTUM=/690x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg 690w, https://resizer.glanacion.com/resizer/C9tb9n2uAl4SyRyRGk6W61Z1Pz4=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg 768w, https://resizer.glanacion.com/resizer/jGFOcKZLNnulvt3UuYxj09goXSY=/350x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg 350w, https://resizer.glanacion.com/resizer/cex414gv2tjhHBkIzrE_m-TPnbM=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg 310w"
+            width="1470"
+          />
+        </div>
+        <figcaption
+          class="mod-figcaption"
+        >
+          <span
+            class="--caption --twoxs"
+          >
+            leyenda
+          </span>
+          <span
+            class="--credit --twoxs"
+          >
+            Pablo Tomino - Fuente(registro IPTC en ARC)
+          </span>
+          <span
+            class="com-text --paginator"
+          >
+            3
+             de 
+            3
+          </span>
+        </figcaption>
+        <i
+          class="com-icon icon-close  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill="#272727"
+              fill-rule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </svg>
+        </i>
+        <i
+          class="com-icon icon-zoom  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </figure>
+    </div>
+  </section>
+  
+  <p
+    class="com-paragraph   --s"
+  >
+    Esto es otro párrafo.
+  </p>
+  <section
+    class="mod-media --zoom  --slider"
+    role="button"
+  >
+    <div
+      class="slide"
+    >
+      <figure
+        class="mod-figure --horizontal"
+        role="button"
+      >
+        <div
+          class="placeholder "
+        >
+          <img
+            alt=""
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="980"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/vcSgDm4GKF0xXaBmGjVLPI4fNpw=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg"
+            srcset="https://resizer.glanacion.com/resizer/hqNc_IqMP8BB5cC2ihgt-ro3624=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg 879w, https://resizer.glanacion.com/resizer/_VpJ1pXFvjvGRvwDIkHWoK8m9BA=/690x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg 690w, https://resizer.glanacion.com/resizer/l3gJRqdcT_kvl5MtANLeQkXUdc8=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg 768w, https://resizer.glanacion.com/resizer/fAqPasFP_bIcBqWlMtPjlTKAf9M=/350x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg 350w, https://resizer.glanacion.com/resizer/vcSgDm4GKF0xXaBmGjVLPI4fNpw=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DXVMDKSSC5DE3L2P27NFNJUCLE.jpg 310w"
+            width="1470"
+          />
+        </div>
+        <figcaption
+          class="mod-figcaption"
+        >
+          <span
+            class="--credit --twoxs"
+          >
+            Agustina de Alba
+          </span>
+          <span
+            class="com-text --paginator"
+          >
+            1
+             de 
+            3
+          </span>
+        </figcaption>
+        <i
+          class="com-icon icon-close  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill="#272727"
+              fill-rule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </svg>
+        </i>
+        <i
+          class="com-icon icon-zoom  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </figure>
+      <figure
+        class="mod-figure --horizontal"
+        role="button"
+      >
+        <div
+          class="placeholder "
+        >
+          <img
+            alt=""
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="980"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/hbMH01BBHeS7PJ1JtqxqIEYVJfs=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg"
+            srcset="https://resizer.glanacion.com/resizer/Uxt7TqSlgJVEQPSVqBm8wnn1a2A=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg 879w, https://resizer.glanacion.com/resizer/hanhAod5egmehQ3SD7ObgWmHVEA=/690x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg 690w, https://resizer.glanacion.com/resizer/0x6zrhGDMIB2ddjEbb3cqP__6Aw=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg 768w, https://resizer.glanacion.com/resizer/4w_DAKrqs5AZQBbdkER7CJyq_Ek=/350x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg 350w, https://resizer.glanacion.com/resizer/hbMH01BBHeS7PJ1JtqxqIEYVJfs=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JAYP7MR2ERD43PGG45IHUPAKPA.jpg 310w"
+            width="1470"
+          />
+        </div>
+        <figcaption
+          class="mod-figcaption"
+        >
+          <span
+            class="com-text --paginator"
+          >
+            2
+             de 
+            3
+          </span>
+        </figcaption>
+        <i
+          class="com-icon icon-close  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill="#272727"
+              fill-rule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </svg>
+        </i>
+        <i
+          class="com-icon icon-zoom  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </figure>
+      <figure
+        class="mod-figure --horizontal"
+        role="button"
+      >
+        <div
+          class="placeholder "
+        >
+          <img
+            alt="leyenda"
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="980"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/cex414gv2tjhHBkIzrE_m-TPnbM=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg"
+            srcset="https://resizer.glanacion.com/resizer/VOR8OQv9sT5cPHtvansgJE_5SH0=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg 879w, https://resizer.glanacion.com/resizer/IUCXIy364YQ6jUujHGGYfkhkTUM=/690x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg 690w, https://resizer.glanacion.com/resizer/C9tb9n2uAl4SyRyRGk6W61Z1Pz4=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg 768w, https://resizer.glanacion.com/resizer/jGFOcKZLNnulvt3UuYxj09goXSY=/350x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg 350w, https://resizer.glanacion.com/resizer/cex414gv2tjhHBkIzrE_m-TPnbM=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/MI45BIKTD5HY7I3I7VPP4KLTJU.jpg 310w"
+            width="1470"
+          />
+        </div>
+        <figcaption
+          class="mod-figcaption"
+        >
+          <span
+            class="--caption --twoxs"
+          >
+            leyenda
+          </span>
+          <span
+            class="--credit --twoxs"
+          >
+            Pablo Tomino - Fuente(registro IPTC en ARC)
+          </span>
+          <span
+            class="com-text --paginator"
+          >
+            3
+             de 
+            3
+          </span>
+        </figcaption>
+        <i
+          class="com-icon icon-close  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill="#272727"
+              fill-rule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </svg>
+        </i>
+        <i
+          class="com-icon icon-zoom  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </figure>
+    </div>
+  </section>
+  
+  <section
+    class="mod-media --zoom  --slider"
+    role="button"
+  >
+    <div
+      class="slide"
+    >
+      <figure
+        class="mod-figure --vertical"
+        role="button"
+      >
+        <div
+          class="placeholder "
+        >
+          <img
+            alt="Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda"
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="2000"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/6OTMW7fC8_dIlHUd-srm8VgdzXs=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg"
+            srcset="https://resizer.glanacion.com/resizer/hOqD1FADxWWeUgwL_JuP4CQHN7M=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg 879w, https://resizer.glanacion.com/resizer/KjPvH_qHDnQC0v9T3neFLb9oFzM=/690x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg 690w, https://resizer.glanacion.com/resizer/LSJ9mPcXuPo4SdyDSQIPT_MsboQ=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg 768w, https://resizer.glanacion.com/resizer/r_JZ_hzMKYY787iUaIDZH23A_WU=/350x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg 350w, https://resizer.glanacion.com/resizer/6OTMW7fC8_dIlHUd-srm8VgdzXs=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/DD7YGPCCDFACLN5SPQZZWWQN6U.jpg 310w"
+            width="1333"
+          />
+        </div>
+        <figcaption
+          class="mod-figcaption"
+        >
+          <span
+            class="--caption --twoxs"
+          >
+            Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda Epigrafe de una foto de moda
+          </span>
+          <span
+            class="com-text --paginator"
+          >
+            1
+             de 
+            7
+          </span>
+        </figcaption>
+        <i
+          class="com-icon icon-close  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill="#272727"
+              fill-rule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </svg>
+        </i>
+        <i
+          class="com-icon icon-zoom  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </figure>
+      <figure
+        class="mod-figure --vertical"
+        role="button"
+      >
+        <div
+          class="placeholder "
+        >
+          <img
+            alt="Coloccini"
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="283"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/yNavmwWNLykcgJbtoE0kU0C8vbY=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg"
+            srcset="https://resizer.glanacion.com/resizer/D0gJQnakbsjLtzT-31p_w9eLc20=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg 879w, https://resizer.glanacion.com/resizer/Xe0O8yPzz2ezKIxoPbn5pv7EBsc=/690x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg 690w, https://resizer.glanacion.com/resizer/kuLbws8jWkVtRC9aDLkDlRfDOUs=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg 768w, https://resizer.glanacion.com/resizer/IqpsmG4-v75mUL7zJeB1FJ4vXL0=/350x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg 350w, https://resizer.glanacion.com/resizer/yNavmwWNLykcgJbtoE0kU0C8vbY=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FRJ46HFG4NFIHI5KMN4IIP7PUE.jpg 310w"
+            width="200"
+          />
+        </div>
+        <figcaption
+          class="mod-figcaption"
+        >
+          <span
+            class="--caption --twoxs"
+          >
+            Coloccini
+          </span>
+          <span
+            class="--credit --twoxs"
+          >
+            Archivo
+          </span>
+          <span
+            class="com-text --paginator"
+          >
+            2
+             de 
+            7
+          </span>
+        </figcaption>
+        <i
+          class="com-icon icon-close  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill="#272727"
+              fill-rule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </svg>
+        </i>
+        <i
+          class="com-icon icon-zoom  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </figure>
+      <figure
+        class="mod-figure --horizontal"
+        role="button"
+      >
+        <div
+          class="placeholder "
+        >
+          <img
+            alt="Restricted 2nd image"
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="1536"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/7dcKlblvZbY-gVdUPL4E5KnhmDA=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg"
+            srcset="https://resizer.glanacion.com/resizer/_eBYJghC3EUA47i1fsqYquGpA7g=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg 879w, https://resizer.glanacion.com/resizer/9XyM35hZEwUy7On5UHFmyL5wPw4=/690x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg 690w, https://resizer.glanacion.com/resizer/7aNB1tnIMUhdpMVmDkMQt0QswqY=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg 768w, https://resizer.glanacion.com/resizer/19Jvx3huh336Hz-NfPn0N-AyGpo=/350x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg 350w, https://resizer.glanacion.com/resizer/7dcKlblvZbY-gVdUPL4E5KnhmDA=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QZO4UCHCSJHWJLQBALT2PGR2EY.jpg 310w"
+            width="2048"
+          />
+        </div>
+        <figcaption
+          class="mod-figcaption"
+        >
+          <span
+            class="--caption --twoxs"
+          >
+            Restricted 2nd image
+          </span>
+          <span
+            class="com-text --paginator"
+          >
+            3
+             de 
+            7
+          </span>
+        </figcaption>
+        <i
+          class="com-icon icon-close  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill="#272727"
+              fill-rule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </svg>
+        </i>
+        <i
+          class="com-icon icon-zoom  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </figure>
+      <figure
+        class="mod-figure --vertical"
+        role="button"
+      >
+        <div
+          class="placeholder "
+        >
+          <img
+            alt=""
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="1112"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/Kt0HSO1bgFTwyEdRdU32XNlY89w=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg"
+            srcset="https://resizer.glanacion.com/resizer/WnXcwR2g8Qy1mSs9bwKwr26nxlk=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg 879w, https://resizer.glanacion.com/resizer/zojGXBPosJyrbo4ujthBxrOjvh0=/690x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg 690w, https://resizer.glanacion.com/resizer/dEqW-NdCCvjNdVsIYszRjuX0ri0=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg 768w, https://resizer.glanacion.com/resizer/3NlwjwRgDqcECH_gkUEWJCvlpdI=/350x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg 350w, https://resizer.glanacion.com/resizer/Kt0HSO1bgFTwyEdRdU32XNlY89w=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RBT4LMYB4FFBXERVOZUOHQH5UM.jpg 310w"
+            width="740"
+          />
+        </div>
+        <figcaption
+          class="mod-figcaption"
+        >
+          <span
+            class="com-text --paginator"
+          >
+            4
+             de 
+            7
+          </span>
+        </figcaption>
+        <i
+          class="com-icon icon-close  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill="#272727"
+              fill-rule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </svg>
+        </i>
+        <i
+          class="com-icon icon-zoom  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </figure>
+      <button
+        class="com-button icon-arrow-right --icon"
+        data-event=""
+        data-section=""
+        id=""
+        on=""
+        tabindex=""
+        title=""
+        type="button"
+      >
+        <i
+          class="com-icon icon-arrow-right"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M13.172 12L8.92899 7.75699C8.53852 7.36652 8.53852 6.73345 8.92898 6.34299V6.34299C9.31945 5.95252 9.95252 5.95252 10.343 6.34299L15.2929  11.2929C15.6834 11.6834 15.6834 12.3166 15.2929 12.7071L10.343 17.657C9.95252 18.0475 9.31945 18.0475 8.92899 17.657V17.657C8.53852 17.2665  8.53852 16.6335 8.92899 16.243L13.172 12Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+        
+      </button>
+    </div>
+  </section>
+  
+  <div
+    class="com-container --button "
+  >
+    <a
+      class="com-link"
+      href="https://www.lanacion.com.ar/economia/dolar/dolar-blue-hoy-a-cuanto-cotiza-el-lunes-8-de-junio-nid2375560"
+      target="_blank"
+      title="Dólar blue hoy: a cuánto cotiza el lunes 8 de junio"
+    >
+      <button
+        class="com-button --secondary --icon arrow-right --right"
+        data-event=""
+        data-section=""
+        id=""
+        on=""
+        title=""
+        type="button"
+      >
+        <i
+          class="com-icon icon-arrow-right"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M13.172 12L8.92899 7.75699C8.53852 7.36652 8.53852 6.73345 8.92898 6.34299V6.34299C9.31945 5.95252 9.95252 5.95252 10.343 6.34299L15.2929  11.2929C15.6834 11.6834 15.6834 12.3166 15.2929 12.7071L10.343 17.657C9.95252 18.0475 9.31945 18.0475 8.92899 17.657V17.657C8.53852 17.2665  8.53852 16.6335 8.92899 16.243L13.172 12Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+        <span
+          class="com-text --fivexs"
+        >
+          DÓLAR BLUE HOY: A CUÁNTO COTIZA EL LUNES 8 DE JUNIO
+          
+        </span>
+      </button>
+    </a>
+  </div>
+  <div
+    class="content-media"
+  >
+    <section
+      class="mod-media --zoom  "
+      role="button"
+    >
+      <figure
+        class="mod-figure "
+        role="button"
+      >
+        <div
+          class="placeholder "
+        >
+          <img
+            alt="Más de dos millones de personas coparon las playas de Río para recibir el 2014"
+            class="com-image "
+            decoding="async"
+            fetchpriority="low"
+            height="640"
+            loading="lazy"
+            src="https://resizer.glanacion.com/resizer/dDc8v1sO8DSeNLrx4YYt_lQli7o=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3PJZH265DJBT3MCROZPBD6MVUU.jpg"
+            srcset="https://resizer.glanacion.com/resizer/DfaE2fteplPBV1FE2qkAJJNv7sU=/879x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3PJZH265DJBT3MCROZPBD6MVUU.jpg 879w, https://resizer.glanacion.com/resizer/PaKnUfBm-Vc6N68oEno9-4w-10Q=/690x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3PJZH265DJBT3MCROZPBD6MVUU.jpg 690w, https://resizer.glanacion.com/resizer/WFKZD9NC251x2BLp1PNL6q7C06g=/768x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3PJZH265DJBT3MCROZPBD6MVUU.jpg 768w, https://resizer.glanacion.com/resizer/SifRedCmItQO2P0CTKrgPrmd6zI=/350x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3PJZH265DJBT3MCROZPBD6MVUU.jpg 350w, https://resizer.glanacion.com/resizer/dDc8v1sO8DSeNLrx4YYt_lQli7o=/310x0/filters:quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3PJZH265DJBT3MCROZPBD6MVUU.jpg 310w"
+            width="960"
+          />
+        </div>
+        <figcaption
+          class="mod-figcaption"
+        >
+          <span
+            class="com-text --caption --twoxs"
+          >
+            Más de dos millones de personas coparon las playas de Río para recibir el 2014
+          </span>
+          <span
+            class="com-text --credit --twoxs"
+          >
+            AFP
+          </span>
+        </figcaption>
+        <i
+          class="com-icon icon-close  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657  16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475  6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345  6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+              fill="#272727"
+              fill-rule="evenodd"
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </svg>
+        </i>
+        <i
+          class="com-icon icon-zoom  --negative"
+        >
+          <svg
+            fill="none"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M16 5C16 4.44772 16.4477 4 17 4H22V8C22 8.55228 21.5523 9 21 9C20.4477 9 20 8.55228 20 8V6H17C16.4477 6 16 5.55228 16 5ZM7 4C7.55228 4 8  4.44772 8 5C8 5.55228 7.55228 6 7 6H4V8C4 8.55228 3.55228 9 3 9C2.44772 9 2 8.55228 2 8V4H7ZM17 21C16.4477 21 16 20.5523 16 20C16 19.4477  16.4477 19 17 19H20V17C20 16.4477 20.4477 16 21 16C21.5523 16 22 16.4477 22 17V21H17ZM8 20C8 20.5523 7.55228 21 7 21H2V17C2 16.4477 2.44772  16 3 16C3.55228 16 4 16.4477 4 17V19H7C7.55228 19 8 19.4477 8 20Z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </figure>
+    </section>
+    
+  </div>
+  <div
+    class="divider"
+  />
+</div>
+`;
+
+exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos para FOTO al 100 2`] = `
+<div>
+  <p
+    class="com-paragraph  --capital --s"
+  >
+    Lorem ipsum dolor sit amet consectetur adipiscing elit nostra sapien sociosqu, facilisis mattis imperdiet suscipit sodales pharetra posuere penatibus turpis, fusce viverra metus euismod 
+    <strong>
+      egestas natoque primis bibendum accumsan
+    </strong>
+    . Class 
+    <em>
+      cursus tristique
+    </em>
+     parturient 
+    <u>
+      himenaeos pharetra litora ut natoque
+    </u>
+     mauris, lacus feugiat nibh pulvinar nostra vestibulum turpis urna, netus nullam rhoncus dictumst viverra tincidunt in enim. Euismod phasellus nascetur duis eget molestie curabitur aliquet ornare, 
+    <em>
+      <strong>
+        natoque interdum magna
+      </strong>
+    </em>
+     suscipit dictum
+    <em>
+      <u>
+         potenti cum ullamcorper
+      </u>
+    </em>
+    , vestibulum 
+    <em>
+      <u>
+        <strong>
+          arcu gravida tincidunt aenean at sollicitudin
+        </strong>
+      </u>
+    </em>
+    .
+  </p>
+  <mock-static-validation
+    htmlonly="true"
+    id="caja1_mob"
+    persistent="true"
+  >
+    <div
+      class="mod-banner --caja1_mob  "
+    >
+      <div
+        class="com-banner "
+        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja1_mob"
+        data-device="mobile"
+        data-prebid-enabled="true"
+        data-size="[[300,250],[300,450],[320,100],[1,1]]"
+        data-sizemap="[]"
+        data-slot-group="nota"
+        data-subscription="false"
+        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+        data-without-hide="true"
+        id="caja1_mob"
+      />
+    </div>
+  </mock-static-validation>
+  <p
+    class="com-paragraph   --s"
+  >
+    Commodo 
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/"
+      target="_self"
+      title="metus urna class donec"
+    >
+      metus urna class donec
+    </a>
+     cubilia laoreet 
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/"
+      target="_self"
+      title="venenatis ultricies porta"
+    >
+      <strong>
+        venenatis ultricies porta
+      </strong>
+    </a>
+    , fames 
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/"
+      target="_self"
+      title="bibendum eros leo"
+    >
+      <em>
+        bibendum eros leo
+      </em>
+    </a>
+     etiam enim nec 
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/"
+      target="_self"
+      title="vestibulum et sollicitudin"
+    >
+      <em>
+        <strong>
+          vestibulum et sollicitudin
+        </strong>
+      </em>
+    </a>
+    , risus ut libero suspendisse maecenas
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/"
+      target="_self"
+      title=" <u>tempor praesent convallis</u>"
+    >
+       
+      <em>
+        <u>
+          tempor praesent convallis
+        </u>
+      </em>
+    </a>
+    . Dictumst 
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/"
+      target="_self"
+      title="<u>conubia natoque nec velit rutrum</u>"
+    >
+      <em>
+        <u>
+          <strong>
+            conubia natoque nec velit rutrum
+          </strong>
+        </u>
+      </em>
+    </a>
+    , libero iaculis taciti platea urna, purus convallis placerat dui. Ad non lacinia arcu habitasse inceptos habitant nullam nisi placerat, orci cras porttitor lacus elementum sapien vestibulum 
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/"
+      target="_self"
+      title="<u>quisque cum</u>"
+    >
+      <u>
+        quisque cum
+      </u>
+    </a>
+    , mi sociosqu lectus varius gravida laoreet nam natoque.
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    Tipo de letra normal
+  </p>
+  <mock-static-validation
+    htmlonly="true"
+    id="middle_1_dsk"
+    persistent="true"
+  >
+    <div
+      class="mod-banner --middle_1_dsk  "
+    >
+      <div
+        class="com-banner "
+        data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_1_dsk"
+        data-device="desktop"
+        data-prebid-enabled="true"
+        data-size="[[1,1],[640,360],[640,480],[728,90],[468,60]]"
+        data-sizemap="[]"
+        data-slot-group="nota"
+        data-subscription="false"
+        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+        data-without-hide="true"
+        id="middle_1_dsk"
+      />
+    </div>
+  </mock-static-validation>
+  <mock-static-validation
+    htmlonly="true"
+    id="caja1_amp"
+    persistent="true"
+  >
+    <div
+      class="mod-banner --caja1_amp --none  "
+    >
+      <div
+        class="com-banner "
+        data-ad-unit-path="/133919216//133919216/AMP/ROS/caja1_amp"
+        data-prebid-enabled="false"
+        data-size="[[300,250]]"
+        data-sizemap="[]"
+        data-slot-group="nota"
+        data-subscription="false"
+        data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
+        data-without-hide="false"
+        id="caja1_amp"
+      />
+    </div>
+  </mock-static-validation>
+  <p
+    class="com-paragraph   --s"
+  >
+    <strong>
+      Tipo de letra negrita
+    </strong>
+  </p>
+  <mock-static-validation
+    htmlonly="true"
+    id="caja2_mob"
+    persistent="true"
+  >
+    <div
+      class="mod-banner --caja2_mob  "
+    >
+      <div
+        class="com-banner "
+        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja2_mob"
+        data-device="mobile"
+        data-prebid-enabled="true"
+        data-size="[[1,1],[300,250],[300,450],[320,50],[320,100],[320,180],[360,270]]"
+        data-sizemap="[]"
+        data-slot-group="nota"
+        data-subscription="false"
+        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+        data-without-hide="true"
+        id="caja2_mob"
+      />
+    </div>
+  </mock-static-validation>
+  <p
+    class="com-paragraph   --s"
+  >
+    <em>
+      Tipo de letra cursiva
+    </em>
+  </p>
+  <mock-static-validation
+    htmlonly="true"
+    id="caja2_amp"
+    persistent="true"
+  >
+    <div
+      class="mod-banner --caja2_amp --none  "
+    >
+      <div
+        class="com-banner "
+        data-ad-unit-path="/133919216//133919216/AMP/ROS/caja2_amp"
+        data-prebid-enabled="false"
+        data-size="[[300,250]]"
+        data-sizemap="[]"
+        data-slot-group="nota"
+        data-subscription="false"
+        data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
+        data-without-hide="false"
+        id="caja2_amp"
+      />
+    </div>
+  </mock-static-validation>
+  <p
+    class="com-paragraph   --s"
+  >
+    <u>
+      Tipo de letra subrayado
+    </u>
+  </p>
+  <mock-static-validation
+    htmlonly="true"
+    id="middle_2_dsk"
+    persistent="true"
+  >
+    <div
+      class="mod-banner --middle_2_dsk  "
+    >
+      <div
+        class="com-banner "
+        data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_2_dsk"
+        data-device="desktop"
+        data-prebid-enabled="true"
+        data-size="[[468,60],[640,480],[728,90],[1,1]]"
+        data-sizemap="[]"
+        data-slot-group="nota"
+        data-subscription="false"
+        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+        data-without-hide="true"
+        id="middle_2_dsk"
+      />
+    </div>
+  </mock-static-validation>
+  <p
+    class="com-paragraph   --s"
+  >
+    <em>
+      <strong>
+        Tipo de letra negrita y cursiva
+      </strong>
+    </em>
+  </p>
+  <mock-static-validation
+    htmlonly="true"
+    id="caja3_mob"
+    persistent="true"
+  >
+    <div
+      class="mod-banner --caja3_mob  "
+    >
+      <div
+        class="com-banner "
+        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja3_mob"
+        data-device="mobile"
+        data-prebid-enabled="true"
+        data-size="[[300,250],[320,100],[1,1]]"
+        data-sizemap="[]"
+        data-slot-group="nota"
+        data-subscription="false"
+        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+        data-without-hide="true"
+        id="caja3_mob"
+      />
+    </div>
+  </mock-static-validation>
+  <p
+    class="com-paragraph   --s"
+  >
+    <u>
+      <strong>
+        Tipo de letra negrita y subrayado
+      </strong>
+    </u>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <em>
+      <u>
+        Tipo de letra cursiva y subrayado
+      </u>
+    </em>
+  </p>
+  <mock-static-validation
+    htmlonly="true"
+    id="caja4_mob"
+    persistent="true"
+  >
+    <div
+      class="mod-banner --caja4_mob  "
+    >
+      <div
+        class="com-banner "
+        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja4_mob"
+        data-device="mobile"
+        data-prebid-enabled="true"
+        data-size="[[300,250],[320,100],[1,1]]"
+        data-sizemap="[]"
+        data-slot-group="nota"
+        data-subscription="false"
+        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+        data-without-hide="true"
+        id="caja4_mob"
+      />
+    </div>
+  </mock-static-validation>
+  <p
+    class="com-paragraph   --s"
+  >
+    <em>
+      <u>
+        <strong>
+          Tipo de letra negrita, cursita y subrayado
+        </strong>
+      </u>
+    </em>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <mark
+      class="hl_red"
+    >
+      Tipo de letra normal con subrayado de color
+    </mark>
+  </p>
+  <mock-static-validation
+    htmlonly="true"
+    id="caja5_mob"
+    persistent="true"
+  >
+    <div
+      class="mod-banner --caja5_mob  "
+    >
+      <div
+        class="com-banner "
+        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja5_mob"
+        data-device="mobile"
+        data-prebid-enabled="true"
+        data-size="[[300,250],[320,100],[1,1]]"
+        data-sizemap="[]"
+        data-slot-group="nota"
+        data-subscription="false"
+        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+        data-without-hide="true"
+        id="caja5_mob"
+      />
+    </div>
+  </mock-static-validation>
+  <p
+    class="com-paragraph   --s"
+  >
+    <mark
+      class="hl_underline"
+    >
+      <strong>
+        Tipo de letra negrita con subrayado de color
+      </strong>
+    </mark>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <mark
+      class="hl_underline"
+    >
+      <em>
+        Tipo de letra cursiva con subrayado de color
+      </em>
+    </mark>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <mark
+      class="hl_underline"
+    >
+      <u>
+        Tipo de letra subrayado con subrayado de color
+      </u>
+    </mark>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <mark
+      class="hl_tblue"
+    >
+      <em>
+        <strong>
+          Tipo de letra negrita con cursiva y subrayado de color
+        </strong>
+      </em>
+    </mark>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <mark
+      class="hl_blue"
+    >
+      <u>
+        <strong>
+          Tipo de letra negrita con subrayado y subrayado de color
+        </strong>
+      </u>
+    </mark>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <mark
+      class="hl_underline"
+    >
+      <em>
+        <u>
+          Tipo de letra cursiva y subrayado y subrayado de color
+        </u>
+      </em>
+    </mark>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <mark
+      class="hl_underline"
+    >
+      <em>
+        <u>
+          <strong>
+            Tipo de letra negritam cursiva, subrayado y subrayado de color
+          </strong>
+        </u>
+      </em>
+    </mark>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+      target="_self"
+      title="Link "
+    >
+      Link 
+    </a>
+    en lista ordenada
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+      target="_self"
+      title="Link "
+    >
+      <strong>
+        Link 
+      </strong>
+    </a>
+    <strong>
+      en lista ordenada
+    </strong>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+      target="_self"
+      title="Link "
+    >
+      <em>
+        Link 
+      </em>
+    </a>
+    <em>
+      en lista ordenada
+    </em>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+      target="_self"
+      title="<u>Link </u>"
+    >
+      <u>
+        Link 
+      </u>
+    </a>
+    <u>
+      en lista ordenada
+    </u>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+      target="_self"
+      title="Link "
+    >
+      <em>
+        <strong>
+          Link 
+        </strong>
+      </em>
+    </a>
+    <em>
+      <strong>
+        en lista ordenada
+      </strong>
+    </em>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+      target="_self"
+      title="<u>Link </u>"
+    >
+      <em>
+        <u>
+          Link 
+        </u>
+      </em>
+    </a>
+    <em>
+      <u>
+        en lista ordenada
+      </u>
+    </em>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+      target="_self"
+      title="<u>Link </u>"
+    >
+      <em>
+        <u>
+          <strong>
+            Link 
+          </strong>
+        </u>
+      </em>
+    </a>
+    <em>
+      <u>
+        <strong>
+          en lista ordenada
+        </strong>
+      </u>
+    </em>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <a
+      class="com-link"
+      data-reactroot=""
+      href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+      target="_self"
+      title="Link en un parrafo"
+    >
+      Link en un parrafo
+    </a>
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    <strong>
+      Lista desordenada
+    </strong>
+  </p>
+  <ul
+    class="com-unordered"
+  >
+    <li
+      class="com-item"
+    >
+      Tipo de letra normal
+    </li>
+    <li
+      class="com-item"
+    >
+      <b>
+        Tipo de letra negrita
+      </b>
+    </li>
+    <li
+      class="com-item"
+    >
+      <i>
+        Tipo de letra cursiva
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <u>
+        Tipo de letra subrayado
+      </u>
+    </li>
+    <li
+      class="com-item"
+    >
+      <i>
+        <b>
+          Tipo de letra negrita y cursiva
+        </b>
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <u>
+        <b>
+          Tipo de letra negrita y subrayado
+        </b>
+      </u>
+    </li>
+    <li
+      class="com-item"
+    >
+      <i>
+        <u>
+          Tipo de letra cursiva y subrayado
+        </u>
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <i>
+        <u>
+          <b>
+            Tipo de letra negrita, cursita y subrayado
+          </b>
+        </u>
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_pink"
+      >
+        Tipo de letra normal con subrayado de color
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_orange"
+      >
+        <b>
+          Tipo de letra negrita con subrayado de color
+        </b>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_yellow"
+      >
+        <i>
+          Tipo de letra cursiva con subrayado de color
+        </i>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_green"
+      >
+        <u>
+          Tipo de letra subrayado con subrayado de color
+        </u>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_tblue"
+      >
+        <i>
+          <b>
+            Tipo de letra negrita con cursiva y subrayado de color
+          </b>
+        </i>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_blue"
+      >
+        <u>
+          <b>
+            Tipo de letra negrita con subrayado y subrayado de color
+          </b>
+        </u>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_purple"
+      >
+        <i>
+          <u>
+            Tipo de letra cursiva y subrayado y subrayado de color
+          </u>
+        </i>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_pink"
+      >
+        <i>
+          <u>
+            <b>
+              Tipo de letra negritam cursiva, subrayado y subrayado de color
+            </b>
+          </u>
+        </i>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        Link 
+      </a>
+      en lista ordenada
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        <b>
+          Link 
+        </b>
+      </a>
+      <b>
+        en lista ordenada
+      </b>
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        <i>
+          Link 
+        </i>
+      </a>
+      <i>
+        en lista ordenada
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        <u>
+          Link 
+        </u>
+      </a>
+      <u>
+        en lista ordenada
+      </u>
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        <i>
+          <b>
+            Link 
+          </b>
+        </i>
+      </a>
+      <i>
+        <b>
+          en lista ordenada
+        </b>
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        <i>
+          <u>
+            Link 
+          </u>
+        </i>
+      </a>
+      <i>
+        <u>
+          en lista ordenada
+        </u>
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        <i>
+          <u>
+            <b>
+              Link 
+            </b>
+          </u>
+        </i>
+      </a>
+      <i>
+        <u>
+          <b>
+            en lista ordenada
+          </b>
+        </u>
+      </i>
+    </li>
+  </ul>
+  <p
+    class="com-paragraph   --s"
+  >
+    Lista ordenada
+  </p>
+  <ul
+    class="com-ordered"
+  >
+    <li
+      class="com-item"
+    >
+      Tipo de letra normal
+    </li>
+    <li
+      class="com-item"
+    >
+      <b>
+        Tipo de letra negrita
+      </b>
+    </li>
+    <li
+      class="com-item"
+    >
+      <i>
+        Tipo de letra cursiva
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <u>
+        Tipo de letra subrayado
+      </u>
+    </li>
+    <li
+      class="com-item"
+    >
+      <i>
+        <b>
+          Tipo de letra negrita y cursiva
+        </b>
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <u>
+        <b>
+          Tipo de letra negrita y subrayado
+        </b>
+      </u>
+    </li>
+    <li
+      class="com-item"
+    >
+      <i>
+        <u>
+          Tipo de letra cursiva y subrayado
+        </u>
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <i>
+        <u>
+          <b>
+            Tipo de letra negrita, cursita y subrayado
+          </b>
+        </u>
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_pink"
+      >
+        Tipo de letra normal con subrayado de color
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_orange"
+      >
+        <b>
+          Tipo de letra negrita con subrayado de color
+        </b>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_yellow"
+      >
+        <i>
+          Tipo de letra cursiva con subrayado de color
+        </i>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_tblue"
+      >
+        <u>
+          Tipo de letra subrayado con subrayado de color
+        </u>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_blue"
+      >
+        <i>
+          <b>
+            Tipo de letra negrita con cursiva y subrayado de color
+          </b>
+        </i>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_purple"
+      >
+        <u>
+          <b>
+            Tipo de letra negrita con subrayado y subrayado de color
+          </b>
+        </u>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_blue"
+      >
+        <i>
+          <u>
+            Tipo de letra cursiva y subrayado y subrayado de color
+          </u>
+        </i>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <mark
+        class="hl_tblue"
+      >
+        <i>
+          <u>
+            <b>
+              Tipo de letra negritam cursiva, subrayado y subrayado de color
+            </b>
+          </u>
+        </i>
+      </mark>
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        Link 
+      </a>
+      en lista ordenada
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        <b>
+          Link 
+        </b>
+      </a>
+      <b>
+        en lista ordenada
+      </b>
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        <i>
+          Link 
+        </i>
+      </a>
+      <i>
+        en lista ordenada
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        <u>
+          Link 
+        </u>
+      </a>
+      <u>
+        en lista ordenada
+      </u>
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        <i>
+          <b>
+            Link 
+          </b>
+        </i>
+      </a>
+      <i>
+        <b>
+          en lista ordenada
+        </b>
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        <i>
+          <u>
+            Link 
+          </u>
+        </i>
+      </a>
+      <i>
+        <u>
+          en lista ordenada
+        </u>
+      </i>
+    </li>
+    <li
+      class="com-item"
+    >
+      <a
+        class="com-link"
+        href="https://www.lanacion.com.ar/deportes/la-tentacion-de-no-ser-ejemplo-nid112000/"
+        target="_blank"
+      >
+        <i>
+          <u>
+            <b>
+              Link 
+            </b>
+          </u>
+        </i>
+      </a>
+      <i>
+        <u>
+          <b>
+            en lista ordenada
+          </b>
+        </u>
+      </i>
+    </li>
+  </ul>
+  <p
+    class="com-paragraph   --s"
+  >
+    Párrafo 5.
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    Párrafo 6.
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    Párrafo 7.
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    Párrafo 8.
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    Párrafo 9.
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    Párrafo 10.
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    Párrafo 11.
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    Párrafo 12.
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    Párrafo 13.
+  </p>
+  <p
+    class="com-paragraph   --s"
+  >
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+  </p>
+  <h2
+    class="com-title --font-primary --xl --font-extra"
+  >
+    Subtitulo 1
+  </h2>
+  <p
+    class="com-paragraph   --s"
+  >
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+  </p>
+  <h3
+    class="com-title --font-primary --l --font-extra"
+  >
+    Subtitulo 2
+  </h3>
+  <p
+    class="com-paragraph   --s"
+  >
+    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+  </p>
+  <h4
+    class="com-title --arial --twoxs --font-medium"
   >
     Subtitulo 3
   </h4>
@@ -3884,7 +6637,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
   <h2
-    class="com-title --l"
+    class="com-title --font-primary --xl --font-extra"
   >
     Subtitulo 1
   </h2>
@@ -3904,7 +6657,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
     />
   </div>
   <h3
-    class="com-title --m"
+    class="com-title --font-primary --l --font-extra"
   >
     Subtitulo 2
   </h3>
@@ -3914,7 +6667,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
   <h4
-    class="com-title --twoxs --arial"
+    class="com-title --arial --twoxs --font-medium"
   >
     Subtitulo 3
   </h4>
@@ -3947,7 +6700,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
     class="mod-paragraph "
   >
     <p
-      class="com-paragraph --sueca --font-bold  --m"
+      class="com-paragraph --font-primary --font-extra  --l"
     >
       Esto es un destacado
     </p>
@@ -3962,7 +6715,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
         class="title-cita"
       >
         <p
-          class="com-paragraph --sueca --font-bold  --m"
+          class="com-paragraph --font-primary --font-extra  --l"
         >
           "Esto es una cita"
         </p>
@@ -5220,7 +7973,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
       class="col-tablet-3 --ingredients"
     >
       <h3
-        class="com-title --m"
+        class="com-title --font-primary --m --font-medium"
       >
         Ingredientes
       </h3>
@@ -5316,7 +8069,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
       class="col-tablet-8 --preparation"
     >
       <h3
-        class="com-title --m"
+        class="com-title --font-primary --m --font-medium"
       >
         Preparación
       </h3>
@@ -5356,7 +8109,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
       class="--nutrition"
     >
       <h3
-        class="com-title --l"
+        class="com-title --font-primary --l --font-medium"
       >
         Información nutricional
       </h3>
@@ -5676,7 +8429,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     persistent="true"
   >
     <div
-      class="mod-banner --caja1_amp hlp-none  "
+      class="mod-banner --caja1_amp --none  "
     >
       <div
         class="com-banner "
@@ -5735,7 +8488,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     persistent="true"
   >
     <div
-      class="mod-banner --caja2_amp hlp-none  "
+      class="mod-banner --caja2_amp --none  "
     >
       <div
         class="com-banner "
@@ -6774,7 +9527,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
   </p>
   <h2
-    class="com-title --l"
+    class="com-title --font-primary --xl --font-extra"
   >
     Subtitulo 1
   </h2>
@@ -6797,7 +9550,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     />
   </div>
   <h3
-    class="com-title --m"
+    class="com-title --font-primary --l --font-extra"
   >
     Subtitulo 2
   </h3>
@@ -6853,7 +9606,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     />
   </div>
   <h4
-    class="com-title --twoxs --arial"
+    class="com-title --arial --twoxs --font-medium"
   >
     Subtitulo 3
   </h4>
@@ -6930,7 +9683,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     class="mod-paragraph "
   >
     <p
-      class="com-paragraph --sueca --font-bold  --m"
+      class="com-paragraph --font-primary --font-extra  --l"
     >
       Esto es un destacado
     </p>
@@ -6945,7 +9698,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
         class="title-cita"
       >
         <p
-          class="com-paragraph --sueca --font-bold  --m"
+          class="com-paragraph --font-primary --font-extra  --l"
         >
           "Esto es una cita"
         </p>
@@ -9213,7 +11966,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="col-tablet-3 --ingredients"
     >
       <h3
-        class="com-title --m"
+        class="com-title --font-primary --m --font-medium"
       >
         Ingredientes
       </h3>
@@ -9309,7 +12062,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="col-tablet-8 --preparation"
     >
       <h3
-        class="com-title --m"
+        class="com-title --font-primary --m --font-medium"
       >
         Preparación
       </h3>
@@ -9349,7 +12102,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       class="--nutrition"
     >
       <h3
-        class="com-title --l"
+        class="com-title --font-primary --l --font-medium"
       >
         Información nutricional
       </h3>

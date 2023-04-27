@@ -171,35 +171,38 @@ export const getStickyBanner = (bannerClass, viewport, header) => {
             type="text/javascript"
             dangerouslySetInnerHTML={{
                 __html: `
-                window.addEventListener('DOMContentLoaded', () => {
-                    const banner = document.querySelector('${bannerClass}') || {};
-                    const header = document.querySelector("#${header}");                 
-                    const viewportLimit = document.querySelector('${viewport}') || {};
-                    let oldScrollY = window.scrollY;
-                    
-                    window.addEventListener('scroll', () => {
-                        const isScrollUp = oldScrollY > window.scrollY
-                        const { top: topViewportLimit } = viewportLimit.getBoundingClientRect();
-                        const viewPoint = topViewportLimit - banner.clientHeight - (${header} ? header.clientHeight : 0);
+                    window.addEventListener('DOMContentLoaded', () => {
+                        const banners = document.querySelectorAll('${bannerClass}') || [];
+                        const header = document.querySelector("#${header}");
+                        const viewportLimit = document.querySelector('${viewport}') || {};
+                        let oldScrollY = window.scrollY;
 
-                        if (viewPoint <= 0 && banner.classList.contains('--sticky')) {
-                            banner.classList.remove('--sticky');
-                            banner.style.top = Math.abs(viewportLimit.offsetTop - banner.clientHeight) + 'px';
-                            banner.style.position = 'relative';
-                        } else if (viewPoint > 0 && !banner.classList.contains('--sticky')) {
-                            banner.classList.add('--sticky');
-                            banner.style.cssText = '';
+                        const handleSticky = (banner = {}) => {
+                            const isScrollUp = oldScrollY > window.scrollY
+                            const { top: topViewportLimit } = viewportLimit.getBoundingClientRect();
+                            const viewPoint = topViewportLimit - banner.clientHeight - (${header} ? header.clientHeight : 0);
+
+                            if (viewPoint <= 0 && banner.classList.contains('--sticky')) {
+                                banner.classList.remove('--sticky');
+                                banner.style.top = Math.abs(viewportLimit.offsetTop - banner.clientHeight) + 'px';
+                                banner.style.position = 'relative';
+                            } else if (viewPoint > 0 && !banner.classList.contains('--sticky')) {
+                                banner.classList.add('--sticky');
+                                banner.style.cssText = '';
+                            }
+
+                            if (isScrollUp) {
+                                banner.classList.remove('--sticky');
+                                banner.style.top = '0';
+                            }
                         }
-
-                        if (isScrollUp) {
-                            banner.classList.remove('--sticky');
-                            banner.style.top = '0';
-                        }
-
-                        oldScrollY = window.scrollY;
+                        
+                        window.addEventListener('scroll', () => {
+                            banners.forEach(handleSticky)
+                            oldScrollY = window.scrollY;
+                        })
                     })
-                })
-            `
+                `
             }}
         />
     );
@@ -215,7 +218,7 @@ export const getScriptForComercial = slodId => {
                     setTimeout(function(){
                         
                         const bannerComercial = document.getElementById("${slodId}");
-                        bannerComercial && bannerComercial.parentNode.classList.add('hlp-none');
+                        bannerComercial && bannerComercial.parentNode.classList.add('--none');
                       },12000)
                 })
             `

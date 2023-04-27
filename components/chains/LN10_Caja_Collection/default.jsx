@@ -25,7 +25,7 @@ import CommonCollection from '../../private/LN10/home/components/CommonCollectio
 import { useRoofData } from '../utils/_helpers';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
 import DivBannerSSR from '../../private/common/banners/DivBannerSSR';
-
+import isContentLabAt100 from '../utils/isContentLabAt100';
 import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 
 // TODO: Pendiente por testear las diagramaciones de Grillas y focales.
@@ -179,6 +179,14 @@ const CajaCollection = props => {
                                 layout={layout}
                                 ContainerCards={ContainerCards}
                                 position={position}
+                                isContentLab100={isContentLabAt100(
+                                    chainId,
+                                    layout,
+                                    renderables
+                                )}
+                                isExclusiveSub={
+                                    chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE
+                                }
                             />
                             {chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE && (
                                 <Bannersubscriber>

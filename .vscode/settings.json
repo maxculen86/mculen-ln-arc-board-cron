@@ -4,7 +4,6 @@
         "_ignore_*.*": true,
         ".prettierrc": true,
         ".scannerwork": true,
-        ".lintstagedrc": true,
         ".prettierignore": true,
         ".eslintrc*": true,
         "coverage": true,

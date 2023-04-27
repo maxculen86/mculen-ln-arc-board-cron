@@ -97,6 +97,7 @@ const useGridPagination = props => {
                             article={article}
                             typeArticle={typeArticle}
                             titleSize={typeAcumRules[typeArticle].titleSize}
+                            titleWeight={typeAcumRules[typeArticle].titleWeight}
                             outputType={outputType}
                             withSubhead={typeAcumRules[typeArticle].withSubhead}
                             withCategory={

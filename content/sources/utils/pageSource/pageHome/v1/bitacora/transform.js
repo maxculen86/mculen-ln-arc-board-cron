@@ -44,7 +44,7 @@ const createNota = (article, index) => ({
     // eslint-disable-next-line no-underscore-dangle
     id_nota: article._id,
     url_nota: article.website_url,
-    posicion: (index + 1).toString().padStart(2, '0')
+    posicion: index.toString().padStart(2, '0')
 });
 
 const createBox = (id, visible, feature, layout, notas) => ({
@@ -58,8 +58,9 @@ const createBox = (id, visible, feature, layout, notas) => ({
 const createNotasArray = elem => {
     const notasArray = [];
     const resp = {};
-    for (let j = 0; j < elem.articles.length; j += 1) {
-        const article = elem.articles[j];
+    let posicion = 0;
+    for (const element of elem.articles) {
+        const article = element;
         if (specialBox[article.sectionAliasMobile]) {
             const notas = createNotasArray(article);
             const box = createBox(
@@ -74,13 +75,15 @@ const createNotasArray = elem => {
             continue;
         }
         if (
-            article.additionalProperties &&
-            article.additionalProperties.originPosition === 'T3'
+            // eslint-disable-next-line no-underscore-dangle
+            !article._id &&
+            !article.website_url
         ) {
             // eslint-disable-next-line no-continue
             continue;
         }
-        const nota = createNota(article, j);
+        posicion += 1;
+        const nota = createNota(article, posicion);
         notasArray.push(nota);
     }
     return {

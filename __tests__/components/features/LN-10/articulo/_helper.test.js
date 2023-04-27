@@ -2,6 +2,8 @@ import responseVideoSource from '../../../../../__mocks__/data/videos/responseVi
 import responseArticleSourceNota from '../../../../../__mocks__/data/articles/2CIOHVMKJBHKDMMHH2WBIZGJWE.json';
 import responseRelatedImageSource from '../../../../../__mocks__/data/images/responseRelatedImageSource.json';
 import article from '../../../../../__mocks__/data/articles/RGC7MFGFYBGJJGPGZJ5OITBFI4.json';
+import article2 from '../../../../../__mocks__/data/articles/RGC7MFGFYBGJJGPGZJ5OITBFI4-2.json';
+
 import {
     getMediaData,
     validateVariant,
@@ -13,7 +15,11 @@ import {
     showExtraClass,
     getTypeOfMedia,
     getOnlyHoursMinutes,
-    validateMedia
+    validateMedia,
+    showSubheadText,
+    showSection,
+    getDataAuthor,
+    getDataAttributesForViewability
 } from '../../../../../components/features/LN-10/article/_helper';
 import { isInApertura } from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
@@ -46,6 +52,173 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
     const imageId = 'abc-imageId';
     const iframe =
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/sITCH5csTmo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+
+    describe('Test function showSubHeadText', () => {
+        it('should show subHead', () => {
+            const subHead = showSubheadText({
+                article,
+                withSubhead: true,
+                description: ''
+            });
+            expect(subHead.trim()).toEqual(
+                'Las personas que se identifican como homosexuales en Uganda se arriesgan a ser condenadas a cadena perpetua después de que el Parlamento de la nación africana aprobara un nuevo proyecto de ley.'
+            );
+        });
+        it('should not show subHead', () => {
+            const subHead = showSubheadText({
+                article,
+                withSubhead: false,
+                description: ''
+            });
+            expect(subHead).toBeFalsy();
+        });
+
+        it('should show subHead of customField', () => {
+            const subHead = showSubheadText({
+                article,
+                withSubhead: true,
+                description: 'Hola mundo'
+            });
+            expect(subHead).toEqual('Hola mundo');
+        });
+    });
+    describe('Test function showMarqueImage', () => {
+        it('should showMarqueeImage', () => {
+            const result = showMarqueeImage({
+                withMarqueeImg: true,
+                authors: '',
+                authorsQuantity: 1,
+                url: 'https://lanacion.com.ar'
+            });
+            expect(result).toBeTruthy();
+        });
+        it('should not showMarqueeImage without marquee img', () => {
+            const result = showMarqueeImage({
+                withMarqueeImg: false,
+                authors: 'Lorem issum',
+                authorsQuantity: 1,
+                url: 'https://lanacion.com.ar'
+            });
+            expect(result).toBeFalsy();
+        });
+        it('should not showMarqueeImage 2 authors', () => {
+            const result = showMarqueeImage({
+                withMarqueeImg: true,
+                authors: 'Lorem issum',
+                authorsQuantity: 2,
+                url: 'https://lanacion.com.ar'
+            });
+            expect(result).toBeFalsy();
+        });
+        it('should not showMarqueeImage no url', () => {
+            const result = showMarqueeImage({
+                withMarqueeImg: true,
+                authors: 'Lorem issum',
+                authorsQuantity: 1,
+                url: ''
+            });
+            expect(result).toBeFalsy();
+        });
+    });
+    describe('Test function showSection', () => {
+        it('should showSection', () => {
+            const result = showSection({
+                withSection: true,
+                article,
+                authors: '',
+                authorPhoto: true
+            });
+            expect(result).toBeTruthy();
+        });
+        it('should not showSection withSection false', () => {
+            const result = showSection({
+                withSection: false,
+                article,
+                authors: ''
+            });
+            expect(result).toBeFalsy();
+        });
+        it('should not showSection with authors', () => {
+            const result = showSection({
+                withSection: true,
+                article,
+                authors: 'Lorem issum'
+            });
+            expect(result).toBeFalsy();
+        });
+    });
+
+    describe('Test function getDataAuthor', () => {
+        it('should return data author variant regular', () => {
+            const result = getDataAuthor({
+                article,
+                variant: 'regular',
+                authors: 'Lorem',
+                hideAuthors: false,
+                withMarquee: true,
+                withMarqueeImg: true
+            });
+            expect(result).toEqual({
+                marquee: 'Lorem',
+                marqueeImg: false,
+                authorsQuantity: 1
+            });
+        });
+        it('should return data author variant author', () => {
+            const result = getDataAuthor({
+                article,
+                variant: 'author',
+                authors: '',
+                hideAuthors: false,
+                withMarquee: true,
+                withMarqueeImg: true
+            });
+            expect(result).toEqual({
+                marquee: 'Carlos Pagni',
+                marqueeImg:
+                    'http://172.17.0.1/resizer/WfgBNqj4n8Etv_fHKTptRoQK7UI=/80x0/filters:format(webp):quality(80)/s3.amazonaws.com/arc-authors/lanacionar/2219591.png',
+                authorsQuantity: 1
+            });
+        });
+        it('should return data author variant regular', () => {
+            const result = getDataAuthor({
+                article: article2,
+                variant: 'regular',
+                authors: '',
+                hideAuthors: false,
+                withMarquee: true,
+                withMarqueeImg: true
+            });
+            expect(result).toEqual({
+                marquee: 'Max Fisher y Carlos Pagni',
+                marqueeImg: false,
+                authorsQuantity: 2
+            });
+        });
+    });
+    describe('Test function getDataAttributesForViewability', () => {
+        it('should show attributes for viewability', () => {
+            const result = getDataAttributesForViewability(
+                'KEBYELHATJHPRNAWO24GRV6YCQ',
+                21,
+                2
+            );
+            expect(result).toEqual({
+                'data-id': 'KEBYELHATJHPRNAWO24GRV6YCQ',
+                'data-notaid': 'KEBYELHATJHPRNAWO24GRV6YCQ',
+                'data-pos': '2103',
+                'data-source': 'editor'
+            });
+        });
+        it('should return empty boxPosition 0', () => {
+            const result = getDataAttributesForViewability(
+                'KEBYELHATJHPRNAWO24GRV6YCQ',
+                0,
+                2
+            );
+            expect(result).toEqual({});
+        });
+    });
 
     describe('Test function getMediaData', () => {
         const resultImageArticle = {
@@ -456,9 +629,24 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
     });
 
     describe('Tests function getBadgetConfig', () => {
+        test('Should return an object with the text of composer.', () => {
+            expect(
+                getBadgetConfig({
+                    article,
+                    style: undefined,
+                    text: '',
+                    isLiveblog: false,
+                    withMedia: true
+                })
+            ).toStrictEqual({
+                badgetStyle: 'negative',
+                badgetText: 'chapita composer'
+            });
+        });
         test('Should return an object with the text and style it receives by parameter.', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: 'sponsored',
                     text: 'chapita',
                     isLiveblog: false,
@@ -473,6 +661,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         test('Should return an object with the text "live" and the style "live" which it receives when the variant is liveblog and the style and text parameters are undefined.', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: undefined,
                     text: undefined,
                     isLiveblog: true,
@@ -487,6 +676,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         test('should return an object with the text and style that it receives when the variant is liveblog..', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: 'a-fondo',
                     text: 'A fondo',
                     isLiveblog: true
@@ -500,6 +690,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         test('should return an object with the text and style when receives a typeOfMedia different of html.', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: 'a-fondo',
                     text: 'A fondo',
                     isLiveblog: false,
@@ -515,6 +706,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         test('should return an object with the text false when receives a typeOfMedia html.', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: 'a-fondo',
                     text: 'A fondo',
                     isLiveblog: false,
@@ -530,6 +722,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
         test('should return an object with the text false when receives a withMedia false.', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: 'a-fondo',
                     text: 'A fondo',
                     isLiveblog: false,
@@ -541,10 +734,63 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 badgetText: false
             });
         });
+        test('should return an badget with style exclusive-ln priority 1.', () => {
+            const articleMock = {
+                ...article,
+                content_restrictions: { content_code: 'cerrada' },
+                owner: { sponsored: true }
+            };
+            expect(
+                getBadgetConfig({
+                    article: articleMock,
+                    style: '',
+                    text: '',
+                    isLiveblog: true,
+                    withMedia: false,
+                    typeOfMedia: 'image'
+                })
+            ).toStrictEqual({
+                badgetStyle: 'exclusive-ln',
+                badgetText: 'Exclusivo suscriptores'
+            });
+        });
+        test('should return an badget with style live priority 2.', () => {
+            const articleMock = { ...article, owner: { sponsored: true } };
+            expect(
+                getBadgetConfig({
+                    article: articleMock,
+                    style: '',
+                    text: '',
+                    isLiveblog: true,
+                    withMedia: false,
+                    typeOfMedia: 'image'
+                })
+            ).toStrictEqual({
+                badgetStyle: 'live',
+                badgetText: 'vivo'
+            });
+        });
+        test('should return an badget with style contentlab priority 3.', () => {
+            const articleMock = { ...article, owner: { sponsored: true } };
+            expect(
+                getBadgetConfig({
+                    article: articleMock,
+                    style: '',
+                    text: '',
+                    isLiveblog: false,
+                    withMedia: false,
+                    typeOfMedia: 'image'
+                })
+            ).toStrictEqual({
+                badgetStyle: 'contentlab',
+                badgetText: 'CONTENT LAB'
+            });
+        });
 
         test('should return an empty object with the prop hideBadget is true', () => {
             expect(
                 getBadgetConfig({
+                    article,
                     style: 'a-fondo',
                     text: 'A fondo',
                     isLiveblog: false,
@@ -612,7 +858,8 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             layoutPageBuilder: 'LN10-Home_Main',
             config: { withPreload: true },
             renderables: getMockRenderables(),
-            featureId: 'f0fvqs5a1iKxLV'
+            featureId: 'f0fvqs5a1iKxLV',
+            articlePosition: 0
         };
 
         const casesTruthy = [

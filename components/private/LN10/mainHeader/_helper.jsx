@@ -43,11 +43,12 @@ export const setDesplegableData = (goToLogout = () => {}) => {
 
     return defaultOptions.map(option => ({
         ...option,
-        callback: () => {
+        callback: e => {
+            e.preventDefault();
             addEventToDataLayer({
                 event: 'e_linkclick',
-                action: 'home_ln10',
-                category: 'menu_usuario',
+                action: 'menu_usuario',
+                category: 'home_ln10',
                 label: option.text
             });
             option.text === 'Cerrar sesión' && goToLogout();
@@ -61,19 +62,21 @@ export const RightOptions = ({
     userName = '',
     desplegableData = [],
     goToLoginUrl,
-    loggedIn = ''
+    loggedIn = '',
+    loading = false
 }) => {
     const SubscribeButton = (
         <Button
-            title="Suscribirse"
+            id="btnsuscribite"
+            title="Suscribite"
             typeButton="subscribe"
-            onClick={() =>
-                window.location.replace(
-                    `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                        window.location.href
-                    )}`
-                )
-            }
+            className={!loading ? '' : '--none'}
+            // eslint-disable-next-line no-return-assign
+            onClick={() => {
+                window.location.href = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                    window.location.href
+                )}`;
+            }}
         >
             <Icon icon="suscriptorExclusivo" size={18}>
                 <SuscriptorExclusivo />
@@ -92,38 +95,39 @@ export const RightOptions = ({
         />
     );
 
+    const SignInButton = (
+        <>
+            <Button
+                title="Iniciar sesión"
+                typeButton="secondary"
+                className={!loggedIn && !loading ? '--mobile-none' : '--none'}
+                onClick={goToLoginUrl}
+            >
+                INICIAR SESIÓN
+            </Button>
+        </>
+    );
+
     const rightOptions = {
         suscribed: MenuUser,
-        logged: loggedIn && (
-            <>
-                {MenuUser}
-                {SubscribeButton}
-            </>
-        ),
-        unlogged: !loggedIn && (
-            <>
-                <Button
-                    title="Iniciar sesión"
-                    typeButton="secondary"
-                    className="--mobile-none"
-                    onClick={goToLoginUrl}
-                >
-                    INICIAR SESIÓN
-                </Button>
-                {SubscribeButton}
-            </>
-        )
+        logged: loggedIn && MenuUser,
+        unlogged: SignInButton
     };
 
-    return rightOptions[userType] || <></>;
+    return (
+        <>
+            {rightOptions[userType] || <></>}
+            {userType !== 'suscribed' && SubscribeButton}
+        </>
+    );
 };
 
 export const sectionsCallback = (e, toggleDesplegable) => {
     toggleDesplegable();
     addEventToDataLayer({
         event: 'e_linkclick',
-        action: 'home_ln10',
-        category: 'header_logo',
+        action: 'header_logo',
+        category: 'home_ln10',
         label: 'secciones'
     });
 };
@@ -131,8 +135,8 @@ export const sectionsCallback = (e, toggleDesplegable) => {
 export const logoCallback = e => {
     addEventToDataLayer({
         event: 'e_linkclick',
-        action: 'home_ln10',
-        category: 'header_logo',
+        action: 'header_logo',
+        category: 'home_ln10',
         label: 'logo'
     });
 };

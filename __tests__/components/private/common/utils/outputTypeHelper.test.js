@@ -266,6 +266,12 @@ describe('Test getSectionOfRequestUri', () => {
 
         expect(getSectionOfRequestUri(requestUri)).toStrictEqual('');
     });
+
+    test('Test of return when requestUri is null', () => {
+        const requestUri = null;
+
+        expect(getSectionOfRequestUri(requestUri)).toStrictEqual('');
+    });
 });
 
 describe('Tests - metasFromSiteServices', () => {
@@ -392,41 +398,56 @@ describe('getTagTitle function test', () => {
         });
     });
     describe('addNoIndexNoFollow for LN10', () => {
-        test('Return meta robots no index no follow when layout is for LN10', () => {
+        test('Return meta robots no index no follow when the page is home-vivo', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: '/home-vivo/?_website=la-nacion-ar'
+                })
+            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
+        });
+
+        test('Return meta robots no index no follow when the page is home-temas', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: '/home-temas/?_website=la-nacion-ar'
+                })
+            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
+        });
+
+        test('Return fragment when when the page is home LN10', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: '/homepage-ln10/'
+                })
+            ).toStrictEqual(<React.Fragment />);
+        });
+
+        test('Return fragment when when the page is not LN10', () => {
             expect(
                 addMetaNoIndexNoFollow({
                     siteProperties: {
                         layoutsName: {
-                            HomeLN10: 'LN10-Home_Main'
+                            HomeLN10: 'LN10-Home_Main',
+                            Acumulado: 'LN-acumulado'
                         }
                     },
-                    layout: 'LN10-Home_Main'
+                    layout: 'LN-acumulado'
                 })
-            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
+            ).toStrictEqual(<React.Fragment />);
         });
 
         test('Return fragment when layout is not LN10', () => {
             expect(
                 addMetaNoIndexNoFollow({
-                    siteProperties: {
-                        layoutsName: {
-                            HomeLN10: 'LN10-Home_Main'
-                        }
-                    },
-                    layout: ''
+                    requestUri: 'politica'
                 })
             ).toStrictEqual(<React.Fragment />);
         });
 
-        test('Return fragment when layout is Home', () => {
+        test('Return fragment when requestUri is a empty string', () => {
             expect(
                 addMetaNoIndexNoFollow({
-                    siteProperties: {
-                        layoutsName: {
-                            Home: 'Home'
-                        }
-                    },
-                    layout: ''
+                    requestUri: ''
                 })
             ).toStrictEqual(<React.Fragment />);
         });
@@ -436,6 +457,22 @@ describe('getTagTitle function test', () => {
                 addMetaNoIndexNoFollow({
                     siteProperties: undefined,
                     layout: undefined
+                })
+            ).toStrictEqual(<React.Fragment />);
+        });
+
+        test('Return fragment when everything is undefined', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: undefined
+                })
+            ).toStrictEqual(<React.Fragment />);
+        });
+
+        test('Return fragment when everything is null', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: null
                 })
             ).toStrictEqual(<React.Fragment />);
         });

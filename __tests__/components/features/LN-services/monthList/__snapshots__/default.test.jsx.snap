@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests the month list. Should match the snapshot 1`] = `
+<div>
+  <div
+    class="hidden"
+  >
+    <div
+      class="service-list --font-bold"
+    >
+      <div
+        class="service-item"
+      >
+        <h2
+          class="com-text --twoxs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2023/enero/"
+            title="Ir a feriados de enero del 2023"
+          >
+            enero
+          </a>
+        </h2>
+      </div>
+      <div
+        class="service-item"
+      >
+        <h2
+          class="com-text --twoxs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2023/febrero/"
+            title="Ir a feriados de febrero del 2023"
+          >
+            febrero
+          </a>
+        </h2>
+      </div>
+      <div
+        class="service-item"
+      >
+        <h2
+          class="com-text --twoxs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2023/marzo/"
+            title="Ir a feriados de marzo del 2023"
+          >
+            marzo
+          </a>
+        </h2>
+      </div>
+      <div
+        class="service-item"
+      >
+        <h2
+          class="com-text --twoxs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2023/abril/"
+            title="Ir a feriados de abril del 2023"
+          >
+            abril
+          </a>
+        </h2>
+      </div>
+      <div
+        class="service-item"
+      >
+        <h2
+          class="com-text --twoxs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2023/mayo/"
+            title="Ir a feriados de mayo del 2023"
+          >
+            mayo
+          </a>
+        </h2>
+      </div>
+      <div
+        class="service-item"
+      >
+        <h2
+          class="com-text --twoxs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2023/junio/"
+            title="Ir a feriados de junio del 2023"
+          >
+            junio
+          </a>
+        </h2>
+      </div>
+      <div
+        class="service-item"
+      >
+        <h2
+          class="com-text --twoxs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2023/julio/"
+            title="Ir a feriados de julio del 2023"
+          >
+            julio
+          </a>
+        </h2>
+      </div>
+      <div
+        class="service-item"
+      >
+        <h2
+          class="com-text --twoxs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2023/agosto/"
+            title="Ir a feriados de agosto del 2023"
+          >
+            agosto
+          </a>
+        </h2>
+      </div>
+      <div
+        class="service-item"
+      >
+        <h2
+          class="com-text --twoxs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2023/septiembre/"
+            title="Ir a feriados de septiembre del 2023"
+          >
+            septiembre
+          </a>
+        </h2>
+      </div>
+      <div
+        class="service-item"
+      >
+        <h2
+          class="com-text --twoxs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2023/octubre/"
+            title="Ir a feriados de octubre del 2023"
+          >
+            octubre
+          </a>
+        </h2>
+      </div>
+      <div
+        class="service-item"
+      >
+        <h2
+          class="com-text --twoxs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2023/noviembre/"
+            title="Ir a feriados de noviembre del 2023"
+          >
+            noviembre
+          </a>
+        </h2>
+      </div>
+      <div
+        class="service-item"
+      >
+        <h2
+          class="com-text --twoxs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2023/diciembre/"
+            title="Ir a feriados de diciembre del 2023"
+          >
+            diciembre
+          </a>
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -3,168 +3,168 @@
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Últimas noticias"
+        "dynamic_label": "ultimas_noticias"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Política"
+        "dynamic_label": "politica"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Economía"
+        "dynamic_label": "economia"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "El mundo"
+        "dynamic_label": "el_mundo"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Sociedad"
+        "dynamic_label": "sociedad"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Opinión"
+        "dynamic_label": "opinion"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Deportes"
+        "dynamic_label": "deportes"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Lifestyle"
+        "dynamic_label": "lifestyle"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Espectáculos"
+        "dynamic_label": "espectaculos"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Edición impresa"
+        "dynamic_label": "edicion_impresa"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "LN+"
+        "dynamic_label": "ln+"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Club LA NACION"
+        "dynamic_label": "club_la_nacion"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "OHLALÁ!"
+        "dynamic_label": "ohlala!"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "¡HOLA!"
+        "dynamic_label": "¡hola!"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "LIVING"
+        "dynamic_label": "living"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "JARDÍN"
+        "dynamic_label": "jardin"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "LUGARES"
+        "dynamic_label": "lugares"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "ROLLING STONE"
+        "dynamic_label": "rolling_stone"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Bonvivir"
+        "dynamic_label": "bonvivir"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "LiBooks"
+        "dynamic_label": "libooks"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Colecciones"
+        "dynamic_label": "colecciones"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Máster en periodismo"
+        "dynamic_label": "master_en_periodismo"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Fundación LA NACION"
+        "dynamic_label": "fundacion_la_nacion"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Mapa del sitio"
+        "dynamic_label": "mapa_del_sitio"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Ayuda"
+        "dynamic_label": "ayuda"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Términos y condiciones"
+        "dynamic_label": "terminos_y_condiciones"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "¿Cómo anunciar?"
+        "dynamic_label": "¿como_anunciar?"
     },
     {
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "Suscribirse al diario impreso"
+        "dynamic_label": "suscribirse_al_diario_impreso"
     }
 ]

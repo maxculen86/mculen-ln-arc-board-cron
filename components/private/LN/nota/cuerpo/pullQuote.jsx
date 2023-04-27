@@ -20,8 +20,8 @@ const pullQuote = props => {
                 <section className="cont-cita">
                     <div className="title-cita">
                         <Paragraph
-                            size="--m"
-                            classCondition="--sueca --font-bold"
+                            size="--l"
+                            classCondition="--font-primary --font-extra"
                             data={{ content: `"${content}"` }}
                         />
                     </div>

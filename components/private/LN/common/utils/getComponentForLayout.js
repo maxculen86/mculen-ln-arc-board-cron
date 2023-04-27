@@ -58,6 +58,7 @@ const getComponentForLayout = (layoutName, props) => {
             outputType = 'default',
             position,
             titleSize,
+            titleWeight,
             withSubhead = false,
             dataSection,
             handleClick,
@@ -80,6 +81,7 @@ const getComponentForLayout = (layoutName, props) => {
                         outputType={outputType}
                         frontdemo
                         titleSize={titleSize}
+                        titleWeight={titleWeight}
                         isRenderAuthor={isRenderAuthor}
                         withSubhead={withSubhead}
                         withVolanta={withVolanta}

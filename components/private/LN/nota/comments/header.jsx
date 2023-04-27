@@ -1,14 +1,16 @@
 import React from 'react';
+import ComTitle from '../../../common/com-title';
 import Text from '../../../common/text';
+
 const HeaderComments = () => {
     return (
         <>
             <section className="mod-headersection --line --button">
-                <Text
+                <ComTitle
                     tag="h4"
-                    extraClass="com-title"
-                    size="--l"
-                    text="Enviá tu comentario"
+                    size="--xl"
+                    weight="--font-extra"
+                    content="Enviá tu comentario"
                 />
                 <a
                     className="com-link --threexs"
