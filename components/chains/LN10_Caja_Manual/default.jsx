@@ -83,6 +83,7 @@ const CajaManual = props => {
                 extraOptions: {
                     default: (
                         <>
+                            {bannerDsk}
                             <BuildRoof
                                 {...roofData}
                                 isAFondo={layout === 'bnFondo'}
@@ -94,7 +95,6 @@ const CajaManual = props => {
                                 {articles}
                             </ContainerCards>
                             {bannerMob}
-                            {bannerDsk}
                         </>
                     )
                 }

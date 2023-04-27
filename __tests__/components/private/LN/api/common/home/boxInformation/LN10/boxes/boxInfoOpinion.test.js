@@ -20,7 +20,7 @@ describe('boxInfoOpinion', () => {
             expect(result).toMatchObject(expectedBox);
         });
 
-        it.skip('should return boxInfoComplete with default tituloCaja field when it is falsy', () => {
+        it('should return boxInfoComplete with default tituloCaja field when it is falsy', () => {
             const information = {};
             const section = '';
             const typeSection = '';
@@ -57,8 +57,8 @@ describe('boxInfoOpinion', () => {
             expect(result).toMatchObject(expectedBox);
         });
 
-        it.skip('should update box url and parameters url fields when parameters url field is truthy', () => {
-            const information = {};
+        it('should update box url and parameters url fields when parameters url field is truthy', () => {
+            const information = { url: 'some url' };
             const section = '';
             const typeSection = '';
             const box = { url: 'old url', parameters: { url: 'some url' } };
@@ -72,14 +72,13 @@ describe('boxInfoOpinion', () => {
                 'boxInfoComplete'
             );
             boxInfoCompleteSpy.mockReturnValue(box);
-
             const result = boxInfoOpinion(information, section, typeSection);
 
             expect(result).toMatchObject(expectedBox);
         });
 
-        it.skip('should not update box url and parameters url fields when parameters url field is falsy', () => {
-            const information = {};
+        it('should not update box url and parameters url fields when parameters url field is falsy', () => {
+            const information = { url: 'some url' };
             const section = '';
             const typeSection = '';
             const expectedBox = {

@@ -8,7 +8,7 @@ const ProgramSnippet = props => {
     const { globalContent = {} } = props;
     const {
         duration = 0,
-        headlines: { basic = '' },
+        headlines: { basic = '' } = {},
         promo_items = {},
         created_date = '',
         streams = []

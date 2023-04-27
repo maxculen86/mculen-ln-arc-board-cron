@@ -171,6 +171,7 @@ const CajaCollection = props => {
                 extraOptions: {
                     default: (
                         <>
+                            {bannerDsk}
                             <CommonCollection
                                 roofData={roofData}
                                 rules={rules}
@@ -194,7 +195,6 @@ const CajaCollection = props => {
                                 </Bannersubscriber>
                             )}
                             {bannerMob}
-                            {bannerDsk}
                         </>
                     )
                 }

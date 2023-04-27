@@ -5,7 +5,6 @@ describe('Test-CardLiveblog', () => {
     it('ok', () => {
         const resp = CardLiveblog(article);
         expect(resp.subtitles).not.toBeNull();
-        console.log(resp);
         expect(resp.subtitles.length).toBe(3);
         expect(resp.subtitles[0].title).toBe(
             article.content_elements[0].embed.config.title

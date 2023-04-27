@@ -27,10 +27,11 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
         isStatic = false,
         lazyClass = ''
     } = bannerConfiguration;
+    const homeLN10PropName = 'layoutsName.HomeLN10';
     const { layout } = useAppContext();
 
     const comercialButton =
-        layout !== get(siteProperties, 'layoutsName.HomeLN10') ? (
+        layout !== get(siteProperties, homeLN10PropName) ? (
             <ComButton
                 classCondition="--primary --compact"
                 dataEvent="LinkClick"
@@ -47,19 +48,17 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                 label="CERRAR"
             />
         );
-
     const classNames = `${
-        layout !== get(siteProperties, 'layoutsName.HomeLN10')
+        layout !== get(siteProperties, homeLN10PropName)
             ? 'mod-banner'
             : 'ln-banner-container'
     } --${slotId} ${classes || ''} `;
-
     const Comp = (
         <>
             <div
                 id={slotId}
                 className={`${
-                    layout !== get(siteProperties, 'layoutsName.HomeLN10')
+                    layout !== get(siteProperties, homeLN10PropName)
                         ? 'com-banner'
                         : 'ln-banner'
                 } ${lazyClass}`}

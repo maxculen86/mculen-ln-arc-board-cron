@@ -3,16 +3,17 @@ import PropTypes from 'prop-types';
 import ComTitle from '../../../common/com-title';
 
 const Subtitle = ({ data }) => {
+    const fontExtra = '--font-extra';
     const tagConfigByLevel = {
         1: {
             tag: 'h2',
             size: '--xl',
-            weight: '--font-extra'
+            weight: fontExtra
         },
         2: {
             tag: 'h3',
             size: '--l',
-            weight: '--font-extra'
+            weight: fontExtra
         },
         3: { tag: 'h4', size: '--twoxs', font: '--arial' },
         4: { tag: 'h4', size: '--twoxs', font: '--arial' },
@@ -21,7 +22,7 @@ const Subtitle = ({ data }) => {
         default: {
             tag: 'h2',
             size: '--xl',
-            weight: '--font-extra'
+            weight: fontExtra
         }
     };
     const { level, content } = data;

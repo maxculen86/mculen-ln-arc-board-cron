@@ -1,16 +1,99 @@
 import transformHomeAcuV1 from '../../../../../../../../../content/sources/utils/pageSource/acumulados/v1/mobile/bySection/transform';
-import transformLayout from '../../../../../../../../../components/private/LN/api/global/page/index';
-import pageHomeMain from '../../../../../../../../../__mocks__/data/pages/preLayout/LN-Home_Main.json';
-import pageLnAcuEconomia from '../../../../../../../../../__mocks__/data/pages/preLayout/Ln-Acumulado-Economia.json';
 import acuRevistaLiving from '../../../../../../../../../__mocks__/data/articlesAcum/revista-living.json';
 import acuEconomia from '../../../../../../../../../__mocks__/data/articlesAcum/economia.json';
 
 import 'regenerator-runtime/runtime';
 
-const mockResponsePage = Promise.resolve(transformLayout(pageHomeMain));
-const mockResponsePageEconomia = Promise.resolve(
-    transformLayout(pageLnAcuEconomia)
-);
+const pageLayoutLN10Main = {
+    information: {
+        layoutPage: 'LN10-Home_Main'
+    },
+    content_elements: [
+        {
+            type: 0,
+            sectionAliasMobile: 'envivo',
+            information: {},
+            articles: [
+                {
+                    _id: '2PVUOH2SZVCTPFYRJXJW2N574A'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMM'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMN'
+                }
+            ],
+            configurations: { arcSite: 'la-nacion-ar' },
+            sectionWeb: 'Apertura'
+        },
+        {
+            type: 0,
+            sectionAliasMobile: 'apertura',
+            information: {},
+            articles: [
+                {
+                    _id: '2PVUOH2SZVCTPFYRJXJW2N574A'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMM'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMN'
+                }
+            ],
+            configurations: { arcSite: 'la-nacion-ar' },
+            sectionWeb: 'Apertura'
+        }
+    ]
+};
+
+const pageLayoutLNAcumuladoEconomia = {
+    information: {
+        layoutPage: 'LN-acumulado'
+    },
+    content_elements: [
+        {
+            type: 0,
+            sectionAliasMobile: 'cajamanual',
+            information: {},
+            articles: [
+                {
+                    _id: '2PVUOH2SZVCTPFYRJXJW2N574A'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMM'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMN'
+                }
+            ],
+            configurations: { arcSite: 'la-nacion-ar' },
+            sectionWeb: 'Pre-Apertura'
+        },
+        {
+            type: 0,
+            sectionAliasMobile: 'ln-common/ranking',
+            information: {},
+            articles: [
+                {
+                    _id: '2PVUOH2SZVCTPFYRJXJW2N574A'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMM'
+                },
+                {
+                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMN'
+                }
+            ],
+            configurations: { arcSite: 'la-nacion-ar' },
+            sectionWeb: 'Aside'
+        }
+    ]
+};
+
+const mockResponsePage = Promise.resolve(pageLayoutLN10Main);
+const mockResponsePageEconomia = Promise.resolve(pageLayoutLNAcumuladoEconomia);
 
 const mockResponseAcuEconomia = Promise.resolve(acuEconomia);
 const mockResponseAcuRevistaLiving = Promise.resolve(acuRevistaLiving);
@@ -84,7 +167,7 @@ describe('Test transform page', () => {
         };
 
         const result = await transformHomeAcuV1(
-            transformLayout(pageLnAcuEconomia),
+            pageLayoutLNAcumuladoEconomia,
             queryParams
         );
         expect(Object.keys(result[0]).sort()).toEqual(

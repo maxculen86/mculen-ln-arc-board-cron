@@ -1,7 +1,6 @@
 import { SITE_LANACION } from '../../../__mocks__/fusion:environment';
 import 'regenerator-runtime/runtime';
 import apiPageHomeSource from '../../../content/sources/apiPageHomeSource';
-import LN_Home_Main_Page from '../../../__mocks__/data/pages/transformPage/LN-Home_Main-Transformed.json';
 
 jest.mock('../../../content/sources/utils/pageSource/index', () => {
     return {
@@ -12,89 +11,155 @@ jest.mock('../../../content/sources/utils/pageSource/index', () => {
     };
 });
 
-jest.mock(
-    '../../../content/sources/utils/pageSource/pageHome/v2/mobile/transform',
-    () => {
-        return {
-            __esModule: true,
-            default: async (x, y) => {
-                const responseHomeMobileTransformed = require.requireActual(
-                    '../../../__mocks__/data/pages/transformPage/LN-Home_Main-Transformed.json'
-                );
+// mock transformPage V1
 
-                if (y && y.rootPath.includes('homereal')) {
-                    return responseHomeMobileTransformed;
-                }
-                if (y && y.rootPath.includes('hometestOk')) {
-                    return null;
-                }
-                return jest.fn().mockReturnValue([]);
-            }
+jest.mock(
+    '../../../content/sources/utils/pageSource/pageHome/v1/mobile/transform',
+    (layoutPage, query) => {
+        return function(layoutPage, query) {
+            return [];
         };
     }
 );
 
-jest.mock('../../../components/private/LN/api/v2/mobile/home/index', () => {
-    return {
-        __esModule: true,
-        default: (x, y) => {
-            if (y && y.rootPath.includes('homereal')) {
-                const responseHomeMobile = require.requireActual(
-                    '../../../__mocks__/data/pages/transformPage/LN-Home_Main-TransformedToHomeMobile.json'
-                );
-                return responseHomeMobile;
-            }
-            if (y && y.rootPath.includes('hometestOk')) {
-                return jest.fn().mockReturnValue([{}]);
-            }
+// mock transformPage V2
+
+jest.mock(
+    '../../../content/sources/utils/pageSource/pageHome/v2/mobile/transform',
+    (layoutPage, query) => {
+        return function(layoutPage, query) {
             return null;
-        }
-    };
-});
+        };
+    }
+);
+
+// mock transformHome V1
+
+jest.mock(
+    '../../../components/private/LN/api/v1/mobile/home/index',
+    (layoutPage, query) => {
+        return function(layoutPage, query) {
+            return [{}];
+        };
+    }
+);
+
+// mock transformHome V2
+
+jest.mock(
+    '../../../components/private/LN/api/v2/mobile/home/index',
+    (layoutPage, query) => {
+        return function(layoutPage, query) {
+            return null;
+        };
+    }
+);
+
+// mock transformBitacora V1
+
+jest.mock(
+    '../../../content/sources/utils/pageSource/pageHome/v1/bitacora/transform',
+    (layoutPage, query) => {
+        return function(layoutPage, query) {
+            return { cajas: [] };
+        };
+    }
+);
 
 describe('content - sources - apiPageHomeSource', () => {
+    beforeEach(() => {
+        jest.spyOn(console, 'error');
+    });
     const paramQuery = {
         website: 'la-nacion-ar',
         versionUri: 1,
         namePage: 'home',
-        ticks: '01'
+        ticks: '01',
+        versionDeploy: null,
+        useCookie: null
     };
-    test('receive page LNMain OK', async () => {
-        const query = paramQuery;
-        query.namePage = 'home';
+
+    test('receive page LN10Main with param versionUri null', async () => {
+        const query = Object.assign({}, paramQuery);
+        query.versionUri = null;
+        const resultLayoutPage = {
+            information: {
+                layoutPage: 'LN10-Home_Main'
+            }
+        };
+
         const result = await apiPageHomeSource.fetch(query, {
             cachedCall: jest
                 .fn()
-                .mockReturnValue(Promise.resolve(LN_Home_Main_Page))
+                .mockReturnValue(Promise.resolve(resultLayoutPage))
         });
         expect(result).not.toBeNull();
-        expect(result.length).toBe(32);
+        expect(result).toEqual(resultLayoutPage);
+        //expect(transformv1).toHaveBeenCalled();
     });
-
-    test('when the layout of the loaded page is not mapped in the transformation Mobile v1', async () => {
-        const query = paramQuery;
+    test('receive page LN10Main with param versionUri 1', async () => {
+        const query = Object.assign({}, paramQuery);
         query.namePage = 'home';
-        const pageLayoutMissing = LN_Home_Main_Page;
-        pageLayoutMissing.information.layoutPage = 'XXXXXX';
 
+        const resultLayoutPage = {
+            information: {
+                layoutPage: 'LN10-Home_Main'
+            }
+        };
         const result = await apiPageHomeSource.fetch(query, {
             cachedCall: jest
                 .fn()
-                .mockReturnValue(Promise.resolve(pageLayoutMissing))
+                .mockReturnValue(Promise.resolve(resultLayoutPage))
         });
+        expect(result).not.toBeNull();
         expect(result).toEqual({});
     });
 
-    test('when result page is null', async () => {
-        console.error = jest.fn(a => {
-            expect(a).toContain('Not found page');
-        });
+    test('receive page LN10Main with param versionUri No exist', async () => {
+        const query = Object.assign({}, paramQuery);
+        query.versionUri = 3;
 
-        const query = paramQuery;
-        query.namePage = 'hometestPageNull';
+        const resultLayoutPage = {
+            information: {
+                layoutPage: 'LN10-Home_Main'
+            },
+            content_elements: []
+        };
+        const result = await apiPageHomeSource.fetch(query, {
+            cachedCall: jest
+                .fn()
+                .mockReturnValue(Promise.resolve(resultLayoutPage))
+        });
+        expect(result).not.toBeNull();
+        expect(result).toMatchObject(resultLayoutPage);
+    });
+
+    test('receive page LN10Main with param namePage Bitacora', async () => {
+        const query = Object.assign({}, paramQuery);
+        query.namePage = 'bitacora';
+
+        const resultLayoutPage = {
+            information: {
+                layoutPage: 'LN10-Home_Main'
+            },
+            content_elements: []
+        };
+        const result = await apiPageHomeSource.fetch(query, {
+            cachedCall: jest
+                .fn()
+                .mockReturnValue(Promise.resolve(resultLayoutPage))
+        });
+        expect(result).not.toBeNull();
+        expect(result).toMatchObject({ cajas: [] });
+    });
+
+    test('receive page LN10Main when is null', async () => {
+        const query = Object.assign({}, paramQuery);
+
         const result = await apiPageHomeSource.fetch(query, {
             cachedCall: jest.fn().mockReturnValue(Promise.resolve(null))
         });
-        expect(result).toEqual(null);
+        expect(result).toBeNull();
+        expect(console.error).toHaveBeenCalledTimes(1);
     });
 });
