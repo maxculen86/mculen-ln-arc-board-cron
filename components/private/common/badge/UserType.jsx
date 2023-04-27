@@ -29,7 +29,7 @@ BadgeUsertype.propTypes = {
 
 BadgeUsertype.defaultProps = {
     icon: 'ln',
-    text: 'Exclusivo suscriptor',
+    text: 'Exclusivo suscriptores',
     title: 'Este contenido es exclusivo para suscriptores de LA NACION',
     className: '',
     type: undefined,

@@ -29,7 +29,7 @@ const Badge = ({ children, className, type }) => {
                 <>
                     <Icon name="exclusive-ln" />
                     <span title="Este es un contenido cerrado a Suscriptores">
-                        Exclusivo suscriptor
+                        Exclusivo suscriptores
                     </span>
                 </>
             ) : (
