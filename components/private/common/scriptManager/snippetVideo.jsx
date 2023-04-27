@@ -18,15 +18,17 @@ const videoPlayerSnippet = ({ mediaData, minStream, parrafo, tituloNota }) => {
     const notaTitle = tituloNota || '';
     const caption = get(promoItems, 'basic.caption', '');
     const epigrafe = get(mediaData, 'headlines.basic', '').trim() || caption;
+    const basicUrl = get(promoItems, 'basic.url', '');
+    const minStreamUrl = get(minStream, 'url', '');
 
     const data = {
         '@context': 'https://schema.org',
         '@type': 'VideoObject',
         name: notaTitle || 'LA NACION - Noticia',
         description: `${epigrafe || primerParrafo || parrafo}`,
-        thumbnailUrl: [`${promoItems.basic.url}`],
+        thumbnailUrl: [`${basicUrl}`],
         uploadDate: `${createdDate.replace(/T/g, ' ').replace(/Z/g, '') || ''}`,
-        embedUrl: `${minStream.url}`,
+        embedUrl: `${minStreamUrl}`,
         duration: `${MillisecondsToTime(duration)}`
     };
 

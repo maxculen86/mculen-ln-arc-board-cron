@@ -25,4 +25,14 @@ describe('programSnippet test', () => {
         expect(container).toMatchSnapshot();
         expect(snippet.description).toBe(description);
     });
+
+    it('Check render for program snippet with an empty globalContent object', () => {
+        props.globalContent = {};
+        const { container } = render(<ProgramSnippet {...props} />);
+        const snippet = JSON.parse(
+            container.getElementsByTagName('script')[0].innerHTML
+        );
+
+        expect(snippet.name).toBe('LA NACION - Noticia');
+    });
 });
