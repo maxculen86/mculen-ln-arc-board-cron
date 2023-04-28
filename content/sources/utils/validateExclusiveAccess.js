@@ -20,7 +20,7 @@ const validateExclusiveAccess = ({
 
             const callback = setCallback(host, path);
 
-            throw new Redirect(`${PAYWALL_URL}${callback}`, 301);
+            throw new Redirect(`${PAYWALL_URL}${callback}`, 302);
         }
 
         return true;
