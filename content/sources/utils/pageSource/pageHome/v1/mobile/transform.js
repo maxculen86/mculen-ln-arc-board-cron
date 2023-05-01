@@ -3,6 +3,7 @@ import { setBannerByLayout } from '../../../common/elements/banners/index';
 import { setTitleByLayout } from '../../../common/elements/titles/index';
 import { setDolarByLayout } from '../../../common/elements/dolars/index';
 import { divideSectionsByDiagramation } from '../../../common/elements/sections/index';
+import { setRankingByLayout } from '../../../common/elements/ranking/index';
 
 const transform = async (dataPage, query) => {
     const {
@@ -44,6 +45,18 @@ const transform = async (dataPage, query) => {
         elementsPageHome =
             (setBannerByLayout[layoutPage] &&
                 setBannerByLayout[layoutPage](elementsPageHome, layoutPage)) ||
+            elementsPageHome;
+
+        // Add Ranking by Configuration set in file /pageSource/common/elements/ranking/config/configRankingPositionbySection.json
+        const propsRanking = {
+            website: query && query.website,
+            layoutPage,
+            globalContent: {},
+            elementsPage: elementsPageHome
+        };
+        elementsPageHome =
+            (setRankingByLayout[layoutPage] &&
+                (await setRankingByLayout[layoutPage](propsRanking))) ||
             elementsPageHome;
 
         return elementsPageHome;
