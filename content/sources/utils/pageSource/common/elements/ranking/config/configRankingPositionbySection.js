@@ -1,5 +1,5 @@
 const boxPositionLN10Main = {
-    hashtag: {
+    Hashtag: {
         type: 0,
         sectionAliasMobile: 'ranking',
         position: 'bottom'

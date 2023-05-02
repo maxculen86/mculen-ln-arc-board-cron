@@ -69,7 +69,7 @@ export const getRanking = async props => {
     }
 };
 
-export const setRankingBySectionAlias = async props => {
+export const setRankingBySection = async props => {
     const { elementsPage, layoutPage } = props;
 
     const configRankingBySections = configRankingPositionbySection(layoutPage);
@@ -79,29 +79,26 @@ export const setRankingBySectionAlias = async props => {
     ranking &&
         Array.isArray(ranking.articles) &&
         configRankingBySections &&
-        Object.keys(configRankingBySections).forEach(
-            async sectionAliasMobile => {
-                const configSectionAliasMobile =
-                    configRankingBySections[sectionAliasMobile];
-                const configElementToAdd = {
-                    ...configRankingBySections[sectionAliasMobile],
-                    ...ranking
-                };
-                if (configSectionAliasMobile) {
-                    elementsPageHome = addElementsByKey(
-                        configElementToAdd,
-                        sectionAliasMobile,
-                        'sectionAliasMobile',
-                        elementsPageHome
-                    );
-                }
+        Object.keys(configRankingBySections).forEach(async sectionWeb => {
+            const configSectionWeb = configRankingBySections[sectionWeb];
+            const configElementToAdd = {
+                ...configRankingBySections[sectionWeb],
+                ...ranking
+            };
+            if (configSectionWeb) {
+                elementsPageHome = addElementsByKey(
+                    configElementToAdd,
+                    sectionWeb,
+                    'sectionWeb',
+                    elementsPageHome
+                );
             }
-        );
+        });
     return elementsPageHome;
 };
 
 export const setRankingByLayout = {
-    'LN10-Home_Main': setRankingBySectionAlias
+    'LN10-Home_Main': setRankingBySection
 };
 
 export default setRankingByLayout;
