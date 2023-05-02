@@ -1,6 +1,9 @@
-import { SITE_LANACION } from '../../../__mocks__/fusion:environment';
 import 'regenerator-runtime/runtime';
 import apiPageHomeSource from '../../../content/sources/apiPageHomeSource';
+
+jest.mock('fusion:environment', () => ({
+    SITE_LANACION: 'https://wwww.lanacion.com.arr'
+}));
 
 jest.mock('../../../content/sources/utils/pageSource/index', () => {
     return {
@@ -68,6 +71,8 @@ jest.mock(
 
 describe('content - sources - apiPageHomeSource', () => {
     beforeEach(() => {
+        jest.resetModules();
+
         jest.spyOn(console, 'error');
     });
     const paramQuery = {
@@ -95,8 +100,26 @@ describe('content - sources - apiPageHomeSource', () => {
         });
         expect(result).not.toBeNull();
         expect(result).toEqual(resultLayoutPage);
-        //expect(transformv1).toHaveBeenCalled();
     });
+
+    test('receive page when alias no exist', async () => {
+        const query = Object.assign({}, paramQuery);
+        query.namePage = 'homexxxx';
+        const resultLayoutPage = {
+            information: {
+                layoutPage: 'LN10-Home_Main'
+            }
+        };
+
+        const result = await apiPageHomeSource.fetch(query, {
+            cachedCall: jest
+                .fn()
+                .mockReturnValue(Promise.resolve(resultLayoutPage))
+        });
+        expect(result).not.toBeNull();
+        expect(result).toEqual({});
+    });
+
     test('receive page LN10Main with param versionUri 1', async () => {
         const query = Object.assign({}, paramQuery);
         query.namePage = 'home';

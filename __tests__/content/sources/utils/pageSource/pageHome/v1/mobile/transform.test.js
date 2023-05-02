@@ -46,6 +46,7 @@ const pageLayoutLNMain = {
 };
 const mockSetVar = jest.fn();
 const mockPageLayoutLNMainContent = jest.fn();
+const mockSetRanking = jest.fn();
 
 jest.mock(
     '../../../../../../../../components/private/common/utils/logger',
@@ -152,6 +153,23 @@ jest.mock(
     }
 );
 
+jest.mock(
+    '../../../../../../../../content/sources/utils/pageSource/common/elements/ranking/index.js',
+    () => {
+        return {
+            __esModule: true,
+            setRankingByLayout: {
+                'LN10-Home_Main': props => {
+                    if (props.website === 'noexist') {
+                        return undefined;
+                    }
+                    return mockSetRanking(props);
+                }
+            }
+        };
+    }
+);
+
 describe('Test transform page', () => {
     beforeEach(() => {
         jest.resetModules();
@@ -169,9 +187,34 @@ describe('Test transform page', () => {
         mockPageLayoutLNMainContent.mockImplementation(() => {
             return pageLayoutLNMain.content_elements;
         });
+        mockSetRanking.mockImplementation(
+            () => pageLayoutLNMain.content_elements
+        );
 
         const newPageLayoutLNMain = Object.assign([], pageLayoutLNMain);
         const result = await transformHomeV1(newPageLayoutLNMain, paramsQuery);
+        expect(result.length).toBe(2);
+    });
+
+    test('When transform v1 layoutPage no exist in the method setRankingByLayout', async () => {
+        const contentElements = Object.assign(
+            [],
+            pageLayoutLNMain.content_elements
+        );
+        const newParamsQuery = Object.assign({}, paramsQuery);
+        newParamsQuery.website = 'noexist';
+
+        mockSetVar.mockImplementation(() => 'OK');
+        mockPageLayoutLNMainContent.mockImplementation(() => {
+            return pageLayoutLNMain.content_elements;
+        });
+
+        const newPageLayoutLNMain = Object.assign([], pageLayoutLNMain);
+        const result = await transformHomeV1(
+            newPageLayoutLNMain,
+            newParamsQuery
+        );
+        expect(result[1].sectionAliasMobile).toBe('apertura');
         expect(result.length).toBe(2);
     });
 
@@ -225,6 +268,9 @@ describe('Test transform page', () => {
         newPageLayoutLNMain.content_elements[0].type = 9;
         mockPageLayoutLNMainContent.mockImplementation(() => {
             return newPageLayoutLNMain.content_elements;
+        });
+        mockSetRanking.mockImplementation(props => {
+            return props.elementsPage;
         });
         const result = await transformHomeV1(newPageLayoutLNMain, paramsQuery);
         expect(result.length).toBe(1);
