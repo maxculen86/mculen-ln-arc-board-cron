@@ -6,7 +6,8 @@ const typesButtonStyle = {
     ln: 'LN+'
 };
 
-// TODO: Renombrar las propiedades segun las clases para cada caso
+const ajustCollection = 'Ajuste Collection';
+
 const typeStylesChain = {
     propiedades: 'Propiedades',
     campo: 'Campo',
@@ -26,7 +27,8 @@ const customFieldsRules = {
         hideInitialPosition: false,
         hideIdCollection: false,
         hideHideCaja: false,
-        groupName: 'Ajuste Collection',
+        hideButton: false,
+        groupName: ajustCollection,
         layouts: {
             bnGrilla4: 'BN Grilla 4',
             bnGrilla8: 'BN Grilla 8',
@@ -48,6 +50,7 @@ const customFieldsRules = {
         hideInitialPosition: true,
         hideIdCollection: true,
         hideHideCaja: false,
+        hideButton: false,
         groupName: 'Ajuste Manual',
         layouts: {
             bnGrilla4: 'BN Grilla 4',
@@ -68,6 +71,7 @@ const customFieldsRules = {
         hideInitialPosition: false,
         hideIdCollection: false,
         hideHideCaja: false,
+        hideButton: false,
         groupName: 'Ajuste Canales',
         layouts: {
             bn_1_1_grid: 'Focal 1 + 1',
@@ -77,6 +81,18 @@ const customFieldsRules = {
             'bn-4-8': 'Grilla 4 Verticales'
         },
         defaultLayout: 'canal_1_4_grid'
+    },
+    cajaOpinion: {
+        hideInitialPosition: false,
+        hideIdCollection: true,
+        hideHideCaja: false,
+        hideButton: true,
+        groupName: ajustCollection,
+        layouts: {
+            opinion8: 'Opinion x 8',
+            opinion4: 'Opinion x 4'
+        },
+        defaultLayout: 'opinion4'
     }
 };
 
@@ -155,21 +171,24 @@ const setCommonCustomFields = featuredName => {
             name: 'Texto del botón',
             description: 'Ingrese aquí el texto del botón',
             defaultValue: '',
-            group: 'Techo'
+            group: 'Techo',
+            hidden: customFieldsRules[featuredName].hideButton
         }),
         linkButton: PropTypes.string.tag({
             name: 'Url del botón',
             description:
                 'Ingrese la url que redirige al hacer click al botón. El formato debe empezar con https://',
             defaultValue: '',
-            group: 'Techo'
+            group: 'Techo',
+            hidden: customFieldsRules[featuredName].hideButton
         }),
         buttonStyle: PropTypes.oneOf(Object.keys(typesButtonStyle)).tag({
             label: 'Estilo del boton',
             defaultValue: 'generic',
             description: 'Cambiar el diseño de la caja',
             group: 'Techo',
-            labels: typesButtonStyle
+            labels: typesButtonStyle,
+            hidden: customFieldsRules[featuredName].hideButton
         })
     };
 };

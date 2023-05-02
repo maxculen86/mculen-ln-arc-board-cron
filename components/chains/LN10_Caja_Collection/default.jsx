@@ -5,12 +5,12 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { Bannersubscriber } from '@ln/contenidos-ui-bannersubscriber';
+import { CHAIN_STYLE } from '../utils/common/_helpers-WebApi';
 import {
+    getMarkupForDatalayer,
     getArticlesOfChain,
     getCommonProps
-} from '../../private/LN/common/utils/cajaTemasHelperLN10';
-import { CHAIN_STYLE } from '../utils/common/_helpers-WebApi';
-import { getMarkupForDatalayer } from '../../private/LN/common/utils/cajaTemasHelper';
+} from '../../private/LN/common/utils/cajaTemasHelper';
 import getDataChainCollection from '../utils/getDataChainCollection';
 import checkChildInSection from '../utils/checkChildBySection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';

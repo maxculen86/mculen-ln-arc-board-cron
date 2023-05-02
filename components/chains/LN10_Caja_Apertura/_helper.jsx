@@ -21,7 +21,7 @@ export const setCustomFields = () => {
                 [BN_OPENING_4]: 'Apertura x 4'
             }
         },
-        hideBox: {
+        hideCaja: {
             name: 'Ocultar Caja',
             defaultValue: false,
             description: 'Marque para ocultar la caja',
@@ -34,7 +34,7 @@ export const setCustomFields = () => {
 
     return PropTypes.shape({
         layout: PropTypes.oneOf(labelsKeys).tag(CUSTOM_FIELDS_CONFIG.layout),
-        hideBox: PropTypes.boolean.tag(CUSTOM_FIELDS_CONFIG.hideBox)
+        hideCaja: PropTypes.boolean.tag(CUSTOM_FIELDS_CONFIG.hideCaja)
     });
 };
 // TODO: Evaluar usar el setRender que esta en /components/chains/utils/setRender.js

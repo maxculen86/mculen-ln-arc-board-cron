@@ -2,7 +2,6 @@
 /* eslint-disable react/require-default-props */
 import React, { useEffect, useState } from 'react';
 import { useAppContext } from 'fusion:context';
-import getProperties from 'fusion:properties';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
@@ -78,7 +77,6 @@ const ArticleFeature = ({
     } = useAppContext();
 
     const { layoutsName = {} } = siteConfig || {};
-    const { cajaTemaConfig } = getProperties(arcSite);
     const shouldUseV2 =
         withResizerV2 && layoutPageBuilder === layoutsName.HomeLN10;
     const {
@@ -89,7 +87,7 @@ const ArticleFeature = ({
         boxPosition,
         isBomba,
         chainId
-    } = getChainConfig(featureId, renderables, cajaTemaConfig);
+    } = getChainConfig({ featureId, renderables });
 
     const extraOpts = getDataAttributesForViewability(
         articleId,
