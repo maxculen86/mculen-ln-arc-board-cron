@@ -7,6 +7,10 @@ export const getArticleTitleEditorial = article => {
 
 export const getLiveblogSubtitles = article => {
     const contentElements = get(article, 'content_elements', []);
+    const design = get(article, 'additionalProperties.diseno', null);
+
+    if (design && design.size === 'M') return null;
+
     return contentElements.reduce((acc, currentValue) => {
         if (currentValue.type === 'custom_embed' && acc.length < 3) {
             return [
