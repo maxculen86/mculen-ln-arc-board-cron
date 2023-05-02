@@ -65,6 +65,10 @@ export const masInformacion = [
         'https://www.contacto.lanacion.com.ar/ayuda?_ga=2.125953413.948268382.1669638459-1845108145.1619557251'
     ),
     commonPropsFooter(
+        'Atención al socio',
+        'https://club.lanacion.com.ar/ayuda '
+    ),
+    commonPropsFooter(
         'Términos y condiciones',
         'https://www.contacto.lanacion.com.ar/tyc?_ga=2.125953413.948268382.1669638459-1845108145.1619557251'
     ),

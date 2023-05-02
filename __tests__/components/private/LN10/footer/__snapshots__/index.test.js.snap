@@ -478,6 +478,22 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         >
           <a
             class="link"
+            href="https://club.lanacion.com.ar/ayuda "
+            target="_self"
+            title="Ir a Atención al socio"
+          >
+            <span
+              class="text --font-xs"
+            >
+              Atención al socio
+            </span>
+          </a>
+        </li>
+        <li
+          class="link"
+        >
+          <a
+            class="link"
             href="https://www.contacto.lanacion.com.ar/tyc?_ga=2.125953413.948268382.1669638459-1845108145.1619557251"
             target="_self"
             title="Ir a Términos y condiciones"
