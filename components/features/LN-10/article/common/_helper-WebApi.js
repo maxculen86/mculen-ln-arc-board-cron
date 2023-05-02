@@ -18,23 +18,6 @@ export const typeBadge = {
     3: EXCLUSIVE_LN
 };
 
-export const getLiveblogTitlesApi = articleData => {
-    const contentElements = get(articleData, 'content_elements', []);
-    return contentElements.reduce((acc, currentValue) => {
-        if (currentValue.type === 'custom_embed' && acc.length < 3) {
-            return [
-                ...acc,
-                {
-                    title: get(currentValue, 'embed.config.title', ''),
-                    time: get(currentValue, 'embed.config.time', '')
-                }
-            ];
-        }
-
-        return acc;
-    }, []);
-};
-
 export const getIsBomba = parent =>
     get(parent, 'type', '') === 'LN10_Caja_Bomba';
 
