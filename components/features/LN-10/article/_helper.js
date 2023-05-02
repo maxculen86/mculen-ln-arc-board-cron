@@ -11,6 +11,7 @@ import transformImageData from '../../../private/common/LN-10/transformImageData
 import setClassName from '../../../private/common/utils/setClassName';
 import { getIsBomba, getChainParentOfFeature } from './common/_helper-WebApi';
 import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
+import { getFirstParentSection } from '../../../private/common/utils/sectionUtils';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -19,6 +20,40 @@ export const typeMedia = {
 };
 
 const promoItemsBasic = 'promo_items.basic';
+
+export const sectionsTranslate = {
+    '': '',
+    economia: 'Economía',
+    'edicion-impresa': 'Edición Impresa',
+    educacion: 'Educación',
+    espectaculos: 'Espectáculos',
+    horoscopo: 'Horóscopo',
+    'la-nacion-revista': 'LA NACION Revista',
+    loterias: 'Loterías y Quinielas',
+    opinion: 'Opinión',
+    politica: 'Política',
+    'revista-jardin': 'Revista Jardín',
+    'revista-ohlala': 'Revista OHLALÁ!',
+    'revista-hola': 'Revista ¡HOLA!',
+    sabado: 'Sábado',
+    tecnologia: 'Tecnología',
+    transito: 'Tránsito y transporte',
+    'ultimas-noticias': 'Últimas noticias'
+};
+
+export const translateSectionName = sectionName => {
+    if (!sectionName) return '';
+
+    const sectionKeys = Object.keys(sectionsTranslate);
+    if (sectionKeys.includes(sectionName)) {
+        return sectionsTranslate[sectionName];
+    }
+
+    const words = sectionName
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    return words.join(' ');
+};
 
 export const showSubheadText = ({ withSubhead, article, description }) =>
     withSubhead && (description || get(article, 'subheadlines.basic'));
@@ -37,11 +72,20 @@ export const showMarqueeImage = ({
     url
 }) => !authors && withMarqueeImg && authorsQuantity === 1 && url;
 
-export const showSection = ({ withSection, article, authors, authorPhoto }) =>
-    !authors &&
-    authorPhoto &&
-    withSection &&
-    get(article, 'taxonomy.primary_section.name');
+export const showSection = ({ withSection, article, authors, authorPhoto }) => {
+    const primarySection = get(article, 'taxonomy.primary_section', {});
+    const firstParentSection =
+        getFirstParentSection(primarySection) !== null
+            ? getFirstParentSection(primarySection).substring(1)
+            : null;
+
+    return (
+        !authors &&
+        authorPhoto &&
+        withSection &&
+        translateSectionName(firstParentSection)
+    );
+};
 
 export const validateSubhead = (config, withMedia, customFields, variant) => {
     return (

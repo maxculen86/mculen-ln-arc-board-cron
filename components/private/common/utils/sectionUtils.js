@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 
 export const getFirstParentSection = section => {
-    if (section) {
+    if (section && section._id) {
         const parents = section._id.split('/').filter(x => x !== '');
         if (!!parents && parents.length > 0) return `/${parents[0]}`;
     }

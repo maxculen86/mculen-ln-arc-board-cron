@@ -17,6 +17,11 @@ describe('Utils - SectionUtils', () => {
         expect(parent).toBe('/recetas');
     });
 
+    it('getFirstParentSection test with empty object', () => {
+        const parent = getFirstParentSection({});
+        expect(parent).toBe(null);
+    });
+
     it('getSectionLogo test BBC', () => {
         const sections = notaBBC.taxonomy.sections;
         const layout = 'LN-nota-noticia';

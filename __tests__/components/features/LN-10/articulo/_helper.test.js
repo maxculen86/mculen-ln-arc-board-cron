@@ -19,7 +19,8 @@ import {
     showSubheadText,
     showSection,
     getDataAuthor,
-    getDataAttributesForViewability
+    getDataAttributesForViewability,
+    translateSectionName
 } from '../../../../../components/features/LN-10/article/_helper';
 import { isInApertura } from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
@@ -120,6 +121,24 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             expect(result).toBeFalsy();
         });
     });
+
+    describe('Test function translateSectionName', () => {
+        it('Should translate empty string', () => {
+            const result = translateSectionName('');
+            expect(result).toBe('');
+        });
+
+        it('Should translate section from sectionsTranslate', () => {
+            const result = translateSectionName('edicion-impresa');
+            expect(result).toBe('Edición Impresa');
+        });
+
+        it('Should translate section not included in sectionsTranslate', () => {
+            const result = translateSectionName('revista-brando');
+            expect(result).toBe('Revista Brando');
+        });
+    });
+
     describe('Test function showSection', () => {
         it('should showSection', () => {
             const result = showSection({
@@ -129,6 +148,15 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 authorPhoto: true
             });
             expect(result).toBeTruthy();
+        });
+        it('should showSection if article is an empty object', () => {
+            const result = showSection({
+                withSection: true,
+                article: {},
+                authors: '',
+                authorPhoto: true
+            });
+            expect(result).toBe('');
         });
         it('should not showSection withSection false', () => {
             const result = showSection({
