@@ -36,7 +36,7 @@ export const infoLNMainLN10 = {
     multimedia: { tipoSeccion: 'tema', idSeccion: 305 },
     'ln-10/timeline': { tipoSeccion: 'timeline', idSeccion: 703 },
     'ln-common/ln10_en_vivo': { tipoSeccion: 'enVivo', idSeccion: 700 },
-    hashtag: { tipoSeccion: 'hashTag', idSeccion: 305 },
+    hashtag: { tipoSeccion: 'hashtag', idSeccion: 305 },
     'sub-exclusive': { tipoSeccion: 'suscriptor', idSeccion: 305 },
     propiedades: { tipoSeccion: 'propiedades', idSeccion: 305 },
     campo: { tipoSeccion: 'campo', idSeccion: 305 },
