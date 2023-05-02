@@ -99,10 +99,10 @@ describe('boxInfoComplete', () => {
 
         expect(result).toEqual({
             ...box,
-            tituloCaja: information.title,
+            tituloCaja: information.title.toUpperCase(),
             url: information.link,
             parameters: {
-                title: information.title,
+                title: information.title.toUpperCase(),
                 url: information.link,
                 badge: information.chapita,
                 badgeStyle: information.chapitaStyle
@@ -139,10 +139,10 @@ describe('boxInfoComplete', () => {
         boxInfoBasic.mockReturnValue({});
 
         const expectedBox = {
-            tituloCaja: information.title,
+            tituloCaja: information.title.toUpperCase(),
             url: information.link,
             parameters: {
-                title: information.title,
+                title: information.title.toUpperCase(),
                 url: information.link,
                 badge: information.chapita,
                 badgeStyle: information.chapitaStyle

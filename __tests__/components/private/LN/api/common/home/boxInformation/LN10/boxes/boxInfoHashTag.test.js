@@ -10,7 +10,7 @@ describe('boxInfoHashTag', () => {
         };
         const section = 'test-section';
         const typeSection = 'test-type';
-        const expectedTitle = 'Test Hashtag';
+        const expectedTitle = 'TEST HASHTAG';
 
         const box = boxInfoHashTag(information, section, typeSection);
 
@@ -21,7 +21,7 @@ describe('boxInfoHashTag', () => {
     it('should return the default title when information hideTitle is true', () => {
         const section = 'test-section';
         const typeSection = 'test-type';
-        const expectedTitle = 'Hashtag';
+        const expectedTitle = 'HASHTAG';
         const information = {
             title: 'Test Hashtag',
             hideTitle: true
@@ -36,7 +36,7 @@ describe('boxInfoHashTag', () => {
     it('should return the default title when information title is not provided', () => {
         const section = 'test-section';
         const typeSection = 'test-type';
-        const expectedTitle = 'Hashtag';
+        const expectedTitle = 'HASHTAG';
         const information = {
             title: null
         };

@@ -13,9 +13,9 @@ export const boxInfoHashTag = (information, section, typeSection) => {
     if (box && information) {
         return {
             ...box,
-            tituloCaja: title || 'Hashtag',
+            tituloCaja: (title || 'Hashtag').toUpperCase(),
             parameters: {
-                title: title || 'Hashtag'
+                title: (title || 'Hashtag').toUpperCase()
             }
         };
     }

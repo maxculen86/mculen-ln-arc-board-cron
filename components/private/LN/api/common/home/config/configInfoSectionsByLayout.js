@@ -42,9 +42,10 @@ export const infoLNMainLN10 = {
     campo: { tipoSeccion: 'campo', idSeccion: 305 },
     bienestar: { tipoSeccion: 'bienestar', idSeccion: 305 },
     movilidad: { tipoSeccion: 'movilidad', idSeccion: 305 },
-    default: { tipoSeccion: 'tema', idSeccion: 305 },
     welfare: { tipoSeccion: 'bienestar', idSeccion: 305 },
-    title: { tipoSeccion: 'title', idSeccion: 704 }
+    title: { tipoSeccion: 'title', idSeccion: 704 },
+    ranking: { tipoSeccion: 'ranking', idSeccion: 701 },
+    default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 
 const configInfoSectionsByLayout = layout => {

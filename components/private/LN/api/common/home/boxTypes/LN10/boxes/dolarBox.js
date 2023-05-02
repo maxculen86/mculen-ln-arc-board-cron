@@ -7,10 +7,10 @@ export const dolarBox = (element, typeSection) => {
     return {
         ...type,
         idSeccion: element.id,
-        tituloCaja: 'Cotización hoy',
+        tituloCaja: 'COTIZACIÓN HOY',
         url: 'https://www.lanacion.com.ar/economia/dolar/',
         parameters: {
-            title: 'Cotización hoy',
+            title: 'COTIZACIÓN HOY',
             url: 'https://www.lanacion.com.ar/economia/dolar/'
         }
     };

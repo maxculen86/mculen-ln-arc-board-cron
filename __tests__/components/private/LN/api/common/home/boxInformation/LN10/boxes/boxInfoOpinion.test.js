@@ -8,7 +8,7 @@ describe('boxInfoOpinion', () => {
             const section = '';
             const typeSection = '';
             const box = { tituloCaja: 'some value' };
-            const expectedBox = { ...box, tituloCaja: box.tituloCaja };
+            const expectedBox = { ...box, tituloCaja: 'SOME VALUE' };
             const boxInfoCompleteSpy = jest.spyOn(
                 boxInfoCompleteModule,
                 'boxInfoComplete'
@@ -25,7 +25,7 @@ describe('boxInfoOpinion', () => {
             const section = '';
             const typeSection = '';
             const box = { tituloCaja: null };
-            const expectedBox = { ...box, tituloCaja: 'Opinión' };
+            const expectedBox = { ...box, tituloCaja: 'OPINIÓN' };
             const boxInfoCompleteSpy = jest.spyOn(
                 boxInfoCompleteModule,
                 'boxInfoComplete'
@@ -44,7 +44,7 @@ describe('boxInfoOpinion', () => {
             const box = { parameters: {} };
             const expectedBox = {
                 ...box,
-                parameters: { title: 'Opinión' }
+                parameters: { title: 'OPINIÓN' }
             };
             const boxInfoCompleteSpy = jest.spyOn(
                 boxInfoCompleteModule,
@@ -82,11 +82,11 @@ describe('boxInfoOpinion', () => {
             const section = '';
             const typeSection = '';
             const expectedBox = {
-                tituloCaja: 'Opinión',
+                tituloCaja: 'OPINIÓN',
                 url: 'https://www.lanacion.com.ar/opinion/',
                 parameters: {
                     url: 'https://www.lanacion.com.ar/opinion/',
-                    title: 'Opinión'
+                    title: 'OPINIÓN'
                 }
             };
             const boxInfoCompleteSpy = jest.spyOn(

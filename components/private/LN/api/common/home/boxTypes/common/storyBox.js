@@ -4,11 +4,12 @@ import { orderArticles } from '../../utils/helpers';
 const articlesMap = (articles, informationBox, articleFn, paramsFromPage) => {
     const { sectionWeb } = informationBox;
 
-    return articles.reduce((result, f) => {
+    return articles.reduce((result, f, index) => {
         if (f) {
             try {
                 const article = articleFn({
                     ...f,
+                    index,
                     informationBox,
                     storyType: 'home'
                 });

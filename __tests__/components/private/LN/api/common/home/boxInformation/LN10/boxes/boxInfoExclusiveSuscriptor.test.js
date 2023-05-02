@@ -14,7 +14,7 @@ describe('boxInfoExclusiveSuscriptor', () => {
             typeSection
         );
         expect(box).toBeDefined();
-        expect(box.parameters.title).toBe('Exclusivo suscriptores');
+        expect(box.parameters.title).toBe('EXCLUSIVO SUSCRIPTORES');
     });
 
     it('should assign default title to box parameters if no title is provided', () => {
@@ -29,7 +29,7 @@ describe('boxInfoExclusiveSuscriptor', () => {
             typeSection
         );
         expect(box).toBeDefined();
-        expect(box.tituloCaja).toBe('Exclusivo suscriptores');
+        expect(box.tituloCaja).toBe('EXCLUSIVO SUSCRIPTORES');
     });
 
     it('should set buttonText and linkButton of information to null', () => {
@@ -77,10 +77,10 @@ describe('boxInfoExclusiveSuscriptor', () => {
         };
 
         const expectedBox = {
-            tituloCaja: 'titulo',
+            tituloCaja: 'TITULO',
             imageUrl: 'https://www.example.com/image.jpg',
             parameters: {
-                title: 'titulo',
+                title: 'TITULO',
                 url: undefined,
                 badge: undefined,
                 badgeStyle: undefined

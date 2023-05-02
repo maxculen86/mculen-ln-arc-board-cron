@@ -3,6 +3,7 @@ import { CardRegular } from './cardRegular';
 import { CardLiveblog } from './cardLiveblog';
 import { CardAuthor } from './cardAuthor';
 import { CardOpinion } from './cardOpinion';
+import { getDesign } from './elements/design/index';
 
 const articleComponents = {
     regular: CardRegular,
@@ -12,6 +13,7 @@ const articleComponents = {
     liveblogEnVivo: CardRegular
 };
 
+// TODO: Analizar si en este paso es mejor colocar las propiedades del design segun el archivo de configuracion: /layouts/config/api-diagramations/LN10-Home_Main.json
 export const Article = article => {
     const tipo =
         get(article, 'additionalProperties.variant', 'regular') || 'regular';
@@ -19,7 +21,7 @@ export const Article = article => {
     const Component = articleComponents[tipo];
     return {
         design: {
-            ...get(article, 'additionalProperties.diseno', null),
+            ...getDesign(article),
             typeCard: tipo
         },
         ...Component(article)

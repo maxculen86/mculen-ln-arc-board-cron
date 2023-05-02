@@ -9,7 +9,7 @@ export const getFlyertext = article => {
             get(article, 'informationBox.sectionAliasMobile', null)
         )
     ) {
-        return flyerEditorial || flyerArticle;
+        return (flyerEditorial || flyerArticle || '').toUpperCase();
     }
 
     return flyerArticle || flyerEditorial;

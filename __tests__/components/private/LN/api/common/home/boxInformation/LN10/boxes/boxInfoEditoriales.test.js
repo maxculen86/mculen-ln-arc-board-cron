@@ -13,11 +13,11 @@ describe('boxInfoEditorial', () => {
 
         expect(result).toMatchObject({
             ...boxInfoComplete(information, section, typeSection),
-            tituloCaja: 'Editoriales',
+            tituloCaja: 'EDITORIALES',
             diagramacion: 'editoriales2',
             url: 'https://www.lanacion.com.ar/editoriales/',
             parameters: {
-                title: 'Editoriales',
+                title: 'EDITORIALES',
                 url: 'https://www.lanacion.com.ar/editoriales/'
             }
         });
@@ -34,11 +34,11 @@ describe('boxInfoEditorial', () => {
 
         expect(result).toMatchObject({
             ...boxInfoComplete(information, section, typeSection),
-            tituloCaja: 'Editoriales',
+            tituloCaja: 'EDITORIALES',
             diagramacion: 'editoriales2',
             url: 'https://www.lanacion.com.ar/editoriales/',
             parameters: {
-                title: 'Editoriales',
+                title: 'EDITORIALES',
                 url: 'https://www.lanacion.com.ar/editoriales/'
             }
         });
@@ -55,11 +55,11 @@ describe('boxInfoEditorial', () => {
 
         expect(result).toMatchObject({
             ...boxInfoComplete(information, section, typeSection),
-            tituloCaja: 'Editoriales',
+            tituloCaja: 'EDITORIALES',
             diagramacion: 'editoriales2',
             url: 'https://www.lanacion.com.ar/editoriales/',
             parameters: {
-                title: 'Editoriales',
+                title: 'EDITORIALES',
                 url: 'https://www.lanacion.com.ar/editoriales/'
             }
         });

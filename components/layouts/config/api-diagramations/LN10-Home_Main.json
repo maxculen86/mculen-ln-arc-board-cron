@@ -612,7 +612,7 @@
         {
             "variants": ["regular"],
             "T1": {
-                "size": "M",
+                "size": "XL",
                 "imagePosition": "Top"
             },
             "T2": {
@@ -748,6 +748,31 @@
             },
             "T9": {
                 "size": "M"
+            }
+        }
+    ],
+    "ranking-1-2-2_grid": [
+        {
+            "variants": ["regular"],
+            "T1": {
+                "size": "XL",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "M",
+                "imagePosition": "Right"
+            },
+            "T5": {
+                "size": "M",
+                "imagePosition": "Right"
             }
         }
     ]

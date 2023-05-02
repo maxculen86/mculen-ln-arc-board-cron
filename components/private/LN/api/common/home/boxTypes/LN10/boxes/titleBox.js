@@ -12,10 +12,10 @@ export const titleBox = (element, typeSection) => {
     }
     return {
         ...type,
-        tituloCaja: information.title || 'Opinión',
+        tituloCaja: (information.title || 'Opinión').toUpperCase(),
         url: !information.hideTitle ? information.url : null,
         parameters: {
-            title: information.title || 'Opinión',
+            title: (information.title || 'Opinión').toUpperCase(),
             url: !information.hideTitle ? information.url : null
         }
     };
