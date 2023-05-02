@@ -193,7 +193,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         >
           <a
             class="link"
-            href="https://edicionimpresa.lanacion.com.ar/la-nacion?_ga=2.226421138.948268382.1669638459-1845108145.1619557251"
+            href="https://edicionimpresa.lanacion.com.ar/la-nacion?_ga=2.226421138.948268382.1669638459-1845108145.1619557251/"
             target="_self"
             title="Ir a Edición impresa"
           >
@@ -406,7 +406,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         >
           <a
             class="link"
-            href="https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327"
+            href="https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327/"
             target="_self"
             title="Ir a Máster en periodismo"
           >
@@ -462,7 +462,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         >
           <a
             class="link"
-            href="https://www.contacto.lanacion.com.ar/ayuda?_ga=2.125953413.948268382.1669638459-1845108145.1619557251"
+            href="https://www.contacto.lanacion.com.ar/ayuda?_ga=2.125953413.948268382.1669638459-1845108145.1619557251/"
             target="_self"
             title="Ir a Ayuda"
           >
@@ -478,7 +478,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         >
           <a
             class="link"
-            href="https://club.lanacion.com.ar/ayuda "
+            href="https://club.lanacion.com.ar/ayuda/"
             target="_self"
             title="Ir a Atención al socio"
           >
@@ -494,7 +494,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         >
           <a
             class="link"
-            href="https://www.contacto.lanacion.com.ar/tyc?_ga=2.125953413.948268382.1669638459-1845108145.1619557251"
+            href="https://www.contacto.lanacion.com.ar/tyc?_ga=2.125953413.948268382.1669638459-1845108145.1619557251/"
             target="_self"
             title="Ir a Términos y condiciones"
           >
@@ -526,7 +526,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         >
           <a
             class="link"
-            href="https://suscripciones.lanacion.com.ar/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251"
+            href="https://suscripciones.lanacion.com.ar/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251/"
             target="_self"
             title="Ir a Suscribirse al diario impreso"
           >
