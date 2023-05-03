@@ -10,8 +10,7 @@ export const getValidElementForPreload = (layout, renderables) => {
             position: 'Pre_Apertura.position',
             config: sectionsValidationLN10,
             typeElement: 'LN10_Caja_Bomba',
-            renderables,
-            propNameHide: 'hideCaja'
+            renderables
         });
 
         return (
@@ -40,8 +39,7 @@ export const getValidElementForPreload = (layout, renderables) => {
             position: 'Apertura_1.position',
             config: sectionsValidation,
             typeElement: 'Ln_Caja_Manual',
-            renderables,
-            propNameHide: 'hideCaja'
+            renderables
         }) ||
         []
     );

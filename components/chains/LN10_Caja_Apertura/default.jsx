@@ -30,7 +30,7 @@ const CajaApertura = props => {
     const {
         id: chainId,
         isAdmin,
-        customFields: { layout = '', hideBox },
+        customFields: { layout = '', hideCaja },
         childProps,
         children,
         renderables = []
@@ -41,7 +41,7 @@ const CajaApertura = props => {
         chainId,
         renderables,
         sectionValidation,
-        hideChain: hideBox,
+        hideChain: hideCaja,
         nameSection: 'Apertura',
         dataSection: 'apertura',
         callbackValidation: isInOpening =>
@@ -99,7 +99,13 @@ const CajaApertura = props => {
         </>
     );
 
-    return setRender({ isAdmin, error, hideBox, Component, extraOptsDiv });
+    return setRender({
+        isAdmin,
+        error,
+        hideBox: hideCaja,
+        Component,
+        extraOptsDiv
+    });
 };
 
 CajaApertura.label = 'LN10 Caja Apertura';

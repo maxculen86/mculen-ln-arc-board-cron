@@ -413,7 +413,7 @@ const layoutAndPreHeader = [
                                 imageId: '',
                                 title: 'Caja Apertura',
                                 hideTitle: false,
-                                hideBox: false
+                                hideCaja: false
                             },
                             displayProperties: {}
                         },
@@ -2668,7 +2668,7 @@ export const getMockRenderables = ({
                             imageId: '',
                             title: 'Caja Apertura',
                             hideTitle: false,
-                            hideBox: hideApertura
+                            hideCaja: hideApertura
                         },
                         displayProperties: {}
                     },

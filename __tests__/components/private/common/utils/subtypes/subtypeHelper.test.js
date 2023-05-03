@@ -34,12 +34,15 @@ describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
         it('Should return false for an empty string', () => {
             expect(isFotoAl100orStorytelling('')).toBeFalsy();
         });
+
         it('Should return false for a number', () => {
             expect(isFotoAl100orStorytelling(8)).toBeFalsy();
         });
+
         it('Should return false for an empty array', () => {
             expect(isFotoAl100orStorytelling([])).toBeFalsy();
         });
+
         it('Should return false without a parameter', () => {
             expect(isFotoAl100orStorytelling()).toBeFalsy();
         });
@@ -53,19 +56,40 @@ describe('Private - Common - Utils - subtypeNotesWithoutAmp - subtypeHelper', ()
                 '/agencias/eeuu-y-rusia-chocan-por-responsabilidad-de-ataque-con-misil-nid17112022/'
             )
         ).toBeTruthy();
+
         expect(
             subtypeNotesWithoutAmp(
                 '/juegos/mock-juego-inexistente-nid18122022/'
             )
         ).toBeTruthy();
+
+        expect(
+            subtypeNotesWithoutAmp(
+                '/economia/campo/los-principales-precandidatos-presidenciales-ya-tienen-sus-referentes-para-buscar-el-voto-del-campo-nid02052023/'
+            )
+        ).toBeTruthy();
+
         expect(
             subtypeNotesWithoutAmp(
                 '/recetas/cocina/camarones-dinamita-nid31012023/'
             )
         ).toBeTruthy();
+
+        expect(
+            subtypeNotesWithoutAmp(
+                '/salud/la-inteligencia-que-se-puede-entrenar-y-desarrollar-nid30042023/'
+            )
+        ).toBeTruthy();
+
         expect(
             subtypeNotesWithoutAmp(
                 '/propiedades/inmuebles-comerciales/los-barrios-que-vienen-nid02122020/'
+            )
+        ).toBeTruthy();
+
+        expect(
+            subtypeNotesWithoutAmp(
+                '/autos/los-0km-pasaron-la-barrera-de-los-4-millones-nid01052023/'
             )
         ).toBeTruthy();
     });

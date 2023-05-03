@@ -12,7 +12,6 @@ import {
     isInApertura,
     isImageEager
 } from '../../../private/LN/home/components/noteCard/noteCardHelper';
-import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
@@ -28,6 +27,7 @@ import ErrorBoundary from '../../../private/common/ErrorBoundary';
 import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelper';
 import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
+import { getChainConfig } from '../../LN-10/article/common/_helper-WebApi';
 
 const ArticleFeature = ({
     id: featureId,
@@ -48,13 +48,12 @@ const ArticleFeature = ({
     const { cajaTemaConfig } = getProperties(arcSite);
     const { registerSuccessEvent } = useComponentContext();
 
-    const {
-        config,
-        index,
-        boxPosition,
-        layout,
-        imageConfig
-    } = getCajaTemaConfig(featureId, renderables, cajaTemaConfig, isBomba);
+    const { config, index, boxPosition, layout, imageConfig } = getChainConfig({
+        isBomba,
+        featureId,
+        renderables,
+        cajaTemaConfig
+    });
 
     const isBombaHidden = () => {
         const bomba = getChildrenFromSectionHome(renderables, 'Bomba', 2) || [];

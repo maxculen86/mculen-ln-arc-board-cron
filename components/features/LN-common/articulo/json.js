@@ -1,9 +1,9 @@
 import Consumer from 'fusion:consumer';
 import getProperties from 'fusion:properties';
-import getCajaTemaConfig from '../../../private/LN/home/components/noteCard/noteCardImageHelper';
 import { renderProps } from '../../../private/LN/api/global/components/features/article/LN/renderProps';
 import { articleSourceNotaSourceInclude } from '../../../private/LN/api/global/components/features/article/common/sources/articleSourceNotaSourceInclude';
 import get from '../../../private/common/utils/get';
+import { getChainConfig } from '../../LN-10/article/common/_helper-WebApi';
 
 class ArticleFeature {
     constructor(props) {
@@ -21,12 +21,12 @@ class ArticleFeature {
         if (renderables) {
             const { cajaTemaConfig } = getProperties(arcSite);
 
-            imageConfig = getCajaTemaConfig(
+            imageConfig = getChainConfig({
+                isBomba: false,
                 featureId,
                 renderables,
-                cajaTemaConfig,
-                false
-            ).imageConfig;
+                cajaTemaConfig
+            }).imageConfig;
         }
         video &&
             video.trim() &&

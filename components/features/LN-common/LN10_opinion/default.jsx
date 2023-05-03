@@ -14,7 +14,7 @@ import getDataChainCollection from '../../../chains/utils/getDataChainCollection
 import {
     getCommonProps,
     getMarkupForDatalayer
-} from '../../../private/LN/common/utils/cajaTemasHelperLN10';
+} from '../../../private/LN/common/utils/cajaTemasHelper';
 import diagramationRules from '../../../private/common/utils/diagramationRules';
 import StaticContent from '../../../private/common/staticContent';
 import setRender from '../../../chains/utils/setRender';

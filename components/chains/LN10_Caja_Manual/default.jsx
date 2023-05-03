@@ -6,7 +6,7 @@ import PropTypes from 'fusion:prop-types';
 import {
     getCommonProps,
     getMarkupForDatalayer
-} from '../../private/LN/common/utils/cajaTemasHelperLN10';
+} from '../../private/LN/common/utils/cajaTemasHelper';
 import validateCajaManual from './common/_helper-WebApi';
 import getGridType from '../utils/getGridType';
 import setRender from '../utils/setRender';

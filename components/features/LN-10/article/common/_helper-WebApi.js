@@ -10,6 +10,7 @@ import {
     EXCLUSIVE_LN
 } from '../../../../private/common/badge/types';
 import { getValidElementForPreload } from '../../../../private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/common/helper-WebApi';
+import getChainPosition from '../../../../private/common/utils/getChainPosition';
 
 export const typeBadge = {
     0: POSITIVE,
@@ -38,85 +39,71 @@ export const getLiveblogTitlesApi = articleData => {
 export const getIsBomba = parent =>
     get(parent, 'type', '') === 'LN10_Caja_Bomba';
 
-const getImageConfig = ({
-    renderables,
-    layoutsName,
-    articlePosition,
-    layout
-}) => {
+const getImageConfig = ({ renderables, layoutsName, config }) => {
     return renderables.some(
         elem =>
             get(elem, 'collection') === 'layouts' &&
             get(elem, 'type', '') === layoutsName.HomeLN10
     )
-        ? get(
-              diagramationRules(layout),
-              `[${articlePosition}].imageConfig`,
-              'boxArticles'
-          )
+        ? get(config, 'imageConfig', 'boxArticles')
         : '';
 };
 
-const getFeatureData = (featureId, renderables = []) => {
+export const getChainParentOfFeature = (featureId, renderables) => {
     const chains = [
         'LN10_Caja_Manual',
         'LN10_Caja_Apertura',
         'LN10_Caja_Bomba',
         'LN10_Caja_Collection',
-        'LN10_Caja_Canal'
+        'LN10_Caja_Canal',
+        'Ln_Caja_Manual'
     ];
 
     return renderables.find(
         elem =>
             get(elem, 'collection') === 'chains' &&
             chains.includes(get(elem, 'type', '')) &&
-            get(elem, 'children') &&
-            elem.children.some(child => get(child, 'props.id') === featureId)
+            get(elem, 'children', []).some(
+                child => get(child, 'props.id') === featureId
+            )
     );
 };
 
-export const getChainParentOfFeature = (featureId, renderables) => {
-    return getFeatureData(featureId, renderables);
+const getCardConfig = (cajaTemaConfig, layout, articlePosition) => {
+    if (cajaTemaConfig)
+        return get(
+            cajaTemaConfig,
+            `${layout}.articles[${articlePosition}]`,
+            null
+        );
+
+    const cardConfig = diagramationRules(layout);
+    return cardConfig && cardConfig[articlePosition];
 };
 
-// TODO: agregar test (sin mockear return) y reemplazar codigo repetido a esta logica que se encuentra en otros arhivos como noteCardImageHelper.js y cajaTemasHelperLN10.js
-// TODO: unificar custom field hideBox que tiene la chain apertura por hideCaja que tiene el resto de chains
-export const getChainConfig = (featureId, renderables, cajaTemaConfig) => {
+export const getChainConfig = ({ featureId, renderables, cajaTemaConfig }) => {
     const { layoutsName = {} } = siteConfig || {};
-    const parent = getFeatureData(featureId, renderables);
-    const position =
-        renderables
-            .filter(ren => get(ren, 'collection') === 'chains')
-            .filter(
-                chain =>
-                    get(chain, 'props.customFields.hideCaja', false) !== true &&
-                    get(chain, 'props.customFields.hideBox', false) !== true
-            )
-            .findIndex(
-                chain => get(chain, 'props.id') === get(parent, 'props.id')
-            ) || 0;
+    const parent = getChainParentOfFeature(featureId, renderables);
+    const chainId = get(parent, 'props.id', '');
+    const chainPosition = getChainPosition(chainId, renderables);
+    const layout = get(parent, 'props.customFields.layout', '');
 
-    const index = get(parent, 'children', []).findIndex(
+    const articlePosition = get(parent, 'children', []).findIndex(
         elem => elem && get(elem, 'props.id') === featureId
     );
-
-    const layout = get(parent, 'props.customFields.layout', '');
-    const cardConfig = diagramationRules(layout);
-    const config = cardConfig && cardConfig[index];
+    const config = getCardConfig(cajaTemaConfig, layout, articlePosition);
 
     return {
         imageConfig: getImageConfig({
             renderables,
             layoutsName,
-            cajaTemaConfig,
-            articlePosition: index,
-            layout
+            config
         }),
         config,
-        index,
-        boxPosition: `0${Number(position) + 1}`.slice(-2),
+        index: articlePosition,
+        boxPosition: `0${Number(chainPosition) + 1}`.slice(-2),
         layout,
-        chainId: get(parent, 'props.id', '')
+        chainId
     };
 };
 

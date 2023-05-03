@@ -155,29 +155,6 @@ export const validateArticleFeature = (
     return pageBuilderValidator(rules);
 };
 
-export const getCajaTemaConfig = (featureId, renderables, cajaTemaConfig) => {
-    const parent = renderables.find(
-        elem =>
-            elem.collection === 'chains' &&
-            elem.type === 'Ln_Caja_Manual' &&
-            elem.children &&
-            elem.children.some(
-                child => child && child.props && child.props.id === featureId
-            )
-    );
-    const index =
-        parent &&
-        parent.children.findIndex(elem => elem && elem.props.id === featureId);
-
-    const directionFocal =
-        parent &&
-        parent.props &&
-        parent.props.customFields &&
-        parent.props.customFields.layout;
-
-    return get(cajaTemaConfig, `${directionFocal}.articles[${index}]`, null);
-};
-
 export const getCommonPropsJson = props => {
     const {
         customFields: { layout = '' }

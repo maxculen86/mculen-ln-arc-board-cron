@@ -12,7 +12,7 @@ describe('Tests function getElementFromRenderables', () => {
         config: sectionsConfigLN10,
         typeElement: 'LN10_Caja_Apertura',
         renderables: getMockRenderables(),
-        propNameHide: 'hideBox'
+        propNameHide: 'hideCaja'
     };
 
     const propsByBomba = {

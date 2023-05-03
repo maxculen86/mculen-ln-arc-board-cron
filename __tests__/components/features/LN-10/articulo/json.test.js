@@ -127,7 +127,7 @@ jest.mock(
     () => {
         return {
             __esModule: true,
-            getChainConfig: (featureId, renderables, cajaTemaConfig) => {
+            getChainConfig: ({ featureId, renderables, cajaTemaConfig }) => {
                 if (featureId === 'error') {
                     return {
                         index: 0,

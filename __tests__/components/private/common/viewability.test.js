@@ -10,7 +10,6 @@ import Consumer from 'fusion:consumer';
 import ModArticle from '../../../../components/private/common/mod-article';
 import Article from '../../../../components/private/common/mod-article';
 import ArticleAcum from '../../../../components/private/LN/acumulado/articleAcum';
-import BombaFeature from '../../../../components/features/LN-common/bomba/default';
 import articles from '../../../../__mocks__/data/articles/articles.json';
 import renderables1 from '../../../../__mocks__/data/renderables/data1';
 import { useContent } from 'fusion:content';
@@ -352,48 +351,6 @@ describe('Viewability', () => {
             expect(window.dataLayer[7].product.brand).toBe('_0');
             expect(window.dataLayer[7].product.list).toBe('h_editoriales');
             expect(window.dataLayer[7].product.name).toBe('');
-        });
-
-        it('when clicks in BOMBA should save in dataLayer data attr from article', () => {
-            useContent.mockImplementation(() => articles[0]);
-            Context.useComponentContext = jest.fn(() => ({}));
-            Context.useAppContext = jest.fn(() => ({
-                isAdmin: false,
-                renderables: [],
-                arcSite: 'la-nacion-ar'
-            }));
-
-            const articlesBomba = [articles[0]];
-            const propsBomba = {
-                // articles: articlesBomba,
-                // notesQuantity: 2,
-                // position: '01',
-                customFields: {
-                    title: 'Titulo de Nota',
-                    noteId: 'K2FFK3J6DNCX3D76BQ6D7FLQNE'
-                },
-                sectionName: 'bomba',
-                handleClick: productClickFromClient
-            };
-
-            const seccionBomba = mount(<BombaFeature {...propsBomba} />);
-            //const componentMod = shallow(<ModArticle {...props} />);
-            expect(seccionBomba).toBeTruthy();
-            expect(seccionBomba.props()).toEqual(propsBomba);
-            // expect(seccionBomba.props().layout).toBe('h_00');
-            const artBomba = seccionBomba.find(ModArticle);
-            expect(artBomba.length).toBe(1);
-            artBomba.first().simulate('click');
-            expect(window.dataLayer.length).toBe(9);
-            expect(window.dataLayer[8].event).toBe('productClickScore');
-            expect(window.dataLayer[8].product.position).toBe('010001');
-            expect(window.dataLayer[8].product.id).toBe(
-                'K2FFK3J6DNCX3D76BQ6D7FLQNE'
-            );
-            expect(window.dataLayer[8].product.variant).toBe('editor');
-            expect(window.dataLayer[8].product.brand).toBe('bomba_h_00');
-            expect(window.dataLayer[8].product.list).toBe('h_tema-00');
-            expect(window.dataLayer[8].product.name).toBe('');
         });
 
         it('It should increase the index of the items', () => {

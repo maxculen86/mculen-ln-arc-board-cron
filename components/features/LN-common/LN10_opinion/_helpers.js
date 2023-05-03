@@ -4,7 +4,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { Card } from '@ln/contenidos-ui-card';
-import { cajaTemasCustomsFields } from '../../../private/LN/common/utils/cajaTemasHelperLN10';
+import setCommonCustomFields from '../../../chains/utils/setCommonCustomFields';
 import getArticleInCollection from '../../../private/LN/common/hooks/useGetArticleInCollection';
 import getCardConfig, {
     getTitleAndLeadForHome
@@ -186,14 +186,7 @@ export const customFieldsOpinion = {
         group: ajusCollection,
         hidden: false
     }).isRequired,
-    ...cajaTemasCustomsFields('cajaOpinion'),
-    navigator: PropTypes.string.tag({
-        name: 'Navegador',
-        description:
-            'Ingrese aquí el nombre de una navegación creada en site services',
-        defaultValue: '',
-        group: 'Techo'
-    })
+    ...setCommonCustomFields('cajaOpinion')
 };
 
 export default customFieldsOpinion;
