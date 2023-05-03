@@ -556,9 +556,9 @@
     flex-direction: column-reverse;
   }
   .ln-card.--mobile-img-bottom .link .description-container .badge {
-    bottom: 0;
+    bottom: calc(0px - var(--gap-img) - var(--gap-badge));
     top: auto;
-    transform: translateY(calc(100% + var(--gap-badge)));
+    transform: translateY(100%);
   }
   .ln-card.--mobile-img-bottom.--liveblog > .ln-link {
     flex-direction: column;
@@ -566,21 +566,15 @@
   .ln-card.--mobile-img-bottom.--liveblog > .ln-link .media-container {
     order: 3;
   }
-  .ln-card.--mobile-img-bottom.--liveblog > .ln-link .description-container .badge {
-    bottom: calc(0px - var(--gap-img) - var(--size-2xs));
-    top: auto;
-    transform: translateY(100%);
-    margin-right: var(--size-2xs);
-  }
 }
 @media (min-width: 48rem) and (max-width: 79.9375rem) {
   .ln-card.--tablet-img-bottom .link {
     flex-direction: column-reverse;
   }
   .ln-card.--tablet-img-bottom .link .description-container .badge {
-    bottom: 0;
+    bottom: calc(0px - var(--gap-img) - var(--gap-badge));
     top: auto;
-    transform: translateY(calc(100% + var(--gap-badge)));
+    transform: translateY(100%);
   }
   .ln-card.--tablet-img-bottom.--liveblog > .ln-link {
     flex-direction: column;
@@ -588,33 +582,21 @@
   .ln-card.--tablet-img-bottom.--liveblog > .ln-link .media-container {
     order: 3;
   }
-  .ln-card.--tablet-img-bottom.--liveblog > .ln-link .description-container .badge {
-    bottom: calc(0px - var(--gap-img) - var(--size-2xs));
-    top: auto;
-    transform: translateY(100%);
-    margin-right: var(--size-2xs);
-  }
 }
 @media (min-width: 80rem) {
   .ln-card.--desktop-img-bottom .link {
     flex-direction: column-reverse;
   }
   .ln-card.--desktop-img-bottom .link .description-container .badge {
-    bottom: 0;
+    bottom: calc(0px - var(--gap-img) - var(--gap-badge));
     top: auto;
-    transform: translateY(calc(100% + var(--gap-badge)));
+    transform: translateY(100%);
   }
   .ln-card.--desktop-img-bottom.--liveblog > .ln-link {
     flex-direction: column;
   }
   .ln-card.--desktop-img-bottom.--liveblog > .ln-link .media-container {
     order: 3;
-  }
-  .ln-card.--desktop-img-bottom.--liveblog > .ln-link .description-container .badge {
-    bottom: calc(0px - var(--gap-img) - var(--size-2xs));
-    top: auto;
-    transform: translateY(100%);
-    margin-right: var(--size-2xs);
   }
 }
 .ln-card.--txt-center .description-container {
