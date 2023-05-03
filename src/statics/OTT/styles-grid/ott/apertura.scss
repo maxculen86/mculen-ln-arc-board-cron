@@ -61,6 +61,19 @@
 .ultimos-videos {
     padding-left: 10px;
     padding-right: 10px;
+    min-height: 220px;
+    @media (min-width: 375px) {
+        min-height: 250px;
+    }
+    @media (min-width: 500px) {
+        min-height: 300px;
+    }
+    @media (min-width: 1024px) {
+        min-height: 320px;
+    }
+    @media (min-width: 1280px) {
+        min-height: 360px;
+    }
 }
 
 .apertura iframe,

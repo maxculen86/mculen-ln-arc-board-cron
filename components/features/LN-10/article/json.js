@@ -1,5 +1,4 @@
 import Consumer from 'fusion:consumer';
-import getProperties from 'fusion:properties';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { renderProps } from '../../../private/LN/api/global/components/features/article/LN10/renderProps';
 import { articleSourceNotaSourceInclude } from '../../../private/LN/api/global/components/features/article/common/sources/articleSourceNotaSourceInclude';
@@ -20,15 +19,12 @@ class ArticleFeature {
         const {
             customFields: { noteId, imageId, video: videoId, variant },
             id: featureId,
-            arcSite,
             renderables = [],
             layout: layoutPageBuilder
         } = props;
-        const { cajaTemaConfig } = getProperties(arcSite);
         const { layoutsName = {} } = siteConfig || {};
 
-        this.configs =
-            getChainConfig(featureId, renderables, cajaTemaConfig) || {};
+        this.configs = getChainConfig({ featureId, renderables }) || {};
         const { config = {}, index } = this.configs;
         this.onlyOneApeturaValidateForWWW = isInApertura({
             layoutPageBuilder,

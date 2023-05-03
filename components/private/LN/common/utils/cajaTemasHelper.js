@@ -4,10 +4,11 @@ import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 import { formatText } from '../../../common/utils/sectionUtils';
 import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
+import getChainPosition from '../../../common/utils/getChainPosition';
 import sectionsValidation from '../../../../layouts/config/LN-Home.config.json';
 
+// TODO: Eliminar estas reglas cuando se remplacen chains viejas por las de LN10 en todo el sitio
 const ajustCollection = 'Ajuste Collection';
-
 const featuredRules = {
     cajaCollection: {
         hideInitialPosition: false,
@@ -219,7 +220,7 @@ export const getCommonProps = props => {
     const classCondition =
         (cajaTemaConfig[layout] && cajaTemaConfig[layout].className) || '';
 
-    const position = findPositionInPageBuilder(idFeature, renderables);
+    const position = getChainPosition(idFeature, renderables);
 
     const positionInsideSection = findPositionInsideSection(
         idFeature,
@@ -250,18 +251,6 @@ export const getCommonProps = props => {
         sectionName,
         positionInsideSection
     };
-};
-
-export const findPositionInPageBuilder = (idFeature, renderables = []) => {
-    return (
-        renderables
-            .filter(ren => ren.collection === 'chains')
-            .filter(
-                chain =>
-                    get(chain, 'props.customFields.hideCaja', false) !== true
-            )
-            .findIndex(chain => chain.props.id === idFeature) || 0
-    );
 };
 
 export const findPositionInsideSection = (idFeature, renderables = []) => {
@@ -342,6 +331,12 @@ export const validateoutItem = itemNota => {
 
     return true;
 };
+
+export const getArticlesOfChain = ({
+    isInSiteService,
+    articlesFromCollectionSiteService = [],
+    articlesToShow = []
+}) => (isInSiteService ? articlesFromCollectionSiteService : articlesToShow);
 
 export const cajaTemasCustomsFields = featuredName => {
     return {
