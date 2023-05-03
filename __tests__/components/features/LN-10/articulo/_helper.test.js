@@ -128,6 +128,11 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
             expect(result).toBe('');
         });
 
+        it('Should translate null', () => {
+            const result = translateSectionName(null);
+            expect(result).toBe('');
+        });
+
         it('Should translate section from sectionsTranslate', () => {
             const result = translateSectionName('edicion-impresa');
             expect(result).toBe('Edición Impresa');

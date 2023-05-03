@@ -12,6 +12,7 @@ import setClassName from '../../../private/common/utils/setClassName';
 import { getIsBomba, getChainParentOfFeature } from './common/_helper-WebApi';
 import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import { getFirstParentSection } from '../../../private/common/utils/sectionUtils';
+import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -51,7 +52,7 @@ export const translateSectionName = sectionName => {
 
     const words = sectionName
         .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1));
+        .map(word => capitalizeFirstLetter(word));
     return words.join(' ');
 };
 
@@ -74,16 +75,15 @@ export const showMarqueeImage = ({
 
 export const showSection = ({ withSection, article, authors, authorPhoto }) => {
     const primarySection = get(article, 'taxonomy.primary_section', {});
-    const firstParentSection =
-        getFirstParentSection(primarySection) !== null
-            ? getFirstParentSection(primarySection).substring(1)
-            : null;
+    const firstParentSection = getFirstParentSection(primarySection);
+    const sectionName =
+        firstParentSection !== null ? firstParentSection.substring(1) : null;
 
     return (
         !authors &&
         authorPhoto &&
         withSection &&
-        translateSectionName(firstParentSection)
+        translateSectionName(sectionName)
     );
 };
 
