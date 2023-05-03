@@ -58,6 +58,8 @@ describe('LN - Common - MetaTitle', () => {
         const { container } = render(<MetaTitle {...customProps} />);
         const metaTitle = container.querySelector('meta');
         expect(metaTitle).toBeInTheDocument();
-        expect(metaTitle.getAttribute('content')).toBe('LA NACION');
+        expect(metaTitle.getAttribute('content')).toBe(
+            'Últimas noticias - LA NACION'
+        );
     });
 });

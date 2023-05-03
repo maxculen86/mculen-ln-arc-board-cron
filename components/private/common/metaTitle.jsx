@@ -24,8 +24,7 @@ const MetaTitle = ({
         let metaTitleForAcum = '';
 
         if (acusWithMeta.includes(nodeType)) {
-            const customTitle =
-                title === 'Últimas noticias - LA NACION' ? 'LA NACION' : title;
+            const customTitle = title;
             metaTitleForAcum = customTitle;
             metaTitleForStory = undefined;
         }
