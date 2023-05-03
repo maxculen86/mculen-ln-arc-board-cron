@@ -85,5 +85,3 @@ export const getRankingType = ({ node_type: nodeType, type } = {}) => {
         layoutType
     );
 };
-
-export const hasArticles = data => !!get(data, 'articles', []).length;

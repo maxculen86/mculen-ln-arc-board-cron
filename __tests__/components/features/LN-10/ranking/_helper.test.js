@@ -1,11 +1,13 @@
 import {
-    getRankingProps,
-    getSectionParentId,
-    getSectionId,
-    getRankingType,
     hasArticles,
     getDataContent
 } from '../../../../../components/features/LN-10/ranking/_helper';
+import {
+    getRankingProps,
+    getSectionParentId,
+    getSectionId,
+    getRankingType
+} from '../../../../../components/features/LN-10/ranking/common/_helper-WebApi.js';
 import getSectionName from '../../../../../components/private/LN/common/utils/getSectionName';
 import articlesMock from '../../../../../__mocks__/data/articlesAcum/articles.json';
 import { useContent as getContent } from 'fusion:content';
@@ -17,7 +19,7 @@ jest.doMock(
     () => mockedGetSectionName
 );
 
-describe('features - LN10 - Ranking - Helper - getRankingProps', () => {
+describe('features - LN10 - Ranking - common - HelperWebApi - getRankingProps', () => {
     test('returns object with specific keys', () => {
         const mockParams = {
             layout: 'LN10-Home_Main',
@@ -83,7 +85,7 @@ describe('features - LN10 - Ranking - Helper - getRankingProps', () => {
     });
 });
 
-describe('features - LN10 - Ranking - Helper - getSectionParentId', () => {
+describe('features - LN10 - Ranking - common - HelperWebApi - getSectionParentId', () => {
     test('returns empty string when sectionId is falsy', () => {
         const sectionParentId = getSectionParentId('');
         expect(sectionParentId).toEqual('');
@@ -100,7 +102,7 @@ describe('features - LN10 - Ranking - Helper - getSectionParentId', () => {
     });
 });
 
-describe('features - LN10 - Ranking - Helper - getSectionId', () => {
+describe('features - LN10 - Ranking - common - HelperWebApi - getSectionId', () => {
     mockedGetSectionName.mockRestore();
 
     test('returns empty string without params', () => {
@@ -141,7 +143,7 @@ describe('features - LN10 - Ranking - Helper - getSectionId', () => {
     });
 });
 
-describe('features - LN10 - Ranking - Helper - getRankingType', () => {
+describe('features - LN10 - Ranking - common - HelperWebApi - getRankingType', () => {
     test('returns section name by default', () => {
         const SECTION_NAME = 'home';
         mockedGetSectionName.mockReturnValue(SECTION_NAME);

@@ -3,12 +3,12 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { Cajaranking } from '@ln/contenidos-ui-cajaranking';
+import { getDataContent } from './_helper';
 import {
     getRankingProps,
     getSectionParentId,
-    getDataContent,
     RANKING_LAYOUT
-} from './_helper';
+} from './common/_helper-WebApi';
 import StaticContent from '../../../private/common/staticContent';
 import checkHydrateOnly from '../../../private/LN/common/utils/checkHydrateOnly';
 import diagramationRules from '../../../private/common/utils/diagramationRules';
