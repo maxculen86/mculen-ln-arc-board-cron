@@ -60,4 +60,25 @@ describe('Test-CardLiveblog when size is XL', () => {
             newArticle.content_elements[4].embed.config.time
         );
     });
+    it('should return time in format hh:mm', () => {
+        const newArticle = JSON.parse(JSON.stringify(article));
+      
+        const resp = CardLiveblog(newArticle);
+       
+        expect(resp.subtitles[0].time).toBe(
+            newArticle.content_elements[0].embed.config.time.split(':')
+            .slice(0, 2)
+            .join(':')
+        );
+        expect(resp.subtitles[1].time).toBe(
+            newArticle.content_elements[2].embed.config.time.split(':')
+            .slice(0, 2)
+            .join(':')
+        );
+        expect(resp.subtitles[2].time).toBe(
+            newArticle.content_elements[4].embed.config.time.split(':')
+            .slice(0, 2)
+            .join(':')
+        );
+    });
 });
