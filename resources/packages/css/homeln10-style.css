@@ -1140,11 +1140,11 @@
   width: calc(100% + 2rem);
 }
 .ln-bngrid.--sub-exclusive .title,
-.ln-bngrid.--sub-exclusive .ln-text {
+.ln-bngrid.--sub-exclusive .ln-text.ln-text {
   color: #f2f2f2;
 }
 .ln-bngrid.--sub-exclusive .title .lead,
-.ln-bngrid.--sub-exclusive .ln-text .lead {
+.ln-bngrid.--sub-exclusive .ln-text.ln-text .lead {
   color: #fdb727;
 }
 .ln-bngrid.--sub-exclusive .marquee-container {
