@@ -153,6 +153,12 @@
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
+        "dynamic_label": "atencion_al_socio"
+    },
+    {
+        "event": "e_linkclick",
+        "dynamic_action": "footer",
+        "dynamic_category": "home_ln10",
         "dynamic_label": "terminos_y_condiciones"
     },
     {

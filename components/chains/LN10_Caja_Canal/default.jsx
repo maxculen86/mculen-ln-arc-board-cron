@@ -5,10 +5,10 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import {
+    getMarkupForDatalayer,
     getArticlesOfChain,
     getCommonProps
-} from '../../private/LN/common/utils/cajaTemasHelperLN10';
-import { getMarkupForDatalayer } from '../../private/LN/common/utils/cajaTemasHelper';
+} from '../../private/LN/common/utils/cajaTemasHelper';
 import getDataChainCollection from '../utils/getDataChainCollection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
 import { validateChain } from '../LN10_Caja_Collection/common/_helper-WebApi';

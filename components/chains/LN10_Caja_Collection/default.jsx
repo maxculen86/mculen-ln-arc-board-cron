@@ -7,10 +7,10 @@ import PropTypes from 'fusion:prop-types';
 import { Bannersubscriber } from '@ln/contenidos-ui-bannersubscriber';
 import {
     getArticlesOfChain,
-    getCommonProps
-} from '../../private/LN/common/utils/cajaTemasHelperLN10';
+    getCommonProps,
+    getMarkupForDatalayer
+} from '../../private/LN/common/utils/cajaTemasHelper';
 import { CHAIN_STYLE } from '../utils/common/_helpers-WebApi';
-import { getMarkupForDatalayer } from '../../private/LN/common/utils/cajaTemasHelper';
 import getDataChainCollection from '../utils/getDataChainCollection';
 import checkChildInSection from '../utils/checkChildBySection';
 import getArticleInCollection from '../../private/LN/common/hooks/useGetArticleInCollection';
@@ -27,8 +27,6 @@ import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDy
 import DivBannerSSR from '../../private/common/banners/DivBannerSSR';
 import isContentLabAt100 from '../utils/isContentLabAt100';
 import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
-
-// TODO: Pendiente por testear las diagramaciones de Grillas y focales.
 
 const CajaCollection = props => {
     const {
@@ -124,7 +122,6 @@ const CajaCollection = props => {
         positionInsideSection
     );
 
-    // TODO testear dynamic banners en esta chain
     const { bannerMob = undefined, bannerDsk = undefined } =
         getDynamicBanners({
             renderables,
@@ -133,7 +130,6 @@ const CajaCollection = props => {
 
     const ContainerCards = getComponent(chainStyle, layout);
 
-    // TODO testear banner caja suscriptor
     const bannersCajaSuscriptor = (
         <>
             <DivBannerSSR

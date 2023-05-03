@@ -9,7 +9,7 @@ import { Bomba } from '@ln/contenidos-ui-bomba';
 import {
     getCommonProps,
     getMarkupForDatalayer
-} from '../../private/LN/common/utils/cajaTemasHelperLN10';
+} from '../../private/LN/common/utils/cajaTemasHelper';
 import { getChildrenFromSectionHome } from '../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 import { validateChainBomba } from './common/_helper-WebApi';
 import { getClassCondition, getChildrenOfBomba } from './_helper';

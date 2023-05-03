@@ -1,19 +1,30 @@
 import React from 'react';
-import CajaCollection from '../../../../components/chains/LN10_Caja_Collection/default';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
+import Context from 'fusion:context';
+
+import CajaCollection from '../../../../components/chains/LN10_Caja_Collection/default';
 import renderables from '../../../../__mocks__/data/LN10_Caja_Collection/renderablesGrid8And4.json';
 import responseSource from '../../../../__mocks__/data/LN10_Caja_Collection/responseUseGetArticleInCollection.json';
 import renderablesWithContentLab from '../../../../__mocks__/data/renderables/renderablesWithContentLab.json';
 import renderablesExcSub from '../../../../__mocks__/data/LN10_Caja_Collection/renderablesExclusiveSub.json';
 import getDynamicBanners from '../../../../components/private/common/banners/dynamicBanners/getDynamicBanners';
 import useGetArticleInCollection from '../../../../components/private/LN/common/hooks/useGetArticleInCollection';
+import DivBannerSSR from '../../../../components/private/common/banners/DivBannerSSR';
+import { CHAIN_STYLE } from '../../../../components/chains/utils/common/_helpers-WebApi';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
 });
+
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+        return props.children(mockAvailableProps);
+    }
+}));
 
 jest.mock(
     '../../../../components/private/common/banners/dynamicBanners/getDynamicBanners',
@@ -236,6 +247,71 @@ describe('Tests Chain CajaCollection', () => {
         });
     });
 
+    describe('Tests cases for focal layouts', () => {
+        const responseSourceX2 = [...responseSource, ...responseSource];
+
+        const customFields = {
+            idCollection: 'FPKJS5YHQVFGVD46GOLY7A265U',
+            initialPosition: 1,
+            chainStyle: 'bienestar',
+            title: 'Bienestar',
+            link: '',
+            logoId: '4HYEWZCP5VBZRBAOCOF5S3IGR4',
+            hideTitle: false,
+            navigator: 'Politics',
+            buttonText: '',
+            linkButton: '',
+            buttonStyle: 'generico'
+        };
+
+        const setLayout = layout => ({
+            ...customFields,
+            layout
+        });
+
+        const layoutCases = [
+            [
+                'should return two articles with layout bn_1_1_grid',
+                { layout: 'bn_1_1_grid', quantity: 2 }
+            ],
+            [
+                'should return three articles with layout bn_1_2_grid',
+                { layout: 'bn_1_2_grid', quantity: 3 }
+            ],
+            [
+                'should return four articles with layout bn_1_3_grid',
+                { layout: 'bn_1_3_grid', quantity: 4 }
+            ],
+            [
+                'should return five articles with layout bn_1_4_grid',
+                { layout: 'bn_1_4_grid', quantity: 5 }
+            ],
+            [
+                'should return five articles with layout bn_2_1_2_grid',
+                { layout: 'bn_2_1_2_grid', quantity: 5 }
+            ],
+            [
+                'should return seven articles with layout hash-1-2-2-2_grid',
+                { layout: 'hash-1-2-2-2_grid', quantity: 7 }
+            ]
+        ];
+
+        test.each(layoutCases)('%s', (message, { layout, quantity }) => {
+            useGetArticleInCollection.mockImplementation(() =>
+                responseSourceX2.slice(0, quantity)
+            );
+
+            const props = getProps({ customFields: setLayout(layout) });
+            const { container } = render(<CajaCollection {...props} />);
+
+            expect(screen.getAllByRole('article')).toHaveLength(quantity);
+            expect(
+                container.getElementsByClassName(`--${layout}`)
+            ).toHaveLength(1);
+            expect(container).toMatchSnapshot();
+        });
+    });
+
     describe('Tests for the case of Content Lab', () => {
         const fields = {
             ...customFields,
@@ -296,6 +372,95 @@ describe('Tests Chain CajaCollection', () => {
             );
 
             expect(container.querySelector('.--3xl')).toBeDefined();
+        });
+    });
+
+    describe('Tests banner cases', () => {
+        Context.useAppContext = jest.fn(() => ({}));
+        useGetArticleInCollection.mockImplementation(() =>
+            responseSource.slice(0, 1)
+        );
+
+        const fields = {
+            ...customFields,
+            layout: 'cajaContent1',
+            idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
+        };
+
+        test('should render banner mob returned from getDynamicBanners', () => {
+            getDynamicBanners.mockImplementation(() => ({
+                bannerMob: (
+                    <DivBannerSSR
+                        bannerConfiguration={{
+                            slotId: 'billboard_mob',
+                            classes: 'billboard_mob',
+                            withoutHide: true,
+                            isStatic: true,
+                            lazyClass: 'lazy'
+                        }}
+                    />
+                )
+            }));
+
+            const { container } = render(
+                <CajaCollection
+                    {...getProps({
+                        customFields: fields
+                    })}
+                />
+            );
+
+            expect(container.querySelector('.--billboard_mob')).toBeVisible();
+            expect(screen.getAllByRole('article')).toHaveLength(1);
+            expect(container).toMatchSnapshot();
+        });
+
+        test('should render banner dsk returned from getDynamicBanners', () => {
+            getDynamicBanners.mockImplementation(() => ({
+                bannerDsk: (
+                    <DivBannerSSR
+                        bannerConfiguration={{
+                            slotId: 'billboard_dsk',
+                            classes: 'billboard_dsk',
+                            withoutHide: true,
+                            isStatic: true,
+                            lazyClass: 'lazy'
+                        }}
+                    />
+                )
+            }));
+
+            const { container } = render(
+                <CajaCollection
+                    {...getProps({
+                        customFields: fields
+                    })}
+                />
+            );
+
+            expect(container.querySelector('.--billboard_dsk')).toBeVisible();
+            expect(screen.getAllByRole('article')).toHaveLength(1);
+            expect(container).toMatchSnapshot();
+        });
+
+        test('should render banner subscriber when chain style is sub-exclusive', () => {
+            const { container } = render(
+                <CajaCollection
+                    {...{
+                        ...getProps({
+                            customFields: {
+                                ...fields,
+                                chainStyle: CHAIN_STYLE.SUB_EXCLUSIVE
+                            }
+                        }),
+                        id: 'c0fUjhrcHRHB8X',
+                        renderables: renderablesExcSub
+                    }}
+                />
+            );
+
+            expect(container.querySelector('.banner-subscriber')).toBeVisible();
+            expect(container).toMatchSnapshot();
         });
     });
 });

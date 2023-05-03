@@ -6,7 +6,7 @@ const getElementFromRenderables = ({
     config,
     typeElement,
     renderables = [],
-    propNameHide = 'hideBox'
+    propNameHide = 'hideCaja'
 } = {}) => {
     return (
         (renderables.length &&

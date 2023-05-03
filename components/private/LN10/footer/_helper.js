@@ -23,7 +23,7 @@ export const secciones = [
     ),
     commonPropsFooter(
         'Edición impresa',
-        'https://edicionimpresa.lanacion.com.ar/la-nacion?_ga=2.226421138.948268382.1669638459-1845108145.1619557251'
+        'https://edicionimpresa.lanacion.com.ar/la-nacion?_ga=2.226421138.948268382.1669638459-1845108145.1619557251/'
     ),
     commonPropsFooter('LN+', 'https://lnmas.lanacion.com.ar/'),
     commonPropsFooter('Club LA NACION', 'https://club.lanacion.com.ar/')
@@ -47,7 +47,7 @@ export const productos = [
     commonPropsFooter('Colecciones', 'https://colecciones.lanacion.com.ar/'),
     commonPropsFooter(
         'Máster en periodismo',
-        'https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327'
+        'https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327/'
     ),
     commonPropsFooter(
         'Fundación LA NACION',
@@ -62,16 +62,20 @@ export const masInformacion = [
     ),
     commonPropsFooter(
         'Ayuda',
-        'https://www.contacto.lanacion.com.ar/ayuda?_ga=2.125953413.948268382.1669638459-1845108145.1619557251'
+        'https://www.contacto.lanacion.com.ar/ayuda?_ga=2.125953413.948268382.1669638459-1845108145.1619557251/'
+    ),
+    commonPropsFooter(
+        'Atención al socio',
+        'https://club.lanacion.com.ar/ayuda/'
     ),
     commonPropsFooter(
         'Términos y condiciones',
-        'https://www.contacto.lanacion.com.ar/tyc?_ga=2.125953413.948268382.1669638459-1845108145.1619557251'
+        'https://www.contacto.lanacion.com.ar/tyc?_ga=2.125953413.948268382.1669638459-1845108145.1619557251/'
     ),
     commonPropsFooter('¿Cómo anunciar?', 'https://www.lanacion.in/'),
     commonPropsFooter(
         'Suscribirse al diario impreso',
-        'https://suscripciones.lanacion.com.ar/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251'
+        'https://suscripciones.lanacion.com.ar/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251/'
     )
 ];
 
