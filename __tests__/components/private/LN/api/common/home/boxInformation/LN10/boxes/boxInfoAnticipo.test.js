@@ -144,4 +144,74 @@ describe('boxInfoAnticipo', () => {
             typeSection
         );
     });
+    it('should return titles in uppercase', () => {
+        const information = { title: 'TEST TITLE' };
+        const section = 'section';
+        const typeSection = 'typeSection';
+
+        const box = {
+            tituloCaja: 'TEST TITLE',
+            parameters: { title: 'TEST TITLE' }
+        };
+
+        boxInfoComplete.mockReturnValue(box);
+
+        const result = boxInfoAnticipo(information, section, typeSection);
+
+        expect(result.tituloCaja).toBe('TEST TITLE');
+        expect(result.parameters.title).toBe('TEST TITLE');
+        expect(boxInfoComplete).toHaveBeenCalledWith(
+            information,
+            section,
+            typeSection
+        );
+    });
+    it('should return empty titles when information.title is empty', () => {
+        const information = { title: '' };
+        const section = 'section';
+        const typeSection = 'typeSection';
+
+        const box = {
+            tituloCaja: '',
+            parameters: { title: '' }
+        };
+
+        boxInfoComplete.mockReturnValue(box);
+
+        const result = boxInfoAnticipo(information, section, typeSection);
+
+        expect(result.tituloCaja).toBe('');
+        expect(result.parameters.title).toBe('');
+        expect(boxInfoComplete).toHaveBeenCalledWith(
+            information,
+            section,
+            typeSection
+        );
+    });
+    it('should return empty titles when information.title is undefined', () => {
+        const information = {};
+        const expectedBox = {
+            tituloCaja: '',
+            parameters: { title: '' }
+        };
+        const section = 'section';
+        const typeSection = 'typeSection';
+
+        const box = {
+            tituloCaja: '',
+            parameters: { title: '' }
+        };
+
+        boxInfoComplete.mockReturnValue(box);
+
+        const result = boxInfoAnticipo(information, section, typeSection);
+
+        expect(result.tituloCaja).toBe('');
+        expect(result.parameters.title).toBe('');
+        expect(boxInfoComplete).toHaveBeenCalledWith(
+            information,
+            section,
+            typeSection
+        );
+    });
 });

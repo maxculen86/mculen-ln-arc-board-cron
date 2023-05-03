@@ -194,4 +194,45 @@ describe('boxInfoComplete', () => {
             }
         });
     });
+    it('should return titles in uppercase', () => {
+        const information = {
+            title: 'test title'
+        };
+
+        const section = 'section';
+        const typeSection = 'typeSection';
+        boxInfoBasic.mockReturnValue({});
+
+        const box = boxInfoComplete(information, section, typeSection);
+
+        expect(box.tituloCaja).toBe('TEST TITLE');
+        expect(box.parameters.title).toBe('TEST TITLE');
+    });
+    it('should return empty titles when information.title is empty', () => {
+        const information = {
+            title: ''
+        };
+
+        const section = 'section';
+        const typeSection = 'typeSection';
+        boxInfoBasic.mockReturnValue({});
+        const box = boxInfoComplete(information, section, typeSection);
+
+        expect(box.tituloCaja).toBe('');
+        expect(box.parameters.title).toBe('');
+    });
+    it('should return empty titles when information.title is undefined', () => {
+        const information = {
+            title: undefined
+        };
+
+        const section = 'section';
+        const typeSection = 'typeSection';
+        boxInfoBasic.mockReturnValue({});
+        const box = boxInfoComplete(information, section, typeSection);
+
+        expect(box.tituloCaja).toBe('');
+        expect(box.parameters.title).toBe('');
+    });
+
 });

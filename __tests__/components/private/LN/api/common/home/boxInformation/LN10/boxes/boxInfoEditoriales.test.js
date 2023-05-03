@@ -64,4 +64,41 @@ describe('boxInfoEditorial', () => {
             }
         });
     });
+
+    it('should return EDITORIALES in uppercase', () => {
+        const information = {};
+        const section = '';
+        const typeSection = '';
+
+        const box = boxInfoEditorial(information, section, typeSection);
+
+        expect(box.tituloCaja).toBe('EDITORIALES');
+        expect(box.parameters.title).toBe('EDITORIALES');
+    });
+    it('should return EDITORIALES in uppercase when information.title and information.params.title has string', () => {
+        const information = {
+            title: 'titulo',
+            parameters: { title: 'subtitulo' }
+        };
+        const section = '';
+        const typeSection = '';
+
+        const box = boxInfoEditorial(information, section, typeSection);
+
+        expect(box.tituloCaja).toBe('EDITORIALES');
+        expect(box.parameters.title).toBe('EDITORIALES');
+    });
+    it('should return EDITORIALES in uppercase when information.title and information.params.title has undefined', () => {
+        const information = {
+            title: undefined,
+            parameters: { title: undefined }
+        };
+        const section = '';
+        const typeSection = '';
+
+        const box = boxInfoEditorial(information, section, typeSection);
+
+        expect(box.tituloCaja).toBe('EDITORIALES');
+        expect(box.parameters.title).toBe('EDITORIALES');
+    });
 });
