@@ -45,8 +45,11 @@ const getDynamicBanners = ({ renderables = [], featureId = '' }) => {
                 )
             }
         };
-        if (validateInterval(sectionValues.intervalMob, index))
+
+        if (validateInterval(sectionValues.intervalMob, index)) {
             currentBanner = currentBanner + 1;
+        }
+
         return banner;
     }, {});
 
