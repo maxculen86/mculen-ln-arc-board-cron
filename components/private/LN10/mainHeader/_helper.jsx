@@ -64,14 +64,15 @@ export const RightOptions = ({
     desplegableData = [],
     goToLoginUrl,
     loggedIn = '',
-    loading = false
+    loading = false,
+    hasSubscribeButton = true
 }) => {
     const SubscribeButton = (
         <Button
             id="btnsuscribite"
             title="Suscribite"
             typeButton="subscribe"
-            className={!loading ? '' : '--none'}
+            className={!loading && hasSubscribeButton ? '' : '--none'}
             // eslint-disable-next-line no-return-assign
             onClick={() => {
                 window.location.href = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
