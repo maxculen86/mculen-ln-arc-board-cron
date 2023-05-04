@@ -1,6 +1,7 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
+import handleCookie from '../../LN/common/utils/handleCookie';
 
 const formatExpression = text => {
     return 'ca_'.concat(
@@ -51,15 +52,23 @@ const googlePublisherTagAcumulado = props => {
 
     const author = getAuthor(globalContent);
 
+    const { getCookie } = handleCookie();
+
     const script = `
+        const googleTagGetCookie = ${getCookie};
+        const googleTagUserCookie = googleTagGetCookie('ProductoPremiumId') || [];
+        const googleTagIsSuscribed = userCookie.includes('2');
+        const googleTagSuscriptionType = (googleTagIsSuscribed) ? 'suscriptor' : 'no suscriptor';
+
             var pbjs = pbjs || {};
             pbjs.que = pbjs.que || [];
             
             (window.googletag = window.googletag || { cmd: [] });
                 googletag.cmd.push(function() {
-                    googletag.pubads().setTargeting('tags_nuevos', ${JSON.stringify(
+                    googletag.pubads().setTargeting('tags_nuevo', ${JSON.stringify(
                         [...category, ...topic, ...author]
                     )});
+                    googletag.pubads().setTargeting('usuario_tipo', googleTagSuscriptionType);
                     googletag.pubads().setTargeting('seccion', 'acumulado');
                     //googletag.pubads().setTargeting('adstest', testQueryString());
                     googletag.pubads().setTargeting('sitio', 'lanacion');

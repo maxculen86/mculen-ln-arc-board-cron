@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'fusion:prop-types';
 import getAuthorByline from '../utils/getAuthorByline';
 import { googlePublisherAndLiftIgniterPropTypes } from '../utils/propTypesHelper';
+import handleCookie from '../../LN/common/utils/handleCookie';
 
 class GooglePublisherTag extends Component {
     static decorate(prefix, regex, replace, string) {
@@ -90,6 +91,8 @@ class GooglePublisherTag extends Component {
         const { globalContent = {} } = this.props;
         const { type } = globalContent;
 
+        const { getCookie } = handleCookie();
+
         if (!type || type !== 'story') return <></>;
 
         const {
@@ -120,6 +123,11 @@ class GooglePublisherTag extends Component {
             : this.getAuthorsFromContentElements(contentElements);
 
         const script = `
+            const googleTagGetCookie = ${getCookie};
+            const googleTagUserCookie = googleTagGetCookie('ProductoPremiumId') || [];
+            const googleTagIsSuscribed = userCookie.includes('2');
+            const googleTagSuscriptionType = (googleTagIsSuscribed) ? 'suscriptor' : 'no suscriptor';
+
             var pbjs = pbjs || {};
             pbjs.que = pbjs.que || [];
             
@@ -133,6 +141,7 @@ class GooglePublisherTag extends Component {
  
                 console.log('🚀 ::: setTargeting ON ::: 🚀');
                 googletag.pubads().setTargeting('tags_nuevos', [${categories} ${topics} ${authorList} ${url} ${articleId}]);
+                googletag.pubads().setTargeting('usuario_tipo', googleTagSuscriptionType);
             });
         `;
 
