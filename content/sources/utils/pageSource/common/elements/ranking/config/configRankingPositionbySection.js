@@ -3,6 +3,16 @@ const boxPositionLN10Main = {
         type: 0,
         sectionAliasMobile: 'ranking',
         position: 'bottom'
+    },
+    Content: {
+        type: 0,
+        sectionAliasMobile: 'ranking',
+        position: 'start'
+    },
+    Canales_1: {
+        type: 0,
+        sectionAliasMobile: 'ranking',
+        position: 'start'
     }
 };
 const configRankingPositionbySection = layout => {

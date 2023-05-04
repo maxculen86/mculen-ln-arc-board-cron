@@ -76,15 +76,17 @@ export const setRankingBySection = async props => {
     const ranking = await getRanking(props);
 
     let elementsPageHome = elementsPage;
+    const len = elementsPageHome.length;
     ranking &&
         Array.isArray(ranking.articles) &&
         configRankingBySections &&
-        Object.keys(configRankingBySections).forEach(async sectionWeb => {
+        Object.keys(configRankingBySections).some(sectionWeb => {
             const configSectionWeb = configRankingBySections[sectionWeb];
             const configElementToAdd = {
                 ...configRankingBySections[sectionWeb],
                 ...ranking
             };
+            // Goes through sections until confirming that the ranking was positioned
             if (configSectionWeb) {
                 elementsPageHome = addElementsByKey(
                     configElementToAdd,
@@ -92,7 +94,11 @@ export const setRankingBySection = async props => {
                     'sectionWeb',
                     elementsPageHome
                 );
+                if (elementsPageHome.length > len) {
+                    return true;
+                }
             }
+            return false;
         });
     return elementsPageHome;
 };
