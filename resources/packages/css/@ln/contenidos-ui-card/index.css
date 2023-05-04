@@ -404,6 +404,9 @@
   .ln-card.--mobile-img-right:not(.--author).--m .description-container .badge:not(.--exclusive-ln, .--live, .--contentlab), .ln-card.--mobile-img-right:not(.--author).--l-m .description-container .badge:not(.--exclusive-ln, .--live, .--contentlab) {
     display: none;
   }
+  .ln-card.--mobile-img-right:not(.--author).--m .description-container .--font-m, .ln-card.--mobile-img-right:not(.--author).--m .description-container .--font-l-m, .ln-card.--mobile-img-right:not(.--author).--l-m .description-container .--font-m, .ln-card.--mobile-img-right:not(.--author).--l-m .description-container .--font-l-m {
+    font-size: 1.25rem;
+  }
 }
 @media (max-width: 47.9375rem) {
   .ln-card.--mobile-img-right.--liveblog .media-container {
