@@ -14,7 +14,7 @@ describe('boxInfoExclusiveSuscriptor', () => {
             typeSection
         );
         expect(box).toBeDefined();
-        expect(box.parameters.title).toBe('Exclusivo suscriptores');
+        expect(box.parameters.title).toBe('EXCLUSIVO SUSCRIPTORES');
     });
 
     it('should assign default title to box parameters if no title is provided', () => {
@@ -29,7 +29,7 @@ describe('boxInfoExclusiveSuscriptor', () => {
             typeSection
         );
         expect(box).toBeDefined();
-        expect(box.tituloCaja).toBe('Exclusivo suscriptores');
+        expect(box.tituloCaja).toBe('EXCLUSIVO SUSCRIPTORES');
     });
 
     it('should set buttonText and linkButton of information to null', () => {
@@ -77,10 +77,10 @@ describe('boxInfoExclusiveSuscriptor', () => {
         };
 
         const expectedBox = {
-            tituloCaja: 'titulo',
+            tituloCaja: 'TITULO',
             imageUrl: 'https://www.example.com/image.jpg',
             parameters: {
-                title: 'titulo',
+                title: 'TITULO',
                 url: undefined,
                 badge: undefined,
                 badgeStyle: undefined
@@ -106,5 +106,82 @@ describe('boxInfoExclusiveSuscriptor', () => {
         expect(box).toMatchObject(expectedBox);
 
         boxInfoCompleteSpy.mockRestore();
+    });
+    it('should return titles in uppercase', () => {
+        const information = {
+            title: 'test title'
+        };
+
+        const expectedBox = {
+            tituloCaja: 'TEST TITLE',
+            parameters: {
+                title: 'TEST TITLE',
+            }
+        };
+
+        const boxInfoCompleteSpy = jest.spyOn(
+            boxInfoComplete,
+            'boxInfoComplete'
+        );
+        const box = boxInfoExclusiveSuscriptor(
+            information,
+            'section',
+            'typeSection'
+        );
+
+        expect(boxInfoCompleteSpy).toHaveBeenCalledWith(
+            { ...information, buttonText: null, linkButton: null },
+            'section',
+            'typeSection'
+        );
+
+        expect(box.tituloCaja).toBe('TEST TITLE');
+        expect(box.parameters.title).toBe('TEST TITLE');
+    });
+    it('should return EXCLUSIVO SUSCRIPTORES when information.title is empty', () => {
+        const information = {
+            title: ''
+        };
+
+         const boxInfoCompleteSpy = jest.spyOn(
+            boxInfoComplete,
+            'boxInfoComplete'
+        );
+        const box = boxInfoExclusiveSuscriptor(
+            information,
+            'section',
+            'typeSection'
+        );
+
+        expect(boxInfoCompleteSpy).toHaveBeenCalledWith(
+            { ...information, buttonText: null, linkButton: null },
+            'section',
+            'typeSection'
+        );
+
+        expect(box.tituloCaja).toBe('EXCLUSIVO SUSCRIPTORES');
+        expect(box.parameters.title).toBe('EXCLUSIVO SUSCRIPTORES');
+    });
+    it('should return EXCLUSIVO SUSCRIPTORES when information.title is undefined', () => {
+        const information = {};
+
+         const boxInfoCompleteSpy = jest.spyOn(
+            boxInfoComplete,
+            'boxInfoComplete'
+        );
+        const box = boxInfoExclusiveSuscriptor(
+            information,
+            'section',
+            'typeSection'
+        );
+
+        expect(boxInfoCompleteSpy).toHaveBeenCalledWith(
+            { ...information, buttonText: null, linkButton: null },
+            'section',
+            'typeSection'
+        );
+
+        expect(box.tituloCaja).toBe('EXCLUSIVO SUSCRIPTORES');
+        expect(box.parameters.title).toBe('EXCLUSIVO SUSCRIPTORES');
     });
 });

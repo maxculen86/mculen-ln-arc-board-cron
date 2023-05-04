@@ -13,11 +13,11 @@ describe('boxInfoEditorial', () => {
 
         expect(result).toMatchObject({
             ...boxInfoComplete(information, section, typeSection),
-            tituloCaja: 'Editoriales',
+            tituloCaja: 'EDITORIALES',
             diagramacion: 'editoriales2',
             url: 'https://www.lanacion.com.ar/editoriales/',
             parameters: {
-                title: 'Editoriales',
+                title: 'EDITORIALES',
                 url: 'https://www.lanacion.com.ar/editoriales/'
             }
         });
@@ -34,11 +34,11 @@ describe('boxInfoEditorial', () => {
 
         expect(result).toMatchObject({
             ...boxInfoComplete(information, section, typeSection),
-            tituloCaja: 'Editoriales',
+            tituloCaja: 'EDITORIALES',
             diagramacion: 'editoriales2',
             url: 'https://www.lanacion.com.ar/editoriales/',
             parameters: {
-                title: 'Editoriales',
+                title: 'EDITORIALES',
                 url: 'https://www.lanacion.com.ar/editoriales/'
             }
         });
@@ -55,13 +55,50 @@ describe('boxInfoEditorial', () => {
 
         expect(result).toMatchObject({
             ...boxInfoComplete(information, section, typeSection),
-            tituloCaja: 'Editoriales',
+            tituloCaja: 'EDITORIALES',
             diagramacion: 'editoriales2',
             url: 'https://www.lanacion.com.ar/editoriales/',
             parameters: {
-                title: 'Editoriales',
+                title: 'EDITORIALES',
                 url: 'https://www.lanacion.com.ar/editoriales/'
             }
         });
+    });
+
+    it('should return EDITORIALES in uppercase', () => {
+        const information = {};
+        const section = '';
+        const typeSection = '';
+
+        const box = boxInfoEditorial(information, section, typeSection);
+
+        expect(box.tituloCaja).toBe('EDITORIALES');
+        expect(box.parameters.title).toBe('EDITORIALES');
+    });
+    it('should return EDITORIALES in uppercase when information.title and information.params.title has string', () => {
+        const information = {
+            title: 'titulo',
+            parameters: { title: 'subtitulo' }
+        };
+        const section = '';
+        const typeSection = '';
+
+        const box = boxInfoEditorial(information, section, typeSection);
+
+        expect(box.tituloCaja).toBe('EDITORIALES');
+        expect(box.parameters.title).toBe('EDITORIALES');
+    });
+    it('should return EDITORIALES in uppercase when information.title and information.params.title has undefined', () => {
+        const information = {
+            title: undefined,
+            parameters: { title: undefined }
+        };
+        const section = '';
+        const typeSection = '';
+
+        const box = boxInfoEditorial(information, section, typeSection);
+
+        expect(box.tituloCaja).toBe('EDITORIALES');
+        expect(box.parameters.title).toBe('EDITORIALES');
     });
 });

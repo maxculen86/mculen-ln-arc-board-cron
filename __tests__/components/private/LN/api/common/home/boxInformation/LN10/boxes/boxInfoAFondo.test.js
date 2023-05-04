@@ -89,4 +89,74 @@ describe('boxInfoAFondo', () => {
         );
         boxInfoCompleteSpy.mockRestore();
     });
+
+    it('should return titles in uppercase', () => {
+        debugger;
+        const information = {title:'TEST TITLE'};
+        const expectedBox = {
+            tituloCaja: 'TEST TITLE',
+            parameters: { title: 'TEST TITLE'}
+        };
+
+        const boxInfoCompleteSpy = jest
+            .spyOn(boxInfoComplete, 'boxInfoComplete')
+            .mockReturnValue(expectedBox);
+
+        const box = boxInfoAFondo(information, section, typeSection);
+
+        expect(box.tituloCaja).toBe('TEST TITLE');
+        expect(box.parameters.title).toBe('TEST TITLE');
+        expect(boxInfoCompleteSpy).toHaveBeenCalledWith(
+            information,
+            section,
+            typeSection
+        );
+        boxInfoCompleteSpy.mockRestore();
+      
+    });
+    it('should return empty titles when information.title is empty', () => {
+        const information = {title:''};
+        const expectedBox = {
+            tituloCaja: '',
+            parameters: { title: ''}
+        };
+
+        const boxInfoCompleteSpy = jest
+            .spyOn(boxInfoComplete, 'boxInfoComplete')
+            .mockReturnValue(expectedBox);
+
+        const box = boxInfoAFondo(information, section, typeSection);
+
+        expect(box.tituloCaja).toBe('');
+        expect(box.parameters.title).toBe('');
+        expect(boxInfoCompleteSpy).toHaveBeenCalledWith(
+            information,
+            section,
+            typeSection
+        );
+        boxInfoCompleteSpy.mockRestore();
+    });
+    it('should return empty titles when information.title is undefined', () => {
+        debugger;
+        const information = {};
+        const expectedBox = {
+            tituloCaja: '',
+            parameters: { title: ''}
+        };
+
+        const boxInfoCompleteSpy = jest
+            .spyOn(boxInfoComplete, 'boxInfoComplete')
+            .mockReturnValue(expectedBox);
+
+        const box = boxInfoAFondo(information, section, typeSection);
+
+        expect(box.tituloCaja).toBe('');
+        expect(box.parameters.title).toBe('');
+        expect(boxInfoCompleteSpy).toHaveBeenCalledWith(
+            information,
+            section,
+            typeSection
+        );
+        boxInfoCompleteSpy.mockRestore();
+    });
 });

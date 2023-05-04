@@ -10,7 +10,7 @@ describe('boxInfoHashTag', () => {
         };
         const section = 'test-section';
         const typeSection = 'test-type';
-        const expectedTitle = 'Test Hashtag';
+        const expectedTitle = 'TEST HASHTAG';
 
         const box = boxInfoHashTag(information, section, typeSection);
 
@@ -21,7 +21,7 @@ describe('boxInfoHashTag', () => {
     it('should return the default title when information hideTitle is true', () => {
         const section = 'test-section';
         const typeSection = 'test-type';
-        const expectedTitle = 'Hashtag';
+        const expectedTitle = 'HASHTAG';
         const information = {
             title: 'Test Hashtag',
             hideTitle: true
@@ -36,7 +36,7 @@ describe('boxInfoHashTag', () => {
     it('should return the default title when information title is not provided', () => {
         const section = 'test-section';
         const typeSection = 'test-type';
-        const expectedTitle = 'Hashtag';
+        const expectedTitle = 'HASHTAG';
         const information = {
             title: null
         };
@@ -78,5 +78,60 @@ describe('boxInfoHashTag', () => {
 
         const box3 = boxInfoHashTag(null, null, null);
         expect(box3).toEqual(boxInfoBasic(null, null, null));
+    });
+    it('should return titles in uppercase', () => {
+        const information = {
+            title: 'test title'
+        };
+        const section = 'test-section';
+        const typeSection = 'test-type';
+
+        const boxInfoBasicSpy = jest.spyOn(boxInfoBasicModule, 'boxInfoBasic');
+        const box = boxInfoHashTag(information, section, typeSection);
+
+        expect(boxInfoBasicSpy).toHaveBeenCalledWith(
+            information,
+            section,
+            typeSection
+        );
+
+        expect(box.tituloCaja).toBe('TEST TITLE');
+        expect(box.parameters.title).toBe('TEST TITLE');
+    });
+    it('should return HASHTAG when information.title is empty', () => {
+        const information = {
+            title: ''
+        };
+        const section = 'test-section';
+        const typeSection = 'test-type';
+
+        const boxInfoBasicSpy = jest.spyOn(boxInfoBasicModule, 'boxInfoBasic');
+        const box = boxInfoHashTag(information, section, typeSection);
+
+        expect(boxInfoBasicSpy).toHaveBeenCalledWith(
+            information,
+            section,
+            typeSection
+        );
+
+        expect(box.tituloCaja).toBe('HASHTAG');
+        expect(box.parameters.title).toBe('HASHTAG');
+    });
+    it('should return HASHTAG when information.title is undefined', () => {
+        const information = {};
+        const section = 'test-section';
+        const typeSection = 'test-type';
+
+        const boxInfoBasicSpy = jest.spyOn(boxInfoBasicModule, 'boxInfoBasic');
+        const box = boxInfoHashTag(information, section, typeSection);
+
+        expect(boxInfoBasicSpy).toHaveBeenCalledWith(
+            information,
+            section,
+            typeSection
+        );
+
+        expect(box.tituloCaja).toBe('HASHTAG');
+        expect(box.parameters.title).toBe('HASHTAG');
     });
 });

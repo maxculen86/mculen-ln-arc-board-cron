@@ -1,5 +1,5 @@
 import { cardRegular as Article } from '../../../../../common/article/cardRegular/index';
-import { getLiveblogTitlesApi } from '../../../../../../../../features/LN-10/article/common/_helper-WebApi';
+import { getLiveblogSubtitles } from '../elements/title/index';
 import {
     getArticleChapita,
     getArticleChapitaStyle
@@ -11,7 +11,7 @@ export const CardLiveblog = article => {
         badgeStyle: getArticleChapitaStyle(article) || 'live',
         badge: getArticleChapita(article) || 'VIVO',
         chapita: getArticleChapita(article) || 'VIVO',
-        subtitles: getLiveblogTitlesApi(article),
+        subtitles: getLiveblogSubtitles(article),
         opinion: false
     };
 };

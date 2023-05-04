@@ -9,12 +9,17 @@ import { CardBasic } from '../../../../../common/article/cardBasic/index';
 import { getBadgebyConfig } from '../elements/chapita/index';
 import { getDroptext } from '../elements/bajada/index';
 import { getFlyertext } from '../elements/volanta/index';
+import { getAuthor, getAuthors, getSignature } from '../elements/author/index';
 
 export const CardRegular = article => {
     const primarySection = get(article, 'taxonomy.primary_section');
+
     return {
         categoria: primarySection && getPrincipalCategory(primarySection),
         ...CardBasic(article),
+        autor: getAuthor(article),
+        autores: getAuthors(article),
+        marquesina: getSignature(article),
         volanta: getFlyertext(article),
         bajada: getDroptext(article),
         imagen: getArticleImage(article),

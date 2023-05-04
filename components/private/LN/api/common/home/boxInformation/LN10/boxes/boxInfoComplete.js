@@ -12,10 +12,10 @@ export const boxInfoComplete = (information, section, typeSection) => {
         if (imagenUrl) box.imageUrl = imagenUrl;
         return {
             ...box,
-            tituloCaja: information.title,
+            tituloCaja: (information.title || '').toUpperCase(),
             url: information.link,
             parameters: {
-                title: information.title,
+                title: (information.title || '').toUpperCase(),
                 url: information.link,
                 badge: information.chapita,
                 badgeStyle: information.chapitaStyle
