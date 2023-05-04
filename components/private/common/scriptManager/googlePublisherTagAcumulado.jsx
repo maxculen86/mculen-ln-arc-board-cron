@@ -65,7 +65,7 @@ const googlePublisherTagAcumulado = props => {
             
             (window.googletag = window.googletag || { cmd: [] });
                 googletag.cmd.push(function() {
-                    googletag.pubads().setTargeting('tags_nuevo', ${JSON.stringify(
+                    googletag.pubads().setTargeting('tags_nuevos', ${JSON.stringify(
                         [...category, ...topic, ...author]
                     )});
                     googletag.pubads().setTargeting('usuario_tipo', googleTagSuscriptionType);
