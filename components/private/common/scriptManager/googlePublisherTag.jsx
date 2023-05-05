@@ -125,8 +125,7 @@ class GooglePublisherTag extends Component {
         const script = `
             const googleTagGetCookie = ${getCookie};
             const googleTagUserCookie = googleTagGetCookie('ProductoPremiumId') || [];
-            const googleTagIsSuscribed = userCookie.includes('2');
-            const googleTagSuscriptionType = (googleTagIsSuscribed) ? 'suscriptor' : 'no suscriptor';
+            const googleTagSuscriptionType = userCookie.includes('2') ? 'suscriptor' : 'no suscriptor';
 
             var pbjs = pbjs || {};
             pbjs.que = pbjs.que || [];
