@@ -118,7 +118,14 @@ const fetch = (query, { cachedCall } = {}) => {
                 throw new Redirect(forwardUrl, 301);
             }
 
-            if (response && checkExclusiveAccess) {
+            /**
+             * TODO: incluir siguiente bloque dentro de paywallUtils
+             */
+            if (
+                (paywallEnabled === '1' || paywallEnabled === 'true') &&
+                response &&
+                checkExclusiveAccess
+            ) {
                 validateExclusiveAccess({
                     contentCode:
                         response.content_restrictions &&

@@ -79,10 +79,14 @@ describe('Article source nota - validateExclusiveAccess', () => {
             .then(done);
     });
 
+    /**
+     * TODO: Se agrega la linea 92 por hotfix de validateExclusiveAccess
+     */
     it('validateExclusive access must be called when checkExclusiveAccess true', done => {
         articleSourceFetch(
             {
                 ...query,
+                paywallEnabled: '1',
                 checkExclusiveAccess: true
             },
             {
