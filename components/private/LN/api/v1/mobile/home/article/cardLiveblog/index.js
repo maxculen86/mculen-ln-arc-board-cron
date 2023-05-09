@@ -1,16 +1,11 @@
 import { cardRegular as Article } from '../../../../../common/article/cardRegular/index';
 import { getLiveblogSubtitles } from '../elements/title/index';
-import {
-    getArticleChapita,
-    getArticleChapitaStyle
-} from '../elements/chapita/index';
+import { getBadgebyConfig } from '../elements/chapita/index';
 
 export const CardLiveblog = article => {
     return {
         ...Article(article),
-        badgeStyle: getArticleChapitaStyle(article) || 'live',
-        badge: getArticleChapita(article) || 'VIVO',
-        chapita: getArticleChapita(article) || 'VIVO',
+        ...getBadgebyConfig(article),
         subtitles: getLiveblogSubtitles(article),
         opinion: false
     };
