@@ -1,92 +1,101 @@
 import get from '../../../../../../../../common/utils/get';
 
-export const listBadgetsByConfigs = [
-    {
-        fieldsBadge: {
-            badgeStyle: 'exclusive-ln',
-            badge: 'Exclusivo suscriptor',
-            chapita: 'Exclusivo suscriptor'
-        },
-        Equal: [
-            {
-                key: 'additionalProperties.chapitaStyle',
-                value: 'exclusive-ln'
-            },
-            {
-                key: 'label.chapita.text',
-                value: 'EXCLUSIVO SUSCRIPTOR'
-            },
-            {
-                key: 'content_restrictions.content_code',
-                value: 'cerrada'
-            },
-            {
-                key: 'additionalProperties.chapita',
-                value: 'EXCLUSIVO SUSCRIPTOR'
-            }
-        ]
-    }
-];
-
 export const getArticleChapitaStyle = article => {
     return get(article, 'additionalProperties.chapitaStyle', null);
 };
 
-export const getArticleChapita = article => {
-    const originalTag = get(article, 'label.chapita.text', null);
-    const tag = get(article, 'additionalProperties.chapita', null);
-
-    const result = originalTag || tag || null;
-    return result ? result.toUpperCase() : result;
-};
-
+// card card: 97830 LN10 - Home - Chapitas
 export const getBadgebyConfig = article => {
     const typeSeccion = get(article, 'informationBox.sectionAliasMobile', null);
     const isSponsored = get(article, 'owner.sponsored', false) || false;
+    const type =
+        get(article, 'additionalProperties.variant', 'regular') || 'regular';
+    const contentCode = get(article, 'content_restrictions.content_code', '');
+    const size = get(article, 'additionalProperties.diseno.size', null);
+    const labelChapitaText = get(article, 'label.chapita.text', null);
+    const additionalPropertiesChapita = get(
+        article,
+        'additionalProperties.chapita',
+        null
+    );
+    const additionalPropertiesChapitaStyle = get(
+        article,
+        'additionalProperties.chapitaStyle',
+        null
+    );
+    const isLiveBlog = type === 'liveblog';
 
-    let fieldsBadge = {};
+    const fieldsBadge = {};
     fieldsBadge.badgeStyle = null;
     fieldsBadge.badge = null;
     fieldsBadge.chapita = null;
 
-    if (['afondo', 'sub-exclusive'].includes(typeSeccion)) {
-        return fieldsBadge;
-    }
-    // If the typeCard is size M  and not is sponsored
     if (
-        get(article, 'additionalProperties.diseno.size', null) === 'M' &&
-        !isSponsored
+        isClosedContent(contentCode) &&
+        isXLorLSize(size) &&
+        !isSubExclusive(typeSeccion)
     ) {
-        return fieldsBadge;
+        fieldsBadge.badgeStyle = 'exclusive-ln';
+        fieldsBadge.badge = 'Exclusivo suscriptores';
+        fieldsBadge.chapita = 'Exclusivo suscriptores';
+    } else if (isSponsored) {
+        fieldsBadge.badgeStyle = 'default';
+        fieldsBadge.badge = 'CONTENT LAB';
+        fieldsBadge.chapita = 'CONTENT LAB';
+    } else if (isLiveBlog) {
+        fieldsBadge.badgeStyle = 'live';
+        fieldsBadge.badge = 'VIVO';
+        fieldsBadge.chapita = 'VIVO';
+    } else if (isMLSize(size)) {
+        // dont show chapitas
+    } else if (
+        isXLorLSize(size) &&
+        isDefaultStyle(additionalPropertiesChapitaStyle)
+    ) {
+        const chapitaText = getChapitaText(
+            labelChapitaText,
+            additionalPropertiesChapita
+        );
+        if (chapitaText && chapitaText !== ' ' && chapitaText !== '.') {
+            fieldsBadge.badgeStyle = additionalPropertiesChapitaStyle;
+            fieldsBadge.badge = chapitaText.toUpperCase();
+            fieldsBadge.chapita = fieldsBadge.badge;
+        }
     }
-
-    listBadgetsByConfigs &&
-        listBadgetsByConfigs.some(configBadge => {
-            return (
-                configBadge &&
-                configBadge.Equal &&
-                configBadge.Equal.some(configEqual => {
-                    if (
-                        (
-                            get(article, configEqual.key, '') || ''
-                        ).toLowerCase() === configEqual.value.toLowerCase()
-                    ) {
-                        fieldsBadge = configBadge.fieldsBadge;
-                        return true;
-                    }
-                    return false;
-                })
-            );
-        });
-
-    if (!fieldsBadge.badgeStyle) {
-        fieldsBadge.badgeStyle = getArticleChapitaStyle(article);
-    }
-    if (!fieldsBadge.badge) {
-        fieldsBadge.badge = getArticleChapita(article);
-    }
-
-    fieldsBadge.chapita = fieldsBadge.badge;
 
     return fieldsBadge;
 };
+
+function isClosedContent(contentCode) {
+    return contentCode === 'cerrada';
+}
+
+function isXLorLSize(size) {
+    return ['XL', 'L'].includes(size);
+}
+
+function isMLSize(size) {
+    return size === 'M';
+}
+
+function isSubExclusive(typeSeccion) {
+    return ['afondo', 'sub-exclusive'].includes(typeSeccion);
+}
+
+function isDefaultStyle(additionalPropertiesChapitaStyle) {
+    return (
+        additionalPropertiesChapitaStyle === 'default' ||
+        additionalPropertiesChapitaStyle === 'positive' ||
+        additionalPropertiesChapitaStyle === 'negative'
+    );
+}
+
+function getChapitaText(labelChapitaText, additionalPropertiesChapita) {
+    if (labelChapitaText) {
+        return labelChapitaText;
+    }
+    if (additionalPropertiesChapita) {
+        return additionalPropertiesChapita;
+    }
+    return null;
+}
