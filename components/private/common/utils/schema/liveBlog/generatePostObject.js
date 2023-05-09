@@ -14,9 +14,11 @@ const extracDataFromCredits = by => {
 };
 
 const createISODate = (date, time) => {
-    const dateAndTime =
+    const dateTime =
         date !== '' && time !== '' ? new Date(`${date} ${time}`) : '';
-    return dateAndTime !== '' ? dateAndTime.toISOString() : '';
+    const isoString = dateTime ? dateTime.toISOString() : '';
+    const randomMs = (Math.floor(Math.random() * 900) + 100).toString();
+    return isoString ? `${isoString.slice(0, -4) + randomMs}Z` : '';
 };
 
 const concatenateBullets = (bullets = []) => {
