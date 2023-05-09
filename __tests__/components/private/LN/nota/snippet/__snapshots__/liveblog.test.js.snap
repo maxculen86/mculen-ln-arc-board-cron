@@ -33,6 +33,18 @@ exports[`Liveblog Snippet with liveblog power up Check render of liveblog postin
         \\"addressRegion\\": \\"AR\\"
       }
     },
+    \\"organizer\\": {
+      \\"@type\\": \\"Organization\\",
+      \\"name\\": \\"La Nación\\",
+      \\"url\\": \\"https://lanacion.com.ar/\\"
+    },
+    \\"performer\\": {
+      \\"@type\\": \\"Organization\\",
+      \\"name\\": \\"La Nación\\",
+      \\"url\\": \\"https://lanacion.com.ar/\\"
+    },
+    \\"eventstatus\\": \\"https://schema.org/EventScheduled\\",
+    \\"eventAttendanceMode\\": \\"https://schema.org/OnlineEventAttendanceMode\\",
     \\"description\\": \\"Lo pibe\\",
     \\"image\\": {
       \\"@context\\": \\"https://schema.org\\",
@@ -57,8 +69,8 @@ exports[`Liveblog Snippet with liveblog power up Check render of liveblog postin
       \\"mainEntityOfPage\\": {
         \\"@type\\": \\"WebPage\\"
       },
-      \\"datePublished\\": \\"2022-06-21T11:46:00.000Z\\",
-      \\"dateModified\\": \\"2022-06-21T11:46:00.000Z\\",
+      \\"datePublished\\": \\"\\",
+      \\"dateModified\\": \\"\\",
       \\"articleBody\\": \\"El gimnasio de Plateada es el primer gimnasio de Kanto. Su tipo dominante es el roca. El líder de gimnasio es Brock. Los entrenadores que lo derrotan reciben la medalla Roca.\\",
       \\"image\\": {
         \\"@type\\": \\"ImageObject\\",
@@ -81,8 +93,8 @@ exports[`Liveblog Snippet with liveblog power up Check render of liveblog postin
       \\"mainEntityOfPage\\": {
         \\"@type\\": \\"WebPage\\"
       },
-      \\"datePublished\\": \\"2022-06-23T02:49:00.000Z\\",
-      \\"dateModified\\": \\"2022-06-23T02:49:00.000Z\\",
+      \\"datePublished\\": \\"\\",
+      \\"dateModified\\": \\"\\",
       \\"articleBody\\": \\"El Gimnasio Celeste es el segundo de la región de Kanto. Se encuentra en Ciudad Celeste y su líder es Misty, experta en los Pokémon de tipo agua. Con su medalla Cascada todos los Pokémon del nivel 30 o inferior te obedecerán.\\",
       \\"image\\": {
         \\"@type\\": \\"ImageObject\\",
@@ -105,8 +117,8 @@ exports[`Liveblog Snippet with liveblog power up Check render of liveblog postin
       \\"mainEntityOfPage\\": {
         \\"@type\\": \\"WebPage\\"
       },
-      \\"datePublished\\": \\"2022-06-29T14:49:00.000Z\\",
-      \\"dateModified\\": \\"2022-06-29T14:49:00.000Z\\",
+      \\"datePublished\\": \\"\\",
+      \\"dateModified\\": \\"\\",
       \\"articleBody\\": \\"El gimnasio Carmín (Vermilion Gym en inglés, クチバジム en japonés) es el tercer gimnasio de la región de Kanto. El líder de este gimnasio es un ex-soldado llamado Lt. Surge, y sus Pokémon son de tipo eléctrico. Se ubica en Ciudad Carmín. 18 obuses de 155 mm.; 36.000 cartuchos de munición de 155 mm.; 18 vehículos tácticos para remolcar obuses de 155 mm.; Munición adicional para sistemas de cohetes de artillería de alta movilidad.; Cuatro vehículos tácticos para recuperar equipos.; Repuestos y otros equipos.; Dos sistemas de defensa costera Harpoon.; Miles de radios de seguridad.; Miles de dispositivos de visión nocturna, visores térmicos y otras ópticas; \\",
       \\"image\\": {
         \\"@type\\": \\"ImageObject\\",
@@ -163,6 +175,18 @@ exports[`Private - LN - nota - snippet - liveblog  Snapshot Snippet Liveblog 1`]
         \\"addressRegion\\": \\"AR\\"
       }
     },
+    \\"organizer\\": {
+      \\"@type\\": \\"Organization\\",
+      \\"name\\": \\"La Nación\\",
+      \\"url\\": \\"https://lanacion.com.ar/\\"
+    },
+    \\"performer\\": {
+      \\"@type\\": \\"Organization\\",
+      \\"name\\": \\"La Nación\\",
+      \\"url\\": \\"https://lanacion.com.ar/\\"
+    },
+    \\"eventstatus\\": \\"https://schema.org/EventScheduled\\",
+    \\"eventAttendanceMode\\": \\"https://schema.org/OnlineEventAttendanceMode\\",
     \\"description\\": \\"Esta es la prueba de la bajada en Foto al 100\\",
     \\"image\\": {
       \\"@context\\": \\"https://schema.org\\",
