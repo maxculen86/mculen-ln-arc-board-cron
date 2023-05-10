@@ -120,8 +120,6 @@ describe('storyBox LN10', () => {
                             }
                         ]
                     },
-                    video: null,
-                    videos: null,
                     videoYouTube: null
                 }
             ]
