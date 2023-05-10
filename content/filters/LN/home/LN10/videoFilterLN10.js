@@ -24,6 +24,7 @@ export default `{
         stream_type
         width
         height
+        filesize
     }
     headlines {
         basic
