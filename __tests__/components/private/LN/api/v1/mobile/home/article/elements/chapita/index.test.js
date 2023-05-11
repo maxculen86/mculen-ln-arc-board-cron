@@ -207,12 +207,28 @@ describe('live', () => {
     });
 });
 describe('all chapitas not included: Live, Exclusivo suscriptor, content lab', () => {
-    it('should show chapita for article size "L" with defined text and badgeStyle "default"', () => {
+    it('should show chapita for article size "L" with defined text and badgeStyle "positive"', () => {
         const article = {
             additionalProperties: {
                 diseno: {
                     size: 'L'
-                }, chapitaStyle: 'default'
+                }, chapitaStyle: 'positive'
+            },
+            label: {
+                chapita: {
+                    text: 'Some Text'
+                }
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.chapita).toEqual('SOME TEXT');
+    });
+    it('should show chapita for article size "L" with defined text and badgeStyle "negative"', () => {
+        const article = {
+            additionalProperties: {
+                diseno: {
+                    size: 'L'
+                }, chapitaStyle: 'negative'
             },
             label: {
                 chapita: {
@@ -237,13 +253,33 @@ describe('all chapitas not included: Live, Exclusivo suscriptor, content lab', (
         expect(fieldsBadge.chapita).toBeNull();
     });
 
-    it('should show chapita for article size "XL" with defined text and badgeStyle "default"', () => {
+    it('should show chapita for article size "XL" with defined text and badgeStyle "positive"', () => {
         const article = {
             additionalProperties: {
                 diseno: {
                     size: 'XL'
                 },
-                chapitaStyle: 'default',
+                chapitaStyle: 'positive',
+            },
+            label: {
+                chapita: {
+                    text: 'Some Text'
+                }
+            },
+            informationBox: {
+                sectionAliasMobile: 'some alias mobile'
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.chapita).toEqual('SOME TEXT');
+    });
+    it('should show chapita for article size "XL" with defined text and badgeStyle "negative"', () => {
+        const article = {
+            additionalProperties: {
+                diseno: {
+                    size: 'XL'
+                },
+                chapitaStyle: 'positive',
             },
             label: {
                 chapita: {
@@ -362,4 +398,169 @@ describe('all chapitas not included: Live, Exclusivo suscriptor, content lab', (
         expect(fieldsBadge.badge).toBeNull();
         expect(fieldsBadge.chapita).toBeNull();
     });
+    it('should not show chapita for article sizes "M" without badgeStyle and badgetext = "something"', () => {
+        const article = {
+            additionalProperties: {
+                diseno: {
+                    size: 'M'
+                },
+                chapitaStyle: '',
+                label: {
+                    chapita: {
+                        text: 'Some Text'
+                    }
+                }
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.badgeStyle).toBeNull();
+        expect(fieldsBadge.badge).toBeNull();
+        expect(fieldsBadge.chapita).toBeNull();
+    });
+    it('should not show chapita for article sizes "L" without badgeStyle and badgetext = "something"', () => {
+        const article = {
+            additionalProperties: {
+                diseno: {
+                    size: 'L'
+                },
+                chapitaStyle: '',
+                label: {
+                    chapita: {
+                        text: 'Some Text'
+                    }
+                }
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.badgeStyle).toBeNull();
+        expect(fieldsBadge.badge).toBeNull();
+        expect(fieldsBadge.chapita).toBeNull();
+    });
+    it('should not show chapita for article sizes "XL" without badgeStyle and badgetext = "something"', () => {
+        const article = {
+            additionalProperties: {
+                diseno: {
+                    size: 'XL'
+                },
+                chapitaStyle: '',
+                label: {
+                    chapita: {
+                        text: 'Some Text'
+                    }
+                }
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.badgeStyle).toBeNull();
+        expect(fieldsBadge.badge).toBeNull();
+        expect(fieldsBadge.chapita).toBeNull();
+    });
 });
+describe('afondo', () => { 
+
+    it('should return badgeStyle="null" badge="null" chapita="" size:XL closedContent', () => {
+        const article = {
+            content_restrictions: {
+                content_code: 'cerrada'
+            },
+            additionalProperties: {
+                diseno: {
+                    size: 'XL'
+                }
+            },
+            informationBox: {
+                sectionAliasMobile: 'afondo'
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.badgeStyle).toBeNull();
+        expect(fieldsBadge.badge).toBeNull();
+        expect(fieldsBadge.chapita).toBeNull();
+    });
+    it('should return badgeStyle="null" badge="null" chapita="" size:XL', () => {
+        const article = {
+            additionalProperties: {
+                diseno: {
+                    size: 'XL'
+                }
+            },
+            informationBox: {
+                sectionAliasMobile: 'afondo'
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.badgeStyle).toBeNull();
+        expect(fieldsBadge.badge).toBeNull();
+        expect(fieldsBadge.chapita).toBeNull();
+    });
+    it('should return badgeStyle="null" badge="null" chapita="" size:L closedContent', () => {
+        const article = {
+            content_restrictions: {
+                content_code: 'cerrada'
+            },
+            additionalProperties: {
+                diseno: {
+                    size: 'L'
+                }
+            },
+            informationBox: {
+                sectionAliasMobile: 'afondo'
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.badgeStyle).toBeNull();
+        expect(fieldsBadge.badge).toBeNull();
+        expect(fieldsBadge.chapita).toBeNull();
+    });
+    it('should return badgeStyle="null" badge="null" chapita="" size:L', () => {
+        const article = {
+            additionalProperties: {
+                diseno: {
+                    size: 'L'
+                }
+            },
+            informationBox: {
+                sectionAliasMobile: 'afondo'
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.badgeStyle).toBeNull();
+        expect(fieldsBadge.badge).toBeNull();
+        expect(fieldsBadge.chapita).toBeNull();
+    });
+    it('should return badgeStyle="null" badge="null" chapita="" size:M closedContent', () => {
+        const article = {
+            content_restrictions: {
+                content_code: 'cerrada'
+            },
+            additionalProperties: {
+                diseno: {
+                    size: 'M'
+                }
+            },
+            informationBox: {
+                sectionAliasMobile: 'afondo'
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.badgeStyle).toBeNull();
+        expect(fieldsBadge.badge).toBeNull();
+        expect(fieldsBadge.chapita).toBeNull();
+    });
+    it('should return badgeStyle="null" badge="null" chapita="" size:M', () => {
+        const article = {
+            additionalProperties: {
+                diseno: {
+                    size: 'M'
+                }
+            },
+            informationBox: {
+                sectionAliasMobile: 'afondo'
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.badgeStyle).toBeNull();
+        expect(fieldsBadge.badge).toBeNull();
+        expect(fieldsBadge.chapita).toBeNull();
+    });
+ })
