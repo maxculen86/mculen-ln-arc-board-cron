@@ -46,7 +46,7 @@ export function getBadgebyConfig(article) {
         fieldsBadge.badge = 'VIVO';
         fieldsBadge.chapita = 'VIVO';
     } else if (isMLSize(size) || isAfondo) {
-        // dont show chapitas
+        return fieldsBadge;
     } else if (
         isXLorLSize(size) &&
         isDefaultStyle(additionalPropertiesChapitaStyle)
