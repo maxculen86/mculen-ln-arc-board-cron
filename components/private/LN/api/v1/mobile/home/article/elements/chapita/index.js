@@ -57,7 +57,9 @@ export function getBadgebyConfig(article) {
         );
 
         if (chapitaText && chapitaText !== ' ' && chapitaText !== '.') {
-            fieldsBadge.badgeStyle = additionalPropertiesChapitaStyle;
+            fieldsBadge.badgeStyle = !additionalPropertiesChapitaStyle
+                ? 'default'
+                : additionalPropertiesChapitaStyle;
             fieldsBadge.badge = chapitaText.toUpperCase();
             fieldsBadge.chapita = fieldsBadge.badge;
         }
@@ -84,7 +86,7 @@ function isSubExclusive(typeSeccion) {
 
 function isDefaultStyle(additionalPropertiesChapitaStyle) {
     return (
-        additionalPropertiesChapitaStyle === 'default' ||
+        additionalPropertiesChapitaStyle === null ||
         additionalPropertiesChapitaStyle === 'positive' ||
         additionalPropertiesChapitaStyle === 'negative'
     );
