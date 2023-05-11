@@ -207,6 +207,54 @@ describe('live', () => {
     });
 });
 describe('all chapitas not included: Live, Exclusivo suscriptor, content lab', () => {
+    it('should return badgeStyle = null for article size "M" with defined text and badgeStyle "positive"', () => {
+        const article = {
+            additionalProperties: {
+                diseno: {
+                    size: 'M'
+                }, chapitaStyle: 'positive'
+            },
+            label: {
+                chapita: {
+                    text: 'Some Text'
+                }
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.badgeStyle).toBeNull();
+    });
+    it('should return badgeStyle = default for article size "L" with defined text and badgeStyle "positive"', () => {
+        const article = {
+            additionalProperties: {
+                diseno: {
+                    size: 'L'
+                }, chapitaStyle: 'positive'
+            },
+            label: {
+                chapita: {
+                    text: 'Some Text'
+                }
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.badgeStyle).toEqual('default');
+    });
+    it('should return badgeStyle = default for article size "XL" with defined text and badgeStyle "positive"', () => {
+        const article = {
+            additionalProperties: {
+                diseno: {
+                    size: 'XL'
+                }, chapitaStyle: 'positive'
+            },
+            label: {
+                chapita: {
+                    text: 'Some Text'
+                }
+            }
+        };
+        const fieldsBadge = getBadgebyConfig(article);
+        expect(fieldsBadge.badgeStyle).toEqual('default');
+    });
     it('should show chapita for article size "L" with defined text and badgeStyle "positive"', () => {
         const article = {
             additionalProperties: {
