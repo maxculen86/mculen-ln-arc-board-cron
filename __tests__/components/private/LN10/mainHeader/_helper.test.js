@@ -8,7 +8,7 @@ import {
 
 describe('Private - LN10 - MainHeader - Helper =>', () => {
     describe('Helper - setDesplegableData', () => {
-        test('should returns a collection with specific data', () => {
+        test('should return a collection with specific data', () => {
             const desplegableData = setDesplegableData();
 
             expect(desplegableData).toHaveLength(5);
@@ -67,7 +67,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             ]
         };
 
-        test('should returns menu user and avatar when userType is suscribed', () => {
+        test('should return menu user and avatar when userType is suscribed', () => {
             const { container, getByText } = render(
                 <RightOptions
                     userType="suscribed"
@@ -87,7 +87,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             expect(initials.textContent).toEqual(mock.userName.substring(0, 2));
         });
 
-        test('should returns menu user, suscribe button and avatar when userType is logged', () => {
+        test('should return menu user, suscribe button and avatar when userType is logged', () => {
             const { container, getByText } = render(
                 <RightOptions
                     userType="logged"
@@ -105,7 +105,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             expect(getByText(mock.userName)).toBeInTheDocument();
         });
 
-        test('should returns menu user, login button and suscribe buton when userType is unlogged', () => {
+        test('should return menu user, login button and suscribe buton when userType is unlogged', () => {
             const { container, getByText } = render(
                 <RightOptions userType="unlogged" loggedIn={false} />
             );
@@ -117,8 +117,8 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             expect(desplegable).not.toBeInTheDocument();
         });
 
-        test('should executes callbacks when some elements are moused down', () => {
-            const { container, getByText } = render(
+        test('should execute callbacks when some elements are moused down', () => {
+            const { getByText } = render(
                 <RightOptions
                     userType="suscribed"
                     userName={mock.userName}
@@ -130,6 +130,20 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
                 fireEvent.mouseDown(getByText(option.text));
                 expect(option.callback).toHaveBeenCalledTimes(1);
             });
+        });
+
+        test('should hide subscribe button is hasSubscribeButton prop is falsy', () => {
+            const { container } = render(
+                <RightOptions
+                    userType="logged"
+                    userName={mock.userName}
+                    desplegableData={mock.desplegable}
+                    hasSubscribeButton={false}
+                />
+            );
+
+            const subscribeButton = container.querySelector('#btnsuscribite');
+            expect(subscribeButton.getAttribute('class')).toContain('--none');
         });
     });
 });

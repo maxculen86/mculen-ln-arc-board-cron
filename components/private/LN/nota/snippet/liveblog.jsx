@@ -80,6 +80,18 @@ const SnippetLiveblog = props => {
                     addressRegion: 'AR'
                 }
             },
+            organizer: {
+                '@type': 'Organization',
+                name: 'La Nación',
+                url: 'https://lanacion.com.ar/'
+            },
+            performer: {
+                '@type': 'Organization',
+                name: 'La Nación',
+                url: 'https://lanacion.com.ar/'
+            },
+            eventstatus: 'https://schema.org/EventScheduled',
+            eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
             description: noteDescription,
             image
         },

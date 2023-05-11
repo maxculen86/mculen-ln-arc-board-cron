@@ -12,7 +12,7 @@ import {
     generatePostObject,
     generatePostObjectWithoutPowerUp
 } from '../../../../../../components/private/common/utils/schema/liveBlog/generatePostObject';
-import articleWithLiveBlogPowerUp from '../../../../../../__mocks__/data/articles/6IDQHDUT6RB6XEHG2F424TMNXI.json';
+import articleWithLiveBlogPowerUp from '../../../../../../__mocks__/data/articles/noDateArticleWithLiveBlogPowerUp.json';
 jest.mock('fusion:environment', () => {
     return {
         IS_SANDBOX: 'true',

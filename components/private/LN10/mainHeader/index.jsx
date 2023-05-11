@@ -20,6 +20,7 @@ import { handleClickBuscar } from '../navbar/_helper';
 import { GlobalContext } from '../../common/context/globalContext';
 import { goToLogout } from '../../LN/common/utils/loginHelper';
 import MainHeaderEventsScript from '../../common/scriptManager/MainHeaderEventsScript';
+import showSubscribeButton from '../../LN/common/utils/showSubscribeButton';
 
 import '../../../../resources/packages/css/@ln/contenidos-ui-header/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
@@ -28,16 +29,20 @@ import '../../../../resources/packages/css/@ln/contenidos-ui-text/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
 
 const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
+    const loginData = getLoginData() || {};
+
     const {
         userName = '',
         loading,
         goToLoginUrl,
         userFirstName,
         userLastName
-    } = getLoginData() || {};
+    } = loginData;
+
     const loggedIn = isLoggedIn();
     const { dispatch } = useContext(GlobalContext);
     const logout = () => goToLogout(dispatch);
+    const hasSubscribeButton = showSubscribeButton(loginData);
 
     const desplegableData = setDesplegableData(logout) || [];
     const initials = setInitials(userFirstName, userLastName, userName);
@@ -91,6 +96,7 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                     goToLoginUrl={goToLoginUrl}
                     loggedIn={loggedIn}
                     loading={loading}
+                    hasSubscribeButton={hasSubscribeButton}
                 />
             </MainHeader.Right>
             <MainHeaderEventsScript />
