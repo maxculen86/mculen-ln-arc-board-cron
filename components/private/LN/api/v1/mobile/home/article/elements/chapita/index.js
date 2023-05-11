@@ -17,11 +17,14 @@ export function getBadgebyConfig(article) {
         'additionalProperties.chapita',
         null
     );
-    const additionalPropertiesChapitaStyle = get(
+    let additionalPropertiesChapitaStyle = get(
         article,
         'additionalProperties.chapitaStyle',
         null
     );
+    const isDefault = isDefaultStyle(additionalPropertiesChapitaStyle);
+    if (isDefault) additionalPropertiesChapitaStyle = 'default';
+
     const isLiveBlog = type === 'liveblog';
     const isAfondo = typeSeccion === 'afondo';
 
@@ -47,19 +50,14 @@ export function getBadgebyConfig(article) {
         fieldsBadge.chapita = 'VIVO';
     } else if (isMLSize(size) || isAfondo) {
         return fieldsBadge;
-    } else if (
-        isXLorLSize(size) &&
-        isDefaultStyle(additionalPropertiesChapitaStyle)
-    ) {
+    } else if (isXLorLSize(size) && isDefault) {
         const chapitaText = getChapitaText(
             labelChapitaText,
             additionalPropertiesChapita
         );
 
         if (chapitaText && chapitaText !== ' ' && chapitaText !== '.') {
-            fieldsBadge.badgeStyle = !additionalPropertiesChapitaStyle
-                ? 'default'
-                : additionalPropertiesChapitaStyle;
+            fieldsBadge.badgeStyle = additionalPropertiesChapitaStyle;
             fieldsBadge.badge = chapitaText.toUpperCase();
             fieldsBadge.chapita = fieldsBadge.badge;
         }
