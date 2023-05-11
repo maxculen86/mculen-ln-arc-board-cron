@@ -264,7 +264,7 @@ exports[`Components - common - Calendar => Test calendar without props 1`] = `
         <span
           class="com-text"
         >
-          M11
+          noviembre
         </span>
       </h2>
       <div
