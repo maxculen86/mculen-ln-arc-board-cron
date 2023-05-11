@@ -172,7 +172,7 @@ export const getStickyBanner = (bannerClass, viewport, header) => {
             dangerouslySetInnerHTML={{
                 __html: `
                     window.addEventListener('DOMContentLoaded', () => {
-                        const banners = document.querySelectorAll('${bannerClass}') || [];
+                        const banners = Array.from(document.querySelectorAll('${bannerClass}')) || [];
                         const header = document.querySelector("#${header}");
                         const viewportLimit = document.querySelector('${viewport}') || {};
                         let oldScrollY = window.scrollY;
