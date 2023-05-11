@@ -4,8 +4,7 @@ export const getArticleChapitaStyle = article => {
     return get(article, 'additionalProperties.chapitaStyle', null);
 };
 
-// card card: 97830 LN10 - Home - Chapitas
-export const getBadgebyConfig = article => {
+export function getBadgebyConfig(article) {
     const typeSeccion = get(article, 'informationBox.sectionAliasMobile', null);
     const isSponsored = get(article, 'owner.sponsored', false) || false;
     const type =
@@ -24,12 +23,12 @@ export const getBadgebyConfig = article => {
         null
     );
     const isLiveBlog = type === 'liveblog';
+    const isAfondo = typeSeccion === 'afondo';
 
     const fieldsBadge = {};
     fieldsBadge.badgeStyle = null;
     fieldsBadge.badge = null;
     fieldsBadge.chapita = null;
-
     if (
         isClosedContent(contentCode) &&
         isXLorLSize(size) &&
@@ -46,7 +45,7 @@ export const getBadgebyConfig = article => {
         fieldsBadge.badgeStyle = 'live';
         fieldsBadge.badge = 'VIVO';
         fieldsBadge.chapita = 'VIVO';
-    } else if (isMLSize(size)) {
+    } else if (isMLSize(size) || isAfondo) {
         // dont show chapitas
     } else if (
         isXLorLSize(size) &&
@@ -56,6 +55,7 @@ export const getBadgebyConfig = article => {
             labelChapitaText,
             additionalPropertiesChapita
         );
+
         if (chapitaText && chapitaText !== ' ' && chapitaText !== '.') {
             fieldsBadge.badgeStyle = additionalPropertiesChapitaStyle;
             fieldsBadge.badge = chapitaText.toUpperCase();
@@ -64,7 +64,7 @@ export const getBadgebyConfig = article => {
     }
 
     return fieldsBadge;
-};
+}
 
 function isClosedContent(contentCode) {
     return contentCode === 'cerrada';
