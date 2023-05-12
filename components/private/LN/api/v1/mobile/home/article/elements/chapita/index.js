@@ -79,7 +79,7 @@ function isMLSize(size) {
 }
 
 function isSubExclusive(typeSeccion) {
-    return ['afondo', 'sub-exclusive'].includes(typeSeccion);
+    return ['sub-exclusive'].includes(typeSeccion);
 }
 
 function isDefaultStyle(additionalPropertiesChapitaStyle) {
