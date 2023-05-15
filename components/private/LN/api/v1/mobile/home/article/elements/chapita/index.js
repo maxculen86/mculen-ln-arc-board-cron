@@ -35,7 +35,8 @@ export function getBadgebyConfig(article) {
     if (
         isClosedContent(contentCode) &&
         isXLorLSize(size) &&
-        !isSubExclusive(typeSeccion)
+        !isSubExclusive(typeSeccion) &&
+        !isAfondo
     ) {
         fieldsBadge.badgeStyle = 'exclusive-ln';
         fieldsBadge.badge = 'Exclusivo suscriptores';
