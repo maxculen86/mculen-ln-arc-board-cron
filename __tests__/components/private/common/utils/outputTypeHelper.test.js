@@ -414,6 +414,14 @@ describe('getTagTitle function test', () => {
             ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
         });
 
+        test('Return meta robots no index no follow when the page is cajaafondo', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: '/cajaafondo/?_website=la-nacion-ar'
+                })
+            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
+        });
+
         test('Return fragment when when the page is home LN10', () => {
             expect(
                 addMetaNoIndexNoFollow({
