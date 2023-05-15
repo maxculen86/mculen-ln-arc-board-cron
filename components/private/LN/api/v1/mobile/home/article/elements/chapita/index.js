@@ -1,10 +1,22 @@
 import get from '../../../../../../../../common/utils/get';
 
-export const getArticleChapitaStyle = article => {
-    return get(article, 'additionalProperties.chapitaStyle', null);
-};
-
-export function getBadgebyConfig(article) {
+export const getBadgebyConfig = article => {
+    const isDefaultStyle = chapitaStyle => {
+        return (
+            chapitaStyle === null ||
+            chapitaStyle === 'positive' ||
+            chapitaStyle === 'negative'
+        );
+    };
+    const getChapitaText = (labelChapitaText, propertiesChapita) => {
+        if (labelChapitaText) {
+            return labelChapitaText;
+        }
+        if (propertiesChapita) {
+            return propertiesChapita;
+        }
+        return null;
+    };
     const typeSeccion = get(article, 'informationBox.sectionAliasMobile', null);
     const isSponsored = get(article, 'owner.sponsored', false) || false;
     const type =
@@ -22,6 +34,7 @@ export function getBadgebyConfig(article) {
         'additionalProperties.chapitaStyle',
         null
     );
+
     const isDefault = isDefaultStyle(additionalPropertiesChapitaStyle);
     if (isDefault) additionalPropertiesChapitaStyle = 'default';
 
@@ -65,38 +78,21 @@ export function getBadgebyConfig(article) {
     }
 
     return fieldsBadge;
-}
+};
 
-function isClosedContent(contentCode) {
+//TODO: pasar a un file common utils
+export const isClosedContent = contentCode => {
     return contentCode === 'cerrada';
-}
-
-function isXLorLSize(size) {
+};
+//TODO: pasar a un file common utils
+export const isXLorLSize = size => {
     return ['XL', 'L'].includes(size);
-}
-
-function isMLSize(size) {
+};
+//TODO: pasar a un file common utils
+export const isMLSize = size => {
     return size === 'M';
-}
-
-function isSubExclusive(typeSeccion) {
+};
+//TODO: pasar a un file common utils
+export const isSubExclusive = typeSeccion => {
     return ['sub-exclusive'].includes(typeSeccion);
-}
-
-function isDefaultStyle(additionalPropertiesChapitaStyle) {
-    return (
-        additionalPropertiesChapitaStyle === null ||
-        additionalPropertiesChapitaStyle === 'positive' ||
-        additionalPropertiesChapitaStyle === 'negative'
-    );
-}
-
-function getChapitaText(labelChapitaText, additionalPropertiesChapita) {
-    if (labelChapitaText) {
-        return labelChapitaText;
-    }
-    if (additionalPropertiesChapita) {
-        return additionalPropertiesChapita;
-    }
-    return null;
-}
+};
