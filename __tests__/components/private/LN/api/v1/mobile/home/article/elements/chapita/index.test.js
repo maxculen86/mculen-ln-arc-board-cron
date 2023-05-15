@@ -37,12 +37,12 @@ describe('components - private - LN - api - v1 - mobile - home - article - eleme
                     additionalProperties: { diseno: { size: 'M' } },
                     informationBox: { sectionAliasMobile: 'some-section' }
                 },
-                null,
-                null,
-                null
+               null,
+               null,
+               null
             ]
         ])(
-            'should return badgeStyle="null" badge="null" chapita="null" when article is closed in any size',
+            'should return badgeStyle="exclusive-ln" badge="Exclusivo suscriptores" chapita="Exclusivo suscriptores" when article is closed in any size',
             (article, expectedBadgeStyle, expectedBadge, expectedChapita) => {
                 const fieldsBadge = getBadgebyConfig(article);
                 expect(fieldsBadge.badgeStyle).toBe(expectedBadgeStyle);
@@ -50,63 +50,47 @@ describe('components - private - LN - api - v1 - mobile - home - article - eleme
                 expect(fieldsBadge.chapita).toBe(expectedChapita);
             }
         );
-        it('should return badgeStyle=null badge=null chapita=null when article is closed and article is in sectionAliasMobile="sub-exclusive size=M"', () => {
-            const article = {
-                content_restrictions: {
-                    content_code: 'cerrada'
+        test.each([
+            [
+                {
+                    content_restrictions: { content_code: 'cerrada' },
+                    additionalProperties: { diseno: { size: 'XL' } },
+                    informationBox: { sectionAliasMobile: 'sub-exclusive' }
                 },
-                additionalProperties: {
-                    diseno: {
-                        size: 'M'
-                    }
+                null,
+                null,
+                null
+            ],
+            [
+                {
+                    content_restrictions: { content_code: 'cerrada' },
+                    additionalProperties: { diseno: { size: 'L' } },
+                    informationBox: { sectionAliasMobile: 'sub-exclusive' }
                 },
-                informationBox: {
-                    sectionAliasMobile: 'sub-exclusive'
-                }
-            };
-            const fieldsBadge = getBadgebyConfig(article);
-            expect(fieldsBadge.badgeStyle).toBeNull();
-            expect(fieldsBadge.badge).toBeNull();
-            expect(fieldsBadge.chapita).toBeNull();
-        });
-        it('should return badgeStyle=null badge=null chapita=null when article is closed and article is in sectionAliasMobile="sub-exclusive size=L"', () => {
-            const article = {
-                content_restrictions: {
-                    content_code: 'cerrada'
+                null,
+                null,
+                null
+            ],
+            [
+                {
+                    content_restrictions: { content_code: 'cerrada' },
+                    additionalProperties: { diseno: { size: 'M' } },
+                    informationBox: { sectionAliasMobile: 'sub-exclusive' }
                 },
-                additionalProperties: {
-                    diseno: {
-                        size: 'L'
-                    }
-                },
-                informationBox: {
-                    sectionAliasMobile: 'sub-exclusive'
-                }
-            };
-            const fieldsBadge = getBadgebyConfig(article);
-            expect(fieldsBadge.badgeStyle).toBeNull();
-            expect(fieldsBadge.badge).toBeNull();
-            expect(fieldsBadge.chapita).toBeNull();
-        });
-        it('should return badgeStyle=null badge=null chapita=null when article is closed and article is in sectionAliasMobile="sub-exclusive size=XL"', () => {
-            const article = {
-                content_restrictions: {
-                    content_code: 'cerrada'
-                },
-                additionalProperties: {
-                    diseno: {
-                        size: 'XL'
-                    }
-                },
-                informationBox: {
-                    sectionAliasMobile: 'sub-exclusive'
-                }
-            };
-            const fieldsBadge = getBadgebyConfig(article);
-            expect(fieldsBadge.badgeStyle).toBeNull();
-            expect(fieldsBadge.badge).toBeNull();
-            expect(fieldsBadge.chapita).toBeNull();
-        });
+                null,
+                null,
+                null
+            ]
+        ])(
+            'should return badgeStyle=null badge=null chapita=null when article is closed and article is in sectionAliasMobile="sub-exclusive any size',
+            (article, expectedBadgeStyle, expectedBadge, expectedChapita) => {
+                const fieldsBadge = getBadgebyConfig(article);
+                expect(fieldsBadge.badgeStyle).toBeNull();
+                expect(fieldsBadge.badge).toBeNull();
+                expect(fieldsBadge.chapita).toBeNull();
+            }
+        );
+        
     });
     describe('when article is CONTENT LAB', () => {
         it('should return fieldsBadge with badgeStyle="default", badge="CONTENT LAB", and chapita="CONTENT LAB" size="M"', () => {
