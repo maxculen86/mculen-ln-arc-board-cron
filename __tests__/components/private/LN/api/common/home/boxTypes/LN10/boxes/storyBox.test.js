@@ -69,7 +69,7 @@ describe('storyBox LN10', () => {
                     },
                     chapita: 'VIDEO',
                     badge: 'VIDEO',
-                    badgeStyle: null,
+                    badgeStyle: 'default',
                     design: {
                         imagePosition: 'Top',
                         size: 'XL',
