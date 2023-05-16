@@ -19,12 +19,6 @@ const fetch = (query, { cachedCall } = {}) => {
     const { endpoint, size } = newQuery;
     const uriArcServicesAPI = `https://arcservices.lanacion.com.ar/api/v1/analytics${endpoint}`;
     const source = 'content/sources/rankingArticlesSource';
-    console.log(
-        'REFERER AND API KEY: ',
-        API_ENV,
-        '---API-KEY---',
-        API_KEY_ARC_SERVICES
-    );
     return request({
         uri: uriArcServicesAPI,
         json: true,

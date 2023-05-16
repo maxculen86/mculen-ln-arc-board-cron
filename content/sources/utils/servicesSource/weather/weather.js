@@ -34,7 +34,6 @@ const weatherRequest = ({ queryData, auth } = {}) => {
         },
         ...auth
     };
-    console.log('🚀 ~ file: weather.js:37 ~ weatherRequest ~ opt:', opt);
     return request(opt).then(data => data);
 };
 const resolve = ({ response = {} }) => transform(response);

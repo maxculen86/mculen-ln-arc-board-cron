@@ -36,7 +36,6 @@ const holidayRequest = ({ queryData, auth } = {}) => {
         },
         ...auth
     };
-    console.log('🚀 ~ file: holidays.js:39 ~ holidayRequest ~ opt:', opt);
     return request(opt).then(data => data);
 };
 

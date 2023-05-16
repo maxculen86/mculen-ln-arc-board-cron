@@ -38,7 +38,6 @@ const fetch = async (query, { cachedCall }) => {
             bearer: ARC_ACCESS_TOKEN
         };
     }
-    console.log('🚀 ~ file: tagSource.js:36 ~ fetch ~ opt:', opt);
 
     const tagConfigData = await cachedCall('navigationTreeSource', getRequest, {
         query: `${CONTENT_BASE}/site/v3/navigation/${website}/`,

@@ -31,7 +31,6 @@ const lotteryRequest = ({ queryData, auth } = {}) => {
         },
         ...auth
     };
-    console.log('🚀 ~ file: lottery.js:34 ~ lotteryRequest ~ opt:', opt);
     return request(opt).then(data => data);
 };
 

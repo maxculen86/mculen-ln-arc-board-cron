@@ -20,7 +20,6 @@ const fetch = async ({ 'arc-site': arcSite } = {}, { cachedCall } = {}) => {
             'api-key': API_KEY_ARC_SERVICES
         }
     };
-    console.log('🚀 ~ file: dolarSource.js:22 ~ fetch ~ endpoint:', endpoint);
 
     const promiseTermicasDolar = await cachedCall(
         'navigationTreeSource',

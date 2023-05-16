@@ -21,10 +21,7 @@ const fetch = query => {
         },
         ...query
     };
-    console.log(
-        '🚀 ~ file: wikiTagSource.js:24 ~ fetch ~ requestQuery:',
-        requestQuery
-    );
+
     return getRequest(resolve(requestQuery))
         .then(response => response)
         .catch(error => {
