@@ -12,12 +12,12 @@ export const getStyleFontsInLineForLN10 = ({ contextPath, deployment }) => `
     font: FONT_PRUMO,
     contextPath,
     deployment
-})}') format('woff2');font-weight: 90; font-display: auto;}
+})}') format('woff2-variations'); font-weight: 90; font-display: auto;}
 @font-face {font-family:'Prumo Italic';src:url('${getWebFont({
     font: FONT_PRUMO_ITALIC,
     contextPath,
     deployment
-})}') format('woff2');font-weight: 90;font-display: swap;}
+})}') format('woff2-variations'); font-weight: 90; font-display: swap;}
 `; // NOSONAR;
 
 const FontFace = props => {

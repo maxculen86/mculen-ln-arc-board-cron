@@ -4736,6 +4736,10 @@
 .ln-roof .--ln-roof-full .--ln-roof-left .--roof-href-arrow {
   transform: translateY(0.0625rem);
 }
+.ln-roof .--ln-roof-full .--ln-roof-left .roof-img span {
+  visibility: hidden;
+  position: absolute;
+}
 .ln-roof .--ln-roof-full .--ln-roof-right {
   height: 33px;
   margin: auto 0 auto 1rem;
