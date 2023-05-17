@@ -126,7 +126,7 @@ exports[`getBannerConfiguration => Deberia traer la configuracion del banner cab
       Object {
         "__html": "
                     window.addEventListener('DOMContentLoaded', () => {
-                        const banners = document.querySelectorAll('.--cabezal_dsk') || [];
+                        const banners = Array.from(document.querySelectorAll('.--cabezal_dsk')) || [];
                         const header = document.querySelector(\\"#header\\");
                         const viewportLimit = document.querySelector('.lay-sidebar') || {};
                         let oldScrollY = window.scrollY;

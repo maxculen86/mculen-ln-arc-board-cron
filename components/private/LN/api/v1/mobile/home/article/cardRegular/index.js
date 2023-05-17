@@ -23,8 +23,6 @@ export const CardRegular = article => {
         volanta: getFlyertext(article),
         bajada: getDroptext(article),
         imagen: getArticleImage(article),
-        video: getArticleVideos(article),
-        videos: getArticleVideos(article, true),
         videoYouTube: getYouTubeVideoLink(article),
         ...getBadgebyConfig(article),
         opinion: false

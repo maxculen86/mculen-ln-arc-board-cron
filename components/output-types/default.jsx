@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ScriptLogoBBC from '../private/common/scriptManager/scriptLogoBBC';
-import ScriptVideoPowaHome from '../private/common/scriptManager/scriptVideoPowaHome';
 import MetasOG from '../private/common/metaTags/metasOG';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
 import Schemas from '../private/common/scriptManager/schemas';
@@ -33,6 +32,7 @@ import {
 import checkHydrateOnly from '../private/LN/common/utils/checkHydrateOnly';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import CssLinksLn10 from './Helper/cssLinksLn10';
+import ScriptVideoPowaHTML from '../private/common/scriptManager/scriptVideoPowaHTML';
 
 const lnBuscador = 'LN-buscador';
 
@@ -295,10 +295,7 @@ const Default = props => {
                     nodeType={_nodeType}
                     sections={taxonomy && taxonomy.sections}
                 />
-                <ScriptVideoPowaHome
-                    renderables={renderables}
-                    section={_nodeType}
-                />
+                <ScriptVideoPowaHTML subtype={subtype} />
                 {addMetaNoIndexNoFollow({ requestUri })}
             </head>
             <body {...getBodyClass(siteProperties)}>

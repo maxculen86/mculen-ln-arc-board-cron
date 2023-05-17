@@ -103,7 +103,7 @@ export const validateArticleFeature = ({
 }) => {
     const { streams } = video || {};
     const { filesize } = getStreams(streams, '>') || '';
-    const maxVideoSize = 3000000;
+    const maxVideoSize = 3145728;
     const oneMegabyte = 1048576;
 
     const rules = [
