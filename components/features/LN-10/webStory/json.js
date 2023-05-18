@@ -4,11 +4,12 @@ import { getChainConfig } from '../article/common/_helper-WebApi';
 import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 import { validateProps } from '../../../private/LN/api/global/components/features/article/LN10/props/validateProps';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
+
 class WebStoryFeature {
     constructor(props) {
         this.state = {};
         const {
-            customFields: { imageId, title, lead, link },
+            customFields: { imageId },
             id: featureId,
             renderables = [],
             layout: layoutPageBuilder
