@@ -3,9 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { Button } from '@ln/contenidos-ui-button';
+import { Icon } from '@ln/common-ui-icon';
+import { Close } from '@ln/assets-ui-icons';
 import ComButton from '../com-button';
 import flatArray from '../utils/flatArray';
-import Icon from '../icon';
 import StaticContent from '../staticContent';
 import siteProperties from '../../../../properties/sites/la-nacion-ar';
 import get from '../utils/get';
@@ -81,9 +82,11 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                             id={`${slotId}_btnCloseAd`}
                             type="button"
                             aria-label="Close"
-                            className="icon-close"
+                            className="button ln-button"
                         >
-                            <Icon name="close" negative />
+                            <Icon className="icon-close" color="light">
+                                <Close />
+                            </Icon>
                         </button>
                     )}
 
