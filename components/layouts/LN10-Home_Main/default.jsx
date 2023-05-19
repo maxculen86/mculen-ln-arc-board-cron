@@ -24,16 +24,13 @@ import {
 } from '../../private/common/utils/viewability';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
-import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
-import '../../../resources/packages/css/@ln/contenidos-ui-banners/index.css';
-import '../../../resources/packages/css/@ln/contenidos-ui-bannersubscriber/index.css';
-
 import Ranking from '../../features/LN-10/ranking/default';
 import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
 import {
     createBannersIntersectionObserver,
     createHeaderObserver
 } from '../../private/common/banners/intersectionObservers';
+import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 
 const LN10Home = props => {
     const { children, outputType, isAdmin, renderables } = props;

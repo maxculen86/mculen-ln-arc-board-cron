@@ -5,8 +5,6 @@ import { Live } from '@ln/contenidos-ui-live';
 import { getFieldsFromNotes, getNotesLists, findError } from './_helpers';
 import StaticContent from '../../../private/common/staticContent';
 import get from '../../../private/common/utils/get';
-import '../../../../resources/packages/css/@ln/contenidos-ui-live/index.css';
-import '../../../../resources/packages/css/@ln/contenidos-ui-badge/index.css';
 import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
 import getDynamicBanners from '../../../private/common/banners/dynamicBanners/getDynamicBanners';
 import setRender from '../../../chains/utils/setRender';

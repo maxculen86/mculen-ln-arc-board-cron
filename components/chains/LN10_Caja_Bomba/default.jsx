@@ -18,11 +18,6 @@ import StaticContent from '../../private/common/staticContent';
 import { setSlicedChildren } from '../utils/common/_helpers-WebApi';
 import useValidateChain from '../../private/LN10/common/hooks/useValidateChain';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
-import '../../../resources/packages/css/@ln/contenidos-ui-bomba/index.css';
-import '../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
-import '../../../resources/packages/css/@ln/common-ui-media/index.css';
-import '../../../resources/packages/css/@ln/common-ui-image/index.css';
-import '../../../resources/packages/css/@ln/common-ui-video/index.css';
 
 const CajaBomba = props => {
     const {
