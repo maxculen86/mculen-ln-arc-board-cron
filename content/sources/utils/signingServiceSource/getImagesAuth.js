@@ -44,6 +44,8 @@ export const getPromoItemsAuth = async (promoItems, cachedCall) => {
         'apertura_multimedia.promo_items.basic.url'
     );
 
+    const aperturaVideoBasic = get(promoItems, 'basic.promo_items.basic.url');
+
     const result = {};
 
     if (
@@ -97,6 +99,18 @@ export const getPromoItemsAuth = async (promoItems, cachedCall) => {
         Object.assign(result, { videoHash });
     }
 
+    if (
+        get(promoItems, 'basic.type') === 'video' &&
+        !get(promoItems, 'basic.promo_items.basic.auth.1')
+    ) {
+        const { hash: videoBasicHash = '' } = await signingServiceCachedCall(
+            aperturaVideoBasic,
+            cachedCall
+        );
+
+        Object.assign(result, { videoBasicHash });
+    }
+
     return result;
 };
 
@@ -107,7 +121,8 @@ export const getAllImagesAuth = async (data, cachedCall) => {
             basicHash,
             storytellingMobileHash,
             storytellingHash,
-            videoHash
+            videoHash,
+            videoBasicHash
         } = await getPromoItemsAuth(promoItems, cachedCall);
 
         basicHash &&
@@ -132,8 +147,14 @@ export const getAllImagesAuth = async (data, cachedCall) => {
                     auth: { 1: videoHash }
                 }
             );
+
+        videoBasicHash &&
+            Object.assign(data.promo_items.basic.promo_items.basic, {
+                auth: { 1: videoBasicHash }
+            });
     }
     const contentElements = get(data, 'content_elements', []);
+
     if (
         missingContentElementImgAuth({
             dataContentElements: contentElements
@@ -222,6 +243,7 @@ export const getAllImagesAuth = async (data, cachedCall) => {
         }
     }
     const credits = get(data, 'credits.by', []);
+
     if (
         missingCreditsImgAuth({
             dataCredits: credits
