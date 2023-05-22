@@ -22,6 +22,15 @@ describe('Content - sources - utils - signingImageAuth', () => {
                 missingPromoItemImgAuth({ dataPromoItem: promoItemsMock })
             ).toBe(true);
         });
+        test('Should return true when basic promo_item video has not auth', () => {
+            const dataPromoItem = {
+                basic: {
+                    type: 'video',
+                    auth: {}
+                }
+            };
+            expect(missingPromoItemImgAuth({ dataPromoItem })).toBe(true);
+        });
         test('Should return true when storytelling_mobile promo_item image has not auth', () => {
             const dataPromoItem = {
                 storytelling_mobile: {
@@ -171,8 +180,6 @@ describe('Content - sources - utils - signingImageAuth', () => {
     });
 
     describe('missingCreditsImgAuth function', () => {
-        const { content_elements: contentElementsMock } = MOCK_ARTICLE;
-
         test('Should return false when credits are not defined or empty', () => {
             expect(missingCreditsImgAuth({ dataCredits: undefined })).toBe(
                 false

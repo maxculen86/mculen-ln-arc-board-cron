@@ -75,7 +75,7 @@ describe('Content - sources - utils - signingServiceSource', () => {
                 })
                 .then(done);
         });
-        test('Should call cachedCall for basic promo_item that does not have auth', async done => {
+        test('Should call cachedCall for basic promo_item image that does not have auth', async done => {
             cachedCall.mockReturnValueOnce({ hash: 'MockHashBasic' });
             dataPromoItems.basic.auth = {};
             dataPromoItems.storytelling.promo_items.basic.auth = {
@@ -171,6 +171,34 @@ describe('Content - sources - utils - signingServiceSource', () => {
                 .then(result => {
                     expect(result).toStrictEqual({});
                     expect(cachedCall).not.toBeCalled();
+                })
+                .then(done);
+        });
+        test('Should call cachedCall for basic promo_item video that does not have auth', async done => {
+            cachedCall.mockReturnValueOnce({ hash: 'MockVideoBasicHash' });
+            dataPromoItems.basic = {
+                type: 'video',
+                promo_items: {
+                    basic: {
+                        url: 'mockVideoBasicUrl',
+                        auth: {}
+                    }
+                }
+            };
+            dataPromoItems.storytelling.promo_items.basic.auth = {
+                ...mockAuth
+            };
+            dataPromoItems.storytelling_mobile.auth = { ...mockAuth };
+            dataPromoItems.apertura_multimedia.promo_items.basic.auth = {
+                ...mockAuth
+            };
+
+            getPromoItemsAuth(dataPromoItems, cachedCall)
+                .then(result => {
+                    expect(result).toStrictEqual({
+                        videoBasicHash: 'MockVideoBasicHash'
+                    });
+                    expect(cachedCall).toBeCalledTimes(1);
                 })
                 .then(done);
         });

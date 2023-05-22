@@ -10,7 +10,12 @@ export const missingPromoItemImgAuth = ({ dataPromoItem }) => {
         (get(dataPromoItem, 'storytelling.type') === 'video' &&
             !get(dataPromoItem, 'storytelling.promo_items.basic.auth.1')) ||
         (get(dataPromoItem, 'apertura_multimedia.type') === 'video' &&
-            !get(dataPromoItem, 'apertura_multimedia.promo_items.basic.auth.1'))
+            !get(
+                dataPromoItem,
+                'apertura_multimedia.promo_items.basic.auth.1'
+            )) ||
+        (get(dataPromoItem, 'basic.type') === 'video' &&
+            !get(dataPromoItem, 'basic.promo_items.basic.auth.1'))
     );
 };
 export const missingContentElementImgAuth = ({ dataContentElements }) => {
