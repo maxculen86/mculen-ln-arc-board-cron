@@ -10,6 +10,7 @@ import flatArray from '../utils/flatArray';
 import StaticContent from '../staticContent';
 import siteProperties from '../../../../properties/sites/la-nacion-ar';
 import get from '../utils/get';
+import '../../../../resources/packages/css/@ln/contenidos-ui-banners/index.css';
 
 const DivBannerSSR = ({ bannerConfiguration }) => {
     const {
