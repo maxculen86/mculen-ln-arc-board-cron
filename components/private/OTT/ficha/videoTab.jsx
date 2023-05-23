@@ -18,11 +18,13 @@ class VideoTab extends PureComponent {
         this.description = get(globalContent, 'description.basic', null);
         this.date = get(globalContent, 'publish_date', null);
         this.arcSite = get(props, 'arcSite', 'ott');
-        if (this.date) this.date = dateHelper.getVideoDateFormat(this.date);
+        this.streams = get(globalContent, 'streams', []);
 
-        globalContent.streams.sort((a, b) => {
+        if (this.date) this.date = dateHelper.getVideoDateFormat(this.date);
+        this.streams.sort((a, b) => {
             return b.height - a.height;
         });
+
         try {
             this.analytics = [
                 {
@@ -43,7 +45,7 @@ class VideoTab extends PureComponent {
                 },
                 {
                     itemProp: 'contentUrl',
-                    content: globalContent.streams[0].url
+                    content: this.streams[0].url
                 },
                 {
                     itemProp: 'duration',

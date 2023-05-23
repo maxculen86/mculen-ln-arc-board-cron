@@ -1,92 +1,98 @@
 import get from '../../../../../../../../common/utils/get';
 
-export const listBadgetsByConfigs = [
-    {
-        fieldsBadge: {
-            badgeStyle: 'exclusive-ln',
-            badge: 'Exclusivo suscriptor',
-            chapita: 'Exclusivo suscriptor'
-        },
-        Equal: [
-            {
-                key: 'additionalProperties.chapitaStyle',
-                value: 'exclusive-ln'
-            },
-            {
-                key: 'label.chapita.text',
-                value: 'EXCLUSIVO SUSCRIPTOR'
-            },
-            {
-                key: 'content_restrictions.content_code',
-                value: 'cerrada'
-            },
-            {
-                key: 'additionalProperties.chapita',
-                value: 'EXCLUSIVO SUSCRIPTOR'
-            }
-        ]
-    }
-];
-
-export const getArticleChapitaStyle = article => {
-    return get(article, 'additionalProperties.chapitaStyle', null);
-};
-
-export const getArticleChapita = article => {
-    const originalTag = get(article, 'label.chapita.text', null);
-    const tag = get(article, 'additionalProperties.chapita', null);
-
-    const result = originalTag || tag || null;
-    return result ? result.toUpperCase() : result;
-};
-
 export const getBadgebyConfig = article => {
+    const isDefaultStyle = chapitaStyle => {
+        return (
+            chapitaStyle === null ||
+            chapitaStyle === 'positive' ||
+            chapitaStyle === 'negative'
+        );
+    };
+    const getChapitaText = (labelChapitaText, propertiesChapita) => {
+        if (labelChapitaText) {
+            return labelChapitaText;
+        }
+        if (propertiesChapita) {
+            return propertiesChapita;
+        }
+        return null;
+    };
     const typeSeccion = get(article, 'informationBox.sectionAliasMobile', null);
     const isSponsored = get(article, 'owner.sponsored', false) || false;
+    const type =
+        get(article, 'additionalProperties.variant', 'regular') || 'regular';
+    const contentCode = get(article, 'content_restrictions.content_code', '');
+    const size = get(article, 'additionalProperties.diseno.size', null);
+    const labelChapitaText = get(article, 'label.chapita.text', null);
+    const additionalPropertiesChapita = get(
+        article,
+        'additionalProperties.chapita',
+        null
+    );
+    let additionalPropertiesChapitaStyle = get(
+        article,
+        'additionalProperties.chapitaStyle',
+        null
+    );
 
-    let fieldsBadge = {};
+    const isDefault = isDefaultStyle(additionalPropertiesChapitaStyle);
+    if (isDefault) additionalPropertiesChapitaStyle = 'default';
+
+    const isLiveBlog = type === 'liveblog';
+    const isAfondo = typeSeccion === 'afondo';
+
+    const fieldsBadge = {};
     fieldsBadge.badgeStyle = null;
     fieldsBadge.badge = null;
     fieldsBadge.chapita = null;
-
-    if (['afondo', 'sub-exclusive'].includes(typeSeccion)) {
-        return fieldsBadge;
-    }
-    // If the typeCard is size M  and not is sponsored
     if (
-        get(article, 'additionalProperties.diseno.size', null) === 'M' &&
-        !isSponsored
+        isClosedContent(contentCode) &&
+        isXLorLSize(size) &&
+        !isSubExclusive(typeSeccion) &&
+        !isAfondo
     ) {
+        fieldsBadge.badgeStyle = 'exclusive-ln';
+        fieldsBadge.badge = 'Exclusivo suscriptores';
+        fieldsBadge.chapita = 'Exclusivo suscriptores';
+    } else if (isSponsored) {
+        fieldsBadge.badgeStyle = 'default';
+        fieldsBadge.badge = 'CONTENT LAB';
+        fieldsBadge.chapita = 'CONTENT LAB';
+    } else if (isLiveBlog) {
+        fieldsBadge.badgeStyle = 'live';
+        fieldsBadge.badge = 'VIVO';
+        fieldsBadge.chapita = 'VIVO';
+    } else if (isMLSize(size) || isAfondo) {
         return fieldsBadge;
-    }
+    } else if (isXLorLSize(size) && isDefault) {
+        const chapitaText = getChapitaText(
+            labelChapitaText,
+            additionalPropertiesChapita
+        );
 
-    listBadgetsByConfigs &&
-        listBadgetsByConfigs.some(configBadge => {
-            return (
-                configBadge &&
-                configBadge.Equal &&
-                configBadge.Equal.some(configEqual => {
-                    if (
-                        (
-                            get(article, configEqual.key, '') || ''
-                        ).toLowerCase() === configEqual.value.toLowerCase()
-                    ) {
-                        fieldsBadge = configBadge.fieldsBadge;
-                        return true;
-                    }
-                    return false;
-                })
-            );
-        });
-
-    if (!fieldsBadge.badgeStyle) {
-        fieldsBadge.badgeStyle = getArticleChapitaStyle(article);
+        if (chapitaText && chapitaText !== ' ' && chapitaText !== '.') {
+            fieldsBadge.badgeStyle = additionalPropertiesChapitaStyle;
+            fieldsBadge.badge = chapitaText.toUpperCase();
+            fieldsBadge.chapita = fieldsBadge.badge;
+        }
     }
-    if (!fieldsBadge.badge) {
-        fieldsBadge.badge = getArticleChapita(article);
-    }
-
-    fieldsBadge.chapita = fieldsBadge.badge;
 
     return fieldsBadge;
+};
+
+//TODO: pasar a un file common utils
+export const isClosedContent = contentCode => {
+    return contentCode === 'cerrada';
+};
+//TODO: pasar a un file common utils
+export const isXLorLSize = size => {
+    return ['XL', 'L'].includes(size);
+};
+//TODO: pasar a un file common utils
+export const isMLSize = size => {
+    return size === 'M';
+};
+//TODO: pasar a un file common utils
+export const isSubExclusive = typeSeccion => {
+    return ['sub-exclusive'].includes(typeSeccion);
 };

@@ -139,7 +139,7 @@ export const addMetaNoIndexNoFollow = ({
     outputType = 'default',
     requestUri
 }) => {
-    return ['home-vivo', 'home-temas'].includes(
+    return ['home-vivo', 'home-temas', 'cajaafondo'].includes(
         getSectionOfRequestUri(requestUri)
     ) || ['opta', 'widgets'].includes(outputType) ? (
         <meta name="robots" content="noindex, nofollow" />

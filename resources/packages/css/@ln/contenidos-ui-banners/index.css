@@ -27,6 +27,16 @@
   top: 0;
   z-index: -1;
 }
+.ln-banner-container.--logo, .ln-banner-container.--logo_int {
+  position: absolute;
+  margin: 0;
+  width: 10.75rem;
+  height: 1.1875rem;
+  background: #ffffff;
+}
+.ln-banner-container.--logo:before, .ln-banner-container.--logo_int:before {
+  content: "PUBLICIDAD";
+}
 .ln-banner-container.--comercial {
   align-items: center;
   position: fixed;
@@ -83,6 +93,13 @@
     position: relative;
   }
 }
+.ln-banner-container.--adhesion_mob .button.ln-button, .ln-banner-container.--adhesion_tab .button.ln-button, .ln-banner-container.--adhesion_dsk .button.ln-button {
+  padding: 0;
+  border: none;
+}
+.ln-banner-container.--adhesion_mob .button.ln-button .icon-close, .ln-banner-container.--adhesion_tab .button.ln-button .icon-close, .ln-banner-container.--adhesion_dsk .button.ln-button .icon-close {
+  top: 0;
+}
 .ln-banner-container.--adhesion_mob {
   background-color: transparent;
   width: -moz-fit-content;
@@ -91,10 +108,6 @@
 .ln-banner-container.--adhesion_mob .ln-banner {
   height: 3.75rem;
   border-bottom: 0.625rem solid #ffffff;
-}
-.ln-banner-container.--adhesion_mob .icon-close {
-  top: auto;
-  height: auto;
 }
 .ln-banner-container.--adhesion_mob:before {
   margin: 1rem auto;
@@ -115,6 +128,10 @@
   margin: 0;
 }
 @media (min-width: 48rem) {
+  .ln-banner-container.--logo {
+    width: 19.0625rem;
+    height: 2rem;
+  }
   .ln-banner-container.--fixed {
     bottom: 3.625rem;
     left: calc((100% - 728px) / 2);
@@ -144,10 +161,6 @@
     height: 6.25rem;
     border-bottom: 0.625rem solid #ffffff;
   }
-  .ln-banner-container.--adhesion_tab .close {
-    top: auto;
-    height: auto;
-  }
   .ln-banner-container.--adhesion_tab:before {
     margin: 1.25rem auto 0 auto;
   }
@@ -164,39 +177,27 @@
     left: calc((100% - 760px) / 2);
   }
   .ln-banner-container.--logo {
-    position: absolute;
-    margin: 0;
-    width: 28.75rem;
-    height: 3.3125rem;
-    background: #ffffff;
+    width: 30.4375rem;
+    height: 3rem;
   }
-}
-@media (min-width: 64rem) and (min-width: 48rem) {
-  .ln-banner-container.--logo {
-    width: 18.125rem;
-    height: 2.1875rem;
+  .--top-fixed .ln-banner-container.--logo {
+    display: none;
   }
-}
-@media (min-width: 64rem) and (min-width: 64rem) {
-  .ln-banner-container.--logo {
-    width: 28.75rem;
-    height: 3.3125rem;
-    left: 0;
-    right: 0;
-    margin: auto;
+  .ln-banner-container.--logo.--logo_int {
+    width: 19.0625rem;
+    height: 2rem;
   }
-}
-@media (min-width: 64rem) {
-  .ln-banner-container.--logo:before {
-    content: "";
+  .ln-banner-container.--logo_sticky_dsk {
+    display: none;
+    width: 19.0625rem;
+    height: 2rem;
   }
-}
-@media (min-width: 64rem) {
+  .--top-fixed .ln-banner-container.--logo_sticky_dsk {
+    display: block;
+  }
   .ln-banner-container.--megatop {
     height: 15.625rem;
   }
-}
-@media (min-width: 64rem) {
   .homepage .ln-banner-container.--cajasuscriptores_dsk {
     background-color: #333333;
     overflow: hidden;
@@ -216,10 +217,6 @@
   .homepage .ln-banner-container.--adhesion_dsk .ln-banner {
     height: 6.25rem;
     text-align: center;
-  }
-  .homepage .ln-banner-container.--adhesion_dsk .close {
-    top: auto;
-    height: auto;
   }
   .homepage .ln-banner-container.--adhesion_dsk:before {
     margin: 1.25rem auto 0 auto;
