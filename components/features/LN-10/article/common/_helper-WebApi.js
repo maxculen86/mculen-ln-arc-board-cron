@@ -39,6 +39,7 @@ export const getChainParentOfFeature = (featureId, renderables) => {
         'LN10_Caja_Bomba',
         'LN10_Caja_Collection',
         'LN10_Caja_Canal',
+        'LN10_Caja_WebStories',
         'Ln_Caja_Manual'
     ];
 

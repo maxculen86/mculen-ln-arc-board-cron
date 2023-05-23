@@ -1506,6 +1506,26 @@ export default {
                     ]
                 }
             },
+            webStories: {
+                promo_items: {
+                    sizes: [
+                        {
+                            width: 400,
+                            height: 500,
+                            proportion: '3:4',
+                            media: minWidth375,
+                            media_preload: minWidth375
+                        },
+                        {
+                            width: 250,
+                            height: 333,
+                            proportion: '3:4',
+                            media: minWidth320,
+                            media_preload: minWidth320
+                        }
+                    ]
+                }
+            },
             default: [
                 {
                     width: 1033,
