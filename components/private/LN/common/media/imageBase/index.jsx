@@ -1,11 +1,13 @@
 import React from 'react';
+import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import PropTypes from 'prop-types';
 import ComImage from '../../../../common/com-image';
 import ComPicture from '../../../../common/com-picture';
 import {
     getSourceSet,
     getSizes,
-    getShortestImage
+    getShortestImage,
+    getImagesToLoadWithPicture
 } from '../../utils/mediaHelper';
 
 const ImageArticle = props => {
@@ -16,6 +18,7 @@ const ImageArticle = props => {
         active,
         isVertical,
         isApertura,
+        isValidSection,
         searchableField
     } = props;
 
@@ -42,17 +45,33 @@ const ImageArticle = props => {
 
     return (
         <ComPicture href={href}>
-            <ComImage
-                srcset={srcset}
-                sizes={sizes.length > 0 ? `${sizes},100vw` : '100vw'}
-                src={!isAmp ? _url : `${resizedUrl} ${_width}w`}
-                alt={altBasic}
-                amp={isAmp}
-                height={height}
-                width={width}
-                isApertura={isApertura}
-                searchableField={searchableField}
-            />
+            {isValidSection ? (
+                <div className="com-image">
+                    <Adaptableimage
+                        width={width}
+                        alt={altBasic}
+                        height={height}
+                        src={resizedUrl}
+                        className="com-image"
+                        searchableField={searchableField}
+                        fetchPriority={isApertura ? 'high' : 'low'}
+                        loading={isApertura ? 'eager' : 'lazy'}
+                        sources={getImagesToLoadWithPicture(sourceActive)}
+                    />
+                </div>
+            ) : (
+                <ComImage
+                    srcset={srcset}
+                    sizes={sizes.length > 0 ? `${sizes},100vw` : '100vw'}
+                    src={!isAmp ? _url : `${resizedUrl} ${_width}w`}
+                    alt={altBasic}
+                    amp={isAmp}
+                    height={height}
+                    width={width}
+                    isApertura={isApertura}
+                    searchableField={searchableField}
+                />
+            )}
         </ComPicture>
     );
 };
@@ -73,14 +92,16 @@ ImageArticle.propTypes = {
     active: PropTypes.bool,
     isVertical: PropTypes.bool,
     href: PropTypes.string,
-    isApertura: PropTypes.bool
+    isApertura: PropTypes.bool,
+    isValidSection: PropTypes.bool
 };
 
 ImageArticle.defaultProps = {
     href: '',
     active: false,
     isVertical: false,
-    isApertura: false
+    isApertura: false,
+    isValidSection: false
 };
 
 export default ImageArticle;

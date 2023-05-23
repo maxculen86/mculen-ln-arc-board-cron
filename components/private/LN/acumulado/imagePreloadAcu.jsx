@@ -13,6 +13,7 @@ const ImagePreloadlAcu = ({
     arcSite,
     accumulated,
     nodeType,
+    isLoadWithPicture,
     collectionId = '',
     imageConfig = 'boxArticles',
     sectionsIds = ''
@@ -37,7 +38,13 @@ const ImagePreloadlAcu = ({
     const promoItemsWWW = replaceUrlResizerToWWW(basic) || {};
     const resizedUrls = get(promoItemsWWW, 'resized_urls', []);
 
-    return <LinkImagePreload resizedUrls={resizedUrls} />;
+    return (
+        <LinkImagePreload
+            // TODO: Eliminar esta prop cuando se implemente la carga por picture en todo el sitio.
+            isLoadWithPicture={isLoadWithPicture}
+            resizedUrls={resizedUrls}
+        />
+    );
 };
 
 ImagePreloadlAcu.propTypes = {
