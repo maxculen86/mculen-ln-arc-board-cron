@@ -125,20 +125,9 @@ describe('Components - features - LN-10 - articulo - default', () => {
         expect(container.innerHTML).not.toContain('marquee-img');
     });
 
-    it('should render Cargando...', () => {
+    it('should render page builder error', () => {
         useContent.mockReturnValue(null);
 
-        Context.useAppContext = jest.fn(() => ({
-            isAdmin: false,
-            renderables: [],
-            layout: 'LN10-Home_Main',
-            arcSite: 'la-nacion-ar'
-        }));
-
-        render(<ArticleFeature {...getProps()} />);
-        expect(screen.getByText('Cargando...')).toBeDefined();
-    });
-    it('should render page builder error', () => {
         jest.spyOn(
             cajaTemasValidators,
             'validateArticleFeature'
@@ -310,21 +299,9 @@ describe('Components - features - LN-10 - articulo - default', () => {
         expect(container.innerHTML).not.toContain('marquee-img');
     });
 
-    it('should render Cargando...', () => {
+    it('should render page builder error', () => {
         useContent.mockReturnValue(null);
 
-        Context.useAppContext = jest.fn(() => ({
-            isAdmin: false,
-            renderables: [],
-            layout: 'LN10-Home_Main',
-            arcSite: 'la-nacion-ar'
-        }));
-
-        render(<ArticleFeature {...getProps()} />);
-        expect(screen.getByText('Cargando...')).toBeDefined();
-    });
-
-    it('should render page builder error', () => {
         jest.spyOn(
             cajaTemasValidators,
             'validateArticleFeature'

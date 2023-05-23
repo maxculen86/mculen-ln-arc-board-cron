@@ -1,3 +1,18 @@
+export const size = {
+    XS: 'xs',
+    S: 's',
+    M: 'm',
+    ML: 'm-l',
+    L: 'l',
+    XL: 'xl',
+    XLL: 'xl-l',
+    threeXL: '3xl',
+    fourXL: '4xl',
+    fiveXL: '5xl',
+    sixXL: '6xl',
+    T1: 'T1'
+};
+
 const diagramationRules = diagramation => {
     const img = {
         bottom: 'img-bottom',
@@ -6,25 +21,13 @@ const diagramationRules = diagramation => {
         left: 'img-left',
         none: 'img-none'
     };
+
     const tag = {
         h1: 'h1',
         h2: 'h2',
         h3: 'h3'
     };
-    const size = {
-        XS: 'xs',
-        S: 's',
-        M: 'm',
-        ML: 'm-l',
-        L: 'l',
-        XL: 'xl',
-        XLL: 'xl-l',
-        threeXL: '3xl',
-        fourXL: '4xl',
-        fiveXL: '5xl',
-        sixXL: '6xl',
-        T1: 'T1'
-    };
+
     const author = 'author';
     const liveblog = 'liveblog';
     const html = 'html';
