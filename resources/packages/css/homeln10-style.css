@@ -2058,7 +2058,7 @@
   display: inline-block;
 }
 .ln-caja-hashtag .grid .grid-item .description-container .ln-text.title:not(#special) .lead {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, #DBFF00 60%, #DBFF00 85%, rgba(0, 0, 0, 0) 85%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, #dbff00 60%, #dbff00 85%, rgba(0, 0, 0, 0) 85%);
   display: inline;
 }
 .ln-caja-hashtag .grid .grid-item .description-container .ln-text.title:not(#special) .lead::after {
@@ -2072,7 +2072,7 @@
   display: none;
 }
 .ln-caja-hashtag .grid .grid-item.--0 .description-container .lead {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, #DBFF00 60%, #DBFF00 85%, rgba(0, 0, 0, 0) 85%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, #dbff00 60%, #dbff00 85%, rgba(0, 0, 0, 0) 85%);
   display: inline;
 }
 @media (min-width: 48rem) {
@@ -2191,6 +2191,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  font-size: 1.25rem;
 }
 .ln-caja-hashtag.--hash-1-2-2-2_grid .grid .--0 .description-container .ln-text.title .lead {
   width: -moz-fit-content;
