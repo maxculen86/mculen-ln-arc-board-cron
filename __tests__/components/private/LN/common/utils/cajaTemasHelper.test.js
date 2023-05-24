@@ -1,10 +1,12 @@
 import renderables1 from '../../../../../../__mocks__/data/renderables/data1';
+import getRenderables from '../../../../../../__mocks__/data/renderables/banners/dynamicBannersRenderables';
+
 import {
     getChildrenFromAperturaHome,
-    getChildrenFromSectionHome,
     hastVariant,
     validateoutItem
 } from '../../../../../../components/private/LN/common/utils/cajaTemasHelper';
+import getChildrenFromSectionHome from '../../../../../../components/private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 
 describe('cajaTemasHelper functions', () => {
     const childProps = [
@@ -29,9 +31,9 @@ describe('cajaTemasHelper functions', () => {
         expect(result).toBe(true);
     });
 
-    it('getChildrenFromSectionHome', () => {
-        const result = getChildrenFromSectionHome(renderables1, 'Bomba', 2);
-        expect(result).toHaveLength(2);
+    it('getChildrenFromSectionHome with no renderables', () => {
+        const result = getChildrenFromSectionHome();
+        expect(result).toHaveLength(0);
     });
 
     it('getChildrenFromAperturaHome returns the children when there is a variant', () => {
@@ -62,5 +64,12 @@ describe('cajaTemasHelper functions', () => {
 
         const result = validateoutItem(itemNota);
         expect(result).toBe(true);
+    });
+});
+
+describe('cajaTemas webApi', () => {
+    it('getChildrenFromSectionHome', () => {
+        const result = getChildrenFromSectionHome(getRenderables(), 'Bomba', 2);
+        expect(result).toHaveLength(2);
     });
 });

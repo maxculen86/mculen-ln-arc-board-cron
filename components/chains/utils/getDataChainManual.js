@@ -1,7 +1,5 @@
-import {
-    getChildrenFromAperturaHome,
-    getChildrenFromSectionHome
-} from '../../private/LN/common/utils/cajaTemasHelper';
+import { getChildrenFromAperturaHome } from '../../private/LN/common/utils/cajaTemasHelper';
+import { getChildrenFromSectionHome } from '../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 import { validateChainManual } from '../../private/LN/common/utils/cajaTemasValidators';
 import setFilteredChildren from '../../private/LN/common/utils/setFilteredChildren';
 import {
