@@ -11,22 +11,23 @@ class CajaWebStories extends GetCajaManual {
     constructor(props) {
         super(props, 'webstories');
     }
+    // Cambio entrante
+    // validate = propsValidate => {
+    //     const {
+    //         id: chainId,
+    //         customFields: { layout = '' },
+    //         renderables = []
+    //     } = propsValidate;
+    //     // TODO ser mas descriptivo con la funcion, ver back
+    //     let childrenRenders = renderables.find(
+    //         x => get(x, 'props.id', null) === chainId
+    //     );
+    //     // TODO ver si comment es necesario
+    //     childrenRenders = childrenRenders && childrenRenders.children;
+    //     /*         const childrenRendersProps = childrenRenders.map(x => x.props);
+    //      */
+    //     return validateCajaManual(layout, childrenRenders);
 
-    validate = propsValidate => {
-        const {
-            id: chainId,
-            customFields: { layout = '' },
-            renderables = []
-        } = propsValidate;
-        // TODO ser mas descriptivo con la funcion, ver back
-        let childrenRenders = renderables.find(
-            x => get(x, 'props.id', null) === chainId
-        );
-        // TODO ver si comment es necesario
-        childrenRenders = childrenRenders && childrenRenders.children;
-        /*         const childrenRendersProps = childrenRenders.map(x => x.props);
-         */
-        return validateCajaManual(layout, childrenRenders);
     validate = ({ id: chainId, renderables = [], children }) => {
         const childrenRenders = renderables
             .find(x => get(x, 'props.id', null) === chainId)
