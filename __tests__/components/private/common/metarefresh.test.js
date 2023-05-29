@@ -2,6 +2,7 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import { mount } from 'enzyme';
 import Metarefresh from '../../../../components/private/common/metarefresh';
+import handleCookie from '../../../../components/private/LN/common/utils/handleCookie';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -19,6 +20,12 @@ jest.mock('fusion:content', () => ({
         nota_desktop: 30
     })
 }));
+
+jest.mock('../../../../components/private/LN/common/utils/handleCookie', () =>
+    jest.fn(() => ({
+        getCookie: jest.fn()
+    }))
+);
 
 jest.mock('react', () => {
     const ActualReact = require.requireActual('react');
@@ -74,6 +81,10 @@ describe('Metarefresh', () => {
 
     describe('when subscritor is present', () => {
         it('Does not reload when subscriptor is present', () => {
+            handleCookie.mockReturnValue({
+                getCookie: jest.fn(() => '2')
+            });
+
             const props = {
                 arcSite: 'la-nacion-ar',
                 globalContent: {
@@ -92,6 +103,10 @@ describe('Metarefresh', () => {
 
     describe('when subscritor is not present', () => {
         it('Does not reload when videos are present', () => {
+            handleCookie.mockReturnValue({
+                getCookie: jest.fn(() => '3')
+            });
+
             const props = {
                 arcSite: 'la-nacion-ar',
                 globalContent: {

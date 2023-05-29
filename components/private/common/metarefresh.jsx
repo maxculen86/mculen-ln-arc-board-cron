@@ -6,9 +6,6 @@ import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
 import withScreenUtils from './hocs/withScreenUtils';
 import handleCookie from '../LN/common/utils/handleCookie';
-import { isSubscribed } from '../LN/common/utils/contextHelper';
-
-const { getCookie } = handleCookie();
 
 const findTemplate = type => {
     if (['story', 'results'].includes(type)) return 'nota';
@@ -41,10 +38,10 @@ export const shouldBeExcluded = ({ globalContent }) => {
 };
 
 const Component = props => {
+    const { getCookie } = handleCookie();
     const globalContent = get(props, 'globalContent', null);
     const type = get(props, 'globalContent.type', null);
     const _id = get(props, 'globalContent._id', null);
-    const subscription = isSubscribed();
     const website = get(props, 'arcSite', null);
     const resolution = get(props, 'screenUtils.device', null);
     const isAdmin = get(props, 'isAdmin');
@@ -62,13 +59,15 @@ const Component = props => {
     const interval = getInterval(type || _id, resolution, metarefresh);
     const cookieProductoPremium = getCookie('ProductoPremiumId');
     const template = findTemplate(type);
+    const isSubscribed =
+        cookieProductoPremium && cookieProductoPremium.includes('2');
 
     useEffect(() => {
         if (
             !metarefresh ||
             isAdmin ||
             outputType === 'amp' ||
-            (subscription && template !== 'home') ||
+            (isSubscribed && template !== 'home') ||
             interval < 1 ||
             shouldBeExcluded({ globalContent })
         ) {
@@ -94,8 +93,8 @@ const Component = props => {
         isAdmin,
         metarefresh,
         outputType,
-        subscription,
-        template
+        template,
+        isSubscribed
     ]);
 
     return <></>;
