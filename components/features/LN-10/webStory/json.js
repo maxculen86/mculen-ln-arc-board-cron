@@ -59,7 +59,7 @@ class WebStoryFeature {
             };
 
             return {
-                _id: `webstory${index}`,
+                _id: `webstory${index + 1}`,
                 additionalProperties
             };
         } catch (err) {
