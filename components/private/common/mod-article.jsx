@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { useAppContext } from 'fusion:context';
 import '../../../resources/dist/css/ln/modules/mod-article.css';
 import Media from '../LN/common/media';
 import get from './utils/get';
@@ -55,6 +56,8 @@ const ModArticle = props => {
     } = props;
 
     const { dispatch } = useContext(GlobalContext) || {};
+
+    const { layout: layoutPageBuilder, globalContent } = useAppContext() || {};
 
     const {
         _id,
@@ -121,6 +124,9 @@ const ModArticle = props => {
                     isApertura={isApertura}
                     withMobileImage={withMobileImage}
                     searchableField={searchableField}
+                    // TODO: Eliminar estas propiedades cuando se implemente carga de imagen con picture en todo el sitio.
+                    layoutPageBuilder={layoutPageBuilder}
+                    globalContent={globalContent}
                     // labelArticle="La Chapita solo se tiene que ver con foto o placeholder"
                 />
             )}
@@ -146,6 +152,7 @@ const ModArticle = props => {
                 contentRestrictions={contentRestrictions}
                 dataAuthors={dataAuthors}
                 categoryNote={categoryNote}
+                layoutPageBuilder={layoutPageBuilder}
             />
 
             {isBookmark && (

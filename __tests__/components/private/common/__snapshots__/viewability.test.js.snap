@@ -315,6 +315,7 @@ exports[`Viewability Evento productClick del script viewability when clicks in a
                                   }
                                 }
                                 isApertura={false}
+                                isValidSection={false}
                                 isVertical={false}
                                 outputType="default"
                                 zoom={false}
@@ -606,6 +607,7 @@ exports[`Viewability Evento productClick del script viewability when clicks in a
                                   }
                                 }
                                 isApertura={false}
+                                isValidSection={false}
                                 isVertical={false}
                                 outputType="default"
                                 zoom={false}
@@ -897,6 +899,7 @@ exports[`Viewability Evento productClick del script viewability when clicks in a
                                   }
                                 }
                                 isApertura={false}
+                                isValidSection={false}
                                 isVertical={false}
                                 outputType="default"
                                 zoom={false}

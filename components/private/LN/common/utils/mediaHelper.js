@@ -109,13 +109,75 @@ export const getShortestImage = (resizedUrls = []) => {
         _width
     };
 };
-export const LinkImagePreload = ({ resizedUrls = [], isAmp }) => {
+
+const setSourceSet = (urlImage, pixelDensity = []) => {
+    const numberOfImgsWithPixelRatio = pixelDensity.length;
+
+    if (numberOfImgsWithPixelRatio >= 1)
+        return `${urlImage}, ${pixelDensity.join(', ')}`;
+
+    return urlImage;
+};
+
+export const getImagesToLoadWithPicture = (sourceActive = []) => {
+    let mediaCondition;
+    const srcset = [];
+
+    return sourceActive.map(({ option, resizedUrl: urlImage } = {}) => {
+        const minWidth = get(option, 'minScreenWidth');
+        const maxWidth = get(option, 'maxScreenWidth');
+        const xDescriptor = get(option, 'configPixelRatio.xDescriptor');
+        const widthToAddPixelDensity = get(
+            option,
+            'configPixelRatio.forScreenWidth'
+        );
+
+        if (xDescriptor && widthToAddPixelDensity) {
+            srcset.push(`${urlImage} ${xDescriptor}`);
+            mediaCondition = widthToAddPixelDensity;
+        }
+
+        return {
+            minWidth,
+            maxWidth,
+            mediaPreload: get(option, 'media_preload'),
+            srcSet:
+                mediaCondition === minWidth
+                    ? setSourceSet(urlImage, srcset)
+                    : urlImage
+        };
+    });
+};
+
+export const LinkImagePreload = ({
+    resizedUrls = [],
+    isAmp,
+    isLoadWithPicture = false
+}) => {
     if (resizedUrls.length === 0) return null;
+
+    const fetchPriorityAttr = isAmp ? {} : { fetchPriority: 'high' };
+    const { resizedUrl } = getShortestImage(resizedUrls);
+
+    // TODO: Sacar condicion isLoadWithPicture cuando se implemente carga con picture en todo el sitio.
+    if (isLoadWithPicture) {
+        const images = getImagesToLoadWithPicture(resizedUrls);
+
+        return images.map(({ mediaPreload, srcSet } = {}) => (
+            <link
+                rel="preload"
+                as="image"
+                {...fetchPriorityAttr}
+                media={mediaPreload}
+                imagesrcset={srcSet}
+            />
+        ));
+    }
+
+    // TODO: Eliminar logica de aca para abajo despues que se haya migrado todo el sitio a carga de imagenes con picture.
 
     const imagesrcset = [];
     const imagesizes = [];
-
-    const { resizedUrl } = getShortestImage(resizedUrls);
 
     resizedUrls.forEach(x => {
         imagesrcset.push(`${x.resizedUrl} ${x.option.width}w`);
@@ -123,8 +185,6 @@ export const LinkImagePreload = ({ resizedUrls = [], isAmp }) => {
             x.option.media && `${x.option.media} ${x.option.width}px`
         );
     });
-
-    const fetchPriorityAttr = isAmp ? {} : { fetchPriority: 'high' };
 
     return (
         imagesrcset.length && (
