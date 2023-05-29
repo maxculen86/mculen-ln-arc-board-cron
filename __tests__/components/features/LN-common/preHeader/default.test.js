@@ -62,7 +62,7 @@ describe('Components - Features - LN-Common - PreHeader', () => {
         const { container, getByText } = render(<PreHeader />);
 
         const weatherLink = container.querySelector('.ln-link');
-        const weatherIcon = container.querySelector('.ln-icon');
+        const weatherIcon = container.querySelector('.icon');
         const weatherPlace = container.querySelector('.place');
 
         expect(weatherLink.getAttribute('href')).toEqual(mock.weather.link);
