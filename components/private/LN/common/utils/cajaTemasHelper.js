@@ -167,6 +167,16 @@ export const getMarkupForDatalayer = (
                 'data-module': 'tema_ranking_inverso'
             }
         },
+        WebStories: {
+            extraOpts: {
+                'data-block-name': 'n_webstories',
+                ...extraOptsdefault,
+                'data-diagramacion-id': 'webstories'
+            },
+            extraOptsDiv: {
+                'data-module': 'tema_webstories'
+            }
+        },
         Default: (pos, section, lay) => {
             if (!pos) return {};
             return {
