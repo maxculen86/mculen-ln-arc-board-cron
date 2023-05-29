@@ -48,9 +48,11 @@ class WebStoryFeature {
             const { customFields } = this.props;
             const { imageId } = customFields;
 
-            if (!webstoryImageLN10) {
-                return null;
-            }
+            if (!webstoryImageLN10) return null;
+
+            if (!customFields.link) return null;
+
+            // if (!customFields.title) return null;
 
             const additionalProperties = {
                 ...customFields,
@@ -61,7 +63,6 @@ class WebStoryFeature {
 
             return {
                 _id: `webstory${index + 1}`,
-                website_url: get(this.props, 'customFields.link', '') || '',
                 additionalProperties
             };
         } catch (err) {
