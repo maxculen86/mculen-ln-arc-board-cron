@@ -4,6 +4,7 @@ import { getChainConfig } from '../article/common/_helper-WebApi';
 import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 import { validateProps } from '../../../private/LN/api/global/components/features/article/LN10/props/validateProps';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
+import get from '../../../private/common/utils/get';
 
 class WebStoryFeature {
     constructor(props) {
@@ -60,6 +61,7 @@ class WebStoryFeature {
 
             return {
                 _id: `webstory${index + 1}`,
+                website_url: get(this.props, 'customFields.link', '') || '',
                 additionalProperties
             };
         } catch (err) {
