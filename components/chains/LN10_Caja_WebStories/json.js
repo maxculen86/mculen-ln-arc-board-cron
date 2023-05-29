@@ -11,22 +11,6 @@ class CajaWebStories extends GetCajaManual {
     constructor(props) {
         super(props, 'webstories');
     }
-    // Cambio entrante
-    // validate = propsValidate => {
-    //     const {
-    //         id: chainId,
-    //         customFields: { layout = '' },
-    //         renderables = []
-    //     } = propsValidate;
-    //     // TODO ser mas descriptivo con la funcion, ver back
-    //     let childrenRenders = renderables.find(
-    //         x => get(x, 'props.id', null) === chainId
-    //     );
-    //     // TODO ver si comment es necesario
-    //     childrenRenders = childrenRenders && childrenRenders.children;
-    //     /*         const childrenRendersProps = childrenRenders.map(x => x.props);
-    //      */
-    //     return validateCajaManual(layout, childrenRenders);
 
     validate = ({ id: chainId, renderables = [], children }) => {
         const childrenRenders = renderables
@@ -41,7 +25,7 @@ class CajaWebStories extends GetCajaManual {
             childrenRenders
         );
 
-        return validateChain(filteredChildren, children);
+        return validateChain(filteredChildren);
     };
 
     render() {
@@ -61,15 +45,14 @@ class CajaWebStories extends GetCajaManual {
                         typeof error === 'object' ? JSON.stringify(error) : ''
                     }`
                 );
-                return null;
             }
-            if (
-                this.props.customFields &&
-                this.props.customFields.hideCaja == null
-            ) {
-                this.props.customFields.hideCaja =
-                    this.props.customFields.hideBox || false;
-            }
+            // if (
+            //     this.props.customFields &&
+            //     this.props.customFields.hideCaja == null
+            // ) {
+            //     this.props.customFields.hideCaja =
+            //         this.props.customFields.hideBox || false;
+            // }
             return {
                 information: {
                     ...this.props.customFields,
