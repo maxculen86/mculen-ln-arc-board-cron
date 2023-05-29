@@ -31,7 +31,8 @@ const GrillaNotasFeature = props => {
             serviceType = ''
         } = {},
         outputType = 'default',
-        renderables = []
+        renderables = [],
+        layout: pageLayout
     } = useAppContext();
 
     const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
@@ -65,7 +66,10 @@ const GrillaNotasFeature = props => {
         getBanner,
         ...globalProviderAcu,
         ...appContextProps,
-        hasChainBeforeGrid
+        hasChainBeforeGrid,
+        // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
+        globalContent,
+        pageLayout
     });
 
     return (

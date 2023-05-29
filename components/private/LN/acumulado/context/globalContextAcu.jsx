@@ -5,6 +5,10 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import filter from '../../../../../content/filters/LN/acumulado/articleAcu';
 import isAnyGrilla1 from '../../../common/utils/isAnyGrilla1';
+import isAllowedSection from '../../common/utils/isAllowedSection';
+import allowSectionAndLayout from '../../common/media/helpers/allowSectionAndLayout';
+import sitesProperties from '../../../../../properties/sites/la-nacion-ar';
+import get from '../../../common/utils/get';
 
 const GlobalContext = React.createContext([]);
 
@@ -44,12 +48,20 @@ const getCollectionsInPage = (idCollectionsInPage = []) => {
     return listOfCollections;
 };
 
-const getCollectionApertura = id => {
+const getCollectionApertura = (id, globalContent) => {
+    const imageConfig = isAllowedSection({
+        globalContent,
+        listOfAllowedSection: allowSectionAndLayout,
+        layout: get(sitesProperties, 'layoutsName.Acumulado', 'LN-acumulado')
+    })
+        ? 'newAperturaAcu'
+        : 'aperturaAcu';
+
     const collectionsProps = {
         id: id && id.trim(),
         size: 2,
         website: 'la-nacion-ar',
-        imageConfig: 'aperturaAcu'
+        imageConfig
     };
 
     return useContent({
@@ -69,11 +81,13 @@ const GlobalProviderAcu = props => {
         acumuladoColor,
         idCollectionsInPage,
         idCollectionApertura,
-        children
+        children,
+        // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
+        globalContent
     } = props;
 
     const articlesInCollection = idCollectionApertura
-        ? getCollectionApertura(idCollectionApertura)
+        ? getCollectionApertura(idCollectionApertura, globalContent)
         : [];
 
     const collectionsInPage = getCollectionsInPage(idCollectionsInPage);

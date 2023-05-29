@@ -139,6 +139,8 @@ const LNAcumuladoLayout = props => {
                 acumuladoColor={acumuladoColor}
                 idCollectionsInPage={idCollectionsInPage}
                 idCollectionApertura={idCollectionApertura}
+                // TODO: Eliminar esta prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
+                globalContent={globalContent}
             >
                 {megatop}
                 <div

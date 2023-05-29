@@ -670,6 +670,67 @@ export default {
                 ]
             }
         },
+        newBoxArticles: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 320,
+                        height: 213,
+                        minScreenWidth: WIDTH_TABLET,
+                        media_preload: minWidth768,
+                        useFullSize: true,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 500,
+                        height: 333,
+                        minScreenWidth: WIDTH_XL_MOBILE,
+                        media_preload: min426max767,
+                        useFullSize: true,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 425,
+                        height: 283,
+                        maxScreenWidth: WIDTH_MOBILE,
+                        media_preload: maxWidth425,
+                        useFullSize: true,
+                        proportion: '3:2'
+                    }
+                ],
+                // TODO: Pendiente por actualizacion de tamaños
+                content_elements: {
+                    sizes: [
+                        {
+                            width: 298,
+                            height: 200,
+                            media: minWidth1280
+                        },
+                        {
+                            width: 318,
+                            height: 213,
+                            media: minWidth1024
+                        },
+                        {
+                            width: 233,
+                            height: 159,
+                            media: minWidth768
+                        },
+                        {
+                            width: 375,
+                            height: 250
+                            // media: minWidth375
+                        },
+                        {
+                            width: 320,
+                            height: 213
+                            // media: minWidth320
+                        }
+                    ]
+                }
+            }
+        },
+        // TODO: Borrar esta config cuando se reemplace por los tamaños nuevos en todos los lugares donde se usa.
         boxArticles: {
             promo_items: {
                 sizes: [
@@ -677,8 +738,6 @@ export default {
                         width: 375,
                         height: 250,
                         // media: minWidth375,
-                        minScreenWidth: 375,
-                        media_preload: minWidth375,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -686,36 +745,9 @@ export default {
                         width: 300,
                         height: 200,
                         // media: minWidth320,
-                        maxScreenWidth: 320,
-                        media_preload: '(max-width: 320px)',
                         useFullSize: true,
                         proportion: '3:2'
                     }
-                    // NO borrar
-                    // {
-                    //     width: 320,
-                    //     height: 213,
-                    //     minScreenWidth: WIDTH_TABLET,
-                    //     media_preload: minWidth768,
-                    //     useFullSize: true,
-                    //     proportion: '3:2'
-                    // },
-                    // {
-                    //     width: 500,
-                    //     height: 333,
-                    //     minScreenWidth: WIDTH_XL_MOBILE,
-                    //     media_preload: min426max767,
-                    //     useFullSize: true,
-                    //     proportion: '3:2'
-                    // },
-                    // {
-                    //     width: 425,
-                    //     height: 283,
-                    //     maxScreenWidth: WIDTH_MOBILE,
-                    //     media_preload: maxWidth425,
-                    //     useFullSize: true,
-                    //     proportion: '3:2'
-                    // }
                 ]
             },
             content_elements: {
@@ -845,6 +877,37 @@ export default {
                 ]
             }
         },
+        newAperturaAcu: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 650,
+                        height: 433,
+                        minScreenWidth: WIDTH_XL_DESKTOP,
+                        media_preload: minWidth1340,
+                        useFullSize: true,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 500,
+                        height: 333,
+                        minScreenWidth: WIDTH_XL_MOBILE,
+                        media_preload: min426max1339,
+                        useFullSize: true,
+                        proportion: '3:2'
+                    },
+                    {
+                        width: 425,
+                        height: 283,
+                        maxScreenWidth: WIDTH_MOBILE,
+                        media_preload: maxWidth425,
+                        useFullSize: true,
+                        proportion: '3:2'
+                    }
+                ]
+            }
+        },
+        // TODO: Borrar esta config cuando se migren todas las aperturas de Acu a los tamaños nuevos
         aperturaAcu: {
             promo_items: {
                 sizes: [
@@ -852,8 +915,6 @@ export default {
                         width: 608,
                         height: 407,
                         media: minWidth1280,
-                        minScreenWidth: 1280,
-                        media_preload: minWidth1280,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -861,9 +922,6 @@ export default {
                         width: 486,
                         height: 325,
                         media: minWidth1024,
-                        media_preload:
-                            '(min-width: 1024px) and (max-width: 1279px)',
-                        minScreenWidth: 1024,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -871,9 +929,6 @@ export default {
                         width: 358,
                         height: 240,
                         media: minWidth768,
-                        minScreenWidth: 768,
-                        media_preload:
-                            '(min-width: 768px) and (max-width: 1023px)',
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -881,9 +936,6 @@ export default {
                         width: 375,
                         height: 250,
                         // media: minWidth375,
-                        minScreenWidth: 375,
-                        media_preload:
-                            '(min-width: 375px) and (max-width: 767px)',
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -891,36 +943,9 @@ export default {
                         width: 320,
                         height: 213,
                         // media: minWidth320,
-                        maxScreenWidth: 320,
-                        media_preload: '(max-width: 320px)',
                         useFullSize: true,
                         proportion: '3:2'
                     }
-                    // NO borrar
-                    // {
-                    //     width: 650,
-                    //     height: 433,
-                    //     minScreenWidth: WIDTH_XL_DESKTOP,
-                    //     media_preload: minWidth1340,
-                    //     useFullSize: true,
-                    //     proportion: '3:2'
-                    // },
-                    // {
-                    //     width: 500,
-                    //     height: 333,
-                    //     minScreenWidth: WIDTH_XL_MOBILE,
-                    //     media_preload: min426max1339,
-                    //     useFullSize: true,
-                    //     proportion: '3:2'
-                    // },
-                    // {
-                    //     width: 425,
-                    //     height: 283,
-                    //     maxScreenWidth: WIDTH_MOBILE,
-                    //     media_preload: maxWidth425,
-                    //     useFullSize: true,
-                    //     proportion: '3:2'
-                    // }
                 ]
             }
         },
