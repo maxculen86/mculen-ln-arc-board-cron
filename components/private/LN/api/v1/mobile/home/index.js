@@ -1,6 +1,7 @@
 import get from '../../../../../common/utils/get';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 import { Article as ArticleLN10 } from './article/index';
+import { ExternalArticle } from './externalArticle/index';
 import { cardRegular as Article } from '../../../common/article/cardRegular/index';
 import { cardAnexoItemMobile as CardAnexoLN } from '../../../common/article/cardAnexo/index';
 import { CardAnexo as CardAnexoLN10 } from './article/cardAnexo/index';
@@ -13,15 +14,18 @@ const excludeUrlsInBoxInfo = ['https://www.lanacion.com.ar/suscriptores/'];
 const FunctionsBoxContentsByLayout = {
     'LN-Home_Main': {
         article: Article,
-        anexo: CardAnexoLN
+        anexo: CardAnexoLN,
+        externalArticle: ExternalArticle
     },
     'LN10-Home_Main': {
         article: ArticleLN10,
-        anexo: CardAnexoLN10
+        anexo: CardAnexoLN10,
+        externalArticle: ExternalArticle
     },
     default: {
         article: Article,
-        anexo: CardAnexoLN
+        anexo: CardAnexoLN,
+        externalArticle: ExternalArticle
     }
 };
 
@@ -86,6 +90,29 @@ const index = (
                         get(
                             FunctionsBoxContentsByLayout,
                             `default.article`,
+                            null
+                        );
+                    result.push(
+                        boxTypeByLayout(layoutPage, type)(
+                            sectionBox,
+                            boxInfo,
+                            articleFn,
+                            paramsFromPage
+                        )
+                    );
+                }
+                break;
+            case 7:
+                {
+                    const articleFn =
+                        get(
+                            FunctionsBoxContentsByLayout,
+                            `${layoutPage}.externalArticle`,
+                            null
+                        ) ||
+                        get(
+                            FunctionsBoxContentsByLayout,
+                            `default.externalArticle`,
                             null
                         );
                     result.push(

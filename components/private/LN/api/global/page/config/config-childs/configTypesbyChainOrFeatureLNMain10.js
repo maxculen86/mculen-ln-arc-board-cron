@@ -39,6 +39,7 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
         ],
         2: ['LN-common/anexo', 'LN-common/anexoMobile'],
         3: ['LN-common/LN10_anticipo', 'LN-common/cajaAnticipo'],
+        7: ['webstories'],
         9: [
             'LN-acumulado/ultimasNoticias',
             'LN-common/ranking',
