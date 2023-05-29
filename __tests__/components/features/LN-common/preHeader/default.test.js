@@ -11,6 +11,7 @@ import {
     setEventsWeather
 } from '../../../../../components/private/common/utils/eventsHelper';
 import preHeaderEventLogResult from '../../../../../__mocks__/data/preHeader/preHeaderEventLogResult.json';
+import { Sun } from '@ln/contenidos-ui-assets';
 
 jest.mock(
     '../../../../../components/features/LN-common/preHeader/_helper',
@@ -26,7 +27,7 @@ describe('Components - Features - LN-Common - PreHeader', () => {
 
     const mock = {
         weather: {
-            icon: 'sun',
+            icon: <Sun />,
             temperature: '24.5',
             place: 'Capital Federal',
             dataEvent: 'e_linkclick',
