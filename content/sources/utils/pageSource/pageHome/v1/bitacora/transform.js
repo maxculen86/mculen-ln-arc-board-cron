@@ -14,7 +14,8 @@ const omitSections = {
 };
 const specialBoxRoot = {
     'ln-common/opinion': 'h_opinion',
-    'ln-common/ln10_opinion': 'h_opinion'
+    'ln-common/ln10_opinion': 'h_opinion',
+    webstories: 'h_webstories'
 };
 
 const createBoxAndNotas = (elem, cajaCount, cajas) => {
@@ -109,7 +110,7 @@ const transform = async (dataPage, query) => {
         let cajaCount = 1;
         const cajas = [];
         elementsPage.forEach((elem, i) => {
-            if (elem.type !== 0) return; // Ignorar elementos que no son cajas
+            if (elem.type !== 0 && elem.type !== 7) return; // Ignorar elementos que no son cajas
             if (omitSections[elem.sectionAliasMobile]) return; // Ignorar cajas que deben omitirse
             cajaCount = createBoxAndNotas(elem, cajaCount, cajas);
         });
