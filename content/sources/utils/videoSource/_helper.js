@@ -107,10 +107,8 @@ export const updateVideoUrl = videoData => {
         };
     });
 
-    const updatedVideoData = {
+    return {
         ...videoData,
         streams: streamsWithUpdatedUrl
     };
-
-    return updatedVideoData;
 };
