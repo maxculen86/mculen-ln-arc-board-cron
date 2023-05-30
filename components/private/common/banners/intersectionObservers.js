@@ -52,6 +52,7 @@ export const createHeaderObserver = () => {
     if (subHeader) interSectionObserver.observe(subHeader);
 };
 
+// TODO testear observer
 export const createDifferVideosObserver = () => {
     const lazyVideos = [].slice.call(
         document.querySelectorAll('video.ln-video')

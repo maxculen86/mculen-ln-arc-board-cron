@@ -5,7 +5,9 @@ import getAuthorsAsString from '../../../private/common/utils/getAuthorsAsString
 import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 import { getShortestImage } from '../../../private/LN/common/utils/mediaHelper';
 import getStreams from '../../../private/LN/common/utils/getStreams';
-import diagramationRules from '../../../private/common/utils/diagramationRules';
+import diagramationRules, {
+    size
+} from '../../../private/common/utils/diagramationRules';
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import transformImageData from '../../../private/common/LN-10/transformImageData';
 import setClassName from '../../../private/common/utils/setClassName';
@@ -247,7 +249,25 @@ const getImageDestacada = articleData => {
     return type === 'image' ? mediaDataOfTheOpening : null;
 };
 
-const transformVideoData = (videoData, shouldUseV2) => {
+export const getDynamicStreamOperator = (sizes, cardSize, middleSize = 'l') => {
+    const OPERATORS = {
+        LOWER: '<',
+        HIGHER: '>'
+    };
+
+    const values = Object.values(sizes);
+    const divisorIndex = values.findIndex(value => value === middleSize);
+
+    const lowerSizes = values.slice(0, divisorIndex + 1);
+    const higherSizes = values.slice(divisorIndex + 1);
+
+    if (lowerSizes.includes(cardSize)) return OPERATORS.LOWER;
+    if (higherSizes.includes(cardSize)) return OPERATORS.HIGHER;
+
+    return OPERATORS.LOWER;
+};
+
+const transformVideoData = (videoData, shouldUseV2, cardSize) => {
     const streams = get(videoData, 'streams', []);
     // TODO: Quitar validacion de shouldUseV2 cuando salga resizer 2 por completo. Mantener la constante con: "get(videoData, 'promo_items.basic.resized_urls', [])"
     const videoImagesResized = shouldUseV2
@@ -255,7 +275,8 @@ const transformVideoData = (videoData, shouldUseV2) => {
         : get(videoData, 'resizedUrl', []);
     const type = get(videoData, 'type', '');
     const { resizedUrl } = getShortestImage(videoImagesResized);
-    const { url = '' } = getStreams(streams, '>') || {};
+    const streamOperator = getDynamicStreamOperator(size, cardSize);
+    const { url = '' } = getStreams(streams, streamOperator) || {};
 
     return {
         type,
@@ -270,7 +291,8 @@ export const getMediaData = ({
     image,
     renderables = [],
     customFields = {},
-    shouldUseV2 = false
+    shouldUseV2 = false,
+    config = {}
 } = {}) => {
     const { video: videoId, imageId, html = '' } = customFields;
     const { _id } = article || {};
@@ -290,7 +312,7 @@ export const getMediaData = ({
         },
         {
             validation: videoId && video,
-            data: transformVideoData(video, shouldUseV2)
+            data: transformVideoData(video, shouldUseV2, config.cardSize)
         },
 
         {

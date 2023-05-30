@@ -719,7 +719,7 @@ exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Opinion sna
 </div>
 `;
 
-exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Unknown snapshot layoutX 1`] = `"Cargando..."`;
+exports[`Util cajaTemasPlaceholder function getPlaceholder by layout Unknown snapshot layoutX 1`] = `""`;
 
 exports[`Util cajaTemasPlaceholder function getPlaceholder by layout and index position when layout is bomba1 should return bomba index 0 1`] = `
 <article

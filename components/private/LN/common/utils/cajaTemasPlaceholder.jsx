@@ -341,7 +341,7 @@ export const placeholderLayouts = {
 
 export const getPlaceholder = (layout, index) => {
     const layoutName = getLayoutType(layout);
-    if (!layoutName) return 'Cargando...';
+    if (!layoutName) return '';
     const _articles =
         (placeholderArticles[layoutName] &&
             placeholderArticles[layoutName](layout)) ||

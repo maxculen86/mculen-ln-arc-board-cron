@@ -20,7 +20,8 @@ import {
     showSection,
     getDataAuthor,
     getDataAttributesForViewability,
-    translateSectionName
+    translateSectionName,
+    getDynamicStreamOperator
 } from '../../../../../components/features/LN-10/article/_helper';
 import { isInApertura } from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
@@ -28,7 +29,7 @@ import {
     renderablesWithBombaEager,
     renderablesWithChainAperturaEager
 } from '../../../../../__mocks__/data/renderables/renderablesLN10eager.js';
-import configLN10 from '../../../../../components/layouts/config/LN10-Home.config.json';
+import { size } from '../../../../../components/private/common/utils/diagramationRules';
 import { getMockRenderables } from '../../../../../__mocks__/data/renderables/renderablesForPreload';
 
 describe('Components - Features - LN-10 - Article - _helper', () => {
@@ -374,7 +375,7 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 poster:
                     'https://resizer.glanacion.com/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F03-02-2023%2Ft_5d96c8dea565416da3f6f8875641a5ff_name_file_1280x720_2000_v3_1_.jpg?auth=e74e861f0ae9b8af4da45668d1d52202c5edfb13c0928ff93167d6fcf83308d8&width=768&quality=80&smart=false',
                 dataSrc:
-                    'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/LA_NACION/20220329/6243689bd601800001be77da/b7958f59-3bc1-4144-b134-eaec19e21716/t_4591bda568ae4e53b9e6fde00bf71c0f_name_VIDEO_SUPER/file_1280x720-2000-v3_1.mp4',
+                    'https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/LA_NACION/20220329/6243689bd601800001be77da/b7958f59-3bc1-4144-b134-eaec19e21716/t_4591bda568ae4e53b9e6fde00bf71c0f_name_VIDEO_SUPER/file_640x360-600.mp4',
                 type: 'video'
             });
         });
@@ -1043,5 +1044,30 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 ).toBeTruthy();
             });
         });
+    });
+
+    describe('Test function getDynamicStreamOperator', () => {
+        const cases = [
+            ['xs', '<'],
+            ['s', '<'],
+            ['m', '<'],
+            ['m-l', '<'],
+            ['l', '<'],
+            ['xl', '>'],
+            ['xl-l', '>'],
+            ['3xl', '>'],
+            ['4xl', '>'],
+            ['5xl', '>'],
+            ['6xl', '>'],
+            ['T1', '>']
+        ];
+
+        test.each(cases)(
+            'given %p size, returns %p operator',
+            (cardSize, expectedResult) => {
+                const streamOperator = getDynamicStreamOperator(size, cardSize);
+                expect(streamOperator).toEqual(expectedResult);
+            }
+        );
     });
 });
