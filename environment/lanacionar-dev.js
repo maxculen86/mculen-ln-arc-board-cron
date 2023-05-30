@@ -63,5 +63,6 @@ export default {
     BOOKMARK_URL:
         'https://dev.lanacionar.arcpublishing.com/pf/mis-notas/?_website=la-nacion-ar',
     AUDIO_NEWS_URL: 'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/',
-    API_KEY_ARC_SERVICES: '82816e61-c4ff-4ccf-96c4-d809ca7b418f'
+    API_KEY_ARC_SERVICES: '82816e61-c4ff-4ccf-96c4-d809ca7b418f',
+    API_KEY_ARC_SERVICES_PROD: '6a484fb4-8c69-46b1-91ca-c476b055d87f'
 };

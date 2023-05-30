@@ -1,5 +1,5 @@
 import request from 'request-promise-native';
-import { API_ENV, API_KEY_ARC_SERVICES } from 'fusion:environment';
+import { API_ENV, API_KEY_ARC_SERVICES_PROD } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import get from '../../components/private/common/utils/get';
 import { isNotRecommend } from './utils/collectionsHelper';
@@ -24,7 +24,7 @@ const fetch = (query, { cachedCall } = {}) => {
         json: true,
         headers: {
             Referer: API_ENV,
-            'api-key': API_KEY_ARC_SERVICES
+            'api-key': API_KEY_ARC_SERVICES_PROD
         }
     })
         .then(storiesUrls => {
