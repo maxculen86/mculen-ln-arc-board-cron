@@ -1,8 +1,8 @@
-import { getArticleImage } from '../../../../../common/article/elements/image/index';
 import { getVolanta } from '../../../../../common/article/elements/volanta/index';
 import { getExternalArticleId } from '../elements/id';
 import { getExternalArticleLink } from '../elements/link';
 import { getArticleTitle } from '../../../../../common/article/elements/title';
+import { getExternalArticleImage } from '../elements/image';
 
 export const CardWebStory = article => {
     // "id":"webstory1"
@@ -15,7 +15,7 @@ export const CardWebStory = article => {
         id: getExternalArticleId(article),
         url: getExternalArticleLink(article),
         volanta: getVolanta(article),
-        imagen: getArticleImage(article)
+        imagen: getExternalArticleImage(article)
     };
 };
 
