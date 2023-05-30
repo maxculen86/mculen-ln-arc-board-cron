@@ -46,13 +46,7 @@ class CajaWebStories extends GetCajaManual {
                     }`
                 );
             }
-            // if (
-            //     this.props.customFields &&
-            //     this.props.customFields.hideCaja == null
-            // ) {
-            //     this.props.customFields.hideCaja =
-            //         this.props.customFields.hideBox || false;
-            // }
+
             return {
                 information: {
                     ...this.props.customFields,
