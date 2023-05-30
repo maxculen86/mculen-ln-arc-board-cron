@@ -39,6 +39,7 @@ export const getChainParentOfFeature = (featureId, renderables) => {
         'LN10_Caja_Bomba',
         'LN10_Caja_Collection',
         'LN10_Caja_Canal',
+        'LN10_Caja_WebStories',
         'Ln_Caja_Manual'
     ];
 
@@ -103,7 +104,7 @@ export const validateArticleFeature = ({
 }) => {
     const { streams } = video || {};
     const { filesize } = getStreams(streams, '>') || '';
-    const maxVideoSize = 3000000;
+    const maxVideoSize = 3145728;
     const oneMegabyte = 1048576;
 
     const rules = [

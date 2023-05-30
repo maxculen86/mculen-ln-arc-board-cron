@@ -5,8 +5,7 @@ import PropTypes from 'fusion:prop-types';
 import {
     cajaTemasCustomsFields,
     getCommonProps,
-    getChildrenFromAperturaHome,
-    getChildrenFromSectionHome
+    getChildrenFromAperturaHome
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import { validateChainManual } from '../../private/LN/common/utils/cajaTemasValidators';
 import CajaTema from '../../private/LN/common/cajaTema';
@@ -18,6 +17,7 @@ import {
 import { productClickFromClient } from '../../private/common/utils/viewability';
 import StaticContent from '../../private/common/staticContent';
 import setFilteredChildren from '../../private/LN/common/utils/setFilteredChildren';
+import { getChildrenFromSectionHome } from '../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 
 const CajaManual = props => {
     const {

@@ -15,7 +15,6 @@
   justify-content: flex-start;
   align-items: flex-start;
   isolation: isolate;
-  position: relative;
 }
 .ln-live .live-body {
   display: flex;
@@ -39,7 +38,6 @@
   justify-content: center;
   align-items: center;
   margin-top: 0.25rem;
-  flex-direction: row;
   white-space: nowrap;
   color: #272727;
 }
@@ -62,8 +60,6 @@
   padding-right: 1.875rem;
 }
 .ln-live .live-hidden {
-  width: 4.5625rem;
-  height: 4.5625rem;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
   position: absolute;
   right: 0rem;

@@ -116,6 +116,7 @@ const diagramationRules = diagramation => {
                 cardSize: size.XLL,
                 imageConfig: size.T1,
                 withSection: false,
+                withPreload: true,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false

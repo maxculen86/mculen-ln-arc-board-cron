@@ -1,0 +1,14 @@
+.scrolX > div {
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+.scrolX > div::-webkit-scrollbar {
+  display: none;
+}
+.scrolX > div > div {
+  scroll-snap-align: start;
+  min-width: 100%;
+}

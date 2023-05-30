@@ -22,14 +22,18 @@ const AnexoFeature = props => {
 
     const { heightDesktop, heightTablet, heightMobile } = customFields;
 
-    const isApertura = isInSection({ sectionName: 'Anexo_1', id, renderables });
+    const isPreApertura = isInSection({
+        sectionName: 'Pre_Apertura',
+        id,
+        renderables
+    });
 
-    const errorMessage = getErrorMessage({ isApertura, customFields });
+    const errorMessage = getErrorMessage({ isPreApertura, customFields });
 
     const _type = getComponentType({ ...props, isAdmin, errorMessage });
 
     // Al estar en la sección 'Anexo_1' del layout necesita tener la clase '--anexo-1'.
-    const EXTRA_CLASS = ((isApertura && '--anexo-1 ') || '').concat(
+    const EXTRA_CLASS = ((isPreApertura && '--anexo-1 ') || '').concat(
         (!isAdmin && _type === 'Iframe' && 'skeleton-box') || ''
     );
 

@@ -1,8 +1,10 @@
+import React from 'react';
 import {
     setWeatherData,
     setTopicsCustomFields,
     getTopicsFromCustomFields
 } from '../../../../../components/features/LN-common/preHeader/_helper';
+import { SunCloudy } from '@ln/contenidos-ui-assets';
 
 jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
     jest.fn()
@@ -63,7 +65,7 @@ describe('Features - LN-Common - PreHeader - Helper =>', () => {
             expect(weatherData.temperature).toEqual(
                 `${currentLocation.current_temp}º`
             );
-            expect(weatherData.icon).toEqual('sunCloudy');
+            expect(weatherData.icon).toEqual(<SunCloudy />);
         });
 
         it('should returns null when weatherValue is undefined', () => {

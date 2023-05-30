@@ -1,5 +1,5 @@
 import get from '../../../../private/common/utils/get';
-import sectionsValidation from '../../../../layouts/config/LN-Home.config.json';
+import sectionsValidation from '../../../../layouts/config/LN10-Home.config.json';
 import { getChildsFromSections } from '../../../../private/LN/common/utils/homeHelper-WebApi';
 
 export const isInSection = ({ sectionName, id, renderables = [] }) => {
@@ -12,7 +12,7 @@ export const isInSection = ({ sectionName, id, renderables = [] }) => {
 };
 
 export const getErrorMessage = ({
-    isApertura,
+    isPreApertura,
     customFields: {
         url = '',
         hideByUrl = false,
@@ -36,7 +36,7 @@ export const getErrorMessage = ({
     ((hideByHtml || (!html && !hideByHtml)) &&
         url &&
         !hideByUrl &&
-        isApertura &&
-        (heightDesktop > 250 || heightTablet > 250 || heightMobile > 250) &&
-        'Los altos fijos máximos de anexos con URL en apertura son de 250px para Desktop, Tablet y Mobile. Corrijalos, caso contrario no se verá el anexo') ||
+        isPreApertura &&
+        (heightDesktop > 300 || heightTablet > 300 || heightMobile > 300) &&
+        'Los altos fijos máximos de anexos con URL en pre apertura son de 300px para Desktop, Tablet y Mobile. Corrijalos, caso contrario no se verá el anexo') ||
     '';
