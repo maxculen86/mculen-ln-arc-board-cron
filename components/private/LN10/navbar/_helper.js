@@ -4,7 +4,13 @@ import {
     SITE_LANACION,
     API_ENV
 } from 'fusion:environment';
-import { Home, Search, Sections, Bookmark, Profile } from '@ln/assets-ui-icons';
+import {
+    Home,
+    Search,
+    Sections,
+    Bookmark,
+    Profile
+} from '@ln/contenidos-ui-assets';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 import dynamicallyLoadScript from '../../LN/common/utils/dynamicallyLoadScript';
 

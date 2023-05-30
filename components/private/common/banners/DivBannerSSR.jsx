@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import { Close } from '@ln/assets-ui-icons';
+import { Close } from '@ln/contenidos-ui-assets';
 import ComButton from '../com-button';
 import flatArray from '../utils/flatArray';
 import StaticContent from '../staticContent';

@@ -75,7 +75,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
-                    class="image --d-flex --w-100 --h-100"
+                    class="image --d-flex --w-100 --h-100 --none"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -134,7 +134,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
-                    class="image --d-flex --w-100 --h-100"
+                    class="image --d-flex --w-100 --h-100 --none"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -193,7 +193,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
-                    class="image --d-flex --w-100 --h-100"
+                    class="image --d-flex --w-100 --h-100 --none"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -252,7 +252,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
-                    class="image --d-flex --w-100 --h-100"
+                    class="image --d-flex --w-100 --h-100 --none"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -311,7 +311,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
-                    class="image --d-flex --w-100 --h-100"
+                    class="image --d-flex --w-100 --h-100 --none"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -396,7 +396,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
-                    class="image --d-flex --w-100 --h-100"
+                    class="image --d-flex --w-100 --h-100 --none"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -455,7 +455,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
-                    class="image --d-flex --w-100 --h-100"
+                    class="image --d-flex --w-100 --h-100 --none"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -514,7 +514,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
-                    class="image --d-flex --w-100 --h-100"
+                    class="image --d-flex --w-100 --h-100 --none"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -573,7 +573,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
-                    class="image --d-flex --w-100 --h-100"
+                    class="image --d-flex --w-100 --h-100 --none"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -632,7 +632,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
-                    class="image --d-flex --w-100 --h-100"
+                    class="image --d-flex --w-100 --h-100 --none"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
