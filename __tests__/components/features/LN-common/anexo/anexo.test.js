@@ -1,8 +1,8 @@
 import React from 'react';
-import Consumer from 'fusion:consumer';
 import Context from 'fusion:context';
 import { render, mount, shallow } from 'enzyme';
 import AnexoFeature from '../../../../../components/features/LN-common/anexo/default';
+import { isInSection } from '../../../../../components/features/LN-common/anexo/common/_helper-WebApi';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -21,7 +21,18 @@ jest.mock('fusion:consumer', Component => {
     };
 });
 
+jest.mock(
+    '../../../../../components/features/LN-common/anexo/common/_helper-WebApi.js',
+    () => ({
+        ...jest.requireActual(
+            '../../../../../components/features/LN-common/anexo/common/_helper-WebApi.js'
+        ),
+        isInSection: jest.fn()
+    })
+);
+
 describe('features - LN-common - anexo - default', () => {
+    isInSection.mockRestore();
     describe('With HTML anexo props', () => {
         const propsHtml = {
             collection: 'features',
@@ -130,26 +141,13 @@ describe('features - LN-common - anexo - default', () => {
                 'Los tres altos fijos del anexo (Desktop, Tablet y Mobile) son campos requeridos para los anexos con URL'
             );
         });
-        it('When any of the 3 heights exceed limit and isApertura is true - Should return ErrorMessage', () => {
-            const renderables = [];
-            renderables[2] = {
-                children: [
-                    {
-                        props: {
-                            id: 'f0f0raOK8mKx1sc'
-                        }
-                    }
-                ]
-            };
-            Context.useAppContext = jest.fn(() => ({
-                isAdmin: true,
-                renderables,
-                layout: ''
-            }));
+
+        it('When any of the 3 heights exceed limit inside Apertura - Should return ErrorMessage', () => {
             propsUrl.customFields.heightDesktop = 700;
+            isInSection.mockImplementation(() => true);
             const component = render(<AnexoFeature {...propsUrl} />);
             expect(component.html()).toContain(
-                'Los altos fijos m&#xE1;ximos de anexos con URL en apertura son de 250px para Desktop, Tablet y Mobile. Corrijalos, caso contrario no se ver&#xE1; el anexo'
+                'Los altos fijos m&#xE1;ximos de anexos con URL en pre apertura son de 300px para Desktop, Tablet y Mobile. Corrijalos, caso contrario no se ver&#xE1; el anexo'
             );
         });
     });

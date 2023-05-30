@@ -1,4 +1,18 @@
 import PropTypes from 'fusion:prop-types';
+import React from 'react';
+import {
+    ClearNight,
+    Cloudy,
+    Rain,
+    RainyCloudy,
+    Snow,
+    SnowCloudy,
+    Storm,
+    StormCloudy,
+    Sun,
+    SunCloudy,
+    Windy
+} from '@ln/contenidos-ui-assets';
 
 export const setWeatherData = weatherValue => {
     if (!weatherValue) return null;
@@ -12,17 +26,17 @@ export const setWeatherData = weatherValue => {
         ) || {};
 
     const options = {
-        sun: 'sun',
-        'clear-night': 'clearNight',
-        windy: 'windy',
-        'sun-cloudy': 'sunCloudy',
-        cloudy: 'cloudy',
-        'rainy-cloudy': 'rainyCloudy',
-        rain: 'rain',
-        'storm-cloudy': 'stormCloudy',
-        storm: 'storm',
-        'snow-cloudy': 'snowCloudy',
-        snow: 'snow'
+        sun: <Sun />,
+        'clear-night': <ClearNight />,
+        windy: <Windy />,
+        'sun-cloudy': <SunCloudy />,
+        cloudy: <Cloudy />,
+        'rainy-cloudy': <RainyCloudy />,
+        rain: <Rain />,
+        'storm-cloudy': <StormCloudy />,
+        storm: <Storm />,
+        'snow-cloudy': <SnowCloudy />,
+        snow: <Snow />
     };
 
     return {
