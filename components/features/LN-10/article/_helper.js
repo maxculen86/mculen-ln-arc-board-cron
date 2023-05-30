@@ -259,7 +259,7 @@ const transformVideoData = (videoData, shouldUseV2) => {
 
     return {
         type,
-        src: url,
+        dataSrc: url,
         poster: resizedUrl
     };
 };

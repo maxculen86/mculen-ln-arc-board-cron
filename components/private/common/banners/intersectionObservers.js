@@ -51,3 +51,27 @@ export const createHeaderObserver = () => {
 
     if (subHeader) interSectionObserver.observe(subHeader);
 };
+
+export const createDifferVideosObserver = () => {
+    const lazyVideos = [].slice.call(
+        document.querySelectorAll('video.ln-video')
+    );
+
+    const videosCallback = entries => {
+        entries.forEach(video => {
+            const lazyVideo = video.target;
+            if (video.isIntersecting) {
+                lazyVideo.src = lazyVideo.dataset.src;
+                lazyVideo.play();
+            } else {
+                lazyVideo.stop();
+            }
+        });
+    };
+
+    const lazyVideoObserver = new IntersectionObserver(videosCallback);
+
+    lazyVideos.forEach(lazyVideo => {
+        lazyVideoObserver.observe(lazyVideo);
+    });
+};
