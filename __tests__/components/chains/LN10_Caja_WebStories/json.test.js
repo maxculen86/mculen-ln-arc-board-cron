@@ -1,6 +1,8 @@
 import GetCajaManual from '../../../../components/private/LN/api/global/components/chains/LN10/getCajaManual';
 import CajaWebStories from '../../../../components/chains/LN10_Caja_WebStories/json';
 import LN10CajaManual from '../../../../components/chains/LN10_Caja_Manual/json';
+import renderables from '../../../../__mocks__/data/LN10_Caja_WebStories/renderables.json';
+import childrenProps from '../../../../__mocks__/data/LN10_Caja_WebStories/renderables.json';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -29,131 +31,6 @@ jest.mock(
     }
 );
 
-// jest.mock(
-//     '../../../../components/chains/LN10_Caja_WebStories/common/_helper-WebApi.js',
-//     () => {
-//         return {
-//             __esModule: true,
-//             default: (layout, childProps = []) => {
-//                 if (layout === 'error') {
-//                     return { message: 'error lalala' };
-//                 }
-//                 return null;
-//             },
-//             filterWebStoriesChildren: (renderables, childrenRenders) => {
-//                 return [
-//                     {
-//                         collection: 'features',
-//                         type: 'LN-10/webStory',
-//                         props: {
-//                             collection: 'features',
-//                             type: 'LN-10/webStory',
-//                             id: 'f0fYoFVwFIO2A1xc',
-//                             name: null,
-//                             contentConfig: {
-//                                 contentService: '',
-//                                 contentConfigValues: {},
-//                                 inherit: true
-//                             },
-//                             customFields: {
-//                                 title: 'web ejemplo',
-//                                 lead: 'volanta ejemplo',
-//                                 imageId: 'UF5S34BB25DD5CWPOCQZGHCO3U',
-//                                 link: 'link ejemplo'
-//                             },
-//                             displayProperties: {},
-//                             localEdits: {},
-//                             variants: {}
-//                         },
-//                         key: 'f0fYoFVwFIO2A1xc'
-//                     },
-//                     {
-//                         collection: 'features',
-//                         type: 'LN-10/webStory',
-//                         props: {
-//                             collection: 'features',
-//                             type: 'LN-10/webStory',
-//                             id: 'f0fCJd2Laznm3TU',
-//                             name: null,
-//                             contentConfig: {
-//                                 contentService: '',
-//                                 contentConfigValues: {},
-//                                 inherit: true
-//                             },
-//                             customFields: {
-//                                 title: 'web ejemplo',
-//                                 lead: 'volanta ejemplo',
-//                                 imageId: 'UF5S34BB25DD5CWPOCQZGHCO3U',
-//                                 link: 'link ejemplo',
-//                                 pbInternal_cloneId: 'f0fCJd2Laznm3TU'
-//                             },
-//                             displayProperties: {},
-//                             localEdits: {},
-//                             variants: {}
-//                         },
-//                         key: 'f0fCJd2Laznm3TU'
-//                     },
-//                     {
-//                         collection: 'features',
-//                         type: 'LN-10/webStory',
-//                         props: {
-//                             collection: 'features',
-//                             type: 'LN-10/webStory',
-//                             id: 'f0fqFvOcqgjm3QU',
-//                             name: null,
-//                             contentConfig: {
-//                                 contentService: '',
-//                                 contentConfigValues: {},
-//                                 inherit: true
-//                             },
-//                             customFields: {
-//                                 title: 'web ejemplo',
-//                                 lead: 'volanta ejemplo',
-//                                 imageId: 'UF5S34BB25DD5CWPOCQZGHCO3U',
-//                                 link: 'link ejemplo',
-//                                 pbInternal_cloneId: 'f0fqFvOcqgjm3QU'
-//                             },
-//                             displayProperties: {},
-//                             localEdits: {},
-//                             variants: {}
-//                         },
-//                         key: 'f0fqFvOcqgjm3QU'
-//                     },
-//                     {
-//                         collection: 'features',
-//                         type: 'LN-10/webStory',
-//                         props: {
-//                             collection: 'features',
-//                             type: 'LN-10/webStory',
-//                             id: 'f0frTAlGEkgm3On',
-//                             name: null,
-//                             contentConfig: {
-//                                 contentService: '',
-//                                 contentConfigValues: {},
-//                                 inherit: true
-//                             },
-//                             customFields: {
-//                                 title: 'web ejemplo',
-//                                 lead: 'volanta ejemplo',
-//                                 imageId: 'UF5S34BB25DD5CWPOCQZGHCO3U',
-//                                 link: 'link ejemplo',
-//                                 pbInternal_cloneId: 'f0frTAlGEkgm3On'
-//                             },
-//                             displayProperties: {},
-//                             localEdits: {},
-//                             variants: {}
-//                         },
-//                         key: 'f0frTAlGEkgm3On'
-//                     }
-//                 ];
-//             },
-//             validateChain: (filteredChildren, children) => {
-//                 return '';
-//             }
-//         };
-//     }
-// );
-
 jest.mock(
     '../../../../components/private/LN/api/global/components/chains/common/props/validatePropsChains.js',
     () => {
@@ -178,114 +55,8 @@ describe('components - chains - LN10_Caja_WebStories - json', () => {
         id: 'c0fod8IMHIJV4mB',
         typeChain: 'webstories',
         customFields: {},
-        children: [
-            {
-                _id: 'webstory0',
-                additionalProperties: {
-                    title: 'web ejemplo',
-                    lead: 'volanta ejemplo',
-                    imageId: 'UF5S34BB25DD5CWPOCQZGHCO3U',
-                    link: 'link ejemplo',
-                    imagen: [Object],
-                    variant: 'webstories'
-                }
-            },
-            {
-                _id: 'webstory1',
-                additionalProperties: {
-                    title: 'web ejemplo',
-                    lead: 'volanta ejemplo',
-                    imageId: 'UF5S34BB25DD5CWPOCQZGHCO3U',
-                    link: 'link ejemplo',
-                    pbInternal_cloneId: 'f0fCJd2Laznm3TU',
-                    imagen: [Object],
-                    variant: 'webstories'
-                }
-            },
-            {
-                _id: 'webstory2',
-                additionalProperties: {
-                    title: 'web ejemplo',
-                    lead: 'volanta ejemplo',
-                    imageId: 'UF5S34BB25DD5CWPOCQZGHCO3U',
-                    link: 'link ejemplo',
-                    pbInternal_cloneId: 'f0fqFvOcqgjm3QU',
-                    imagen: [Object],
-                    variant: 'webstories'
-                }
-            },
-            {
-                _id: 'webstory3',
-                additionalProperties: {
-                    title: 'web ejemplo',
-                    lead: 'volanta ejemplo',
-                    imageId: 'UF5S34BB25DD5CWPOCQZGHCO3U',
-                    link: 'link ejemplo',
-                    pbInternal_cloneId: 'f0frTAlGEkgm3On',
-                    imagen: [Object],
-                    variant: 'webstories'
-                }
-            }
-        ],
-        renderables: [{
-            collection: 'sections',
-            props: { collection: 'sections', id: 3 },
-            children: [
-              {
-                collection: 'chains',
-                type: 'LN10_Caja_WebStories',
-                props: [Object],
-                children: [Array]
-              },
-              {
-                collection: 'chains',
-                type: 'LN10_Caja_Manual',
-                props: [Object],
-                children: [Array]
-              },
-              {
-                collection: 'features',
-                type: 'LN-common/anexo',
-                props: [Object]
-              },
-              {
-                collection: 'chains',
-                type: 'LN10_Caja_Manual',
-                props: [Object],
-                children: [Array]
-              },
-              {
-                collection: 'chains',
-                type: 'LN10_Caja_Manual',
-                props: [Object],
-                children: [Array]
-              },
-              {
-                collection: 'chains',
-                type: 'LN10_Caja_Collection',
-                props: [Object],
-                children: []
-              },
-              {
-                collection: 'chains',
-                type: 'LN10_Caja_Manual',
-                props: [Object],
-                children: [Array]
-              },
-              {
-                collection: 'chains',
-                type: 'LN10_Caja_Manual',
-                props: [Object],
-                children: [Array]
-              },
-              {
-                collection: 'chains',
-                type: 'LN10_Caja_Collection',
-                props: [Object],
-                children: []
-              }
-            ]
-          }]
+        children: childrenProps,
+        renderables: renderables
     };
 
     test('LN10 Caja webstory OK', () => {
@@ -350,7 +121,7 @@ describe('components - chains - LN10_Caja_WebStories - json', () => {
         expect(Object.keys(resultChain).sort()).toEqual(
             ['props', 'renderResponse', 'state', 'validate'].sort()
         );
-        expect(result.information.hideCaja).toBe(false);
+        expect(result.information.hideCaja).toBeNull();
     });
 
     test('LN10 Caja webstory with validate Error', () => {
@@ -372,7 +143,9 @@ describe('components - chains - LN10_Caja_WebStories - json', () => {
             ['props', 'renderResponse', 'state', 'validate'].sort()
         );
         expect(console.warn).toHaveBeenCalledTimes(1);
-        expect(console.warn.mock.calls[0][0]).toBe('error - ');
+        expect(console.warn.mock.calls[0][0]).toBe(
+            'error - {"type":"warning","message":"Se requiere ingresar el link / ID de imagen de la webstory"}'
+        );
     });
 
     test('LN10 Caja webstory when throw Error', () => {
