@@ -3,7 +3,7 @@ import React from 'react';
 import { MainHeader } from '@ln/contenidos-ui-header';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import { SuscriptorExclusivo } from '@ln/assets-ui-icons';
+import { ExclusivoSuscriptores } from '@ln/contenidos-ui-assets';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 
@@ -81,7 +81,7 @@ export const RightOptions = ({
             }}
         >
             <Icon icon="suscriptorExclusivo" size={18}>
-                <SuscriptorExclusivo />
+                <ExclusivoSuscriptores />
             </Icon>
             SUSCRIBITE
         </Button>

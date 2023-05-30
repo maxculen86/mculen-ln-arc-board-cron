@@ -17,7 +17,7 @@ class AnexoFeature {
         } = customFields;
 
         const isApertura = isInSection({
-            sectionName: 'Anexo_1',
+            sectionName: 'Pre_Apertura',
             id,
             renderables: this.props.renderables
         });

@@ -24,7 +24,7 @@ import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
-import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelper';
+import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 import { getChainConfig } from '../../LN-10/article/common/_helper-WebApi';

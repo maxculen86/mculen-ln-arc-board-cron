@@ -1,4 +1,6 @@
 /* eslint-disable import/prefer-default-export */
+import React from 'react';
+import { Bookmark, EmailOpen, ClubLnDefault } from '@ln/contenidos-ui-assets';
 
 export const setDollarData = dollarValue => {
     if (!dollarValue) return null;
@@ -25,18 +27,18 @@ export const setDollarData = dollarValue => {
 export const setAccessData = () => {
     const defaultAccess = [
         {
-            icon: 'bookmark',
+            icon: <Bookmark />,
             text: 'Mis notas',
             href: 'https://www.lanacion.com.ar/mis-notas/'
         },
         {
-            icon: 'emailOpen',
+            icon: <EmailOpen />,
             text: 'Newsletters',
             href:
                 'https://newsletter.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274'
         },
         {
-            icon: 'clubLnDefault',
+            icon: <ClubLnDefault />,
             text: 'Club LA NACION',
             href:
                 'https://club.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274'

@@ -5,7 +5,7 @@ import get from '../../../common/utils/get';
 import { formatText } from '../../../common/utils/sectionUtils';
 import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 import getChainPosition from '../../../common/utils/getChainPosition';
-import sectionsValidation from '../../../../layouts/config/LN-Home.config.json';
+import { getChildrenFromSectionHome } from './cajaTemasHelperLN10-WebApi';
 
 // TODO: Eliminar estas reglas cuando se remplacen chains viejas por las de LN10 en todo el sitio
 const ajustCollection = 'Ajuste Collection';
@@ -284,17 +284,6 @@ export const calculateSizeOfCollection = (collections, notesQuantity) => {
     );
     const totalArticlesToAsk = notesQuantity + totalArticlesInCollections;
     return totalArticlesToAsk < 20 ? totalArticlesToAsk : 20;
-};
-
-export const getChildrenFromSectionHome = (
-    renderables,
-    sectionName,
-    sectionPosition
-) => {
-    const INDEX_SECTION =
-        get(sectionsValidation, `${sectionName}.position`, sectionPosition) + 1;
-
-    return get(renderables, `[${INDEX_SECTION}].children`, []) || [];
 };
 
 export const hastVariant = (childProps = []) => {
