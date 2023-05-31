@@ -28,7 +28,8 @@ import Ranking from '../../features/LN-10/ranking/default';
 import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
 import {
     createBannersIntersectionObserver,
-    createHeaderObserver
+    createHeaderObserver,
+    createDifferVideosObserver
 } from '../../private/common/banners/intersectionObservers';
 import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 
@@ -61,6 +62,7 @@ const LN10Home = props => {
     useEffect(() => {
         createViewabilityObservers(true);
         createBannersIntersectionObserver(true);
+        createDifferVideosObserver();
         if (!isAdmin) createHeaderObserver();
     }, [isAdmin]);
 
