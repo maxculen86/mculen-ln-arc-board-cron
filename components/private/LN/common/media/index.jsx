@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect, useRef } from 'react';
+import { useAppContext } from 'fusion:context';
 import PropTypes from 'prop-types';
 import Image from './imageBase';
 import ComFigure from '../../../common/com-figure';
@@ -13,6 +14,8 @@ import {
 import useSubtype from '../../../common/hooks/useSubtype';
 import Icon from '../../../common/icon';
 import setClassCondition from './helpers/indexHelper';
+import listOfAllowedSection from './helpers/allowSectionAndLayout';
+import isAllowedSection from '../utils/isAllowedSection';
 
 const Media = ({
     mediaData,
@@ -33,7 +36,9 @@ const Media = ({
     isPowa,
     insideBody,
     withMobileImage,
-    searchableField
+    searchableField,
+    layoutPageBuilder,
+    globalContent
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -42,6 +47,12 @@ const Media = ({
     let item = null;
     const { subtipo } = useSubtype();
     const idForMedia = isApertura ? idMedia : undefined;
+
+    const isValidSection = isAllowedSection({
+        globalContent,
+        listOfAllowedSection,
+        layout: layoutPageBuilder
+    });
 
     useEffect(() => {
         !itsGallery &&
@@ -98,6 +109,7 @@ const Media = ({
                             zoom={zoom}
                             isApertura={isApertura}
                             searchableField={searchableField}
+                            isValidSection={isValidSection}
                         />
                         {children}
                         {(zoom || itsGallery) && (
@@ -188,7 +200,11 @@ Media.propTypes = {
     withMobileImage: PropTypes.bool,
     searchableField: PropTypes.shape({
         imageId: PropTypes.string
-    })
+    }),
+    globalContent: PropTypes.shape({
+        _id: PropTypes.string
+    }).isRequired,
+    layoutPageBuilder: PropTypes.string.isRequired
 };
 
 Media.defaultProps = {
