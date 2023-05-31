@@ -80,6 +80,7 @@ const createNotasArray = elem => {
             !article._id &&
             !article.website_url
         ) {
+            posicion += 1;
             // eslint-disable-next-line no-continue
             continue;
         }
