@@ -183,9 +183,8 @@ export const getStickyBanner = (bannerClass, viewport, header) => {
                             const viewPoint = topViewportLimit - banner.clientHeight - (${header} ? header.clientHeight : 0);
 
                             if (viewPoint <= 0 && banner.classList.contains('--sticky')) {
-                                const paddingTop = parseFloat(window.getComputedStyle(document.querySelector('#content')).getPropertyValue('padding-top')) || 0;
                                 banner.classList.remove('--sticky');
-                                banner.style.top = Math.abs(viewportLimit.offsetTop - banner.clientHeight - paddingTop) + 'px';
+                                banner.style.top = Math.abs(viewportLimit.offsetTop - banner.clientHeight) + 'px';
                                 banner.style.position = 'relative';
                             } else if (viewPoint > 0 && !banner.classList.contains('--sticky')) {
                                 banner.classList.add('--sticky');
