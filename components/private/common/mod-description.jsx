@@ -1,5 +1,4 @@
 import React from 'react';
-import { useAppContext } from 'fusion:context';
 import PropTypes from 'prop-types';
 import Text from './text';
 import ComTitle from './com-title';
@@ -29,9 +28,9 @@ const ModDescription = props => {
         tags,
         contentRestrictions: { content_code: contentCode },
         dataAuthors,
-        categoryNote
+        categoryNote,
+        layoutPageBuilder
     } = props;
-    const { layout: layoutPageBuilder } = useAppContext();
 
     const withMarquee = !!(marquesina || authors);
     const { name: categoryName, path: categoryPath } = category || {};
@@ -155,7 +154,8 @@ ModDescription.propTypes = {
         })
     }),
     dataAuthors: PropTypes.arrayOf(PropTypes.object),
-    categoryNote: PropTypes.string
+    categoryNote: PropTypes.string,
+    layoutPageBuilder: PropTypes.string.isRequired
 };
 
 ModDescription.defaultProps = {

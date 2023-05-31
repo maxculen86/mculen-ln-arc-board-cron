@@ -21,7 +21,10 @@ const useGridPagination = props => {
         nodeType = '',
         isWiki = false,
         acumuladoGeneral = {},
-        hasChainBeforeGrid = false
+        hasChainBeforeGrid = false,
+        // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
+        pageLayout,
+        globalContent
     } = props;
 
     const hasCollectionApertura =
@@ -33,7 +36,10 @@ const useGridPagination = props => {
         page: currentPage,
         hasCollectionApertura,
         hasChainBeforeGrid,
-        isWiki
+        isWiki,
+        // TODO: Eliminar estas prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
+        pageLayout,
+        globalContent
     });
 
     const { tipo_acumulado: accumulatedType = 'Grilla' } = acumuladoGeneral;
