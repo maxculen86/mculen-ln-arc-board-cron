@@ -8,7 +8,8 @@ const articleComponents = {
 // TODO: Analizar si en este paso es mejor colocar las propiedades del design segun el archivo de configuracion: /layouts/config/api-diagramations/LN10-Home_Main.json
 export const ExternalArticle = article => {
     const tipo =
-        get(article, 'additionalProperties.variant', 'regular') || 'regular';
+        get(article, 'additionalProperties.variant', 'webstories') ||
+        'webstories';
 
     const Component = articleComponents[tipo];
     return {
