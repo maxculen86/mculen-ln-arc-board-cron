@@ -31,7 +31,6 @@
         "postinstall": "npm run ln:copycss"
     },
     "dependencies": {
-        "@ln/assets-ui-icons": "0.0.3",
         "@ln/common-ui-adaptableimage": "0.0.5",
         "@ln/common-ui-badge": "0.0.5",
         "@ln/common-ui-button": "1.0.4",
