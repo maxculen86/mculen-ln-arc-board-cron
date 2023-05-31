@@ -12,7 +12,7 @@ export const getExternalArticleImage = article => {
             typeof article === 'object' ? JSON.stringify(article) : '';
         throw new LNApiErrorArticles(
             `Revisar Parametros de Articulo en null o undefined en articulo con parametros: ${itemArticle}`,
-            'ErrorLinkExternalArticle'
+            'ErrorImageExternalArticle'
         );
     }
 
