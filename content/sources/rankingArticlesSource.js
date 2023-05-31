@@ -1,4 +1,5 @@
 import request from 'request-promise-native';
+import { API_ENV, API_KEY_ARC_SERVICES_PROD } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import get from '../../components/private/common/utils/get';
 import { isNotRecommend } from './utils/collectionsHelper';
@@ -20,7 +21,11 @@ const fetch = (query, { cachedCall } = {}) => {
     const source = 'content/sources/rankingArticlesSource';
     return request({
         uri: uriArcServicesAPI,
-        json: true
+        json: true,
+        headers: {
+            Referer: API_ENV,
+            'api-key': API_KEY_ARC_SERVICES_PROD
+        }
     })
         .then(storiesUrls => {
             const stories = getCanonicalUrls(storiesUrls);
