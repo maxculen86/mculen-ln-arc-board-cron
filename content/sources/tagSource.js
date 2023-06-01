@@ -1,9 +1,7 @@
 import {
     CONTENT_BASE,
     ARC_ACCESS_TOKEN,
-    LANACION_SERVICES_URL,
-    API_ENV,
-    API_KEY_ARC_SERVICES
+    LANACION_SERVICES_URL
 } from 'fusion:environment';
 import request from 'request-promise-native';
 import filter from '../filters/LN/acumulado/tag';
@@ -27,11 +25,7 @@ const fetch = async (query, { cachedCall }) => {
 
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
-        json: true,
-        headers: {
-            Referer: API_ENV,
-            'api-key': API_KEY_ARC_SERVICES
-        }
+        json: true
     };
     if (ARC_ACCESS_TOKEN) {
         opt.auth = {
