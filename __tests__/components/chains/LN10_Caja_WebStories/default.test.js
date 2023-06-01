@@ -21,6 +21,7 @@ describe('Componentes - Chains - LN10_Caja_WebStories', () => {
     });
     const { container } = render(
         <CajaWebStories
+            id={'fhjksa7128jsk'}
             customFields={{ hideCaja: false }}
             renderables={[
                 {
@@ -28,11 +29,17 @@ describe('Componentes - Chains - LN10_Caja_WebStories', () => {
                     children: [
                         {
                             type: 'LN10_Caja_Manual',
-                            children: []
+                            children: [],
+                            props: {
+                                id: '1'
+                            }
                         },
                         {
                             type: 'LN10_Caja_WebStories',
-                            children: []
+                            children: [],
+                            props: {
+                                id: '2'
+                            }
                         }
                     ]
                 }
@@ -67,6 +74,7 @@ describe('Componentes - Chains - LN10_Caja_WebStories', () => {
     it('should not show chain if hideCaja is true', () => {
         const { container } = render(
             <CajaWebStories
+                id={'fhjksa7128jsk'}
                 customFields={{ hideCaja: true }}
                 renderables={[
                     {
@@ -74,11 +82,17 @@ describe('Componentes - Chains - LN10_Caja_WebStories', () => {
                         children: [
                             {
                                 type: 'LN10_Caja_Manual',
-                                children: []
+                                children: [],
+                                props: {
+                                    id: '1'
+                                }
                             },
                             {
                                 type: 'LN10_Caja_WebStories',
-                                children: []
+                                children: [],
+                                props: {
+                                    id: '2'
+                                }
                             }
                         ]
                     }
