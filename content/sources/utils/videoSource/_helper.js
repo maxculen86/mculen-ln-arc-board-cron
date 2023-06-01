@@ -1,3 +1,4 @@
+import { VIDEO_CDN_URL } from 'fusion:environment';
 import get from '../../../../components/private/common/utils/get';
 import getImageResized from '../../../../components/private/common/utils/getImageResized';
 import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
@@ -92,4 +93,22 @@ export const resizeVideoImagesV1 = ({ data, arcSite, siteProps } = {}) => {
     }
 
     return data || {};
+};
+
+export const updateVideoUrl = videoData => {
+    const pattern = /https:\/\/[\w.-]+\//;
+
+    const streamsWithUpdatedUrl = get(videoData, 'streams', []).map(elem => {
+        const urlVideo = get(elem, 'url', '');
+
+        return {
+            ...elem,
+            url: urlVideo.replace(pattern, VIDEO_CDN_URL)
+        };
+    });
+
+    return {
+        ...videoData,
+        streams: streamsWithUpdatedUrl
+    };
 };

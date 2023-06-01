@@ -4,7 +4,8 @@ import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger';
 import {
     resizeVideoImagesV1,
-    resizeVideoImagesV2
+    resizeVideoImagesV2,
+    updateVideoUrl
 } from './utils/videoSource/_helper';
 import getPresets from './utils/presets';
 
@@ -51,9 +52,11 @@ const transform = async (data, siteProps, cachedCall) => {
     const arcSite = get(siteProps, 'arc-site', '');
     const { presets, presetsDefault, shouldUseV2 } = getPresets(siteProps);
 
+    const updatedData = updateVideoUrl(data);
+
     if (shouldUseV2) {
         return resizeVideoImagesV2({
-            data,
+            data: updatedData,
             presets,
             siteProps,
             cachedCall,
@@ -61,7 +64,7 @@ const transform = async (data, siteProps, cachedCall) => {
         });
     }
 
-    return resizeVideoImagesV1({ data, arcSite, siteProps });
+    return resizeVideoImagesV1({ data: updatedData, arcSite, siteProps });
 };
 
 export default {

@@ -9,5 +9,11 @@ export const imageResizedUrl = `
         class
         type
         media_preload
+        minScreenWidth
+        maxScreenWidth
+        configPixelRatio {
+            forScreenWidth
+            xDescriptor
+        }
     }
 `;

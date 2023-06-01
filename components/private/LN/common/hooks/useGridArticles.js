@@ -5,6 +5,8 @@ import { getIdsArticlesFromOtherCollections } from '../utils/cajaTemasValidators
 import excludeUrlNacion from '../utils/excludeUrlNacion';
 import getIdsArticlesFromCajaManual from '../../../../chains/utils/getIdsArticlesFromCajaManual';
 import { SUSCRIPTOR_SECTION } from '../../../common/utils/subtypes/subtypeHelper';
+import isAllowedSection from '../utils/isAllowedSection';
+import allowSectionAndLayout from '../media/helpers/allowSectionAndLayout';
 
 const useGridArticles = props => {
     const {
@@ -23,7 +25,10 @@ const useGridArticles = props => {
         hasCollectionApertura = false,
         sourceOrigin = '',
         hasChainBeforeGrid = false,
-        isWiki = false
+        isWiki = false,
+        // TODO: Eliminar esta prop una vez que se implemente carga de imagenes con picture para todos los acumulados.
+        globalContent,
+        pageLayout
     } = props || {};
 
     const DEFAULT_QUANTITY = 30;
@@ -63,6 +68,14 @@ const useGridArticles = props => {
         isWiki
     });
 
+    const imageConfig = isAllowedSection({
+        globalContent,
+        listOfAllowedSection: allowSectionAndLayout,
+        layout: pageLayout
+    })
+        ? 'newBoxArticles'
+        : 'boxArticles';
+
     const searchArgs = {
         typesOfQuery: {
             sectionId,
@@ -72,7 +85,7 @@ const useGridArticles = props => {
             sectionsIds
         },
         filter,
-        imageConfig: 'boxArticles',
+        imageConfig,
         size: size.tripleSize || size,
         type,
         staticMode: false,

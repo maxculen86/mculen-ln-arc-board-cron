@@ -43,11 +43,6 @@ import isSSR from '../../../private/LN/common/utils/isSSR';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 import isContentLabAt100 from '../../../chains/utils/isContentLabAt100';
-import '../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-media/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-video/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-image/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-badge/index.css';
 import { LIVEBLOG } from '../../../private/common/utils/subtypes/subtypeHelper';
 
 const ArticleFeature = ({
@@ -202,7 +197,8 @@ const ArticleFeature = ({
         image,
         layout,
         renderables,
-        shouldUseV2: withResizerV2
+        shouldUseV2: withResizerV2,
+        config
     });
 
     const typeOfMedia = getTypeOfMedia(customFields);

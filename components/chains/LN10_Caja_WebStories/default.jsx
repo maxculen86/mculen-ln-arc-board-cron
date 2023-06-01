@@ -6,7 +6,10 @@ import { Webstories } from '@ln/contenidos-ui-webstories';
 import Lazy from 'lazy-child';
 import { LAZY_OFFSETTOP } from 'fusion:environment';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
-import { getMarkupForDatalayer } from '../../private/LN/common/utils/cajaTemasHelper';
+import {
+    getCommonProps,
+    getMarkupForDatalayer
+} from '../../private/LN/common/utils/cajaTemasHelper';
 import {
     validateChain,
     filterWebStoriesChildren
@@ -23,6 +26,8 @@ const CajaWebStories = props => {
         customFields
     } = props;
 
+    const { position, positionInsideSection } = getCommonProps(props);
+
     const { hideCaja = false } = customFields;
 
     const filteredChildren = filterWebStoriesChildren(renderables, children);
@@ -34,11 +39,11 @@ const CajaWebStories = props => {
         }) || {};
 
     const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
-        'WebStories',
         '',
         '',
+        position,
         '',
-        ''
+        positionInsideSection
     );
 
     const error = validateChain(filteredChildren);

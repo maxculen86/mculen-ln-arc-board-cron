@@ -1,4 +1,7 @@
-import { resizeVideoImagesV1 } from '../../../../../content/sources/utils/videoSource/_helper';
+import {
+    resizeVideoImagesV1,
+    updateVideoUrl
+} from '../../../../../content/sources/utils/videoSource/_helper';
 import getImageResized from '../../../../../components/private/common/utils/getImageResized';
 import responseVideoSource from '../../../../../__mocks__/data/videos/responseVideoSource.json';
 import getProperties from 'fusion:properties';
@@ -70,6 +73,12 @@ const siteProps = {
     'arc-site': 'ott'
 };
 
+jest.mock('fusion:environment', () => {
+    return {
+        VIDEO_CDN_URL: 'https://lanacionar-prod.video.arc-cdn.net/'
+    };
+});
+
 describe('Tests - videoSource - Helper', () => {
     describe('Tests function resizeVideoImagesV1', () => {
         test('should return a object with data nice in OTT', () => {
@@ -119,6 +128,53 @@ describe('Tests - videoSource - Helper', () => {
             getImageResized.mockImplementation(() => undefined);
 
             expect(resizeVideoImagesV1(undefined)).toStrictEqual({});
+        });
+    });
+
+    describe('Tests function updateVideoUrl', () => {
+        test('should update video URLs with new domain', () => {
+            const videoData = {
+                type: 'video',
+                streams: [
+                    {
+                        url: 'https://example.com/video1.mp4',
+                        stream_type: 'mp4'
+                    },
+                    {
+                        url: 'https://eexxaammppllee22test.test.com/video2.mp4',
+                        stream_type: 'mp4'
+                    }
+                ]
+            };
+
+            const updatedData = updateVideoUrl(videoData);
+
+            expect(updatedData.streams[0].url).toBe(
+                'https://lanacionar-prod.video.arc-cdn.net/video1.mp4'
+            );
+            expect(updatedData.streams[1].url).toBe(
+                'https://lanacionar-prod.video.arc-cdn.net/video2.mp4'
+            );
+        });
+
+        test('should handle empty streams array', () => {
+            const videoData = {
+                streams: []
+            };
+
+            const updatedData = updateVideoUrl(videoData);
+
+            expect(updatedData.streams).toHaveLength(0);
+        });
+
+        test('should handle missing streams property', () => {
+            const videoData = {
+                type: 'video'
+            };
+
+            const updatedData = updateVideoUrl(videoData);
+
+            expect(updatedData.streams).toEqual([]);
         });
     });
 });
