@@ -117,6 +117,7 @@ describe('Private - Common - GetTitleText', () => {
     });
 });
 
+// TODO: Mover este tests a un archivo nuevo especifico para el utilitario getAuthorAsString
 describe('Private - Common - GetAuthorAsString', () => {
     const authorsString = getAuthorsAsString(article);
 
@@ -170,5 +171,38 @@ describe('Private - Common - GetAuthorAsString', () => {
     const authorsString3 = getAuthorsAsString(article3);
     it('Mostrar author que es del tipo author', () => {
         expect(authorsString3).toEqual('Por Mariano Grondona');
+    });
+
+    it('should return a empty string when the author name is a blank space', () => {
+        const articleData = {
+            ...article,
+            credits: {
+                by: [
+                    {
+                        name: ' ',
+                        type: 'author'
+                    }
+                ]
+            }
+        };
+
+        expect(getAuthorsAsString(articleData, true)).toStrictEqual('');
+        expect(getAuthorsAsString(articleData)).toStrictEqual('');
+    });
+
+    it('should return a empty string when the author name is not defined', () => {
+        const articleData = {
+            ...article,
+            credits: {
+                by: [
+                    {
+                        type: 'author'
+                    }
+                ]
+            }
+        };
+
+        expect(getAuthorsAsString(articleData, true)).toStrictEqual('');
+        expect(getAuthorsAsString(articleData)).toStrictEqual('');
     });
 });

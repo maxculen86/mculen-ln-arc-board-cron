@@ -720,6 +720,7 @@
 .ln-advance.--withVideo .wrap .lay-container > article .video iframe {
   width: 6.875rem;
   aspect-ratio: 16/9;
+  height: auto;
 }
 .ln-advance.--withVideo .wrap .lay-container > article .text-container {
   display: flex;
