@@ -22,12 +22,6 @@ import { goToLogout } from '../../LN/common/utils/loginHelper';
 import MainHeaderEventsScript from '../../common/scriptManager/MainHeaderEventsScript';
 import showSubscribeButton from '../../LN/common/utils/showSubscribeButton';
 
-import '../../../../resources/packages/css/@ln/contenidos-ui-header/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
-import '../../../../resources/packages/css/@ln/contenidos-ui-button/index.css';
-import '../../../../resources/packages/css/@ln/contenidos-ui-text/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
-
 const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
     const loginData = getLoginData() || {};
 

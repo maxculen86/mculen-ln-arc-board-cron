@@ -19,9 +19,6 @@ import { useRoofData } from '../utils/_helpers';
 import { setSlicedChildren } from '../utils/common/_helpers-WebApi';
 import getComponent from '../utils/getComponent';
 
-import '../../../resources/packages/css/@ln/contenidos-ui-contentlab/index.css';
-import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
-
 const CajaManual = props => {
     const {
         id: chainId,
