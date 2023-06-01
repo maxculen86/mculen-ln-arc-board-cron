@@ -14,8 +14,6 @@ import {
 import filter from '../../../../content/filters/LN/acumulado/articleTimeline';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import setTimelineProps from './_helper';
-import '../../../../resources/dist/css/ln/components/timeline.css';
-import '../../../../resources/packages/css/@ln/contenidos-ui-timeline/index.css';
 
 const {
     layout,

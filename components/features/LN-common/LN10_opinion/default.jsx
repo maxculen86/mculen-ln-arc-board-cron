@@ -19,7 +19,6 @@ import diagramationRules from '../../../private/common/utils/diagramationRules';
 import StaticContent from '../../../private/common/staticContent';
 import setRender from '../../../chains/utils/setRender';
 import { validateFeatureOpinion } from './_helper-WebApi';
-import '../../../../resources/packages/css/@ln/contenidos-ui-cajaopinion/index.css';
 import { useRoofData } from '../../../chains/utils/_helpers';
 import BuildRoof from '../../../chains/utils/_BuildRoof/default';
 import getGridType from '../../../chains/utils/getGridType';

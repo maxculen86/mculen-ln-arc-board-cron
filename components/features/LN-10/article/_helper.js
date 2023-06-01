@@ -280,7 +280,7 @@ const transformVideoData = (videoData, shouldUseV2, cardSize) => {
 
     return {
         type,
-        src: url,
+        dataSrc: url,
         poster: resizedUrl
     };
 };
