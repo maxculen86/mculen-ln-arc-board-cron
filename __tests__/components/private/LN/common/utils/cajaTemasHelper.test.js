@@ -73,3 +73,30 @@ describe('cajaTemas webApi', () => {
         expect(result).toHaveLength(2);
     });
 });
+
+describe('getChildrenFromSectionHome - It should filter correctly according to', () => {
+    test('All statements false - should return 3.', () => {
+        const result = getChildrenFromSectionHome(
+            getRenderables(false, false, true),
+            'Bomba',
+            1
+        );
+        expect(result).toHaveLength(3);
+    }),
+        test('First statement true - should return 0', () => {
+            const result2 = getChildrenFromSectionHome(
+                getRenderables(true),
+                'Bomba',
+                1
+            );
+            expect(result2).toHaveLength(0);
+        }),
+        test('Second statement true, should return 0', () => {
+            const result3 = getChildrenFromSectionHome(
+                getRenderables(false, true, true),
+                'Bomba',
+                1
+            );
+            expect(result3).toHaveLength(0);
+        });
+});
