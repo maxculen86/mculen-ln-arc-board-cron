@@ -7,14 +7,14 @@ export const getExternalArticleImage = article => {
         get(article, 'additionalProperties.imagen.promo_items.basic', null) ||
         get(article, 'promo_items.basic', null);
 
-    // if (!imagedefault) {
-    //     const itemArticle =
-    //         typeof article === 'object' ? JSON.stringify(article) : '';
-    //     throw new LNApiErrorArticles(
-    //         `Revisar Parametros de Articulo en null o undefined en articulo con parametros: ${itemArticle}`,
-    //         'ErrorImageExternalArticle'
-    //     );
-    // }
+    if (!imagedefault) {
+        const itemArticle =
+            typeof article === 'object' ? JSON.stringify(article) : '';
+        throw new LNApiErrorArticles(
+            `Revisar Parametros de Articulo en null o undefined en articulo con parametros: ${itemArticle}`,
+            'ErrorImageExternalArticle'
+        );
+    }
 
     if (imagedefault && imagedefault.type === 'image')
         return Image(imagedefault);
