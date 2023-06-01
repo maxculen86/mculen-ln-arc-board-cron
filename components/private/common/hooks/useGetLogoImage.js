@@ -1,6 +1,6 @@
 import { useContent } from 'fusion:content';
 
-const useGetLogoImage = (id, isHome, isMultimedia) => {
+const useGetLogoImage = (id, isHome) => {
     return useContent({
         source: (id && 'imageSource') || null,
         query: {
@@ -14,7 +14,7 @@ const useGetLogoImage = (id, isHome, isMultimedia) => {
             url
         }
     `,
-        staticMode: isHome && !isMultimedia
+        staticMode: isHome
     });
 };
 

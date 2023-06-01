@@ -5,7 +5,6 @@ import get from '../../../common/utils/get';
 import { formatText } from '../../../common/utils/sectionUtils';
 import useGlobalProviderAcu from '../../acumulado/hooks/useGlobalProviderAcu';
 import getChainPosition from '../../../common/utils/getChainPosition';
-import { getChildrenFromSectionHome } from './cajaTemasHelperLN10-WebApi';
 
 // TODO: Eliminar estas reglas cuando se remplacen chains viejas por las de LN10 en todo el sitio
 const ajustCollection = 'Ajuste Collection';
@@ -290,32 +289,6 @@ export const hastVariant = (childProps = []) => {
     return childProps.some(
         elem => elem && elem.variants && !!Object.keys(elem.variants).length
     );
-};
-
-export const getChildrenFromAperturaHome = (renderables, childProps) => {
-    const hasVariantForABTesting = hastVariant(childProps) || false;
-    return hasVariantForABTesting
-        ? getChildrenFromSectionHome(renderables, 'Apertura_1', 3)
-        : [
-              ...getChildrenFromSectionHome(renderables, 'Apertura_1', 3),
-              ...getChildrenFromSectionHome(renderables, 'Apertura_2', 4)
-          ];
-};
-
-export const getArticlesIdsFromApertura = (renderables = []) => {
-    const childrenFromApertura = getChildrenFromAperturaHome(renderables);
-    const ids = [];
-    childrenFromApertura.forEach(section => {
-        get(section, 'children', []).forEach(child => {
-            if (
-                child.collection === 'features' &&
-                get(child, 'props.type') === 'LN-common/articulo'
-            ) {
-                ids.push(get(child, 'props.customFields.noteId', ''));
-            }
-        });
-    });
-    return ids.join();
 };
 
 export const isInApertura = (idFeature, tree = {}) => {
