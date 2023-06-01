@@ -3,8 +3,8 @@ import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
 import setClassName from './utils/setClassName';
 
-import '../../../resources/dist/css/ln/components/com-title.css';
-import '../../../resources/dist/css/ln/components/com-lead.css';
+// import '../../../resources/dist/css/ln/components/com-title.css';
+// import '../../../resources/dist/css/ln/components/com-lead.css';
 
 const ComTitle = ({
     lead,

@@ -5,7 +5,7 @@ import PropTypes from 'fusion:prop-types';
 import ComLink from './com-link';
 import setClassName from './utils/setClassName';
 
-import '../../../resources/dist/css/ln/modules/mod-linklist.css';
+// import '../../../resources/dist/css/ln/modules/mod-linklist.css';
 
 const ComLinkList = ({
     list,
