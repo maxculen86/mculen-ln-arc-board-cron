@@ -14,8 +14,7 @@ const omitSections = {
 };
 const specialBoxRoot = {
     'ln-common/opinion': 'h_opinion',
-    'ln-common/ln10_opinion': 'h_opinion',
-    webstories: 'h_webstories'
+    'ln-common/ln10_opinion': 'h_opinion'
 };
 
 const createBoxAndNotas = (elem, cajaCount, cajas) => {
