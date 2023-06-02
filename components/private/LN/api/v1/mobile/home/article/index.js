@@ -15,16 +15,22 @@ const articleComponents = {
 
 // TODO: Analizar si en este paso es mejor colocar las propiedades del design segun el archivo de configuracion: /layouts/config/api-diagramations/LN10-Home_Main.json
 export const Article = article => {
+    const newArticle = article;
     const tipo =
-        get(article, 'additionalProperties.variant', 'regular') || 'regular';
+        get(newArticle, 'additionalProperties.variant', 'regular') || 'regular';
 
     const Component = articleComponents[tipo];
+
+    newArticle.additionalProperties = {
+        ...(get(newArticle, 'additionalProperties', {}) || {}),
+        diseno: getDesign(article)
+    };
     return {
         design: {
-            ...getDesign(article),
+            ...get(newArticle, 'additionalProperties.diseno', null),
             typeCard: tipo
         },
-        ...Component(article)
+        ...Component(newArticle)
     };
 };
 export default Article;
