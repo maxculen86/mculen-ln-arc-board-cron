@@ -10,6 +10,7 @@ import logger from '../../components/private/common/utils/logger';
 import NotFoundError from './utils/notFoundError';
 import getRequest from './utils/getRequest';
 import transformWikiTagData from './utils/transformWikiTagData';
+import { SUSCRIPTOR_SECTION } from '../../components/private/common/utils/subtypes/subtypeHelper';
 
 const resolve = key => {
     const { slug, outputType } = key;
