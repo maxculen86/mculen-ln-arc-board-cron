@@ -61,6 +61,5 @@ export default {
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
     BOOKMARK_URL:
         'https://sandbox.lanacion.com.ar/pf/mis-notas/?_website=la-nacion-ar',
-    AUDIO_NEWS_URL: 'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/',
-    API_KEY_ARC_SERVICES: '82816e61-c4ff-4ccf-96c4-d809ca7b418f'
+    AUDIO_NEWS_URL: 'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/'
 };
