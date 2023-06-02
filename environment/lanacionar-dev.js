@@ -62,5 +62,6 @@ export default {
         'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
     BOOKMARK_URL:
         'https://dev.lanacionar.arcpublishing.com/pf/mis-notas/?_website=la-nacion-ar',
-    AUDIO_NEWS_URL: 'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/'
+    AUDIO_NEWS_URL: 'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/',
+    VIDEO_CDN_URL: 'https://lanacionar-sandbox.video.arc-cdn.net/'
 };
