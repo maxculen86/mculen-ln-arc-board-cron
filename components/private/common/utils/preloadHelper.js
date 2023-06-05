@@ -44,11 +44,24 @@ export const haveFeatureAcumuladoApertura = (renderables = []) =>
             collection === 'features' && type === 'LN-acumulado/apertura'
     ) || false;
 
-export const getDataPreloadAcu = (idCollectionApertura, nodeType) => {
+const getImageConfig = (isLoadWithPicture, idCollectionApertura) => {
+    if (isLoadWithPicture) {
+        return idCollectionApertura ? 'newAperturaAcu' : 'newBoxArticles';
+    }
+
+    return idCollectionApertura ? 'aperturaAcu' : 'boxArticles';
+};
+
+export const getDataPreloadAcu = (
+    idCollectionApertura,
+    nodeType,
+    isLoadWithPicture = false
+) => {
     return {
         nodeType: idCollectionApertura ? '' : nodeType,
         collectionId: idCollectionApertura || '',
-        imageConfig: idCollectionApertura ? 'aperturaAcu' : 'boxArticles'
+        // TODO: Sacar funcion getImageConfig y agregar el imageConfig respectivo una vez se implemente carga con picture en todos los acumulados
+        imageConfig: getImageConfig(isLoadWithPicture, idCollectionApertura)
     };
 };
 

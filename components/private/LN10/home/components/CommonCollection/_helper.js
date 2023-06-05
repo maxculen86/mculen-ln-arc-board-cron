@@ -50,7 +50,8 @@ export const getTitleAndLeadForHome = (
 export const getDataAuthorCollection = article => {
     const authors = get(article, 'credits.by', []);
     const [author] = authors;
-    return get(author, 'name', null);
+    const authorName = get(author, 'name', '');
+    return authorName.trim() ? authorName : null;
 };
 
 export const setFinalClassName = (

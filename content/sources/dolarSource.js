@@ -2,9 +2,7 @@ import request from 'request-promise-native';
 import {
     SITE_LANACION,
     CONTENT_BASE,
-    LANACION_SERVICES_URL,
-    API_ENV,
-    API_KEY_ARC_SERVICES
+    LANACION_SERVICES_URL
 } from 'fusion:environment';
 import getRequest from './utils/getRequest';
 import filter from '../filters/LN/services/dolar';
@@ -14,11 +12,7 @@ import { createResizer } from '../../components/private/common/utils/image/resiz
 const fetch = async ({ 'arc-site': arcSite } = {}, { cachedCall } = {}) => {
     const endpoint = {
         uri: `${LANACION_SERVICES_URL}/api/v1/quotations`,
-        json: true,
-        headers: {
-            Referer: API_ENV,
-            'api-key': API_KEY_ARC_SERVICES
-        }
+        json: true
     };
 
     const promiseTermicasDolar = await cachedCall(
