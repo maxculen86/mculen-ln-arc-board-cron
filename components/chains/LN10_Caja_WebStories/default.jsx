@@ -39,7 +39,7 @@ const CajaWebStories = props => {
         }) || {};
 
     const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
-        '',
+        'WebStories',
         '',
         position,
         '',

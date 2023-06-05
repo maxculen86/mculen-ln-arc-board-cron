@@ -68,7 +68,7 @@ const WebStoryFeature = props => {
             data-pos={extraOpts['data-pos']}
             data-id={extraOpts['data-id']}
             data-notaid={extraOpts['data-notaid']}
-            data-source={extraOpts['data-source-name']}
+            data-source={extraOpts['data-source']}
         />
     );
 };
