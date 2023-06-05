@@ -12,6 +12,7 @@ import logger from '../../components/private/common/utils/logger';
 import NotFoundError from './utils/notFoundError';
 import getRequest from './utils/getRequest';
 import transformWikiTagData from './utils/transformWikiTagData';
+import getArcServicesRequest from './utils/getArcServicesRequest';
 
 const resolve = key => {
     const { slug, outputType } = key;
@@ -93,7 +94,7 @@ const transform = async (data, query, tagConfigData, cachedCall) => {
     const isWiki = typeof wikiList[slug] !== 'undefined';
 
     const wikiTagData = isWiki
-        ? await cachedCall('wikiTagSource', getRequest, {
+        ? await cachedCall('wikiTagSource', getArcServicesRequest, {
               query: `${LANACION_SERVICES_URL}/api/v1/tags/${slug}`
           })
         : {};
