@@ -11,6 +11,7 @@ import {
 } from '../../../../private/common/badge/types';
 import { getValidElementForPreload } from '../../../../private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/common/helper-WebApi';
 import getChainPosition from '../../../../private/common/utils/getChainPosition';
+import { hasBomba } from '../../../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
 
 export const typeBadge = {
     0: POSITIVE,
@@ -53,7 +54,7 @@ export const getChainParentOfFeature = (featureId, renderables) => {
     );
 };
 
-const getCardConfig = (cajaTemaConfig, layout, articlePosition) => {
+const getCardConfig = (cajaTemaConfig, layout, articlePosition, bomba) => {
     if (cajaTemaConfig)
         return get(
             cajaTemaConfig,
@@ -62,6 +63,11 @@ const getCardConfig = (cajaTemaConfig, layout, articlePosition) => {
         );
 
     const cardConfig = diagramationRules(layout);
+
+    if (bomba) {
+        return updateCardConfig(layout, articlePosition, cardConfig);
+    }
+
     return cardConfig && cardConfig[articlePosition];
 };
 
@@ -71,11 +77,17 @@ export const getChainConfig = ({ featureId, renderables, cajaTemaConfig }) => {
     const chainId = get(parent, 'props.id', '');
     const chainPosition = getChainPosition(chainId, renderables);
     const layout = get(parent, 'props.customFields.layout', '');
+    const bomba = hasBomba(renderables);
 
     const articlePosition = get(parent, 'children', []).findIndex(
         elem => elem && get(elem, 'props.id') === featureId
     );
-    const config = getCardConfig(cajaTemaConfig, layout, articlePosition);
+    const config = getCardConfig(
+        cajaTemaConfig,
+        layout,
+        articlePosition,
+        bomba
+    );
 
     return {
         imageConfig: getImageConfig({
@@ -166,4 +178,18 @@ export const isInApertura = ({
         withPreload &&
         !isImageHide
     );
+};
+
+export const updateCardConfig = (layout, articlePosition, cardConfig) => {
+    const bombaLayouts = ['vertical', 'horizontal', 'bombita', 'bombitaMas4'];
+    const updatedCardConfig = [...cardConfig];
+
+    if (
+        !bombaLayouts.includes(layout) &&
+        updatedCardConfig[articlePosition].titleTag === 'h1'
+    ) {
+        updatedCardConfig[articlePosition].titleTag = 'h2';
+    }
+
+    return updatedCardConfig && updatedCardConfig[articlePosition];
 };

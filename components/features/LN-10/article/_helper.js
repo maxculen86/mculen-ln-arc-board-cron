@@ -11,10 +11,15 @@ import diagramationRules, {
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import transformImageData from '../../../private/common/LN-10/transformImageData';
 import setClassName from '../../../private/common/utils/setClassName';
-import { getIsBomba, getChainParentOfFeature } from './common/_helper-WebApi';
+import {
+    getIsBomba,
+    getChainParentOfFeature,
+    updateCardConfig
+} from './common/_helper-WebApi';
 import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import { getFirstParentSection } from '../../../private/common/utils/sectionUtils';
 import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
+import { hasBomba } from '../../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -360,6 +365,11 @@ export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
     const layoutChain =
         elementChain && elementChain.getAttribute('data-diagramacion-id');
     const cardConfig = diagramationRules(layoutChain);
+
+    if (hasBomba(renderables)) {
+        setConfig(updateCardConfig(layoutChain, indexOfFeature, cardConfig));
+    }
+
     setConfig(cardConfig && cardConfig[indexOfFeature]);
     return true;
 };
