@@ -108,7 +108,8 @@ const GetDataToLinkImage = ({
                     : '';
             const dataPreloadAcu = getDataPreloadAcu(
                 idCollectionApertura,
-                nodeType
+                nodeType,
+                isValidSection
             );
             return (
                 <ImagePreloadlAcu
