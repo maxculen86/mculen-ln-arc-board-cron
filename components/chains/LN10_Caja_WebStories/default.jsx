@@ -39,7 +39,7 @@ const CajaWebStories = props => {
         }) || {};
 
     const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
-        '',
+        'WebStories',
         '',
         position,
         '',
@@ -50,12 +50,7 @@ const CajaWebStories = props => {
 
     return (
         !hideCaja && (
-            <Lazy
-                renderPlaceholder={ref => {
-                    return <div ref={ref} />;
-                }}
-                offsetTop={LAZY_OFFSETTOP}
-            >
+            <>
                 <div data-module={extraOptsDiv['data-module']}>
                     <section
                         data-block-name={extraOpts['data-block-name']}
@@ -69,7 +64,7 @@ const CajaWebStories = props => {
                 {isAdmin && error && error.message && (
                     <WarningMessage type={error.type} message={error.message} />
                 )}
-            </Lazy>
+            </>
         )
     );
 };

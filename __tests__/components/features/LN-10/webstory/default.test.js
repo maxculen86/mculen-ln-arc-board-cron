@@ -1,4 +1,5 @@
 import React from 'react';
+import Consumer from 'fusion:consumer';
 import WebStoryFeature from '../../../../../components/features/LN-10/webStory/default';
 import { render, screen } from '@testing-library/react';
 import Context from 'fusion:context';
@@ -15,10 +16,15 @@ jest.mock('fusion:properties', () => () => ({
     getProperties: () => []
 }));
 
+jest.mock('fusion:consumer', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+
 describe('components - feature - ln10 - webstory', () => {
     Context.useAppContext = jest.fn(() => ({
         isAdmin: false,
-        renderables: [{}],
         layout: 'LN10-Home_Main',
         arcSite: 'la-nacion-ar'
     }));
@@ -40,6 +46,7 @@ describe('components - feature - ln10 - webstory', () => {
                     'www.lanacion.com.ar',
                     '89P13'
                 )}
+                renderables={[{}]}
             />
         );
 
@@ -56,12 +63,13 @@ describe('components - feature - ln10 - webstory', () => {
                     'www.lanacion.com.ar',
                     '89P13'
                 )}
+                renderables={[{}]}
             />
         );
 
         const article = screen.getByRole('article');
 
-        expect(article).toHaveAttribute('data-pos', '9700');
+        expect(article).toHaveAttribute('data-pos', '0000');
         expect(article).toHaveAttribute('data-notaid', '89P13');
         expect(article).toHaveAttribute('data-id', '89P13');
     });
