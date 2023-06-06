@@ -45,6 +45,7 @@ export const infoLNMainLN10 = {
     welfare: { tipoSeccion: 'bienestar', idSeccion: 305 },
     title: { tipoSeccion: 'title', idSeccion: 704 },
     ranking: { tipoSeccion: 'ranking', idSeccion: 701 },
+    webstories: { tipoSeccion: 'webstories', idSeccion: 702 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 

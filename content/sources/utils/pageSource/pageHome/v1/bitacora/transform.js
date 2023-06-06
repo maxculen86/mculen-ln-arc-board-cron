@@ -79,6 +79,7 @@ const createNotasArray = elem => {
             !article._id &&
             !article.website_url
         ) {
+            posicion += 1;
             // eslint-disable-next-line no-continue
             continue;
         }
@@ -109,7 +110,7 @@ const transform = async (dataPage, query) => {
         let cajaCount = 1;
         const cajas = [];
         elementsPage.forEach((elem, i) => {
-            if (elem.type !== 0) return; // Ignorar elementos que no son cajas
+            if (elem.type !== 0 && elem.type !== 7) return; // Ignorar elementos que no son cajas
             if (omitSections[elem.sectionAliasMobile]) return; // Ignorar cajas que deben omitirse
             cajaCount = createBoxAndNotas(elem, cajaCount, cajas);
         });

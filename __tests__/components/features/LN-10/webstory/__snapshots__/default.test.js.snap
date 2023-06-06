@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - feature - ln10 - webstory should match snapshot 1`] = `
+<div>
+  <article
+    class="ln-card --d-flex --flex-col --ai-start --m --regular"
+    data-id="89P13"
+    data-notaid="89P13"
+    data-pos="0000"
+    data-source="editor"
+  >
+    <a
+      class="link ln-link --d-flex --flex-col --unstyled"
+      href="www.lanacion.com.ar"
+      target="_self"
+      title="Volanta Titulo"
+    >
+      <section
+        class="media-container"
+        href="www.lanacion.com.ar"
+        title="Titulo"
+      >
+        <picture
+          class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
+        >
+          <img
+            class="image --d-flex --w-100 --h-100 --none"
+            decoding="async"
+            fetchpriority="low"
+            loading="lazy"
+          />
+        </picture>
+      </section>
+      <section
+        class="description-container --relative --d-flex --flex-col"
+        href="www.lanacion.com.ar"
+      >
+        <h2
+          class="text ln-text title --prumo --font-medium --font-m"
+        >
+          <span
+            class="text ln-text lead --prumo --font-extra"
+          >
+            Volanta
+             
+          </span>
+          Titulo
+        </h2>
+      </section>
+    </a>
+  </article>
+</div>
+`;

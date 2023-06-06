@@ -2,10 +2,8 @@
 import get from '../../../../common/utils/get';
 import getAuthorsAsString from '../../../../common/utils/getAuthorsAsString';
 import getBajadaOrFirstTextParagraph from '../../../../common/utils/getBajadaOrFirstTextParagraph';
-import {
-    getChildrenFromAperturaHome,
-    getChildrenFromSectionHome
-} from '../../../common/utils/cajaTemasHelper';
+import { getChildrenFromAperturaHome } from '../../../common/utils/cajaTemasHelper';
+import { getChildrenFromSectionHome } from '../../../common/utils/cajaTemasHelperLN10-WebApi';
 
 export const transform = (content, customFields, promoItems) => {
     const title = {

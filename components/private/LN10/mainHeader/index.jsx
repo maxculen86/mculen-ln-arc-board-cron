@@ -6,7 +6,7 @@ import { Button } from '@ln/contenidos-ui-button';
 import { Text } from '@ln/contenidos-ui-text';
 import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
-import { Menu, Search } from '@ln/assets-ui-icons';
+import { Menu, Search } from '@ln/contenidos-ui-assets';
 
 import { getLoginData, isLoggedIn } from '../../LN/common/utils/contextHelper';
 import {
@@ -21,12 +21,6 @@ import { GlobalContext } from '../../common/context/globalContext';
 import { goToLogout } from '../../LN/common/utils/loginHelper';
 import MainHeaderEventsScript from '../../common/scriptManager/MainHeaderEventsScript';
 import showSubscribeButton from '../../LN/common/utils/showSubscribeButton';
-
-import '../../../../resources/packages/css/@ln/contenidos-ui-header/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
-import '../../../../resources/packages/css/@ln/contenidos-ui-button/index.css';
-import '../../../../resources/packages/css/@ln/contenidos-ui-text/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
 
 const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
     const loginData = getLoginData() || {};

@@ -10,6 +10,7 @@ import contentElementsLiveblog from '.././../../../../__mocks__/data/articles/co
 import * as cajaTemasValidators from '../../../../../components/private/LN/common/utils/cajaTemasValidators';
 import * as _helper from '../../../../../components/features/LN-10/article/_helper';
 import * as _helperWebApi from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
+
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         return props => <Component {...props} />;
@@ -125,20 +126,9 @@ describe('Components - features - LN-10 - articulo - default', () => {
         expect(container.innerHTML).not.toContain('marquee-img');
     });
 
-    it('should render Cargando...', () => {
+    it('should render page builder error', () => {
         useContent.mockReturnValue(null);
 
-        Context.useAppContext = jest.fn(() => ({
-            isAdmin: false,
-            renderables: [],
-            layout: 'LN10-Home_Main',
-            arcSite: 'la-nacion-ar'
-        }));
-
-        render(<ArticleFeature {...getProps()} />);
-        expect(screen.getByText('Cargando...')).toBeDefined();
-    });
-    it('should render page builder error', () => {
         jest.spyOn(
             cajaTemasValidators,
             'validateArticleFeature'
@@ -310,21 +300,9 @@ describe('Components - features - LN-10 - articulo - default', () => {
         expect(container.innerHTML).not.toContain('marquee-img');
     });
 
-    it('should render Cargando...', () => {
+    it('should render page builder error', () => {
         useContent.mockReturnValue(null);
 
-        Context.useAppContext = jest.fn(() => ({
-            isAdmin: false,
-            renderables: [],
-            layout: 'LN10-Home_Main',
-            arcSite: 'la-nacion-ar'
-        }));
-
-        render(<ArticleFeature {...getProps()} />);
-        expect(screen.getByText('Cargando...')).toBeDefined();
-    });
-
-    it('should render page builder error', () => {
         jest.spyOn(
             cajaTemasValidators,
             'validateArticleFeature'

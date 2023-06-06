@@ -13,6 +13,7 @@ export const boxTypesLN10 = {
     3: anticipoBox,
     4: titleBox,
     5: dolarBox,
-    6: sectionAcuBox
+    6: sectionAcuBox,
+    7: storyBox
 };
 export default boxTypesLN10;

@@ -637,6 +637,19 @@
 }.ln-placeholder {
   width: 100%;
   background-color: var(--light-neutral-200);
+}.scrolX > div {
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+.scrolX > div::-webkit-scrollbar {
+  display: none;
+}
+.scrolX > div > div {
+  scroll-snap-align: start;
+  min-width: 100%;
 }.ln-video {
   width: 100%;
   -o-object-fit: cover;
@@ -707,6 +720,7 @@
 .ln-advance.--withVideo .wrap .lay-container > article .video iframe {
   width: 6.875rem;
   aspect-ratio: 16/9;
+  height: auto;
 }
 .ln-advance.--withVideo .wrap .lay-container > article .text-container {
   display: flex;
@@ -2058,7 +2072,7 @@
   display: inline-block;
 }
 .ln-caja-hashtag .grid .grid-item .description-container .ln-text.title:not(#special) .lead {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, #DBFF00 60%, #DBFF00 85%, rgba(0, 0, 0, 0) 85%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, #dbff00 60%, #dbff00 85%, rgba(0, 0, 0, 0) 85%);
   display: inline;
 }
 .ln-caja-hashtag .grid .grid-item .description-container .ln-text.title:not(#special) .lead::after {
@@ -2072,7 +2086,7 @@
   display: none;
 }
 .ln-caja-hashtag .grid .grid-item.--0 .description-container .lead {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, #DBFF00 60%, #DBFF00 85%, rgba(0, 0, 0, 0) 85%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, #dbff00 60%, #dbff00 85%, rgba(0, 0, 0, 0) 85%);
   display: inline;
 }
 @media (min-width: 48rem) {
@@ -2191,6 +2205,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  font-size: 1.25rem;
 }
 .ln-caja-hashtag.--hash-1-2-2-2_grid .grid .--0 .description-container .ln-text.title .lead {
   width: -moz-fit-content;
@@ -7087,4 +7102,86 @@ strong,
   .ln-timeline .ln-timeline-list li:last-child {
     border: none;
   }
+}.wrap-webstories {
+  border-bottom: 0.0625rem solid var(--light-neutral-300);
+}
+.wrap-webstories .web-roof {
+  border-top: 0.09375rem solid var(--dark-neutral-50);
+  justify-content: space-between;
+}
+.wrap-webstories .web-roof .icon-container {
+  position: relative;
+  right: 0.1875rem;
+  top: 1.5625rem;
+  z-index: 2;
+}
+.wrap-webstories .web-roof .icon-container span {
+  display: none;
+}
+.wrap-webstories .web-roof .button.ln-button:nth-child(n) {
+  padding: 0.5rem;
+  border: 0.0625rem solid var(--light-neutral-200);
+}
+.wrap-webstories .web-roof .button.ln-button:last-child {
+  margin-left: 1.25rem;
+}
+.wrap-webstories .web-roof .button.ln-button, .wrap-webstories .web-roof .button.ln-button > .icon > svg > path {
+  transition: none;
+}
+.wrap-webstories > .scrolX > div > div {
+  text-align: center;
+  min-width: 71%;
+  margin-right: 1rem;
+  padding-bottom: 0.75rem;
+  position: relative;
+}
+.wrap-webstories > .scrolX > div > div:last-child {
+  margin: 0%;
+}
+@media (max-width: 47.9375rem) {
+  .wrap-webstories > .scrolX > div > div article::before {
+    content: "";
+    height: calc(100% - 0.25rem);
+    width: 0.0625rem;
+    position: absolute;
+    background-color: #e4e4e4;
+    left: -0.53125rem;
+  }
+}
+@media (min-width: 48rem) {
+  .wrap-webstories > .scrolX > div > div article::before {
+    content: "";
+    height: calc(100% - 0.25rem);
+    width: 0.0625rem;
+    position: absolute;
+    background-color: #e4e4e4;
+    left: -1.03125rem;
+  }
+}
+@media (min-width: 48rem) {
+  .wrap-webstories > .scrolX > div > div {
+    min-width: calc(25% - 1.5rem);
+    margin-right: 2rem;
+  }
+}
+.wrap-webstories > .scrolX > div > div .media-container {
+  border-radius: 0.5rem;
+}
+.wrap-webstories > .scrolX > div > div .media-container .ln-placeholder {
+  border-radius: 0.5rem;
+  aspect-ratio: 3/4;
+}
+.wrap-webstories > .scrolX > div > div .description-container .ln-text:not(.lead) {
+  font-variation-settings: "wght" 100;
+}
+.wrap-webstories > .scrolX > div > div .description-container .ln-text.title:not(#special) {
+  display: inline-block;
+}
+.wrap-webstories > .scrolX > div > div .description-container .ln-text.title:not(#special) .lead {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, var(--webstorys) 60%, var(--webstorys) 85%, rgba(0, 0, 0, 0) 85%);
+  display: inline;
+}
+.wrap-webstories > .scrolX > div > div .description-container .ln-text.title:not(#special) .lead::after {
+  content: "\a";
+  white-space: pre;
 }

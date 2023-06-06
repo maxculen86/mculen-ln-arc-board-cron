@@ -20,8 +20,6 @@ import getGridType from '../utils/getGridType';
 import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
 import { useRoofData } from '../utils/_helpers';
 
-import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
-
 // TODO: Pendiente por testear diagramaciones de esta chain
 
 const CajaCanal = props => {

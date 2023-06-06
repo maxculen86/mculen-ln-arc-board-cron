@@ -1,19 +1,18 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import SubHeader from '../../../../../components/private/LN10/subHeader/';
 import {
     setDollarData,
     setAccessData
 } from '../../../../../components/private/LN10/subHeader/_helper';
-
+import { Bookmark, ClubLnDefault, EmailOpen } from '@ln/contenidos-ui-assets';
 import {
     setEventsAccess,
     setEventsDollar
 } from '../../../../../components/private/common/utils/eventsHelper';
 
 import dollarData from '../../../../../__mocks__/data/LN10_SubHeader/dollarData.json';
-import accessData from '../../../../../__mocks__/data/LN10_SubHeader/accessData.json';
 import subHeaderEventLog from '../../../../../__mocks__/data/LN10_SubHeader/subHeaderEventLogResult.json';
 
 jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
@@ -21,7 +20,25 @@ jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
 );
 
 const mockDollar = dollarData;
-const mockAccess = accessData;
+const mockAccess = [
+    {
+        icon: <Bookmark />,
+        text: 'Mis notas',
+        href: 'https://www.lanacion.com.ar/mis-notas/'
+    },
+    {
+        icon: <EmailOpen />,
+        text: 'Newsletters',
+        href:
+            'https://newsletter.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274'
+    },
+    {
+        icon: <ClubLnDefault />,
+        text: 'Club LA NACION',
+        href:
+            'https://club.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274'
+    }
+];
 
 jest.mock('../../../../../components/private/LN10/subHeader/_helper', () => ({
     setDollarData: jest.fn(),

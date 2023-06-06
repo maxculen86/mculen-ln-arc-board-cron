@@ -1,0 +1,49 @@
+[
+    {
+        "_id": "webstory0",
+        "additionalProperties": {
+            "title": "web ejemplo",
+            "lead": "volanta ejemplo",
+            "imageId": "UF5S34BB25DD5CWPOCQZGHCO3U",
+            "link": "link ejemplo",
+            "imagen": [null],
+            "variant": "webstories"
+        }
+    },
+    {
+        "_id": "webstory1",
+        "additionalProperties": {
+            "title": "web ejemplo",
+            "lead": "volanta ejemplo",
+            "imageId": "UF5S34BB25DD5CWPOCQZGHCO3U",
+            "link": "link ejemplo",
+            "pbInternal_cloneId": "f0fCJd2Laznm3TU",
+            "imagen": [null],
+            "variant": "webstories"
+        }
+    },
+    {
+        "_id": "webstory2",
+        "additionalProperties": {
+            "title": "web ejemplo",
+            "lead": "volanta ejemplo",
+            "imageId": "UF5S34BB25DD5CWPOCQZGHCO3U",
+            "link": "link ejemplo",
+            "pbInternal_cloneId": "f0fqFvOcqgjm3QU",
+            "imagen": [null],
+            "variant": "webstories"
+        }
+    },
+    {
+        "_id": "webstory3",
+        "additionalProperties": {
+            "title": "web ejemplo",
+            "lead": "volanta ejemplo",
+            "imageId": "UF5S34BB25DD5CWPOCQZGHCO3U",
+            "link": "link ejemplo",
+            "pbInternal_cloneId": "f0frTAlGEkgm3On",
+            "imagen": [null],
+            "variant": "webstories"
+        }
+    }
+]

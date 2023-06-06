@@ -337,27 +337,6 @@ export const getTargetingFormat = sections => {
     };
 };
 
-export const naveggSetTargeting = () => {
-    (function setTarge(w) {
-        try {
-            let name;
-            const persona = JSON.parse(
-                window.localStorage.getItem('nvgpersona18894')
-            );
-            for (const col in persona) {
-                if ({}.hasOwnProperty.call(persona, col)) {
-                    name = `nvg_${col}`;
-                    name = name.substring(0, 10);
-                    if (typeof googletag == 'object')
-                        googletag.pubads().setTargeting(name, persona[col]);
-                }
-            }
-        } catch (e) {
-            console.error(e);
-        }
-    })(window);
-};
-
 export const queueGoogletagCommand = bannersToLoad => {
     googletag.cmd.push(() => {
         const defineSlot = ({ adUnitPath, size, opt_div: optDiv }) =>
@@ -379,8 +358,6 @@ export const queueGoogletagCommand = bannersToLoad => {
         googletag.enableServices();
 
         googletag.pubads().refresh(nonHeaderBiddingSlots);
-
-        naveggSetTargeting();
 
         const slotAPS = {
             slots: bannersToLoad.map(slot => {

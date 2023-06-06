@@ -7,9 +7,6 @@ import PropTypes from 'fusion:prop-types';
 import { Opening } from '@ln/contenidos-ui-opening';
 import { setFilteredRenderables, validateChain } from './common/_helper-WebApi';
 import { setCustomFields, setRender } from './_helper';
-import '../../../resources/packages/css/@ln/contenidos-ui-opening/index.css';
-import '../../../resources/packages/css/@ln/common-ui-grid/index.css';
-import '../../../resources/dist/css/ln/components/timeline.css';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 import {
     getCommonProps,

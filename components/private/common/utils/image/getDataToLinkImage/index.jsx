@@ -18,6 +18,8 @@ import {
 import { getUltimasNoticiasSectionsIds } from '../../../../../features/LN-acumulado/tagList';
 import BuildHomePreloadImages from './_children/BuildHomePreloadImages';
 import { getResizedUrls } from './_helper';
+import isAllowedSection from '../../../../LN/common/utils/isAllowedSection';
+import allowSectionAndLayout from '../../../../LN/common/media/helpers/allowSectionAndLayout';
 
 const GetDataToLinkImage = ({
     data = {},
@@ -39,6 +41,12 @@ const GetDataToLinkImage = ({
         node_type: nodeType
     } = data || {};
 
+    const isValidSection = isAllowedSection({
+        globalContent: data,
+        listOfAllowedSection: allowSectionAndLayout,
+        layout
+    });
+
     const basic = replaceUrlResizerToWWW(get(data, 'promo_items.basic', {}));
     const isAuthor = nodeType === 'author';
 
@@ -48,7 +56,12 @@ const GetDataToLinkImage = ({
         Nota: () => {
             const resizedUrls = getResizedUrls(subtype, promoItems, basic);
 
-            return <LinkImagePreload resizedUrls={resizedUrls} />;
+            return (
+                <LinkImagePreload
+                    isLoadWithPicture={isValidSection}
+                    resizedUrls={resizedUrls}
+                />
+            );
         },
 
         Acumulado: () => {
@@ -95,7 +108,8 @@ const GetDataToLinkImage = ({
                     : '';
             const dataPreloadAcu = getDataPreloadAcu(
                 idCollectionApertura,
-                nodeType
+                nodeType,
+                isValidSection
             );
             return (
                 <ImagePreloadlAcu
@@ -103,6 +117,7 @@ const GetDataToLinkImage = ({
                     sectionsIds={sectionsIds}
                     arcSite={arcSite}
                     accumulated={{ id, canonicalUrl, name }}
+                    isLoadWithPicture={isValidSection}
                 />
             );
         },

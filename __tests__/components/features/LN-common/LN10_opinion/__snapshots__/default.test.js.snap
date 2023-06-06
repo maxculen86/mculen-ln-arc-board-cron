@@ -354,7 +354,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                               >
                                 <img
                                   alt="Bullrich visita El Calafate y presenta libro"
-                                  class="image --d-flex --w-100 --h-100"
+                                  class="image --d-flex --w-100 --h-100 --none"
                                   decoding="async"
                                   fetchpriority="low"
                                   loading="lazy"
