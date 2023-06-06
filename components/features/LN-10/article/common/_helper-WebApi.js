@@ -181,7 +181,7 @@ export const isInApertura = ({
 };
 
 export const updateCardConfig = (layout, articlePosition, cardConfig) => {
-    const bombaLayouts = ['vertical', 'horizontal', 'bombita', 'bombitaMas4'];
+    const bombaLayouts = ['vertical', 'horizontal'];
     const updatedCardConfig = [...cardConfig];
 
     if (

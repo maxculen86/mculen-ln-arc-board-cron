@@ -1,4 +1,7 @@
-import { getChainConfig } from '../../../../../../components/features/LN-10/article/common/_helper-WebApi.js';
+import {
+    getChainConfig,
+    updateCardConfig
+} from '../../../../../../components/features/LN-10/article/common/_helper-WebApi.js';
 import diagramationRules from '../../../../../../components/private/common/utils/diagramationRules.js';
 import siteConfig from '../../../../../../properties/sites/la-nacion-ar.js';
 describe('Tests - function - getChainConfig', () => {
@@ -246,5 +249,21 @@ describe('Tests - function - getChainConfig', () => {
                 chainId: 'c0fBuzgHL9Dr3zc'
             });
         });
+    });
+});
+
+describe('Tests - function - updateCardConfig', () => {
+    test('should return titleTag h1 with bomba layout ( "horizontal" or "vertical )', () => {
+        const layout = 'horizontal';
+        const cardConfig = diagramationRules(layout);
+
+        expect(updateCardConfig(layout, 0, cardConfig).titleTag).toBe('h1');
+    });
+
+    test('should replace the titleTag "h1" if the layout is not "horizontal" or "vertical" ', () => {
+        const layout = 'left-focal';
+        const cardConfig = diagramationRules(layout);
+
+        expect(updateCardConfig(layout, 0, cardConfig).titleTag).toBe('h2');
     });
 });
