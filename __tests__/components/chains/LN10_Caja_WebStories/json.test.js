@@ -144,7 +144,7 @@ describe('components - chains - LN10_Caja_WebStories - json', () => {
         );
         expect(console.warn).toHaveBeenCalledTimes(1);
         expect(console.warn.mock.calls[0][0]).toBe(
-            'error - {"type":"warning","message":"Se requiere ingresar el link / ID de imagen de la webstory"}'
+            'error - {"type":"warning","message":"Se necesitan al menos 4 webstorys"}'
         );
     });
 
