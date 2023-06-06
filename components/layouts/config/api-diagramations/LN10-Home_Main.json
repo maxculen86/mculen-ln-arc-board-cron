@@ -166,6 +166,22 @@
             "variants": ["regular"],
             "T1": {
                 "size": "XL"
+            },
+            "T2": {
+                "size": "L",
+                "imagePosition": "Right"
+            },
+            "T3": {
+                "size": "L",
+                "imagePosition": "Right"
+            },
+            "T4": {
+                "size": "L",
+                "imagePosition": "Right"
+            },
+            "T5": {
+                "size": "L",
+                "imagePosition": "Right"
             }
         }
     ],
