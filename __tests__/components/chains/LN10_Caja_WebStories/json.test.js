@@ -2,6 +2,7 @@ import GetCajaManual from '../../../../components/private/LN/api/global/componen
 import CajaWebStories from '../../../../components/chains/LN10_Caja_WebStories/json';
 import LN10CajaManual from '../../../../components/chains/LN10_Caja_Manual/json';
 import renderables from '../../../../__mocks__/data/LN10_Caja_WebStories/renderables.json';
+import renderablesError from '../../../../__mocks__/data/LN10_Caja_WebStories/renderablesError.json';
 import childrenProps from '../../../../__mocks__/data/LN10_Caja_WebStories/renderables.json';
 
 jest.mock('fusion:consumer', component => {
@@ -126,7 +127,8 @@ describe('components - chains - LN10_Caja_WebStories - json', () => {
 
     test('LN10 Caja webstory with validate Error', () => {
         const props = { ...propsChain };
-        Object.assign({}, props.children);
+
+        props.renderables = renderablesError;
         const customFields = { ...propsChain.customFields };
         customFields.layout = 'error';
         props.customFields = customFields;
