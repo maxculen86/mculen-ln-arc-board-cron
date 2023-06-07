@@ -41,7 +41,7 @@ const CajaWebStories = props => {
         }) || {};
 
     const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
-        'WebStories',
+        '',
         '',
         position,
         '',
@@ -55,8 +55,8 @@ const CajaWebStories = props => {
             <>
                 <div data-module={extraOptsDiv['data-module']}>
                     <section
-                        data-block-name={extraOpts['data-block-name']}
-                        data-diagramacion-id={extraOpts['data-diagramacion-id']}
+                        data-block-name="n_webstories"
+                        data-diagramacion-id="webstories"
                         data-is-block={extraOpts['data-is-block']}
                     >
                         <Webstories>{filteredChildren}</Webstories>
