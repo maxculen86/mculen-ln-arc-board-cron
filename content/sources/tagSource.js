@@ -1,7 +1,9 @@
 import {
     CONTENT_BASE,
     ARC_ACCESS_TOKEN,
-    LANACION_SERVICES_URL
+    LANACION_SERVICES_URL,
+    API_ENV,
+    API_KEY_ARC_SERVICES
 } from 'fusion:environment';
 import request from 'request-promise-native';
 import filter from '../filters/LN/acumulado/tag';
@@ -10,7 +12,7 @@ import logger from '../../components/private/common/utils/logger';
 import NotFoundError from './utils/notFoundError';
 import getRequest from './utils/getRequest';
 import transformWikiTagData from './utils/transformWikiTagData';
-import getArcServicesRequest from './utils/getArcServicesRequest';
+import getRequestWithJSON from './utils/getRequestWithJson';
 
 const resolve = key => {
     const { slug, outputType } = key;
@@ -88,8 +90,14 @@ const transform = async (data, query, tagConfigData, cachedCall) => {
     const isWiki = typeof wikiList[slug] !== 'undefined';
 
     const wikiTagData = isWiki
-        ? await cachedCall('wikiTagSource', getArcServicesRequest, {
-              query: `${LANACION_SERVICES_URL}/api/v1/tags/${slug}`
+        ? await cachedCall('wikiTagSource', getRequestWithJSON, {
+              query: {
+                  uri: `${LANACION_SERVICES_URL}/api/v1/tags/${slug}`,
+                  headers: {
+                      Referer: API_ENV,
+                      'api-key': API_KEY_ARC_SERVICES
+                  }
+              }
           })
         : {};
 
