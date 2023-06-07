@@ -18,9 +18,6 @@ const ImagePreloadlAcu = ({
     imageConfig = 'boxArticles',
     sectionsIds = ''
 }) => {
-    // TODO: Remover validacion cuando se implementen nuevos tamaños para todos los acus
-    const validImageConfig = isLoadWithPicture ? 'newAperturaAcu' : imageConfig;
-
     const typesOfQuery = sectionsIds
         ? { sectionsIds }
         : setArticleQueryAcu(nodeType, accumulated);
@@ -29,7 +26,7 @@ const ImagePreloadlAcu = ({
         useGetArticlesFromAcumSource({
             typesOfQuery,
             filter,
-            imageConfig: validImageConfig,
+            imageConfig,
             size: 1,
             website: arcSite || 'la-nacion-ar',
             staticMode: true,

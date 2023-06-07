@@ -10,6 +10,7 @@ import getComponentForLayout from './utils/getComponentForLayout';
 import clearArticleKey from './utils/clearArticleKey';
 import getFeatureByLayout from './utils/getFeatureByLayout';
 import { setTLDistribution, setTLOrderClass } from './utils/timeline';
+import '../../../../resources/dist/css/ln/modules/box-articles.css';
 
 const CajaTema = props => {
     const {
