@@ -4,14 +4,18 @@ const getAuthorsAsString = (article, isHomeLN10) => {
     const authors = get(article, 'credits.by', []);
     const authorFiltered = authors.filter(auth => auth.type === 'author');
     const authorsConcat = authorFiltered.reduce((prevVal, currVal, idx) => {
-        if (idx === 0) return currVal.name;
-        if (idx === authors.length - 1) return `${prevVal} y ${currVal.name}`;
-        return `${prevVal}, ${currVal.name}`;
+        const authorName = get(currVal, 'name', '').trim();
+        if (idx === 0) return authorName;
+        if (idx === authors.length - 1 && authorName)
+            return `${prevVal} y ${authorName}`;
+        return `${prevVal}, ${authorName}`;
     }, '');
 
     if (isHomeLN10) return authorsConcat;
 
-    return authorFiltered.length > 0 ? `Por ${authorsConcat}` : '';
+    return authorFiltered.length > 0 && authorsConcat.trim()
+        ? `Por ${authorsConcat}`
+        : '';
 };
 
 export default getAuthorsAsString;

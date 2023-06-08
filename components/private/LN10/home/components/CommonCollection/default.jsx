@@ -13,14 +13,6 @@ import getCardConfig, {
     setFinalClassName
 } from './_helper';
 import get from '../../../../common/utils/get';
-import '../../../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
-import '../../../../../../resources/packages/css/@ln/contenidos-ui-card/index.css';
-import '../../../../../../resources/packages/css/@ln/common-ui-grid/index.css';
-import '../../../../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
-import '../../../../../../resources/packages/css/@ln/contenidos-ui-cajahashtag/index.css';
-import '../../../../../../resources/packages/css/@ln/contenidos-ui-contentlab/index.css';
-import '../../../../../../resources/packages/css/@ln/contenidos-ui-cajaranking/index.css';
-import '../../../../../../resources/packages/css/@ln/contenidos-ui-cajaafondo/index.css';
 
 import {
     getDataAttributesForViewability,

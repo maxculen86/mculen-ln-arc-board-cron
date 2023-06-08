@@ -13,10 +13,7 @@ import {
 } from './noteCardHelper';
 
 const NoteCard = ({
-    id: featureId,
-    isAdmin,
     article: content,
-    image,
     articleProps,
     customFields,
     outputType,
@@ -24,7 +21,6 @@ const NoteCard = ({
     index,
     boxPosition,
     layout,
-    isInHomeAperturaOrBomba,
     videoBackground,
     isPowa,
     handleClick,
@@ -77,11 +73,7 @@ const NoteCard = ({
                     get(articleProps, 'titleSize')
                 }
                 titleText={get(article, 'headlines.basic')}
-                titleTag={
-                    (isInHomeAperturaOrBomba &&
-                        get(articleProps, 'titleTagApertura')) ||
-                    get(articleProps, 'titleTag', 'h2')
-                }
+                titleTag={get(articleProps, 'titleTag', 'h2')}
                 titleWeight={get(articleProps, 'titleWeight')}
                 authors={get(article, 'marquesina')}
                 subheadText={
@@ -89,11 +81,7 @@ const NoteCard = ({
                         ? false
                         : withSubhead && get(article, 'subheadlines.basic')
                 }
-                subheadTag={
-                    (isInHomeAperturaOrBomba &&
-                        get(articleProps, 'subheadTagApertura')) ||
-                    get(articleProps, 'subheadTag', 'h3')
-                }
+                subheadTag={get(articleProps, 'subheadTag', 'h3')}
                 leadText={get(article, 'label.volanta.text')}
                 outputType={outputType}
                 isRenderAuthor={

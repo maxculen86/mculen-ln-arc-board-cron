@@ -179,9 +179,9 @@ describe('Tests function getTitleAndLeadForHome', () => {
 });
 
 describe('Tests function getDataAuthorCollection', () => {
-    const getArticle = withCredits => ({
+    const getArticle = (withCredits, nameAuthor = 'Juan Perez') => ({
         credits: {
-            by: [withCredits && { name: 'Juan Perez' }]
+            by: [withCredits && { name: nameAuthor }]
         }
     });
     test('should return only one name author', () => {
@@ -191,6 +191,12 @@ describe('Tests function getDataAuthorCollection', () => {
     });
     test('shoudl return null if no credits', () => {
         expect(getDataAuthorCollection(getArticle(false))).toStrictEqual(null);
+    });
+
+    test('shoudl return null when the name author is a blank space', () => {
+        expect(getDataAuthorCollection(getArticle(true, ' '))).toStrictEqual(
+            null
+        );
     });
 });
 

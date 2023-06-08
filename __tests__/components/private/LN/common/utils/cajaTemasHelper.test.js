@@ -1,8 +1,6 @@
-import renderables1 from '../../../../../../__mocks__/data/renderables/data1';
 import getRenderables from '../../../../../../__mocks__/data/renderables/banners/dynamicBannersRenderables';
 
 import {
-    getChildrenFromAperturaHome,
     hastVariant,
     validateoutItem
 } from '../../../../../../components/private/LN/common/utils/cajaTemasHelper';
@@ -34,18 +32,6 @@ describe('cajaTemasHelper functions', () => {
     it('getChildrenFromSectionHome with no renderables', () => {
         const result = getChildrenFromSectionHome();
         expect(result).toHaveLength(0);
-    });
-
-    it('getChildrenFromAperturaHome returns the children when there is a variant', () => {
-        const result = getChildrenFromAperturaHome(renderables1, childProps);
-        expect(result).toHaveLength(1);
-    });
-
-    it('getChildrenFromAperturaHome returns the children when there is no variant', () => {
-        const childProps = [{ name: 'x' }, { name: 'y' }, { name: 'z' }];
-
-        const result = getChildrenFromAperturaHome(renderables1, childProps);
-        expect(result).toHaveLength(3);
     });
 
     it('validateoutItem returns false for url containing "/video/"', () => {
