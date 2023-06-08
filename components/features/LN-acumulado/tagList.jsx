@@ -14,7 +14,6 @@ import {
 import getSectionName from '../../private/LN/common/utils/getSectionName';
 import ComTitle from '../../private/common/com-title';
 import sectionsFormated from '../../private/common/utils/sectionsFormated';
-import { getArticlesIdsFromApertura } from '../../private/LN/common/utils/cajaTemasHelper';
 import StaticContent from '../../private/common/staticContent';
 import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
 
@@ -128,13 +127,6 @@ export const getSectionProps = ({
     });
 
     const configForSection = {
-        home: {
-            sourceName: 'acuArticlesSourcebyIds',
-            query: {
-                website: arcSite,
-                Ids: getArticlesIdsFromApertura(renderables)
-            }
-        },
         default: {
             sourceName: 'acuArticlesSource',
             query: {

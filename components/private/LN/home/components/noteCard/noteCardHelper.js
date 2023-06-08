@@ -2,8 +2,6 @@
 import get from '../../../../common/utils/get';
 import getAuthorsAsString from '../../../../common/utils/getAuthorsAsString';
 import getBajadaOrFirstTextParagraph from '../../../../common/utils/getBajadaOrFirstTextParagraph';
-import { getChildrenFromAperturaHome } from '../../../common/utils/cajaTemasHelper';
-import { getChildrenFromSectionHome } from '../../../common/utils/cajaTemasHelperLN10-WebApi';
 
 export const transform = (content, customFields, promoItems) => {
     const title = {
@@ -73,30 +71,6 @@ export const getLabel = (article, customFields, withMedia, layout) => {
 
 export const getIsRenderAutor = (customFields, layout) =>
     get(customFields, 'opinion', false) || layout === 'author3';
-
-export const isInHomeAperturaOrBomba = (
-    renderables,
-    featureId,
-    layoutsName,
-    layoutPageBuilder
-) => {
-    const aperturasChildren =
-        layoutsName.Home === layoutPageBuilder
-            ? (getChildrenFromAperturaHome(renderables) || []).concat(
-                  getChildrenFromSectionHome(renderables, 'Bomba', 2) || []
-              )
-            : [];
-
-    return aperturasChildren.some(el => {
-        return (
-            !get(el, 'props.customFields.hideCaja', false) &&
-            (get(el, 'children', []).some(
-                child => get(child, 'props.id') === featureId
-            ) ||
-                get(el, 'props.id') === featureId)
-        );
-    });
-};
 
 export const isImageEager = (idArticle, renderables) => {
     const pbFirstElement = initialElementInPB(renderables);
@@ -181,23 +155,4 @@ const extractCommonIsEager = (note, checkEager, element = {}) => {
     const hasImage = !html && !video && !hideImage;
 
     return checkEager ? isFirstViewportNote && hasImage : !hideCaja;
-};
-
-export const isInApertura = ({
-    renderables,
-    featureId,
-    layoutsName,
-    layoutPageBuilder,
-    config
-}) => {
-    const inHome = isInHomeAperturaOrBomba(
-        renderables,
-        featureId,
-        layoutsName,
-        layoutPageBuilder
-    );
-
-    const inApertura = get(config, 'isApertura', false);
-
-    return inHome && inApertura;
 };

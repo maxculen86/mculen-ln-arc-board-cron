@@ -22,11 +22,10 @@ const ModheaderSection = props => {
         customTitle,
         isVisible = true,
         imageId,
-        layout,
-        isMultimedia
+        layout
     } = props;
     const isHome = layout === get(siteConfig, 'layoutsName.Home');
-    const image = useGetLogoImage(imageId, isHome, isMultimedia) || {};
+    const image = useGetLogoImage(imageId, isHome) || {};
 
     const { caption, width, height, url } = image;
     const roofTitle = title || caption || 'LA NACION';
@@ -90,8 +89,7 @@ ModheaderSection.propTypes = {
         url: PropTypes.string
     }),
     customTitle: PropTypes.string,
-    isVisible: PropTypes.bool,
-    isMultimedia: PropTypes.bool
+    isVisible: PropTypes.bool
 };
 
 ModheaderSection.defaultProps = {

@@ -499,3 +499,72 @@ $guion: '-';
     font-size: px(11);
     line-height: px(16);
 }
+
+@mixin renderAutor {
+    border: 1px solid $light-neutral-400;
+    padding: px(16);
+    padding-bottom: px(140);
+
+    text-align: center;
+    align-items: center;
+    > div {
+        margin: 0;
+        position: absolute;
+        width: px(80);
+        height: px(80);
+        bottom: px(-1);
+        border-bottom: 1px solid $neutral-black;
+        padding-bottom: px(126);
+
+        .mod-media {
+            a {
+                display: block;
+                border-radius: 100%;
+                overflow: hidden;
+                border: 1px solid $light-neutral-400;
+
+                .placeholder.placeholder {
+                    padding-top: 100%;
+                    border: none;
+                    .com-image {
+                        background: $neutral-white;
+                        width: px(80);
+                        height: px(80);
+                        @media ($media-m) {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .mod-description {
+        position: static;
+        .mod-marquee {
+            position: absolute;
+            overflow: hidden;
+            //white-space: nowrap;
+            margin: 0;
+            //bottom: px(16);
+            left: px(16);
+            width: calc(100% - 32px);
+            justify-content: center;
+
+            height: px(48);
+            white-space: break-spaces;
+            align-items: center;
+            bottom: 0;
+        }
+        .com-label {
+            display: none;
+            &.--exclusive-ln {
+                display: inline-flex;
+                position: relative;
+                margin-bottom: $spacing;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+}
