@@ -24,6 +24,10 @@ export const setEvent = (
     id,
     streamingAnalyticInstance = {}
 ) => {
+    console.log(
+        '🚀 ~ file: videoPlayerHelper.js:27 ~ streamingAnalyticInstance:',
+        streamingAnalyticInstance
+    );
     player.on(event, () => {
         addToDataLayer(eventName, titulo, id);
         event === 'play' && comscorePlayEvent(streamingAnalyticInstance);
@@ -59,6 +63,10 @@ export const setProgressEvent = (player, titulo, id) => {
 };
 
 export const addToDataLayer = (eventName, titulo, id) => {
+    console.log(
+        '🚀 ~ file: videoPlayerHelper.js:62 ~ addToDataLayer ~ eventName:',
+        eventName
+    );
     window.dataLayer.push({
         event: eventName,
         videoName: titulo,

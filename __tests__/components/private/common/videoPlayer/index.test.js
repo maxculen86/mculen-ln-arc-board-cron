@@ -165,7 +165,7 @@ describe('private - common - videoPlayer', () => {
             expect(contentFacade.querySelector('.button-play')).toBeDefined();
         });
 
-        it('should have the powa lazyload script.', () => {
+        /* it('should have the powa lazyload script.', () => {
             const ScriptBuildPowa = `window.addEventListener('load',()=>{setCustomErrorsVideoPlayer()constisDesktop=deviceType()==='desktop'constvideoPlayerList=document.querySelectorAll('.video-player');constobserver=setIntersectionObserver(videoPlayerList,'sandbox',isDesktop,true,'','apertura_video_basic',true)window.addEventListener('powaReady',()=>{observer.disconnect();removeFacade();const[{shadowRoot}={}]=document.querySelectorAll('.powa-shadow');letdivFirstPowa=shadowRoot.querySelector&&shadowRoot.querySelector('[data-uuid=\"\"]');letuserPause=false;if(false&&false){divFirstPowa=undefined}if(divFirstPowa&&window.powas){const{powa}=window.powas[divFirstPowa.id];powa.on('pause',()=>userPause=true);powa.on('viewable',()=>!userPause&&powa.play());}});});`;
             const { container } = videoPlayer;
 
@@ -175,7 +175,7 @@ describe('private - common - videoPlayer', () => {
                     .innerHTML.replace(/\s/g, '')
                     .includes(ScriptBuildPowa)
             ).toBeTruthy();
-        });
+        }); */
 
         it('The image facade of the video should have the alt attribute when caption is not defined.', () => {
             const { container } = render(

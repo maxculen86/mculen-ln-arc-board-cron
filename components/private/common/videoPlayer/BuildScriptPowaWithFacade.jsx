@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -9,7 +10,10 @@ import {
     withAutoPlay,
     setIntersectionObserver,
     setCustomErrorsVideoPlayer,
-    getClassForFacade
+    getClassForFacade,
+    addToDataLayer,
+    setEvent,
+    setProgressEvent
 } from '../utils/videoPlayerHelper';
 import ImageArticle from '../../LN/common/media/imageBase';
 
@@ -17,6 +21,8 @@ export default function BuildScriptPowaWithFacade({
     firstVideoCuerpoAutoplay,
     isApertura,
     firstVideoId,
+    tituloVideo,
+    streamingAnalyticInstance,
     aperturaVideo,
     videoId,
     apiEnv,
@@ -53,11 +59,40 @@ export default function BuildScriptPowaWithFacade({
                     ${withAutoPlay}
                     ${removeFacade}
                     ${setCustomErrorsVideoPlayer}
+                    ${addToDataLayer}
+                    ${setProgressEvent}
+                    ${setEvent}
 
                     window.addEventListener('load', () => {
                         setCustomErrorsVideoPlayer()
                         const isDesktop = deviceType() === 'desktop'
                         const videoPlayerList = document.querySelectorAll('.video-player');
+
+                        const setVideoEvents = event => {
+                            console.log("🚀 ~ file: BuildScriptPowaWithFacade.jsx:105 ~ setVideoEvents ~ event:", event);
+                            const player = event.detail.powa;
+                            const playerID = event.detail.id;
+                
+                            if (playerID.includes('${videoId}')) {
+                                setProgressEvent(player, '${tituloVideo}', '${videoId}');
+                                setEvent(
+                                    player,
+                                    'play',
+                                    'videoPlay',
+                                    '${tituloVideo}',
+                                    '${videoId}',
+                                    ${streamingAnalyticInstance});
+                                setEvent(
+                                    player,
+                                    'complete',
+                                    'videoComplete',
+                                    '${tituloVideo}',
+                                    '${videoId}',
+                                    ${streamingAnalyticInstance});
+                            }
+                
+                            return null;
+                        };
                         
                         const observer = setIntersectionObserver(
                             videoPlayerList,
@@ -72,7 +107,7 @@ export default function BuildScriptPowaWithFacade({
                         window.addEventListener('powaReady', () => {
                             observer.disconnect();
                             removeFacade();
-                            
+
                             const [{ shadowRoot } = {}] = document.querySelectorAll('.powa-shadow');
                             let divFirstPowa =
                                 shadowRoot.querySelector &&
@@ -89,7 +124,13 @@ export default function BuildScriptPowaWithFacade({
                                 powa.on('pause', () => userPause = true);
                                 powa.on('viewable', () => !userPause && powa.play());
                             }
+
+                            addToDataLayer('videoDisplay', '${tituloVideo}', '${videoId}')
+
+                            
+
                         });
+                        window.addEventListener('powaReady', setVideoEvents);
                     });
                 `
                 }}
@@ -103,6 +144,7 @@ BuildScriptPowaWithFacade.propTypes = {
     isApertura: PropTypes.bool,
     firstVideoCuerpoAutoplay: PropTypes.bool,
     firstVideoId: PropTypes.string,
+    tituloVideo: PropTypes.string,
     aperturaVideo: PropTypes.oneOfType([PropTypes.bool, PropTypes.shape({})])
         .isRequired,
     apiEnv: PropTypes.string.isRequired,
@@ -120,5 +162,6 @@ BuildScriptPowaWithFacade.propTypes = {
 BuildScriptPowaWithFacade.defaultProps = {
     isApertura: false,
     firstVideoCuerpoAutoplay: false,
-    firstVideoId: ''
+    firstVideoId: '',
+    tituloVideo: ''
 };
