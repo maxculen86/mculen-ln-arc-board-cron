@@ -14,12 +14,13 @@ import setClassName from '../../../private/common/utils/setClassName';
 import {
     getIsBomba,
     getChainParentOfFeature,
-    updateCardConfig
+    firstBomba,
+    updatesTitleTag,
+    deleteExtraH1
 } from './common/_helper-WebApi';
 import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import { getFirstParentSection } from '../../../private/common/utils/sectionUtils';
 import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
-import { hasBomba } from '../../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -364,10 +365,22 @@ export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
         );
     const layoutChain =
         elementChain && elementChain.getAttribute('data-diagramacion-id');
+    const chainId = elementChain && elementChain.getAttribute('data-chain-id');
+    const bomba = firstBomba(renderables);
     const cardConfig = diagramationRules(layoutChain);
 
-    if (hasBomba(renderables)) {
-        setConfig(updateCardConfig(layoutChain, indexOfFeature, cardConfig));
+    if (
+        bomba &&
+        get(bomba, 'props.id', null) === chainId &&
+        indexOfFeature === 0
+    ) {
+        setConfig(updatesTitleTag(cardConfig));
+        return true;
+    }
+
+    if (bomba) {
+        setConfig(deleteExtraH1(indexOfFeature, cardConfig));
+        return true;
     }
 
     setConfig(cardConfig && cardConfig[indexOfFeature]);
