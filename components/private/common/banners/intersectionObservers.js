@@ -1,14 +1,11 @@
-/* eslint-disable no-console */
-import { queueGoogletagCommand } from '../../LN/common/utils/bannerHelper';
 import { filterBanners } from './lazyBannersHelper';
 import getViewport from '../../LN/common/utils/screenHelper';
-import { bannersLazy } from './bannersHome.json';
 import { bannersLazy as bannersLazyLN10 } from './bannersHomeLN10.json';
+import { queueGoogletagCommand } from '../../LN/common/utils/bannerHelper';
 
-// TODO eliminar la condicion isLN10, reemplazar banners lazy y ver posibilidad de testeo
-export const createBannersIntersectionObserver = isLN10 => {
+export const createBannersIntersectionObserver = () => {
     const { device } = getViewport();
-    const banners = filterBanners(isLN10 ? bannersLazyLN10 : bannersLazy);
+    const banners = filterBanners(bannersLazyLN10);
 
     const callback = entries => {
         entries.forEach(entry => {

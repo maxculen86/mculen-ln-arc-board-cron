@@ -52,7 +52,8 @@ export const subtypeNotesWithoutAmp = canonicalUrl => {
         '/propiedades/',
         '/salud/',
         '/autos/',
-        '/economia/campo/'
+        '/economia/campo/',
+        '/estados-unidos/'
     ];
 
     return subtypeList.some(subtype => canonicalUrl.startsWith(subtype));

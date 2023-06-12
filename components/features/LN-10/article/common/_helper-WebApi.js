@@ -11,6 +11,8 @@ import {
 } from '../../../../private/common/badge/types';
 import { getValidElementForPreload } from '../../../../private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/common/helper-WebApi';
 import getChainPosition from '../../../../private/common/utils/getChainPosition';
+import sectionsValidationLN10 from '../../../../layouts/config/LN10-Home.config.json';
+import getElementFromRenderables from '../../../../private/common/utils/getElementFromRenderables';
 
 export const typeBadge = {
     0: POSITIVE,
@@ -53,7 +55,13 @@ export const getChainParentOfFeature = (featureId, renderables) => {
     );
 };
 
-const getCardConfig = (cajaTemaConfig, layout, articlePosition) => {
+export const getCardConfig = (
+    cajaTemaConfig,
+    layout,
+    articlePosition,
+    firstBombaChainId,
+    chainId
+) => {
     if (cajaTemaConfig)
         return get(
             cajaTemaConfig,
@@ -62,6 +70,15 @@ const getCardConfig = (cajaTemaConfig, layout, articlePosition) => {
         );
 
     const cardConfig = diagramationRules(layout);
+
+    if (firstBombaChainId)
+        return handleTagWithBomba(
+            firstBombaChainId,
+            chainId,
+            cardConfig,
+            articlePosition
+        );
+
     return cardConfig && cardConfig[articlePosition];
 };
 
@@ -71,11 +88,27 @@ export const getChainConfig = ({ featureId, renderables, cajaTemaConfig }) => {
     const chainId = get(parent, 'props.id', '');
     const chainPosition = getChainPosition(chainId, renderables);
     const layout = get(parent, 'props.customFields.layout', '');
+    const firstBombaChainId = get(
+        getElementFromRenderables({
+            position: 'Pre_Apertura.position',
+            config: sectionsValidationLN10,
+            typeElement: 'LN10_Caja_Bomba',
+            renderables
+        }),
+        'props.id',
+        null
+    );
 
     const articlePosition = get(parent, 'children', []).findIndex(
         elem => elem && get(elem, 'props.id') === featureId
     );
-    const config = getCardConfig(cajaTemaConfig, layout, articlePosition);
+    const config = getCardConfig(
+        cajaTemaConfig,
+        layout,
+        articlePosition,
+        firstBombaChainId,
+        chainId
+    );
 
     return {
         imageConfig: getImageConfig({
@@ -166,4 +199,44 @@ export const isInApertura = ({
         withPreload &&
         !isImageHide
     );
+};
+
+export const updatesTitleTag = (cardConfig = []) => {
+    const updatedCardConfig = [...cardConfig];
+    const titleTag = get(updatedCardConfig[0], 'titleTag');
+
+    if (titleTag && titleTag !== 'h1') {
+        updatedCardConfig[0].titleTag = 'h1';
+
+        if (get(updatedCardConfig[0], 'subheadTag'))
+            updatedCardConfig[0].subheadTag = 'h2';
+    }
+
+    return updatedCardConfig && updatedCardConfig[0];
+};
+
+export const deleteExtraH1 = (articlePosition = null, cardConfig = []) => {
+    const updatedCardConfig = [...cardConfig];
+    const titleTag = get(updatedCardConfig[articlePosition], 'titleTag');
+
+    if (titleTag === 'h1') {
+        updatedCardConfig[articlePosition].titleTag = 'h2';
+        if (get(updatedCardConfig[articlePosition], 'subheadTag'))
+            updatedCardConfig[articlePosition].subheadTag = 'h3';
+    }
+
+    return updatedCardConfig && updatedCardConfig[articlePosition];
+};
+
+export const handleTagWithBomba = (
+    firstBombaChainId,
+    chainId,
+    cardConfig,
+    articlePosition
+) => {
+    if (firstBombaChainId === chainId && articlePosition === 0) {
+        return updatesTitleTag(cardConfig);
+    }
+
+    return deleteExtraH1(articlePosition, cardConfig);
 };

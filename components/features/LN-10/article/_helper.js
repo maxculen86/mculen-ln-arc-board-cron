@@ -11,10 +11,16 @@ import diagramationRules, {
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import transformImageData from '../../../private/common/LN-10/transformImageData';
 import setClassName from '../../../private/common/utils/setClassName';
-import { getIsBomba, getChainParentOfFeature } from './common/_helper-WebApi';
+import {
+    getIsBomba,
+    getChainParentOfFeature,
+    handleTagWithBomba
+} from './common/_helper-WebApi';
+import sectionsValidationLN10 from '../../../layouts/config/LN10-Home.config.json';
 import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import { getFirstParentSection } from '../../../private/common/utils/sectionUtils';
 import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
+import getElementFromRenderables from '../../../private/common/utils/getElementFromRenderables';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -359,7 +365,31 @@ export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
         );
     const layoutChain =
         elementChain && elementChain.getAttribute('data-diagramacion-id');
+    const chainId = elementChain && elementChain.getAttribute('data-chain-id');
     const cardConfig = diagramationRules(layoutChain);
+    const firstBombaChainId = get(
+        getElementFromRenderables({
+            position: 'Pre_Apertura.position',
+            config: sectionsValidationLN10,
+            typeElement: 'LN10_Caja_Bomba',
+            renderables
+        }),
+        'props.id',
+        null
+    );
+
+    if (firstBombaChainId) {
+        setConfig(
+            handleTagWithBomba(
+                firstBombaChainId,
+                chainId,
+                cardConfig,
+                indexOfFeature
+            )
+        );
+        return true;
+    }
+
     setConfig(cardConfig && cardConfig[indexOfFeature]);
     return true;
 };

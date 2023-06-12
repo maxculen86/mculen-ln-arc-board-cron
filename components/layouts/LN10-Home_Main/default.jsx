@@ -61,7 +61,7 @@ const LN10Home = props => {
 
     useEffect(() => {
         createViewabilityObservers(true);
-        createBannersIntersectionObserver(true);
+        createBannersIntersectionObserver();
         createDifferVideosObserver();
         if (!isAdmin) createHeaderObserver();
     }, [isAdmin]);

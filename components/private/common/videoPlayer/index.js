@@ -12,7 +12,9 @@ import useTermica from '../hooks/useTermica';
 import {
     setPrerollAdsForPowa,
     setCustomErrorsVideoPlayer,
-    getClassCondition
+    getClassCondition,
+    addToDataLayer,
+    setVideoEvents
 } from '../utils/videoPlayerHelper';
 import BuildScriptPowaWithFacade from './BuildScriptPowaWithFacade';
 import '../../../../resources/dist/css/ln/components/video-player.css';
@@ -79,7 +81,26 @@ const VideoPlayer = props => {
         if (!isAdmin && window && window.powaBoot) window.powaBoot();
         setCustomErrorsVideoPlayer();
         setPrerollAdsForPowa(adsURL);
-        // return () => window.removeEventListener('powaReady', setVideoEvents);
+        window.addEventListener('powaReady', event =>
+            setVideoEvents(
+                event,
+                videoId,
+                tituloVideo,
+                true,
+                streamingAnalyticInstance
+            )
+        );
+        addToDataLayer('videoDisplay', tituloVideo, videoId);
+        return () =>
+            window.removeEventListener('powaReady', event =>
+                setVideoEvents(
+                    event,
+                    videoId,
+                    tituloVideo,
+                    true,
+                    streamingAnalyticInstance
+                )
+            );
     }, [adsURL, isAdmin, tituloVideo, videoId, streamingAnalyticInstance]);
 
     return (
@@ -96,11 +117,6 @@ const VideoPlayer = props => {
                         isApertura={isApertura}
                         firstVideoId={firstVideoId}
                         tituloVideo={tituloVideo}
-                        streamingAnalyticInstance={
-                            typeof window !== 'undefined' &&
-                            typeof ns_ !== 'undefined' &&
-                            streamingAnalyticsInit(arcSite, tituloVideo)
-                        }
                         aperturaVideo={aperturaVideo}
                         videoId={videoId}
                         apiEnv={apiEnv}

@@ -12,7 +12,8 @@ import {
     setCustomErrorsVideoPlayer,
     getClassForFacade,
     addToDataLayer,
-    setEvent,
+    setVideoEvents,
+    isInDatalayerEvent,
     setProgressEvent
 } from '../utils/videoPlayerHelper';
 import ImageArticle from '../../LN/common/media/imageBase';
@@ -22,7 +23,6 @@ export default function BuildScriptPowaWithFacade({
     isApertura,
     firstVideoId,
     tituloVideo,
-    streamingAnalyticInstance,
     aperturaVideo,
     videoId,
     apiEnv,
@@ -60,40 +60,15 @@ export default function BuildScriptPowaWithFacade({
                     ${removeFacade}
                     ${setCustomErrorsVideoPlayer}
                     ${addToDataLayer}
+                    ${isInDatalayerEvent}
+                    ${setVideoEvents}
                     ${setProgressEvent}
-                    ${setEvent}
 
                     window.addEventListener('load', () => {
                         setCustomErrorsVideoPlayer()
                         const isDesktop = deviceType() === 'desktop'
                         const videoPlayerList = document.querySelectorAll('.video-player');
 
-                        const setVideoEvents = event => {
-                            console.log("🚀 ~ file: BuildScriptPowaWithFacade.jsx:105 ~ setVideoEvents ~ event:", event);
-                            const player = event.detail.powa;
-                            const playerID = event.detail.id;
-                
-                            if (playerID.includes('${videoId}')) {
-                                setProgressEvent(player, '${tituloVideo}', '${videoId}');
-                                setEvent(
-                                    player,
-                                    'play',
-                                    'videoPlay',
-                                    '${tituloVideo}',
-                                    '${videoId}',
-                                    ${streamingAnalyticInstance});
-                                setEvent(
-                                    player,
-                                    'complete',
-                                    'videoComplete',
-                                    '${tituloVideo}',
-                                    '${videoId}',
-                                    ${streamingAnalyticInstance});
-                            }
-                
-                            return null;
-                        };
-                        
                         const observer = setIntersectionObserver(
                             videoPlayerList,
                             '${apiEnv}',
@@ -104,7 +79,7 @@ export default function BuildScriptPowaWithFacade({
                             ${isApertura}
                         )
                         
-                        window.addEventListener('powaReady', () => {
+                        window.addEventListener('powaReady', (event) => {
                             observer.disconnect();
                             removeFacade();
 
@@ -125,12 +100,11 @@ export default function BuildScriptPowaWithFacade({
                                 powa.on('viewable', () => !userPause && powa.play());
                             }
 
-                            addToDataLayer('videoDisplay', '${tituloVideo}', '${videoId}')
-
-                            
-
+                            if (${isApertura}) {
+                                addToDataLayer('videoDisplay', '${tituloVideo}', '${videoId}')
+                                setVideoEvents(event, '${videoId}', '${tituloVideo}', false);
+                            }
                         });
-                        window.addEventListener('powaReady', setVideoEvents);
                     });
                 `
                 }}

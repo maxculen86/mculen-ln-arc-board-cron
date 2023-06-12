@@ -92,6 +92,11 @@ describe('Private - Common - Utils - subtypeNotesWithoutAmp - subtypeHelper', ()
                 '/autos/los-0km-pasaron-la-barrera-de-los-4-millones-nid01052023/'
             )
         ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/estados-unidos/muertes-por-sobredosis-en-eeuu-aumentaron-15-en-2021-a-mas-de-100000-nid13052022/'
+            )
+        ).toBeTruthy();
     });
 
     it('Should return false when the subtype has amp  ', () => {
