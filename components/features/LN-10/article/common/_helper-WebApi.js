@@ -11,6 +11,8 @@ import {
 } from '../../../../private/common/badge/types';
 import { getValidElementForPreload } from '../../../../private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/common/helper-WebApi';
 import getChainPosition from '../../../../private/common/utils/getChainPosition';
+import sectionsValidationLN10 from '../../../../layouts/config/LN10-Home.config.json';
+import getElementFromRenderables from '../../../../private/common/utils/getElementFromRenderables';
 
 export const typeBadge = {
     0: POSITIVE,
@@ -57,7 +59,7 @@ export const getCardConfig = (
     cajaTemaConfig,
     layout,
     articlePosition,
-    bomba,
+    firstBombaChainId,
     chainId
 ) => {
     if (cajaTemaConfig)
@@ -69,17 +71,13 @@ export const getCardConfig = (
 
     const cardConfig = diagramationRules(layout);
 
-    if (
-        bomba &&
-        get(bomba, 'props.id', null) === chainId &&
-        articlePosition === 0
-    ) {
-        return updatesTitleTag(cardConfig);
-    }
-
-    if (bomba) {
-        return deleteExtraH1(articlePosition, cardConfig);
-    }
+    if (firstBombaChainId)
+        return handleTagWithBomba(
+            firstBombaChainId,
+            chainId,
+            cardConfig,
+            articlePosition
+        );
 
     return cardConfig && cardConfig[articlePosition];
 };
@@ -90,7 +88,16 @@ export const getChainConfig = ({ featureId, renderables, cajaTemaConfig }) => {
     const chainId = get(parent, 'props.id', '');
     const chainPosition = getChainPosition(chainId, renderables);
     const layout = get(parent, 'props.customFields.layout', '');
-    const bomba = firstBomba(renderables);
+    const firstBombaChainId = get(
+        getElementFromRenderables({
+            position: 'Pre_Apertura.position',
+            config: sectionsValidationLN10,
+            typeElement: 'LN10_Caja_Bomba',
+            renderables
+        }),
+        'props.id',
+        null
+    );
 
     const articlePosition = get(parent, 'children', []).findIndex(
         elem => elem && get(elem, 'props.id') === featureId
@@ -99,7 +106,7 @@ export const getChainConfig = ({ featureId, renderables, cajaTemaConfig }) => {
         cajaTemaConfig,
         layout,
         articlePosition,
-        bomba,
+        firstBombaChainId,
         chainId
     );
 
@@ -194,20 +201,6 @@ export const isInApertura = ({
     );
 };
 
-export const firstBomba = (renderables = []) => {
-    const sections = renderables.filter(ren => ren.collection === 'sections');
-    const bomba = sections
-        .map(section => section.children)
-        .flat()
-        .find(
-            child =>
-                child.type === 'LN10_Caja_Bomba' &&
-                !child.props.customFields.hideCaja
-        );
-
-    return bomba || null;
-};
-
 export const updatesTitleTag = (cardConfig = []) => {
     const updatedCardConfig = [...cardConfig];
     const titleTag = get(updatedCardConfig[0], 'titleTag');
@@ -233,4 +226,17 @@ export const deleteExtraH1 = (articlePosition = null, cardConfig = []) => {
     }
 
     return updatedCardConfig && updatedCardConfig[articlePosition];
+};
+
+export const handleTagWithBomba = (
+    firstBombaChainId,
+    chainId,
+    cardConfig,
+    articlePosition
+) => {
+    if (firstBombaChainId === chainId && articlePosition === 0) {
+        return updatesTitleTag(cardConfig);
+    }
+
+    return deleteExtraH1(articlePosition, cardConfig);
 };

@@ -1,13 +1,14 @@
 import {
     deleteExtraH1,
-    firstBomba,
     getCardConfig,
     getChainConfig,
     updatesTitleTag
 } from '../../../../../../components/features/LN-10/article/common/_helper-WebApi.js';
 import diagramationRules from '../../../../../../components/private/common/utils/diagramationRules.js';
 import get from '../../../../../../components/private/common/utils/get.js';
+import getElementFromRenderables from '../../../../../../components/private/common/utils/getElementFromRenderables.js';
 import siteConfig from '../../../../../../properties/sites/la-nacion-ar.js';
+import sectionsValidationLN10 from '../../../../../../components/layouts/config/LN10-Home.config.json';
 describe('Tests - function - getChainConfig', () => {
     describe('Tests in ACUMULADOS', () => {
         const getRenderables = ({
@@ -256,7 +257,7 @@ describe('Tests - function - getChainConfig', () => {
     });
 });
 
-describe('Tests - functions - getCardConfig with bomba and firstBomba', () => {
+describe('Tests - functions - getCardConfig', () => {
     const getRenderables = ({ hideBomba }) => {
         return [
             { collection: 'otros' },
@@ -399,34 +400,15 @@ describe('Tests - functions - getCardConfig with bomba and firstBomba', () => {
         }
     ];
 
-    test('firstBomba should match the first bomba chainId', () => {
-        const firstBombaId = get(
-            firstBomba(getRenderables({ hideBomba: false })),
-            'props.id'
-        );
-        expect(firstBombaId).toBe('f1r5tB0mb4ID');
-    });
-
-    test('firstBomba should match the second bomba chainId because the first one is hidden', () => {
-        const firstBombaId = get(
-            firstBomba(getRenderables({ hideBomba: true })),
-            'props.id'
-        );
-        expect(firstBombaId).toBe('s3c0ndB0mb4ID');
-    });
-
-    test('firstBomba should return null with no renderables', () => {
-        expect(firstBomba()).toBe(null);
-    });
-
-    test('firstBomba should return null with no bomba in renderables', () => {
-        expect(firstBomba(noBombaRenderables)).toBe(null);
-    });
-
     test('getCardConfig titleTag should be H1 for the first bomba', () => {
         const layout = 'vertical';
         const articlePosition = 0;
-        const bomba = firstBomba(getRenderables({ hideBomba: false }));
+        const bomba = getElementFromRenderables({
+            position: 'Pre_Apertura.position',
+            config: sectionsValidationLN10,
+            typeElement: 'LN10_Caja_Bomba',
+            renderables: getRenderables({ hideBomba: false })
+        });
         const chainId = 'f1r5tB0mb4ID';
 
         expect(
@@ -438,7 +420,12 @@ describe('Tests - functions - getCardConfig with bomba and firstBomba', () => {
     test('getCardConfig titleTag shouldnt be H1 if the bomba is not the first one in the chain', () => {
         const layout = 'bombitaMas4';
         const articlePosition = 1;
-        const bomba = firstBomba(getRenderables({ hideBomba: false }));
+        const bomba = getElementFromRenderables({
+            position: 'Pre_Apertura.position',
+            config: sectionsValidationLN10,
+            typeElement: 'LN10_Caja_Bomba',
+            renderables: getRenderables({ hideBomba: false })
+        });
         const chainId = 'f1r5tB0mb4ID';
 
         expect(
@@ -450,7 +437,12 @@ describe('Tests - functions - getCardConfig with bomba and firstBomba', () => {
     test('getCardConfig titleTag shouldnt be H1 if the chain is not the first bomba', () => {
         const layout = 'bombita';
         const articlePosition = 0;
-        const bomba = firstBomba(getRenderables({ hideBomba: false }));
+        const bomba = getElementFromRenderables({
+            position: 'Pre_Apertura.position',
+            config: sectionsValidationLN10,
+            typeElement: 'LN10_Caja_Bomba',
+            renderables: getRenderables({ hideBomba: false })
+        });
         const chainId = 'notMatchChainID';
 
         expect(
@@ -462,7 +454,12 @@ describe('Tests - functions - getCardConfig with bomba and firstBomba', () => {
     test('getCardConfig deleteExtraH1 shouldnt be called with no bomba', () => {
         const layout = 'left-focal';
         const articlePosition = 0;
-        const bomba = firstBomba(noBombaRenderables);
+        const bomba = getElementFromRenderables({
+            position: 'Pre_Apertura.position',
+            config: sectionsValidationLN10,
+            typeElement: 'LN10_Caja_Bomba',
+            renderables: noBombaRenderables
+        });
         const chainId = 'notMatchChainID';
         const deleteExtraH1 = jest.fn();
 

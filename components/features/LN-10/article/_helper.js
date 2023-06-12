@@ -14,13 +14,13 @@ import setClassName from '../../../private/common/utils/setClassName';
 import {
     getIsBomba,
     getChainParentOfFeature,
-    firstBomba,
-    updatesTitleTag,
-    deleteExtraH1
+    handleTagWithBomba
 } from './common/_helper-WebApi';
+import sectionsValidationLN10 from '../../../layouts/config/LN10-Home.config.json';
 import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import { getFirstParentSection } from '../../../private/common/utils/sectionUtils';
 import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
+import getElementFromRenderables from '../../../private/common/utils/getElementFromRenderables';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -366,20 +366,27 @@ export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
     const layoutChain =
         elementChain && elementChain.getAttribute('data-diagramacion-id');
     const chainId = elementChain && elementChain.getAttribute('data-chain-id');
-    const bomba = firstBomba(renderables);
     const cardConfig = diagramationRules(layoutChain);
+    const firstBombaChainId = get(
+        getElementFromRenderables({
+            position: 'Pre_Apertura.position',
+            config: sectionsValidationLN10,
+            typeElement: 'LN10_Caja_Bomba',
+            renderables
+        }),
+        'props.id',
+        null
+    );
 
-    if (
-        bomba &&
-        get(bomba, 'props.id', null) === chainId &&
-        indexOfFeature === 0
-    ) {
-        setConfig(updatesTitleTag(cardConfig));
-        return true;
-    }
-
-    if (bomba) {
-        setConfig(deleteExtraH1(indexOfFeature, cardConfig));
+    if (firstBombaChainId) {
+        setConfig(
+            handleTagWithBomba(
+                firstBombaChainId,
+                chainId,
+                cardConfig,
+                indexOfFeature
+            )
+        );
         return true;
     }
 
