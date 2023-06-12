@@ -50,7 +50,8 @@ class CajaWebStories extends GetCajaManual {
             return {
                 information: {
                     ...this.props.customFields,
-                    typeChain: this.props.typeChain
+                    typeChain: this.props.typeChain,
+                    layout: 'webstories'
                 },
                 articles: children
             };

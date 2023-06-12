@@ -14,8 +14,7 @@ const omitSections = {
 };
 const specialBoxRoot = {
     'ln-common/opinion': 'h_opinion',
-    'ln-common/ln10_opinion': 'h_opinion',
-    webstories: 'h_webstories'
+    'ln-common/ln10_opinion': 'h_opinion'
 };
 
 const createBoxAndNotas = (elem, cajaCount, cajas) => {
@@ -80,6 +79,7 @@ const createNotasArray = elem => {
             !article._id &&
             !article.website_url
         ) {
+            posicion += 1;
             // eslint-disable-next-line no-continue
             continue;
         }

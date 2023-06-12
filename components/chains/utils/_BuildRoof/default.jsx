@@ -7,7 +7,6 @@ import validateRoof from './_helper/validateRoof';
 import setRender from '../setRender';
 import hasDataRoof from './_helper/hasDataRoof';
 import { CHAIN_STYLE, VERTICALS } from '../common/_helpers-WebApi';
-import '../../../../resources/packages/css/@ln/contenidos-ui-roof/index.css';
 
 export default function BuildRoof(props) {
     const {

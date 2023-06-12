@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/require-default-props */
 import React from 'react';
+import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import getProperties from 'fusion:properties';
@@ -15,14 +17,9 @@ import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getChainConfig } from '../article/common/_helper-WebApi';
 
 const WebStoryFeature = props => {
-    const { customFields, id: featureId } = props;
+    const { customFields, id: featureId, renderables } = props;
     const { title, lead, link, imageId } = customFields;
-    const {
-        isAdmin,
-        arcSite,
-        renderables,
-        layout: layoutPageBuilder
-    } = useAppContext();
+    const { isAdmin, arcSite, layout: layoutPageBuilder } = useAppContext();
 
     const { layoutsName = {} } = siteConfig || {};
 
@@ -51,13 +48,17 @@ const WebStoryFeature = props => {
         shouldUseV2: withResizerV2
     });
 
-    const { index } = getChainConfig({
+    const { index, boxPosition } = getChainConfig({
         featureId,
         renderables,
         cajaTemaConfig
     });
 
-    const extraOpts = getDataAttributesForViewability(imageId, 97, index);
+    const extraOpts = getDataAttributesForViewability(
+        imageId,
+        boxPosition,
+        index
+    );
 
     return (
         <Card
@@ -68,7 +69,7 @@ const WebStoryFeature = props => {
             data-pos={extraOpts['data-pos']}
             data-id={extraOpts['data-id']}
             data-notaid={extraOpts['data-notaid']}
-            data-source={extraOpts['data-source-name']}
+            data-source={extraOpts['data-source']}
         />
     );
 };
@@ -101,4 +102,4 @@ WebStoryFeature.propTypes = {
     })
 };
 
-export default WebStoryFeature;
+export default Consumer(WebStoryFeature);
