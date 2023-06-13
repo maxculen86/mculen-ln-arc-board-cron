@@ -5,8 +5,6 @@ import PropTypes from 'prop-types';
 import { Dropdown } from '@ln/contenidos-ui-dropdown';
 import { setDropdownData, toggleScroll } from './_helper';
 
-import '../../../../resources/packages/css/@ln/contenidos-ui-dropdown/index.css';
-
 const Desplegable = ({ toggleDesplegable, arcSite, isActive = false }) => {
     const menuData = useContent({
         source: 'menuSource',

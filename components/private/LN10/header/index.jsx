@@ -8,16 +8,8 @@ import NavbarMobile from '../navbar';
 import { setUserType, onScrollHandler } from './_helper';
 import HeaderAMP from '../../LN/common/header/headerAMP';
 import debounce from '../../common/utils/debounce';
-
 import SubHeader from '../subHeader';
 import MainHeader from '../mainHeader';
-
-import '../../../../resources/packages/css/@ln/contenidos-ui-header/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
-import '../../../../resources/packages/css/@ln/contenidos-ui-button/index.css';
-import '../../../../resources/packages/css/@ln/contenidos-ui-text/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
-
 import { isLoggedIn, isSubscribed } from '../../LN/common/utils/contextHelper';
 
 const HeaderLN = props => {

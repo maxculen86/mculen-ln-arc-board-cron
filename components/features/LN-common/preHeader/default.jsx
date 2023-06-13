@@ -11,9 +11,6 @@ import {
     getTopicsFromCustomFields,
     setTopicsCustomFields
 } from './_helper';
-
-import '../../../../resources/packages/css/@ln/contenidos-ui-preheader/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
 import PreHeaderEventsScript from '../../../private/common/scriptManager/PreHeaderEventsScript';
 import StaticContent from '../../../private/common/staticContent';
 

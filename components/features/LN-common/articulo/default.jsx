@@ -7,11 +7,7 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 import { validateArticleFeature } from '../../../private/LN/common/utils/cajaTemasValidators';
-import {
-    isInHomeAperturaOrBomba,
-    isInApertura,
-    isImageEager
-} from '../../../private/LN/home/components/noteCard/noteCardHelper';
+import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import NoteCard from '../../../private/LN/home/components/noteCard/noteCard';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
@@ -20,31 +16,20 @@ import filterVideo from '../../../../content/filters/LN/home/videoFilter';
 import featureArticleCustomsFields, {
     GetImage
 } from '../../../private/LN/common/utils/articuloHelper';
-import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getPlaceholder } from '../../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../../private/common/utils/viewability';
 import ErrorBoundary from '../../../private/common/ErrorBoundary';
-import { getChildrenFromSectionHome } from '../../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
-import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 import { getChainConfig } from '../../LN-10/article/common/_helper-WebApi';
 
 const ArticleFeature = ({
     id: featureId,
     customFields,
-    searchableField,
     customFields: { noteId: id, imageId, video: videoId, mobileImageId },
     isBomba = false
 }) => {
-    const {
-        isAdmin,
-        arcSite,
-        renderables,
-        outputType,
-        layout: layoutPageBuilder
-    } = useAppContext();
+    const { isAdmin, arcSite, renderables, outputType } = useAppContext();
 
-    const { layoutsName = {} } = siteConfig || {};
     const { cajaTemaConfig } = getProperties(arcSite);
     const { registerSuccessEvent } = useComponentContext();
 
@@ -54,22 +39,6 @@ const ArticleFeature = ({
         renderables,
         cajaTemaConfig
     });
-
-    const isBombaHidden = () => {
-        const bomba = getChildrenFromSectionHome(renderables, 'Bomba', 2) || [];
-        return get(bomba[0], 'props.customFields.hideFeature', false);
-    };
-
-    const onlyOneApeturaValidateForWWW =
-        isBomba ||
-        (isBombaHidden() &&
-            isInApertura({
-                renderables,
-                featureId,
-                layoutsName,
-                layoutPageBuilder,
-                config
-            }));
 
     const checkForId = idValue => {
         return idValue && idValue.trim();
@@ -82,7 +51,6 @@ const ArticleFeature = ({
             published: true,
             imageConfig,
             checkExclusiveAccess: false,
-            isInApertura: onlyOneApeturaValidateForWWW,
             isAdmin,
             shouldUseV1: true
         },
@@ -100,7 +68,7 @@ const ArticleFeature = ({
                 id: checkForId(videoId),
                 website: 'la-nacion-ar',
                 imageConfig,
-                isInApertura: onlyOneApeturaValidateForWWW,
+                isInApertura: false,
                 isAdmin
             },
             filter: filterVideo
@@ -110,7 +78,7 @@ const ArticleFeature = ({
         imageId,
         imageConfig,
         id,
-        onlyOneApeturaValidateForWWW,
+        onlyOneApeturaValidateForWWW: false,
         isAdmin,
         filterImage
     });
@@ -119,7 +87,7 @@ const ArticleFeature = ({
         imageId: mobileImageId,
         imageConfig: 'boxMultimediaMobile',
         id,
-        onlyOneApeturaValidateForWWW,
+        onlyOneApeturaValidateForWWW: false,
         isAdmin,
         filterImage
     });
@@ -168,23 +136,11 @@ const ArticleFeature = ({
                     boxPosition={boxPosition}
                     layout={layout}
                     isAdmin={isAdmin}
-                    isInHomeAperturaOrBomba={isInHomeAperturaOrBomba(
-                        renderables,
-                        featureId,
-                        layoutsName,
-                        layoutPageBuilder
-                    )}
                     videoBackground={videoBackground}
                     isPowa={layout === 'grillaVideo1'}
                     handleClick={productClickFromClient}
                     registerSuccessEvent={registerSuccessEvent}
                     mobileImage={mobileImage}
-                    searchableField={
-                        layoutPageBuilder === layoutsName.Home &&
-                        searchableField({
-                            imageId: '_id'
-                        })
-                    }
                     isApertura={isEager}
                 />
             </ErrorBoundary>

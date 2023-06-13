@@ -1,0 +1,192 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+.skeleton-box {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-color: $light-neutral-200;
+    border-radius: px(4);
+    margin-bottom: px(6);
+    width: 25%;
+    height: px(16);
+
+    .com-title.--xs & {
+        height: px(18);
+    }
+
+    .com-title.--m & {
+        height: px(19);
+    }
+
+    .com-title.--l & {
+        height: px(24);
+    }
+
+    .com-title.--xl & {
+        height: px(29);
+    }
+
+    &.--line1 {
+        width: 96%;
+        .--com-subhead & {
+            width: 90%;
+        }
+        .mod-marquee & {
+            width: 60%;
+        }
+    }
+    &.--line2 {
+        width: 86%;
+        .--com-subhead & {
+            width: 90%;
+        }
+    }
+    &.--line3 {
+        width: 76%;
+    }
+    &.--line4 {
+        width: 80%;
+    }
+
+    .--author & {
+        margin-left: auto;
+        margin-right: auto;
+        .col-tablet-4 & {
+            margin-left: 0;
+        }
+    }
+
+    .mod-footersection & {
+        width: 100%;
+    }
+    .mod-footersection .com-title & {
+        width: px(300);
+        margin-right: px(8);
+    }
+
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-100%);
+        background-image: linear-gradient(
+            90deg,
+            rgba(#fff, 0) 0,
+            rgba(#fff, 0.2) 10%,
+            rgba(#fff, 0.5) 30%,
+            rgba(#fff, 0)
+        );
+        animation: shimmer 2s infinite;
+        content: '';
+    }
+    @keyframes shimmer {
+        100% {
+            transform: translateX(100%);
+        }
+    }
+}
+
+.mod-article {
+    &.--author {
+        @include renderAutor;
+    }
+
+    &.--columnista {
+        @include renderAutor;
+
+        padding-bottom: px(16);
+        > div {
+            position: relative;
+            bottom: auto;
+            border: none;
+            padding: 0;
+            margin-bottom: px(8);
+
+            @media ($media-lm) {
+                //solo para Acu Columnistas
+                .columnistas & {
+                    width: px(96);
+                    height: px(96);
+                }
+            }
+        }
+        .mod-description {
+            height: 100%;
+            > div {
+                height: 100%;
+                .mod-marquee {
+                    position: relative;
+                    overflow: visible;
+                    height: auto;
+                    align-items: initial;
+                    padding-bottom: px(32);
+                    a {
+                        &::after {
+                            display: block;
+                            content: 'IR A NOTAS';
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                            color: $blue-500;
+                            font-size: px(12);
+                            line-height: px(16);
+                        }
+                    }
+                }
+            }
+        }
+        &::after {
+            border-bottom: 1px solid $light-neutral-600;
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            width: px(80);
+        }
+    }
+
+    &:before {
+        .mod-ranking & {
+            display: block;
+            background-color: $neutral-black;
+            color: $neutral-white;
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            z-index: 5;
+            text-align: center;
+            font-size: px(16);
+            line-height: px(40);
+            width: px(24);
+            height: px(40);
+        }
+    }
+
+    &.--no-media {
+        border-top: 1px solid #ccc;
+        width: calc(100% + #{$spacing-lg});
+        margin-left: -$spacing-sm;
+        padding: px(32) $spacing-sm 0;
+        .com-label {
+            &.--exclusive-ln {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-bottom: $spacing;
+            }
+        }
+        .mod-media {
+            display: none;
+        }
+        @media ($media-m) {
+            width: auto;
+            margin-left: 0;
+            padding: 0;
+            border: none;
+        }
+    }
+}
