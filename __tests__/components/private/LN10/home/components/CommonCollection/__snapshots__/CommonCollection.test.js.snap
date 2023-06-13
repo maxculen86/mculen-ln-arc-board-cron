@@ -106,7 +106,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -155,7 +155,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 vivo
               </span>
               <h2
-                class="text ln-text title --prumo --font-medium --font-m"
+                class="text ln-text title --prumo --font-medium --font-m-l"
               >
                 
                 Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
@@ -185,7 +185,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -219,7 +219,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
             >
               <h2
-                class="text ln-text title --prumo --font-medium --font-m"
+                class="text ln-text title --prumo --font-medium --font-m-l"
               >
                 
                 Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
@@ -249,7 +249,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -283,7 +283,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
             >
               <h2
-                class="text ln-text title --prumo --font-medium --font-m"
+                class="text ln-text title --prumo --font-medium --font-m-l"
               >
                 
                 El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres
@@ -377,7 +377,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -411,7 +411,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/test-noticia-en-arc-nid16032021-2/"
             >
               <h2
-                class="text ln-text title --prumo --font-medium --font-m"
+                class="text ln-text title --prumo --font-medium --font-m-l"
               >
                 
                 Test noticia en ARC
@@ -441,7 +441,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -475,7 +475,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/revista-living/test-noticia-en-arc-nid03012023/"
             >
               <h2
-                class="text ln-text title --prumo --font-medium --font-m"
+                class="text ln-text title --prumo --font-medium --font-m-l"
               >
                 
                 Test noticia en ARC
@@ -488,7 +488,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --7 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --no-media --mobile-img-right"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -501,7 +501,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
             >
               <h2
-                class="text ln-text title --prumo --font-medium --font-m"
+                class="text ln-text title --prumo --font-medium --font-m-l"
               >
                 <span
                   class="text ln-text lead --prumo --font-extra"

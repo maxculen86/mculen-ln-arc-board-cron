@@ -85,7 +85,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
             class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m --regular"
+              class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
               data-id="6LWA56W2Q5CTLKNU7UEBLABMM4"
               data-notaid="6LWA56W2Q5CTLKNU7UEBLABMM4"
               data-pos="0002"
@@ -123,7 +123,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 >
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
@@ -153,7 +153,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
             class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right"
               data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
               data-notaid="UV32UCCHWZH6LKMZKHGOQJHR4I"
               data-pos="0003"
@@ -206,7 +206,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     vivo
                   </span>
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
@@ -236,7 +236,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
             class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --no-media --mobile-img-right"
               data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
               data-notaid="M3JPASZJAVBIRIZPVCSSVBUAHI"
               data-pos="0004"
@@ -253,7 +253,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                   href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                 >
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Bullrich visita El Calafate y presenta libro
@@ -288,7 +288,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
             class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --no-media --mobile-img-right"
               data-id="NSKVK2X7S5FG3MIEEHV4WN6ZI4"
               data-notaid="NSKVK2X7S5FG3MIEEHV4WN6ZI4"
               data-pos="0005"
@@ -305,7 +305,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                   href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 >
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
@@ -698,7 +698,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
             class="grid-item --1 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right --tablet-img-right --desktop-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right --tablet-img-right --desktop-img-right"
               data-id="6LWA56W2Q5CTLKNU7UEBLABMM4"
               data-notaid="6LWA56W2Q5CTLKNU7UEBLABMM4"
               data-pos="0002"
@@ -736,7 +736,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 >
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
@@ -766,7 +766,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
             class="grid-item --2 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right --tablet-img-right --desktop-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right --tablet-img-right --desktop-img-right"
               data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
               data-notaid="UV32UCCHWZH6LKMZKHGOQJHR4I"
               data-pos="0003"
@@ -819,7 +819,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     vivo
                   </span>
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
@@ -849,7 +849,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
             class="grid-item --3 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-right --tablet-img-right --desktop-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --no-media --mobile-img-right --tablet-img-right --desktop-img-right"
               data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
               data-notaid="M3JPASZJAVBIRIZPVCSSVBUAHI"
               data-pos="0004"
@@ -866,7 +866,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                   href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                 >
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Bullrich visita El Calafate y presenta libro
@@ -989,7 +989,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
             class="grid-item --1 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right --tablet-img-right --desktop-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right --tablet-img-right --desktop-img-right"
               data-id="6LWA56W2Q5CTLKNU7UEBLABMM4"
               data-notaid="6LWA56W2Q5CTLKNU7UEBLABMM4"
               data-pos="0002"
@@ -1027,7 +1027,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 >
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
@@ -1057,7 +1057,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
             class="grid-item --2 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right --tablet-img-right --desktop-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right --tablet-img-right --desktop-img-right"
               data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
               data-notaid="UV32UCCHWZH6LKMZKHGOQJHR4I"
               data-pos="0003"
@@ -1110,7 +1110,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     vivo
                   </span>
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
@@ -1228,7 +1228,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
             class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right"
               data-id="6LWA56W2Q5CTLKNU7UEBLABMM4"
               data-notaid="6LWA56W2Q5CTLKNU7UEBLABMM4"
               data-pos="0002"
@@ -1266,7 +1266,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 >
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
