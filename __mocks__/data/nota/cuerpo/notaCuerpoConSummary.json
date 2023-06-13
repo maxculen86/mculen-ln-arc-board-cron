@@ -1,0 +1,628 @@
+{
+    "_id": "AQRFRQIJHBEJHDMYXVF2PBM2JM",
+    "type": "story",
+    "version": "0.10.9",
+    "content_elements": [
+        {
+            "_id": "XXZTCQYCQZEO3JKNJ5EU4J3C6Q",
+            "type": "text",
+            "additional_properties": {
+                "_id": 1686668206911,
+                "comments": [],
+                "inline_comments": []
+            },
+            "content": "Este es el cuerpo de la nota"
+        },
+        {
+            "_id": "ZLSO3OIJYZCSJOO2EWUPRSO7VM",
+            "type": "raw_html",
+            "additional_properties": {
+                "_id": "BJSQXDJ2KVBCHIEW36BWYUTC3M",
+                "comments": []
+            },
+            "content": "<div class=\"empty\" style=\"padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;\">Bloque HTML de muestra</div>"
+        }
+    ],
+    "created_date": "2023-06-13T13:14:34.794Z",
+    "revision": {
+        "revision_id": "5VQWCYSH75ESBDFRTMRUPILQY4",
+        "parent_id": "F5COYI4DF5FBDE6ANB7EZJLOFA",
+        "editions": ["default"],
+        "branch": "default",
+        "user_id": "jgribaudo@lnexternos.com.ar",
+        "published": true
+    },
+    "last_updated_date": "2023-06-13T18:45:50.035Z",
+    "headlines": {
+        "basic": "Test video youtube en apertura",
+        "meta_title": "",
+        "mobile": "",
+        "native": "",
+        "print": "",
+        "tablet": "",
+        "web": ""
+    },
+    "owner": {
+        "sponsored": false,
+        "id": "sandbox.lanacionar"
+    },
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "address": {},
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true,
+        "moderation_required": false
+    },
+    "syndication": {
+        "external_distribution": true,
+        "search": true
+    },
+    "workflow": {
+        "status_code": 1
+    },
+    "subheadlines": {
+        "basic": ""
+    },
+    "description": {
+        "basic": ""
+    },
+    "language": "",
+    "label": {
+        "autor": {
+            "display": true,
+            "text": "Otro",
+            "url": ""
+        },
+        "edicion": {
+            "display": true,
+            "text": "Digital",
+            "url": ""
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "metarefresh": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "recomendar": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "republicar_audio": {
+            "display": true,
+            "text": "No",
+            "url": ""
+        },
+        "trust": {
+            "display": true,
+            "text": "Noticia Original",
+            "url": ""
+        }
+    },
+    "source": {
+        "name": "LA NACION",
+        "source_type": "staff",
+        "system": "composer"
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/politica",
+            "_website": "la-nacion-ar",
+            "type": "section",
+            "version": "0.6.0",
+            "name": "Política",
+            "path": "/politica",
+            "parent_id": "/",
+            "parent": {
+                "default": "/"
+            },
+            "additional_properties": {
+                "original": {
+                    "_id": "/politica",
+                    "acumuladoGeneral": {
+                        "tipo_acumulado": "Grilla",
+                        "cantidad_notas": "30",
+                        "id_collection_promo_items": "LJU45N2VUVH7TNBV4IU5ZRGWJY",
+                        "hierarchy_navigation": "Politics",
+                        "hide_banner": "false",
+                        "hidetagslist": "true",
+                        "hidesectionslist": "true"
+                    },
+                    "acumuladoColor": {
+                        "background_color": "",
+                        "navigation_color": "",
+                        "navigation_color_tags": "",
+                        "id_logo_image": "",
+                        "header_class_name": "false"
+                    },
+                    "site": {
+                        "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/politica/"
+                    },
+                    "migration": {
+                        "migrated_mob": "true",
+                        "id_section_ln9": "30"
+                    },
+                    "_website": "la-nacion-ar",
+                    "name": "Política",
+                    "order": {
+                        "Header-FirstNav": 1002,
+                        "default": 1020,
+                        "navigationRedaccion": 1014
+                    },
+                    "parent": {
+                        "default": "/",
+                        "Header-FirstNav": "/",
+                        "navigationRedaccion": "/",
+                        "pruebaTecnica": null
+                    },
+                    "ancestors": {
+                        "Header-FirstNav": ["/"]
+                    },
+                    "inactive": false,
+                    "node_type": "section"
+                }
+            }
+        },
+        "primary_site": {
+            "_id": "/politica",
+            "type": "site",
+            "version": "0.5.8",
+            "name": "Política",
+            "path": "/politica",
+            "parent_id": "/",
+            "additional_properties": {
+                "original": {
+                    "_id": "/politica",
+                    "acumuladoGeneral": {
+                        "tipo_acumulado": "Grilla",
+                        "cantidad_notas": "30",
+                        "id_collection_promo_items": "LJU45N2VUVH7TNBV4IU5ZRGWJY",
+                        "hierarchy_navigation": "Politics",
+                        "hide_banner": "false",
+                        "hidetagslist": "true",
+                        "hidesectionslist": "true"
+                    },
+                    "acumuladoColor": {
+                        "background_color": null,
+                        "navigation_color": null,
+                        "navigation_color_tags": null,
+                        "id_logo_image": null,
+                        "header_class_name": "false"
+                    },
+                    "site": {
+                        "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/politica/"
+                    },
+                    "migration": {
+                        "migrated_mob": "true",
+                        "id_section_ln9": "30"
+                    },
+                    "name": "Política",
+                    "order": {
+                        "Header-FirstNav": 1002,
+                        "default": 1020,
+                        "navigationRedaccion": 1014
+                    },
+                    "parent": {
+                        "default": "/",
+                        "Header-FirstNav": "/",
+                        "navigationRedaccion": "/",
+                        "pruebaTecnica": null
+                    },
+                    "ancestors": {
+                        "Header-FirstNav": ["/"]
+                    },
+                    "inactive": false
+                }
+            }
+        },
+        "sections": [
+            {
+                "_id": "/politica",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Política",
+                "path": "/politica",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/politica",
+                        "acumuladoGeneral": {
+                            "tipo_acumulado": "Grilla",
+                            "cantidad_notas": "30",
+                            "id_collection_promo_items": "LJU45N2VUVH7TNBV4IU5ZRGWJY",
+                            "hierarchy_navigation": "Politics",
+                            "hide_banner": "false",
+                            "hidetagslist": "true",
+                            "hidesectionslist": "true"
+                        },
+                        "acumuladoColor": {
+                            "background_color": "",
+                            "navigation_color": "",
+                            "navigation_color_tags": "",
+                            "id_logo_image": "",
+                            "header_class_name": "false"
+                        },
+                        "site": {
+                            "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/politica/"
+                        },
+                        "migration": {
+                            "migrated_mob": "true",
+                            "id_section_ln9": "30"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Política",
+                        "order": {
+                            "Header-FirstNav": 1002,
+                            "default": 1020,
+                            "navigationRedaccion": 1014
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/",
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": ["/"]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./politica"
+            }
+        ],
+        "sites": [
+            {
+                "_id": "/politica",
+                "type": "site",
+                "version": "0.5.8",
+                "name": "Política",
+                "path": "/politica",
+                "parent_id": "/",
+                "additional_properties": {
+                    "original": {
+                        "_id": "/politica",
+                        "acumuladoGeneral": {
+                            "tipo_acumulado": "Grilla",
+                            "cantidad_notas": "30",
+                            "id_collection_promo_items": "LJU45N2VUVH7TNBV4IU5ZRGWJY",
+                            "hierarchy_navigation": "Politics",
+                            "hide_banner": "false",
+                            "hidetagslist": "true",
+                            "hidesectionslist": "true"
+                        },
+                        "acumuladoColor": {
+                            "background_color": null,
+                            "navigation_color": null,
+                            "navigation_color_tags": null,
+                            "id_logo_image": null,
+                            "header_class_name": "false"
+                        },
+                        "site": {
+                            "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/politica/"
+                        },
+                        "migration": {
+                            "migrated_mob": "true",
+                            "id_section_ln9": "30"
+                        },
+                        "name": "Política",
+                        "order": {
+                            "Header-FirstNav": 1002,
+                            "default": 1020,
+                            "navigationRedaccion": 1014
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/",
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": ["/"]
+                        },
+                        "inactive": false
+                    }
+                }
+            }
+        ]
+    },
+    "promo_items": {
+        "apertura_multimedia": {
+            "_id": "ZRSPWMJC2RFFPHTFRBUXWIUL74",
+            "content": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/CxM1ztFS7zY\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
+            "type": "raw_html"
+        },
+        "summary": {
+            "_id": "PSWBKTEOTBD3PK3OHWT7UJ5DZQ",
+            "embed": {
+                "config": {
+                    "arrayBullets": [
+                        "<span>Real Madrid fue </span><b><strong>eliminado</strong></b><span> de la Champions League luego de sufrir una paliza por 5 a 1 ante Manchester City en las semifinales.</span>",
+                        "<span>La </span><i><em>prensa deportiva</em></i><span> española reflejó la dolenicia de los hinchas: Marca tituló ",
+                        "Palizas de las que duelen",
+                        ", mientras AS optó por \"Para llorar\".</span>",
+                        "<u><span>Karim Benzema </span></u><span>fue el blanco preferido de las críticas entre los hinchas del </span><s><span>Real</span></s><span> Madrid, quienes exigieron su salida del club.</span>",
+                        "<span>Texto agregado a mano</span>"
+                    ],
+                    "editorState": {
+                        "root": {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "detail": 0,
+                                            "format": 0,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": "Real Madrid fue ",
+                                            "type": "text",
+                                            "version": 1
+                                        },
+                                        {
+                                            "detail": 0,
+                                            "format": 1,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": "eliminado",
+                                            "type": "text",
+                                            "version": 1
+                                        },
+                                        {
+                                            "detail": 0,
+                                            "format": 0,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": " de la Champions League luego de sufrir una paliza por 5 a 1 ante Manchester City en las semifinales.",
+                                            "type": "text",
+                                            "version": 1
+                                        }
+                                    ],
+                                    "direction": "ltr",
+                                    "format": "",
+                                    "indent": 0,
+                                    "type": "paragraph",
+                                    "version": 1
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "detail": 0,
+                                            "format": 0,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": "La ",
+                                            "type": "text",
+                                            "version": 1
+                                        },
+                                        {
+                                            "detail": 0,
+                                            "format": 2,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": "prensa deportiva",
+                                            "type": "text",
+                                            "version": 1
+                                        },
+                                        {
+                                            "detail": 0,
+                                            "format": 0,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": " española reflejó la dolenicia de los hinchas: Marca tituló ",
+                                            "Palizas de las que duelen": ", mientras AS optó por \"Para llorar\".",
+                                            "type": "text",
+                                            "version": 1
+                                        }
+                                    ],
+                                    "direction": "ltr",
+                                    "format": "",
+                                    "indent": 0,
+                                    "type": "paragraph",
+                                    "version": 1
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "detail": 0,
+                                            "format": 8,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": "Karim Benzema ",
+                                            "type": "text",
+                                            "version": 1
+                                        },
+                                        {
+                                            "detail": 0,
+                                            "format": 0,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": "fue el blanco preferido de las críticas entre los hinchas del ",
+                                            "type": "text",
+                                            "version": 1
+                                        },
+                                        {
+                                            "detail": 0,
+                                            "format": 4,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": "Real",
+                                            "type": "text",
+                                            "version": 1
+                                        },
+                                        {
+                                            "detail": 0,
+                                            "format": 0,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": " Madrid, quienes exigieron su salida del club.",
+                                            "type": "text",
+                                            "version": 1
+                                        }
+                                    ],
+                                    "direction": "ltr",
+                                    "format": "",
+                                    "indent": 0,
+                                    "type": "paragraph",
+                                    "version": 1
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "detail": 0,
+                                            "format": 0,
+                                            "mode": "normal",
+                                            "style": "",
+                                            "text": "Texto agregado a mano",
+                                            "type": "text",
+                                            "version": 1
+                                        }
+                                    ],
+                                    "direction": "ltr",
+                                    "format": "",
+                                    "indent": 0,
+                                    "type": "paragraph",
+                                    "version": 1
+                                }
+                            ],
+                            "direction": "ltr",
+                            "format": "",
+                            "indent": 0,
+                            "type": "root",
+                            "version": 1
+                        }
+                    }
+                },
+                "id": "152daa6da2169f",
+                "url": "https://www.lanacion.com.ar/"
+            },
+            "subtype": "custom-resumen",
+            "type": "custom_embed"
+        }
+    },
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "distributor": {
+        "name": "LA NACION",
+        "category": "staff",
+        "subcategory": "",
+        "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568",
+        "mode": "reference_denormalized"
+    },
+    "canonical_website": "la-nacion-ar",
+    "geo": {},
+    "planning": {
+        "internal_note": "",
+        "story_length": {
+            "character_count_actual": 28,
+            "character_encoding": "UTF-16",
+            "inch_count_actual": 1,
+            "line_count_actual": 1,
+            "word_count_actual": 7
+        }
+    },
+    "display_date": "2023-06-13T13:16:32.424Z",
+    "credits": {
+        "by": []
+    },
+    "subtype": "1",
+    "first_publish_date": "2023-06-13T13:16:32.424Z",
+    "websites": {
+        "la-nacion-ar": {
+            "website_section": {
+                "_id": "/politica",
+                "_website": "la-nacion-ar",
+                "type": "section",
+                "version": "0.6.0",
+                "name": "Política",
+                "path": "/politica",
+                "parent_id": "/",
+                "parent": {
+                    "default": "/"
+                },
+                "additional_properties": {
+                    "original": {
+                        "_id": "/politica",
+                        "acumuladoGeneral": {
+                            "tipo_acumulado": "Grilla",
+                            "cantidad_notas": "30",
+                            "id_collection_promo_items": "LJU45N2VUVH7TNBV4IU5ZRGWJY",
+                            "hierarchy_navigation": "Politics",
+                            "hide_banner": "false",
+                            "hidetagslist": "true",
+                            "hidesectionslist": "true"
+                        },
+                        "acumuladoColor": {
+                            "background_color": "",
+                            "navigation_color": "",
+                            "navigation_color_tags": "",
+                            "id_logo_image": "",
+                            "header_class_name": "false"
+                        },
+                        "site": {
+                            "site_url": "https://lanacionar-la-nacion-ar-sandbox.cdn.arcpublishing.com/politica/"
+                        },
+                        "migration": {
+                            "migrated_mob": "true",
+                            "id_section_ln9": "30"
+                        },
+                        "_website": "la-nacion-ar",
+                        "name": "Política",
+                        "order": {
+                            "Header-FirstNav": 1002,
+                            "default": 1020,
+                            "navigationRedaccion": 1014
+                        },
+                        "parent": {
+                            "default": "/",
+                            "Header-FirstNav": "/",
+                            "navigationRedaccion": "/",
+                            "pruebaTecnica": null
+                        },
+                        "ancestors": {
+                            "Header-FirstNav": ["/"]
+                        },
+                        "inactive": false,
+                        "node_type": "section"
+                    }
+                },
+                "_website_section_id": "la-nacion-ar./politica"
+            },
+            "website_url": "/politica/test-video-youtube-en-apertura-nid13062023/"
+        }
+    },
+    "additional_properties": {
+        "clipboard": {},
+        "has_published_copy": true,
+        "is_published": true,
+        "publish_date": "2023-06-13T15:02:53.803Z"
+    },
+    "publish_date": "2023-06-13T18:45:49.750Z",
+    "canonical_url": "/politica/test-video-youtube-en-apertura-nid13062023/",
+    "publishing": {
+        "scheduled_operations": {
+            "publish_edition": [],
+            "unpublish_edition": []
+        }
+    },
+    "website": "la-nacion-ar",
+    "website_url": "/politica/test-video-youtube-en-apertura-nid13062023/"
+}
