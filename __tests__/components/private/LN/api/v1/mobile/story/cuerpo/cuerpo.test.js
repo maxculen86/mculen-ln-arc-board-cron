@@ -2,6 +2,7 @@ import Cuerpo from '../../../../../../../../../components/private/LN/api/v1/mobi
 import ArticleSinCuerpo from '../../../../../../../../../__mocks__/data/nota/cuerpo/notaSinCuerpo.json';
 import ArticleInfografia from '../../../../../../../../../__mocks__/data/nota/cuerpo/notaInfografia.json';
 import ArticleCuerpo from '../../../../../../../../../__mocks__/data/nota/cuerpo/notaCuerpo.json';
+import ArticleCuerpoConSummary from '../../../../../../../../../__mocks__/data/nota/cuerpo/notaCuerpoConSummary.json';
 import ArticleHtml from '../../../../../../../../../__mocks__/data/nota/cuerpo/notaHtml.json';
 import ArticleFotoAlCien from '../../../../../../../../../__mocks__/data/nota/cuerpo/notaFotoAlCien.json';
 import ArticleSubtypeInexistente from '../../../../../../../../../__mocks__/data/nota/cuerpo/notaSubtypeInexistente.json';
@@ -51,5 +52,43 @@ describe('Test Json Text del cuerpo de la nota', () => {
             ArticleHtml.content_elements[0].content
         ).toString('base64');
         expect(resp.elements).toBe(contentHtml);
+    });
+
+    describe('Summary body tests', () => {
+        afterEach(() => {
+            jest.clearAllMocks();
+        });
+        // '1', '4', '10' Noticias, Storytelling, Agencia
+        const testData = [1, 4, 10];
+        it.each(testData)(
+            'should return summary as second element with subtype %p and has apertura',
+            subtype => {
+                ArticleCuerpoConSummary.subtype = subtype;
+
+                const resp = Cuerpo(ArticleCuerpoConSummary);
+
+                expect(resp.elements).not.toBeNull();
+                expect(
+                    resp.elements.some(x => x.title === 'RESUMEN DE NOTA')
+                ).toBe(true);
+                expect(resp.elements[1].title).toBe('RESUMEN DE NOTA');
+            }
+        );
+
+        it.each([1, 4, 10])(
+            'should return summary in any position without video apertura when subtype is %p',
+            subtype => {
+                ArticleCuerpoConSummary.subtype = subtype;
+
+                ArticleCuerpoConSummary.promo_items.apertura_multimedia =  {};
+                
+                const resp = Cuerpo(ArticleCuerpoConSummary);
+
+                expect(resp.elements).not.toBeNull();
+                expect(
+                    resp.elements.some(x => x.title === 'RESUMEN DE NOTA')
+                ).toBe(true);
+            }
+        );
     });
 });
