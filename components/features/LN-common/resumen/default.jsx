@@ -6,6 +6,7 @@ import { useAppContext } from 'fusion:context';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 import StaticContent from '../../../private/common/staticContent';
 import get from '../../../private/common/utils/get';
+import SummaryNote from '../../../private/LN/nota/apertura/summaryNote';
 
 const Resumen = ({ customFields: { hide } = {} }) => {
     const { globalContent } = useAppContext();
@@ -18,20 +19,14 @@ const Resumen = ({ customFields: { hide } = {} }) => {
     return !hide ? (
         <>
             <StaticContent>
-                <div>
-                    <ul>
-                        <li>hola 1</li>
-                        <li>hola 2</li>
-                        <li>hola 3</li>
-                    </ul>
-                </div>
+                <SummaryNote paragraphs={arrayBullets} />
             </StaticContent>
         </>
     ) : (
         <></>
     );
 };
-Resumen.label = 'Resumen nota';
+Resumen.label = 'LN-Resumen-Nota';
 
 Resumen.propTypes = {
     customFields: PropTypes.shape({

@@ -5732,6 +5732,14 @@ strong,
   line-height: 100%;
 }
 
+.--mt-auto {
+  margin-top: auto;
+}
+
+.--pt-auto {
+  padding-top: auto;
+}
+
 .--mt-0 {
   margin-top: 0;
 }
@@ -5810,6 +5818,14 @@ strong,
 
 .--pt-3xl {
   padding-top: 5rem;
+}
+
+.--mr-auto {
+  margin-right: auto;
+}
+
+.--pr-auto {
+  padding-right: auto;
 }
 
 .--mr-0 {
@@ -5892,6 +5908,14 @@ strong,
   padding-right: 5rem;
 }
 
+.--mb-auto {
+  margin-bottom: auto;
+}
+
+.--pb-auto {
+  padding-bottom: auto;
+}
+
 .--mb-0 {
   margin-bottom: 0;
 }
@@ -5972,6 +5996,14 @@ strong,
   padding-bottom: 5rem;
 }
 
+.--ml-auto {
+  margin-left: auto;
+}
+
+.--pl-auto {
+  padding-left: auto;
+}
+
 .--ml-0 {
   margin-left: 0;
 }
@@ -6050,6 +6082,16 @@ strong,
 
 .--pl-3xl {
   padding-left: 5rem;
+}
+
+.--ptb-auto {
+  padding-top: auto;
+  padding-bottom: auto;
+}
+
+.--prl-auto {
+  padding-right: auto;
+  padding-left: auto;
 }
 
 .--ptb-0 {
@@ -6152,6 +6194,14 @@ strong,
   padding-left: 5rem;
 }
 
+.--m-auto {
+  margin: auto;
+}
+
+.--p-auto {
+  padding: auto;
+}
+
 .--m-0 {
   margin: 0;
 }
@@ -6248,12 +6298,20 @@ strong,
   border-radius: 0.5rem;
 }
 
+.--rounded-10 {
+  border-radius: 0.625rem;
+}
+
 .--rounded-12 {
   border-radius: 0.75rem;
 }
 
 .--rounded-16 {
   border-radius: 1rem;
+}
+
+.--rounded-20 {
+  border-radius: 1.25rem;
 }
 
 .--rounded-24 {
@@ -6736,6 +6794,28 @@ strong,
   border-bottom: 0.0625rem solid #e4e4e4;
 }
 
+.--border-left-gray {
+  border-left: 0.0625rem solid #CCCCCC;
+}
+
+@media (min-width: 64rem) {
+  .--border-l-left-gray {
+    border-left: 0.0625rem solid #CCCCCC;
+  }
+}
+
+.--text-neutral-light-900 {
+  color: #1A1A1A;
+}
+
+.--text-neutral-light-600 {
+  color: #666666;
+}
+
+.--list-inherit {
+  list-style: inherit;
+}
+
 .--scroll-x {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -6750,12 +6830,12 @@ strong,
 }
 
 .--prumo {
-  font-family: "Prumo", "Georgia", "serif";
+  font-family: "Prumo", "georgia", "serif";
   font-weight: 100;
 }
 
 .--prumo-italic {
-  font-family: "Prumo Italic", "Georgia", "serif";
+  font-family: "Prumo Italic", "georgia", "serif";
   font-weight: 100;
 }
 
@@ -6959,6 +7039,18 @@ strong,
 }
 .--lead-br .description-container .lead {
   display: block;
+}
+
+@media (min-width: 64rem) {
+  .--pl-l-md {
+    padding-left: 1.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .--pl-l-sm {
+    padding-left: 1rem;
+  }
 }
 
 .lay-container {
