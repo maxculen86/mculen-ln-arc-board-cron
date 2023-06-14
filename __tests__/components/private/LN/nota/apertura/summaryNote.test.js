@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import SummaryNote from '../../../../../../components/private/LN/nota/apertura/summaryNote';
+import SummaryNote from '../../../../../../components/private/LN/common/summaryNote';
 
 describe('SummaryNote =>', () => {
     const Paragraphs = [

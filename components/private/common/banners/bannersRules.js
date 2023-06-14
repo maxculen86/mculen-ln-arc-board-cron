@@ -175,6 +175,8 @@ export const getStickyBanner = (bannerClass, viewport, header) => {
                         const banners = Array.from(document.querySelectorAll('${bannerClass}')) || [];
                         const header = document.querySelector("#${header}");
                         const viewportLimit = document.querySelector('${viewport}') || {};
+                        const content = document.querySelector('#content') || {};
+                        let paddingTop = 0;
                         let oldScrollY = window.scrollY;
 
                         const handleSticky = (banner = {}) => {
@@ -183,8 +185,11 @@ export const getStickyBanner = (bannerClass, viewport, header) => {
                             const viewPoint = topViewportLimit - banner.clientHeight - (${header} ? header.clientHeight : 0);
 
                             if (viewPoint <= 0 && banner.classList.contains('--sticky')) {
+                                if  (content instanceof Element){
+                                    paddingTop = parseFloat(window.getComputedStyle(content).getPropertyValue('padding-top')) || 0;
+                                }
                                 banner.classList.remove('--sticky');
-                                banner.style.top = Math.abs(viewportLimit.offsetTop - banner.clientHeight) + 'px';
+                                banner.style.top = Math.abs(viewportLimit.offsetTop - banner.clientHeight - paddingTop) + 'px';
                                 banner.style.position = 'relative';
                             } else if (viewPoint > 0 && !banner.classList.contains('--sticky')) {
                                 banner.classList.add('--sticky');
@@ -219,7 +224,7 @@ export const getScriptForComercial = slodId => {
                         
                         const bannerComercial = document.getElementById("${slodId}");
                         bannerComercial && bannerComercial.parentNode.classList.add('--none');
-                      },12000)
+                    },12000)
                 })
             `
             }}

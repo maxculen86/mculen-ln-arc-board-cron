@@ -4,20 +4,14 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import {
     cajaTemasCustomsFields,
-    getCommonProps,
-    getChildrenFromAperturaHome
+    getCommonProps
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import { validateChainManual } from '../../private/LN/common/utils/cajaTemasValidators';
 import CajaTema from '../../private/LN/common/cajaTema';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import {
-    customFieldValidation,
-    childrenValidation
-} from '../utils/contentValidations';
 import { productClickFromClient } from '../../private/common/utils/viewability';
 import StaticContent from '../../private/common/staticContent';
 import setFilteredChildren from '../../private/LN/common/utils/setFilteredChildren';
-import { getChildrenFromSectionHome } from '../../private/LN/common/utils/cajaTemasHelperLN10-WebApi';
 
 const CajaManual = props => {
     const {
@@ -41,29 +35,7 @@ const CajaManual = props => {
         positionInsideSection
     } = getCommonProps(props);
 
-    const aperturasChildren = getChildrenFromAperturaHome(
-        renderables,
-        childProps
-    );
-
-    const multimediaChildren = getChildrenFromSectionHome(
-        renderables,
-        'Multimedia',
-        5
-    );
-
-    const isInApertura = customFieldValidation({
-        featureId,
-        sectionChildren: aperturasChildren
-    });
-
-    const isMultimedia = customFieldValidation({
-        featureId,
-        sectionChildren: multimediaChildren
-    });
-
     const features = renderables.filter(r => r.collection === 'features');
-    const multimediaCustomFields = ['video', 'html'];
     const filteredChildren = setFilteredChildren({
         features,
         children,
@@ -73,22 +45,7 @@ const CajaManual = props => {
         }
     });
 
-    const [isVideoBackground, containsHTML] = multimediaCustomFields.map(
-        customField =>
-            childrenValidation({
-                featureId,
-                customField,
-                sectionChildren: multimediaChildren
-            })
-    );
-
-    const error = validateChainManual(
-        childProps,
-        layout,
-        isInApertura,
-        isVideoBackground,
-        containsHTML
-    );
+    const error = validateChainManual(childProps, layout);
 
     if (isAdmin && error) {
         return (
@@ -118,10 +75,7 @@ const CajaManual = props => {
             imageId={imageId}
             outputType={outputType}
             layout={layout}
-            classCondition={`${classCondition}${(isInApertura &&
-                layout.includes('focal') &&
-                ' --apertura') ||
-                ''}`}
+            classCondition={`${classCondition}`}
             notesQuantity={notesQuantity}
             position={position}
             positionInsideSection={positionInsideSection}
@@ -130,14 +84,9 @@ const CajaManual = props => {
             handleClick={productClickFromClient}
             features={features}
             pageLayout={pageLayout}
-            isMultimedia={isMultimedia}
         />
     );
-    return isMultimedia ? (
-        Component
-    ) : (
-        <StaticContent>{Component}</StaticContent>
-    );
+    return <StaticContent>{Component}</StaticContent>;
 };
 
 CajaManual.label = 'LN Caja Manual';

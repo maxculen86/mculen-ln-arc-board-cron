@@ -6,7 +6,7 @@ import { useAppContext } from 'fusion:context';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 import StaticContent from '../../../private/common/staticContent';
 import get from '../../../private/common/utils/get';
-import SummaryNote from '../../../private/LN/nota/apertura/summaryNote';
+import SummaryNote from '../../../private/LN/common/summaryNote';
 
 const Resumen = ({ customFields: { hide } = {} }) => {
     const { globalContent } = useAppContext();
