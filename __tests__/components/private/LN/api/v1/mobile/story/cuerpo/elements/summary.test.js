@@ -6,7 +6,7 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
             [
                 { items: ['Item 1', 'Item 2', 'Item 3'] },
                 {
-                    _t: 'list',
+                    _t: 'article_summary',
                     title: 'RESUMEN DE NOTA',
                     disclaimer: 'Resumen generada por inteligencia artificial',
                     type: 'ul',
@@ -20,7 +20,7 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
             [
                 { items: ['Item 1', 'Item 2', 'Item 3'], type: 'ol' },
                 {
-                    _t: 'list',
+                    _t: 'article_summary',
                     title: 'RESUMEN DE NOTA',
                     disclaimer: 'Resumen generada por inteligencia artificial',
                     type: 'ul',
@@ -40,7 +40,7 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                     ]
                 },
                 {
-                    _t: 'list',
+                    _t: 'article_summary',
                     title: 'RESUMEN DE NOTA',
                     disclaimer: 'Resumen generada por inteligencia artificial',
                     type: 'ul',
@@ -57,7 +57,7 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
             [
                 { items: ['Item 1', 'Item 2', 'Item 3'] },
                 {
-                    _t: 'list',
+                    _t: 'article_summary',
                     title: 'RESUMEN DE NOTA',
                     disclaimer: 'Resumen generada por inteligencia artificial',
                     type: 'ul',
@@ -71,7 +71,7 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
             [
                 { items: ['Item 1', 'Item 2', 'Item 3'] },
                 {
-                    _t: 'list',
+                    _t: 'article_summary',
                     title: 'RESUMEN DE NOTA',
                     disclaimer: 'Resumen generada por inteligencia artificial',
                     type: 'ul',

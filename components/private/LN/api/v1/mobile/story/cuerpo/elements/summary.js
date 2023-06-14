@@ -12,7 +12,7 @@ const summary = nodo => {
     if (!listElements || listElements.length === 0) return null;
 
     const resp = {
-        _t: 'list',
+        _t: 'article_summary',
         title: 'RESUMEN DE NOTA',
         disclaimer: 'Resumen generada por inteligencia artificial',
         type: 'ul'
