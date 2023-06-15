@@ -1,5 +1,7 @@
 import { object } from 'prop-types';
 import LN10WebStory from '../../../../../components/features/LN-10/webStory/json';
+import renderables from '../../../../../__mocks__/data/LN10_Caja_WebStories/renderables.json';
+import renderablesError from '../../../../../__mocks__/data/LN10_Caja_WebStories/renderablesError.json';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -182,32 +184,7 @@ describe('components - feature - LN10 WebStory - json', () => {
         }
     };
     props.children = [1, 2, 3];
-    props.renderables = [
-        {
-            props: {
-                id: '1'
-            },
-            children: [1, 2, 3]
-        },
-        {
-            props: {
-                id: '2'
-            },
-            children: [1, 2, 3]
-        },
-        {
-            props: {
-                id: '3'
-            },
-            children: [1, 2, 3]
-        },
-        {
-            props: {
-                id: '4'
-            },
-            children: [1, 2, 3]
-        }
-    ];
+    props.renderables = renderables;
     test('LN10 WebStory OK', () => {
         const feature = new LN10WebStory(props);
         feature.state.webstoryImageLN10 = {};
