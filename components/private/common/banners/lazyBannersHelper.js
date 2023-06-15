@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable react-hooks/rules-of-hooks */
 import getProperties from 'fusion:properties';
 import get from '../utils/get';
 import flatArray from '../utils/flatArray';
@@ -5,7 +7,8 @@ import getQueryParamValue from '../utils/getQueryParamValue';
 import {
     buildBannerClasses,
     getSlotForDevice,
-    shouldShow
+    shouldShow,
+    getBannerConfigFromSiteService
 } from '../../LN/common/utils/bannerHelper';
 import bannersRules from './bannersRules';
 import getViewport from '../../LN/common/utils/screenHelper';
@@ -75,6 +78,24 @@ export const filterBanners = blocksBanners => {
         .filter(el => Object.keys(el).length > 0 && el.opt_div);
 };
 
+const getCachedBannerConfig = () => {
+    const [cachedNavigation = {}] =
+        Object.values(
+            (typeof window !== 'undefined' &&
+                get(window, `Fusion.contentCache.navigationTreeSource`, {})) ||
+                {}
+        ) || [];
+
+    const bannerConfig = get(cachedNavigation, 'data.bannerConfig', null);
+
+    return bannerConfig
+        ? Object.keys(bannerConfig).map(key => ({
+              adunit: key,
+              dimensions: bannerConfig[key]
+          }))
+        : bannerConfig;
+};
+
 export const getBannerConfiguration = (customFields, bannerConfig = {}) => {
     const { group: slotGroup } = customFields || {};
     const { device, slotId } = bannerConfig;
@@ -101,7 +122,7 @@ export const getBannerConfiguration = (customFields, bannerConfig = {}) => {
     if (!config || !dfpId || noValidate || !shouldShow(false, {}, []))
         return null;
 
-    return {
+    const bannerConfiguration = {
         ...config,
         device,
         slotId,
@@ -110,4 +131,13 @@ export const getBannerConfiguration = (customFields, bannerConfig = {}) => {
         classes: buildBannerClasses(config, customFields),
         targeting: config.targeting
     };
+
+    const bannersSiteConfig = getCachedBannerConfig();
+
+    return getBannerConfigFromSiteService({
+        bannersSiteConfig,
+        bannerConfiguration,
+        slotGroup,
+        slotId
+    });
 };
