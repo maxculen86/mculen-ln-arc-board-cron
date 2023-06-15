@@ -1,18 +1,12 @@
 import Consumer from 'fusion:consumer';
 
-class Summary {
-    constructor(props) {
-        this.props = props;
+const Summary = (props = {}) => {
+    try {
+        const { globalContent = {} } = props;
+        return globalContent;
+    } catch (err) {
+        return { Success: false, Message: err.message };
     }
-
-    render() {
-        try {
-            const { globalContent } = this.props;
-            return globalContent;
-        } catch (err) {
-            return { Success: false, Message: err.message };
-        }
-    }
-}
+};
 
 export default Consumer(Summary);

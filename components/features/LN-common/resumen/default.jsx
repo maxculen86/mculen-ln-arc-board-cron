@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
