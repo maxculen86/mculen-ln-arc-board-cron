@@ -313,10 +313,7 @@
 
         .mod-article {
             .com-hour {
-                font-family: $font-primary;
-                font-weight: 700;
                 color: $neutral-black;
-                margin: -5px 0 5px;
                 &:before {
                     content: '';
                     width: px(16);

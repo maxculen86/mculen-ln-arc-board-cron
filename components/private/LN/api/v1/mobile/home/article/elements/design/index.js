@@ -2,6 +2,7 @@ import get from '../../../../../../../../common/utils/get';
 import diagramations from '../../../../../../../../../layouts/config/api-diagramations/LN10-Home_Main.json';
 
 export const getDesign = article => {
+    const typeSeccion = get(article, 'informationBox.sectionAliasMobile', null);
     const design = get(article, 'additionalProperties.diseno', null);
     const variant =
         get(article, 'additionalProperties.variant', 'regular') || 'regular';
@@ -16,7 +17,9 @@ export const getDesign = article => {
         const nameIndexforDiagrmation = 'T'.concat(
             (article.index + 1).toString()
         );
-        const diagramation = diagramations[article.informationBox.layout];
+        const diagramation =
+            diagramations[typeSeccion] ||
+            diagramations[article.informationBox.layout];
 
         const configDiagramationBoxByVariant =
             diagramation &&

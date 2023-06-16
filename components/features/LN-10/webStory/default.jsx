@@ -15,6 +15,7 @@ import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getChainConfig } from '../article/common/_helper-WebApi';
+import { filterWebStoriesRenderables } from '../../../chains/LN10_Caja_WebStories/common/_helper-WebApi';
 
 const WebStoryFeature = props => {
     const { customFields, id: featureId, renderables } = props;
@@ -50,7 +51,7 @@ const WebStoryFeature = props => {
 
     const { index, boxPosition } = getChainConfig({
         featureId,
-        renderables,
+        renderables: filterWebStoriesRenderables(renderables),
         cajaTemaConfig
     });
 

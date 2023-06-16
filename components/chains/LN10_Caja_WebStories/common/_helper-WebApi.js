@@ -15,7 +15,15 @@ export const validateChain = (filteredChildren, children) => {
     return pageBuilderValidator(rules);
 };
 
-export const filterWebStoriesChildren = (renderables, children) => {
+export const filterWebStoriesChildren = (filteredWebStories, children) => {
+    return (
+        children.filter(child =>
+            filteredWebStories.find(c => child.key === c.props.id)
+        ) || []
+    );
+};
+
+export const filterWebStories = renderables => {
     const filteredChain = renderables
         .filter(ren => ren.collection === 'sections')
         .find(section =>
@@ -31,9 +39,25 @@ export const filterWebStoriesChildren = (renderables, children) => {
         c => c.props.customFields.link && c.props.customFields.imageId
     );
 
-    return (
-        children.filter(child =>
-            filteredWebStories.find(c => child.key === c.props.id)
-        ) || []
+    return filteredWebStories;
+};
+
+export const filterWebStoriesRenderables = renderables => {
+    const filteredWebStories = filterWebStories(renderables);
+
+    const filteredRenderables = renderables;
+
+    const unfilteredWebstories = renderables.find(
+        ren => ren.type === 'LN10_Caja_WebStories'
     );
+
+    const replacedWebstories = unfilteredWebstories.children.splice(
+        0,
+        unfilteredWebstories.children.length,
+        ...filteredWebStories
+    );
+
+    filteredRenderables[unfilteredWebstories] = replacedWebstories;
+
+    return filteredRenderables;
 };
