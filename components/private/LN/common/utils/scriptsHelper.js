@@ -18,6 +18,7 @@ import DevReactTracker from '../../../common/scriptManager/DevReactTracker';
 import AdblockDetector from '../../../common/scriptManager/adblockDetector';
 import ScriptCripto from '../../../common/scriptManager/scriptCripto';
 import Permutive from '../../../common/scriptManager/Permutive';
+import Gtag from '../../../common/scriptManager/gtag';
 import { pipe } from '../../../common/utils/functional';
 
 const scriptList = [
@@ -53,6 +54,10 @@ const scriptList = [
             name: 'GooglePublisherTagAcumulado',
             function: GooglePublisherTagAcumulado
         },
+        feature: 'none'
+    },
+    {
+        component: { name: 'GTag', function: Gtag },
         feature: 'none'
     },
     {
