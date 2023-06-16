@@ -58,8 +58,8 @@ describe('Test Json Text del cuerpo de la nota', () => {
         afterEach(() => {
             jest.clearAllMocks();
         });
-        // '1', '4', '10' Noticias, Storytelling, Agencia
-        const testData = [1, 4, 10];
+        // '1', '10' Noticias, Agencia
+        const testData = [1, 10];
         it.each(testData)(
             'should return summary as second element with subtype %p and has apertura',
             subtype => {
@@ -75,7 +75,7 @@ describe('Test Json Text del cuerpo de la nota', () => {
             }
         );
 
-        it.each([1, 4, 10])(
+        it.each([1, 10])(
             'should return summary in any position without video apertura when subtype is %p',
             subtype => {
                 ArticleCuerpoConSummary.subtype = subtype;

@@ -91,7 +91,7 @@ export const getSummaryElements = (summary, subtype, contentElements) => {
     if (length === 0) return contentElements;
 
     const newSummary = summaryToContentElements(summary);
-    const allowedNotesTypes = ['1', '4', '10']; // Noticias, Storytelling, Agencia
+    const allowedNotesTypes = ['1', '10']; // Noticias, Agencia
 
     if (
         getPromoItemsInContent(contentElements, newSummary).length === 0 &&
