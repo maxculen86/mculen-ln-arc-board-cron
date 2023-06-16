@@ -273,7 +273,7 @@ export const getDynamicStreamOperator = (sizes, cardSize, middleSize = 'l') => {
     return OPERATORS.LOWER;
 };
 
-const transformVideoData = (
+export const transformVideoData = (
     videoData,
     shouldUseV2,
     cardSize,
