@@ -17,13 +17,18 @@ function BreadcrumbSchema({ sections, host }) {
     );
 
     const children = sections.map((el, i) => {
-        const slash = el.path && el.path.slice(-1) !== '/' ? '/' : '';
+        const path =
+            (el.path &&
+                el.path.split('?')[0] +
+                    (el.path.split('?')[0].slice(-1) !== '/' ? '/' : '')) ||
+            '';
+
         return `
                 {
                     "@type": "ListItem",
                     "position": ${i + 2},
                     "name": "${el.name ? el.name.replace(/"/g, '\\"') : ''}",
-                    "item": "${host + el.path + slash}"
+                    "item": "${host + path}"
                 }
             `;
     });
