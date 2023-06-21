@@ -1553,9 +1553,6 @@
     grid-row: 2/span 1;
   }
 }
-.ln-bngrid.--bn_2_1_2_grid .grid .grid-item:not(:first-child) article a {
-  flex-direction: row-reverse;
-}
 @media (min-width: 48rem) {
   .ln-bngrid.--bn_2_1_2_grid .grid .grid-item:not(:first-child) article a {
     flex-direction: column;

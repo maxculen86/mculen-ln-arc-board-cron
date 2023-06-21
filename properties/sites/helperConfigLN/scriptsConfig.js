@@ -64,10 +64,6 @@ export default {
         props: {},
         location: ['head']
     },
-    GTag: {
-        props: {},
-        location: ['head']
-    },
     SocialEmbeds: {
         props: {},
         location: ['body-top']

@@ -106,7 +106,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -185,7 +185,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -249,7 +249,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -377,7 +377,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -441,7 +441,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -488,7 +488,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         class="grid-item --7 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --no-media --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --m-l --regular --no-media"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
