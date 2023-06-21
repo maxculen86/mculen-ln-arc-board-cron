@@ -1,4 +1,4 @@
-const getRenderables = hideBox => [
+const getRenderables = (hideBox = false, hideUrl = false, hideHtml = false) => [
     {
         collection: 'layouts',
         type: 'LN10_Home',
@@ -132,7 +132,9 @@ const getRenderables = hideBox => [
                                 imageId: '',
                                 title: 'Caja Bomba',
                                 hideTitle: false,
-                                hideCaja: hideBox
+                                hideCaja: hideBox,
+                                hideByUrl: hideUrl,
+                                hideByHtml: hideHtml
                             },
                             displayProperties: {}
                         },
@@ -1765,7 +1767,10 @@ const getRenderables = hideBox => [
                         inherit: true
                     },
                     customFields: {
-                        title: 'Holis'
+                        title: 'Holis',
+                        hideCaja: hideBox,
+                        hideByUrl: hideUrl,
+                        hideByHtml: hideHtml
                     },
                     displayProperties: {},
                     localEdits: {},
@@ -1791,7 +1796,10 @@ const getRenderables = hideBox => [
                         html: '',
                         heightDesktop: 174,
                         heightTablet: 174,
-                        heightMobile: 235
+                        heightMobile: 235,
+                        hideCaja: hideBox,
+                        hideByUrl: hideUrl,
+                        hideByHtml: hideHtml
                     },
                     displayProperties: {},
                     localEdits: {},
@@ -1814,7 +1822,9 @@ const getRenderables = hideBox => [
                         imageId: '',
                         title: 'Caja Bomba',
                         hideTitle: false,
-                        hideCaja: hideBox
+                        hideCaja: hideBox,
+                        hideByUrl: hideUrl,
+                        hideByHtml: hideHtml
                     },
                     displayProperties: {}
                 },
@@ -3479,7 +3489,9 @@ const getRenderables = hideBox => [
                 imageId: '',
                 title: 'Caja Bomba',
                 hideTitle: false,
-                hideCaja: hideBox
+                hideCaja: hideBox,
+                hideByUrl: hideUrl,
+                hideByHtml: hideHtml
             },
             displayProperties: {}
         },

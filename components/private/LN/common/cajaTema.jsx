@@ -10,6 +10,7 @@ import getComponentForLayout from './utils/getComponentForLayout';
 import clearArticleKey from './utils/clearArticleKey';
 import getFeatureByLayout from './utils/getFeatureByLayout';
 import { setTLDistribution, setTLOrderClass } from './utils/timeline';
+import '../../../../resources/dist/css/ln/modules/box-articles.css';
 
 const CajaTema = props => {
     const {
@@ -28,8 +29,7 @@ const CajaTema = props => {
         _children = [],
         isHome = false,
         features,
-        pageLayout,
-        isMultimedia
+        pageLayout
     } = props;
 
     const artWithoutDate = clearArticleKey('display_date', articles);
@@ -90,7 +90,6 @@ const CajaTema = props => {
                     link={url}
                     customTitle={!hideTitle && title}
                     layout={pageLayout}
-                    isMultimedia={isMultimedia}
                 />
 
                 {mainComponent}

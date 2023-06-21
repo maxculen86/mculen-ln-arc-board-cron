@@ -10,6 +10,7 @@ import { adjustByURL } from '../../../private/common/utils/propTypesHelper';
 import StaticContent from '../../../private/common/staticContent';
 import getDynamicBanners from '../../../private/common/banners/dynamicBanners/getDynamicBanners';
 import { getErrorMessage, isInSection } from './common/_helper-WebApi';
+import '../../../../resources/dist/css/ln/modules/skeleton-box.css';
 
 const AnexoFeature = props => {
     const { id, customFields = {} } = props;

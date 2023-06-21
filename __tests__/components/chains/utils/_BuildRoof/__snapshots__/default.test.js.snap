@@ -71,6 +71,7 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
         <a
           class="link ln-link button ln-button --sm --roof-button --subscribe"
           href="https://linkDelBoton.com.ar"
+          id="btnsexclusivo"
           target="_self"
           title="suscribite"
         >

@@ -10,10 +10,10 @@ import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
 export function popUpCompartirNotaTW(notaId, dominio, titulo) {
     if (notaId.length > 0) {
         popUpRedSocial(
-            `//twitter.com/share?text=${titulo}&url=${dominio}${notaId}&via=LANACION`
+            `https://www.twitter.com/intent/tweet?text=${titulo}&url=${dominio}${notaId}&via=LANACION`
         ); // $("#hs-twitter").val());
     } else {
-        window.open('//twitter.lanacion.com.ar/', '_blank');
+        window.open('https://twitter.com/LANACION', '_blank');
     }
 }
 
