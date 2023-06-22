@@ -62,7 +62,7 @@ export const getBadgebyConfig = article => {
         fieldsBadge.badgeStyle = 'live';
         fieldsBadge.badge = 'VIVO';
         fieldsBadge.chapita = 'VIVO';
-    } else if (isMLSize(size) || isAfondo) {
+    } else if (isMLSize(size) || isAfondo || isSubExclusive(typeSeccion)) {
         return fieldsBadge;
     } else if (isXLorLSize(size) && isDefault) {
         const chapitaText = getChapitaText(
