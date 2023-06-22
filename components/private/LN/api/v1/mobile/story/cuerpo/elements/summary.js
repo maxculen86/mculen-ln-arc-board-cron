@@ -1,5 +1,4 @@
 import get from '../../../../../../../common/utils/get';
-import htmlText from '../../../../../common/elements/story/cuerpo/elements/htmlText';
 import {
     validateValueText,
     validateArrayNull
@@ -20,15 +19,13 @@ const summary = nodo => {
 
     resp.items = listElements.map(bullet => {
         if (validateValueText(bullet)) return null;
-        const value = htmlText(bullet);
-        if (value) {
-            return {
-                _t: 'li',
-                value: bullet
-            };
-        }
 
-        return null;
+        if (!bullet) return null;
+
+        return {
+            _t: 'li',
+            value: bullet
+        };
     });
     if (validateArrayNull(resp.items)) return null;
     return resp;
