@@ -1803,11 +1803,8 @@
   margin-right: 0;
   padding-top: 1rem;
 }
-.bomba.bombita.mas-4 .bomba-grid > div:not(.child-0) .ln-card > .link {
-  flex-direction: row-reverse;
-}
 .bomba.bombita.mas-4 .bomba-grid > div:not(.child-0) .ln-card > .link .media-container {
-  max-width: 7.875rem;
+  width: 100%;
   margin: 0;
 }
 @media (min-width: 48rem) {
@@ -2832,35 +2829,15 @@
   border: 0.0625rem solid var(--light-neutral-400);
   align-items: center;
 }
-@media (min-width: 48rem) {
-  .ln-card.--author .link {
-    padding: var(--size-md);
-  }
-}
 .ln-card.--author .link .description-container {
-  flex-direction: row;
-  justify-content: space-between;
   gap: 0.75rem;
 }
 .ln-card.--author .link .description-container .badge {
   display: none;
 }
-@media (min-width: 48rem) {
-  .ln-card.--author .link .description-container {
-    flex-direction: column-reverse;
-    align-items: center;
-  }
-}
 .ln-card.--author .link .description-container .title {
   margin: 0;
-  padding-bottom: 3.25rem;
   letter-spacing: -0.02rem;
-}
-@media (min-width: 48rem) {
-  .ln-card.--author .link .description-container .title {
-    text-align: center;
-    padding: 0;
-  }
 }
 .ln-card.--author .link .description-container .marquee-container {
   flex-direction: column;
@@ -2895,18 +2872,42 @@
 .ln-card.--author .link .description-container .marquee-container .marquee-text {
   display: flex;
   flex-direction: column;
-  position: absolute;
   bottom: 0;
   left: 0;
   padding-bottom: 0.75rem;
 }
 @media (min-width: 48rem) {
-  .ln-card.--author .link .description-container .marquee-container .marquee-text {
+  .ln-card.--author.--m .link, .ln-card.--author.--l-m .link {
+    padding: var(--size-md);
+  }
+}
+.ln-card.--author.--m .link .description-container, .ln-card.--author.--l-m .link .description-container {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.ln-card.--author.--m .link .description-container .title, .ln-card.--author.--l-m .link .description-container .title {
+  padding-bottom: 3.25rem;
+}
+@media (min-width: 48rem) {
+  .ln-card.--author.--m .link .description-container, .ln-card.--author.--l-m .link .description-container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .ln-card.--author.--m .link .description-container .title, .ln-card.--author.--l-m .link .description-container .title {
+    text-align: center;
+    padding: 0;
+  }
+}
+.ln-card.--author.--m .link .description-container .marquee-container .marquee-text, .ln-card.--author.--l-m .link .description-container .marquee-container .marquee-text {
+  position: absolute;
+}
+@media (min-width: 48rem) {
+  .ln-card.--author.--m .link .description-container .marquee-container .marquee-text, .ln-card.--author.--l-m .link .description-container .marquee-container .marquee-text {
     position: relative;
     text-align: center;
   }
 }
-.ln-card.--author .link .description-container .marquee-container .marquee-text::before {
+.ln-card.--author.--m .link .description-container .marquee-container .marquee-text::before, .ln-card.--author.--l-m .link .description-container .marquee-container .marquee-text::before {
   content: "";
   display: block;
   border-bottom: 0.0625rem solid var(--light-neutral-400);
@@ -2915,12 +2916,12 @@
   margin-bottom: var(--size-xs);
 }
 @media (min-width: 48rem) {
-  .ln-card.--author .link .description-container .marquee-container .marquee-text::before {
+  .ln-card.--author.--m .link .description-container .marquee-container .marquee-text::before, .ln-card.--author.--l-m .link .description-container .marquee-container .marquee-text::before {
     display: none;
   }
 }
 @media (min-width: 48rem) {
-  .ln-card.--author .link .description-container .marquee-container .marquee-text::after {
+  .ln-card.--author.--m .link .description-container .marquee-container .marquee-text::after, .ln-card.--author.--l-m .link .description-container .marquee-container .marquee-text::after {
     content: "";
     display: block;
     border-bottom: 0.0625rem solid var(--light-neutral-400);
@@ -2931,6 +2932,32 @@
     left: 50%;
     margin-left: -1.5rem;
   }
+}
+.ln-card.--author.--m-l .link, .ln-card.--author.--m-xl .link, .ln-card.--author.--l .link, .ln-card.--author.--l-xl .link, .ln-card.--author.--xl-l .link, .ln-card.--author.--xl .link, .ln-card.--author.--2xl .link, .ln-card.--author.--3xl .link, .ln-card.--author.--4xl .link, .ln-card.--author.--5xl .link, .ln-card.--author.--6xl .link {
+  padding: var(--size-md);
+}
+.ln-card.--author.--m-l .link .description-container, .ln-card.--author.--m-xl .link .description-container, .ln-card.--author.--l .link .description-container, .ln-card.--author.--l-xl .link .description-container, .ln-card.--author.--xl-l .link .description-container, .ln-card.--author.--xl .link .description-container, .ln-card.--author.--2xl .link .description-container, .ln-card.--author.--3xl .link .description-container, .ln-card.--author.--4xl .link .description-container, .ln-card.--author.--5xl .link .description-container, .ln-card.--author.--6xl .link .description-container {
+  flex-direction: column-reverse;
+  align-items: center;
+}
+.ln-card.--author.--m-l .link .description-container .title, .ln-card.--author.--m-xl .link .description-container .title, .ln-card.--author.--l .link .description-container .title, .ln-card.--author.--l-xl .link .description-container .title, .ln-card.--author.--xl-l .link .description-container .title, .ln-card.--author.--xl .link .description-container .title, .ln-card.--author.--2xl .link .description-container .title, .ln-card.--author.--3xl .link .description-container .title, .ln-card.--author.--4xl .link .description-container .title, .ln-card.--author.--5xl .link .description-container .title, .ln-card.--author.--6xl .link .description-container .title {
+  text-align: center;
+  padding: 0;
+}
+.ln-card.--author.--m-l .link .description-container .marquee-container .marquee-text, .ln-card.--author.--m-xl .link .description-container .marquee-container .marquee-text, .ln-card.--author.--l .link .description-container .marquee-container .marquee-text, .ln-card.--author.--l-xl .link .description-container .marquee-container .marquee-text, .ln-card.--author.--xl-l .link .description-container .marquee-container .marquee-text, .ln-card.--author.--xl .link .description-container .marquee-container .marquee-text, .ln-card.--author.--2xl .link .description-container .marquee-container .marquee-text, .ln-card.--author.--3xl .link .description-container .marquee-container .marquee-text, .ln-card.--author.--4xl .link .description-container .marquee-container .marquee-text, .ln-card.--author.--5xl .link .description-container .marquee-container .marquee-text, .ln-card.--author.--6xl .link .description-container .marquee-container .marquee-text {
+  position: relative;
+  text-align: center;
+}
+.ln-card.--author.--m-l .link .description-container .marquee-container .marquee-text::after, .ln-card.--author.--m-xl .link .description-container .marquee-container .marquee-text::after, .ln-card.--author.--l .link .description-container .marquee-container .marquee-text::after, .ln-card.--author.--l-xl .link .description-container .marquee-container .marquee-text::after, .ln-card.--author.--xl-l .link .description-container .marquee-container .marquee-text::after, .ln-card.--author.--xl .link .description-container .marquee-container .marquee-text::after, .ln-card.--author.--2xl .link .description-container .marquee-container .marquee-text::after, .ln-card.--author.--3xl .link .description-container .marquee-container .marquee-text::after, .ln-card.--author.--4xl .link .description-container .marquee-container .marquee-text::after, .ln-card.--author.--5xl .link .description-container .marquee-container .marquee-text::after, .ln-card.--author.--6xl .link .description-container .marquee-container .marquee-text::after {
+  content: "";
+  display: block;
+  border-bottom: 0.0625rem solid var(--light-neutral-400);
+  width: 3rem;
+  height: 0rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1.5rem;
 }
 .ln-card.--author.--xl .link, .ln-card.--author.--2xl .link, .ln-card.--author.--3xl .link, .ln-card.--author.--4xl .link, .ln-card.--author.--5xl .link, .ln-card.--author.--6xl .link {
   gap: 0.75rem;
@@ -3119,7 +3146,9 @@
   .ln-card.--mobile-img-right:not(.--author).--m .description-container .badge:not(.--exclusive-ln, .--live, .--contentlab), .ln-card.--mobile-img-right:not(.--author).--l-m .description-container .badge:not(.--exclusive-ln, .--live, .--contentlab) {
     display: none;
   }
-  .ln-card.--mobile-img-right:not(.--author).--m .description-container .--font-m, .ln-card.--mobile-img-right:not(.--author).--m .description-container .--font-l-m, .ln-card.--mobile-img-right:not(.--author).--l-m .description-container .--font-m, .ln-card.--mobile-img-right:not(.--author).--l-m .description-container .--font-l-m {
+  .ln-card.--mobile-img-right:not(.--author).--m .description-container .--font-m,
+  .ln-card.--mobile-img-right:not(.--author).--m .description-container .--font-l-m, .ln-card.--mobile-img-right:not(.--author).--l-m .description-container .--font-m,
+  .ln-card.--mobile-img-right:not(.--author).--l-m .description-container .--font-l-m {
     font-size: 1.25rem;
   }
 }
