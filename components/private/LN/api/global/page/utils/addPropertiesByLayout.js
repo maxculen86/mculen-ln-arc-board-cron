@@ -1,33 +1,6 @@
 import get from '../../../../../common/utils/get';
 import { moveElementByPosition } from '../common/utils/moveElements';
 
-// Set field diseno of config Diagramation and validate many fields
-const setDiagramationInArticle = (
-    configDiagramationBox,
-    nameIndexforDiagrmation,
-    additionalProperties
-) => {
-    if (!configDiagramationBox || !Array.isArray(configDiagramationBox)) {
-        return null;
-    }
-
-    const variant =
-        get(additionalProperties, 'variant', 'regular') || 'regular';
-
-    const configDiagramationBoxByVariant = configDiagramationBox.find(f => {
-        return f && f.variants && f.variants.includes(variant);
-    });
-
-    if (
-        !configDiagramationBoxByVariant ||
-        !configDiagramationBoxByVariant[nameIndexforDiagrmation]
-    ) {
-        return null;
-    }
-
-    return configDiagramationBoxByVariant[nameIndexforDiagrmation];
-};
-
 // Get configs Diagramations
 const configsDiagramationFromInformation = (
     box,
@@ -142,11 +115,6 @@ const setInformationInArticle = (
         additionalProperties: {
             ...get(article, 'additionalProperties', null),
             originPosition: nameIndexforDiagrmation,
-            diseno: setDiagramationInArticle(
-                configDiagramationBox,
-                nameIndexforDiagrmation,
-                get(article, 'additionalProperties', {})
-            ),
             nameFeature: get(childrenArticle, 'type', null),
             idRender: get(childrenArticle, 'props.id', null)
         }

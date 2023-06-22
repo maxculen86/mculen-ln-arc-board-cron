@@ -2,13 +2,10 @@
 
 exports[`Componentes - Chains - LN10_Caja_WebStories should match snapshot 1`] = `
 <div>
-  <div
-    data-module="tema_webstories"
-  >
+  <div>
     <section
       data-block-name="n_webstories"
       data-diagramacion-id="webstories"
-      data-is-block="true"
     >
       <div
         class="wrap-webstories --pt-3xl"
