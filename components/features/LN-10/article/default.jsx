@@ -198,7 +198,8 @@ const ArticleFeature = ({
         layout,
         renderables,
         shouldUseV2: withResizerV2,
-        config
+        config,
+        isAdmin
     });
 
     const typeOfMedia = getTypeOfMedia(customFields);

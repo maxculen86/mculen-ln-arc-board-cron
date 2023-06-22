@@ -11,11 +11,10 @@ import { VIDEO } from '../utils/subtypes/subtypeHelper';
 import useTermica from '../hooks/useTermica';
 import {
     setPrerollAdsForPowa,
-    setEvent,
-    setProgressEvent,
-    addToDataLayer,
     setCustomErrorsVideoPlayer,
-    getClassCondition
+    getClassCondition,
+    addToDataLayer,
+    setVideoEvents
 } from '../utils/videoPlayerHelper';
 import BuildScriptPowaWithFacade from './BuildScriptPowaWithFacade';
 import '../../../../resources/dist/css/ln/components/video-player.css';
@@ -79,88 +78,81 @@ const VideoPlayer = props => {
     );
 
     useEffect(() => {
-        const setVideoEvents = event => {
-            const player = event.detail.powa;
-            const playerID = event.detail.id;
-
-            if (playerID.includes(videoId)) {
-                setProgressEvent(player, tituloVideo, videoId);
-                setEvent(
-                    player,
-                    'play',
-                    'videoPlay',
-                    tituloVideo,
-                    videoId,
-                    streamingAnalyticInstance
-                );
-                setEvent(
-                    player,
-                    'complete',
-                    'videoComplete',
-                    tituloVideo,
-                    videoId,
-                    streamingAnalyticInstance
-                );
-            }
-
-            return null;
-        };
-
         if (!isAdmin && window && window.powaBoot) window.powaBoot();
         setCustomErrorsVideoPlayer();
         setPrerollAdsForPowa(adsURL);
-        window.addEventListener('powaReady', setVideoEvents);
+        window.addEventListener('powaReady', event =>
+            setVideoEvents(
+                event,
+                videoId,
+                tituloVideo,
+                true,
+                streamingAnalyticInstance
+            )
+        );
         addToDataLayer('videoDisplay', tituloVideo, videoId);
-        return () => window.removeEventListener('powaReady', setVideoEvents);
+        return () =>
+            window.removeEventListener('powaReady', event =>
+                setVideoEvents(
+                    event,
+                    videoId,
+                    tituloVideo,
+                    true,
+                    streamingAnalyticInstance
+                )
+            );
     }, [adsURL, isAdmin, tituloVideo, videoId, streamingAnalyticInstance]);
 
     return (
-        <div
-            className={`video-player${getClassCondition(
-                withFacade,
-                isApertura
-            )}`}
-        >
-            {withFacade && (
-                <BuildScriptPowaWithFacade
-                    firstVideoCuerpoAutoplay={firstVideoCuerpoAutoplay}
-                    isApertura={isApertura}
-                    firstVideoId={firstVideoId}
-                    aperturaVideo={aperturaVideo}
-                    videoId={videoId}
-                    apiEnv={apiEnv}
-                    videoImageData={videoImageData}
-                    outputType={outputType}
-                    arcSite={arcSite}
-                />
-            )}
-
+        <>
             <div
-                className="powa"
-                data-org={organizationId}
-                data-uuid={videoId}
-                data-ads={enableAds}
-                data-ad-bar={enableAdBar}
-                data-autoinit={loadVideoOnInit ? 'native-hls' : 'false'}
-                data-autoPlay={autoPlay}
-                data-autoplay-muted={autoPlay}
-                data-controls={enableControls}
-                data-muted={isApertura ? true : firstVideoCuerpoAutoplay}
-                data-sticky={sticky}
-                data-api={apiEnv}
-                data-env="prod"
-            />
+                className={`video-player${getClassCondition(
+                    withFacade,
+                    isApertura
+                )}`}
+            >
+                {withFacade && (
+                    <BuildScriptPowaWithFacade
+                        firstVideoCuerpoAutoplay={firstVideoCuerpoAutoplay}
+                        isApertura={isApertura}
+                        firstVideoId={firstVideoId}
+                        tituloVideo={tituloVideo}
+                        aperturaVideo={aperturaVideo}
+                        videoId={videoId}
+                        apiEnv={apiEnv}
+                        videoImageData={videoImageData}
+                        outputType={outputType}
+                        arcSite={arcSite}
+                    />
+                )}
 
-            <script
-                dangerouslySetInnerHTML={{
-                    __html: `
+                <div
+                    className="powa"
+                    data-org={organizationId}
+                    data-uuid={videoId}
+                    data-ads={enableAds}
+                    data-ad-bar={enableAdBar}
+                    data-autoinit={loadVideoOnInit ? 'native-hls' : 'false'}
+                    data-autoPlay={autoPlay}
+                    data-autoplay-muted={autoPlay}
+                    data-controls={enableControls}
+                    data-muted={isApertura ? true : firstVideoCuerpoAutoplay}
+                    data-sticky={sticky}
+                    data-api={apiEnv}
+                    data-env="prod"
+                />
+
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
                         window.addEventListener('powaError', () => {
                             const facade = document.querySelector('.content-facade');
                             if (facade) facade.remove();
                         });`
-                }}
-            />
-        </div>
+                    }}
+                />
+            </div>
+        </>
     );
 };
 

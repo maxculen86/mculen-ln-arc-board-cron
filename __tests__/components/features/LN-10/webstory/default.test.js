@@ -36,6 +36,100 @@ describe('components - feature - ln10 - webstory', () => {
         imageId
     });
 
+    const renderables = [
+        {
+            collection: 'sections',
+            children: [
+                {
+                    type: 'LN10_Caja_Manual',
+                    children: []
+                },
+                {
+                    type: 'LN10_Caja_WebStories',
+                    children: [
+                        {
+                            props: {
+                                id: '123',
+                                customFields: {
+                                    link: 'www.lanacion.com.ar',
+                                    imageId: 'image-0'
+                                }
+                            }
+                        },
+                        {
+                            props: {
+                                id: '456',
+                                customFields: {
+                                    link: 'www.lanacion.com.ar'
+                                }
+                            }
+                        },
+                        {
+                            props: {
+                                id: '789',
+                                customFields: {
+                                    link: 'www.lanacion.com.ar',
+                                    imageId: 'image-1'
+                                }
+                            }
+                        },
+                        {
+                            props: {
+                                id: '112',
+                                customFields: {
+                                    imageId: 'image-1'
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            collection: 'chains',
+            type: 'LN10_Caja_WebStories',
+            props: {
+                id: 'chain123'
+            },
+            children: [
+                {
+                    props: {
+                        id: '123',
+                        customFields: {
+                            link: 'www.lanacion.com.ar',
+                            imageId: 'image-0'
+                        }
+                    }
+                },
+                {
+                    props: {
+                        id: '456',
+                        customFields: {
+                            link: 'www.lanacion.com.ar'
+                        }
+                    }
+                },
+                {
+                    props: {
+                        id: '789',
+                        customFields: {
+                            link: 'www.lanacion.com.ar',
+                            imageId: 'image-1'
+                        }
+                    }
+                },
+                {
+                    props: {
+                        id: '112',
+                        customFields: {
+                            imageId: 'image-1'
+                        }
+                    }
+                }
+            ]
+        }
+    ];
+
     it('should match snapshot', () => {
         const { container } = render(
             <WebStoryFeature
@@ -46,7 +140,7 @@ describe('components - feature - ln10 - webstory', () => {
                     'www.lanacion.com.ar',
                     '89P13'
                 )}
-                renderables={[{}]}
+                renderables={renderables}
             />
         );
 
@@ -63,7 +157,7 @@ describe('components - feature - ln10 - webstory', () => {
                     'www.lanacion.com.ar',
                     '89P13'
                 )}
-                renderables={[{}]}
+                renderables={renderables}
             />
         );
 

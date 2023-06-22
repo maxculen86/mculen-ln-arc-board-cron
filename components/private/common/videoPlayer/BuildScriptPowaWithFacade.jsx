@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -9,7 +10,11 @@ import {
     withAutoPlay,
     setIntersectionObserver,
     setCustomErrorsVideoPlayer,
-    getClassForFacade
+    getClassForFacade,
+    addToDataLayer,
+    setVideoEvents,
+    isInDatalayerEvent,
+    setProgressEvent
 } from '../utils/videoPlayerHelper';
 import ImageArticle from '../../LN/common/media/imageBase';
 
@@ -17,6 +22,7 @@ export default function BuildScriptPowaWithFacade({
     firstVideoCuerpoAutoplay,
     isApertura,
     firstVideoId,
+    tituloVideo,
     aperturaVideo,
     videoId,
     apiEnv,
@@ -53,12 +59,16 @@ export default function BuildScriptPowaWithFacade({
                     ${withAutoPlay}
                     ${removeFacade}
                     ${setCustomErrorsVideoPlayer}
+                    ${addToDataLayer}
+                    ${isInDatalayerEvent}
+                    ${setVideoEvents}
+                    ${setProgressEvent}
 
                     window.addEventListener('load', () => {
                         setCustomErrorsVideoPlayer()
                         const isDesktop = deviceType() === 'desktop'
                         const videoPlayerList = document.querySelectorAll('.video-player');
-                        
+
                         const observer = setIntersectionObserver(
                             videoPlayerList,
                             '${apiEnv}',
@@ -69,10 +79,10 @@ export default function BuildScriptPowaWithFacade({
                             ${isApertura}
                         )
                         
-                        window.addEventListener('powaReady', () => {
+                        window.addEventListener('powaReady', (event) => {
                             observer.disconnect();
                             removeFacade();
-                            
+
                             const [{ shadowRoot } = {}] = document.querySelectorAll('.powa-shadow');
                             let divFirstPowa =
                                 shadowRoot.querySelector &&
@@ -89,6 +99,11 @@ export default function BuildScriptPowaWithFacade({
                                 powa.on('pause', () => userPause = true);
                                 powa.on('viewable', () => !userPause && powa.play());
                             }
+
+                            if (${isApertura}) {
+                                addToDataLayer('videoDisplay', '${tituloVideo}', '${videoId}')
+                                setVideoEvents(event, '${videoId}', '${tituloVideo}', false);
+                            }
                         });
                     });
                 `
@@ -103,6 +118,7 @@ BuildScriptPowaWithFacade.propTypes = {
     isApertura: PropTypes.bool,
     firstVideoCuerpoAutoplay: PropTypes.bool,
     firstVideoId: PropTypes.string,
+    tituloVideo: PropTypes.string,
     aperturaVideo: PropTypes.oneOfType([PropTypes.bool, PropTypes.shape({})])
         .isRequired,
     apiEnv: PropTypes.string.isRequired,
@@ -120,5 +136,6 @@ BuildScriptPowaWithFacade.propTypes = {
 BuildScriptPowaWithFacade.defaultProps = {
     isApertura: false,
     firstVideoCuerpoAutoplay: false,
-    firstVideoId: ''
+    firstVideoId: '',
+    tituloVideo: ''
 };
