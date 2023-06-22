@@ -56,7 +56,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
             </div>
           </article>
           <button
-            class="button ln-button --md"
+            class="button ln-button --arial --md"
             id="closeAdvance"
             title="Cerrar"
             type="button"

@@ -14,8 +14,12 @@ const omitSections = {
 };
 const specialBoxRoot = {
     'ln-common/opinion': 'h_opinion',
-    'ln-common/ln10_opinion': 'h_opinion',
-    webstories: 'h_webstories'
+    'ln-common/ln10_opinion': 'h_opinion'
+};
+
+const configPositionArticlesByBox = {
+    webstories: { fields: ['_id', 'website_url'], savePosition: false },
+    default: { fields: ['_id', 'website_url'], savePosition: true }
 };
 
 const createBoxAndNotas = (elem, cajaCount, cajas) => {
@@ -60,6 +64,9 @@ const createNotasArray = elem => {
     const notasArray = [];
     const resp = {};
     let posicion = 0;
+    const configPositionArticles =
+        configPositionArticlesByBox[elem && elem.sectionAliasMobile] ||
+        configPositionArticlesByBox.default;
     for (const element of elem.articles) {
         const article = element;
         if (specialBox[article.sectionAliasMobile]) {
@@ -76,10 +83,13 @@ const createNotasArray = elem => {
             continue;
         }
         if (
-            // eslint-disable-next-line no-underscore-dangle
-            !article._id &&
-            !article.website_url
+            !article ||
+            (configPositionArticles &&
+                configPositionArticles.fields &&
+                configPositionArticles.fields.some(f => !article[f]))
         ) {
+            if (configPositionArticles && configPositionArticles.savePosition)
+                posicion += 1;
             // eslint-disable-next-line no-continue
             continue;
         }

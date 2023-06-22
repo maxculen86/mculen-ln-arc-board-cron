@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import get from '../../../common/utils/get';
 import sectionsValidation from '../../../../layouts/config/LN10-Home.config.json';
 
@@ -13,9 +12,11 @@ export const getChildrenFromSectionHome = (
     return (
         get(renderables, `[${INDEX_SECTION}].children`, []).filter(
             children =>
-                (children.props.customFields.hideCaja ||
+                !(
+                    children.props.customFields.hideCaja ||
                     (children.props.customFields.hideByUrl &&
-                        children.props.customFields.hideByHtml)) !== true
+                        children.props.customFields.hideByHtml)
+                )
         ) || []
     );
 };

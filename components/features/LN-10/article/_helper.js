@@ -11,10 +11,16 @@ import diagramationRules, {
 import featureArticleCustomsFields from '../../../private/LN/common/utils/articuloHelper';
 import transformImageData from '../../../private/common/LN-10/transformImageData';
 import setClassName from '../../../private/common/utils/setClassName';
-import { getIsBomba, getChainParentOfFeature } from './common/_helper-WebApi';
+import {
+    getIsBomba,
+    getChainParentOfFeature,
+    handleTagWithBomba
+} from './common/_helper-WebApi';
+import sectionsValidationLN10 from '../../../layouts/config/LN10-Home.config.json';
 import { isImageEager } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import { getFirstParentSection } from '../../../private/common/utils/sectionUtils';
 import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
+import getElementFromRenderables from '../../../private/common/utils/getElementFromRenderables';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -267,7 +273,12 @@ export const getDynamicStreamOperator = (sizes, cardSize, middleSize = 'l') => {
     return OPERATORS.LOWER;
 };
 
-const transformVideoData = (videoData, shouldUseV2, cardSize) => {
+export const transformVideoData = (
+    videoData,
+    shouldUseV2,
+    cardSize,
+    isAdmin = false
+) => {
     const streams = get(videoData, 'streams', []);
     // TODO: Quitar validacion de shouldUseV2 cuando salga resizer 2 por completo. Mantener la constante con: "get(videoData, 'promo_items.basic.resized_urls', [])"
     const videoImagesResized = shouldUseV2
@@ -280,7 +291,7 @@ const transformVideoData = (videoData, shouldUseV2, cardSize) => {
 
     return {
         type,
-        src: url,
+        [isAdmin ? 'src' : 'dataSrc']: url,
         poster: resizedUrl
     };
 };
@@ -292,7 +303,8 @@ export const getMediaData = ({
     renderables = [],
     customFields = {},
     shouldUseV2 = false,
-    config = {}
+    config = {},
+    isAdmin = false
 } = {}) => {
     const { video: videoId, imageId, html = '' } = customFields;
     const { _id } = article || {};
@@ -312,7 +324,12 @@ export const getMediaData = ({
         },
         {
             validation: videoId && video,
-            data: transformVideoData(video, shouldUseV2, config.cardSize)
+            data: transformVideoData(
+                video,
+                shouldUseV2,
+                config.cardSize,
+                isAdmin
+            )
         },
 
         {
@@ -359,7 +376,31 @@ export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
         );
     const layoutChain =
         elementChain && elementChain.getAttribute('data-diagramacion-id');
+    const chainId = elementChain && elementChain.getAttribute('data-chain-id');
     const cardConfig = diagramationRules(layoutChain);
+    const firstBombaChainId = get(
+        getElementFromRenderables({
+            position: 'Pre_Apertura.position',
+            config: sectionsValidationLN10,
+            typeElement: 'LN10_Caja_Bomba',
+            renderables
+        }),
+        'props.id',
+        null
+    );
+
+    if (firstBombaChainId) {
+        setConfig(
+            handleTagWithBomba(
+                firstBombaChainId,
+                chainId,
+                cardConfig,
+                indexOfFeature
+            )
+        );
+        return true;
+    }
+
     setConfig(cardConfig && cardConfig[indexOfFeature]);
     return true;
 };

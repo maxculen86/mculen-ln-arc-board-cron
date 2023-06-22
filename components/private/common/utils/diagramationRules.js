@@ -206,12 +206,12 @@ const diagramationRules = diagramation => {
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 withSubhead: false,
                 imageConfig: size.XS,
                 withPreload: true,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 }
@@ -223,10 +223,10 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 }
@@ -238,10 +238,10 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 }
@@ -253,10 +253,10 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 }
@@ -331,7 +331,7 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 hideBadget: true
             },
@@ -343,7 +343,7 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 hideBadget: true
             },
@@ -355,7 +355,7 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 hideBadget: true
             },
@@ -367,7 +367,7 @@ const diagramationRules = diagramation => {
                 withSubhead: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 hideBadget: true
             }
@@ -387,38 +387,38 @@ const diagramationRules = diagramation => {
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             }
         ],
@@ -437,38 +437,38 @@ const diagramationRules = diagramation => {
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
@@ -485,38 +485,38 @@ const diagramationRules = diagramation => {
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             }
         ],
@@ -700,7 +700,7 @@ const diagramationRules = diagramation => {
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
@@ -708,12 +708,12 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
@@ -721,12 +721,12 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
@@ -734,7 +734,7 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             }
         ],
@@ -757,27 +757,27 @@ const diagramationRules = diagramation => {
         ],
         bn_2_grid: [
             {
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.T1,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: false,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
                 }
             },
             {
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.S,
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
                 withSubhead: false,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
                 }
@@ -801,26 +801,26 @@ const diagramationRules = diagramation => {
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.M
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.M
             }
         ],
@@ -841,38 +841,38 @@ const diagramationRules = diagramation => {
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             }
         ],
@@ -900,43 +900,43 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.S
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             }
         ],
@@ -958,38 +958,38 @@ const diagramationRules = diagramation => {
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.M
             }
         ],
@@ -1012,27 +1012,27 @@ const diagramationRules = diagramation => {
             {
                 variantsDisabled: [],
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             },
             {
                 variantsDisabled: [],
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS
             }
         ],
@@ -1055,14 +1055,14 @@ const diagramationRules = diagramation => {
             {
                 variantsDisabled: [],
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.M
             }
         ],
@@ -1087,10 +1087,10 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 }
@@ -1101,10 +1101,10 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.none,
                     desktop: img.none
                 }
@@ -1114,10 +1114,10 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 }
@@ -1128,10 +1128,10 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withMedia: true,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.none,
                     desktop: img.none
                 }

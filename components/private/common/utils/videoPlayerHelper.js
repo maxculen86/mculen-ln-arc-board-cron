@@ -16,65 +16,12 @@ export const setPrerollAdsForPowa = adsURL => {
     };
 };
 
-export const setEvent = (
-    player,
-    event,
-    eventName,
-    titulo,
-    id,
-    streamingAnalyticInstance = {}
-) => {
-    player.on(event, () => {
-        addToDataLayer(eventName, titulo, id);
-        event === 'play' && comscorePlayEvent(streamingAnalyticInstance);
-    });
-};
-
-export const setProgressEvent = (player, titulo, id) => {
-    const eventCases = {
-        '0': () => {
-            // NOSONAR - This is intentional
-        },
-        '25': () => {
-            if (!isInDatalayerEvent('25', id)) {
-                addToDataLayer('25', titulo, id);
-            }
-        },
-        '50': () => {
-            if (!isInDatalayerEvent('50', id)) {
-                addToDataLayer('50', titulo, id);
-            }
-        },
-        '75': () => {
-            if (!isInDatalayerEvent('75', id)) {
-                addToDataLayer('75', titulo, id);
-            }
-        }
-    };
-
-    player.on('time', (event, eventName) => {
-        const percent = Math.floor((event.time / event.duration) * 100);
-        (eventCases[percent] || eventCases['0'])();
-    });
-};
-
 export const addToDataLayer = (eventName, titulo, id) => {
     window.dataLayer.push({
         event: eventName,
         videoName: titulo,
         videoID: id
     });
-};
-
-export const isInDatalayerEvent = (event, id) => {
-    const result =
-        window &&
-        window.dataLayer &&
-        window.dataLayer.find(
-            element => element.event === event && element.videoID === id
-        );
-
-    return result || false;
 };
 
 export const setCustomErrorsVideoPlayer = () => {
@@ -192,4 +139,72 @@ export const getClassForFacade = (arcSite, isVerticalVideo) => {
     return classCondition[arcSite]
         ? classCondition[arcSite]
         : classCondition.default;
+};
+
+export const isInDatalayerEvent = (event, videoId) => {
+    const result =
+        window &&
+        window.dataLayer &&
+        window.dataLayer.find(
+            element => element.event === event && element.videoID === videoId
+        );
+
+    return result || false;
+};
+
+export const setProgressEvent = (player, tituloVideo, videoId) => {
+    const eventCases = {
+        '0': () => {
+            // NOSONAR - This is intentional
+        },
+        '25': () => {
+            if (!isInDatalayerEvent('25', videoId)) {
+                addToDataLayer('25', tituloVideo, videoId);
+            }
+        },
+        '50': () => {
+            if (!isInDatalayerEvent('50', videoId)) {
+                addToDataLayer('50', tituloVideo, videoId);
+            }
+        },
+        '75': () => {
+            if (!isInDatalayerEvent('75', videoId)) {
+                addToDataLayer('75', tituloVideo, videoId);
+            }
+        }
+    };
+
+    player.on('time', _event => {
+        const percent = Math.floor((_event.time / _event.duration) * 100);
+        (eventCases[percent] || eventCases['0'])();
+    });
+};
+
+export const setVideoEvents = (
+    event,
+    videoId,
+    tituloVideo,
+    withComscore,
+    streamingAnalyticInstance = {}
+) => {
+    const setEvent = (player, _event, eventName) => {
+        player.on(_event, () => {
+            !isInDatalayerEvent(eventName, videoId) &&
+                addToDataLayer(eventName, tituloVideo, videoId);
+            withComscore &&
+                event === 'play' &&
+                comscorePlayEvent(streamingAnalyticInstance);
+        });
+    };
+
+    const player = event.detail.powa;
+    const playerID = event.detail.id;
+
+    if (playerID.includes(videoId)) {
+        setProgressEvent(player, tituloVideo, videoId);
+        setEvent(player, 'play', 'videoPlay');
+        setEvent(player, 'complete', 'videoComplete');
+    }
+
+    return null;
 };

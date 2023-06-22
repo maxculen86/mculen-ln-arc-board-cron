@@ -6,7 +6,8 @@ exports[`components - feature - ln10 - webstory should match snapshot 1`] = `
     class="ln-card --d-flex --flex-col --ai-start --m --regular"
     data-id="89P13"
     data-notaid="89P13"
-    data-pos="9700"
+    data-pos="0000"
+    data-source="editor"
   >
     <a
       class="link ln-link --d-flex --flex-col --unstyled"

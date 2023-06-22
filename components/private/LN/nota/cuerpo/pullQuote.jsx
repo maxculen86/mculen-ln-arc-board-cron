@@ -1,5 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../../../../resources/dist/css/ln/modules/mod-linklist.css';
+import '../../../../../resources/dist/css/ln/components/com-link.css';
+import '../../../../../resources/dist/css/ln/components/com-text.css';
+import '../../../../../resources/dist/css/ln/components/com-title.css';
+import '../../../../../resources/dist/css/ln/components/com-lead.css';
 
 import Paragraph from './parrafo';
 

@@ -2,9 +2,11 @@ import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 import GetCajaManual from '../../private/LN/api/global/components/chains/LN10/getCajaManual';
 import { validateChildrensApi } from '../../private/LN/api/global/components/common/utils/_helpers';
+
 import {
     validateChain,
-    filterWebStoriesChildren
+    filterWebStoriesChildren,
+    filterWebStories
 } from './common/_helper-WebApi';
 
 class CajaWebStories extends GetCajaManual {
@@ -21,10 +23,9 @@ class CajaWebStories extends GetCajaManual {
             }));
 
         const filteredChildren = filterWebStoriesChildren(
-            renderables,
+            filterWebStories(renderables),
             childrenRenders
         );
-
         return validateChain(filteredChildren);
     };
 
@@ -50,7 +51,8 @@ class CajaWebStories extends GetCajaManual {
             return {
                 information: {
                     ...this.props.customFields,
-                    typeChain: this.props.typeChain
+                    typeChain: this.props.typeChain,
+                    layout: 'webstories'
                 },
                 articles: children
             };

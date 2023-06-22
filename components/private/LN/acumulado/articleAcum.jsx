@@ -26,7 +26,8 @@ const typeAcumRules = {
     Timeline: {
         withMedia: true,
         withAuthors: true,
-        withHour: true
+        withHour: true,
+        dateClassNames: '--font-primary --font-black --m'
     },
     Bookmark: {
         withMedia: true,
@@ -84,7 +85,7 @@ const ArticleAcum = ({
     const hourToDisplay = typeAcumRules[typeArticle].withHour && (
         <ComHour
             display_date={display_date}
-            size="--twoxs"
+            size={typeAcumRules[typeArticle].dateClassNames || '--twoxs'}
             isUltimasNoticias={typeArticle === 'Timeline'}
         />
     );

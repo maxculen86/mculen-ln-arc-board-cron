@@ -71,23 +71,6 @@ describe('Features - LN-acumulado - Tag list', () => {
         });
     });
 
-    it('should test getSectionProps func for Home', () => {
-        const config1 = {
-            sectionName: 'home',
-            sectionId: undefined,
-            renderables: renderables1,
-            arcSite: 'la-nacion-ar'
-        };
-
-        const { sourceName: source1, query: query1 } = getSectionProps(config1);
-
-        expect(source1).toStrictEqual('acuArticlesSourcebyIds');
-        expect(query1).toStrictEqual({
-            Ids: 'ILXGTYXUWNF3HKJ3ROQQCQPRVE,Z62GTRQMINHNRDLWGGMKGE3ZCE',
-            website: 'la-nacion-ar'
-        });
-    });
-
     it('should test getSectionProps func for ACU', () => {
         const config2 = {
             sectionName: 'section',

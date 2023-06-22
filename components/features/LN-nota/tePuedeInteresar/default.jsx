@@ -8,6 +8,7 @@ import CajaTema from '../../../private/LN/common/cajaTema';
 import useSetLocalStorage from './_hooks/useSetLocalStorage';
 import useBuildMayInterest from './_hooks/useBuildMayInterest';
 import articleBoxesTracker from '../../../private/common/utils/noteTracker/articleBoxesTracker';
+import { replaceUrlsByEnvironment } from '../../../private/common/utils/replaceProductiveImgDomain';
 
 const TePuedeInteresar = props => {
     const showLiftigniter = useTermica('liftigniter');
@@ -55,7 +56,7 @@ const TePuedeInteresar = props => {
                                 ? 'TePuedeInteresarHome'
                                 : 'TePuedeInteresar'
                         }
-                        articles={articles}
+                        articles={replaceUrlsByEnvironment(articles)}
                         position="toi"
                         outputType={outputType}
                         withVolanta

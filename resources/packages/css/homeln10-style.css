@@ -720,6 +720,7 @@
 .ln-advance.--withVideo .wrap .lay-container > article .video iframe {
   width: 6.875rem;
   aspect-ratio: 16/9;
+  height: auto;
 }
 .ln-advance.--withVideo .wrap .lay-container > article .text-container {
   display: flex;
@@ -1551,9 +1552,6 @@
   .ln-bngrid.--canal_1_4_grid .grid .grid-item:nth-child(n+2), .ln-bngrid.--bn_1_4_grid .grid .grid-item:nth-child(n+2), .ln-bngrid.--bn_1_grid .grid .grid-item:nth-child(n+2) {
     grid-row: 2/span 1;
   }
-}
-.ln-bngrid.--bn_2_1_2_grid .grid .grid-item:not(:first-child) article a {
-  flex-direction: row-reverse;
 }
 @media (min-width: 48rem) {
   .ln-bngrid.--bn_2_1_2_grid .grid .grid-item:not(:first-child) article a {

@@ -2,13 +2,10 @@
 
 exports[`Componentes - Chains - LN10_Caja_WebStories should match snapshot 1`] = `
 <div>
-  <div
-    data-module="tema_webstories"
-  >
+  <div>
     <section
       data-block-name="n_webstories"
       data-diagramacion-id="webstories"
-      data-is-block="true"
     >
       <div
         class="wrap-webstories --pt-3xl"
@@ -46,7 +43,7 @@ exports[`Componentes - Chains - LN10_Caja_WebStories should match snapshot 1`] =
             class="--d-flex --ai-center --mobile-none"
           >
             <button
-              class="button ln-button --hide --sm"
+              class="button ln-button --hide --arial --sm"
               title="Anterior historia"
               type="button"
             >
@@ -67,7 +64,7 @@ exports[`Componentes - Chains - LN10_Caja_WebStories should match snapshot 1`] =
               </i>
             </button>
             <button
-              class="button ln-button --sm"
+              class="button ln-button --arial --sm"
               title="Siguiente historia"
               type="button"
             >

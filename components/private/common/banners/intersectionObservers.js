@@ -1,10 +1,8 @@
-/* eslint-disable no-console */
-import { queueGoogletagCommand } from '../../LN/common/utils/bannerHelper';
 import { filterBanners } from './lazyBannersHelper';
 import getViewport from '../../LN/common/utils/screenHelper';
 import { bannersLazy } from './bannersHomeLN10.json';
+import { queueGoogletagCommand } from '../../LN/common/utils/bannerHelper';
 
-// TODO ver posibilidad de testeo
 export const createBannersIntersectionObserver = () => {
     const { device } = getViewport();
     const banners = filterBanners(bannersLazy);
@@ -49,4 +47,29 @@ export const createHeaderObserver = () => {
     const wrapper = document.querySelector('.wrapper.homepage');
 
     if (subHeader) interSectionObserver.observe(subHeader);
+};
+
+// TODO testear observer
+export const createDifferVideosObserver = () => {
+    const lazyVideos = [].slice.call(
+        document.querySelectorAll('video.ln-video')
+    );
+
+    const videosCallback = entries => {
+        entries.forEach(video => {
+            const lazyVideo = video.target;
+            if (video.isIntersecting && lazyVideo.paused) {
+                lazyVideo.src = lazyVideo.dataset.src;
+                lazyVideo.play();
+            } else {
+                lazyVideo.pause();
+            }
+        });
+    };
+
+    const lazyVideoObserver = new IntersectionObserver(videosCallback);
+
+    lazyVideos.forEach(lazyVideo => {
+        lazyVideoObserver.observe(lazyVideo);
+    });
 };

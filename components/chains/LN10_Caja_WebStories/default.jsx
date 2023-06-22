@@ -3,13 +3,15 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { Webstories } from '@ln/contenidos-ui-webstories';
-import Lazy from 'lazy-child';
-import { LAZY_OFFSETTOP } from 'fusion:environment';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
-import { getMarkupForDatalayer } from '../../private/LN/common/utils/cajaTemasHelper';
+import {
+    getCommonProps,
+    getMarkupForDatalayer
+} from '../../private/LN/common/utils/cajaTemasHelper';
 import {
     validateChain,
-    filterWebStoriesChildren
+    filterWebStoriesChildren,
+    filterWebStories
 } from './common/_helper-WebApi';
 import '../../../resources/packages/css/@ln/contenidos-ui-webstories/index.css';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
@@ -23,9 +25,14 @@ const CajaWebStories = props => {
         customFields
     } = props;
 
+    const { position, positionInsideSection } = getCommonProps(props);
+
     const { hideCaja = false } = customFields;
 
-    const filteredChildren = filterWebStoriesChildren(renderables, children);
+    const filteredChildren = filterWebStoriesChildren(
+        filterWebStories(renderables),
+        children
+    );
 
     const { bannerMob = undefined } =
         getDynamicBanners({
@@ -34,27 +41,22 @@ const CajaWebStories = props => {
         }) || {};
 
     const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
-        'WebStories',
         '',
         '',
+        position,
         '',
-        ''
+        positionInsideSection
     );
 
     const error = validateChain(filteredChildren);
 
     return (
         !hideCaja && (
-            <Lazy
-                renderPlaceholder={ref => {
-                    return <div ref={ref} />;
-                }}
-                offsetTop={LAZY_OFFSETTOP}
-            >
+            <>
                 <div data-module={extraOptsDiv['data-module']}>
                     <section
-                        data-block-name={extraOpts['data-block-name']}
-                        data-diagramacion-id={extraOpts['data-diagramacion-id']}
+                        data-block-name="n_webstories"
+                        data-diagramacion-id="webstories"
                         data-is-block={extraOpts['data-is-block']}
                     >
                         <Webstories>{filteredChildren}</Webstories>
@@ -64,7 +66,7 @@ const CajaWebStories = props => {
                 {isAdmin && error && error.message && (
                     <WarningMessage type={error.type} message={error.message} />
                 )}
-            </Lazy>
+            </>
         )
     );
 };

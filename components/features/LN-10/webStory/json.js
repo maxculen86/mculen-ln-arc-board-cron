@@ -4,6 +4,7 @@ import { getChainConfig } from '../article/common/_helper-WebApi';
 import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 import { validateProps } from '../../../private/LN/api/global/components/features/article/LN10/props/validateProps';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
+import { filterWebStoriesRenderables } from '../../../chains/LN10_Caja_WebStories/common/_helper-WebApi';
 
 class WebStoryFeature {
     constructor(props) {
@@ -16,7 +17,11 @@ class WebStoryFeature {
         } = props;
 
         const { layoutsName = {} } = siteConfig || {};
-        this.configs = getChainConfig({ featureId, renderables }) || {};
+        this.configs =
+            getChainConfig({
+                featureId,
+                renderables: filterWebStoriesRenderables(renderables)
+            }) || {};
 
         this.shouldUseV2 =
             withResizerV2 && layoutPageBuilder === layoutsName.HomeLN10;
@@ -47,11 +52,9 @@ class WebStoryFeature {
             const { customFields } = this.props;
             const { imageId } = customFields;
 
-            if (!webstoryImageLN10) return null;
+            if (!webstoryImageLN10 && !imageId) return null;
 
             if (!customFields.link) return null;
-
-            // if (!customFields.title) return null;
 
             const additionalProperties = {
                 ...customFields,
@@ -62,6 +65,7 @@ class WebStoryFeature {
 
             return {
                 _id: `webstory${index + 1}`,
+                website_url: customFields.link,
                 additionalProperties
             };
         } catch (err) {

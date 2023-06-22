@@ -26,7 +26,6 @@ import { useRoofData } from '../utils/_helpers';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
 import DivBannerSSR from '../../private/common/banners/DivBannerSSR';
 import isContentLabAt100 from '../utils/isContentLabAt100';
-import '../../../resources/packages/css/@ln/contenidos-ui-bngrid/index.css';
 
 const CajaCollection = props => {
     const {

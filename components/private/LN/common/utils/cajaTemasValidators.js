@@ -24,13 +24,7 @@ const setMinimum = layout => {
     return options[layout] || options.default;
 };
 
-export const validateChainManual = (
-    childrenProps,
-    layout,
-    isInApertura,
-    isVideoBackground,
-    containsHTML
-) => {
+export const validateChainManual = (childrenProps, layout) => {
     const LN_COMMON_ARTICLE = 'LN-common/articulo';
     const LN_TIMELINE = 'LN-acumulado/timeline';
     const COLLECTION_FEATURES = 'features';
@@ -63,26 +57,11 @@ export const validateChainManual = (
                 'El Chain Caja Manual sólo admite Features del tipo LN Artículo'
         },
         {
-            validation:
-                isVideoBackground &&
-                !['grilla1', 'grillaVideo1'].includes(layout),
-            message:
-                'Con vídeo background solo se permite la diagramación Grilla 1 o Grilla 1 - Video'
-        },
-        {
             validation: childrenPropsLength < minimum,
             message: `Se requiere la carga de ${minimum -
                 childrenPropsLength} artículo${
                 minimum - childrenPropsLength > 1 ? 's' : ''
             }`
-        },
-        {
-            validation: ['grilla6', 'grilla9'].includes(layout) && isInApertura,
-            message: 'No se permite esta diagramación'
-        },
-        {
-            validation: containsHTML && layout !== 'grillaVideo1',
-            message: 'Esta diagramación no permite iframe HTML'
         },
         {
             validation:
