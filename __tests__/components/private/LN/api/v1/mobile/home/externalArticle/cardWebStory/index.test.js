@@ -108,7 +108,7 @@ describe('components - private - LN - api - v1 - mobile - home - externalArticle
 
         const testData = idData.map(_id => [
             Object.assign({}, baseArticle, {
-                    _id
+                _id
             }),
             LNApiErrorArticles,
             _id

@@ -8,15 +8,13 @@
     max-width: 95%;
     white-space: nowrap;
     border-radius: px(16);
-    &.com-label {
-        text-transform: uppercase;
-        padding: px(4) px(8);
-    }
+    text-transform: uppercase;
+    padding: px(4) px(8);
+
     &.--sponsored {
         background: $neutral-white;
         border: thin solid $neutral-black;
         color: $neutral-black;
-        padding: px(3) px(8);
     }
     &.--a-fondo {
         background: $red-400;
@@ -26,8 +24,6 @@
             margin-bottom: $spacing-sm;
         }
         background: $red-700;
-        font-size: 0.75rem;
-        line-height: 100%;
         &:before {
             content: '';
             width: px(5.33);
@@ -35,7 +31,8 @@
             border-radius: 50%;
             background: $neutral-white;
             margin-left: px(4);
-            margin-right: px(4);
+            margin-right: px(6);
+            align-self: center;
         }
     }
     &.--exclusive-ln {
