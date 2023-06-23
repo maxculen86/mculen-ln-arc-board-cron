@@ -63,7 +63,7 @@ exports[`Liveblog Snippet with liveblog power up Check render of liveblog postin
   \\"liveBlogUpdate\\": [
     {
       \\"@type\\": \\"BlogPosting\\",
-      \\"headline\\": \\"Gym 1 Ciudad Plateada\\",
+      \\"headline\\": \\"Paaawer ap dos\\",
       \\"url\\": \\"https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022#parrafo_1\\",
       \\"@id\\": \\"#parrafo_1\\",
       \\"mainEntityOfPage\\": {
@@ -87,7 +87,7 @@ exports[`Liveblog Snippet with liveblog power up Check render of liveblog postin
     },
     {
       \\"@type\\": \\"BlogPosting\\",
-      \\"headline\\": \\"Gym 2 ciudad Celeste\\",
+      \\"headline\\": \\"Paaawer ap dos\\",
       \\"url\\": \\"https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022#parrafo_2\\",
       \\"@id\\": \\"#parrafo_2\\",
       \\"mainEntityOfPage\\": {
@@ -111,7 +111,7 @@ exports[`Liveblog Snippet with liveblog power up Check render of liveblog postin
     },
     {
       \\"@type\\": \\"BlogPosting\\",
-      \\"headline\\": \\"Gym 3 ciudad Carmin\\",
+      \\"headline\\": \\"Paaawer ap dos\\",
       \\"url\\": \\"https://www.lanacion.com.ar/ciencia/paaawer-ap-dos-nid15062022#parrafo_3\\",
       \\"@id\\": \\"#parrafo_3\\",
       \\"mainEntityOfPage\\": {
