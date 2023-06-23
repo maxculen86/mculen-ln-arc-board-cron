@@ -1,12 +1,24 @@
-const fontExtra = '--font-extra';
+const fontWeight = {
+    medium: '--font-medium',
+    extra: '--font-extra'
+};
+const fontSize = {
+    fourXS: '--fourxs',
+    twoXS: '--twoxs',
+    xs: '--xs',
+    m: '--m',
+    l: '--l',
+    xl: '--xl',
+    threeXL: '--threexl'
+};
 
 export default {
     focalLeft3: {
         className: '--focal --left',
         articles: {
             0: {
-                titleSize: '--threexl',
-                titleWeight: fontExtra,
+                titleSize: fontSize.threeXL,
+                titleWeight: fontWeight.extra,
                 titleTagApertura: 'h1',
                 subheadTagApertura: 'h2',
                 withSubheadAndMedia: true,
@@ -15,12 +27,12 @@ export default {
                 isApertura: true
             },
             1: {
-                titleSize: '--l',
+                titleSize: fontSize.l,
                 withSubheadAndMedia: false,
                 imageConfig: 'mediumFocalIzquierdo'
             },
             2: {
-                titleSize: '--l',
+                titleSize: fontSize.l,
                 withSubheadAndMedia: false,
                 imageConfig: 'mediumFocalIzquierdo'
             }
@@ -30,13 +42,13 @@ export default {
         className: '--focal --right',
         articles: {
             0: {
-                titleSize: '--l',
+                titleSize: fontSize.l,
                 withSubheadAndMedia: true,
                 imageConfig: 'featuredFocalDerecho'
             },
             1: {
-                titleSize: '--threexl',
-                titleWeight: fontExtra,
+                titleSize: fontSize.threeXL,
+                titleWeight: fontWeight.extra,
                 titleTagApertura: 'h1',
                 subheadTagApertura: 'h2',
                 withSubheadAndMedia: true,
@@ -82,8 +94,8 @@ export default {
         className: '--cinema',
         articles: {
             0: {
-                titleSize: '--xl',
-                titleWeight: fontExtra,
+                titleSize: fontSize.xl,
+                titleWeight: fontWeight.extra,
                 skipRenderAuthor: true,
                 skipHtml: true,
                 skipSubhead: true,
@@ -99,13 +111,13 @@ export default {
         className: '',
         articles: {
             0: {
-                titleSize: '--xl',
-                titleWeight: fontExtra,
+                titleSize: fontSize.xl,
+                titleWeight: fontWeight.medium,
                 imageConfig: 'boxArticlesTwoArticles'
             },
             1: {
-                titleSize: '--xl',
-                titleWeight: fontExtra,
+                titleSize: fontSize.xl,
+                titleWeight: fontWeight.medium,
                 imageConfig: 'boxArticlesTwoArticles'
             }
         }
@@ -114,49 +126,49 @@ export default {
         className: '',
         articles: {
             0: {
-                titleSizeNoMedia: '--m',
+                titleSizeNoMedia: fontSize.m,
                 imageConfig: 'boxArticles'
             },
-            1: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' },
-            2: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' }
+            1: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
+            2: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' }
         }
     },
     grilla6: {
         className: '',
         articles: {
             0: {
-                titleSizeNoMedia: '--m',
+                titleSizeNoMedia: fontSize.m,
                 imageConfig: 'boxArticles'
             },
-            1: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' },
-            2: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' },
-            3: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' },
-            4: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' },
-            5: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' }
+            1: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
+            2: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
+            3: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
+            4: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
+            5: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' }
         }
     },
     grilla9: {
         className: '',
         articles: {
             0: {
-                titleSizeNoMedia: '--m',
+                titleSizeNoMedia: fontSize.m,
                 imageConfig: 'boxArticles'
             },
-            1: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' },
-            2: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' },
-            3: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' },
-            4: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' },
-            5: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' },
-            6: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' },
-            7: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' },
-            8: { titleSizeNoMedia: '--m', imageConfig: 'boxArticles' }
+            1: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
+            2: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
+            3: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
+            4: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
+            5: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
+            6: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
+            7: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' },
+            8: { titleSizeNoMedia: fontSize.m, imageConfig: 'boxArticles' }
         }
     },
     bomba1: {
         className: '--bomba',
         articles: {
             0: {
-                titleSize: '--threexl',
+                titleSize: fontSize.threeXL,
                 titleTagApertura: 'h1',
                 subheadTagApertura: 'h2',
                 withSubheadAndMedia: true,
@@ -169,25 +181,25 @@ export default {
         className: '--opinion',
         articles: {
             0: {
-                titleSize: '--l',
+                titleSize: fontSize.l,
                 withChapita: true,
                 imageConfig: 'featuredOpinion'
             },
             1: {
-                titleSize: '--xs',
-                authorSize: '--fourxs',
+                titleSize: fontSize.xs,
+                authorSize: fontSize.fourXS,
                 isRenderAuthorOpinion: true,
                 imageConfig: 'featuredOpinion'
             },
             2: {
-                titleSize: '--xs',
-                authorSize: '--fourxs',
+                titleSize: fontSize.xs,
+                authorSize: fontSize.fourXS,
                 isRenderAuthorOpinion: true,
                 imageConfig: 'featuredOpinion'
             },
             3: {
-                titleSize: '--l',
-                authorSize: '--fourxs',
+                titleSize: fontSize.l,
+                authorSize: fontSize.fourXS,
                 isRenderAuthorOpinion: true,
                 imageConfig: 'featuredOpinion'
             }
@@ -198,10 +210,10 @@ export default {
         headerSize: '--twoxs',
         articles: {
             0: {
-                titleSize: '--twoxs'
+                titleSize: fontSize.twoXS
             },
             1: {
-                titleSize: '--twoxs'
+                titleSize: fontSize.twoXS
             }
         }
     }

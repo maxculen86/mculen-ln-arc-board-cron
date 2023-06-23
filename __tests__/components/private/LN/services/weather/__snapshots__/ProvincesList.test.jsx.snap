@@ -7,7 +7,7 @@ exports[`Components - private - services - weather - ProvincesList => Test provi
     role="contentinfo"
   >
     <h3
-      class="com-title --font-primary --xl --font-extra"
+      class="com-title --font-primary --xl --font-black"
     >
       Provincias
     </h3>
@@ -86,7 +86,7 @@ exports[`Components - private - services - weather - ProvincesList => Test when 
     role="contentinfo"
   >
     <h3
-      class="com-title --font-primary --xl --font-extra"
+      class="com-title --font-primary --xl --font-black"
     >
       Provincias
     </h3>

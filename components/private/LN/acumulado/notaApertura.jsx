@@ -24,7 +24,7 @@ const NotaApertura = props => {
                     withSubhead={false}
                     titleTag="h2"
                     titleSize="--twoxl"
-                    titleWeight="--font-bold"
+                    titleWeight="--font-medium"
                     isApertura={i === 0}
                 />
             ))}
