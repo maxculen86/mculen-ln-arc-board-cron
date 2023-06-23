@@ -10,7 +10,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
       role="contentinfo"
     >
       <h3
-        class="com-title --font-primary --xl --font-extra"
+        class="com-title --font-primary --xl --font-black"
       >
         Referencias del clima
       </h3>

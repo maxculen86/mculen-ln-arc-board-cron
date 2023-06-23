@@ -102,7 +102,7 @@ describe('Tests - function - getChainConfig', () => {
             ).toStrictEqual({
                 config: {
                     titleSize: '--xl',
-                    titleWeight: '--font-extra',
+                    titleWeight: '--font-medium',
                     imageConfig: 'boxArticlesTwoArticles'
                 },
                 index: 1,

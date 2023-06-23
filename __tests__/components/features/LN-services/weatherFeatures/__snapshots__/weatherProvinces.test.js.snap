@@ -9,7 +9,7 @@ exports[`WeatherProvince with home data Should render in mendoza weather 1`] = `
     role="contentinfo"
   >
     <h3
-      class="com-title --font-primary --xl --font-extra"
+      class="com-title --font-primary --xl --font-black"
     >
       Provincias
     </h3>

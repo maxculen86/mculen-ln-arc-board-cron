@@ -47,7 +47,7 @@ describe('Components - private - services - weather - IconsReferences =>', () =>
         ).toBe(1);
         expect(
             container.innerHTML.includes(
-                '<h3 class="com-title --font-primary --xl --font-extra">Referencias del clima</h3>'
+                '<h3 class="com-title --font-primary --xl --font-black">Referencias del clima</h3>'
             )
         ).toBe(true);
         expect(container.getElementsByClassName(expectedClass).length).toBe(1);

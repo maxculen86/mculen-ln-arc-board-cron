@@ -19,7 +19,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
           role="contentinfo"
         >
           <h3
-            class="com-title --font-primary --xl --font-extra"
+            class="com-title --font-primary --xl --font-black"
           >
             Más leídas de Política
           </h3>
@@ -341,7 +341,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
           role="contentinfo"
         >
           <h3
-            class="com-title --font-primary --xl --font-extra"
+            class="com-title --font-primary --xl --font-black"
           >
             Más leídas
           </h3>
@@ -655,7 +655,7 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
           role="contentinfo"
         >
           <h3
-            class="com-title --font-primary --xl --font-extra"
+            class="com-title --font-primary --xl --font-black"
           >
             Te puede interesar
           </h3>

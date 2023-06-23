@@ -1970,7 +1970,7 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         role="contentinfo"
       >
         <h3
-          class="com-title --font-primary --xl --font-extra"
+          class="com-title --font-primary --xl --font-black"
         >
           Referencias del clima
         </h3>
@@ -2559,7 +2559,7 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
         role="contentinfo"
       >
         <h3
-          class="com-title --font-primary --xl --font-extra"
+          class="com-title --font-primary --xl --font-black"
         >
           Referencias del clima
         </h3>
