@@ -5,6 +5,7 @@ import '../../../../../resources/dist/css/ln/components/com-link.css';
 import '../../../../../resources/dist/css/ln/components/com-text.css';
 import '../../../../../resources/dist/css/ln/components/com-title.css';
 import '../../../../../resources/dist/css/ln/components/com-lead.css';
+import '../../../../../resources/dist/css/ln/components/appointment.css';
 
 import Paragraph from './parrafo';
 
