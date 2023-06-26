@@ -24,7 +24,7 @@ describe('components - private - LN - api - v1 - mobile - home - externalArticle
             volanta: 'Mock Volanta',
             imagen: 'Mock Image'
         }));
-        
+
         const result = ExternalArticle(article);
 
         expect(result).toMatchObject({

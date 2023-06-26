@@ -48,6 +48,12 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
     } = globalContent || {};
 
     const { authors } = extracDataFromCredits(by);
+
+    const headline = get(
+        globalContent,
+        'headlines.basic',
+        'LA NACION - Noticia'
+    );
     const postingStart = contentElements.findIndex(elem => {
         const { subtype = 'default', type = '' } = elem;
         return type === 'custom_embed' && subtype === 'custom-liveblog';
@@ -91,12 +97,12 @@ export const generatePostObject = (globalContent, urlNota, PLACEHOLDER) => {
 
     return postElements.map((elem, i) => {
         const { config = {}, content = '', url = '' } = elem;
-        const { title = '', date = '', time = '' } = config;
+        const { date = '', time = '' } = config;
         const isoDate = createISODate(date, time);
 
         return {
             '@type': 'BlogPosting',
-            headline: title,
+            headline,
             url: `${urlNota.slice(0, -1)}#parrafo_${i + 1}`,
             '@id': `#parrafo_${i + 1}`,
             mainEntityOfPage: { '@type': 'WebPage' },

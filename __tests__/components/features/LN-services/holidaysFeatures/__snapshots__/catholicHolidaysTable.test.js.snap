@@ -7,7 +7,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
     role="contentinfo"
   >
     <h2
-      class="com-title --font-primary --xl --font-extra"
+      class="com-title --font-primary --xl --font-black"
     >
       Feriados inamovibles
     </h2>
@@ -128,7 +128,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
     role="contentinfo"
   >
     <h2
-      class="com-title --font-primary --xl --font-extra"
+      class="com-title --font-primary --xl --font-black"
     >
       Feriados transferibles
     </h2>
@@ -172,7 +172,7 @@ exports[`Components- Features - CatholicHolidaysTable - default.jsx - test Shoul
     role="contentinfo"
   >
     <h2
-      class="com-title --font-primary --xl --font-extra"
+      class="com-title --font-primary --xl --font-black"
     >
       Feriados puentes
     </h2>
