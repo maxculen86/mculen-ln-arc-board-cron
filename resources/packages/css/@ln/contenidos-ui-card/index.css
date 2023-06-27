@@ -127,6 +127,10 @@
   margin: 0;
   letter-spacing: -0.02rem;
 }
+.ln-card.--author .link .description-container .--font-m,
+.ln-card.--author .link .description-container .--font-l-m {
+  font-size: 1.25rem;
+}
 .ln-card.--author .link .description-container .marquee-container {
   flex-direction: column;
   gap: 0.5rem;
