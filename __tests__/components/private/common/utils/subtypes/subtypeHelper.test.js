@@ -50,7 +50,7 @@ describe('Private - Common - Utils - subtypes - subtypeHelper', () => {
 });
 
 describe('Private - Common - Utils - subtypeNotesWithoutAmp - subtypeHelper', () => {
-    it('Should return true when the subtype has no amp  ', () => {
+    it('Should return true when the subtype has no amp', () => {
         expect(
             subtypeNotesWithoutAmp(
                 '/agencias/eeuu-y-rusia-chocan-por-responsabilidad-de-ataque-con-misil-nid17112022/'
@@ -97,9 +97,44 @@ describe('Private - Common - Utils - subtypeNotesWithoutAmp - subtypeHelper', ()
                 '/estados-unidos/muertes-por-sobredosis-en-eeuu-aumentaron-15-en-2021-a-mas-de-100000-nid13052022/'
             )
         ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/agencias/eeuu-y-rusia-chocan-por-responsabilidad-de-ataque-con-misil-nid17112022/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/clima/cordoba/villa-carlos-paz/clima-en-villa-carlos-paz-hoy-cual-es-el-pronostico-del-tiempo-para-el-27-de-junio-nid26062023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/loterias/quiniela-nacional/resultados-de-la-quiniela-nacional-nocturna-de-hoy-24-de-junio-nid24062023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/revista-jardin/jardin-de-invierno-descubre-ocho-invernaculos-que-te-sorprenderan-nid06062023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/revista-lugares/furor-peruano-donde-comer-en-lima-la-multipremiada-capital-gourmet-de-latinoamerica-nid25062023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/revista-living/en-casas-reales-10-toilettes-actuales-con-materiales-y-disenos-que-impactan-y-perduran-nid22062023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/revista-hola/su-nueva-vida-en-cordoba-liz-solari-habla-de-su-carrera-los-animales-y-por-que-se-mudo-estoy-en-una-nid15062023/'
+            )
+        ).toBeTruthy();
     });
 
-    it('Should return false when the subtype has amp  ', () => {
+    it('Should return false when the subtype has amp', () => {
         expect(
             subtypeNotesWithoutAmp(
                 '/deportes/eeuu-y-rusia-chocan-por-responsabilidad-de-ataque-con-misil-nid17112022/'
