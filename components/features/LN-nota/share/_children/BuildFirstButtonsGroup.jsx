@@ -16,6 +16,7 @@ import useFetch from '../../../../private/common/hooks/useFetch';
 import get from '../../../../private/common/utils/get';
 import { conditionallyCallViafoura } from '../../../../private/common/utils/commentsHelper';
 import eventHandler from '../../../../private/common/audioNews/trackerAudioNews';
+import useTermica from '../../../../private/common/hooks/useTermica';
 
 const BuildFirtsButtonsGroup = ({
     termicaBookmark,
@@ -52,10 +53,11 @@ const BuildFirtsButtonsGroup = ({
     const totalVisibleContent = get(data, 'total_visible_content', '');
 
     const { className, icon } = getClassAndIconByBookmark(bookmark);
+    const hideListenButton = useTermica('hide_listening_articles');
 
     return (
         <div className="first-buttons-group">
-            {isListenable && (
+            {!hideListenButton && isListenable && (
                 <ComButton
                     id="btnAudio"
                     size="--fourxs"

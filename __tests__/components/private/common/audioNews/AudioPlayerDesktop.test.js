@@ -4,6 +4,10 @@ import AudioPlayerDesktop from '../../../../../components/private/common/audioNe
 import getToken from '../../../../../components/private/common/utils/getToken';
 import useFetch from '../../../../../components/private/common/hooks/useFetch';
 
+jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
+    jest.fn()
+);
+
 jest.mock('../../../../../components/private/common/utils/getToken', () =>
     jest.fn()
 );

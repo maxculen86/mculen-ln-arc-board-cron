@@ -4,6 +4,10 @@ import '@testing-library/jest-dom';
 import BuildFirtsButtonsGroup from '../../../../../components/features/LN-nota/share/_children/BuildFirstButtonsGroup';
 import useFetch from '../../../../../components/private/common/hooks/useFetch';
 
+jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
+    jest.fn()
+);
+
 jest.mock('../../../../../components/private/common/hooks/useFetch', () =>
     jest.fn()
 );
