@@ -53,11 +53,12 @@ const BuildFirtsButtonsGroup = ({
     const totalVisibleContent = get(data, 'total_visible_content', '');
 
     const { className, icon } = getClassAndIconByBookmark(bookmark);
-    const hideListenButton = useTermica('hide_listening_articles');
+    const showListenButton =
+        !useTermica('hide_listening_articles') && isListenable;
 
     return (
         <div className="first-buttons-group">
-            {!hideListenButton && isListenable && (
+            {showListenButton && (
                 <ComButton
                     id="btnAudio"
                     size="--fourxs"

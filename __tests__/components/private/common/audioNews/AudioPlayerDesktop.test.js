@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import AudioPlayerDesktop from '../../../../../components/private/common/audioNews/AudioPlayerDesktop';
 import getToken from '../../../../../components/private/common/utils/getToken';
 import useFetch from '../../../../../components/private/common/hooks/useFetch';
+import useTermica from '../../../../../components/private/common/hooks/useTermica';
 
 jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
     jest.fn()
@@ -67,6 +68,45 @@ describe('Test - AudioPlayer in desktop', () => {
             ...props,
             isListenable: true
         };
+
+        it('should not render isListenable button if useTermica returns true', () => {
+            useTermica.mockImplementation(() => true);
+
+            render(
+                <AudioPlayerDesktop
+                    isListenable={true}
+                    publishDate="2022-09-15T23:57:45.682Z"
+                    noteId="CV2AWECQORF4HLDVMFFJCLQ234"
+                />
+            );
+
+            expect(useTermica).toHaveBeenCalledWith('hide_listening_articles');
+            expect(
+                screen.queryByRole('button', { name: 'Escuchar nota' })
+            ).toBeNull();
+        });
+
+        it('should render isListenable button if useTermica returns false', () => {
+            useTermica.mockImplementation(() => false);
+
+            render(
+                <AudioPlayerDesktop
+                    isListenable={true}
+                    publishDate="2022-09-15T23:57:45.682Z"
+                    noteId="CV2AWECQORF4HLDVMFFJCLQ234"
+                />
+            );
+
+            expect(useTermica).toHaveBeenCalled();
+
+            try {
+                screen.getByRole('button', { name: 'Escuchar nota' });
+            } catch (error) {
+                throw new Error(
+                    'El botón "Escuchar nota" no está renderizado correctamente'
+                );
+            }
+        });
 
         test('It should show listen button, the player and register event on dataLayer  after click', () => {
             const { container } = render(
