@@ -1,4 +1,8 @@
-import { LANACION_SERVICES_URL } from 'fusion:environment';
+import {
+    LANACION_SERVICES_URL,
+    API_ENV,
+    API_KEY_ARC_SERVICES
+} from 'fusion:environment';
 import request from 'request-promise-native';
 import logger from '../../../../../components/private/common/utils/logger';
 import {
@@ -21,6 +25,10 @@ const lotteryRequest = ({ queryData, auth } = {}) => {
     const opt = {
         uri: getUri(queryData),
         json: true,
+        headers: {
+            Referer: API_ENV,
+            'api-key': API_KEY_ARC_SERVICES
+        },
         ...auth
     };
     return request(opt).then(data => data);

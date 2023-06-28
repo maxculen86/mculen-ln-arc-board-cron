@@ -75,7 +75,7 @@ describe('Common - getMetasOG function', () => {
                     'odas las noticias de Argentina y el mundo: últimas noticias en actualidad, deportes, coronavirus, economía, política, y tecnología. Encontrá acá la receta de Arroz chaufa de mariscos - LA NACION',
                 shareConfig: {
                     facebook: {
-                        appID: '205326199490321'
+                        appID: '154042854349421'
                     }
                 }
             },
@@ -95,7 +95,7 @@ describe('Common - getMetasOG function', () => {
         const metas = [
             {
                 property: 'fb_app_id',
-                content: '205326199490321'
+                content: '154042854349421'
             },
             {
                 property: 'og:type',
@@ -136,7 +136,7 @@ describe('Common - getMetasOG function', () => {
                 title: 'LA NACION',
                 shareConfig: {
                     facebook: {
-                        appID: '205326199490321'
+                        appID: '154042854349421'
                     }
                 }
             },
@@ -157,7 +157,7 @@ describe('Common - getMetasOG function', () => {
         const metas = [
             {
                 property: 'fb_app_id',
-                content: '205326199490321'
+                content: '154042854349421'
             },
             {
                 property: 'og:type',
@@ -205,7 +205,7 @@ describe('Common - getMetasOG function', () => {
                 title: 'LA NACION',
                 shareConfig: {
                     facebook: {
-                        appID: '205326199490321'
+                        appID: '154042854349421'
                     }
                 }
             },
@@ -223,7 +223,7 @@ describe('Common - getMetasOG function', () => {
         const metas = [
             {
                 property: 'fb_app_id',
-                content: '205326199490321'
+                content: '154042854349421'
             },
             {
                 property: 'og:type',
@@ -286,7 +286,7 @@ describe('Metas home', () => {
                 description: 'Últimas Noticias de LA NACION',
                 shareConfig: {
                     facebook: {
-                        appID: '205326199490321'
+                        appID: '154042854349421'
                     }
                 }
             },
@@ -304,7 +304,7 @@ describe('Metas home', () => {
         const metas = [
             {
                 property: 'fb_app_id',
-                content: '205326199490321'
+                content: '154042854349421'
             },
             {
                 property: 'og:type',
