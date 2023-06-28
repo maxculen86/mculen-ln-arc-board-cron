@@ -104,6 +104,7 @@ export const RightOptions = ({
                 typeButton="secondary"
                 className={!loggedIn && !loading ? '--mobile-none' : '--none'}
                 onClick={goToLoginUrl}
+                id="btningresar"
             >
                 INICIAR SESIÓN
             </Button>
