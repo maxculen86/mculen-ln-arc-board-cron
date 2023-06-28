@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SummaryNote => Should match the snapshot 1`] = `
+<div>
+  <section
+    class="--pl-l-sm --border-l-left-gray --w-100 --mb-md"
+  >
+    <h2
+      class="text ln-text --font-primary --font-medium --l --text-neutral-light-900 --mb-sm"
+    >
+      RESUMEN DE NOTA
+    </h2>
+    <ul
+      class="--d-flex --flex-col --gap-24 --mb-md --pl-md --list-inherit"
+    >
+      <li
+        class="--font-m"
+      >
+        <span>
+          Real 
+        </span>
+        <i>
+          <em>
+            Madrid
+          </em>
+        </i>
+        <span>
+           fue eliminado de la Champions League luego de sufrir una paliza por 5 a 1 ante Manchester City en las semifinales.
+        </span>
+      </li>
+      <li
+        class="--font-m"
+      >
+        <span>
+          La prensa deportiva 
+        </span>
+        <b>
+          <strong>
+            española
+          </strong>
+        </b>
+        <span>
+           reflejó la dolenicia de los hinchas: Marca tituló 'Palizas de las que duelen', mientras AS optó por "Para llorar". 
+        </span>
+      </li>
+      <li
+        class="--font-m"
+      >
+        <s>
+          <span>
+            Karim
+          </span>
+        </s>
+        <span>
+           Benzema fue el blanco preferido de las críticas entre los hinchas del Real Madrid, quienes exigieron su salida del club.
+        </span>
+      </li>
+      <li
+        class="--font-m"
+      >
+        <span>
+          El delantero francés fue el ganador del último Balón de Oro en octubre de 2022, título otorgado por su rol fundamental en la victoria de Real Madrid ante ese torneo el año pasado.
+        </span>
+      </li>
+    </ul>
+    <span
+      class="text ln-text --text-neutral-light-600 --font-2xs"
+    >
+      Realizado con inteligencia artificial
+    </span>
+  </section>
+</div>
+`;

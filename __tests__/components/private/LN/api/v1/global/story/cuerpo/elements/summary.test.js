@@ -126,7 +126,7 @@ describe('components - private - LN - api - v1 - global - story - cuerpo - eleme
 
         it.each(cases)('should return null when Nodo is %j', nodo => {
             const result = summary(nodo);
-            console.log("resultado", result);
+            console.log('resultado', result);
             expect(result).toBeNull();
         });
     });
