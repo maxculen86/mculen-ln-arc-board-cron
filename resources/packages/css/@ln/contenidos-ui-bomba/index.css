@@ -134,11 +134,8 @@
   margin-right: 0;
   padding-top: 1rem;
 }
-.bomba.bombita.mas-4 .bomba-grid > div:not(.child-0) .ln-card > .link {
-  flex-direction: row-reverse;
-}
 .bomba.bombita.mas-4 .bomba-grid > div:not(.child-0) .ln-card > .link .media-container {
-  max-width: 7.875rem;
+  width: 100%;
   margin: 0;
 }
 @media (min-width: 48rem) {

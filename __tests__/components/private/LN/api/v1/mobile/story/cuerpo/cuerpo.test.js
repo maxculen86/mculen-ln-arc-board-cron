@@ -80,8 +80,8 @@ describe('Test Json Text del cuerpo de la nota', () => {
             subtype => {
                 ArticleCuerpoConSummary.subtype = subtype;
 
-                ArticleCuerpoConSummary.promo_items.apertura_multimedia =  {};
-                
+                ArticleCuerpoConSummary.promo_items.apertura_multimedia = {};
+
                 const resp = Cuerpo(ArticleCuerpoConSummary);
 
                 expect(resp.elements).not.toBeNull();

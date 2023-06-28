@@ -104,12 +104,9 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
             [{ items: null }]
         ];
 
-        it.each(cases)(
-            'should return null when Nodo is %j',
-            nodo => {
-                const result = summary(nodo);
-                expect(result).toBeNull();
-            }
-        );
+        it.each(cases)('should return null when Nodo is %j', nodo => {
+            const result = summary(nodo);
+            expect(result).toBeNull();
+        });
     });
 });

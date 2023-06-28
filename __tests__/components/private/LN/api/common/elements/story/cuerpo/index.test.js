@@ -1,4 +1,4 @@
-import {getSummaryElements} from '../../../../../../../../../components/private/LN/api/common/elements/story/cuerpo/index';
+import { getSummaryElements } from '../../../../../../../../../components/private/LN/api/common/elements/story/cuerpo/index';
 
 describe('components - private - LN - api - common - elements - story - cuerpo', () => {
     it('should throw an error when contentElements is empty', () => {
@@ -24,7 +24,12 @@ describe('components - private - LN - api - common - elements - story - cuerpo',
     });
 
     it('should add summary to contentElements and return when both are not empty', () => {
-        const summary = { _id: '123', embed: { config: { arrayBullets: ['hola soy un resumen', 'yo tambien'] } } };
+        const summary = {
+            _id: '123',
+            embed: {
+                config: { arrayBullets: ['hola soy un resumen', 'yo tambien'] }
+            }
+        };
         const subtype = '1';
         const contentElements = [
             { _id: '456', type: 'text', text: 'Lorem ipsum' }
@@ -32,14 +37,14 @@ describe('components - private - LN - api - common - elements - story - cuerpo',
 
         const result = getSummaryElements(summary, subtype, contentElements);
 
-        expect(result).toEqual(   [
+        expect(result).toEqual([
             {
-              _id: '123',
-              type: 'summary',
-              items: [ 'hola soy un resumen', 'yo tambien' ]
+                _id: '123',
+                type: 'summary',
+                items: ['hola soy un resumen', 'yo tambien']
             },
             { _id: '456', type: 'text', text: 'Lorem ipsum' }
-          ]);
+        ]);
     });
 
     it('should not add summary to contentElements when subtype is not in allowedNotesTypes', () => {
