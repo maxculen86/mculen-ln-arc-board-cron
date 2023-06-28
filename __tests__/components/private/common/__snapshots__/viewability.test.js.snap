@@ -116,10 +116,10 @@ exports[`Viewability Evento productClick del script viewability when clicks in a
             preTitle=""
             size="--xl"
             tag="h3"
-            weight="--font-extra"
+            weight="--font-black"
           >
             <h3
-              className="com-title --font-primary --xl --font-extra"
+              className="com-title --font-primary --xl --font-black"
               dangerouslySetInnerHTML={
                 Object {
                   "__html": "Titulo de Nota",

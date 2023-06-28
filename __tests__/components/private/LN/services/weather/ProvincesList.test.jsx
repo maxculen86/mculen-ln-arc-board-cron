@@ -68,7 +68,7 @@ describe('Components - private - services - weather - ProvincesList =>', () => {
         ).toBe(1);
         expect(
             container.innerHTML.includes(
-                '<h3 class="com-title --font-primary --xl --font-extra">Provincias</h3>'
+                '<h3 class="com-title --font-primary --xl --font-black">Provincias</h3>'
             )
         ).toBe(true);
         expect(container.innerHTML.includes('<a href=')).toBe(true);
@@ -112,7 +112,7 @@ describe('Components - private - services - weather - ProvincesList =>', () => {
         ).toBe(1);
         expect(
             container.innerHTML.includes(
-                '<h3 class="com-title --font-primary --xl --font-extra">Provincias</h3>'
+                '<h3 class="com-title --font-primary --xl --font-black">Provincias</h3>'
             )
         ).toBe(true);
         expect(container.innerHTML.includes('<a href=')).toBe(false);

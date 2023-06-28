@@ -1,11 +1,11 @@
 import { filterBanners } from './lazyBannersHelper';
 import getViewport from '../../LN/common/utils/screenHelper';
-import { bannersLazy as bannersLazyLN10 } from './bannersHomeLN10.json';
+import { bannersLazy } from './bannersHomeLN10.json';
 import { queueGoogletagCommand } from '../../LN/common/utils/bannerHelper';
 
 export const createBannersIntersectionObserver = () => {
     const { device } = getViewport();
-    const banners = filterBanners(bannersLazyLN10);
+    const banners = filterBanners(bannersLazy);
 
     const callback = entries => {
         entries.forEach(entry => {

@@ -4,7 +4,7 @@ import { debug } from 'request-promise-native';
 
 describe('components - private - LN - api - v1 - mobile - home - externalArticle - elements - link', () => {
     const testData = [
-        [{ additionalProperties: { link:'Test Article' } },'Test Article'],
+        [{ additionalProperties: { link: 'Test Article' } }, 'Test Article'],
         [{ additionalProperties: { link: null } }, LNApiErrorArticles],
         [{ additionalProperties: { link: undefined } }, LNApiErrorArticles],
         [{ additionalProperties: { link: '' } }, LNApiErrorArticles],

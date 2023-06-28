@@ -366,6 +366,14 @@ export default `
             ${video}
             embed_html
             content
+        },
+        summary {
+            _id,
+            embed {
+                config {
+                    arrayBullets
+                }
+            }
         }
     }
     credits {
