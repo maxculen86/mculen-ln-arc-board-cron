@@ -144,19 +144,17 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
         }
     ];
 
-    describe('Tests - helper - getSourcesForPicture', () => {
+    describe('Tests - helper - getImagesToLoadWithPicture', () => {
         const result = [
             {
                 minWidth: 375,
                 maxWidth: undefined,
-                mediaPreload: '(min-width: 375)',
                 srcSet:
                     'https://resizer.glanacion.com/resizer/2C46C1OxpfsbGfEXgTI8TmRVBdc=/375x250/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
             },
             {
                 minWidth: 320,
                 maxWidth: undefined,
-                mediaPreload: '(min-width: 320px) and (max-width: 375px)',
                 srcSet:
                     'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
             }
@@ -175,8 +173,6 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
                     {
                         option: {
                             height: 200,
-                            media_preload:
-                                '(min-width: 320px) and (max-width: 375px)',
                             maxScreenWidth: 320,
                             width: 200
                         },
@@ -189,7 +185,6 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
                 {
                     minWidth: undefined,
                     maxWidth: 320,
-                    mediaPreload: '(min-width: 320px) and (max-width: 375px)',
                     srcSet:
                         'https://resizer.glanacion.com/resizer/30UWxzQATknCwslKE3HABSqPEXE=/300x200/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/VCRD7CO2NJFN3MPKC7FVFNPKPE.jpg'
                 }
@@ -206,8 +201,6 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
                                 xDescriptor: '2x'
                             },
                             height: 450,
-                            media_preload:
-                                '(min-width: 1024px) and (max-width: 1280px)',
                             minScreenWidth: 1024,
                             width: 768
                         },
@@ -217,7 +210,6 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
                     ...mockDataResizedUrls
                 ])[2]
             ).toStrictEqual({
-                mediaPreload: '(min-width: 320px) and (max-width: 375px)',
                 minWidth: 320,
                 maxWidth: undefined,
                 srcSet:
@@ -234,8 +226,6 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
                                 forScreenWidth: 320
                             },
                             height: 450,
-                            media_preload:
-                                '(min-width: 1024px) and (max-width: 1280px)',
                             minScreenWidth: 1024,
                             width: 768
                         },
@@ -246,7 +236,6 @@ describe('Private - LN - Common - Utils -> mediaHelper', () => {
                 ])
             ).toStrictEqual([
                 {
-                    mediaPreload: '(min-width: 1024px) and (max-width: 1280px)',
                     minWidth: 1024,
                     maxWidth: undefined,
                     srcSet:
