@@ -20,21 +20,27 @@ const ListOrderedOrUnordered = ({ data }) => {
         });
     };
 
-    if (data.items.some(e => e.type === 'list' || e.content === undefined)) {
-        return <></>;
-    }
+    // if (data.items.some((e) => e.type === 'list' || e.content === undefined)) {
+    //     return <></>;
+    // }
 
     return (
         <ul className={classList}>
-            {data.items.map(element => (
-                <li
-                    key={element._id}
-                    className="com-item"
-                    dangerouslySetInnerHTML={{
-                        __html: setExternalLinks(element.content)
-                    }}
-                />
-            ))}
+            {data.items.map(element => {
+                if (element.type === 'list') {
+                    return <ListOrderedOrUnordered data={element} />;
+                }
+
+                return (
+                    <li
+                        key={element._id}
+                        className="com-item"
+                        dangerouslySetInnerHTML={{
+                            __html: setExternalLinks(element.content)
+                        }}
+                    />
+                );
+            })}
         </ul>
     );
 };
