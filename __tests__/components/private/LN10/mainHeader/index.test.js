@@ -1,19 +1,24 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import MainHeader from '../../../../../components/private/LN10/mainHeader/';
-import {
-    setDesplegableData,
-    logoCallback,
-    RightOptions
-} from '../../../../../components/private/LN10/mainHeader/_helper';
+import { logoCallback } from '../../../../../components/private/LN10/mainHeader/_helper';
+import Context from 'fusion:context';
 
-jest.mock('react', () => ({
-    ...jest.requireActual('react'),
-    useContext: jest.fn(() => ({
-        dispatch: jest.fn()
-    }))
-}));
+jest.mock('react', () => {
+    const ActualReact = require.requireActual('react');
+    return {
+        ...ActualReact,
+        useContext: () => ({
+            state: {
+                loginData: {
+                    subscription: true
+                }
+            },
+            dispatch: jest.fn()
+        })
+    };
+});
 
 jest.mock('../../../../../components/private/LN10/mainHeader/_helper', () => ({
     ...jest.requireActual(
@@ -31,49 +36,22 @@ jest.mock(
     })
 );
 
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+        return props.children(mockAvailableProps);
+    }
+}));
+
 describe('Private - LN10 - MainHeader', () => {
-    const mock = {
-        desplegable: [
-            {
-                url: 'https://www.lanacion.com.ar/mis-notas/',
-                text: 'Mis notas mock',
-                title: 'Ir a mis notas',
-                target: '_self',
-                callback: jest.fn()
-            },
-            {
-                url: 'https://myaccount.lanacion.com.ar/mi-usuario/',
-                text: 'Mi cuenta',
-                title: 'Ir a mi cuenta',
-                target: '_self',
-                callback: jest.fn()
-            },
-            {
-                url: 'https://myaccount.lanacion.com.ar/datos-personales/',
-                text: 'Mis datos',
-                title: 'Ir a mis datos',
-                target: '_self',
-                callback: jest.fn()
-            },
-            {
-                url: 'https://micuenta.lanacion.com.ar/mis-suscripciones/',
-                text: 'Mis suscripciones',
-                title: 'Ir a mis suscripciones',
-                target: '_self',
-                callback: jest.fn()
-            },
-            {
-                url: '#',
-                text: 'Cerrar sesión',
-                title: 'Cerrar sesión',
-                target: '_self',
-                callback: jest.fn()
-            }
-        ]
-    };
+    Context.useAppContext = jest.fn(() => ({}));
 
     test('should renders with empty state', () => {
         expect(render(<MainHeader />)).toBeTruthy();
+    });
+
+    test('should match snapshot', () => {
+        expect(render(<MainHeader userType="logged" />)).toMatchSnapshot();
     });
 
     test('should renders with LN logo', () => {
@@ -84,5 +62,20 @@ describe('Private - LN10 - MainHeader', () => {
 
         expect(logo).toBeInTheDocument();
         expect(logoCallback).toHaveBeenCalledTimes(1);
+    });
+
+    test('should have logo banner header', () => {
+        const { container } = render(<MainHeader userType="logged" />);
+
+        const banners = [
+            '#logo_header_dsk',
+            '#logo_header_dsk_sticky',
+            '#logo_header_mob',
+            '#logo_header_tab'
+        ];
+
+        banners.forEach(banner => {
+            expect(container.querySelector(banner)).toBeInTheDocument();
+        });
     });
 });

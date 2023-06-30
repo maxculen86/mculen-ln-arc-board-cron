@@ -1,0 +1,870 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private - LN10 - MainHeader should match snapshot 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ln-main-header --border-bottom-gray"
+      >
+        <div
+          class="lay-container"
+        >
+          <div
+            class="--d-flex --ai-center --jc-between"
+          >
+            <div
+              class="left-actions --d-flex --mobile-none"
+            >
+              <button
+                class="button ln-button secciones --secondary --md"
+                title="Secciones"
+                type="button"
+              >
+                <i
+                  class="icon --menu --icon-16"
+                  icon="menu"
+                >
+                  <svg
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M3 5a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm0 7a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm0 7a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Z"
+                      fill="#272727"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </i>
+                <span
+                  class="text ln-text --desktop-only --font-2xs"
+                >
+                  SECCIONES
+                </span>
+              </button>
+              <label
+                class="button ln-button --secondary search --md"
+                for="queryly_toggle"
+                id="querylyButton"
+                title="Ir al buscador"
+              >
+                <i
+                  class="icon --icon-16"
+                >
+                  <svg
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m18.031 16.617 4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617Zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15Z"
+                      fill="#272727"
+                    />
+                  </svg>
+                </i>
+              </label>
+            </div>
+            <div
+              class="center-actions"
+            >
+              <a
+                class="link ln-link logo-header --d-flex"
+                href="/"
+                target="_self"
+                title="Ir a la página principal"
+              >
+                <div
+                  class="mod-banner --logo_header_dsk --logo "
+                >
+                  <div
+                    class="com-banner "
+                    data-prebid-enabled="false"
+                    data-size="[]"
+                    data-sizemap="[]"
+                    data-subscription="false"
+                    data-without-hide="false"
+                    id="logo_header_dsk"
+                  />
+                </div>
+                <div
+                  class="mod-banner --logo_header_dsk_sticky --logo_sticky_dsk "
+                >
+                  <div
+                    class="com-banner "
+                    data-prebid-enabled="false"
+                    data-size="[]"
+                    data-sizemap="[]"
+                    data-subscription="false"
+                    data-without-hide="false"
+                    id="logo_header_dsk_sticky"
+                  />
+                </div>
+                <div
+                  class="mod-banner --logo_header_tab --logo "
+                >
+                  <div
+                    class="com-banner "
+                    data-prebid-enabled="false"
+                    data-size="[]"
+                    data-sizemap="[]"
+                    data-subscription="false"
+                    data-without-hide="false"
+                    id="logo_header_tab"
+                  />
+                </div>
+                <div
+                  class="mod-banner --logo_header_mob --logo "
+                >
+                  <div
+                    class="com-banner "
+                    data-prebid-enabled="false"
+                    data-size="[]"
+                    data-sizemap="[]"
+                    data-subscription="false"
+                    data-without-hide="false"
+                    id="logo_header_mob"
+                  />
+                </div>
+                <svg
+                  viewBox="-15077.383 26 200 19.802"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    data-name="Logo LN"
+                    fill="#006998"
+                    id="Logo_LN"
+                    transform="translate(-15657.383 8)"
+                  >
+                    <path
+                      d="M0,18.847v-1.3H3.26V1.294H0V0H13.036V1.294H9.445V17.551h.767c4.283,0,7.7-1.111,7.7-5.4v-.812h1.612v7.5Z"
+                      data-name="Path 1"
+                      id="Path_1"
+                      transform="translate(580 18.396)"
+                    />
+                    <path
+                      d="M23.925,17.523,14.232,0H11.791L3.447,15.927a2.859,2.859,0,0,1-2.788,1.6H0v1.3H7.825v-1.3H6.41c-.821,0-1.534-.1-1.534-.98a1.746,1.746,0,0,1,.288-.8 L6.28,13.568h8.462l2.124,3.954H13.741v1.3H26.636v-1.3h-2.71ZM6.957,12.284l3.412-6.4h.278l3.417,6.4Z"
+                      data-name="Path 2"
+                      id="Path_2"
+                      transform="translate(600.654 18.594)"
+                    />
+                    <path
+                      d="M0,18.847v-1.3H.944c1.134,0,2.2-.293,2.2-1.923V3.4A2.323,2.323,0,0,0,.669,1.294H.113V0H9.53L19.913,11.135h.075V2.816c0-1.027-.882-1.521-2.5-1.521 H16.51V0h8.048V1.294h-.79c-1.666,0-2.35.767-2.35,1.438V18.847H18.729L4.628,3.67H4.554v12.1c0,1.525.811,1.784,2.848,1.784h.63v1.3Z"
+                      data-name="Path 3"
+                      id="Path_3"
+                      transform="translate(639.742 18.396)"
+                    />
+                    <path
+                      d="M23.929,17.523,14.25,0H11.8L3.449,15.927a2.843,2.843,0,0,1-2.787,1.6H0v1.3H7.851v-1.3H6.407c-.813,0-1.524-.1-1.524-.98a1.836,1.836,0,0,1,.283-.8 l1.123-2.171h8.474l2.106,3.954H13.745v1.3h12.89v-1.3H23.929ZM6.976,12.284l3.4-6.4h.292l3.4,6.4Z"
+                      data-name="Path 4"
+                      id="Path_4"
+                      transform="translate(663.9 18.594)"
+                    />
+                    <path
+                      d="M20.464.508V7.193h-1.6c-.6-2.721-2.222-5.908-6.15-5.908C7.8,1.286,6.786,5.17,6.786,9.932c0,4.573.912,8.506,5.808,8.506,3.825,0,6.408-2.452,6.408-5.8 h1.684c0,4.6-3.67,7.166-8.419,7.166C6.184,19.8,0,15.425,0,9.932,0,4.521,5.982,0,11.77,0c4.307,0,5.823,1.592,6.615,1.592S19.369,1.08,19.4.509h1.062Z"
+                      data-name="Path 5"
+                      id="Path_5"
+                      transform="translate(690.236 18)"
+                    />
+                    <path
+                      d="M0,18.847v-1.3H3.263V1.294H0V0H12.714V1.294H9.437V17.551h3.277v1.3Z"
+                      data-name="Path 6"
+                      id="Path_6"
+                      transform="translate(713.939 18.396)"
+                    />
+                    <path
+                      d="M12.073,0C6.073,0,0,4.338,0,9.9s6.073,9.9,12.073,9.9c5.967,0,12.146-4.328,12.146-9.9S18.04,0,12.073,0ZM12.1,18.521 c-4.753,0-5.375-4.257-5.375-8.618,0-4.385.643-8.618,5.375-8.618,4.769,0,5.384,4.2,5.384,8.618C17.486,14.293,16.871,18.521,12.1,18.521Z"
+                      data-name="Path 7"
+                      id="Path_7"
+                      transform="translate(729.325 18)"
+                    />
+                    <path
+                      d="M0,18.847v-1.3H.949c1.128,0,2.193-.293,2.193-1.923V3.4A2.33,2.33,0,0,0,.657,1.294H.1V0H9.516L19.891,11.135h.093V2.816c0-1.027-.881-1.521-2.5-1.521 H16.5V0h8.054V1.294h-.8c-1.654,0-2.358.767-2.358,1.438V18.847H18.711L4.607,3.67H4.54v12.1c0,1.525.8,1.784,2.847,1.784H8.02v1.3Z"
+                      data-name="Path 8"
+                      id="Path_8"
+                      transform="translate(755.444 18.396)"
+                    />
+                  </g>
+                </svg>
+              </a>
+            </div>
+            <div
+              class="right-actions --d-flex --jc-end"
+            >
+              <button
+                class="button ln-button --subscribe --md"
+                id="btnsuscribite"
+                title="Suscribite"
+                type="button"
+              >
+                <i
+                  class="icon --icon-18"
+                  icon="suscriptorExclusivo"
+                >
+                  <svg
+                    fill="none"
+                    viewBox="0 0 32 33"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#0D0D0D"
+                      height="32"
+                      rx="16"
+                      width="32"
+                      y="0.298"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M12.706 12.13H8v.874h1.092v6.253H8v.874h6.878v-3.394H14v.503c0 .826-.268 1.314-.678 1.605-.423.3-1.025.412-1.732.412h-.088v-6.253h1.204v-.873Zm6.151 0h-3.419v.874h.357c.33 0 .663.271.663.682v4.964c0 .3-.08.435-.163.503-.092.075-.228.104-.408.104H15.4v.874h3.04v-.874h-.38a2.71 2.71 0 0 1-.413-.024.574.574 0 0 1-.23-.077c-.083-.056-.146-.16-.146-.45v-4.443l4.517 5.868h1.156v-6.717a.35.35 0 0 1 .125-.262c.09-.079.246-.148.496-.148H24v-.873h-3.046v.873h.497c.257 0 .427.048.529.121.09.066.144.163.144.323v2.912l-3.267-4.23Z"
+                      fill="#FDB727"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </i>
+                SUSCRIBITE
+              </button>
+            </div>
+            <script>
+              
+                    window.addEventListener('DOMContentLoaded', () =&gt; {
+                        function addEventToDataLayer() {
+  /* istanbul ignore next */
+  var _ref = arguments.length &gt; 0 && arguments[0] !== undefined ? arguments[0] : (cov_2lnnogm9mf.b[0][0]++, {}),
+      label = _ref.label,
+      action = _ref.action,
+      category = _ref.category,
+      event = _ref.event;
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[0]++;
+  var HOME_LN10 =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[1]++, 'home_ln10');
+  var E_LINK_CLICK =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[2]++, 'e_linkclick');
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[3]++;
+
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.b[1][0]++, window.dataLayer) &&
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.b[1][1]++, window.dataLayer.push({
+    event:
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[2][0]++, event) ||
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[2][1]++, E_LINK_CLICK),
+    dynamic_category:
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[3][0]++, category) ||
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[3][1]++, HOME_LN10),
+    dynamic_action: action,
+    dynamic_label: label
+  }));
+}
+                        function addEventListeners(element, payload, callback) {
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[1]++;
+  var CLICK =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[5]++, 'click');
+  var AUX_CLICK =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[6]++, 'auxclick');
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[7]++;
+
+  var defaultCallback = function defaultCallback() {
+    /* istanbul ignore next */
+    cov_2lnnogm9mf.f[2]++;
+    cov_2lnnogm9mf.s[8]++;
+    return addEventToDataLayer(payload);
+  };
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[9]++;
+
+  if (element) {
+    /* istanbul ignore next */
+    cov_2lnnogm9mf.b[4][0]++;
+    cov_2lnnogm9mf.s[10]++;
+    element.addEventListener(CLICK,
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[5][0]++, callback) ||
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[5][1]++, defaultCallback));
+
+    /* istanbul ignore next */
+    cov_2lnnogm9mf.s[11]++;
+    element.addEventListener(AUX_CLICK,
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[6][0]++, callback) ||
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[6][1]++, defaultCallback));
+  } else
+  /* istanbul ignore next */
+  {
+    cov_2lnnogm9mf.b[4][1]++;
+  }
+}
+                        function createDynamicLabel() {
+  /* istanbul ignore next */
+  var text = arguments.length &gt; 0 && arguments[0] !== undefined ? arguments[0] : (cov_2lnnogm9mf.b[7][0]++, '');
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[3]++;
+  cov_2lnnogm9mf.s[13]++;
+  return text.toLowerCase().replace(/ /g, '_').replace(/á/g, 'a').replace(/é/g, 'e').replace(/í/g, 'i').replace(/ó/g, 'o').replace(/ú/g, 'u');
+}
+                        function setEventSubscribe() {
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[6]++;
+  var btnSuscribite =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[20]++, window.document.querySelector('#btnsuscribite'));
+  var payload =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[21]++, {
+    action: 'header_logo',
+    label: 'suscribite'
+  });
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[22]++;
+  addEventListeners(btnSuscribite, payload);
+}
+                        function setEventSignIn() {
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[7]++;
+  var btnSignIn =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[24]++, window.document.querySelector('button[title="Iniciar sesión"]'));
+  var payload =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[25]++, {
+    action: 'header_logo',
+    label: 'iniciar_sesion'
+  });
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[26]++;
+  addEventListeners(btnSignIn, payload);
+}
+                        function setEventsSections() {
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[8]++;
+  var sections =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[28]++, window.document.querySelectorAll('.dd-link'));
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[29]++;
+  sections.forEach(function (section) {
+    /* istanbul ignore next */
+    cov_2lnnogm9mf.f[9]++;
+    var payload =
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.s[30]++, {
+      action: 'menu_secciones',
+      label: createDynamicLabel(section.innerHTML)
+    });
+
+    /* istanbul ignore next */
+    cov_2lnnogm9mf.s[31]++;
+    addEventListeners(section, payload);
+  });
+}
+                        function setEventSearch() {
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[10]++;
+  var searchIcon =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[33]++, window.document.querySelector('#querylyButton'));
+  var payload =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[34]++, {
+    action: 'header_logo',
+    label: 'buscar'
+  });
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[35]++;
+  addEventListeners(searchIcon, payload);
+}
+                        
+                        setEventSubscribe();
+                        setEventSignIn();
+                        setEventsSections();
+                        setEventSearch();
+                    });
+                
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ln-main-header --border-bottom-gray"
+    >
+      <div
+        class="lay-container"
+      >
+        <div
+          class="--d-flex --ai-center --jc-between"
+        >
+          <div
+            class="left-actions --d-flex --mobile-none"
+          >
+            <button
+              class="button ln-button secciones --secondary --md"
+              title="Secciones"
+              type="button"
+            >
+              <i
+                class="icon --menu --icon-16"
+                icon="menu"
+              >
+                <svg
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M3 5a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm0 7a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm0 7a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Z"
+                    fill="#272727"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </i>
+              <span
+                class="text ln-text --desktop-only --font-2xs"
+              >
+                SECCIONES
+              </span>
+            </button>
+            <label
+              class="button ln-button --secondary search --md"
+              for="queryly_toggle"
+              id="querylyButton"
+              title="Ir al buscador"
+            >
+              <i
+                class="icon --icon-16"
+              >
+                <svg
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m18.031 16.617 4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617Zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15Z"
+                    fill="#272727"
+                  />
+                </svg>
+              </i>
+            </label>
+          </div>
+          <div
+            class="center-actions"
+          >
+            <a
+              class="link ln-link logo-header --d-flex"
+              href="/"
+              target="_self"
+              title="Ir a la página principal"
+            >
+              <div
+                class="mod-banner --logo_header_dsk --logo "
+              >
+                <div
+                  class="com-banner "
+                  data-prebid-enabled="false"
+                  data-size="[]"
+                  data-sizemap="[]"
+                  data-subscription="false"
+                  data-without-hide="false"
+                  id="logo_header_dsk"
+                />
+              </div>
+              <div
+                class="mod-banner --logo_header_dsk_sticky --logo_sticky_dsk "
+              >
+                <div
+                  class="com-banner "
+                  data-prebid-enabled="false"
+                  data-size="[]"
+                  data-sizemap="[]"
+                  data-subscription="false"
+                  data-without-hide="false"
+                  id="logo_header_dsk_sticky"
+                />
+              </div>
+              <div
+                class="mod-banner --logo_header_tab --logo "
+              >
+                <div
+                  class="com-banner "
+                  data-prebid-enabled="false"
+                  data-size="[]"
+                  data-sizemap="[]"
+                  data-subscription="false"
+                  data-without-hide="false"
+                  id="logo_header_tab"
+                />
+              </div>
+              <div
+                class="mod-banner --logo_header_mob --logo "
+              >
+                <div
+                  class="com-banner "
+                  data-prebid-enabled="false"
+                  data-size="[]"
+                  data-sizemap="[]"
+                  data-subscription="false"
+                  data-without-hide="false"
+                  id="logo_header_mob"
+                />
+              </div>
+              <svg
+                viewBox="-15077.383 26 200 19.802"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  data-name="Logo LN"
+                  fill="#006998"
+                  id="Logo_LN"
+                  transform="translate(-15657.383 8)"
+                >
+                  <path
+                    d="M0,18.847v-1.3H3.26V1.294H0V0H13.036V1.294H9.445V17.551h.767c4.283,0,7.7-1.111,7.7-5.4v-.812h1.612v7.5Z"
+                    data-name="Path 1"
+                    id="Path_1"
+                    transform="translate(580 18.396)"
+                  />
+                  <path
+                    d="M23.925,17.523,14.232,0H11.791L3.447,15.927a2.859,2.859,0,0,1-2.788,1.6H0v1.3H7.825v-1.3H6.41c-.821,0-1.534-.1-1.534-.98a1.746,1.746,0,0,1,.288-.8 L6.28,13.568h8.462l2.124,3.954H13.741v1.3H26.636v-1.3h-2.71ZM6.957,12.284l3.412-6.4h.278l3.417,6.4Z"
+                    data-name="Path 2"
+                    id="Path_2"
+                    transform="translate(600.654 18.594)"
+                  />
+                  <path
+                    d="M0,18.847v-1.3H.944c1.134,0,2.2-.293,2.2-1.923V3.4A2.323,2.323,0,0,0,.669,1.294H.113V0H9.53L19.913,11.135h.075V2.816c0-1.027-.882-1.521-2.5-1.521 H16.51V0h8.048V1.294h-.79c-1.666,0-2.35.767-2.35,1.438V18.847H18.729L4.628,3.67H4.554v12.1c0,1.525.811,1.784,2.848,1.784h.63v1.3Z"
+                    data-name="Path 3"
+                    id="Path_3"
+                    transform="translate(639.742 18.396)"
+                  />
+                  <path
+                    d="M23.929,17.523,14.25,0H11.8L3.449,15.927a2.843,2.843,0,0,1-2.787,1.6H0v1.3H7.851v-1.3H6.407c-.813,0-1.524-.1-1.524-.98a1.836,1.836,0,0,1,.283-.8 l1.123-2.171h8.474l2.106,3.954H13.745v1.3h12.89v-1.3H23.929ZM6.976,12.284l3.4-6.4h.292l3.4,6.4Z"
+                    data-name="Path 4"
+                    id="Path_4"
+                    transform="translate(663.9 18.594)"
+                  />
+                  <path
+                    d="M20.464.508V7.193h-1.6c-.6-2.721-2.222-5.908-6.15-5.908C7.8,1.286,6.786,5.17,6.786,9.932c0,4.573.912,8.506,5.808,8.506,3.825,0,6.408-2.452,6.408-5.8 h1.684c0,4.6-3.67,7.166-8.419,7.166C6.184,19.8,0,15.425,0,9.932,0,4.521,5.982,0,11.77,0c4.307,0,5.823,1.592,6.615,1.592S19.369,1.08,19.4.509h1.062Z"
+                    data-name="Path 5"
+                    id="Path_5"
+                    transform="translate(690.236 18)"
+                  />
+                  <path
+                    d="M0,18.847v-1.3H3.263V1.294H0V0H12.714V1.294H9.437V17.551h3.277v1.3Z"
+                    data-name="Path 6"
+                    id="Path_6"
+                    transform="translate(713.939 18.396)"
+                  />
+                  <path
+                    d="M12.073,0C6.073,0,0,4.338,0,9.9s6.073,9.9,12.073,9.9c5.967,0,12.146-4.328,12.146-9.9S18.04,0,12.073,0ZM12.1,18.521 c-4.753,0-5.375-4.257-5.375-8.618,0-4.385.643-8.618,5.375-8.618,4.769,0,5.384,4.2,5.384,8.618C17.486,14.293,16.871,18.521,12.1,18.521Z"
+                    data-name="Path 7"
+                    id="Path_7"
+                    transform="translate(729.325 18)"
+                  />
+                  <path
+                    d="M0,18.847v-1.3H.949c1.128,0,2.193-.293,2.193-1.923V3.4A2.33,2.33,0,0,0,.657,1.294H.1V0H9.516L19.891,11.135h.093V2.816c0-1.027-.881-1.521-2.5-1.521 H16.5V0h8.054V1.294h-.8c-1.654,0-2.358.767-2.358,1.438V18.847H18.711L4.607,3.67H4.54v12.1c0,1.525.8,1.784,2.847,1.784H8.02v1.3Z"
+                    data-name="Path 8"
+                    id="Path_8"
+                    transform="translate(755.444 18.396)"
+                  />
+                </g>
+              </svg>
+            </a>
+          </div>
+          <div
+            class="right-actions --d-flex --jc-end"
+          >
+            <button
+              class="button ln-button --subscribe --md"
+              id="btnsuscribite"
+              title="Suscribite"
+              type="button"
+            >
+              <i
+                class="icon --icon-18"
+                icon="suscriptorExclusivo"
+              >
+                <svg
+                  fill="none"
+                  viewBox="0 0 32 33"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    fill="#0D0D0D"
+                    height="32"
+                    rx="16"
+                    width="32"
+                    y="0.298"
+                  />
+                  <path
+                    clip-rule="evenodd"
+                    d="M12.706 12.13H8v.874h1.092v6.253H8v.874h6.878v-3.394H14v.503c0 .826-.268 1.314-.678 1.605-.423.3-1.025.412-1.732.412h-.088v-6.253h1.204v-.873Zm6.151 0h-3.419v.874h.357c.33 0 .663.271.663.682v4.964c0 .3-.08.435-.163.503-.092.075-.228.104-.408.104H15.4v.874h3.04v-.874h-.38a2.71 2.71 0 0 1-.413-.024.574.574 0 0 1-.23-.077c-.083-.056-.146-.16-.146-.45v-4.443l4.517 5.868h1.156v-6.717a.35.35 0 0 1 .125-.262c.09-.079.246-.148.496-.148H24v-.873h-3.046v.873h.497c.257 0 .427.048.529.121.09.066.144.163.144.323v2.912l-3.267-4.23Z"
+                    fill="#FDB727"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </i>
+              SUSCRIBITE
+            </button>
+          </div>
+          <script>
+            
+                    window.addEventListener('DOMContentLoaded', () =&gt; {
+                        function addEventToDataLayer() {
+  /* istanbul ignore next */
+  var _ref = arguments.length &gt; 0 && arguments[0] !== undefined ? arguments[0] : (cov_2lnnogm9mf.b[0][0]++, {}),
+      label = _ref.label,
+      action = _ref.action,
+      category = _ref.category,
+      event = _ref.event;
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[0]++;
+  var HOME_LN10 =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[1]++, 'home_ln10');
+  var E_LINK_CLICK =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[2]++, 'e_linkclick');
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[3]++;
+
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.b[1][0]++, window.dataLayer) &&
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.b[1][1]++, window.dataLayer.push({
+    event:
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[2][0]++, event) ||
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[2][1]++, E_LINK_CLICK),
+    dynamic_category:
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[3][0]++, category) ||
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[3][1]++, HOME_LN10),
+    dynamic_action: action,
+    dynamic_label: label
+  }));
+}
+                        function addEventListeners(element, payload, callback) {
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[1]++;
+  var CLICK =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[5]++, 'click');
+  var AUX_CLICK =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[6]++, 'auxclick');
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[7]++;
+
+  var defaultCallback = function defaultCallback() {
+    /* istanbul ignore next */
+    cov_2lnnogm9mf.f[2]++;
+    cov_2lnnogm9mf.s[8]++;
+    return addEventToDataLayer(payload);
+  };
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[9]++;
+
+  if (element) {
+    /* istanbul ignore next */
+    cov_2lnnogm9mf.b[4][0]++;
+    cov_2lnnogm9mf.s[10]++;
+    element.addEventListener(CLICK,
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[5][0]++, callback) ||
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[5][1]++, defaultCallback));
+
+    /* istanbul ignore next */
+    cov_2lnnogm9mf.s[11]++;
+    element.addEventListener(AUX_CLICK,
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[6][0]++, callback) ||
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.b[6][1]++, defaultCallback));
+  } else
+  /* istanbul ignore next */
+  {
+    cov_2lnnogm9mf.b[4][1]++;
+  }
+}
+                        function createDynamicLabel() {
+  /* istanbul ignore next */
+  var text = arguments.length &gt; 0 && arguments[0] !== undefined ? arguments[0] : (cov_2lnnogm9mf.b[7][0]++, '');
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[3]++;
+  cov_2lnnogm9mf.s[13]++;
+  return text.toLowerCase().replace(/ /g, '_').replace(/á/g, 'a').replace(/é/g, 'e').replace(/í/g, 'i').replace(/ó/g, 'o').replace(/ú/g, 'u');
+}
+                        function setEventSubscribe() {
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[6]++;
+  var btnSuscribite =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[20]++, window.document.querySelector('#btnsuscribite'));
+  var payload =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[21]++, {
+    action: 'header_logo',
+    label: 'suscribite'
+  });
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[22]++;
+  addEventListeners(btnSuscribite, payload);
+}
+                        function setEventSignIn() {
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[7]++;
+  var btnSignIn =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[24]++, window.document.querySelector('button[title="Iniciar sesión"]'));
+  var payload =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[25]++, {
+    action: 'header_logo',
+    label: 'iniciar_sesion'
+  });
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[26]++;
+  addEventListeners(btnSignIn, payload);
+}
+                        function setEventsSections() {
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[8]++;
+  var sections =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[28]++, window.document.querySelectorAll('.dd-link'));
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[29]++;
+  sections.forEach(function (section) {
+    /* istanbul ignore next */
+    cov_2lnnogm9mf.f[9]++;
+    var payload =
+    /* istanbul ignore next */
+    (cov_2lnnogm9mf.s[30]++, {
+      action: 'menu_secciones',
+      label: createDynamicLabel(section.innerHTML)
+    });
+
+    /* istanbul ignore next */
+    cov_2lnnogm9mf.s[31]++;
+    addEventListeners(section, payload);
+  });
+}
+                        function setEventSearch() {
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.f[10]++;
+  var searchIcon =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[33]++, window.document.querySelector('#querylyButton'));
+  var payload =
+  /* istanbul ignore next */
+  (cov_2lnnogm9mf.s[34]++, {
+    action: 'header_logo',
+    label: 'buscar'
+  });
+
+  /* istanbul ignore next */
+  cov_2lnnogm9mf.s[35]++;
+  addEventListeners(searchIcon, payload);
+}
+                        
+                        setEventSubscribe();
+                        setEventSignIn();
+                        setEventsSections();
+                        setEventSearch();
+                    });
+                
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
