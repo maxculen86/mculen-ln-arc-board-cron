@@ -48,7 +48,7 @@ export default function HtmlFeature({
                     width="100%"
                     height="100%"
                     loading="lazy"
-                    sandbox="allow-popups allow-scripts"
+                    sandbox="allow-popups allow-scripts allow-same-origin"
                     srcDoc={`
                         <style> html, body { width: 100%; height: 100%; overflow: hidden; }</style>
                         ${html}
