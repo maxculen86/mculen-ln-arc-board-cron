@@ -8,7 +8,7 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 {
                     _t: 'article_summary',
                     title: 'RESUMEN DE NOTA',
-                    disclaimer: 'Resumen generada por inteligencia artificial',
+                    disclaimer: 'Realizado con inteligencia artificial.',
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
@@ -22,7 +22,7 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 {
                     _t: 'article_summary',
                     title: 'RESUMEN DE NOTA',
-                    disclaimer: 'Resumen generada por inteligencia artificial',
+                    disclaimer: 'Realizado con inteligencia artificial.',
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
@@ -42,7 +42,7 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 {
                     _t: 'article_summary',
                     title: 'RESUMEN DE NOTA',
-                    disclaimer: 'Resumen generada por inteligencia artificial',
+                    disclaimer: 'Realizado con inteligencia artificial.',
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
@@ -59,7 +59,7 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 {
                     _t: 'article_summary',
                     title: 'RESUMEN DE NOTA',
-                    disclaimer: 'Resumen generada por inteligencia artificial',
+                    disclaimer: 'Realizado con inteligencia artificial.',
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
@@ -73,7 +73,7 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 {
                     _t: 'article_summary',
                     title: 'RESUMEN DE NOTA',
-                    disclaimer: 'Resumen generada por inteligencia artificial',
+                    disclaimer: 'Realizado con inteligencia artificial.',
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
@@ -104,12 +104,9 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
             [{ items: null }]
         ];
 
-        it.each(cases)(
-            'should return null when Nodo is %j',
-            nodo => {
-                const result = summary(nodo);
-                expect(result).toBeNull();
-            }
-        );
+        it.each(cases)('should return null when Nodo is %j', nodo => {
+            const result = summary(nodo);
+            expect(result).toBeNull();
+        });
     });
 });

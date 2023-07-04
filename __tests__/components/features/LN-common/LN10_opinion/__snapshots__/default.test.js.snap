@@ -114,7 +114,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs"
+                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                       >
                         <span
                           class="text ln-text marquee"
@@ -137,7 +137,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                 class="opinion-flex-col"
               >
                 <article
-                  class="ln-card --d-flex --flex-col --ai-start --l --author --no-media"
+                  class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
                   data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
                   data-notaid="M3JPASZJAVBIRIZPVCSSVBUAHI"
                   data-pos="9802"
@@ -154,7 +154,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                     >
                       <h2
-                        class="text ln-text title --prumo-italic --font-semi --font-l"
+                        class="text ln-text title --prumo-italic --font-semi --font-m"
                       >
                         Bullrich visita El Calafate y presenta libro
                       </h2>
@@ -175,7 +175,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                           />
                         </picture>
                         <div
-                          class="marquee-text --d-flex --flex-col --font-2xs"
+                          class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                         >
                           <span
                             class="text ln-text marquee"
@@ -191,7 +191,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                   </a>
                 </article>
                 <article
-                  class="ln-card --d-flex --flex-col --ai-start --l --author --no-media"
+                  class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
                   data-id="PUTOXECLIZCMDI4Z5WDWQI5CUY"
                   data-notaid="PUTOXECLIZCMDI4Z5WDWQI5CUY"
                   data-pos="9803"
@@ -208,7 +208,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       href="/salud/beliz-cavallo-una-alianza-ya-imposible-nid14032022/"
                     >
                       <h2
-                        class="text ln-text title --prumo-italic --font-semi --font-l"
+                        class="text ln-text title --prumo-italic --font-semi --font-m"
                       >
                         Beliz-Cavallo, una alianza ya imposible
                       </h2>
@@ -229,7 +229,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                           />
                         </picture>
                         <div
-                          class="marquee-text --d-flex --flex-col --font-2xs"
+                          class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                         >
                           <span
                             class="text ln-text marquee"
@@ -378,7 +378,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                   </section>
                 </div>
                 <article
-                  class="ln-card --d-flex --flex-col --ai-start --l --author --no-media"
+                  class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
                   data-id="KLCMCRBJMFCUBFE55NDGERCTJQ"
                   data-notaid="KLCMCRBJMFCUBFE55NDGERCTJQ"
                   data-pos="9804"
@@ -395,7 +395,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
                     >
                       <h2
-                        class="text ln-text title --prumo-italic --font-semi --font-l"
+                        class="text ln-text title --prumo-italic --font-semi --font-m"
                       >
                         Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
                       </h2>
@@ -416,7 +416,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                           />
                         </picture>
                         <div
-                          class="marquee-text --d-flex --flex-col --font-2xs"
+                          class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                         >
                           <span
                             class="text ln-text marquee"
@@ -437,7 +437,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --l --author --no-media"
+                class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
                 data-id="VD7B5NVJQFEVDP4CACDCKLACFQ"
                 data-notaid="VD7B5NVJQFEVDP4CACDCKLACFQ"
                 data-pos="9805"
@@ -454,7 +454,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                     href="/economia/dolar-libre-la-jugada-del-banco-central-que-impidio-una-suba-mayor-nid14042020/"
                   >
                     <h2
-                      class="text ln-text title --prumo-italic --font-semi --font-l"
+                      class="text ln-text title --prumo-italic --font-semi --font-m"
                     >
                       Dólar libre. La jugada del Banco Central que impidió una suba mayor
                     </h2>
@@ -475,7 +475,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs"
+                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                       >
                         <span
                           class="text ln-text marquee"
@@ -495,7 +495,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --l --author --no-media"
+                class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
                 data-id="AVYWDWDAVVESZGD7HXMW46GTYA"
                 data-notaid="AVYWDWDAVVESZGD7HXMW46GTYA"
                 data-pos="9806"
@@ -512,7 +512,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                     href="/economia/el-gobierno-evalua-postular-a-una-diplomatica-de-carrera-para-la-embajada-en-el-vaticano-nid23012020/"
                   >
                     <h2
-                      class="text ln-text title --prumo-italic --font-semi --font-l"
+                      class="text ln-text title --prumo-italic --font-semi --font-m"
                     >
                       El Gobierno evalúa postular a una diplomática de carrera para la embajada en el Vaticano....LARGOoOoO
                     </h2>
@@ -533,7 +533,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs"
+                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                       >
                         <span
                           class="text ln-text marquee"
@@ -553,7 +553,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --l --author --no-media"
+                class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
                 data-id="52CYTDWKNFCUTI3YX74GJM3GKU"
                 data-notaid="52CYTDWKNFCUTI3YX74GJM3GKU"
                 data-pos="9807"
@@ -570,7 +570,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                     href="/deportes/una-nueva-prueba-en-vivo-nid17032021/"
                   >
                     <h2
-                      class="text ln-text title --prumo-italic --font-semi --font-l"
+                      class="text ln-text title --prumo-italic --font-semi --font-m"
                     >
                       Una nueva prueba en vivo
                     </h2>
@@ -591,7 +591,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs"
+                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                       >
                         <span
                           class="text ln-text marquee"
@@ -611,7 +611,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --l --author --no-media"
+                class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
                 data-id="KEBYELHATJHPRNAWO24GRV6YCQ"
                 data-notaid="KEBYELHATJHPRNAWO24GRV6YCQ"
                 data-pos="9808"
@@ -628,7 +628,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                     href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
                   >
                     <h2
-                      class="text ln-text title --prumo-italic --font-semi --font-l"
+                      class="text ln-text title --prumo-italic --font-semi --font-m"
                     >
                       Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos
                     </h2>
@@ -649,7 +649,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs"
+                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                       >
                         <span
                           class="text ln-text marquee"

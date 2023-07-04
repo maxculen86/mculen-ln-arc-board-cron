@@ -9,6 +9,7 @@ import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import { GlobalContext } from '../context/globalContext';
 import '../../../../resources/dist/css/ln/components/audio-player-desktop.css';
 import eventHandler from './trackerAudioNews';
+import useTermica from '../hooks/useTermica';
 
 const AudioPlayerDesktop = ({
     publishDate = '',
@@ -20,10 +21,12 @@ const AudioPlayerDesktop = ({
     const [enableButton, setEnableButton] = useState(false);
     const token = getToken();
     const suscription = isSubscribed();
+    const showListenButton =
+        !useTermica('hide_listening_articles') && isListenable;
 
     return (
         <>
-            {isListenable && (
+            {showListenButton && (
                 <div className="btn-container" id="audio-player-desktop">
                     <ComButton
                         id="btnAudioDesktop"

@@ -133,7 +133,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -216,7 +216,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -268,7 +268,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     title="Por Mariela Arias"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -455,7 +455,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -538,7 +538,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -590,7 +590,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     title="Por Mariela Arias"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -746,7 +746,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -829,7 +829,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -881,7 +881,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     title="Por Mariela Arias"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1037,7 +1037,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1120,7 +1120,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1276,7 +1276,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"

@@ -86,7 +86,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por Carlos Pagni"
               >
                 <div
-                  class="marquee-text --d-flex --flex-col --font-2xs"
+                  class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                 >
                   <span
                     class="text ln-text marquee"
@@ -165,7 +165,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por Celina Chatruc"
               >
                 <div
-                  class="marquee-text --d-flex --flex-col --font-2xs"
+                  class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                 >
                   <span
                     class="text ln-text marquee"
@@ -229,7 +229,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por Francisco Jueguen"
               >
                 <div
-                  class="marquee-text --d-flex --flex-col --font-2xs"
+                  class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                 >
                   <span
                     class="text ln-text marquee"
@@ -293,7 +293,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por Redacción - BBC News Mundo"
               >
                 <div
-                  class="marquee-text --d-flex --flex-col --font-2xs"
+                  class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                 >
                   <span
                     class="text ln-text marquee"
@@ -357,7 +357,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por José Luis Domínguez"
               >
                 <div
-                  class="marquee-text --d-flex --flex-col --font-2xs"
+                  class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                 >
                   <span
                     class="text ln-text marquee"
@@ -421,7 +421,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por Tomás Girón"
               >
                 <div
-                  class="marquee-text --d-flex --flex-col --font-2xs"
+                  class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                 >
                   <span
                     class="text ln-text marquee"
@@ -521,7 +521,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 title="Por Mariela Arias"
               >
                 <div
-                  class="marquee-text --d-flex --flex-col --font-2xs"
+                  class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                 >
                   <span
                     class="text ln-text marquee"
@@ -614,7 +614,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --m --regular"
+          class="ln-card --d-flex --flex-col --ai-start --text-center --m --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -661,7 +661,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -710,7 +710,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                 vivo
               </span>
               <h2
-                class="text ln-text title --prumo --font-medium --font-m"
+                class="text ln-text title --prumo --font-medium --font-m-l"
               >
                 
                 Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
@@ -723,7 +723,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -757,7 +757,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
             >
               <h2
-                class="text ln-text title --prumo --font-medium --font-m"
+                class="text ln-text title --prumo --font-medium --font-m-l"
               >
                 
                 Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
@@ -770,7 +770,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -804,7 +804,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
             >
               <h2
-                class="text ln-text title --prumo --font-medium --font-m"
+                class="text ln-text title --prumo --font-medium --font-m-l"
               >
                 
                 El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres
@@ -817,7 +817,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -851,7 +851,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
             >
               <h2
-                class="text ln-text title --prumo --font-medium --font-m"
+                class="text ln-text title --prumo --font-medium --font-m-l"
               >
                 
                 El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
@@ -864,7 +864,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -898,7 +898,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/test-noticia-en-arc-nid16032021-2/"
             >
               <h2
-                class="text ln-text title --prumo --font-medium --font-m"
+                class="text ln-text title --prumo --font-medium --font-m-l"
               >
                 
                 Test noticia en ARC
@@ -911,7 +911,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
+          class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -945,7 +945,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/revista-living/test-noticia-en-arc-nid03012023/"
             >
               <h2
-                class="text ln-text title --prumo --font-medium --font-m"
+                class="text ln-text title --prumo --font-medium --font-m-l"
               >
                 
                 Test noticia en ARC

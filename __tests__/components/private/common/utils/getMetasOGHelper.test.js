@@ -144,7 +144,7 @@ describe('Case return getData', () => {
             longTitle: 'La Nacion',
             shareConfig: {
                 facebook: {
-                    appID: '205326199490321'
+                    appID: '154042854349421'
                 }
             }
         },
@@ -187,7 +187,7 @@ describe('Case return getData', () => {
                 'https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg',
             url:
                 'https://www.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/',
-            fbAppId: '205326199490321',
+            fbAppId: '154042854349421',
             isArticle: true,
             publishDate: '2021-01-08T15:24:00.940Z',
             tier: 'metered',
@@ -217,7 +217,7 @@ describe('Case return getData', () => {
             description: 'Ultimas noticias de Argentina y el mundo',
             image: 'undefined$LATEST',
             url: 'https://www.lanacion.com.arEZYG5OEVH5HSJJCUMJO5XAHTTA/',
-            fbAppId: '205326199490321',
+            fbAppId: '154042854349421',
             isArticle: false,
             subtype: '7'
         });

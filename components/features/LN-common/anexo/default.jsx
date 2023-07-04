@@ -10,6 +10,7 @@ import { adjustByURL } from '../../../private/common/utils/propTypesHelper';
 import StaticContent from '../../../private/common/staticContent';
 import getDynamicBanners from '../../../private/common/banners/dynamicBanners/getDynamicBanners';
 import { getErrorMessage, isInSection } from './common/_helper-WebApi';
+import SetFixedHeight from '../../../private/common/SetFixedHeight';
 import '../../../../resources/dist/css/ln/modules/skeleton-box.css';
 
 const AnexoFeature = props => {
@@ -55,6 +56,8 @@ const AnexoFeature = props => {
             bannerDsk
         );
 
+    const anexoId = `anexo-responsive-${id}`;
+
     useEffect(() => {
         handleIframeProps(id);
     }, [id, comp]);
@@ -62,22 +65,16 @@ const AnexoFeature = props => {
     const iframeURLContent = (
         <>
             <div
-                id={`anexo-responsive-${id}`}
+                id={anexoId}
                 className={`com-anexo ${EXTRA_CLASS}`}
                 style={{ overflow: 'hidden', width: '100%' }}
             >
-                <style>
-                    {`#anexo-responsive-${id}{height:${parseInt(
-                        heightMobile,
-                        10
-                    )}px}@media(min-width:768px){#anexo-responsive-${id}{height:${
-                        // eslint-disable-next-line prettier/prettier
-                        parseInt(heightTablet, 10)
-                    }px}}@media(min-width:1024px){#anexo-responsive-${id}{height:${
-                        // eslint-disable-next-line prettier/prettier
-                        parseInt(heightDesktop, 10)
-                    }px}}`}
-                </style>
+                <SetFixedHeight
+                    elementId={anexoId}
+                    heightMobile={heightMobile}
+                    heightTablet={heightTablet}
+                    heightDesktop={heightDesktop}
+                />
                 {comp()}
             </div>
             {bannerMob}

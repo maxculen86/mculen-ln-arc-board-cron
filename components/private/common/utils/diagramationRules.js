@@ -32,8 +32,8 @@ const diagramationRules = diagramation => {
     const liveblog = 'liveblog';
     const html = 'html';
     const ranking = 'ranking';
-    const txtCenter = '--txt-center';
-    const tabTextCenter = '--tab-text-center';
+    const txtCenter = '--text-center';
+    // const tabTextCenter = '--tab-text-center'; TO-DO: use for Hashtag L img-right //
 
     const diagramations = {
         'left-focal': [
@@ -578,6 +578,7 @@ const diagramationRules = diagramation => {
             }
         ],
         'hash-1-2-2-2_grid': [
+            // TO-DO size.L imagePosition{mobile:img.right} => className: tabTextCenter //
             {
                 withMarquee: false,
                 withMarqueeImg: false,
@@ -588,85 +589,86 @@ const diagramationRules = diagramation => {
                     mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
-                }
+                },
+                className: txtCenter
             },
             {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
-                className: tabTextCenter
+                className: txtCenter
             },
             {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
-                className: tabTextCenter
+                className: txtCenter
             },
             {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
-                className: tabTextCenter
+                className: txtCenter
             },
             {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
-                className: tabTextCenter
+                className: txtCenter
             },
             {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
-                className: tabTextCenter
+                className: txtCenter
             },
             {
                 withMarquee: false,
                 withMarqueeImg: false,
                 withSubhead: false,
-                cardSize: size.M,
+                cardSize: size.ML,
                 imageConfig: size.XS,
                 imagePosition: {
-                    mobile: img.right,
+                    mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
                 },
-                className: tabTextCenter
+                className: txtCenter
             }
         ],
         bn_1_4_grid: [
@@ -1167,7 +1169,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: size.L,
+                cardSize: size.M,
                 titleTag: tag.h2,
                 subheadTag: tag.h3
             },
@@ -1175,7 +1177,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: size.L,
+                cardSize: size.M,
                 titleTag: tag.h2,
                 subheadTag: tag.h3
             },
@@ -1183,7 +1185,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: size.L,
+                cardSize: size.M,
                 titleTag: tag.h2,
                 subheadTag: tag.h3
             }
@@ -1201,7 +1203,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: size.L,
+                cardSize: size.M,
                 titleTag: tag.h2,
                 subheadTag: tag.h3
             },
@@ -1209,7 +1211,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: size.L,
+                cardSize: size.M,
                 titleTag: tag.h2,
                 subheadTag: tag.h3
             },
@@ -1217,7 +1219,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: size.L,
+                cardSize: size.M,
                 titleTag: tag.h2,
                 subheadTag: tag.h3
             },
@@ -1225,7 +1227,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: size.L,
+                cardSize: size.M,
                 titleTag: tag.h2,
                 subheadTag: tag.h3
             },
@@ -1233,7 +1235,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: size.L,
+                cardSize: size.M,
                 titleTag: tag.h2,
                 subheadTag: tag.h3
             },
@@ -1241,7 +1243,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: size.L,
+                cardSize: size.M,
                 titleTag: tag.h2,
                 subheadTag: tag.h3
             },
@@ -1249,7 +1251,7 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: true,
                 withMedia: false,
-                cardSize: size.L,
+                cardSize: size.M,
                 titleTag: tag.h2,
                 subheadTag: tag.h3
             }
