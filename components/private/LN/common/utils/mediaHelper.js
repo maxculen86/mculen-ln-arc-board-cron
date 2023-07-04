@@ -110,43 +110,69 @@ export const getShortestImage = (resizedUrls = []) => {
     };
 };
 
-const setSourceSet = (urlImage, pixelDensity = []) => {
-    const numberOfImgsWithPixelRatio = pixelDensity.length;
-
-    if (numberOfImgsWithPixelRatio >= 1)
-        return `${urlImage}, ${pixelDensity.join(', ')}`;
+const setSourceSet = (
+    urlImage,
+    withConfigPixelRatio = false,
+    pixelDensity = []
+) => {
+    if (withConfigPixelRatio) return `${urlImage}, ${pixelDensity.join(', ')}`;
 
     return urlImage;
 };
 
-export const getImagesToLoadWithPicture = (sourceActive = []) => {
+export const getImagesToLoadWithPicture = (sourceActive = [], isPreload) => {
     let mediaCondition;
     const srcset = [];
 
-    return sourceActive.map(({ option, resizedUrl: urlImage } = {}) => {
-        const minWidth = get(option, 'minScreenWidth');
-        const maxWidth = get(option, 'maxScreenWidth');
-        const xDescriptor = get(option, 'configPixelRatio.xDescriptor');
-        const widthToAddPixelDensity = get(
-            option,
-            'configPixelRatio.forScreenWidth'
+    return sourceActive.reduce((acc, currentValue) => {
+        const minWidth = get(currentValue, 'option.minScreenWidth');
+        const maxWidth = get(currentValue, 'option.maxScreenWidth');
+        const xDescriptor = get(
+            currentValue,
+            'option.configPixelRatio.xDescriptor'
         );
+        const widthToAddPixelDensity = get(
+            currentValue,
+            'option.configPixelRatio.forScreenWidth'
+        );
+        const urlImage = get(currentValue, 'resizedUrl', '');
 
         if (xDescriptor && widthToAddPixelDensity) {
             srcset.push(`${urlImage} ${xDescriptor}`);
             mediaCondition = widthToAddPixelDensity;
         }
 
-        return {
-            minWidth,
-            maxWidth,
-            mediaPreload: get(option, 'media_preload'),
-            srcSet:
-                mediaCondition === minWidth
-                    ? setSourceSet(urlImage, srcset)
-                    : urlImage
-        };
-    });
+        const withConfigPixelRatio =
+            (mediaCondition === minWidth || mediaCondition === maxWidth) &&
+            srcset.length > 0;
+
+        const srcSet = setSourceSet(urlImage, withConfigPixelRatio, srcset);
+
+        if (isPreload) {
+            return [
+                ...acc,
+                {
+                    mediaPreload: get(currentValue, 'option.media_preload'),
+                    href: urlImage,
+                    withConfigPixelRatio,
+                    srcSet
+                }
+            ];
+        }
+
+        if (minWidth || maxWidth) {
+            return [
+                ...acc,
+                {
+                    minWidth,
+                    maxWidth,
+                    srcSet
+                }
+            ];
+        }
+
+        return acc;
+    }, []);
 };
 
 export const LinkImagePreload = ({
@@ -161,17 +187,20 @@ export const LinkImagePreload = ({
 
     // TODO: Sacar condicion isLoadWithPicture cuando se implemente carga con picture en todo el sitio.
     if (isLoadWithPicture) {
-        const images = getImagesToLoadWithPicture(resizedUrls);
+        const images = getImagesToLoadWithPicture(resizedUrls, true);
 
-        return images.map(({ mediaPreload, srcSet } = {}) => (
-            <link
-                rel="preload"
-                as="image"
-                {...fetchPriorityAttr}
-                media={mediaPreload}
-                imagesrcset={srcSet}
-            />
-        ));
+        return images.map(
+            ({ mediaPreload, srcSet, withConfigPixelRatio, href } = {}) => (
+                <link
+                    rel="preload"
+                    as="image"
+                    {...fetchPriorityAttr}
+                    media={mediaPreload}
+                    imagesrcset={withConfigPixelRatio ? srcSet : undefined}
+                    href={href}
+                />
+            )
+        );
     }
 
     // TODO: Eliminar logica de aca para abajo despues que se haya migrado todo el sitio a carga de imagenes con picture.
