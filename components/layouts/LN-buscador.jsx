@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import Consumer from 'fusion:consumer';
 import React from 'react';
 import PropTypes from 'fusion:prop-types';

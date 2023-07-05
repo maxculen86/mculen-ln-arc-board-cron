@@ -76,7 +76,7 @@ const lnNotaFotoAl100 = ({
                     </div>
                 </main>
                 <div className="footer-container --no-app">
-                    <Footer />
+                    <Footer outputType={outputType} />
                 </div>
             </div>
             <LoadBannersSSR />

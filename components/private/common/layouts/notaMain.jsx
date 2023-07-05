@@ -1,9 +1,10 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../LN/common/header';
 import Footer from '../../LN10/footer';
 
-const NotaMain = ({ children, className }) => {
+const NotaMain = ({ children, className, outputType = 'default' }) => {
     return (
         <div id="wrapper" className={className}>
             <Header />
@@ -63,7 +64,7 @@ const NotaMain = ({ children, className }) => {
                 </div>
             </main>
             <div className="footer-container --no-app">
-                <Footer />
+                <Footer outputType={outputType} />
             </div>
         </div>
     );
@@ -71,7 +72,8 @@ const NotaMain = ({ children, className }) => {
 
 NotaMain.propTypes = {
     children: PropTypes.node.isRequired,
-    className: PropTypes.string.isRequired
+    className: PropTypes.string.isRequired,
+    outputType: PropTypes.string
 };
 
 export default NotaMain;

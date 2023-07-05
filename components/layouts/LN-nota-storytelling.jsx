@@ -68,7 +68,7 @@ const lnNotaStorytelling = ({
                     </div>
                 </main>
                 <div className="footer-container --no-app">
-                    <Footer />
+                    <Footer outputType={outputType} />
                 </div>
             </div>
             <LoadBannersSSR />

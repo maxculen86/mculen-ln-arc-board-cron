@@ -84,7 +84,7 @@ const LNNotaReceta = ({ outputType, children }) => {
                     </div>
                 </main>
                 <div className="footer-container --no-app">
-                    <Footer />
+                    <Footer outputType={outputType} />
                 </div>
             </div>
             <LoadBannersSSR />
