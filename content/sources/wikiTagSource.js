@@ -1,7 +1,11 @@
 /* eslint-disable prefer-destructuring */
-import { LANACION_SERVICES_URL } from 'fusion:environment';
+import {
+    LANACION_SERVICES_URL,
+    API_ENV,
+    API_KEY_ARC_SERVICES
+} from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
-import getRequest from './utils/getRequest';
+import getRequestWithJSON from './utils/getRequestWithJson';
 
 const resolve = query => {
     const { slug = '' } = query;
@@ -10,7 +14,13 @@ const resolve = query => {
 
 const fetch = query => {
     const { uri = '', 'arc-site': arcSite = 'la-nacion-ar' } = query;
-    return getRequest(resolve(query))
+    return getRequestWithJSON({
+        uri: resolve(query),
+        headers: {
+            Referer: API_ENV,
+            'api-key': API_KEY_ARC_SERVICES
+        }
+    })
         .then(response => response)
         .catch(error => {
             logger.push(error, { source: 'wikiTagSource', url: uri }, arcSite);

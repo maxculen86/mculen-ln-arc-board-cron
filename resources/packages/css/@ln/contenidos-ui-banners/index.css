@@ -165,7 +165,7 @@
     margin: 1.25rem auto 0 auto;
   }
 }
-@media (min-width: 64rem) {
+@media (min-width: 80rem) {
   .ln-aside .ln-banner-container {
     background: none;
   }
@@ -191,6 +191,8 @@
     display: none;
     width: 19.0625rem;
     height: 2rem;
+    position: absolute;
+    margin-top: 0;
   }
   .--top-fixed .ln-banner-container.--logo_sticky_dsk {
     display: block;
@@ -257,7 +259,7 @@
     display: none;
   }
 }
-@media (min-width: 64rem) {
+@media (min-width: 80rem) {
   [class*=_dsk] {
     display: flex;
   }

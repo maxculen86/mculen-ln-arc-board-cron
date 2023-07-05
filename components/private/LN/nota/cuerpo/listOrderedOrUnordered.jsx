@@ -20,9 +20,9 @@ const ListOrderedOrUnordered = ({ data }) => {
         });
     };
 
-    // if (data.items.some((e) => e.type === 'list' || e.content === undefined)) {
-    //     return <></>;
-    // }
+    if (!data.items.some(e => e.type === 'text')) {
+        return <></>;
+    }
 
     return (
         <ul className={classList}>

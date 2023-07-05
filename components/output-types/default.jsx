@@ -187,18 +187,6 @@ const Default = props => {
                         contextPath={contextPath}
                     />
                 )}
-                <link
-                    rel="preload"
-                    as="script"
-                    href={deployment(`${contextPath}/dist/engine/react.js`)}
-                />
-                <link
-                    rel="preload"
-                    as="script"
-                    href={deployment(
-                        `${contextPath}/dist/components/combinations/default.js`
-                    )}
-                />
                 <Libs />
                 <TagsLoadingList
                     section="all"

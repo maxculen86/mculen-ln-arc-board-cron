@@ -45,6 +45,22 @@
         {
             "slotGroup": "home",
             "mobile": "caja1_mob"
+        },
+        {
+            "slotGroup": "home",
+            "desktop": "logo_header_dsk"
+        },
+        {
+            "slotGroup": "home",
+            "desktop": "logo_header_dsk_sticky"
+        },
+        {
+            "slotGroup": "home",
+            "mobile": "logo_header_mob"
+        },
+        {
+            "slotGroup": "home",
+            "tablet": "logo_header_tab"
         }
     ],
     "bannersLazy": [

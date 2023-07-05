@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Paragraph from './parrafo';
 import ModParagraph from '../../../common/mod-paragraph';
 import ListOrderedOrUnordered from './listOrderedOrUnordered';
+import '../../../../../resources/dist/css/ln/components/blockquote.css';
 
 const blockQuote = ({
     data: { content_elements: contentElements = [], subtype }

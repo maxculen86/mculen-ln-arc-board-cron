@@ -150,20 +150,7 @@
   padding: 0 1.5rem;
 }
 .ln-caja-hashtag.--hash-1-2-2-2_grid .grid .--0 .description-container .ln-text.title {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
   font-size: 1.25rem;
-}
-.ln-caja-hashtag.--hash-1-2-2-2_grid .grid .--0 .description-container .ln-text.title .lead {
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: auto;
-}
-.ln-caja-hashtag.--hash-1-2-2-2_grid .grid .--0 .description-container .marquee-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 @media (min-width: 48rem) {
   .ln-caja-hashtag.--hash-1-2-2-2_grid .grid .--0 {
