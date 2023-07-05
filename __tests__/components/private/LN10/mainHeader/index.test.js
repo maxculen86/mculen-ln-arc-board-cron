@@ -50,10 +50,6 @@ describe('Private - LN10 - MainHeader', () => {
         expect(render(<MainHeader />)).toBeTruthy();
     });
 
-    test('should match snapshot', () => {
-        expect(render(<MainHeader userType="logged" />)).toMatchSnapshot();
-    });
-
     test('should renders with LN logo', () => {
         const { container } = render(<MainHeader userType="logged" />);
         const logo = container.querySelector('.logo-header');

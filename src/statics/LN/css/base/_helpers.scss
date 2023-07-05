@@ -634,6 +634,7 @@
     }
 
     &.--font-black {
+        font-weight: 100;
         font-variation-settings: 'wght' 190, 'opsz' 0;
 
         &.--xl,
@@ -658,6 +659,7 @@
     }
 
     &.--font-bold {
+        font-weight: 100;
         font-variation-settings: 'wght' 150, 'opsz' 0;
 
         &.--xl,
