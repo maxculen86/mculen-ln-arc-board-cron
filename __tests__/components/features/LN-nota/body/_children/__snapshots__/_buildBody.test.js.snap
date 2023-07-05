@@ -7954,19 +7954,6 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
     />
   </div>
   <div
-    class="com-embed --tiktok"
-  >
-    <amp-iframe
-      allow="encrypted-media"
-      frameborder="0"
-      height="380"
-      layout="responsive"
-      sandbox="allow-scripts allow-same-origin"
-      src="https://www.tiktok.com/embed.js"
-      width="300"
-    />
-  </div>
-  <div
     class="row --steps"
   >
     <div
@@ -11248,10 +11235,6 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </blockquote>
     
 
-    <script
-      async=""
-      src="//platform.instagram.com/en_US/embeds.js"
-    />
   </div>
   <div
     class="com-embed --spotify"
@@ -11954,10 +11937,6 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
        
     </blockquote>
      
-    <script
-      async=""
-      src="https://www.tiktok.com/embed.js"
-    />
   </div>
   <div
     class="row --steps"
