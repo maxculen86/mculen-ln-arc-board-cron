@@ -453,6 +453,23 @@
             }
         }
     ],
+    "bn_3_grid": [
+        {
+            "variants": ["regular", "liveblog", "author", "html"],
+            "T1": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T3": {
+                "size": "L",
+                "imagePosition": "Top"
+            }
+        }
+    ],
     "bnGrilla4": [
         {
             "variants": ["regular", "liveblog"],
