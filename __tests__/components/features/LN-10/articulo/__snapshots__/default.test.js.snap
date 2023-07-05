@@ -55,7 +55,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
           title="Por "
         >
           <div
-            class="marquee-text --d-flex --flex-col --font-2xs"
+            class="marquee-text --d-flex --flex-col --font-2xs --w-100"
           >
             <span
               class="text ln-text marquee"

@@ -11,6 +11,8 @@ import PwaModals from '../private/LN/common/pwaModals';
 
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 
+import '../../resources/dist/css/ln/pages/recipe.css';
+
 const pageBuilderSections = [
     'Pre-Titulo',
     'Titulo',
