@@ -1,6 +1,6 @@
 const WIDTH_MOBILE = 425;
 const WIDTH_XL_MOBILE = 426;
-const WIDTH_TABLET = 768;
+// const WIDTH_TABLET = 768;
 const WIDTH_XL_DESKTOP = 1340;
 
 const maxWidth425 = '(max-width: 425px)';
@@ -16,10 +16,10 @@ const minWidth768 = '(min-width: 768px)';
 const minWidth360 = '(min-width: 360px)';
 const minWidth320 = '(min-width: 320px)';
 const minWidth375 = '(min-width: 375px)';
-const minWidthPreload1280 = '(min-width: 1280.1px)';
-const min1024max1280 = '(min-width: 1024.1px and max-width: 1280px)';
-const min768max1024 = '(min-width: 768.1px and max-width: 1024px)';
-const min375max768 = '(min-width: 375.1px and max-width: 768px)';
+const minWidthPreload1280 = '(min-width: 1280px)';
+const min1024max1280 = '(min-width: 1024px and max-width: 1279px)';
+const min768max1024 = '(min-width: 768px and max-width: 1023px)';
+const min375max768 = '(min-width: 376px and max-width: 767px)';
 const maxWidth375 = '(max-width: 375px)';
 
 const contentElementSizes = {
@@ -65,6 +65,7 @@ const promoItemsSizes = {
             width: 351,
             height: 234,
             // media: minWidth375,
+            minScreenWidth: 376,
             proportion: '3:2',
             media_preload: min375max768
         },
@@ -72,6 +73,7 @@ const promoItemsSizes = {
             width: 768,
             height: 512,
             // media: minWidth768,
+            minScreenWidth: 768,
             proportion: '3:2',
             media_preload: min768max1024
         },
@@ -79,15 +81,9 @@ const promoItemsSizes = {
             width: 879,
             height: 586,
             media: minWidth1280,
+            minScreenWidth: 1024,
             proportion: '3:2',
-            media_preload: minWidthPreload1280
-        },
-        {
-            width: 1200,
-            height: 746,
-            // media: minWidth1024,
-            proportion: '3:2',
-            media_preload: '(min-width: 1024.1px and max-width: 1280px)'
+            media_preload: minWidth1024
         }
     ]
 };
@@ -676,7 +672,6 @@ export default {
                     {
                         width: 320,
                         height: 213,
-                        minScreenWidth: WIDTH_TABLET,
                         media_preload: minWidth768,
                         useFullSize: true,
                         proportion: '3:2'
@@ -684,7 +679,7 @@ export default {
                     {
                         width: 500,
                         height: 333,
-                        minScreenWidth: WIDTH_XL_MOBILE,
+                        maxScreenWidth: 767,
                         media_preload: min426max767,
                         useFullSize: true,
                         proportion: '3:2'
@@ -738,6 +733,7 @@ export default {
                         width: 375,
                         height: 250,
                         // media: minWidth375,
+                        minScreenWidth: 375,
                         useFullSize: true,
                         proportion: '3:2'
                     },
@@ -899,7 +895,6 @@ export default {
                     {
                         width: 425,
                         height: 283,
-                        maxScreenWidth: WIDTH_MOBILE,
                         media_preload: maxWidth425,
                         useFullSize: true,
                         proportion: '3:2'

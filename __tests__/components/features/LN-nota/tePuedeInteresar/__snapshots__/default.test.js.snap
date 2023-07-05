@@ -18,7 +18,7 @@ exports[`Tests when the section may interest you is visible. Matche Snapshot wit
           role="contentinfo"
         >
           <h3
-            class="com-title --font-primary --xl --font-extra"
+            class="com-title --font-primary --xl --font-black"
           >
             Te puede interesar
           </h3>

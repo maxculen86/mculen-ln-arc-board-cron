@@ -262,6 +262,14 @@ const customReceta = `
         }
     }
 `;
+const customSummary = `
+    subtype
+    embed {
+        config {
+            arrayBullets
+        }
+    }
+`;
 
 const gallery = `
     subtype
@@ -349,12 +357,23 @@ export default `
         receta {
             ${customReceta}
         }
+        summary {
+            ${customSummary}
+        }
         apertura_multimedia {
             _id
             type
             ${video}
             embed_html
             content
+        },
+        summary {
+            _id,
+            embed {
+                config {
+                    arrayBullets
+                }
+            }
         }
     }
     credits {

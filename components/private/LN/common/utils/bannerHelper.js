@@ -90,24 +90,50 @@ export const isForAmp = (desktop = '', mobile = '', tablet = '') => {
 export const shouldShowBanner = (soloNoSuscriptores, globalContent) =>
     soloNoSuscriptores && get(globalContent, 'subscription') === 'S';
 
+export const getBannerConfigFromSiteService = ({
+    bannersSiteConfig,
+    bannerConfiguration,
+    slotGroup,
+    slotId,
+    section
+}) => {
+    if (bannersSiteConfig) {
+        return {
+            ...bannerConfiguration,
+            dimensions:
+                getDimsFromSiteService(
+                    bannersSiteConfig,
+                    `${slotGroup}_${slotId}`,
+                    section
+                ) || bannerConfiguration.dimensions
+        };
+    }
+
+    return bannerConfiguration;
+};
+
 export const getBannerConfiguration = (
     globalContent = {},
     customFields = {},
     globalContentConfig = {},
     bannerConfig = {}
 ) => {
-    const { label, taxonomy, type } = globalContent;
-
-    const { sections = [], tags = [] } = taxonomy || { sections: [], tags: [] };
-
     const { group: slotGroup } = customFields;
     const { device, slotId } = bannerConfig;
+    const { siteProperties } = useAppContext();
 
     if (!slotId || !slotGroup) return null;
 
-    const { siteProperties } = useAppContext();
-    const gc = useContext(GlobalContext);
-    const siteService = get(gc, 'state.siteService', {});
+    const { label, taxonomy, type } = globalContent;
+    const { sections = [], tags = [] } = taxonomy || { sections: [], tags: [] };
+
+    const getSiteService = () => {
+        const gc = useContext(GlobalContext);
+        return get(gc, 'state.siteService', {});
+    };
+
+    const siteService = getSiteService();
+
     const {
         banners: bannersSiteConfig,
         termicas = [],
@@ -208,18 +234,14 @@ export const getBannerConfiguration = (
     }
 
     // Las dimensiones del banner se traen de Site service por Section -> por Sitio -> Site properties
-    if (bannersSiteConfig) {
-        bannerConfiguration = {
-            ...bannerConfiguration,
-            dimensions:
-                getDimsFromSiteService(
-                    bannersSiteConfig,
-                    `${slotGroup}_${slotId}`,
-                    section
-                ) || bannerConfiguration.dimensions
-        };
-    }
-    return bannerConfiguration;
+
+    return getBannerConfigFromSiteService({
+        bannersSiteConfig,
+        bannerConfiguration,
+        slotGroup,
+        slotId,
+        section
+    });
 };
 
 export const shouldShow = (hideBanners, label, termicas = []) => {

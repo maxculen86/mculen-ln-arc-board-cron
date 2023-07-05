@@ -90,14 +90,14 @@ export function popUpCompartirNotaRss() {
 }
 
 export const shareWhatsAppDesktop = (notaId, dominio) => {
-    const wsShare = `https://api.whatsapp.com/send?text=${dominio}${notaId}`;
+    const wsShare = `https://wa.me/?text=${dominio}${notaId}`;
     window.open(wsShare, '_blank');
 };
 
 export const shareWhatsAppMobile = (notaId, dominio, title, content) => {
     try {
         const texto = `${title} : ...`;
-        const whatsappUrl = `whatsapp://send?text=${texto} - ${dominio}${notaId}`;
+        const whatsappUrl = `https://wa.me/?text=${texto} - ${dominio}${notaId}`;
         window.location.href = whatsappUrl;
     } catch (e) {
         console.warn && console.warn('Initialize: ', e);

@@ -18,7 +18,7 @@ export default {
     bannerConfig,
     shareConfig: {
         facebook: {
-            appID: '205326199490321'
+            appID: '154042854349421'
         }
     },
     firebase: {

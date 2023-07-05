@@ -7,6 +7,7 @@ import get from '../../../private/common/utils/get';
 const validateCajaManual = (layout, childProps = []) => {
     const LN_COMMON_ARTICLE = 'LN-10/article';
     const COLLECTION_FEATURES = 'features';
+    const LN_CARD_HTML = 'LN-10/CardHtml';
     const minimum = setQuantityByLayout({ layout });
     const childrenPropsLength = get(childProps, 'length');
 
@@ -27,7 +28,7 @@ const validateCajaManual = (layout, childProps = []) => {
                 ({ collection, type }) =>
                     !(
                         collection === COLLECTION_FEATURES &&
-                        [LN_COMMON_ARTICLE].includes(type)
+                        [LN_COMMON_ARTICLE, LN_CARD_HTML].includes(type)
                     )
             ),
             message:

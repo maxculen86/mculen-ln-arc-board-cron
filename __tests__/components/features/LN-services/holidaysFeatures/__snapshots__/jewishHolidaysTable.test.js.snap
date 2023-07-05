@@ -7,7 +7,7 @@ exports[`Components- Features - JewishHolidaysTable - default.jsx - test Should 
     role="contentinfo"
   >
     <h2
-      class="com-title --font-primary --xl --font-extra"
+      class="com-title --font-primary --xl --font-black"
     >
       Feriados judíos
     </h2>

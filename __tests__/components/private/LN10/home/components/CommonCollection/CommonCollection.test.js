@@ -84,7 +84,7 @@ describe('Tests Component CommonCollection', () => {
         );
         articlesRendered.slice(1, 7).forEach(article => {
             expect(article).toHaveClass(
-                'ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right'
+                'ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular'
             );
         });
         expect(container.querySelector('.ln-caja-hashtag')).toBeInTheDocument();
