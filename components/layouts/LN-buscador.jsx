@@ -1,9 +1,8 @@
 import Consumer from 'fusion:consumer';
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import StaticValidation from '../private/common/staticValidation';
 import Header from '../private/LN/common/header';
-import Footer from '../private/LN/common/footer';
+import Footer from '../private/LN10/footer';
 import ComTitle from '../private/common/com-title';
 import GlobalProvider from '../private/common/context/globalContext';
 import PwaModals from '../private/LN/common/pwaModals';
@@ -42,9 +41,9 @@ const lnBuscador = ({
                         {children[0]}
                     </div>
                 </main>
-                <StaticValidation id="StaticFooter" htmlOnly persistent>
+                <div className="footer-container --no-app">
                     <Footer />
-                </StaticValidation>
+                </div>
             </div>
             <PwaModals />
         </GlobalProvider>

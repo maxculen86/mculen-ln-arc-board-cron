@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StaticValidation from '../staticValidation';
 import Header from '../../LN/common/header';
-import Footer from '../../LN/common/footer';
+import Footer from '../../LN10/footer';
 
 const NotaMain = ({ children, className }) => {
     return (
@@ -63,9 +62,9 @@ const NotaMain = ({ children, className }) => {
                     </div>
                 </div>
             </main>
-            <StaticValidation id="StaticFooter" htmlOnly persistent>
+            <div className="footer-container --no-app">
                 <Footer />
-            </StaticValidation>
+            </div>
         </div>
     );
 };

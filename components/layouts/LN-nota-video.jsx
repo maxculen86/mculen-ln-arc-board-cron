@@ -1,9 +1,8 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import StaticValidation from '../private/common/staticValidation';
 import Header from '../private/LN/common/header';
-import Footer from '../private/LN/common/footer';
+import Footer from '../private/LN10/footer';
 import PwaModals from '../private/LN/common/pwaModals';
 
 import '../../resources/dist/css/ln/pages/video.css';
@@ -56,9 +55,9 @@ const lnNotaVideo = ({ children, outputType, tree, isAdmin }) => {
                         </div>
                     </div>
                 </main>
-                <StaticValidation id="StaticFooter" htmlOnly persistent>
+                <div className="footer-container --no-app">
                     <Footer />
-                </StaticValidation>
+                </div>
             </div>
             <LoadBannersSSR />
             <PwaModals />
