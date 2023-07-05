@@ -242,9 +242,6 @@ describe('BuildBody', () => {
         expect(container.querySelectorAll(`amp-youtube`)).toHaveLength(1);
         expect(container.querySelectorAll(`amp-dailymotion`)).toHaveLength(1);
         expect(container.querySelectorAll(`amp-iframe`)).toHaveLength(3);
-        // expect(
-        //     container.querySelectorAll(`div[class*="com-embed --tiktok"]`)
-        // ).toHaveLength(1);
         /* interstitial_link */
         expect(
             container.querySelectorAll(`div[class*="com-container --button"]`)
