@@ -24,8 +24,8 @@ import getComponent from '../utils/getComponent';
 import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
 import { useRoofData } from '../utils/_helpers';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
-import DivBannerSSR from '../../private/common/banners/DivBannerSSR';
 import isContentLabAt100 from '../utils/isContentLabAt100';
+import bannersHome from '../../private/common/banners/bannersDivHome';
 
 const CajaCollection = props => {
     const {
@@ -129,32 +129,6 @@ const CajaCollection = props => {
 
     const ContainerCards = getComponent(chainStyle, layout);
 
-    const bannersCajaSuscriptor = (
-        <>
-            <DivBannerSSR
-                bannerConfiguration={{
-                    slotId: 'cajasuscriptores_dsk',
-                    isStatic: true,
-                    lazyClass: 'lazy'
-                }}
-            />
-            <DivBannerSSR
-                bannerConfiguration={{
-                    slotId: 'cajasuscriptores_mob',
-                    isStatic: true,
-                    lazyClass: 'lazy'
-                }}
-            />
-            <DivBannerSSR
-                bannerConfiguration={{
-                    slotId: 'cajasuscriptores_tab',
-                    isStatic: true,
-                    lazyClass: 'lazy'
-                }}
-            />
-        </>
-    );
-
     return (
         <StaticContent {...extraOptsDiv}>
             {setRender({
@@ -186,7 +160,7 @@ const CajaCollection = props => {
                             />
                             {chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE && (
                                 <Bannersubscriber>
-                                    {bannersCajaSuscriptor}
+                                    {bannersHome.suscriptor}
                                 </Bannersubscriber>
                             )}
                             {bannerMob}
