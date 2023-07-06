@@ -105,7 +105,7 @@ export const baseUrl = ({ isInApertura, isAdmin }) => {
 export const buildQueryParams = ({
     newWidth,
     newHeight,
-    filterQuality = 80,
+    filterQuality = 70,
     focalPoint = [],
     smartCropExcluded = false,
     crop = null,
