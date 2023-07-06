@@ -29,7 +29,8 @@ import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScrip
 import {
     createHeaderObserver,
     createBannersIntersectionObserver,
-    createDifferVideosObserver
+    createDifferVideosObserver,
+    createDifferYoutubeVideosObserver
 } from '../../private/common/banners/intersectionObservers';
 import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 
@@ -63,6 +64,7 @@ const LN10Home = props => {
         createBannersIntersectionObserver();
         if (!isAdmin) {
             createDifferVideosObserver();
+            createDifferYoutubeVideosObserver();
             createHeaderObserver();
         }
     }, [isAdmin]);
