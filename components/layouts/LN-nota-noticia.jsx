@@ -11,6 +11,9 @@ import PwaModals from '../private/LN/common/pwaModals';
 import NotaMain from '../private/common/layouts/notaMain';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 
+import '../../resources/dist/css/ln/base/helpers.css';
+import '../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
+
 const lnNotaNoticia = ({
     children,
     outputType,

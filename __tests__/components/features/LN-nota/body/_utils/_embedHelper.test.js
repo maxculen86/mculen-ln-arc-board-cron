@@ -1,4 +1,8 @@
-import { transformEmbedScript } from '../../../../../../components/features/LN-nota/body/_utils/_embedHelper';
+import {
+    takeEmbedScriptToDiffer,
+    transformEmbedScript
+} from '../../../../../../components/features/LN-nota/body/_utils/_embedHelper';
+import contentElements from '../../../../../../__mocks__/data/nota/body/contentElements.json';
 
 describe('Components - Features - LN-nota - _utils - _embedHelper', () => {
     it('should test replaceOembedScript func', () => {
@@ -30,5 +34,20 @@ describe('Components - Features - LN-nota - _utils - _embedHelper', () => {
             subtype: 'twitter',
             type: 'oembed_response'
         });
+    });
+});
+
+describe('takeEmbedScriptToDiffer', () => {
+    it('should add embedded scripts correctly', () => {
+        const embeddedScripts = takeEmbedScriptToDiffer(contentElements);
+        expect(embeddedScripts).toEqual([
+            'https://platform.twitter.com/widgets.js',
+            'https://www.tiktok.com/embed.js'
+        ]);
+    });
+
+    it('should return an empty array if no embedded scripts are found', () => {
+        const embeddedScripts = takeEmbedScriptToDiffer([]);
+        expect(embeddedScripts).toEqual([]);
     });
 });

@@ -108,7 +108,7 @@ describe('Test de las embebidos en el cuerpo de una nota', () => {
 
     it('Atributos y nodo del DOM correcto', () => {
         const component = mount(<SocialEmbeds />);
-        expect(component.find('script')).toHaveLength(3);
+        expect(component.find('script')).toHaveLength(2);
         expect(
             component
                 .find('script')
