@@ -1,28 +1,14 @@
 import dynamicallyLoadScript from '../../../../private/LN/common/utils/dynamicallyLoadScript';
 import getViewport from '../../../../private/LN/common/utils/screenHelper';
 
-export const embedIntersectionObserver = () => {
+export const embedIntersectionObserver = scripts => {
     const { device } = getViewport();
-
-    const scripts = [];
-    if (document.querySelector('.--tiktok')) {
-        scripts.push({
-            src: 'https://www.tiktok.com/embed.js',
-            section: 'head'
-        });
-    }
-    if (document.querySelector('.--twitter')) {
-        scripts.push({
-            src: 'https://platform.twitter.com/widgets.js',
-            section: 'head'
-        });
-    }
 
     const callback = entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                scripts.forEach(script => {
-                    dynamicallyLoadScript(script.src, script.section);
+                scripts.forEach(src => {
+                    dynamicallyLoadScript(src, 'head');
                 });
                 interSectionObserver.unobserve(entry.target);
             }
@@ -37,6 +23,26 @@ export const embedIntersectionObserver = () => {
     const target = document.querySelector('.cuerpo__nota');
 
     if (target && scripts.length > 0) interSectionObserver.observe(target);
+};
+
+export const takeEmbedScriptToDiffer = contentElements => {
+    const scripts = {
+        twitter: 'https://platform.twitter.com/widgets.js',
+        tiktok: 'https://www.tiktok.com/embed.js'
+    };
+    const scriptsToDefer = [];
+
+    contentElements
+        .filter(element => element.type === 'oembed_response')
+        .forEach(embed => {
+            if (
+                Object.keys(scripts).includes(embed.subtype) &&
+                !scriptsToDefer.includes(scripts[embed.subtype])
+            ) {
+                scriptsToDefer.push(scripts[embed.subtype]);
+            }
+        });
+    return scriptsToDefer;
 };
 
 export const transformEmbedScript = element => {
