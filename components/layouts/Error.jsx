@@ -10,10 +10,17 @@ import '../../resources/dist/css/ln/pages/error.css';
 
 const ErrorPage = props => {
     const {
+        deployment,
+        contextPath,
         siteProperties: { host },
         children: [MasNotas]
     } = props;
-
+    const urlImageMob = deployment(
+        `${contextPath}/resources/images/liniers-404-tab-desk.jpg`
+    );
+    const urlImageTabDesk = deployment(
+        `${contextPath}/resources/images/liniers-404-tab-desk.jpg`
+    );
     return (
         <div id="wrapper" className="error404">
             <header className="--pt-xl --prl-0">
@@ -57,17 +64,15 @@ const ErrorPage = props => {
                         <div className="col-12">
                             <div className="--ar-mob-3-4 --mb-xl --mb-m-0 --ptb-m-lg">
                                 <Adaptableimage
-                                    src="https://backwebclub-media.glanacion.com/Freddo_slide_2f1018d2d2.jpg?width=1280"
+                                    src={urlImageMob}
                                     sources={[
                                         {
                                             minWidth: 768,
-                                            srcSet:
-                                                'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/RSUQWM65SRA4VG2QHCZ3KER6JM.jpg 768w'
+                                            srcSet: `${urlImageTabDesk} 768w`
                                         },
                                         {
                                             maxWidth: 767,
-                                            srcSet:
-                                                'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HO7LDM62UBE47AUDAHS3YUKDAQ.jpg 375w'
+                                            srcSet: `${urlImageMob} 375w`
                                         }
                                     ]}
                                     alt="Imagen de Liniers"
