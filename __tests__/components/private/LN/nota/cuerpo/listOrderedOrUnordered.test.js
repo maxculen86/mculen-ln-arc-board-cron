@@ -53,33 +53,95 @@ describe('features - LaNacion - Nota - unordered', () => {
     });
 });
 
-describe('features - LaNacion - Nota - unordered wrong list', () => {
-    const propsTwo = {
-        data: {
-            type: 'list',
+describe('ListOrderedOrUnordered', () => {
+    test('renders an ordered list with items', () => {
+        const data = {
+            list_type: 'ordered',
+            items: [
+                { _id: 1, content: 'Item 1', type: 'text' },
+                { _id: 2, content: 'Item 2', type: 'text' },
+                { _id: 3, content: 'Item 3', type: 'text' }
+            ]
+        };
+
+        const { container } = render(<ListOrderedOrUnordered data={data} />);
+        const orderedList = container.querySelector('.com-ordered');
+
+        expect(orderedList).toBeInTheDocument();
+        const listItems = container.querySelectorAll('.com-item');
+
+        expect(listItems.length).toBe(data.items.length);
+    });
+
+    test('renders an unordered list with items', () => {
+        const data = {
             list_type: 'unordered',
             items: [
+                { _id: 1, content: 'Item 1', type: 'text' },
+                { _id: 2, content: 'Item 2', type: 'text' },
+                { _id: 3, content: 'Item 3', type: 'text' }
+            ]
+        };
+
+        const { container } = render(<ListOrderedOrUnordered data={data} />);
+        const listItems = container.querySelectorAll('.com-item');
+        const unorderedList = container.querySelector('.com-unordered');
+
+        expect(unorderedList).toBeInTheDocument();
+        expect(listItems.length).toBe(data.items.length);
+    });
+
+    test('renders an empty fragment when no items have type "text"', () => {
+        const data = {
+            list_type: 'ordered',
+            items: [
+                { type: 'image', content: '<img src="example.jpg" />' },
                 {
-                    type: 'text',
-                    _id: 'UL2IXQ7T6RETZGEL2LQROZSSPE'
-                },
-                {
-                    type: 'list',
-                    content: `chau <a class="link" href="https://www.lanacion.com.ar/politica/alberto-fernandez-vicentin-nid2376255" class="com-link" >intervenir una compañía</a>`,
-                    _id: 'KPDZ2RRIUZE5XOBKXMXYF254JYK'
-                },
-                {
-                    type: 'list',
-                    _id: 'KPDZ2RRIUZE5XOBKXMXYF254JYL'
+                    type: 'video',
+                    content: '<iframe src="example.com"></iframe>'
                 }
             ]
-        }
-    };
+        };
 
-    it('Should not render wrong lists example: nested lists', () => {
-        const { container } = render(<ListOrderedOrUnordered {...propsTwo} />);
+        const { container } = render(<ListOrderedOrUnordered data={data} />);
+        expect(container.firstChild).toBeNull();
+    });
 
-        expect(container).toMatchSnapshot();
-        expect(screen.queryByRole('list')).toBeNull();
+    test('renders a nested list correctly', () => {
+        const data = {
+            list_type: 'ordered',
+            items: [
+                { type: 'text', content: 'First item' },
+                { type: 'text', content: 'Second item' },
+                {
+                    type: 'list',
+                    list_type: 'unordered',
+                    items: [
+                        { type: 'text', content: 'Nested item 1' },
+                        { type: 'text', content: 'Nested item 2' }
+                    ]
+                },
+                { type: 'text', content: 'Third item' }
+            ]
+        };
+
+        const { container, getByText } = render(
+            <ListOrderedOrUnordered data={data} />
+        );
+
+        // Ensure the top-level list is rendered
+        const topLevelList = container.querySelector('ul');
+        expect(topLevelList).toBeInTheDocument();
+
+        // Ensure the nested list is rendered
+        const nestedList = topLevelList.querySelector('ul');
+        expect(nestedList).toBeInTheDocument();
+
+        // Ensure the nested list items are rendered correctly
+        const nestedItem1 = getByText('Nested item 1');
+        expect(nestedItem1).toBeInTheDocument();
+
+        const nestedItem2 = getByText('Nested item 2');
+        expect(nestedItem2).toBeInTheDocument();
     });
 });
