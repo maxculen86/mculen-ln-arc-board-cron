@@ -19,6 +19,21 @@ class StoryText {
             }
         } = props;
 
+        // Obtengo la termica hide_listening_articles para luego filtrar si enviar la propiedad audio_url o no
+        this.fetchContent({
+            navigationTreeSource: {
+                source: 'navigationTreeSource',
+                query: {
+                    website: 'la-nacion-ar'
+                },
+                filter: `{
+                            Termicas {
+                                hide_listening_articles
+                            }
+                         }`
+            }
+        });
+
         // Agrego validacion que permita distinguir si se debe buscar el audio de la nota
         if (isListenableValue) {
             this.fetch(storyId, lastUpdatedDate);
@@ -50,11 +65,13 @@ class StoryText {
         ][browser.getApiVersion(this.props.requestUri)];
         const { audionewsSource } = this.state || {};
         const { globalContent } = this.props;
+        const { navigationTreeSource } = this.state || {};
 
         try {
             return indexNota({
                 ...globalContent,
-                ...audionewsSource
+                ...audionewsSource,
+                ...navigationTreeSource
             });
         } catch (err) {
             return { Success: false, Message: err.message };
