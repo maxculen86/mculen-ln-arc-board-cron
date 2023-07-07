@@ -440,7 +440,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -519,7 +519,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -567,7 +567,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Mariela Arias"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -724,7 +724,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -803,7 +803,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -851,7 +851,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Mariela Arias"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1008,7 +1008,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1087,7 +1087,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1135,7 +1135,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Mariela Arias"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1194,7 +1194,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media"
+              class="ln-card --d-flex --flex-col --ai-start --text-center --m --regular --no-media"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1221,7 +1221,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m-l --regular"
+              class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1268,7 +1268,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m-l --regular"
+              class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1330,7 +1330,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m-l --regular --no-media"
+              class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular --no-media"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1361,7 +1361,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m-l --regular --no-media"
+              class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular --no-media"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1388,7 +1388,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m-l --regular"
+              class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1435,7 +1435,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m-l --regular"
+              class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1607,7 +1607,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1686,7 +1686,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1816,7 +1816,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"

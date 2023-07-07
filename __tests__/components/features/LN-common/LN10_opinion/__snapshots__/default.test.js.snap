@@ -114,7 +114,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs"
+                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                       >
                         <span
                           class="text ln-text marquee"
@@ -175,7 +175,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                           />
                         </picture>
                         <div
-                          class="marquee-text --d-flex --flex-col --font-2xs"
+                          class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                         >
                           <span
                             class="text ln-text marquee"
@@ -229,7 +229,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                           />
                         </picture>
                         <div
-                          class="marquee-text --d-flex --flex-col --font-2xs"
+                          class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                         >
                           <span
                             class="text ln-text marquee"
@@ -416,7 +416,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                           />
                         </picture>
                         <div
-                          class="marquee-text --d-flex --flex-col --font-2xs"
+                          class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                         >
                           <span
                             class="text ln-text marquee"
@@ -475,7 +475,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs"
+                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                       >
                         <span
                           class="text ln-text marquee"
@@ -533,7 +533,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs"
+                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                       >
                         <span
                           class="text ln-text marquee"
@@ -591,7 +591,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs"
+                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                       >
                         <span
                           class="text ln-text marquee"
@@ -649,7 +649,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs"
+                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                       >
                         <span
                           class="text ln-text marquee"

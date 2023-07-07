@@ -11,6 +11,8 @@ import StaticContent from '../staticContent';
 import siteProperties from '../../../../properties/sites/la-nacion-ar';
 import get from '../utils/get';
 import '../../../../resources/packages/css/@ln/contenidos-ui-banners/index.css';
+import '../../../../resources/dist/css/ln/modules/mod-banner.css';
+import '../../../../resources/dist/css/ln/components/com-banner.css';
 
 const DivBannerSSR = ({ bannerConfiguration }) => {
     const {

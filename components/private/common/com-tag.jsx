@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../../../resources/dist/css/ln/components/tag.css';
 import '../../../resources/dist/css/ln/components/com-icon.css';
 import '../../../resources/dist/css/ln/components/com-bullet.css';
 import ComTitle from './com-title';

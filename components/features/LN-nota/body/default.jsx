@@ -11,18 +11,26 @@ import addEventListener from '../../../private/common/hooks/useEventListener';
 import handleScrollForNota from '../../../private/LN/nota/dataLayer/handleScrollForNota';
 import { setStorageConfiguration } from '../../../private/common/utils/storage';
 import AudioPlayerDesktop from '../../../private/common/audioNews/AudioPlayerDesktop';
-import { embedIntersectionObserver } from './_utils/_embedHelper';
+import {
+    embedIntersectionObserver,
+    takeEmbedScriptToDiffer
+} from './_utils/_embedHelper';
 import { createIntersectionObserverForLinks } from '../../../private/common/utils/linksTracker';
 
 const body = ({ customFields }) => {
     const { outputType, globalContent = {} } = useAppContext();
     const banners = groupBannerConfig(customFields);
-    const { _id, isListenable, last_updated_date: date } = globalContent;
+    const {
+        _id,
+        isListenable,
+        last_updated_date: date,
+        content_elements: contentElements
+    } = globalContent;
 
     useEffect(() => {
         try {
             setStorageConfiguration(_id);
-            embedIntersectionObserver();
+            embedIntersectionObserver(takeEmbedScriptToDiffer(contentElements));
             createIntersectionObserverForLinks();
         } catch (error) {
             console.error('Error en setear Local Storage, CuerpoDefault', {
@@ -31,7 +39,7 @@ const body = ({ customFields }) => {
                 IdNota: _id
             });
         }
-    }, [_id, outputType]);
+    }, [_id, outputType, contentElements]);
 
     if (typeof window !== 'undefined') {
         addEventListener('scroll', handleScrollForNota, window);

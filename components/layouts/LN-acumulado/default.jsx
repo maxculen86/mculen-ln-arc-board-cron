@@ -2,9 +2,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import StaticContent from '../../private/common/staticContent';
 import Header from '../../private/LN/common/header';
-import Footer from '../../private/LN/common/footer';
+import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import AnexoDefault from '../../features/LN-common/anexo/default';
 
@@ -219,9 +218,9 @@ const LNAcumuladoLayout = props => {
                             </div>
                         </div>
                     </main>
-                    <StaticContent id="StaticFooter">
+                    <div className="footer-container --no-app">
                         <Footer />
-                    </StaticContent>
+                    </div>
                 </div>
                 <LoadBannersSSR />
                 <PwaModals />

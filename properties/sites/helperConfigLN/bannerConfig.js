@@ -863,6 +863,14 @@ export default {
     },
     home: {
         desktop: {
+            logo_header_dsk: {
+                slotName: 'la_nacion_desktop/logo_header_dsk',
+                dimensions: [[487, 48]]
+            },
+            logo_header_dsk_sticky: {
+                slotName: 'la_nacion_desktop/logo_header_dsk_sticky',
+                dimensions: [[305, 32]]
+            },
             megatop_dsk: {
                 slotName: `la_nacion_desktop/Home/megatop_dsk`,
                 dimensions: [
@@ -1084,6 +1092,10 @@ export default {
             }
         },
         mobile: {
+            logo_header_mob: {
+                slotName: 'la_nacion_mobile/logo_header_mob',
+                dimensions: [[172, 19]]
+            },
             sticky2_mob: {
                 slotName: `la_nacion_mobile/Home/sticky2_mob`,
                 dimensions: [
@@ -1240,6 +1252,10 @@ export default {
             }
         },
         tablet: {
+            logo_header_tab: {
+                slotName: 'la_nacion_tablet/logo_header_tab',
+                dimensions: [[305, 32]]
+            },
             megatop_tab: {
                 slotName: `la_nacion_tablet/Home/megatop_tab`,
                 dimensions: [

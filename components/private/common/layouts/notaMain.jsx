@@ -1,10 +1,10 @@
+/* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
-import StaticValidation from '../staticValidation';
 import Header from '../../LN/common/header';
-import Footer from '../../LN/common/footer';
+import Footer from '../../LN10/footer';
 
-const NotaMain = ({ children, className }) => {
+const NotaMain = ({ children, className, outputType = 'default' }) => {
     return (
         <div id="wrapper" className={className}>
             <Header />
@@ -63,16 +63,17 @@ const NotaMain = ({ children, className }) => {
                     </div>
                 </div>
             </main>
-            <StaticValidation id="StaticFooter" htmlOnly persistent>
-                <Footer />
-            </StaticValidation>
+            <div className="footer-container --no-app">
+                <Footer outputType={outputType} />
+            </div>
         </div>
     );
 };
 
 NotaMain.propTypes = {
     children: PropTypes.node.isRequired,
-    className: PropTypes.string.isRequired
+    className: PropTypes.string.isRequired,
+    outputType: PropTypes.string
 };
 
 export default NotaMain;

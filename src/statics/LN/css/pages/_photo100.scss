@@ -105,6 +105,11 @@
                     @include width-nota100;
                 }
             }
+            .com-unordered {
+                .com-unordered {
+                    margin-left: $spacing-md;
+                }
+            }
 
             .mod-share-container {
                 margin: 0 $spacing;
