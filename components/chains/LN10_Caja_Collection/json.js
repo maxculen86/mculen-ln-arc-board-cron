@@ -19,7 +19,7 @@ class CajaCollection extends GetCajaCollection {
         const breakingsChildren = getBreakingChildren(renderables);
         const isInBreakings = checkChildInSection(chainId, breakingsChildren);
 
-        const error = validateChain({
+        return validateChain({
             idCollection,
             articles,
             layout,
@@ -28,8 +28,6 @@ class CajaCollection extends GetCajaCollection {
             isInBreakings,
             chainStyle
         });
-
-        return error;
     };
 
     render() {

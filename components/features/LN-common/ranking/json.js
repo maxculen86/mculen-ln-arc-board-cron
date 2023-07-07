@@ -43,15 +43,13 @@ class RankingFeature {
     render() {
         try {
             const { rankingApi } = this.state || {};
-            const resp = {
+            return {
                 information: {
                     hideCaja: false,
                     title: this.title
                 },
                 articles: get(rankingApi, 'articles', []) || []
             };
-
-            return resp;
         } catch (err) {
             return { Success: false, Message: err.message };
         }

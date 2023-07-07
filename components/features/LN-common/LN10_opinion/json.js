@@ -17,15 +17,13 @@ class Opinion extends GetOpinionCollection {
             }
         } = propsValidate;
 
-        const error = validateFeatureOpinion({
+        return validateFeatureOpinion({
             idCollectionEditorial,
             idCollectionOpinion,
             articlesEditorial,
             articlesOpinion,
             layout
         });
-
-        return error;
     };
 
     render() {

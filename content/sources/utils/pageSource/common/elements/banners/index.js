@@ -1,4 +1,3 @@
-import get from '../../../../../../../components/private/common/utils/get';
 import { tasks } from '../common/strategy/index';
 import {
     addElementsByKey,
@@ -30,12 +29,11 @@ export const setBannersBySection = (elementsPage, layoutPage) => {
 // Add Banners by Section
 export const setBannersByConfig = (elementsPage, layoutPage) => {
     const banners = configBannerByLayout(layoutPage);
-    let elementsPageHome = [];
     let lenLastBanner = -1;
     let indexValidBanner = 0;
     let positionValid;
 
-    elementsPageHome = elementsPage.reduce((result, element) => {
+    return elementsPage.reduce((result, element) => {
         if (element) {
             const banner = banners[indexValidBanner];
             if (banner) {
@@ -45,21 +43,19 @@ export const setBannersByConfig = (elementsPage, layoutPage) => {
                     Array.isArray(configTaskPositionBanners) &&
                     configTaskPositionBanners.some(configItem => {
                         positionValid = configItem && configItem.position;
-                        const isValid =
+                        return (
                             configItem &&
                             Array.isArray(configItem.conditions) &&
                             configItem.conditions.every(config => {
                                 const task = config && config.task;
 
-                                const res = tasks[task](
+                                return tasks[task](
                                     element,
                                     config,
                                     lenLastBanner
                                 );
-
-                                return res;
-                            });
-                        return isValid;
+                            })
+                        );
                     });
 
                 if (isValidConfig && positionValid) {
@@ -77,8 +73,6 @@ export const setBannersByConfig = (elementsPage, layoutPage) => {
 
         return result;
     }, []);
-
-    return elementsPageHome;
 };
 
 export const setBannerByLayout = {

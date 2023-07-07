@@ -1,4 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
+
 import React from 'react';
 import { bodyElementRules } from '../_utils/_bodyElementRules';
 import { BuildBanners } from './_buildBanners';
@@ -104,8 +106,8 @@ const setDataComponent = ({
     capitalIndex,
     outputType,
     arcType
-}) => {
-    const baseComponent = Component ? (
+}) =>
+    Component ? (
         <Component
             data={element}
             capital={currentIndex === capitalIndex}
@@ -114,7 +116,4 @@ const setDataComponent = ({
         />
     ) : (
         <></>
-    ); //NOSONAR
-
-    return baseComponent;
-};
+    );

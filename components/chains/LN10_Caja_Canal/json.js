@@ -16,15 +16,13 @@ class CajaCanal extends GetCajaCollection {
             renderables = []
         } = propsValidate;
 
-        const error = validateChain({
+        return validateChain({
             idCollection,
             renderables,
             layout,
             articles,
             chainId
         });
-
-        return error;
     };
 
     render() {

@@ -10,11 +10,10 @@ export const respChildrens = props => {
     if (!validateChildrensApi(children)) {
         return null;
     }
-    const slicedChildrenInitial = setSlicedChildren({
+    return setSlicedChildren({
         children, // or children.filter(c => c != null),
         config: { layout, countTimeline: true }
     });
-    return slicedChildrenInitial;
 };
 
 export default respChildrens;

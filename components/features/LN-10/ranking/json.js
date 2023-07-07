@@ -72,7 +72,7 @@ class RankingFeature {
             if (!rankingSectionApi && !rankingSectionParentApi) {
                 return null;
             }
-            const resp = {
+            return {
                 information: {
                     hideCaja: false,
                     title: this.title
@@ -82,8 +82,6 @@ class RankingFeature {
                     get(rankingSectionParentApi, 'articles', []) ||
                     []
             };
-
-            return resp;
         } catch (err) {
             return { Success: false, Message: err.message };
         }
