@@ -91,7 +91,7 @@ export const transformEmbedScript = element => {
         : element;
 };
 
-const removeScript = string => {
+export const removeScript = string => {
     const scriptStart = string.indexOf('<script');
     const scriptEnd = string.indexOf('</script>') + '</script>'.length;
 
