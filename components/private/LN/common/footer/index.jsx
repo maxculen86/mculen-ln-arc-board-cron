@@ -7,7 +7,6 @@ import List from '../../../common/mod-list';
 import Copyright from './copyright';
 import ComLogo from '../../../common/com-logo';
 import commonProps from './helpers/commonProps';
-import '../../../../../resources/dist/css/ln/modules/mod-footer.css';
 
 const Index = ({ home }) => {
     const listText = [

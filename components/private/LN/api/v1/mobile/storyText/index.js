@@ -5,6 +5,13 @@ import { removeEmptyItems } from '../../../common/utils/responseCleaner';
 const indexNotaText = dataNota => {
     if (!dataNota) throw new Error(`La información de la nota esta vacia`);
 
+    if (
+        dataNota.Termicas &&
+        dataNota.Termicas.hide_listening_articles === 'true'
+    ) {
+        dataNota.audio_url = undefined;
+    }
+
     const content = removeEmptyItems(cuerpo(dataNota));
 
     return content && content.length > 0
