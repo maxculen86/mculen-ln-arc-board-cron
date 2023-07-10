@@ -11258,13 +11258,6 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     />
     
 
-    <script
-      async="1"
-      crossorigin="anonymous"
-      defer="1"
-      nonce="9sLCntjB"
-      src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0"
-    />
     <div
       class="fb-post"
       data-href="https://www.facebook.com/premierleague/posts/3629332593757796"

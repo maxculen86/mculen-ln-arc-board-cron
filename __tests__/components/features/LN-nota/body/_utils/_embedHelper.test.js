@@ -42,6 +42,7 @@ describe('takeEmbedScriptToDiffer', () => {
         const embeddedScripts = takeEmbedScriptToDiffer(contentElements);
         expect(embeddedScripts).toEqual([
             'https://platform.twitter.com/widgets.js',
+            'https://connect.facebook.net/en_US/sdk.js',
             'https://www.tiktok.com/embed.js'
         ]);
     });
