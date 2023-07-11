@@ -1,0 +1,104 @@
+{
+    "caption": "Bianca Panozzo tienen 33 años y durante casi dos décadas convivió con la anorexia primero y la bulimia después; asegura que “cuando la vida pende de un hilo de seda, lo que salva es el otro, la comunidad”",
+    "credit": "Rodrigo Nespolo - Canon digital",
+    "defaultImage": {
+        "_width": 420,
+        "resizedUrl": "https://resizer.glanacion.com/resizer/3Rjz-2eHrpIcv8vUBUjQaUCxuDQ=/420x630/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
+    },
+    "height": 2000,
+    "image": {
+        "_id": "F3DWKYXWABBLBMPV2O4M7RYTTU",
+        "additional_properties": {
+            "iptc_source": "Canon digital"
+        },
+        "caption": "Bianca Panozzo tienen 33 años y durante casi dos décadas convivió con la anorexia primero y la bulimia después; asegura que “cuando la vida pende de un hilo de seda, lo que salva es el otro, la comunidad”",
+        "credits": {
+            "affiliation": [
+                {
+                    "name": "Rodrigo Nespolo/La Nacion",
+                    "type": "author"
+                }
+            ],
+            "by": [
+                {
+                    "byline": "Rodrigo Nespolo",
+                    "name": "Rodrigo Nespolo",
+                    "type": "author"
+                }
+            ]
+        },
+        "height": 2000,
+        "resized_urls": [
+            {
+                "option": {
+                    "height": 1280,
+                    "media": "(min-width: 1280px)",
+                    "media_preload": "(min-width: 1440px)",
+                    "minScreenWidth": 1440,
+                    "proportion": "3:2",
+                    "width": 1920
+                },
+                "resizedUrl": "https://resizer.glanacion.com/resizer/FGCdP9aQ2T9rOBqQIQKCCqiOW9I=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
+            },
+            {
+                "option": {
+                    "height": 800,
+                    "media": "(min-width: 1280px)",
+                    "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
+                    "minScreenWidth": 1024,
+                    "proportion": "3:2",
+                    "width": 1200
+                },
+                "resizedUrl": "https://resizer.glanacion.com/resizer/HV7wFuzjlfqHD5WTDZ2vZNmutQ4=/1200x800/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
+            },
+            {
+                "option": {
+                    "height": 1155,
+                    "media": "(min-width: 1280px)",
+                    "media_preload": "(min-width: 768px) and (max-width: 1023px)",
+                    "minScreenWidth": 768,
+                    "proportion": "2:3",
+                    "width": 770
+                },
+                "resizedUrl": "https://resizer.glanacion.com/resizer/Ga-HaRbXAZLN4o55ORO-71XtQnk=/770x1155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
+            },
+            {
+                "option": {
+                    "height": 630,
+                    "media": "(min-width: 1280px)",
+                    "media_preload": "(max-width: 767px)",
+                    "proportion": "2:3",
+                    "width": 420
+                },
+                "resizedUrl": "https://resizer.glanacion.com/resizer/3Rjz-2eHrpIcv8vUBUjQaUCxuDQ=/420x630/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
+            }
+        ],
+        "type": "image",
+        "url": "https://resizer.glanacion.com/resizer/crpHEYtpO_OYP0TTth3arr55sDc=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg",
+        "width": 1333
+    },
+    "imageList": [
+        {
+            "option": {
+                "height": 1155,
+                "media": "(min-width: 1280px)",
+                "media_preload": "(min-width: 768px) and (max-width: 1023px)",
+                "minScreenWidth": 768,
+                "proportion": "2:3",
+                "width": 770
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/Ga-HaRbXAZLN4o55ORO-71XtQnk=/770x1155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
+        },
+        {
+            "option": {
+                "height": 630,
+                "media": "(min-width: 1280px)",
+                "media_preload": "(max-width: 767px)",
+                "proportion": "2:3",
+                "width": 420
+            },
+            "resizedUrl": "https://resizer.glanacion.com/resizer/3Rjz-2eHrpIcv8vUBUjQaUCxuDQ=/420x630/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
+        }
+    ],
+    "width": 1333
+}

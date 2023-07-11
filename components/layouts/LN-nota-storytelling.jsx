@@ -12,6 +12,9 @@ import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModals from '../private/LN/common/pwaModals';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
+import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
+import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
+import get from '../private/common/utils/get';
 
 const lnNotaStorytelling = ({
     children,
@@ -21,13 +24,26 @@ const lnNotaStorytelling = ({
     layout,
     globalContent: {
         taxonomy: { sections },
-        distributor: { name }
-    }
+        distributor: { name },
+        subtype = ''
+    },
+    globalContent
 }) => {
+    const isLoadWithPicture = isAllowedSection({
+        globalContent,
+        listOfAllowedSection,
+        noteType: subtype
+    });
+
+    const withVideoBackground = Boolean(
+        get(globalContent, 'promo_items.storytelling', null)
+    );
+
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
+
     return (
         <GlobalProvider>
             {bannerMegatop}
@@ -38,7 +54,23 @@ const lnNotaStorytelling = ({
                 <Header />
                 <main id="content">
                     {children[1]}
-                    <AperturaStorytelling />
+
+                    {isLoadWithPicture && !withVideoBackground ? (
+                        <StaticValidation
+                            id="static-opening"
+                            htmlOnly
+                            persistent
+                        >
+                            <AperturaStorytelling
+                                isLoadWithPicture={isLoadWithPicture}
+                            />
+                        </StaticValidation>
+                    ) : (
+                        <AperturaStorytelling
+                            isLoadWithPicture={isLoadWithPicture}
+                        />
+                    )}
+
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
                             <section className="cuerpo__nota">
