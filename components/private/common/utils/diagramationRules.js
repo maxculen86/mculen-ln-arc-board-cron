@@ -32,8 +32,8 @@ const diagramationRules = diagramation => {
     const liveblog = 'liveblog';
     const html = 'html';
     const ranking = 'ranking';
-    const txtCenter = '--text-center';
-    // const tabTextCenter = '--tab-text-center'; TO-DO: use for Hashtag L img-right //
+    const txtCenter = '--txt-center';
+    // const tabTextCenter = '--tab-txt-center'; TO-DO: use for Hashtag L img-right //
 
     const diagramations = {
         'left-focal': [

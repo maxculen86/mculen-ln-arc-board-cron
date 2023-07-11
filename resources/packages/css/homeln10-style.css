@@ -5425,47 +5425,6 @@ a {
     text-align: right;
   }
 }
-.--font-thin {
-  font-weight: 100;
-}
-
-.--font-light {
-  font-weight: 300;
-}
-
-.--font-regular {
-  font-weight: 400;
-}
-
-.--font-medium {
-  font-weight: 500;
-}
-
-strong,
-.--font-bold {
-  font-weight: 700;
-}
-
-.--font-black {
-  font-weight: 900;
-}
-
-.--font-cursive {
-  font-style: oblique;
-}
-
-.--font-highlight {
-  background: transparent;
-  text-decoration: underline;
-  text-decoration-color: #ffff24;
-  text-decoration-thickness: 2px;
-  font-weight: 700;
-}
-
-.--color-light {
-  color: #fefefe;
-}
-
 .--none {
   display: none !important;
 }
@@ -6645,8 +6604,16 @@ strong,
   border-radius: 0.125rem;
 }
 
+.--rounded-3 {
+  border-radius: 0.1875rem;
+}
+
 .--rounded-4 {
   border-radius: 0.25rem;
+}
+
+.--rounded-6 {
+  border-radius: 0.375rem;
 }
 
 .--rounded-8 {
@@ -7171,17 +7138,13 @@ strong,
   color: #666666;
 }
 
-.--list-inherit {
-  list-style: inherit;
+strong:not(.--font-primary),
+.--font-bold:not(.--font-primary) {
+  font-weight: 700;
 }
 
-.--scroll-x {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  scrollbar-width: none;
-}
-.--scroll-x::-webkit-scrollbar {
-  display: none;
+.--font-regular {
+  font-weight: 400;
 }
 
 .--arial {
@@ -7324,6 +7287,23 @@ strong,
   }
 }
 
+.--list-inherit {
+  list-style: inherit;
+}
+
+.--scroll-x {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+.--scroll-x::-webkit-scrollbar {
+  display: none;
+}
+
+.--lead-br .description-container .lead {
+  display: block;
+}
+
 :root {
   --size-3xs: 0.25rem;
   --size-2xs: 0.5rem;
@@ -7392,14 +7372,15 @@ strong,
 }
 @media (min-width: 1280px) {
   :root {
-    --gap-v: var(--size-lg);
+    --gap-v: var(--size-xs);
     --cols: 16;
   }
 }
-.--lead-br .description-container .lead {
-  display: block;
+@media (min-width: 1360px) {
+  :root {
+    --gap-v: var(--size-lg);
+  }
 }
-
 @media (min-width: 64rem) {
   .--pl-l-sm {
     padding-left: 1rem;
@@ -7447,6 +7428,7 @@ strong,
 
 .ln-aside {
   background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 4px, rgba(0, 0, 0, 0.15) 6px);
+  min-width: 18.75rem;
 }
 
 @media (min-width: 64rem) {
