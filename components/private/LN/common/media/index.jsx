@@ -49,12 +49,13 @@ const Media = ({
     const subtype = subtipo.id;
     const idForMedia = isApertura ? idMedia : undefined;
 
-    const isValidSection = isAllowedSection({
-        noteType: subtype,
-        globalContent,
-        listOfAllowedSection,
-        layout: layoutPageBuilder
-    });
+    const isValidSection =
+        isAllowedSection({
+            noteType: subtype,
+            globalContent,
+            listOfAllowedSection,
+            layout: layoutPageBuilder
+        }) && outputType !== 'amp';
 
     useEffect(() => {
         !itsGallery &&

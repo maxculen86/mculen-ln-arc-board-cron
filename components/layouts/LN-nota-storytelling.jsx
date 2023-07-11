@@ -29,17 +29,18 @@ const lnNotaStorytelling = ({
     },
     globalContent
 }) => {
-    const isLoadWithPicture = isAllowedSection({
-        globalContent,
-        listOfAllowedSection,
-        noteType: subtype
-    });
+    const amp = outputType === 'amp' ? 'amp' : '';
+    const isLoadWithPicture =
+        isAllowedSection({
+            globalContent,
+            listOfAllowedSection,
+            noteType: subtype
+        }) && !amp;
 
     const withVideoBackground = Boolean(
         get(globalContent, 'promo_items.storytelling', null)
     );
 
-    const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
