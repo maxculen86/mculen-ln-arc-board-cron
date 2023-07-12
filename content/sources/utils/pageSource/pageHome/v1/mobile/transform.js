@@ -38,7 +38,10 @@ const transform = async (dataPage, query) => {
         // Add Component Dolar set file /pageSource/common/elements/dolar/config/configDolarPositionbySection.js
         elementsPageHome =
             (setDolarByLayout[layoutPage] &&
-                setDolarByLayout[layoutPage](elementsPageHome, layoutPage)) ||
+                (await setDolarByLayout[layoutPage](
+                    elementsPageHome,
+                    layoutPage
+                ))) ||
             elementsPageHome;
 
         // Add Banners by Configuration set in file /pageSource/common/elements/banners/config/configTaskPositionBanners.json
