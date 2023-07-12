@@ -42,6 +42,7 @@ const ImageArticle = props => {
     const sizes = getSizes(sourceActive);
     const { resizedUrl, _width } = getShortestImage(sourceActive);
     const _url = resizedUrl || url;
+    const img = !isAmp ? _url : `${resizedUrl} ${_width}w`;
 
     return (
         <ComPicture href={href}>
@@ -51,7 +52,7 @@ const ImageArticle = props => {
                         width={width}
                         alt={altBasic}
                         height={height}
-                        src={resizedUrl}
+                        src={img}
                         className="com-image"
                         searchableField={searchableField}
                         fetchPriority={isApertura ? 'high' : 'low'}
@@ -63,7 +64,7 @@ const ImageArticle = props => {
                 <ComImage
                     srcset={srcset}
                     sizes={sizes.length > 0 ? `${sizes},100vw` : '100vw'}
-                    src={!isAmp ? _url : `${resizedUrl} ${_width}w`}
+                    src={img}
                     alt={altBasic}
                     amp={isAmp}
                     height={height}

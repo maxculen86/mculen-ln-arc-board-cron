@@ -89,7 +89,7 @@ export const resizeImgUrl = ({
     defaultResizeWithSmart = {},
     focalPoint = [],
     smartCropExcluded,
-    filterQuality = 80,
+    filterQuality = 70,
     isInApertura = false,
     isAdmin = false,
     arcImage

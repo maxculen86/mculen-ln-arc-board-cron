@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import ComPicture from './com-picture';
 import ComImage from './com-image';
 import ModVideo from './mod-video';
-import { getSizes } from '../LN/common/utils/mediaHelper';
-
+import {
+    getSizes,
+    getImagesToLoadWithPicture
+} from '../LN/common/utils/mediaHelper';
 import '../../../resources/dist/css/ln/modules/mod-picture.css';
 
 const ModImage = props => {
@@ -17,7 +20,10 @@ const ModImage = props => {
         amp,
         sources,
         isApertura,
-        sizes
+        sizes,
+        isLoadWithPicture,
+        imageListForPicture,
+        imgDefault
     } = props;
 
     const srcSet = sources
@@ -31,15 +37,32 @@ const ModImage = props => {
             classCondition={classCondition}
             video={video ? '--video-background' : ''}
         >
-            <ComImage
-                srcset={srcSet}
-                src={src}
-                alt={alt}
-                amp={amp}
-                sizes={!sizesImg || `${sizesImg},100vw`}
-                {...sizes}
-                isApertura={isApertura}
-            />
+            {isLoadWithPicture && !video && (
+                <div className="com-image">
+                    <Adaptableimage
+                        alt={alt}
+                        src={imgDefault}
+                        className="com-image"
+                        fetchPriority="high"
+                        loading="eager"
+                        sources={getImagesToLoadWithPicture(
+                            imageListForPicture
+                        )}
+                    />
+                </div>
+            )}
+            {/* TODO: Eliminar el retorno del com-image cuando se haya habilitado foto al 100 a carga con picture */}
+            {!isLoadWithPicture && (
+                <ComImage
+                    srcset={srcSet}
+                    src={src}
+                    alt={alt}
+                    amp={amp}
+                    sizes={!sizesImg || `${sizesImg},100vw`}
+                    {...sizes}
+                    isApertura={isApertura}
+                />
+            )}
             {video ? <ModVideo image={src} video={video} /> : <></>}
         </ComPicture>
     );
@@ -63,7 +86,17 @@ ModImage.propTypes = {
     sizes: PropTypes.shape({
         width: PropTypes.number,
         height: PropTypes.number
-    })
+    }),
+    isLoadWithPicture: PropTypes.bool,
+    imageListForPicture: PropTypes.arrayOf(
+        PropTypes.shape({
+            option: PropTypes.shape({
+                media: PropTypes.string
+            }),
+            resizedUrl: PropTypes.string
+        })
+    ),
+    imgDefault: PropTypes.string
 };
 
 ModImage.defaultProps = {
@@ -73,7 +106,10 @@ ModImage.defaultProps = {
     video: '',
     sources: [],
     sizes: {},
-    isApertura: false
+    isApertura: false,
+    isLoadWithPicture: false,
+    imageListForPicture: [],
+    imgDefault: ''
 };
 
 export default ModImage;

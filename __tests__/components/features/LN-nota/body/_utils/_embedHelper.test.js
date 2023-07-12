@@ -1,4 +1,5 @@
 import {
+    removeScript,
     takeEmbedScriptToDiffer,
     transformEmbedScript
 } from '../../../../../../components/features/LN-nota/body/_utils/_embedHelper';
@@ -42,6 +43,7 @@ describe('takeEmbedScriptToDiffer', () => {
         const embeddedScripts = takeEmbedScriptToDiffer(contentElements);
         expect(embeddedScripts).toEqual([
             'https://platform.twitter.com/widgets.js',
+            'https://connect.facebook.net/en_US/sdk.js',
             'https://www.tiktok.com/embed.js'
         ]);
     });
@@ -49,5 +51,28 @@ describe('takeEmbedScriptToDiffer', () => {
     it('should return an empty array if no embedded scripts are found', () => {
         const embeddedScripts = takeEmbedScriptToDiffer([]);
         expect(embeddedScripts).toEqual([]);
+    });
+});
+
+describe('removeScript', () => {
+    test('Remove script', () => {
+        const input =
+            '<div id="fb-root"></div><script async="1" defer="1" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v17.0" nonce="r8NOAqlo"></script>';
+        const expectedOutput = '<div id="fb-root"></div>';
+
+        const output = removeScript(input);
+
+        expect(output).toEqual(expectedOutput);
+    });
+
+    test('No script to remove', () => {
+        const input =
+            '<div id="fb-root"></div><noScript async="1" defer="1" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v17.0" nonce="r8NOAqlo"></script>';
+        const expectedOutput =
+            '<div id="fb-root"></div><noScript async="1" defer="1" crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v17.0" nonce="r8NOAqlo"></script>';
+
+        const output = removeScript(input);
+
+        expect(output).toEqual(expectedOutput);
     });
 });
