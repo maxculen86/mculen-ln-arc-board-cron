@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests - Component - AperturaStorytelling Cases render image should return the image with picture and the different sizes for desktop and mobile 1`] = `
+<div>
+  <section
+    class="mod-opening"
+  >
+    <figure
+      class="mod-figure "
+      role="button"
+    >
+      <div
+        class="placeholder "
+      >
+        <div
+          class="com-image"
+        >
+          <picture>
+            <source
+              media="(min-width: 1440px)"
+              srcset="https://resizer.glanacion.com/resizer/_pgA0o-Ct6i880v2ijWKt6B6Qm0=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+            />
+            <source
+              media="(min-width: 1024px)"
+              srcset="https://resizer.glanacion.com/resizer/FuNTPpEceizAPMCoDmmHe3CSqEs=/1200x800/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+            />
+            <source
+              media="(min-width: 768px)"
+              srcset="https://resizer.glanacion.com/resizer/dvW8wftq6--pea56sjgMwDE3nUY=/770x1155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+            />
+            <img
+              alt="Federico Levrino es uno de los profesionales de alto rango de Telefe"
+              class="image --d-flex com-image"
+              decoding="async"
+              fetchpriority="high"
+              loading="eager"
+              src="https://resizer.glanacion.com/resizer/_amnGTMfypcv3F_MrFTeBV2prjQ=/420x630/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/AKQHIPLW5FD4HHXIWMT4XUSLM4.JPG"
+            />
+          </picture>
+        </div>
+      </div>
+      <div
+        class="mod-title"
+      >
+        <div
+          class="lay"
+        >
+          <h1
+            class="com-title --font-primary --sixxl --font-extra"
+          >
+            Federico Levrino, el gran productor de Susana: de su vínculo con Maradona al día que durmió en la puerta de la casa de Zulemita
+          </h1>
+        </div>
+      </div>
+    </figure>
+    <div
+      class="lay"
+    >
+      <figcaption
+        class="mod-figcaption"
+      >
+        <span
+          class="--caption --twoxs"
+        >
+          Federico Levrino es uno de los profesionales de alto rango de Telefe
+        </span>
+        <span
+          class="--credit --twoxs"
+        >
+          Alejandro Guyot
+        </span>
+      </figcaption>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`Tests - Component - AperturaStorytelling Cases render video should show image with tag picture, source and img with attributes alt, fetchpriority and loading when the device is mobile 1`] = `
+<div>
+  <section
+    class="mod-opening"
+  >
+    <figure
+      class="mod-figure "
+      role="button"
+    >
+      <div
+        class="placeholder "
+      >
+        <div
+          class="com-image"
+        >
+          <picture>
+            <source
+              media="(min-width: 1440px)"
+              srcset="https://resizer.glanacion.com/resizer/QA8QbJtR48w8to_x455xpakQ0Lg=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QWSOSM5RSBAZ3EQ2YH3P4TLPDM.jpg"
+            />
+            <source
+              media="(min-width: 1024px)"
+              srcset="https://resizer.glanacion.com/resizer/rC6pi2vTJzUA-fAurKdQwim6e5k=/1200x800/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QWSOSM5RSBAZ3EQ2YH3P4TLPDM.jpg"
+            />
+            <source
+              media="(min-width: 768px)"
+              srcset="https://resizer.glanacion.com/resizer/Ga-HaRbXAZLN4o55ORO-71XtQnk=/770x1155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
+            />
+            <img
+              alt="Trastornos de la alimentación"
+              class="image --d-flex com-image"
+              decoding="async"
+              fetchpriority="high"
+              loading="eager"
+              src="https://resizer.glanacion.com/resizer/3Rjz-2eHrpIcv8vUBUjQaUCxuDQ=/420x630/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
+            />
+          </picture>
+        </div>
+      </div>
+      <div
+        class="mod-title"
+      >
+        <div
+          class="lay"
+        >
+          <h1
+            class="com-title --font-primary --sixxl --font-extra"
+          >
+            Trastornos de la alimentación: “Dormís con la muerte en la cama, abrazándote”
+          </h1>
+        </div>
+      </div>
+    </figure>
+    <div
+      class="lay"
+    >
+      <figcaption
+        class="mod-figcaption"
+      >
+        <span
+          class="--caption --twoxs"
+        >
+          Trastornos de la alimentación
+        </span>
+        <span
+          class="--credit --twoxs"
+        >
+          Rodrigo Nespolo - Canon digital
+        </span>
+      </figcaption>
+    </div>
+  </section>
+</div>
+`;

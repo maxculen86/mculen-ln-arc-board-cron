@@ -320,7 +320,11 @@ export const getMediaData = ({
     const rules = [
         {
             validation: html.trim(),
-            data: { type: 'embedCode', embedCode: html }
+            data: {
+                type: 'embedCode',
+                embedCode: isAdmin ? html : html.replace(/src="(.*?)"/, ''),
+                dataSrc: html && html !== ' ' && html.match(/src="(.*?)"/)[1]
+            }
         },
         {
             validation: videoId && video,

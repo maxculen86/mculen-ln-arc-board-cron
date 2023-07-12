@@ -28,7 +28,8 @@ export default function WithStorytellingData(WrappedComponent) {
                 }),
                 screenUtils: PropTypes.shape({
                     device: PropTypes.string
-                })
+                }),
+                isLoadWithPicture: PropTypes.bool
             };
         }
 
@@ -45,7 +46,8 @@ export default function WithStorytellingData(WrappedComponent) {
                 },
                 screenUtils: {
                     device: 'desktop'
-                }
+                },
+                isLoadWithPicture: false
             };
         }
 
@@ -75,6 +77,11 @@ export default function WithStorytellingData(WrappedComponent) {
             const type = get(this, 'props.globalContent.type', null);
             const subtype = get(this, 'props.globalContent.subtype', null);
             const device = get(this, 'props.screenUtils.device', 'desktop');
+            const isLoadWithPicture = get(
+                this,
+                'props.isLoadWithPicture',
+                false
+            );
             const isMobile = outputType === 'amp' || device !== 'desktop';
 
             return type === 'story' &&
@@ -84,7 +91,8 @@ export default function WithStorytellingData(WrappedComponent) {
                       isMobile,
                       basicImage,
                       videoBackground,
-                      storytellingMobile
+                      storytellingMobile,
+                      isLoadWithPicture
                   )
                 : {};
         };

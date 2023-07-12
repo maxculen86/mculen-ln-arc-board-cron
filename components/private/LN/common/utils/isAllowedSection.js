@@ -3,22 +3,44 @@ import get from '../../../common/utils/get';
 const isAllowedSection = ({
     globalContent,
     listOfAllowedSection = [],
-    layout
+    layout,
+    noteType
 } = {}) => {
     const id = get(globalContent, '_id', '');
     const sectionId = id.startsWith('/')
         ? id
         : get(globalContent, 'taxonomy.primary_section._id', '');
 
-    return listOfAllowedSection.some(({ section, pageLayout = 'all' } = {}) => {
-        const isValidSection = sectionId.startsWith(section);
+    const defaultValue = 'all';
 
-        if (pageLayout === 'all') {
-            return isValidSection;
+    return listOfAllowedSection.some(
+        ({
+            section = defaultValue,
+            pageLayout = defaultValue,
+            subtype
+        } = {}) => {
+            const isValidSection = sectionId.startsWith(section);
+            const isForAllSections = section === defaultValue;
+            const isForAllLayouts = pageLayout === defaultValue;
+
+            if (isForAllSections && isForAllLayouts && subtype === noteType) {
+                return subtype === noteType;
+            }
+
+            if (isForAllLayouts) {
+                return isValidSection;
+            }
+
+            if (isForAllSections) {
+                return layout === pageLayout;
+            }
+
+            return (
+                (isValidSection && layout === pageLayout) ||
+                (isValidSection && subtype === noteType)
+            );
         }
-
-        return isValidSection && layout === pageLayout;
-    });
+    );
 };
 
 export default isAllowedSection;

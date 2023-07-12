@@ -81,7 +81,7 @@ export const createResizer = (isInApertura = false, isAdmin = false) => {
         resizeOptions = {},
         focalPoint = [],
         smartCropExcluded,
-        filterQuality = 80
+        filterQuality = 70
     }) => {
         const { useFullSize, proportion, width: newWidth = 0 } = resizeOptions;
         let { height: newHeight = 0 } = resizeOptions;

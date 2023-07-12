@@ -34,6 +34,7 @@ const BuildBody = ({ banners, outputType, globalContent = {} }) => {
         const extraProps = setExtraProps({
             tituloNota,
             capitalIndex,
+            globalContent,
             contentElements,
             withSponsoredLink
         });
@@ -79,11 +80,12 @@ export default BuildBody;
 const setExtraProps = ({
     tituloNota,
     capitalIndex,
+    globalContent,
     contentElements,
     withSponsoredLink
 }) => {
     return {
-        image: { withZoom: '--zoom', insideBody: true },
+        image: { withZoom: '--zoom', insideBody: true, globalContent },
         gallery: { withZoom: '--zoom' },
         video: {
             tituloNota,

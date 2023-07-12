@@ -44,7 +44,8 @@ const GetDataToLinkImage = ({
     const isValidSection = isAllowedSection({
         globalContent: data,
         listOfAllowedSection: allowSectionAndLayout,
-        layout
+        layout,
+        noteType: subtype
     });
 
     const basic = replaceUrlResizerToWWW(get(data, 'promo_items.basic', {}));

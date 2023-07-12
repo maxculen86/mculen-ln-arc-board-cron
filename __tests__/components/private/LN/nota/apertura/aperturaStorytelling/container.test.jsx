@@ -1,0 +1,163 @@
+import React from 'react';
+import OpeningStorytelling from '../../../../../../../components/private/LN/nota/apertura/AperturaStorytelling/component';
+
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import Context from 'fusion:context';
+import storytellingWithVideo from '../../../../../../../__mocks__/data/nota/apertura/openingStorytelling/withVideo.json';
+import storytellingWithoutVideo from '../../../../../../../__mocks__/data/nota/apertura/openingStorytelling/withoutVideo.json';
+import getProperties from 'fusion:properties';
+
+jest.mock(
+    '../../../../../../../components/private/common/hocs/withScreenUtils',
+    () => Comp => props => (Comp ? <Comp {...props} /> : null)
+);
+
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => {
+        host = 'https://www.lanacion.com.ar';
+    }
+}));
+
+jest.mock('fusion:context', () => () => ({
+    useAppContext: jest.fn(() => ({
+        contextPath: '',
+        deployment: () => {},
+        outputType: 'default'
+    }))
+}));
+
+const getProps = ({ withoutVideo, outputType = 'default', device }) => {
+    return {
+        globalContent: withoutVideo
+            ? storytellingWithVideo
+            : storytellingWithoutVideo,
+        outputType,
+        screenUtils: { device },
+        isLoadWithPicture: true
+    };
+};
+
+describe('Tests - Component - AperturaStorytelling', () => {
+    Context.useAppContext = jest.fn(() => ({
+        contextPath: '',
+        deployment: () => {},
+        outputType: 'default'
+    }));
+
+    describe('Cases render video', () => {
+        test('If the note has a video it should show it only for desktop with the autoplay, loop and poster attributes', () => {
+            const { container } = render(
+                <OpeningStorytelling
+                    {...getProps({ withoutVideo: true, device: 'desktop' })}
+                />
+            );
+
+            const video = container.querySelector('video');
+
+            expect(video).toBeVisible();
+            expect(video.hasAttribute('autoplay')).toBeTruthy();
+            expect(video.hasAttribute('loop')).toBeTruthy();
+            expect(video.hasAttribute('playsinline')).toBeTruthy();
+            expect(video.getAttribute('poster')).toEqual(
+                'https://resizer.glanacion.com/resizer/Ihx2p7IGSpUnCH8ue6PTmyOYsdg=/1920x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-28-2020/t_d34af8ebded94f22b2b8e119931b6909_name_file_1280x720_2000_v3_1_.jpg'
+            );
+        });
+
+        test('should return the epigraph', () => {
+            render(
+                <OpeningStorytelling
+                    {...getProps({ withoutVideo: true, device: 'desktop' })}
+                />
+            );
+
+            expect(
+                screen.getByText('Trastornos de la alimentación')
+            ).toBeVisible();
+        });
+
+        test('should return the title note', () => {
+            render(
+                <OpeningStorytelling
+                    {...getProps({ withoutVideo: true, device: 'desktop' })}
+                />
+            );
+
+            expect(
+                screen.getByText(
+                    'Trastornos de la alimentación: “Dormís con la muerte en la cama, abrazándote”'
+                )
+            ).toBeVisible();
+        });
+
+        test('should show image with tag picture, source and img with attributes alt, fetchpriority and loading when the device is mobile', () => {
+            const { container } = render(
+                <OpeningStorytelling
+                    {...getProps({ withoutVideo: true, device: 'mobile' })}
+                />
+            );
+
+            screen.debug();
+
+            const picture = container.querySelector('picture');
+            const img = picture.querySelector('img');
+
+            expect(picture).toBeVisible();
+            expect(
+                screen.getByText(
+                    'Trastornos de la alimentación: “Dormís con la muerte en la cama, abrazándote”'
+                )
+            ).toBeVisible();
+            expect(img.getAttribute('alt')).toEqual(
+                'Trastornos de la alimentación'
+            );
+            expect(img.getAttribute('fetchpriority')).toEqual('high');
+            expect(img.getAttribute('loading')).toEqual('eager');
+            expect(container).toMatchSnapshot();
+        });
+    });
+
+    describe('Cases render image', () => {
+        test('should return the image with picture and the different sizes for desktop and mobile', () => {
+            const { container } = render(
+                <OpeningStorytelling
+                    {...getProps({ withoutVideo: false, device: 'desktop' })}
+                />
+            );
+
+            const picture = container.querySelector('picture');
+            expect(picture).toBeVisible();
+            expect(picture.querySelectorAll('source')).toHaveLength(3);
+            expect(container).toMatchSnapshot();
+        });
+
+        test('should return the title note', () => {
+            render(
+                <OpeningStorytelling
+                    {...getProps({ withoutVideo: false, device: 'desktop' })}
+                />
+            );
+
+            expect(
+                screen.getByText(
+                    'Federico Levrino, el gran productor de Susana: de su vínculo con Maradona al día que durmió en la puerta de la casa de Zulemita'
+                )
+            ).toBeVisible();
+        });
+
+        test('should return the caption and author name', () => {
+            render(
+                <OpeningStorytelling
+                    {...getProps({ withoutVideo: false, device: 'desktop' })}
+                />
+            );
+
+            expect(
+                screen.getByText(
+                    'Federico Levrino es uno de los profesionales de alto rango de Telefe'
+                )
+            ).toBeVisible();
+            expect(screen.getByText('Alejandro Guyot')).toBeVisible();
+        });
+    });
+});
