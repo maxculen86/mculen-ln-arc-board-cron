@@ -300,28 +300,11 @@ const sectionSites = `{
     }
 }`;
 
-const nestedList = `
-    items {
-        items {
-            items {
-                items {
-                    items
-                    content
-                    type
-                    _id    
-                }
-                content
-                type
-                _id    
-            }
-            content
-            type
-            _id
-        }
-        _id
-        content
-        type
-    }`;
+const listCommonProps = `
+    content
+    type
+   _id  
+`;
 
 export default `
 {
@@ -484,7 +467,19 @@ export default `
             iptc_source
         }
         list_type
-        ${nestedList}
+        items {
+            items {
+                items {
+                    items {
+                        items
+                        ${listCommonProps}
+                    }
+                    ${listCommonProps}
+                }
+                ${listCommonProps}
+            }
+            ${listCommonProps}
+        }
         level
         content
         powerUp{
