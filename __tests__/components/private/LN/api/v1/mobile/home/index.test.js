@@ -1,6 +1,7 @@
 import { articlesCollections } from './data/articlesCollections';
 import { homeSections as homeDataSections } from './data/homeSections';
 import index from '../../../../../../../../components/private/LN/api/v1/mobile/home/index';
+import attachBanners from '../../../../../../../../components/private/LN/api/common/home/boxInformation/LN10/boxes/config/configHandler';
 
 jest.mock(
     '../../../../../../../../components/private/common/utils/logger',
