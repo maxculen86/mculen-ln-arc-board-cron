@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 const CssLinksLn10 = props => {
@@ -13,8 +14,6 @@ const CssLinksLn10 = props => {
             )}
         />
     );
-    const styleSelected = isLN10 ? CssHomeLN10 : <CssLinks />;
-
-    return styleSelected;
+    return isLN10 ? CssHomeLN10 : <CssLinks />;
 };
 export default CssLinksLn10;

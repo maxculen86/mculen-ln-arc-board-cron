@@ -1,8 +1,7 @@
 import get from '../../../../../../../../common/utils/get';
 
 export const getArticleTitleEditorial = article => {
-    const title = get(article, 'additionalProperties.title', null);
-    return title;
+    return get(article, 'additionalProperties.title', null);
 };
 
 export const getLiveblogSubtitles = article => {

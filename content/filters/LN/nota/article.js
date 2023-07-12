@@ -300,6 +300,12 @@ const sectionSites = `{
     }
 }`;
 
+const listCommonProps = `
+    content
+    type
+   _id  
+`;
+
 export default `
 {
     _id
@@ -466,21 +472,13 @@ export default `
                 items {
                     items {
                         items
-                        content
-                        type
-                        _id    
+                        ${listCommonProps}
                     }
-                    content
-                    type
-                    _id    
+                    ${listCommonProps}
                 }
-                content
-                type
-                _id
+                ${listCommonProps}
             }
-            _id
-            content
-            type
+            ${listCommonProps}
         }
         level
         content

@@ -109,13 +109,7 @@ class Timeline {
                                 title: null
                             }
                         };
-                        const element = renderProps(
-                            elem,
-                            null,
-                            null,
-                            propsElem
-                        );
-                        return element;
+                        return renderProps(elem, null, null, propsElem);
                     });
             const resultArticles = results.content_elements?.filter(
                 x => x != null

@@ -46,19 +46,22 @@ const Media = ({
     const isVertical = height > width;
     let item = null;
     const { subtipo } = useSubtype();
+    const subtype = subtipo.id;
     const idForMedia = isApertura ? idMedia : undefined;
 
-    const isValidSection = isAllowedSection({
-        globalContent,
-        listOfAllowedSection,
-        layout: layoutPageBuilder
-    });
+    const isValidSection =
+        isAllowedSection({
+            noteType: subtype,
+            globalContent,
+            listOfAllowedSection,
+            layout: layoutPageBuilder
+        }) && outputType !== 'amp';
 
     useEffect(() => {
         !itsGallery &&
             withZoom &&
             setZoom(
-                [FOTOAL100, STORYTELLING].includes(subtipo.id)
+                [FOTOAL100, STORYTELLING].includes(subtype)
                     ? refContainer.current.clientWidth <= 768
                     : width > refContainer.current.clientWidth
             );
@@ -71,7 +74,7 @@ const Media = ({
 
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
-    }, [itsGallery, withZoom, width, subtipo.id]);
+    }, [itsGallery, withZoom, width, subtype]);
 
     const validateHandleClick =
         itsGallery || zoom

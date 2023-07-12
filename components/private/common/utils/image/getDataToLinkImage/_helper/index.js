@@ -2,6 +2,14 @@ import get from '../../../get';
 import { STORYTELLING } from '../../../subtypes/subtypeHelper';
 import { replaceAllUrlsResizerArray } from '../../../../../LN/common/utils/mediaHelper';
 
+const getImageListStorytelling = (imageData, proportion) => {
+    const resizedUrls = get(imageData, 'resized_urls', []).filter(
+        img => get(img, 'option.proportion') === proportion
+    );
+
+    return replaceAllUrlsResizerArray(resizedUrls);
+};
+
 export const getResizedUrls = (subtype, promoItems, basicDefault) => {
     const isVideoType =
         get(promoItems, 'apertura_multimedia.type', false) === 'video';
@@ -15,9 +23,13 @@ export const getResizedUrls = (subtype, promoItems, basicDefault) => {
     }
 
     if (subtype === STORYTELLING) {
-        return replaceAllUrlsResizerArray(
-            get(promoItems, 'storytelling_mobile.resized_urls', [])
-        );
+        return [
+            ...getImageListStorytelling(basicDefault, '3:2'),
+            ...getImageListStorytelling(
+                get(promoItems, 'storytelling_mobile', []),
+                '2:3'
+            )
+        ];
     }
 
     return get(basicDefault, 'resized_urls', []);

@@ -76,6 +76,7 @@ export const useGetLinks = ({ navigationSection = '' }) => {
                 hierarchy: navigationSection,
                 website: 'la-nacion-ar'
             },
+            staticMode: true,
             filter: `
             children {
                 _id

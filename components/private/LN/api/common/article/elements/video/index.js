@@ -17,9 +17,7 @@ export const getArticleVideos = (article, multiple = false) => {
 
 export const getYouTubeVideoLink = article => {
     const htmlAttr = get(article, 'additionalProperties.html', null);
-    const videoLink = getEmbedHref('src', htmlAttr);
-
-    return videoLink;
+    return getEmbedHref('src', htmlAttr);
 };
 
 export default getArticleVideos;

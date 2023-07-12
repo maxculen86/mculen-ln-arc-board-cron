@@ -1,4 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
+
 import React from 'react';
 import { bodyElementRules } from '../_utils/_bodyElementRules';
 import { BuildBanners } from './_buildBanners';
@@ -34,6 +36,7 @@ const BuildBody = ({ banners, outputType, globalContent = {} }) => {
         const extraProps = setExtraProps({
             tituloNota,
             capitalIndex,
+            globalContent,
             contentElements,
             withSponsoredLink
         });
@@ -79,11 +82,12 @@ export default BuildBody;
 const setExtraProps = ({
     tituloNota,
     capitalIndex,
+    globalContent,
     contentElements,
     withSponsoredLink
 }) => {
     return {
-        image: { withZoom: '--zoom', insideBody: true },
+        image: { withZoom: '--zoom', insideBody: true, globalContent },
         gallery: { withZoom: '--zoom' },
         video: {
             tituloNota,
@@ -104,8 +108,8 @@ const setDataComponent = ({
     capitalIndex,
     outputType,
     arcType
-}) => {
-    const baseComponent = Component ? (
+}) =>
+    Component ? (
         <Component
             data={element}
             capital={currentIndex === capitalIndex}
@@ -114,7 +118,4 @@ const setDataComponent = ({
         />
     ) : (
         <></>
-    ); //NOSONAR
-
-    return baseComponent;
-};
+    );

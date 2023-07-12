@@ -9,8 +9,7 @@ const redirectNota = ({ redirect = false, requestUri = '' }) => {
         'nota_id',
         `${SITE_LANACION}${requestUri}`
     );
-    const urlToRedirect = `${SITE_LANACION}/${queryObt.replace('/', '')}`;
-    return urlToRedirect;
+    return `${SITE_LANACION}/${queryObt.replace('/', '')}`;
 };
 
 export default redirectNota;

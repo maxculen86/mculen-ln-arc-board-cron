@@ -30,11 +30,11 @@ describe('Common - Resizer', () => {
             const queryParams = resizerHelper.buildQueryParams({
                 newWidth: 1200,
                 newHeight: 1200,
-                filterQuality: 88,
+                filterQuality: 70,
                 arcImage
             });
             expect(queryParams).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=1200&height=1200&quality=88&smart=false'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=1200&height=1200&quality=70&smart=false'
             );
         });
 
@@ -44,7 +44,7 @@ describe('Common - Resizer', () => {
                     arcImage
                 })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=80&smart=false'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=70&smart=false'
             );
         });
 
@@ -52,7 +52,7 @@ describe('Common - Resizer', () => {
             expect(
                 resizerHelper.buildQueryParams({ newWidth: 1200, arcImage })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=1200&quality=80&smart=false'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=1200&quality=70&smart=false'
             );
         });
 
@@ -60,7 +60,7 @@ describe('Common - Resizer', () => {
             expect(
                 resizerHelper.buildQueryParams({ newWidth: [], arcImage })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=80&smart=false'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=70&smart=false'
             );
         });
 
@@ -68,7 +68,7 @@ describe('Common - Resizer', () => {
             expect(
                 resizerHelper.buildQueryParams({ newHeight: 1200, arcImage })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&height=1200&quality=80&smart=false'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&height=1200&quality=70&smart=false'
             );
         });
 
@@ -80,7 +80,7 @@ describe('Common - Resizer', () => {
                     focalPoint: [10, 15]
                 })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&height=1200&quality=80&smart=false'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&height=1200&quality=70&smart=false'
             );
         });
         test('should return string with height, width and focal params (only focal set when height and width are provided)', () => {
@@ -93,7 +93,7 @@ describe('Common - Resizer', () => {
                     focalPoint: [10, 15]
                 })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=800&height=1200&quality=80&smart=false&focal=10,15'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=800&height=1200&quality=70&smart=false&focal=10,15'
             );
         });
         test('should return string with smartCrop true when focalPoint its not provided or invalid', () => {
@@ -106,7 +106,7 @@ describe('Common - Resizer', () => {
                     focalPoint: []
                 })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=800&height=1200&quality=80&smart=true'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=800&height=1200&quality=70&smart=true'
             );
         });
     });

@@ -8,6 +8,8 @@ import {
 } from '../../../../common/utils/subtypes/subtypeHelper';
 import AperturaComponent from './component';
 
+// TODO: Evaluar si es posible unificar esta apertura con el resto de aperturas.
+
 const AperturaStorytelling = props => {
     const { globalContent } = props || {};
     const { subtype } = globalContent;

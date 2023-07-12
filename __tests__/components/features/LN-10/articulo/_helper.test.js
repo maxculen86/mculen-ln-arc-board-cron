@@ -57,6 +57,9 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
     const iframe =
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/sITCH5csTmo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
 
+    const iframeWithoutSrc =
+        '<iframe width="560" height="315"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+
     describe('Test function showSubHeadText', () => {
         it('should show subHead', () => {
             const subHead = showSubheadText({
@@ -273,7 +276,8 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
         const resultHtml = {
             type: 'embedCode',
-            embedCode: iframe
+            embedCode: iframeWithoutSrc,
+            dataSrc: 'https://www.youtube.com/embed/sITCH5csTmo'
         };
 
         const articleImageCases = [
