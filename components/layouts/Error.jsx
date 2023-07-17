@@ -16,7 +16,7 @@ const ErrorPage = props => {
         children: [MasNotas]
     } = props;
     const urlImageMob = deployment(
-        `${contextPath}/resources/images/liniers-404-tab-desk.jpg`
+        `${contextPath}/resources/images/liniers-404-mobile.jpg`
     );
     const urlImageTabDesk = deployment(
         `${contextPath}/resources/images/liniers-404-tab-desk.jpg`
