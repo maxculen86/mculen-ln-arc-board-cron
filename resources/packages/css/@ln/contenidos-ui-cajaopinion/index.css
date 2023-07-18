@@ -169,7 +169,7 @@
   margin-bottom: var(--size-sm);
 }
 .ln-cajaopinion .ln-card-editoriales .grid {
-  font-family: "Prumo Italic", "Georgia", "serif";
+  font-family: "Prumo Italic", "georgia", "serif";
   row-gap: 2.0625rem;
 }
 .ln-cajaopinion .ln-card-editoriales .grid .--editoriales-1 article::before {
@@ -186,7 +186,7 @@
        column-gap: 0.75rem;
 }
 .ln-cajaopinion .ln-card-editoriales .grid .ln-card .ln-text {
-  font-family: "Prumo Italic", "Georgia", "serif";
+  font-family: "Prumo Italic", "georgia", "serif";
 }
 @media (min-width: 48rem) {
   .ln-cajaopinion .ln-card-editoriales .grid .ln-card .ln-text {

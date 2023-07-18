@@ -37,7 +37,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
       class="grid-item mobileHidden secciones --col-md-4 --col-lg-4 --col-xl-5"
     >
       <p
-        class="text mobileHidden --font-xs --font-bold"
+        class="text ln-text mobileHidden --font-bold --font-xs"
       >
         Secciones
       </p>
@@ -54,7 +54,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Últimas noticias"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Últimas noticias
             </span>
@@ -70,7 +70,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Política"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Política
             </span>
@@ -86,7 +86,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Economía"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Economía
             </span>
@@ -102,7 +102,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a El mundo"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               El mundo
             </span>
@@ -118,7 +118,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Sociedad"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Sociedad
             </span>
@@ -134,7 +134,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Opinión"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Opinión
             </span>
@@ -150,7 +150,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Deportes"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Deportes
             </span>
@@ -166,7 +166,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Lifestyle"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Lifestyle
             </span>
@@ -182,7 +182,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Espectáculos"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Espectáculos
             </span>
@@ -198,7 +198,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Edición impresa"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Edición impresa
             </span>
@@ -214,7 +214,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a LN+"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               LN+
             </span>
@@ -230,7 +230,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Club LA NACION"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Club LA NACION
             </span>
@@ -242,7 +242,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
       class="grid-item mobileHidden revistas --col-md-2 --col-lg-2 --col-xl-2"
     >
       <p
-        class="text mobileHidden --font-xs --font-bold"
+        class="text ln-text mobileHidden --font-bold --font-xs"
       >
         Revistas
       </p>
@@ -259,7 +259,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a OHLALÁ!"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               OHLALÁ!
             </span>
@@ -275,7 +275,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a ¡HOLA!"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               ¡HOLA!
             </span>
@@ -291,7 +291,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a LIVING"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               LIVING
             </span>
@@ -307,7 +307,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a JARDÍN"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               JARDÍN
             </span>
@@ -323,7 +323,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a LUGARES"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               LUGARES
             </span>
@@ -339,7 +339,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a ROLLING STONE"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               ROLLING STONE
             </span>
@@ -363,7 +363,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Bonvivir"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Bonvivir
             </span>
@@ -379,7 +379,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a LiBooks"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               LiBooks
             </span>
@@ -395,7 +395,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Colecciones"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Colecciones
             </span>
@@ -411,7 +411,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Máster en periodismo"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Máster en periodismo
             </span>
@@ -427,7 +427,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Fundación LA NACION"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Fundación LA NACION
             </span>
@@ -451,7 +451,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Mapa del sitio"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Mapa del sitio
             </span>
@@ -467,7 +467,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Ayuda"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Ayuda
             </span>
@@ -483,7 +483,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Atención al socio"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Atención al socio
             </span>
@@ -499,7 +499,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Términos y condiciones"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Términos y condiciones
             </span>
@@ -515,7 +515,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a ¿Cómo anunciar?"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               ¿Cómo anunciar?
             </span>
@@ -531,7 +531,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             title="Ir a Suscribirse al diario impreso"
           >
             <span
-              class="text --font-xs"
+              class="text ln-text --font-xs"
             >
               Suscribirse al diario impreso
             </span>
@@ -546,7 +546,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         class="social"
       >
         <p
-          class="text mobileHidden --font-xs --font-bold"
+          class="text ln-text mobileHidden --font-bold --font-xs"
         >
           Redes sociales:
         </p>
@@ -659,7 +659,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         class="stores"
       >
         <p
-          class="text mobileHidden --font-xs --font-bold"
+          class="text ln-text mobileHidden --font-bold --font-xs"
         >
           Descargá la app:
         </p>
@@ -863,7 +863,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
       class="captcha"
     >
       <p
-        class="text --font-xs"
+        class="text ln-text --font-xs"
       >
         <b
           class="--font-bold"
@@ -899,7 +899,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
       class="copyright"
     >
       <p
-        class="text --font-xs"
+        class="text ln-text --font-xs"
       >
         Copyright 2023 SA LA NACION | Todos los derechos reservados
       </p>
@@ -931,7 +931,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         </i>
       </a>
       <p
-        class="text --font-xs"
+        class="text ln-text --font-xs"
       >
         Miembro de GDA. Grupo de Diarios América
       </p>

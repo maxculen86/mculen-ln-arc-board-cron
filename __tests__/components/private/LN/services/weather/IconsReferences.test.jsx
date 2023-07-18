@@ -61,10 +61,14 @@ describe('Components - private - services - weather - IconsReferences =>', () =>
             true
         );
         expect(container.getElementsByClassName('card-icon').length).toBe(12);
-        expect(container.innerHTML.includes('<i class="com-icon')).toBe(true);
-        expect(container.getElementsByClassName('com-icon').length).toBe(12);
         expect(
-            container.innerHTML.includes('<span class="com-text --2xs')
+            container.innerHTML.includes(
+                '<i class="icon --mr-sm --icon-24 --hasWrapper'
+            )
+        ).toBe(true);
+        expect(container.getElementsByClassName('icon').length).toBe(12);
+        expect(
+            container.innerHTML.includes('<span class="com-text --flex --2xs')
         ).toBe(true);
         expect(container.getElementsByClassName('com-text --2xs').length).toBe(
             12

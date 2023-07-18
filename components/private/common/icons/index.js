@@ -58,20 +58,6 @@ export { default as Pause } from './system/Pause';
 export { default as Play } from './system/Play';
 export { default as Headset } from './system/Headset';
 
-// Weather Icons
-export { default as ClearNight } from './weather/ClearNight';
-export { default as Cloudy } from './weather/Cloudy';
-export { default as Sun } from './weather/Sun';
-export { default as Rain } from './weather/Rain';
-export { default as RainyCloudy } from './weather/RainyCloudy';
-export { default as Snow } from './weather/Snow';
-export { default as SnowCloudy } from './weather/SnowCloudy';
-export { default as Storm } from './weather/Storm';
-export { default as StormCloudy } from './weather/StormCloudy';
-export { default as SunCloudy } from './weather/SunCloudy';
-export { default as Windy } from './weather/Windy';
-export { default as WaterDrop } from './weather/WaterDrop';
-
 // Lotteries Icons
 export { default as AnimalsLotteries } from './lotteries/AnimalsLotteries';
 export { default as NamesLotteries } from './lotteries/NamesLotteries';
