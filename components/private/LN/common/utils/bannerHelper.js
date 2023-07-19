@@ -451,11 +451,7 @@ export const queueGoogletagCommand = bannersToLoad => {
                 const banner = document.getElementById(slot.getSlotElementId());
                 const hiddenBanners = {
                     parallax_dsk: 'parallax_dsk',
-                    parallax_mob: 'parallax_mob',
-                    logo_header_dsk: 'logo_header_dsk',
-                    logo_header_dsk_sticky: 'logo_header_dsk_sticky',
-                    logo_header_tab: 'logo_header_tab',
-                    logo_header_mob: 'logo_header_mob'
+                    parallax_mob: 'parallax_mob'
                 };
                 if (
                     !isEmpty &&
