@@ -1,8 +1,10 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { useContent } from 'fusion:content';
 import useGetLogoImage from '../../private/common/hooks/useGetLogoImage';
 import get from '../../private/common/utils/get';
 import { setSlicedChildren } from './common/_helpers-WebApi';
+import StaticContent from '../../private/common/staticContent';
 // TODO agregar tests a estos helpers
 
 export const checkChangeChildrenForPB = ({
@@ -162,4 +164,46 @@ export const useRoofData = props => {
         chainStyle,
         isManual
     };
+};
+
+export const getParentChildren = (renderables = [], featureId) => {
+    const { children: parentChildren = [] } =
+        renderables.find(
+            renderable =>
+                renderable.children &&
+                renderable.children.some(child => child.props.id === featureId)
+        ) || {};
+
+    return parentChildren;
+};
+
+export const checkVariants = ({
+    children = [],
+    renderables = [],
+    featureId
+} = {}) => {
+    const dynamicChildren = featureId
+        ? getParentChildren(renderables, featureId)
+        : children;
+
+    const featuresIds = dynamicChildren.map(
+        child => child.key || child.props.id
+    );
+
+    return !!renderables.find(renderable => {
+        const { variants, id } = renderable.props;
+        const variantsLength = variants && Object.keys(variants).length;
+
+        return featuresIds.length
+            ? featuresIds.includes(id) && variantsLength
+            : variantsLength;
+    });
+};
+
+export const setStaticDynamically = (Component, exception, props) => {
+    return exception ? (
+        <>{Component}</>
+    ) : (
+        <StaticContent {...props}>{Component}</StaticContent>
+    );
 };

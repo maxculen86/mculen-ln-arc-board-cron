@@ -71,7 +71,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                 href="/politica/elecciones-2023-patricia-bullrich-sumo-a-su-equipo-al-neurologo-conrado-estol-nid28032023/"
                 title="Elecciones 2023: Patricia Bullrich sumó a su equipo al neurólogo Conrado Estol"
               >
-                <picture
+                <figure
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
@@ -80,7 +80,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                     fetchpriority="low"
                     loading="lazy"
                   />
-                </picture>
+                </figure>
               </section>
               <section
                 class="description-container --relative --d-flex --flex-col"
@@ -130,7 +130,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                 href="/politica/preload-ultimas-noticias-nid09012023/"
                 title="preload ultimas noticias"
               >
-                <picture
+                <figure
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
@@ -139,7 +139,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                     fetchpriority="low"
                     loading="lazy"
                   />
-                </picture>
+                </figure>
               </section>
               <section
                 class="description-container --relative --d-flex --flex-col"
@@ -189,7 +189,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                 href="/politica/prueba-chat-en-vivo-nid23032023/"
                 title="Prueba chat en vivo"
               >
-                <picture
+                <figure
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
@@ -198,7 +198,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                     fetchpriority="low"
                     loading="lazy"
                   />
-                </picture>
+                </figure>
               </section>
               <section
                 class="description-container --relative --d-flex --flex-col"
@@ -248,7 +248,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                 href="/politica/a-fondo-sin-imagen-destacada-nid24022023/"
                 title="A Fondo sin imagen destacada"
               >
-                <picture
+                <figure
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
@@ -257,7 +257,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                     fetchpriority="low"
                     loading="lazy"
                   />
-                </picture>
+                </figure>
               </section>
               <section
                 class="description-container --relative --d-flex --flex-col"
@@ -307,7 +307,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                 href="/politica/marcha-nacional-en-protesta-al-ministerio-de-desarrollo-social-nid16092021/"
                 title="Continúa la marcha nacional en protesta al Ministerio de Desarrollo Social "
               >
-                <picture
+                <figure
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
@@ -316,7 +316,7 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
                     fetchpriority="low"
                     loading="lazy"
                   />
-                </picture>
+                </figure>
               </section>
               <section
                 class="description-container --relative --d-flex --flex-col"
@@ -392,7 +392,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                 href="/politica/elecciones-2023-patricia-bullrich-sumo-a-su-equipo-al-neurologo-conrado-estol-nid28032023/"
                 title="Elecciones 2023: Patricia Bullrich sumó a su equipo al neurólogo Conrado Estol"
               >
-                <picture
+                <figure
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
@@ -401,7 +401,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                     fetchpriority="low"
                     loading="lazy"
                   />
-                </picture>
+                </figure>
               </section>
               <section
                 class="description-container --relative --d-flex --flex-col"
@@ -451,7 +451,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                 href="/politica/preload-ultimas-noticias-nid09012023/"
                 title="preload ultimas noticias"
               >
-                <picture
+                <figure
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
@@ -460,7 +460,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                     fetchpriority="low"
                     loading="lazy"
                   />
-                </picture>
+                </figure>
               </section>
               <section
                 class="description-container --relative --d-flex --flex-col"
@@ -510,7 +510,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                 href="/politica/prueba-chat-en-vivo-nid23032023/"
                 title="Prueba chat en vivo"
               >
-                <picture
+                <figure
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
@@ -519,7 +519,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                     fetchpriority="low"
                     loading="lazy"
                   />
-                </picture>
+                </figure>
               </section>
               <section
                 class="description-container --relative --d-flex --flex-col"
@@ -569,7 +569,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                 href="/politica/a-fondo-sin-imagen-destacada-nid24022023/"
                 title="A Fondo sin imagen destacada"
               >
-                <picture
+                <figure
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
@@ -578,7 +578,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                     fetchpriority="low"
                     loading="lazy"
                   />
-                </picture>
+                </figure>
               </section>
               <section
                 class="description-container --relative --d-flex --flex-col"
@@ -628,7 +628,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                 href="/politica/marcha-nacional-en-protesta-al-ministerio-de-desarrollo-social-nid16092021/"
                 title="Continúa la marcha nacional en protesta al Ministerio de Desarrollo Social "
               >
-                <picture
+                <figure
                   class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                 >
                   <img
@@ -637,7 +637,7 @@ exports[`features - LN10 - Timeline should render timeline component when source
                     fetchpriority="low"
                     loading="lazy"
                   />
-                </picture>
+                </figure>
               </section>
               <section
                 class="description-container --relative --d-flex --flex-col"
