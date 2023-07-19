@@ -1,5 +1,6 @@
 // TODO: Revisar estas variables y eliminar las que no sean necesarias a medida que se vayan habilitando configuraciones para carga con picture
 const minWidth1920 = '(min-width: 1920px)';
+const minWidth1440 = '(min-width: 1440px)';
 const minWidth1280 = '(min-width: 1280px)';
 const minWidth1024 = '(min-width: 1024px)';
 const minWidth768 = '(min-width: 768px)';
@@ -10,6 +11,7 @@ const minWidthPreload1280 = '(min-width: 1280px)';
 const min1024max1280 = '(min-width: 1024px and max-width: 1279px)';
 const min768max1024 = '(min-width: 768px and max-width: 1023px)';
 const min375max768 = '(min-width: 376px and max-width: 767px)';
+const maxWidth767 = '(max-width: 767px)';
 const maxWidth375 = '(max-width: 375px)';
 
 const setMediaCondition = ({ minWidth, maxWidth }) => {
@@ -1043,37 +1045,43 @@ export default {
                     {
                         width: 1920,
                         height: 1280,
-                        media: minWidth1280,
+                        media: minWidth1440,
+                        minScreenWidth: 1440,
                         useFullSize: true,
-                        proportion: '3:2'
+                        proportion: '3:2',
+                        media_preload: setMediaCondition({ minWidth: 1440 })
                     },
                     {
-                        width: 1200,
-                        height: 800,
-                        // media: minWidth1024,
+                        width: 1280,
+                        height: 853,
+                        media: minWidth1024,
+                        minScreenWidth: 1024,
                         useFullSize: true,
-                        proportion: '3:2'
-                    },
-                    {
-                        width: 1023,
-                        height: 682,
-                        // media: minWidth768,
-                        useFullSize: true,
-                        proportion: '3:2'
+                        proportion: '3:2',
+                        media_preload: setMediaCondition({
+                            minWidth: 1024,
+                            maxWidth: 1439
+                        })
                     },
                     {
                         width: 768,
                         height: 512,
-                        // media: minWidth360,
+                        media: minWidth768,
+                        minScreenWidth: 768,
                         useFullSize: true,
-                        proportion: '3:2'
+                        proportion: '3:2',
+                        media_preload: setMediaCondition({
+                            minWidth: 768,
+                            maxWidth: 1023
+                        })
                     },
                     {
-                        width: 360,
-                        height: 240,
-                        // media: minWidth320,
+                        width: 420,
+                        height: 280,
+                        media: maxWidth767,
                         useFullSize: true,
-                        proportion: '3:2'
+                        proportion: '3:2',
+                        media_preload: setMediaCondition({ maxWidth: 767 })
                     }
                 ]
             }
