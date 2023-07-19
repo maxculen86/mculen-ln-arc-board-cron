@@ -160,7 +160,9 @@ export const getAnchorsFromGroup = roof => {
     const isAnchorLeft = groupLeft && groupLeft.tagName === 'A';
 
     const isButtonLink =
-        anchorRight && anchorRight.getAttribute('class').includes('button');
+        anchorRight &&
+        anchorRight.getAttribute &&
+        anchorRight.getAttribute('class').includes('button');
 
     return {
         anchorLeft: isAnchorLeft && groupLeft,
