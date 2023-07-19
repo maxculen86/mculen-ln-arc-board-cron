@@ -11,6 +11,9 @@ const apiNotification = 'https://notificaciones.lanacion.com.ar/api/';
 const topicName = 'Alertas_LA_NACION'; // 'pwatemp';
 const notificationModal = '#notificacion-modal';
 const aplicationJson = 'application/json';
+const ENDPOINT_ARN = 'endpointArn';
+const AUTH_TOKEN = 'x-auth2-token';
+const AUTH3_TOKEN = 'x-auth3-token';
 
 const verify = () => {
     return true && 'serviceWorker' in navigator;
@@ -69,7 +72,7 @@ const showNoShowModal = (id, value) => {
 const setDataLayer = event => {
     if (dataLayer) {
         dataLayer.push({
-            event: event
+            event
         });
     }
 };
@@ -129,8 +132,76 @@ const isNotificationDefault = () => {
     return false;
 };
 
+const handleSubscription = ({ token, showError }) => {
+    try {
+        localStorage.setItem(AUTH_TOKEN, token);
+        registerSuscription(token, showError);
+    } catch (e) {
+        console.log('Error al intentar guardar x-auth2-token en localStorage');
+    }
+};
+
+const updateToken = ({ token, deviceArn }) => {
+    const apiUrl = `${apiNotification}notification/updateToken/`;
+
+    const body = JSON.stringify({
+        token,
+        endPointArn: deviceArn
+    });
+
+    const headers = {
+        Accept: aplicationJson,
+        'Content-Type': aplicationJson,
+        'x-token': getCookie('token')
+    };
+
+    fetch(apiUrl, {
+        method: 'post',
+        headers,
+        body
+    })
+        .then(response => response.json())
+        .then(res => {
+            localStorage.setItem(AUTH_TOKEN, token);
+        })
+        .catch(err => {
+            console.log('updating notification token error: ', err);
+        });
+};
+
+const storeAuth3Token = token => {
+    try {
+        localStorage.setItem(AUTH3_TOKEN, token);
+    } catch (e) {
+        console.log('Error al intentar guardar x-auth3-token en localStorage');
+    }
+};
+
+const checkLocalStorageItems = token => {
+    const deviceArn = localStorage.getItem(ENDPOINT_ARN);
+
+    const hasTokenStored =
+        localStorage.getItem(AUTH_TOKEN) !== null &&
+        localStorage.getItem(AUTH3_TOKEN) !== null;
+
+    const hasTokenChanged =
+        hasTokenStored &&
+        [
+            localStorage.getItem(AUTH_TOKEN),
+            localStorage.getItem(AUTH3_TOKEN)
+        ].some(value => value !== token);
+
+    const hasArnStored = deviceArn !== null;
+
+    return {
+        deviceArn,
+        hasTokenStored,
+        hasTokenChanged,
+        hasArnStored
+    };
+};
+
 const checkSubscription = showError => {
-    const authToken = 'x-auth2-token';
     navigator.serviceWorker.ready.then(registration => {
         console.log(`[Service Worker] on ready = ${registration}`);
         registration.pushManager.getSubscription().then(subscription => {
@@ -141,40 +212,22 @@ const checkSubscription = showError => {
                 .then(() => handleToken())
                 .then(token => {
                     console.log('[Service Worker] Notificaciones Admitidas');
-                    try {
-                        localStorage.setItem('x-auth3-token', token);
-                    } catch (e) {
-                        console.log(
-                            'Error al intentar guardar x-auth3-token en localStorage'
-                        );
+
+                    storeAuth3Token(token);
+
+                    const {
+                        deviceArn,
+                        hasTokenStored,
+                        hasTokenChanged,
+                        hasArnStored
+                    } = checkLocalStorageItems(token);
+
+                    if (!hasTokenStored && !hasArnStored) {
+                        handleSubscription({ token, showError });
                     }
 
-                    /* En caso de utilizar el firebase storage  para almacenar
-                        caches.open('sw').then(function (cache) {
-                            cache.match('/pushtoken').then(function (val) {
-                                if (val && val.ok) {
-                                    val.json().then(function (result) {
-                                        if (token != result.token) {
-                                            localStorage.setItem('x-auth4-token', token);
-                                        }
-                                    });
-                                }
-                            })
-                        });
-                    */
-
-                    if (
-                        token !== localStorage.getItem(authToken) ||
-                        localStorage.getItem(authToken) === null
-                    ) {
-                        try {
-                            localStorage.setItem(authToken, token);
-                            registerSuscription(token, showError);
-                        } catch (e) {
-                            console.log(
-                                'Error al intentar guardar x-auth2-token en localStorage'
-                            );
-                        }
+                    if (hasTokenChanged && hasArnStored) {
+                        updateToken({ token, deviceArn });
                     }
                 })
                 .catch(err => {
@@ -225,6 +278,7 @@ const registerSuscription = (token, showError) => {
         .then(response => response.json())
         .then(res => {
             console.log('device notifications registered.', res);
+            localStorage.setItem(ENDPOINT_ARN, res.data.endpointArn);
             registerTopic(topicName, token, showError);
         })
         .catch(err => {
