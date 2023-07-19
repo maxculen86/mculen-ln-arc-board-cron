@@ -114,6 +114,7 @@ export const getBannerConfiguration = (
     const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
     const sponsored = get(globalContent, 'owner.sponsored');
     const advertiser = get(globalContent, 'label.marca_anunciante.text');
+    const subSections = get(globalContent, 'taxonomy.sections', []);
     const primarySection =
         type && type === 'story'
             ? get(globalContent, 'taxonomy.primary_section._id', '')
@@ -178,7 +179,8 @@ export const getBannerConfiguration = (
 
     // Si en adServer hay una seccion (ej: campo) para segmentar banner, se cambia el slotName
     const [present, section] = isPrimarySectionInBannerSegments(primarySection)(
-        segments
+        segments,
+        subSections
     );
 
     if (present) {
@@ -272,8 +274,25 @@ export const getDimsFromSiteService = (config, slotName, section) => {
     );
 };
 
-export const isPrimarySectionInBannerSegments = primarySection => segments => {
+export const handleCanchallenaException = (subSections = []) => {
+    const CANCHALLENA = 'Canchallena';
+    const isCanchallena = subSections.some(
+        (section = {}) => section.name === CANCHALLENA
+    );
+
+    return isCanchallena ? [true, CANCHALLENA.toLowerCase()] : false;
+};
+
+export const isPrimarySectionInBannerSegments = primarySection => (
+    segments,
+    subSections = []
+) => {
     if (!segments || !primarySection) return [false, null];
+    const canchallenaException = handleCanchallenaException(subSections);
+
+    if (canchallenaException) {
+        return canchallenaException;
+    }
 
     const EXCEPTIONS = {
         'estados-unidos': 'la_nacion_usa',
