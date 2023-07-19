@@ -21,7 +21,6 @@ import { GlobalContext } from '../../common/context/globalContext';
 import { goToLogout } from '../../LN/common/utils/loginHelper';
 import MainHeaderEventsScript from '../../common/scriptManager/MainHeaderEventsScript';
 import showSubscribeButton from '../../LN/common/utils/showSubscribeButton';
-import bannersHome from '../../common/banners/bannersDivHome';
 
 const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
     const loginData = getLoginData() || {};
@@ -79,7 +78,6 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                     onClick={logoCallback}
                     onAuxClick={logoCallback}
                 >
-                    {bannersHome.logoHeader}
                     <MainHeader.Logo />
                 </Link>
             </MainHeader.Center>

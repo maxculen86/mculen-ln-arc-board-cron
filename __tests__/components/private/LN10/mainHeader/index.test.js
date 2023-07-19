@@ -60,7 +60,7 @@ describe('Private - LN10 - MainHeader', () => {
         expect(logoCallback).toHaveBeenCalledTimes(1);
     });
 
-    test('should have logo banner header', () => {
+    /* test('should have logo banner header', () => {
         const { container } = render(<MainHeader userType="logged" />);
 
         const banners = [
@@ -73,5 +73,5 @@ describe('Private - LN10 - MainHeader', () => {
         banners.forEach(banner => {
             expect(container.querySelector(banner)).toBeInTheDocument();
         });
-    });
+    }); */
 });
