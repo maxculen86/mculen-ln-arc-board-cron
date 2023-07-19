@@ -21,8 +21,7 @@ jest.mock('fusion:context', Component => {
     return {
         default: function(Component) {
             return props => <Component {...props} />;
-        },
-        useComponentContext: jest.fn(() => ({}))
+        }
     };
 });
 

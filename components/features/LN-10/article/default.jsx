@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/require-default-props */
 import React, { useEffect, useState } from 'react';
-import { useAppContext, useComponentContext } from 'fusion:context';
+import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
@@ -64,7 +64,6 @@ const ArticleFeature = ({
         variant = 'regular'
     }
 }) => {
-    const { registerSuccessEvent } = useComponentContext();
     const articleId = checkForId(id);
     const {
         isAdmin,
@@ -291,7 +290,6 @@ const ArticleFeature = ({
                         withMedia,
                         extraClass
                     )}
-                    onClick={() => hasVariants && registerSuccessEvent()}
                 />
             </ErrorBoundary>
         )) ||
