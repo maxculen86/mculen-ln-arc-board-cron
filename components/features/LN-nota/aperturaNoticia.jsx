@@ -12,7 +12,7 @@ import {
 } from '../../private/LN/common/utils/mediaHelper';
 
 const AperturaNoticia = props => {
-    const { globalContent, outputType, id: idFeature } = props;
+    const { globalContent, outputType, id: idFeature, layout } = props;
     const { promo_items: promoItems = {}, subtype } = globalContent || {};
     const mediaData = getMediaData(promoItems, subtype);
     const { _id: idMedia, content } = mediaData || {};
@@ -47,6 +47,7 @@ const AperturaNoticia = props => {
                         tituloNota={tituloNota}
                         subtype={subtype}
                         html={content}
+                        layoutPageBuilder={layout}
                     >
                         <figcaption className="mod-figcaption">
                             {caption}
