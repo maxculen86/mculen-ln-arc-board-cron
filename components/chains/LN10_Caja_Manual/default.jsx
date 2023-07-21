@@ -11,11 +11,14 @@ import validateCajaManual from './common/_helper-WebApi';
 import getGridType from '../utils/getGridType';
 import setRender from '../utils/setRender';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
-import StaticContent from '../../private/common/staticContent';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
 
 import BuildRoof from '../utils/_BuildRoof/default';
-import { useRoofData } from '../utils/_helpers';
+import {
+    useRoofData,
+    checkVariants,
+    setStaticDynamically
+} from '../utils/_helpers';
 import { setSlicedChildren } from '../utils/common/_helpers-WebApi';
 import getComponent from '../utils/getComponent';
 
@@ -68,36 +71,32 @@ const CajaManual = props => {
         }) || {};
 
     const ContainerCards = getComponent(chainStyle, layout);
+    const hasVariants = checkVariants({ children, renderables });
 
-    return (
-        <StaticContent {...extraOptsDiv}>
-            {setRender({
-                chainId,
-                viewabilityData,
-                isAdmin,
-                error,
-                hideBox: hideCaja,
-                extraOptions: {
-                    default: (
-                        <>
-                            {bannerDsk}
-                            <BuildRoof
-                                {...roofData}
-                                isAFondo={layout === 'bnFondo'}
-                            />
-                            <ContainerCards
-                                gridType={getGridType(layout)}
-                                gridStyle={chainStyle}
-                            >
-                                {articles}
-                            </ContainerCards>
-                            {bannerMob}
-                        </>
-                    )
-                }
-            })}
-        </StaticContent>
-    );
+    const Component = setRender({
+        chainId,
+        viewabilityData,
+        isAdmin,
+        error,
+        hideBox: hideCaja,
+        extraOptions: {
+            default: (
+                <>
+                    {bannerDsk}
+                    <BuildRoof {...roofData} isAFondo={layout === 'bnFondo'} />
+                    <ContainerCards
+                        gridType={getGridType(layout)}
+                        gridStyle={chainStyle}
+                    >
+                        {articles}
+                    </ContainerCards>
+                    {bannerMob}
+                </>
+            )
+        }
+    });
+
+    return setStaticDynamically(Component, hasVariants, extraOptsDiv);
 };
 
 CajaManual.label = 'LN10 Caja Manual';
