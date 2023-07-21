@@ -140,8 +140,204 @@ describe('Tests Chain CajaManual', () => {
             expect(
                 container.getElementsByTagName('mocked-articlefeature')
             ).toHaveLength(4);
+        });
 
-            screen.debug();
+        test('should return a warning when adding a feature other than LN10 Article', () => {
+            const fields = {
+                ...customFields,
+                layout: 'bn_3_grid'
+            };
+            render(
+                <CajaManual
+                    {...getProps({
+                        customFields: fields,
+                        childProps: [
+                            ...mockChildProps,
+                            { type: 'LN-common/articulo' }
+                        ]
+                    })}
+                />
+            );
+
+            expect(
+                screen.getByRole('heading', { name: 'Advertencia' })
+            ).toBeDefined();
+
+            expect(
+                screen.getByText(
+                    'La Chain LN10 Caja Manual sólo admite features del tipo LN10 Artículo'
+                )
+            ).toBeVisible();
+        });
+    });
+
+    describe('Tests for the case of BN grid 8 and 4 and 3', () => {
+        test('Should return a grid of 3 items. variants must be autor, liveblog, regular or html', () => {
+            const fields = {
+                ...customFields,
+                layout: 'bn_3_grid'
+            };
+            const children = [
+                mockedArticleFeature,
+                mockedArticleFeature,
+                mockedArticleFeature,
+                mockedArticleFeature,
+                mockedArticleFeature
+            ];
+
+            const { container } = render(
+                <CajaManual
+                    {...getProps({
+                        customFields: fields,
+                        children,
+                        childProps: [...mockChildProps]
+                    })}
+                />
+            );
+
+            const variantValues = ['liveblog', 'regular', 'autor', 'html'];
+
+            expect(
+                mockChildProps.some(props =>
+                    variantValues.includes(props.customFields.variant)
+                )
+            ).toBeTruthy();
+
+            expect(
+                container.getElementsByTagName('mocked-articlefeature')
+            ).toHaveLength(3);
+        });
+
+        test('should return a warning when adding a feature other than LN10 Article', () => {
+            const fields = {
+                ...customFields,
+                layout: 'bn_3_grid'
+            };
+            render(
+                <CajaManual
+                    {...getProps({
+                        customFields: fields,
+                        childProps: [
+                            ...mockChildProps,
+                            { type: 'LN-common/articulo' }
+                        ]
+                    })}
+                />
+            );
+
+            expect(
+                screen.getByRole('heading', { name: 'Advertencia' })
+            ).toBeDefined();
+
+            expect(
+                screen.getByText(
+                    'La Chain LN10 Caja Manual sólo admite features del tipo LN10 Artículo'
+                )
+            ).toBeVisible();
+        });
+    });
+
+    describe('Tests for the case of BN grid 8 and 4 and 3', () => {
+        test('Should return a grid of 3 items. variants must be autor, liveblog, regular or html', () => {
+            const fields = {
+                ...customFields,
+                layout: 'bn_3_grid'
+            };
+            const children = [
+                mockedArticleFeature,
+                mockedArticleFeature,
+                mockedArticleFeature,
+                mockedArticleFeature,
+                mockedArticleFeature
+            ];
+
+            const { container } = render(
+                <CajaManual
+                    {...getProps({
+                        customFields: fields,
+                        children,
+                        childProps: [...mockChildProps]
+                    })}
+                />
+            );
+
+            const variantValues = ['liveblog', 'regular', 'autor', 'html'];
+
+            expect(
+                mockChildProps.some(props =>
+                    variantValues.includes(props.customFields.variant)
+                )
+            ).toBeTruthy();
+
+            expect(
+                container.getElementsByTagName('mocked-articlefeature')
+            ).toHaveLength(3);
+        });
+
+        test('should return a warning when adding a feature other than LN10 Article', () => {
+            const fields = {
+                ...customFields,
+                layout: 'bn_3_grid'
+            };
+            render(
+                <CajaManual
+                    {...getProps({
+                        customFields: fields,
+                        childProps: [
+                            ...mockChildProps,
+                            { type: 'LN-common/articulo' }
+                        ]
+                    })}
+                />
+            );
+
+            expect(
+                screen.getByRole('heading', { name: 'Advertencia' })
+            ).toBeDefined();
+
+            expect(
+                screen.getByText(
+                    'La Chain LN10 Caja Manual sólo admite features del tipo LN10 Artículo'
+                )
+            ).toBeVisible();
+        });
+    });
+
+    describe('Tests for the case of BN grid 8 and 4 and 3', () => {
+        test('Should return a grid of 3 items. variants must be autor, liveblog, regular or html', () => {
+            const fields = {
+                ...customFields,
+                layout: 'bn_3_grid'
+            };
+            const children = [
+                mockedArticleFeature,
+                mockedArticleFeature,
+                mockedArticleFeature,
+                mockedArticleFeature,
+                mockedArticleFeature
+            ];
+
+            const { container } = render(
+                <CajaManual
+                    {...getProps({
+                        customFields: fields,
+                        children,
+                        childProps: [...mockChildProps]
+                    })}
+                />
+            );
+
+            const variantValues = ['liveblog', 'regular', 'autor', 'html'];
+
+            expect(
+                mockChildProps.some(props =>
+                    variantValues.includes(props.customFields.variant)
+                )
+            ).toBeTruthy();
+
+            expect(
+                container.getElementsByTagName('mocked-articlefeature')
+            ).toHaveLength(3);
         });
 
         test('should return a grid of 8 items', () => {
@@ -200,8 +396,6 @@ describe('Tests Chain CajaManual', () => {
             expect(
                 container.getElementsByClassName('content-lab')
             ).toHaveLength(1);
-
-            screen.debug();
         });
     });
 });
