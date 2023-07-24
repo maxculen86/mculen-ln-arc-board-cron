@@ -237,10 +237,12 @@
     margin: 0;
   }
 }
-@media (min-width: 68.75rem) {
+@media (min-width: 64rem) {
   .ln-banner-container.--fixed {
-    left: calc((100% - 940px) / 2);
+    bottom: 0;
   }
+}
+@media (min-width: 68.75rem) {
   .ln-banner-container.--fixed.--small {
     left: calc((100% - 1098px) / 2);
   }

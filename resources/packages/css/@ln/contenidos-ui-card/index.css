@@ -296,22 +296,22 @@
   margin-bottom: 0;
   width: 100%;
 }
-.ln-card.--liveblog.--xl .media-container {
+.ln-card.--liveblog.--xl .subtitle-list, .ln-card.--liveblog.--2xl .subtitle-list, .ln-card.--liveblog.--3xl .subtitle-list, .ln-card.--liveblog.--4xl .subtitle-list {
+  flex-direction: row;
+}
+.ln-card:not(.--author).--xl .media-container {
   overflow: visible;
 }
-.ln-card.--liveblog.--xl .media-container .ln-placeholder {
+.ln-card:not(.--author).--xl .media-container .ln-placeholder {
   max-width: none;
   width: calc(100% + 2rem);
   margin-left: -1rem;
 }
 @media (min-width: 48rem) {
-  .ln-card.--liveblog.--xl .media-container .ln-placeholder {
+  .ln-card:not(.--author).--xl .media-container .ln-placeholder {
     width: 100%;
     margin-left: 0;
   }
-}
-.ln-card.--liveblog.--xl .subtitle-list, .ln-card.--liveblog.--2xl .subtitle-list, .ln-card.--liveblog.--3xl .subtitle-list, .ln-card.--liveblog.--4xl .subtitle-list {
-  flex-direction: row;
 }
 .ln-card:not(.--author).--xl .description-container .title, .ln-card:not(.--author).--2xl .description-container .title, .ln-card:not(.--author).--3xl .description-container .title, .ln-card:not(.--author).--4xl .description-container .title, .ln-card:not(.--author).--5xl .description-container .title, .ln-card:not(.--author).--6xl .description-container .title {
   letter-spacing: -0.04rem;

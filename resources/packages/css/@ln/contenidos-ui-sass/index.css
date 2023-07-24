@@ -507,12 +507,12 @@ a {
 
 .--font-xs {
   font-size: 0.875rem;
-  line-height: 100%;
+  line-height: 130%;
 }
 
 .--font-2xs {
   font-size: 0.75rem;
-  line-height: 100%;
+  line-height: 130%;
 }
 
 .--text-left {
