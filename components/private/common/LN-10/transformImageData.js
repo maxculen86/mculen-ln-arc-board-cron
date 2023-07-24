@@ -1,10 +1,16 @@
 import get from '../utils/get';
 import {
     getSourceSet,
-    getShortestImage
+    getShortestImage,
+    getImagesToLoadWithPicture
 } from '../../LN/common/utils/mediaHelper';
 
-const transformImageData = (articleData, imageData, isEager = false) => {
+const transformImageData = ({
+    articleData,
+    imageData,
+    isEager = false,
+    isLoadWithPicture = false
+}) => {
     const { height, width } = imageData || {};
     const resizedUrls = get(imageData, 'resized_urls', []);
     const sources = resizedUrls.filter(v => !!v.option);
@@ -18,7 +24,8 @@ const transformImageData = (articleData, imageData, isEager = false) => {
         srcset: getSourceSet(false, imageData, sources),
         loading: isEager ? 'eager' : 'lazy',
         fetchPriority: isEager ? 'high' : 'low',
-        type: 'image'
+        type: isLoadWithPicture ? 'picture' : 'image',
+        sources: isLoadWithPicture ? getImagesToLoadWithPicture(sources) : []
     };
 };
 
