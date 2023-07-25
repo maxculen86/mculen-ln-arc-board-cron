@@ -1,6 +1,7 @@
 import { articlesCollections } from './data/articlesCollections';
 import { homeSections as homeDataSections } from './data/homeSections';
 import index from '../../../../../../../../components/private/LN/api/v1/mobile/home/index';
+import attachBanners from '../../../../../../../../components/private/LN/api/common/home/boxInformation/LN10/boxes/config/configHandler';
 
 jest.mock(
     '../../../../../../../../components/private/common/utils/logger',
@@ -9,6 +10,31 @@ jest.mock(
         return { push };
     }
 );
+jest.mock(
+    '../../../../../../../../components/private/LN/api/common/home/boxInformation/LN10/boxes/config/configHandler'
+);
+attachBanners.mockImplementation((box, sectionAlias, allBanners) => {
+    // Check if the sectionAlias is 'sub-exclusive'
+    if (sectionAlias !== 'sub-exclusive') {
+        // Return an empty object for 'box without a banner'
+        return box;
+    }
+
+    // For other cases, return the default mock implementation
+    return {
+        ...box,
+        banner: {
+            id_adserver: {
+                android:
+                    '/133919216/lanacion_app_android/home/cajasuscriptores_app',
+                ios: '/133919216/lanacion_app_ios/home/cajasuscriptores_app'
+            },
+            size: { height: 250, width: 300 },
+            position: 'Bottom'
+        }
+    };
+});
+
 const paramsPage = { information: { layoutPage: 'LN-Home_Main' } };
 
 describe('components - private - LN - api - v1 - home - index.js', () => {
@@ -335,5 +361,82 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
             'CCWIARQOVJFIXEG2HDB2RYZJWE'
         );
         expect(homeFocalLeft[0][0].notas.length).toBe(3);
+    });
+    describe('banner tests', () => {
+        it('box sub-exclusive can have a banner', () => {
+            const home = index(
+                [
+                    {
+                        type: 0,
+                        sectionAliasMobile: 'sub-exclusive',
+                        information: {
+                            idCollection: 'CBKYAAJUL5BYFHN5JR2B44YK7E',
+                            layout: 'bn_2_1_2_grid',
+                            initialPosition: 1,
+                            chainStyle: 'sub-exclusive',
+                            title: 'Exclusivo Suscriptores',
+                            link: '',
+                            logoId: '',
+                            hideTitle: false,
+                            navigator: '',
+                            buttonText: '',
+                            linkButton: '',
+                            buttonStyle: 'generic',
+                            typeChain: 'sub-exclusive',
+                            nameChain: 'LN10_Caja_Collection',
+                            idRender: 'c0f1g3GIInOR630'
+                        },
+                        articles: articlesCollections,
+                        configurations: { arcSite: 'la-nacion-ar' },
+                        sectionWeb: 'Breaking_1'
+                    }
+                ],
+                {
+                    information: { layoutPage: 'LN10-Home_Main' }
+                }
+            );
+            expect(home[0][0].tipoSeccion).toBe('suscriptor');
+            expect(home[0][0].banner).not.toBeNull();
+            expect(home[0][0].banner.id_adserver).toStrictEqual({
+                android:
+                    '/133919216/lanacion_app_android/home/cajasuscriptores_app',
+                ios: '/133919216/lanacion_app_ios/home/cajasuscriptores_app'
+            });
+        });
+        it('box tema without a banner', () => {
+            const home = index(
+                [
+                    {
+                        type: 4,
+                        sectionAliasMobile: 'Title',
+                        parameterToClone: {
+                            keyFind: 'sectionAliasMobile',
+                            value: 'ln-common/ln10_opinion',
+                            fieldToClone: 'information'
+                        },
+                        position: 'start',
+                        information: {
+                            idCollectionOpinion: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
+                            idCollectionEditorial: 'TEJH5MZQUFELVGMQF5AXN6X4EQ',
+                            idCollection: '',
+                            layout: 'opinion8',
+                            initialPosition: 1,
+                            url: '',
+                            imageId: '',
+                            title: 'Opinion',
+                            hideTitle: false,
+                            navigator: '',
+                            nameFeature: 'LN-common/LN10_opinion',
+                            idRender: 'f0fzBOQXu9uz1io'
+                        }
+                    }
+                ],
+                {
+                    information: { layoutPage: 'LN10-Home_Main' }
+                }
+            );
+            expect(home[0][0].tipoSeccion).toBe('title');
+            expect(home[0][0].banner).not.toBeNull();
+        });
     });
 });
