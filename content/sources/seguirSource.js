@@ -211,7 +211,7 @@ const fetch = async (query, { cachedCall }) => {
 
     const keyParams = [
         { type: 'token', slug: `${token || ''}`, id: 0 },
-        { type: 'autor', slug: `${autor || ''}`, id: 0 },
+        { type: 'autor', slug: `${decodeURI(autor) || ''}`, id: 0 },
         { type: 'seccion', slug: `${seccionField || ''}`, id: 0 },
         { type: 'tags', slug: `${tags || ''}`, id: 0 }
     ];

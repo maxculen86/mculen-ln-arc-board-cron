@@ -35,7 +35,6 @@ class AccumulatedFollow {
                 browser.getApiVersion(requestUri)
             ];
 
-            console.log(this.apiData[browser.getApiType(requestUri)]);
             if (!globalContent || !globalContent.content_elements) {
                 return null;
             }

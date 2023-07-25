@@ -7,7 +7,7 @@ const ACCEPTED_TYPES = ['autor', 'seccion', 'tag', 'author', 'section'];
 
 const getUri = query => {
     const { sizeFollow: size = 50, version = 1 } = query;
-    // const PERSO = 'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/';
+
     const apiPersonalization = `${(PERSONALIZACION_API || '').replace(
         'v1',
         'v'.concat(version.toString())
