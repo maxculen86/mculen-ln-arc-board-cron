@@ -1,3 +1,24 @@
+import React from 'react';
+import { Facebook, Twitter, Instagram, Rss } from '@ln/contenidos-ui-assets';
+import getAssetsPath from '../../common/utils/getAssetsPath';
+
+export const optionsIcons = (contextPath, deployment) => {
+    const url = asset => getAssetsPath(contextPath)(deployment)(asset);
+    return {
+        laNacion: <img src={url('la-nacion.svg')} alt="Logo de LA NACION" />,
+        facebook: <Facebook />,
+        twitter: <Twitter />,
+        instagram: <Instagram />,
+        rss: <Rss />,
+        storesAndroid: (
+            <img src={url('android-store.svg')} alt="Google app store" />
+        ),
+        storesIos: <img src={url('ios-store.svg')} alt="App store" />,
+        gdaXs: <img src={url('gda.svg')} alt="Grupo de Diarios América" />,
+        dataFiscal: <img src={url('data-fiscal.svg')} alt="Data fiscal" />
+    };
+};
+
 export const commonPropsFooter = (text, href) => {
     return {
         ...(text && { text }),
