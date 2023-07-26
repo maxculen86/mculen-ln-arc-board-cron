@@ -29,7 +29,10 @@ const lnNotaInfografia = ({
     return (
         <GlobalProvider>
             {bannerMegatop}
-            <NotaMain className={`nota --info ${magazine} ${amp}`}>
+            <NotaMain
+                className={`nota --info ${magazine} ${amp}`}
+                outputType={outputType}
+            >
                 {children}
             </NotaMain>
             <LoadBannersSSR />

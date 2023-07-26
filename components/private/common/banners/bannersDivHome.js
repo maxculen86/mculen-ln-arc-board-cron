@@ -480,30 +480,34 @@ const bannersHome = {
         <>
             <DivBannerSSR
                 bannerConfiguration={{
-                    classes: '--logo',
+                    classes: '--logo --none',
                     slotId: 'logo_header_dsk',
-                    isStatic: true
+                    isStatic: true,
+                    withoutHide: true
                 }}
             />
             <DivBannerSSR
                 bannerConfiguration={{
-                    classes: '--logo_sticky_dsk',
+                    classes: '--logo_sticky_dsk --none',
                     slotId: 'logo_header_dsk_sticky',
-                    isStatic: true
+                    isStatic: true,
+                    withoutHide: true
                 }}
             />
             <DivBannerSSR
                 bannerConfiguration={{
-                    classes: '--logo',
+                    classes: '--logo --none',
                     slotId: 'logo_header_tab',
-                    isStatic: true
+                    isStatic: true,
+                    withoutHide: true
                 }}
             />
             <DivBannerSSR
                 bannerConfiguration={{
-                    classes: '--logo',
+                    classes: '--logo --none',
                     slotId: 'logo_header_mob',
-                    isStatic: true
+                    isStatic: true,
+                    withoutHide: true
                 }}
             />
         </>

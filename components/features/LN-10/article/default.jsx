@@ -174,7 +174,8 @@ const ArticleFeature = ({
         variantsDisabled,
         cardSize,
         className,
-        hideBadget
+        hideBadget,
+        isLoadWithPicture
     } = config || {};
 
     const error = validateArticleFeature({
@@ -206,7 +207,8 @@ const ArticleFeature = ({
         renderables,
         shouldUseV2: withResizerV2,
         config,
-        isAdmin
+        isAdmin,
+        isLoadWithPicture
     });
 
     const typeOfMedia = getTypeOfMedia(customFields);
