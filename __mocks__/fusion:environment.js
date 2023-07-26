@@ -23,6 +23,8 @@ jest.mock('fusion:environment', () => {
         SITE_RECETAS: 'https://www.lanacion.com.ar/recetas/',
         LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar',
         PERSONALIZACION_API:
-            'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/'
+            'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
+        PERSONALIZACION_APIV2:
+            'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/'
     };
 });
