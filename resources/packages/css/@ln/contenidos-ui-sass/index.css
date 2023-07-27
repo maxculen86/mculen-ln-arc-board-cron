@@ -2520,6 +2520,7 @@ strong:not(.--font-primary),
 @media (min-width: 1360px) {
   :root {
     --gap-v: var(--size-lg);
+    --cols: 16;
   }
 }
 @media (min-width: 64rem) {

@@ -1,3 +1,7 @@
-@ln:registry=https://www.myget.org/F/lanacion-v1/npm/
-//www.myget.org/F/lanacion-v1/npm/:_authToken=%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHHnc1nl13oimRBCnIVxAO4AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHnp87cBZzr1G3f3FwIBEIA/n0WrTGCM7GVVwyHx+oOIYQJReAFePYxCSCNjC9j6dkxOqRUXpDbynPdEy18vIW2odxJ429Jm/rGK7WP4Dl7u}
-always-auth=true
+@ln:registry=https://pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/registry/ 
+; begin auth token
+//pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/registry/:username=lndigital
+//pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/registry/:_password=%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEOymmBh8te1+LTeMnz9CXOAAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDLUnBcIWJTJVLD953QIBEIBjrdhmgx+HVI13CKig92mS3hqYONDnpuTi785cZ540RYULQPl/RroCBRm21tF5SSKkkkfLUYi9+s+4tBVe+PsMoM3APaDQO2/T2lDFPUxx1Gw1n4i/AwE1hP4F/TEC9GjfUkWu}
+//pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/:username=lndigital
+//pkgs.dev.azure.com/lndigital/_packaging/lanacion-v2/npm/:_password=%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygEOymmBh8te1+LTeMnz9CXOAAAAqjCBpwYJKoZIhvcNAQcGoIGZMIGWAgEAMIGQBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDLUnBcIWJTJVLD953QIBEIBjrdhmgx+HVI13CKig92mS3hqYONDnpuTi785cZ540RYULQPl/RroCBRm21tF5SSKkkkfLUYi9+s+4tBVe+PsMoM3APaDQO2/T2lDFPUxx1Gw1n4i/AwE1hP4F/TEC9GjfUkWu}
+; end auth token
