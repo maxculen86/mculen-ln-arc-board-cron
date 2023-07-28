@@ -785,6 +785,47 @@ const diagramationRules = diagramation => {
                 }
             }
         ],
+        bn_3_grid: [
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: size.L,
+                imageConfig: size.XS
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: size.L,
+                imageConfig: size.XS
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                withSubhead: false,
+                cardSize: size.L,
+                imageConfig: size.XS
+            }
+        ],
         canal_1_2_grid: [
             {
                 variantsDisabled: [author],
