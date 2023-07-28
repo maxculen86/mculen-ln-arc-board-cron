@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import request from 'request-promise-native';
 import {
     CONTENT_BASE,
@@ -304,6 +305,48 @@ const transform = async (
         presetsPromoItemsFotoAl100
     );
 };
+const convertVideoArcToJw = (video, arcSite) => {
+    const { _id: idVideoArc } = video;
+    const urlSearchIdJw = `https://d2s7d2xk96.execute-api.us-east-1.amazonaws.com/qa/video/${idVideoArc}`;
+
+    return request(urlSearchIdJw, {
+        headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': 'KcogQJsMI06pVfSvyk3Yn4ECECPHNGofaiiBDvni'
+        }
+    })
+        .then(response => {
+            const { video_id: idJw } = JSON.parse(response);
+            const getMediaJw = `https://cdn.jwplayer.com/v2/media/${idJw}`;
+            return request(getMediaJw);
+        })
+        .then(jwObject => {
+            return {
+                ...JSON.parse(jwObject),
+                _id: idVideoArc,
+                type: 'video_jw'
+            };
+        })
+        .catch(error => {
+            if (error.statusCode === 404) {
+                return video;
+            }
+            console.log(
+                '🚀 ~ file: articleSourceNota.js:331 ~ convertVideoArcToJw ~ error:',
+                error
+            );
+            return logger.push(
+                error,
+                {
+                    source:
+                        'content/source/articleSourceNota/convertVideoArcToJw',
+                    url: idVideoArc
+                },
+                arcSite,
+                true
+            );
+        });
+};
 
 const transformContent = async (
     jsonArticle,
@@ -314,6 +357,23 @@ const transformContent = async (
 ) => {
     const promiseArr = [];
     const sections = get(jsonArticle, 'taxonomy.sections');
+    const promoItem = get(jsonArticle, 'promo_items', {});
+
+    const parsePromoItem = promoItems => {
+        if (get(promoItem, 'basic.type', '') === 'video') {
+            const videoArc = get(promoItem, 'basic', null);
+            return convertVideoArcToJw(videoArc).then(data => {
+                return {
+                    ...promoItems,
+                    basic: data
+                };
+            });
+        }
+        return {
+            ...promoItems
+        };
+    };
+
     const resp = {
         ...jsonArticle,
         taxonomy: {
@@ -323,6 +383,12 @@ const transformContent = async (
                 : null
         }
     };
+
+    if (jsonArticle && jsonArticle.promo_items) {
+        const promoItemEdited = await parsePromoItem(promoItem);
+        resp.promo_items = promoItemEdited;
+    }
+
     const subtype = get(jsonArticle, `subtype`, null);
 
     resp &&
@@ -350,6 +416,15 @@ const transformContent = async (
                     i
                 ].content = addForwardSlashInParagraphsLinks(
                     addHttpsLinkInParagraphs(resp.content_elements[i].content)
+                );
+            }
+            if (e.type === 'video') {
+                promiseArr.push(
+                    convertVideoArcToJw(resp.content_elements[i], arcSite).then(
+                        data => {
+                            resp.content_elements[i] = data;
+                        }
+                    )
                 );
             }
         });

@@ -270,6 +270,51 @@ const customSummary = `
         }
     }
 `;
+const videoJwObject = `
+    title
+    description,
+    kind,
+    playlist {
+        description,
+        duration,
+        image,
+        images {
+            src,
+            type,
+            width
+        },
+        link,
+        mediaid,
+        sources {
+            file,
+            type,
+            bitrate,
+            filesize,
+            framerate,
+            height,
+            label,
+            type,
+            width
+        },
+        title,
+        tracks {
+            file,
+            kind
+        },
+        variations
+    }
+    `;
+const customVideoJw = `
+    subtype
+    embed {
+        config {
+            idVideo,
+            videoJw {
+                ${videoJwObject}    
+            }
+        }
+    }
+`;
 
 const gallery = `
     subtype
@@ -345,6 +390,7 @@ export default `
             }
             ${image}
             ${video}
+            ${videoJwObject}
             auth {
                 1
             }
@@ -365,6 +411,9 @@ export default `
         }
         summary {
             ${customSummary}
+        }
+        video_jw {
+            ${customVideoJw}
         }
         apertura_multimedia {
             _id
@@ -505,6 +554,8 @@ export default `
         }
         ${image}
         ${customPowerUps}
+        ${customVideoJw}
+        ${videoJwObject}
         ${gallery}
         ${video}
         ${oembed}
