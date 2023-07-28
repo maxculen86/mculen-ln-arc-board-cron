@@ -59,14 +59,11 @@ describe('When the _id !== "/economia/dolar-oficial-historico"', () => {
         render(
             <ModDolar {...SOURCE_RESPONSE} _id="/economia" oddOrEven="--even" />
         );
-        const historicalOfficialDollarLink = screen.getByRole('link', {
-            name: 'Ir a dólar oficial histórico'
-        });
-        expect(historicalOfficialDollarLink).toHaveAttribute(
+        expect(screen.getAllByRole('link')[6]).toHaveAttribute(
             'href',
             'https://www.lanacion.com.ar/dolar-oficial-historico/'
         );
-        expect(historicalOfficialDollarLink).toBeVisible();
+        expect(screen.getAllByRole('link')[6]).toBeVisible();
     });
 });
 

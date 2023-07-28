@@ -187,6 +187,7 @@ const getElements = async query => {
 
 const fetch = async (query, { cachedCall }) => {
     const {
+        version = 1,
         token,
         size = 10,
         days = 10,
@@ -210,7 +211,7 @@ const fetch = async (query, { cachedCall }) => {
 
     const keyParams = [
         { type: 'token', slug: `${token || ''}`, id: 0 },
-        { type: 'autor', slug: `${autor || ''}`, id: 0 },
+        { type: 'autor', slug: `${decodeURI(autor || '')}`, id: 0 },
         { type: 'seccion', slug: `${seccionField || ''}`, id: 0 },
         { type: 'tags', slug: `${tags || ''}`, id: 0 }
     ];
@@ -224,6 +225,7 @@ const fetch = async (query, { cachedCall }) => {
     let followedItems = [];
     if (token) {
         const optRequest = {
+            version,
             token,
             uri,
             sizeFollow
@@ -266,6 +268,7 @@ export default {
     fetch,
     ttl: 120,
     params: {
+        version: 'text',
         page: 'text',
         size: 'text',
         days: 'text',
