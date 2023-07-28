@@ -20,7 +20,7 @@ exports[`TePuedeIneresarAmp should render the component with AMP tags when therm
           role="contentinfo"
         >
           <h3
-            class="com-title --font-primary --xl --font-extra"
+            class="com-title --font-primary --xl --font-black"
           >
             Te puede interesar
           </h3>

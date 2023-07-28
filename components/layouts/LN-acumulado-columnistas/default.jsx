@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
-import StaticValidation from '../../private/common/staticValidation';
 import Header from '../../private/LN/common/header';
-import Footer from '../../private/LN/common/footer';
+import Footer from '../../private/LN10/footer';
 import Text from '../../private/common/text';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
@@ -63,9 +62,9 @@ const LNAcumuladoColumnistasLayout = props => {
                         </section>
                     </div>
                 </main>
-                <StaticValidation id="StaticFooter" htmlOnly persistent>
+                <div className="footer-container --no-app">
                     <Footer />
-                </StaticValidation>
+                </div>
             </div>
             <LoadBannersSSR />
             <PwaModals />

@@ -262,6 +262,14 @@ const customReceta = `
         }
     }
 `;
+const customSummary = `
+    subtype
+    embed {
+        config {
+            arrayBullets
+        }
+    }
+`;
 
 const gallery = `
     subtype
@@ -291,6 +299,12 @@ const sectionSites = `{
         }
     }
 }`;
+
+const listCommonProps = `
+    content
+    type
+   _id  
+`;
 
 export default `
 {
@@ -349,12 +363,23 @@ export default `
         receta {
             ${customReceta}
         }
+        summary {
+            ${customSummary}
+        }
         apertura_multimedia {
             _id
             type
             ${video}
             embed_html
             content
+        },
+        summary {
+            _id,
+            embed {
+                config {
+                    arrayBullets
+                }
+            }
         }
     }
     credits {
@@ -443,9 +468,17 @@ export default `
         }
         list_type
         items {
-            _id
-            content
-            type
+            items {
+                items {
+                    items {
+                        items
+                        ${listCommonProps}
+                    }
+                    ${listCommonProps}
+                }
+                ${listCommonProps}
+            }
+            ${listCommonProps}
         }
         level
         content

@@ -14,10 +14,12 @@ class AccumulatedFollow {
 
         this.apiData = {
             global: {
-                1: IndexAcuV1
+                1: IndexAcuV1,
+                2: IndexAcuV1
             },
             mobile: {
-                1: IndexAcuV1Mobile
+                1: IndexAcuV1Mobile,
+                2: IndexAcuV1Mobile
             }
         };
     }

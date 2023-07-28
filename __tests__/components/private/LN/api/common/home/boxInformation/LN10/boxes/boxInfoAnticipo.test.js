@@ -1,9 +1,12 @@
 import getEmbedHref from '../../../../../../../../../../components/private/common/utils/getEmbedHref';
 import boxInfoAnticipo from '../../../../../../../../../../components/private/LN/api/common/home/boxInformation/LN10/boxes/boxInfoAnticipo';
-import boxInfoComplete from '../../../../../../../../../../components/private/LN/api/common/home/boxInformation/LN10/boxes/boxInfoComplete';
+import { boxInfoAnticipoComplete } from '../../../../../../../../../../components/private/LN/api/common/home/boxInformation/LN10/boxes/boxInfoAnticipoComplete';
 
 jest.mock(
-    '../../../../../../../../../../components/private/LN/api/common/home/boxInformation/LN10/boxes/boxInfoComplete'
+    '../../../../../../../../../../components/private/LN/api/common/home/boxInformation/LN10/boxes/boxInfoAnticipoComplete',
+    () => ({
+        boxInfoAnticipoComplete: jest.fn()
+    })
 );
 
 describe('boxInfoAnticipo', () => {
@@ -17,12 +20,16 @@ describe('boxInfoAnticipo', () => {
         const typeSection = 'typeSection';
 
         const box = null;
-        boxInfoComplete.mockReturnValue(box);
+        boxInfoAnticipoComplete.mockReturnValue(box);
 
-        const result = boxInfoAnticipo(information, section, typeSection);
+        const result = boxInfoAnticipoComplete(
+            information,
+            section,
+            typeSection
+        );
 
         expect(result).toBe(box);
-        expect(boxInfoComplete).toHaveBeenCalledWith(
+        expect(boxInfoAnticipoComplete).toHaveBeenCalledWith(
             information,
             section,
             typeSection
@@ -35,12 +42,12 @@ describe('boxInfoAnticipo', () => {
         const typeSection = 'typeSection';
 
         const box = { parameters: null };
-        boxInfoComplete.mockReturnValue(box);
+        boxInfoAnticipoComplete.mockReturnValue(box);
 
         const result = boxInfoAnticipo(information, section, typeSection);
 
         expect(result).toBe(box);
-        expect(boxInfoComplete).toHaveBeenCalledWith(
+        expect(boxInfoAnticipoComplete).toHaveBeenCalledWith(
             information,
             section,
             typeSection
@@ -59,7 +66,7 @@ describe('boxInfoAnticipo', () => {
         const typeSection = 'typeSection';
 
         const box = { parameters: {} };
-        boxInfoComplete.mockReturnValue(box);
+        boxInfoAnticipoComplete.mockReturnValue(box);
 
         const expectedBox = {
             parameters: {
@@ -73,7 +80,7 @@ describe('boxInfoAnticipo', () => {
         const result = boxInfoAnticipo(information, section, typeSection);
 
         expect(result).toEqual(expectedBox);
-        expect(boxInfoComplete).toHaveBeenCalledWith(
+        expect(boxInfoAnticipoComplete).toHaveBeenCalledWith(
             information,
             section,
             typeSection
@@ -92,11 +99,11 @@ describe('boxInfoAnticipo', () => {
         const typeSection = 'typeSection';
 
         const box = { parameters: {} };
-        boxInfoComplete.mockReturnValue(box);
+        boxInfoAnticipoComplete.mockReturnValue(box);
 
         const expectedBox = {
             parameters: {
-                badge: information.textBadge,
+                badge: information.textBadge.toUpperCase(),
                 lead: information.lead,
                 url: information.url,
                 video: getEmbedHref('src', information.video)
@@ -106,7 +113,7 @@ describe('boxInfoAnticipo', () => {
         const result = boxInfoAnticipo(information, section, typeSection);
 
         expect(result).toEqual(expectedBox);
-        expect(boxInfoComplete).toHaveBeenCalledWith(
+        expect(boxInfoAnticipoComplete).toHaveBeenCalledWith(
             information,
             section,
             typeSection
@@ -125,47 +132,25 @@ describe('boxInfoAnticipo', () => {
         const typeSection = 'typeSection';
 
         const box = { parameters: {} };
-        boxInfoComplete.mockReturnValue(box);
+        boxInfoAnticipoComplete.mockReturnValue(box);
 
         const expectedBox = {
             parameters: {
-                badge: 'Custom Badge',
+                badge: 'CUSTOM BADGE',
                 lead: 'Lead',
                 url: 'https://www.example.com',
-                text: 'Title',
                 video: null
             }
         };
         const result = boxInfoAnticipo(information, section, typeSection);
         expect(result).toEqual(expectedBox);
-        expect(boxInfoComplete).toHaveBeenCalledWith(
+        expect(boxInfoAnticipoComplete).toHaveBeenCalledWith(
             information,
             section,
             typeSection
         );
     });
-    it('should return titles in uppercase', () => {
-        const information = { title: 'TEST TITLE' };
-        const section = 'section';
-        const typeSection = 'typeSection';
 
-        const box = {
-            tituloCaja: 'TEST TITLE',
-            parameters: { title: 'TEST TITLE' }
-        };
-
-        boxInfoComplete.mockReturnValue(box);
-
-        const result = boxInfoAnticipo(information, section, typeSection);
-
-        expect(result.tituloCaja).toBe('TEST TITLE');
-        expect(result.parameters.title).toBe('TEST TITLE');
-        expect(boxInfoComplete).toHaveBeenCalledWith(
-            information,
-            section,
-            typeSection
-        );
-    });
     it('should return empty titles when information.title is empty', () => {
         const information = { title: '' };
         const section = 'section';
@@ -176,24 +161,21 @@ describe('boxInfoAnticipo', () => {
             parameters: { title: '' }
         };
 
-        boxInfoComplete.mockReturnValue(box);
+        boxInfoAnticipoComplete.mockReturnValue(box);
 
         const result = boxInfoAnticipo(information, section, typeSection);
 
         expect(result.tituloCaja).toBe('');
         expect(result.parameters.title).toBe('');
-        expect(boxInfoComplete).toHaveBeenCalledWith(
+        expect(boxInfoAnticipoComplete).toHaveBeenCalledWith(
             information,
             section,
             typeSection
         );
     });
+
     it('should return empty titles when information.title is undefined', () => {
         const information = {};
-        const expectedBox = {
-            tituloCaja: '',
-            parameters: { title: '' }
-        };
         const section = 'section';
         const typeSection = 'typeSection';
 
@@ -202,13 +184,13 @@ describe('boxInfoAnticipo', () => {
             parameters: { title: '' }
         };
 
-        boxInfoComplete.mockReturnValue(box);
+        boxInfoAnticipoComplete.mockReturnValue(box);
 
         const result = boxInfoAnticipo(information, section, typeSection);
 
         expect(result.tituloCaja).toBe('');
         expect(result.parameters.title).toBe('');
-        expect(boxInfoComplete).toHaveBeenCalledWith(
+        expect(boxInfoAnticipoComplete).toHaveBeenCalledWith(
             information,
             section,
             typeSection

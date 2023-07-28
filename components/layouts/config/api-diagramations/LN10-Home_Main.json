@@ -109,7 +109,7 @@
     ],
     "bn-opening-4": [
         {
-            "variants": ["regular","liveblog"],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "L",
                 "imagePosition": "Right"
@@ -211,7 +211,7 @@
     ],
     "bn_1_4_grid": [
         {
-            "variants": ["regular","liveblog"],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -254,7 +254,7 @@
     ],
     "bn_1_3_grid": [
         {
-            "variants": ["regular","liveblog"],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -290,7 +290,7 @@
     ],
     "bn_1_2_grid": [
         {
-            "variants": ["regular","liveblog"],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -316,7 +316,7 @@
     ],
     "bn_1_1_grid": [
         {
-            "variants": ["regular","liveblog"],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -338,7 +338,7 @@
     ],
     "sub-exclusive": [
         {
-            "variants": ["regular","liveblog"],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -381,7 +381,7 @@
     ],
     "bn_2_1_2_grid": [
         {
-            "variants": ["regular","liveblog"],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -433,7 +433,7 @@
     ],
     "bn_2_grid": [
         {
-            "variants": ["regular","liveblog"],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "L",
                 "imagePosition": "Right"
@@ -453,9 +453,26 @@
             }
         }
     ],
+    "bn_3_grid": [
+        {
+            "variants": ["regular", "liveblog", "author", "html"],
+            "T1": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T2": {
+                "size": "L",
+                "imagePosition": "Top"
+            },
+            "T3": {
+                "size": "L",
+                "imagePosition": "Top"
+            }
+        }
+    ],
     "bnGrilla4": [
         {
-            "variants": ["regular","liveblog"],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "L",
                 "imagePosition": "Top"
@@ -491,7 +508,7 @@
     ],
     "bnGrilla8": [
         {
-            "variants": ["regular","liveblog"],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "L",
                 "imagePosition": "Top"
@@ -590,7 +607,7 @@
     ],
     "canal_1_3_grid": [
         {
-            "variants": ["regular","liveblog"],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"
@@ -626,7 +643,7 @@
     ],
     "canal_1_4_grid": [
         {
-            "variants": ["regular","liveblog"],
+            "variants": ["regular", "liveblog"],
             "T1": {
                 "size": "XL",
                 "imagePosition": "Top"

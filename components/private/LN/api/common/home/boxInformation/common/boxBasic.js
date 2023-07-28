@@ -3,10 +3,9 @@ export const boxInfoBasic = (information, section, typeSection) => {
     const sectionAlias = section && section.toLowerCase();
     const type = typeSection[sectionAlias] || typeSection.default;
 
-    const boxInfo = {
+    return {
         ...type,
         diagramacion: information.layout || null
     };
-    return boxInfo;
 };
 export default boxInfoBasic;

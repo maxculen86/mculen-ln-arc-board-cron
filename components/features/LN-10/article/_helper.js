@@ -273,7 +273,12 @@ export const getDynamicStreamOperator = (sizes, cardSize, middleSize = 'l') => {
     return OPERATORS.LOWER;
 };
 
-const transformVideoData = (videoData, shouldUseV2, cardSize) => {
+export const transformVideoData = (
+    videoData,
+    shouldUseV2,
+    cardSize,
+    isAdmin = false
+) => {
     const streams = get(videoData, 'streams', []);
     // TODO: Quitar validacion de shouldUseV2 cuando salga resizer 2 por completo. Mantener la constante con: "get(videoData, 'promo_items.basic.resized_urls', [])"
     const videoImagesResized = shouldUseV2
@@ -286,7 +291,7 @@ const transformVideoData = (videoData, shouldUseV2, cardSize) => {
 
     return {
         type,
-        dataSrc: url,
+        [isAdmin ? 'src' : 'dataSrc']: url,
         poster: resizedUrl
     };
 };
@@ -298,7 +303,8 @@ export const getMediaData = ({
     renderables = [],
     customFields = {},
     shouldUseV2 = false,
-    config = {}
+    config = {},
+    isAdmin = false
 } = {}) => {
     const { video: videoId, imageId, html = '' } = customFields;
     const { _id } = article || {};
@@ -314,11 +320,20 @@ export const getMediaData = ({
     const rules = [
         {
             validation: html.trim(),
-            data: { type: 'embedCode', embedCode: html }
+            data: {
+                type: 'embedCode',
+                embedCode: isAdmin ? html : html.replace(/src="(.*?)"/, ''),
+                dataSrc: html && html !== ' ' && html.match(/src="(.*?)"/)[1]
+            }
         },
         {
             validation: videoId && video,
-            data: transformVideoData(video, shouldUseV2, config.cardSize)
+            data: transformVideoData(
+                video,
+                shouldUseV2,
+                config.cardSize,
+                isAdmin
+            )
         },
 
         {

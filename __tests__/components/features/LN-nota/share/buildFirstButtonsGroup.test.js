@@ -3,10 +3,16 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import BuildFirtsButtonsGroup from '../../../../../components/features/LN-nota/share/_children/BuildFirstButtonsGroup';
 import useFetch from '../../../../../components/private/common/hooks/useFetch';
+import useTermica from '../../../../../components/private/common/hooks/useTermica';
+
+jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
+    jest.fn()
+);
 
 jest.mock('../../../../../components/private/common/hooks/useFetch', () =>
     jest.fn()
 );
+
 describe('Components - Features - LN-nota - share', () => {
     const globalContent = (isListenable, comments) => ({
         _id: '7ZDIHMQHDRDNNMJDSUWQXWPWZU',
@@ -22,18 +28,37 @@ describe('Components - Features - LN-nota - share', () => {
         render(<BuildFirtsButtonsGroup globalContent={globalContent()} />);
         expect(useFetch).toBeCalledTimes(1);
     });
-    it('should render isListenable button', () => {
+    it('should not render isListenable button if termica returns true', () => {
+        useTermica.mockImplementation(() => true);
+
         render(
             <BuildFirtsButtonsGroup
                 globalContent={globalContent(true, false)}
             />
         );
+
+        expect(useTermica).toHaveBeenCalledWith('hide_listening_articles');
+        expect(screen.queryByText('escuchar')).not.toBeInTheDocument();
+        expect(screen.queryByRole('button')).not.toBeInTheDocument();
+    });
+
+    it('should render isListenable button', () => {
+        useTermica.mockImplementation(() => false);
+
+        render(
+            <BuildFirtsButtonsGroup
+                globalContent={globalContent(true, false)}
+            />
+        );
+
+        expect(useTermica).toHaveBeenCalled();
         expect(screen.getByText('escuchar')).toBeInTheDocument();
         expect(screen.getByRole('button')).toHaveAttribute(
             'title',
             'Escuchar nota'
         );
     });
+
     it('should render bookmark button', () => {
         const { container } = render(
             <BuildFirtsButtonsGroup

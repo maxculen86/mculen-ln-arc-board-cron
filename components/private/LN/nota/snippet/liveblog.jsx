@@ -44,6 +44,7 @@ const SnippetLiveblog = props => {
         checkForLiveBlogElements === -1
             ? generatePostObjectWithoutPowerUp(globalContent, url, PLACEHOLDER)
             : generatePostObject(globalContent, url, PLACEHOLDER);
+
     const converageStart = new Date(firstPublishDate);
     const coverageEnd = addHours(12, displayDate);
     const noteTitle =

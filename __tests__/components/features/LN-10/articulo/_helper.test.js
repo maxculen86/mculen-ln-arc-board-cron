@@ -21,7 +21,8 @@ import {
     getDataAuthor,
     getDataAttributesForViewability,
     translateSectionName,
-    getDynamicStreamOperator
+    getDynamicStreamOperator,
+    transformVideoData
 } from '../../../../../components/features/LN-10/article/_helper';
 import { isInApertura } from '../../../../../components/features/LN-10/article/common/_helper-WebApi';
 import contentElementesLiveblog from '../../../../../__mocks__/data/articles/contentElementsLiveblog.json';
@@ -31,6 +32,7 @@ import {
 } from '../../../../../__mocks__/data/renderables/renderablesLN10eager.js';
 import { size } from '../../../../../components/private/common/utils/diagramationRules';
 import { getMockRenderables } from '../../../../../__mocks__/data/renderables/renderablesForPreload';
+import { getShortestImage } from '../../../../../components/private/LN/common/utils/mediaHelper';
 
 describe('Components - Features - LN-10 - Article - _helper', () => {
     const getProps = ({
@@ -54,6 +56,9 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
     const imageId = 'abc-imageId';
     const iframe =
         '<iframe width="560" height="315" src="https://www.youtube.com/embed/sITCH5csTmo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+
+    const iframeWithoutSrc =
+        '<iframe width="560" height="315"  title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
 
     describe('Test function showSubHeadText', () => {
         it('should show subHead', () => {
@@ -271,7 +276,8 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
         const resultHtml = {
             type: 'embedCode',
-            embedCode: iframe
+            embedCode: iframeWithoutSrc,
+            dataSrc: 'https://www.youtube.com/embed/sITCH5csTmo'
         };
 
         const articleImageCases = [
@@ -1069,5 +1075,108 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
                 expect(streamOperator).toEqual(expectedResult);
             }
         );
+    });
+
+    describe('Test function transformVideoData', () => {
+        const videoData = {
+            promo_items: {
+                basic: {
+                    resized_urls: [
+                        {
+                            resizedUrl:
+                                'https://example.com/promo_items_image_high.jpg'
+                        },
+                        {
+                            resizedUrl:
+                                'https://example.com/promo_items_image_low.jpg'
+                        }
+                    ]
+                }
+            },
+            resizedUrl: [
+                {
+                    resizedUrl: 'https://example.com/image_high.jpg'
+                },
+                {
+                    resizedUrl: 'https://example.com/image_low.jpg'
+                }
+            ],
+            streams: [
+                {
+                    height: 360,
+                    url: 'https://example.com/video_low.mp4',
+                    width: 542
+                },
+                {
+                    height: 720,
+                    url: 'https://example.com/video_high.mp4',
+                    width: 1084
+                }
+            ],
+            type: 'video'
+        };
+
+        it('result should have src property when isAdmin is true', () => {
+            const shouldUseV2 = false;
+            const cardSize = '4-xl';
+            const isAdmin = true;
+
+            const result = transformVideoData(
+                videoData,
+                shouldUseV2,
+                cardSize,
+                isAdmin
+            );
+
+            const expectedResult = {
+                type: 'video',
+                src: 'https://example.com/video_low.mp4',
+                poster: 'https://example.com/image_low.jpg'
+            };
+
+            expect(result).toStrictEqual(expectedResult);
+        });
+
+        it('result should have dataSrc property when isAdmin is false', () => {
+            const shouldUseV2 = false;
+            const cardSize = 'm-l';
+            const isAdmin = false;
+
+            const result = transformVideoData(
+                videoData,
+                shouldUseV2,
+                cardSize,
+                isAdmin
+            );
+
+            const expectedResult = {
+                type: 'video',
+                dataSrc: 'https://example.com/video_low.mp4',
+                poster: 'https://example.com/image_low.jpg'
+            };
+
+            expect(result).toStrictEqual(expectedResult);
+        });
+
+        it('should return the correct transformed video data when shouldUseV2 is true', () => {
+            const shouldUseV2 = true;
+            const cardSize = '4-xl';
+            const isAdmin = true;
+
+            const result = transformVideoData(
+                videoData,
+                shouldUseV2,
+                cardSize,
+                isAdmin
+            );
+
+            const expectedResult = {
+                type: 'video',
+                src: 'https://example.com/video_low.mp4',
+                poster: 'https://example.com/promo_items_image_low.jpg'
+            };
+
+            expect(result).toStrictEqual(expectedResult);
+        });
     });
 });

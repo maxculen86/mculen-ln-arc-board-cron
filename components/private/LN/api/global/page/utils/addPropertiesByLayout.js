@@ -185,53 +185,47 @@ const addPropertiesByLayout = (
     diagramations,
     positionsArticlesbyDiagramation,
     isSubBox = false
-) => {
-    const newElements =
-        elements &&
-        Array.isArray(elements) &&
-        elements.map((e, i) => {
-            if (e == null) {
-                return e;
+) =>
+    elements &&
+    Array.isArray(elements) &&
+    elements.map((e, i) => {
+        if (e == null) {
+            return e;
+        }
+        const sectionChildrenItem = sectionChildren[i];
+        if (
+            sectionChildrenItem &&
+            ['chains', 'features'].includes(sectionChildrenItem.collection)
+        ) {
+            const {
+                configDiagramation,
+                configMoveArticlesbyDiagramation
+            } = configsDiagramationFromInformation(
+                e,
+                diagramations,
+                positionsArticlesbyDiagramation
+            );
+            let boxElement = {};
+            if (sectionChildrenItem.collection === 'chains') {
+                boxElement = setInformationInChain(e, sectionChildrenItem);
             }
-            const sectionChildrenItem = sectionChildren[i];
-            if (
-                sectionChildrenItem &&
-                ['chains', 'features'].includes(sectionChildrenItem.collection)
-            ) {
-                const {
+            if (sectionChildrenItem.collection === 'features') {
+                boxElement = setInformationInFeature(e, sectionChildrenItem);
+            }
+
+            if (e && e.articles && Array.isArray(e.articles)) {
+                boxElement.articles = addPropertiesInArticles(
+                    e.articles,
+                    sectionChildrenItem,
                     configDiagramation,
-                    configMoveArticlesbyDiagramation
-                } = configsDiagramationFromInformation(
-                    e,
+                    configMoveArticlesbyDiagramation,
                     diagramations,
                     positionsArticlesbyDiagramation
                 );
-                let boxElement = {};
-                if (sectionChildrenItem.collection === 'chains') {
-                    boxElement = setInformationInChain(e, sectionChildrenItem);
-                }
-                if (sectionChildrenItem.collection === 'features') {
-                    boxElement = setInformationInFeature(
-                        e,
-                        sectionChildrenItem
-                    );
-                }
-
-                if (e && e.articles && Array.isArray(e.articles)) {
-                    boxElement.articles = addPropertiesInArticles(
-                        e.articles,
-                        sectionChildrenItem,
-                        configDiagramation,
-                        configMoveArticlesbyDiagramation,
-                        diagramations,
-                        positionsArticlesbyDiagramation
-                    );
-                }
-                return boxElement;
             }
-            return e;
-        });
-    return newElements;
-};
+            return boxElement;
+        }
+        return e;
+    });
 
 export default addPropertiesByLayout;

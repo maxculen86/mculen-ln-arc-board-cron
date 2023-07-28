@@ -1,8 +1,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import StaticValidation from '../private/common/staticValidation';
 import Header from '../private/LN/common/header';
-import Footer from '../private/LN/common/footer';
+import Footer from '../private/LN10/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
 import '../../resources/dist/css/ln/pages/storytelling.css';
 import GlobalProvider from '../private/common/context/globalContext';
@@ -12,6 +11,9 @@ import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import PwaModals from '../private/LN/common/pwaModals';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
+import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
+import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
+import get from '../private/common/utils/get';
 
 const lnNotaStorytelling = ({
     children,
@@ -21,13 +23,27 @@ const lnNotaStorytelling = ({
     layout,
     globalContent: {
         taxonomy: { sections },
-        distributor: { name }
-    }
+        distributor: { name },
+        subtype = ''
+    },
+    globalContent
 }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
+    const isLoadWithPicture =
+        isAllowedSection({
+            globalContent,
+            listOfAllowedSection,
+            noteType: subtype
+        }) && !amp;
+
+    const withVideoBackground = Boolean(
+        get(globalContent, 'promo_items.storytelling', null)
+    );
+
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
+
     return (
         <GlobalProvider>
             {bannerMegatop}
@@ -38,16 +54,28 @@ const lnNotaStorytelling = ({
                 <Header />
                 <main id="content">
                     {children[1]}
-                    <AperturaStorytelling />
+
+                    {isLoadWithPicture && !withVideoBackground ? (
+                        <StaticValidation
+                            id="static-opening"
+                            htmlOnly
+                            persistent
+                        >
+                            <AperturaStorytelling
+                                isLoadWithPicture={isLoadWithPicture}
+                            />
+                        </StaticValidation>
+                    ) : (
+                        <AperturaStorytelling
+                            isLoadWithPicture={isLoadWithPicture}
+                        />
+                    )}
+
                     <div className="lay-sidebar">
                         <div className="sidebar__main">
                             <section className="cuerpo__nota">
                                 <div className="row">
                                     <div className="col-12 col-desksm-1">
-                                        {/* // ***** INICIO PREGUNTAR A DARO */}
-                                        {/* hlp-mobile-show */}
-                                        {/* // ***** FIN PREGUNTAR A DARO */}
-                                        {/* Left-Cuerpo Shared */}
                                         {children[2]}
                                     </div>
                                     <div className="col-deskxl-10 offset-deskxl-1 col-desksm-11">
@@ -72,9 +100,9 @@ const lnNotaStorytelling = ({
                         </div>
                     </div>
                 </main>
-                <StaticValidation id="StaticFooter" htmlOnly persistent>
-                    <Footer />
-                </StaticValidation>
+                <div className="footer-container --no-app">
+                    <Footer outputType={outputType} />
+                </div>
             </div>
             <LoadBannersSSR />
             <PwaModals />

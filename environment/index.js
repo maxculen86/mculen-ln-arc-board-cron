@@ -74,5 +74,7 @@ export default {
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
     BOOKMARK_URL: 'https://www.lanacion.com.ar/mis-notas/',
     AUDIO_NEWS_URL: 'https://audionews.lanacion.com.ar/api/v1/audio/status/',
+    API_KEY_ARC_SERVICES: '6a484fb4-8c69-46b1-91ca-c476b055d87f',
+    API_KEY_ARC_SERVICES_PROD: '6a484fb4-8c69-46b1-91ca-c476b055d87f',
     VIDEO_CDN_URL: 'https://lanacionar-prod.video.arc-cdn.net/'
 };

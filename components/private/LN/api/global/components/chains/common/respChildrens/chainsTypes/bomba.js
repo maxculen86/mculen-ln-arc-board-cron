@@ -12,12 +12,10 @@ export const respChildrens = props => {
         return null;
     }
 
-    const slicedChildren = setSlicedChildren({
+    return setSlicedChildren({
         children,
         config: { layout }
     });
-
-    return slicedChildren;
 };
 
 export default respChildrens;

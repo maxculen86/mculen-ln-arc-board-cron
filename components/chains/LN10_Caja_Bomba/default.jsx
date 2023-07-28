@@ -14,10 +14,10 @@ import { getChildrenFromSectionHome } from '../../private/LN/common/utils/cajaTe
 import { validateChainBomba } from './common/_helper-WebApi';
 import { getClassCondition, getChildrenOfBomba } from './_helper';
 import setRender from '../utils/setRender';
-import StaticContent from '../../private/common/staticContent';
 import { setSlicedChildren } from '../utils/common/_helpers-WebApi';
 import useValidateChain from '../../private/LN10/common/hooks/useValidateChain';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
+import { setStaticDynamically } from '../utils/_helpers';
 
 const CajaBomba = props => {
     const {
@@ -103,11 +103,7 @@ const CajaBomba = props => {
         }
     });
 
-    return isAdmin ? (
-        Component
-    ) : (
-        <StaticContent {...extraOptsDiv}>{Component}</StaticContent>
-    );
+    return setStaticDynamically(Component, isAdmin, extraOptsDiv);
 };
 
 CajaBomba.label = 'LN10 Caja Bomba';

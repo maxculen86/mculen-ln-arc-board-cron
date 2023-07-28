@@ -54,8 +54,7 @@ export const setCropMethod = ({
             const hasAnyDimensions = originalWidth || originalHeight;
 
             if (hasFocalPoint && hasAnyDimensions && isNotSmart) {
-                const focalFilter = setStrFocal(focalX, focalY);
-                return focalFilter;
+                return setStrFocal(focalX, focalY);
             }
         }
     }
@@ -105,7 +104,7 @@ export const baseUrl = ({ isInApertura, isAdmin }) => {
 export const buildQueryParams = ({
     newWidth,
     newHeight,
-    filterQuality = 80,
+    filterQuality = 70,
     focalPoint = [],
     smartCropExcluded = false,
     crop = null,

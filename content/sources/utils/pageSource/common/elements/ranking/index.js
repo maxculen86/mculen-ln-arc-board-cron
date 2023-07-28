@@ -48,7 +48,7 @@ export const getRanking = async props => {
 
         // See available types in /private/LN/api/common/home/boxTypes/LN10/index.js
         // In this case the  type is 0 because have this section have articles
-        const resp = {
+        return {
             information: {
                 hideCaja: false,
                 title,
@@ -56,8 +56,6 @@ export const getRanking = async props => {
             },
             articles
         };
-
-        return resp;
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(

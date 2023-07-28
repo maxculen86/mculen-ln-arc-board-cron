@@ -40,18 +40,6 @@ const SocialEmbeds = props => {
     const instagramEmbed = hasInstagramEmbed(content);
     const facebookEmbed = hasFacebookEmbed(content);
 
-    const processInstaEmbeds = `
-        window.addEventListener("load", function(e) {
-            instgrm.Embeds.process();
-            var t = document.querySelector(".cuerpo__nota").getElementsByTagName("script");
-            HTMLCollection.prototype.filter = Array.prototype.filter, t.filter(function(e) {
-                return "https://www.instagram.com/embed.js" === e.getAttribute("src")
-            }).forEach(function(e) {
-                return e.remove()
-            })
-        });
-    `;
-
     const facebookScript = `
         window.fbAsyncInit = function () {
             FB.init({
@@ -71,10 +59,6 @@ const SocialEmbeds = props => {
             {instagramEmbed && (
                 <>
                     <script defer src="https://www.instagram.com/embed.js" />
-                    <script
-                        type="text/javascript"
-                        dangerouslySetInnerHTML={{ __html: processInstaEmbeds }}
-                    />
                 </>
             )}
             {facebookEmbed && (

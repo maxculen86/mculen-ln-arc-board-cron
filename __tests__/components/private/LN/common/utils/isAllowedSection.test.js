@@ -1,12 +1,13 @@
 import isAllowedSection from '../../../../../../components/private/LN/common/utils/isAllowedSection';
 
-describe('Component - private - commom - hooks - isAllowedSection', () => {
+describe('Component - private - commom - utils - isAllowedSection', () => {
     const allowList = [
         { section: '/lifestyle', pageLayout: 'LN-nota-foto-al-100' },
         { section: '/revista-living', pageLayout: 'LN-Acumulado' },
         { section: '/politica', pageLayout: 'LN-nota-noticia' },
         { section: '/economia' },
-        { pageLayout: 'LN-Home_Sports' }
+        { pageLayout: 'LN-Home_Sports' },
+        { subtype: '4' }
     ];
 
     describe('Cases in Acu: Should return true when the data in the globalContent matches something in the enabled list.', () => {
@@ -135,6 +136,46 @@ describe('Component - private - commom - hooks - isAllowedSection', () => {
             ).toBeTruthy();
         });
 
+        test('If the section and the layout are not defined in the list. Must evaluate to the enabled subtype and return true', () => {
+            const globalContent = {
+                taxonomy: {
+                    primary_section: {
+                        _id: '/deportes'
+                    }
+                },
+                subtype: '4'
+            };
+
+            expect(
+                isAllowedSection({
+                    globalContent,
+                    listOfAllowedSection: allowList,
+                    layout: undefined,
+                    noteType: '4'
+                })
+            ).toBeTruthy();
+        });
+
+        test('Should return false when the subtype is disabled', () => {
+            const globalContent = {
+                taxonomy: {
+                    primary_section: {
+                        _id: '/deportes'
+                    }
+                },
+                subtype: '3'
+            };
+
+            expect(
+                isAllowedSection({
+                    globalContent,
+                    listOfAllowedSection: allowList,
+                    layout: undefined,
+                    noteType: '3'
+                })
+            ).toBeFalsy();
+        });
+
         test('should return false when the section note is not enable in the list', () => {
             const layout = 'LN-nota-foto-al-100';
             const globalContent = {
@@ -174,10 +215,10 @@ describe('Component - private - commom - hooks - isAllowedSection', () => {
 
         test('should return falsy when the elements in allowedList is not defined', () => {
             expect(isAllowedSection({})).toBeFalsy();
+            expect(isAllowedSection()).toBeFalsy();
         });
 
-        test('should return falsy when the section in allowedList is not defined', () => {
-            const layout = 'LN-Home_Sports';
+        test('should return falsy when the section and layout in allowedList is not defined', () => {
             const globalContent = {
                 taxonomy: {
                     primary_section: {
@@ -190,7 +231,7 @@ describe('Component - private - commom - hooks - isAllowedSection', () => {
                 isAllowedSection({
                     globalContent,
                     listOfAllowedSection: allowList,
-                    layout
+                    layout: undefined
                 })
             ).toBeFalsy();
         });

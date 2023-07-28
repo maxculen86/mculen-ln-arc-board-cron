@@ -12,7 +12,7 @@ jest.mock('../../../components/private/common/utils/logger', () => {
     return { push };
 });
 
-jest.mock('../../../content/sources/utils/getRequest', () => () =>
+jest.mock('../../../content/sources/utils/getRequestWithJson', () => () =>
     mockGetReq()
 );
 

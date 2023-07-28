@@ -1,11 +1,11 @@
 import { filterBanners } from './lazyBannersHelper';
 import getViewport from '../../LN/common/utils/screenHelper';
-import { bannersLazy as bannersLazyLN10 } from './bannersHomeLN10.json';
+import { bannersLazy } from './bannersHomeLN10.json';
 import { queueGoogletagCommand } from '../../LN/common/utils/bannerHelper';
 
 export const createBannersIntersectionObserver = () => {
     const { device } = getViewport();
-    const banners = filterBanners(bannersLazyLN10);
+    const banners = filterBanners(bannersLazy);
 
     const callback = entries => {
         entries.forEach(entry => {
@@ -49,7 +49,6 @@ export const createHeaderObserver = () => {
     if (subHeader) interSectionObserver.observe(subHeader);
 };
 
-// TODO testear observer
 export const createDifferVideosObserver = () => {
     const lazyVideos = [].slice.call(
         document.querySelectorAll('video.ln-video')
@@ -59,7 +58,9 @@ export const createDifferVideosObserver = () => {
         entries.forEach(video => {
             const lazyVideo = video.target;
             if (video.isIntersecting && lazyVideo.paused) {
-                lazyVideo.src = lazyVideo.dataset.src;
+                if (!lazyVideo.src) {
+                    lazyVideo.src = lazyVideo.dataset.src;
+                }
                 lazyVideo.play();
             } else {
                 lazyVideo.pause();
@@ -72,4 +73,39 @@ export const createDifferVideosObserver = () => {
     lazyVideos.forEach(lazyVideo => {
         lazyVideoObserver.observe(lazyVideo);
     });
+};
+
+export const createDifferYoutubeVideosObserver = () => {
+    const lazyYoutubeVideos = [].slice.call(
+        document.querySelectorAll('div.embed-code')
+    );
+
+    const youtubeVideosCallback = entries => {
+        entries.forEach(ytVideo => {
+            const lazyYtVideo = ytVideo.target.children;
+            const [lazyYtVideoIframe] = lazyYtVideo;
+            if (ytVideo.isIntersecting) {
+                if (!lazyYtVideoIframe.src) {
+                    lazyYtVideoIframe.src = ytVideo.target.dataset.src;
+                }
+                handleVideoEvents('playVideo', lazyYtVideoIframe);
+            } else {
+                handleVideoEvents('stopVideo', lazyYtVideoIframe);
+            }
+        });
+    };
+    const lazyYoutubeVideoObserver = new IntersectionObserver(
+        youtubeVideosCallback,
+        { rootMargin: '0px 0px 300px 0px' }
+    );
+    lazyYoutubeVideos.forEach(lazyVideo => {
+        lazyYoutubeVideoObserver.observe(lazyVideo);
+    });
+};
+
+export const handleVideoEvents = (event, videoIframe) => {
+    videoIframe.contentWindow.postMessage(
+        `{"event":"command","func":"${event}","args":""}`,
+        '*'
+    );
 };

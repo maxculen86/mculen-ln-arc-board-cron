@@ -15,6 +15,8 @@ export const suffixDevice = {
 };
 
 export const BANNERS_DESKTOP = [
+    'logo_header_dsk',
+    'logo_header_dsk_sticky',
     'megatop_dsk',
     'comercial_dsk',
     'adhesion_dsk',
@@ -37,6 +39,7 @@ export const BANNERS_DESKTOP = [
 ];
 
 export const BANNERS_MOBILE = [
+    'logo_header_mob',
     'comercial_mob',
     'adhesion_mob',
     '1x1_mob',
@@ -60,6 +63,7 @@ export const BANNERS_MOBILE = [
 ];
 
 export const BANNERS_TABLET = [
+    'logo_header_tab',
     'cabezal_tab',
     '1x1_tab',
     'adhesion_tab',
@@ -86,24 +90,50 @@ export const isForAmp = (desktop = '', mobile = '', tablet = '') => {
 export const shouldShowBanner = (soloNoSuscriptores, globalContent) =>
     soloNoSuscriptores && get(globalContent, 'subscription') === 'S';
 
+export const getBannerConfigFromSiteService = ({
+    bannersSiteConfig,
+    bannerConfiguration,
+    slotGroup,
+    slotId,
+    section
+}) => {
+    if (bannersSiteConfig) {
+        return {
+            ...bannerConfiguration,
+            dimensions:
+                getDimsFromSiteService(
+                    bannersSiteConfig,
+                    `${slotGroup}_${slotId}`,
+                    section
+                ) || bannerConfiguration.dimensions
+        };
+    }
+
+    return bannerConfiguration;
+};
+
 export const getBannerConfiguration = (
     globalContent = {},
     customFields = {},
     globalContentConfig = {},
     bannerConfig = {}
 ) => {
-    const { label, taxonomy, type } = globalContent;
-
-    const { sections = [], tags = [] } = taxonomy || { sections: [], tags: [] };
-
     const { group: slotGroup } = customFields;
     const { device, slotId } = bannerConfig;
+    const { siteProperties } = useAppContext();
 
     if (!slotId || !slotGroup) return null;
 
-    const { siteProperties } = useAppContext();
-    const gc = useContext(GlobalContext);
-    const siteService = get(gc, 'state.siteService', {});
+    const { label, taxonomy, type } = globalContent;
+    const { sections = [], tags = [] } = taxonomy || { sections: [], tags: [] };
+
+    const getSiteService = () => {
+        const gc = useContext(GlobalContext);
+        return get(gc, 'state.siteService', {});
+    };
+
+    const siteService = getSiteService();
+
     const {
         banners: bannersSiteConfig,
         termicas = [],
@@ -206,18 +236,14 @@ export const getBannerConfiguration = (
     }
 
     // Las dimensiones del banner se traen de Site service por Section -> por Sitio -> Site properties
-    if (bannersSiteConfig) {
-        bannerConfiguration = {
-            ...bannerConfiguration,
-            dimensions:
-                getDimsFromSiteService(
-                    bannersSiteConfig,
-                    `${slotGroup}_${slotId}`,
-                    section
-                ) || bannerConfiguration.dimensions
-        };
-    }
-    return bannerConfiguration;
+
+    return getBannerConfigFromSiteService({
+        bannersSiteConfig,
+        bannerConfiguration,
+        slotGroup,
+        slotId,
+        section
+    });
 };
 
 export const shouldShow = (hideBanners, label, termicas = []) => {
@@ -444,7 +470,11 @@ export const queueGoogletagCommand = bannersToLoad => {
                 const banner = document.getElementById(slot.getSlotElementId());
                 const hiddenBanners = {
                     parallax_dsk: 'parallax_dsk',
-                    parallax_mob: 'parallax_mob'
+                    parallax_mob: 'parallax_mob',
+                    logo_header_dsk: 'logo_header_dsk',
+                    logo_header_dsk_sticky: 'logo_header_dsk_sticky',
+                    logo_header_tab: 'logo_header_tab',
+                    logo_header_mob: 'logo_header_mob'
                 };
                 if (
                     !isEmpty &&

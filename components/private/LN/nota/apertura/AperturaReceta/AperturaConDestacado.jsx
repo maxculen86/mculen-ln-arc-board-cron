@@ -16,7 +16,9 @@ const AperturaConDestacado = props => {
             taxonomy,
             taxonomy: { tags }
         },
-        outputType
+        globalContent,
+        outputType,
+        layout: layoutPageBuilder
     } = props;
 
     const promoItemsBasicWithWWW = replaceUrlResizerToWWW(
@@ -31,6 +33,9 @@ const AperturaConDestacado = props => {
                     outputType={outputType}
                     colNumber={8}
                     isApertura
+                    // TODO: Una vez que se habilite todo el sitio a carga de imagen con picture, estas props no seran necesarias.
+                    layoutPageBuilder={layoutPageBuilder}
+                    globalContent={globalContent}
                 />
             </div>
             <div className="col-desksm-4 cont-aper">
@@ -64,7 +69,8 @@ AperturaConDestacado.propTypes = {
             basic: PropTypes.object
         })
     }).isRequired,
-    outputType: PropTypes.string.isRequired
+    outputType: PropTypes.string.isRequired,
+    layout: PropTypes.string.isRequired
 };
 
 export default AperturaConDestacado;

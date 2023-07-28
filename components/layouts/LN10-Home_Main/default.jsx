@@ -27,11 +27,11 @@ import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamic
 import Ranking from '../../features/LN-10/ranking/default';
 import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
 import {
-    createBannersIntersectionObserver,
     createHeaderObserver,
-    createDifferVideosObserver
+    createBannersIntersectionObserver,
+    createDifferVideosObserver,
+    createDifferYoutubeVideosObserver
 } from '../../private/common/banners/intersectionObservers';
-import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 
 const LN10Home = props => {
     const { children, outputType, isAdmin, renderables } = props;
@@ -58,12 +58,14 @@ const LN10Home = props => {
             isAdmin
         );
     });
-
     useEffect(() => {
         createViewabilityObservers(true);
         createBannersIntersectionObserver();
-        createDifferVideosObserver();
-        if (!isAdmin) createHeaderObserver();
+        if (!isAdmin) {
+            createDifferVideosObserver();
+            createDifferYoutubeVideosObserver();
+            createHeaderObserver();
+        }
     }, [isAdmin]);
 
     return (

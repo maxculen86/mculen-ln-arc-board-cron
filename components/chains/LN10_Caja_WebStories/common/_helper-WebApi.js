@@ -35,11 +35,9 @@ export const filterWebStories = renderables => {
 
     const [webStoryChain = {}] = filteredChain;
 
-    const filteredWebStories = webStoryChain.children.filter(
+    return webStoryChain.children.filter(
         c => c.props.customFields.link && c.props.customFields.imageId
     );
-
-    return filteredWebStories;
 };
 
 export const filterWebStoriesRenderables = renderables => {

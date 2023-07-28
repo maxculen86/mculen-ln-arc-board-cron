@@ -1,18 +1,5 @@
 import PropTypes from 'fusion:prop-types';
-import React from 'react';
-import {
-    ClearNight,
-    Cloudy,
-    Rain,
-    RainyCloudy,
-    Snow,
-    SnowCloudy,
-    Storm,
-    StormCloudy,
-    Sun,
-    SunCloudy,
-    Windy
-} from '@ln/contenidos-ui-assets';
+import optionsIcons from '../../../private/LN/services/weather/optionsIcons';
 
 export const setWeatherData = weatherValue => {
     if (!weatherValue) return null;
@@ -25,22 +12,8 @@ export const setWeatherData = weatherValue => {
                 locationId === 'ciudad-de-buenos-aires'
         ) || {};
 
-    const options = {
-        sun: <Sun />,
-        'clear-night': <ClearNight />,
-        windy: <Windy />,
-        'sun-cloudy': <SunCloudy />,
-        cloudy: <Cloudy />,
-        'rainy-cloudy': <RainyCloudy />,
-        rain: <Rain />,
-        'storm-cloudy': <StormCloudy />,
-        storm: <Storm />,
-        'snow-cloudy': <SnowCloudy />,
-        snow: <Snow />
-    };
-
     return {
-        icon: options[weatherInfo.id] || options.sun,
+        icon: optionsIcons[weatherInfo.id] || optionsIcons.sun,
         temperature: temperature ? `${temperature}º` : '',
         place: 'Capital Federal',
         dataEvent: 'e_linkclick',

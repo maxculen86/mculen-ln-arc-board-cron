@@ -409,7 +409,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                   title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                 >
-                  <picture
+                  <figure
                     class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                   >
                     <img
@@ -423,7 +423,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                       srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 360w, https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 768w, https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 351w, "
                       width="768"
                     />
-                  </picture>
+                  </figure>
                 </section>
                 <section
                   class="description-container --relative --d-flex --flex-col"
@@ -440,7 +440,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -473,7 +473,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
                 >
-                  <picture
+                  <figure
                     class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                   >
                     <img
@@ -487,7 +487,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                       srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 360w, https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 768w, https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 351w, "
                       width="768"
                     />
-                  </picture>
+                  </figure>
                 </section>
                 <section
                   class="description-container --relative --d-flex --flex-col"
@@ -519,7 +519,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -567,7 +567,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Mariela Arias"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -693,7 +693,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                   title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                 >
-                  <picture
+                  <figure
                     class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                   >
                     <img
@@ -707,7 +707,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                       srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 360w, https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 768w, https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 351w, "
                       width="768"
                     />
-                  </picture>
+                  </figure>
                 </section>
                 <section
                   class="description-container --relative --d-flex --flex-col"
@@ -724,7 +724,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -757,7 +757,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
                 >
-                  <picture
+                  <figure
                     class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                   >
                     <img
@@ -771,7 +771,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                       srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 360w, https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 768w, https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 351w, "
                       width="768"
                     />
-                  </picture>
+                  </figure>
                 </section>
                 <section
                   class="description-container --relative --d-flex --flex-col"
@@ -803,7 +803,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -851,7 +851,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Mariela Arias"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -977,7 +977,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                   title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                 >
-                  <picture
+                  <figure
                     class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                   >
                     <img
@@ -991,7 +991,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                       srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 360w, https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 768w, https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 351w, "
                       width="768"
                     />
-                  </picture>
+                  </figure>
                 </section>
                 <section
                   class="description-container --relative --d-flex --flex-col"
@@ -1008,7 +1008,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1041,7 +1041,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
                 >
-                  <picture
+                  <figure
                     class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                   >
                     <img
@@ -1055,7 +1055,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                       srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 360w, https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 768w, https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 351w, "
                       width="768"
                     />
-                  </picture>
+                  </figure>
                 </section>
                 <section
                   class="description-container --relative --d-flex --flex-col"
@@ -1087,7 +1087,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1135,7 +1135,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Mariela Arias"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1194,7 +1194,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media"
+              class="ln-card --d-flex --flex-col --ai-start --txt-center --m --regular --no-media"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1221,7 +1221,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1234,7 +1234,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                   title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                 >
-                  <picture
+                  <figure
                     class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                   >
                     <img
@@ -1248,14 +1248,14 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                       srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 360w, https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 768w, https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 351w, "
                       width="768"
                     />
-                  </picture>
+                  </figure>
                 </section>
                 <section
                   class="description-container --relative --d-flex --flex-col"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 >
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
@@ -1268,7 +1268,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1281,7 +1281,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
                 >
-                  <picture
+                  <figure
                     class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                   >
                     <img
@@ -1295,7 +1295,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                       srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 360w, https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 768w, https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 351w, "
                       width="768"
                     />
-                  </picture>
+                  </figure>
                 </section>
                 <section
                   class="description-container --relative --d-flex --flex-col"
@@ -1317,7 +1317,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     vivo
                   </span>
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
@@ -1330,7 +1330,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --no-media --mobile-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular --no-media"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1343,7 +1343,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                 >
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Bullrich visita El Calafate y presenta libro
@@ -1361,7 +1361,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --no-media --mobile-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular --no-media"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1374,7 +1374,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 >
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
@@ -1388,7 +1388,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1401,7 +1401,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                   title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                 >
-                  <picture
+                  <figure
                     class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                   >
                     <img
@@ -1415,14 +1415,14 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                       srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 360w, https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 768w, https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 351w, "
                       width="768"
                     />
-                  </picture>
+                  </figure>
                 </section>
                 <section
                   class="description-container --relative --d-flex --flex-col"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 >
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
@@ -1435,7 +1435,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --tab-text-center --m --regular --mobile-img-right"
+              class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
             >
               <a
                 class="link ln-link --d-flex --flex-col --unstyled"
@@ -1448,7 +1448,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
                 >
-                  <picture
+                  <figure
                     class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                   >
                     <img
@@ -1462,7 +1462,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                       srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 360w, https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 768w, https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 351w, "
                       width="768"
                     />
-                  </picture>
+                  </figure>
                 </section>
                 <section
                   class="description-container --relative --d-flex --flex-col"
@@ -1484,7 +1484,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     vivo
                   </span>
                   <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
+                    class="text ln-text title --prumo --font-medium --font-m-l"
                   >
                     
                     Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
@@ -1576,7 +1576,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                   title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                 >
-                  <picture
+                  <figure
                     class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                   >
                     <img
@@ -1590,7 +1590,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                       srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 360w, https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 768w, https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 351w, "
                       width="768"
                     />
-                  </picture>
+                  </figure>
                 </section>
                 <section
                   class="description-container --relative --d-flex --flex-col"
@@ -1607,7 +1607,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1640,7 +1640,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
                 >
-                  <picture
+                  <figure
                     class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                   >
                     <img
@@ -1654,7 +1654,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                       srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 360w, https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 768w, https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 351w, "
                       width="768"
                     />
-                  </picture>
+                  </figure>
                 </section>
                 <section
                   class="description-container --relative --d-flex --flex-col"
@@ -1686,7 +1686,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1785,7 +1785,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                   title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                 >
-                  <picture
+                  <figure
                     class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                   >
                     <img
@@ -1799,7 +1799,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                       srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 360w, https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 768w, https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 351w, "
                       width="768"
                     />
-                  </picture>
+                  </figure>
                 </section>
                 <section
                   class="description-container --relative --d-flex --flex-col"
@@ -1816,7 +1816,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs"
+                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
                     >
                       <span
                         class="text ln-text marquee"

@@ -3,6 +3,11 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import AudioPlayerDesktop from '../../../../../components/private/common/audioNews/AudioPlayerDesktop';
 import getToken from '../../../../../components/private/common/utils/getToken';
 import useFetch from '../../../../../components/private/common/hooks/useFetch';
+import useTermica from '../../../../../components/private/common/hooks/useTermica';
+
+jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
+    jest.fn()
+);
 
 jest.mock('../../../../../components/private/common/utils/getToken', () =>
     jest.fn()
@@ -64,13 +69,50 @@ describe('Test - AudioPlayer in desktop', () => {
             isListenable: true
         };
 
+        it('should not render isListenable button if useTermica returns true', () => {
+            useTermica.mockImplementation(() => true);
+
+            render(
+                <AudioPlayerDesktop
+                    isListenable={true}
+                    publishDate="2022-09-15T23:57:45.682Z"
+                    noteId="CV2AWECQORF4HLDVMFFJCLQ234"
+                />
+            );
+
+            expect(useTermica).toHaveBeenCalledWith('hide_listening_articles');
+            expect(
+                screen.queryByRole('button', { name: 'Escuchar nota' })
+            ).toBeNull();
+        });
+
+        it('should render isListenable button if useTermica returns false', () => {
+            useTermica.mockImplementation(() => false);
+
+            render(
+                <AudioPlayerDesktop
+                    isListenable={true}
+                    publishDate="2022-09-15T23:57:45.682Z"
+                    noteId="CV2AWECQORF4HLDVMFFJCLQ234"
+                />
+            );
+
+            expect(useTermica).toHaveBeenCalled();
+
+            try {
+                screen.getByRole('button', 'Escuchar nota');
+            } catch (error) {
+                throw new Error(
+                    'El botón "Escuchar nota" no está renderizado correctamente'
+                );
+            }
+        });
+
         test('It should show listen button, the player and register event on dataLayer  after click', () => {
             const { container } = render(
                 <AudioPlayerDesktop {...properties} />
             );
-            const button = screen.getByRole('button', {
-                name: 'Escuchar nota'
-            });
+            const button = screen.getByRole('button', 'Escuchar nota');
             expect(button).toBeTruthy();
 
             fireEvent.click(button);
@@ -91,15 +133,11 @@ describe('Test - AudioPlayer in desktop', () => {
             global.window.dataLayer = [];
             render(<AudioPlayerDesktop {...properties} />);
 
-            const button = screen.getByRole('button', {
-                name: 'Escuchar nota'
-            });
+            const button = screen.getByRole('button', 'Escuchar nota');
 
             fireEvent.click(button);
 
-            const speedUpButton = screen.getByRole('button', {
-                name: 'Aumentar velocidad de reproducción'
-            });
+            const speedUpButton = screen.getAllByRole('button')[4];
             const comText = speedUpButton.querySelector('.com-text');
 
             expect(speedUpButton).toBeTruthy();
@@ -265,9 +303,7 @@ describe('Test - AudioPlayer in desktop', () => {
             global.window.dataLayer = [];
             render(<AudioPlayerDesktop {...properties} />);
 
-            const button = screen.getByRole('button', {
-                name: 'Escuchar nota'
-            });
+            const button = screen.getByRole('button', 'Escuchar nota');
 
             fireEvent.click(button);
             const back = screen.getByRole('button', {
@@ -306,9 +342,7 @@ describe('Test - AudioPlayer in desktop', () => {
             global.window.dataLayer = [];
             render(<AudioPlayerDesktop {...properties} />);
 
-            const button = screen.getByRole('button', {
-                name: 'Escuchar nota'
-            });
+            const button = screen.getByRole('button', 'Escuchar nota');
 
             fireEvent.click(button);
 
@@ -379,9 +413,7 @@ describe('Test - AudioPlayer in desktop', () => {
 
             render(<AudioPlayerDesktop {...properties} />);
 
-            const button = screen.getByRole('button', {
-                name: 'Escuchar nota'
-            });
+            const button = screen.getByRole('button', 'Escuchar nota');
 
             fireEvent.click(button);
 

@@ -41,14 +41,13 @@ const Component = props => {
         storytellingData,
         outputType,
         screenUtils: { device },
-        globalContent: { headlines, subtype }
+        globalContent: { headlines, subtype },
+        isLoadWithPicture
     } = props;
 
     const isAmp = outputType === 'amp';
     const isMobile = isAmp || device !== 'desktop';
-    const [data, setData] = useState(
-        isMobile || subtype === FOTOAL100 ? storytellingData : {}
-    );
+    const [data, setData] = useState(storytellingData);
     const titleNote = get(headlines, 'basic', undefined);
 
     useEffect(() => {
@@ -56,7 +55,16 @@ const Component = props => {
     }, [storytellingData]);
 
     const { apertura = {} } = data;
-    const { src, srcset, altText, video, caption, credit, resizedUrls } =
+    const {
+        src,
+        srcset,
+        altText,
+        video,
+        caption,
+        credit,
+        resizedUrls,
+        imgDefault
+    } =
         subtype === STORYTELLING || subtype === FOTOAL100
             ? replaceAllUrlsResizerObject(apertura)
             : apertura;
@@ -83,6 +91,10 @@ const Component = props => {
                     sizes={sizes}
                     sources={sourcesForDevice}
                     isApertura
+                    isLoadWithPicture={isLoadWithPicture}
+                    imageListForPicture={resizedUrls}
+                    imgDefault={imgDefault}
+                    isMobile={isMobile}
                 />
                 <div className="mod-title">
                     <div className="lay">
@@ -120,7 +132,8 @@ Component.propTypes = {
             basic: PropTypes.string
         }),
         subtype: PropTypes.string
-    }).isRequired
+    }).isRequired,
+    isLoadWithPicture: PropTypes.bool
 };
 
 Component.defaultProps = {
@@ -133,7 +146,8 @@ Component.defaultProps = {
             caption: '',
             credit: ''
         }
-    }
+    },
+    isLoadWithPicture: false
 };
 
 export default WithScreenUtils(WithStorytellingData(Component));

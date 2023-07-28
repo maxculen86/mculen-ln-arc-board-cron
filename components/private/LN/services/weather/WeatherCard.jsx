@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Icon } from '@ln/common-ui-icon';
+import optionsIcons from './optionsIcons';
 import Link from '../../../common/com-link';
 import Text from '../../../common/text';
-import Icon from '../../../common/icon';
 import { isValidNumber } from '../../../common/utils/dataValidation';
 
 const WeatherCard = ({ data } = {}) => {
@@ -35,7 +36,9 @@ const WeatherCard = ({ data } = {}) => {
                 </Text>
             </div>
             <div className="box-icon">
-                {idDescription && <Icon name={idDescription} />}
+                {idDescription && (
+                    <Icon size={48}>{optionsIcons[idDescription]}</Icon>
+                )}
                 <Text tag="p" weight="bold" size="--twoxl">
                     {isValidNumber(currentTemp) ? currentTemp : '-'}
                     <Text size="--m">ºc</Text>
