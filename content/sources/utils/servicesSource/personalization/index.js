@@ -1,4 +1,4 @@
-import { PERSONALIZACION_API } from 'fusion:environment';
+import { PERSONALIZACION_API, PERSONALIZACION_APIV2 } from 'fusion:environment';
 import request from 'request-promise-native';
 import get from '../../../../../components/private/common/utils/get';
 import logger from '../../../../../components/private/common/utils/logger';
@@ -7,13 +7,13 @@ const ACCEPTED_TYPES = ['autor', 'seccion', 'tag', 'author', 'section'];
 
 const getUri = query => {
     const { sizeFollow: size = 50, version = 1 } = query;
+    const apiPersonalization = {
+        '1': PERSONALIZACION_API,
+        '2': PERSONALIZACION_APIV2
+    };
 
-    const apiPersonalization = `${(PERSONALIZACION_API || '').replace(
-        'v1',
-        'v'.concat(version.toString())
-    )}`;
-
-    return `${apiPersonalization}topics?size=${size}&sort=date`;
+    return `${apiPersonalization[version.toString()] ||
+        ''}topics?size=${size}&sort=date`;
 };
 
 const getHeaders = query => {
