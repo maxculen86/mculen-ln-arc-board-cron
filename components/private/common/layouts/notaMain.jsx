@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Header from '../../LN/common/header';
 import Footer from '../../LN10/footer';
 
-const NotaMain = ({ children, className, outputType = 'default' }) => {
+const NotaMain = ({ children, className }) => {
     return (
         <div id="wrapper" className={className}>
             <Header />
@@ -64,7 +64,7 @@ const NotaMain = ({ children, className, outputType = 'default' }) => {
                 </div>
             </main>
             <div className="footer-container --no-app">
-                <Footer outputType={outputType} />
+                <Footer />
             </div>
         </div>
     );
@@ -72,8 +72,7 @@ const NotaMain = ({ children, className, outputType = 'default' }) => {
 
 NotaMain.propTypes = {
     children: PropTypes.node.isRequired,
-    className: PropTypes.string.isRequired,
-    outputType: PropTypes.string
+    className: PropTypes.string.isRequired
 };
 
 export default NotaMain;

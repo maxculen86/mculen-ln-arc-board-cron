@@ -33,10 +33,7 @@ const lnNotaNoticia = ({
     return (
         <GlobalProvider>
             {bannerMegatop}
-            <NotaMain
-                className={`nota noticia ${magazine} ${amp}`}
-                outputType={outputType}
-            >
+            <NotaMain className={`nota noticia ${magazine} ${amp}`}>
                 {children}
             </NotaMain>
             <LoadBannersSSR />
