@@ -4,6 +4,8 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
+import Lazy from 'lazy-child';
+import { LAZY_OFFSETTOP } from 'fusion:environment';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     NOTICIA,
@@ -16,6 +18,8 @@ import {
 } from '../../private/common/utils/masNotasHelper';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import articleBoxesTracker from '../../private/common/utils/noteTracker/articleBoxesTracker';
+
+// TODO fixes de eslint
 
 const masNotas = props => {
     const {
@@ -72,21 +76,27 @@ const masNotas = props => {
     }
 
     return !error ? (
-        <CajaTema
-            title={title}
-            sectionName={sectionTitle}
-            articles={articles}
-            position="toi"
-            outputType={outputType}
-            withVolanta
-        />
+        <Lazy
+            renderPlaceholder={ref => {
+                return <div ref={ref} />;
+            }}
+            offsetTop={LAZY_OFFSETTOP}
+        >
+            <CajaTema
+                title={title}
+                sectionName={sectionTitle}
+                articles={articles}
+                position="toi"
+                outputType={outputType}
+                withVolanta
+            />
+        </Lazy>
     ) : (
         <></>
     );
 };
 
 masNotas.label = 'LN-Nota-masNotas';
-masNotas.lazy = true;
 
 masNotas.propTypes = {
     outputType: PropTypes.string,

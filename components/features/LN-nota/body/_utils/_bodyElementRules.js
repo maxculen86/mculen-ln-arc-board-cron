@@ -20,7 +20,7 @@ import HtmlAMP from '../../../../private/LN/nota/cuerpo/htmlAMP';
 import Divider from '../../../../private/LN/nota/cuerpo/divider';
 import Parallax from '../../../../private/LN/nota/cuerpo/powerUpParallax';
 import PowerUpLiveBlog from '../../../../private/LN/nota/cuerpo/powerUpLiveBlog';
-// ultils
+// utils
 import { selectRule } from './_bodyRules';
 
 const bodyComponents = [

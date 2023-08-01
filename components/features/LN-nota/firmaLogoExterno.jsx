@@ -6,14 +6,16 @@ import PropTypes from 'fusion:prop-types';
 import ComPartner from '../../private/common/com-partner';
 import ComLink from '../../private/common/com-link';
 import formatDistributorName from '../../private/LN/common/utils/formatDistributorName';
-import StaticValidation from '../../private/common/staticValidation';
 import {
     HTMLLIBRE,
     RECETA
 } from '../../private/common/utils/subtypes/subtypeHelper';
+import StaticContent from '../../private/common/staticContent';
+
+// TODO testear static content, migrar a testing library, fix default props
 
 const FirmaLogoExterno = props => {
-    const { id: featureId, globalContent } = props;
+    const { globalContent } = props;
     const {
         distributor = { name: 'LA NACION' },
         subtype,
@@ -42,15 +44,10 @@ const FirmaLogoExterno = props => {
     if (subtype === HTMLLIBRE)
         content = <ComPartner size="--xs">{name}</ComPartner>;
 
-    return (
-        <StaticValidation id={featureId} htmlOnly persistent>
-            {content}
-        </StaticValidation>
-    );
+    return <StaticContent>{content}</StaticContent>;
 };
 
 FirmaLogoExterno.propTypes = {
-    id: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         distributor: PropTypes.shape({
             name: PropTypes.string,

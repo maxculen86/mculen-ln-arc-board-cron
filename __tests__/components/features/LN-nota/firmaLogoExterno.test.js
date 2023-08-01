@@ -8,18 +8,12 @@ import {
     RECETA,
     NOTICIA
 } from '..//../../../components/private/common/utils/subtypes/subtypeHelper';
-import Context from 'fusion:context';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
 });
-
-jest.mock('fusion:static', () => 'mock-static');
-Context.useAppContext = jest.fn(() => ({
-    outputType: 'default'
-}));
 
 describe('Test of return FirmaLogoExterno', () => {
     const props = {
@@ -129,27 +123,5 @@ describe('Test of return FirmaLogoExterno', () => {
             <FirmaLogoExterno globalContent={properties} />
         );
         expect(FirmaLogoExternoComponent.find(ComLink).exists()).toBeTruthy();
-    });
-
-    it('Test return default', () => {
-        const properties = {
-            ...props,
-            distributor: { name: 'BBC' },
-            subtype: NOTICIA,
-            withFirmaDistributor: true
-        };
-        const FirmaLogoExternoComponent = mount(
-            <FirmaLogoExterno globalContent={properties} />
-        );
-        expect(
-            FirmaLogoExternoComponent.find('mock-static').exists()
-        ).toBeTruthy();
-    });
-
-    it('Test return with properties undefined', () => {
-        const FirmaLogoExternoComponent = mount(<FirmaLogoExterno />);
-        expect(
-            FirmaLogoExternoComponent.find('mock-static').exists()
-        ).toBeTruthy();
     });
 });

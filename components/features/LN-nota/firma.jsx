@@ -1,14 +1,8 @@
 /* eslint-disable react/require-default-props */
-/* eslint-disable no-nested-ternary */
-/* eslint-disable no-shadow */
-/* eslint-disable react/jsx-props-no-spreading */
-
 import React from 'react';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
-import StaticValidation from '../../private/common/staticValidation';
-
 import ModAutor from '../../private/common/mod-autor';
 import ComPartner from '../../private/common/com-partner';
 import ComLink from '../../private/common/com-link';
@@ -20,10 +14,12 @@ import {
 } from '../../private/common/utils/firmaHelper';
 import { compose } from '../../private/common/utils/functional';
 import formatDistributorName from '../../private/LN/common/utils/formatDistributorName';
+import StaticContent from '../../private/common/staticContent';
+
+// TODO testear staticContent, migrar a testing library, fix default props
 
 const FirmaFeature = props => {
     const {
-        id: featureId,
         outputType,
         customFields: { position },
         globalContent: {
@@ -75,15 +71,10 @@ const FirmaFeature = props => {
         </div>
     );
 
-    return (
-        <StaticValidation id={featureId} htmlOnly persistent>
-            {content}
-        </StaticValidation>
-    );
+    return <StaticContent>{content}</StaticContent>;
 };
 
 FirmaFeature.propTypes = {
-    id: PropTypes.string,
     outputType: PropTypes.string,
     customFields: PropTypes.shape({
         position: PropTypes.oneOf([place.Top, place.Bottom]).tag({

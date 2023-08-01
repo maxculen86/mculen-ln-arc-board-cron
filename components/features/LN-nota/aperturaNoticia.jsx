@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import StaticValidation from '../../private/common/staticValidation';
 import Media from '../../private/LN/common/media';
 import { INFOGRAFIA } from '../../private/common/utils/subtypes/subtypeHelper';
 import {
-    // buildScriptResizeSSRInfography,
     buildScriptForZoom,
     getEpigrafe,
     getMediaData
 } from '../../private/LN/common/utils/mediaHelper';
+import StaticContent from '../../private/common/staticContent';
 
 const AperturaNoticia = props => {
-    const { globalContent, outputType, id: idFeature } = props;
+    const { globalContent, outputType } = props;
     const { promo_items: promoItems = {}, subtype } = globalContent || {};
     const mediaData = getMediaData(promoItems, subtype);
     const { _id: idMedia, content } = mediaData || {};
@@ -60,9 +59,7 @@ const AperturaNoticia = props => {
 
     return (
         (subtype === INFOGRAFIA && Component) || (
-            <StaticValidation id={idFeature} persistent>
-                {Component}
-            </StaticValidation>
+            <StaticContent>{Component}</StaticContent>
         )
     );
 };

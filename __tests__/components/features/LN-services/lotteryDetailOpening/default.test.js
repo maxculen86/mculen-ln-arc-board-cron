@@ -1,7 +1,7 @@
 import React from 'react';
 import Context from 'fusion:context';
 import LotteryDetailOpening from '../../../../../components/features/LN-services/lotteryDetailOpening/default';
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import brincoExample from '../../../../../__mocks__/data/lottery/lotteryDetail/brincoExample.json';
@@ -32,7 +32,7 @@ import loto5Html from '../../../../../__mocks__/data/lottery/lotteryDetail/html/
 
 jest.mock(
     '../../../../../components/private/common/staticContent.jsx',
-    () => 'mock-static-validation'
+    () => 'mock-static-content'
 );
 
 jest.mock('fusion:context', () => () => ({
@@ -51,24 +51,22 @@ describe('Features - LN-servicios - LN Loteria Detalle =>', () => {
             }
         }
     }));
-    it('should be wrapped by StaticValidation component', () => {
+    it('should be wrapped by StaticContent component', () => {
         render(<LotteryDetailOpening id="QWERTYUIOP" />);
         expect(
             screen.getByText(
                 (content, element) =>
-                    element.tagName.toLowerCase() === 'mock-static-validation'
+                    element.tagName.toLowerCase() === 'mock-static-content'
             )
         ).toBeVisible();
     });
     it('should return a lottery detail', () => {
         const { container } = render(<LotteryDetailOpening id="QWERTYUIOP" />);
-        const StaticValidation = container.querySelector(
-            'mock-static-validation'
-        );
+        const StaticContent = container.querySelector('mock-static-content');
         expect(
-            StaticValidation.getElementsByClassName('lottery-detail-box').length
+            StaticContent.getElementsByClassName('lottery-detail-box').length
         ).toBe(1);
-        expect(StaticValidation.firstChild.textContent).toContain(
+        expect(StaticContent.firstChild.textContent).toContain(
             'Últimos resultados'
         );
     });

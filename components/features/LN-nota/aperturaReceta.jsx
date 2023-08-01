@@ -1,17 +1,16 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import StaticValidation from '../../private/common/staticValidation';
-
 import AperturaRecetaComponent from '../../private/LN/nota/apertura/AperturaReceta/aperturaReceta';
+import StaticContent from '../../private/common/staticContent';
+
+// TODO hacer unit test
 
 const aperturaReceta = props => {
-    const { id: featureId } = props;
     return (
-        <StaticValidation id={featureId} htmlOnly persistent>
+        <StaticContent>
             <AperturaRecetaComponent {...props} />
-        </StaticValidation>
+        </StaticContent>
     );
 };
 

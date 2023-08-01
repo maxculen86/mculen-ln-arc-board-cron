@@ -22,11 +22,6 @@ jest.mock('fusion:consumer', component => {
     };
 });
 
-jest.mock(
-    '../../../../../../components/private/common/staticValidation',
-    () => 'mock-static-validation'
-);
-
 jest.mock('react', () => {
     const ActualReact = require.requireActual('react');
     return {

@@ -4,7 +4,7 @@ import { useContent } from 'fusion:content';
 import Context from 'fusion:context';
 import contentElements from '../../../../../../__mocks__/data/nota/body/contentElements.json';
 import siteProperties from '../../../../../../__mocks__/data/nota/body/siteProperties.json';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 jest.mock('fusion:context', Component => {
@@ -14,8 +14,8 @@ jest.mock('fusion:context', Component => {
 });
 
 jest.mock(
-    '../../../../../../components/private/common/staticValidation',
-    () => 'mock-static-validation'
+    '../../../../../../components/private/common/staticContent',
+    () => 'mock-static-content'
 );
 
 jest.mock('react', () => {
@@ -70,9 +70,9 @@ describe('BuildBanners', () => {
             })
         );
 
-        expect(container.querySelector(`div`).getAttribute('class')).toEqual(
-            'mod-banner --caja1_mob  '
-        );
+        expect(
+            container.querySelectorAll(`div`)[0].getAttribute('class')
+        ).toEqual('mod-banner --caja1_mob  ');
     });
 
     it('deberia renderizar un Div Banner middle_1_dsk', () => {
@@ -86,9 +86,9 @@ describe('BuildBanners', () => {
             })
         );
 
-        expect(container.querySelector(`div`).getAttribute('class')).toEqual(
-            'mod-banner --middle_1_dsk  '
-        );
+        expect(
+            container.querySelectorAll(`div`)[0].getAttribute('class')
+        ).toEqual('mod-banner --middle_1_dsk  ');
     });
 
     it('deberia renderizar un Div Banner amp caja1_amp', () => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import StaticValidation from '../../../../private/common/staticValidation';
 import {
     getBannerConfiguration,
     suffixDevice
@@ -7,6 +6,7 @@ import {
 import DivBannerSSR from '../../../../private/common/banners/DivBannerSSR';
 import DivBannerAMP from '../../../../private/common/banners/DivBannerAMP';
 import { supportedTypes } from '../_utils/_bodyRules';
+import StaticContent from '../../../../private/common/staticContent';
 
 export const BuildBanners = ({
     banners = [],
@@ -76,13 +76,13 @@ const DivBannerRender = ({
 }) => {
     return (
         elementsCount > elementPosition && (
-            <StaticValidation id={slotId} htmlOnly persistent>
+            <StaticContent>
                 {outputType === 'amp' && slotId.includes('_amp') ? (
                     <DivBannerAMP bannerConfiguration={bannerConfiguration} />
                 ) : (
                     <DivBannerSSR bannerConfiguration={bannerConfiguration} />
                 )}
-            </StaticValidation>
+            </StaticContent>
         )
     );
 };

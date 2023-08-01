@@ -4,10 +4,6 @@ import Context from 'fusion:context';
 import '@testing-library/jest-dom';
 import PowerUpLiveBlog from '../../../../../../components/private/LN/nota/cuerpo/powerUpLiveBlog';
 
-jest.mock(
-    '../../../../../../components/private/common/staticValidation',
-    () => 'mock-static-validation'
-);
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;
@@ -37,12 +33,6 @@ describe('Components - private - LN - nota - cuerpo. Liveblog powerUp test', () 
         const { container } = render(<PowerUpLiveBlog data={data} />);
 
         expect(container).toMatchSnapshot();
-        expect(
-            screen.getByText(
-                (content, element) =>
-                    element.tagName.toLowerCase() === 'mock-static-validation'
-            )
-        ).toBeVisible();
     });
     it('Should return an empty element if no data is passed', () => {
         const { container } = render(<PowerUpLiveBlog />);
