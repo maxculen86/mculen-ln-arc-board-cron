@@ -189,7 +189,7 @@ export const getMarkupForDatalayer = (
                 }),
                 id: `tema_${position}`,
                 ...(isExclusiveSub && {
-                    'data-subscriptor': true
+                    'data-is-subscriptor': true
                 })
             };
 

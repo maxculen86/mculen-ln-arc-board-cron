@@ -63,7 +63,7 @@ describe('cajaTemasHelper functions', () => {
             true
         );
 
-        expect(result.extraOpts['data-subscriptor']).toBe(true);
+        expect(result.extraOpts['data-is-subscriptor']).toBe(true);
     });
 });
 

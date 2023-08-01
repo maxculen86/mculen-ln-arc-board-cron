@@ -400,7 +400,7 @@ describe('Viewability', () => {
                             chainPosition: '10',
                             diagramacionId: 'bn_2_1_2_grid',
                             section: 'breaking1',
-                            subscriptor: 'true'
+                            isSubscriptor: true
                         }
                     };
                 },

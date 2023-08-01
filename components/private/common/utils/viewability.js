@@ -44,7 +44,7 @@ export const getDataSetProps = element => {
                 blockName: '',
                 diagramacionId: '',
                 chainPosition: '',
-                subscriptor: ''
+                isSubscriptor: false
             }
         };
 
@@ -57,12 +57,12 @@ export const getDataSetProps = element => {
             chainPosition,
             diagramacionId,
             blockName,
-            subscriptor
+            isSubscriptor
         } = chainDataSet;
         const { section } = sectionDataSet;
         const { pos, id, source } = articleDataSet;
 
-        const itemBrand = subscriptor ? 'excSuscriptor' : section;
+        const itemBrand = isSubscriptor ? 'excSuscriptor' : section;
 
         const product = {
             position: `${chainPosition || ''}${pos}`,
