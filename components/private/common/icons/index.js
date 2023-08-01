@@ -57,9 +57,3 @@ export { default as TenForwardSecs } from './system/TenForwardSecs';
 export { default as Pause } from './system/Pause';
 export { default as Play } from './system/Play';
 export { default as Headset } from './system/Headset';
-
-// Lotteries Icons
-export { default as AnimalsLotteries } from './lotteries/AnimalsLotteries';
-export { default as NamesLotteries } from './lotteries/NamesLotteries';
-export { default as NationalLotteries } from './lotteries/NationalLotteries';
-export { default as TraditionalLotteries } from './lotteries/TraditionalLotteries';
