@@ -59,6 +59,8 @@ export default {
     LANACION_SERVICES_URL: 'https://pre-arcservices.lanacion.com.ar',
     PERSONALIZACION_API:
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
+    PERSONALIZACION_APIV2:
+        'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/',
     BOOKMARK_URL:
         'https://sandbox.lanacion.com.ar/pf/mis-notas/?_website=la-nacion-ar',
     AUDIO_NEWS_URL: 'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/',

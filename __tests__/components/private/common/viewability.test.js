@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import {
     createIntersectionObserver,
+    getDataSetProps,
     productClickFromClient,
     updateIndexOfItems
 } from '../../../../components/private/common/utils/viewability';
@@ -387,6 +388,31 @@ describe('Viewability', () => {
             expect(updateIndexOfItems(items)).toEqual(newItems);
             expect(updateIndexOfItems(undefined)).toEqual([]);
             expect(updateIndexOfItems([])).toEqual([]);
+        });
+
+        it('getDataSetProps should return excSuscriptor_[diagramacionId] for product.brand and item.item_brand when subscriptor = true', () => {
+            const element = {
+                dataset: {},
+                closest: () => {
+                    return {
+                        dataset: {
+                            blockName: 'h_tema-10',
+                            chainPosition: '10',
+                            diagramacionId: 'bn_2_1_2_grid',
+                            section: 'breaking1',
+                            subscriptor: 'true'
+                        }
+                    };
+                },
+                querySelectorAll: jest.fn()
+            };
+
+            const result = getDataSetProps(element);
+
+            expect(result.product.brand).toEqual('excSuscriptor_bn_2_1_2_grid');
+            expect(result.item.item_brand).toEqual(
+                'excSuscriptor_bn_2_1_2_grid'
+            );
         });
     });
 

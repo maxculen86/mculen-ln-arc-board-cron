@@ -1,4 +1,4 @@
-import { PERSONALIZACION_API } from 'fusion:environment';
+import { PERSONALIZACION_API, PERSONALIZACION_APIV2 } from 'fusion:environment';
 import request from 'request-promise-native';
 import get from '../../../../../components/private/common/utils/get';
 import logger from '../../../../../components/private/common/utils/logger';
@@ -6,14 +6,35 @@ import logger from '../../../../../components/private/common/utils/logger';
 const ACCEPTED_TYPES = ['autor', 'seccion', 'tag', 'author', 'section'];
 
 const getUri = query => {
-    const { sizeFollow: size = 50 } = query;
-    return `${PERSONALIZACION_API}topics?size=${size}&sort=date`;
+    const { sizeFollow: size = 50, version = 1 } = query;
+    const apiPersonalization = {
+        '1': PERSONALIZACION_API,
+        '2': PERSONALIZACION_APIV2
+    };
+
+    return `${apiPersonalization[version.toString()] ||
+        ''}topics?size=${size}&sort=date`;
+};
+
+const getHeaders = query => {
+    const { token, version = 1 } = query;
+    const tokens = (token || '').split(/\//);
+
+    const headers = {
+        '1': {
+            Authorization: tokens[0]
+        },
+        '2': {
+            'X-Token': tokens[0],
+            Authorization: decodeURI(tokens[1])
+        }
+    };
+    return headers[version.toString()];
 };
 
 const requestFollowedItem = async query => {
     const {
         uri = '',
-        token,
         source = 'personalizationSource',
         'arc-site': arcSite = 'la-nacion-ar'
     } = query;
@@ -22,10 +43,10 @@ const requestFollowedItem = async query => {
         uri: getUri(query),
         json: true,
         method: 'GET',
-        headers: {
-            Authorization: token
-        }
+        headers: getHeaders(query)
     };
+
+    // console.log(opt);
 
     return request(opt)
         .then(res => {
@@ -36,6 +57,12 @@ const requestFollowedItem = async query => {
 };
 
 const reject = ({ error, uri, arcSite, source }) => {
+    // eslint-disable-next-line no-console
+    console.warn(
+        `Error Personalization - ${
+            typeof error === 'object' ? JSON.stringify(error) : ''
+        }`
+    );
     logger.push(error, { source, url: uri }, arcSite);
 };
 const transform = response =>
