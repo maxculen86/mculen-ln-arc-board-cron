@@ -41,7 +41,11 @@ export const promoItemArticleBasicImage = article => {
 
 export const promoItemArticle = article => {
     const { subtype: template } = article;
-    let promoItem = get(article, 'promo_items.apertura_multimedia', null);
+    let promoItem = get(article, 'promo_items.video_jw', null);
+    promoItem =
+        !promoItem || !promoItem._id
+            ? get(article, 'promo_items.apertura_multimedia', null)
+            : promoItem;
     promoItem =
         promoItem == null ? get(article, 'promo_items.basic', null) : promoItem;
 

@@ -10,6 +10,7 @@ import {
 } from '../../../../common/elements/story/apertura/aperturaArticle';
 import get from '../../../../../../common/utils/get';
 import video from '../cuerpo/elements/video';
+import videoJW from '../cuerpo/elements/videoJW';
 import image from '../cuerpo/elements/image';
 import imageAcumulado from '../../../../common/elements/story/image';
 
@@ -68,6 +69,12 @@ const aperturaArticle = (article = {}, idsElements = null) => {
             break;
         case 'video':
             resp.video = video(promoItem);
+            resp.imagenes = !promoItemBasicImage
+                ? [image(imageDefaultByPromoVideo(article))]
+                : [image(promoItemBasicImage)];
+            break;
+        case 'custom_embed':
+            resp.video = videoJW(promoItem);
             resp.imagenes = !promoItemBasicImage
                 ? [image(imageDefaultByPromoVideo(article))]
                 : [image(promoItemBasicImage)];
