@@ -4,11 +4,14 @@ import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import StaticValidation from '../../private/common/staticValidation';
+import Lazy from 'lazy-child';
+import { LAZY_OFFSETTOP } from 'fusion:environment';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
 import get from '../../private/common/utils/get';
 import filter from '../../../content/filters/LN/nota/articleAcu';
 import articleBoxesTracker from '../../private/common/utils/noteTracker/articleBoxesTracker';
+
+// TODO hacer unit test, fix hooks y default props
 
 const seguirLeyendo = ({ globalContent, outputType }) => {
     const justThreeStories = content =>
@@ -41,26 +44,32 @@ const seguirLeyendo = ({ globalContent, outputType }) => {
     if (!articles.length) return null;
 
     return (
-        <div className="row">
-            <div className="col-12">
-                <section
-                    className="keep-reading"
-                    data-is-block="true"
-                    data-block-name="n_segui_leyendo"
-                    data-diagramacion-id="0"
-                >
-                    <SeguirLeyendo
-                        relatedContent={articles}
-                        outputType={outputType}
-                    />
-                </section>
+        <Lazy
+            renderPlaceholder={ref => {
+                return <div ref={ref} />;
+            }}
+            offsetTop={LAZY_OFFSETTOP}
+        >
+            <div className="row">
+                <div className="col-12">
+                    <section
+                        className="keep-reading"
+                        data-is-block="true"
+                        data-block-name="n_segui_leyendo"
+                        data-diagramacion-id="0"
+                    >
+                        <SeguirLeyendo
+                            relatedContent={articles}
+                            outputType={outputType}
+                        />
+                    </section>
+                </div>
             </div>
-        </div>
+        </Lazy>
     );
 };
 
 seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';
-seguirLeyendo.lazy = true;
 
 seguirLeyendo.propTypes = {
     globalContent: PropTypes.shape({

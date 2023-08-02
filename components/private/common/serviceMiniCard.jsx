@@ -1,12 +1,28 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Icon from './icon';
 import Text from './text';
 import ComLink from './com-link';
+import { Icon } from '@ln/common-ui-icon';
+import { useAppContext } from 'fusion:context';
+import getAssetsPath from './utils/getAssetsPath';
 
 import '../../../resources/dist/css/ln/components/services-mini-card.css';
 
 const ServiceMiniCard = ({ title, icon, labeled, link, linkTitle }) => {
+    const { contextPath, deployment } = useAppContext();
+    const url = asset => getAssetsPath(contextPath)(deployment)(asset);
+
+    const optionIcons = {
+        animals: <img src={url('/lotteries/animals.svg')} alt="Animales" />,
+        names: <img src={url('/lotteries/names.svg')} alt="Nombres" />,
+        national: (
+            <img src={url('/lotteries/national.svg')} alt="Loteria Nacional" />
+        ),
+        traditional: (
+            <img src={url('/lotteries/traditional.svg')} alt="Tradicional" />
+        )
+    };
+
     return (
         <div className="box-number-meaning">
             <div className="meaning-number-text">
@@ -20,7 +36,7 @@ const ServiceMiniCard = ({ title, icon, labeled, link, linkTitle }) => {
                     />
                 </Text>
             </div>
-            <Icon name={icon} size="--xl" />
+            <Icon size={40}>{optionIcons[icon]}</Icon>
         </div>
     );
 };
@@ -37,7 +53,7 @@ ServiceMiniCard.defaultProps = {
     title: 'Animales',
     linkTitle: 'Significado de los numeros',
     link: '',
-    icon: 'Animals',
+    icon: 'animals',
     labeled: 'Significado de los numeros'
 };
 

@@ -1,20 +1,16 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import StaticValidation from '../../private/common/staticValidation';
 import AuthorAndDate from '../../private/LN/nota/author/authorAndDate';
+import StaticContent from '../../private/common/staticContent';
+
+// TODO agregar Unit test
 
 const dateNota = props => {
-    const { id: featureId } = props;
     return (
-        <StaticValidation id={featureId} htmlOnly persistent>
+        <StaticContent>
             <AuthorAndDate {...props} date />
-        </StaticValidation>
+        </StaticContent>
     );
-};
-
-dateNota.propTypes = {
-    id: PropTypes.string.isRequired
 };
 
 dateNota.label = 'LN-Nota-FechaNota';

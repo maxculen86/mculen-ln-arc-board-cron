@@ -4,13 +4,14 @@ import { render, screen } from '@testing-library/react';
 import getProperties from 'fusion:properties';
 import Consumer from 'fusion:consumer';
 import Context from 'fusion:context';
+import Lazy from 'lazy-child';
 import taxonomySection from '../../../../__mocks__/data/masNotas/taxonomySection';
 import taxonomyTags from '../../../../__mocks__/data/masNotas/taxonomyTags';
 import mockArticles from '../../../../__mocks__/data/masNotas/articles';
 import useGetArticlesFromAcumSource from '../../../../components/private/LN/common/hooks/useGetArticlesFromAcumSource';
 import '@testing-library/jest-dom';
 
-jest.mock('fusion:static', () => 'mock-static');
+jest.mock('lazy-child', () => 'mock-lazy');
 
 jest.mock(
     '../../../../components/private/LN/common/hooks/useGetArticlesFromAcumSource',

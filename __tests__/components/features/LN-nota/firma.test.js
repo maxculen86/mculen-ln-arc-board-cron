@@ -19,8 +19,6 @@ Context.useAppContext = jest.fn(() => ({
     outputType: 'default'
 }));
 
-jest.mock('fusion:static', () => 'mock-static');
-
 describe('Firma Feature', () => {
     const globalContent = {
         credits: {
@@ -71,17 +69,12 @@ describe('Firma Feature', () => {
         />
     );
     const authorComponent = wrapper.find(ModAutor);
-    const staticComponent = wrapper.find('mock-static');
 
     it('Sub-components exists', () => {
         expect(authorComponent.exists()).toBeTruthy();
-        expect(staticComponent.exists()).toBeTruthy();
     });
 
     it('Construct props properly', () => {
-        expect(staticComponent.prop('htmlOnly')).toBeTruthy();
-        expect(staticComponent.prop('persistent')).toBeTruthy();
-
         expect(authorComponent.prop('autor')).toHaveLength(2);
         expect(authorComponent.prop('amp')).toBeFalsy();
         expect(authorComponent.prop('foto')).toBeNull();

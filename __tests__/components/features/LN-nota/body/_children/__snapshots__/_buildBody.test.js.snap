@@ -39,10 +39,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
     .
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja1_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja1_mob  "
@@ -61,7 +59,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja1_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -163,10 +161,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
   >
     Tipo de letra normal
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="middle_1_dsk"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --middle_1_dsk  "
@@ -185,11 +181,9 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="middle_1_dsk"
       />
     </div>
-  </mock-static-validation>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja1_amp"
-    persistent="true"
+  </div>
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja1_amp --none  "
@@ -207,7 +201,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja1_amp"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -215,10 +209,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       Tipo de letra negrita
     </strong>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja2_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja2_mob  "
@@ -237,7 +229,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja2_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -245,10 +237,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       Tipo de letra cursiva
     </em>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja2_amp"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja2_amp --none  "
@@ -266,7 +256,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja2_amp"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -274,10 +264,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       Tipo de letra subrayado
     </u>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="middle_2_dsk"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --middle_2_dsk  "
@@ -296,7 +284,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="middle_2_dsk"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -306,10 +294,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       </strong>
     </em>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja3_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja3_mob  "
@@ -328,7 +314,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja3_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -347,10 +333,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       </u>
     </em>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja4_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja4_mob  "
@@ -369,7 +353,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja4_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -390,10 +374,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       Tipo de letra normal con subrayado de color
     </mark>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja5_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja5_mob  "
@@ -412,7 +394,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja5_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -2792,10 +2774,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
     .
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja1_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja1_mob  "
@@ -2814,7 +2794,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja1_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -2916,10 +2896,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
   >
     Tipo de letra normal
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="middle_1_dsk"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --middle_1_dsk  "
@@ -2938,11 +2916,9 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="middle_1_dsk"
       />
     </div>
-  </mock-static-validation>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja1_amp"
-    persistent="true"
+  </div>
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja1_amp --none  "
@@ -2960,7 +2936,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja1_amp"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -2968,10 +2944,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       Tipo de letra negrita
     </strong>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja2_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja2_mob  "
@@ -2990,7 +2964,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja2_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -2998,10 +2972,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       Tipo de letra cursiva
     </em>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja2_amp"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja2_amp --none  "
@@ -3019,7 +2991,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja2_amp"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -3027,10 +2999,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       Tipo de letra subrayado
     </u>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="middle_2_dsk"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --middle_2_dsk  "
@@ -3049,7 +3019,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="middle_2_dsk"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -3059,10 +3029,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       </strong>
     </em>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja3_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja3_mob  "
@@ -3081,7 +3049,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja3_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -3100,10 +3068,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       </u>
     </em>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja4_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja4_mob  "
@@ -3122,7 +3088,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja4_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -3143,10 +3109,8 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
       Tipo de letra normal con subrayado de color
     </mark>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja5_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja5_mob  "
@@ -3165,7 +3129,7 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
         id="caja5_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -5646,10 +5610,8 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
   >
     Tipo de letra normal
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja1_amp"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="row "
@@ -5668,7 +5630,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
         />
       </div>
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -5683,10 +5645,8 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
       Tipo de letra cursiva
     </em>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja2_amp"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="row "
@@ -5705,7 +5665,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para AMP 1`
         />
       </div>
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -8263,10 +8223,8 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </em>
     .
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja1_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja1_mob  "
@@ -8285,7 +8243,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
         id="caja1_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -8387,10 +8345,8 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
   >
     Tipo de letra normal
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="middle_1_dsk"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --middle_1_dsk  "
@@ -8409,11 +8365,9 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
         id="middle_1_dsk"
       />
     </div>
-  </mock-static-validation>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja1_amp"
-    persistent="true"
+  </div>
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja1_amp --none  "
@@ -8431,7 +8385,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
         id="caja1_amp"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -8439,10 +8393,8 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       Tipo de letra negrita
     </strong>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja2_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja2_mob  "
@@ -8461,7 +8413,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
         id="caja2_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -8469,10 +8421,8 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       Tipo de letra cursiva
     </em>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja2_amp"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja2_amp --none  "
@@ -8490,7 +8440,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
         id="caja2_amp"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -8498,10 +8448,8 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       Tipo de letra subrayado
     </u>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="middle_2_dsk"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --middle_2_dsk  "
@@ -8520,7 +8468,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
         id="middle_2_dsk"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -8530,10 +8478,8 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       </strong>
     </em>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja3_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja3_mob  "
@@ -8552,7 +8498,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
         id="caja3_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -8571,10 +8517,8 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       </u>
     </em>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja4_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja4_mob  "
@@ -8593,7 +8537,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
         id="caja4_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >
@@ -8614,10 +8558,8 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
       Tipo de letra normal con subrayado de color
     </mark>
   </p>
-  <mock-static-validation
-    htmlonly="true"
-    id="caja5_mob"
-    persistent="true"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --caja5_mob  "
@@ -8636,7 +8578,7 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
         id="caja5_mob"
       />
     </div>
-  </mock-static-validation>
+  </div>
   <p
     class="com-paragraph   --s"
   >

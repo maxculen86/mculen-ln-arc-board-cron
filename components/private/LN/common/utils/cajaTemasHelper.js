@@ -95,7 +95,8 @@ export const getMarkupForDatalayer = (
     layout,
     position,
     sectionName,
-    positionInsideSection
+    positionInsideSection,
+    isExclusiveSub
 ) => {
     const extraOptsdefault = {
         'data-diagramacion-id': '0',
@@ -176,29 +177,33 @@ export const getMarkupForDatalayer = (
                 'data-module': 'tema_webstories'
             }
         },
-        Default: (pos, section, lay) => {
-            if (!pos) return {};
+        Default: () => {
+            if (!position) return {};
+
+            const extraOpts = {
+                'data-block-name': `h_${sectionName}tema-${position}`,
+                'data-diagramacion-id': layout,
+                'data-is-block': true,
+                ...(positionInsideSection && {
+                    'data-chain-position': positionInsideSection
+                }),
+                id: `tema_${position}`,
+                ...(isExclusiveSub && {
+                    'data-is-subscriptor': true
+                })
+            };
+
             return {
                 extraOptsDiv: {
-                    'data-module': `tema_${pos}`
+                    'data-module': `tema_${position}`
                 },
-                extraOpts: {
-                    'data-block-name': `h_${section}tema-${pos}`,
-                    'data-diagramacion-id': lay,
-                    'data-is-block': true,
-                    ...(positionInsideSection && {
-                        'data-chain-position': positionInsideSection
-                    }),
-                    id: `tema_${pos}`
-                }
+                extraOpts
             };
         }
     };
 
     const { extraOptsDiv = {}, extraOpts = {} } =
-        types[layoutType] ||
-        types[sectionName] ||
-        types.Default(position, sectionName, layout, positionInsideSection);
+        types[layoutType] || types[sectionName] || types.Default();
 
     return { extraOptsDiv, extraOpts };
 };

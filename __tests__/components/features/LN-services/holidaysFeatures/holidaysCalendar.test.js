@@ -5,11 +5,6 @@ import '@testing-library/jest-dom';
 import HolidaysHomeCalendar from '../../../../../components/features/LN-services/holidaysCalendar/default';
 import outputTransformHome from '../../../../../__mocks__/data/holidays/outputTransformHome.json';
 
-jest.mock(
-    '../../../../../components/private/common/staticValidation',
-    () => 'mock-static-validation'
-);
-
 jest.mock('fusion:context', () => () => ({
     default: props => {
         const mockAvailableProps = {};

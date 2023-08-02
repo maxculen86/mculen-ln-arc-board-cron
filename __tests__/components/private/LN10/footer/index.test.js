@@ -1,4 +1,5 @@
 import React from 'react';
+import Context from 'fusion:context';
 import { render, screen } from '@testing-library/react';
 import footerEventLogResult from '../../../../../__mocks__/data/LN10_Footer/footerEventLogResult.json';
 import Footer from '../../../../../components/private/LN10/footer';
@@ -9,7 +10,18 @@ jest.mock('fusion:consumer', component => {
         return component;
     };
 });
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = { outputType: 'amp' };
+        return props.children(mockAvailableProps);
+    }
+}));
+const deployment = (deploymentValue = 'lanacion.com.ar') => deploymentValue;
 describe('Tests - Footer - LN10', () => {
+    Context.useAppContext = jest.fn(() => ({
+        contextPath: '/pf',
+        deployment
+    }));
     global.window.dataLayer = [];
 
     let component;

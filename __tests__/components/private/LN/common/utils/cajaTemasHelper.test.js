@@ -1,6 +1,7 @@
 import getRenderables from '../../../../../../__mocks__/data/renderables/banners/dynamicBannersRenderables';
 
 import {
+    getMarkupForDatalayer,
     hastVariant,
     validateoutItem
 } from '../../../../../../components/private/LN/common/utils/cajaTemasHelper';
@@ -50,6 +51,19 @@ describe('cajaTemasHelper functions', () => {
 
         const result = validateoutItem(itemNota);
         expect(result).toBe(true);
+    });
+
+    it('getMarkupForDatalayer should return data-subscriptor: true when isExclusiveSub is true', () => {
+        const result = getMarkupForDatalayer(
+            'TestLayoutType',
+            'TestLayout',
+            'TestPosition',
+            'TestSectionName',
+            'TestPositionInsideSection',
+            true
+        );
+
+        expect(result.extraOpts['data-is-subscriptor']).toBe(true);
     });
 });
 

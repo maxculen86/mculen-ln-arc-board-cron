@@ -113,12 +113,15 @@ const CajaCollection = props => {
         isInBreakings
     });
 
+    const isExclusiveSub = chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE;
+
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
         '',
         layout,
         position,
         '',
-        positionInsideSection
+        positionInsideSection,
+        isExclusiveSub
     );
 
     const { bannerMob = undefined, bannerDsk = undefined } =
@@ -154,9 +157,7 @@ const CajaCollection = props => {
                                     layout,
                                     renderables
                                 )}
-                                isExclusiveSub={
-                                    chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE
-                                }
+                                isExclusiveSub={isExclusiveSub}
                             />
                             {chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE && (
                                 <Bannersubscriber>

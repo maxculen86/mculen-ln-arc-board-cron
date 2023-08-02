@@ -17,11 +17,6 @@ jest.mock('fusion:consumer', component => {
     };
 });
 
-jest.mock(
-    '../../../../../../components/private/common/staticValidation',
-    () => 'mock-static-validation'
-);
-
 jest.mock('fusion:context', () => () => ({
     default: props => {
         const mockAvailableProps = {};

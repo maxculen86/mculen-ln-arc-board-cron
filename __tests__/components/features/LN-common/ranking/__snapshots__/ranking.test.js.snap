@@ -2,9 +2,7 @@
 
 exports[`Features - LN - Common - Ranking - default Should render ranking acu politica 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <mock-static-content>
     <div
       data-module="tema_ranking"
     >
@@ -318,15 +316,13 @@ exports[`Features - LN - Common - Ranking - default Should render ranking acu po
         </div>
       </section>
     </div>
-  </div>
+  </mock-static-content>
 </div>
 `;
 
 exports[`Features - LN - Common - Ranking - default Should render ranking home 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <mock-static-content>
     <div
       data-module="tema_ranking"
     >
@@ -632,15 +628,13 @@ exports[`Features - LN - Common - Ranking - default Should render ranking home 1
         </div>
       </section>
     </div>
-  </div>
+  </mock-static-content>
 </div>
 `;
 
 exports[`Features - LN - Common - Ranking - default Should render ranking reverse home 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <mock-static-content>
     <div
       data-module="tema_ranking_inverso"
     >
@@ -1068,6 +1062,6 @@ exports[`Features - LN - Common - Ranking - default Should render ranking revers
         </div>
       </section>
     </div>
-  </div>
+  </mock-static-content>
 </div>
 `;
