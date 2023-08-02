@@ -51,10 +51,6 @@ import {
     ShareAndroid,
     Share,
     Ln,
-    AnimalsLotteries,
-    NamesLotteries,
-    NationalLotteries,
-    TraditionalLotteries,
     Lamp,
     Alert,
     Info,
@@ -126,13 +122,7 @@ const listIcons = {
     'ten-forward-secs': TenForwardSecs,
     pause: Pause,
     play: Play,
-    headset: Headset,
-
-    // Lotteries Icons
-    animals: AnimalsLotteries,
-    names: NamesLotteries,
-    national: NationalLotteries,
-    traditional: TraditionalLotteries
+    headset: Headset
 };
 
 const MapperIcon = ({ name = '', extraProps = {} }) => {
