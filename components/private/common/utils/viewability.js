@@ -35,12 +35,17 @@ export const productClickFromServer = () => {
     );
 };
 
-const getDataSetProps = element => {
+export const getDataSetProps = element => {
     if (element) {
         const { dataset: articleDataSet = {} } = element;
         const { dataset: chainDataSet = {} } = (element.closest &&
             element.closest('[data-is-block]')) || {
-            dataset: { blockName: '', diagramacionId: '', chainPosition: '' }
+            dataset: {
+                blockName: '',
+                diagramacionId: '',
+                chainPosition: '',
+                isSubscriptor: false
+            }
         };
 
         const { dataset: sectionDataSet = {} } = (element.closest &&
@@ -48,15 +53,22 @@ const getDataSetProps = element => {
             dataset: { section: '' }
         };
 
-        const { chainPosition, diagramacionId, blockName } = chainDataSet;
+        const {
+            chainPosition,
+            diagramacionId,
+            blockName,
+            isSubscriptor
+        } = chainDataSet;
         const { section } = sectionDataSet;
         const { pos, id, source } = articleDataSet;
+
+        const itemBrand = isSubscriptor ? 'excSuscriptor' : section;
 
         const product = {
             position: `${chainPosition || ''}${pos}`,
             id,
             variant: source,
-            brand: `${section}_${diagramacionId}`,
+            brand: `${itemBrand}_${diagramacionId}`,
             list: blockName,
             name: getName(element)
         };
@@ -64,7 +76,7 @@ const getDataSetProps = element => {
             item_list_id: `${chainPosition || ''}${pos}`,
             item_id: id,
             item_variant: source,
-            item_brand: `${section}_${diagramacionId}`,
+            item_brand: `${itemBrand}_${diagramacionId}`,
             item_list_name: blockName,
             item_name: getName(element),
             item_category: 'N/A',
