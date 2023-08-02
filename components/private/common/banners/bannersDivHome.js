@@ -450,6 +450,67 @@ const bannersHome = {
                 isStatic: true
             }}
         />
+    ),
+    suscriptor: (
+        <>
+            <DivBannerSSR
+                bannerConfiguration={{
+                    slotId: 'cajasuscriptores_dsk',
+                    isStatic: true,
+                    lazyClass: 'lazy'
+                }}
+            />
+            <DivBannerSSR
+                bannerConfiguration={{
+                    slotId: 'cajasuscriptores_mob',
+                    isStatic: true,
+                    lazyClass: 'lazy'
+                }}
+            />
+            <DivBannerSSR
+                bannerConfiguration={{
+                    slotId: 'cajasuscriptores_tab',
+                    isStatic: true,
+                    lazyClass: 'lazy'
+                }}
+            />
+        </>
+    ),
+    logoHeader: (
+        <>
+            <DivBannerSSR
+                bannerConfiguration={{
+                    classes: '--logo --none',
+                    slotId: 'logo_header_dsk',
+                    isStatic: true,
+                    withoutHide: true
+                }}
+            />
+            <DivBannerSSR
+                bannerConfiguration={{
+                    classes: '--logo_sticky_dsk --none',
+                    slotId: 'logo_header_dsk_sticky',
+                    isStatic: true,
+                    withoutHide: true
+                }}
+            />
+            <DivBannerSSR
+                bannerConfiguration={{
+                    classes: '--logo --none',
+                    slotId: 'logo_header_tab',
+                    isStatic: true,
+                    withoutHide: true
+                }}
+            />
+            <DivBannerSSR
+                bannerConfiguration={{
+                    classes: '--logo --none',
+                    slotId: 'logo_header_mob',
+                    isStatic: true,
+                    withoutHide: true
+                }}
+            />
+        </>
     )
 };
 

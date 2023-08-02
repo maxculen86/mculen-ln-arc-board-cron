@@ -1,8 +1,7 @@
 import { boxInfoBasic } from '../../common/boxBasic';
 
 export const boxInfoApertura = (information, section, typeSection) => {
-    const box = boxInfoBasic(information, section, typeSection);
-    return box;
+    return boxInfoBasic(information, section, typeSection);
 };
 
 export default boxInfoApertura;

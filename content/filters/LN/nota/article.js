@@ -305,6 +305,12 @@ const sectionSites = `{
     }
 }`;
 
+const listCommonProps = `
+    content
+    type
+   _id  
+`;
+
 export default `
 {
     _id
@@ -467,9 +473,17 @@ export default `
         }
         list_type
         items {
-            _id
-            content
-            type
+            items {
+                items {
+                    items {
+                        items
+                        ${listCommonProps}
+                    }
+                    ${listCommonProps}
+                }
+                ${listCommonProps}
+            }
+            ${listCommonProps}
         }
         level
         content

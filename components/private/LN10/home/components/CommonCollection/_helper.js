@@ -6,8 +6,14 @@ import { CHAIN_STYLE } from '../../../../../chains/utils/common/_helpers-WebApi'
 import { LIVEBLOG } from '../../../../common/utils/subtypes/subtypeHelper';
 
 const getCardConfig = (config, articleData) => {
-    const { withMarquee, withMarqueeImg, withSubhead, withMedia, withSection } =
-        config || {};
+    const {
+        withMarquee,
+        withMarqueeImg,
+        withSubhead,
+        withMedia,
+        withSection,
+        isLoadWithPicture
+    } = config || {};
     const promoItems = get(articleData, 'promo_items.basic');
     const containsImage =
         get(articleData, 'promo_items.basic.type', '') === 'image';
@@ -22,7 +28,11 @@ const getCardConfig = (config, articleData) => {
         marqueeImg:
             withMarqueeImg && get(getAuthorsPhoto(articleData), 'url', ''),
         cardSize: get(config, 'cardSize'),
-        mediaData: transformImageData(articleData, promoItems),
+        mediaData: transformImageData({
+            articleData,
+            imageData: promoItems,
+            isLoadWithPicture
+        }),
         imagePosition: get(config, 'imagePosition'),
         className: get(config, 'className'),
         withSection

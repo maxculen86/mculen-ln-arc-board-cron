@@ -15,6 +15,8 @@ export const suffixDevice = {
 };
 
 export const BANNERS_DESKTOP = [
+    'logo_header_dsk',
+    'logo_header_dsk_sticky',
     'megatop_dsk',
     'comercial_dsk',
     'adhesion_dsk',
@@ -37,6 +39,7 @@ export const BANNERS_DESKTOP = [
 ];
 
 export const BANNERS_MOBILE = [
+    'logo_header_mob',
     'comercial_mob',
     'adhesion_mob',
     '1x1_mob',
@@ -60,6 +63,7 @@ export const BANNERS_MOBILE = [
 ];
 
 export const BANNERS_TABLET = [
+    'logo_header_tab',
     'cabezal_tab',
     '1x1_tab',
     'adhesion_tab',

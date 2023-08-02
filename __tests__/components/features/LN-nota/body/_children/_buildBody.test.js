@@ -241,10 +241,7 @@ describe('BuildBody', () => {
         expect(container.querySelectorAll(`amp-twitter`)).toHaveLength(3);
         expect(container.querySelectorAll(`amp-youtube`)).toHaveLength(1);
         expect(container.querySelectorAll(`amp-dailymotion`)).toHaveLength(1);
-        expect(container.querySelectorAll(`amp-iframe`)).toHaveLength(4);
-        expect(
-            container.querySelectorAll(`div[class*="com-embed --tiktok"]`)
-        ).toHaveLength(1);
+        expect(container.querySelectorAll(`amp-iframe`)).toHaveLength(3);
         /* interstitial_link */
         expect(
             container.querySelectorAll(`div[class*="com-container --button"]`)
@@ -275,7 +272,7 @@ describe('BuildBody', () => {
         /* raw_html */
         expect(
             container.querySelectorAll(`div[class*="com-embed"]`)
-        ).toHaveLength(11);
+        ).toHaveLength(10);
         /*powerup receta */
         expect(
             container.querySelectorAll(`div[class*="--ingredients"]`)

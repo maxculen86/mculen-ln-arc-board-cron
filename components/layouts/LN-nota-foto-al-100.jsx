@@ -2,7 +2,7 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import StaticValidation from '../private/common/staticValidation';
 import Header from '../private/LN/common/header';
-import Footer from '../private/LN/common/footer';
+import Footer from '../private/LN10/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
 import '../../resources/dist/css/ln/pages/photo100.css';
 import GlobalProvider from '../private/common/context/globalContext';
@@ -88,9 +88,9 @@ const lnNotaFotoAl100 = ({
                         </div>
                     </div>
                 </main>
-                <StaticValidation id="StaticFooter" htmlOnly persistent>
-                    <Footer />
-                </StaticValidation>
+                <div className="footer-container --no-app">
+                    <Footer outputType={outputType} />
+                </div>
             </div>
             <LoadBannersSSR />
             <PwaModals />

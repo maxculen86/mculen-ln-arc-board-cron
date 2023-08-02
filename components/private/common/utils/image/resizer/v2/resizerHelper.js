@@ -54,8 +54,7 @@ export const setCropMethod = ({
             const hasAnyDimensions = originalWidth || originalHeight;
 
             if (hasFocalPoint && hasAnyDimensions && isNotSmart) {
-                const focalFilter = setStrFocal(focalX, focalY);
-                return focalFilter;
+                return setStrFocal(focalX, focalY);
             }
         }
     }

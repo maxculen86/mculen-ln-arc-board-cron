@@ -47,9 +47,7 @@ const getArticlesAcumulados = async params => {
     try {
         const queryParams = getParamsAcus(params);
 
-        const respAcumulados = await acuArticlesSource.fetch(queryParams);
-
-        return respAcumulados;
+        return await acuArticlesSource.fetch(queryParams);
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(

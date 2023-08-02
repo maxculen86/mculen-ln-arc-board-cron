@@ -6,7 +6,7 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { Opening } from '@ln/contenidos-ui-opening';
 import { setFilteredRenderables, validateChain } from './common/_helper-WebApi';
-import { setCustomFields, setRender } from './_helper';
+import { setCustomFields } from './_helper';
 import sectionValidation from '../../layouts/config/LN10-Home.config.json';
 import {
     getCommonProps,
@@ -14,8 +14,10 @@ import {
 } from '../../private/LN/common/utils/cajaTemasHelper';
 import {
     checkChangeChildrenForPB,
-    setWrappedChildren
+    setWrappedChildren,
+    setStaticDynamically
 } from '../utils/_helpers';
+import setRender from '../utils/setRender';
 import {
     setSlicedChildren,
     setQuantityByLayout
@@ -47,7 +49,7 @@ const CajaApertura = props => {
 
     const { position, positionInsideSection } = getCommonProps(props);
 
-    const { extraOptsDiv, extraOpts } = getMarkupForDatalayer(
+    const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
         '',
         layout,
         position,
@@ -87,22 +89,30 @@ const CajaApertura = props => {
             featureId: chainId
         }) || {};
 
-    const Component = (
-        <>
-            <Opening data-chain-id={chainId} {...extraOpts} focalType={layout}>
-                {slicedChildren}
-            </Opening>
-            {bannerMob}
-        </>
-    );
-
-    return setRender({
+    const Component = setRender({
+        chainId,
+        viewabilityData,
         isAdmin,
         error,
         hideBox: hideCaja,
-        Component,
-        extraOptsDiv
+        withSection: false,
+        extraOptions: {
+            default: (
+                <>
+                    <Opening
+                        data-chain-id={chainId}
+                        {...viewabilityData}
+                        focalType={layout}
+                    >
+                        {slicedChildren}
+                    </Opening>
+                    {bannerMob}
+                </>
+            )
+        }
     });
+
+    return setStaticDynamically(Component, isAdmin, extraOptsDiv);
 };
 
 CajaApertura.label = 'LN10 Caja Apertura';

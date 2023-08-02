@@ -147,7 +147,7 @@ describe('features - LN-common - anexo - default', () => {
             isInSection.mockImplementation(() => true);
             const component = render(<AnexoFeature {...propsUrl} />);
             expect(component.html()).toContain(
-                'Los altos fijos m&#xE1;ximos de anexos con URL en pre apertura son de 300px para Desktop, Tablet y Mobile. Corrijalos, caso contrario no se ver&#xE1; el anexo'
+                '<h2 class="title">Advertencia</h2><p class="text">Los altos fijos máximos de anexos con URL en pre apertura son de 300px para Desktop, Tablet y Mobile. Corrijalos, caso contrario no se verá el anexo</p>'
             );
         });
     });

@@ -32,8 +32,8 @@ const diagramationRules = diagramation => {
     const liveblog = 'liveblog';
     const html = 'html';
     const ranking = 'ranking';
-    const txtCenter = '--text-center';
-    // const tabTextCenter = '--tab-text-center'; TO-DO: use for Hashtag L img-right //
+    const txtCenter = '--txt-center';
+    // const tabTextCenter = '--tab-txt-center'; TO-DO: use for Hashtag L img-right //
 
     const diagramations = {
         'left-focal': [
@@ -956,7 +956,8 @@ const diagramationRules = diagramation => {
                     mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
-                }
+                },
+                isLoadWithPicture: true
             },
             {
                 imagePosition: {
@@ -968,7 +969,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.XS
+                imageConfig: size.M,
+                isLoadWithPicture: true
             },
             {
                 imagePosition: {
@@ -980,7 +982,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.XS
+                imageConfig: size.M,
+                isLoadWithPicture: true
             },
             {
                 imagePosition: {
@@ -992,7 +995,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.M
+                imageConfig: size.M,
+                isLoadWithPicture: true
             }
         ],
         bn_1_2_grid: [
@@ -1009,7 +1013,8 @@ const diagramationRules = diagramation => {
                     mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
-                }
+                },
+                isLoadWithPicture: true
             },
             {
                 variantsDisabled: [],
@@ -1022,7 +1027,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.XS
+                imageConfig: size.M,
+                isLoadWithPicture: true
             },
             {
                 variantsDisabled: [],
@@ -1035,7 +1041,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.XS
+                imageConfig: size.M,
+                isLoadWithPicture: true
             }
         ],
         bn_1_1_grid: [

@@ -32,7 +32,6 @@ import {
     createDifferVideosObserver,
     createDifferYoutubeVideosObserver
 } from '../../private/common/banners/intersectionObservers';
-import '../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 
 const LN10Home = props => {
     const { children, outputType, isAdmin, renderables } = props;

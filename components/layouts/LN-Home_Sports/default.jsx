@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import StaticContent from '../../private/common/staticContent';
 import Header from '../../private/LN/common/header';
-import Footer from '../../private/LN/common/footer';
+import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import '../../../resources/dist/css/ln/components/banners.css';
 import { GlobalProviderAcu } from '../../private/LN/acumulado/context/globalContextAcu';
@@ -50,7 +50,7 @@ const LNSportsHome = props => {
                 idCollectionApertura={idCollectionApertura}
             >
                 {megatop}
-                <div id="wrapper" className="acumulado deportes ">
+                <div id="wrapper" className="acumulado deportes">
                     <Header />
                     <main id="content">
                         {stickyMobile}
@@ -76,9 +76,9 @@ const LNSportsHome = props => {
                             </div>
                         </div>
                     </main>
-                    <StaticContent id="StaticFooter">
+                    <div className="footer-container --no-app">
                         <Footer />
-                    </StaticContent>
+                    </div>
                 </div>
                 <LoadBannersSSR />
                 <PwaModals />

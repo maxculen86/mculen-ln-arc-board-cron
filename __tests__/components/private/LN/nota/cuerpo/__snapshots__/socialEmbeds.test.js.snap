@@ -95,24 +95,6 @@ Our anniversary has a lot of meaning to me as an opportunity to reflect on how..
       dangerouslySetInnerHTML={
         Object {
           "__html": "
-        window.addEventListener(\\"load\\", function(e) {
-            instgrm.Embeds.process();
-            var t = document.querySelector(\\".cuerpo__nota\\").getElementsByTagName(\\"script\\");
-            HTMLCollection.prototype.filter = Array.prototype.filter, t.filter(function(e) {
-                return \\"https://www.instagram.com/embed.js\\" === e.getAttribute(\\"src\\")
-            }).forEach(function(e) {
-                return e.remove()
-            })
-        });
-    ",
-        }
-      }
-      type="text/javascript"
-    />
-    <script
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "
         window.fbAsyncInit = function () {
             FB.init({
                 appId: 154042854349421,

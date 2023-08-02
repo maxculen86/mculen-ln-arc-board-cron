@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/require-default-props */
 import React, { useEffect, useState } from 'react';
-import { useAppContext } from 'fusion:context';
+import { useAppContext, useComponentContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
@@ -44,6 +44,7 @@ import WarningMessage from '../../../private/common/warningMessage/warningMessag
 import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 import isContentLabAt100 from '../../../chains/utils/isContentLabAt100';
 import { LIVEBLOG } from '../../../private/common/utils/subtypes/subtypeHelper';
+import { checkVariants } from '../../../chains/utils/_helpers';
 
 const ArticleFeature = ({
     id: featureId,
@@ -63,6 +64,7 @@ const ArticleFeature = ({
         variant = 'regular'
     }
 }) => {
+    const { registerSuccessEvent } = useComponentContext();
     const articleId = checkForId(id);
     const {
         isAdmin,
@@ -100,6 +102,11 @@ const ArticleFeature = ({
 
     const isLiveblog = variant === 'liveblog';
 
+    const hasVariants = checkVariants({
+        renderables,
+        featureId
+    });
+
     const articleContent = useContent({
         source: articleId ? 'articleSourceNota' : null,
         query: {
@@ -113,7 +120,7 @@ const ArticleFeature = ({
             shouldUseV2,
             shouldUseV1: !shouldUseV2
         },
-        staticMode: isSSR(),
+        staticMode: isSSR() && !hasVariants,
         filter: isLiveblog ? liveblogFilter : filter
     });
 
@@ -167,7 +174,8 @@ const ArticleFeature = ({
         variantsDisabled,
         cardSize,
         className,
-        hideBadget
+        hideBadget,
+        isLoadWithPicture
     } = config || {};
 
     const error = validateArticleFeature({
@@ -199,7 +207,8 @@ const ArticleFeature = ({
         renderables,
         shouldUseV2: withResizerV2,
         config,
-        isAdmin
+        isAdmin,
+        isLoadWithPicture
     });
 
     const typeOfMedia = getTypeOfMedia(customFields);
@@ -234,6 +243,7 @@ const ArticleFeature = ({
             </article>
         );
     }
+
     return (
         (!error && article && (
             <ErrorBoundary>
@@ -283,6 +293,7 @@ const ArticleFeature = ({
                         withMedia,
                         extraClass
                     )}
+                    onClick={() => hasVariants && registerSuccessEvent()}
                 />
             </ErrorBoundary>
         )) ||

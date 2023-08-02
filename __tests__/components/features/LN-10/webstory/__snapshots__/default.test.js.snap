@@ -20,7 +20,7 @@ exports[`components - feature - ln10 - webstory should match snapshot 1`] = `
         href="www.lanacion.com.ar"
         title="Titulo"
       >
-        <picture
+        <figure
           class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
         >
           <img
@@ -29,7 +29,7 @@ exports[`components - feature - ln10 - webstory should match snapshot 1`] = `
             fetchpriority="low"
             loading="lazy"
           />
-        </picture>
+        </figure>
       </section>
       <section
         class="description-container --relative --d-flex --flex-col"

@@ -111,13 +111,11 @@ const summaryToContentElements = summary => {
         }
     } = summary;
 
-    const transformedObject = {
+    return {
         _id,
         type: 'summary',
         items: arrayBullets
     };
-
-    return transformedObject;
 };
 
 const storyBody = (dataNota, storyBodyElements) => {

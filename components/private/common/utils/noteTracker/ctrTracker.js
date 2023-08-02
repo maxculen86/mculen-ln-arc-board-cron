@@ -3,12 +3,10 @@ const eventClick = 'productClickNota';
 const ctrBrand = 'stickyMobile_diag1';
 
 export const checkUserRealoadAction = activeWindow => {
-    const pageAccessByReload = activeWindow.performance
+    return activeWindow.performance
         .getEntriesByType('navigation')
         .map(nav => nav.type)
         .includes('reload');
-
-    return pageAccessByReload;
 };
 
 export const crtViewTracker = (tracked, trackSetter) => {

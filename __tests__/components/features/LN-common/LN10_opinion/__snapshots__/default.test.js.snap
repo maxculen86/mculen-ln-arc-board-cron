@@ -72,7 +72,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                     title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
                   >
-                    <picture
+                    <figure
                       class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                     >
                       <img
@@ -86,7 +86,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 360w, https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 768w, https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 351w, "
                         width="768"
                       />
-                    </picture>
+                    </figure>
                   </section>
                   <section
                     class="description-container --relative --d-flex --flex-col"
@@ -299,7 +299,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                               title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
                             >
-                              <picture
+                              <figure
                                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                               >
                                 <img
@@ -313,7 +313,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                                   srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 360w, https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 768w, https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 351w, "
                                   width="768"
                                 />
-                              </picture>
+                              </figure>
                             </section>
                             <section
                               class="description-container --relative --d-flex --flex-col"
@@ -349,7 +349,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                               href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                               title="Bullrich visita El Calafate y presenta libro"
                             >
-                              <picture
+                              <figure
                                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
                               >
                                 <img
@@ -359,7 +359,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                                   fetchpriority="low"
                                   loading="lazy"
                                 />
-                              </picture>
+                              </figure>
                             </section>
                             <section
                               class="description-container --relative --d-flex --flex-col"

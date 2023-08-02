@@ -55,7 +55,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
               title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -69,7 +69,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 360w, https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 768w, https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -119,7 +119,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
               title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -133,7 +133,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 360w, https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 768w, https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -198,7 +198,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
               title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -212,7 +212,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   srcset="https://resizer.glanacion.com/resizer/Fu3kfsnTFGAe8Kt-P34acHaqgc4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg 360w, https://resizer.glanacion.com/resizer/Q8uUmueIrYd77Kp1rTfU3z88PbY=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg 768w, https://resizer.glanacion.com/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -262,7 +262,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
               title="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -276,7 +276,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   srcset="https://resizer.glanacion.com/resizer/ZNcwkfsAPZKeSNfJT3QH_Q4sJkU=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg 360w, https://resizer.glanacion.com/resizer/dcXGl99iWjvLpMORfl-mqFZyaJ0=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg 768w, https://resizer.glanacion.com/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -326,7 +326,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
               title="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -340,7 +340,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   srcset="https://resizer.glanacion.com/resizer/rEUp65jkcaI8St-_G0QrexhCBsI=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg 360w, https://resizer.glanacion.com/resizer/-0CRKhU6ZKyPbBGA2T1SnRlU0Qg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg 768w, https://resizer.glanacion.com/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -390,7 +390,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/test-noticia-en-arc-nid16032021-2/"
               title="Test noticia en ARC"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -404,7 +404,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   srcset="https://resizer.glanacion.com/resizer/nNQd85R22QnfEjty9_GwPJSb9yc=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg 360w, https://resizer.glanacion.com/resizer/13v05lI2fYMPBVpL1jPC8RvQcTg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg 768w, https://resizer.glanacion.com/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -454,7 +454,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/revista-living/test-noticia-en-arc-nid03012023/"
               title="Test noticia en ARC"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -468,7 +468,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                   srcset="https://resizer.glanacion.com/resizer/_bT-GKL06Ie_uDCQKuG1nQ2hcqE=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg 360w, https://resizer.glanacion.com/resizer/-g5rNPf2Az-z6OvSdvenYWWoSQ4=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg 768w, https://resizer.glanacion.com/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -614,7 +614,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --text-center --m --regular"
+          class="ln-card --d-flex --flex-col --ai-start --txt-center --m --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -627,7 +627,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
               title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -641,7 +641,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 360w, https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 768w, https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -661,7 +661,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
+          class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -674,7 +674,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
               title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -688,7 +688,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 360w, https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 768w, https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -723,7 +723,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
+          class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -736,7 +736,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
               title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -750,7 +750,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   srcset="https://resizer.glanacion.com/resizer/Fu3kfsnTFGAe8Kt-P34acHaqgc4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg 360w, https://resizer.glanacion.com/resizer/Q8uUmueIrYd77Kp1rTfU3z88PbY=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg 768w, https://resizer.glanacion.com/resizer/QvS066D_Bux935YAFy2ZWjxQbIU=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/ZMGWRNOYQJCUNANSA2AZBKFGDU.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -770,7 +770,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
+          class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -783,7 +783,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/el-musico-mexicano-encargado-de-enviar-un-mensaje-de-la-humanidad-a-los-extraterrestres-nid16032021/"
               title="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -797,7 +797,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   srcset="https://resizer.glanacion.com/resizer/ZNcwkfsAPZKeSNfJT3QH_Q4sJkU=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg 360w, https://resizer.glanacion.com/resizer/dcXGl99iWjvLpMORfl-mqFZyaJ0=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg 768w, https://resizer.glanacion.com/resizer/A5RU5shS7UAkEHqazhRzsxhlQos=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HNSRVP73FBA37LQCCLQ5ZAQMXU.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -817,7 +817,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
+          class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -830,7 +830,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/futbol/el-boliviano-que-escapo-por-segunda-vez-de-la-muerte-tras-sobrevivir-a-la-caida-del-avion-del-nid05032021/"
               title="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -844,7 +844,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   srcset="https://resizer.glanacion.com/resizer/rEUp65jkcaI8St-_G0QrexhCBsI=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg 360w, https://resizer.glanacion.com/resizer/-0CRKhU6ZKyPbBGA2T1SnRlU0Qg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg 768w, https://resizer.glanacion.com/resizer/i0pv6vKvhUhf40nK8lofBPF6ztQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/JUY5G7PUBFCA3FGTCLGZVE4FB4.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -864,7 +864,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
+          class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -877,7 +877,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/test-noticia-en-arc-nid16032021-2/"
               title="Test noticia en ARC"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -891,7 +891,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   srcset="https://resizer.glanacion.com/resizer/nNQd85R22QnfEjty9_GwPJSb9yc=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg 360w, https://resizer.glanacion.com/resizer/13v05lI2fYMPBVpL1jPC8RvQcTg=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg 768w, https://resizer.glanacion.com/resizer/d1TJBcVOkZorPV-3PwQ3kPfdJ7c=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/URH7IRLYKNCL5JYIQ5HDBZG3XI.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"
@@ -911,7 +911,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --text-center --m-l --regular"
+          class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
         >
           <a
             class="link ln-link --d-flex --flex-col --unstyled"
@@ -924,7 +924,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/revista-living/test-noticia-en-arc-nid03012023/"
               title="Test noticia en ARC"
             >
-              <picture
+              <figure
                 class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
               >
                 <img
@@ -938,7 +938,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                   srcset="https://resizer.glanacion.com/resizer/_bT-GKL06Ie_uDCQKuG1nQ2hcqE=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg 360w, https://resizer.glanacion.com/resizer/-g5rNPf2Az-z6OvSdvenYWWoSQ4=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg 768w, https://resizer.glanacion.com/resizer/xlja88hkKzQSTzfQTXX97izu5SQ=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/VJAAAHT7ZBGHTKXL5EHIEARWKQ.jpg 351w, "
                   width="768"
                 />
-              </picture>
+              </figure>
             </section>
             <section
               class="description-container --relative --d-flex --flex-col"

@@ -25,7 +25,7 @@ export const setDollarData = dollarValue => {
 };
 
 export const setAccessData = () => {
-    const defaultAccess = [
+    return [
         {
             icon: <Bookmark />,
             text: 'Mis notas',
@@ -44,6 +44,4 @@ export const setAccessData = () => {
                 'https://club.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274'
         }
     ];
-
-    return defaultAccess;
 };
