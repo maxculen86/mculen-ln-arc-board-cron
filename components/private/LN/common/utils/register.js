@@ -15,6 +15,8 @@ const ENDPOINT_ARN = 'endpointArn';
 const AUTH_TOKEN = 'x-auth2-token';
 const AUTH3_TOKEN = 'x-auth3-token';
 
+// TODO agregar tests a las funciones restantes
+
 const verify = () => {
     return true && 'serviceWorker' in navigator;
 };
@@ -84,6 +86,7 @@ const initialize = () => {
 
         messaging = firebase.messaging();
     }
+
     const lnNotification = 'ln-notification';
     const ls = getCookie(lnNotification);
 
@@ -98,8 +101,16 @@ const initialize = () => {
         displayNotificacion();
     }
 
+    const hasArnStored = localStorage.getItem(ENDPOINT_ARN) !== null;
+    const authToken = localStorage.getItem(AUTH3_TOKEN);
+
+    if (!hasArnStored && authToken) {
+        registerSuscription(authToken, true);
+    }
+
     const notifButtonNo = document.querySelector('#notificacion-no');
     const notifButtonYes = document.querySelector('#notificacion-si');
+
     if (notifButtonNo && notifButtonYes) {
         notifButtonNo.addEventListener('click', e => {
             e.preventDefault();
@@ -132,7 +143,7 @@ const isNotificationDefault = () => {
     return false;
 };
 
-const handleSubscription = ({ token, showError }) => {
+export const handleSubscription = ({ token, showError }) => {
     try {
         localStorage.setItem(AUTH_TOKEN, token);
         registerSuscription(token, showError);
@@ -141,12 +152,12 @@ const handleSubscription = ({ token, showError }) => {
     }
 };
 
-const updateToken = ({ token, deviceArn }) => {
+export const updateToken = ({ token, deviceArn }) => {
     const apiUrl = `${apiNotification}notification/updateToken/`;
 
     const body = JSON.stringify({
         token,
-        endPointArn: deviceArn
+        endpointArn: deviceArn
     });
 
     const headers = {
@@ -162,14 +173,15 @@ const updateToken = ({ token, deviceArn }) => {
     })
         .then(response => response.json())
         .then(res => {
-            localStorage.setItem(AUTH_TOKEN, token);
+            console.log('updating notification success', res);
+            localStorage.setItem(AUTH_TOKEN, res);
         })
         .catch(err => {
             console.log('updating notification token error: ', err);
         });
 };
 
-const storeAuth3Token = token => {
+export const storeAuth3Token = token => {
     try {
         localStorage.setItem(AUTH3_TOKEN, token);
     } catch (e) {
@@ -177,7 +189,7 @@ const storeAuth3Token = token => {
     }
 };
 
-const checkLocalStorageItems = token => {
+export const checkLocalStorageItems = token => {
     const deviceArn = localStorage.getItem(ENDPOINT_ARN);
 
     const hasTokenStored =
@@ -201,38 +213,47 @@ const checkLocalStorageItems = token => {
     };
 };
 
+const requestToken = showError => {
+    const setToken = () => {
+        handleToken()
+            .then(token => {
+                console.log('[Service Worker] Notificaciones Admitidas');
+
+                storeAuth3Token(token);
+
+                const {
+                    deviceArn,
+                    hasTokenStored,
+                    hasTokenChanged,
+                    hasArnStored
+                } = checkLocalStorageItems(token);
+
+                if (!hasTokenStored || !hasArnStored) {
+                    handleSubscription({ token, showError });
+                }
+
+                if (hasTokenChanged && hasArnStored) {
+                    updateToken({ token, deviceArn });
+                }
+            })
+            .catch(err => {
+                console.log('[Service Worker] Notificaciones denegadas');
+            });
+    };
+
+    return messaging
+        .requestPermission()
+        .then(() => setToken())
+        .catch(err => console.error(err));
+};
+
 const checkSubscription = showError => {
     navigator.serviceWorker.ready.then(registration => {
         console.log(`[Service Worker] on ready = ${registration}`);
         registration.pushManager.getSubscription().then(subscription => {
             console.log(`[Service Worker] on ready = ${subscription}`);
             messaging.useServiceWorker(registration);
-            messaging
-                .requestPermission()
-                .then(() => handleToken())
-                .then(token => {
-                    console.log('[Service Worker] Notificaciones Admitidas');
-
-                    storeAuth3Token(token);
-
-                    const {
-                        deviceArn,
-                        hasTokenStored,
-                        hasTokenChanged,
-                        hasArnStored
-                    } = checkLocalStorageItems(token);
-
-                    if (!hasTokenStored && !hasArnStored) {
-                        handleSubscription({ token, showError });
-                    }
-
-                    if (hasTokenChanged && hasArnStored) {
-                        updateToken({ token, deviceArn });
-                    }
-                })
-                .catch(err => {
-                    console.log('[Service Worker] Notificaciones denegadas');
-                });
+            requestToken(showError);
         });
     });
 };
@@ -257,7 +278,7 @@ const savePushTokenCache = token => {
 };
 
 // Registrar dispositivo en api notificaciones
-const registerSuscription = (token, showError) => {
+export const registerSuscription = (token, showError) => {
     // Guarda el token en cache
     savePushTokenCache(token);
 
