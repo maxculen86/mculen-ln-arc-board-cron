@@ -83,14 +83,29 @@ describe('Common - GetDataToLinkImage', () => {
 
             expect(wrapper1).toEqual({});
         });
-        it('STORYTELLING without promo_items.storytelling_mobile, return empty array', () => {
-            const wrapper1 = shallow(
-                GetDataToLinkImage({
-                    data: { ...globalContent, subtype: '4' },
-                    section: 'nota'
-                })
+
+        it('STORYTELLING without promo_items.storytelling_mobile, return desk preload', () => {
+            const { container } = render(
+                <GetDataToLinkImage
+                    {...{
+                        data: { ...globalContent, subtype: '4' },
+                        section: 'nota'
+                    }}
+                />
             );
-            expect(wrapper1.isEmptyRender()).toEqual(true);
+
+            const linksPreload = container.querySelectorAll('link');
+
+            expect(linksPreload).toHaveLength(3);
+            expect(container).toMatchSnapshot();
+
+            linksPreload.forEach(link => {
+                expect(link.getAttribute('fetchpriority')).toEqual('high');
+                expect(link.getAttribute('as')).toEqual('image');
+                expect(link.getAttribute('rel')).toEqual('preload');
+                expect(link.hasAttribute('href')).toBeTruthy();
+                expect(link.hasAttribute('media')).toBeTruthy();
+            });
         });
 
         it('STORYTELLING with promo_items.storytelling_mobile, return mobile preload', () => {
