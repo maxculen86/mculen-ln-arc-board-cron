@@ -69,9 +69,9 @@ describe('Test Json Text del cuerpo de la nota', () => {
 
                 expect(resp.elements).not.toBeNull();
                 expect(
-                    resp.elements.some(x => x.title === 'RESUMEN DE NOTA')
+                    resp.elements.some(x => x.title === 'Lo que tenés que saber')
                 ).toBe(true);
-                expect(resp.elements[1].title).toBe('RESUMEN DE NOTA');
+                expect(resp.elements[1].title).toBe('Lo que tenés que saber');
             }
         );
 
@@ -86,7 +86,7 @@ describe('Test Json Text del cuerpo de la nota', () => {
 
                 expect(resp.elements).not.toBeNull();
                 expect(
-                    resp.elements.some(x => x.title === 'RESUMEN DE NOTA')
+                    resp.elements.some(x => x.title === 'Lo que tenés que saber')
                 ).toBe(true);
             }
         );

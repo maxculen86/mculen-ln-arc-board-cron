@@ -7,8 +7,8 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 { items: ['Item 1', 'Item 2', 'Item 3'] },
                 {
                     _t: 'article_summary',
-                    title: 'RESUMEN DE NOTA',
-                    disclaimer: 'Realizado con inteligencia artificial.',
+                    title: 'Lo que tenés que saber',
+                    disclaimer: 'Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACIÓN',
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
@@ -21,8 +21,8 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 { items: ['Item 1', 'Item 2', 'Item 3'], type: 'ol' },
                 {
                     _t: 'article_summary',
-                    title: 'RESUMEN DE NOTA',
-                    disclaimer: 'Realizado con inteligencia artificial.',
+                    title: 'Lo que tenés que saber',
+                    disclaimer: 'Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACIÓN',
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
@@ -41,8 +41,8 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 },
                 {
                     _t: 'article_summary',
-                    title: 'RESUMEN DE NOTA',
-                    disclaimer: 'Realizado con inteligencia artificial.',
+                    title: 'Lo que tenés que saber',
+                    disclaimer: 'Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACIÓN',
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
@@ -58,8 +58,8 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 { items: ['Item 1', 'Item 2', 'Item 3'] },
                 {
                     _t: 'article_summary',
-                    title: 'RESUMEN DE NOTA',
-                    disclaimer: 'Realizado con inteligencia artificial.',
+                    title: 'Lo que tenés que saber',
+                    disclaimer: 'Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACIÓN',
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
@@ -72,8 +72,8 @@ describe('components - private - LN - api - v1 - mobile - story - cuerpo - eleme
                 { items: ['Item 1', 'Item 2', 'Item 3'] },
                 {
                     _t: 'article_summary',
-                    title: 'RESUMEN DE NOTA',
-                    disclaimer: 'Realizado con inteligencia artificial.',
+                    title: 'Lo que tenés que saber',
+                    disclaimer: 'Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACIÓN',
                     type: 'ul',
                     items: [
                         { _t: 'li', value: 'Item 1' },
