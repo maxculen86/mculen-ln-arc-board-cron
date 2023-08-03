@@ -997,7 +997,8 @@ const diagramationRules = diagramation => {
                     mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
-                }
+                },
+                isLoadWithPicture: true
             },
             {
                 imagePosition: {
@@ -1009,7 +1010,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.XS
+                imageConfig: size.M,
+                isLoadWithPicture: true
             },
             {
                 imagePosition: {
@@ -1021,7 +1023,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.XS
+                imageConfig: size.M,
+                isLoadWithPicture: true
             },
             {
                 imagePosition: {
@@ -1033,7 +1036,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.M
+                imageConfig: size.M,
+                isLoadWithPicture: true
             }
         ],
         bn_1_2_grid: [
@@ -1050,7 +1054,8 @@ const diagramationRules = diagramation => {
                     mobile: img.top,
                     tablet: img.right,
                     desktop: img.right
-                }
+                },
+                isLoadWithPicture: true
             },
             {
                 variantsDisabled: [],
@@ -1063,7 +1068,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.XS
+                imageConfig: size.M,
+                isLoadWithPicture: true
             },
             {
                 variantsDisabled: [],
@@ -1076,7 +1082,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.XS
+                imageConfig: size.M,
+                isLoadWithPicture: true
             }
         ],
         bn_1_1_grid: [

@@ -304,18 +304,20 @@ export const getMediaData = ({
     customFields = {},
     shouldUseV2 = false,
     config = {},
-    isAdmin = false
+    isAdmin = false,
+    isLoadWithPicture
 } = {}) => {
     const { video: videoId, imageId, html = '' } = customFields;
     const { _id } = article || {};
 
     const outstandingImage = getImageDestacada(article);
     const isEager = isImageEager(_id, renderables);
-    const mediaDataDefault = transformImageData(
-        article,
-        outstandingImage,
-        isEager
-    );
+    const mediaDataDefault = transformImageData({
+        articleData: article,
+        imageData: outstandingImage,
+        isEager,
+        isLoadWithPicture
+    });
 
     const rules = [
         {
@@ -335,14 +337,14 @@ export const getMediaData = ({
                 isAdmin
             )
         },
-
         {
             validation: imageId && image,
-            data: transformImageData(
-                article,
-                get(image, promoItemsBasic, outstandingImage),
-                isEager
-            )
+            data: transformImageData({
+                articleData: article,
+                imageData: get(image, promoItemsBasic, outstandingImage),
+                isEager,
+                isLoadWithPicture
+            })
         }
     ];
 
