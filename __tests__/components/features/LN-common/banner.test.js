@@ -563,6 +563,44 @@ const globalContentDeNotaCampo = {
     }
 };
 
+const subSections = [
+    {
+        id: '/deportes/futbol/river-plate',
+        _website: 'la-nacion-ar',
+        additional_properties: {
+            original: {
+                ancestors: {
+                    default: ['/', '/deportes', '/deportes/futbol']
+                },
+                migration: {
+                    id_section_ln9: '7262',
+                    migrated_mob: 'true'
+                }
+            }
+        },
+        name: 'River Plate',
+        parent_id: '/deportes/futbol',
+        path: '/deportes/futbol/river-plate',
+        type: 'section'
+    },
+    {
+        _id: '/deportes/canchallena',
+        _website: 'la-nacion-ar',
+        additional_properties: {
+            original: {
+                ancestors: {
+                    default: ['/', '/deportes']
+                },
+                site: {}
+            }
+        },
+        name: 'Canchallena',
+        parent_id: '/deportes',
+        path: '/deportes/canchallena',
+        type: 'section'
+    }
+];
+
 describe('isPrimarySectionInBannerSegments =>', () => {
     const segments = ['campo', 'propiedades'];
 
@@ -601,47 +639,14 @@ describe('isPrimarySectionInBannerSegments =>', () => {
             ).toStrictEqual([true, element.segment])
         );
     });
+    it('should be canchallena exception', () => {
+        expect(
+            isPrimarySectionInBannerSegments('deportes')(segments, subSections)
+        ).toStrictEqual([true, 'canchallena']);
+    });
 });
 
 describe('handleCanchallenaException =>', () => {
-    const subSections = [
-        {
-            id: '/deportes/futbol/river-plate',
-            _website: 'la-nacion-ar',
-            additional_properties: {
-                original: {
-                    ancestors: {
-                        default: ['/', '/deportes', '/deportes/futbol']
-                    },
-                    migration: {
-                        id_section_ln9: '7262',
-                        migrated_mob: 'true'
-                    }
-                }
-            },
-            name: 'River Plate',
-            parent_id: '/deportes/futbol',
-            path: '/deportes/futbol/river-plate',
-            type: 'section'
-        },
-        {
-            _id: '/deportes/canchallena',
-            _website: 'la-nacion-ar',
-            additional_properties: {
-                original: {
-                    ancestors: {
-                        default: ['/', '/deportes']
-                    },
-                    site: {}
-                }
-            },
-            name: 'Canchallena',
-            parent_id: '/deportes',
-            path: '/deportes/canchallena',
-            type: 'section'
-        }
-    ];
-
     it('it should return true and canchallena section =>', () => {
         expect(handleCanchallenaException(subSections)).toEqual([
             true,
