@@ -1227,27 +1227,16 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 360,
-                        height: 240,
-                        media: minWidth1024,
+                        width: 420,
+                        height: 280,
+                        maxScreenWidth: 767,
+                        media_preload: setMediaCondition({ maxWidth: 767 }),
                         proportion: '3:2'
                     },
                     {
-                        width: 768,
-                        height: 512,
-                        // media: minWidth768,
-                        proportion: '3:2'
-                    },
-                    {
-                        width: 351,
-                        height: 234,
-                        // media: minWidth360,
-                        proportion: '3:2'
-                    },
-                    {
-                        width: 360,
-                        height: 240,
-                        // media: minWidth320,
+                        width: 238,
+                        height: 159,
+                        media_preload: setMediaCondition({ minWidth: 768 }),
                         proportion: '3:2'
                     }
                 ]
@@ -1292,7 +1281,8 @@ export default {
                         height: 200,
                         proportion: '3:2',
                         media: minWidth768,
-                        media_preload: minWidth768
+                        media_preload: minWidth768,
+                        minScreenWidth: 768
                     },
                     {
                         width: 126,
@@ -1379,39 +1369,17 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 436,
-                        height: 290,
-                        proportion: '3:2',
-                        media: minWidth1280,
-                        media_preload: minWidth1280
+                        width: 488,
+                        height: 325,
+                        minScreenWidth: 768,
+                        media_preload: setMediaCondition({ minWidth: 768 }),
+                        proportion: '3:2'
                     },
                     {
-                        width: 604,
-                        height: 402,
-                        proportion: '3:2',
-                        media: minWidth768,
-                        media_preload: minWidth768
-                    },
-                    {
-                        width: 348,
-                        height: 232,
-                        proportion: '3:2',
-                        media: min768max1024,
-                        media_preload: min768max1024
-                    },
-                    {
-                        width: 571,
-                        height: 380,
-                        proportion: '3:2',
-                        media: minWidth375,
-                        media_preload: minWidth375
-                    },
-                    {
-                        width: 375,
-                        height: 250,
-                        proportion: '3:2',
-                        media: minWidth320,
-                        media_preload: minWidth320
+                        width: 420,
+                        height: 280,
+                        media_preload: setMediaCondition({ maxWidth: 767 }),
+                        proportion: '3:2'
                     }
                 ]
             },
