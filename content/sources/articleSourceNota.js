@@ -307,12 +307,12 @@ const transform = async (
 };
 const convertVideoArcToJw = (video, arcSite) => {
     const { _id: idVideoArc } = video;
-    const urlSearchIdJw = `https://d2s7d2xk96.execute-api.us-east-1.amazonaws.com/qa/video/${idVideoArc}`;
+    const urlSearchIdJw = `https://91fhktm9ze.execute-api.us-east-1.amazonaws.com/dev/video/${idVideoArc}`;
 
     return request(urlSearchIdJw, {
         headers: {
             'Content-Type': 'application/json',
-            'x-api-key': 'KcogQJsMI06pVfSvyk3Yn4ECECPHNGofaiiBDvni'
+            'x-api-key': '2xVRq7W9yxatELEihZz7x1ngTEXoL7E8TO1Hxyb8'
         }
     })
         .then(response => {

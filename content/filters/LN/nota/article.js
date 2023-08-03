@@ -312,6 +312,7 @@ const customVideoJw = `
             videoJw {
                 ${videoJwObject}    
             }
+            idPlayer
         }
     }
 `;
