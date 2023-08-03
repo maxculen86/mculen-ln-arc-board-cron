@@ -10,7 +10,7 @@ const SummaryNote = ({ paragraphs = [] }) => {
             <Text
                 as="h2"
                 className="--font-primary --font-medium --l --text-neutral-light-900 --mb-sm"
-                text="RESUMEN DE NOTA"
+                text="Lo que tenés que saber"
             />
             <ul className="--d-flex --flex-col --gap-24 --mb-md --pl-md --list-inherit">
                 {paragraphs.map((paragraph, i) => {
@@ -24,7 +24,7 @@ const SummaryNote = ({ paragraphs = [] }) => {
                 })}
             </ul>
             <Text
-                text="Realizado con inteligencia artificial"
+                text="Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACION"
                 className="--text-neutral-light-600 --font-2xs"
             />
         </section>
