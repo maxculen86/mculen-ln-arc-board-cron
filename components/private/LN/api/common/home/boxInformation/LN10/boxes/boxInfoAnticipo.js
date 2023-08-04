@@ -10,7 +10,7 @@ export const boxInfoAnticipo = (information, section, typeSection) => {
         box.parameters.url = information.url;
 
         box.parameters.lead =
-            information.lead && information.lead.trim() !== 0
+            information.lead && information.lead.trim().length !== 0
                 ? information.lead
                 : null;
         box.parameters.video = getEmbedHref('src', information.video);

@@ -54,6 +54,39 @@ describe('boxInfoAnticipo', () => {
         );
     });
 
+    it('should return lead: null if lead is white space', () => {
+        const information = {
+            textBadge: '',
+            lead: '   ',
+            url: 'https://www.example.com',
+            video: 'https://www.youtube.com/embed/12345',
+            title: 'Title'
+        };
+        const section = 'section';
+        const typeSection = 'typeSection';
+
+        const box = { parameters: {} };
+        boxInfoAnticipoComplete.mockReturnValue(box);
+
+        const expectedBox = {
+            parameters: {
+                badge: 'ANTICIPO',
+                lead: null,
+                url: information.url,
+                video: getEmbedHref('src', information.video)
+            }
+        };
+
+        const result = boxInfoAnticipo(information, section, typeSection);
+
+        expect(result).toEqual(expectedBox);
+        expect(boxInfoAnticipoComplete).toHaveBeenCalledWith(
+            information,
+            section,
+            typeSection
+        );
+    });
+
     it('should return boxInfoComplete with all parameters and default badge', () => {
         const information = {
             textBadge: '',
