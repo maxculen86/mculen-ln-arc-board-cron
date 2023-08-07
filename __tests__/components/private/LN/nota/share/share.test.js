@@ -189,9 +189,9 @@ describe('Share', () => {
         expect(window.open).toHaveBeenCalled();
     });
 
-    test('should open Twitter in a new window and record the click on dataLayer', () => {
+    test('should open X (previously Twitter) in a new window and record the click on dataLayer', () => {
         const button = screen.getByRole('button', {
-            name: 'Compartir la nota en Twitter'
+            name: 'Compartir la nota en X'
         });
 
         expect(button).toBeTruthy();
@@ -200,7 +200,7 @@ describe('Share', () => {
         expect(window.dataLayer).toStrictEqual([
             {
                 event: 'gtm.linkClick',
-                clickText: 'Compartir la nota en Twitter'
+                clickText: 'Compartir la nota en X'
             }
         ]);
         expect(window.open).toHaveBeenCalled();

@@ -208,7 +208,7 @@ export const buttonsList = [
         dataEvent: 'LinkClick',
         dataSection: 'CompartirNotaLN',
         iconName: 'twitter',
-        title: 'Compartir la nota en Twitter',
+        title: 'Compartir la nota en X',
         id: 'btntwitter',
         handleClick: ({ requestUri, host, basic: title, mobileTitle }) => {
             const twitterTitle = getTwitterTitle(mobileTitle, title);

@@ -214,11 +214,11 @@ const Index = ({ home }) => {
                                 title="Seguirnos en Facebook"
                             />
                             <Icon
-                                name="twitter-filled"
+                                name="twitter"
                                 href="https://twitter.com/LANACION"
                                 target="_blank"
                                 rel
-                                title="Seguirnos en Twitter"
+                                title="Seguirnos en X"
                             />
                             <Icon
                                 name="instagram"
