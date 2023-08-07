@@ -1257,25 +1257,17 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 300,
-                        height: 200,
+                        width: 420,
+                        height: 280,
                         proportion: '3:2',
-                        media: minWidth768,
-                        media_preload: minWidth768
+                        media_preload: setMediaCondition({ maxWidth: 767 }),
+                        maxScreenWidth: 767
                     },
                     {
-                        width: 571,
-                        height: 380,
+                        width: 302,
+                        height: 201,
                         proportion: '3:2',
-                        media: min375max768,
-                        media_preload: min375max768
-                    },
-                    {
-                        width: 300,
-                        height: 200,
-                        proportion: '3:2',
-                        media: minWidth320,
-                        media_preload: minWidth320
+                        media_preload: setMediaCondition({ minWidth: 768 })
                     }
                 ]
             },
@@ -1285,19 +1277,17 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 300,
-                        height: 200,
+                        width: 420,
+                        height: 280,
                         proportion: '3:2',
-                        media: minWidth768,
-                        media_preload: minWidth768,
-                        minScreenWidth: 768
+                        media_preload: setMediaCondition({ maxWidth: 767 }),
+                        maxScreenWidth: 767
                     },
                     {
-                        width: 126,
-                        height: 84,
+                        width: 226,
+                        height: 151,
                         proportion: '3:2',
-                        media: minWidth320,
-                        media_preload: minWidth320
+                        media_preload: setMediaCondition({ minWidth: 768 })
                     }
                 ]
             },
@@ -1402,6 +1392,23 @@ export default {
                         proportion: '1:1',
                         media: minWidth320,
                         media_preload: minWidth320
+                    }
+                ]
+            }
+        },
+        webStories: {
+            promo_items: {
+                sizes: [
+                    {
+                        width: 280,
+                        height: 373,
+                        proportion: '3:4',
+                        maxScreenWidth: 767
+                    },
+                    {
+                        width: 220,
+                        height: 293,
+                        proportion: '3:4'
                     }
                 ]
             }

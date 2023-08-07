@@ -20,16 +20,21 @@ exports[`components - feature - ln10 - webstory should match snapshot 1`] = `
         href="www.lanacion.com.ar"
         title="Titulo"
       >
-        <figure
+        <picture
           class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
         >
+          <source
+            media="(max-width: 767px)"
+            srcset="https://resizer.glanacion.com/resizer/lh-gNMcfgBevIHVti6EmwfG2SZo=/280x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SVH33PIGLVCGFON7ZOZYCT6KXM.jpg"
+          />
           <img
-            class="image --d-flex --w-100 --h-100 --none"
+            class="image --d-flex --w-100 --h-100"
             decoding="async"
             fetchpriority="low"
             loading="lazy"
+            src="https://resizer.glanacion.com/resizer/JLAdGQ5ShrzNMDSgOmcVdqUBmAo=/220x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SVH33PIGLVCGFON7ZOZYCT6KXM.jpg"
           />
-        </figure>
+        </picture>
       </section>
       <section
         class="description-container --relative --d-flex --flex-col"
