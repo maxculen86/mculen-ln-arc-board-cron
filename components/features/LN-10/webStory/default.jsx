@@ -46,7 +46,8 @@ const WebStoryFeature = props => {
         image,
         layout: '',
         renderables,
-        shouldUseV2: withResizerV2
+        shouldUseV2: withResizerV2,
+        isLoadWithPicture: true
     });
 
     const { index, boxPosition } = getChainConfig({

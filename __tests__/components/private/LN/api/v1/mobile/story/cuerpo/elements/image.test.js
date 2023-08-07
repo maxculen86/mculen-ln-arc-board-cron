@@ -11,14 +11,14 @@ describe('Test de json de imagen en el cuerpo de la nota', () => {
         const resp = Image(ArticleImage);
         expect(resp['_t']).toBe('image');
         expect(resp['url']).toBe(
-            '/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/77NRHRWIWFCFDOCDN34LGQ32SE.jpg'
+            'https://resizer.glanacion.com/resizer/{{param}}/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/P4TDYRBWDNB3LCHDELX42HRWAU.jpg'
         );
-        expect(resp['parameters']).toHaveLength(5);
+        expect(resp['parameters']).toHaveLength(4);
         expect(resp['parameters'][0]['media']).toBe(1280);
-        expect(resp['parameters'][0]['height']).toBe(768);
-        expect(resp['parameters'][0]['width']).toBe(1280);
+        expect(resp['parameters'][0]['height']).toBe(1280);
+        expect(resp['parameters'][0]['width']).toBe(1920);
         expect(resp['parameters'][0]['signature']).toBe(
-            'ER1_X3vDXw3P4MNVslw4RT4IVkU=/1280x0'
+            'vMR5levzUGXFrT4MCNJRoaktaiY=/1920x1280/smart/filters:format(webp):quality(70)'
         );
         expect(resp['credits']).toBe('Miguel Acevedo Riu - LA NACION');
         expect(resp['source']).toBe('LA NACION');

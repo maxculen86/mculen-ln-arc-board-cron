@@ -32,13 +32,16 @@ describe('Components - Private - LN - Nota - Cuerpo - PowerUpParallax =>', () =>
     Context.useAppContext = jest.fn(() => ({
         arcSite: 'la-nacion-ar'
     }));
-    it('Should show image and title', () => {
+    it('Should show picture with images and title', () => {
         props.data.embed.config = {
             imageId: IMAGE_DATA,
             title: 'Titulo parallax prueba'
         };
 
-        render(<PowerUpParallax {...props} />);
+        const { container } = render(<PowerUpParallax {...props} />);
+
+        const pictureElement = container.querySelector('picture');
+        expect(pictureElement.children.length).toBe(4);
         expect(screen.getAllByRole('img')).toHaveLength(1);
         expect(screen.getAllByRole('heading', { level: 2 })).toHaveLength(1);
         const paragraph = screen.queryByText(

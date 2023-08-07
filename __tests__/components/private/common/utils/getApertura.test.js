@@ -1,4 +1,7 @@
 import getApertura from '../../../../../components/private/common/utils/getApertura';
+import resultImageDataDesk from '../../../../../__mocks__/data/nota/apertura/openingStorytelling/resultImageDataDek.json';
+import resultImageDataMobile from '../../../../../__mocks__/data/nota/apertura/openingStorytelling/resultImageDataMobile.json';
+import get from '../../../../../components/private/common/utils/get';
 
 describe('getApertura test', () => {
     const basicImage = null;
@@ -145,5 +148,32 @@ describe('getApertura test', () => {
         expect(apertura.src).toBe(
             'https://d3us6z9haan6vf.cloudfront.net/06-10-2019/t_2214b49fc13b40e9a536fe92a650694e_name_file_1280x720_2000_v3_1_.jpg'
         );
+    });
+
+    it('ResizedUrls should have the length provided by imageConfig, whether or not there is a different image for mobile', () => {
+        const onlyDesImgApertura = getApertura(
+            true,
+            get(resultImageDataDesk, 'image'),
+            {},
+            null,
+            true
+        );
+        const deskResizedUrls = get(onlyDesImgApertura, 'resizedUrls');
+
+        expect(onlyDesImgApertura).toBeTruthy();
+        expect(deskResizedUrls).toHaveLength(4);
+
+        // Apertura with mixed desk and mobile image
+        const bothImgsApertura = getApertura(
+            true,
+            get(resultImageDataDesk, 'image'),
+            {},
+            get(resultImageDataMobile, 'image'),
+            true
+        );
+        const mixedResizedUrls = get(bothImgsApertura, 'resizedUrls');
+
+        expect(onlyDesImgApertura).toBeTruthy();
+        expect(mixedResizedUrls).toHaveLength(4);
     });
 });

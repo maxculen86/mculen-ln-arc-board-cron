@@ -71,7 +71,8 @@ export const editorialRules = [
             mobile: 'img-right',
             tablet: 'img-bottom',
             desktop: 'img-bottom'
-        }
+        },
+        isLoadWithPicture: true
     },
     {
         cardSize: 'm',
@@ -79,7 +80,8 @@ export const editorialRules = [
             mobile: 'img-none',
             tablet: 'img-none',
             desktop: 'img-none'
-        }
+        },
+        isLoadWithPicture: true
     }
 ];
 const createCards = ({ articles = [], skipCard = 0, rules }) => {

@@ -9,9 +9,11 @@ import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import PwaModals from '../private/LN/common/pwaModals';
+import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 import StaticContent from '../private/common/staticContent';
+import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
 
 const lnNotaFotoAl100 = ({
     children: [
@@ -30,13 +32,22 @@ const lnNotaFotoAl100 = ({
     isAdmin,
     globalContent: {
         taxonomy: { sections },
-        distributor: { name }
+        distributor: { name },
+        subtype
     },
-    layout
+    layout,
+    globalContent
 }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
+    const isLoadWithPicture =
+        isAllowedSection({
+            globalContent,
+            listOfAllowedSection,
+            noteType: subtype
+        }) && !amp;
+
     return (
         <GlobalProvider>
             {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
@@ -48,7 +59,9 @@ const lnNotaFotoAl100 = ({
                 <main id="content">
                     {preTitulo}
                     <StaticContent>
-                        <AperturaStorytelling />
+                        <AperturaStorytelling
+                            isLoadWithPicture={isLoadWithPicture}
+                        />
                     </StaticContent>
                     <div className="row">
                         {leftCuerpo}
