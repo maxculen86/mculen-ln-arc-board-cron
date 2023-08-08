@@ -1,6 +1,7 @@
 import Header from './elements/header';
 import Text from './elements/text';
 import Video from './elements/video';
+import VideoJW from './elements/videoJW';
 import Image from './elements/image';
 import List from './elements/list';
 import Quote from './elements/quote';
@@ -18,6 +19,7 @@ const cuerpoIndex = dataNota => {
         Header,
         Image,
         Video,
+        VideoJW,
         List,
         Quote,
         Gallery,
