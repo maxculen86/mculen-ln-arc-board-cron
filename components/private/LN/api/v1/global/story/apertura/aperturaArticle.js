@@ -25,7 +25,8 @@ const aperturaArticle = (article, type, idsElements = null) => {
         promoItem = null;
         isPromoInContent = true;
     }
-    const typePromoItem = get(promoItem, 'type', null);
+    const typePromoItem =
+        get(promoItem, 'type', null) || get(promoItem, 'typeCustom', null);
     const resp = {};
 
     // eslint-disable-next-line default-case
@@ -47,7 +48,7 @@ const aperturaArticle = (article, type, idsElements = null) => {
             //     resp.imagenes = [image(promoItemBasicImage).valor];
             // }
             break;
-        case 'custom_embed':
+        case 'video_jw':
             resp.multimedio = videoJW(promoItem).valor;
             break;
         default:

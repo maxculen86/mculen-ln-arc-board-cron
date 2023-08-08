@@ -7,19 +7,18 @@ export const videoJWNota = videoData => {
 
     const id = videoData._id;
 
-    const { duration, title, sources, image, description } = get(
-        videoData,
-        'embed.config.videoJw.playlist',
-        {}
-    );
-    const showAd = true;
+    const playList =
+        get(videoData, 'playlist', null) ||
+        get(videoData, 'embed.config.videoJw.playlist', null);
+    const elementPlayList = Array.isArray(playList) ? playList[0] : playList;
+    const { duration, title, sources, image } = elementPlayList;
+
     const duracion = (duration || 0) * 1000;
 
     const resp = {
         _t: 'vid',
         id,
         duracion,
-        showAd: showAd ? '1' : '0',
         tituloHome: title
     };
 
@@ -46,18 +45,17 @@ export const videoJWNota = videoData => {
 
 export const videoJWNotaMobile = videoData => {
     if (!videoData) return null;
-    const { duration, title, sources, image } = get(
-        videoData,
-        'embed.config.videoJw.playlist',
-        {}
-    );
-    const showAd = true;
+    const playList =
+        get(videoData, 'playlist', null) ||
+        get(videoData, 'embed.config.videoJw.playlist', null);
+    const elementPlayList = Array.isArray(playList) ? playList[0] : playList;
+    const { duration, title, sources, image } = elementPlayList;
+
     const durationCalculated = (duration || 0) * 1000;
 
     const resp = {
         _t: 'video',
         duration: durationCalculated,
-        showAd: showAd ? '1' : '0',
         title
     };
 
