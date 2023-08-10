@@ -3,6 +3,7 @@ import handleCookie from './handleCookie';
 
 import siteConfig from '../../../../../properties/sites/la-nacion-ar';
 import dynamicallyLoadScript from './dynamicallyLoadScript';
+import get from '../../../common/utils/get';
 
 const { getCookie, setCookie } = handleCookie();
 let messaging = null;
@@ -299,7 +300,9 @@ export const registerSuscription = (token, showError) => {
         .then(response => response.json())
         .then(res => {
             console.log('device notifications registered.', res);
-            localStorage.setItem(ENDPOINT_ARN, res.data.endpointArn);
+            const endpointArn = get(res, 'data.endpointArn');
+
+            localStorage.setItem(ENDPOINT_ARN, endpointArn);
             registerTopic(topicName, token, showError);
         })
         .catch(err => {
