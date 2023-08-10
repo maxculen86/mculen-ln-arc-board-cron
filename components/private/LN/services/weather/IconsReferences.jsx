@@ -1,10 +1,11 @@
 import React from 'react';
+import { Icon } from '@ln/common-ui-icon';
 import Text from '../../../common/text';
-import Icon from '../../../common/icon';
+import optionsIcons from './optionsIcons';
 import ModHeaderSection from '../../../common/mod-headerSection';
 
 const IconsReferences = () => {
-    const icons = [
+    const listIcons = [
         { id: 'sun', description: 'Despejado (día)' },
         { id: 'clear-night', description: 'Despejado (noche)' },
         { id: 'windy', description: 'Ventoso' },
@@ -18,18 +19,29 @@ const IconsReferences = () => {
         { id: 'snow', description: 'Nevadas Fuertes' },
         { id: 'drop', description: 'Humedad' }
     ];
-
+    if (!listIcons.length) return <></>;
     return (
-        <div className="content-icon">
+        <div className="content-icon --d-flex --flex-col --jc-center --mb-lg">
             <ModHeaderSection tag="h3" title="Referencias del clima" />
-            <div className="icon-references">
-                {icons &&
-                    icons.map(({ id, description }) => (
-                        <div className="card-icon" key={id}>
-                            <Icon name={id} size="--xl" />
-                            <Text size="--2xs">{description}</Text>
-                        </div>
-                    ))}
+            <div className="icon-references --w-100 --p-sm --rounded-4">
+                {listIcons.map(({ id, description }) => (
+                    <div
+                        className="card-icon --d-flex --ai-center --w-100 --p-sm"
+                        key={id}
+                    >
+                        <Icon
+                            size={24}
+                            className="--mr-sm"
+                            bgColor="#f2f2f2"
+                            hasWrapper
+                        >
+                            {optionsIcons[id]}
+                        </Icon>
+                        <Text size="--2xs" extraClass="com-text --flex">
+                            {description}
+                        </Text>
+                    </div>
+                ))}
             </div>
         </div>
     );

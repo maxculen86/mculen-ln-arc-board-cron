@@ -50,23 +50,7 @@ import {
     Knife,
     ShareAndroid,
     Share,
-    Sun,
-    Rain,
-    Snow,
-    Cloudy,
-    Storm,
-    SunCloudy,
-    Windy,
-    SnowCloudy,
-    RainyCloudy,
-    StormCloudy,
-    ClearNight,
-    WaterDrop,
     Ln,
-    AnimalsLotteries,
-    NamesLotteries,
-    NationalLotteries,
-    TraditionalLotteries,
     Lamp,
     Alert,
     Info,
@@ -138,27 +122,7 @@ const listIcons = {
     'ten-forward-secs': TenForwardSecs,
     pause: Pause,
     play: Play,
-    headset: Headset,
-
-    // Weather Icons
-    sun: Sun,
-    rain: Rain,
-    snow: Snow,
-    cloudy: Cloudy,
-    storm: Storm,
-    'sun-cloudy': SunCloudy,
-    windy: Windy,
-    'snow-cloudy': SnowCloudy,
-    'rainy-cloudy': RainyCloudy,
-    'storm-cloudy': StormCloudy,
-    'clear-night': ClearNight,
-    drop: WaterDrop,
-
-    // Lotteries Icons
-    animals: AnimalsLotteries,
-    names: NamesLotteries,
-    national: NationalLotteries,
-    traditional: TraditionalLotteries
+    headset: Headset
 };
 
 const MapperIcon = ({ name = '', extraProps = {} }) => {

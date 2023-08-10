@@ -8,6 +8,8 @@ import { CardAnexo as CardAnexoLN10 } from './article/cardAnexo/index';
 import configInfoSectionsByLayout from '../../../common/home/config/configInfoSectionsByLayout';
 import { boxInfoByLayoutBySectionAlias } from '../../../common/home/boxInformation/index';
 import { boxTypeByLayout } from '../../../common/home/boxTypes/index';
+import banners from '../../../common/home/boxInformation/LN10/boxes/config/configBannersBySectionAliasMobile';
+import { attachBanners } from '../../../common/home/boxInformation/LN10/boxes/config/configHandler';
 
 const excludeUrlsInBoxInfo = ['https://www.lanacion.com.ar/suscriptores/'];
 
@@ -72,11 +74,14 @@ const index = (
             layoutPage,
             sectionAliasMobile
         );
-        const boxInfo = boxInfoFunction(
+        const box = boxInfoFunction(
             informationValid,
             sectionAliasMobile,
             typeSection
         );
+
+        const boxInfo = attachBanners(box, sectionAliasMobile, banners);
+
         const type = Number(sectionBox.type);
         switch (type) {
             case 0:

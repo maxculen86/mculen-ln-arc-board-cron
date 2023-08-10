@@ -2,6 +2,9 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import StaticContent from '../../../common/staticContent';
+
+// TODO realizar unit test
 
 const HtmlLibre = props => {
     const {
@@ -13,15 +16,17 @@ const HtmlLibre = props => {
             ? contentElements[0].content
             : undefined;
 
-    return outputType === 'default' ? (
-        <div
-            key={_id}
-            dangerouslySetInnerHTML={{
-                __html: content
-            }}
-        />
-    ) : (
-        <></>
+    return (
+        outputType === 'default' && (
+            <StaticContent>
+                <div
+                    key={_id}
+                    dangerouslySetInnerHTML={{
+                        __html: content
+                    }}
+                />
+            </StaticContent>
+        )
     );
 };
 

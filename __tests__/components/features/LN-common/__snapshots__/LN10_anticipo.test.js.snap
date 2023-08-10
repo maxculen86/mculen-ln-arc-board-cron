@@ -35,7 +35,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
                 chapita
               </span>
               <h2
-                class="text ln-text --title --prumo --font-xl-l-s --font-bold"
+                class="text ln-text --title --prumo --font-bold --font-xl-l-s"
                 title="texto Prueba Anticipo"
               >
                 <a

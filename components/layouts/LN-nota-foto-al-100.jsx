@@ -1,6 +1,5 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import StaticValidation from '../private/common/staticValidation';
 import Header from '../private/LN/common/header';
 import Footer from '../private/LN10/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
@@ -10,8 +9,11 @@ import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
 import PwaModals from '../private/LN/common/pwaModals';
+import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
+import StaticContent from '../private/common/staticContent';
+import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
 
 const lnNotaFotoAl100 = ({
     children: [
@@ -30,16 +32,24 @@ const lnNotaFotoAl100 = ({
     isAdmin,
     globalContent: {
         taxonomy: { sections },
-        distributor: { name }
+        distributor: { name },
+        subtype
     },
-    layout
+    layout,
+    globalContent
 }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
+    const isLoadWithPicture =
+        isAllowedSection({
+            globalContent,
+            listOfAllowedSection,
+            noteType: subtype
+        }) && !amp;
+
     return (
         <GlobalProvider>
-            {/* Banner MEGATOP */}
             {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
             <div
                 id="wrapper"
@@ -48,13 +58,11 @@ const lnNotaFotoAl100 = ({
                 <Header />
                 <main id="content">
                     {preTitulo}
-                    <StaticValidation
-                        id="aperturaFotoAl100"
-                        htmlOnly
-                        persistent
-                    >
-                        <AperturaStorytelling />
-                    </StaticValidation>
+                    <StaticContent>
+                        <AperturaStorytelling
+                            isLoadWithPicture={isLoadWithPicture}
+                        />
+                    </StaticContent>
                     <div className="row">
                         {leftCuerpo}
                         {cuerpo}
@@ -66,7 +74,6 @@ const lnNotaFotoAl100 = ({
                             {postCuerpoTercera}
                         </div>
                     </div>
-                    {/* Newsletter */}
                     <div className="lay">{newsletter}</div>
                     <div className="lay-sidebar">
                         <div className="sidebar__main">{bottom}</div>
@@ -76,7 +83,7 @@ const lnNotaFotoAl100 = ({
                     </div>
                 </main>
                 <div className="footer-container --no-app">
-                    <Footer outputType={outputType} />
+                    <Footer />
                 </div>
             </div>
             <LoadBannersSSR />

@@ -135,7 +135,7 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
             >
               <div
                 class="hidden"
-                id="logo-lanacion.svg"
+                id="logo-la-nacion"
               >
                 <img
                   alt="Ir a la página principal"
@@ -144,7 +144,7 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
                   fetchpriority="low"
                   height="50"
                   loading="lazy"
-                  src="undefined/pf/resources/images/logo-lanacion.svg"
+                  src="undefined/pf/resources/images/la-nacion.svg"
                   width="50"
                 />
               </div>
@@ -161,7 +161,7 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
             >
               <div
                 class="hidden"
-                id="android-store.svg"
+                id="logo-android-store"
               >
                 <img
                   alt="Descargar nuestra app en Google Play"
@@ -184,7 +184,7 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
             >
               <div
                 class="hidden"
-                id="ios-store.svg"
+                id="logo-ios-store"
               >
                 <img
                   alt="Descargar nuestra app en el App Store"
@@ -310,7 +310,7 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
             >
               <div
                 class="hidden"
-                id="gda.svg"
+                id="logo-gda"
               >
                 <img
                   alt="gda"
@@ -338,7 +338,7 @@ exports[`Components- Private - footer - index.jsx - test Should match snapshot s
             >
               <div
                 class="hidden"
-                id="data-fiscal.svg"
+                id="logo-data-fiscal"
               >
                 <img
                   alt="Data fiscal"

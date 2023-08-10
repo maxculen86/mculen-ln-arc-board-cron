@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ARC_STATIC } from 'fusion:environment';
 import { useAppContext } from 'fusion:context';
 import StaticContent from './staticContent';
+import getAssetsPath from './utils/getAssetsPath';
 
 import ComLink from './com-link';
 import Image from './com-image';
-import { mapperLogos } from './logos/mapperLogos';
 
 import '../../../resources/dist/css/ln/components/com-logo.css';
 
@@ -26,9 +25,6 @@ const ComLogo = props => {
     } = props;
 
     const { contextPath, deployment, outputType } = useAppContext();
-    const assets = mapperLogos[logoName];
-    const _deployment = `${contextPath}/resources/images/${folder}${assets}`;
-    const archivoSVG = `${ARC_STATIC}${deployment(_deployment)}`;
     const extraClass = `com-logo ${logoName} ${size || ''}`;
     const classes = `${classCondition} ${extraClass}`;
 
@@ -37,12 +33,14 @@ const ComLogo = props => {
     if (!logoName) return null;
 
     const Logo = (
-        <StaticContent id={assets || `logo-${logoName}`}>
+        <StaticContent id={`logo-${logoName}`}>
             <Image
                 classCondition={classes}
                 width={width}
                 height={height}
-                src={archivoSVG}
+                src={getAssetsPath(contextPath)(deployment)(
+                    `${folder}${logoName}.svg`
+                )}
                 alt={alt || title}
                 amp={amp}
                 svg

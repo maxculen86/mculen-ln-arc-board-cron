@@ -7,6 +7,7 @@ import CajaCollection from '../../../../components/chains/LN10_Caja_Collection/d
 import renderables from '../../../../__mocks__/data/LN10_Caja_Collection/renderablesGrid8And4.json';
 import responseSource from '../../../../__mocks__/data/LN10_Caja_Collection/responseUseGetArticleInCollection.json';
 import renderablesWithContentLab from '../../../../__mocks__/data/renderables/renderablesWithContentLab.json';
+import mockChildProps from '../../../../__mocks__/data/LN10_Caja_Manual/childProps.json';
 import renderablesExcSub from '../../../../__mocks__/data/LN10_Caja_Collection/renderablesExclusiveSub.json';
 import getDynamicBanners from '../../../../components/private/common/banners/dynamicBanners/getDynamicBanners';
 import useGetArticleInCollection from '../../../../components/private/LN/common/hooks/useGetArticleInCollection';
@@ -55,12 +56,14 @@ describe('Tests Chain CajaCollection', () => {
     const getProps = ({
         customFields,
         id = 'c0fuuilRMMtV6pi',
-        renderablesData = renderables
+        renderablesData = renderables,
+        childProps = mockChildProps
     }) => ({
         id,
         isAdmin: true,
         customFields,
         tree: {},
+        childProps,
         renderables: renderablesData
     });
 
@@ -178,7 +181,7 @@ describe('Tests Chain CajaCollection', () => {
         });
     });
 
-    describe('Tests for the case of BN grid 8 and 4', () => {
+    describe('Tests for the case of BN grid 8, 4 and 3', () => {
         const fields = {
             ...customFields,
             layout: 'bnGrilla4',
@@ -216,6 +219,40 @@ describe('Tests Chain CajaCollection', () => {
             );
 
             expect(screen.getAllByRole('article')).toHaveLength(8);
+        });
+
+        test('should return a grid of 3 items with variant autor, liveblog, html or regular', () => {
+            const fields = {
+                ...customFields,
+                layout: 'bn_3_grid',
+                idCollection: 'JYLAMSGRTRBSVEZTT7VHO2WO3U'
+            };
+
+            const responseSourceX3 = [...responseSource, ...responseSource];
+
+            useGetArticleInCollection.mockImplementation(() =>
+                responseSourceX3.slice(0, 3)
+            );
+
+            render(
+                <CajaCollection
+                    {...{
+                        ...getProps({ customFields: fields }),
+                        id: 'c0fUjhrcHRHB8X',
+                        renderables: renderablesExcSub
+                    }}
+                />
+            );
+
+            expect(screen.getAllByRole('article')).toHaveLength(3);
+
+            const variantValues = ['liveblog', 'regular', 'autor', 'html'];
+
+            expect(
+                mockChildProps.some(props =>
+                    variantValues.includes(props.customFields.variant)
+                )
+            ).toBeTruthy();
         });
 
         test('should show the "bajada" when the article has no imaget', () => {

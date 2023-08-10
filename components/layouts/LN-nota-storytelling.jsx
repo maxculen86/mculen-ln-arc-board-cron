@@ -15,6 +15,7 @@ import intersectionObserverForRelatedTags from '../private/common/utils/relatedT
 import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
 import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import get from '../private/common/utils/get';
+import StaticContent from '../private/common/staticContent';
 
 const lnNotaStorytelling = ({
     children,
@@ -57,15 +58,11 @@ const lnNotaStorytelling = ({
                     {children[1]}
 
                     {isLoadWithPicture && !withVideoBackground ? (
-                        <StaticValidation
-                            id="static-opening"
-                            htmlOnly
-                            persistent
-                        >
+                        <StaticContent>
                             <AperturaStorytelling
                                 isLoadWithPicture={isLoadWithPicture}
                             />
-                        </StaticValidation>
+                        </StaticContent>
                     ) : (
                         <AperturaStorytelling
                             isLoadWithPicture={isLoadWithPicture}

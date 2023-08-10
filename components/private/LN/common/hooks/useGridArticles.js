@@ -76,6 +76,8 @@ const useGridArticles = props => {
         ? 'newBoxArticles'
         : 'boxArticles';
 
+    const isServerSide = typeof window === 'undefined' && page === 1;
+
     const searchArgs = {
         typesOfQuery: {
             sectionId,
@@ -88,7 +90,7 @@ const useGridArticles = props => {
         imageConfig,
         size: size.tripleSize || size,
         type,
-        staticMode: false,
+        staticMode: isServerSide,
         withPagination: true,
         page,
         hasCollectionApertura,

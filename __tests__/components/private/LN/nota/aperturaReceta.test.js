@@ -12,11 +12,13 @@ jest.mock('fusion:consumer', Component => {
         return props => <Component {...props} />;
     };
 });
+
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
 });
+
 Context.useAppContext = jest.fn(() => ({
     subtype: 7
 }));

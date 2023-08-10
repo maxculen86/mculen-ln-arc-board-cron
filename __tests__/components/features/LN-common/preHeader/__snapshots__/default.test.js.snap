@@ -41,7 +41,7 @@ exports[`Components - Features - LN-Common - PreHeader should match snapshot of 
             </svg>
           </i>
           <span
-            class="text ln-text --font-xs --font-bold"
+            class="text ln-text --font-bold --font-xs"
           >
             24.5
           </span>
@@ -65,7 +65,7 @@ exports[`Components - Features - LN-Common - PreHeader should match snapshot of 
               class="--w-max-content --d-flex --ai-center"
             >
               <a
-                class="link --mr-2xs --font-xs --font-bold --unstyled"
+                class="link --mr-2xs --font-bold --font-xs --unstyled"
                 data-event="e_linkclick"
                 data-section="MenuLN"
                 href="/first-topic"
@@ -79,7 +79,7 @@ exports[`Components - Features - LN-Common - PreHeader should match snapshot of 
               class="--w-max-content --d-flex --ai-center"
             >
               <a
-                class="link --mr-2xs --font-xs --font-bold --unstyled"
+                class="link --mr-2xs --font-bold --font-xs --unstyled"
                 data-event="e_linkclick"
                 data-section="MenuLN"
                 href="/second-topic"
@@ -93,7 +93,7 @@ exports[`Components - Features - LN-Common - PreHeader should match snapshot of 
               class="--w-max-content --d-flex --ai-center"
             >
               <a
-                class="link --mr-2xs --font-xs --font-bold --unstyled"
+                class="link --mr-2xs --font-bold --font-xs --unstyled"
                 data-event="e_linkclick"
                 data-section="MenuLN"
                 href="/third-topic"

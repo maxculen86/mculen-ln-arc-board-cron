@@ -21,8 +21,8 @@ jest.mock('fusion:context', () => () => ({
 }));
 
 jest.mock(
-    '../../../../../../components/private/common/staticValidation',
-    () => 'mock-static-validation'
+    '../../../../../../components/private/common/staticContent',
+    () => 'mock-static-content'
 );
 
 jest.mock(

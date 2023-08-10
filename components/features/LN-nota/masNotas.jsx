@@ -17,6 +17,8 @@ import {
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import articleBoxesTracker from '../../private/common/utils/noteTracker/articleBoxesTracker';
 
+// TODO fixes de eslint
+
 const masNotas = props => {
     const {
         customFields: {
@@ -86,7 +88,6 @@ const masNotas = props => {
 };
 
 masNotas.label = 'LN-Nota-masNotas';
-masNotas.lazy = true;
 
 masNotas.propTypes = {
     outputType: PropTypes.string,

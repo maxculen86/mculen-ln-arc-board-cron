@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
-import Static from 'fusion:static';
 import ModDolar from '../../private/common/mod-dolar';
 import StaticContent from '../../private/common/staticContent';
 import filter from '../../../content/filters/LN/services/dolar';
@@ -13,6 +12,7 @@ import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
 
 const { layoutsName = {} } = config || {};
 
+// TODO hacer refactor de componente, unificar para acumulado y nota
 const CajaDolar = ({ id }) => {
     const { contextPath, deployment, outputType, layout, globalContent = {} } =
         useAppContext() || {};
@@ -68,12 +68,12 @@ const CajaDolar = ({ id }) => {
     }
 
     return shouldShowDollar && !isAmp ? (
-        <Static id={id} htmlOnly persistent>
+        <StaticContent>
             <h2 className="com-title --font-primary --xl --font-extra">
                 Cotización del dólar de hoy
             </h2>
             {dolarComponent}
-        </Static>
+        </StaticContent>
     ) : (
         <></>
     );

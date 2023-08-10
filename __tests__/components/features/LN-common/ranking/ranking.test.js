@@ -35,8 +35,8 @@ global.MutationObserver = class {
 };
 
 jest.mock(
-    '../../../../../components/private/common/staticValidation',
-    () => 'mock-static-validation'
+    '../../../../../components/private/common/staticContent',
+    () => 'mock-static-content'
 );
 
 afterEach(() => {

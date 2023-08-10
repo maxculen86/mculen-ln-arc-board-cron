@@ -8,6 +8,7 @@ import {
     getTargetingFormat,
     isForAmp,
     isPrimarySectionInBannerSegments,
+    handleCanchallenaException,
     shouldShow
 } from '../../../../components/private/LN/common/utils/bannerHelper';
 import Banner from '../../../../components/features/LN-common/bannerRefactor/default';
@@ -15,6 +16,11 @@ import BannerAmp from '../../../../components/features/LN-common/bannerRefactor/
 import Context from 'fusion:context';
 import { mount, render, shallow } from 'enzyme';
 import { render as testingLibraryRender } from '@testing-library/react';
+
+jest.mock(
+    '../../../../components/private/common/staticContent',
+    () => 'mock-static-content'
+);
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -557,6 +563,44 @@ const globalContentDeNotaCampo = {
     }
 };
 
+const subSections = [
+    {
+        id: '/deportes/futbol/river-plate',
+        _website: 'la-nacion-ar',
+        additional_properties: {
+            original: {
+                ancestors: {
+                    default: ['/', '/deportes', '/deportes/futbol']
+                },
+                migration: {
+                    id_section_ln9: '7262',
+                    migrated_mob: 'true'
+                }
+            }
+        },
+        name: 'River Plate',
+        parent_id: '/deportes/futbol',
+        path: '/deportes/futbol/river-plate',
+        type: 'section'
+    },
+    {
+        _id: '/deportes/canchallena',
+        _website: 'la-nacion-ar',
+        additional_properties: {
+            original: {
+                ancestors: {
+                    default: ['/', '/deportes']
+                },
+                site: {}
+            }
+        },
+        name: 'Canchallena',
+        parent_id: '/deportes',
+        path: '/deportes/canchallena',
+        type: 'section'
+    }
+];
+
 describe('isPrimarySectionInBannerSegments =>', () => {
     const segments = ['campo', 'propiedades'];
 
@@ -594,6 +638,28 @@ describe('isPrimarySectionInBannerSegments =>', () => {
                 ])
             ).toStrictEqual([true, element.segment])
         );
+    });
+    it('should be canchallena exception', () => {
+        expect(
+            isPrimarySectionInBannerSegments('deportes')(segments, subSections)
+        ).toStrictEqual([true, 'canchallena']);
+    });
+});
+
+describe('handleCanchallenaException =>', () => {
+    it('it should return true and canchallena section =>', () => {
+        expect(handleCanchallenaException(subSections)).toEqual([
+            true,
+            'canchallena'
+        ]);
+    });
+
+    it('it should return false if not canchallena =>', () => {
+        expect(handleCanchallenaException([subSections[0]])).toEqual(false);
+    });
+
+    it('it should return false by default =>', () => {
+        expect(handleCanchallenaException()).toEqual(false);
     });
 });
 

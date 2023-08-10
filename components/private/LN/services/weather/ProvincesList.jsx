@@ -6,25 +6,23 @@ import ModHeaderSection from '../../../common/mod-headerSection';
 import addForwardSlash from '../../common/utils/addForwardSlash';
 
 const ProvincesList = ({ provinces }) => {
-    if (provinces.length <= 0) return null;
-
+    if (!provinces.length) return <></>;
     return (
         <>
             <ModHeaderSection tag="h3" title="Provincias" />
             <div className="province-list">
-                {provinces &&
-                    provinces.map(({ name, _id }) => (
-                        <div className="province" key={name}>
-                            <Text tag="h2" size="--md" weight="bold">
-                                <ComLink
-                                    link={addForwardSlash(_id)}
-                                    title={`Ir al clima de ${name}`}
-                                >
-                                    {name}
-                                </ComLink>
-                            </Text>
-                        </div>
-                    ))}
+                {provinces.map(({ name, _id }) => (
+                    <div className="province" key={name}>
+                        <Text tag="h2" size="--md" weight="bold">
+                            <ComLink
+                                link={addForwardSlash(_id)}
+                                title={`Ir al clima de ${name}`}
+                            >
+                                {name}
+                            </ComLink>
+                        </Text>
+                    </div>
+                ))}
             </div>
         </>
     );

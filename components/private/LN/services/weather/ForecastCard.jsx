@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Icon } from '@ln/common-ui-icon';
 import get from '../../../common/utils/get';
 import Text from '../../../common/text';
-import Icon from '../../../common/icon';
+import optionsIcons from './optionsIcons';
 
 const ForecastByDay = ({ id, title, data }) => {
     if ([title, data].some(e => e === undefined)) return null;
@@ -34,7 +35,9 @@ const ForecastByDay = ({ id, title, data }) => {
                 </Text>
             </div>
             <div className="icon-content">
-                <Icon name={weather.id} />
+                <Icon size={48} className="--mr-sm">
+                    {optionsIcons[weather.id] || optionsIcons.sun}
+                </Icon>
                 <Text tag="p" weight="bold" size="--xl">
                     {defaultValue(temperature, temperature)}
                     <Text size="--m">ºc</Text>
@@ -42,13 +45,21 @@ const ForecastByDay = ({ id, title, data }) => {
             </div>
             <div className="detail-province-icons">
                 <div className="box-icon-text">
-                    <Icon name="drop" title="Humedad" />
+                    <Icon title="Humedad" size={24} className="--mb-3xs">
+                        {optionsIcons.drop}
+                    </Icon>
                     <Text weight="bold" size="--4xs">
                         {defaultValue(humidity, `${humidity}%`)}
                     </Text>
                 </div>
                 <div className="box-icon-text">
-                    <Icon name="windy" title="Dirección del viento" />
+                    <Icon
+                        title="Dirección del viento"
+                        size={24}
+                        className="--mb-3xs"
+                    >
+                        {optionsIcons.windy}
+                    </Icon>
                     <span title={`${parsedWindDir} ${windSpeed}Km/h`}>
                         {defaultValue(
                             wind.direction && windSpeed,
@@ -57,7 +68,13 @@ const ForecastByDay = ({ id, title, data }) => {
                     </span>
                 </div>
                 <div className="box-icon-text">
-                    <Icon name="rain" title="Probabilidad de lluvia" />
+                    <Icon
+                        title="Probabilidad de lluvia"
+                        size={24}
+                        className="--mb-3xs"
+                    >
+                        {optionsIcons.rain}
+                    </Icon>
                     <Text weight="bold" size="--4xs">
                         {defaultValue(rainProb, `${rainProb}%`)}
                     </Text>

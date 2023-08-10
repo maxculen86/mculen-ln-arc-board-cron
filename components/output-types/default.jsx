@@ -149,7 +149,7 @@ const Default = props => {
     );
 
     const configHydrate = {
-        hydrateOnly: checkHydrateOnly({ layout, nodeType })
+        hydrateOnly: checkHydrateOnly({ layout, nodeType: nodeType || type })
     };
 
     return (

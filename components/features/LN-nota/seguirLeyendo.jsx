@@ -4,11 +4,12 @@ import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import StaticValidation from '../../private/common/staticValidation';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
 import get from '../../private/common/utils/get';
 import filter from '../../../content/filters/LN/nota/articleAcu';
 import articleBoxesTracker from '../../private/common/utils/noteTracker/articleBoxesTracker';
+
+// TODO hacer unit test, fix hooks y default props
 
 const seguirLeyendo = ({ globalContent, outputType }) => {
     const justThreeStories = content =>
@@ -60,7 +61,6 @@ const seguirLeyendo = ({ globalContent, outputType }) => {
 };
 
 seguirLeyendo.label = 'LN-Nota-SeguirLeyendo';
-seguirLeyendo.lazy = true;
 
 seguirLeyendo.propTypes = {
     globalContent: PropTypes.shape({

@@ -3,7 +3,6 @@ import get from '../../../private/common/utils/get';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 
-
 export const hasArticles = data => !!get(data, 'articles', []).length;
 
 export const getDataContent = (

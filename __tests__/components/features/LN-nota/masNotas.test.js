@@ -10,8 +10,6 @@ import mockArticles from '../../../../__mocks__/data/masNotas/articles';
 import useGetArticlesFromAcumSource from '../../../../components/private/LN/common/hooks/useGetArticlesFromAcumSource';
 import '@testing-library/jest-dom';
 
-jest.mock('fusion:static', () => 'mock-static');
-
 jest.mock(
     '../../../../components/private/LN/common/hooks/useGetArticlesFromAcumSource',
     () => jest.fn()

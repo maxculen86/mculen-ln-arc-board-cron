@@ -12,8 +12,9 @@ const summary = nodo => {
 
     const resp = {
         _t: 'article_summary',
-        title: 'RESUMEN DE NOTA',
-        disclaimer: 'Realizado con inteligencia artificial.',
+        title: 'Lo que tenés que saber',
+        disclaimer:
+            'Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACIÓN',
         type: 'ul'
     };
 

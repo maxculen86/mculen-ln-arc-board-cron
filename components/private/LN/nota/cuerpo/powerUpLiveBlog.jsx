@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ComTitle from '../../../common/com-title';
-import StaticValidation from '../../../common/staticValidation';
+import StaticContent from '../../../common/staticContent';
 
 const PowerUpLiveBlog = ({ data = {} }) => {
     const { embed = {}, _id = '' } = data;
@@ -17,14 +17,14 @@ const PowerUpLiveBlog = ({ data = {} }) => {
     if (time === '' || title === '') return <></>;
 
     return (
-        <StaticValidation id={_id} htmlOnly persistent>
+        <StaticContent id={_id}>
             <ComTitle
                 tag="h2"
                 size="--xl"
                 weight="--font-extra"
                 content={`${timeWithoutSeconds(time)} | ${title}`}
             />
-        </StaticValidation>
+        </StaticContent>
     );
 };
 

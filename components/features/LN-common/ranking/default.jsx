@@ -49,7 +49,10 @@ const RankingFeature = ({ id: featureId }) => {
 
     const { node_type: nodeType, type } = globalContent;
 
-    const hasHydrateOnly = checkHydrateOnly({ layout, nodeType });
+    const hasHydrateOnly = checkHydrateOnly({
+        layout,
+        nodeType: nodeType || type
+    });
 
     const {
         title,

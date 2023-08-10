@@ -1,19 +1,16 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import BreadCrumbArticle from '../../private/LN/nota/breadcrumb/breadcrumbArticle';
-import StaticValidation from '../../private/common/staticValidation';
+import StaticContent from '../../private/common/staticContent';
+
+// TODO testear staticContent, migrar test de enzyme
 
 const breadCrumbArticle = props => {
-    const { id: featureId } = props;
     return (
-        <StaticValidation id={featureId} htmlOnly persistent>
+        <StaticContent>
             <BreadCrumbArticle {...props} />
-        </StaticValidation>
+        </StaticContent>
     );
-};
-breadCrumbArticle.propTypes = {
-    id: PropTypes.string.isRequired
 };
 
 breadCrumbArticle.label = 'LN-Nota-Breadcrumb';
