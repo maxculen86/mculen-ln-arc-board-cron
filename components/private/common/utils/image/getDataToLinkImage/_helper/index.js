@@ -7,6 +7,23 @@ const getImageListStorytelling = (imageData, proportion) => {
     return replaceAllUrlsResizerArray(getImageData(imageData, proportion));
 };
 
+const getImagesList = ({ promoItems, basicDefault }) => {
+    if (Boolean(get(promoItems, 'storytelling', null))) {
+        return getImageListStorytelling(
+            get(promoItems, 'storytelling_mobile', []),
+            '2:3'
+        );
+    }
+
+    return [
+        ...getImageListStorytelling(basicDefault, '3:2'),
+        ...getImageListStorytelling(
+            get(promoItems, 'storytelling_mobile', []),
+            '2:3'
+        )
+    ];
+};
+
 export const getResizedUrls = (subtype, promoItems, basicDefault) => {
     const isVideoType =
         get(promoItems, 'apertura_multimedia.type', false) === 'video';
@@ -23,13 +40,10 @@ export const getResizedUrls = (subtype, promoItems, basicDefault) => {
         (subtype === STORYTELLING || subtype === FOTOAL100) &&
         get(promoItems, 'storytelling_mobile')
     ) {
-        return [
-            ...getImageListStorytelling(basicDefault, '3:2'),
-            ...getImageListStorytelling(
-                get(promoItems, 'storytelling_mobile', []),
-                '2:3'
-            )
-        ];
+        return getImagesList({
+            promoItems,
+            basicDefault
+        });
     }
 
     return get(basicDefault, 'resized_urls', []);
