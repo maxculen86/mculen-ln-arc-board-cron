@@ -1,7 +1,7 @@
 import React from 'react';
 import * as fusionConsumer from 'fusion:consumer';
 import { shallow, mount } from 'enzyme';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import getProperties from 'fusion:properties';
 import GetDataToLinkImage from '../../../../../../components/private/common/utils/image/getDataToLinkImage';
@@ -22,6 +22,7 @@ import responseRelatedImageSource from '../../../../../../__mocks__/data/images/
 import LinkImagePreload from '../../../../../../components/private/LN/common/utils/mediaHelper';
 import dataAperturaWithVideo from '../../../../../../__mocks__/data/renderables/dataAperturaWithVideo.json';
 import responseGetVideoPosterResized from '../../../../../../__mocks__/data/videos/getDataToLinkImage/responseGetVideoPosterResized.json';
+import storytellingWithVideoAndImgDesktop from '../../../../../../__mocks__/data/images/getDataToLinkImage/storytellingWithVideoAndImageDesktop.json';
 
 jest.mock(
     '../../../../../../components/private/common/utils/image/getDataToLinkImage/_helper/_homeHelper/useGetMediaData',
@@ -130,6 +131,30 @@ describe('Common - GetDataToLinkImage', () => {
                 expect(link.hasAttribute('href')).toBeTruthy();
                 expect(link.hasAttribute('media')).toBeTruthy();
             });
+        });
+
+        it('If the opening has video and image for desktop, it should return the mobile image-only preload.', () => {
+            const { container } = render(
+                <GetDataToLinkImage
+                    {...{
+                        data: {
+                            ...storytellingWithVideoAndImgDesktop,
+                            subtype: '4'
+                        },
+                        section: 'nota'
+                    }}
+                />
+            );
+
+            const linksPreload = container.querySelectorAll('link');
+
+            expect(linksPreload).toHaveLength(2);
+            expect(linksPreload[0].getAttribute('media')).toStrictEqual(
+                '(min-width: 768px) and (max-width: 1023px)'
+            );
+            expect(linksPreload[1].getAttribute('media')).toStrictEqual(
+                '(max-width: 767px)'
+            );
         });
     });
 
