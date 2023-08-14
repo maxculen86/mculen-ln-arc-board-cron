@@ -5,13 +5,15 @@ import { videoJWThumbnail, videoJWThumbnailGlobal } from '../videoJW/thumbnail';
 export const videoJWNota = videoData => {
     if (!videoData) return null;
 
-    const id = videoData._id;
+    const id =
+        videoData._id ||
+        get(videoData, 'embed.config.videoJw.playlist.mediaid', null);
 
     const playList =
         get(videoData, 'playlist', null) ||
         get(videoData, 'embed.config.videoJw.playlist', null);
     const elementPlayList = Array.isArray(playList) ? playList[0] : playList;
-    const { duration, title, sources, image } = elementPlayList;
+    const { duration, title, sources, image, description } = elementPlayList;
 
     const duracion = (duration || 0) * 1000;
 

@@ -1,0 +1,616 @@
+{
+    "_id": "FJ5DHWYC2BEKFOFGFBJI5WWUCA",
+    "canonical_url": "/ciencia/test-power-up-nid03052023/",
+    "category": "Ciencia",
+    "comments": { "allow_comments": true, "display_comments": true },
+    "content_elements": [
+        {
+            "_id": "7JJ2ELZODRG3XPUVT32PLAJSLE",
+            "additional_properties": {},
+            "content": "Lo que era un secreto a voces se oficializó de la manera menos pensada. Christophe Galtier, director técnico del PSG, confirmó que Lionel Messi dejará de pertenecer al club parisino en pocos días. “Tuve el enorme privilegio de entrenar al mejor futbolista de la historia. El sábado es su último partido en el Parque de los Príncipes y espero que sea bien recibido por todos los aficionados”, dijo, muy serio, el entrenador marsellés. Dos años después de su aterrizaje inesperado en París en agosto de 2021, el crack rosarino se despedirá este sábado del PSG en el choque contra el Clermont. El mensaje de Galtier causó sorpresa: se esperaba que fuera el club quien anunciara oficialmente el adiós a Messi.",
+            "type": "text"
+        },
+        {
+            "_id": "YXDLGBTGZNF3FN5EQXTWCE6ASA",
+            "additional_properties": {},
+            "content": "En la previa del partido que le bajará el telón a la Ligue 1, ganada por PSG, Galtier quiso agradecer el trabajo que hizo Messi en esta última temporada. “Se dijo mucho y se criticó mucho a Leo, pero ha hecho una buena temporada. Necesitaba adaptarse en su primer año y en su segundo estuvo notable. Creo que las críticas no son para nada justificadas. Con 35 añ",
+            "type": "text"
+        },
+        {
+            "_id": "VFPZV3VAHBHTDJSKIXRP6B5S4I",
+            "additional_properties": {},
+            "content": "os, habiendo sido el mejor en el Mundial, el balance es impresionante. Siempre estuvo al servicio del equipo”, ponderó el DT. Es, sin dudas, la frutilla de un postre muy amargo a una semana complicada para el equipo galo, tras el grave accidente que sufrió Sergio Rico el domingo pasado, que tiene en constante alerta al club.",
+            "type": "text"
+        },
+        {
+            "_id": "H5UISLC77FGWPM57CLZWPDKWMU",
+            "additional_properties": {},
+            "content": "Un balance agridulce",
+            "level": 1,
+            "type": "header"
+        },
+        {
+            "_id": "JE56RFVCFFEBXOCYXBUIHHZG7E",
+            "additional_properties": {},
+            "content": "Cuando en agosto de 2021 PSG revolucionó el mercado e incorporó a Messi, el mayor objetivo era ganar la Champions League. La teoría indicaba que el solo hecho de juntarlo con el francés Kylian Mbappé y el brasileño Neymar podría permitirle al conjunto galo saldar esa deuda histórica. Sin embargo, Lionel armará las valijas y allí guardará dos Ligue 1 y una Supercopa.",
+            "type": "text"
+        },
+        {
+            "_id": "J3MPN4ISBZDTVPZRPXJW4RJ434",
+            "additional_properties": {},
+            "content": "Video Power UP I7RTBP0c",
+            "type": "text"
+        },
+        {
+            "_id": "WJ6KVAVOFZFCZCXQV57Y7WNBCM",
+            "additional_properties": {},
+            "embed": {
+                "config": {
+                    "idPlayer": "bWFcPBAT",
+                    "idVideo": "I7RTBP0c",
+                    "videoJw": {
+                        "description": "",
+                        "kind": "Single Item",
+                        "playlist": {
+                            "description": "",
+                            "duration": 87,
+                            "image": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=720",
+                            "images": [
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=320",
+                                    "type": "image/jpeg",
+                                    "width": 320
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=480",
+                                    "type": "image/jpeg",
+                                    "width": 480
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=640",
+                                    "type": "image/jpeg",
+                                    "width": 640
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=720",
+                                    "type": "image/jpeg",
+                                    "width": 720
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=1280",
+                                    "type": "image/jpeg",
+                                    "width": 1280
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=1920",
+                                    "type": "image/jpeg",
+                                    "width": 1920
+                                }
+                            ],
+                            "link": "https://cdn.jwplayer.com/previews/I7RTBP0c",
+                            "mediaid": "I7RTBP0c",
+                            "sources": [
+                                {
+                                    "file": "https://cdn.jwplayer.com/manifests/I7RTBP0c.m3u8",
+                                    "type": "application/vnd.apple.mpegurl"
+                                },
+                                {
+                                    "bitrate": 500337,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-kTExGaWf.mp4",
+                                    "filesize": 5441174,
+                                    "framerate": 30,
+                                    "height": 180,
+                                    "label": "180p",
+                                    "type": "video/mp4",
+                                    "width": 320
+                                },
+                                {
+                                    "bitrate": 728301,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-K8B0kybS.mp4",
+                                    "filesize": 7920281,
+                                    "framerate": 30,
+                                    "height": 270,
+                                    "label": "270p",
+                                    "type": "video/mp4",
+                                    "width": 480
+                                },
+                                {
+                                    "bitrate": 2151323,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-46NIuRKO.mp4",
+                                    "filesize": 23395647,
+                                    "framerate": 30,
+                                    "height": 720,
+                                    "label": "720p",
+                                    "type": "video/mp4",
+                                    "width": 1280
+                                },
+                                {
+                                    "bitrate": 114322,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-hz5z2Tv4.m4a",
+                                    "filesize": 1243260,
+                                    "label": "AAC Audio",
+                                    "type": "audio/mp4"
+                                },
+                                {
+                                    "bitrate": 4659363,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-SomplJdm.mp4",
+                                    "filesize": 50670580,
+                                    "framerate": 30,
+                                    "height": 1080,
+                                    "label": "1080p",
+                                    "type": "video/mp4",
+                                    "width": 1920
+                                },
+                                {
+                                    "bitrate": 816066,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-FnZGUVnC.mp4",
+                                    "filesize": 8874721,
+                                    "framerate": 30,
+                                    "height": 360,
+                                    "label": "360p",
+                                    "type": "video/mp4",
+                                    "width": 640
+                                },
+                                {
+                                    "bitrate": 1405722,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-0G6Pwvlw.mp4",
+                                    "filesize": 15287227,
+                                    "framerate": 30,
+                                    "height": 540,
+                                    "label": "540p",
+                                    "type": "video/mp4",
+                                    "width": 960
+                                }
+                            ],
+                            "title": "Youtubers realizan un experimento social en el barrio de Palermo",
+                            "tracks": [
+                                {
+                                    "file": "https://cdn.jwplayer.com/strips/I7RTBP0c-120.vtt",
+                                    "kind": "thumbnails"
+                                }
+                            ],
+                            "variations": {}
+                        },
+                        "title": "Youtubers realizan un experimento social en el barrio de Palermo"
+                    }
+                }
+            },
+            "subtype": "video_jw",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "TKVWRPRRTFAZLGK6RIHIZLHPUU",
+            "additional_properties": {},
+            "content": "Video arc fc286f8a-a6e0-4a3f-9ed2-64fa6a010a99 (migrado)",
+            "type": "text"
+        },
+        {
+            "_id": "fc286f8a-a6e0-4a3f-9ed2-64fa6a010a99",
+            "description": "",
+            "kind": "Single Item",
+            "playlist": [
+                {
+                    "description": "",
+                    "duration": 21,
+                    "image": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=720",
+                    "images": [
+                        {
+                            "src": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=320",
+                            "type": "image/jpeg",
+                            "width": 320
+                        },
+                        {
+                            "src": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=480",
+                            "type": "image/jpeg",
+                            "width": 480
+                        },
+                        {
+                            "src": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=640",
+                            "type": "image/jpeg",
+                            "width": 640
+                        },
+                        {
+                            "src": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=720",
+                            "type": "image/jpeg",
+                            "width": 720
+                        },
+                        {
+                            "src": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=1280",
+                            "type": "image/jpeg",
+                            "width": 1280
+                        },
+                        {
+                            "src": "https://cdn.jwplayer.com/v2/media/JgtuNUEs/poster.jpg?width=1920",
+                            "type": "image/jpeg",
+                            "width": 1920
+                        }
+                    ],
+                    "link": "https://cdn.jwplayer.com/previews/JgtuNUEs",
+                    "mediaid": "JgtuNUEs",
+                    "sources": [
+                        {
+                            "file": "https://cdn.jwplayer.com/manifests/JgtuNUEs.m3u8",
+                            "type": "application/vnd.apple.mpegurl"
+                        },
+                        {
+                            "bitrate": 332586,
+                            "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-kTExGaWf.mp4",
+                            "filesize": 873039,
+                            "framerate": 30,
+                            "height": 320,
+                            "label": "180p",
+                            "type": "video/mp4",
+                            "width": 180
+                        },
+                        {
+                            "bitrate": 525919,
+                            "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-K8B0kybS.mp4",
+                            "filesize": 1380539,
+                            "framerate": 30,
+                            "height": 480,
+                            "label": "270p",
+                            "type": "video/mp4",
+                            "width": 270
+                        },
+                        {
+                            "bitrate": 1699540,
+                            "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-46NIuRKO.mp4",
+                            "filesize": 4461293,
+                            "framerate": 30,
+                            "height": 1280,
+                            "label": "720p",
+                            "type": "video/mp4",
+                            "width": 720
+                        },
+                        {
+                            "bitrate": 118244,
+                            "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-hz5z2Tv4.m4a",
+                            "filesize": 310392,
+                            "label": "AAC Audio",
+                            "type": "audio/mp4"
+                        },
+                        {
+                            "bitrate": 3382040,
+                            "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-SomplJdm.mp4",
+                            "filesize": 8877856,
+                            "framerate": 30,
+                            "height": 1920,
+                            "label": "1080p",
+                            "type": "video/mp4",
+                            "width": 1080
+                        },
+                        {
+                            "bitrate": 637589,
+                            "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-FnZGUVnC.mp4",
+                            "filesize": 1673672,
+                            "framerate": 30,
+                            "height": 640,
+                            "label": "360p",
+                            "type": "video/mp4",
+                            "width": 360
+                        },
+                        {
+                            "bitrate": 1133293,
+                            "file": "https://cdn.jwplayer.com/videos/JgtuNUEs-0G6Pwvlw.mp4",
+                            "filesize": 2974896,
+                            "framerate": 30,
+                            "height": 960,
+                            "label": "540p",
+                            "type": "video/mp4",
+                            "width": 540
+                        }
+                    ],
+                    "title": "Noche de Copa en el Monumental",
+                    "tracks": [
+                        {
+                            "file": "https://cdn.jwplayer.com/strips/JgtuNUEs-120.vtt",
+                            "kind": "thumbnails"
+                        }
+                    ],
+                    "variations": {}
+                }
+            ],
+            "title": "Noche de Copa en el Monumental",
+            "type": "video_jw"
+        },
+        {
+            "_id": "FBXIQQXAHRBHBGIUPCCLVMQ7EA",
+            "additional_properties": {},
+            "content": "video no migrado",
+            "type": "text"
+        },
+        {
+            "_id": "ec659bc2-e536-4f7e-b807-cfcf3e7d82b8",
+            "additional_properties": { "advertising": { "playAds": true } },
+            "created_date": "2023-05-13T02:09:44Z",
+            "credits": {},
+            "distributor": { "name": "LN" },
+            "duration": 35702,
+            "headlines": { "basic": "Elena, la IA de Accenture" },
+            "promo_items": {
+                "basic": {
+                    "credits": {},
+                    "height": 720,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 520,
+                                "media_preload": "(min-width: 768px)",
+                                "minScreenWidth": 768,
+                                "width": 780
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/ESOkkAYOqOpj6OWrowjxmWVTxmA=/780x0/filters:format(webp):quality(70)/d3us6z9haan6vf.cloudfront.net/05-13-2023/t_d5af04698f994f4b8da3df4df0db5fe3_name_file_1280x720_2000_v3_1_.jpg"
+                        },
+                        {
+                            "option": {
+                                "height": 280,
+                                "media_preload": "(max-width: 767px)",
+                                "width": 420
+                            },
+                            "resizedUrl": "https://resizer.glanacion.com/resizer/9ctImmZ_YxujcPl6I2sUx11UoHA=/420x0/filters:format(webp):quality(70)/d3us6z9haan6vf.cloudfront.net/05-13-2023/t_d5af04698f994f4b8da3df4df0db5fe3_name_file_1280x720_2000_v3_1_.jpg"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://resizer.glanacion.com/resizer/2tGBxoIbCwGe7SzbB41AJgdoiXY=/768x0/filters:format(webp):quality(70)/d3us6z9haan6vf.cloudfront.net/05-13-2023/t_d5af04698f994f4b8da3df4df0db5fe3_name_file_1280x720_2000_v3_1_.jpg",
+                    "width": 1280
+                }
+            },
+            "publish_date": "2023-05-13T02:12:29Z",
+            "streams": [
+                {
+                    "height": 360,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/20230513/645ef168e06ae85d2a52b001/t_aad4a979ad0043208204c472d64cf9aa_name_CLIP_M3Q/file_640x360-600.mp4",
+                    "width": 640
+                },
+                {
+                    "height": 720,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/20230513/645ef168e06ae85d2a52b001/t_aad4a979ad0043208204c472d64cf9aa_name_CLIP_M3Q/file_1280x720-2000-v3_1.mp4",
+                    "width": 1280
+                }
+            ],
+            "subtype": "ln---videos-digitales",
+            "type": "video"
+        },
+        {
+            "_id": "APGSIR6E2ZELRPUG7U5M2JWQDY",
+            "additional_properties": {},
+            "content": "Its me agregando el select",
+            "type": "text"
+        }
+    ],
+    "content_restrictions": { "content_code": "comun" },
+    "created_date": "2023-05-03T08:03:09.997Z",
+    "credits": { "by": [] },
+    "description": { "basic": "" },
+    "display_date": "2023-07-31T20:28:37.408Z",
+    "distributor": {
+        "category": "staff",
+        "name": "LA NACION",
+        "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568"
+    },
+    "first_publish_date": "2023-05-03T12:26:58.299Z",
+    "headlines": { "basic": "Test power up", "meta_title": "", "mobile": "" },
+    "isListenable": true,
+    "label": {
+        "edicion": { "display": true, "text": "Digital" },
+        "enviar_a_apps": { "display": true, "text": "Si", "url": "" },
+        "metarefresh": { "display": true, "text": "Si" },
+        "mostrar_banners": { "display": true, "text": "Si", "url": "" },
+        "recomendar": { "display": true, "text": "Si", "url": "" },
+        "trust": { "text": "Noticia Original" }
+    },
+    "last_updated_date": "2023-08-10T18:35:39.504Z",
+    "owner": { "sponsored": false },
+    "paywallEnabled": "",
+    "promo_items": {
+        "summary": {
+            "_id": "NDDO6UGYIJCKJHMMERHUW3KXD4",
+            "embed": {
+                "config": {
+                    "arrayBullets": [
+                        "<span>Confirmado de manera oficial, Lionel Messi se despedirá este sábado del PSG tras dos años de vinculación al club.</span>",
+                        "<span>Christophe Galtier, director técnico del PSG, expresó su agradecimiento por la temporada realizada por el crack argentino: \"Tuve el enorme privilegio de entrenar al mejor futbolista de la historia\".</span>",
+                        "<span>Al momento del aterrizaje inesperado en París en agosto 2021 se esperaba una conquista Champions League; sin embargo el balance es impresionante con 35 años y dos ligas ganadas.</span>",
+                        "<span>Christophe Galtier ponderó las contribuciones para el equipo y criticó las críticas injustificadas recibidas durante su trabajada temporada.</span>"
+                    ]
+                }
+            }
+        },
+        "video_jw": {
+            "embed": {
+                "config": {
+                    "idPlayer": "bWFcPBAT",
+                    "idVideo": "I7RTBP0c",
+                    "videoJw": {
+                        "description": "",
+                        "kind": "Single Item",
+                        "playlist": {
+                            "description": "",
+                            "duration": 87,
+                            "image": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=720",
+                            "images": [
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=320",
+                                    "type": "image/jpeg",
+                                    "width": 320
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=480",
+                                    "type": "image/jpeg",
+                                    "width": 480
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=640",
+                                    "type": "image/jpeg",
+                                    "width": 640
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=720",
+                                    "type": "image/jpeg",
+                                    "width": 720
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=1280",
+                                    "type": "image/jpeg",
+                                    "width": 1280
+                                },
+                                {
+                                    "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=1920",
+                                    "type": "image/jpeg",
+                                    "width": 1920
+                                }
+                            ],
+                            "link": "https://cdn.jwplayer.com/previews/I7RTBP0c",
+                            "mediaid": "I7RTBP0c",
+                            "sources": [
+                                {
+                                    "file": "https://cdn.jwplayer.com/manifests/I7RTBP0c.m3u8",
+                                    "type": "application/vnd.apple.mpegurl"
+                                },
+                                {
+                                    "bitrate": 500337,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-kTExGaWf.mp4",
+                                    "filesize": 5441174,
+                                    "framerate": 30,
+                                    "height": 180,
+                                    "label": "180p",
+                                    "type": "video/mp4",
+                                    "width": 320
+                                },
+                                {
+                                    "bitrate": 728301,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-K8B0kybS.mp4",
+                                    "filesize": 7920281,
+                                    "framerate": 30,
+                                    "height": 270,
+                                    "label": "270p",
+                                    "type": "video/mp4",
+                                    "width": 480
+                                },
+                                {
+                                    "bitrate": 2151323,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-46NIuRKO.mp4",
+                                    "filesize": 23395647,
+                                    "framerate": 30,
+                                    "height": 720,
+                                    "label": "720p",
+                                    "type": "video/mp4",
+                                    "width": 1280
+                                },
+                                {
+                                    "bitrate": 114322,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-hz5z2Tv4.m4a",
+                                    "filesize": 1243260,
+                                    "label": "AAC Audio",
+                                    "type": "audio/mp4"
+                                },
+                                {
+                                    "bitrate": 4659363,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-SomplJdm.mp4",
+                                    "filesize": 50670580,
+                                    "framerate": 30,
+                                    "height": 1080,
+                                    "label": "1080p",
+                                    "type": "video/mp4",
+                                    "width": 1920
+                                },
+                                {
+                                    "bitrate": 816066,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-FnZGUVnC.mp4",
+                                    "filesize": 8874721,
+                                    "framerate": 30,
+                                    "height": 360,
+                                    "label": "360p",
+                                    "type": "video/mp4",
+                                    "width": 640
+                                },
+                                {
+                                    "bitrate": 1405722,
+                                    "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-0G6Pwvlw.mp4",
+                                    "filesize": 15287227,
+                                    "framerate": 30,
+                                    "height": 540,
+                                    "label": "540p",
+                                    "type": "video/mp4",
+                                    "width": 960
+                                }
+                            ],
+                            "title": "Youtubers realizan un experimento social en el barrio de Palermo",
+                            "tracks": [
+                                {
+                                    "file": "https://cdn.jwplayer.com/strips/I7RTBP0c-120.vtt",
+                                    "kind": "thumbnails"
+                                }
+                            ],
+                            "variations": {}
+                        },
+                        "title": "Youtubers realizan un experimento social en el barrio de Palermo"
+                    }
+                }
+            },
+            "subtype": "video_jw"
+        }
+    },
+    "publish_date": "2023-08-10T18:35:37.967Z",
+    "related_content": { "basic": [], "redirect": [] },
+    "subheadlines": { "basic": "subtitulo copado" },
+    "subtype": "1",
+    "syndication": { "external_distribution": true, "search": true },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/ciencia",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": { "default": ["/"] },
+                    "migration": {
+                        "id_section_ln9": "7383",
+                        "migrated_mob": "false"
+                    }
+                }
+            },
+            "name": "Ciencia",
+            "parent_id": "/",
+            "path": "/ciencia",
+            "type": "section"
+        },
+        "sections": [
+            {
+                "_id": "/ciencia",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": { "default": ["/"] },
+                        "migration": {
+                            "id_section_ln9": "7383",
+                            "migrated_mob": "false"
+                        }
+                    }
+                },
+                "name": "Ciencia",
+                "parent_id": "/",
+                "path": "/ciencia",
+                "type": "section"
+            }
+        ],
+        "sites": [
+            {
+                "additional_properties": {
+                    "original": {
+                        "_id": "/ciencia",
+                        "migration": {
+                            "id_section_ln9": "7383",
+                            "migrated_mob": "false"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "type": "story",
+    "website_url": "/ciencia/test-power-up-nid03052023/",
+    "withFirmaDistributor": true,
+    "withSponsoredLink": false
+}
