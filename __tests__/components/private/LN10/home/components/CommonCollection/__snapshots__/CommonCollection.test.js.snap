@@ -72,7 +72,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 />
                 <img
                   alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -145,7 +145,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 />
                 <img
                   alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -233,7 +233,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 />
                 <img
                   alt="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -306,7 +306,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 />
                 <img
                   alt="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -379,7 +379,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 />
                 <img
                   alt="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -452,7 +452,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 />
                 <img
                   alt="Test noticia en ARC"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -525,7 +525,7 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
                 />
                 <img
                   alt="Test noticia en ARC"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -707,7 +707,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                 />
                 <img
                   alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -763,7 +763,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                 />
                 <img
                   alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -834,7 +834,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                 />
                 <img
                   alt="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -890,7 +890,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                 />
                 <img
                   alt="El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -946,7 +946,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                 />
                 <img
                   alt="El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -1002,7 +1002,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                 />
                 <img
                   alt="Test noticia en ARC"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"
@@ -1058,7 +1058,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
                 />
                 <img
                   alt="Test noticia en ARC"
-                  class="image --d-flex --w-100 --h-100"
+                  class="image flex --w-100 --h-100"
                   decoding="async"
                   fetchpriority="low"
                   loading="lazy"

@@ -89,7 +89,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       />
                       <img
                         alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                        class="image --d-flex --w-100 --h-100"
+                        class="image flex --w-100 --h-100"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -115,7 +115,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       >
                         <img
                           alt="Celina Chatruc"
-                          class="image --d-flex marquee-img"
+                          class="image flex marquee-img"
                           decoding="async"
                           fetchpriority="low"
                           loading="lazy"
@@ -176,7 +176,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         >
                           <img
                             alt="Mariela Arias"
-                            class="image --d-flex marquee-img"
+                            class="image flex marquee-img"
                             decoding="async"
                             fetchpriority="low"
                             loading="lazy"
@@ -230,7 +230,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         >
                           <img
                             alt="Joaquín Morales Solá"
-                            class="image --d-flex marquee-img"
+                            class="image flex marquee-img"
                             decoding="async"
                             fetchpriority="low"
                             loading="lazy"
@@ -325,7 +325,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                                 />
                                 <img
                                   alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                                  class="image --d-flex --w-100 --h-100"
+                                  class="image flex --w-100 --h-100"
                                   decoding="async"
                                   fetchpriority="low"
                                   loading="lazy"
@@ -384,7 +384,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                                 />
                                 <img
                                   alt="Bullrich visita El Calafate y presenta libro"
-                                  class="image --d-flex --w-100 --h-100"
+                                  class="image flex --w-100 --h-100"
                                   decoding="async"
                                   fetchpriority="low"
                                   loading="lazy"
@@ -439,7 +439,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         >
                           <img
                             alt="Francisco Jueguen"
-                            class="image --d-flex marquee-img"
+                            class="image flex marquee-img"
                             decoding="async"
                             fetchpriority="low"
                             loading="lazy"
@@ -498,7 +498,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       >
                         <img
                           alt="Javier Blanco, Diego Japas y José Del Rio"
-                          class="image --d-flex marquee-img"
+                          class="image flex marquee-img"
                           decoding="async"
                           fetchpriority="low"
                           loading="lazy"
@@ -556,7 +556,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       >
                         <img
                           alt="Alan Soria Guadalupe"
-                          class="image --d-flex marquee-img"
+                          class="image flex marquee-img"
                           decoding="async"
                           fetchpriority="low"
                           loading="lazy"
@@ -614,7 +614,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       >
                         <img
                           alt="Javier Fuego Simondet"
-                          class="image --d-flex marquee-img"
+                          class="image flex marquee-img"
                           decoding="async"
                           fetchpriority="low"
                           loading="lazy"
@@ -672,7 +672,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       >
                         <img
                           alt="Patricia Osuna Gutiérrez"
-                          class="image --d-flex marquee-img"
+                          class="image flex marquee-img"
                           decoding="async"
                           fetchpriority="low"
                           loading="lazy"
