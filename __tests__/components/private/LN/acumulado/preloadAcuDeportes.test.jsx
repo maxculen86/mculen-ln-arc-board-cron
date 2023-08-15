@@ -1,0 +1,85 @@
+import React from 'react';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import useGetArticlesToPreload from '../../../../../components/private/LN/common/hooks/useGetArticlesToPreload';
+import PreloadAcuDeportes from '../../../../../components/private/LN/acumulado/preloadAcuDeportes';
+
+jest.mock('fusion:properties', () => () => ({
+    getProperties: () => ({ host: 'https://www.lanacion.com.ar' })
+}));
+
+jest.mock(
+    '../../../../../components/private/LN/common/hooks/useGetArticlesToPreload'
+);
+
+describe('Private - LN - Acumulado - ImagePreloadAcu', () => {
+    test('render correctly acu deportes', () => {
+        const deportesAcu = [
+            {
+                _id: 'R2AZ4XP6E5DCXPUBN5JKG4CIKQ',
+                promo_items: {
+                    basic: {
+                        height: 513,
+                        resized_urls: [
+                            {
+                                option: {
+                                    height: 587,
+                                    media_preload: '(min-width: 768px)',
+                                    minScreenWidth: 768,
+                                    proportion: '3:2',
+                                    width: 880
+                                },
+                                resizedUrl:
+                                    'https://resizer.glanacion.com/resizer/-MrqOg4HvfTSpGz0qBteskmQ57k=/880x586/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/F5SUTN77SNFS5FSED2VP3XG7ME.jpg'
+                            },
+                            {
+                                option: {
+                                    height: 280,
+                                    media_preload: '(max-width: 767px)',
+                                    proportion: '3:2',
+                                    width: 420
+                                },
+                                resizedUrl:
+                                    'https://resizer.glanacion.com/resizer/xEoBQYutmMadkaA3DYp6Vx48j-s=/420x280/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/F5SUTN77SNFS5FSED2VP3XG7ME.jpg'
+                            }
+                        ],
+                        type: 'image',
+                        url:
+                            'https://resizer.glanacion.com/resizer/bLGgbX9w7lGlT-mI3aj-Sjw7wTc=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/F5SUTN77SNFS5FSED2VP3XG7ME.jpg',
+                        width: 768
+                    }
+                }
+            }
+        ];
+
+        useGetArticlesToPreload.mockImplementation(() => deportesAcu);
+
+        const mockProps = {
+            collectionId: 'FPKJS5YHQVFGVD46GOLY7A265U',
+            imageConfig: 'm',
+            initialPosition: 3,
+            isFocal: true,
+            arcSite: 'la-nacion-ar'
+        };
+
+        const { baseElement, asFragment } = render(
+            <PreloadAcuDeportes {...mockProps} />
+        );
+
+        const [linkElement] = baseElement.getElementsByTagName('link');
+        const [firstArticle] = deportesAcu;
+
+        expect(baseElement.getElementsByTagName('link')).toHaveLength(
+            deportesAcu.length
+        );
+        expect(linkElement.getAttribute('as')).toBe(
+            firstArticle.promo_items.basic.type
+        );
+
+        expect(linkElement.getAttribute('rel')).toBe('preload');
+        expect(linkElement.getAttribute('href')).toBe(
+            firstArticle.promo_items.basic.resized_urls[1].resizedUrl
+        );
+        expect(asFragment()).toMatchSnapshot();
+    });
+});

@@ -13,13 +13,15 @@ import {
     getIdCollectionFromGC,
     haveFeatureAcumuladoApertura,
     getDataPreloadAcu,
-    excludePreloadAcu
+    excludePreloadAcu,
+    getFirstChainItem
 } from '../../preloadHelper';
 import { getUltimasNoticiasSectionsIds } from '../../../../../features/LN-acumulado/tagList';
 import BuildHomePreloadImages from './_children/BuildHomePreloadImages';
 import { getResizedUrls } from './_helper';
 import isAllowedSection from '../../../../LN/common/utils/isAllowedSection';
 import allowSectionAndLayout from '../../../../LN/common/media/helpers/allowSectionAndLayout';
+import PreloadAcuDeportes from '../../../../LN/acumulado/preloadAcuDeportes';
 
 const GetDataToLinkImage = ({
     data = {},
@@ -50,6 +52,7 @@ const GetDataToLinkImage = ({
 
     const basic = replaceUrlResizerToWWW(get(data, 'promo_items.basic', {}));
     const isAuthor = nodeType === 'author';
+    const isDeportes = id === '/deportes';
 
     if (!data) return <></>;
 
@@ -66,6 +69,33 @@ const GetDataToLinkImage = ({
         },
 
         Acumulado: () => {
+            if (isDeportes) {
+                const {
+                    collectionId = '',
+                    initialPosition = 0,
+                    articleId = '',
+                    isFocal = false,
+                    imageConfig,
+                    imageId = ''
+                } = getFirstChainItem(renderables);
+
+                if (!collectionId && !articleId) return <></>;
+
+                return (
+                    <PreloadAcuDeportes
+                        website={arcSite || 'la-nacion-ar'}
+                        imageConfig={imageConfig}
+                        articleId={articleId}
+                        imageId={imageId}
+                        collectionId={collectionId}
+                        initialPosition={
+                            initialPosition > 0 ? initialPosition - 1 : 0
+                        }
+                        isFocal={isFocal}
+                        isLoadWithPicture={isValidSection}
+                    />
+                );
+            }
             if (isWiki) {
                 const imagesToPreload = wikiImagesWithWWW(wikiSourceData);
                 return <LinkImagePreload resizedUrls={imagesToPreload} />;

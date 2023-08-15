@@ -170,6 +170,7 @@ export function getBookmarkContent(globalContent) {
     } = imageApertura;
 
     const parametros = resizedUrls.map(size => ({
+        alto: size.option.height,
         media: size.option.width,
         ancho: size.option.width,
         firma: size.resizedUrl.replace(regexResizerUrl, '$4').slice(0, -1)

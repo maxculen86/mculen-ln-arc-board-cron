@@ -22,5 +22,10 @@ export default `
             }
         }
     }
+    promo_items {
+        basic {
+            ${image}
+        }
+    }
     next
 }`;
