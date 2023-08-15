@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private - LN - Acumulado - ImagePreloadAcu render correctly acu deportes 1`] = `
+<DocumentFragment>
+  <link
+    as="image"
+    fetchpriority="high"
+    href="https://resizer.glanacion.com/resizer/xEoBQYutmMadkaA3DYp6Vx48j-s=/420x280/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/F5SUTN77SNFS5FSED2VP3XG7ME.jpg"
+    imagesrcset="https://resizer.glanacion.com/resizer/-MrqOg4HvfTSpGz0qBteskmQ57k=/880x586/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/F5SUTN77SNFS5FSED2VP3XG7ME.jpg 880w,https://resizer.glanacion.com/resizer/xEoBQYutmMadkaA3DYp6Vx48j-s=/420x280/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/F5SUTN77SNFS5FSED2VP3XG7ME.jpg 420w"
+    rel="preload"
+  />
+</DocumentFragment>
+`;

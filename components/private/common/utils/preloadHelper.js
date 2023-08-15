@@ -10,6 +10,50 @@ export const getIdCollectionFromGC = ({ globalContent = {}, defaultValue }) => {
         : get(acumuladoGeneral, 'id_collection_promo_items', defaultValue);
 };
 
+export const getFirstChainItem = (renderables = []) => {
+    const firstChain = renderables.find(
+        ({ type, props }) =>
+            (type === 'Ln_Caja_Manual' || type === 'Ln_Caja_Collection') &&
+            !get(props, 'customFields.hideCaja')
+    );
+
+    if (!firstChain) return {};
+
+    const type = get(firstChain, 'type', '');
+    const layout = get(firstChain, 'props.customFields.layout', '');
+
+    // TODO: Cambiar types para cajas LN10, actualizar imageConfig cuando se carguen articulos LN10 en caja manual
+    if (type === 'Ln_Caja_Manual' && layout !== 'grillaVideo1') {
+        const { noteId, imageId = '', hideImage = false } = get(
+            firstChain,
+            'children[0].props.customFields',
+            {}
+        );
+
+        return !hideImage
+            ? { articleId: noteId, imageId, imageConfig: '' }
+            : {};
+    }
+
+    if (type === 'Ln_Caja_Collection')
+        return {
+            collectionId: get(
+                firstChain,
+                'props.customFields.idCollection',
+                ''
+            ),
+            initialPosition: get(
+                firstChain,
+                'props.customFields.initialPosition',
+                0
+            ),
+            isFocal: layout.includes('focal'),
+            imageConfig: 'm'
+        };
+
+    return {};
+};
+
 export const verifyChainsBeforeGrid = (renderables = []) => {
     const sectionChildrens = [];
 
@@ -75,6 +119,7 @@ export const excludePreloadAcu = ({
     return (
         nodeType === 'section' &&
         id !== '/ultimas-noticias' &&
+        id !== '/deportes' &&
         (!hasFeatureAcumuladoApertura ||
             (!idCollectionApertura && hasChainBeforeGrid))
     );

@@ -9,6 +9,7 @@ import {
     getShortestImage,
     getImagesToLoadWithPicture
 } from '../../utils/mediaHelper';
+import replaceUrlResizerToWWW from '../../../../../../content/sources/utils/replaceUrlResizerToWWW';
 
 const ImageArticle = props => {
     const {
@@ -21,8 +22,15 @@ const ImageArticle = props => {
         isValidSection,
         searchableField
     } = props;
-
-    const { alt_text: altText, caption, titleText, height, width, url } = image;
+    const wwwImage = replaceUrlResizerToWWW(image);
+    const {
+        alt_text: altText,
+        caption,
+        titleText,
+        height,
+        width,
+        url
+    } = wwwImage;
 
     const isAmp = outputType === 'amp';
 
@@ -30,15 +38,15 @@ const ImageArticle = props => {
     if (!url) return null;
 
     const sources =
-        image.resized_urls && image.resized_urls.filter(v => !!v.option);
+        wwwImage.resized_urls && wwwImage.resized_urls.filter(v => !!v.option);
 
     const sourcesZoom =
-        image.resized_urls_zoom &&
-        image.resized_urls_zoom.filter(v => !!v.option);
+        wwwImage.resized_urls_zoom &&
+        wwwImage.resized_urls_zoom.filter(v => !!v.option);
 
     const sourceActive = active ? sourcesZoom : sources;
 
-    const srcset = getSourceSet(isVertical, image, sourceActive);
+    const srcset = getSourceSet(isVertical, wwwImage, sourceActive);
     const sizes = getSizes(sourceActive);
     const { resizedUrl, _width } = getShortestImage(sourceActive);
     const _url = resizedUrl || url;
