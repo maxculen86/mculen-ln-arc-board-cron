@@ -32,55 +32,8 @@ export const eventListenerAttacher = (element, layer) => {
     });
 };
 
+// TODO: // TODO: Si se quiere volver a usar esta lógica. Fijarse en el histórico
+
 export const createIntersectionObserverForLinks = () => {
-    const { dataLayer } = window;
-
-    const body = document.querySelector('.cuerpo__nota');
-    const buttonLinks = body.querySelectorAll('a button') || [];
-    const bodyLinks =
-        body.querySelectorAll('li a.com-link, p a.com-link') || [];
-
-    const refresh = checkUserRealoadAction(window);
-
-    if (!refresh) {
-        bodyLinks.forEach((paragraphlink, i) => {
-            addPositionInNote(paragraphlink, i);
-            eventListenerAttacher(paragraphlink, dataLayer);
-        });
-
-        buttonLinks.forEach((buttonlink, i) => {
-            addPositionInNote(buttonlink, i);
-            eventListenerAttacher(buttonlink, dataLayer);
-        });
-
-        const callback = entries => {
-            entries.forEach(linkElement => {
-                if (linkElement.isIntersecting) {
-                    const { target } = linkElement;
-
-                    const {
-                        ctr_brand: ctrBrand,
-                        ctr_position: ctrPosition
-                    } = target;
-
-                    dataLayer.push({
-                        event: 'impressionNota',
-                        ctr_brand: ctrBrand,
-                        ctr_position: ctrPosition
-                    });
-                    observer.unobserve(target);
-                }
-            });
-        };
-
-        const observer = new IntersectionObserver(callback);
-
-        bodyLinks.forEach(link => {
-            observer.observe(link);
-        });
-
-        buttonLinks.forEach(link => {
-            observer.observe(link);
-        });
-    }
+    return false;
 };

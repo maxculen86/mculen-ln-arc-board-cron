@@ -4,7 +4,7 @@ import get from '../../../get';
 
 const MEDIAMINWIDTH = '(min-width: 768px)';
 
-export const resizeArcImage = (
+export const resizeArcImage = ({
     arcImage,
     resizeOptions,
     zoomSizes,
@@ -15,7 +15,7 @@ export const resizeArcImage = (
         media: MEDIAMINWIDTH
     },
     isInApertura = false
-) => {
+}) => {
     if (arcImage.type !== 'image' || !arcImage.url)
         throw new Error(
             'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
