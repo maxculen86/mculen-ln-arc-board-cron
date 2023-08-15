@@ -80,6 +80,12 @@ describe('Components - Private - Common - Utils - bookmarkHelper =>', () => {
                 fecha,
                 imagen: { absoluteUrl, parametros }
             } = dataForApi;
+
+            parametros.map(size => {
+                expect(size.alto).toBeDefined(); // Verifica que la propiedad 'alto' esté definida
+                expect(typeof size.alto).toBe('number'); // Verifica que 'alto' sea un número
+            });
+
             expect(id).toBe(notaExample._id);
             expect(templateId).toBe(Number(notaExample.subtype));
             expect(url).toBe(notaExample.canonical_url);
