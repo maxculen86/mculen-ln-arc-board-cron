@@ -208,7 +208,7 @@ describe('Tests - function - getChainConfig', () => {
                     })
                 })
             ).toStrictEqual({
-                imageConfig: 'm',
+                imageConfig: 'T1',
                 config: diagramationRules('bnFondo')[0],
                 index: 0,
                 boxPosition: '01',
@@ -227,7 +227,7 @@ describe('Tests - function - getChainConfig', () => {
                     })
                 })
             ).toStrictEqual({
-                imageConfig: 'm',
+                imageConfig: 'T1',
                 config: diagramationRules('bnFondo')[0],
                 index: 0,
                 boxPosition: '02',

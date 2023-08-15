@@ -235,6 +235,11 @@ const customPowerUps = `
                     option {
                         width
                         height
+                        media
+                        minScreenWidth
+                        useFullSize
+                        proportions
+                        media_preload
                     }
                 }
             }

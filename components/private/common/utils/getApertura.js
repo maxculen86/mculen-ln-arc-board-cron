@@ -2,7 +2,7 @@ import get from './get';
 import EpigrafeAndCreditsData from './epigrafeAndCreditsData';
 import { getShortestImage } from '../../LN/common/utils/mediaHelper';
 
-const getImageData = (imageData, proportion) =>
+export const getImageData = (imageData, proportion) =>
     get(imageData, 'resized_urls', []).filter(
         img => get(img, 'option.proportion') === proportion
     );
@@ -39,10 +39,12 @@ const getApertura = (
         resized_urls: resizedUrls = []
     } = data;
 
-    const imageListForPicture = [
-        ...getImageData(basicImageDsk, '3:2'),
-        ...getImageData(basicImageMobile, '2:3')
-    ];
+    const imageListForPicture = basicImageMobile
+        ? [
+              ...getImageData(basicImageDsk, '3:2'),
+              ...getImageData(basicImageMobile, '2:3')
+          ]
+        : get(basicImageDsk, 'resized_urls', []);
 
     return {
         video: isMobile ? '' : video,

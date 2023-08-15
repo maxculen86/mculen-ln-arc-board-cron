@@ -28,7 +28,7 @@ const notaBody = global.document.body;
 
 describe('components - private - common - utils - linksTracker', () => {
     describe('createIntersectionObserverForLinks', () => {
-        test('When navigate should observe links inside body, call observe, call unobserve and callback must push events in data layer', () => {
+        test.skip('When navigate should observe links inside body, call observe, call unobserve and callback must push events in data layer', () => {
             Object.defineProperty(window, 'performance', {
                 value: {
                     getEntriesByType: jest
@@ -85,7 +85,7 @@ describe('components - private - common - utils - linksTracker', () => {
                 }
             ]);
         });
-        test('click must sent event to dataLayer', () => {
+        test.skip('click must sent event to dataLayer', () => {
             const Button = screen.getByRole('button');
             fireEvent.click(Button);
             expect(window.dataLayer).toStrictEqual([

@@ -11,7 +11,7 @@ import {
 import StaticContent from '../../private/common/staticContent';
 
 const AperturaNoticia = props => {
-    const { globalContent, outputType } = props;
+    const { globalContent, outputType, layout } = props;
     const { promo_items: promoItems = {}, subtype } = globalContent || {};
     const mediaData = getMediaData(promoItems, subtype);
     const { _id: idMedia, content } = mediaData || {};
@@ -46,6 +46,7 @@ const AperturaNoticia = props => {
                         tituloNota={tituloNota}
                         subtype={subtype}
                         html={content}
+                        layoutPageBuilder={layout}
                     >
                         <figcaption className="mod-figcaption">
                             {caption}

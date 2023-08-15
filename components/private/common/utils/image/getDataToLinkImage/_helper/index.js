@@ -1,13 +1,10 @@
 import get from '../../../get';
-import { STORYTELLING } from '../../../subtypes/subtypeHelper';
+import { FOTOAL100, STORYTELLING } from '../../../subtypes/subtypeHelper';
 import { replaceAllUrlsResizerArray } from '../../../../../LN/common/utils/mediaHelper';
+import { getImageData } from '../../../getApertura';
 
 const getImageListStorytelling = (imageData, proportion) => {
-    const resizedUrls = get(imageData, 'resized_urls', []).filter(
-        img => get(img, 'option.proportion') === proportion
-    );
-
-    return replaceAllUrlsResizerArray(resizedUrls);
+    return replaceAllUrlsResizerArray(getImageData(imageData, proportion));
 };
 
 export const getResizedUrls = (subtype, promoItems, basicDefault) => {
@@ -22,7 +19,10 @@ export const getResizedUrls = (subtype, promoItems, basicDefault) => {
         );
     }
 
-    if (subtype === STORYTELLING) {
+    if (
+        (subtype === STORYTELLING || subtype === FOTOAL100) &&
+        get(promoItems, 'storytelling_mobile')
+    ) {
         return [
             ...getImageListStorytelling(basicDefault, '3:2'),
             ...getImageListStorytelling(

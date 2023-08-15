@@ -1,5 +1,6 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
+import { useContent } from 'fusion:content';
 import WebStoryFeature from '../../../../../components/features/LN-10/webStory/default';
 import { render, screen } from '@testing-library/react';
 import Context from 'fusion:context';
@@ -131,6 +132,41 @@ describe('components - feature - ln10 - webstory', () => {
     ];
 
     it('should match snapshot', () => {
+        useContent.mockReturnValue({
+            _id:
+                'f1483051a5816ba7685a71f24b31be2e6f3828849684bbe42cd815976b58d55c',
+            promo_items: {
+                basic: {
+                    height: 513,
+                    resized_urls: [
+                        {
+                            option: {
+                                height: 373,
+                                maxScreenWidth: 767,
+                                proportion: '3:4',
+                                width: 280
+                            },
+                            resizedUrl:
+                                'https://resizer.glanacion.com/resizer/lh-gNMcfgBevIHVti6EmwfG2SZo=/280x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SVH33PIGLVCGFON7ZOZYCT6KXM.jpg'
+                        },
+                        {
+                            option: {
+                                height: 293,
+                                proportion: '3:4',
+                                width: 220
+                            },
+                            resizedUrl:
+                                'https://resizer.glanacion.com/resizer/JLAdGQ5ShrzNMDSgOmcVdqUBmAo=/220x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SVH33PIGLVCGFON7ZOZYCT6KXM.jpg'
+                        }
+                    ],
+                    type: 'image',
+                    url:
+                        'https://resizer.glanacion.com/resizer/FGk7LNlgU1m6ScntnXbBQu_zO1s=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SVH33PIGLVCGFON7ZOZYCT6KXM.jpg',
+                    width: 768
+                }
+            }
+        });
+
         const { container } = render(
             <WebStoryFeature
                 id={'AKWJ178JAK8'}
