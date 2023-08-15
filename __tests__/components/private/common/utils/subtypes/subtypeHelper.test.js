@@ -132,6 +132,16 @@ describe('Private - Common - Utils - subtypeNotesWithoutAmp - subtypeHelper', ()
                 '/revista-hola/su-nueva-vida-en-cordoba-liz-solari-habla-de-su-carrera-los-animales-y-por-que-se-mudo-estoy-en-una-nid15062023/'
             )
         ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/lifestyle/titulo-random-287469-nid09082023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/horoscopo/piscis/horoscopo-de-piscis-de-hoy-jueves-30-de-marzo-de-2023-nid30032023/'
+            )
+        ).toBeTruthy();
     });
 
     it('Should return false when the subtype has amp', () => {

@@ -59,7 +59,9 @@ export const subtypeNotesWithoutAmp = canonicalUrl => {
         '/revista-hola/',
         '/revista-lugares/',
         '/revista-living/',
-        '/revista-jardin/'
+        '/revista-jardin/',
+        '/lifestyle/',
+        '/horoscopo/'
     ];
 
     return subtypeList.some(subtype => canonicalUrl.startsWith(subtype));
