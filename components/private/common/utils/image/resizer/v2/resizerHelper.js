@@ -188,7 +188,12 @@ export const resizeArcGallery = (
             arcgallery &&
             arcgallery.content_elements &&
             arcgallery.content_elements.map(i =>
-                resizeArcImage(i, resizeOptions, zoomSizes, smartCropExcluded)
+                resizeArcImage({
+                    arcImage: i,
+                    resizeOptions,
+                    zoomSizes,
+                    smartCropExcluded
+                })
             )
     };
 };
