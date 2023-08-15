@@ -158,13 +158,13 @@ describe('Common - Resizer - v2 - resizerFactory', () => {
         };
 
         test('resizeArcImage', () => {
-            const resizerImage = resizeArcImage(
-                promoItems,
-                optionsFinal,
+            const resizerImage = resizeArcImage({
+                arcImage: promoItems,
+                resizeOptions: optionsFinal,
                 zoomSizes,
-                shouldExcludeCrop,
+                smartCropExcluded: shouldExcludeCrop,
                 defaultResize
-            );
+            });
             expect(resizerImage).toMatchSnapshot();
         });
     });

@@ -286,7 +286,7 @@ export const resizeArcImage = (
     };
 };
 
-export const resizeCredits = (credits, resizeOptions, resizer) => {
+export const resizeCredits = ({ credits, resizeOptions, resizer }) => {
     const resp = {};
     const optionsFinal = get(resizeOptions, 'sizes', [
         {
