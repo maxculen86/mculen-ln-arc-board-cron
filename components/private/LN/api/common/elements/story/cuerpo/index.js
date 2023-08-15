@@ -55,6 +55,20 @@ const getStoryElementBySubtype = storyBodyElements => {
     };
 };
 
+const getElementsUnique = contentElements => {
+    return contentElements.reduce((result, element) => {
+        // Only search videos duplicated because exists other components with same ids repeated.
+        const filtered = result
+            .filter(e => ['video'].includes(e.type))
+            .map(e => `${e._id}-${e.type}`);
+        if (element && !filtered.includes(`${element._id}-${element.type}`)) {
+            return result.concat([element]);
+        }
+
+        return result;
+    }, []);
+};
+
 const getPromoItemsInContent = (contentElements, promoItem) => {
     return contentElements.filter(
         x => get(x, '_id', '-1') === get(promoItem, '_id', null)
@@ -127,11 +141,12 @@ const storyBody = (dataNota, storyBodyElements) => {
     if (!subtype) throw Error('The story does not have subtype');
 
     const elementBySubtype = getStoryElementBySubtype(storyBodyElements);
-
-    let contentElements = getSummaryElements(
+    let contentElements =
+        getElementsUnique(get(dataNota, 'content_elements', [])) || [];
+    contentElements = getSummaryElements(
         get(dataNota, 'promo_items.summary', {}),
         subtype,
-        get(dataNota, 'content_elements', [])
+        contentElements
     );
 
     contentElements = getElementsWithHtmlPromoItems(
