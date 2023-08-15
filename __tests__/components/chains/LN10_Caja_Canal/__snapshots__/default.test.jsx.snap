@@ -115,7 +115,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     />
                     <img
                       alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image --d-flex --w-100 --h-100"
+                      class="image flex --w-100 --h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -188,7 +188,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     />
                     <img
                       alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image --d-flex --w-100 --h-100"
+                      class="image flex --w-100 --h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -447,7 +447,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     />
                     <img
                       alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image --d-flex --w-100 --h-100"
+                      class="image flex --w-100 --h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -520,7 +520,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     />
                     <img
                       alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image --d-flex --w-100 --h-100"
+                      class="image flex --w-100 --h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -748,7 +748,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     />
                     <img
                       alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image --d-flex --w-100 --h-100"
+                      class="image flex --w-100 --h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -821,7 +821,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     />
                     <img
                       alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image --d-flex --w-100 --h-100"
+                      class="image flex --w-100 --h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1049,7 +1049,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     />
                     <img
                       alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image --d-flex --w-100 --h-100"
+                      class="image flex --w-100 --h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1122,7 +1122,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     />
                     <img
                       alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image --d-flex --w-100 --h-100"
+                      class="image flex --w-100 --h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1298,7 +1298,7 @@ exports[`Tests Chain Caja Canal Tests cases for different layouts should return 
                     />
                     <img
                       alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image --d-flex --w-100 --h-100"
+                      class="image flex --w-100 --h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"

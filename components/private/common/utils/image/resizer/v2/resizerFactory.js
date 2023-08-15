@@ -18,27 +18,27 @@ export const resizePromoItems = (
         const promoItem = promoItems[key];
 
         if (promoItem.type === 'image') {
-            resp[key] = resizeArcImage(
-                promoItem,
-                optionsFinal,
+            resp[key] = resizeArcImage({
+                arcImage: promoItem,
+                resizeOptions: optionsFinal,
                 zoomSizes,
-                shouldExcludeCrop,
+                smartCropExcluded: shouldExcludeCrop,
                 defaultResize,
                 isInApertura
-            );
+            });
         } else if (promoItem.type === 'video') {
             resp[key] = {
                 ...promoItem,
                 promo_items: {
                     basic: {
-                        ...resizeArcImage(
-                            promoItem.promo_items.basic,
-                            optionsFinal,
+                        ...resizeArcImage({
+                            arcImage: promoItem.promo_items.basic,
+                            resizeOptions: optionsFinal,
                             zoomSizes,
-                            shouldExcludeCrop,
+                            smartCropExcluded: shouldExcludeCrop,
                             defaultResize,
                             isInApertura
-                        )
+                        })
                     }
                 }
             };
@@ -58,26 +58,26 @@ export const resizeContentElements = (
     const { type } = elem;
     return (
         (type === 'image' &&
-            resizeArcImage(
-                elem,
-                presetsContentOrDefault,
+            resizeArcImage({
+                arcImage: elem,
+                resizeOptions: presetsContentOrDefault,
                 zoomSizes,
-                true,
+                smartCropExcluded: true,
                 defaultResize
-            )) ||
+            })) ||
         (type === 'gallery' &&
             resizeArcGallery(elem, presetsContentOrDefault, zoomSizes, true)) ||
         (type === 'video' && {
             ...elem,
             promo_items: {
                 basic: {
-                    ...resizeArcImage(
-                        elem.promo_items.basic,
-                        presetsContentOrDefault,
+                    ...resizeArcImage({
+                        arcImage: elem.promo_items.basic,
+                        resizeOptions: presetsContentOrDefault,
                         zoomSizes,
-                        true,
+                        smartCropExcluded: true,
                         defaultResize
-                    )
+                    })
                 }
             }
         }) ||
@@ -85,7 +85,7 @@ export const resizeContentElements = (
     );
 };
 
-export const resizeCredits = (credits, resizeOptions) => {
+export const resizeCredits = ({ credits, resizeOptions, isInApertura }) => {
     const resp = {};
     const optionsFinal = get(resizeOptions, 'sizes', [
         {
@@ -103,10 +103,11 @@ export const resizeCredits = (credits, resizeOptions) => {
                 if (!!c.image && !!c.image.url) {
                     return {
                         ...c,
-                        image: resizeArcImage(
-                            { ...c.image, type: 'image' },
-                            optionsFinal
-                        )
+                        image: resizeArcImage({
+                            arcImage: { ...c.image, type: 'image' },
+                            resizeOptions: optionsFinal,
+                            isInApertura
+                        })
                     };
                 }
                 return c;

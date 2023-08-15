@@ -28,7 +28,7 @@ exports[`components - feature - ln10 - webstory should match snapshot 1`] = `
             srcset="https://resizer.glanacion.com/resizer/lh-gNMcfgBevIHVti6EmwfG2SZo=/280x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SVH33PIGLVCGFON7ZOZYCT6KXM.jpg"
           />
           <img
-            class="image --d-flex --w-100 --h-100"
+            class="image flex --w-100 --h-100"
             decoding="async"
             fetchpriority="low"
             loading="lazy"

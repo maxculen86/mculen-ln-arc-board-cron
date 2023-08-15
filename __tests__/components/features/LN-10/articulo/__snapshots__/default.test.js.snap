@@ -26,7 +26,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         >
           <img
             alt="Nota"
-            class="image --d-flex --w-100 --h-100 --none"
+            class="image flex --w-100 --h-100 none"
             decoding="async"
             fetchpriority="low"
             height="1333"
@@ -97,7 +97,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         >
           <img
             alt="Nota"
-            class="image --d-flex --w-100 --h-100 --none"
+            class="image flex --w-100 --h-100 none"
             decoding="async"
             fetchpriority="low"
             height="1333"

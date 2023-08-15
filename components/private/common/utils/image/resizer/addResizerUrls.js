@@ -1,6 +1,7 @@
 import * as resizerV2 from './v2/resizerFactory';
 import * as resizerV1 from '../resizer';
 import { isValidString } from '../../dataValidation';
+import { isFotoAl100orStorytelling } from '../../subtypes/subtypeHelper';
 
 export const addResizedUrls = (ansDoc, options) => {
     const {
@@ -34,7 +35,8 @@ export const addResizedUrls = (ansDoc, options) => {
     const presetPromoOrDefault = presetsPromoItems || presetsDefault;
 
     const resizer = resizerV1.createResizer(isInApertura, isAdmin);
-
+    const avatarWWW = !isFotoAl100orStorytelling(subtype);
+    const resizerCreditsV1 = resizerV1.createResizer(avatarWWW, isAdmin);
     const { defaultResize } = resizerV1.getDefaultSize(subtype);
 
     return {
@@ -111,15 +113,16 @@ export const addResizedUrls = (ansDoc, options) => {
         ...(credits && {
             credits:
                 !shouldUseV1 && (isAllowSection({ section }) || shouldUseV2)
-                    ? resizerV2.resizeCredits(
+                    ? resizerV2.resizeCredits({
                           credits,
-                          presetsCredits || presetsDefault
-                      )
-                    : resizerV1.resizeCredits(
+                          resizeOptions: presetsCredits || presetsDefault,
+                          isInApertura: avatarWWW
+                      })
+                    : resizerV1.resizeCredits({
                           credits,
-                          presetsCredits || presetsDefault,
-                          resizer
-                      )
+                          resizeOptions: presetsCredits || presetsDefault,
+                          resizer: resizerCreditsV1
+                      })
         })
     };
 };
