@@ -1,7 +1,9 @@
 import {
     excludePreloadAcu,
-    getDataPreloadAcu
+    getDataPreloadAcu,
+    getFirstChainItem
 } from '../../../../../components/private/common/utils/preloadHelper';
+import acuDeportesRenderables from '../../../../../__mocks__/data/renderables/dataAccumulatedDeportes';
 
 describe('Preload helper', () => {
     describe('getDataPreloadAcu', () => {
@@ -27,17 +29,6 @@ describe('Preload helper', () => {
 
     describe('excludePreloadAcu', () => {
         const cases = [
-            [
-                'deportes',
-                true,
-                {
-                    nodeType: 'section',
-                    id: '/deportes',
-                    hasFeatureAcumuladoApertura: false,
-                    idCollectionApertura: null,
-                    hasChainBeforeGrid: true
-                }
-            ],
             [
                 'economia',
                 true,
@@ -115,5 +106,112 @@ describe('Preload helper', () => {
                 expect(excludePreloadAcu(data)).toEqual(exclude);
             }
         );
+    });
+
+    describe('getFirstChainItem', () => {
+        let hideManual = false;
+        let manualLayout = 'grilla3';
+        let hideCollection = false;
+        let collectionLayout = 'grilla3';
+        let expectedItem = {};
+
+        test('should return first articleId from caja manual', () => {
+            expectedItem = {
+                articleId: 'HSPZIST4PJC2VHU3KCSFV7LHFA',
+                imageConfig: '',
+                imageId: ''
+            };
+
+            expect(
+                getFirstChainItem(
+                    acuDeportesRenderables(
+                        hideManual,
+                        manualLayout,
+                        hideCollection,
+                        collectionLayout
+                    )
+                )
+            ).toEqual(expectedItem);
+        });
+
+        test('should return empty object with "grillaVideo1" article layout', () => {
+            manualLayout = 'grillaVideo1';
+
+            expect(
+                getFirstChainItem(
+                    acuDeportesRenderables(
+                        hideManual,
+                        manualLayout,
+                        hideCollection,
+                        collectionLayout
+                    )
+                )
+            ).toEqual({});
+        });
+
+        test('should return first caja collection', () => {
+            hideManual = true;
+
+            expectedItem = {
+                collectionId: 'FPKJS5YHQVFGVD46GOLY7A265U',
+                imageConfig: 'm',
+                isFocal: false,
+                initialPosition: 4
+            };
+
+            expect(
+                getFirstChainItem(
+                    acuDeportesRenderables(
+                        hideManual,
+                        manualLayout,
+                        hideCollection,
+                        collectionLayout
+                    )
+                )
+            ).toEqual(expectedItem);
+        });
+
+        test('should return first caja collection with isFocal', () => {
+            hideManual = true;
+            collectionLayout = 'focalLeft';
+
+            expectedItem = {
+                collectionId: 'FPKJS5YHQVFGVD46GOLY7A265U',
+                imageConfig: 'm',
+                isFocal: true,
+                initialPosition: 4
+            };
+
+            expect(
+                getFirstChainItem(
+                    acuDeportesRenderables(
+                        hideManual,
+                        manualLayout,
+                        hideCollection,
+                        collectionLayout
+                    )
+                )
+            ).toEqual(expectedItem);
+        });
+
+        test('should return empty object with both hidden boxes', () => {
+            hideManual = true;
+            hideCollection = true;
+
+            expect(
+                getFirstChainItem(
+                    acuDeportesRenderables(
+                        hideManual,
+                        manualLayout,
+                        hideCollection,
+                        collectionLayout
+                    )
+                )
+            ).toEqual({});
+        });
+
+        test('should return empty object with no renderables', () => {
+            expect(getFirstChainItem([])).toEqual({});
+        });
     });
 });
