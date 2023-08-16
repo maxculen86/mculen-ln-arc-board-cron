@@ -13,5 +13,12 @@
         "_id": "club-la-nacion",
         "display_name": "Club LA NACION",
         "is_default_website": false
+    },
+    {
+        "_id": "recetas",
+        "display_name": "RECETAS",
+        "base_path": "/",
+        "is_default_website": false
     }
+
 ]
