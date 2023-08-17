@@ -235,12 +235,14 @@ const setupCookies = ({ Usuario: obj }) => {
     }
 };
 
-const reMeHandler = (res, token, xvalue, dispatch) => {
+const reMeHandler = (res, token, xvalue, accessToken, dispatch) => {
     if (res.code === '0000') {
         eraseCookie('token');
         eraseCookie('xvalue');
+        eraseCookie('access-token');
         setCookie('token', token);
         setCookie('xvalue', xvalue);
+        setCookie('access-token', accessToken);
         setupCookies(JSON.parse(res.response) || {});
         _UserClientLibs('RefreshAsync')();
     } else {
@@ -258,6 +260,7 @@ export const loginSetup = dispatch => {
             apiIngresar.reLogin(token, xvalue).then(res => {
                 const newToken = getTokenBodyHelper(res.response, 1);
                 const newXvalue = getTokenBodyHelper(res.response, 2);
+                const accessToken = getTokenBodyHelper(res.response, 3);
                 if (res.code === '0000') {
                     apiIngresar
                         .getMe(newToken, newXvalue, true)
@@ -267,6 +270,7 @@ export const loginSetup = dispatch => {
                                 userData,
                                 newToken,
                                 newXvalue,
+                                accessToken,
                                 dispatch
                             );
                         });
