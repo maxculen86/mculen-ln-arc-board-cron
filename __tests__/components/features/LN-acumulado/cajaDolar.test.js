@@ -18,8 +18,6 @@ jest.mock('fusion:context', () => () => ({
     useAppContext: jest.fn(() => ({}))
 }));
 
-jest.mock('fusion:static', () => 'mock-static');
-
 jest.mock(
     '../../../../components/private/common/staticContent.jsx',
     () => 'mock-static-content'
@@ -121,12 +119,6 @@ describe('with a valid response on a note', () => {
         expect(screen.getByText('Dólar mayorista')).toBeDefined();
         expect(screen.getByText('Euro')).toBeDefined();
         expect(screen.getAllByRole('heading')).toHaveLength(9);
-        expect(
-            screen.getByText(
-                (content, element) =>
-                    element.tagName.toLowerCase() === 'mock-static'
-            )
-        ).toBeVisible();
     });
 });
 

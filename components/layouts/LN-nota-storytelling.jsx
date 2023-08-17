@@ -38,7 +38,7 @@ const lnNotaStorytelling = ({
             noteType: subtype
         }) && !amp;
 
-    const withVideoBackground = Boolean(
+    const withoutVideoBackground = !Boolean(
         get(globalContent, 'promo_items.storytelling', null)
     );
 
@@ -57,10 +57,11 @@ const lnNotaStorytelling = ({
                 <main id="content">
                     {children[1]}
 
-                    {isLoadWithPicture && !withVideoBackground ? (
+                    {isLoadWithPicture && withoutVideoBackground ? (
                         <StaticContent>
                             <AperturaStorytelling
                                 isLoadWithPicture={isLoadWithPicture}
+                                withoutVideoBackground={withoutVideoBackground}
                             />
                         </StaticContent>
                     ) : (

@@ -4,8 +4,6 @@ import React, { useEffect } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
-import Lazy from 'lazy-child';
-import { LAZY_OFFSETTOP } from 'fusion:environment';
 import SeguirLeyendo from '../../private/LN/nota/seguirLeyendo';
 import get from '../../private/common/utils/get';
 import filter from '../../../content/filters/LN/nota/articleAcu';
@@ -44,28 +42,21 @@ const seguirLeyendo = ({ globalContent, outputType }) => {
     if (!articles.length) return null;
 
     return (
-        <Lazy
-            renderPlaceholder={ref => {
-                return <div ref={ref} />;
-            }}
-            offsetTop={LAZY_OFFSETTOP}
-        >
-            <div className="row">
-                <div className="col-12">
-                    <section
-                        className="keep-reading"
-                        data-is-block="true"
-                        data-block-name="n_segui_leyendo"
-                        data-diagramacion-id="0"
-                    >
-                        <SeguirLeyendo
-                            relatedContent={articles}
-                            outputType={outputType}
-                        />
-                    </section>
-                </div>
+        <div className="row">
+            <div className="col-12">
+                <section
+                    className="keep-reading"
+                    data-is-block="true"
+                    data-block-name="n_segui_leyendo"
+                    data-diagramacion-id="0"
+                >
+                    <SeguirLeyendo
+                        relatedContent={articles}
+                        outputType={outputType}
+                    />
+                </section>
             </div>
-        </Lazy>
+        </div>
     );
 };
 

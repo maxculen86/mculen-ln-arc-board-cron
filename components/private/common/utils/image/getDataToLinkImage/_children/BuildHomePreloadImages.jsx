@@ -12,7 +12,9 @@ const BuildHomePreloadImages = ({ renderables, arcSite, isAdmin, layout }) => {
 
     return (
         Array.isArray(resizedUrls) &&
-        resizedUrls.length > 0 && <LinkImagePreload resizedUrls={resizedUrls} />
+        resizedUrls.length > 0 && (
+            <LinkImagePreload resizedUrls={resizedUrls} isLoadWithPicture />
+        )
     );
 };
 
