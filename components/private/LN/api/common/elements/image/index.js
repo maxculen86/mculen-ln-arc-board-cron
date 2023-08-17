@@ -91,6 +91,30 @@ export const getImageUrl = url => {
     return hrefRegex.exec(url);
 };
 
+export const getImageUrlResizerV2 = url => {
+    const regexV2 = /.*(\/resizer\/v2\/[a-zA-Z0-9]+.*[?]auth=(.*))/;
+    return regexV2.exec(url);
+};
+
+export const getImageUrlBasedOnResizerVersion = url => {
+    const imageUrl = isResizerV2(url)
+        ? getImageUrlResizerV2(url)
+        : getImageUrl(url);
+
+    if (imageUrl) {
+        const updatedUrl = updateUrlWithResizerBase(imageUrl[0]);
+        return updatedUrl;
+    }
+
+    return url;
+};
+
+export const updateUrlWithResizerBase = url => {
+    if (!url) return url;
+
+    return url.replace(/.*\/resizer\//, '/resizer/')?.trim();
+};
+
 export const imageMobile = imageData => {
     const image = imageCommon(imageData);
     const resp = {
