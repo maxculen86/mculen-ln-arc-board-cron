@@ -73,6 +73,7 @@
         "@ln/contenidos-ui-text": "1.1.0",
         "@ln/contenidos-ui-timeline": "1.1.1",
         "@ln/contenidos-ui-webstories": "1.1.0",
+        "@ln/hooks": "1.1.0",
         "classnames": "2.3.2",
         "copyfiles": "2.4.1",
         "lazy-child": "0.3.1",

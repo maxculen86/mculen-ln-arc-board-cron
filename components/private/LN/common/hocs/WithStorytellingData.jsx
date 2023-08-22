@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { getTypeOfDevice } from '@ln/hooks';
 import get from '../../../common/utils/get';
 import getApertura from '../../../common/utils/getApertura';
 import {
@@ -26,9 +27,6 @@ export default function WithStorytellingData(WrappedComponent) {
                         subtype: PropTypes.string
                     })
                 }),
-                screenUtils: PropTypes.shape({
-                    device: PropTypes.string
-                }),
                 isLoadWithPicture: PropTypes.bool
             };
         }
@@ -43,9 +41,6 @@ export default function WithStorytellingData(WrappedComponent) {
                     },
                     type: '',
                     subtype: ''
-                },
-                screenUtils: {
-                    device: 'desktop'
                 },
                 isLoadWithPicture: false
             };
@@ -76,12 +71,16 @@ export default function WithStorytellingData(WrappedComponent) {
             const outputType = get(this, 'props.outputType', null);
             const type = get(this, 'props.globalContent.type', null);
             const subtype = get(this, 'props.globalContent.subtype', null);
-            const device = get(this, 'props.screenUtils.device', 'desktop');
             const isLoadWithPicture = get(
                 this,
                 'props.isLoadWithPicture',
                 false
             );
+            const device = getTypeOfDevice({
+                mobile: 768,
+                tablet: 1024
+            });
+
             const isMobile = outputType === 'amp' || device !== 'desktop';
 
             return type === 'story' &&
@@ -92,7 +91,8 @@ export default function WithStorytellingData(WrappedComponent) {
                       basicImage,
                       videoBackground,
                       storytellingMobile,
-                      isLoadWithPicture
+                      isLoadWithPicture,
+                      device
                   )
                 : {};
         };

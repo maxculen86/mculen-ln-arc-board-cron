@@ -92,14 +92,6 @@ exports[`Tests - Component - AperturaStorytelling Cases render video should show
         >
           <picture>
             <source
-              media="(min-width: 1440px)"
-              srcset="https://resizer.glanacion.com/resizer/QA8QbJtR48w8to_x455xpakQ0Lg=/1920x1280/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QWSOSM5RSBAZ3EQ2YH3P4TLPDM.jpg"
-            />
-            <source
-              media="(min-width: 1024px)"
-              srcset="https://resizer.glanacion.com/resizer/rC6pi2vTJzUA-fAurKdQwim6e5k=/1200x800/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/QWSOSM5RSBAZ3EQ2YH3P4TLPDM.jpg"
-            />
-            <source
               media="(min-width: 768px)"
               srcset="https://resizer.glanacion.com/resizer/Ga-HaRbXAZLN4o55ORO-71XtQnk=/770x1155/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg"
             />

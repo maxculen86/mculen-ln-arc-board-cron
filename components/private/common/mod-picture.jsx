@@ -51,7 +51,6 @@ const ModImage = props => {
                     />
                 </div>
             )}
-            {/* TODO: Eliminar el retorno del com-image cuando se haya habilitado foto al 100 a carga con picture */}
             {!isLoadWithPicture && (
                 <ComImage
                     srcset={srcSet}

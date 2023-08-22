@@ -6,7 +6,6 @@ import ModPicture from '../../../../common/mod-picture';
 import ModFigcaption from '../../../../common/mod-figcaption';
 import TitleAndIconArticle from '../titleAndIconArticle';
 
-import WithScreenUtils from '../../../../common/hocs/withScreenUtils';
 import WithStorytellingData from '../../../common/hocs/WithStorytellingData';
 
 import {
@@ -40,14 +39,18 @@ const Component = props => {
     const {
         storytellingData,
         outputType,
-        screenUtils: { device },
         globalContent: { headlines, subtype },
-        isLoadWithPicture
+        isLoadWithPicture,
+        withoutVideoBackground
     } = props;
-
+    const isMobile = get(storytellingData, 'apertura.isMobile', false);
+    const device = get(storytellingData, 'apertura.device', 'desktop');
     const isAmp = outputType === 'amp';
-    const isMobile = isAmp || device !== 'desktop';
-    const [data, setData] = useState(storytellingData);
+    const [data, setData] = useState(
+        isMobile || subtype === FOTOAL100 || withoutVideoBackground
+            ? storytellingData
+            : {}
+    );
     const titleNote = get(headlines, 'basic', undefined);
 
     useEffect(() => {
@@ -94,7 +97,6 @@ const Component = props => {
                     isLoadWithPicture={isLoadWithPicture}
                     imageListForPicture={resizedUrls}
                     imgDefault={imgDefault}
-                    isMobile={isMobile}
                 />
                 <div className="mod-title">
                     <div className="lay">
@@ -150,4 +152,4 @@ Component.defaultProps = {
     isLoadWithPicture: false
 };
 
-export default WithScreenUtils(WithStorytellingData(Component));
+export default WithStorytellingData(Component);

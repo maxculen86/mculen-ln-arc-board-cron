@@ -61,7 +61,7 @@ const Banner = props => {
         <>
             {bannersConfiguration.map(bannerConfiguration =>
                 !shouldShowBanner(soloNoSuscriptores, globalContent) ? (
-                    <StaticContent>
+                    <>
                         <DivBannerSSR
                             key={bannerConfiguration.slotName}
                             bannerConfiguration={bannerConfiguration}
@@ -75,7 +75,7 @@ const Banner = props => {
                             ][bannerConfiguration.slotId].customScript({
                                 sticky
                             })}
-                    </StaticContent>
+                    </>
                 ) : (
                     <></>
                 )

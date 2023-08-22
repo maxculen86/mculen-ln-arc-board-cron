@@ -178,8 +178,8 @@ describe('collectionsHelper -  getImageConfig', () => {
         );
     });
 
-    test('should return "xs" with the diagramation of ln10 "left-focal"', () => {
-        expect(getImageConfig('bn-opening-4', false, 0)).toStrictEqual('xs');
+    test('should return "T1" with the diagramation of ln10 "left-focal"', () => {
+        expect(getImageConfig('left-focal', false, 0)).toStrictEqual('T1');
     });
 
     test('should return "featuredFocalIzquierdo" with the diagramation of ln9 "focalLeft3"', () => {

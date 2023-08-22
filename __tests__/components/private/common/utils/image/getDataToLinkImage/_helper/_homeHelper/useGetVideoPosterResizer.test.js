@@ -17,7 +17,10 @@ describe('Tests hook useGetVideoPosterResized', () => {
     };
 
     test('It should return the video data with the structure "promo_items - basic -  resized_urls"  when  is not homeLN10', () => {
-        useContent.mockReturnValueOnce(respVideoSourceWithResizedV1);
+        useContent.mockReturnValueOnce({
+            ...respVideoSourceWithResizedV1,
+            resizedUrl: resultVideoWithResizerV1.promo_items.basic.resized_urls
+        });
 
         expect(useGetVideoPosterResized(props)).toStrictEqual(
             resultVideoWithResizerV1

@@ -4,8 +4,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import Lazy from 'lazy-child';
-import { LAZY_OFFSETTOP } from 'fusion:environment';
 import CajaTema from '../../private/LN/common/cajaTema';
 import {
     NOTICIA,
@@ -76,21 +74,14 @@ const masNotas = props => {
     }
 
     return !error ? (
-        <Lazy
-            renderPlaceholder={ref => {
-                return <div ref={ref} />;
-            }}
-            offsetTop={LAZY_OFFSETTOP}
-        >
-            <CajaTema
-                title={title}
-                sectionName={sectionTitle}
-                articles={articles}
-                position="toi"
-                outputType={outputType}
-                withVolanta
-            />
-        </Lazy>
+        <CajaTema
+            title={title}
+            sectionName={sectionTitle}
+            articles={articles}
+            position="toi"
+            outputType={outputType}
+            withVolanta
+        />
     ) : (
         <></>
     );
