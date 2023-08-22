@@ -23,7 +23,8 @@ const getRegex = sectionId => {
         /^\/(autos)(?:\/.+)?/,
         /^\/(canchallena)(?:\/.+)?/,
         /^\/(deportes\/canchallena)(?:\/.+)?/,
-        /\/revista-(.\w+[^\W]?)/
+        /\/revista-(.\w+[^\W]?)/,
+        /^https:\/\/canchallena\.lanacion\.com\.ar$/
     ];
 
     return regexList.find(regex => {
@@ -52,10 +53,18 @@ const getLogoData = sections => {
         const path =
             regex &&
             sectionId &&
-            sectionId.replace(
-                regex,
-                (sectionId.includes('/revista-') && fullMatch) || `/${$1}`
-            );
+            (() => {
+                if (sectionId === '/deportes/canchallena') {
+                    return 'https://canchallena.lanacion.com.ar';
+                } else {
+                    return sectionId.replace(
+                        regex,
+                        (sectionId.includes('/revista-') && fullMatch) ||
+                            `/${$1}`
+                    );
+                }
+            })();
+        debugger;
 
         return (
             logoName &&
