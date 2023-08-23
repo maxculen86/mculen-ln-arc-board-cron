@@ -14,7 +14,7 @@ export const getFirstParentSection = section => {
  * No harcodear codigo para evitar release
  * @param {string} sectionId
  */
-const getRegex = sectionId => {
+export const getRegex = sectionId => {
     const regexList = [
         /\/(lnmas)/,
         /^\/(propiedades)(?:\/.+)?/,
