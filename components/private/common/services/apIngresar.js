@@ -1,8 +1,9 @@
 import handleCookie from '../../LN/common/utils/handleCookie';
+import { API_INGRESAR } from 'fusion:environment';
 
 const apiIngresar = () => {
     const { getCookie, eraseCookie } = handleCookie();
-    const urlApi = 'https://api-ingresar.lanacion.com.ar/UsuarioV1/';
+    const urlApi = `${API_INGRESAR}/UsuarioV1/`;
 
     const reLogin = (token, xvalue) =>
         fetch(`${urlApi}ReLogin`, {

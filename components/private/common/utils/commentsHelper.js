@@ -125,6 +125,7 @@ export const getMessageProps = (props, messageType, gc) => {
             isExclusive: true
         }
     };
+
     return MESSAGE_PROPS[messageType];
 };
 
@@ -149,7 +150,8 @@ export const useValidateComments = (props, subscription) => {
             allowComments: allow,
             showComments: show,
             messageProps: getMessageProps(props, messageType, gc),
-            showCounter: show
+            showCounter: show,
+            messageType
         });
     }, [subscription, termicaLivefyre, allow, show, shouldLoad, props, gc]);
 

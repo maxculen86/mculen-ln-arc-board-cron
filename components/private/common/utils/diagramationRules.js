@@ -51,7 +51,8 @@ const diagramationRules = diagramation => {
                     desktop: img.bottom
                 },
                 imageConfig: size.T1,
-                withPreload: true
+                withPreload: true,
+                isLoadWithPicture: true
             },
             {
                 titleTag: tag.h2,
@@ -61,7 +62,8 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                imageConfig: size.S
+                imageConfig: size.S,
+                isLoadWithPicture: true
             },
             {
                 titleTag: tag.h2,
@@ -71,7 +73,8 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                imageConfig: size.S
+                imageConfig: size.S,
+                isLoadWithPicture: true
             },
             {
                 titleTag: tag.h2,
@@ -82,7 +85,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 imagePosition: img.bottom,
                 withSubhead: false,
-                imageConfig: size.S
+                imageConfig: size.S,
+                isLoadWithPicture: true
             },
             {
                 titleTag: tag.h2,
@@ -92,7 +96,8 @@ const diagramationRules = diagramation => {
                 withMarquee: true,
                 withMarqueeImg: false,
                 withSubhead: false,
-                imageConfig: size.S
+                imageConfig: size.S,
+                isLoadWithPicture: true
             }
         ],
         'center-focal': [
@@ -111,7 +116,8 @@ const diagramationRules = diagramation => {
                     mobile: img.top,
                     tablet: img.none,
                     desktop: img.none
-                }
+                },
+                isLoadWithPicture: true
             },
             {
                 variantsDisabled: ['liveblog'],
@@ -122,7 +128,8 @@ const diagramationRules = diagramation => {
                 withPreload: true,
                 withMarquee: true,
                 withMarqueeImg: false,
-                withSubhead: false
+                withSubhead: false,
+                isLoadWithPicture: true
             },
             {
                 titleTag: tag.h2,
@@ -132,7 +139,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.S
+                imageConfig: size.S,
+                isLoadWithPicture: true
             },
             {
                 variantsDisabled: [author],
@@ -150,7 +158,8 @@ const diagramationRules = diagramation => {
                     mobile: img.top,
                     tablet: img.none,
                     desktop: img.none
-                }
+                },
+                isLoadWithPicture: true
             }
         ],
         'focal-70': [
@@ -169,7 +178,8 @@ const diagramationRules = diagramation => {
                     tablet: img.top,
                     desktop: img.right
                 },
-                withPreload: true
+                withPreload: true,
+                isLoadWithPicture: true
             },
             {
                 titleTag: tag.h2,
@@ -179,7 +189,8 @@ const diagramationRules = diagramation => {
                 withSection: false,
                 withMarquee: true,
                 withMarqueeImg: false,
-                withSubhead: false
+                withSubhead: false,
+                isLoadWithPicture: true
             },
             {
                 variantsDisabled: ['author'],
@@ -196,7 +207,8 @@ const diagramationRules = diagramation => {
                     mobile: img.top,
                     tablet: img.top,
                     desktop: img.none
-                }
+                },
+                isLoadWithPicture: true
             }
         ],
         'bn-opening-4': [
@@ -208,13 +220,14 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 cardSize: size.ML,
                 withSubhead: false,
-                imageConfig: size.XS,
+                imageConfig: size.S,
                 withPreload: true,
                 imagePosition: {
                     mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
-                }
+                },
+                isLoadWithPicture: true
             },
             {
                 titleTag: tag.h2,
@@ -224,12 +237,13 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.XS,
+                imageConfig: size.S,
                 imagePosition: {
                     mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
-                }
+                },
+                isLoadWithPicture: true
             },
             {
                 titleTag: tag.h2,
@@ -239,12 +253,13 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.XS,
+                imageConfig: size.S,
                 imagePosition: {
                     mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
-                }
+                },
+                isLoadWithPicture: true
             },
             {
                 titleTag: tag.h2,
@@ -254,12 +269,13 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 withSubhead: false,
                 cardSize: size.ML,
-                imageConfig: size.XS,
+                imageConfig: size.S,
                 imagePosition: {
                     mobile: img.top,
                     tablet: img.top,
                     desktop: img.top
-                }
+                },
+                isLoadWithPicture: true
             }
         ],
         horizontal: [
@@ -277,7 +293,8 @@ const diagramationRules = diagramation => {
                 aspectRatio: 'ar-picture',
                 className: txtCenter,
                 withPreload: true,
-                extraClass: { withoutMedia: '--no-mc' }
+                extraClass: { withoutMedia: '--no-mc' },
+                isLoadWithPicture: true
             }
         ],
         vertical: [
@@ -294,7 +311,8 @@ const diagramationRules = diagramation => {
                 imageConfig: 'bombaVertical',
                 aspectRatio: 'ar-square',
                 className: txtCenter,
-                withPreload: true
+                withPreload: true,
+                isLoadWithPicture: true
             }
         ],
         bombita: [
@@ -333,7 +351,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 cardSize: size.ML,
                 imageConfig: size.XS,
-                hideBadget: true
+                hideBadget: true,
+                isLoadWithPicture: true
             },
             {
                 variantsDisabled: [author, liveblog, html],
@@ -345,7 +364,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 cardSize: size.ML,
                 imageConfig: size.XS,
-                hideBadget: true
+                hideBadget: true,
+                isLoadWithPicture: true
             },
             {
                 variantsDisabled: [author, liveblog, html],
@@ -357,7 +377,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 cardSize: size.ML,
                 imageConfig: size.XS,
-                hideBadget: true
+                hideBadget: true,
+                isLoadWithPicture: true
             },
             {
                 variantsDisabled: [author, liveblog, html],
@@ -369,7 +390,8 @@ const diagramationRules = diagramation => {
                 withMarqueeImg: false,
                 cardSize: size.ML,
                 imageConfig: size.XS,
-                hideBadget: true
+                hideBadget: true,
+                isLoadWithPicture: true
             }
         ],
         bnGrilla4: [

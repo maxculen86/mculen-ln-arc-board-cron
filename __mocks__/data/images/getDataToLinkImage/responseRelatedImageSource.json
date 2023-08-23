@@ -12,7 +12,8 @@
                         "media": "(min-width: 768px)",
                         "useFullSize": true,
                         "proportion": "3:2",
-                        "media_preload": "(min-width: 768.1px and max-width: 1024px)"
+                        "media_preload": "(min-width: 768.1px and max-width: 1024px)",
+                        "minScreenWidth": 768
                     }
                 },
                 {
@@ -23,7 +24,8 @@
                         "media": "(min-width: 375px)",
                         "useFullSize": true,
                         "proportion": "2:3",
-                        "media_preload": "(min-width: 375.1px and max-width: 768px)"
+                        "media_preload": "(min-width: 375.1px and max-width: 768px)",
+                        "minScreenWidth": 375
                     }
                 },
                 {

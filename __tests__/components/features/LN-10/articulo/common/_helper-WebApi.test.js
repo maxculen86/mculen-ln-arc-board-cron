@@ -246,7 +246,7 @@ describe('Tests - function - getChainConfig', () => {
                     })
                 })
             ).toStrictEqual({
-                imageConfig: 'xs',
+                imageConfig: 's',
                 config: diagramationRules('bn-opening-4')[1],
                 index: 1,
                 boxPosition: '01',

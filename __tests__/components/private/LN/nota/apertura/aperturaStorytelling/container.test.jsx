@@ -1,12 +1,16 @@
 import React from 'react';
 import OpeningStorytelling from '../../../../../../../components/private/LN/nota/apertura/AperturaStorytelling/component';
-
+import { getTypeOfDevice } from '@ln/hooks';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Context from 'fusion:context';
 import storytellingWithVideo from '../../../../../../../__mocks__/data/nota/apertura/openingStorytelling/withVideo.json';
 import storytellingWithoutVideo from '../../../../../../../__mocks__/data/nota/apertura/openingStorytelling/withoutVideo.json';
 import getProperties from 'fusion:properties';
+
+jest.mock('@ln/hooks', () => ({
+    getTypeOfDevice: jest.fn()
+}));
 
 jest.mock(
     '../../../../../../../components/private/common/hocs/withScreenUtils',
@@ -46,6 +50,8 @@ describe('Tests - Component - AperturaStorytelling', () => {
     }));
 
     describe('Cases render video', () => {
+        getTypeOfDevice.mockImplementation(() => 'desktop');
+
         test('If the note has a video it should show it only for desktop with the autoplay, loop and poster attributes', () => {
             const { container } = render(
                 <OpeningStorytelling
@@ -91,13 +97,13 @@ describe('Tests - Component - AperturaStorytelling', () => {
         });
 
         test('should show image with tag picture, source and img with attributes alt, fetchpriority and loading when the device is mobile', () => {
+            getTypeOfDevice.mockImplementation(() => 'mobile');
+
             const { container } = render(
                 <OpeningStorytelling
                     {...getProps({ withoutVideo: true, device: 'mobile' })}
                 />
             );
-
-            screen.debug();
 
             const picture = container.querySelector('picture');
             const img = picture.querySelector('img');
@@ -115,9 +121,30 @@ describe('Tests - Component - AperturaStorytelling', () => {
             expect(img.getAttribute('loading')).toEqual('eager');
             expect(container).toMatchSnapshot();
         });
+
+        test('should only arm the mobile images in the picture when there is a video.', () => {
+            getTypeOfDevice.mockImplementation(() => 'mobile');
+
+            const { container } = render(
+                <OpeningStorytelling
+                    {...getProps({ withoutVideo: true, device: 'mobile' })}
+                />
+            );
+
+            const sources = container.querySelectorAll('source');
+            const img = container.querySelector('img');
+
+            expect(sources).toHaveLength(1);
+            expect(sources[0].getAttribute('media')).toStrictEqual(
+                '(min-width: 768px)'
+            );
+            expect(img.getAttribute('src').includes('420x630')).toBeTruthy();
+        });
     });
 
     describe('Cases render image', () => {
+        getTypeOfDevice.mockImplementation(() => 'desktop');
+
         test('should return the image with picture and the different sizes for desktop and mobile', () => {
             const { container } = render(
                 <OpeningStorytelling

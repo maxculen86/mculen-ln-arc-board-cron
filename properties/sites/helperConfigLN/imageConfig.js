@@ -1297,32 +1297,35 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 667,
-                        height: 667,
-                        media: minWidth1280,
+                        width: 635,
+                        height: 635,
                         proportion: '1:1',
-                        media_preload: minWidthPreload1280
+                        media_preload: setMediaCondition({
+                            minWidth: 1280
+                        }),
+                        minScreenWidth: 1280,
+                        useFullSize: true
                     },
                     {
-                        width: 627,
-                        height: 837,
+                        width: 488,
+                        height: 651,
                         proportion: '3:4',
                         media: minWidth768,
-                        media_preload: minWidth768
+                        media_preload: setMediaCondition({
+                            minWidth: 768,
+                            maxWidth: 1279
+                        }),
+                        minScreenWidth: 768,
+                        useFullSize: true
                     },
                     {
-                        width: 767,
-                        height: 1023,
+                        width: 420,
+                        height: 560,
                         proportion: '3:4',
-                        media: minWidth768,
-                        media_preload: min375max768
-                    },
-                    {
-                        width: 360,
-                        height: 427,
-                        proportion: '3:4',
-                        media: minWidth320,
-                        media_preload: minWidth320
+                        media_preload: setMediaCondition({
+                            maxWidth: 767
+                        }),
+                        useFullSize: true
                     }
                 ]
             },
@@ -1332,32 +1335,31 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 1136,
-                        height: 757,
+                        width: 1302,
+                        height: 868,
                         proportion: '3:2',
-                        media: minWidth1280,
-                        media_preload: minWidth1280
+                        media_preload: setMediaCondition({
+                            minWidth: 1280
+                        }),
+                        minScreenWidth: 1280
                     },
                     {
-                        width: 1021,
-                        height: 680,
+                        width: 976,
+                        height: 651,
                         proportion: '3:2',
-                        media: minWidth1024,
-                        media_preload: minWidth1024
+                        media_preload: setMediaCondition({
+                            minWidth: 768,
+                            maxWidth: 1279
+                        }),
+                        minScreenWidth: 768
                     },
                     {
-                        width: 767,
-                        height: 511,
+                        width: 420,
+                        height: 280,
                         proportion: '3:2',
-                        media: min768max1024,
-                        media_preload: min768max1024
-                    },
-                    {
-                        width: 375,
-                        height: 250,
-                        proportion: '3:2',
-                        media: minWidth320,
-                        media_preload: minWidth320
+                        media_preload: setMediaCondition({
+                            maxWidth: 767
+                        })
                     }
                 ]
             },
