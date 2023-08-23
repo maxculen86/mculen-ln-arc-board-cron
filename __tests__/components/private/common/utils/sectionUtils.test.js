@@ -1,7 +1,8 @@
 import {
     getFirstParentSection,
     getSectionLogo,
-    getRegex
+    getRegex,
+    generatePath
 } from '../../../../../components/private/common/utils/sectionUtils';
 import notaBrando from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 import notaBBC from '../../../../../__mocks__/data/articles/XCLX5M6MHJAMHIGD6S2BOF3L3Y';
@@ -99,16 +100,7 @@ describe('Utils - SectionUtils', () => {
             ($1 === 'deportes/canchallena' && 'canchallena') ||
             $1;
 
-        const path = (() => {
-            if (sectionId === '/deportes/canchallena') {
-                return 'https://canchallena.lanacion.com.ar';
-            } else {
-                return sectionId.replace(
-                    regex,
-                    (sectionId.includes('/revista-') && fullMatch) || `/${$1}`
-                );
-            }
-        })();
+        const path = generatePath(sectionId, regex, fullMatch, $1);
 
         const expectedResult = {
             logoName: 'canchallena',

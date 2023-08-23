@@ -48,22 +48,7 @@ const getLogoData = sections => {
             ($1 === 'economia/campo' && 'campo') ||
             ($1 === 'deportes/canchallena' && 'canchallena') ||
             $1;
-
-        const path =
-            regex &&
-            sectionId &&
-            (() => {
-                if (sectionId === '/deportes/canchallena') {
-                    return 'https://canchallena.lanacion.com.ar';
-                } else {
-                    return sectionId.replace(
-                        regex,
-                        (sectionId.includes('/revista-') && fullMatch) ||
-                            `/${$1}`
-                    );
-                }
-            })();
-
+        const path = generatePath(sectionId, regex, fullMatch, $1);
         return (
             logoName &&
             path &&
@@ -75,6 +60,17 @@ const getLogoData = sections => {
     });
 
     return resp;
+};
+
+export const generatePath = (sectionId, regex, fullMatch, $1) => {
+    if (sectionId === '/deportes/canchallena') {
+        return 'https://canchallena.lanacion.com.ar';
+    } else {
+        return sectionId.replace(
+            regex,
+            (sectionId.includes('/revista-') && fullMatch) || `/${$1}`
+        );
+    }
 };
 
 export const dictionaryAlt = {
