@@ -33,7 +33,7 @@ export const getRegex = sectionId => {
     });
 };
 
-const getLogoData = sections => {
+export const getLogoData = sections => {
     const resp = {};
 
     sections.find(section => {

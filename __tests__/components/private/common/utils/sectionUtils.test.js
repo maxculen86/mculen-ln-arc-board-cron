@@ -110,4 +110,18 @@ describe('Utils - SectionUtils', () => {
         expect(logoName).toBe(expectedResult.logoName);
         expect(path).toBe(expectedResult.path);
     });
+
+    it('generatePath should return correct path with all parameters', () => {
+        const sectionId = '/deportes/canchallena';
+        const regex = /^\/(deportes\/canchallena)(?:\/.+)?/;
+        const fullMatch = 'deportes/canchallena' && 'canchallena';
+        const $1 = 'canchallena';
+
+        const path = generatePath(sectionId, regex, fullMatch, $1);
+
+        // Define the expected result based on your implementation.
+        const expectedResult = 'https://canchallena.lanacion.com.ar'; // Replace with the actual expected path.
+
+        expect(path).toBe(expectedResult);
+    });
 });
