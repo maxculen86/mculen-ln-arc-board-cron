@@ -23,8 +23,7 @@ const getRegex = sectionId => {
         /^\/(autos)(?:\/.+)?/,
         /^\/(canchallena)(?:\/.+)?/,
         /^\/(deportes\/canchallena)(?:\/.+)?/,
-        /\/revista-(.\w+[^\W]?)/,
-        /^https:\/\/canchallena\.lanacion\.com\.ar$/
+        /\/revista-(.\w+[^\W]?)/
     ];
 
     return regexList.find(regex => {
