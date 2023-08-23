@@ -64,7 +64,6 @@ const getLogoData = sections => {
                     );
                 }
             })();
-        debugger;
 
         return (
             logoName &&
