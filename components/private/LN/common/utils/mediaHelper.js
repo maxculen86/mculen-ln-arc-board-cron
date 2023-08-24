@@ -327,7 +327,11 @@ export const buildScriptResizeSSRInfography = (promoItems = {}) => {
 };
 
 export const getMediaData = (promoItems = {}) => {
-    const { apertura_multimedia: aperturaMultimedia, basic } = promoItems;
+    const {
+        apertura_multimedia: aperturaMultimedia,
+        basic,
+        video_jw: videoJW
+    } = promoItems;
     const mediaData = aperturaMultimedia || basic;
     const type = get(mediaData, 'type', '');
 
@@ -340,6 +344,10 @@ export const getMediaData = (promoItems = {}) => {
                 )
             }
         };
+    }
+
+    if (videoJW) {
+        return videoJW;
     }
 
     return replaceUrlResizerToWWW(mediaData);

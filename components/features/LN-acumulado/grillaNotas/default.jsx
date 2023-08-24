@@ -12,7 +12,6 @@ import useGlobalProviderAcu from '../../../private/LN/acumulado/hooks/useGlobalP
 import useGridPagination from '../../../private/LN/common/hooks/useGridPagination';
 import GrillaNotas from '../../../private/LN/acumulado/grillaNotas/grillaNotas';
 
-import checkHydrateOnly from '../../../private/LN/common/utils/checkHydrateOnly';
 import { verifyChainsBeforeGrid } from '../../../private/common/utils/preloadHelper';
 
 const GrillaNotasFeature = props => {
@@ -36,7 +35,6 @@ const GrillaNotasFeature = props => {
     } = useAppContext();
 
     const hasChainBeforeGrid = verifyChainsBeforeGrid(renderables);
-    const hasHydrateOnly = checkHydrateOnly({ nodeType });
 
     const appContextProps = {
         _id: serviceType === 'feriados-mes' ? `/feriados/${serviceItem}` : _id,
@@ -80,7 +78,6 @@ const GrillaNotasFeature = props => {
             InitialGrid={InitialGrid}
             NextResults={NextResults}
             name={globalContent.name}
-            hasHydrateOnly={hasHydrateOnly}
         />
     );
 };

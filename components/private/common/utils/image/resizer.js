@@ -477,11 +477,11 @@ export const addResizedUrls = (ansDoc, options) => {
             )
         }),
         ...(credits && {
-            credits: resizeCredits(
+            credits: resizeCredits({
                 credits,
-                presetsCredits || presetsDefault,
+                resizeOptions: presetsCredits || presetsDefault,
                 resizer
-            )
+            })
         })
     };
 };

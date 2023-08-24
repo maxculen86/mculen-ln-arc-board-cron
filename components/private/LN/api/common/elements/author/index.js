@@ -1,6 +1,6 @@
 import get from '../../../../../common/utils/get';
 import { getAutorId } from '../../../../../common/utils/getElementId';
-import { getImageUrl } from '../image';
+import { getImageUrl, getImageUrlBasedOnResizerVersion } from '../image';
 
 const getAuthorData = author => {
     const { _id: id, name, expertise, role } = author;
@@ -43,14 +43,13 @@ export const getAuthorBio = author => {
 
 export const authorCommon = author => {
     const authorData = getAuthorData(author);
-    const image = getImageUrl(
-        get(author, 'additional_properties.original.image', null)
-    );
+    const url = get(author, 'additional_properties.original.image', null);
+    const image = getImageUrlBasedOnResizerVersion(url);
 
     return {
         ...authorData,
         tipo: authorData.slug ? 1 : 2,
-        imagen: image ? image[0] : null
+        imagen: image ? image : null
     };
 };
 

@@ -43,8 +43,15 @@ const fetch = query => {
              * consistencia con la data respondida en la data
              * de origen
              */
-            const { _id: idData } = response;
             const { id: idQuery } = query;
+
+            if (idQuery === '/suscriptores' && query.api === 'true') {
+                // como /suscriptores no es una seccion real, se setea el id asi para evitar caer en la validacion de NotFound
+                response._id = '/suscriptores';
+            }
+
+            const { _id: idData } = response;
+
             if (!idData || !idQuery || idData !== idQuery) {
                 throw new NotFoundError(
                     `La sección '${idQuery}' que intenta consultar no existe`
@@ -76,7 +83,8 @@ export default {
         website: 'text',
         outputType: 'text',
         redirectUrl: 'text',
-        meteringVariant: 'text'
+        meteringVariant: 'text',
+        api: 'text'
     },
     ttl: 300
 };

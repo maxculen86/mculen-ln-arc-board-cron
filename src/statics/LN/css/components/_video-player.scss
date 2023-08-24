@@ -8,6 +8,10 @@
         min-height: px(413);
     }
 
+    &.--background {
+        background-color: black;
+    }
+
     .home & {
         min-height: auto;
     }
@@ -34,14 +38,19 @@
         position: relative;
     }
 
-    .content-facade {
+    .content-facade,
+    .content-facade-jw {
         cursor: pointer;
         display: flex;
         position: absolute;
         z-index: 1;
         height: 100%;
-        width: 100%;
-
+        width: calc(100% + 2rem);
+        background-color: black;
+        justify-content: center;
+        @media ($media-m) {
+            width: 100%;
+        }
         .button-play {
             position: absolute;
             z-index: 2;

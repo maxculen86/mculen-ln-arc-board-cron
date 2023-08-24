@@ -1,11 +1,7 @@
 import React from 'react';
 import Context from 'fusion:context';
-import getProperties from 'fusion:properties';
-import Static from 'fusion:static';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import withNavigation from '../../../../components/private/common/hocs/withNavigation';
-import StaticContent from '../../../../components/private/common/staticContent';
 import Header from '../../../../components/features/OTT/header';
 
 jest.mock(
@@ -75,31 +71,6 @@ describe('components - features - OTT - header', () => {
                 screen.getByText(
                     (content, element) =>
                         element.tagName.toLowerCase() === 'mock-static-content'
-                )
-            ).toBeVisible();
-            expect(container).toMatchSnapshot();
-        });
-    });
-    describe('When site has not hydrateOnly', () => {
-        Context.useAppContext = jest.fn(() => ({
-            globalContent: {
-                node_type: undefined
-            }
-        }));
-        const props = {
-            arcSite: 'ott',
-            id: '123456567',
-            globalContent: {
-                node_type: undefined
-            }
-        };
-
-        test('Header should be wrapped in static tag', () => {
-            const { container } = render(<Header {...props} />);
-            expect(
-                screen.getByText(
-                    (content, element) =>
-                        element.tagName.toLowerCase() === 'mock-static'
                 )
             ).toBeVisible();
             expect(container).toMatchSnapshot();

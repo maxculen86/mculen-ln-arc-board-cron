@@ -1,0 +1,122 @@
+import {
+    transformImages,
+    formatJwPlayerDate,
+    getJWScript
+} from '../../../../../../components/private/common/videoPlayerJw/utils/helperJw';
+
+describe('Components - Private - Common - videoPlayerJw - Utils', () => {
+    it('transforms images correctly', () => {
+        const inputData = [
+            { src: 'image1.jpg', width: 480 },
+            { src: 'image2.jpg', width: 720 },
+            { src: 'image3.jpg', width: 1280 },
+            { src: 'image4.jpg', width: 1920 }
+        ];
+
+        const expectedOutput = [
+            { srcSet: 'image1.jpg', maxWidth: 767 },
+            { srcSet: 'image2.jpg', minWidth: 768 },
+            { srcSet: 'image3.jpg', minWidth: 1280 }
+        ];
+
+        const transformedImages = transformImages(inputData);
+
+        expect(transformedImages).toEqual(expectedOutput);
+    });
+
+    it('handles empty input data', () => {
+        const inputData = [];
+        const transformedImages = transformImages(inputData);
+        expect(transformedImages).toEqual([]);
+    });
+
+    it('handles input data with non-matching widths', () => {
+        const inputData = [
+            { src: 'image1.jpg', width: 320 },
+            { src: 'image2.jpg', width: 960 }
+        ];
+
+        const transformedImages = transformImages(inputData);
+        expect(transformedImages).toEqual([]);
+    });
+
+    it('formats timestamp correctly', () => {
+        const timestamp = 1630186800;
+
+        const formattedDate = formatJwPlayerDate(timestamp);
+
+        expect(formattedDate).toMatch(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/);
+    });
+
+    it('generates the expected JWScript', () => {
+        const title = 'videoPlayer';
+        const player = 'jwplayer';
+        const playlist = [{ file: 'video.mp4' }];
+        const hasAutoplay = true;
+        const idVideo = 'abc123';
+
+        const expectedScript = `
+          window.addEventListener('load', () => {
+            const facadeDiv = document.getElementById('facade-videoPlayer');
+          
+            const setJwScript = () => {
+              const scriptElement = document.createElement('script');
+              scriptElement.src = 'https://cdn.jwplayer.com/libraries/jwplayer.js';
+              document.head.appendChild(scriptElement);
+          
+              scriptElement.addEventListener('load', function () {
+                window.jwplayer('videoPlayer').setup({
+                  playlist: [{\"file\":\"video.mp4\"}],
+                  autostart: true
+                });
+          
+                window.jwplayer('${title}').on('ready', function (e) {
+                    const element = document.querySelector('.video-player');
+                    element.classList.remove('--background');
+                });
+            
+                const events = ['play', 'pause', 'complete'];
+            
+                events.forEach((event) => {
+                    window.jwplayer('${title}').on(event, function (e) {
+                      addToDataLayer(event, '${title}', '${idVideo}');
+                    });
+                });
+            
+                window.jwplayer('${title}').on('time', function (e) {
+                    const percent = Math.floor((e.currentTime / e.duration) * 100);
+                    const percentagesToCheck = [25, 50, 75];
+            
+                    percentagesToCheck.forEach((percentage) => {
+                    if (!isInDatalayerEvent(percentage.toString(), '${idVideo}') && percent === percentage) {
+                        addToDataLayer(percentage.toString(), '${title}', '${idVideo}');
+                    }
+                    });
+                });
+              });
+          
+              if (facadeDiv) facadeDiv.remove();
+            };
+          
+            facadeDiv.addEventListener('click', setJwScript);
+          
+            if (true) {
+              setJwScript();
+            }
+          
+            addToDataLayer('videoDisplay', 'videoPlayer', 'abc123');
+          });
+        `;
+
+        const generatedScript = getJWScript(
+            title,
+            player,
+            playlist,
+            hasAutoplay,
+            idVideo
+        );
+        expect(generatedScript.replace(/\s+/g, '')).toContain(
+            expectedScript.replace(/\s+/g, '')
+        );
+    });
+});

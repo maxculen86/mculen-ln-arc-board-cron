@@ -91,7 +91,7 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
         </div>
       </div>
       <div
-        class="access-container --mobile-none "
+        class="access-container --tablet-none "
       >
         <ul
           class="access --d-flex"

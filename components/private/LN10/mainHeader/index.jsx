@@ -52,10 +52,10 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                     onClick={e => sectionsCallback(e, toggleDesplegable)}
                     onAuxClick={e => sectionsCallback(e, toggleDesplegable)}
                 >
-                    <Icon icon="menu" size={16} className="--menu">
+                    <Icon icon="menu" size={24} className="--menu">
                         <Menu />
                     </Icon>
-                    <Text className="--desktop-only" size="2xs">
+                    <Text className="--desktop-only" size="xs">
                         SECCIONES
                     </Text>
                 </Button>
@@ -66,7 +66,7 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                     title="Ir al buscador"
                     className="button ln-button --secondary search --md"
                 >
-                    <Icon size={16}>
+                    <Icon size={24}>
                         <Search />
                     </Icon>
                 </label>

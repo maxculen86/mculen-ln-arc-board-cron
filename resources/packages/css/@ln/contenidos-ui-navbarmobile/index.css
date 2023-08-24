@@ -44,7 +44,7 @@
 .mis-notas .ln-navbar ul .--item.bookmark .icon > svg > path {
   fill: var(--blue-500);
 }
-@media (min-width: 64rem) {
+@media (min-width: 80rem) {
   .ln-navbar {
     display: none;
   }

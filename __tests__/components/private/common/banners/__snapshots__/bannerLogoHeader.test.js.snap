@@ -2,8 +2,8 @@
 
 exports[`Components - Private -  Common - Banners - BannerLogoHeader should match snapshot 1`] = `
 <div>
-  <mock-static
-    id="id-banner-logo"
+  <div
+    class="hidden"
   >
     <div
       class="mod-banner --logo_header_dsk --logo hlp-none "
@@ -44,6 +44,6 @@ exports[`Components - Private -  Common - Banners - BannerLogoHeader should matc
         id="logo_header_tab"
       />
     </div>
-  </mock-static>
+  </div>
 </div>
 `;

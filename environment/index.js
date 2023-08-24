@@ -65,10 +65,12 @@ export default {
     VIAFOURA_XREQUEST:
         'QA+b2NU5+pJLVNVOQ2ahGn3bZOAcJKVKVey+ZreIMqYHg2ei2uOcbiKxU4TAsg4X',
     ARC_WIDGETS: 'https://arc-widgets.lanacion.com.ar/widgets/',
-    FONT_BOLD: '/resources/fonts/suecaslab-bold-webfont.woff2',
-    FONT_MEDIUM: '/resources/fonts/suecaslab-medium-webfont.woff2',
-    FONT_PRUMO: '/resources/fonts/Prumo-LNVF.woff2',
-    FONT_PRUMO_ITALIC: '/resources/fonts/Prumo-ItalicLNVF.woff2',
+    FONT_PRUMO: '/resources/fonts/prumo/Prumo-LNVF.woff2',
+    FONT_PRUMO_ITALIC: '/resources/fonts/prumo/Prumo-ItalicLNVF.woff2',
+    ROBOTO_LIGHT: '/resources/fonts/roboto/Roboto-Light.woff2',
+    ROBOTO_REGULAR: '/resources/fonts/roboto/Roboto-Regular.woff2',
+    ROBOTO_MEDIUM: '/resources/fonts/roboto/Roboto-Medium.woff2',
+    ROBOTO_BOLD: '/resources/fonts/roboto/Roboto-Bold.woff2',
     LANACION_SERVICES_URL: 'https://arcservices.lanacion.com.ar',
     PERSONALIZACION_API:
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
