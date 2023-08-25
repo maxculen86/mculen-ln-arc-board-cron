@@ -100,7 +100,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             const desplegable = container.querySelector('.desplegable');
 
             expect(getByText('Sin suscripción digital')).toBeInTheDocument();
-            expect(getByText('SUSCRIBITE')).toBeInTheDocument();
+            expect(getByText('Suscribite')).toBeInTheDocument();
             expect(desplegable).toBeInTheDocument();
             expect(getByText(mock.userName)).toBeInTheDocument();
         });
@@ -111,7 +111,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             );
             const desplegable = container.querySelector('.desplegable');
 
-            expect(getByText('SUSCRIBITE')).toBeInTheDocument();
+            expect(getByText('Suscribite')).toBeInTheDocument();
             expect(getByText('INICIAR SESIÓN')).toBeInTheDocument();
 
             expect(desplegable).not.toBeInTheDocument();
