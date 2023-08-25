@@ -31,5 +31,13 @@ describe('Recetas - notaRecetaHelper', () => {
         it('should empty string with no tags', () => {
             expect(getHighestPriorityTag([])).toBe('');
         });
+
+        it('should empty string with no tags', () => {
+            expect(getHighestPriorityTag(undefined)).toBe('');
+        });
+
+        it('should empty string with no tags', () => {
+            expect(getHighestPriorityTag(null)).toBe('');
+        });
     });
 });

@@ -15,7 +15,9 @@ export const transformNotaReceta = article => {
     };
 };
 
-export const getHighestPriorityTag = tags => {
+export const getHighestPriorityTag = (tags = []) => {
+    if (!tags) return '';
+
     const prioritySortedTags = [
         'fácil',
         'rápida',
