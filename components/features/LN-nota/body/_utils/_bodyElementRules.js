@@ -1,4 +1,3 @@
-/* eslint-disable consistent-return */
 // Components
 import Paragraph from '../../../../private/LN/nota/cuerpo/parrafo';
 import PullQuote from '../../../../private/LN/nota/cuerpo/pullQuote';
@@ -9,6 +8,7 @@ import Gallery from '../../../../private/LN/common/carrousell';
 import ListOrderedOrUnordered from '../../../../private/LN/nota/cuerpo/listOrderedOrUnordered';
 import Image from '../../../../private/LN/nota/cuerpo/image';
 import Video from '../../../../private/LN/nota/cuerpo/video';
+import VideoJW from '../../../../private/common/videoPlayerJw/index';
 import RawHTML from '../../../../private/LN/common/rawHTML';
 import OembedAMP from '../../../../private/LN/nota/cuerpo/oembedAMP';
 import BotonLink from '../../../../private/LN/nota/cuerpo/botonLink';
@@ -33,6 +33,7 @@ const bodyComponents = [
     ListOrderedOrUnordered,
     Image,
     Video,
+    VideoJW,
     RawHTML,
     OembedAMP,
     BotonLink,
