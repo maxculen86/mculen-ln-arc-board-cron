@@ -3,6 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import getAuthorByline from '../utils/getAuthorByline';
 import { googlePublisherAndLiftIgniterPropTypes } from '../utils/propTypesHelper';
 import handleCookie from '../../LN/common/utils/handleCookie';
+import createHash from '../utils/createHash';
 
 class GooglePublisherTag extends Component {
     static decorate(prefix, regex, replace, string) {
@@ -123,8 +124,10 @@ class GooglePublisherTag extends Component {
             : this.getAuthorsFromContentElements(contentElements);
 
         const script = `
+            const createHash = ${createHash.toString()};
             const googleTagGetCookie = ${getCookie};
             const googleTagUserCookie = googleTagGetCookie('ProductoPremiumId') || [];
+            const googleTagEmailCookie = googleTagGetCookie('usuarioemail') || '';
             const googleTagSuscriptionType = userCookie.includes('2') ? 'suscriptor' : 'no suscriptor';
 
             var pbjs = pbjs || {};
@@ -136,8 +139,16 @@ class GooglePublisherTag extends Component {
                 googletag.pubads().enableSingleRequest();
                 googletag.pubads().enableAsyncRendering();
                 googletag.pubads().disableInitialLoad();
+        
+                if (googleTagEmailCookie) {
+                    createHash(googleTagEmailCookie)
+                    .then(hash => {
+                        googletag.pubads().setPublisherProvidedId(hash);
+                    })
+                }
+        
                 googletag.enableServices();
- 
+        
                 console.log('🚀 ::: setTargeting ON ::: 🚀');
                 googletag.pubads().setTargeting('tags_nuevos', [${categories} ${topics} ${authorList} ${url} ${articleId}]);
                 googletag.pubads().setTargeting('usuario_tipo', googleTagSuscriptionType);
