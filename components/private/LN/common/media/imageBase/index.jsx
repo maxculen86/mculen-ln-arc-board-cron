@@ -22,7 +22,7 @@ const ImageArticle = props => {
         isValidSection,
         searchableField
     } = props;
-    const wwwImage = replaceUrlResizerToWWW(image);
+    const wwwImage = isApertura ? replaceUrlResizerToWWW(image) : image;
     const {
         alt_text: altText,
         caption,
