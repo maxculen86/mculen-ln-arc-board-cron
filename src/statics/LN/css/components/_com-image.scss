@@ -83,5 +83,8 @@
 amp-img {
     img {
         object-fit: cover;
+        .canchallena & {
+            object-fit: contain;
+        }
     }
 }
