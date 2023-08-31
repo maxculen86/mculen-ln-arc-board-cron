@@ -1,0 +1,137 @@
+{
+    "_id": "WJ6KVAVOFZFCZCXQV57Y7WNBCM",
+    "additional_properties": {},
+    "embed": {
+        "config": {
+            "idPlayer": "bWFcPBAT",
+            "idVideo": "I7RTBP0c",
+            "videoJw": {
+                "description": "",
+                "kind": "Single Item",
+                "playlist": {
+                    "description": "",
+                    "duration": 87,
+                    "image": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=720",
+                    "images": [
+                        {
+                            "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=320",
+                            "type": "image/jpeg",
+                            "width": 320
+                        },
+                        {
+                            "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=480",
+                            "type": "image/jpeg",
+                            "width": 480
+                        },
+                        {
+                            "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=640",
+                            "type": "image/jpeg",
+                            "width": 640
+                        },
+                        {
+                            "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=720",
+                            "type": "image/jpeg",
+                            "width": 720
+                        },
+                        {
+                            "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=1280",
+                            "type": "image/jpeg",
+                            "width": 1280
+                        },
+                        {
+                            "src": "https://cdn.jwplayer.com/v2/media/I7RTBP0c/poster.jpg?width=1920",
+                            "type": "image/jpeg",
+                            "width": 1920
+                        }
+                    ],
+                    "link": "https://cdn.jwplayer.com/previews/I7RTBP0c",
+                    "mediaid": "I7RTBP0c",
+                    "sources": [
+                        {
+                            "file": "https://cdn.jwplayer.com/manifests/I7RTBP0c.m3u8",
+                            "type": "application/vnd.apple.mpegurl"
+                        },
+                        {
+                            "bitrate": 500337,
+                            "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-kTExGaWf.mp4",
+                            "filesize": 5441174,
+                            "framerate": 30,
+                            "height": 180,
+                            "label": "180p",
+                            "type": "video/mp4",
+                            "width": 320
+                        },
+                        {
+                            "bitrate": 728301,
+                            "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-K8B0kybS.mp4",
+                            "filesize": 7920281,
+                            "framerate": 30,
+                            "height": 270,
+                            "label": "270p",
+                            "type": "video/mp4",
+                            "width": 480
+                        },
+                        {
+                            "bitrate": 2151323,
+                            "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-46NIuRKO.mp4",
+                            "filesize": 23395647,
+                            "framerate": 30,
+                            "height": 720,
+                            "label": "720p",
+                            "type": "video/mp4",
+                            "width": 1280
+                        },
+                        {
+                            "bitrate": 114322,
+                            "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-hz5z2Tv4.m4a",
+                            "filesize": 1243260,
+                            "label": "AAC Audio",
+                            "type": "audio/mp4"
+                        },
+                        {
+                            "bitrate": 4659363,
+                            "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-SomplJdm.mp4",
+                            "filesize": 50670580,
+                            "framerate": 30,
+                            "height": 1080,
+                            "label": "1080p",
+                            "type": "video/mp4",
+                            "width": 1920
+                        },
+                        {
+                            "bitrate": 816066,
+                            "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-FnZGUVnC.mp4",
+                            "filesize": 8874721,
+                            "framerate": 30,
+                            "height": 360,
+                            "label": "360p",
+                            "type": "video/mp4",
+                            "width": 640
+                        },
+                        {
+                            "bitrate": 1405722,
+                            "file": "https://cdn.jwplayer.com/videos/I7RTBP0c-0G6Pwvlw.mp4",
+                            "filesize": 15287227,
+                            "framerate": 30,
+                            "height": 540,
+                            "label": "540p",
+                            "type": "video/mp4",
+                            "width": 960
+                        }
+                    ],
+                    "title": "Youtubers realizan un experimento social en el barrio de Palermo",
+                    "tracks": [
+                        {
+                            "file": "https://cdn.jwplayer.com/strips/I7RTBP0c-120.vtt",
+                            "kind": "thumbnails"
+                        }
+                    ],
+                    "variations": {}
+                },
+                "title": "Youtubers realizan un experimento social en el barrio de Palermo"
+            }
+        }
+    },
+    "subtype": "video_jw",
+    "type": "custom_embed"
+}

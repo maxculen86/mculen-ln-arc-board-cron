@@ -2,6 +2,7 @@ import get from '../../../../../../../common/utils/get';
 import header from './header';
 import htmlText from '../../../../../common/elements/story/cuerpo/elements/htmlText';
 import image from './image';
+import videoJW from './videoJW';
 
 const getTime = time => {
     if (time) {
@@ -14,10 +15,21 @@ const getTime = time => {
     return null;
 };
 const customEmbed = (nodo, dataNota) => {
-    if (!nodo || !['custom-parallax', 'custom-liveblog'].includes(nodo.subtype))
+    if (
+        !nodo ||
+        !['custom-parallax', 'custom-liveblog', 'custom-video-jw'].includes(
+            nodo.subtype
+        )
+    )
         return null;
 
     const res = [];
+
+    if (nodo.subtype === 'custom-video-jw') {
+        const videoJWElement = get(nodo, 'embed.config.videoJw', null);
+        res.push(videoJW(videoJWElement));
+        return res;
+    }
 
     const titleElement = get(nodo, 'embed.config.title', null);
     const time = getTime(get(nodo, 'embed.config.time', null));
