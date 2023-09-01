@@ -26,25 +26,75 @@ describe('utils - image - resizer - addResizerUrls', () => {
             expect(payload).toBeFalsy();
         });
 
-        test('Should return false when section is not allowed = /revista-jardin', () => {
-            const payload = isAllowSection({
-                section: '/revista-jardin'
-            });
-            expect(payload).toBeFalsy();
-        });
-
-        test('Should return true when section is allowed = /revista-living', () => {
-            const payload = isAllowSection({
-                section: '/revista-living'
-            });
-            expect(payload).toBeTruthy();
+        test('Should return true when sections are allowed', () => {
+            expect(
+                isAllowSection({
+                    section: '/revista-living'
+                })
+            ).toBeTruthy();
+            expect(
+                isAllowSection({
+                    section: '/sociedad'
+                })
+            ).toBeTruthy();
+            expect(
+                isAllowSection({
+                    section: '/seguridad'
+                })
+            ).toBeTruthy();
+            expect(
+                isAllowSection({
+                    section: '/economia'
+                })
+            ).toBeTruthy();
         });
 
         test('Should return true even when provided section is son of allowed section = /revista-living/dormitorios', () => {
-            const payload = isAllowSection({
-                section: '/revista-living/dormitorios'
-            });
-            expect(payload).toBeTruthy();
+            expect(
+                isAllowSection({
+                    section: '/revista-living/dormitorios'
+                })
+            ).toBeTruthy();
+            expect(
+                isAllowSection({
+                    section: '/sociedad/mock'
+                })
+            ).toBeTruthy();
+            expect(
+                isAllowSection({
+                    section: '/seguridad/mock'
+                })
+            ).toBeTruthy();
+            expect(
+                isAllowSection({
+                    section: '/economia/comercio-exterior/'
+                })
+            ).toBeTruthy();
+        });
+
+        test('Should return false only for v1 remaining sections: deportes y politica', () => {
+            expect(
+                isAllowSection({
+                    section: '/deportes'
+                })
+            ).toBeFalsy();
+            expect(
+                isAllowSection({
+                    section: '/politica'
+                })
+            ).toBeFalsy();
+        });
+        test('Should return false for v1 remaining child sections of: deportes y politica', () => {
+            expect(
+                isAllowSection({
+                    section: '/deportes/futbol/'
+                })
+            ).toBeFalsy();
+            expect(
+                isAllowSection({
+                    section: '/politica/mock/'
+                })
+            ).toBeFalsy();
         });
     });
 });

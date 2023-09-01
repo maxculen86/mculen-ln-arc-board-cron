@@ -14,6 +14,7 @@ export const getFirstParentSection = section => {
  * No harcodear codigo para evitar release
  * @param {string} sectionId
  */
+
 export const getRegex = sectionId => {
     const regexList = [
         /\/(lnmas)/,
@@ -66,9 +67,12 @@ export const generatePath = (sectionId, regex, fullMatch, $1) => {
     if (sectionId === '/deportes/canchallena') {
         return 'https://canchallena.lanacion.com.ar';
     } else {
-        return sectionId.replace(
-            regex,
-            (sectionId.includes('/revista-') && fullMatch) || `/${$1}`
+        return (
+            sectionId &&
+            sectionId.replace(
+                regex,
+                (sectionId.includes('/revista-') && fullMatch) || `/${$1}`
+            )
         );
     }
 };

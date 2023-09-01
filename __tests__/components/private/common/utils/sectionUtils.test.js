@@ -119,8 +119,7 @@ describe('Utils - SectionUtils', () => {
 
         const path = generatePath(sectionId, regex, fullMatch, $1);
 
-        // Define the expected result based on your implementation.
-        const expectedResult = 'https://canchallena.lanacion.com.ar'; // Replace with the actual expected path.
+        const expectedResult = 'https://canchallena.lanacion.com.ar';
 
         expect(path).toBe(expectedResult);
     });

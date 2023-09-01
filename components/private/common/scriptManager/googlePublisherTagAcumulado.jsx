@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import handleCookie from '../../LN/common/utils/handleCookie';
+import createHash from '../utils/createHash';
 
 const formatExpression = text => {
     return 'ca_'.concat(
@@ -55,8 +56,10 @@ const googlePublisherTagAcumulado = props => {
     const { getCookie } = handleCookie();
 
     const script = `
+        const createHash = ${createHash.toString()};
         const googleTagGetCookie = ${getCookie};
         const googleTagUserCookie = googleTagGetCookie('ProductoPremiumId') || [];
+        const googleTagEmailCookie = googleTagGetCookie('usuarioemail') || '';
         const googleTagSuscriptionType = userCookie.includes('2') ? 'suscriptor' : 'no suscriptor';
 
             var pbjs = pbjs || {};
@@ -64,6 +67,14 @@ const googlePublisherTagAcumulado = props => {
             
             (window.googletag = window.googletag || { cmd: [] });
                 googletag.cmd.push(function() {
+                    if (googleTagEmailCookie) {
+                        createHash(googleTagEmailCookie)
+                        .then(hash => {
+                            googletag.pubads().setPublisherProvidedId(hash);
+                        })
+                    }
+            
+                    googletag.enableServices();
                     googletag.pubads().setTargeting('tags_nuevos', ${JSON.stringify(
                         [...category, ...topic, ...author]
                     )});

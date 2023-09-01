@@ -1,7 +1,7 @@
 import * as resizerV2 from './v2/resizerFactory';
 import * as resizerV1 from '../resizer';
-import { isValidString } from '../../dataValidation';
 import { isFotoAl100orStorytelling } from '../../subtypes/subtypeHelper';
+import { isEmptyString, isValidString } from '../../dataValidation';
 
 export const addResizedUrls = (ansDoc, options) => {
     const {
@@ -128,21 +128,11 @@ export const addResizedUrls = (ansDoc, options) => {
 };
 
 export const isAllowSection = ({ section = '' }) => {
-    const allowList = [
-        '/revista-living',
-        '/propiedades',
-        '/seguridad',
-        '/salud',
-        '/revista-hola',
-        '/economia',
-        '/sociedad',
-        '/el-mundo',
-        '/horoscopo',
-        '/loterias'
-    ];
-
-    return allowList.some(
-        allowSection =>
-            isValidString(section) && section.startsWith(allowSection)
+    return (
+        isValidString(section) &&
+        !isEmptyString(section) &&
+        !['/deportes', '/politica'].some(notAllowedSection =>
+            section.startsWith(notAllowedSection)
+        )
     );
 };
