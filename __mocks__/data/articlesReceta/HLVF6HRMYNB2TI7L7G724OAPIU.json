@@ -1,0 +1,399 @@
+{
+    "_id": "HLVF6HRMYNB2TI7L7G724OAPIU",
+    "canonical_url": "/dieta/veganas/como-traer-la-tercera-nid24082023/",
+    "category": "veganas",
+    "content_elements": [
+        {
+            "powerUp": [
+                {
+                    "_id": "RUBW7HNPIVA7HC3VSYFZZ7QHBA",
+                    "embed": {
+                        "config": {
+                            "items": ["Resiliencia", "Esfuerzo", "Mucho huevo"],
+                            "titleList": "",
+                            "typeList": "ingredientes"
+                        }
+                    },
+                    "subtype": "custom-ingrediente",
+                    "type": "custom_embed"
+                },
+                {
+                    "_id": "WKKU6X2JMREEVADJYUAX2EBNOY",
+                    "embed": {
+                        "config": {
+                            "items": [
+                                "Bajar la espuma, 1 - 2 Arabia Saudi",
+                                "2 a Mexico",
+                                "Otros 2 para Polonia",
+                                "2 - 1, Australia",
+                                "Partido duro contra la naranja mecanica, 2 - 2 y por penales",
+                                "Paseito con Luquita Modrick, 3 - 0",
+                                "Sufrir contra la tortuga ninja Mbappe, 3 - 3 define Montiel por penales",
+                                "GLORIA ETERNA!"
+                            ],
+                            "titleList": "Paso a paso: ",
+                            "typeList": "preparacion"
+                        }
+                    },
+                    "subtype": "custom-preparacion",
+                    "type": "custom_embed"
+                }
+            ],
+            "subtype": "power-up-receta",
+            "type": "custom_embed"
+        },
+        {
+            "_id": "TR5C3TK6F5BWRCYRR3AUO4RMQ4",
+            "additional_properties": {
+                "iptc_source": "AP"
+            },
+            "auth": {
+                "1": "280ee101695619353dc6daec55ef9febe10e37c84cabf7bf3534732e593bab22"
+            },
+            "caption": "Lionel Messi, de la selección de Argentina, besa la Copa del Mundo y sostiene el trofeo al mejor jugador de ésta, el 18 de diciembre de 2022, en Lusail, Qatar (AP Foto/Natacha Pisarenko)",
+            "created_date": "2023-02-03T14:17:01Z",
+            "credits": {
+                "affiliation": [
+                    {
+                        "name": "AP",
+                        "type": "author"
+                    }
+                ],
+                "by": [
+                    {
+                        "byline": "Natacha Pisarenko",
+                        "name": "Natacha Pisarenko",
+                        "type": "author"
+                    }
+                ]
+            },
+            "height": 1241,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 186,
+                        "media": "(min-width: 1280px)",
+                        "width": 278
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/drGnkl7q6kAIdrTIscig82NzLG0=/278x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+                },
+                {
+                    "option": {
+                        "height": 230,
+                        "media": "(min-width: 1024px)",
+                        "width": 344
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/-Y0LOHgWaAoNr8eul1vmMCM106k=/344x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+                },
+                {
+                    "option": {
+                        "height": 513,
+                        "width": 768
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/IzVHRPjH0eqA5mScJOHvSkVsOAA=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+                },
+                {
+                    "option": {
+                        "height": 234,
+                        "width": 350
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/hzVcPuS9lfqsMv0gcyEQfXk-xlw=/350x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+                },
+                {
+                    "option": {
+                        "height": 234,
+                        "width": 360
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/cHivYr1n3wKvjwpcN_uU3wnr2ys=/360x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+                }
+            ],
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/IzVHRPjH0eqA5mScJOHvSkVsOAA=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg",
+            "width": 1828
+        },
+        {
+            "_id": "LO6KMEFWNFF3JCALSTGPHVUNQM",
+            "additional_properties": {},
+            "auth": {
+                "1": "e3e622481e03b8bd2e6b7684d8120d28e1cc40ff466588bf9e4e82526718221b"
+            },
+            "created_date": "2022-05-17T19:52:37Z",
+            "credits": {
+                "affiliation": []
+            },
+            "height": 1080,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 186,
+                        "media": "(min-width: 1280px)",
+                        "width": 278
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/xOCzGggf6Ffpv7Jpte8srbQpdqE=/278x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LO6KMEFWNFF3JCALSTGPHVUNQM.jpg"
+                },
+                {
+                    "option": {
+                        "height": 230,
+                        "media": "(min-width: 1024px)",
+                        "width": 344
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/HAxSyqQZC7gVdvtSHCjYcmJL9z4=/344x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LO6KMEFWNFF3JCALSTGPHVUNQM.jpg"
+                },
+                {
+                    "option": {
+                        "height": 513,
+                        "width": 768
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/J2YqD0mMLoFXxVlKtmMePEVGGi8=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LO6KMEFWNFF3JCALSTGPHVUNQM.jpg"
+                },
+                {
+                    "option": {
+                        "height": 234,
+                        "width": 350
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/CmnkXq8QoB3YXB_eaatyFTLGuTU=/350x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LO6KMEFWNFF3JCALSTGPHVUNQM.jpg"
+                },
+                {
+                    "option": {
+                        "height": 234,
+                        "width": 360
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/kgqdK8v1fj8kjAitZ_hxnB1xC_E=/360x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LO6KMEFWNFF3JCALSTGPHVUNQM.jpg"
+                }
+            ],
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/J2YqD0mMLoFXxVlKtmMePEVGGi8=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/LO6KMEFWNFF3JCALSTGPHVUNQM.jpg",
+            "width": 1920
+        }
+    ],
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "created_date": "2023-08-24T18:56:24.123Z",
+    "credits": {
+        "by": [
+            {
+                "_id": "lionel-messi-11550",
+                "additional_properties": {
+                    "original": {
+                        "author_type": "Estándar",
+                        "bio_page": "/autor/lionel-messi-11550/",
+                        "byline": "Lionel Messi",
+                        "image": "https://www.lanacion.com.ar/resizer/_dF_qne18__rw_37Gmbnek7Hag0=/80x0/filters:format(webp):quality(70)/bucket.glanacion.com/anexos/fotos/45/2703745.png",
+                        "role": "PARA LA NACION"
+                    }
+                },
+                "image": {
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 80,
+                                "media": "(min-width: 320px)",
+                                "width": 80
+                            },
+                            "resizedUrl": "https://www.lanacion.com.ar/resizer/_dF_qne18__rw_37Gmbnek7Hag0=/80x0/filters:format(webp):quality(70)/bucket.glanacion.com/anexos/fotos/45/2703745.png"
+                        }
+                    ],
+                    "url": "https://bucket.glanacion.com/anexos/fotos/45/2703745.png"
+                },
+                "name": "Lionel Messi",
+                "slug": "lionel-messi-11550",
+                "type": "author",
+                "url": "/autor/lionel-messi-11550/"
+            },
+            {
+                "_id": "tomas-rivas-42",
+                "additional_properties": {
+                    "original": {
+                        "author_type": "Estándar",
+                        "bio_page": "/autor/tomas-rivas-42/",
+                        "byline": "Tomás Rivas",
+                        "image": "https://www.lanacion.com.ar/resizer/49irbqKpsJWyJGiPgJEpnkYmDRg=/80x0/filters:format(webp):quality(70)/bucket.glanacion.com/anexos/fotos/80/1725980.jpg",
+                        "role": "LA NACION"
+                    }
+                },
+                "image": {
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 80,
+                                "media": "(min-width: 320px)",
+                                "width": 80
+                            },
+                            "resizedUrl": "https://www.lanacion.com.ar/resizer/49irbqKpsJWyJGiPgJEpnkYmDRg=/80x0/filters:format(webp):quality(70)/bucket.glanacion.com/anexos/fotos/80/1725980.jpg"
+                        }
+                    ],
+                    "url": "https://bucket.glanacion.com/anexos/fotos/80/1725980.jpg"
+                },
+                "name": "Tomás Rivas",
+                "slug": "tomas-rivas-42",
+                "type": "author",
+                "url": "/autor/tomas-rivas-42/"
+            },
+            {
+                "additional_properties": {
+                    "original": {
+                        "author_type": ""
+                    }
+                },
+                "name": "Eze",
+                "type": "author"
+            }
+        ]
+    },
+    "description": {
+        "basic": ""
+    },
+    "display_date": "2023-08-24T19:15:53.566Z",
+    "distributor": {
+        "category": "staff",
+        "name": "lanacionar"
+    },
+    "first_publish_date": "2023-08-24T19:15:53.566Z",
+    "headlines": {
+        "basic": "Como traer la tercera",
+        "meta_title": "",
+        "mobile": ""
+    },
+    "isListenable": false,
+    "label": {},
+    "last_updated_date": "2023-08-25T14:01:16.054Z",
+    "owner": {
+        "sponsored": false
+    },
+    "paywallEnabled": "",
+    "promo_items": {
+        "basic": {
+            "_id": "TR5C3TK6F5BWRCYRR3AUO4RMQ4",
+            "additional_properties": {
+                "iptc_source": "AP"
+            },
+            "auth": {
+                "1": "280ee101695619353dc6daec55ef9febe10e37c84cabf7bf3534732e593bab22"
+            },
+            "caption": "Lionel Messi, de la selección de Argentina, besa la Copa del Mundo y sostiene el trofeo al mejor jugador de ésta, el 18 de diciembre de 2022, en Lusail, Qatar (AP Foto/Natacha Pisarenko)",
+            "created_date": "2023-02-03T14:17:01Z",
+            "credits": {
+                "affiliation": [
+                    {
+                        "name": "AP",
+                        "type": "author"
+                    }
+                ],
+                "by": [
+                    {
+                        "byline": "Natacha Pisarenko",
+                        "name": "Natacha Pisarenko",
+                        "type": "author"
+                    }
+                ]
+            },
+            "height": 1241,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 280,
+                        "maxScreenWidth": 767,
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "3:2",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/Gb-JZZkR73DjvH-pNLmt4EQESHM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+                },
+                {
+                    "option": {
+                        "height": 159,
+                        "media_preload": "(min-width: 768px)",
+                        "proportion": "3:2",
+                        "width": 238
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/VB6dy7gi6LI1unkCJMZg0zgyNBQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+                }
+            ],
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/IzVHRPjH0eqA5mScJOHvSkVsOAA=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg",
+            "width": 1828
+        },
+        "receta": {
+            "embed": {
+                "config": {
+                    "cookTime": 6,
+                    "counterPortion": 2,
+                    "counterTime": 36,
+                    "prepTime": 30,
+                    "title": "detalle-receta"
+                }
+            },
+            "subtype": "custom-detalle-receta"
+        }
+    },
+    "publish_date": "2023-08-25T14:01:15.753Z",
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "subheadlines": {
+        "basic": "Con la ayuda del GOAT"
+    },
+    "subtype": "7",
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/dieta/veganas",
+            "_website": "recetas",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {
+                        "default": []
+                    },
+                    "site": {}
+                }
+            },
+            "name": "veganas",
+            "path": "/dieta/veganas",
+            "type": "section"
+        },
+        "sections": [
+            {
+                "_id": "/dieta/veganas",
+                "_website": "recetas",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": []
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "veganas",
+                "path": "/dieta/veganas",
+                "type": "section"
+            }
+        ],
+        "tags": [
+            {
+                "description": "receta rapida",
+                "slug": "rapida",
+                "text": "rápida"
+            },
+            {
+                "description": "receta clasica",
+                "slug": "clasica",
+                "text": "clásica"
+            },
+            {
+                "description": "receta facil",
+                "slug": "facil",
+                "text": "fácil"
+            },
+            {
+                "description": "receta saludable",
+                "slug": "saludable",
+                "text": "saludable"
+            }
+        ]
+    },
+    "type": "story",
+    "website_url": "/dieta/veganas/como-traer-la-tercera-nid24082023/",
+    "withFirmaDistributor": false,
+    "withSponsoredLink": false
+}

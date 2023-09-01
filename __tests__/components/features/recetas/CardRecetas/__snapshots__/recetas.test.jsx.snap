@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - features - CardReceta should test CardReceta 1`] = `
+<div>
+  <div>
+    <div>
+      <p>
+        FÁCIL
+      </p>
+      <picture>
+        <source
+          media="(max-width: 767px)"
+          srcset="https://resizer.glanacion.com/resizer/Gb-JZZkR73DjvH-pNLmt4EQESHM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+        />
+        <img
+          class="image flex com-image"
+          decoding="async"
+          fetchpriority="high"
+          height="1241"
+          loading="eager"
+          src="https://resizer.glanacion.com/resizer/IzVHRPjH0eqA5mScJOHvSkVsOAA=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+          width="1828"
+        />
+      </picture>
+    </div>
+    <div>
+      <h2>
+        Como traer la tercera
+      </h2>
+      <div>
+        <h3>
+          Por 
+          Lionel Messi, Tomás Rivas y Eze
+        </h3>
+        <p>
+          Tiempo de duracion: 
+          36
+           min
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Components - features - CardReceta with isAdmin, should return WarningMessage without noteId 1`] = `
+<div>
+  <article
+    data-feature-id="f0f1sPQ6tYQr7ye"
+  >
+    <div
+      style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
+    >
+      <div
+        class="mod-warning --warning"
+      >
+        <h2
+          class="title"
+        >
+          Advertencia
+        </h2>
+        <p
+          class="text"
+        >
+          El campo Id de la Nota es obligatorio.
+        </p>
+      </div>
+    </div>
+  </article>
+</div>
+`;

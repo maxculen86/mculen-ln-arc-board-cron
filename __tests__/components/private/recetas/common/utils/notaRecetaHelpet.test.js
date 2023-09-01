@@ -1,4 +1,7 @@
-import { getHighestPriorityTag } from '../../../../../../components/private/recetas/common/utils/notaRecetaHelper';
+import {
+    getHighestPriorityTag,
+    validateArticleReceta
+} from '../../../../../../components/private/recetas/common/utils/notaRecetaHelper';
 
 describe('Recetas - notaRecetaHelper', () => {
     describe('getHighestPriorityTag function', () => {
@@ -38,6 +41,26 @@ describe('Recetas - notaRecetaHelper', () => {
 
         it('should empty string with no tags', () => {
             expect(getHighestPriorityTag(null)).toBe('');
+        });
+    });
+
+    describe('validateArticleReceta', () => {
+        it('Should return no id warning message', () => {
+            expect(
+                validateArticleReceta({
+                    id: undefined,
+                    content: true
+                })
+            ).toMatchSnapshot();
+        });
+
+        it('Should return bad article ID warning message', () => {
+            expect(
+                validateArticleReceta({
+                    id: 'HLVF6HRMYNB2TI7L7G724OAPIU',
+                    content: undefined
+                })
+            ).toMatchSnapshot();
         });
     });
 });

@@ -1,0 +1,274 @@
+[
+    {
+        "collection": "layouts",
+        "type": "Recetas-home",
+        "props": {
+            "collection": "layouts",
+            "type": "Recetas-home",
+            "id": "Recetas-home",
+            "childProps": [
+                {
+                    "collection": "sections",
+                    "id": 0
+                },
+                {
+                    "collection": "sections",
+                    "id": 1
+                },
+                {
+                    "collection": "sections",
+                    "id": 2
+                }
+            ]
+        },
+        "children": [
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 0
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "recetas/CardRecetas",
+                        "props": {
+                            "collection": "features",
+                            "type": "recetas/CardRecetas",
+                            "id": "f0f1sPQ6tYQr7ye",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "HLVF6HRMYNB2TI7L7G724OAPIU"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "recetas/CardRecetas",
+                        "props": {
+                            "collection": "features",
+                            "type": "recetas/CardRecetas",
+                            "id": "f0fGRlzpKYaE14b",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "YL72ZWA525CS3I2YBNDRWNEOGA",
+                                "pbInternal_cloneId": "f0fGRlzpKYaE14b"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 1
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "recetas/CardRecetas",
+                        "props": {
+                            "collection": "features",
+                            "type": "recetas/CardRecetas",
+                            "id": "f0fBdCzMrs7E1j1",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "ZM2YLT5CRNGFXIS7KYJNYEHHBU",
+                                "pbInternal_cloneId": "f0fBdCzMrs7E1j1"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 2
+                },
+                "children": []
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 0
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "recetas/CardRecetas",
+                "props": {
+                    "collection": "features",
+                    "type": "recetas/CardRecetas",
+                    "id": "f0f1sPQ6tYQr7ye",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "HLVF6HRMYNB2TI7L7G724OAPIU"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "recetas/CardRecetas",
+                "props": {
+                    "collection": "features",
+                    "type": "recetas/CardRecetas",
+                    "id": "f0fGRlzpKYaE14b",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "YL72ZWA525CS3I2YBNDRWNEOGA",
+                        "pbInternal_cloneId": "f0fGRlzpKYaE14b"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 1
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "recetas/CardRecetas",
+                "props": {
+                    "collection": "features",
+                    "type": "recetas/CardRecetas",
+                    "id": "f0fBdCzMrs7E1j1",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "ZM2YLT5CRNGFXIS7KYJNYEHHBU",
+                        "pbInternal_cloneId": "f0fBdCzMrs7E1j1"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 2
+        },
+        "children": []
+    },
+    {
+        "collection": "features",
+        "type": "recetas/CardRecetas",
+        "props": {
+            "collection": "features",
+            "type": "recetas/CardRecetas",
+            "id": "f0f1sPQ6tYQr7ye",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "HLVF6HRMYNB2TI7L7G724OAPIU"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "recetas/CardRecetas",
+        "props": {
+            "collection": "features",
+            "type": "recetas/CardRecetas",
+            "id": "f0fGRlzpKYaE14b",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "YL72ZWA525CS3I2YBNDRWNEOGA",
+                "pbInternal_cloneId": "f0fGRlzpKYaE14b"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "recetas/CardRecetas",
+        "props": {
+            "collection": "features",
+            "type": "recetas/CardRecetas",
+            "id": "f0fBdCzMrs7E1j1",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "ZM2YLT5CRNGFXIS7KYJNYEHHBU",
+                "pbInternal_cloneId": "f0fBdCzMrs7E1j1"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    }
+]

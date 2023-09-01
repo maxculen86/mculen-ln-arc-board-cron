@@ -1,7 +1,8 @@
 import get from '../../../common/utils/get';
 import getAuthorsAsString from '../../../common/utils/getAuthorsAsString';
+import pageBuilderValidator from '../../../common/utils/pageBuilderValidator';
 
-export const transformNotaReceta = article => {
+export const transformArticleReceta = article => {
     const highestPriorityTag = getHighestPriorityTag(
         get(article, 'taxonomy.tags', [])
     );
@@ -40,4 +41,29 @@ export const getHighestPriorityTag = (tags = []) => {
         }
         return highestPriority;
     }, '');
+};
+
+export const validateArticleReceta = ({ id, content }) => {
+    const rules = [
+        {
+            validation: !id,
+            message: 'El campo Id de la Nota es obligatorio.'
+        },
+        {
+            validation: !content,
+            message: 'El ID de la nota es incorrecto.'
+        }
+    ];
+
+    return pageBuilderValidator(rules);
+};
+
+export const isAperturaReceta = (renderables, featureId) => {
+    // TODO: pendiente config para el layout de home recetas, para utilizar getElementsFromRenderables
+    const aperturaSection = renderables.find(
+        item => item.collection === 'sections'
+    );
+    const children = get(aperturaSection, 'children', []);
+
+    return children.some(child => child.props && child.props.id === featureId);
 };
