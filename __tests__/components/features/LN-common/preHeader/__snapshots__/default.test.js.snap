@@ -2,7 +2,7 @@
 
 exports[`Components - Features - LN-Common - PreHeader should match snapshot of PreHeader 1`] = `
 <div
-  class="ln-pre-header --d-flex --ai-center --mobile-none"
+  class="ln-pre-header --d-flex --ai-center --tablet-none"
 >
   <div
     class="lay-container"
