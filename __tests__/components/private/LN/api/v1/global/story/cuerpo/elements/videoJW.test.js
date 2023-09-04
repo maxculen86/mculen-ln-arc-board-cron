@@ -18,8 +18,7 @@ describe('Test de video JW en el cuerpo de la nota', () => {
                 'multimedioFile',
                 'multimedioFiles',
                 'multimedioImagen',
-                'tituloHome',
-                'type'
+                'tituloHome'
             ].sort()
         );
         expect(resp.valor.multimedioFile).toMatchObject({
@@ -46,8 +45,7 @@ describe('Test de video JW en el cuerpo de la nota', () => {
                 'multimedioFile',
                 'multimedioFiles',
                 'multimedioImagen',
-                'tituloHome',
-                'type'
+                'tituloHome'
             ].sort()
         );
         expect(resp.valor.multimedioFile).toMatchObject({

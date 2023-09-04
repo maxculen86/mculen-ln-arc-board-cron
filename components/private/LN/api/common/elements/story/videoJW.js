@@ -41,7 +41,7 @@ export const videoJWNota = videoData => {
     if (description) {
         resp.epigrafe = description;
     }
-    resp.type = 'video';
+    //resp.type = 'video';
     return resp;
 };
 
