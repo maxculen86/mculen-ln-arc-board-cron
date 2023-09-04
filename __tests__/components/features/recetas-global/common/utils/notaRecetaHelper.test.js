@@ -1,7 +1,7 @@
 import {
     getHighestPriorityTag,
     validateArticleReceta
-} from '../../../../../../components/private/recetas/common/utils/notaRecetaHelper';
+} from '../../../../../../components/features/recetas-global/common/utils/notaRecetaHelper';
 
 describe('Recetas - notaRecetaHelper', () => {
     describe('getHighestPriorityTag function', () => {

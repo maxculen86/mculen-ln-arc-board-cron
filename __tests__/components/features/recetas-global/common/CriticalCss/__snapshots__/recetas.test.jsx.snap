@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recetas - CriticalCss Should match snapshot 1`] = `
+<div>
+  <style>
+    
+@font-face {font-family:'Prumo';src:url('/pfundefined') format('woff2-variations'); font-weight: 90; font-display: swap;}
+@font-face {font-family:'Roboto';src:url('/pfundefined') format('woff2-variations'); font-weight: 300; font-display: swap;}
+@font-face {font-family:'Roboto';src:url('/pfundefined') format('woff2-variations'); font-weight: 400; font-display: swap;}
+@font-face {font-family:'Roboto';src:url('/pfundefined') format('woff2-variations'); font-weight: 500; font-display: swap;}
+@font-face {font-family:'Roboto';src:url('/pfundefined') format('woff2-variations'); font-weight: 700; font-display: swap;}
+
+  </style>
+</div>
+`;

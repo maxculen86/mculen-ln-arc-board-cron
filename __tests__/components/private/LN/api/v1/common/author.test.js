@@ -66,4 +66,151 @@ describe('Json imagen en acumulado', () => {
 
         expect(resp.rol).toBeNull();
     });
+
+    describe('author tests', () => {
+        it('should return an object with author data and bio when the page is less than or equal to 1', () => {
+            const author = {
+                _id: '123',
+                name: 'John Doe',
+                expertise: 'Science',
+                role: 'Author'
+            };
+            const page = 1;
+
+            const expected = {
+                id: '123',
+                slug: '123',
+                valor: 'John Doe',
+                intereses: 'Science',
+                rol: 'Author',
+                tipo: 1,
+                imagen: null,
+                longBio: undefined,
+                location: undefined,
+                education: undefined,
+                languages: undefined,
+                affiliations: undefined,
+                books: undefined
+            };
+
+            const result = acuAuthor(author, page);
+
+            expect(result).toEqual(expected);
+        });
+
+        it('should return an object with author data and image URL when the image URL is present', () => {
+            const author = {
+                _id: '123',
+                name: 'John Doe',
+                expertise: 'Science',
+                role: 'Author',
+                image: {}
+            };
+            const page = 2;
+
+            const expected = {
+                id: '123',
+                slug: '123',
+                imagen: null,
+                valor: 'John Doe',
+                intereses: 'Science',
+                rol: 'Author',
+                tipo: 1,
+                mail: undefined,
+                twitter: undefined
+            };
+
+            const result = acuAuthor(author, page);
+
+            expect(result).toEqual(expected);
+        });
+
+        it('should return an object with author data and null image when the image URL is not present', () => {
+            const author = {
+                _id: '123',
+                name: 'John Doe',
+                expertise: 'Science',
+                role: 'Author'
+            };
+            const page = 3;
+
+            const expected = {
+                id: '123',
+                slug: '123',
+                valor: 'John Doe',
+                intereses: 'Science',
+                rol: 'Author',
+                imagen: null,
+                mail: undefined,
+                twitter: undefined,
+                tipo: 1
+            };
+
+            const result = acuAuthor(author, page);
+
+            expect(result).toEqual(expected);
+        });
+
+        it('should return an object with author data and trimmed twitter handle when the twitter handle is present', () => {
+            const author = {
+                _id: '123',
+                name: 'John Doe',
+                expertise: 'Science',
+                role: 'Author',
+                twitter: ' @johndoe '
+            };
+            const page = 4;
+
+            const expected = {
+                id: '123',
+                slug: '123',
+                valor: 'John Doe',
+                intereses: 'Science',
+                rol: 'Author',
+                imagen: null,
+                tipo: 1
+            };
+
+            const result = acuAuthor(author, page);
+
+            expect(result).toEqual(expected);
+        });
+
+        it('should return an object with author data and null twitter handle when the twitter handle is not present', () => {
+            const author = {
+                _id: '123',
+                name: 'John Doe',
+                expertise: 'Science',
+                role: 'Author'
+            };
+            const page = 5;
+
+            const expected = {
+                id: '123',
+                slug: '123',
+                valor: 'John Doe',
+                intereses: 'Science',
+                rol: 'Author',
+                imagen: null,
+                tipo: 1
+            };
+
+            const result = acuAuthor(author, page);
+
+            expect(result).toEqual(expected);
+        });
+
+        it('should throw an error when the author name is not present', () => {
+            const author = {
+                _id: '123',
+                expertise: 'Science',
+                role: 'Author'
+            };
+            const page = 6;
+
+            expect(() => {
+                acuAuthor(author, page);
+            }).toThrow('Nombre de Autor Inexistente');
+        });
+    });
 });

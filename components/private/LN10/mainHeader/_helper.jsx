@@ -3,7 +3,7 @@ import React from 'react';
 import { MainHeader } from '@ln/contenidos-ui-header';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import { ExclusivoSuscriptores } from '@ln/contenidos-ui-assets';
+import { ExclusivoSuscriptores, Bell } from '@ln/contenidos-ui-assets';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 
@@ -80,10 +80,14 @@ export const RightOptions = ({
                 )}`;
             }}
         >
-            <Icon icon="suscriptorExclusivo" size={18}>
+            <Icon
+                icon="suscriptorExclusivo"
+                size={18}
+                className="--mobile-none"
+            >
                 <ExclusivoSuscriptores />
             </Icon>
-            SUSCRIBITE
+            Suscribite
         </Button>
     );
 
@@ -102,13 +106,25 @@ export const RightOptions = ({
             <Button
                 title="Iniciar sesión"
                 typeButton="secondary"
-                className={!loggedIn && !loading ? '--mobile-none' : '--none'}
+                className={!loggedIn && !loading ? '--tablet-none' : '--none'}
                 onClick={goToLoginUrl}
                 id="btningresar"
             >
                 INICIAR SESIÓN
             </Button>
         </>
+    );
+
+    const BellButton = (
+        <Button
+            title="Campanita"
+            size="sm"
+            className="--icon-only campanita --none"
+        >
+            <Icon size={24}>
+                <Bell />
+            </Icon>
+        </Button>
     );
 
     const rightOptions = {
@@ -119,6 +135,7 @@ export const RightOptions = ({
 
     return (
         <>
+            {BellButton}
             {rightOptions[userType] || <></>}
             {userType !== 'suscribed' && SubscribeButton}
         </>

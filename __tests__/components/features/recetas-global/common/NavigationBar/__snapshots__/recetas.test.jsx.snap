@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - Features - Recetas-global - Common - NavigationBar should match snapshot 1`] = `
+<div>
+  <nav
+    class="rc-navigation-bar px-16 w-100 fixed bottom-0 shadow-navigation-bar rounded-top-left-24 rounded-top-right-24 lg-none bg-light-1 z-1"
+  >
+    <ul
+      class="grid grid-cols-5 text-12"
+    >
+      <li
+        class="flex jc-center pt-8 pb-12"
+      >
+        <a
+          class="link foodit-link flex gap-4 ai-center roboto-regular flex flex-column flex-row_md ai-center jc-center gap-4 gap-8_md text-12"
+          href="https://www.recetas.lanacion.com.ar/"
+          target="_self"
+          title="Inicio"
+        >
+          <i
+            class="icon --icon-24"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 25 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M19.5 21h-14a1 1 0 0 1-1-1v-9h-.413c-.914 0-1.35-1.125-.673-1.74l8.413-7.648a1 1 0 0 1 1.346 0l8.413 7.648c.676.615.241 1.74-.673 1.74H20.5v9c0 .552-1 1-1 1Zm-6-2h5V9.157l-6-5.454-6 5.454V19h5v-5a1 1 0 1 1 2 0v5Z"
+                fill="#272727"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+          Inicio
+        </a>
+      </li>
+      <li
+        class="flex jc-center pt-8 pb-12"
+      >
+        <button
+          class="flex flex-column jc-center ai-center flex-row_md gap-4 gap-8_md text-12"
+          title="Categorías"
+        >
+          <i
+            class="icon --icon-24"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M5.002 3H9a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2l-4.058-.001-.175-.012A2 2 0 0 1 3 9l.001-4a2 2 0 0 1 2-2ZM9 5H5.002L5 9h4V5Zm-3.998 8H9a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2l-4.058-.001-.175-.012A2 2 0 0 1 3 19l.001-4a2 2 0 0 1 2-2ZM9 15H5.002L5 19h4v-4ZM19 3h-3.998a2 2 0 0 0-2 2L13 9a2 2 0 0 0 1.768 1.987l.174.012L19 11a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm-3.998 2H19v4h-4l.002-4Zm0 8H19a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2l-4.058-.001-.175-.012A2 2 0 0 1 13 19l.001-4a2 2 0 0 1 2-2ZM19 15h-3.998L15 19h4v-4Z"
+                fill="#272727"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+          Categorías
+        </button>
+      </li>
+      <li
+        class="flex jc-center pt-8 pb-12"
+      >
+        <a
+          class="link foodit-link flex gap-4 ai-center roboto-regular flex flex-column flex-row_md ai-center jc-center gap-4 gap-8_md text-12"
+          href="https://www.recetas.lanacion.com.ar/"
+          target="_self"
+          title="Recetario"
+        >
+          <i
+            class="icon --icon-24"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.333 1.333h9.334a.667.667 0 0 1 .666.667v12.762a.332.332 0 0 1-.51.283L8 12.02l-4.823 3.024a.333.333 0 0 1-.51-.282V2a.667.667 0 0 1 .666-.667ZM12 2.667H4v10.288l4-2.508 4 2.508V2.667Z"
+                fill="#272727"
+              />
+            </svg>
+          </i>
+          Recetario
+        </a>
+      </li>
+      <li
+        class="flex jc-center pt-8 pb-12"
+      >
+        <a
+          class="link foodit-link flex gap-4 ai-center roboto-regular flex flex-column flex-row_md ai-center jc-center gap-4 gap-8_md text-12"
+          href="https://www.recetas.lanacion.com.ar/"
+          target="_self"
+          title="Lista"
+        >
+          <i
+            class="icon --icon-24"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.667 4.276.505 2.115l.943-.944 2.161 2.162h10.162a.667.667 0 0 1 .638.858l-1.6 5.334a.667.667 0 0 1-.638.475H4v1.333h7.333v1.334h-8A.667.667 0 0 1 2.667 12V4.276ZM4 4.666v4h7.675l1.2-4H4Zm-.333 10.667a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm8 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+                fill="#272727"
+              />
+            </svg>
+          </i>
+          Lista
+        </a>
+      </li>
+      <li
+        class="flex jc-center pt-8 pb-12"
+      >
+        <a
+          class="link foodit-link flex gap-4 ai-center roboto-regular flex flex-column flex-row_md ai-center jc-center gap-4 gap-8_md text-12"
+          href="https://www.recetas.lanacion.com.ar/"
+          target="_self"
+          title="Perfil"
+        >
+          <i
+            class="icon --icon-24"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 25 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.5 22c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10Zm-4.987-3.744A7.966 7.966 0 0 0 12.5 20a7.97 7.97 0 0 0 5.167-1.892A6.978 6.978 0 0 0 12.66 16a6.982 6.982 0 0 0-5.147 2.256ZM6.116 16.82A8.975 8.975 0 0 1 12.66 14a8.972 8.972 0 0 1 6.362 2.634 8 8 0 1 0-12.906.187v-.001ZM12.5 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                fill="#272727"
+              />
+            </svg>
+          </i>
+          Perfil
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;

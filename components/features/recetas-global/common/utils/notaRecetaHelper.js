@@ -1,6 +1,6 @@
-import get from '../../../common/utils/get';
-import getAuthorsAsString from '../../../common/utils/getAuthorsAsString';
-import pageBuilderValidator from '../../../common/utils/pageBuilderValidator';
+import get from '../../../../private/common/utils/get';
+import getAuthorsAsString from '../../../../private/common/utils/getAuthorsAsString';
+import pageBuilderValidator from '../../../../../components/private/common/utils/pageBuilderValidator.js';
 
 export const transformArticleReceta = article => {
     const highestPriorityTag = getHighestPriorityTag(
