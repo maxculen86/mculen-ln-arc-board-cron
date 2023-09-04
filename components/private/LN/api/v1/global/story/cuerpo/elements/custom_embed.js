@@ -17,15 +17,18 @@ const getTime = time => {
 const customEmbed = (nodo, dataNota) => {
     if (
         !nodo ||
-        !['custom-parallax', 'custom-liveblog', 'custom-video-jw'].includes(
-            nodo.subtype
-        )
+        ![
+            'custom-parallax',
+            'custom-liveblog',
+            'custom-video-jw',
+            'video_jw'
+        ].includes(nodo.subtype)
     )
         return null;
 
     const res = [];
 
-    if (nodo.subtype === 'custom-video-jw') {
+    if (nodo.subtype === 'custom-video-jw' || nodo.subtype === 'video_jw') {
         const videoJWElement = get(nodo, 'embed.config.videoJw', null);
         res.push(videoJW(videoJWElement));
         return res;
