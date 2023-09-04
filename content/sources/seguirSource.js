@@ -14,6 +14,9 @@ if (ARC_ACCESS_TOKEN) {
 }
 
 const sourceExclude = ['geo', 'related_content', 'content_elements'];
+const sectionsToExclude = ['/newsletters'];
+const SECTION_ID_FIELD = 'taxonomy.sections._id';
+const TAXONOMY_SECTIONS = 'taxonomy.sections';
 
 // Validación para que predomine el sourceExclude sobre el sourceInclude en caso de no ser vacio.
 let sourceInclude = [
@@ -136,12 +139,55 @@ export const resolveUri = query => {
         query: {
             bool: {
                 must: mustElements(days),
+                must_not: createExclusionClauses(sectionsToExclude),
                 ...shouldElements(query)
             }
         }
     };
     const encodedBody = encodeURI(JSON.stringify(body));
     return `${requestUri}?${uriParams}&body=${encodedBody}`;
+};
+
+export const createExclusionClauses = sectionsToExclude => {
+    if (!Array.isArray(sectionsToExclude)) {
+        throw new Error('sectionsToExclude must be an array');
+    }
+
+    // This function generates exclusion clauses based on the sections to exclude.
+    const elementsToExclude = generateSectionsToExclude(sectionsToExclude);
+
+    if (elementsToExclude === null || typeof elementsToExclude !== 'object') {
+        throw new Error('generateSectionsToExclude should return an object');
+    }
+
+    return elementsToExclude;
+};
+
+export const generateSectionsToExclude = sections => {
+    if (!Array.isArray(sections)) {
+        return {};
+    }
+
+    const elementsToExclude = sections
+        .filter(section => typeof section === 'string')
+        .map(section => ({
+            term: {
+                [SECTION_ID_FIELD]: section
+            }
+        }));
+
+    return elementsToExclude.length === 0
+        ? {}
+        : {
+              nested: {
+                  path: TAXONOMY_SECTIONS,
+                  query: {
+                      bool: {
+                          must: elementsToExclude
+                      }
+                  }
+              }
+          };
 };
 
 const getElements = async query => {
