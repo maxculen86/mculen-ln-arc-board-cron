@@ -13,7 +13,7 @@ const videoPlayerJW = ({ data, parrafo, tituloNota, hasAutoplay }) => {
             } = {}
         } = {}
     } = data;
-    const player = idPlayer || 'dLD3I9sL';
+    const player = idPlayer || 'bWFcPBAT';
     const [video] = playlist || [];
 
     return (
