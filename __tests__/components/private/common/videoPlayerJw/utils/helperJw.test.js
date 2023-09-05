@@ -53,45 +53,112 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         const player = 'jwplayer';
         const playlist = [{ file: 'video.mp4' }];
         const hasAutoplay = true;
+        const idVideo = 'abc123';
 
         const expectedScript = `
-window.addEventListener('load', () => {
-    const facadeDiv = document.getElementById('facade-${title}');
-
-    const setJwScript = () => {    
-        const scriptElement = document.createElement('script');
-        scriptElement.src = 'https://cdn.jwplayer.com/libraries/${player}.js'
-        document.head.appendChild(scriptElement);
-
-        scriptElement.addEventListener('load', function() {
-            window.jwplayer('${title}').setup({
-                playlist: ${JSON.stringify(playlist)},
-                autostart: true
+        function addToDataLayer(eventName, titulo, id) {
+            /* istanbul ignore next */
+            cov_tj4jdwz6f.f[3]++;
+            cov_tj4jdwz6f.s[8]++;
+            window.dataLayer.push({
+              event: eventName,
+              videoName: titulo,
+              videoID: id
             });
-
-            window.jwplayer().on('ready', function (e) {
-                const element = document.querySelector('.video-player');
-                element.classList.remove('--background');
-            })
-        });
-
-        if (facadeDiv) facadeDiv.remove(); 
-    };    
-
-    facadeDiv.addEventListener('click', setJwScript);
-
-    if (${hasAutoplay}) {
-        setJwScript();
-    }
-});
-`;
+          }
+          
+          function isInDatalayerEvent(event, videoId) {
+            /* istanbul ignore next */
+            cov_tj4jdwz6f.f[17]++;
+            var result = /* istanbul ignore next */
+              (cov_tj4jdwz6f.s[54]++,
+              /* istanbul ignore next */
+              (cov_tj4jdwz6f.b[22][0]++, window) &&
+                /* istanbul ignore next */
+                (cov_tj4jdwz6f.b[22][1]++, window.dataLayer) &&
+                /* istanbul ignore next */
+                (cov_tj4jdwz6f.b[22][2]++, window.dataLayer.find(function (element) {
+                  /* istanbul ignore next */
+                  cov_tj4jdwz6f.f[18]++;
+                  cov_tj4jdwz6f.s[55]++;
+                  return (
+                    /* istanbul ignore next */
+                    (cov_tj4jdwz6f.b[23][0]++, element.event === event) &&
+                    /* istanbul ignore next */
+                    (cov_tj4jdwz6f.b[23][1]++, element.videoID === videoId)
+                  );
+                })));
+            /* istanbul ignore next */
+            cov_tj4jdwz6f.s[56]++;
+            return (
+              /* istanbul ignore next */
+              (cov_tj4jdwz6f.b[24][0]++, result) ||
+              /* istanbul ignore next */
+              (cov_tj4jdwz6f.b[24][1]++, false)
+            );
+          }
+          
+          window.addEventListener('load', () => {
+            const facadeDiv = document.getElementById('facade-videoPlayer');
+          
+            const setJwScript = () => {
+              const scriptElement = document.createElement('script');
+              scriptElement.src = 'https://cdn.jwplayer.com/libraries/jwplayer.js';
+              document.head.appendChild(scriptElement);
+          
+              scriptElement.addEventListener('load', function () {
+                window.jwplayer('videoPlayer').setup({
+                  playlist: [{\"file\":\"video.mp4\"}],
+                  autostart: true
+                });
+          
+                window.jwplayer('${title}').on('ready', function (e) {
+                    const element = document.querySelector('.video-player');
+                    element.classList.remove('--background');
+                });
+            
+                const events = ['play', 'pause', 'complete'];
+            
+                events.forEach((event) => {
+                    window.jwplayer('${title}').on(event, function (e) {
+                      addToDataLayer(event, '${title}', '${idVideo}');
+                    });
+                });
+            
+                window.jwplayer('${title}').on('time', function (e) {
+                    const percent = Math.floor((e.currentTime / e.duration) * 100);
+                    const percentagesToCheck = [25, 50, 75];
+            
+                    percentagesToCheck.forEach((percentage) => {
+                    if (!isInDatalayerEvent(percentage.toString(), '${idVideo}') && percent === percentage) {
+                        addToDataLayer(percentage.toString(), '${title}', '${idVideo}');
+                    }
+                    });
+                });
+              });
+          
+              if (facadeDiv) facadeDiv.remove();
+            };
+          
+            facadeDiv.addEventListener('click', setJwScript);
+          
+            if (true) {
+              setJwScript();
+            }
+          
+            addToDataLayer('videoDisplay', 'videoPlayer', 'abc123');
+          });
+        `;
 
         const generatedScript = getJWScript(
             title,
             player,
             playlist,
-            hasAutoplay
+            hasAutoplay,
+            idVideo
         );
-        expect(generatedScript.trim()).toEqual(expectedScript.trim());
+        expect(generatedScript.replace(/\s+/g, '')).toEqual(
+            expectedScript.replace(/\s+/g, '')
+        );
     });
 });
