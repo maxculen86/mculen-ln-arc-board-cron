@@ -1,6 +1,4 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect, useRef } from 'react';
-import { useAppContext } from 'fusion:context';
 import PropTypes from 'prop-types';
 import Image from './imageBase';
 import ComFigure from '../../../common/com-figure';
@@ -16,6 +14,7 @@ import Icon from '../../../common/icon';
 import setClassCondition from './helpers/indexHelper';
 import listOfAllowedSection from './helpers/allowSectionAndLayout';
 import isAllowedSection from '../utils/isAllowedSection';
+import VideoPlayerJW from '../../../common/videoPlayerJw';
 
 const Media = ({
     mediaData,
@@ -84,70 +83,75 @@ const Media = ({
               };
 
     if (mediaData) {
-        // TODO: Sacar switch
-        switch (type) {
-            case 'image':
-                item = (
-                    <ComFigure
-                        classCondition={setClassCondition({
-                            subtipo,
-                            withZoom,
-                            active,
-                            isApertura,
-                            insideBody,
-                            withMobileImage,
-                            isVertical
-                        })}
-                        withZoom={withZoom}
-                        width={width}
-                        itsGallery={itsGallery}
-                        handleClick={validateHandleClick} // NOSONAR
+        const mediaTypeComponents = {
+            image: (
+                <ComFigure
+                    classCondition={setClassCondition({
+                        subtipo,
+                        withZoom,
+                        active,
+                        isApertura,
+                        insideBody,
+                        withMobileImage,
+                        isVertical
+                    })}
+                    withZoom={withZoom}
+                    width={width}
+                    itsGallery={itsGallery}
+                    handleClick={validateHandleClick} // NOSONAR
+                    outputType={outputType}
+                >
+                    <Image
+                        active={active}
+                        image={{ ...mediaData, titleText }}
+                        href={href}
                         outputType={outputType}
-                    >
-                        <Image
-                            active={active}
-                            image={{ ...mediaData, titleText }}
-                            href={href}
-                            outputType={outputType}
-                            zoom={zoom}
-                            isApertura={isApertura}
-                            searchableField={searchableField}
-                            isValidSection={isValidSection}
-                        />
-                        {children}
-                        {(zoom || itsGallery) && (
-                            <>
-                                <Icon name="close" negative />
-                                <Icon name="zoom" negative />
-                            </>
-                        )}
-                    </ComFigure>
-                );
-                break;
-            case 'video':
-                item = (
-                    <figure className="mod-figure">
-                        <VideoPlayer
-                            videoId={idMedia}
-                            mediaData={mediaData}
-                            parrafo={parrafo}
-                            tituloNota={tituloNota}
-                            autoplay={autoplay}
-                            isPowa={isPowa}
-                            href={href}
-                            isApertura={isApertura}
-                        />
-                        {children}
-                    </figure>
-                );
-                break;
-            default:
-                break;
-        }
+                        zoom={zoom}
+                        isApertura={isApertura}
+                        searchableField={searchableField}
+                        isValidSection={isValidSection}
+                    />
+                    {children}
+                    {(zoom || itsGallery) && (
+                        <>
+                            <Icon name="close" negative />
+                            <Icon name="zoom" negative />
+                        </>
+                    )}
+                </ComFigure>
+            ),
+            video: (
+                <figure className="mod-figure">
+                    <VideoPlayer
+                        videoId={idMedia}
+                        mediaData={mediaData}
+                        parrafo={parrafo}
+                        tituloNota={tituloNota}
+                        autoplay={autoplay}
+                        isPowa={isPowa}
+                        href={href}
+                        isApertura={isApertura}
+                    />
+                    {children}
+                </figure>
+            ),
+            video_jw: (
+                <VideoPlayerJW
+                    data={mediaData}
+                    parrafo={parrafo}
+                    tituloNota={tituloNota}
+                    hasAutoplay={true}
+                />
+            )
+        };
+
+        item = mediaTypeComponents[type || mediaData.subtype] || null;
     }
+
     if (!item) {
         item = <ComPicture href={href} />;
     }
+
     return (
         <>
             {itsGallery ? (

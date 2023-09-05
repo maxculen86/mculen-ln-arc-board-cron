@@ -2,8 +2,7 @@ import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import request from 'request-promise-native';
 
 const resolve = (key, a) => {
-    const { includedFields, id, notPublished = false } = key;
-
+    const { includedFields, id, notPublished = true } = key;
     const arcSite = key['arc-site'];
     const iFields = includedFields ? `&included_fields=${includedFields}` : '';
 

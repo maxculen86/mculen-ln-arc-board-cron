@@ -1,6 +1,8 @@
 import {
     getFirstParentSection,
-    getSectionLogo
+    getSectionLogo,
+    getRegex,
+    generatePath
 } from '../../../../../components/private/common/utils/sectionUtils';
 import notaBrando from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 import notaBBC from '../../../../../__mocks__/data/articles/XCLX5M6MHJAMHIGD6S2BOF3L3Y';
@@ -84,5 +86,41 @@ describe('Utils - SectionUtils', () => {
             logoName: 'bbc',
             path: '/distributor/bbc-mundo'
         });
+    });
+
+    it('should return correct logoName and path for /deportes/canchallena', () => {
+        const sectionId = '/deportes/canchallena';
+        const regex = getRegex(sectionId);
+        const match = (regex && sectionId.match(regex)) || [];
+        const [fullMatch, $1] = match;
+
+        const logoName =
+            ($1 === 'lnmas' && 'ln-mas') ||
+            ($1 === 'economia/campo' && 'campo') ||
+            ($1 === 'deportes/canchallena' && 'canchallena') ||
+            $1;
+
+        const path = generatePath(sectionId, regex, fullMatch, $1);
+
+        const expectedResult = {
+            logoName: 'canchallena',
+            path: 'https://canchallena.lanacion.com.ar'
+        };
+
+        expect(logoName).toBe(expectedResult.logoName);
+        expect(path).toBe(expectedResult.path);
+    });
+
+    it('generatePath should return correct path with all parameters', () => {
+        const sectionId = '/deportes/canchallena';
+        const regex = /^\/(deportes\/canchallena)(?:\/.+)?/;
+        const fullMatch = 'deportes/canchallena' && 'canchallena';
+        const $1 = 'canchallena';
+
+        const path = generatePath(sectionId, regex, fullMatch, $1);
+
+        const expectedResult = 'https://canchallena.lanacion.com.ar';
+
+        expect(path).toBe(expectedResult);
     });
 });

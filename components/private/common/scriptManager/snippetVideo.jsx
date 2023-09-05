@@ -4,13 +4,16 @@ import PropTypes from 'fusion:prop-types';
 import SnippetRender from '../snippet/snippetRender';
 import MillisecondsToTime from '../utils/millisecondsToTime';
 import get from '../utils/get';
+import { formatJwPlayerDate } from '../videoPlayerJw/utils/helperJw';
 
 const videoPlayerSnippet = ({ mediaData, minStream, parrafo, tituloNota }) => {
     const { content: primerParrafo = '' } = parrafo || {};
     const {
         promo_items: promoItems,
         created_date: createdDate = '',
-        duration
+        duration,
+        image = '',
+        pubdate
     } = mediaData || {};
 
     if (!mediaData) return null;
@@ -18,7 +21,7 @@ const videoPlayerSnippet = ({ mediaData, minStream, parrafo, tituloNota }) => {
     const notaTitle = tituloNota || '';
     const caption = get(promoItems, 'basic.caption', '');
     const epigrafe = get(mediaData, 'headlines.basic', '').trim() || caption;
-    const basicUrl = get(promoItems, 'basic.url', '');
+    const basicUrl = get(promoItems, 'basic.url') || image;
     const minStreamUrl = get(minStream, 'url', '');
 
     const data = {
@@ -27,7 +30,9 @@ const videoPlayerSnippet = ({ mediaData, minStream, parrafo, tituloNota }) => {
         name: notaTitle || 'LA NACION - Noticia',
         description: `${epigrafe || primerParrafo || parrafo}`,
         thumbnailUrl: [`${basicUrl}`],
-        uploadDate: `${createdDate.replace(/T/g, ' ').replace(/Z/g, '') || ''}`,
+        uploadDate:
+            `${createdDate.replace(/T/g, ' ').replace(/Z/g, '') ||
+                formatJwPlayerDate(pubdate)}` || '',
         embedUrl: `${minStreamUrl}`,
         duration: `${MillisecondsToTime(duration)}`
     };
