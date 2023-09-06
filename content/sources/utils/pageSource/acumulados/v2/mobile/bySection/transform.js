@@ -1,7 +1,5 @@
-import get from '../../../../../../../../components/private/common/utils/get';
 import transformAcu from '../../../common/transform';
 import getArticlesAcumulados from '../../../common/getArticlesAcumulados';
-import getFieldInBox from '../../../../common/utils/getFieldsBox';
 
 const getAcumulado = async queryParams => {
     const { uri, title, configuration, categoryUri, versionUri } = queryParams;
@@ -17,34 +15,9 @@ const getAcumulado = async queryParams => {
     });
 };
 
-const transform = async (dataPage, query) => {
-    const {
-        information: { layoutPage },
-        content_elements: elementsPage
-    } = dataPage;
-
-    const { featureInPage } = query;
-
+const transform = async query => {
     try {
-        const sections = getFieldInBox(
-            elementsPage,
-            featureInPage,
-            'information.nameFeature',
-            'information.sections'
-        );
-
-        const params = {
-            sections,
-            ...query
-        };
-        return (
-            Promise.resolve(
-                getAcumulado({
-                    sections,
-                    ...params
-                })
-            ) || []
-        );
+        return Promise.resolve(getAcumulado(query)) || [];
 
         // Add property Order to elements
         // let indiceElements = -1;
@@ -61,7 +34,7 @@ const transform = async (dataPage, query) => {
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(
-            `Error Transform - v1/mobile/bySection/transform :  layout: ${layoutPage} - query: ${JSON.stringify(
+            `Error Transform - v1/mobile/bySection/transform :  query: ${JSON.stringify(
                 query
             )} - errorMsj:${error.message}`
         );

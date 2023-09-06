@@ -1,52 +1,7 @@
-import transformHomeAcuV1 from '../../../../../../../../../content/sources/utils/pageSource/acumulados/v1/mobile/bySection/transform';
-import acuRevistaLiving from '../../../../../../../../../__mocks__/data/articlesAcum/revista-living.json';
+import transformHomeAcuV1 from '../../../../../../../../../content/sources/utils/pageSource/acumulados/v2/mobile/bySection/transform';
 import acuEconomia from '../../../../../../../../../__mocks__/data/articlesAcum/economia.json';
 
 import 'regenerator-runtime/runtime';
-
-const pageLayoutLN10Main = {
-    information: {
-        layoutPage: 'LN10-Home_Main'
-    },
-    content_elements: [
-        {
-            type: 0,
-            sectionAliasMobile: 'envivo',
-            information: {},
-            articles: [
-                {
-                    _id: '2PVUOH2SZVCTPFYRJXJW2N574A'
-                },
-                {
-                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMM'
-                },
-                {
-                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMN'
-                }
-            ],
-            configurations: { arcSite: 'la-nacion-ar' },
-            sectionWeb: 'Apertura'
-        },
-        {
-            type: 0,
-            sectionAliasMobile: 'apertura',
-            information: {},
-            articles: [
-                {
-                    _id: '2PVUOH2SZVCTPFYRJXJW2N574A'
-                },
-                {
-                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMM'
-                },
-                {
-                    _id: 'VDGHLKYFKZGKPA3ORSPDZCGGMN'
-                }
-            ],
-            configurations: { arcSite: 'la-nacion-ar' },
-            sectionWeb: 'Apertura'
-        }
-    ]
-};
 
 const pageLayoutLNAcumuladoEconomia = {
     information: {
@@ -92,11 +47,9 @@ const pageLayoutLNAcumuladoEconomia = {
     ]
 };
 
-const mockResponsePage = Promise.resolve(pageLayoutLN10Main);
 const mockResponsePageEconomia = Promise.resolve(pageLayoutLNAcumuladoEconomia);
 
 const mockResponseAcuEconomia = Promise.resolve(acuEconomia);
-const mockResponseAcuRevistaLiving = Promise.resolve(acuRevistaLiving);
 
 jest.mock('fusion:environment', () => {
     return {
@@ -166,10 +119,7 @@ describe('Test transform page', () => {
             isPage: false
         };
 
-        const result = await transformHomeAcuV1(
-            pageLayoutLNAcumuladoEconomia,
-            queryParams
-        );
+        const result = await transformHomeAcuV1(queryParams);
         expect(Object.keys(result[0]).sort()).toEqual(
             [
                 'acumuladoTotal',
