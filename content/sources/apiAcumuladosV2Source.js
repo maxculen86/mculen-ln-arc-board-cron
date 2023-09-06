@@ -89,9 +89,9 @@ const fetch = async (query, { cachedCall }) => {
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(
-            `Error content/apiTestAcumuladoSource : ${JSON.stringify(
-                query
-            )} - errorMsj:${error.message}`
+            `Error in content/apiAcumuladosV2Source : 
+            query parameters: ${JSON.stringify(query)} 
+            - errorMsj: ${error.message}`
         );
         throw new Error(error);
     }
