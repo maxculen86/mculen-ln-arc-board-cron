@@ -3,7 +3,7 @@
 exports[`Components - Features - Recetas-global - Common - DrawerMenu should match snapshot 1`] = `
 <div>
   <div
-    class="drawer-overlay fixed top-0 w-100 h-100vh hidden opacity-0 z-10"
+    class="drawer-overlay fixed top-0 w-100 h-100vh visibility-hidden opacity-0 z-10"
     data-id="overlay-drawer-menu"
   >
     <div
