@@ -5,5 +5,8 @@ export default {
     title: 'FOODIT',
     description:
         'FOODIT ofrece una inmensa variedad de recetas, que permiten planificar las comidas de la semana',
-    imageConfig
+    imageConfig,
+    layoutsName: {
+        RecetasHome: 'Recetas-home'
+    }
 };

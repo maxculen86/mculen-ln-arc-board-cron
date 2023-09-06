@@ -71,6 +71,15 @@ class AccumulatedSections {
             api: true
         };
 
+        if (sectionId.toLowerCase() === '/suscriptores') {
+            return {
+                ...resp,
+                tagId: 'la-nacion-cerca',
+                sourceOrigin: 'composer',
+                size: this.sizeCf || 30
+            };
+        }
+
         if (sectionId.toLowerCase() === '/ultimas-noticias') {
             const sectionsFormated = JSON.stringify(sections)
                 .replace(/,/g, '+OR+')

@@ -1,8 +1,9 @@
 import React from 'react';
+import CssLinksRecetas from './Helper/cssLinksRecetas';
+import CriticalCSS from '../features/recetas-global/common/CriticalCss/recetas';
 
 // TODO: OutputType base, queda pendiente agregar manejo de scripts, metadatos y preload
-
-const Recetas = ({ children } = {}) => {
+const Recetas = ({ children, Libs, Fusion } = {}) => {
     return (
         <html lang="es">
             <head>
@@ -14,9 +15,13 @@ const Recetas = ({ children } = {}) => {
                 <meta name="theme-color" content="#ffffff" />
                 <title>Recetas</title>
                 <link rel="manifest" href="/manifest.json" />
+                <CriticalCSS />
+                <CssLinksRecetas />
+                <Libs />
             </head>
             <body>
                 <div id="fusion-app">{children}</div>
+                <Fusion hydrateOnly />
             </body>
         </html>
     );
