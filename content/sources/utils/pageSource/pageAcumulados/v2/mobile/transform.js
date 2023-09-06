@@ -7,7 +7,7 @@ import {
 } from '../../../common/elements/sections/index';
 import configToMoveBySection from '../../../../../../../components/private/LN/api/global/page/config/configToMoveBySection';
 
-const transform = async (dataPage, query) => {
+const transform = async dataPage => {
     const {
         information: { layoutPage },
         content_elements: elementsPage
@@ -16,10 +16,10 @@ const transform = async (dataPage, query) => {
     try {
         let elementsPageHome = elementsPage;
 
-        elementsPageHome = setBannerByLayout[layoutPage](
-            elementsPageHome,
-            layoutPage
-        );
+        // elementsPageHome = setBannerByLayout[layoutPage](
+        //     elementsPageHome,
+        //     layoutPage
+        // );
 
         // Move Sections
         const configMovePositions = configToMoveBySection(layoutPage);
@@ -35,9 +35,7 @@ const transform = async (dataPage, query) => {
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(
-            `Error Transform - v1/mobile/transform :  layout: ${layoutPage} - query: ${JSON.stringify(
-                query
-            )} - errorMsj:${error.message}`
+            `Error Transform - v1/mobile/transform :  layout: ${layoutPage} - errorMsj:${error.message}`
         );
         throw new Error(error);
     }
