@@ -11,7 +11,8 @@ const transform = (data, params) => {
                 2: IndexAcuV2
             },
             mobile: {
-                1: IndexAcuV1Mobile
+                1: IndexAcuV1Mobile,
+                2: IndexAcuV1Mobile
             }
         };
         const version = params.versionUri;

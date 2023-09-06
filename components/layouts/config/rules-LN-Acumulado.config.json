@@ -27,7 +27,9 @@
             "Ln_Caja_Collection",
             "LN-common/anexo",
             "LN-acumulado/anexoIframe",
-            "LN-acumulado/grillaNotas"
+            "LN-acumulado/grillaNotas",
+            "LN-common/navigationList",
+            "LN-common/techo"
         ],
         "position": 6
     },
