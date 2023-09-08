@@ -1,11 +1,9 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import getWebFont from './utils/getWebFont';
 import { useAppContext } from 'fusion:context';
 import { FONT_PRUMO, FONT_PRUMO_ITALIC } from 'fusion:environment';
-
-export const getWebFont = ({ font, deployment, contextPath }) =>
-    `${deployment(contextPath + font)}`;
 
 export const getStyleFontsInLineForLN10 = ({ contextPath, deployment }) => `
 @font-face {font-family:'Prumo';src:url('${getWebFont({

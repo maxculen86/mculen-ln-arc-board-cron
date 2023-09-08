@@ -1,0 +1,3 @@
+.foodit-badge .icon svg > path {
+  fill: var(--neutral-light-200);
+}

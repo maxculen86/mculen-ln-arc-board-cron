@@ -45,7 +45,7 @@ export const authorCommon = author => {
     const authorData = getAuthorData(author);
     const url = get(author, 'additional_properties.original.image', null);
     const image = getImageUrlBasedOnResizerVersion(url);
-    
+
     return {
         ...authorData,
         tipo: authorData.slug ? 1 : 2,

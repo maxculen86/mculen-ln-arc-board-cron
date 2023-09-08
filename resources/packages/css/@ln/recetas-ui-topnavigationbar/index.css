@@ -1,0 +1,12 @@
+.top-navigation-bar .dropdown-toggle.--selected {
+  color: var(--primary-positive);
+}
+.top-navigation-bar .dropdown-toggle.--selected .dropdown-icon svg > path {
+  fill: var(--primary-positive);
+}
+.top-navigation-bar .dropdown-toggle:not(.--selected) {
+  color: var(--neutral-light-800);
+}
+.top-navigation-bar .dropdown-toggle:not(.--selected) .dropdown-icon svg > path {
+  fill: var(--neutral-light-800);
+}

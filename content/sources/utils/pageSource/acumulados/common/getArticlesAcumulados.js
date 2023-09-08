@@ -8,6 +8,7 @@ const getParamsAcus = query => {
     const sections = get(query, 'sections', null);
     const page = get(query, 'page', '0');
     const website = get(query, 'website', '');
+    const tagId = get(query, 'tagId', null);
 
     const resp = {
         page,
@@ -39,7 +40,8 @@ const getParamsAcus = query => {
         sectionId,
         size,
         excludeSourceOrigin,
-        website
+        website,
+        tagId
     };
 };
 
