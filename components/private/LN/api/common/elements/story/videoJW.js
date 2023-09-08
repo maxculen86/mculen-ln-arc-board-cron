@@ -15,7 +15,8 @@ export const videoJWNota = videoData => {
     const elementPlayList = Array.isArray(playList) ? playList[0] : playList;
     const { duration, title, sources, image, description } = elementPlayList;
 
-    const duracion = (duration || 0);
+    const duracion =
+        typeof duration == 'number' ? (duration || 0) * 1000 : duration * 1;
 
     const resp = {
         _t: 'vid',
@@ -53,7 +54,8 @@ export const videoJWNotaMobile = videoData => {
     const elementPlayList = Array.isArray(playList) ? playList[0] : playList;
     const { duration, title, sources, image } = elementPlayList;
 
-    const durationCalculated = (duration || 0);
+    const durationCalculated =
+        typeof duration == 'number' ? (duration || 0) * 1000 : duration * 1;
 
     const resp = {
         _t: 'video',
