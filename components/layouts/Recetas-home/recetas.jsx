@@ -11,7 +11,7 @@ const LNHomeRecetas = ({ children }) => {
     return (
         <BaseLayout>
             <section className="pt-8 mb-64">
-                <h1 className="prumo text-36 prumo-black mb-16">
+                <h1 className="prumo text-36 prumo-extrabold mb-16">
                     Home recetas
                 </h1>
                 {opening}
@@ -21,7 +21,7 @@ const LNHomeRecetas = ({ children }) => {
                 {bloque1}
             </section>
             <section className="mb-64">
-                <h2 className="prumo text-36 prumo-medium mb-16">Bloque 2</h2>
+                <h2 className="prumo text-36 prumo-light mb-16">Bloque 2</h2>
                 {bloque2}
             </section>
         </BaseLayout>

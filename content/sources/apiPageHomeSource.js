@@ -13,7 +13,7 @@ const fetch = async (query, { cachedCall } = {}) => {
     const configPages = {
         home: {
             aliasPage: '/homepage',
-            transformPage: { 1: transformv1, 2: transformv2 },
+            transformPage: { 1: transformv1, 2: transformv1 },
             transformHome: { 1: homev1, 2: homev2 }
         },
         bitacora: {
@@ -26,21 +26,21 @@ const fetch = async (query, { cachedCall } = {}) => {
         },
         homeLN: {
             aliasPage: '/homepage-LN10',
-            transformPage: { 1: transformv1, 2: transformv2 },
+            transformPage: { 1: transformv1, 2: transformv1 },
             transformHome: { 1: homev1, 2: homev2 }
         },
         homeLN10: {
             aliasPage: '/homepage-ln10',
-            transformPage: { 1: transformv1, 2: transformv2 },
+            transformPage: { 1: transformv1, 2: transformv1 },
             transformHome: { 1: homev1, 2: homev2 }
         },
         sports: {
             aliasPage: '/deportes',
-            transformPage: { 1: transformv1, 2: transformv2 },
+            transformPage: { 1: transformv1, 2: transformv1 },
             transformHome: { 1: homev1, 2: homev2 }
         },
         default: {
-            transformPage: { 1: transformv1, 2: transformv2 },
+            transformPage: { 1: transformv1, 2: transformv1 },
             transformHome: { 1: homev1, 2: homev2 }
         }
     };
