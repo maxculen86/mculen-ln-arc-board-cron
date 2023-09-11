@@ -73,6 +73,7 @@ export const RightOptions = ({
     hasSubscribeButton = true
 }) => {
     const buttonSuscribe = useTermica('buttonsuscribe');
+
     const propertyNames = [
         'class_tooltip',
         'tooltip_text',

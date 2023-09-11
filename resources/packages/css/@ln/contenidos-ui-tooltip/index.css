@@ -35,12 +35,12 @@
     left: inherit;
   }
 }
-@media (min-width: 80rem) {
-  .ln-tooltip.--top_lg {
+@media (min-width: 64rem) {
+  .ln-tooltip.--top_l {
     top: auto;
     bottom: calc(100% + 0.25rem);
   }
-  .ln-tooltip.--top_lg::before {
+  .ln-tooltip.--top_l::before {
     top: 100%;
     transform: rotate(45deg) translate(-50%);
   }
