@@ -67,7 +67,7 @@ export const handleVideoEventsScript = (title, idVideo) => `
         element.classList.remove('--background');
     });
 
-    const events = ['play', 'pause', 'complete'];
+    const events = ['play', 'pause'];
 
     events.forEach((event) => {
         window.jwplayer('${title}').on(event, function (e) {
@@ -84,5 +84,11 @@ export const handleVideoEventsScript = (title, idVideo) => `
             addToDataLayer(percentage.toString(), '${title}', '${idVideo}');
         }
         });
+    });
+
+    window.jwplayer('${title}').on('complete', function (e) {
+        if (!isInDatalayerEvent('complete', '${idVideo}')) {
+            addToDataLayer('complete', '${title}', '${idVideo}');
+        }
     });
 `;
