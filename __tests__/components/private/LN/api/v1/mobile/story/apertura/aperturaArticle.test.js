@@ -6,6 +6,7 @@ import articleWithBothTypes from '../../../../../../../../../__mocks__/data/arti
 import articleBasic from '../../../../../../../../../__mocks__/data/articles/YJJ7JHAWNJFTDH2RLJ4QHUTA5A.json';
 import articleMultimedia from '../../../../../../../../../__mocks__/data/articles/JLMPIDPYXFH3JPLFTZNJGONPNA.json';
 import articleWithOutApertura from '../../../../../../../../../__mocks__/data/articles/2CIOHVMKJBHKDMMHH2WBIZGJWE.json';
+import articleWithVideoJW from '../../../../../../../../../__mocks__/data/articles/FJ5DHWYC2BEKFOFGFBJI5WWUCA.json';
 
 jest.mock('fusion:environment', () => {
     return {
@@ -72,5 +73,28 @@ describe('Test apetura con raw_html', () => {
 
         expect(resp).not.toBeNull();
         expect(resp.html).toBeUndefined();
+    });
+});
+
+describe('Test apetura con videoJW', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+        jest.resetModules();
+        jest.spyOn(console, 'error');
+        // @ts-ignore jest.spyOn adds this functionallity
+        console.error.mockImplementation(() => null);
+    });
+
+    afterEach(() => {
+        // @ts-ignore jest.spyOn adds this functionallity
+        console.error.mockRestore();
+    });
+    test('Esto ya debe estar validadod en el content_elements por lo tanto no retorna la apertura_multimedia aún teniendo configurada basic', () => {
+        const resp = aperturaArticle(articleWithVideoJW);
+        expect(resp).not.toBeNull();
+        expect(resp.video).not.toBeNull();
+        expect(resp.imagenes).not.toBeNull();
+        expect(resp.imagenesAcumulado).toBeUndefined();
+        expect(console.error).toHaveBeenCalledTimes(1);
     });
 });
