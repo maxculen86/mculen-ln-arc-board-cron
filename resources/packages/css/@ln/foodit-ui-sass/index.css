@@ -35,6 +35,10 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   font-family: "Roboto", Arial, sans-serif;
   color: var(--neutral-light-800);
@@ -72,6 +76,7 @@ a {
   --neutral-light-600: #666666;
   --neutral-light-800: #333333;
   --neutral-dark-800: #CCCCCC;
+  --shadow-down-sm: 0px 8px 16px rgba(0, 0, 0, 0.06);
   --shadow-down-md: 0px 12px 24px rgba(0, 0, 0, 0.04);
   --scroller-columns: 8;
   --scroller-element-columns: 7;
@@ -108,12 +113,12 @@ a {
   justify-content: space-between;
 }
 
-.jc-around {
-  justify-content: space-around;
-}
-
 .ai-center {
   align-items: center;
+}
+
+.as-center {
+  align-self: center;
 }
 
 .ratio-3-2 {
@@ -157,14 +162,14 @@ a {
   border-top-right-radius: 1.5rem;
 }
 
-.rounded-bottom-left-24 {
-  border-bottom-left-radius: 1.5rem;
+@media (min-width: 48rem) {
+  .rounded-bottom-right-24_md {
+    border-bottom-right-radius: 1.5rem;
+  }
+  .rounded-top-right-24_md {
+    border-top-right-radius: 1.5rem;
+  }
 }
-
-.rounded-bottom-right-24 {
-  border-bottom-right-radius: 1.5rem;
-}
-
 .border.border-all {
   border-style: solid;
 }
@@ -306,20 +311,8 @@ a {
   font-size: 1rem;
   line-height: 150%;
 }
-.roboto .text-18 {
-  font-size: 1.125rem;
-  line-height: 150%;
-}
 .roboto .text-24 {
   font-size: 1.5rem;
-  line-height: 120%;
-}
-.roboto .text-28 {
-  font-size: 1.75rem;
-  line-height: 120%;
-}
-.roboto .text-36 {
-  font-size: 2.25rem;
   line-height: 120%;
 }
 @media (min-width: 48rem) {
@@ -327,16 +320,8 @@ a {
     font-size: 1.75rem;
     line-height: 120%;
   }
-  .roboto .text-32_md {
-    font-size: 2rem;
-    line-height: 120%;
-  }
 }
 @media (min-width: 80rem) {
-  .roboto .text-32_lg {
-    font-size: 2rem;
-    line-height: 120%;
-  }
   .roboto .text-40_lg {
     font-size: 2.5rem;
     line-height: 120%;
@@ -360,11 +345,6 @@ a {
 .prumo-extrabold {
   --prumo-font-variation: 170;
 }
-.prumo.text-16 {
-  font-size: 1rem;
-  line-height: 130%;
-  --prumo-letter-spacing: -0.16px;
-}
 .prumo.text-20 {
   font-size: 1.25rem;
   line-height: 130%;
@@ -378,21 +358,6 @@ a {
 .prumo.text-32 {
   font-size: 2rem;
   line-height: 116%;
-  --prumo-letter-spacing: -0.64px;
-}
-.prumo.text-36 {
-  font-size: 2.25rem;
-  line-height: 116%;
-  --prumo-letter-spacing: -0.64px;
-}
-.prumo.text-56 {
-  font-size: 3.5rem;
-  line-height: 110%;
-  --prumo-letter-spacing: -0.64px;
-}
-.prumo.text-64 {
-  font-size: 4rem;
-  line-height: 110%;
   --prumo-letter-spacing: -0.64px;
 }
 @media (min-width: 48rem) {
@@ -413,10 +378,10 @@ a {
   }
 }
 @media (min-width: 80rem) {
-  .prumo.text-16_lg {
-    font-size: 1rem;
-    line-height: 130%;
-    --prumo-letter-spacing: -0.16px;
+  .prumo.text-32_lg {
+    font-size: 2rem;
+    line-height: 116%;
+    --prumo-letter-spacing: -0.64px;
   }
   .prumo.text-40_lg {
     font-size: 2.5rem;
@@ -708,6 +673,10 @@ a {
   box-shadow: 0px -16px 32px -8px rgba(0, 0, 0, 0.08);
 }
 
+.shadow-down-sm {
+  box-shadow: var(--shadow-down-sm);
+}
+
 .shadow-down-md {
   box-shadow: var(--shadow-down-md);
 }
@@ -726,6 +695,10 @@ a {
 
 .w-100 {
   width: 100%;
+}
+
+.w-100vw {
+  width: 100vw;
 }
 
 .w-144 {
@@ -785,14 +758,6 @@ a {
   margin-bottom: 0.25rem;
 }
 
-.mb-16 {
-  margin-bottom: 1rem;
-}
-
-.mb-24 {
-  margin-bottom: 1.5rem;
-}
-
 .mb-64 {
   margin-bottom: 4rem;
 }
@@ -805,12 +770,12 @@ a {
   margin-inline: auto;
 }
 
-.ml-auto {
-  margin-left: auto;
-}
-
 .mt-8 {
   margin-top: 0.5rem;
+}
+
+.ml-auto {
+  margin-left: auto;
 }
 
 .p-8 {
@@ -831,6 +796,10 @@ a {
 
 .py-4 {
   padding-block: 0.25rem;
+}
+
+.py-8 {
+  padding-block: 0.5rem;
 }
 
 .py-12 {
@@ -857,16 +826,8 @@ a {
   padding-inline: 1rem;
 }
 
-.px-24 {
-  padding-inline: 1.5rem;
-}
-
 .pt-8 {
   padding-top: 0.5rem;
-}
-
-.pr-16 {
-  padding-right: 1rem;
 }
 
 .pb-12 {
@@ -877,30 +838,17 @@ a {
   padding-bottom: 2rem;
 }
 
-.pl-16 {
-  padding-left: 1rem;
-}
-
 @media (min-width: 48rem) {
   .p-24_md {
     padding: 1.5rem;
   }
-  .pr-24_md {
-    padding-right: 1.5rem;
-  }
-  .pl-24_md {
-    padding-left: 1.5rem;
-  }
 }
 @media (min-width: 80rem) {
+  .p-24_lg {
+    padding: 1.5rem;
+  }
   .p-32_lg {
     padding: 2rem;
-  }
-  .px-32_lg {
-    padding-inline: 2rem;
-  }
-  .pr-0_lg {
-    padding-right: 0rem;
   }
   .py-24_lg {
     padding-block: 1.5rem;

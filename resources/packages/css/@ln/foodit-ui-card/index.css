@@ -1,10 +1,14 @@
 @media (min-width: 80rem) {
-  .card.--heading .card-main {
+  .card.--day-recipe {
+    box-shadow: initial;
+    border-radius: initial;
+  }
+  .card.--day-recipe .card-main {
     position: absolute;
     left: 2rem;
     top: 50%;
     transform: translate3d(0, -50%, 0);
     border-radius: 1.5rem;
-    max-width: 25.5rem;
+    max-width: 33.5rem;
   }
 }
