@@ -1,6 +1,7 @@
 [
     {
         "sectionId": "economia/campo",
+        "slug": "/economia/campo",
         "aliasTitle": "Campo",
         "isPage": true,
         "isCustom": false,
@@ -8,18 +9,32 @@
     },
     {
         "sectionId": "economia",
+        "slug": "/economia",
+        "aliasTitle": "Economía",
+        "isPage": true,
+        "isCustom": false,
+        "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
+    },
+    {
+        "sectionId": "politica",
+        "slug": "/politica",
+        "aliasTitle": "Política",
         "isPage": true,
         "isCustom": false,
         "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "deportes",
+        "slug": "/deportes",
+        "aliasTitle": "Deportes",
         "isPage": true,
         "isCustom": false,
         "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "suscriptores",
+        "slug": "/suscriptores",
+        "aliasTitle": "LA NACION",
         "isPage": true,
         "isCustom": true,
         "namePage": "suscriptores",
@@ -27,45 +42,65 @@
     },
     {
         "sectionId": "canchallena",
+        "slug": "/canchallena",
+        "aliasTitle": "Canchallena",
         "isPage": true,
         "isCustom": false,
         "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "propiedades",
+        "slug": "/propiedades",
+        "aliasTitle": "Propiedades",
         "isPage": true,
         "isCustom": false,
         "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "campo",
+        "slug": "/campo",
+        "aliasTitle": "Campo",
         "isPage": true,
         "isCustom": false,
         "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "bienestar",
+        "slug": "/bienestar",
+        "aliasTitle": "Bienestar",
         "isPage": true,
         "isCustom": false,
         "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "movilidad",
+        "slug": "/movilidad",
+        "aliasTitle": "Movilidad",
         "isPage": true,
         "isCustom": false,
         "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
-        "sectionId": "opinión",
+        "sectionId": "opinion",
+        "slug": "/opinion",
+        "aliasTitle": "Opinión",
         "isPage": true,
         "isCustom": false,
         "featureAcumuladosInPage": "LN-acumulado/grillaNotas"
     },
     {
         "sectionId": "ultimas-noticias",
+        "slug": "/ultimas-noticias",
         "aliasTitle": "Últimas noticias",
         "isPage": true,
         "isCustom": true,
         "featureAcumuladosInPage": "LN-acumulado/ultimasNoticias"
+    },
+    {
+        "sectionId": "recetas",
+        "slug": "/recetas",
+        "aliasTitle": "Recetas",
+        "isPage": false,
+        "isCustom": false
     }
 ]

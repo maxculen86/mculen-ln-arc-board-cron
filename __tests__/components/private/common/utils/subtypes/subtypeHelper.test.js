@@ -142,6 +142,77 @@ describe('Private - Common - Utils - subtypeNotesWithoutAmp - subtypeHelper', ()
                 '/horoscopo/piscis/horoscopo-de-piscis-de-hoy-jueves-30-de-marzo-de-2023-nid30032023/'
             )
         ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/el-mundo/un-argentino-contrajo-coronavirus-nid07092023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/espectaculos/luis-miguel-los-origenes-de-su-conexion-con-argentina-nid02082023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/arquitectura/esta-es-una-nota-de-prueba-nid27072023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp('/ciencia/prueba-de-resumen-nid29062023/')
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/comunidad/trastornos-de-la-alimentacion-dormis-con-la-muerte-en-la-cama-abrazandote-nid28072022/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/conversaciones-de-domingo/el-artista-del-momento-el-joven-del-di-tella-al-que-la-publicidad-le-enseno-que-todo-era-posible-nid10092023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/cultura/seul-de-las-ruinas-de-la-guerra-a-la-ciudad-inteligente-nid18112022/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/editoriales/cuando-educar-es-ilegal-nid29032023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/educacion/jose-del-rio-el-periodismo-de-calidad-sigue-siendo-nuestra-prioridad-nid07092022/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/feriados/2023/nota-de-prueba-acu-feriados-2023-nid21122022/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/ideas/prueba-de-maestria-como-probar-arc-y-sus-funciones-nid26042021/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/data/jose-del-rio-fusiona-tecnologia-y-periodismo-en-la-era-digital-hay-que-estar-del-lado-de-los-datos-nid12052023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/la-nacion-revista/probando-html-cerrado-nid14052023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp('/lnmas/prueba-logo-ln-roger-nid09022022/')
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/moda-y-belleza/moda-antiviral-nid19112020/'
+            )
+        ).toBeTruthy();
     });
 
     it('Should return false when the subtype has amp', () => {

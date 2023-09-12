@@ -1,0 +1,6 @@
+.link.foodit-link {
+  color: var(--neutral-light-800);
+}
+.link.foodit-link:active {
+  color: var(--primary-positive);
+}
