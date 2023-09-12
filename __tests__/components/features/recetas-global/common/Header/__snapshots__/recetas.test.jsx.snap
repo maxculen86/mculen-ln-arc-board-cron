@@ -60,7 +60,7 @@ exports[`Components - Features - Recetas-global - Common - HeaderRecetas should 
                       </i>
                     </button>
                     <div
-                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center hidden opacity-0 top-0"
+                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0 top-0"
                       data-position="left"
                       role="menu"
                     >
@@ -106,7 +106,7 @@ exports[`Components - Features - Recetas-global - Common - HeaderRecetas should 
                       </i>
                     </button>
                     <div
-                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center hidden opacity-0 top-0"
+                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0 top-0"
                       data-position="center"
                       role="menu"
                     >
@@ -152,7 +152,7 @@ exports[`Components - Features - Recetas-global - Common - HeaderRecetas should 
                       </i>
                     </button>
                     <div
-                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center hidden opacity-0 top-0"
+                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0 top-0"
                       data-position="right"
                       role="menu"
                     >
@@ -274,7 +274,7 @@ exports[`Components - Features - Recetas-global - Common - HeaderRecetas should 
                     </i>
                   </button>
                   <div
-                    class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center hidden opacity-0 top-0"
+                    class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0 top-0"
                     data-position="right"
                     role="menu"
                   >

@@ -1,5 +1,9 @@
 import 'regenerator-runtime/runtime';
-import seguir, { resolveUri } from '../../../content/sources/seguirSource.js';
+import seguir, {
+    resolveUri,
+    createExclusionClauses,
+    generateSectionsToExclude
+} from '../../../content/sources/seguirSource.js';
 import tokenOk from '../../../__mocks__/data/personalizacion/token_ok.json';
 import responseCase1 from '../../../__mocks__/data/personalizacion/response_case1.json';
 
@@ -146,7 +150,164 @@ describe('Content - Sources - seguirSource - resolveUri', () => {
     };
     it('should return correct Uri', () => {
         expect(resolveUri(query)).toBe(
-            'https://api.sandbox.lanacionar.arcpublishing.com/content/v4/search/published?website=la-nacion-ar&size=5&from=0&_sourceExclude=geo,related_content,content_elements&sort=display_date:desc&body=%7B%22query%22:%7B%22bool%22:%7B%22must%22:%5B%7B%22range%22:%7B%22first_publish_date%22:%7B%22gte%22:%22now-6d%22,%22lte%22:%22now%22%7D%7D%7D,%7B%22term%22:%7B%22type%22:%22story%22%7D%7D,%7B%22term%22:%7B%22revision.published%22:true%7D%7D%5D,%22minimum_should_match%22:1,%22should%22:%5B%5D%7D%7D%7D'
+            'https://api.sandbox.lanacionar.arcpublishing.com/content/v4/search/published?website=la-nacion-ar&size=5&from=0&_sourceExclude=geo,related_content,content_elements&sort=display_date:desc&body=%7B%22query%22:%7B%22bool%22:%7B%22must%22:%5B%7B%22range%22:%7B%22first_publish_date%22:%7B%22gte%22:%22now-6d%22,%22lte%22:%22now%22%7D%7D%7D,%7B%22term%22:%7B%22type%22:%22story%22%7D%7D,%7B%22term%22:%7B%22revision.published%22:true%7D%7D%5D,%22must_not%22:%7B%22nested%22:%7B%22path%22:%22taxonomy.sections%22,%22query%22:%7B%22bool%22:%7B%22must%22:%5B%7B%22term%22:%7B%22taxonomy.sections._id%22:%22/newsletters%22%7D%7D%5D%7D%7D%7D%7D,%22minimum_should_match%22:1,%22should%22:%5B%5D%7D%7D%7D'
         );
+    });
+});
+
+describe('Content - Sources - seguirSource - createExclusionClauses', () => {
+    it('should generate exclusion clauses when an array of sections is passed as input', () => {
+        const sectionsToExclude = ['/section1', '/section2'];
+        const expected = {
+            nested: {
+                path: 'taxonomy.sections',
+                query: {
+                    bool: {
+                        must: [
+                            {
+                                term: {
+                                    'taxonomy.sections._id': '/section1'
+                                }
+                            },
+                            {
+                                term: {
+                                    'taxonomy.sections._id': '/section2'
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+
+        const result = createExclusionClauses(sectionsToExclude);
+
+        expect(result).toEqual(expected);
+    });
+
+    it('should return an empty object when an empty array is passed as input', () => {
+        const sectionsToExclude = [];
+
+        const result = createExclusionClauses(sectionsToExclude);
+
+        expect(result).toEqual({});
+    });
+
+    it('should throw an error when a non-array value is passed as input', () => {
+        const sectionsToExclude = 'section1';
+
+        expect(() => {
+            createExclusionClauses(sectionsToExclude);
+        }).toThrow('sectionsToExclude must be an array');
+    });
+
+    it('should return an empty object when an array of non-string values is passed as input', () => {
+        const sectionsToExclude = [1, true, null];
+
+        const result = createExclusionClauses(sectionsToExclude);
+
+        expect(result).toEqual({});
+    });
+
+    it('should return one object with one exclusion clause when an array of one section is passed as input', () => {
+        const sectionsToExclude = ['/section1'];
+        const expected = {
+            nested: {
+                path: 'taxonomy.sections',
+                query: {
+                    bool: {
+                        must: [
+                            {
+                                term: {
+                                    'taxonomy.sections._id': '/section1'
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+
+        const result = createExclusionClauses(sectionsToExclude);
+
+        expect(result).toEqual(expected);
+    });
+});
+
+describe('Content - Sources - seguirSource - generateSectionsToExclude', () => {
+    it('should return an empty object when input array is empty', () => {
+        const sections = [];
+        const result = generateSectionsToExclude(sections);
+        expect(result).toEqual({});
+    });
+
+    it('should return an empty object when input is not an array', () => {
+        const sections = 'section';
+        const result = generateSectionsToExclude(sections);
+        expect(result).toEqual({});
+    });
+
+    it('should generate a term query for a single section input', () => {
+        const sections = ['/section1'];
+        const result = generateSectionsToExclude(sections);
+        expect(result).toEqual({
+            nested: {
+                path: 'taxonomy.sections',
+                query: {
+                    bool: {
+                        must: [
+                            { term: { 'taxonomy.sections._id': '/section1' } }
+                        ]
+                    }
+                }
+            }
+        });
+    });
+
+    it('should generate a nested query with a bool must clause for multiple sections input', () => {
+        const sections = ['section1', 'section2'];
+        const result = generateSectionsToExclude(sections);
+        expect(result).toEqual({
+            nested: {
+                path: 'taxonomy.sections',
+                query: {
+                    bool: {
+                        must: [
+                            {
+                                term: {
+                                    'taxonomy.sections._id': 'section1'
+                                }
+                            },
+                            {
+                                term: {
+                                    'taxonomy.sections._id': 'section2'
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        });
+    });
+
+    it('should filter out non-string elements in the input array', () => {
+        const sections = ['section1', 123, true, null];
+        const result = generateSectionsToExclude(sections);
+        expect(result).toEqual({
+            nested: {
+                path: 'taxonomy.sections',
+                query: {
+                    bool: {
+                        must: [
+                            {
+                                term: {
+                                    'taxonomy.sections._id': 'section1'
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        });
     });
 });

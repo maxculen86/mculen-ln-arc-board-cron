@@ -46,25 +46,21 @@ a {
 
 .container, .container-fluid {
   margin-inline: auto;
-  padding-inline: 1rem;
+  padding-inline: var(--spacing);
   width: 100%;
   max-width: 85.375rem;
-}
-@media (min-width: 48rem) {
-  .container, .container-fluid {
-    padding-inline: 1.5rem;
-  }
-}
-@media (min-width: 80rem) {
-  .container, .container-fluid {
-    padding-inline: 2rem;
-  }
 }
 .container-fluid {
   max-width: 100%;
 }
 
+.overflow-container {
+  width: calc(100% + var(--spacing));
+  padding-right: var(--spacing);
+}
+
 :root {
+  --spacing: 16px;
   --primary-positive: #000;
   --secondary-positive: #414141;
   --accent-positive: #777;
@@ -79,20 +75,28 @@ a {
   --shadow-down-md: 0px 12px 24px rgba(0, 0, 0, 0.04);
   --scroller-columns: 8;
   --scroller-element-columns: 7;
-  --scroller-gap: 16px;
+  --scroller-gap: var(--spacing);
+}
+@media (min-width: 48rem) {
+  :root {
+    --spacing: 24px;
+  }
+}
+@media (min-width: 80rem) {
+  :root {
+    --spacing: 32px;
+  }
 }
 @media (min-width: 48rem) {
   :root {
     --scroller-columns: 12;
     --scroller-element-columns: 5;
-    --scroller-gap: 24px;
   }
 }
 @media (min-width: 80rem) {
   :root {
     --scroller-columns: 16;
     --scroller-element-columns: 4;
-    --scroller-gap: 32px;
   }
 }
 
@@ -218,6 +222,10 @@ a {
   background: var(--neutral-light-50);
 }
 
+.bg-light-100 {
+  background: var(--neutral-light-100);
+}
+
 .bg-light-600 {
   background: var(--neutral-light-600);
 }
@@ -337,41 +345,88 @@ a {
 
 .prumo {
   font-family: "Prumo", Georgia, serif;
+  letter-spacing: var(--prumo-letter-spacing);
+  font-variation-settings: "wght" var(--prumo-font-variation), "opsz" 0;
 }
 .prumo-extralight {
-  font-variation-settings: "wght" 90, "opsz" var(--optical-size);
+  --prumo-font-variation: 50;
 }
 .prumo-light {
-  font-variation-settings: "wght" 100, "opsz" var(--optical-size);
+  --prumo-font-variation: 70;
 }
 .prumo-medium {
-  font-variation-settings: "wght" 110, "opsz" var(--optical-size);
+  --prumo-font-variation: 110;
 }
-.prumo-black {
-  font-variation-settings: "wght" 190, "opsz" var(--optical-size);
+.prumo-extrabold {
+  --prumo-font-variation: 170;
 }
 .prumo.text-16 {
   font-size: 1rem;
   line-height: 130%;
-  --optical-size: 0;
+  --prumo-letter-spacing: -0.16px;
+}
+.prumo.text-20 {
+  font-size: 1.25rem;
+  line-height: 130%;
+  --prumo-letter-spacing: -0.16px;
+}
+.prumo.text-28 {
+  font-size: 1.75rem;
+  line-height: 116%;
+  --prumo-letter-spacing: -0.64px;
+}
+.prumo.text-32 {
+  font-size: 2rem;
+  line-height: 116%;
+  --prumo-letter-spacing: -0.64px;
 }
 .prumo.text-36 {
   font-size: 2.25rem;
   line-height: 116%;
-  --optical-size: 50;
+  --prumo-letter-spacing: -0.64px;
+}
+.prumo.text-56 {
+  font-size: 3.5rem;
+  line-height: 110%;
+  --prumo-letter-spacing: -0.64px;
+}
+.prumo.text-64 {
+  font-size: 4rem;
+  line-height: 110%;
+  --prumo-letter-spacing: -0.64px;
 }
 @media (min-width: 48rem) {
   .prumo.text-28_md {
     font-size: 1.75rem;
+    line-height: 116%;
+    --prumo-letter-spacing: -0.64px;
+  }
+  .prumo.text-36_md {
+    font-size: 2.25rem;
+    line-height: 116%;
+    --prumo-letter-spacing: -0.64px;
+  }
+  .prumo.text-56_md {
+    font-size: 3.5rem;
     line-height: 110%;
-    --optical-size: 50;
+    --prumo-letter-spacing: -0.64px;
   }
 }
 @media (min-width: 80rem) {
   .prumo.text-16_lg {
     font-size: 1rem;
     line-height: 130%;
-    --optical-size: 0;
+    --prumo-letter-spacing: -0.16px;
+  }
+  .prumo.text-40_lg {
+    font-size: 2.5rem;
+    line-height: 116%;
+    --prumo-letter-spacing: -0.64px;
+  }
+  .prumo.text-64_lg {
+    font-size: 4rem;
+    line-height: 110%;
+    --prumo-letter-spacing: -0.64px;
   }
 }
 
@@ -410,12 +465,12 @@ a {
 }
 .grid-cols-5 {
   grid-template-columns: repeat(5, 1fr);
-  grid-column-gap: 0.75rem;
+  grid-column-gap: 1rem;
 }
 
 .grid-cols-8 {
   grid-template-columns: repeat(8, 1fr);
-  grid-column-gap: 0.75rem;
+  grid-column-gap: 1rem;
 }
 
 .col-span-1 {
@@ -573,6 +628,10 @@ a {
   overflow-x: clip;
 }
 
+.overflow-y-clip {
+  overflow-y: clip;
+}
+
 .top-0 {
   top: 0;
 }
@@ -669,6 +728,10 @@ a {
   width: 100%;
 }
 
+.w-144 {
+  width: 9rem;
+}
+
 .w-max {
   width: -moz-max-content;
   width: max-content;
@@ -688,8 +751,8 @@ a {
     max-width: 32.5rem;
   }
 }
-.h-12 {
-  height: 0.75rem;
+.h-5 {
+  height: 0.3125rem;
 }
 
 .h-100 {
@@ -700,9 +763,22 @@ a {
   height: 100vh;
 }
 
+.h-250 {
+  height: 15.625rem;
+}
+
 .h-max {
   height: -moz-max-content;
   height: max-content;
+}
+
+@media (min-width: 80rem) {
+  .h-160_lg {
+    height: 10rem;
+  }
+}
+.m-8 {
+  margin: 0.5rem;
 }
 
 .mb-4 {
@@ -850,6 +926,14 @@ a {
   text-overflow: ellipsis;
 }
 
+.text-ellipsis-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .text-center {
   text-align: center;
 }
@@ -859,11 +943,11 @@ a {
   text-overflow: ellipsis;
 }
 
-.hidden {
+.visibility-hidden {
   visibility: hidden;
 }
 
-.visible {
+.visibility-visible {
   visibility: visible;
 }
 
@@ -922,4 +1006,27 @@ hr {
 
 .transition-linear {
   transition: all 0.2s linear;
+}
+
+.banner-container {
+  background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 4px, rgba(0, 0, 0, 0.15) 6px);
+  background: -webkit-repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 4px, rgba(0, 0, 0, 0.15) 6px);
+}
+.banner-container:before {
+  content: "PUBLICIDAD";
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  background: var(--neutral-light-1);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.6875rem;
+  line-height: 1rem;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .banner-container {
+    display: none;
+  }
+}
+.banner-container .link.foodit-link:hover {
+  opacity: inherit;
 }
