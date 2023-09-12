@@ -11,7 +11,7 @@ import { getImagesToLoadWithPicture } from '../../../private/LN/common/utils/med
 import get from '../../../private/common/utils/get';
 
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
-import { Link } from '@ln/recetas-ui-link';
+import { Link } from '@ln/foodit-ui-link';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 
 import filter from '../../../../content/filters/LN/home/imageFilter.js';

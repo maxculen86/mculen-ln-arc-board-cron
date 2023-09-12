@@ -4,7 +4,7 @@ import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { FontFaceRecetas } from './FontFace';
 
-// TODO: analizar convertir, el CSS generado en recetas-ui-sass a string y sumarlo al CriticalCSSString.
+// TODO: analizar convertir, el CSS generado en foodit-ui-sass a string y sumarlo al CriticalCSSString.
 export const CriticalCSSString = ``;
 
 const CriticalCSS = () => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createHeaderObserver } from '../utils/intersectionObserver';
-import { Header, MainHeader, Search } from '@ln/recetas-ui-header';
+import { Header, MainHeader, Search } from '@ln/foodit-ui-header';
 import { useAppContext } from 'fusion:context';
 import siteProperties from '../../../../../properties/sites/recetas';
 import TopNavigationBar from './components/TopNavigationBar';

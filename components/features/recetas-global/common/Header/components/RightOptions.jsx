@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@ln/recetas-ui-button';
+import { Button } from '@ln/foodit-ui-button';
 import AvatarRecetas from './Avatar';
 
 const RightOptions = ({

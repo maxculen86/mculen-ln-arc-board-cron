@@ -9,7 +9,7 @@ import {
     List,
     Profile,
     Exit
-} from '@ln/recetas-ui-assets';
+} from '@ln/foodit-ui-assets';
 
 const dropdownList = [
     {

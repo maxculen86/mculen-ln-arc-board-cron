@@ -1,5 +1,5 @@
 import React from 'react';
-import { Close } from '@ln/recetas-ui-assets';
+import { Close } from '@ln/foodit-ui-assets';
 import { Button } from '@ln/common-ui-button';
 import { Drawer, toggleDrawer } from '@ln/common-ui-drawer';
 import { Icon } from '@ln/common-ui-icon';

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from '@ln/recetas-ui-link';
+import { Link } from '@ln/foodit-ui-link';
 import { Icon } from '@ln/common-ui-icon';
-import { Bookmark, Cart } from '@ln/recetas-ui-assets';
+import { Bookmark, Cart } from '@ln/foodit-ui-assets';
 
 const ExtraOptions = ({ ...r }) => {
     return (

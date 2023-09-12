@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '@ln/recetas-ui-link';
+import { Link } from '@ln/foodit-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 import { itemsNavigationBar } from './items';
 import { toggleDrawer } from '@ln/common-ui-drawer';

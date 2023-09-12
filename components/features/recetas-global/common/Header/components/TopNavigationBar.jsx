@@ -1,5 +1,5 @@
 import React from 'react';
-import { Topnavigationbar } from '@ln/recetas-ui-topnavigationbar';
+import { Topnavigationbar } from '@ln/foodit-ui-topnavigationbar';
 import { Dropdown } from '@ln/common-ui-dropdown';
 
 const TopNavigationBar = () => {

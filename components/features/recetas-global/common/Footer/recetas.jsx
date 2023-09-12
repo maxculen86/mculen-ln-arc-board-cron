@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text } from '@ln/common-ui-text';
-import { Link } from '@ln/recetas-ui-link';
+import { Link } from '@ln/foodit-ui-link';
 import { Icon } from '@ln/common-ui-icon';
-import { Twitter, Facebook, Instagram, BulletXs } from '@ln/recetas-ui-assets';
+import { Twitter, Facebook, Instagram, BulletXs } from '@ln/foodit-ui-assets';
 
 const FooterRecetas = () => {
     return (

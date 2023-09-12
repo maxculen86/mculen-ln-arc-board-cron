@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Sections, Bookmark, Cart, Profile } from '@ln/recetas-ui-assets';
+import { Home, Sections, Bookmark, Cart, Profile } from '@ln/foodit-ui-assets';
 
 export const itemsNavigationBar = [
     {
