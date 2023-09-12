@@ -27,7 +27,7 @@ exports[`Components - Features - Recetas-global - Common - HeaderRecetas should 
             class="left-options roboto-bold flex jc-between ai-center flex-grow-1 text-14 gap-24"
           >
             <nav
-              class="lg-only"
+              class="top-navigation-bar lg-only"
             >
               <ul
                 class="flex ai-center gap-24"
