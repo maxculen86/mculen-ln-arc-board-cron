@@ -1,11 +1,16 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
 import { MainHeader } from '@ln/contenidos-ui-header';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { ExclusivoSuscriptores, Bell } from '@ln/contenidos-ui-assets';
 import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
+import useTermica from '../../common/hooks/useTermica';
+import { GlobalContext } from '../../common/context/globalContext';
+import get from '../../common/utils/get';
+import { Tooltip } from '@ln/contenidos-ui-tooltip';
+import classNames from 'classnames';
 
 export const setDesplegableData = (goToLogout = () => {}) => {
     const LogoutText = 'Cerrar sesión';
@@ -67,12 +72,38 @@ export const RightOptions = ({
     loading = false,
     hasSubscribeButton = true
 }) => {
+    const buttonSuscribe = useTermica('buttonsuscribe');
+
+    const propertyNames = [
+        'class_tooltip',
+        'tooltip_text',
+        'button_text',
+        'sticky_button_text'
+    ];
+    let {
+        class_tooltip,
+        tooltip_text,
+        button_text,
+        sticky_button_text
+    } = getTermicaValues(propertyNames);
+
+    // Verifica el valor de buttonSuscribe y actualiza las variables según corresponda
+    if (!buttonSuscribe) {
+        button_text = 'SUSCRIBITE';
+        sticky_button_text = 'SUSCRIBITE';
+    }
+
+    const tooltipClassName = classNames(class_tooltip);
+    const subscribeButtonClassName = classNames(
+        !loading && hasSubscribeButton ? '' : '--none',
+        'relative'
+    );
     const SubscribeButton = (
         <Button
             id="btnsuscribite"
             title="Suscribite"
             typeButton="subscribe"
-            className={!loading && hasSubscribeButton ? '' : '--none'}
+            className={subscribeButtonClassName}
             // eslint-disable-next-line no-return-assign
             onClick={() => {
                 window.location.href = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
@@ -80,6 +111,9 @@ export const RightOptions = ({
                 )}`;
             }}
         >
+            {buttonSuscribe && (
+                <Tooltip className={tooltipClassName} text={tooltip_text} />
+            )}
             <Icon
                 icon="suscriptorExclusivo"
                 size={18}
@@ -87,7 +121,16 @@ export const RightOptions = ({
             >
                 <ExclusivoSuscriptores />
             </Icon>
-            Suscribite
+            {/* TO DO: Mostrar button-header-default en home y button-sticky en internas*/}
+            <span
+                id="button-header-default"
+                dangerouslySetInnerHTML={{ __html: button_text }}
+            />
+            <span
+                id="button-sticky"
+                className="--none"
+                dangerouslySetInnerHTML={{ __html: sticky_button_text }}
+            />
         </Button>
     );
 
@@ -140,6 +183,21 @@ export const RightOptions = ({
             {userType !== 'suscribed' && SubscribeButton}
         </>
     );
+};
+
+export const getTermicaValues = propertyNames => {
+    const gc = useContext(GlobalContext);
+    const termicas = get(gc, 'state.siteService.termicas', []);
+
+    const values = propertyNames.reduce((acc, propertyName) => {
+        const element = termicas.find(
+            termica => termica && termica.key === propertyName
+        );
+        acc[propertyName] = (element && element.value) || '';
+        return acc;
+    }, {});
+
+    return values;
 };
 
 export const sectionsCallback = (e, toggleDesplegable) => {

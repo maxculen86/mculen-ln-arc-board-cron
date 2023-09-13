@@ -1,5 +1,11 @@
 export default `{
     type
+    sources {
+        file
+        height
+        filesize
+    }
+    poster
     promo_items {
         basic {
             url

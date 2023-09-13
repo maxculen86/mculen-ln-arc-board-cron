@@ -13,6 +13,7 @@ import { getValidElementForPreload } from '../../../../private/common/utils/imag
 import getChainPosition from '../../../../private/common/utils/getChainPosition';
 import sectionsValidationLN10 from '../../../../layouts/config/LN10-Home.config.json';
 import getElementFromRenderables from '../../../../private/common/utils/getElementFromRenderables';
+import getSources from '../../../../private/LN/common/utils/getSourcesJwHome';
 
 export const typeBadge = {
     0: POSITIVE,
@@ -135,8 +136,9 @@ export const validateArticleFeature = ({
     variant,
     variantsDisabled
 }) => {
-    const { streams } = video || {};
-    const { filesize } = getStreams(streams, '>') || '';
+    const { streams, sources } = video || {};
+    const { filesize } =
+        getStreams(streams, '>') || getSources(sources, '>') || '';
     const maxVideoSize = 3145728;
     const oneMegabyte = 1048576;
 
