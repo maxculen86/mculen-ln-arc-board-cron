@@ -1,7 +1,8 @@
 import {
     transformImages,
     formatJwPlayerDate,
-    getJWScript
+    getJWScript,
+    handleVideoEventsScript
 } from '../../../../../../components/private/common/videoPlayerJw/utils/helperJw';
 
 describe('Components - Private - Common - videoPlayerJw - Utils', () => {
@@ -56,56 +57,34 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         const idVideo = 'abc123';
 
         const expectedScript = `
-          window.addEventListener('load', () => {
-            const facadeDiv = document.getElementById('facade-videoPlayer');
-          
-            const setJwScript = () => {
-              const scriptElement = document.createElement('script');
-              scriptElement.src = 'https://cdn.jwplayer.com/libraries/jwplayer.js';
-              document.head.appendChild(scriptElement);
-          
-              scriptElement.addEventListener('load', function () {
-                window.jwplayer('videoPlayer').setup({
-                  playlist: [{\"file\":\"video.mp4\"}],
-                  autostart: true
-                });
-          
-                window.jwplayer('${title}').on('ready', function (e) {
-                    const element = document.querySelector('.video-player');
-                    element.classList.remove('--background');
-                });
-            
-                const events = ['play', 'pause', 'complete'];
-            
-                events.forEach((event) => {
-                    window.jwplayer('${title}').on(event, function (e) {
-                      addToDataLayer(event, '${title}', '${idVideo}');
+        window.addEventListener('load', () => {
+            const facadeDiv = document.getElementById('facade-${title}');
+        
+            const setJwScript = () => {    
+                const scriptElement = document.createElement('script');
+                scriptElement.src = 'https://cdn.jwplayer.com/libraries/${player}.js';
+                document.head.appendChild(scriptElement);
+        
+                scriptElement.addEventListener('load', function() {
+                    window.jwplayer('${title}').setup({
+                        playlist: ${JSON.stringify(playlist)},
+                        autostart: true
                     });
+        
+                    ${handleVideoEventsScript(title, idVideo)}
                 });
-            
-                window.jwplayer('${title}').on('time', function (e) {
-                    const percent = Math.floor((e.currentTime / e.duration) * 100);
-                    const percentagesToCheck = [25, 50, 75];
-            
-                    percentagesToCheck.forEach((percentage) => {
-                    if (!isInDatalayerEvent(percentage.toString(), '${idVideo}') && percent === percentage) {
-                        addToDataLayer(percentage.toString(), '${title}', '${idVideo}');
-                    }
-                    });
-                });
-              });
-          
-              if (facadeDiv) facadeDiv.remove();
-            };
-          
+        
+                if (facadeDiv) facadeDiv.remove();
+            };    
+        
             facadeDiv.addEventListener('click', setJwScript);
-          
-            if (true) {
-              setJwScript();
+        
+            if (${hasAutoplay}) {
+                setJwScript();
             }
-          
-            addToDataLayer('videoDisplay', 'videoPlayer', 'abc123');
-          });
+        
+            addToDataLayer('videoDisplay', '${title}', '${idVideo}');
+        });
         `;
 
         const generatedScript = getJWScript(
@@ -118,5 +97,46 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         expect(generatedScript.replace(/\s+/g, '')).toContain(
             expectedScript.replace(/\s+/g, '')
         );
+    });
+
+    it('tests handleVideoEventsScript function', () => {
+        const title = 'videoPlayer';
+        const idVideo = 'abc123';
+
+        const expectedScript = `
+        window.jwplayer('${title}').on('ready', function (e) {
+            const element = document.querySelector('.video-player');
+            element.classList.remove('--background');
+        });
+    
+        const events = ['play', 'pause'];
+    
+        events.forEach((event) => {
+            window.jwplayer('${title}').on(event, function (e) {
+              addToDataLayer(event, '${title}', '${idVideo}');
+            });
+        });
+    
+        window.jwplayer('${title}').on('time', function (e) {
+            const percent = Math.floor((e.currentTime / e.duration) * 100);
+            const percentagesToCheck = [25, 50, 75];
+    
+            percentagesToCheck.forEach((percentage) => {
+            if (!isInDatalayerEvent(percentage.toString(), '${idVideo}') && percent === percentage) {
+                addToDataLayer(percentage.toString(), '${title}', '${idVideo}');
+            }
+            });
+        });
+    
+        window.jwplayer('${title}').on('complete', function (e) {
+            if (!isInDatalayerEvent('complete', '${idVideo}')) {
+                addToDataLayer('complete', '${title}', '${idVideo}');
+            }
+        });
+    `;
+
+        expect(
+            handleVideoEventsScript(title, idVideo).replace(/\s+/g, '')
+        ).toContain(expectedScript.replace(/\s+/g, ''));
     });
 });
