@@ -31,7 +31,7 @@ export const isMatchLiveClienSide = matches => {
         const { timeRemaining } = match;
         const { minutes } = timeRemaining;
         if (
-            (minutes && minutes <= 0 && match.matchStatus === 'upComing') ||
+            (minutes && minutes <= -2 && match.matchStatus === 'upComing') ||
             match.matchStatus === 'playing'
         ) {
             liveIds.push(match.matchId);
