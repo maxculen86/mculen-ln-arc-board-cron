@@ -78,5 +78,7 @@ export default {
     AUDIO_NEWS_URL: 'https://audionews.lanacion.com.ar/api/v1/audio/status/',
     API_KEY_ARC_SERVICES: '6a484fb4-8c69-46b1-91ca-c476b055d87f',
     API_KEY_ARC_SERVICES_PROD: '6a484fb4-8c69-46b1-91ca-c476b055d87f',
-    VIDEO_CDN_URL: 'https://lanacionar-prod.video.arc-cdn.net/'
+    VIDEO_CDN_URL: 'https://lanacionar-prod.video.arc-cdn.net/',
+    CLL_BACK_BASE_URL: 'https://api-cll-services.lanacion.com.ar/graphql/',
+    CLL_BACK_API_KEY: 'da2-6dgg5zavxjdlpmgjs2ztndfnl4'
 };
