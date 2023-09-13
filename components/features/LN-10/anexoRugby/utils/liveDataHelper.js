@@ -63,7 +63,6 @@ const isPlayedOrDelayedFallBackClienSide = (rugbyMatches, optaRes) => {
     if (!optaRes.match || optaRes.match.length === 0) {
         const updatedMatches = rugbyMatches.map(match => {
             if (match.matchStatus === 'playing') {
-                console;
                 const { days, hours, minutes } = match;
                 const isDelayed = isDelayedValidation(days, hours, minutes);
 
