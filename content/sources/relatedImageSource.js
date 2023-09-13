@@ -53,6 +53,10 @@ const fetch = (query, { cachedCall } = {}) => {
 };
 
 const transform = async (data, siteProps, cachedCall) => {
+    console.log(
+        '000000000000000000000000000000000000000000000000000000000000000>',
+        siteProps
+    );
     const { presets, presetsDefault, shouldUseV2 } = getPresets(siteProps);
 
     if (shouldUseV2) {
