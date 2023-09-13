@@ -144,6 +144,41 @@ describe('Test of return validateArticleFeature', () => {
         });
     });
 
+    test('Test when video jw exceeds the allowed size', () => {
+        const video = {
+            _id: 'sThbpj0B',
+            sources: [
+                {
+                    file:
+                        'https://cdn.jwplayer.com/videos/bb7snV27-0G6Pwvlw.mp4',
+                    type: 'video/mp4',
+                    height: 540,
+                    width: 960,
+                    label: '540p',
+                    bitrate: 1775553,
+                    filesize: 99999999999,
+                    framerate: 25
+                }
+            ],
+            type: 'video'
+        };
+        expect(
+            validateArticleFeature(
+                id,
+                content,
+                image,
+                video,
+                layout,
+                imageId,
+                videoId
+            )
+        ).toStrictEqual({
+            type,
+            message:
+                'El tamaño del video debe ser inferior a 3 MB. Peso actual 95367.43 MB'
+        });
+    });
+
     test('Test return when layout is grilla1', () => {
         const layout = 'grilla1';
         expect(

@@ -1180,5 +1180,99 @@ describe('Components - Features - LN-10 - Article - _helper', () => {
 
             expect(result).toStrictEqual(expectedResult);
         });
+
+        it('tests transformVideoData for video jw in Home', () => {
+            const videoJwData = {
+                sources: [
+                    {
+                        file:
+                            'https://cdn.jwplayer.com/manifests/bb7snV27.m3u8',
+                        type: 'application/vnd.apple.mpegurl'
+                    },
+                    {
+                        file:
+                            'https://cdn.jwplayer.com/videos/bb7snV27-kTExGaWf.mp4',
+                        type: 'video/mp4',
+                        height: 180,
+                        width: 320,
+                        label: '180p',
+                        bitrate: 540776,
+                        filesize: 675971,
+                        framerate: 25
+                    },
+                    {
+                        file:
+                            'https://cdn.jwplayer.com/videos/bb7snV27-K8B0kybS.mp4',
+                        type: 'video/mp4',
+                        height: 270,
+                        width: 480,
+                        label: '270p',
+                        bitrate: 801936,
+                        filesize: 1002421,
+                        framerate: 25
+                    },
+                    {
+                        file:
+                            'https://cdn.jwplayer.com/videos/bb7snV27-46NIuRKO.mp4',
+                        type: 'video/mp4',
+                        height: 720,
+                        width: 1280,
+                        label: '720p',
+                        bitrate: 2646835,
+                        filesize: 3308544,
+                        framerate: 25
+                    },
+                    {
+                        file:
+                            'https://cdn.jwplayer.com/videos/bb7snV27-hz5z2Tv4.m4a',
+                        type: 'audio/mp4',
+                        label: 'AAC Audio',
+                        bitrate: 120009,
+                        filesize: 150012
+                    },
+                    {
+                        file:
+                            'https://cdn.jwplayer.com/videos/bb7snV27-FnZGUVnC.mp4',
+                        type: 'video/mp4',
+                        height: 360,
+                        width: 640,
+                        label: '360p',
+                        bitrate: 1026344,
+                        filesize: 1282931,
+                        framerate: 25
+                    },
+                    {
+                        file:
+                            'https://cdn.jwplayer.com/videos/bb7snV27-0G6Pwvlw.mp4',
+                        type: 'video/mp4',
+                        height: 540,
+                        width: 960,
+                        label: '540p',
+                        bitrate: 1775553,
+                        filesize: 2219442,
+                        framerate: 25
+                    }
+                ],
+                poster:
+                    'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=320',
+                type: 'video'
+            };
+
+            expect(transformVideoData(videoJwData)).toStrictEqual({
+                dataSrc:
+                    'https://cdn.jwplayer.com/videos/bb7snV27-kTExGaWf.mp4',
+                poster:
+                    'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=320',
+                type: 'video'
+            });
+        });
+
+        it('tests transformVideoData when data is null', () => {
+            expect(transformVideoData(null)).toStrictEqual({
+                dataSrc: '',
+                poster: '',
+                type: ''
+            });
+        });
     });
 });
