@@ -6,7 +6,6 @@ const AnexoRugbyWorldCup = () => {
     const { data } = useContent({
         source: 'rugbySource'
     });
-    console.log('🚀 ~ file: default.jsx:9 ~ AnexoRugbyWorldCup ~ data:', data);
 
     return data ? <AnexoRugbyComponent matchesData={data} /> : <></>;
 };
