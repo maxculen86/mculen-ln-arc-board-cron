@@ -31,11 +31,11 @@
                 "children": [
                     {
                         "collection": "features",
-                        "type": "recetas/CardRecetas",
+                        "type": "foodit/Card",
                         "props": {
                             "collection": "features",
-                            "type": "recetas/CardRecetas",
-                            "id": "f0f1sPQ6tYQr7ye",
+                            "type": "foodit/Card",
+                            "id": "f0fJFPMkar6s1FK",
                             "name": null,
                             "contentConfig": {
                                 "contentService": "",
@@ -43,29 +43,7 @@
                                 "inherit": true
                             },
                             "customFields": {
-                                "noteId": "HLVF6HRMYNB2TI7L7G724OAPIU"
-                            },
-                            "displayProperties": {},
-                            "localEdits": {},
-                            "variants": {}
-                        }
-                    },
-                    {
-                        "collection": "features",
-                        "type": "recetas/CardRecetas",
-                        "props": {
-                            "collection": "features",
-                            "type": "recetas/CardRecetas",
-                            "id": "f0fGRlzpKYaE14b",
-                            "name": null,
-                            "contentConfig": {
-                                "contentService": "",
-                                "contentConfigValues": {},
-                                "inherit": true
-                            },
-                            "customFields": {
-                                "noteId": "YL72ZWA525CS3I2YBNDRWNEOGA",
-                                "pbInternal_cloneId": "f0fGRlzpKYaE14b"
+                                "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU"
                             },
                             "displayProperties": {},
                             "localEdits": {},
@@ -83,11 +61,11 @@
                 "children": [
                     {
                         "collection": "features",
-                        "type": "recetas/CardRecetas",
+                        "type": "foodit/Card",
                         "props": {
                             "collection": "features",
-                            "type": "recetas/CardRecetas",
-                            "id": "f0fBdCzMrs7E1j1",
+                            "type": "foodit/Card",
+                            "id": "f0fK1lyE9F7t1Mr",
                             "name": null,
                             "contentConfig": {
                                 "contentService": "",
@@ -95,8 +73,53 @@
                                 "inherit": true
                             },
                             "customFields": {
-                                "noteId": "ZM2YLT5CRNGFXIS7KYJNYEHHBU",
-                                "pbInternal_cloneId": "f0fBdCzMrs7E1j1"
+                                "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU",
+                                "pbInternal_cloneId": "f0fK1lyE9F7t1Mr"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "id": "f0fRSQq3v9qt15n",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "FMLGIYTL2ZBCRAKQTSO27CCQ6U",
+                                "pbInternal_cloneId": "f0fRSQq3v9qt15n"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "foodit/Banner",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Banner",
+                            "id": "f0fPyC3eyIor1Qo",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "imageId": "OSCMM53QDZCCJF2DJ4DELCZLJA",
+                                "title": "Ricas pastas",
+                                "link": "https://canchallena.lanacion.com.ar/futbol/eliminatorias-conmebol-mundial-2026/"
                             },
                             "displayProperties": {},
                             "localEdits": {},
@@ -124,11 +147,11 @@
         "children": [
             {
                 "collection": "features",
-                "type": "recetas/CardRecetas",
+                "type": "foodit/Card",
                 "props": {
                     "collection": "features",
-                    "type": "recetas/CardRecetas",
-                    "id": "f0f1sPQ6tYQr7ye",
+                    "type": "foodit/Card",
+                    "id": "f0fJFPMkar6s1FK",
                     "name": null,
                     "contentConfig": {
                         "contentService": "",
@@ -136,29 +159,7 @@
                         "inherit": true
                     },
                     "customFields": {
-                        "noteId": "HLVF6HRMYNB2TI7L7G724OAPIU"
-                    },
-                    "displayProperties": {},
-                    "localEdits": {},
-                    "variants": {}
-                }
-            },
-            {
-                "collection": "features",
-                "type": "recetas/CardRecetas",
-                "props": {
-                    "collection": "features",
-                    "type": "recetas/CardRecetas",
-                    "id": "f0fGRlzpKYaE14b",
-                    "name": null,
-                    "contentConfig": {
-                        "contentService": "",
-                        "contentConfigValues": {},
-                        "inherit": true
-                    },
-                    "customFields": {
-                        "noteId": "YL72ZWA525CS3I2YBNDRWNEOGA",
-                        "pbInternal_cloneId": "f0fGRlzpKYaE14b"
+                        "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU"
                     },
                     "displayProperties": {},
                     "localEdits": {},
@@ -176,11 +177,11 @@
         "children": [
             {
                 "collection": "features",
-                "type": "recetas/CardRecetas",
+                "type": "foodit/Card",
                 "props": {
                     "collection": "features",
-                    "type": "recetas/CardRecetas",
-                    "id": "f0fBdCzMrs7E1j1",
+                    "type": "foodit/Card",
+                    "id": "f0fK1lyE9F7t1Mr",
                     "name": null,
                     "contentConfig": {
                         "contentService": "",
@@ -188,8 +189,53 @@
                         "inherit": true
                     },
                     "customFields": {
-                        "noteId": "ZM2YLT5CRNGFXIS7KYJNYEHHBU",
-                        "pbInternal_cloneId": "f0fBdCzMrs7E1j1"
+                        "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU",
+                        "pbInternal_cloneId": "f0fK1lyE9F7t1Mr"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "foodit/Card",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "id": "f0fRSQq3v9qt15n",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "FMLGIYTL2ZBCRAKQTSO27CCQ6U",
+                        "pbInternal_cloneId": "f0fRSQq3v9qt15n"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "foodit/Banner",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Banner",
+                    "id": "f0fPyC3eyIor1Qo",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "imageId": "OSCMM53QDZCCJF2DJ4DELCZLJA",
+                        "title": "Ricas pastas",
+                        "link": "https://canchallena.lanacion.com.ar/futbol/eliminatorias-conmebol-mundial-2026/"
                     },
                     "displayProperties": {},
                     "localEdits": {},
@@ -208,11 +254,11 @@
     },
     {
         "collection": "features",
-        "type": "recetas/CardRecetas",
+        "type": "foodit/Card",
         "props": {
             "collection": "features",
-            "type": "recetas/CardRecetas",
-            "id": "f0f1sPQ6tYQr7ye",
+            "type": "foodit/Card",
+            "id": "f0fJFPMkar6s1FK",
             "name": null,
             "contentConfig": {
                 "contentService": "",
@@ -220,7 +266,7 @@
                 "inherit": true
             },
             "customFields": {
-                "noteId": "HLVF6HRMYNB2TI7L7G724OAPIU"
+                "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU"
             },
             "displayProperties": {},
             "localEdits": {},
@@ -229,11 +275,11 @@
     },
     {
         "collection": "features",
-        "type": "recetas/CardRecetas",
+        "type": "foodit/Card",
         "props": {
             "collection": "features",
-            "type": "recetas/CardRecetas",
-            "id": "f0fGRlzpKYaE14b",
+            "type": "foodit/Card",
+            "id": "f0fK1lyE9F7t1Mr",
             "name": null,
             "contentConfig": {
                 "contentService": "",
@@ -241,8 +287,8 @@
                 "inherit": true
             },
             "customFields": {
-                "noteId": "YL72ZWA525CS3I2YBNDRWNEOGA",
-                "pbInternal_cloneId": "f0fGRlzpKYaE14b"
+                "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU",
+                "pbInternal_cloneId": "f0fK1lyE9F7t1Mr"
             },
             "displayProperties": {},
             "localEdits": {},
@@ -251,11 +297,11 @@
     },
     {
         "collection": "features",
-        "type": "recetas/CardRecetas",
+        "type": "foodit/Card",
         "props": {
             "collection": "features",
-            "type": "recetas/CardRecetas",
-            "id": "f0fBdCzMrs7E1j1",
+            "type": "foodit/Card",
+            "id": "f0fRSQq3v9qt15n",
             "name": null,
             "contentConfig": {
                 "contentService": "",
@@ -263,8 +309,31 @@
                 "inherit": true
             },
             "customFields": {
-                "noteId": "ZM2YLT5CRNGFXIS7KYJNYEHHBU",
-                "pbInternal_cloneId": "f0fBdCzMrs7E1j1"
+                "noteId": "FMLGIYTL2ZBCRAKQTSO27CCQ6U",
+                "pbInternal_cloneId": "f0fRSQq3v9qt15n"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Banner",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Banner",
+            "id": "f0fPyC3eyIor1Qo",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "imageId": "OSCMM53QDZCCJF2DJ4DELCZLJA",
+                "title": "Ricas pastas",
+                "link": "https://canchallena.lanacion.com.ar/futbol/eliminatorias-conmebol-mundial-2026/"
             },
             "displayProperties": {},
             "localEdits": {},

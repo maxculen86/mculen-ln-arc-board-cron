@@ -3,7 +3,7 @@ import Context from 'fusion:context';
 import { useContent } from 'fusion:content';
 import { render, screen } from '@testing-library/react';
 
-import Banner from '../../../../../components/features/recetas/Banner/recetas.jsx';
+import Banner from '../../../../../components/features/foodit/Banner/recetas.jsx';
 import imageMock from '../../../../../__mocks__/data/images/TR5C3TK6F5BWRCYRR3AUO4RMQ4.json';
 
 jest.mock('fusion:consumer', Component => {

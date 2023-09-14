@@ -25,6 +25,7 @@ export default `
             }
         }
     }
+    subtype
     taxonomy {
         tags {
             text
