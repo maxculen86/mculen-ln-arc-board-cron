@@ -30,8 +30,11 @@ export const isMatchLiveClienSide = matches => {
     const updatedMatches = matches.map(match => {
         const { timeRemaining } = match;
         const { minutes } = timeRemaining;
+
         if (
-            (minutes && minutes <= -2 && match.matchStatus === 'upComing') ||
+            (minutes !== undefined &&
+                minutes <= 0 &&
+                match.matchStatus === 'upComing') ||
             match.matchStatus === 'playing'
         ) {
             liveIds.push(match.matchId);
@@ -43,27 +46,24 @@ export const isMatchLiveClienSide = matches => {
         }
         return match;
     });
+
     return {
         updatedMatches,
         liveIds: [...liveIds]
     };
 };
 
-const isDelayedValidation = (days, hours, minutes) => {
-    let isDelayed = false;
-    const minDelayed = minutes && minutes < 0 && minutes >= -10;
-    if (minDelayed && hours === 0 && days === 0) {
-        isDelayed = true;
-    }
+export const isDelayedValidation = (days, hours, minutes) => {
+    const minDelayed = minutes !== undefined && minutes <= 0 && minutes >= -10;
 
-    return isDelayed;
+    return minDelayed && hours === 0 && days === 0;
 };
 
-const isPlayedOrDelayedFallBackClienSide = (rugbyMatches, optaRes) => {
+export const isPlayedOrDelayedFallBackClienSide = (rugbyMatches, optaRes) => {
     if (!optaRes.match || optaRes.match.length === 0) {
         const updatedMatches = rugbyMatches.map(match => {
             if (match.matchStatus === 'playing') {
-                const { days, hours, minutes } = match;
+                const { days, hours, minutes } = match.timeRemaining;
                 const isDelayed = isDelayedValidation(days, hours, minutes);
 
                 return {
@@ -78,7 +78,7 @@ const isPlayedOrDelayedFallBackClienSide = (rugbyMatches, optaRes) => {
     }
 };
 
-const mapLiveDataToCard = (sourceMatches, optaLiveData) => {
+export const mapLiveDataToCard = (sourceMatches, optaLiveData) => {
     const { match: liveMatches } = optaLiveData;
     const updatedMatches = sourceMatches.map(match => {
         const finded = liveMatches.find(
@@ -94,7 +94,7 @@ const mapLiveDataToCard = (sourceMatches, optaLiveData) => {
                 }
             };
         } else {
-            const { days, hours, minutes } = match;
+            const { days, hours, minutes } = match.timeRemaining;
 
             const isDelayed = isDelayedValidation(days, hours, minutes);
 

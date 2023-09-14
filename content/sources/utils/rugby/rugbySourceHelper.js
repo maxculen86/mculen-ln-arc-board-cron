@@ -1,7 +1,6 @@
 import get from '../../../../components/private/common/utils/get';
 import { isValidString } from '../../../../components/private/common/utils/dataValidation';
-import removeAccents from '../../../../components/private/common/utils/removeAccents';
-
+// TODO: Testear. Se complico testear este archivo ya que usa mucho el metodo Date, se necesitaria un paquete para mockear correctamente todas las fechas.
 const filter = `{
     items {
       coverageLevel
@@ -56,6 +55,7 @@ export const getQuery = date => {
 
     const actualDate = new Date();
     const startDateQuery = wordCupDate >= actualDate ? wordCupDate : actualDate;
+
     const fromDate = new Date(
         `${startDateQuery.getFullYear()}-${startDateQuery.getMonth() +
             1}-${startDateQuery.getDate()}Z00:00:00Z`
@@ -104,7 +104,7 @@ const countryNames = {
     '4b8k9eyy8vg63atmau8xjuzof': 'Chile'
 };
 
-const getCountryFlag = (idCountry = '') => {
+export const getCountryFlag = (idCountry = '') => {
     const pathLetter =
         idCountry && isValidString(idCountry) ? idCountry.slice(-1) : 'f';
 
@@ -112,13 +112,13 @@ const getCountryFlag = (idCountry = '') => {
         'default'}.png`;
 };
 
-const isTomorrowValidation = (today, match, matchDate) => {
+export const isTomorrowValidation = (today, match, matchDate) => {
     const isTomorrow = match.getDate() === today.getDate() + 1;
     const dateTransformed = matchDate.split('-').reverse();
     return isTomorrow ? 'MAÑANA' : dateTransformed.join('/');
 };
 
-const getTimeAndDate = date => {
+export const getTimeAndDate = date => {
     const [matchDate] = date;
 
     const today = new Date();
@@ -128,7 +128,7 @@ const getTimeAndDate = date => {
     return isToday ? 'HOY' : isTomorrowValidation(today, matchDay, matchDate);
 };
 
-const getArgentinaDate = () => {
+export const getArgentinaDate = () => {
     const currentDate = new Date();
     const argentinaHoursDiff = currentDate.getTimezoneOffset() / 60 - 3;
     currentDate.setHours(currentDate.getHours() + argentinaHoursDiff);
@@ -136,7 +136,7 @@ const getArgentinaDate = () => {
     return currentDate;
 };
 
-const getTimeRemaining = (matchDate, matchHour) => {
+export const getTimeRemaining = (matchDate, matchHour) => {
     if (!matchHour.match(/\d{1,2}:\d{2}/)) {
         return {
             days: 10
