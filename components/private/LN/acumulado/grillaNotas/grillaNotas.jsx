@@ -13,18 +13,13 @@ const GrillaNotas = props => {
         loading = false,
         goToNextPage,
         name = '',
-        outputType = 'default',
-        hasHydrateOnly = false
+        outputType = 'default'
     } = props;
 
     return (
         <>
             <div className={hasMoreArticles ? 'hlp-degrade' : ''}>
-                {hasHydrateOnly ? (
-                    <StaticContent>{InitialGrid}</StaticContent>
-                ) : (
-                    InitialGrid
-                )}
+                <StaticContent>{InitialGrid}</StaticContent>
                 {NextResults}
             </div>
             {outputType !== 'amp' && hasMoreArticles && (
@@ -48,8 +43,7 @@ GrillaNotas.propTypes = {
     loading: PropTypes.bool,
     goToNextPage: PropTypes.func,
     name: PropTypes.string,
-    outputType: PropTypes.string,
-    hasHydrateOnly: PropTypes.bool
+    outputType: PropTypes.string
 };
 
 export default GrillaNotas;

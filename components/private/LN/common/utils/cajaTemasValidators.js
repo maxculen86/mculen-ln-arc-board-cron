@@ -2,6 +2,7 @@
 import get from '../../../common/utils/get';
 import pageBuilderValidator from '../../../common/utils/pageBuilderValidator';
 import getStreams from './getStreams';
+import getSources from './getSourcesJwHome';
 
 export const validateFeature = (idCollection, articles, layout) => {
     const message =
@@ -89,8 +90,9 @@ export const validateArticleFeature = (
     mobileImage,
     mobileImageId
 ) => {
-    const { streams } = video || {};
-    const { filesize } = getStreams(streams, '>') || '';
+    const { streams, sources } = video || {};
+    const { filesize } =
+        getStreams(streams, '>') || getSources(sources, '>') || '';
     const maxVideoSize = 3000000;
     const oneMegabyte = 1048576;
 

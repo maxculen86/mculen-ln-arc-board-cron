@@ -29,7 +29,6 @@ import {
     getTagTitle,
     addMetaNoIndexNoFollow
 } from '../private/common/utils/outputTypeHelper';
-import checkHydrateOnly from '../private/LN/common/utils/checkHydrateOnly';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import CssLinksLn10 from './Helper/cssLinksLn10';
 import ScriptVideoPowaHTML from '../private/common/scriptManager/scriptVideoPowaHTML';
@@ -147,10 +146,6 @@ const Default = props => {
         arcSite,
         requestUri
     );
-
-    const configHydrate = {
-        hydrateOnly: checkHydrateOnly({ layout, nodeType: nodeType || type })
-    };
 
     return (
         <html lang="es">
@@ -296,7 +291,7 @@ const Default = props => {
                     globalContent={globalContent}
                 />
                 <div id="fusion-app">{children}</div>
-                <Fusion {...configHydrate} />
+                <Fusion hydrateOnly />
                 <Scripts
                     location="body-bottom"
                     section={_nodeType}

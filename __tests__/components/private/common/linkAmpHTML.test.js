@@ -6,7 +6,8 @@ import LinkAmpHTML from '../../../../components/private/common/linkAmpHTML.jsx';
 
 describe('Private - LN - Common - linkAmpHTML', () => {
     const props = {
-        canonicalUrl: '/ciencia/roger-prueba-imagenes-nid28052020/',
+        canonicalUrl:
+            '/politica/cambios-en-el-gabinete-el-nombramiento-de-kelly-olmos-en-trabajo-no-despierta-entusiasmo-en-la-cgt-nid13102022/',
         subtype: '1',
         arcSite: 'la-nacion-ar',
         nodeType: ''
@@ -48,7 +49,7 @@ describe('Private - LN - Common - linkAmpHTML', () => {
         expect(link).toHaveLength(1);
         expect(link[0].rel).toEqual('amphtml');
         expect(link[0].href).toEqual(
-            'https://www.lanacion.com.ar/ciencia/roger-prueba-imagenes-nid28052020/?outputType=amp'
+            'https://www.lanacion.com.ar/politica/cambios-en-el-gabinete-el-nombramiento-de-kelly-olmos-en-trabajo-no-despierta-entusiasmo-en-la-cgt-nid13102022/?outputType=amp'
         );
     });
 

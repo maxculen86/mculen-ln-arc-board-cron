@@ -6,6 +6,7 @@ import {
 } from '../../../../common/elements/story/apertura/aperturaArticle';
 import get from '../../../../../../common/utils/get';
 import video from '../cuerpo/elements/video';
+import videoJW from '../cuerpo/elements/videoJW';
 import image from '../cuerpo/elements/image';
 import imageAcumulado from '../../../../common/elements/story/image';
 
@@ -24,7 +25,8 @@ const aperturaArticle = (article, type, idsElements = null) => {
         promoItem = null;
         isPromoInContent = true;
     }
-    const typePromoItem = get(promoItem, 'type', null);
+    const typePromoItem =
+        get(promoItem, 'type', null) || get(promoItem, 'typeCustom', null);
     const resp = {};
 
     // eslint-disable-next-line default-case
@@ -45,6 +47,9 @@ const aperturaArticle = (article, type, idsElements = null) => {
             // if (promoItemBasicImage && promoItemBasicImage._id) {
             //     resp.imagenes = [image(promoItemBasicImage).valor];
             // }
+            break;
+        case 'video_jw':
+            resp.multimedio = videoJW(promoItem).valor;
             break;
         default:
             // Here it goes because the promoItem is null or other type how us html

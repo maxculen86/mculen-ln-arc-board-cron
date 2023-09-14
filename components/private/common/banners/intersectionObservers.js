@@ -36,12 +36,21 @@ export const createHeaderObserver = () => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {
                 wrapper.classList.add('--top-fixed');
+                buttonHeaderDefault.classList.add('--none');
+                buttonSticky.classList.remove('--none');
             } else {
                 wrapper.classList.remove('--top-fixed');
+                buttonHeaderDefault.classList.remove('--none');
+                buttonSticky.classList.add('--none');
             }
         });
     };
     const interSectionObserver = new IntersectionObserver(callback);
+
+    const buttonHeaderDefault = document.querySelector(
+        '#button-header-default'
+    );
+    const buttonSticky = document.querySelector('#button-sticky');
 
     const subHeader = document.querySelector('.ln-sub-header');
     const wrapper = document.querySelector('.wrapper.homepage');

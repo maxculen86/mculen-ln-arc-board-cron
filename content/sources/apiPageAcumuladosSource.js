@@ -98,7 +98,8 @@ export default {
         sections: 'text',
         categoryUri: 'text',
         versionUri: 'text',
-        ticks: 'text'
+        ticks: 'text',
+        cookie: 'text'
     },
     ttl: 120
 };

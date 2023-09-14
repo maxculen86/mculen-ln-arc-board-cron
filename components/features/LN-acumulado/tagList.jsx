@@ -2,7 +2,6 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import { useContent as getContent } from 'fusion:content';
-import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import ComLinkList from '../../private/common/com-link-list';
@@ -15,7 +14,6 @@ import getSectionName from '../../private/LN/common/utils/getSectionName';
 import ComTitle from '../../private/common/com-title';
 import sectionsFormated from '../../private/common/utils/sectionsFormated';
 import StaticContent from '../../private/common/staticContent';
-import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
 
 const TagsListFeature = ({ id, title, layout = '' }) => {
     const {
@@ -31,7 +29,6 @@ const TagsListFeature = ({ id, title, layout = '' }) => {
 
     const sectionName = getSectionName({ nodeType, type, arcSite });
     const sectionIsHome = sectionName === 'home';
-    const hasHydrateOnly = checkHydrateOnly({ nodeType, layout });
 
     const { sourceName, query } = getSectionProps({
         sectionName,
@@ -71,13 +68,7 @@ const TagsListFeature = ({ id, title, layout = '' }) => {
         </>
     )) || <></>;
 
-    return hasHydrateOnly ? (
-        <StaticContent>{Component}</StaticContent>
-    ) : (
-        <Static id={id} htmlOnly persistent>
-            {Component}
-        </Static>
-    );
+    return <StaticContent>{Component}</StaticContent>;
 };
 
 TagsListFeature.label = 'LN-Acumulado-Tag-List';

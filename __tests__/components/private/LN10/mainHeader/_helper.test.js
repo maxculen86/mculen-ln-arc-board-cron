@@ -3,8 +3,30 @@ import '@testing-library/jest-dom';
 import { render, screen, fireEvent } from '@testing-library/react';
 import {
     setDesplegableData,
-    RightOptions
+    RightOptions,
+    getTermicaValues
 } from '../../../../../components/private/LN10/mainHeader/_helper';
+import useTermica from '../../../../../components/private/common/hooks/useTermica';
+
+jest.mock('../../../../../components/private/common/hooks/useTermica.js', () =>
+    jest.fn()
+);
+
+jest.mock('react', () => ({
+    ...jest.requireActual('react'),
+    useContext: jest.fn(() => ({
+        state: {
+            siteService: {
+                termicas: [
+                    { key: 'class_tooltip', value: 'TooltipClass' },
+                    { key: 'tooltip_text', value: 'TooltipText' },
+                    { key: 'button_text', value: 'ButtonText' },
+                    { key: 'sticky_button_text', value: 'StickyButtonText' }
+                ]
+            }
+        }
+    }))
+}));
 
 describe('Private - LN10 - MainHeader - Helper =>', () => {
     describe('Helper - setDesplegableData', () => {
@@ -100,20 +122,33 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             const desplegable = container.querySelector('.desplegable');
 
             expect(getByText('Sin suscripción digital')).toBeInTheDocument();
-            expect(getByText('Suscribite')).toBeInTheDocument();
             expect(desplegable).toBeInTheDocument();
             expect(getByText(mock.userName)).toBeInTheDocument();
         });
 
         test('should return menu user, login button and suscribe buton when userType is unlogged', () => {
+            useTermica.mockImplementation(() => false);
             const { container, getByText } = render(
                 <RightOptions userType="unlogged" loggedIn={false} />
             );
+
+            const subscribeButtons = screen.getAllByText('SUSCRIBITE');
+
+            expect(subscribeButtons.length).toBeGreaterThan(0);
+
+            subscribeButtons.forEach(button => {
+                expect(button).toBeInTheDocument();
+            });
+
+            const stickySubscribeButton = container.querySelector(
+                '#button-sticky'
+            );
+            expect(stickySubscribeButton.textContent).toBe('SUSCRIBITE');
+
+            const loginButton = screen.getByText('INICIAR SESIÓN');
+            expect(loginButton).toBeInTheDocument();
+
             const desplegable = container.querySelector('.desplegable');
-
-            expect(getByText('Suscribite')).toBeInTheDocument();
-            expect(getByText('INICIAR SESIÓN')).toBeInTheDocument();
-
             expect(desplegable).not.toBeInTheDocument();
         });
 
@@ -144,6 +179,39 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
 
             const subscribeButton = container.querySelector('#btnsuscribite');
             expect(subscribeButton.getAttribute('class')).toContain('--none');
+        });
+
+        test('should return  button_text,sticky_button_text with dynamic text based on buttonSuscribe', () => {
+            useTermica.mockImplementation(() => true);
+            render(<RightOptions userType="unlogged" loggedIn={false} />);
+
+            const buttonElement = document.querySelector('#btnsuscribite');
+            const stickyButtonElement = document.querySelector(
+                '#button-sticky'
+            );
+
+            // Verifica que los elementos estén presentes en el DOM
+            expect(buttonElement).toBeInTheDocument();
+            expect(stickyButtonElement).toBeInTheDocument();
+        });
+    });
+});
+
+describe('getTermicaValues function', () => {
+    it('should never return undefined for specified property names', () => {
+        const propertyNames = [
+            'class_tooltip',
+            'tooltip_text',
+            'button_text',
+            'sticky_button_text'
+        ];
+
+        // Call the getTermicaValues function
+        const termicaValues = getTermicaValues(propertyNames);
+
+        // Iterate through the extracted values and ensure none of them are undefined
+        propertyNames.map(propertyName => {
+            expect(termicaValues[propertyName]).not.toBeUndefined();
         });
     });
 });

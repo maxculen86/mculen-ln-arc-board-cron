@@ -29,7 +29,7 @@ describe('Test Json Text del cuerpo de la nota', () => {
     it('Test para validar la cantidad de elementos del cuerpo', () => {
         const resp = Cuerpo(ArticleCuerpo);
         expect(resp.elements.length).toBe(
-            ArticleCuerpo.content_elements.length - 1
+            ArticleCuerpo.content_elements.length
         );
     });
 

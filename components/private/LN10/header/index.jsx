@@ -50,6 +50,7 @@ const HeaderLN = props => {
 
     const isUserLoggedIn = isLoggedIn();
     const isUserSubscribed = isSubscribed();
+    const isHome = layoutsName.HomeLN10 === layout;
 
     const userType = setUserType(isUserLoggedIn, isUserSubscribed);
 
@@ -66,13 +67,12 @@ const HeaderLN = props => {
                 <SubHeader />
             </Header>
             <NavbarMobile
-                isHome={layoutsName.HomeLN10 === layout}
+                isHome={isHome}
                 toggleDesplegable={toggleDesplegable}
             />
             <Desplegable
                 isActive={dropdown}
                 toggleDesplegable={toggleDesplegable}
-                isHome={layoutsName.HomeLN10 === layout}
                 arcSite={arcSite}
             />
         </>

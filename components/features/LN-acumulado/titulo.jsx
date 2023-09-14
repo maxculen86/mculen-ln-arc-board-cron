@@ -1,14 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { useAppContext } from 'fusion:context';
-import Static from 'fusion:static';
 import Title from '../../private/LN/acumulado/acumuladoTitle';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
-import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
+import StaticContent from '../../private/common/staticContent';
 
 const TitleFeature = props => {
-    const { id } = props;
     const { acumuladoColor, acumuladoGeneral } = useGlobalProviderAcu();
     const {
         hidesectionslist = 'false',
@@ -16,9 +13,6 @@ const TitleFeature = props => {
     } = acumuladoGeneral || {};
     const { id_logo_image: idLogoImage, navigation_color: navigationColor } =
         acumuladoColor || {};
-
-    const { globalContent: { node_type: nodeType } = {} } = useAppContext();
-    const hasHydrateOnly = checkHydrateOnly({ nodeType });
 
     const Component = (
         <Title
@@ -31,13 +25,7 @@ const TitleFeature = props => {
         />
     );
 
-    return !hasHydrateOnly ? (
-        <Static id={id} htmlOnly persistent>
-            {Component}
-        </Static>
-    ) : (
-        <>{Component}</>
-    );
+    return <StaticContent>{Component}</StaticContent>;
 };
 
 TitleFeature.label = 'LN-Acumulado-Titulo';
