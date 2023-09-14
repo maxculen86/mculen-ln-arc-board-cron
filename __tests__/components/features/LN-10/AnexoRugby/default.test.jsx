@@ -12,7 +12,6 @@ describe('Components - features - LN10 - AnexoRugby', () => {
         });
 
         const { container } = render(<AnexoRugbyWorldCup />);
-
         expect(container).toMatchSnapshot();
     });
 
