@@ -64,7 +64,8 @@ const fetch = async (query, { cachedCall }) => {
                 {
                     rootPath: `${SITE_LANACION}/${sectioninPage}`,
                     website,
-                    ticksCache
+                    ticksCache,
+                    cookie: query.cookie
                 }
             );
             queryParams.sections = ultimasNoticiasSectionsResult;
@@ -226,7 +227,8 @@ export default {
         sections: 'text',
         categoryUri: 'text',
         versionUri: 'text',
-        ticks: 'text'
+        ticks: 'text',
+        cookie: 'text'
     },
     ttl: 120
 };
