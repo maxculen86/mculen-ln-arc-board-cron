@@ -3,7 +3,7 @@ import Context from 'fusion:context';
 import { useContent } from 'fusion:content';
 import { render, screen } from '@testing-library/react';
 
-import Banner from '../../../../../components/features/foodit/Banner/recetas.jsx';
+import Banner from '../../../../../components/features/foodit/Banner/foodit.jsx';
 import imageMock from '../../../../../__mocks__/data/images/TR5C3TK6F5BWRCYRR3AUO4RMQ4.json';
 
 jest.mock('fusion:consumer', Component => {
@@ -41,7 +41,6 @@ describe('Components - features - recetas - Banner', () => {
         useContent.mockReturnValue(imageMock);
 
         const { container } = render(<Banner {...props} />);
-
         expect(container).toMatchSnapshot();
         expect(screen.getByRole('img').getAttribute('loading')).toBe('lazy');
         expect(screen.getByRole('img').getAttribute('fetchPriority')).toBe(
@@ -90,6 +89,7 @@ describe('Components - features - recetas - Banner', () => {
         useContent.mockReturnValue();
 
         const { container } = render(<Banner {...props} />);
+
         expect(container).toMatchSnapshot();
     });
 
@@ -109,6 +109,6 @@ describe('Components - features - recetas - Banner', () => {
         useContent.mockReturnValue();
 
         const { container } = render(<Banner {...props} />);
-        expect(container.innerHTML).toBeFalsy();
+        expect(container.querySelector('a')).toBeNull();
     });
 });

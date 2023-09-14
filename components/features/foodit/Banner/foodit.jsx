@@ -5,15 +5,14 @@ import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 
 import { checkForId } from '../../LN-10/article/_helper';
-import isSSR from '../../../private/LN/common/utils/isSSR';
 import { validateBannerReceta } from './_helper';
 import { getImagesToLoadWithPicture } from '../../../private/LN/common/utils/mediaHelper';
 import get from '../../../private/common/utils/get';
 
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
-import { Link } from '@ln/recetas-ui-link';
+import { Link } from '@ln/foodit-ui-link';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
-
+import StaticContent from '../../../private/common/staticContent';
 import filter from '../../../../content/filters/LN/home/imageFilter.js';
 
 const Banner = ({
@@ -36,7 +35,7 @@ const Banner = ({
             imageConfig
         },
         filter,
-        staticMode: isSSR()
+        staticMode: true
     });
 
     const { url, resized_urls } = get(relatedImage, 'promo_items.basic', {});
@@ -60,20 +59,20 @@ const Banner = ({
         );
     }
 
-    // TODO: validar e incluir StaticContent
-
     return (
-        (!error && relatedImage && (
-            <div className="banner-container relative w-100 z-1 flex jc-center ai-center h-250 h-160_lg overflow-y-clip">
-                <Link href={redirectUrl} title={title}>
-                    <Adaptableimage
-                        src={url}
-                        sources={getImagesToLoadWithPicture(resized_urls)}
-                        alt={title}
-                    />
-                </Link>
-            </div>
-        )) || <></>
+        <StaticContent>
+            {!error && relatedImage && (
+                <div className="banner-container relative w-100 z-1 flex jc-center ai-center h-250 h-160_lg overflow-y-clip">
+                    <Link href={redirectUrl} title={title}>
+                        <Adaptableimage
+                            src={url}
+                            sources={getImagesToLoadWithPicture(resized_urls)}
+                            alt={title}
+                        />
+                    </Link>
+                </div>
+            )}
+        </StaticContent>
     );
 };
 

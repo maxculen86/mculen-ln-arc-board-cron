@@ -16,7 +16,7 @@
     },
     {
         "_id": "recetas",
-        "display_name": "RECETAS",
+        "display_name": "FOODIT",
         "base_path": "/",
         "is_default_website": false
     }
