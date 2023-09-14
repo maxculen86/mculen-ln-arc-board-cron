@@ -25,7 +25,8 @@ const fetch = async (query, { cachedCall }) => {
             uri,
             title: sectioninPage,
             categoryUri,
-            versionUri
+            versionUri,
+            cookie: query.cookie
         };
 
         const resultPage = await cachedCall('ApiPageAcumulados', pages.fetch, {
