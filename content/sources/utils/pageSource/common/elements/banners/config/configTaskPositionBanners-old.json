@@ -19,9 +19,9 @@
                 "keyFind": "type",
                 "conditions": [
                     {
-                        "minLengthBannersPrevious": 0
+                        "minLengthElementsPrevious": 0
                     },
-                    { "minLengthBannersPrevious": 3 }
+                    { "minLengthElementsPrevious": 3 }
                 ]
             }
         ]
@@ -31,7 +31,7 @@
         "conditions": [
             {
                 "task": "NotEqual",
-                "minLengthBannersPrevious": 2
+                "minLengthElementsPrevious": 2
             }
         ]
     }
