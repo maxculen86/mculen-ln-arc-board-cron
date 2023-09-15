@@ -13,7 +13,7 @@ const AnexoRugbyComponent = ({ matchesData }) => {
             <Anexorugby.Roof
                 textHref="https://canchallena.lanacion.com.ar/rugby/"
                 textTitle="Ir a partidos del Mundial Francia 2023"
-                fixtureHref="https://canchallena.lanacion.com.ar/rugby/mundial-francia-2023/fixture/"
+                fixtureHref="https://canchallena.lanacion.com.ar/rugby/mundial-2023/fixture/"
                 fixtureTitle="Ir a fixture"
             />
             <Anexorugby.Sponsor>
