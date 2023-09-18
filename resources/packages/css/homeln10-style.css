@@ -87,6 +87,91 @@
   .ln-advance.--withVideo .wrap .lay-container .button {
     padding: var(--size-md) 0;
   }
+}.anexo-wrap {
+  border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.15);
+  padding-top: 1.625rem;
+  border-top: 1px solid #000;
+  background-color: #fcfcfc;
+  color: #333;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .anexo-wrap .footer-anexo-b {
+    justify-content: end;
+  }
+  .anexo-wrap .header-nav-anexo {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .anexo-wrap .--fixture {
+    border: 0.0625rem solid #e6e6e6;
+    padding: 0.5rem 1rem 0.375rem 0.75rem;
+  }
+  .anexo-wrap .Opta .Opta-Flex {
+    gap: 3rem;
+  }
+}
+.anexo-wrap .footer-anexo-b > h3 {
+  font-size: 0.625rem;
+}
+.anexo-wrap .auspician-anexob {
+  border-right: 1px solid #aaaaaa;
+  font-size: 0.625rem;
+}
+.anexo-wrap div .sponsor-anexo-b {
+  width: 6.25rem;
+  height: 2.125rem;
+  font-size: 0.625rem;
+}
+.anexo-wrap .--roof-title {
+  color: #000;
+  font-family: Prumo Text;
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 350;
+  line-height: normal;
+}
+.anexo-wrap .--fixture {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.anexo-wrap .--fixture .--roof-fixture {
+  color: #333;
+  font-family: Segoe UI;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+.anexo-wrap .Opta .Opta-Flex {
+  justify-content: flex-start;
+  overflow-x: scroll;
+  gap: 16;
+  flex-wrap: nowrap;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.anexo-wrap .Opta .Opta-Flex::-webkit-scrollbar {
+  display: none;
+}
+.anexo-wrap .Opta .Opta-Flex h3 {
+  background-color: #fcfcfc;
+  border-bottom: 0.0625rem solid #e5e5e5;
+}
+.anexo-wrap .Opta .Opta-Flex h3 span {
+  color: #404040;
+  font-family: Arial;
+  font-weight: 700;
+  line-height: 250%;
+}
+.anexo-wrap .Opta .Opta-Flex .Opta-fixture {
+  overflow: hidden;
+  min-width: 11.875rem;
+  border-radius: 0.3125rem;
+  border: 0.0625rem solid #e5e5e5;
+  background-color: #fcfcfc !important;
+}
+.anexo-wrap.--loading .Opta {
+  height: 0rem;
+  overflow: hidden;
 }.live-animation {
   display: flex;
 }
@@ -7226,6 +7311,242 @@ strong:not(.--font-primary),
 .wrap-webstories > .scrolX > div > div .description-container .ln-text.title:not(#special) .lead::after {
   content: "\a";
   white-space: pre;
+}.cll-anexo-rugby {
+  margin-top: 3rem;
+  min-width: auto;
+  overflow: hidden;
+  color: #333;
+  max-width: 100%;
+  border-top: 0.09375rem solid #1c1c1f;
+  padding-bottom: 0.375rem;
+  margin-bottom: 16.5px;
+  grid-template-areas: "roof roof roof ausp" "body body body body" "powe powe fixt fixt";
+  gap: 0.5rem;
+}
+@media (min-width: 48rem) {
+  .cll-anexo-rugby {
+    gap: 1.25rem;
+    border-bottom: 0.0625rem solid #d7d7d7;
+    grid-template-areas: "roof roof roof ausp ausp" "body body body body body" "powe powe powe powe powe";
+  }
+}
+.cll-anexo-rugby .link {
+  color: #333;
+}
+.cll-anexo-rugby .cll-roof {
+  display: contents;
+}
+@media (min-width: 48rem) {
+  .cll-anexo-rugby .cll-roof {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0.5rem;
+    padding-top: 1.25rem;
+    grid-area: roof;
+    min-width: -moz-max-content;
+    min-width: max-content;
+    width: 100%;
+  }
+}
+@media (min-width: 400px) {
+  .cll-anexo-rugby .cll-roof {
+    align-items: center;
+  }
+}
+.cll-anexo-rugby .cll-roof .--roof-title-full {
+  grid-area: roof;
+  margin-bottom: 0.625rem;
+  padding-top: 1.25rem;
+  width: -moz-min-content;
+  width: min-content;
+}
+@media (min-width: 48rem) {
+  .cll-anexo-rugby .cll-roof .--roof-title-full {
+    margin-bottom: 0;
+    padding-top: 0;
+  }
+}
+@media (min-width: 400px) {
+  .cll-anexo-rugby .cll-roof .--roof-title-full {
+    width: auto;
+  }
+}
+.cll-anexo-rugby .cll-roof .--roof-title-full .--roof-title {
+  font-family: "Prumo", "georgia", "serif";
+  font-variation-settings: "wght" 100, "opsz" 50;
+  transform: translateY(0.1875rem);
+  font-weight: 100;
+  font-size: 20px;
+  min-width: 8.125rem;
+}
+@media (min-width: 400px) {
+  .cll-anexo-rugby .cll-roof .--roof-title-full .--roof-title {
+    min-width: 7.5rem;
+  }
+}
+@media (min-width: 48rem) {
+  .cll-anexo-rugby .cll-roof .--roof-title-full .--roof-title {
+    font-size: 22px;
+  }
+}
+.cll-anexo-rugby .cll-roof .--roof-title-full .--roof-href-arrow {
+  align-self: flex-start;
+  padding-top: 0.875rem;
+}
+@media (min-width: 400px) {
+  .cll-anexo-rugby .cll-roof .--roof-title-full .--roof-href-arrow {
+    align-self: center;
+    padding-top: 0;
+  }
+}
+.cll-anexo-rugby .cll-roof .--fixture {
+  grid-area: fixt;
+  justify-content: flex-end;
+}
+@media (min-width: 48rem) {
+  .cll-anexo-rugby .cll-roof .--fixture {
+    margin-top: 0.125rem;
+    padding: 0.375rem 0 0.375rem 0.75rem;
+    border: 0.0625rem solid #e4e4e4;
+    padding-right: 0.625rem;
+  }
+}
+.cll-anexo-rugby .cll-roof .--fixture .--roof-fixture {
+  letter-spacing: -0.0125rem;
+}
+.cll-anexo-rugby .cll-sponsor {
+  color: #5a5a5a;
+  grid-area: ausp;
+  width: 100%;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  margin-bottom: 0.625rem;
+  padding-top: 1.25rem;
+  align-items: center;
+  gap: 2.875rem;
+}
+@media (min-width: 48rem) {
+  .cll-anexo-rugby .cll-sponsor {
+    padding-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .cll-anexo-rugby .cll-sponsor > *:not(:first-child)::after {
+    content: "";
+    position: absolute;
+    left: -1.375rem;
+    top: 0;
+    width: 0.0625rem;
+    height: 2rem;
+    border-left: 0.0625rem dotted #c5c5c5;
+  }
+}
+.cll-anexo-rugby .cll-sponsor .text {
+  align-self: flex-start;
+  font-size: 0.625rem;
+  letter-spacing: -0.2px;
+  font-family: system-ui;
+}
+.cll-anexo-rugby .cll-sponsor .--sponsors {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.cll-anexo-rugby .cll-sponsor .--sponsors svg,
+.cll-anexo-rugby .cll-sponsor .--sponsors .sponsor-height {
+  height: 2.125rem;
+  width: auto;
+}
+.cll-anexo-rugby .cll-body {
+  grid-area: body;
+  max-width: 100%;
+  overflow: auto;
+  padding-right: 0.0625rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 0.0625rem solid #e4e4e4;
+}
+@media (min-width: 48rem) {
+  .cll-anexo-rugby .cll-body {
+    padding-bottom: 0;
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+}
+.cll-anexo-rugby .cll-body::-webkit-scrollbar {
+  display: none;
+}
+.cll-anexo-rugby .cll-powered {
+  color: #5a5a5a;
+  grid-area: powe;
+}
+@media (min-width: 48rem) {
+  .cll-anexo-rugby .cll-powered {
+    justify-content: end;
+  }
+}
+.cll-anexo-rugby .cll-powered .text {
+  font-size: 0.625rem;
+}
+.cll-anexo-rugby .cll-powered .icon {
+  position: relative;
+  bottom: 0.125rem;
+}
+.cll-anexo-rugby .cll-powered .st0 {
+  fill: #1d1d1d;
+}
+.cll-anexo-rugby .cll-powered .st1 {
+  fill: #7bb1db;
+}
+.cll-anexo-rugby .cll-match {
+  width: 14.1875rem;
+  border: 0.0625rem solid #e4e4e4;
+  border-radius: 0.25rem;
+  background-color: #f7f7f4;
+}
+.cll-anexo-rugby .cll-match .--status {
+  text-transform: uppercase;
+  border-bottom: 0.0625rem solid #e4e4e4;
+  height: 39px;
+  padding: 0 0.875rem;
+}
+.cll-anexo-rugby .cll-match .--status .text {
+  font-weight: 600;
+}
+.cll-anexo-rugby .cll-match .--status .--playing {
+  color: #e44444;
+}
+.cll-anexo-rugby .cll-match .--status .--cancelled,
+.cll-anexo-rugby .cll-match .--status .--suspended,
+.cll-anexo-rugby .cll-match .--status .--postponed {
+  color: #9f9f9f;
+}
+.cll-anexo-rugby .cll-match .--status .--played {
+  color: #25ac4b;
+}
+.cll-anexo-rugby .cll-match .--row {
+  height: 39px;
+}
+.cll-anexo-rugby .cll-match .--row:not(:last-child) {
+  border-bottom: 0.0625rem dotted #c5c5c5;
+}
+.cll-anexo-rugby .cll-match .--row .--name-icon {
+  width: 11.3125rem;
+  border-right: 0.0625rem dotted #c5c5c5;
+  padding-left: 0.75rem;
+  font-size: 1.125rem;
+  font-variation-settings: "wght" 80, "opsz" 50;
+}
+.cll-anexo-rugby .cll-match .--row .--name-icon img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 1rem;
+}
+.cll-anexo-rugby .cll-match .--row .--score {
+  width: 2.625rem;
+  font-variation-settings: "wght" 200, "opsz" 50;
+}
+.cll-anexo-rugby .link.cll-link.--primary {
+  color: black;
 }.avatar .initials {
   width: 2.5rem;
   height: 2.5rem;
