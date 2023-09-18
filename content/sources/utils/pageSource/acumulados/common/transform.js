@@ -26,7 +26,8 @@ const transform = (data, params) => {
             articles: respData.content_elements,
             paginator: respData.next,
             total: respData.count,
-            configuration: params.configuration
+            configuration: params.configuration,
+            tag: params.tag
         };
 
         return indexAcu(acuData);
