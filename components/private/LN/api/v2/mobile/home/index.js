@@ -11,7 +11,7 @@ const index = (
     return [
         {
             metadata: {
-                pagination: false
+                paginate: false
             },
             items: Array.isArray(homeV1Result) ? homeV1Result[0] : []
         }

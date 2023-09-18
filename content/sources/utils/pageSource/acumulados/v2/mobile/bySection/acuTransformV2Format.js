@@ -1,9 +1,9 @@
 const acuTransformV2Format = (transformedAcu, sectionData, paginationValue) => {
     const metadata = {
-        pagination: paginationValue,
+        paginate: paginationValue,
         title: transformedAcu[0].titulo,
         banners: transformedAcu[0].banners,
-        totalItems: transformedAcu[0].acumuladoTotal,
+        total: transformedAcu[0].acumuladoTotal,
         category: {
             slug: sectionData ? sectionData.slug : null,
             value: transformedAcu[0].titulo

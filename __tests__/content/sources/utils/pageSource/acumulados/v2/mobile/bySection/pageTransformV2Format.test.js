@@ -27,7 +27,7 @@ describe('Test pages api transformation with V2 Format', () => {
         const result = pageTransformV2Format(pageItems, sectionData);
 
         expect(Object.keys(result.metadata).sort()).toEqual(
-            ['pagination', 'title', 'category'].sort()
+            ['paginate', 'title', 'category'].sort()
         );
     });
 });
