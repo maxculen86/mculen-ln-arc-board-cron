@@ -3,11 +3,12 @@ import { useContent } from 'fusion:content';
 import AnexoRugbyComponent from '../../../private/anexoRugby/index';
 
 const AnexoRugbyWorldCup = () => {
-    const { data } = useContent({
-        source: 'rugbySource'
-    });
+    const { data = [] } =
+        useContent({
+            source: 'rugbySource'
+        }) || {};
 
-    return data ? <AnexoRugbyComponent matchesData={data} /> : <></>;
+    return data.length > 0 ? <AnexoRugbyComponent matchesData={data} /> : <></>;
 };
 
 AnexoRugbyWorldCup.label = 'Anexo Mundial Rugby';
