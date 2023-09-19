@@ -149,9 +149,14 @@ const ArticleFeature = ({
         variant
     );
 
+    // TODO eliminar videoSource y funcion cuando se integre JW definitivo
+    const getVideoSource = id => {
+        return id.length > 8 ? 'videoSource' : 'videosJwSource';
+    };
+
     const videoBackground =
         useContent({
-            source: checkForId(videoId) ? 'videoSource' : null,
+            source: checkForId(videoId) ? getVideoSource(videoId) : null,
             staticMode: isSSR(),
             query: {
                 id: checkForId(videoId),

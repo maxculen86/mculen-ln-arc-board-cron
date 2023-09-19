@@ -25,7 +25,8 @@ const fetch = async (query, { cachedCall }) => {
             uri,
             title: sectioninPage,
             categoryUri,
-            versionUri
+            versionUri,
+            cookie: query.cookie
         };
 
         const resultPage = await cachedCall('ApiPageAcumulados', pages.fetch, {
@@ -98,7 +99,8 @@ export default {
         sections: 'text',
         categoryUri: 'text',
         versionUri: 'text',
-        ticks: 'text'
+        ticks: 'text',
+        cookie: 'text'
     },
     ttl: 120
 };

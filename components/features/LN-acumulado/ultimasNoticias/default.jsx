@@ -6,7 +6,6 @@ import sectionsFormated from '../../../private/common/utils/sectionsFormated';
 import useGlobalProviderAcu from '../../../private/LN/acumulado/hooks/useGlobalProviderAcu';
 import useGridPagination from '../../../private/LN/common/hooks/useGridPagination';
 import GrillaNotas from '../../../private/LN/acumulado/grillaNotas/grillaNotas';
-import checkHydrateOnly from '../../../private/LN/common/utils/checkHydrateOnly';
 
 const UltimasNoticias = props => {
     const { customFields } = props;
@@ -19,8 +18,6 @@ const UltimasNoticias = props => {
         renderables
     } = useAppContext();
 
-    const hasHydrateOnly = checkHydrateOnly({ nodeType });
-
     const grillaNotasProps = useGridPagination({
         sectionsIds: sectionsFormated(sections),
         sourceOrigin: 'composer',
@@ -32,13 +29,7 @@ const UltimasNoticias = props => {
         ...globalProviderAcu
     });
 
-    return (
-        <GrillaNotas
-            {...grillaNotasProps}
-            name={name}
-            hasHydrateOnly={hasHydrateOnly}
-        />
-    );
+    return <GrillaNotas {...grillaNotasProps} name={name} />;
 };
 
 UltimasNoticias.label = 'LN Acumulado Ultimas Noticias';

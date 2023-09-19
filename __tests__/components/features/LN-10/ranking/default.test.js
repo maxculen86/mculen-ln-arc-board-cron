@@ -3,7 +3,6 @@ import Ranking from '../../../../../components/features/LN-10/ranking/default';
 import { getDataContent } from '../../../../../components/features/LN-10/ranking/_helper';
 import '@testing-library/jest-dom';
 import Context from 'fusion:context';
-import checkHydrateOnly from '../../../../../components/private/LN/common/utils/checkHydrateOnly';
 import { render } from '@testing-library/react';
 import mockArticles from '../../../../../__mocks__/data/ranking/homeLN10Response.json';
 
@@ -14,8 +13,6 @@ jest.mock('fusion:context', () => () => ({
     },
     useAppContext: jest.fn(() => ({}))
 }));
-
-jest.mock('../../../../../components/private/LN/common/utils/checkHydrateOnly');
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -37,7 +34,9 @@ describe('features - LN10 - Ranking', () => {
         getDataContent.mockImplementation(() => ({ articles: [] }));
 
         const { container } = render(<Ranking />);
-        expect(container).toBeEmptyDOMElement();
+        const divElement = container.querySelector('div');
+        expect(divElement).toHaveClass('hidden');
+        expect(divElement.textContent).toBe('');
     });
 
     test('should returns the right articles length', () => {
@@ -47,13 +46,5 @@ describe('features - LN10 - Ranking', () => {
         const articles = container.querySelectorAll('article');
 
         expect(articles).toHaveLength(mockArticles.length);
-    });
-
-    test('should returns static component when hydrateOnly is true', () => {
-        getDataContent.mockImplementation(() => ({ articles: mockArticles }));
-        checkHydrateOnly.mockImplementation(() => true);
-
-        const { container, debug } = render(<Ranking />);
-        expect(container.querySelector('.hidden')).toBeInTheDocument();
     });
 });

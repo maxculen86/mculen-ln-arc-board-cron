@@ -705,92 +705,98 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
   <div
     class="bottom-module"
   >
-    <div
-      class="captcha"
-    >
-      <p
-        class="text ln-text --font-xs"
+    <div>
+      <div
+        class="copyright"
       >
-        <b
-          class="--font-bold"
+        <p
+          class="text ln-text --font-xs"
         >
-          Protegido por reCAPTCHA: 
-        </b>
-        <span
-          class="--inline-block"
+          © Copyright 2023 SA LA NACION | Todos los derechos reservados. Dirección Nacional del Derecho de Autor DNDA - EXPEDIENTE DNDA (renovación) RL-2023-95334553-APN-DNDA#MJ. Queda prohibida la reproducción total o parcial del presente diario.
+        </p>
+      </div>
+    </div>
+    <div
+      class="bottom2"
+    >
+      <div
+        class="captcha"
+      >
+        <p
+          class="text ln-text --font-xs"
         >
-          <a
-            class="link --unstyled"
-            href="https://policies.google.com/terms?hl=es-419"
-            target="_self"
-            title="Ir a Condiciones"
+          <b
+            class="--font-bold"
           >
-            Condiciones
-          </a>
+            Protegido por reCAPTCHA: 
+          </b>
           <span
-            class="dot"
-          />
-          <a
-            class="link --unstyled"
-            href="https://policies.google.com/privacy?hl=es-419"
-            target="_self"
-            title="Ir a Privacidad"
+            class="--inline-block"
           >
-            Privacidad
-          </a>
-        </span>
-      </p>
-    </div>
-    <div
-      class="copyright"
-    >
-      <p
-        class="text ln-text --font-xs"
+            <a
+              class="link --unstyled"
+              href="https://policies.google.com/terms?hl=es-419"
+              target="_self"
+              title="Ir a Condiciones"
+            >
+              Condiciones
+            </a>
+            <span
+              class="dot"
+            />
+            <a
+              class="link --unstyled"
+              href="https://policies.google.com/privacy?hl=es-419"
+              target="_self"
+              title="Ir a Privacidad"
+            >
+              Privacidad
+            </a>
+          </span>
+        </p>
+      </div>
+      <div
+        class="gda"
       >
-        Copyright 2023 SA LA NACION | Todos los derechos reservados
-      </p>
-    </div>
-    <div
-      class="gda"
-    >
-      <a
-        class="link"
-        href="https://www.gda.com/"
-        rel="nofollow"
-        target="_blank"
-        title="GDA"
-      >
-        <i
-          class="icon"
-          style="width: 37px;"
+        <a
+          class="link"
+          href="https://www.gda.com/"
+          rel="nofollow"
+          target="_blank"
+          title="GDA"
         >
-          <img
-            alt="Grupo de Diarios América"
-            src="undefined/pf/resources/images/gda.svg"
-          />
-        </i>
-      </a>
-      <p
-        class="text ln-text --font-xs"
-      >
-        Miembro de GDA. Grupo de Diarios América
-      </p>
-      <a
-        class="link"
-        href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
-        rel="nofollow"
-        target="_blank"
-        title="Data fiscal"
-      >
-        <i
-          class="icon --icon-32"
+          <i
+            class="icon"
+            style="width: 37px;"
+          >
+            <img
+              alt="Grupo de Diarios América"
+              src="undefined/pf/resources/images/gda.svg"
+            />
+          </i>
+        </a>
+        <p
+          class="text ln-text --font-xs"
         >
-          <img
-            alt="Data fiscal"
-            src="undefined/pf/resources/images/data-fiscal.svg"
-          />
-        </i>
-      </a>
+          Miembro de GDA. Grupo de Diarios América
+        </p>
+        <a
+          class="link"
+          href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
+          rel="nofollow"
+          target="_blank"
+          title="Data fiscal"
+        >
+          <i
+            class="icon --icon-32"
+          >
+            <img
+              alt="Data fiscal"
+              src="undefined/pf/resources/images/data-fiscal.svg"
+            />
+          </i>
+        </a>
+      </div>
     </div>
   </div>
 </footer>

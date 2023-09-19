@@ -17,10 +17,8 @@ import {
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import siteConfig from '../../../properties/sites/la-nacion-ar';
 import get from '../../private/common/utils/get';
-import { getPlaceholder } from '../../private/LN/common/utils/cajaTemasPlaceholder';
 import { productClickFromClient } from '../../private/common/utils/viewability';
 import StaticContent from '../../private/common/staticContent';
-import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
 
 const CajaCollection = props => {
     const {
@@ -40,7 +38,6 @@ const CajaCollection = props => {
         outputType,
         renderables = [],
         tree = {},
-        globalContent: { node_type: nodeType } = {},
         layout: pageLayout
     } = props;
 
@@ -56,7 +53,6 @@ const CajaCollection = props => {
     } = getCommonProps(props);
 
     const { layoutsName = {} } = siteConfig;
-    const hasHydrateOnly = checkHydrateOnly({ nodeType, layout: pageLayout });
 
     const diagramation = renderables.some(
         elem =>
@@ -99,8 +95,7 @@ const CajaCollection = props => {
               filterRecomendar: true,
               filterRepetead: !isInSiteService,
               layout,
-              website,
-              hasHydrateOnly
+              website
           })
         : [];
 
@@ -151,14 +146,7 @@ const CajaCollection = props => {
         />
     );
 
-    const noStaticComponent =
-        (_articles && _articles.length && Component) || getPlaceholder(layout);
-
-    return hasHydrateOnly ? (
-        <StaticContent>{Component}</StaticContent>
-    ) : (
-        noStaticComponent
-    );
+    return <StaticContent>{Component}</StaticContent>;
 };
 
 CajaCollection.label = 'LN Caja Collection';

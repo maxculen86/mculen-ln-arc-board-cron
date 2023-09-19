@@ -23,34 +23,6 @@ jest.mock(
     () => 'mock-static-content'
 );
 
-describe('Features - LN-acumulado - Caja Dolar Feature =>', () => {
-    it('without data response should return null when data is undefined', () => {
-        useContent.mockImplementation(() => {});
-        Context.useAppContext = jest.fn(() => ({
-            outputType: 'default',
-            layout: 'LN-acumulado',
-            globalContent: { node_type: 'section' }
-        }));
-        const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
-
-        expect(container.firstChild).toBeEmptyDOMElement();
-    });
-
-    it('without data response should return null when data is null', () => {
-        useContent.mockImplementation(() => ({
-            data: null
-        }));
-        Context.useAppContext = jest.fn(() => ({
-            outputType: 'default',
-            layout: 'LN-acumulado',
-            globalContent: { node_type: 'section' }
-        }));
-        const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
-
-        expect(container.firstChild).toBeEmptyDOMElement();
-    });
-});
-
 describe('with a valid response on any section', () => {
     it('should render all 8 types of dollars from the mock with their corresponding title', () => {
         Context.useAppContext = jest.fn(() => ({
@@ -98,6 +70,7 @@ describe('with a valid response on a note', () => {
             outputType: 'default',
             layout: 'LN-nota-noticia',
             globalContent: {
+                type: 'story',
                 label: {
                     mostrar_caja_dolar: {
                         text: 'Mostrar'
@@ -122,15 +95,53 @@ describe('with a valid response on a note', () => {
     });
 });
 
-describe('without kicker and label in a note', () => {
-    it('should render empty fragment in a note with the kicker and label disabled', () => {
+describe('CajaDolar', () => {
+    it('without data response should return null when data is undefined', () => {
+        useContent.mockImplementation(() => {});
         Context.useAppContext = jest.fn(() => ({
             outputType: 'default',
+            layout: 'LN-acumulado',
+            globalContent: { node_type: 'section' }
+        }));
+        const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
+
+        expect(container.firstChild).toBeEmptyDOMElement();
+    });
+
+    it('without data response should return null when data is null', () => {
+        useContent.mockImplementation(() => ({
+            data: null
+        }));
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'default',
+            layout: 'LN-acumulado',
+            globalContent: { node_type: 'section' }
+        }));
+        const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
+
+        expect(container.firstChild).toBeEmptyDOMElement();
+    });
+
+    it('should return an empty fragment when there is no data', () => {
+        useContent.mockImplementation(() => {});
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'default',
+            layout: 'LN-acumulado',
+            globalContent: { node_type: 'section' }
+        }));
+        const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
+
+        expect(container.firstChild).toBeEmptyDOMElement();
+    });
+
+    it('should render empty fragment when outputType is AMP ', () => {
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'amp',
             layout: 'LN-nota-noticia',
             globalContent: {
                 label: {
                     mostrar_caja_dolar: {
-                        text: ''
+                        text: 'Mostrar'
                     }
                 }
             }
@@ -140,17 +151,15 @@ describe('without kicker and label in a note', () => {
         const { container } = render(<CajaDolar id={'f0f7MrGuNmfRtMo'} />);
         expect(container).toBeEmptyDOMElement();
     });
-});
 
-describe('when outputType is AMP', () => {
-    it('should render empty fragment when outputType is AMP ', () => {
+    it('should render empty fragment in a note with the kicker and label disabled', () => {
         Context.useAppContext = jest.fn(() => ({
-            outputType: 'amp',
+            outputType: 'default',
             layout: 'LN-nota-noticia',
             globalContent: {
                 label: {
                     mostrar_caja_dolar: {
-                        text: 'Mostrar'
+                        text: ''
                     }
                 }
             }

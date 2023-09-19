@@ -12,5 +12,10 @@
                 color: $neutral-white;
             }
         }
+
+        .com-subhead.--bajada {
+            font-weight: bold;
+            @include sizeM;
+        }
     }
 }

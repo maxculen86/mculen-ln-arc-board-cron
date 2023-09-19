@@ -30,7 +30,7 @@ describe('Test Json Text del cuerpo de la nota', () => {
     it('Test para validar la cantidad de elementos del cuerpo', () => {
         const resp = Cuerpo(ArticleCuerpo);
         expect(resp.elements.length).toBe(
-            ArticleCuerpo.content_elements.length - 1
+            ArticleCuerpo.content_elements.length
         );
     });
 
@@ -69,7 +69,9 @@ describe('Test Json Text del cuerpo de la nota', () => {
 
                 expect(resp.elements).not.toBeNull();
                 expect(
-                    resp.elements.some(x => x.title === 'Lo que tenés que saber')
+                    resp.elements.some(
+                        x => x.title === 'Lo que tenés que saber'
+                    )
                 ).toBe(true);
                 expect(resp.elements[1].title).toBe('Lo que tenés que saber');
             }
@@ -86,7 +88,9 @@ describe('Test Json Text del cuerpo de la nota', () => {
 
                 expect(resp.elements).not.toBeNull();
                 expect(
-                    resp.elements.some(x => x.title === 'Lo que tenés que saber')
+                    resp.elements.some(
+                        x => x.title === 'Lo que tenés que saber'
+                    )
                 ).toBe(true);
             }
         );

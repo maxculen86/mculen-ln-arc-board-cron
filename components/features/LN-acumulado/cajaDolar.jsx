@@ -8,7 +8,6 @@ import filter from '../../../content/filters/LN/services/dolar';
 import getAssetsPath from '../../private/common/utils/getAssetsPath';
 import get from '../../private/common/utils/get';
 import config from '../../../properties/sites/la-nacion-ar';
-import checkHydrateOnly from '../../private/LN/common/utils/checkHydrateOnly';
 
 const { layoutsName = {} } = config || {};
 
@@ -16,7 +15,7 @@ const { layoutsName = {} } = config || {};
 const CajaDolar = ({ id }) => {
     const { contextPath, deployment, outputType, layout, globalContent = {} } =
         useAppContext() || {};
-    const { node_type: nodeType = '', _id = '' } = globalContent;
+    const { _id = '', type = '' } = globalContent;
     const isAmp = outputType === 'amp';
     const shouldShowDollar =
         layout === layoutsName.Noticia
@@ -57,21 +56,13 @@ const CajaDolar = ({ id }) => {
         <></>
     );
 
-    if (checkHydrateOnly({ nodeType, layout })) {
-        return (
-            <StaticContent>
-                {(() => {
-                    return dolarComponent;
-                })()}
-            </StaticContent>
-        );
-    }
-
     return shouldShowDollar && !isAmp ? (
         <StaticContent>
-            <h2 className="com-title --font-primary --xl --font-extra">
-                Cotización del dólar de hoy
-            </h2>
+            {type === 'story' && (
+                <h2 className="com-title --font-primary --xl --font-extra">
+                    Cotización del dólar de hoy
+                </h2>
+            )}
             {dolarComponent}
         </StaticContent>
     ) : (

@@ -8,7 +8,11 @@ import get from '../../private/common/utils/get';
 import StickyMobile from '../../private/LN/nota/StickyMobile';
 import { crtViewTracker } from '../../private/common/utils/noteTracker/ctrTracker';
 
-const ctrRecommendNote = (articleList, articlesSeen, actualArticleId) => {
+export const ctrRecommendNote = (
+    articleList,
+    articlesSeen,
+    actualArticleId
+) => {
     const notCurrent = articleList.filter(art => {
         return art._id !== actualArticleId;
     });
@@ -21,8 +25,6 @@ const ctrRecommendNote = (articleList, articlesSeen, actualArticleId) => {
         ? notSeenBefore[0]
         : notCurrent[Math.round(Math.random() * notCurrent.length)] || {}; // NOSONAR
 };
-
-// TODO hacer unit test
 
 const CTRNota = () => {
     const globalContent = get(useAppContext(), 'globalContent', {});
@@ -77,7 +79,7 @@ const CTRNota = () => {
                 renderPlaceholder={ref => {
                     return <div ref={ref} />;
                 }}
-                offsetTop={2800}
+                offsetTop={8000}
             >
                 <StickyMobile
                     headerText="Te puede interesar"

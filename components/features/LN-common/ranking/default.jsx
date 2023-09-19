@@ -11,8 +11,8 @@ import {
 } from './_helper';
 import StaticContent from '../../../private/common/staticContent';
 import '../../../../resources/dist/css/ln/components/ranking.css';
-import checkHydrateOnly from '../../../private/LN/common/utils/checkHydrateOnly';
 import articleBoxesTracker from '../../../private/common/utils/noteTracker/articleBoxesTracker';
+import isSSR from '../../../private/LN/common/utils/isSSR';
 
 const getDataContent = (
     sectionId,
@@ -47,12 +47,7 @@ const RankingFeature = ({ id: featureId }) => {
         globalContent = {}
     } = useAppContext();
 
-    const { node_type: nodeType, type } = globalContent;
-
-    const hasHydrateOnly = checkHydrateOnly({
-        layout,
-        nodeType: nodeType || type
-    });
+    const { type } = globalContent;
 
     const {
         title,
@@ -70,7 +65,7 @@ const RankingFeature = ({ id: featureId }) => {
             sectionId,
             sectionParentId,
             website || arcSite,
-            hasHydrateOnly
+            isSSR()
         ) || {};
 
     const customTitle = name ? `Más leídas de ${name}` : 'Más leídas';
@@ -81,29 +76,25 @@ const RankingFeature = ({ id: featureId }) => {
             });
     }, [type]);
 
-    const component = articles && articles.length && (
-        <CajaTema
-            title={title || customTitle}
-            notesQuantity={notesQuantity}
-            sectionName={sectionName}
-            articles={articles}
-            position={sectionName === RANKING ? '0190' : '0191'}
-            dataSection={sectionId}
-            outputType={outputType}
-            classCondition={classCondition}
-            titleSize="--xs"
-            withVolanta
-            layout={rankingLayout}
-            isHome={isHome}
-        />
-    );
-
-    const sectionRanking = component || <></>;
-
-    return hasHydrateOnly ? (
-        <StaticContent>{component}</StaticContent>
+    return articles && articles.length ? (
+        <StaticContent>
+            <CajaTema
+                title={title || customTitle}
+                notesQuantity={notesQuantity}
+                sectionName={sectionName}
+                articles={articles}
+                position={sectionName === RANKING ? '0190' : '0191'}
+                dataSection={sectionId}
+                outputType={outputType}
+                classCondition={classCondition}
+                titleSize="--xs"
+                withVolanta
+                layout={rankingLayout}
+                isHome={isHome}
+            />
+        </StaticContent>
     ) : (
-        sectionRanking
+        <></>
     );
 };
 

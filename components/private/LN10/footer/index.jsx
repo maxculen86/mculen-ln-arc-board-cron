@@ -2,6 +2,7 @@
 import React from 'react';
 import { Footerhome } from '@ln/contenidos-ui-footerhome';
 import { useAppContext } from 'fusion:context';
+import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import {
     masInformacion,
     productos,
@@ -12,11 +13,20 @@ import {
 import OldFooter from '../../LN/common/footer';
 import StaticContent from '../../common/staticContent';
 import FooterEventsScript from '../../common/scriptManager/FooterEventsScript';
+import { datesDiffInDays } from '../../common/utils/dateAndTimeUtil';
+import { getArgentinaDateMonthYear } from '../../common/utils/dateAndTimeUtil';
+
 import '../../../../resources/packages/css/@ln/contenidos-ui-footerhome/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-grid/index.css';
 
 const Footer = () => {
-    const { contextPath, deployment, outputType } = useAppContext();
+    const { contextPath, deployment, outputType, layout } = useAppContext();
+    const { layoutsName = {} } = siteConfig || {};
+
+    const refDate = new Date('1995-12-13');
+    const currentDate = new Date();
+    const currentEdNumber = datesDiffInDays(refDate, currentDate);
+
     return (
         <>
             <StaticContent>
@@ -30,6 +40,9 @@ const Footer = () => {
                             listFooterRevistas={revistas}
                             listFooterSecciones={secciones}
                             optionsIcons={optionsIcons(contextPath, deployment)}
+                            isHome={layout === layoutsName.HomeLN10}
+                            edDate={getArgentinaDateMonthYear()}
+                            edNumber={currentEdNumber}
                         />
                         <FooterEventsScript />
                     </>

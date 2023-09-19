@@ -10,15 +10,14 @@ import {
     RANKING_LAYOUT
 } from './common/_helper-WebApi';
 import StaticContent from '../../../private/common/staticContent';
-import checkHydrateOnly from '../../../private/LN/common/utils/checkHydrateOnly';
 import diagramationRules from '../../../private/common/utils/diagramationRules';
 import CommonCollection from '../../../private/LN10/home/components/CommonCollection/default';
 import { getMarkupForDatalayer } from '../../../private/LN/common/utils/cajaTemasHelper';
 import { replaceUrlsByEnvironment } from '../../../private/common/utils/replaceProductiveImgDomain';
+import isSSR from '../../../private/LN/common/utils/isSSR';
 
 const RankingFeature = ({ id: featureId }) => {
     const { website, arcSite, layout, globalContent = {} } = useAppContext();
-    const { node_type: nodeType } = globalContent;
 
     const { title, sectionId, rankingLayout } = getRankingProps(
         layout,
@@ -27,14 +26,13 @@ const RankingFeature = ({ id: featureId }) => {
     );
 
     const sectionParentId = getSectionParentId(sectionId);
-    const hasHydrateOnly = checkHydrateOnly({ layout, nodeType });
 
     const { articles = [] } =
         getDataContent(
             sectionId,
             sectionParentId,
             website || arcSite,
-            hasHydrateOnly,
+            isSSR(),
             layout
         ) || {};
 
@@ -65,11 +63,7 @@ const RankingFeature = ({ id: featureId }) => {
         <></>
     );
 
-    return hasHydrateOnly ? (
-        <StaticContent>{component}</StaticContent>
-    ) : (
-        component
-    );
+    return <StaticContent>{component}</StaticContent>;
 };
 
 RankingFeature.label = 'LN10 Ranking';

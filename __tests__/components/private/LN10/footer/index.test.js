@@ -10,6 +10,7 @@ jest.mock('fusion:consumer', component => {
         return component;
     };
 });
+jest.mock('../../../../../components/private/common/utils/dateAndTimeUtil');
 jest.mock('fusion:context', () => () => ({
     default: props => {
         const mockAvailableProps = { outputType: 'amp' };

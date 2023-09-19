@@ -5,7 +5,6 @@ import {
     getSectionParentId,
     RANKING_LAYOUT
 } from './common/_helper-WebApi';
-import checkHydrateOnly from '../../../private/LN/common/utils/checkHydrateOnly';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import diagramationRules from '../../../private/common/utils/diagramationRules';
 import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
@@ -15,7 +14,6 @@ class RankingFeature {
         this.props = props;
         const { website, arcSite, layout, globalContent = {} } = this.props;
         const featureId = 'rankingHome';
-        const { node_type: nodeType } = globalContent;
         const { title, sectionId } = getRankingProps(
             layout,
             featureId,
@@ -23,7 +21,6 @@ class RankingFeature {
         );
 
         const sectionParentId = getSectionParentId(sectionId);
-        const hasHydrateOnly = checkHydrateOnly({ layout, nodeType });
 
         this.state = {};
         this.title = title;
@@ -39,27 +36,27 @@ class RankingFeature {
                 withResizerV2 &&
                 layout === get(siteConfig, 'layoutsName.HomeLN10', '')
         };
-        this.fetch(query, hasHydrateOnly);
+        this.fetch(query);
         query.sectionId = sectionParentId;
-        this.fetchParent(query, hasHydrateOnly);
+        this.fetchParent(query);
     }
 
-    fetch(query, hasHydrateOnly) {
+    fetch(query) {
         this.fetchContent({
             rankingSectionApi: {
                 source: 'rankingArticlesSource',
                 query,
-                staticMode: hasHydrateOnly
+                staticMode: true
             }
         });
     }
 
-    fetchParent(query, hasHydrateOnly) {
+    fetchParent(query) {
         this.fetchContent({
             rankingSectionParentApi: {
                 source: 'rankingArticlesSource',
                 query,
-                staticMode: hasHydrateOnly
+                staticMode: true
             }
         });
     }
