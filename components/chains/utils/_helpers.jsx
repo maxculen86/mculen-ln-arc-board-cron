@@ -13,6 +13,14 @@ export const checkChangeChildrenForPB = ({
     setUpdateChildrens,
     layout
 }) => {
+    if (
+        features.length === 0 ||
+        !children ||
+        children.some(child => !child || !child.key)
+    ) {
+        return;
+    }
+
     const orderFeaturesInitial = features.map(feature => {
         return feature.props && feature.props.id;
     });
@@ -24,7 +32,8 @@ export const checkChangeChildrenForPB = ({
     const isEqualOrder =
         JSON.stringify(orderChildrenInitial) ===
         JSON.stringify(orderFeaturesInitial);
-    if (!isEqualOrder) {
+    if (!isEqualOrder && children.length > 0) {
+        //verificamos que el children no este vacio
         const featuresUpdated = children.map(child => {
             return features[
                 features.findIndex(
