@@ -1,9 +1,9 @@
 import {
     getHighestPriorityTag,
-    validateArticleReceta
-} from '../../../../../../components/features/recetas-global/common/utils/notaRecetaHelper';
+    validateArticleFoodit
+} from '../../../../../../components/features/foodit-global/common/utils/notaFooditHelper';
 
-describe('Recetas - notaRecetaHelper', () => {
+describe('Foodit - notaFooditHelper', () => {
     describe('getHighestPriorityTag function', () => {
         it('should return the highest priority tag', () => {
             const tags = [
@@ -44,10 +44,10 @@ describe('Recetas - notaRecetaHelper', () => {
         });
     });
 
-    describe('validateArticleReceta', () => {
+    describe('validateArticleFoodit', () => {
         it('Should return no id warning message', () => {
             expect(
-                validateArticleReceta({
+                validateArticleFoodit({
                     id: undefined,
                     content: true
                 })
@@ -56,7 +56,7 @@ describe('Recetas - notaRecetaHelper', () => {
 
         it('Should return bad article ID warning message', () => {
             expect(
-                validateArticleReceta({
+                validateArticleFoodit({
                     id: 'HLVF6HRMYNB2TI7L7G724OAPIU',
                     content: undefined
                 })

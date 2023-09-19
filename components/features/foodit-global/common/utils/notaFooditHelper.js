@@ -42,7 +42,7 @@ export const getHighestPriorityTag = (tags = []) => {
     }, '');
 };
 
-export const transformArticleReceta = article => {
+export const transformArticleFoodit = article => {
     const highestPriorityTag = getHighestPriorityTag(
         get(article, 'taxonomy.tags', [])
     );
@@ -58,7 +58,7 @@ export const transformArticleReceta = article => {
     };
 };
 
-export const validateArticleReceta = ({ id, content }) => {
+export const validateArticleFoodit = ({ id, content }) => {
     const rules = [
         {
             validation: !id,
@@ -73,7 +73,7 @@ export const validateArticleReceta = ({ id, content }) => {
     return pageBuilderValidator(rules);
 };
 
-export const isAperturaReceta = (renderables, featureId) => {
+export const isAperturaFoodit = (renderables, featureId) => {
     // TODO: pendiente config para el layout de home recetas, para utilizar getElementsFromRenderables
     const aperturaSection = renderables.find(
         item => item.collection === 'sections'

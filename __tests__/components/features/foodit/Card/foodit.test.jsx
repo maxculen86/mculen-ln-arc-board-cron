@@ -4,11 +4,11 @@ import { useContent } from 'fusion:content';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import CardFoodit from '../../../../../components/features/foodit/Card/recetas.jsx';
+import CardFoodit from '../../../../../components/features/foodit/Card/foodit.jsx';
 
-import renderables from '../../../../../__mocks__/data/renderables/foodit/renderablesRecetas1.json';
-import articleReceta from '../../../../../__mocks__/data/articlesFoodit/D3SATI3N45FQTB5PYSC7TRFTTU.json';
-import articleRecetaNota from '../../../../../__mocks__/data/articlesFoodit/FMLGIYTL2ZBCRAKQTSO27CCQ6U.json';
+import renderables from '../../../../../__mocks__/data/renderables/foodit/fooditRenderables.json';
+import articleFoodit from '../../../../../__mocks__/data/articlesFoodit/D3SATI3N45FQTB5PYSC7TRFTTU.json';
+import articleFooditNota from '../../../../../__mocks__/data/articlesFoodit/FMLGIYTL2ZBCRAKQTSO27CCQ6U.json';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -25,12 +25,12 @@ jest.mock('fusion:context', Component => {
     };
 });
 
-describe('Components - features - CardReceta', () => {
-    it('should test CardReceta - variant day-recipe', () => {
+describe('Components - features - CardFoodit', () => {
+    it('should test CardFoodit - variant day-recipe', () => {
         Context.useAppContext = jest.fn(() => ({
             isAdmin: false,
             renderables,
-            arcSite: 'recetas'
+            arcSite: 'foodit'
         }));
 
         const props = {
@@ -40,7 +40,7 @@ describe('Components - features - CardReceta', () => {
             }
         };
 
-        useContent.mockReturnValue(articleReceta);
+        useContent.mockReturnValue(articleFoodit);
 
         const { container } = render(<CardFoodit {...props} />);
         expect(container).toMatchSnapshot();
@@ -53,11 +53,11 @@ describe('Components - features - CardReceta', () => {
         );
     });
 
-    it('should test CardReceta - variant recipe', () => {
+    it('should test CardFoodit - variant recipe', () => {
         Context.useAppContext = jest.fn(() => ({
             isAdmin: false,
             renderables,
-            arcSite: 'recetas'
+            arcSite: 'foodit'
         }));
 
         const props = {
@@ -67,7 +67,7 @@ describe('Components - features - CardReceta', () => {
             }
         };
 
-        useContent.mockReturnValue(articleReceta);
+        useContent.mockReturnValue(articleFoodit);
 
         const { container } = render(<CardFoodit {...props} />);
         expect(container).toMatchSnapshot();
@@ -81,12 +81,12 @@ describe('Components - features - CardReceta', () => {
         );
     });
 
-    it('should test CardReceta - variant note', () => {
+    it('should test CardFoodit - variant note', () => {
         // TODO: test no apertura
         Context.useAppContext = jest.fn(() => ({
             isAdmin: false,
             renderables,
-            arcSite: 'recetas'
+            arcSite: 'foodit'
         }));
 
         const props = {
@@ -96,7 +96,7 @@ describe('Components - features - CardReceta', () => {
             }
         };
 
-        useContent.mockReturnValue(articleRecetaNota);
+        useContent.mockReturnValue(articleFooditNota);
 
         const { container } = render(<CardFoodit {...props} />);
         expect(container).toMatchSnapshot();
@@ -112,7 +112,7 @@ describe('Components - features - CardReceta', () => {
         Context.useAppContext = jest.fn(() => ({
             isAdmin: true,
             renderables,
-            arcSite: 'recetas'
+            arcSite: 'foodit'
         }));
 
         const props = {
@@ -132,7 +132,7 @@ describe('Components - features - CardReceta', () => {
         Context.useAppContext = jest.fn(() => ({
             isAdmin: false,
             renderables,
-            arcSite: 'recetas'
+            arcSite: 'foodit'
         }));
 
         const props = {

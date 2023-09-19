@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Recetas - notaRecetaHelper validateArticleReceta Should return bad article ID warning message 1`] = `
+exports[`Foodit - notaFooditHelper validateArticleFoodit Should return bad article ID warning message 1`] = `
 Object {
   "message": "El ID de la nota es incorrecto.",
   "type": "warning",
 }
 `;
 
-exports[`Recetas - notaRecetaHelper validateArticleReceta Should return no id warning message 1`] = `
+exports[`Foodit - notaFooditHelper validateArticleFoodit Should return no id warning message 1`] = `
 Object {
   "message": "El campo Id de la Nota es obligatorio.",
   "type": "warning",
