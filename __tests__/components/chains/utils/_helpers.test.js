@@ -361,7 +361,6 @@ describe('Components - Chains - Utils - _helpers', () => {
 
     describe('useGetLinks helper', () => {
         it('should return an empty array when given an empty navigationSection', () => {
-            // Mock useContent function
             jest.mock('fusion:content', () => ({
                 useContent: jest.fn(() => ({
                     children: []
@@ -374,7 +373,6 @@ describe('Components - Chains - Utils - _helpers', () => {
         });
 
         it('should return an empty array when useContent returns undefined', () => {
-            // Mock useContent function
             jest.mock('fusion:content', () => ({
                 useContent: jest.fn(() => undefined)
             }));
@@ -385,7 +383,6 @@ describe('Components - Chains - Utils - _helpers', () => {
         });
 
         it('should return an empty array when useContent returns an object without children', () => {
-            // Mock useContent function
             jest.mock('fusion:content', () => ({
                 useContent: jest.fn(() => ({}))
             }));
@@ -398,10 +395,8 @@ describe('Components - Chains - Utils - _helpers', () => {
 
     describe('useGetLogo helper', () => {
         it('should return logo object with correct properties when logo object is returned from useGetLogoImage', () => {
-            // Call the useGetLogo function
             const result = useGetLogo('logo-id', 'logo-title');
 
-            // Assert the result
             expect(result).toEqual({
                 src: 'https://example.com/logo.png',
                 alt: 'logo-title',
@@ -411,10 +406,8 @@ describe('Components - Chains - Utils - _helpers', () => {
         });
 
         it('should return logo object with empty src, alt, height, and width properties when logo object returned from useGetLogoImage is null or undefined', () => {
-            // Call the useGetLogo function with null logoId
             const resultNull = useGetLogo(null, 'logo-title');
 
-            // Assert the result for null logoId
             expect(resultNull).toEqual({
                 src: '',
                 alt: 'logo-title',
@@ -422,10 +415,8 @@ describe('Components - Chains - Utils - _helpers', () => {
                 width: ''
             });
 
-            // Call the useGetLogo function with undefined logoId
             const resultUndefined = useGetLogo(undefined, 'logo-title');
 
-            // Assert the result for undefined logoId
             expect(resultUndefined).toEqual({
                 src: '',
                 alt: 'logo-title',

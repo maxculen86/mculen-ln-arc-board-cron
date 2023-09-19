@@ -182,7 +182,6 @@ const Default = props => {
                         contextPath={contextPath}
                     />
                 )}
-                <Libs />
                 <TagsLoadingList
                     section="all"
                     location="head"
@@ -292,6 +291,7 @@ const Default = props => {
                 />
                 <div id="fusion-app">{children}</div>
                 <Fusion hydrateOnly />
+                <Libs />
                 <Scripts
                     location="body-bottom"
                     section={_nodeType}

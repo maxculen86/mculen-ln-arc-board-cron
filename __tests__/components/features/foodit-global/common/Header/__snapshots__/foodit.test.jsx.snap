@@ -1,0 +1,456 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - Features - foodit-global - Common - HeaderFoodit should match snapshot 1`] = `
+<div>
+  <div
+    class="header-container"
+  >
+    <header
+      class="foodit-header flex flex-column z-10"
+    >
+      <div
+        class="bg-light-50 py-16 foodit-main-header"
+      >
+        <div
+          class="container flex jc-between ai-center p-0 gap-24"
+        >
+          <div
+            class="logo flex jc-center ai-center bg-accent-positive"
+          >
+            <span
+              class="text"
+            >
+              Logo
+            </span>
+          </div>
+          <div
+            class="left-options roboto-bold flex jc-between ai-center flex-grow-1 text-14 gap-24"
+          >
+            <nav
+              class="top-navigation-bar lg-only"
+            >
+              <ul
+                class="flex ai-center gap-24"
+              >
+                <li>
+                  <div
+                    class="dropdown relative h-max"
+                  >
+                    <button
+                      class="dropdown-toggle inline-flex gap-4 ai-center roboto-bold text-14"
+                    >
+                      COCINAR
+                      <i
+                        class="icon dropdown-icon --icon-16 --dark"
+                      >
+                        <svg
+                          fill="none"
+                          height="17"
+                          viewBox="0 0 16 17"
+                          width="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M8.24267 9.13331L11.0713 6.30465C11.3316 6.04434 11.7537 6.04434 12.014 6.30465C12.2743 6.56496 12.2743 6.987 12.014 7.24731L8.94977 10.3115C8.55925 10.7021 7.92608 10.7021 7.53556 10.3115L4.47133 7.24731C4.21102 6.987 4.21102 6.56496 4.47133 6.30465C4.73164 6.04434 5.15369 6.04434 5.414 6.30465L8.24267 9.13331Z"
+                            fill="#272727"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </i>
+                    </button>
+                    <div
+                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0 top-0"
+                      data-position="left"
+                      role="menu"
+                    >
+                      <ul>
+                        <li>
+                          Este es el menu 1
+                        </li>
+                        <li>
+                          Este es el menu 2
+                        </li>
+                        <li>
+                          Este es el menu 3
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="dropdown relative h-max"
+                  >
+                    <button
+                      class="dropdown-toggle inline-flex gap-4 ai-center roboto-bold text-14"
+                    >
+                      APRENDER
+                      <i
+                        class="icon dropdown-icon --icon-16 --dark"
+                      >
+                        <svg
+                          fill="none"
+                          height="17"
+                          viewBox="0 0 16 17"
+                          width="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M8.24267 9.13331L11.0713 6.30465C11.3316 6.04434 11.7537 6.04434 12.014 6.30465C12.2743 6.56496 12.2743 6.987 12.014 7.24731L8.94977 10.3115C8.55925 10.7021 7.92608 10.7021 7.53556 10.3115L4.47133 7.24731C4.21102 6.987 4.21102 6.56496 4.47133 6.30465C4.73164 6.04434 5.15369 6.04434 5.414 6.30465L8.24267 9.13331Z"
+                            fill="#272727"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </i>
+                    </button>
+                    <div
+                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0 top-0"
+                      data-position="center"
+                      role="menu"
+                    >
+                      <ul>
+                        <li>
+                          Este es el menu 1
+                        </li>
+                        <li>
+                          Este es el menu 2
+                        </li>
+                        <li>
+                          Este es el menu 3
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    class="dropdown relative h-max"
+                  >
+                    <button
+                      class="dropdown-toggle inline-flex gap-4 ai-center roboto-bold text-14"
+                    >
+                      DESCUBRIR
+                      <i
+                        class="icon dropdown-icon --icon-16 --dark"
+                      >
+                        <svg
+                          fill="none"
+                          height="17"
+                          viewBox="0 0 16 17"
+                          width="16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M8.24267 9.13331L11.0713 6.30465C11.3316 6.04434 11.7537 6.04434 12.014 6.30465C12.2743 6.56496 12.2743 6.987 12.014 7.24731L8.94977 10.3115C8.55925 10.7021 7.92608 10.7021 7.53556 10.3115L4.47133 7.24731C4.21102 6.987 4.21102 6.56496 4.47133 6.30465C4.73164 6.04434 5.15369 6.04434 5.414 6.30465L8.24267 9.13331Z"
+                            fill="#272727"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </i>
+                    </button>
+                    <div
+                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0 top-0"
+                      data-position="right"
+                      role="menu"
+                    >
+                      <ul>
+                        <li>
+                          Este es el menu 1
+                        </li>
+                        <li>
+                          Este es el menu 2
+                        </li>
+                        <li>
+                          Este es el menu 3
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </nav>
+            <nav
+              class="lg-only"
+            >
+              <ul
+                class="flex ai-center gap-24"
+              >
+                <li>
+                  <a
+                    class="link foodit-link flex gap-4 ai-center roboto-bold text-14"
+                    href="/"
+                    target="_self"
+                    title="Ir a Recetario"
+                  >
+                    <i
+                      class="icon --icon-16"
+                    >
+                      <svg
+                        fill="none"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M3.333 1.333h9.334a.667.667 0 0 1 .666.667v12.762a.332.332 0 0 1-.51.283L8 12.02l-4.823 3.024a.333.333 0 0 1-.51-.282V2a.667.667 0 0 1 .666-.667ZM12 2.667H4v10.288l4-2.508 4 2.508V2.667Z"
+                          fill="#272727"
+                        />
+                      </svg>
+                    </i>
+                    RECETARIO
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="link foodit-link flex gap-4 ai-center roboto-bold text-14"
+                    href="/"
+                    target="_self"
+                    title="Ir a Descubrir "
+                  >
+                    <i
+                      class="icon --icon-16"
+                    >
+                      <svg
+                        fill="none"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M2.667 4.276.505 2.115l.943-.944 2.161 2.162h10.162a.667.667 0 0 1 .638.858l-1.6 5.334a.667.667 0 0 1-.638.475H4v1.333h7.333v1.334h-8A.667.667 0 0 1 2.667 12V4.276ZM4 4.666v4h7.675l1.2-4H4Zm-.333 10.667a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm8 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+                          fill="#272727"
+                        />
+                      </svg>
+                    </i>
+                    LISTA DE COMPRAS
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div
+            class="right-options flex gap-24"
+          >
+            <div
+              class="avatar flex gap-8 lg-only"
+            >
+              <div
+                class="initials flex jc-center ai-center initials rounded-circle text-xs roboto-bold uppercase text-light-1 bg-primary-positive"
+              >
+                lb
+              </div>
+              <div
+                class="mail-suscription flex flex-column jc-around"
+              >
+                <div
+                  class="dropdown relative h-max"
+                >
+                  <button
+                    class="dropdown-toggle inline-flex gap-4 email-container ai-center roboto-bold text-14"
+                  >
+                    <span
+                      class="text text-ellipsis-1 text-14 roboto-bold uppercase"
+                    >
+                      lbarandiaran@lanacion.com
+                    </span>
+                    <i
+                      class="icon dropdown-icon --icon-16 --dark"
+                    >
+                      <svg
+                        fill="none"
+                        height="17"
+                        viewBox="0 0 16 17"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M8.24267 9.13331L11.0713 6.30465C11.3316 6.04434 11.7537 6.04434 12.014 6.30465C12.2743 6.56496 12.2743 6.987 12.014 7.24731L8.94977 10.3115C8.55925 10.7021 7.92608 10.7021 7.53556 10.3115L4.47133 7.24731C4.21102 6.987 4.21102 6.56496 4.47133 6.30465C4.73164 6.04434 5.15369 6.04434 5.414 6.30465L8.24267 9.13331Z"
+                          fill="#272727"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </i>
+                  </button>
+                  <div
+                    class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0 top-0"
+                    data-position="right"
+                    role="menu"
+                  >
+                    <li
+                      class="flex ai-center gap-16 py-16 pointer"
+                    >
+                      <i
+                        class="icon --icon-24 --hasWrapper"
+                        style="background-color: rgb(242, 242, 242);"
+                      >
+                        <svg
+                          fill="none"
+                          viewBox="0 0 16 16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3.333 1.333h9.334a.667.667 0 0 1 .666.667v12.762a.332.332 0 0 1-.51.283L8 12.02l-4.823 3.024a.333.333 0 0 1-.51-.282V2a.667.667 0 0 1 .666-.667ZM12 2.667H4v10.288l4-2.508 4 2.508V2.667Z"
+                            fill="#272727"
+                          />
+                        </svg>
+                      </i>
+                      <span
+                        class="text flex-grow-1"
+                      >
+                        Mi recetario
+                      </span>
+                      <i
+                        class="icon --icon-24 --dark"
+                      >
+                        <svg
+                          fill="none"
+                          viewBox="0 0 16 16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M8.781 8 5.953 5.171a.667.667 0 1 1 .942-.942L9.96 7.293a1 1 0 0 1 0 1.414l-3.065 3.064a.667.667 0 0 1-.942-.942L8.78 8Z"
+                            fill="#CCC"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </i>
+                    </li>
+                    <li
+                      class="flex ai-center gap-16 py-16 pointer"
+                    >
+                      <i
+                        class="icon --icon-24 --hasWrapper"
+                        style="background-color: rgb(242, 242, 242);"
+                      >
+                        <svg
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M11 4h10v2H11V4Zm0 4h6v2h-6V8Zm0 6h10v2H11v-2Zm0 4h6v2h-6v-2ZM3 4h6v6H3V4Zm2 2v2h2V6H5Zm-2 8h6v6H3v-6Zm2 2v2h2v-2H5Z"
+                            fill="#272727"
+                          />
+                        </svg>
+                      </i>
+                      <span
+                        class="text flex-grow-1"
+                      >
+                        Mi lista de compras
+                      </span>
+                      <i
+                        class="icon --icon-24 --dark"
+                      >
+                        <svg
+                          fill="none"
+                          viewBox="0 0 16 16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M8.781 8 5.953 5.171a.667.667 0 1 1 .942-.942L9.96 7.293a1 1 0 0 1 0 1.414l-3.065 3.064a.667.667 0 0 1-.942-.942L8.78 8Z"
+                            fill="#CCC"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </i>
+                    </li>
+                    <li
+                      class="flex ai-center gap-16 py-16 pointer"
+                    >
+                      <i
+                        class="icon --icon-24 --hasWrapper"
+                        style="background-color: rgb(242, 242, 242);"
+                      >
+                        <svg
+                          fill="none"
+                          viewBox="0 0 25 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12.5 22c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10Zm-4.987-3.744A7.966 7.966 0 0 0 12.5 20a7.97 7.97 0 0 0 5.167-1.892A6.978 6.978 0 0 0 12.66 16a6.982 6.982 0 0 0-5.147 2.256ZM6.116 16.82A8.975 8.975 0 0 1 12.66 14a8.972 8.972 0 0 1 6.362 2.634 8 8 0 1 0-12.906.187v-.001ZM12.5 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                            fill="#272727"
+                          />
+                        </svg>
+                      </i>
+                      <span
+                        class="text flex-grow-1"
+                      >
+                        Mi cuenta
+                      </span>
+                      <i
+                        class="icon --icon-24 --dark"
+                      >
+                        <svg
+                          fill="none"
+                          viewBox="0 0 16 16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M8.781 8 5.953 5.171a.667.667 0 1 1 .942-.942L9.96 7.293a1 1 0 0 1 0 1.414l-3.065 3.064a.667.667 0 0 1-.942-.942L8.78 8Z"
+                            fill="#CCC"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </i>
+                    </li>
+                    <li
+                      class="flex ai-center gap-16 py-16 pointer"
+                    >
+                      <i
+                        class="icon --icon-24 --hasWrapper"
+                        style="background-color: rgb(242, 242, 242);"
+                      >
+                        <svg
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3h-2V4H6v16h12v-2h2v3a1 1 0 0 1-1 1H5Zm13-6v-3h-7v-2h7V8l5 4-5 4Z"
+                            fill="#272727"
+                          />
+                        </svg>
+                      </i>
+                      <span
+                        class="text flex-grow-1"
+                      >
+                        Cerrar sesión
+                      </span>
+                      <i
+                        class="icon --icon-24 --dark"
+                      >
+                        <svg
+                          fill="none"
+                          viewBox="0 0 16 16"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            clip-rule="evenodd"
+                            d="M8.781 8 5.953 5.171a.667.667 0 1 1 .942-.942L9.96 7.293a1 1 0 0 1 0 1.414l-3.065 3.064a.667.667 0 0 1-.942-.942L8.78 8Z"
+                            fill="#CCC"
+                            fill-rule="evenodd"
+                          />
+                        </svg>
+                      </i>
+                    </li>
+                  </div>
+                </div>
+                <span
+                  class="text text-12 text-light-600"
+                >
+                  Suscriptor digital
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+</div>
+`;

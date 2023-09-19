@@ -4,7 +4,8 @@ import dateAndTimeUtil, {
     isOlderThanXHoursAgo,
     getSpecificDate,
     datesDiffInDays,
-    getArgentinaYear
+    getArgentinaYear,
+    getArgentinaDateMonthYear
 } from '../../../../../components/private/common/utils/dateAndTimeUtil';
 
 beforeEach(() => {
@@ -118,5 +119,32 @@ describe('Private - Common - Utils - dateAndTimeUtil - getArgentinaYear', () => 
 
         const result = getArgentinaYear();
         expect(result).toBe('2022');
+    });
+});
+
+describe('Private - Common - Utils - dateAndTimeUtil - getArgentinaDateMonthYear', () => {
+    const mockDateFn = dateString => {
+        const mockDate = new Date(dateString);
+        const spy = jest
+            .spyOn(global, 'Date')
+            .mockImplementationOnce(() => mockDate);
+    };
+    it('Should return current day in format DD/MM/YYYY', () => {
+        mockDateFn('2023-01-06T02:59:59.000Z');
+
+        const result = getArgentinaDateMonthYear();
+        expect(result).toBe('05/01/2023');
+    });
+    test('Should return 2023 when server is 2023-01-01 from 03hrs', () => {
+        mockDateFn('2023-01-01T03:00:00.000Z');
+
+        const result = getArgentinaDateMonthYear();
+        expect(result).toBe('01/01/2023');
+    });
+    it('Should return 31/12/2022 when server is 2023-01-01 until 02:59hrs', () => {
+        mockDateFn('2023-01-01T02:59:59.000Z');
+
+        const result = getArgentinaDateMonthYear();
+        expect(result).toBe('31/12/2022');
     });
 });

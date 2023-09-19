@@ -14,26 +14,31 @@ const childrenHasOpta = (children = []) => {
     );
 };
 
-const hasOptaElements = (contentElements, renderables, promoItems) =>
-    (contentElements &&
-        contentElements.some(
-            contentElement =>
-                get(contentElement, 'type', '') === 'raw_html' &&
-                get(contentElement, 'content', '').includes(optaWidget)
-        )) ||
-    (renderables &&
-        renderables.some(
-            elem =>
-                get(elem, 'collection', '') === 'chains' &&
-                get(elem, 'type', '') === 'Ln_Caja_Manual' &&
-                get(elem, 'props.customFields.hideCaja', false) !== true &&
-                childrenHasOpta(elem.children)
-        )) ||
-    (promoItems &&
-        get(promoItems, 'apertura_multimedia.type', '') === 'raw_html' &&
-        get(promoItems, 'apertura_multimedia.content', '').includes(
-            optaWidget
-        ));
+const hasOptaElements = (contentElements, renderables, promoItems) => {
+    return (
+        (contentElements &&
+            contentElements.some(
+                contentElement =>
+                    get(contentElement, 'type', '') === 'raw_html' &&
+                    get(contentElement, 'content', '').includes(optaWidget)
+            )) ||
+        (renderables &&
+            renderables.some(
+                elem =>
+                    (get(elem, 'collection', '') === 'chains' &&
+                        get(elem, 'type', '') === 'Ln_Caja_Manual' &&
+                        get(elem, 'props.customFields.hideCaja', false) !==
+                            true &&
+                        childrenHasOpta(elem.children)) ||
+                    get(elem, 'type', '') === 'LN-common/rugbyWidget'
+            )) ||
+        (promoItems &&
+            get(promoItems, 'apertura_multimedia.type', '') === 'raw_html' &&
+            get(promoItems, 'apertura_multimedia.content', '').includes(
+                optaWidget
+            ))
+    );
+};
 
 const OptaEmbed = props => {
     const {
@@ -47,7 +52,6 @@ const OptaEmbed = props => {
 
     if (type === 'story' && !contentElements) return null;
     if (!hasOptaElements(contentElements, renderables, promoItems)) return null;
-
     const script = `
         window.onload = function() {
             let tag = document.createElement('link');

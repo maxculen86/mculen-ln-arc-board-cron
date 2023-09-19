@@ -25,6 +25,7 @@ jest.mock('fusion:environment', () => {
     };
 });
 
+// TODO agregar y fixear date del test
 describe('Private - LN - nota - snippet - liveblog ', () => {
     const props = {
         siteProperties: {

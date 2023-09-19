@@ -13,10 +13,11 @@
                 "config": {
                     "date": "",
                     "time": "",
-                    "title": "Gym 1 Ciudad Plateada",
+                    "title": "Esto es un titulo",
                     "typeList": "liveblog"
                 }
             },
+
             "subtype": "custom-liveblog",
             "type": "custom_embed"
         },
