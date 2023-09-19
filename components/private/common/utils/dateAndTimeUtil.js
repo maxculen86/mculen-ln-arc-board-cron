@@ -197,3 +197,11 @@ export const getArgentinaYear = () => {
         year: 'numeric'
     });
 };
+
+// DD/MM/YYYY
+export const getArgentinaDateMonthYear = () => {
+    const date = new Date();
+    return date.toLocaleDateString('en-GB', {
+        timeZone: 'America/Argentina/Buenos_Aires'
+    });
+};
