@@ -145,6 +145,6 @@ describe('Components - features - CardFoodit', () => {
         useContent.mockReturnValue();
 
         const { container } = render(<CardFoodit {...props} />);
-        expect(container.innerHTML).toBeFalsy();
+        expect(container.querySelector('div')).toBeEmptyDOMElement();
     });
 });

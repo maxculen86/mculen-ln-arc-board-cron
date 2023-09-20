@@ -82,8 +82,8 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
     const { alt_text, url, resized_urls } = image;
 
     return (
-        (!error && articleContent && (
-            <StaticContent>
+        <StaticContent>
+            {!error && articleContent && (
                 <Card
                     linkProps={{ href, title }}
                     variant={isOpening ? 'day-recipe' : variant}
@@ -121,8 +121,8 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
                         />
                     </Card.Main>
                 </Card>
-            </StaticContent>
-        )) || <></>
+            )}
+        </StaticContent>
     );
 };
 
