@@ -3,10 +3,16 @@ import Consumer from 'fusion:consumer';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ModCategory from '../../../../components/private/common/mod-category';
+import useGetLogoImage from '../../../../components/private/common/hooks/useGetLogoImage';
+
+jest.mock('../../../../components/private/common/hooks/useGetLogoImage', () =>
+    jest.fn()
+);
 
 describe('components - private - common - mod-category', () => {
     const props = {
         revista: 'QJFKLBWXHVGUFA3O65BIHPFILA',
+        imageId: 'QJFKLBWXHVGUFA3O65BIHPFILA',
         category: 'Economía',
         style: {
             color: '#d83e2c'
@@ -68,78 +74,26 @@ describe('components - private - common - mod-category', () => {
                 }
             }
         ],
-        image: {
-            _id: 'QJFKLBWXHVGUFA3O65BIHPFILA',
-            additional_properties: {
-                fullSizeResizeUrl:
-                    '/resizer/_MmFmAPC_WuvOYwLGZF6WDHtTrk=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QJFKLBWXHVGUFA3O65BIHPFILA.png',
-                ingestionMethod: 'manual',
-                mime_type: 'image/png',
-                originalName: 'Negocios.png',
-                originalUrl:
-                    'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QJFKLBWXHVGUFA3O65BIHPFILA.png',
-                owner: 'fcaino@lanacion.com.ar',
-                proxyUrl:
-                    '/resizer/_MmFmAPC_WuvOYwLGZF6WDHtTrk=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QJFKLBWXHVGUFA3O65BIHPFILA.png',
-                published: true,
-                resizeUrl:
-                    '/resizer/_MmFmAPC_WuvOYwLGZF6WDHtTrk=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QJFKLBWXHVGUFA3O65BIHPFILA.png',
-                restricted: false,
-                thumbnailResizeUrl:
-                    '/resizer/4k0wAlN5ZAi_AL9oO-9Kj8AWjZw=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/QJFKLBWXHVGUFA3O65BIHPFILA.png',
-                version: 0,
-                template_id: 770
-            },
-            alt_text: 'Comunidad de Negocios',
-            auth: {
-                '1':
-                    'b1f465d487636a7dae933cad88352b2ce5132e417f87dd5a7f09c917aa463bc5'
-            },
-            caption: 'Comunidad de Negocios',
-            copyright: 'LA NACION',
-            created_date: '2021-01-18T18:18:49Z',
-            credits: {
-                affiliation: []
-            },
-            height: 90,
-            image_type: 'photograph',
-            last_updated_date: '2021-01-18T18:18:49Z',
-            licensable: false,
-            owner: {
-                id: 'sandbox.lanacionar',
-                sponsored: false
-            },
-            source: {
-                additional_properties: {
-                    editor: 'photo center'
-                },
-                edit_url:
-                    'https://sandbox.lanacionar.arcpublishing.com/photo/QJFKLBWXHVGUFA3O65BIHPFILA',
-                system: 'photo center'
-            },
-            taxonomy: {
-                associated_tasks: []
-            },
-            type: 'image',
-            url:
-                'https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QJFKLBWXHVGUFA3O65BIHPFILA.png',
-            version: '0.10.3',
-            width: 285,
-            syndication: {}
-        },
         outputType: 'default',
         url: 'https://www.lanacion.com.ar/economia/'
     };
     describe('Mod category snapshot test', () => {
+        const imageMock = {
+            width: 100,
+            height: 100,
+            url: 'https://lanacion.com.ar/mock.jpeg',
+            caption: 'LA NACION'
+        };
+
+        useGetLogoImage.mockImplementationOnce(() => imageMock);
+
         const { container } = render(<ModCategory {...props} />);
         test('Snapshot and check values from attributos loading and getchPriority', () => {
             expect(container).toMatchSnapshot();
-            expect(
-                screen.getByRole('img').getAttribute('fetchpriority')
-            ).toEqual('high');
-            expect(screen.getByRole('img').getAttribute('loading')).toEqual(
-                'eager'
-            );
+
+            const img = container.getElementsByTagName('img');
+            expect(img[0].getAttribute('loading')).toBe('eager');
+            expect(img[0].getAttribute('fetchPriority')).toBe('high');
         });
     });
 });

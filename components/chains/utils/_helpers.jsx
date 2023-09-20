@@ -130,12 +130,20 @@ export const useGetLogo = (logoId, title) => {
     const id = logoId && logoId.trim() && logoId;
     const logo = useGetLogoImage(id, true);
 
+    const [firstResizedUrl] = get(logo, 'resized_urls', []);
+    const resizedUrl = get(firstResizedUrl, 'resizedUrl', '');
+    const { width: resizedWidth, height: resizedHeight } = get(
+        firstResizedUrl,
+        'option',
+        {}
+    );
+
     return (
         logo && {
-            src: get(logo, 'url', ''),
+            src: resizedUrl || get(logo, 'url', ''),
             alt: title,
-            height: get(logo, 'height', ''),
-            width: get(logo, 'width', '')
+            height: resizedHeight || get(logo, 'height', ''),
+            width: resizedWidth || get(logo, 'width', '')
         }
     );
 };

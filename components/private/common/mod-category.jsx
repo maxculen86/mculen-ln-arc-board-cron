@@ -1,24 +1,38 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ModNavigation from './mod-navigation';
-import withImage from './hocs/withImage';
 import ComImage from './com-image';
 import ComTitle from './com-title';
 
+import get from './utils/get';
+import useGetLogoImage from './hooks/useGetLogoImage';
 import '../../../resources/dist/css/ln/modules/mod-category.css';
 
 const ModCategory = props => {
     const {
+        imageId,
         revista,
         category,
         style = undefined,
         navigation,
-        image,
         outputType,
         url
     } = props;
 
-    const { width, height, url: imageUrl } = image || {};
+    const image = useGetLogoImage(imageId) || {};
+    const {
+        width,
+        height,
+        url: imageUrl,
+        resized_urls: [firstResizedUrl] = []
+    } = image || {};
+
+    const resizedUrl = get(firstResizedUrl, 'resizedUrl', '');
+    const { width: resizedWidth, height: resizedHeight } = get(
+        firstResizedUrl,
+        'option',
+        {}
+    );
 
     return (
         <div className="mod-categories">
@@ -27,9 +41,9 @@ const ModCategory = props => {
                     <h1>
                         <span>{category}</span>
                         <ComImage
-                            width={width}
-                            height={height}
-                            src={imageUrl}
+                            width={resizedWidth || width}
+                            height={resizedHeight || height}
+                            src={resizedUrl || imageUrl}
                             alt={category}
                             amp={outputType === 'amp'}
                             isApertura
@@ -66,19 +80,15 @@ ModCategory.propTypes = {
     }),
     navigation: PropTypes.string,
     outputType: PropTypes.string.isRequired,
-    image: PropTypes.shape({
-        width: PropTypes.string.isRequired,
-        height: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
-    })
+    imageId: PropTypes.string
 };
 
 ModCategory.defaultProps = {
     revista: '',
     category: '',
     style: undefined,
-    image: {},
+    imageId: '',
     navigation: undefined
 };
 
-export default withImage(ModCategory, null, true);
+export default ModCategory;
