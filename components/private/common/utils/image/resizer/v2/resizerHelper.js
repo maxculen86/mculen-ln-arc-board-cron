@@ -20,6 +20,11 @@ const MEDIAMINWIDTH = '(min-width: 768px)';
 export const isResizerV2 = url =>
     isValidString(url) ? new RegExp(/\/resizer\/v2\//).test(url) : false;
 
+export const isResizerV1 = url =>
+    isValidString(url)
+        ? new RegExp(/\/resizer\/(.+)\/filters:format(.+)/).test(url)
+        : false;
+
 // TODO: Optener la config  por default
 export const getDefaultSize = subtype => {
     const defaultResize =
