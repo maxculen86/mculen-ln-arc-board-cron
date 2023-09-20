@@ -14,10 +14,11 @@ jest.mock(
     })
 );
 
-describe('Components -  Chains - Utils - DynamicBanner', () => {
+describe('Components - private - common - banners - dynamicBanners - getDynamicBanners', () => {
     getViewport.mockReturnValue({
         device: 'mobile'
     });
+
     it('should return dynamic banners mobile', () => {
         expect(
             getDynamicBanners({
@@ -38,6 +39,7 @@ describe('Components -  Chains - Utils - DynamicBanner', () => {
             bannerDsk: false
         });
     });
+
     it('should return dynamic banners dsk', () => {
         expect(
             getDynamicBanners({
@@ -58,5 +60,14 @@ describe('Components -  Chains - Utils - DynamicBanner', () => {
                 />
             )
         });
+    });
+
+    it('should return empty object when featureId is not found', () => {
+        const renderables = [];
+        const featureId = 'invalidFeatureId';
+
+        const result = getDynamicBanners({ renderables, featureId });
+
+        expect(result).toStrictEqual({});
     });
 });
