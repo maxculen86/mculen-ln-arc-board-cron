@@ -8,10 +8,7 @@ import {
 import getProperties from 'fusion:properties';
 import addParallaxData from './utils/addParallaxData';
 import get from '../../components/private/common/utils/get';
-import {
-    addResizedUrls,
-    isAllowSection
-} from '../../components/private/common/utils/image/resizer/addResizerUrls';
+import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
 import filter from '../filters/LN/nota/article';
 import getRequest from './utils/getRequest';
 import Redirect from './utils/redirect';
@@ -201,12 +198,7 @@ const transform = async (
     const authors = get(data, 'credits.by', []);
     const layout = 'LN-nota-noticia';
 
-    if (
-        (!shouldUseV1 && shouldUseV2) ||
-        isAllowSection({
-            section: get(data, 'taxonomy.primary_section._id')
-        })
-    ) {
+    if (!shouldUseV1 || shouldUseV2) {
         const newData = await getAllImagesAuth(data, cachedCall);
         Object.assign(data, newData);
     }
