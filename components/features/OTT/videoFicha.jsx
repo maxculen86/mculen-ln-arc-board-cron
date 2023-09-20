@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Static from 'fusion:static';
 import VideoTabContainer from '../../private/OTT/ficha/videoTab';
+import StaticContent from '../../private/common/staticContent';
 
 const VideoFicha = props => {
-    const { id: featureId } = props;
     return (
-        <Static id={featureId} persistent htmlOnly>
+        <StaticContent>
             <VideoTabContainer />
-        </Static>
+        </StaticContent>
     );
 };
 
