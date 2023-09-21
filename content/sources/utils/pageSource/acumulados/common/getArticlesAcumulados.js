@@ -9,6 +9,7 @@ const getParamsAcus = query => {
     const page = get(query, 'page', '1');
     const website = get(query, 'website', '');
     const tagId = get(query, 'tagId', null);
+    const authorId = get(query, 'authorId', null);
 
     const resp = {
         page,
@@ -41,7 +42,8 @@ const getParamsAcus = query => {
         size,
         excludeSourceOrigin,
         website,
-        tagId
+        tagId,
+        authorId
     };
 };
 

@@ -1,5 +1,5 @@
-import transformHomeAcuV1 from '../../../../../../../../../content/sources/utils/pageSource/acumulados/v2/mobile/bySection/transform';
-import acuEconomia from '../../../../../../../../../__mocks__/data/articlesAcum/economia.json';
+import transformHomeAcuV1 from '../../../../../../../content/sources/utils/pageSource/acumulados/common/transformAcuV1';
+import acuEconomia from '../../../../../../../__mocks__/data/articlesAcum/economia.json';
 
 import 'regenerator-runtime/runtime';
 
@@ -76,7 +76,7 @@ jest.mock('request-promise-native', () => {
 });
 
 jest.mock(
-    '../../../../../../../../../content/sources/utils/pageSource/acumulados/common/getArticlesAcumulados.js',
+    '../../../../../../../content/sources/utils/pageSource/acumulados/common/getArticlesAcumulados.js',
     () => {
         return {
             __esModule: true,
@@ -94,13 +94,10 @@ jest.mock(
     }
 );
 
-jest.mock(
-    '../../../../../../../../../components/private/common/utils/logger',
-    () => {
-        const push = jest.fn();
-        return { push };
-    }
-);
+jest.mock('../../../../../../../components/private/common/utils/logger', () => {
+    const push = jest.fn();
+    return { push };
+});
 
 describe('Test transform page', () => {
     test('transform Ok when is Acu Economia', async () => {

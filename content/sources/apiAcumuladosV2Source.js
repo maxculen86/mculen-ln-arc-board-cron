@@ -3,7 +3,7 @@ import get from '../../components/private/common/utils/get';
 import ultimasNoticiasSectionsSource from './utils/acuArticlesSource/ultimasNoticiasSectionsSource';
 import sectionSource from './sectionSource';
 import sectionsDataJson from './utils/pageSource/pageAcumulados/config/configSectionPage.json';
-import transformAcu from './utils/pageSource/acumulados/v2/mobile/bySection/transform';
+import transformAcu from './utils/pageSource/acumulados/common/transformAcuV1';
 import acuTransformV2Format from './utils/pageSource/acumulados/v2/mobile/bySection/acuTransformV2Format';
 import calculatePaginationValue from './utils/pageSource/acumulados/common/calculatePaginationValue';
 
