@@ -2,6 +2,7 @@ import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
 import IndexAcuV2 from '../../../private/LN/api/v2/global/accumulated';
 import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
+import IndexAcuV2Mobile from '../../../private/LN/api/v2/mobile/accumulated';
 import browser from '../../../private/common/utils/browser';
 import get from '../../../private/common/utils/get';
 import { getSectionParentId } from '../../LN-common/ranking/_helper';
@@ -37,7 +38,8 @@ class SectionRanking {
                 2: IndexAcuV2
             },
             mobile: {
-                1: IndexAcuV1Mobile
+                1: IndexAcuV1Mobile,
+                2: IndexAcuV2Mobile
             }
         };
     }
