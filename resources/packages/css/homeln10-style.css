@@ -7537,9 +7537,11 @@ strong:not(.--font-primary),
   font-variation-settings: "wght" 80, "opsz" 50;
 }
 .cll-anexo-rugby .cll-match .--row .--name-icon img {
-  -o-object-fit: contain;
-     object-fit: contain;
-  height: 1rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 0.875rem;
+  width: 1.4375rem;
+  margin-bottom: 0.28125rem;
 }
 .cll-anexo-rugby .cll-match .--row .--score {
   width: 2.625rem;

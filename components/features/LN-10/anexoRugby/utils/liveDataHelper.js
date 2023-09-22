@@ -41,7 +41,7 @@ export const isMatchLiveClienSide = matches => {
             return {
                 ...match,
                 matchStatus: 'playing',
-                matchTime: `INICIO ${match.localTime}`
+                matchTime: `INICIÓ ${match.localTime}`
             };
         }
         return match;
