@@ -63,6 +63,17 @@ const transform = async (data, siteProps, cachedCall) => {
         const newData = await getAllImagesAuth(data, cachedCall);
         Object.assign(data, newData);
     }
+    const { height, width } = data;
+    const useDataSizes =
+        height && width && get(siteProps, 'useDataSizes', false);
+    const dataSizes = useDataSizes && {
+        sizes: [
+            {
+                height,
+                width
+            }
+        ]
+    };
 
     const presetsPromoItems = get(presets, 'promo_items', null);
     const subtype = get(siteProps, `subtype`, null);
@@ -76,7 +87,7 @@ const transform = async (data, siteProps, cachedCall) => {
             { promo_items: { basic: { ...data } } },
             {
                 presets: {
-                    promoItems: presetsPromoItems,
+                    promoItems: useDataSizes ? dataSizes : presetsPromoItems,
                     presetsDefault
                 },
                 // Se pasa el subtype para que las notas de foto al 100

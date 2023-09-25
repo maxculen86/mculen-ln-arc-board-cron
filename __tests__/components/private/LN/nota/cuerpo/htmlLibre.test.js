@@ -37,6 +37,7 @@ describe('Private - LN - nota - cuerpo - HtmlLibre', () => {
         const { container } = render(<HtmlLibre {...props} />);
 
         expect(container).toContainHTML(mockContentElements[2].content);
+        expect(container).toMatchSnapshot();
     });
 
     it('should render the first content element if there are less than one', () => {
@@ -44,6 +45,7 @@ describe('Private - LN - nota - cuerpo - HtmlLibre', () => {
         const { container } = render(<HtmlLibre {...props} />);
 
         expect(container).toContainHTML(mockContentElements[1].content);
+        expect(container).toMatchSnapshot();
     });
 
     it('should render wrapped in a StaticContent', () => {

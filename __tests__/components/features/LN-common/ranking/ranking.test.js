@@ -58,7 +58,9 @@ describe('Features - LN - Common - Ranking - default', () => {
             globalContent: {}
         }));
         const { container } = render(<Ranking />);
-        expect(container).toBeEmptyDOMElement();
+        expect(container.innerHTML).toBe(
+            '<mock-static-content></mock-static-content>'
+        );
     });
     it('Should render ranking acu politica', async () => {
         getMockContext('LN-acumulado', {
@@ -81,7 +83,7 @@ describe('Features - LN - Common - Ranking - default', () => {
                 website: 'la-nacion-ar'
             },
             source: 'rankingArticlesSource',
-            staticMode: false
+            staticMode: true
         });
 
         expect(container).toMatchSnapshot();
@@ -103,7 +105,7 @@ describe('Features - LN - Common - Ranking - default', () => {
                 website: 'la-nacion-ar'
             },
             source: 'rankingArticlesSource',
-            staticMode: false
+            staticMode: true
         });
 
         expect(container).toMatchSnapshot();
@@ -130,7 +132,7 @@ describe('Features - LN - Common - Ranking - default', () => {
                 website: 'la-nacion-ar'
             },
             source: 'rankingArticlesSource',
-            staticMode: false
+            staticMode: true
         });
 
         expect(container).toMatchSnapshot();

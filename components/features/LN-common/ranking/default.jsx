@@ -12,13 +12,12 @@ import {
 import StaticContent from '../../../private/common/staticContent';
 import '../../../../resources/dist/css/ln/components/ranking.css';
 import articleBoxesTracker from '../../../private/common/utils/noteTracker/articleBoxesTracker';
-import isSSR from '../../../private/LN/common/utils/isSSR';
 
 const getDataContent = (
     sectionId,
     sectionParentId,
     website,
-    hasHydrateOnly = false
+    isStatic = false
 ) => {
     const getRankingData = section =>
         getContent({
@@ -28,7 +27,7 @@ const getDataContent = (
                 imageConfig: 'boxArticles',
                 website
             },
-            staticMode: hasHydrateOnly
+            staticMode: isStatic
         });
 
     const data = getRankingData(sectionId);
@@ -61,12 +60,8 @@ const RankingFeature = ({ id: featureId }) => {
 
     const sectionParentId = getSectionParentId(sectionId);
     const { name, articles } =
-        getDataContent(
-            sectionId,
-            sectionParentId,
-            website || arcSite,
-            isSSR()
-        ) || {};
+        getDataContent(sectionId, sectionParentId, website || arcSite, true) ||
+        {};
 
     const customTitle = name ? `Más leídas de ${name}` : 'Más leídas';
     useEffect(() => {
@@ -76,26 +71,24 @@ const RankingFeature = ({ id: featureId }) => {
             });
     }, [type]);
 
-    return articles && articles.length ? (
-        <StaticContent>
-            <CajaTema
-                title={title || customTitle}
-                notesQuantity={notesQuantity}
-                sectionName={sectionName}
-                articles={articles}
-                position={sectionName === RANKING ? '0190' : '0191'}
-                dataSection={sectionId}
-                outputType={outputType}
-                classCondition={classCondition}
-                titleSize="--xs"
-                withVolanta
-                layout={rankingLayout}
-                isHome={isHome}
-            />
-        </StaticContent>
-    ) : (
-        <></>
+    const component = articles && articles.length && (
+        <CajaTema
+            title={title || customTitle}
+            notesQuantity={notesQuantity}
+            sectionName={sectionName}
+            articles={articles}
+            position={sectionName === RANKING ? '0190' : '0191'}
+            dataSection={sectionId}
+            outputType={outputType}
+            classCondition={classCondition}
+            titleSize="--xs"
+            withVolanta
+            layout={rankingLayout}
+            isHome={isHome}
+        />
     );
+
+    return <StaticContent>{component}</StaticContent>;
 };
 
 RankingFeature.label = 'LN-Common-Ranking';
@@ -104,7 +97,6 @@ RankingFeature.propTypes = {
     id: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         _id: PropTypes.string,
-        node_type: PropTypes.string,
         type: PropTypes.string,
         taxonomy: PropTypes.shape({
             primary_section: PropTypes.shape({

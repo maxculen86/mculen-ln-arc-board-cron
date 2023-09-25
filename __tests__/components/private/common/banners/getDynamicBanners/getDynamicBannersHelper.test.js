@@ -21,110 +21,331 @@ jest.mock(
     })
 );
 
-describe('Components - Private - Common - Banners - getDynamicBannersHelper', () => {
-    it('should test validateInterval func', () => {
-        expect(validateInterval(2, 0)).toStrictEqual(false);
-        expect(validateInterval(2, 1)).toStrictEqual(true);
-        expect(validateInterval(2, 2)).toStrictEqual(false);
-        expect(validateInterval(3, 0)).toStrictEqual(false);
-        expect(validateInterval(3, 1)).toStrictEqual(false);
-        expect(validateInterval(3, 2)).toStrictEqual(true);
-    });
-    it('should test hasBomba func', () => {
-        expect(hasBomba(getRenderables())).toStrictEqual(true);
-        expect(hasBomba(getRenderables(true))).toStrictEqual(undefined);
-        expect(hasBomba([])).toStrictEqual(undefined);
-    });
-    it('should test getSectionId func', () => {
-        expect(getSectionId(getRenderables(), 'f0fS1oFDXlHk93q')).toStrictEqual(
-            1
-        );
-    });
-    it('should test validateBanner func', () => {
-        expect(
-            validateBanner(
-                1,
-                getRenderables(),
-                '',
-                {
-                    position: 2,
-                    max: 8,
-                    min: 4,
-                    bannersMob: ['caja3Mob', 'caja4Mob', 'caja5Mob'],
-                    bannersDsk: ['billboard'],
-                    intervalMob: 2,
-                    intervalDsk: 3
-                },
-                0,
-                true
-            )
-        ).toStrictEqual(
-            <DivBannerSSR
-                bannerConfiguration={{
-                    isStatic: true,
-                    lazyClass: 'lazy',
-                    slotId: 'caja3_mob',
-                    withoutHide: true
-                }}
-            />
-        );
-        expect(
-            validateBanner(
-                2,
-                getRenderables(),
-                '',
-                {
-                    position: 2,
-                    max: 8,
-                    min: 4,
-                    bannersMob: ['caja3Mob', 'caja4Mob', 'caja5Mob'],
-                    bannersDsk: ['billboard'],
-                    intervalMob: 2,
-                    intervalDsk: 3
-                },
-                0
-            )
-        ).toStrictEqual(
-            <DivBannerSSR
-                bannerConfiguration={{
-                    classes: 'billboard_dsk',
-                    isStatic: true,
-                    lazyClass: 'lazy',
-                    slotId: 'billboard_dsk',
-                    withoutHide: true
-                }}
-            />
-        );
-        expect(
-            validateBanner(
-                1,
-                getRenderables(),
-                'Apertura',
-                {
-                    position: 1,
-                    bannersMob: ['caja1Mob'],
-                    intervalMob: 2
-                },
-                0,
-                true
-            )
-        ).toStrictEqual(false);
-    });
-    it('should test filterChildrenWithNoRoof', () => {
-        getViewport.mockReturnValueOnce({
-            device: 'mobile'
+describe('Components - private - common - banners - dynamicBanners - getDynamicBannersHelper', () => {
+    describe('Function getSectionId', () => {
+        it('should test getSectionId func', () => {
+            expect(
+                getSectionId(getRenderables(), 'f0fS1oFDXlHk93q')
+            ).toStrictEqual(1);
         });
-        expect(filterChildrenWithNoRoof(getRenderables())).toStrictEqual(
-            getRenderables()
-        );
-        getViewport.mockReturnValueOnce({
-            device: 'desktop'
+
+        it('should return undefined when the feature does not exist in any section', () => {
+            const renderables = [
+                {
+                    collection: 'sections',
+                    children: [
+                        {
+                            props: {
+                                id: 'section1'
+                            }
+                        },
+                        {
+                            props: {
+                                id: 'section2'
+                            }
+                        }
+                    ]
+                }
+            ];
+            const featureId = 'feature1';
+
+            const result = getSectionId(renderables, featureId);
+
+            expect(result).toBe(undefined);
         });
-        expect(
-            filterChildrenWithNoRoof(
-                getChildrenFromSectionHome(getRenderables(), 'Breaking_1', '3')
-            )
-        ).toStrictEqual(elementWithoutHideTitle);
+
+        it('should return undefined when no section contains the feature', () => {
+            const renderables = [
+                {
+                    collection: 'sections',
+                    children: [
+                        {
+                            props: {
+                                id: 'section1'
+                            }
+                        },
+                        {
+                            props: {
+                                id: 'section2'
+                            }
+                        }
+                    ]
+                }
+            ];
+            const featureId = 'feature3';
+
+            const result = getSectionId(renderables, featureId);
+
+            expect(result).toBeUndefined();
+        });
+
+        it('should return undefined when renderables is empty', () => {
+            const renderables = [];
+            const featureId = 'feature1';
+
+            const result = getSectionId(renderables, featureId);
+
+            expect(result).toBeUndefined();
+        });
+
+        it('should return undefined when no child has the specified featureId', () => {
+            const renderables = [
+                {
+                    collection: 'sections',
+                    children: [
+                        {
+                            props: {
+                                id: 'section1'
+                            }
+                        },
+                        {
+                            props: {
+                                id: 'section2'
+                            }
+                        }
+                    ]
+                }
+            ];
+            const featureId = 'feature3';
+
+            const result = getSectionId(renderables, featureId);
+
+            expect(result).toBeUndefined();
+        });
+    });
+
+    describe('Function validateInterval', () => {
+        it('should test validateInterval func', () => {
+            expect(validateInterval(2, 0)).toStrictEqual(false);
+            expect(validateInterval(2, 1)).toStrictEqual(true);
+            expect(validateInterval(2, 2)).toStrictEqual(false);
+            expect(validateInterval(3, 0)).toStrictEqual(false);
+            expect(validateInterval(3, 1)).toStrictEqual(false);
+            expect(validateInterval(3, 2)).toStrictEqual(true);
+        });
+
+        it('should return true when index + 1 is divisible by interval', () => {
+            expect(validateInterval(2, 1)).toBe(true);
+            expect(validateInterval(3, 2)).toBe(true);
+            expect(validateInterval(4, 3)).toBe(true);
+            expect(validateInterval(5, 4)).toBe(true);
+        });
+
+        it('should return false when index + 1 is not divisible by interval', () => {
+            expect(validateInterval(2, 0)).toBe(false);
+            expect(validateInterval(3, 0)).toBe(false);
+            expect(validateInterval(4, 0)).toBe(false);
+            expect(validateInterval(5, 0)).toBe(false);
+        });
+
+        it('should handle interval of 1 correctly', () => {
+            expect(validateInterval(1, 0)).toBe(true);
+            expect(validateInterval(1, 1)).toBe(true);
+            expect(validateInterval(1, 2)).toBe(true);
+            expect(validateInterval(1, 3)).toBe(true);
+        });
+    });
+
+    describe('Function hasBomba', () => {
+        it('should test hasBomba func', () => {
+            expect(hasBomba(getRenderables())).toStrictEqual(true);
+            expect(hasBomba(getRenderables(true))).toStrictEqual(undefined);
+            expect(hasBomba([])).toStrictEqual(undefined);
+        });
+
+        it('should return undefined when renderables array is empty', () => {
+            const renderables = [];
+
+            expect(hasBomba(renderables)).toBe(undefined);
+        });
+    });
+
+    describe('Function validateBanner', () => {
+        it('should test validateBanner func', () => {
+            expect(
+                validateBanner(
+                    1,
+                    getRenderables(),
+                    '',
+                    {
+                        position: 2,
+                        max: 8,
+                        min: 4,
+                        bannersMob: ['caja3Mob', 'caja4Mob', 'caja5Mob'],
+                        bannersDsk: ['billboard'],
+                        intervalMob: 2,
+                        intervalDsk: 3
+                    },
+                    0,
+                    true
+                )
+            ).toStrictEqual(
+                <DivBannerSSR
+                    bannerConfiguration={{
+                        isStatic: true,
+                        lazyClass: 'lazy',
+                        slotId: 'caja3_mob',
+                        withoutHide: true
+                    }}
+                />
+            );
+            expect(
+                validateBanner(
+                    2,
+                    getRenderables(),
+                    '',
+                    {
+                        position: 2,
+                        max: 8,
+                        min: 4,
+                        bannersMob: ['caja3Mob', 'caja4Mob', 'caja5Mob'],
+                        bannersDsk: ['billboard'],
+                        intervalMob: 2,
+                        intervalDsk: 3
+                    },
+                    0
+                )
+            ).toStrictEqual(
+                <DivBannerSSR
+                    bannerConfiguration={{
+                        classes: 'billboard_dsk',
+                        isStatic: true,
+                        lazyClass: 'lazy',
+                        slotId: 'billboard_dsk',
+                        withoutHide: true
+                    }}
+                />
+            );
+            expect(
+                validateBanner(
+                    1,
+                    getRenderables(),
+                    'Apertura',
+                    {
+                        position: 1,
+                        bannersMob: ['caja1Mob'],
+                        intervalMob: 2
+                    },
+                    0,
+                    true
+                )
+            ).toStrictEqual(false);
+        });
+
+        it('should return undefined when validateInterval returns false for mobile', () => {
+            const index = 1;
+            const renderables = [];
+            const sectionName = 'Apertura';
+            const sectionValues = {
+                intervalMob: 2,
+                bannersMob: ['megatopDsk', 'megatopTab']
+            };
+            const currentBanner = 'megatopTab';
+            const isMobile = true;
+
+            const result = validateBanner(
+                index,
+                renderables,
+                sectionName,
+                sectionValues,
+                currentBanner,
+                isMobile
+            );
+
+            expect(result).toBeUndefined();
+        });
+
+        it('should return undefined when the current banner is not valid for mobile', () => {
+            const index = 0;
+            const renderables = [];
+            const sectionName = 'Apertura';
+            const sectionValues = {
+                intervalMob: 1,
+                bannersMob: ['megatopDsk', 'megatopTab']
+            };
+            const currentBanner = 'caja1Mob';
+            const isMobile = true;
+
+            const result = validateBanner(
+                index,
+                renderables,
+                sectionName,
+                sectionValues,
+                currentBanner,
+                isMobile
+            );
+
+            expect(result).toBeUndefined();
+        });
+
+        it('should return undefined when there is a bomba in renderables for mobile', () => {
+            const index = 0;
+            const renderables = ['bomba'];
+            const sectionName = 'Apertura';
+            const sectionValues = {
+                intervalMob: 1,
+                bannersMob: ['megatopDsk', 'megatopTab']
+            };
+            const currentBanner = 'megatopDsk';
+            const isMobile = true;
+
+            const result = validateBanner(
+                index,
+                renderables,
+                sectionName,
+                sectionValues,
+                currentBanner,
+                isMobile
+            );
+
+            expect(result).toBeUndefined();
+        });
+
+        it('should return undefined when validateInterval returns false for mobile', () => {
+            const index = 1;
+            const renderables = [];
+            const sectionName = 'Apertura';
+            const sectionValues = {
+                intervalMob: 2,
+                bannersMob: ['megatopDsk', 'megatopTab']
+            };
+            const currentBanner = 'megatopTab';
+            const isMobile = true;
+
+            const result = validateBanner(
+                index,
+                renderables,
+                sectionName,
+                sectionValues,
+                currentBanner,
+                isMobile
+            );
+
+            expect(result).toBeUndefined();
+        });
+    });
+
+    describe('Function filterChildrenWithNoRoof', () => {
+        it('should test filterChildrenWithNoRoof', () => {
+            getViewport.mockReturnValueOnce({
+                device: 'mobile'
+            });
+            expect(filterChildrenWithNoRoof(getRenderables())).toStrictEqual(
+                getRenderables()
+            );
+            getViewport.mockReturnValueOnce({
+                device: 'desktop'
+            });
+            expect(
+                filterChildrenWithNoRoof(
+                    getChildrenFromSectionHome(
+                        getRenderables(),
+                        'Breaking_1',
+                        '3'
+                    )
+                )
+            ).toStrictEqual(elementWithoutHideTitle);
+        });
     });
 });
 

@@ -81,10 +81,10 @@ export const RightOptions = ({
         'sticky_button_text'
     ];
     let {
-        class_tooltip,
-        tooltip_text,
-        button_text,
-        sticky_button_text
+        class_tooltip = '--top_l',
+        tooltip_text = '',
+        button_text = 'SUSCRIBITE',
+        sticky_button_text = 'SUSCRIBITE'
     } = getTermicaValues(propertyNames);
 
     // Verifica el valor de buttonSuscribe y actualiza las variables según corresponda
@@ -111,7 +111,7 @@ export const RightOptions = ({
                 )}`;
             }}
         >
-            {buttonSuscribe && (
+            {buttonSuscribe && tooltip_text && (
                 <Tooltip className={tooltipClassName} text={tooltip_text} />
             )}
             <Icon

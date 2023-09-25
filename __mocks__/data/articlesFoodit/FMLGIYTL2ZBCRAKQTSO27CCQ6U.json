@@ -1,0 +1,46 @@
+{
+    "_id": "FMLGIYTL2ZBCRAKQTSO27CCQ6U",
+    "credits": {
+        "by": []
+    },
+    "headlines": {
+        "basic": "Ficha nota FOODIT"
+    },
+    "promo_items": {
+        "basic": {
+            "height": 4032,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 280,
+                        "maxScreenWidth": 767,
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "3:2",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/Spw-P_Ze--P3HO9SaTYjxuMlPNw=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
+                },
+                {
+                    "option": {
+                        "height": 159,
+                        "media_preload": "(min-width: 768px)",
+                        "proportion": "3:2",
+                        "width": 238
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/Y3c9dz-FJtxyQGLQUN4VDMWeaOY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
+                }
+            ],
+            "url": "https://resizer.glanacion.com/resizer/6r_NB8wBXa3ot_VbRpyo3ypij9Q=/1920x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg",
+            "width": 3024
+        },
+        "receta": {
+            "embed": {
+                "config": {
+                    "counterTime": 7
+                }
+            }
+        }
+    },
+    "subtype": "4",
+    "taxonomy": {}
+}

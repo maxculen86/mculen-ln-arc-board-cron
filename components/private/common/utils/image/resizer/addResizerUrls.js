@@ -1,7 +1,6 @@
 import * as resizerV2 from './v2/resizerFactory';
 import * as resizerV1 from '../resizer';
 import { isFotoAl100orStorytelling } from '../../subtypes/subtypeHelper';
-import { isEmptyString, isValidString } from '../../dataValidation';
 
 export const addResizedUrls = (ansDoc, options) => {
     const {
@@ -43,10 +42,7 @@ export const addResizedUrls = (ansDoc, options) => {
         ...ansDoc,
         ...(contentElements && {
             content_elements: contentElements.map(elem => {
-                if (
-                    !shouldUseV1 &&
-                    (isAllowSection({ section }) || shouldUseV2)
-                ) {
+                if (!shouldUseV1 || shouldUseV2) {
                     return resizerV2.resizeContentElements(
                         elem,
                         presetsContentElements || presetsDefault,
@@ -94,7 +90,7 @@ export const addResizedUrls = (ansDoc, options) => {
         }),
         ...(promoItems && {
             promo_items:
-                !shouldUseV1 && (isAllowSection({ section }) || shouldUseV2)
+                !shouldUseV1 || shouldUseV2
                     ? resizerV2.resizePromoItems(
                           presetPromoOrDefault,
                           zoomSizes,
@@ -112,7 +108,7 @@ export const addResizedUrls = (ansDoc, options) => {
         }),
         ...(credits && {
             credits:
-                !shouldUseV1 && (isAllowSection({ section }) || shouldUseV2)
+                !shouldUseV1 || shouldUseV2
                     ? resizerV2.resizeCredits({
                           credits,
                           resizeOptions: presetsCredits || presetsDefault,
@@ -125,14 +121,4 @@ export const addResizedUrls = (ansDoc, options) => {
                       })
         })
     };
-};
-
-export const isAllowSection = ({ section = '' }) => {
-    return (
-        isValidString(section) &&
-        !isEmptyString(section) &&
-        !['/deportes', '/politica'].some(notAllowedSection =>
-            section.startsWith(notAllowedSection)
-        )
-    );
 };

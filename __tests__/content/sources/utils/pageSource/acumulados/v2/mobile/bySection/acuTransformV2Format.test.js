@@ -114,7 +114,7 @@ describe('Test acumulados transformation with V2 Format', () => {
         );
 
         expect(Object.keys(result.metadata).sort()).toEqual(
-            ['pagination', 'title', 'totalItems', 'banners', 'category'].sort()
+            ['paginate', 'title', 'total', 'banners', 'category'].sort()
         );
 
         expect(Object.keys(result.metadata.category).sort()).toEqual(
