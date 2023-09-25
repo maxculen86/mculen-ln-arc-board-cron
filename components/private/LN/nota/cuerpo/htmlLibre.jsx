@@ -4,8 +4,6 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import StaticContent from '../../../common/staticContent';
 
-// TODO realizar unit test
-
 const HtmlLibre = props => {
     const {
         outputType,
