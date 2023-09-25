@@ -53,5 +53,6 @@ describe('Private - LN - nota - cuerpo - HtmlLibre', () => {
         const { container } = render(<HtmlLibre {...props} />);
 
         expect(container.childNodes[0].className).toBe('hidden');
+        expect(container).toMatchSnapshot();
     });
 });

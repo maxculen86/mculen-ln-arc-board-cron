@@ -10,9 +10,10 @@ const HtmlLibre = props => {
         globalContent: { _id, content_elements: contentElements = [] } = {}
     } = props;
 
-    const [defaultHTML, bodyHTML] = contentElements;
+    const [defaultHTML = {}, bodyHTML = {}] = contentElements;
+
     const content =
-        contentElements.length > 1 ? bodyHTML?.content : defaultHTML?.content;
+        contentElements.length > 1 ? bodyHTML.content : defaultHTML.content;
 
     return (
         outputType === 'default' && (
