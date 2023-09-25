@@ -142,7 +142,7 @@ describe('Components - features - LN10 - AnexoRugby - utils', () => {
 
             expect(liveIds[0]).toStrictEqual('3ciedzqofwcg744nu312sfjtg');
             expect(updatedMatches[0].matchStatus).toBe('playing');
-            expect(updatedMatches[0].matchTime).toBe('INICIO 16:00 HS');
+            expect(updatedMatches[0].matchTime).toBe('INICIÓ 16:00 HS');
         });
 
         test('isMatchLiveCLientSide with NO live match', () => {
