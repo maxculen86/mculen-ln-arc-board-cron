@@ -3,6 +3,7 @@ import acuTransformV2Format from './utils/pageSource/acumulados/v2/mobile/byTag/
 import transformAcu from './utils/pageSource/acumulados/v2/mobile/byTag/transform';
 import calculatePaginationValue from './utils/pageSource/acumulados/common/calculatePaginationValue';
 import tagSource from './tagSource';
+import NotFoundError from './utils/notFoundError';
 
 const fetch = async (query, { cachedCall }) => {
     try {
@@ -33,6 +34,9 @@ const fetch = async (query, { cachedCall }) => {
 
         return acuTransformV2Format(transformedAcu, paginationValue);
     } catch (error) {
+        if (error instanceof NotFoundError) {
+            throw new NotFoundError(`Tag no encontrado: ${query.slug}`);
+        }
         // eslint-disable-next-line no-console
         console.warn(
             `Error in content/apiAcuTagsSource : 
