@@ -23,7 +23,7 @@ const Footer = () => {
     const { contextPath, deployment, outputType, layout } = useAppContext();
     const { layoutsName = {} } = siteConfig || {};
 
-    const refDate = new Date('1995-12-13');
+    const refDate = new Date('1995-12-13T03:00:00');
     const currentDate = new Date();
     const currentEdNumber = datesDiffInDays(refDate, currentDate);
 

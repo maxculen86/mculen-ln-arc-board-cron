@@ -32,7 +32,7 @@ import {
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import CssLinksLn10 from './Helper/cssLinksLn10';
 import ScriptVideoPowaHTML from '../private/common/scriptManager/scriptVideoPowaHTML';
-import OpenningRawHTML from '../private/common/scriptManager/OpenningRawHtml';
+import OpeningRawHTML from '../private/common/scriptManager/OpeningRawHtml';
 
 const lnBuscador = 'LN-buscador';
 
@@ -281,7 +281,7 @@ const Default = props => {
                 />
                 <ScriptVideoPowaHTML subtype={subtype} />
                 {addMetaNoIndexNoFollow({ requestUri })}
-                <OpenningRawHTML contentElements={contentElements} />
+                <OpeningRawHTML contentElements={contentElements} />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />

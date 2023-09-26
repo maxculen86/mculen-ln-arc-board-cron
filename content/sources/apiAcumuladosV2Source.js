@@ -6,6 +6,7 @@ import sectionsDataJson from './utils/pageSource/pageAcumulados/config/configSec
 import transformAcu from './utils/pageSource/acumulados/common/transformAcuV1';
 import acuTransformV2Format from './utils/pageSource/acumulados/v2/mobile/bySection/acuTransformV2Format';
 import calculatePaginationValue from './utils/pageSource/acumulados/common/calculatePaginationValue';
+import NotFoundError from './utils/notFoundError';
 
 const fetch = async (query, { cachedCall }) => {
     let restriction = 'true';
@@ -89,6 +90,11 @@ const fetch = async (query, { cachedCall }) => {
             paginationValue
         );
     } catch (error) {
+        if (error instanceof NotFoundError) {
+            throw new NotFoundError(
+                `Seccion no encontrada: ${query.sectionId}`
+            );
+        }
         // eslint-disable-next-line no-console
         console.warn(
             `Error in content/apiAcumuladosV2Source : 

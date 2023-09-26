@@ -2,6 +2,7 @@ import { PERSONALIZACION_API, PERSONALIZACION_APIV2 } from 'fusion:environment';
 import request from 'request-promise-native';
 import get from '../../../../../components/private/common/utils/get';
 import logger from '../../../../../components/private/common/utils/logger';
+import force403 from '../../modelsErrors/force403';
 
 const ACCEPTED_TYPES = ['autor', 'seccion', 'tag', 'author', 'section'];
 
@@ -46,8 +47,6 @@ const requestFollowedItem = async query => {
         headers: getHeaders(query)
     };
 
-    // console.log(opt);
-
     return request(opt)
         .then(res => {
             const data = get(res, 'data', []);
@@ -63,6 +62,9 @@ const reject = ({ error, uri, arcSite, source }) => {
             typeof error === 'object' ? JSON.stringify(error) : ''
         }`
     );
+    if (error && error.statusCode === 403) {
+        force403('personalizationSource');
+    }
     logger.push(error, { source, url: uri }, arcSite);
 };
 const transform = response =>
