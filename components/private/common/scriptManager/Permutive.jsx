@@ -44,7 +44,7 @@ const Permutive = () => {
         : '';
 
     const type = getTemplateType(layout);
-
+    // TODO: Pedir a Permutive para que la key del objeto "user", pase de "suscribed" a "subscribed".
     const permutiveScript = `
     ${getTemplateType.toString()}
     const permutiveGetCookie = ${getCookie};

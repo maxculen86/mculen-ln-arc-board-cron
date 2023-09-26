@@ -19,7 +19,7 @@ describe('components - Private - LN - Common - utils - ShowSubscribeButton', () 
             };
             expect(showSubscribeButton(loginData)).toBe(true);
         });
-        test('When user is suscribed return false', () => {
+        test('When user is subscribed return false', () => {
             useTermica.mockImplementation(() => true);
             const loginData = {
                 subscription: true

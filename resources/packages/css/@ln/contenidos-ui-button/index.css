@@ -21,10 +21,10 @@
   background: rgba(247, 247, 244, 0.8);
 }
 .button.ln-button.--subscribe {
-  background-color: #FFFF24;
+  background-color: #ffff24;
 }
 .button.ln-button.--live {
-  background-color: #99151D;
+  background-color: #99151d;
   color: var(--light-neutral-0);
 }
 .button.ln-button.--sm:not(.--icon-only) {

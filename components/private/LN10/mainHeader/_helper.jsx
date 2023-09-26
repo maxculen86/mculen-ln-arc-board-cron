@@ -70,7 +70,8 @@ export const RightOptions = ({
     goToLoginUrl,
     loggedIn = '',
     loading = false,
-    hasSubscribeButton = true
+    hasSubscribeButton = true,
+    isHome
 }) => {
     const buttonSuscribe = useTermica('buttonsuscribe');
 
@@ -83,8 +84,8 @@ export const RightOptions = ({
     let {
         class_tooltip = '--top_l',
         tooltip_text = '',
-        button_text = 'SUSCRIBITE',
-        sticky_button_text = 'SUSCRIBITE'
+        button_text = 'Suscribite',
+        sticky_button_text = 'Suscribite'
     } = getTermicaValues(propertyNames);
 
     // Verifica el valor de buttonSuscribe y actualiza las variables según corresponda
@@ -93,11 +94,20 @@ export const RightOptions = ({
         sticky_button_text = 'SUSCRIBITE';
     }
 
-    const tooltipClassName = classNames(class_tooltip);
+    const tooltipClassName = classNames(
+        !isHome && 'none',
+        '--mobile-none',
+        class_tooltip
+    );
+
     const subscribeButtonClassName = classNames(
-        !loading && hasSubscribeButton ? '' : '--none',
+        !loading && hasSubscribeButton ? '' : 'none',
         'relative'
     );
+
+    const hideButtonText = isHome ? '' : 'none';
+    const hideStickyButtonText = isHome ? 'none' : '';
+
     const SubscribeButton = (
         <Button
             id="btnsuscribite"
@@ -121,16 +131,23 @@ export const RightOptions = ({
             >
                 <ExclusivoSuscriptores />
             </Icon>
-            {/* TO DO: Mostrar button-header-default en home y button-sticky en internas*/}
-            <span
-                id="button-header-default"
-                dangerouslySetInnerHTML={{ __html: button_text }}
-            />
-            <span
-                id="button-sticky"
-                className="--none"
-                dangerouslySetInnerHTML={{ __html: sticky_button_text }}
-            />
+
+            {button_text || sticky_button_text ? (
+                <>
+                    <span
+                        id="button-text"
+                        className={hideButtonText}
+                        dangerouslySetInnerHTML={{ __html: button_text }}
+                    />
+                    <span
+                        id="sticky-button-text"
+                        className={hideStickyButtonText}
+                        dangerouslySetInnerHTML={{ __html: sticky_button_text }}
+                    />
+                </>
+            ) : (
+                'Suscribite'
+            )}
         </Button>
     );
 
@@ -149,7 +166,7 @@ export const RightOptions = ({
             <Button
                 title="Iniciar sesión"
                 typeButton="secondary"
-                className={!loggedIn && !loading ? '--tablet-none' : '--none'}
+                className={!loggedIn && !loading ? '--tablet-none' : 'none'}
                 onClick={goToLoginUrl}
                 id="btningresar"
             >
@@ -159,11 +176,7 @@ export const RightOptions = ({
     );
 
     const BellButton = (
-        <Button
-            title="Campanita"
-            size="sm"
-            className="--icon-only campanita --none"
-        >
+        <Button title="Campanita" className="campanita none">
             <Icon size={24}>
                 <Bell />
             </Icon>
@@ -171,7 +184,7 @@ export const RightOptions = ({
     );
 
     const rightOptions = {
-        suscribed: MenuUser,
+        subscribed: MenuUser,
         logged: loggedIn && MenuUser,
         unlogged: SignInButton
     };
@@ -180,7 +193,7 @@ export const RightOptions = ({
         <>
             {BellButton}
             {rightOptions[userType] || <></>}
-            {userType !== 'suscribed' && SubscribeButton}
+            {userType !== 'subscribed' && SubscribeButton}
         </>
     );
 };

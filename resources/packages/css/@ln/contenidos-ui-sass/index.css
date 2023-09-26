@@ -2405,9 +2405,6 @@ a {
   .wrapper.--top-fixed .header-container .ln-header .ln-main-header .logo-header svg {
     height: 1.75rem;
   }
-  .wrapper.--top-fixed .header-container .ln-header .ln-main-header .button.ln-button:not(.--subscribe) {
-    background-color: transparent;
-  }
   .wrapper.--top-fixed .header-container .ln-header .ln-sub-header {
     margin-top: 4.875rem;
   }
@@ -2435,19 +2432,16 @@ a {
 .--top-fixed:not(.homepage) .header-container .ln-header .ln-main-header {
   animation: none;
 }
-@media (min-width: 48rem) {
-  .--top-fixed:not(.homepage) .header-container .ln-header .ln-main-header {
-    height: 5.5625rem;
-  }
+.--top-fixed:not(.homepage) .header-container .ln-header .ln-main-header .button.ln-button:not(.--subscribe) {
+  background-color: transparent;
 }
-@media (min-width: 64rem) {
-  .--top-fixed:not(.homepage) .header-container .ln-header .ln-main-header {
-    height: 3.5625rem;
-  }
+.--top-fixed:not(.homepage) .header-container .ln-header .ln-main-header .button.ln-button:not(.--subscribe):hover {
+  background: rgba(247, 247, 244, 0.8);
 }
 .--top-fixed:not(.homepage) .header-container .ln-header .ln-main-header.--negative {
   background-color: rgba(26, 26, 26, 0.65);
   border-bottom: 1px solid #1A1A1A;
+  z-index: 1500;
 }
 .--top-fixed:not(.homepage) .header-container .ln-header .ln-main-header.--negative .logo-header svg g {
   fill: #ffffff;
@@ -2463,6 +2457,10 @@ a {
 .--top-fixed:not(.homepage) .header-container .ln-header .ln-main-header.--negative .left-actions .button.ln-button:not(.--subscribe) .text,
 .--top-fixed:not(.homepage) .header-container .ln-header .ln-main-header.--negative .right-actions .button.ln-button:not(.--subscribe) .text {
   color: #ffffff;
+}
+.--top-fixed:not(.homepage) .header-container .ln-header .ln-main-header.--negative .left-actions .button.ln-button:not(.--subscribe):hover,
+.--top-fixed:not(.homepage) .header-container .ln-header .ln-main-header.--negative .right-actions .button.ln-button:not(.--subscribe):hover {
+  background: inherit;
 }
 @media (max-width: 22.4375rem) {
   .--top-fixed:not(.homepage) .header-container .ln-header .ln-main-header.--negative .left-actions .--subscribe,

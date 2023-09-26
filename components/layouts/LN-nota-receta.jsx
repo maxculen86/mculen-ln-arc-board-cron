@@ -2,8 +2,9 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
+import classNames from 'classnames';
 import GlobalProvider from '../private/common/context/globalContext';
-import Header from '../private/LN/common/header';
+import Header from '../private/LN10/header';
 import Footer from '../private/LN10/footer';
 
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';
@@ -28,11 +29,18 @@ const pageBuilderSections = [
 
 const LNNotaReceta = ({ outputType, children }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
+    const classNameWrapper = classNames(
+        'wrapper',
+        'nota',
+        'recetas',
+        '--top-fixed',
+        amp
+    );
     return (
         <GlobalProvider>
-            <div id="wrapper" className={`nota recetas ${amp}`}>
+            <div id="wrapper" className={classNameWrapper}>
                 <Header />
-                <main id="content">
+                <main id="content" className="--header-fixed-margin">
                     {/* Pre-Titulo: Banners */}
                     {children[0]}
                     <div className="lay --apertura">

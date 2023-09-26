@@ -1,6 +1,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import Header from '../private/LN/common/header';
+import classNames from 'classnames';
+import Header from '../private/LN10/header';
 import Footer from '../private/LN10/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
 import '../../resources/dist/css/ln/pages/photo100.css';
@@ -48,15 +49,21 @@ const lnNotaFotoAl100 = ({
             noteType: subtype
         }) && !amp;
 
+    const classNameWrapper = classNames(
+        'wrapper',
+        '--top-fixed',
+        'nota',
+        magazine,
+        '--photo100',
+        amp
+    );
+
     return (
         <GlobalProvider>
             {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
-            <div
-                id="wrapper"
-                className={`nota ${magazine} --photo100 --transparent ${amp}`}
-            >
+            <div id="wrapper" className={classNameWrapper}>
                 <Header />
-                <main id="content">
+                <main id="content" className="--header-fixed-margin">
                     {preTitulo}
                     <StaticContent>
                         <AperturaStorytelling

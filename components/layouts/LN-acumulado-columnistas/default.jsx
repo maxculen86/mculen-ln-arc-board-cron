@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Static from 'fusion:static';
-import Header from '../../private/LN/common/header';
+import Header from '../../private/LN10/header';
 import Footer from '../../private/LN10/footer';
 import Text from '../../private/common/text';
 import GlobalProvider from '../../private/common/context/globalContext';
@@ -22,9 +22,12 @@ const LNAcumuladoColumnistasLayout = props => {
 
     return (
         <GlobalProvider>
-            <div id="wrapper" className="acumulado columnistas">
+            <div
+                id="wrapper"
+                className="wrapper --top-fixed acumulado columnistas"
+            >
                 <Header />
-                <main id="content">
+                <main id="content" className="--header-fixed-margin">
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                     {children[0]}
                     <div className="lay">

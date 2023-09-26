@@ -7,7 +7,7 @@ const CLASS_HANDLE_SHARE = '--handle-share';
 let lastScrollPosition = 0;
 
 export const setUserType = (isUserLoggedIn, isUserSubscribed) => {
-    if (isUserSubscribed) return 'suscribed';
+    if (isUserSubscribed) return 'subscribed';
     if (isUserLoggedIn) return 'logged';
     return 'unlogged';
 };
