@@ -122,7 +122,7 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
         expect(elementsWithAtLeastOne).toEqual(true);
     });
 
-    test('NotEqual when minLengthBannersPrevious is older', () => {
+    test('NotEqual when minLengthElementsPrevious is older', () => {
         const element = {
             type: 0,
             information: {},
@@ -142,7 +142,7 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
         };
         const configElement = {
             task: 'NotEqual',
-            minLengthBannersPrevious: 2
+            minLengthElementsPrevious: 2
         };
 
         const lengthBannersPrevious = 1;

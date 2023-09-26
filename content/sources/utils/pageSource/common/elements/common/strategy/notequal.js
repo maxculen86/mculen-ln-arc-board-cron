@@ -9,8 +9,8 @@ export const notequal = (element, configElement, lengthBannersPrevious) => {
         : null;
 
     if (
-        configElement.minLengthBannersPrevious &&
-        configElement.minLengthBannersPrevious >= lengthBannersPrevious
+        configElement.minLengthElementsPrevious &&
+        configElement.minLengthElementsPrevious >= lengthBannersPrevious
     ) {
         return false;
     }

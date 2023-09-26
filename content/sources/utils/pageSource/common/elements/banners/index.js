@@ -3,7 +3,7 @@ import {
     addElementsByKey,
     addElement
 } from '../../../../../../../components/private/LN/api/global/page/common/utils/addElements';
-import configBannerByLayout from '../../../config/configBannerByLayout';
+import configBannerByLayout from './config/configBannerByLayout';
 import configTaskPositionBanners from './config/configTaskPositionBanners.json';
 import configBannerPositionbySection from '../../../config/configBannerPositionbySection';
 
