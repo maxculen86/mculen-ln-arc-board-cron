@@ -40,6 +40,8 @@ let sourceInclude = [
     'label.recomendar.text'
 ];
 sourceInclude = !sourceExclude.length ? sourceInclude : [];
+
+
 const mustElements = days => {
     return [
         {
@@ -246,68 +248,78 @@ const fetch = async (query, { cachedCall }) => {
         sizeFollow = 50,
         'arc-site': arcSite = 'la-nacion-ar'
     } = query;
-
-    let seccionField = seccion;
-    if (seccionField && seccionField !== '/') {
-        seccionField = seccionField.replace(/\/$/, '');
-        if (!seccionField.startsWith('/')) {
-            seccionField = `/${seccionField}`;
+    try {
+        let seccionField = seccion;
+        if (seccionField && seccionField !== '/') {
+            seccionField = seccionField.replace(/\/$/, '');
+            if (!seccionField.startsWith('/')) {
+                seccionField = `/${seccionField}`;
+            }
         }
+
+        const keyParams = [
+            { type: 'token', slug: `${token || ''}`, id: 0 },
+            { type: 'autor', slug: `${decodeURI(autor || '')}`, id: 0 },
+            { type: 'seccion', slug: `${seccionField || ''}`, id: 0 },
+            { type: 'tags', slug: `${tags || ''}`, id: 0 }
+        ];
+
+        const keyQuery = keyParams.filter(x => x.slug !== '');
+
+        if (keyQuery.length !== 1) {
+            throw new Error('Cantidad de parámetros inválidos');
+        }
+
+        let followedItems = [];
+        if (token) {
+            const optRequest = {
+                version,
+                token,
+                uri,
+                sizeFollow
+            };
+
+            followedItems = await personalization.request(optRequest);
+        } else {
+            followedItems = keyQuery;
+        }
+
+        followedItems = followedItems.sort(function orderFollow(a, b) {
+            const elemA = a.type.concat(a.slug);
+            const elemB = b.type.concat(b.slug);
+            return OrderElements(elemA, elemB);
+        });
+        const keyCacheSeguir = followedItems
+            .map(elem => {
+                return elem.slug;
+            })
+            .join('_')
+            .replace(/__/, '_')
+            .concat('_', page);
+
+        const stories = await cachedCall(keyCacheSeguir, getElements, {
+            query: {
+                followedItems,
+                size,
+                days,
+                page,
+                api,
+                arcSite
+            },
+            ttl: 120
+        });
+
+        return { ...stories, followedItems };
+    } catch (error) {
+        const msjError = `SeguirSource - msj: ${error.message} - query: ${JSON.stringify(query || {})}`;
+
+        if (error && error.statusCode === 403) {
+            console.warn(`Warn ${msjError}`);
+            return {};
+        }
+        console.error(`Error ${msjError}`);
+        return {};
     }
-
-    const keyParams = [
-        { type: 'token', slug: `${token || ''}`, id: 0 },
-        { type: 'autor', slug: `${decodeURI(autor || '')}`, id: 0 },
-        { type: 'seccion', slug: `${seccionField || ''}`, id: 0 },
-        { type: 'tags', slug: `${tags || ''}`, id: 0 }
-    ];
-
-    const keyQuery = keyParams.filter(x => x.slug !== '');
-
-    if (keyQuery.length !== 1) {
-        throw new Error('Cantidad de parámetros inválidos');
-    }
-
-    let followedItems = [];
-    if (token) {
-        const optRequest = {
-            version,
-            token,
-            uri,
-            sizeFollow
-        };
-
-        followedItems = await personalization.request(optRequest);
-    } else {
-        followedItems = keyQuery;
-    }
-
-    followedItems = followedItems.sort(function orderFollow(a, b) {
-        const elemA = a.type.concat(a.slug);
-        const elemB = b.type.concat(b.slug);
-        return OrderElements(elemA, elemB);
-    });
-    const keyCacheSeguir = followedItems
-        .map(elem => {
-            return elem.slug;
-        })
-        .join('_')
-        .replace(/__/, '_')
-        .concat('_', page);
-
-    const stories = await cachedCall(keyCacheSeguir, getElements, {
-        query: {
-            followedItems,
-            size,
-            days,
-            page,
-            api,
-            arcSite
-        },
-        ttl: 120
-    });
-
-    return { ...stories, followedItems };
 };
 
 export default {
