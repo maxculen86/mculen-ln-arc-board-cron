@@ -25,6 +25,8 @@ global.fetch = jest.fn(() =>
 
 beforeEach(() => {
     fetch.mockClear();
+    jest.spyOn(console, 'error');
+    jest.spyOn(console, 'warn');
 });
 
 jest.mock('request-promise-native', () => {
@@ -32,12 +34,16 @@ jest.mock('request-promise-native', () => {
         __esModule: true,
         default: x => {
             if (x.headers.Authorization === 'bad') {
-                throw new Error(
-                    'User is not authorized to access this resource with an explicit deny'
+                const fnForce403 = require.requireActual(
+                    '../../../content/sources/utils/modelsErrors/force403'
                 );
+                fnForce403.default('personalizationSource');
             }
             if (x.headers.Authorization === 'nodata') {
                 return mockRequestResponseNoData();
+            }
+            if (x.headers.Authorization === 'error') {
+                throw new 'Error X'();
             }
             return mockRequestResponse();
         }
@@ -98,7 +104,7 @@ describe('Content - Sources - seguirSource', () => {
         expect(result.followedItems).toHaveLength(0);
     });
 
-    it('Validate Results token Bad to Personalization', async () => {
+    it('Validate Results token Bad to Personalization 403', async () => {
         responseCase.content_elements = [];
         query.token = 'bad';
         try {
@@ -106,14 +112,23 @@ describe('Content - Sources - seguirSource', () => {
                 cachedCall: jest.fn(() => Promise.resolve(responseCase))
             });
             expect(result).toBeTruthy();
-            expect(result).toHaveProperty('content_elements');
-            expect(result).toHaveProperty('followedItems');
-            expect(result.followedItems).toHaveLength(0);
+            expect(console.warn).toHaveBeenCalledTimes(1);
         } catch (err) {
             expect(err.message).toBe(
                 'User is not authorized to access this resource with an explicit deny'
             );
         }
+    });
+
+    it('Validate Results Other Error', async () => {
+        responseCase.content_elements = [];
+        query.token = 'error';
+
+        const result = await seguirFetch(query, {
+            cachedCall: jest.fn(() => Promise.resolve(responseCase))
+        });
+        expect(result).toEqual({});
+        expect(console.error).toHaveBeenCalledTimes(1);
     });
 
     it('Validate Results No Elements', async () => {
