@@ -113,7 +113,9 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
                                     e.preventDefault();
                                     e.stopPropagation();
                                     console.log('click button');
-                                }
+                                },
+                                'data-id': 'modal-id-test-1',
+                                'data-modal': 'open-modal'
                             }}
                             {...(!isOpening
                                 ? { showTime: true, time: time }

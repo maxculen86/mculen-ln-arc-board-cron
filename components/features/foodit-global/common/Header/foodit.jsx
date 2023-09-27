@@ -27,7 +27,7 @@ const HeaderFoodit = ({ isSticky = false, ...r }) => {
     };
     const { email, initials, initialsClassName, suscription } = userData;
 
-    const isHome = layout === layoutsName.RecetasHome;
+    const isHome = layout === layoutsName.FooditHome;
 
     useEffect(() => {
         createHeaderObserver(setSticky);

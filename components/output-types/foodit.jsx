@@ -1,6 +1,7 @@
 import React from 'react';
 import CssLinksFoodit from './Helper/cssLinksFoodit';
 import CriticalCSS from '../features/foodit-global/common/CriticalCss/foodit';
+import ObservableFoodit from './Helper/observableFoodit';
 
 // TODO: OutputType base, queda pendiente agregar manejo de scripts, metadatos y preload
 const Foodit = ({ children, Libs, Fusion } = {}) => {
@@ -22,6 +23,25 @@ const Foodit = ({ children, Libs, Fusion } = {}) => {
             <body>
                 <div id="fusion-app">{children}</div>
                 <Fusion hydrateOnly />
+                <ObservableFoodit />
+                {/* TODO: mover script a donde corresponda cuando se cree la nueva implementacion de manejo de scrips */}
+                <script
+                    type="text/javascript"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        window.addEventListener('DOMContentLoaded', () => {
+                            const buttons = document.querySelectorAll('[data-modal="open-modal"]');
+                            buttons.forEach(button => {
+                                button.addEventListener('click', () => {
+                                    window.LN.observable.publish('openModal', {
+                                        ids: button.dataset.id.split(',')
+                                    });
+                                });
+                            });
+                        })
+                    `
+                    }}
+                />
             </body>
         </html>
     );
