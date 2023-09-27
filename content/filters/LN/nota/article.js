@@ -404,6 +404,7 @@ export default `
             }
             ${image}
             ${video}
+            ${customVideoJw}
             auth {
                 1
             }

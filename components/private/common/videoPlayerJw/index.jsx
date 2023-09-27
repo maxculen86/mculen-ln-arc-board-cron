@@ -27,7 +27,7 @@ const videoPlayerJW = ({ data, parrafo, tituloNota, hasAutoplay }) => {
         <div className="content-media">
             <section className="mod-media">
                 <div className="mod-video">
-                    <div className="video-player --background">
+                    <div className="video-player --background --ar-16-9">
                         <Facade title={title} playlist={playlist} />
                         <div id={title} />
                         <script
