@@ -60,7 +60,8 @@ const Opinion = props => {
         isInSiteService,
         idsArticlesToExclude,
         diagramation,
-        isHome
+        isHome,
+        shouldUseV2
     } = getDataChainCollection({
         idCollectionOpinion,
         pageLayout,
@@ -85,7 +86,8 @@ const Opinion = props => {
         layout,
         notesQuantity,
         rules,
-        website
+        website,
+        shouldUseV2
     });
 
     const error = validateFeatureOpinion({
