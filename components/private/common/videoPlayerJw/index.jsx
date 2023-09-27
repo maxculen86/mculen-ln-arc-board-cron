@@ -3,6 +3,8 @@ import { Facade } from './utils/facade';
 import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
 import { getJWScript } from './utils/helperJw';
+import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
+import useViewportSize from '../hooks/useViewportSize';
 
 const videoPlayerJW = ({ data, parrafo, tituloNota, hasAutoplay }) => {
     const {
@@ -14,8 +16,12 @@ const videoPlayerJW = ({ data, parrafo, tituloNota, hasAutoplay }) => {
             } = {}
         } = {}
     } = data;
-    const player = idPlayer || 'dLD3I9sL';
+    const player = idPlayer || 'ih0086X3';
     const [video] = playlist || [];
+
+    const device = useViewportSize();
+
+    const tagsUrl = urlForPrerollAds(device, true);
 
     return (
         <div className="content-media">
@@ -31,7 +37,8 @@ const videoPlayerJW = ({ data, parrafo, tituloNota, hasAutoplay }) => {
                                     player,
                                     playlist,
                                     hasAutoplay,
-                                    idVideo
+                                    idVideo,
+                                    tagsUrl
                                 )
                             }}
                         />

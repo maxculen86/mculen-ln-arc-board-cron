@@ -55,6 +55,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         const playlist = [{ file: 'video.mp4' }];
         const hasAutoplay = true;
         const idVideo = 'abc123';
+        const tagsUrl = 'te_testjw';
 
         const expectedScript = `
         window.addEventListener('load', () => {
@@ -68,7 +69,22 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 scriptElement.addEventListener('load', function() {
                     window.jwplayer('${title}').setup({
                         playlist: ${JSON.stringify(playlist)},
-                        autostart: true
+                        autostart: true,
+                        mute: ${hasAutoplay},
+                        ...('${player}' === 'ih0086X3'
+                        ? {
+                            advertising: {
+                              client: "googima",
+                              autoplayadsmuted: ${hasAutoplay},
+                              schedule: [
+                                {
+                                  tag: "${tagsUrl}",
+                                  offset: "pre"
+                                }
+                              ]
+                            }
+                          }
+                        : {})
                     });
         
                     ${handleVideoEventsScript(title, idVideo)}
@@ -92,7 +108,8 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             player,
             playlist,
             hasAutoplay,
-            idVideo
+            idVideo,
+            tagsUrl
         );
         expect(generatedScript.replace(/\s+/g, '')).toContain(
             expectedScript.replace(/\s+/g, '')
@@ -109,12 +126,12 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             element.classList.remove('--background');
         });
     
-        const events = ['play', 'pause'];
-    
+        const events = [{jwEvent: 'play', eventName: 'videoPlay'}, {jwEvent: 'pause', eventName: 'videoPause'}];
+
         events.forEach((event) => {
-            window.jwplayer('${title}').on(event, function (e) {
-              addToDataLayer(event, '${title}', '${idVideo}');
-            });
+        window.jwplayer('${title}').on(event.jwEvent, function (e) {
+          addToDataLayer(event.eventName, '${title}', '${idVideo}');
+        });
         });
     
         window.jwplayer('${title}').on('time', function (e) {
@@ -129,8 +146,8 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         });
     
         window.jwplayer('${title}').on('complete', function (e) {
-            if (!isInDatalayerEvent('complete', '${idVideo}')) {
-                addToDataLayer('complete', '${title}', '${idVideo}');
+            if (!isInDatalayerEvent('videoComplete', '${idVideo}')) {
+                addToDataLayer('videoComplete', '${title}', '${idVideo}');
             }
         });
     `;

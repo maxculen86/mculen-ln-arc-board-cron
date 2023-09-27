@@ -1,7 +1,12 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import VideoPlayerJW from '../../../../../components/private/common/videoPlayerJw';
+
+jest.mock(
+    '../../../../../components/private/LN/common/utils/urlForPrerollAds',
+    () => jest.fn
+);
 
 describe('componentes - private - common - videoPlayerJw', () => {
     const mockData = {

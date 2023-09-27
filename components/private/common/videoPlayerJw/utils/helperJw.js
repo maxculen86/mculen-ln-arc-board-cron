@@ -28,7 +28,14 @@ export function formatJwPlayerDate(timestamp) {
     return formattedDate;
 }
 
-export const getJWScript = (title, player, playlist, hasAutoplay, idVideo) => `
+export const getJWScript = (
+    title,
+    player,
+    playlist,
+    hasAutoplay,
+    idVideo,
+    tagsUrl
+) => `
 ${addToDataLayer}
 ${isInDatalayerEvent}
 window.addEventListener('load', () => {
@@ -42,7 +49,22 @@ window.addEventListener('load', () => {
         scriptElement.addEventListener('load', function() {
             window.jwplayer('${title}').setup({
                 playlist: ${JSON.stringify(playlist)},
-                autostart: true
+                autostart: true,
+                mute: ${hasAutoplay},
+                ...('${player}' === 'ih0086X3'
+                ? {
+                    advertising: {
+                      client: "googima",
+                      autoplayadsmuted: ${hasAutoplay},
+                      schedule: [
+                        {
+                          tag: "${tagsUrl}",
+                          offset: "pre"
+                        }
+                      ]
+                    }
+                  }
+                : {})
             });
 
             ${handleVideoEventsScript(title, idVideo)}
@@ -67,11 +89,11 @@ export const handleVideoEventsScript = (title, idVideo) => `
         element.classList.remove('--background');
     });
 
-    const events = ['play', 'pause'];
+    const events = [{jwEvent: 'play', eventName: 'videoPlay'}, {jwEvent: 'pause', eventName: 'videoPause'}];
 
     events.forEach((event) => {
-        window.jwplayer('${title}').on(event, function (e) {
-          addToDataLayer(event, '${title}', '${idVideo}');
+        window.jwplayer('${title}').on(event.jwEvent, function (e) {
+          addToDataLayer(event.eventName, '${title}', '${idVideo}');
         });
     });
 
@@ -87,8 +109,8 @@ export const handleVideoEventsScript = (title, idVideo) => `
     });
 
     window.jwplayer('${title}').on('complete', function (e) {
-        if (!isInDatalayerEvent('complete', '${idVideo}')) {
-            addToDataLayer('complete', '${title}', '${idVideo}');
+        if (!isInDatalayerEvent('videoComplete', '${idVideo}')) {
+            addToDataLayer('videoComplete', '${title}', '${idVideo}');
         }
     });
 `;
