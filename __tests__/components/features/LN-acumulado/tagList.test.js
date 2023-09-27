@@ -1,6 +1,5 @@
 import React from 'react';
 import Context from 'fusion:context';
-import Consumer from 'fusion:consumer';
 import { useContent } from 'fusion:content';
 import { render, screen } from '@testing-library/react';
 import TagsListFeature, {
@@ -12,8 +11,6 @@ import mockRenderables from '../../../../__mocks__/data/tags/mockRenderables.jso
 import renderables1 from '../../../../__mocks__/data/renderables/data1';
 
 import '@testing-library/jest-dom';
-
-jest.mock('fusion:static', () => 'mock-static');
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
