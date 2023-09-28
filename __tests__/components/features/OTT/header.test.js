@@ -9,8 +9,6 @@ jest.mock(
     () => 'mock-static-content'
 );
 
-jest.mock('fusion:static', () => 'mock-static');
-
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;
