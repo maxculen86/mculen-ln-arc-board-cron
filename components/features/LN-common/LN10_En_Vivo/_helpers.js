@@ -45,7 +45,7 @@ export const getListOfNoteFields = (listCustomFields = []) => {
     }, []);
 };
 
-export const GetArticle = (noteId = '', customTitle = '', group) => {
+export const GetArticle = (group, noteId = '', customTitle = '') => {
     const id = validateId(noteId);
     const article = useContent({
         source: id ? 'articleSourceNota' : null,

@@ -48,9 +48,9 @@ describe('Tests - helpers - feature - EnVivo', () => {
             last_updated_date: '2023-01-02T22:00:17.701Z'
         };
 
+        const group = 1;
         const noteId = 'AKJSDBNUASIFW1';
         const customTitle = '';
-        const group = 1;
         const result = {
             error: false,
             group: 1,
@@ -62,14 +62,14 @@ describe('Tests - helpers - feature - EnVivo', () => {
 
         test('It should return an object with the transformed note data.', () => {
             useContent.mockImplementation(() => articleMock);
-            expect(GetArticle(noteId, customTitle, group)).toStrictEqual(
+            expect(GetArticle(group, noteId, customTitle)).toStrictEqual(
                 result
             );
         });
 
         test('should return the error property to true when a note id exists but the content source response is not defined', () => {
             useContent.mockImplementation(() => undefined);
-            expect(GetArticle(noteId, customTitle, group)).toStrictEqual({
+            expect(GetArticle(group, noteId, customTitle)).toStrictEqual({
                 ...result,
                 error: true,
                 title: '',
@@ -81,7 +81,7 @@ describe('Tests - helpers - feature - EnVivo', () => {
             useContent.mockImplementation(() => articleMock);
             const customTitle = 'Prueba titulo custom';
 
-            expect(GetArticle(noteId, customTitle, group)).toStrictEqual({
+            expect(GetArticle(group, noteId, customTitle)).toStrictEqual({
                 ...result,
                 title: customTitle
             });

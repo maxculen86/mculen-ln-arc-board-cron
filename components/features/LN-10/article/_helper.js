@@ -409,10 +409,10 @@ export const changeConfigForPB = ({ setConfig, featureId, renderables }) => {
                 indexOfFeature
             )
         );
-        return true;
+    } else if (cardConfig) {
+        setConfig(cardConfig[indexOfFeature]);
     }
 
-    setConfig(cardConfig && cardConfig[indexOfFeature]);
     return true;
 };
 

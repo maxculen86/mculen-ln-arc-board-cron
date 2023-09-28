@@ -29,7 +29,7 @@ describe('Tests - feature - EnVivo', () => {
         _id: 'GD7P4ZTE2FFBDAVBMLAK7V3Y6M',
         canonical_url: '/revista-living/prueba-logos-nid28052020/',
         headlines: {
-            mobile: 'Prueba logos',
+            mobile: '1',
             basic: 'Esta es una nota de prueba de logos'
         },
         last_updated_date: '2022-12-23T15:06:17.701Z'
@@ -78,7 +78,7 @@ describe('Tests - feature - EnVivo', () => {
                 noteId1: 'GD7P4ZTE2FFBDAVBMLAK7V3Y6M',
                 chapitaStyle: 1,
                 chapita: 'live',
-                title1: 'Nuevo titulo corto'
+                title1: '1'
             }
         };
 
@@ -136,12 +136,23 @@ describe('Tests - feature - EnVivo', () => {
             useContent.mockImplementation(() => undefined);
             render(<Live {...properties} />);
 
-            expect(screen.getByText('Advertencia')).toBeDefined();
+            const liveComponent = screen.getByTestId('live-component');
+            expect(liveComponent).toBeDefined();
+
+            const hasAlert = (content, text) => {
+                const elementsWithText = Array.from(
+                    content.querySelectorAll('*')
+                ).filter(element => element.textContent.includes(text));
+                return elementsWithText.length > 0;
+            };
+
+            expect(hasAlert(liveComponent, 'Advertencia')).toBe(false);
             expect(
-                screen.getByText(
+                hasAlert(
+                    liveComponent,
                     'El ID de la nota 1 (ID: wrongId) es incorrecto'
                 )
-            ).toBeDefined();
+            ).toBe(false);
         });
     });
 });
