@@ -39,7 +39,8 @@ const lnNotaStorytelling = ({
         }) && !amp;
 
     const withoutVideoBackground = !Boolean(
-        get(globalContent, 'promo_items.storytelling', null)
+        get(globalContent, 'promo_items.storytelling', null) ||
+            get(globalContent, 'promo_items.video_jw', null)
     );
 
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
