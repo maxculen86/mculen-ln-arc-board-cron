@@ -297,6 +297,7 @@ const transform = async (
     );
 };
 
+// TODO agregar test a funcion
 export const convertVideoArcToJw = (video, arcSite) => {
     const { _id: idVideoArc } = video;
     const urlSearchIdJw = `https://videomapper.lanacion.com.ar/video/${idVideoArc}`;

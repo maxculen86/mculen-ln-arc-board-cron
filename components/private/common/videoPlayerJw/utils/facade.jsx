@@ -12,6 +12,7 @@ export const Facade = ({ title = '', playlist = [] }) => {
                 sources={transformImages(get(video, 'images', []))}
                 src={get(video, 'image', '')}
                 className="com-image"
+                alt={title}
             />
         </div>
     );
