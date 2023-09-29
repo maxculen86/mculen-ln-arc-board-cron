@@ -9,6 +9,15 @@ export const videoJWNota = videoData => {
         videoData._id ||
         get(videoData, 'embed.config.videoJw.playlist.mediaid', null);
 
+    if (!id) {
+        console.warn(
+            `private-LN-api-common-elements-story-videoJW.js Error: ${JSON.stringify(
+                videoData || {}
+            )}`
+        );
+        return null;
+    }
+
     const playList =
         get(videoData, 'playlist', null) ||
         get(videoData, 'embed.config.videoJw.playlist', null);
@@ -51,6 +60,16 @@ export const videoJWNotaMobile = videoData => {
     const playList =
         get(videoData, 'playlist', null) ||
         get(videoData, 'embed.config.videoJw.playlist', null);
+
+    if (!playList) {
+        console.warn(
+            `private-LN-api-common-elements-story-videoJW.js Error: ${JSON.stringify(
+                videoData || {}
+            )}`
+        );
+        return null;
+    }
+
     const elementPlayList = Array.isArray(playList) ? playList[0] : playList;
     const { duration, title, sources, image } = elementPlayList;
 
