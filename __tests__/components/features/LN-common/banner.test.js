@@ -1,5 +1,4 @@
 import React from 'react';
-import Consumer from 'fusion:consumer';
 import {
     buildBannerClasses,
     changeSegmentAdUnit,
@@ -38,8 +37,6 @@ jest.mock('fusion:context', () => () => ({
         return props.children(mockAvailableProps);
     }
 }));
-
-jest.mock('fusion:static', () => 'mock-static');
 
 jest.mock('react', () => {
     const ActualReact = require.requireActual('react');

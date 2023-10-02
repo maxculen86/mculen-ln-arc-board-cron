@@ -17,10 +17,10 @@ exports[`components - private - common - mod-category Mod category snapshot test
           class="com-image "
           decoding="async"
           fetchpriority="high"
-          height="90"
+          height="100"
           loading="eager"
-          src="https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QJFKLBWXHVGUFA3O65BIHPFILA.png"
-          width="285"
+          src="https://lanacion.com.ar/mock.jpeg"
+          width="100"
         />
       </h1>
     </div>

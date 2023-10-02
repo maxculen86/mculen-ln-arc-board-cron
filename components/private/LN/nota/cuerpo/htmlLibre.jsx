@@ -4,17 +4,16 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import StaticContent from '../../../common/staticContent';
 
-// TODO realizar unit test
-
 const HtmlLibre = props => {
     const {
         outputType,
-        globalContent: { _id, content_elements: contentElements } = {}
+        globalContent: { _id, content_elements: contentElements = [] } = {}
     } = props;
+
+    const [defaultHTML = {}, bodyHTML = {}] = contentElements;
+
     const content =
-        contentElements[0] && contentElements[0].content
-            ? contentElements[0].content
-            : undefined;
+        contentElements.length > 1 ? bodyHTML.content : defaultHTML.content;
 
     return (
         outputType === 'default' && (

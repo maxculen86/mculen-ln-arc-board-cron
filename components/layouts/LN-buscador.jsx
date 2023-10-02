@@ -2,7 +2,7 @@
 import Consumer from 'fusion:consumer';
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import Header from '../private/LN/common/header';
+import Header from '../private/LN10/header';
 import Footer from '../private/LN10/footer';
 import ComTitle from '../private/common/com-title';
 import GlobalProvider from '../private/common/context/globalContext';
@@ -29,9 +29,9 @@ const lnBuscador = ({
 
     return (
         <GlobalProvider>
-            <div id="wrapper" className="buscador">
+            <div id="wrapper" className="wrapper --top-fixed buscador">
                 <Header />
-                <main id="content">
+                <main id="content" className="--header-fixed-margin">
                     <div className="lay">
                         <ComTitle
                             tag="h1"

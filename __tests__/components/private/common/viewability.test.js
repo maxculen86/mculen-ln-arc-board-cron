@@ -7,14 +7,11 @@ import {
     updateIndexOfItems
 } from '../../../../components/private/common/utils/viewability';
 import CajaTema from '../../../../components/private/LN/common/cajaTema';
-import Consumer from 'fusion:consumer';
 import ModArticle from '../../../../components/private/common/mod-article';
 import Article from '../../../../components/private/common/mod-article';
 import ArticleAcum from '../../../../components/private/LN/acumulado/articleAcum';
 import articles from '../../../../__mocks__/data/articles/articles.json';
 import renderables1 from '../../../../__mocks__/data/renderables/data1';
-import { useContent } from 'fusion:content';
-//import { useComponentContext } from 'fusion:context';
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -33,8 +30,6 @@ jest.mock('fusion:context', () => () => ({
     },
     useComponentContext: jest.fn(() => ({}))
 }));
-
-jest.mock('fusion:static', () => 'mock-static');
 
 import Context from 'fusion:context';
 import { findPositionInsideSection } from '../../../../components/private/LN/common/utils/cajaTemasHelper';

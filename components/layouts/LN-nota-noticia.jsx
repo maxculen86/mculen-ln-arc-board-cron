@@ -2,6 +2,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import classNames from 'classnames';
 import '../../resources/dist/css/ln/pages/magazine.css';
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
@@ -30,12 +31,20 @@ const lnNotaNoticia = ({
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
+
+    const classNameNotaMain = classNames(
+        'wrapper',
+        '--top-fixed',
+        'nota',
+        'noticia',
+        magazine,
+        amp
+    );
+
     return (
         <GlobalProvider>
             {bannerMegatop}
-            <NotaMain className={`nota noticia ${magazine} ${amp}`}>
-                {children}
-            </NotaMain>
+            <NotaMain className={classNameNotaMain}>{children}</NotaMain>
             <LoadBannersSSR />
             <PwaModals />
             {intersectionObserverForRelatedTags(outputType)}

@@ -1,0 +1,46 @@
+{
+    "_id": "D3SATI3N45FQTB5PYSC7TRFTTU",
+    "credits": {
+        "by": []
+    },
+    "headlines": {
+        "basic": "Receta para comer mas rico con ...POLLITO 2"
+    },
+    "promo_items": {
+        "basic": {
+            "height": 400,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 280,
+                        "maxScreenWidth": 767,
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "3:2",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://www.lanacion.com.ar/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                },
+                {
+                    "option": {
+                        "height": 159,
+                        "media_preload": "(min-width: 768px)",
+                        "proportion": "3:2",
+                        "width": 238
+                    },
+                    "resizedUrl": "https://www.lanacion.com.ar/resizer/UAW2_6kmsNW2vZMJz0Ju7tE8PlY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                }
+            ],
+            "url": "https://www.lanacion.com.ar/resizer/foUOO4slYCARU0-BwCtMoqbehBM=/1920x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg",
+            "width": 600
+        },
+        "receta": {
+            "embed": {
+                "config": {
+                    "counterTime": 4
+                }
+            }
+        }
+    },
+    "subtype": "4",
+    "taxonomy": {}
+}

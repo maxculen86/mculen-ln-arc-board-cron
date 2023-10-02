@@ -6,9 +6,10 @@ const getParamsAcus = query => {
     const size = get(query, 'size', '30');
     const restriction = get(query, 'restriction', null);
     const sections = get(query, 'sections', null);
-    const page = get(query, 'page', '0');
+    const page = get(query, 'page', '1');
     const website = get(query, 'website', '');
     const tagId = get(query, 'tagId', null);
+    const authorId = get(query, 'authorId', null);
 
     const resp = {
         page,
@@ -41,7 +42,8 @@ const getParamsAcus = query => {
         size,
         excludeSourceOrigin,
         website,
-        tagId
+        tagId,
+        authorId
     };
 };
 
@@ -53,7 +55,7 @@ const getArticlesAcumulados = async params => {
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(
-            `Error getArticlesAcumulados - content/apiPageAcumuladosSource :  params: ${JSON.stringify(
+            `Error getArticlesAcumulados :  params: ${JSON.stringify(
                 params
             )} - errorMsj:${error.message}`
         );

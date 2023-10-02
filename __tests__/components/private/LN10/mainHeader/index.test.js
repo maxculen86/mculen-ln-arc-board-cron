@@ -20,6 +20,13 @@ jest.mock('react', () => {
     };
 });
 
+const intersectionObserverMock = () => ({
+    observe: () => null
+});
+window.IntersectionObserver = jest
+    .fn()
+    .mockImplementation(intersectionObserverMock);
+
 jest.mock('../../../../../components/private/LN10/mainHeader/_helper', () => ({
     ...jest.requireActual(
         '../../../../../components/private/LN10/mainHeader/_helper'

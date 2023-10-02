@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import Static from 'fusion:static';
-import Header from '../../private/LN/common/header';
+import Header from '../../private/LN10/header';
 import Footer from '../../private/LN10/footer';
 import Text from '../../private/common/text';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBannersSSR from '../../private/common/banners/LoadBannersSSR';
 import PwaModals from '../../private/LN/common/pwaModals';
 import ComTitle from '../../private/common/com-title';
+import StaticContent from '../../private/common/staticContent';
 
 const layoutItemsColumnistas = [
     'Pre-Apertura',
@@ -22,9 +22,12 @@ const LNAcumuladoColumnistasLayout = props => {
 
     return (
         <GlobalProvider>
-            <div id="wrapper" className="acumulado columnistas">
+            <div
+                id="wrapper"
+                className="wrapper --top-fixed acumulado columnistas"
+            >
                 <Header />
-                <main id="content">
+                <main id="content" className="--header-fixed-margin">
                     {/* CABEZAL REVISTA Y BANNERS: CABEZAL Y STICKY */}
                     {children[0]}
                     <div className="lay">
@@ -33,11 +36,7 @@ const LNAcumuladoColumnistasLayout = props => {
                             <div className="row">
                                 <div className="col-12">
                                     {children[1]}
-                                    <Static
-                                        id="columnistas-layout"
-                                        htmlOnly
-                                        persistent
-                                    >
+                                    <StaticContent>
                                         <ComTitle
                                             tag="h1"
                                             size="--xl"
@@ -52,7 +51,7 @@ const LNAcumuladoColumnistasLayout = props => {
                                                 'Además, descubrí contenidos especializados de nuestros colaboradores. Informate con LA NACION.'
                                             }
                                         />
-                                    </Static>
+                                    </StaticContent>
                                 </div>
                             </div>
                         }

@@ -3,8 +3,10 @@ import get from '../../components/private/common/utils/get';
 import ultimasNoticiasSectionsSource from './utils/acuArticlesSource/ultimasNoticiasSectionsSource';
 import sectionSource from './sectionSource';
 import sectionsDataJson from './utils/pageSource/pageAcumulados/config/configSectionPage.json';
-import transformAcu from './utils/pageSource/acumulados/v2/mobile/bySection/transform';
+import transformAcu from './utils/pageSource/acumulados/common/transformAcuV1';
 import acuTransformV2Format from './utils/pageSource/acumulados/v2/mobile/bySection/acuTransformV2Format';
+import calculatePaginationValue from './utils/pageSource/acumulados/common/calculatePaginationValue';
+import NotFoundError from './utils/notFoundError';
 
 const fetch = async (query, { cachedCall }) => {
     let restriction = 'true';
@@ -88,6 +90,11 @@ const fetch = async (query, { cachedCall }) => {
             paginationValue
         );
     } catch (error) {
+        if (error instanceof NotFoundError) {
+            throw new NotFoundError(
+                `Seccion no encontrada: ${query.sectionId}`
+            );
+        }
         // eslint-disable-next-line no-console
         console.warn(
             `Error in content/apiAcumuladosV2Source : 
@@ -96,11 +103,6 @@ const fetch = async (query, { cachedCall }) => {
         );
         throw new Error(error);
     }
-};
-
-const calculatePaginationValue = (acumuladoTotal, size, page) => {
-    const numberOfPages = acumuladoTotal / size;
-    return page < numberOfPages;
 };
 
 const getSizeParamFromQuery = query => {
@@ -116,11 +118,11 @@ const getPageParamFromQuery = query => {
 
     const page =
         matchForPageParam && matchForPageParam.length > 1
-            ? parseInt(matchForPageParam[1], 0)
-            : 0;
+            ? parseInt(matchForPageParam[1])
+            : 1;
 
-    if (page < 0) {
-        throw new Error('Page parameter should not be less than 0');
+    if (page < 1) {
+        throw new Error('Page parameter should not be less than 1');
     }
 
     return page;

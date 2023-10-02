@@ -20,8 +20,6 @@ jest.mock('fusion:context', () => () => ({
     }
 }));
 
-jest.mock('fusion:static', () => 'mock-static');
-
 describe('Private - Common - Schemas =>', () => {
     Context.useAppContext = jest.fn(() => ({
         globalContent: { subtype: '1' },

@@ -49,14 +49,17 @@ export default {
     },
     cajaTemaConfig,
     layoutsName: {
-        Home: 'LN-Home_Main',
-        HomeLN10: 'LN10-Home_Main',
         Acumulado: 'LN-acumulado',
         Columnistas: 'LN-acumulado-columnistas',
-        FotoAl100: 'LN-nota-foto-al-100',
         Deportes: 'LN-Home_Sports',
+        FotoAl100: 'LN-nota-foto-al-100',
+        Home: 'LN-Home_Main',
+        HomeLN10: 'LN10-Home_Main',
         Noticia: 'LN-nota-noticia',
-        OttFicha: 'OTT-ficha'
+        OttFicha: 'OTT-ficha',
+        StoryTelling: 'LN-nota-storytelling',
+        Video: 'LN-nota-video',
+        HtmlLibre: 'LN-nota-html-libre'
     },
     notRecommendedSections: ['recetas']
 };

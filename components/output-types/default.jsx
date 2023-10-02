@@ -32,6 +32,7 @@ import {
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import CssLinksLn10 from './Helper/cssLinksLn10';
 import ScriptVideoPowaHTML from '../private/common/scriptManager/scriptVideoPowaHTML';
+import OpeningRawHTML from '../private/common/scriptManager/OpeningRawHtml';
 
 const lnBuscador = 'LN-buscador';
 
@@ -56,7 +57,7 @@ const Default = props => {
         layout = '',
         siteProperties,
         renderables,
-        globalContent,
+        globalContent = {},
         outputType,
         isAdmin,
         requestUri,
@@ -79,8 +80,9 @@ const Default = props => {
         taxonomy,
         first_publish_date: firstPublishDate,
         acumuladoGeneral: { metas } = {},
+        content_elements: contentElements,
         site = {}
-    } = globalContent || {};
+    } = globalContent;
 
     const { meta_title: metaTitle, basic: basicTitle, mobile: mobileTitle } =
         headlines || {};
@@ -279,6 +281,7 @@ const Default = props => {
                 />
                 <ScriptVideoPowaHTML subtype={subtype} />
                 {addMetaNoIndexNoFollow({ requestUri })}
+                <OpeningRawHTML contentElements={contentElements} />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />

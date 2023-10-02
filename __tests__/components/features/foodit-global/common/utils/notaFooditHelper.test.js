@@ -1,6 +1,9 @@
-import { getHighestPriorityTag } from '../../../../../../components/features/foodit-global/common/utils/notaRecetaHelper.js';
+import {
+    getHighestPriorityTag,
+    validateArticleFoodit
+} from '../../../../../../components/features/foodit-global/common/utils/notaFooditHelper';
 
-describe('Recetas - notaRecetaHelper', () => {
+describe('Foodit - notaFooditHelper', () => {
     describe('getHighestPriorityTag function', () => {
         it('should return the highest priority tag', () => {
             const tags = [
@@ -38,6 +41,26 @@ describe('Recetas - notaRecetaHelper', () => {
 
         it('should empty string with no tags', () => {
             expect(getHighestPriorityTag(null)).toBe('');
+        });
+    });
+
+    describe('validateArticleFoodit', () => {
+        it('Should return no id warning message', () => {
+            expect(
+                validateArticleFoodit({
+                    id: undefined,
+                    content: true
+                })
+            ).toMatchSnapshot();
+        });
+
+        it('Should return bad article ID warning message', () => {
+            expect(
+                validateArticleFoodit({
+                    id: 'HLVF6HRMYNB2TI7L7G724OAPIU',
+                    content: undefined
+                })
+            ).toMatchSnapshot();
         });
     });
 });

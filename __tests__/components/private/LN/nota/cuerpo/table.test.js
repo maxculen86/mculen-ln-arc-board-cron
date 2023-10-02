@@ -8,7 +8,6 @@ import tableNote from '../../../../../../__mocks__/data/nota/cuerpo/table/tableN
 import tableRecipeRaw from '../../../../../../__mocks__/data/nota/cuerpo/table/tableRecipeRaw.json';
 import tableRecipeConverted from '../../../../../../__mocks__/data/nota/cuerpo/table/tableRecipeConverted.json';
 
-jest.mock('fusion:static', () => 'mock-static');
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;

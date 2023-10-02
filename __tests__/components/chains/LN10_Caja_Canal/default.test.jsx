@@ -4,7 +4,6 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import renderables from '../../../../__mocks__/data/LN10_Caja_Collection/renderablesGrid8And4.json';
 import responseSource from '../../../../__mocks__/data/LN10_Caja_Collection/responseUseGetArticleInCollection.json';
-import getDynamicBanners from '../../../../components/private/common/banners/dynamicBanners/getDynamicBanners';
 import useGetArticleInCollection from '../../../../components/private/LN/common/hooks/useGetArticleInCollection';
 
 jest.mock('fusion:consumer', Component => {
@@ -18,7 +17,7 @@ jest.mock(
     () => jest.fn()
 );
 
-describe('Tests Chain Caja Canal', () => {
+describe('components - chains - LN10_Caja_canal', () => {
     const getProps = ({
         customFields = {},
         id = 'c0fwX0hVZJbN0f',
@@ -32,28 +31,63 @@ describe('Tests Chain Caja Canal', () => {
         renderables: renderablesData
     });
 
+    const responseSourceX2 = [...responseSource, ...responseSource];
+
+    const customFields = {
+        idCollection: 'FPKJS5YHQVFGVD46GOLY7A265U',
+        initialPosition: 1,
+        chainStyle: 'bienestar',
+        title: 'Bienestar',
+        link: '',
+        logoId: '4HYEWZCP5VBZRBAOCOF5S3IGR4',
+        hideTitle: false,
+        navigator: 'Politics',
+        buttonText: '',
+        linkButton: '',
+        buttonStyle: 'generico'
+    };
+
+    const setLayout = layout => ({
+        ...customFields,
+        layout
+    });
+
+    it('should return an empty array of articles when the layout is empty', () => {
+        const props = getProps({ customFields: { layout: '' } });
+        const { container } = render(<CajaCanal {...props} />);
+        expect(screen.queryAllByRole('article')).toHaveLength(0);
+        expect(container).toMatchSnapshot();
+    });
+
+    it('should return six articles with layout bn_2_2_grid', () => {
+        useGetArticleInCollection.mockImplementation(() =>
+            responseSourceX2.slice(0, 6)
+        );
+
+        const props = getProps({ customFields: setLayout('bn_2_2_grid') });
+        const { container } = render(<CajaCanal {...props} />);
+
+        expect(screen.getAllByRole('article')).toHaveLength(6);
+        expect(container).toMatchSnapshot();
+    });
+
+    it('should return an empty array of articles when the layout is invalid', () => {
+        useGetArticleInCollection.mockImplementation(() => []);
+
+        const props = getProps({ customFields: setLayout('invalid_layout') });
+        const { container } = render(<CajaCanal {...props} />);
+
+        expect(screen.queryAllByRole('article')).toHaveLength(0);
+        expect(container).toMatchSnapshot();
+    });
+
+    it('should not render StaticContent if hideCaja is true', () => {
+        const props = getProps({ customFields: { hideCaja: true } });
+        render(<CajaCanal {...props} />);
+        expect(screen.queryByTestId('static-content')).not.toBeInTheDocument();
+    });
+
     describe('Tests cases for different layouts', () => {
-        const responseSourceX2 = [...responseSource, ...responseSource];
-
-        const customFields = {
-            idCollection: 'FPKJS5YHQVFGVD46GOLY7A265U',
-            initialPosition: 1,
-            chainStyle: 'bienestar',
-            title: 'Bienestar',
-            link: '',
-            logoId: '4HYEWZCP5VBZRBAOCOF5S3IGR4',
-            hideTitle: false,
-            navigator: 'Politics',
-            buttonText: '',
-            linkButton: '',
-            buttonStyle: 'generico'
-        };
-
-        const setLayout = layout => ({
-            ...customFields,
-            layout
-        });
-
         const layoutCases = [
             [
                 'should return two articles with layout bn_1_1_grid',

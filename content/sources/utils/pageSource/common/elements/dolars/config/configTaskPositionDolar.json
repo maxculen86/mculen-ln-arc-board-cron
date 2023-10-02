@@ -1,0 +1,12 @@
+[
+    {
+        "position": "bottom",
+        "conditions": [
+            {
+                "task": "Equal",
+                "keyFind": "sectionAliasMobile",
+                "value": "apertura"
+            }
+        ]
+    }
+]

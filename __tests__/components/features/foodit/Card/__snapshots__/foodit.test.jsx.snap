@@ -1,0 +1,340 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - features - CardFoodit should test CardFoodit - variant day-recipe 1`] = `
+<div>
+  <div
+    class="hidden"
+  >
+    <article
+      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 --day-recipe shadow-down-sm"
+    >
+      <a
+        class="link foodit-link flex gap-4 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+        href="#"
+        target="_self"
+        title="Receta para comer mas rico con ...POLLITO 2"
+      >
+        <div
+          class="relative w-100"
+        >
+          <div
+            class="foodit-placeholder card-image ratio-3-2 w-100 ratio-21-9_lg"
+          >
+            <picture>
+              <source
+                media="(max-width: 767px)"
+                srcset="https://www.lanacion.com.ar/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+              />
+              <img
+                class="image flex card-image ratio-3-2 w-100 ratio-21-9_lg"
+                decoding="async"
+                fetchpriority="high"
+                loading="eager"
+                src="https://www.lanacion.com.ar/resizer/foUOO4slYCARU0-BwCtMoqbehBM=/1920x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+              />
+            </picture>
+          </div>
+        </div>
+        <div
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1 p-24_lg"
+        >
+          <div
+            class="flex flex-column gap-8"
+          >
+            <span
+              class="text prumo prumo-extralight text-32 text-56_md text-64_lg"
+            >
+              Receta para comer mas rico con ...POLLITO 2
+            </span>
+          </div>
+          <div
+            class="flex ai-center gap-16 text-light-600"
+          >
+            <div
+              class="flex flex-column gap-4 flex-grow-1"
+            >
+              <span
+                class="text text-14"
+              >
+                Por Foodit
+              </span>
+            </div>
+            <button
+              class="flex"
+              title="Guardar receta"
+            >
+              <i
+                class="icon --icon-24 --dark"
+              >
+                <svg
+                  fill="none"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146"
+                    fill="#272727"
+                  />
+                </svg>
+              </i>
+            </button>
+          </div>
+        </div>
+      </a>
+    </article>
+  </div>
+</div>
+`;
+
+exports[`Components - features - CardFoodit should test CardFoodit - variant note 1`] = `
+<div>
+  <div
+    class="hidden"
+  >
+    <article
+      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+    >
+      <a
+        class="link foodit-link flex gap-4 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+        href="#"
+        target="_self"
+        title="Ficha nota FOODIT"
+      >
+        <div
+          class="relative w-100"
+        >
+          <div
+            class="foodit-placeholder card-image ratio-3-2 w-100"
+          >
+            <picture>
+              <source
+                media="(max-width: 767px)"
+                srcset="https://resizer.glanacion.com/resizer/Spw-P_Ze--P3HO9SaTYjxuMlPNw=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
+              />
+              <img
+                class="image flex card-image ratio-3-2 w-100"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src="https://resizer.glanacion.com/resizer/6r_NB8wBXa3ot_VbRpyo3ypij9Q=/1920x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
+              />
+            </picture>
+          </div>
+          
+        </div>
+        <div
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-100"
+        >
+          <div
+            class="flex flex-column gap-8"
+          >
+            <span
+              class="text prumo text-ellipsis-3 prumo-medium text-20"
+            >
+              Ficha nota FOODIT
+            </span>
+          </div>
+          <div
+            class="flex ai-center gap-16 text-light-600"
+          >
+            <div
+              class="flex flex-column gap-4 flex-grow-1"
+            >
+              <span
+                class="text text-14"
+              >
+                Por Foodit
+              </span>
+              <div
+                class="flex ai-center gap-4"
+              >
+                <i
+                  class="icon --icon-12 --gray"
+                >
+                  <svg
+                    fill="none"
+                    viewBox="0 0 12 13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m8.809 3.983.727-.727.707.707-.727.727a4.5 4.5 0 1 1-.707-.707ZM6 10.998a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.5-6h1v3h-1v-3ZM4 1.499h4v1H4v-1Z"
+                      fill="#666"
+                    />
+                  </svg>
+                </i>
+                <span
+                  class="text text-14 roboto-light"
+                >
+                  7
+                </span>
+              </div>
+            </div>
+            <button
+              class="flex"
+              title="Guardar receta"
+            >
+              <i
+                class="icon --icon-24 --dark"
+              >
+                <svg
+                  fill="none"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
+                    fill="#272727"
+                  />
+                </svg>
+              </i>
+            </button>
+          </div>
+        </div>
+      </a>
+    </article>
+  </div>
+</div>
+`;
+
+exports[`Components - features - CardFoodit should test CardFoodit - variant recipe 1`] = `
+<div>
+  <div
+    class="hidden"
+  >
+    <article
+      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+    >
+      <a
+        class="link foodit-link flex gap-4 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+        href="#"
+        target="_self"
+        title="Receta para comer mas rico con ...POLLITO 2"
+      >
+        <div
+          class="relative w-100"
+        >
+          <div
+            class="foodit-placeholder card-image ratio-3-2 w-100"
+          >
+            <picture>
+              <source
+                media="(max-width: 767px)"
+                srcset="https://www.lanacion.com.ar/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+              />
+              <img
+                class="image flex card-image ratio-3-2 w-100"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src="https://www.lanacion.com.ar/resizer/foUOO4slYCARU0-BwCtMoqbehBM=/1920x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+              />
+            </picture>
+          </div>
+          
+        </div>
+        <div
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-100"
+        >
+          <div
+            class="flex flex-column gap-8"
+          >
+            <span
+              class="text prumo text-ellipsis-3 prumo-medium text-20"
+            >
+              Receta para comer mas rico con ...POLLITO 2
+            </span>
+          </div>
+          <div
+            class="flex ai-center gap-16 text-light-600"
+          >
+            <div
+              class="flex flex-column gap-4 flex-grow-1"
+            >
+              <span
+                class="text text-14"
+              >
+                Por Foodit
+              </span>
+              <div
+                class="flex ai-center gap-4"
+              >
+                <i
+                  class="icon --icon-12 --gray"
+                >
+                  <svg
+                    fill="none"
+                    viewBox="0 0 12 13"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m8.809 3.983.727-.727.707.707-.727.727a4.5 4.5 0 1 1-.707-.707ZM6 10.998a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.5-6h1v3h-1v-3ZM4 1.499h4v1H4v-1Z"
+                      fill="#666"
+                    />
+                  </svg>
+                </i>
+                <span
+                  class="text text-14 roboto-light"
+                >
+                  4
+                </span>
+              </div>
+            </div>
+            <button
+              class="flex"
+              title="Guardar receta"
+            >
+              <i
+                class="icon --icon-24 --dark"
+              >
+                <svg
+                  fill="none"
+                  height="25"
+                  viewBox="0 0 24 25"
+                  width="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
+                    fill="#272727"
+                  />
+                </svg>
+              </i>
+            </button>
+          </div>
+        </div>
+      </a>
+    </article>
+  </div>
+</div>
+`;
+
+exports[`Components - features - CardFoodit with isAdmin, should return WarningMessage without noteId 1`] = `
+<div>
+  <article
+    data-feature-id="f0f1sPQ6tYQr7ye"
+  >
+    <div
+      style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
+    >
+      <div
+        class="mod-warning --warning"
+      >
+        <h2
+          class="title"
+        >
+          Advertencia
+        </h2>
+        <p
+          class="text"
+        >
+          El campo Id de la Nota es obligatorio.
+        </p>
+      </div>
+    </div>
+  </article>
+</div>
+`;

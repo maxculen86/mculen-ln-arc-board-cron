@@ -21,9 +21,9 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
         keyFind: 'type',
         conditions: [
             {
-                minLengthBannersPrevious: 1
+                minLengthElementsPrevious: 1
             },
-            { minLengthBannersPrevious: 3 }
+            { minLengthElementsPrevious: 3 }
         ]
     };
 

@@ -89,10 +89,10 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             ]
         };
 
-        test('should return menu user and avatar when userType is suscribed', () => {
+        test('should return menu user and avatar when userType is subscribed', () => {
             const { container, getByText } = render(
                 <RightOptions
-                    userType="suscribed"
+                    userType="subscribed"
                     userName={mock.userName}
                     initials={mock.userName.substring(0, 2)}
                     desplegableData={mock.desplegable}
@@ -109,7 +109,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             expect(initials.textContent).toEqual(mock.userName.substring(0, 2));
         });
 
-        test('should return menu user, suscribe button and avatar when userType is logged', () => {
+        test('should return menu user, subscribe button and avatar when userType is logged', () => {
             const { container, getByText } = render(
                 <RightOptions
                     userType="logged"
@@ -126,7 +126,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             expect(getByText(mock.userName)).toBeInTheDocument();
         });
 
-        test('should return menu user, login button and suscribe buton when userType is unlogged', () => {
+        test('should return menu user, login button and subscribe buton when userType is unlogged', () => {
             useTermica.mockImplementation(() => false);
             const { container, getByText } = render(
                 <RightOptions userType="unlogged" loggedIn={false} />
@@ -141,7 +141,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             });
 
             const stickySubscribeButton = container.querySelector(
-                '#button-sticky'
+                '#sticky-button-text'
             );
             expect(stickySubscribeButton.textContent).toBe('SUSCRIBITE');
 
@@ -155,7 +155,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
         test('should execute callbacks when some elements are moused down', () => {
             const { getByText } = render(
                 <RightOptions
-                    userType="suscribed"
+                    userType="subscribed"
                     userName={mock.userName}
                     desplegableData={mock.desplegable}
                 />
@@ -178,7 +178,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             );
 
             const subscribeButton = container.querySelector('#btnsuscribite');
-            expect(subscribeButton.getAttribute('class')).toContain('--none');
+            expect(subscribeButton.getAttribute('class')).toContain('none');
         });
 
         test('should return  button_text,sticky_button_text with dynamic text based on buttonSuscribe', () => {
@@ -187,7 +187,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
 
             const buttonElement = document.querySelector('#btnsuscribite');
             const stickyButtonElement = document.querySelector(
-                '#button-sticky'
+                '#sticky-button-text'
             );
 
             // Verifica que los elementos estén presentes en el DOM

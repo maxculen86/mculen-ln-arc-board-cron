@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { createHeaderObserver } from '../utils/intersectionObserver';
 import { Header, MainHeader, Search } from '@ln/foodit-ui-header';
 import { useAppContext } from 'fusion:context';
-import siteProperties from '../../../../../properties/sites/recetas';
+import siteProperties from '../../../../../properties/sites/foodit';
 import TopNavigationBar from './components/TopNavigationBar';
 import RightOptions from './components/RightOptions';
 import ExtraOptions from './components/ExtraOptions';

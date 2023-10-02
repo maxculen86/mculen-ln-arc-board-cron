@@ -1,0 +1,33 @@
+import pageTransformV2Format from '../../../../../../../../../content/sources/utils/pageSource/acumulados/v2/mobile/byAuthor/pageTransformV2Format';
+
+describe('Test pages byAuthor api transformation with V2 Format', () => {
+    test('transform should returns metadata and items', () => {
+        const pageItems = [{}, {}, {}];
+
+        const result = pageTransformV2Format(pageItems);
+
+        expect(Object.keys(result).sort()).toEqual(
+            ['metadata', 'items'].sort()
+        );
+    });
+
+    test('transform should return right values for metadata object', () => {
+        const pageItems = [{}, {}, {}];
+
+        const result = pageTransformV2Format(pageItems);
+
+        expect(Object.keys(result.metadata).sort()).toEqual(
+            ['paginate'].sort()
+        );
+    });
+
+    test('transform should not break if there are no items', () => {
+        const pageItems = [[]];
+
+        const result = pageTransformV2Format(pageItems);
+
+        expect(Object.keys(result).sort()).toEqual(
+            ['metadata', 'items'].sort()
+        );
+    });
+});

@@ -1,3 +1,9 @@
+import React from 'react';
+import { useContent } from 'fusion:content';
+import NavigationListFeature from '../../../../components/features/LN-common/navigationList';
+import NAVIGATION_RESPONSE from '../../../../__mocks__/data/navigation/Economy';
+import { shallow } from 'enzyme';
+
 jest.mock('fusion:content', () => ({
     useContent: jest.fn()
 }));
@@ -17,16 +23,6 @@ jest.mock(
     '../../../../components/private/common/com-link-list',
     () => 'mock-com-link-list'
 );
-
-import React from 'react';
-import Static from 'fusion:static';
-import { useContent } from 'fusion:content';
-import { useFusionContext } from 'fusion:context';
-import NavigationListFeature from '../../../../components/features/LN-common/navigationList';
-import ComTitle from '../../../../components/private/common/com-title';
-import ComLinkList from '../../../../components/private/common/com-link-list';
-import NAVIGATION_RESPONSE from '../../../../__mocks__/data/navigation/Economy';
-import { shallow, mount, render } from 'enzyme';
 
 describe('Features - LN-Common - NavigationList =>', () => {
     describe('with empty navigation list ', () => {
