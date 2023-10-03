@@ -6,7 +6,6 @@ import { SITE_LANACION } from 'fusion:environment';
 import get from './utils/get';
 import withScreenUtils from './hocs/withScreenUtils';
 import handleCookie from '../LN/common/utils/handleCookie';
-import checkAnyVideos from './utils/checkAnyVideos';
 
 const findTemplate = type => {
     if (['story', 'results'].includes(type)) return 'nota';
@@ -24,15 +23,17 @@ const getInterval = (type, resolution, config) => {
 export const shouldBeExcluded = ({ globalContent }) => {
     const labelMetarefresh = get(globalContent, 'label.metarefresh.text', null);
     const contentElements = get(globalContent, 'content_elements', null);
+    const promoItem = get(globalContent, 'promo_items.basic', null);
 
     return (
         (contentElements &&
             contentElements.some(
                 contentElement =>
                     contentElement.type === 'raw_html' ||
-                    contentElement.type === 'oembed_response'
+                    contentElement.type === 'oembed_response' ||
+                    contentElement.type === 'video'
             )) ||
-        checkAnyVideos(globalContent) ||
+        (promoItem && promoItem.type === 'video') ||
         labelMetarefresh === 'No'
     );
 };
