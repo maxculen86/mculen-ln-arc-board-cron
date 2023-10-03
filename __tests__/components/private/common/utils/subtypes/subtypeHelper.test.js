@@ -213,12 +213,81 @@ describe('Private - Common - Utils - subtypeNotesWithoutAmp - subtypeHelper', ()
                 '/moda-y-belleza/moda-antiviral-nid19112020/'
             )
         ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/deportes/copa-davis-mientras-los-flashes-se-quedan-en-europa-argentina-recibe-a-lituania-con-el-objetivo-de-nid14092023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/opinion/carta-de-lectores/de-los-lectores-cartas-e-mails-nid05022021/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp('/otros/nota-de-prueba-nid17112022/')
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/revista-brando/storytelling-para-apps-nid16072020/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/revista-rolling-stone/ley-de-alquileres-se-acumulan-propuestas-de-reforma-mientras-propietarios-e-inquilinos-reclaman-nid11112021/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/sabado/esto-es-una-prueba-mas-nid09122020/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/tecnologia/jose-del-rio-revela-los-avances-de-la-inteligencia-artificial-en-la-nacion-nid14052023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/transito/que-son-las-neurofinanzas-y-por-que-algunas-personas-hacen-dinero-mas-facilmente-que-otras-y-no-nid31120000/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/turismo/nota-prueba-https-y-http-nid26012023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp('/videos/nota-video-test-1-nid12012023/')
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/buenos-aires/suba-de-precios-en-restaurantes-un-sector-en-crisis-nid07092022/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/seguridad/la-madrugada-que-se-derrumbo-la-mentira-de-jorge-mangeri-y-termino-acusado-del-femicidio-nid03052022/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/sociedad/el-papa-de-hitler-o-salvador-de-los-judios-quien-fue-pio-xii-y-por-que-su-papel-en-la-segunda-guerra-nid24092023/'
+            )
+        ).toBeTruthy();
+        expect(
+            subtypeNotesWithoutAmp('/revistas/nota-de-prueba-nid17452022/')
+        ).toBeTruthy();
     });
 
     it('Should return false when the subtype has amp', () => {
         expect(
             subtypeNotesWithoutAmp(
-                '/deportes/eeuu-y-rusia-chocan-por-responsabilidad-de-ataque-con-misil-nid17112022/'
+                '/politica/massa-acepto-la-propuesta-de-milei-y-postergara-el-debate-del-presupuesto-2024-hasta-despues-de-las-nid14092023/'
+            )
+        ).toBeFalsy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/economia/deuda-economia-pateo-vencimientos-por-unos-616000-millones-nid02102023/'
             )
         ).toBeFalsy();
     });
