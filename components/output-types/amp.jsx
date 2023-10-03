@@ -165,6 +165,12 @@ const Amp = props => {
                 />
                 <script async src="https://cdn.ampproject.org/v0.js" />
 
+                <script
+                    async
+                    custom-element="amp-jwplayer"
+                    src="https://cdn.ampproject.org/v0/amp-jwplayer-0.1.js"
+                />
+
                 <AMPScripts
                     layout={layout}
                     arcSite={arcSite}
