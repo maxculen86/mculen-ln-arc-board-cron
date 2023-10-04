@@ -79,7 +79,7 @@ export const getNotesLists = (listCustomFields = []) => {
         const title = get(field, 'title', '');
         const group = get(field, 'group');
 
-        return GetArticle(noteId, title, group);
+        return GetArticle(group, noteId, title);
     });
 };
 

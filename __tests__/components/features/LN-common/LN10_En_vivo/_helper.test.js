@@ -4,7 +4,8 @@ import {
     GetArticle,
     calculateTimePublish,
     convertMillisecondsToMinutes,
-    validateId
+    validateId,
+    getNotesLists
 } from '../../../../../components/features/LN-common/LN10_En_Vivo/_helpers';
 
 describe('Tests - helpers - feature - EnVivo', () => {
@@ -152,6 +153,25 @@ describe('Tests - helpers - feature - EnVivo', () => {
                     mockCurrentlDate
                 )
             ).toStrictEqual(false);
+        });
+    });
+
+    describe('Function getNotesLists', () => {
+        it('should return an empty array when listCustomFields is empty', () => {
+            const result = getNotesLists([]);
+
+            expect(result).toEqual([]);
+        });
+
+        it('should return an empty array when listCustomFields contains undefined values', () => {
+            const listCustomFields = [
+                [undefined, undefined, 1],
+                [undefined, undefined, 2]
+            ];
+
+            const result = getNotesLists(listCustomFields);
+
+            expect(result).toEqual([]);
         });
     });
 });
