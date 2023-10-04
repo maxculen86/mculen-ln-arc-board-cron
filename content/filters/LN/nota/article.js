@@ -412,6 +412,7 @@ export default `
         storytelling {
             _id
             ${video}
+            ${customVideoJw}
         }
         storytelling_mobile {
             _id
@@ -435,6 +436,7 @@ export default `
             ${video}
             embed_html
             content
+            ${customVideoJw}
         },
         summary {
             _id,
