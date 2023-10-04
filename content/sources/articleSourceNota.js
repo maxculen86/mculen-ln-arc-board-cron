@@ -352,20 +352,21 @@ const transformContent = async (
     const promiseArr = [];
     const sections = get(jsonArticle, 'taxonomy.sections');
     const promoItem = get(jsonArticle, 'promo_items', {});
+    const promoItemEdited = {};
 
-    const parsePromoItem = promoItems => {
-        if (get(promoItem, 'basic.type', '') === 'video') {
-            const videoArc = get(promoItem, 'basic', null);
-            return convertVideoArcToJw(videoArc).then(data => {
-                return {
-                    ...promoItems,
-                    basic: data
-                };
+    const parsePromoItem = promoItemObject => {
+        Object.keys(promoItemObject)
+            .filter(key => key !== 'video_jw' || key !== 'custom_embed')
+            .forEach(promoItemKey => {
+                const promoItem = get(promoItemObject, promoItemKey, undefined);
+                if (promoItem && promoItem.type === 'video') {
+                    promiseArr.push(
+                        convertVideoArcToJw(promoItem).then(data => {
+                            promoItemEdited[promoItemKey] = { ...data };
+                        })
+                    );
+                }
             });
-        }
-        return {
-            ...promoItems
-        };
     };
 
     const resp = {
@@ -379,8 +380,7 @@ const transformContent = async (
     };
 
     if (jsonArticle && jsonArticle.promo_items) {
-        const promoItemEdited = await parsePromoItem(promoItem);
-        resp.promo_items = promoItemEdited;
+        parsePromoItem(promoItem);
     }
 
     const subtype = get(jsonArticle, `subtype`, null);
@@ -496,6 +496,9 @@ const transformContent = async (
         const relatedContent = get(resp, 'related_content.basic', []);
         relatedContent.length &&
             (resp.related_content.basic = removeInvalidRelated(relatedContent));
+        if (resp.promo_items) {
+            resp.promo_items = { ...resp.promo_items, ...promoItemEdited };
+        }
         return resp;
     });
 };

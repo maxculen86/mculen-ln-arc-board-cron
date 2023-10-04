@@ -34,8 +34,12 @@ const getApertura = (
 ) => {
     const promoItemsVideo = get(videoBackground, 'promo_items', null);
     const epigrafe = get(videoBackground, 'headlines.basic', null);
-
-    const playlistJw = get(videoJW, 'embed.config.videoJw.playlist', []);
+    const videoJwTransformed =
+        videoBackground && videoBackground.subtype === 'video_jw'
+            ? videoBackground
+            : false;
+    const objectVideo = videoJW || videoJwTransformed || {};
+    const playlistJw = get(objectVideo, 'embed.config.videoJw.playlist', []);
     const firstPlaylist =
         Array.isArray(playlistJw) && playlistJw[0] ? playlistJw[0] : null;
     const {
