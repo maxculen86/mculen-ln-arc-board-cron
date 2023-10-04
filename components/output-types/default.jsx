@@ -237,6 +237,7 @@ const Default = props => {
                     canonicalUrl={canonicalUrl || _id}
                     arcSite={arcSite}
                     nodeType={nodeType}
+                    globalContent={globalContent}
                 />
                 {layout !== lnBuscador && (
                     <MetaTitle

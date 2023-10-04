@@ -66,7 +66,7 @@ describe('Tests - Component - AperturaStorytelling', () => {
             expect(video.hasAttribute('loop')).toBeTruthy();
             expect(video.hasAttribute('playsinline')).toBeTruthy();
             expect(video.getAttribute('poster')).toEqual(
-                'https://resizer.glanacion.com/resizer/Ihx2p7IGSpUnCH8ue6PTmyOYsdg=/1920x0/filters:format(webp):quality(80)/d3us6z9haan6vf.cloudfront.net/11-28-2020/t_d34af8ebded94f22b2b8e119931b6909_name_file_1280x720_2000_v3_1_.jpg'
+                'https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=720'
             );
         });
 

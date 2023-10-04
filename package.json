@@ -33,7 +33,7 @@
     "dependencies": {
         "@ln/common-ui-adaptableimage": "1.1.1",
         "@ln/common-ui-avatar": "0.0.1",
-        "@ln/common-ui-anexorugby": "1.1.8",
+        "@ln/common-ui-anexorugby": "1.1.10",
         "@ln/common-ui-badge": "1.1.0",
         "@ln/common-ui-button": "2.1.0",
         "@ln/common-ui-drawer": "0.0.5",

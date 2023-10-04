@@ -219,6 +219,59 @@ const table = `
         type
     }
 `;
+
+const videoJwObject = `
+    title
+    description,
+    kind,
+    playlist {
+        created,
+        description,
+        duration,
+        pubdate,
+        image,
+        images {
+            src,
+            type,
+            width
+        },
+        link,
+        mediaid,
+        sources {
+            file,
+            type,
+            bitrate,
+            filesize,
+            framerate,
+            height,
+            label,
+            type,
+            width
+        },
+        title,
+        tracks {
+            file,
+            kind
+        },
+        variations
+    }
+    `;
+
+const configPowerUpVideoJw = `
+    idVideo
+    videoJw {
+        ${videoJwObject}    
+    }
+    idPlayer
+`;
+const customVideoJw = `
+    subtype
+    embed {
+        config {
+            ${configPowerUpVideoJw}
+        }
+    }
+`;
 const customPowerUps = `
     subtype
     embed {
@@ -249,6 +302,7 @@ const customPowerUps = `
             date
             time
             isoDate
+            ${configPowerUpVideoJw}
         }
     }
 `;
@@ -350,6 +404,7 @@ export default `
             }
             ${image}
             ${video}
+            ${customVideoJw}
             auth {
                 1
             }
@@ -370,6 +425,9 @@ export default `
         }
         summary {
             ${customSummary}
+        }
+        video_jw {
+            ${customVideoJw}
         }
         apertura_multimedia {
             _id

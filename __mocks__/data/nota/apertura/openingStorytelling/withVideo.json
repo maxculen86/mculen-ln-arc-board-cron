@@ -437,6 +437,141 @@
             "type": "image",
             "url": "https://resizer.glanacion.com/resizer/crpHEYtpO_OYP0TTth3arr55sDc=/1920x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/F3DWKYXWABBLBMPV2O4M7RYTTU.jpg",
             "width": 1333
+        },
+        "video_jw": {
+            "_id": "AF54NTYZ2NFRJONKKNODEIN73U",
+            "embed": {
+                "config": {
+                    "idPlayer": "ih0086X3",
+                    "idVideo": "bb7snV27",
+                    "videoJw": {
+                        "description": "",
+                        "feed_instance_id": "d089bba1-f6fb-4afe-9367-90e49e6c2702",
+                        "idPlayer": "ih0086X3",
+                        "idVideo": "bb7snV27",
+                        "kind": "Single Item",
+                        "playlist": [
+                            {
+                                "Sitio": "LA NACION",
+                                "description": "",
+                                "duration": 10,
+                                "image": "https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=720",
+                                "images": [
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=320",
+                                        "type": "image/jpeg",
+                                        "width": 320
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=480",
+                                        "type": "image/jpeg",
+                                        "width": 480
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=640",
+                                        "type": "image/jpeg",
+                                        "width": 640
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=720",
+                                        "type": "image/jpeg",
+                                        "width": 720
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=1280",
+                                        "type": "image/jpeg",
+                                        "width": 1280
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/bb7snV27/poster.jpg?width=1920",
+                                        "type": "image/jpeg",
+                                        "width": 1920
+                                    }
+                                ],
+                                "link": "https://cdn.jwplayer.com/previews/bb7snV27",
+                                "mediaid": "bb7snV27",
+                                "pubdate": 1693833189,
+                                "sources": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/manifests/bb7snV27.m3u8",
+                                        "type": "application/vnd.apple.mpegurl"
+                                    },
+                                    {
+                                        "bitrate": 540776,
+                                        "file": "https://cdn.jwplayer.com/videos/bb7snV27-kTExGaWf.mp4",
+                                        "filesize": 675971,
+                                        "framerate": 25,
+                                        "height": 180,
+                                        "label": "180p",
+                                        "type": "video/mp4",
+                                        "width": 320
+                                    },
+                                    {
+                                        "bitrate": 801936,
+                                        "file": "https://cdn.jwplayer.com/videos/bb7snV27-K8B0kybS.mp4",
+                                        "filesize": 1002421,
+                                        "framerate": 25,
+                                        "height": 270,
+                                        "label": "270p",
+                                        "type": "video/mp4",
+                                        "width": 480
+                                    },
+                                    {
+                                        "bitrate": 2646835,
+                                        "file": "https://cdn.jwplayer.com/videos/bb7snV27-46NIuRKO.mp4",
+                                        "filesize": 3308544,
+                                        "framerate": 25,
+                                        "height": 720,
+                                        "label": "720p",
+                                        "type": "video/mp4",
+                                        "width": 1280
+                                    },
+                                    {
+                                        "bitrate": 120009,
+                                        "file": "https://cdn.jwplayer.com/videos/bb7snV27-hz5z2Tv4.m4a",
+                                        "filesize": 150012,
+                                        "label": "AAC Audio",
+                                        "type": "audio/mp4"
+                                    },
+                                    {
+                                        "bitrate": 1026344,
+                                        "file": "https://cdn.jwplayer.com/videos/bb7snV27-FnZGUVnC.mp4",
+                                        "filesize": 1282931,
+                                        "framerate": 25,
+                                        "height": 360,
+                                        "label": "360p",
+                                        "type": "video/mp4",
+                                        "width": 640
+                                    },
+                                    {
+                                        "bitrate": 1775553,
+                                        "file": "https://cdn.jwplayer.com/videos/bb7snV27-0G6Pwvlw.mp4",
+                                        "filesize": 2219442,
+                                        "framerate": 25,
+                                        "height": 540,
+                                        "label": "540p",
+                                        "type": "video/mp4",
+                                        "width": 960
+                                    }
+                                ],
+                                "title": "Video Home 2",
+                                "tracks": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/strips/bb7snV27-120.vtt",
+                                        "kind": "thumbnails"
+                                    }
+                                ],
+                                "variations": {}
+                            }
+                        ],
+                        "title": "Video Home 2"
+                    }
+                },
+                "id": "182a452164b07",
+                "url": "https://www.lanacion.com.ar/"
+            },
+            "subtype": "video_jw",
+            "type": "custom_embed"
         }
     },
     "publish_date": "2022-02-15T18:51:46.773Z",

@@ -1,4 +1,6 @@
-const decorator = (prefix, regex, replace, string) => {
+import getAuthorByline from '../../../common/utils/getAuthorByline';
+
+export const decorator = (prefix, regex, replace, string) => {
     return regex && replace && string
         ? `${prefix}${string
               .toLowerCase()
@@ -22,10 +24,51 @@ export const getTags = tags => {
         : '';
 };
 
-export const getCustParamsEnconde = (tags, sections) => {
+export const getAuthors = object => {
+    return object && object.length
+        ? object
+              .map(author => {
+                  const name = getAuthorByline(author);
+                  return decorator('au_', /\W/g, '_', name);
+              })
+              .join(',')
+        : '';
+};
+
+export const getAuthorsFromContentElements = object => {
+    const authors =
+        object &&
+        object.length &&
+        object.filter(
+            contentElement =>
+                contentElement.additional_properties &&
+                contentElement.additional_properties.nodeType === 'firma'
+        );
+    return authors && authors.length
+        ? authors
+              .map(author => decorator('au_', /\W/g, '_', author.content))
+              .join(',')
+        : '';
+};
+
+export const getCustParamsEncoded = (
+    tags,
+    sections,
+    authors = [],
+    id = '',
+    contentElements
+) => {
     const tagsFormated = getTags(tags);
     const categoriesFormated = getCategories(sections);
-    const dataConcat = tagsFormated.concat(',', categoriesFormated);
+    const authorList = authors.length
+        ? getAuthors(authors)
+        : getAuthorsFromContentElements(contentElements);
+
+    const dataConcat = tagsFormated
+        .concat(',', categoriesFormated)
+        .concat(',', authorList)
+        .concat(',', id);
+
     const dataEncoded =
         dataConcat.charAt(0) === ',' ? dataConcat.substring(1) : dataConcat;
 

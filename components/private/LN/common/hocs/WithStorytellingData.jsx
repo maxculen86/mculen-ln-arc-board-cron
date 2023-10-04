@@ -68,6 +68,7 @@ export default function WithStorytellingData(WrappedComponent) {
 
             const basicImage = get(promoItems, 'basic', null);
             const videoBackground = get(promoItems, 'storytelling', null);
+            const videoJw = get(promoItems, 'video_jw', null);
             const outputType = get(this, 'props.outputType', null);
             const type = get(this, 'props.globalContent.type', null);
             const subtype = get(this, 'props.globalContent.subtype', null);
@@ -77,22 +78,25 @@ export default function WithStorytellingData(WrappedComponent) {
                 false
             );
             const device = getTypeOfDevice({
-                mobile: 768,
-                tablet: 1024
+                breakpoints: {
+                    mobile: 768,
+                    tablet: 1024
+                }
             });
 
             const isMobile = outputType === 'amp' || device !== 'desktop';
 
             return type === 'story' &&
                 (subtype === STORYTELLING || subtype === FOTOAL100) &&
-                (basicImage || videoBackground || storytellingMobile)
+                (basicImage || videoBackground || storytellingMobile || videoJw)
                 ? getApertura(
                       isMobile,
                       basicImage,
                       videoBackground,
                       storytellingMobile,
                       isLoadWithPicture,
-                      device
+                      device,
+                      videoJw
                   )
                 : {};
         };

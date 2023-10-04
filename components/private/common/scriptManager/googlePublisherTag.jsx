@@ -5,6 +5,9 @@ import { googlePublisherAndLiftIgniterPropTypes } from '../utils/propTypesHelper
 import handleCookie from '../../LN/common/utils/handleCookie';
 import createHash from '../utils/createHash';
 
+// TODO refactorizar a componente funcional, extraer logica de funciones que se duplican en getDataFormated.js y en liftigniter
+// la unica diferencia es que en este archivo, this.decorate las devuelve como string
+
 class GooglePublisherTag extends Component {
     static decorate(prefix, regex, replace, string) {
         this.decorate(prefix, regex, replace, string);
