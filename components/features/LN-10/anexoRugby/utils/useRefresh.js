@@ -1,11 +1,14 @@
 import { useEffect, useRef } from 'react';
 import { updateHomeMatches, isMatchLiveClienSide } from './liveDataHelper';
+
 const useRefresh = (matches, setMatches) => {
     const { liveIds, updatedMatches } = isMatchLiveClienSide(matches);
     const reset = useRef(true);
     const matchRef = useRef(updatedMatches);
     const pooling = useRef(null);
+
     matchRef.current = matches;
+
     const callBack = async () => {
         const matchesWithLiveData = await updateHomeMatches(
             matchRef.current,
@@ -13,6 +16,7 @@ const useRefresh = (matches, setMatches) => {
         );
         setMatches(matchesWithLiveData);
     };
+
     useEffect(() => {
         if (reset.current === true) {
             setMatches(updatedMatches);
@@ -23,6 +27,7 @@ const useRefresh = (matches, setMatches) => {
             pooling.current = setInterval(callBack, 25000);
         }
     }, []);
+
     useEffect(() => {
         if (liveIds.length === 0) {
             clearInterval(pooling.current);
