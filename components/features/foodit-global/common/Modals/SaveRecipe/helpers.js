@@ -47,23 +47,21 @@ export const saveRecipeConfig = {
 export const actionButtons = ({
     action,
     close,
-    folders,
     ids,
     indexStep,
     newFolder,
     selectedFolder,
-    setFolders,
     setIndexStep
 }) => {
     const actions = {
-        close: () => close(),
+        close,
         forwardStep: () => setIndexStep(indexStep - 1),
         nextStep: () => setIndexStep(indexStep + 1),
         save: () => {
-            newFolder && setFolders([...folders, newFolder]);
-            alert(
-                `Se guardaron los ids: ${ids} en la carpeta ${selectedFolder}`
-            );
+            const nameFolder =
+                selectedFolder === 'Nueva carpeta' ? newFolder : selectedFolder;
+
+            alert(`Se guardaron los ids: ${ids} en la carpeta ${nameFolder}`);
             close();
         }
     };

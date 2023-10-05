@@ -3,14 +3,12 @@ import { Button } from '@ln/foodit-ui-button';
 
 const FooterSaveRecipe = ({
     close,
-    folders,
     ids,
     indexStep,
     leftButton,
     newFolder,
     rightButton,
     selectedFolder,
-    setFolders,
     setIndexStep
 }) => {
     return (
@@ -23,12 +21,10 @@ const FooterSaveRecipe = ({
                     actionButtons({
                         action: leftButton.action,
                         close,
-                        folders,
                         ids,
                         indexStep,
                         newFolder,
                         selectedFolder,
-                        setFolders,
                         setIndexStep
                     })
                 }
@@ -43,18 +39,14 @@ const FooterSaveRecipe = ({
                     actionButtons({
                         action: rightButton.action,
                         close,
-                        folders,
                         ids,
                         indexStep,
                         newFolder,
                         selectedFolder,
-                        setFolders,
                         setIndexStep
                     })
                 }
-                {...(selectedFolder === 'Elegir carpeta' && {
-                    disabled: true
-                })}
+                disabled={selectedFolder === 'Elegir carpeta'}
             >
                 {rightButton.text}
             </Button>

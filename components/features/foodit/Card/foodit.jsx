@@ -114,7 +114,7 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
                                     e.stopPropagation();
                                     console.log('click button');
                                 },
-                                'data-id': 'modal-id-test-1',
+                                'data-id': articleId,
                                 'data-modal': 'open-modal'
                             }}
                             {...(!isOpening

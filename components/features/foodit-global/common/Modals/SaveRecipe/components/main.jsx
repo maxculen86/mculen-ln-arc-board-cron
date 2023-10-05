@@ -3,15 +3,16 @@ import { Resto } from '@ln/foodit-ui-assets';
 
 const MainSaveRecipe = props => {
     const {
-        folders,
         newFolder,
         selectedFolder,
-        setNewFolder,
-        setSelectedFolder,
+        onInputFolderChange,
+        onSelectChange,
         showInputFolder,
         showSelect,
         suggestions
     } = props;
+    // TODO: Tomar valores de la API
+    const folders = ['Para los martes', 'Para los jueves', 'Para los viernes'];
 
     return (
         <main className="mb-16">
@@ -24,7 +25,7 @@ const MainSaveRecipe = props => {
                         name="select"
                         className="w-100 py-8 px-16 cursor-pointer"
                         value={selectedFolder}
-                        onChange={e => setSelectedFolder(e.target.value)}
+                        onChange={onSelectChange}
                     >
                         <option className="p-8" disabled value="Elegir carpeta">
                             Elegir carpeta
@@ -43,7 +44,7 @@ const MainSaveRecipe = props => {
                     <input
                         type="text"
                         placeholder="Introducir nombre nueva carpeta"
-                        onChange={e => setNewFolder(e.target.value)}
+                        onChange={onInputFolderChange}
                         value={newFolder}
                         className="w-100 py-8 px-16"
                     />

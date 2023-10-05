@@ -3,20 +3,18 @@ import { saveRecipeConfig } from './helpers';
 import HeaderSaveRecipe from './components/header';
 import MainSaveRecipe from './components/main';
 import FooterSaveRecipe from './components/footer';
+import useInputListener from './hooks/useInputListener';
 
 const SaveRecipe = props => {
+    const { close, ids, indexStep, setIndexStep } = props;
+
     const {
-        close,
-        folders,
-        ids,
-        indexStep,
-        newFolder,
-        selectedFolder,
-        setFolders,
-        setIndexStep,
-        setNewFolder,
-        setSelectedFolder
-    } = props;
+        onChange: onInputFolderChange,
+        value: inputValue
+    } = useInputListener('');
+    const { onChange: onSelectChange, value: selectValue } = useInputListener(
+        'Elegir carpeta'
+    );
 
     const {
         leftButton,
@@ -25,31 +23,28 @@ const SaveRecipe = props => {
         showSelect,
         suggestions,
         title
-    } = getConfig(saveRecipeConfig, selectedFolder, indexStep);
+    } = getConfig(saveRecipeConfig, selectValue, indexStep);
 
     return (
         <>
             <HeaderSaveRecipe title={title} />
             <MainSaveRecipe
-                folders={folders}
-                newFolder={newFolder}
-                selectedFolder={selectedFolder}
-                setNewFolder={setNewFolder}
-                setSelectedFolder={setSelectedFolder}
+                newFolder={inputValue}
+                onInputFolderChange={onInputFolderChange}
+                selectedFolder={selectValue}
+                onSelectChange={onSelectChange}
                 showInputFolder={showInputFolder}
                 showSelect={showSelect}
                 suggestions={suggestions}
             />
             <FooterSaveRecipe
                 close={close}
-                folders={folders}
                 ids={ids}
                 indexStep={indexStep}
                 leftButton={leftButton}
-                newFolder={newFolder}
+                newFolder={inputValue}
                 rightButton={rightButton}
-                selectedFolder={selectedFolder}
-                setFolders={setFolders}
+                selectedFolder={selectValue}
                 setIndexStep={setIndexStep}
             />
         </>

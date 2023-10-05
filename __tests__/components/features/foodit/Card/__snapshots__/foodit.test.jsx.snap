@@ -61,6 +61,8 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
             </div>
             <button
               class="flex"
+              data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
+              data-modal="open-modal"
               title="Guardar receta"
             >
               <i
@@ -173,6 +175,8 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
             </div>
             <button
               class="flex"
+              data-id="FMLGIYTL2ZBCRAKQTSO27CCQ6U"
+              data-modal="open-modal"
               title="Guardar receta"
             >
               <i
@@ -285,6 +289,8 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
             </div>
             <button
               class="flex"
+              data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
+              data-modal="open-modal"
               title="Guardar receta"
             >
               <i

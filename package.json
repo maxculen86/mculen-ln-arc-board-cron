@@ -212,5 +212,8 @@
             "node_modules",
             "build"
         ]
+    },
+    "optionalDependencies": {
+        "fsevents": "2.3.3"
     }
 }

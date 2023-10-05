@@ -14,9 +14,6 @@ const BaseLayout = ({ children, ...r }) => {
             <main className="container mb-72" style={{ minHeight: '100vh' }}>
                 {children}
             </main>
-            <button data-id="sklere" data-modal="open-modal">
-                BOOTOOOOON
-            </button>
             <NavigationBar />
             <Footer />
             <Modal />
