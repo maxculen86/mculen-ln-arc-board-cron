@@ -118,12 +118,13 @@
 }
 
 @mixin OpeningFull {
-    //.mod-opening
-
-    margin-top: px(-48); //header mobile sin linea
+    margin-top: px(-64); //header mobile sin linea
+    @media ($media-m) {
+        margin-top: px(-89);
+    }
 
     @media ($media-l) {
-        margin-top: px(-72); //header sin linea
+        margin-top: px(-57); //header sin linea
     }
 
     .mod-figure {

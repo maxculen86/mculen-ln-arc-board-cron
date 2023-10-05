@@ -12,6 +12,14 @@ import SubHeader from '../subHeader';
 import MainHeader from '../mainHeader';
 import { isLoggedIn, isSubscribed } from '../../LN/common/utils/contextHelper';
 
+import '../../../../resources/packages/css/@ln/contenidos-ui-header/index.css';
+import '../../../../resources/packages/css/@ln/contenidos-ui-dropdown/index.css';
+import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
+import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
+import '../../../../resources/packages/css/@ln/contenidos-ui-button/index.css';
+import '../../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
+import '../../../../resources/packages/css/@ln/contenidos-ui-tooltip/index.css';
+
 const HeaderLN = props => {
     const {
         outputType,
@@ -50,7 +58,7 @@ const HeaderLN = props => {
 
     const isUserLoggedIn = isLoggedIn();
     const isUserSubscribed = isSubscribed();
-    const isHome = layoutsName.HomeLN10 === layout;
+    const isHome = layout === layoutsName.HomeLN10;
 
     const userType = setUserType(isUserLoggedIn, isUserSubscribed);
 
@@ -59,22 +67,28 @@ const HeaderLN = props => {
 
     return (
         <>
-            <Header userType={userType}>
-                <MainHeader
-                    userType={userType}
+            <div className="header-container">
+                <Header userType={userType}>
+                    <MainHeader
+                        layout={layout}
+                        userType={userType}
+                        toggleDesplegable={toggleDesplegable}
+                        layoutsName={layoutsName}
+                        isHome={isHome}
+                    />
+                    {isHome && <SubHeader />}
+                </Header>
+                <NavbarMobile
+                    isHome={isHome}
                     toggleDesplegable={toggleDesplegable}
                 />
-                <SubHeader />
-            </Header>
-            <NavbarMobile
-                isHome={isHome}
-                toggleDesplegable={toggleDesplegable}
-            />
-            <Desplegable
-                isActive={dropdown}
-                toggleDesplegable={toggleDesplegable}
-                arcSite={arcSite}
-            />
+                <Desplegable
+                    isActive={dropdown}
+                    toggleDesplegable={toggleDesplegable}
+                    arcSite={arcSite}
+                />
+            </div>
+            <div className="header-sentinel" />
         </>
     );
 };

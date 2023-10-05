@@ -51,7 +51,7 @@ const Banner = ({
         return (
             <article data-feature-id={featureId}>
                 <WarningMessage
-                    key={featureId}
+                    featureId={featureId}
                     type={error.type}
                     message={error.message}
                 />

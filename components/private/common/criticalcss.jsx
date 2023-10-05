@@ -43,9 +43,9 @@ export const CriticalCSSString =
     'rgba(255,255,255,.1),rgba(255,255,255,.1) 4px,rgba(0,0,0,.15) 6px);background:repeating-linear-gradient(45deg,rgba(255,255,255,.1),' +
     'rgba(255,255,255,.1),rgba(255,255,255,.1),rgba(255,255,255,.1) 4px,rgba(0,0,0,.15) 6px);' +
     'content:"";height:3.125rem;width:100%;display:block}@media (min-width:768px){#fusion-app>#wrapper:not(.sitemap):not(.html-libre.--transparent):before{display:none}}' +
-    '#fusion-app>#wrapper:not(.sitemap):not(.html-libre.--transparent).--transparent:before{background:#000}@media (min-width:1024px)' +
-    '{#fusion-app>#wrapper:not(.sitemap):not(.html-libre.--transparent){margin-top:4.5625rem}}#content{position:relative;padding-top:1.5rem}' +
-    '.nota.html-libre #content{padding-top:0}.header{position:relative;border-bottom:1px solid #f2f2f2;padding:.75rem 0;background:#fff;width:100%;z-index:102;' +
+    '#fusion-app>#wrapper:not(.sitemap):not(.html-libre.--transparent).--transparent:before{background:#000}' +
+    '#content{position:relative;padding-top:1.5rem}' +
+    '.nota.html-libre #content{padding-top:0} .header{position:relative;border-bottom:1px solid #f2f2f2;padding:.75rem 0;background:#fff;width:100%;z-index:102;' +
     'transition:top .2s ease-in-out}.header .row{align-items:center}.header .com-button.--icon .com-icon{font-size:.875rem;margin-right:.5rem}.header__left{display:none}' +
     '@media (min-width:48em){.header__middle .logo-la-nacion{font-size:1.25rem}}@media (min-width:64em){.header__middle .logo-la-nacion{font-size:1.875rem}}' +
     '.header__right #menuUser{display:none}.header__right .--secondary{display:none}@media (max-width:1023px){.header__right .com-usuario .--special' +
@@ -87,7 +87,8 @@ export const CriticalCSSString =
     'margin:0 auto;justify-content:space-between}.com-nav-mobile .row .item-foo{display:flex;flex-direction:column;justify-content:center;align-items:center;' +
     'background:0 0;color:#333}.com-nav-mobile .row .item-foo p{font-size:.5625rem}@media (min-width :22em){.com-nav-mobile .row .item-foo p{font-size:.6875rem}}' +
     '.com-nav-mobile .row .item-foo i{margin-bottom:.25rem}.com-nav-mobile .row .item-foo.--active p{color:#0250c9}.com-nav-mobile .row .item-foo' +
-    '.--active i{color:#0250c9}.com-nav-mobile .row .item-foo:first-child{margin:-.3125rem}@media (min-width:64em){.com-nav-mobile{display:none}}';
+    '.--active i{color:#0250c9}.com-nav-mobile .row .item-foo:first-child{margin:-.3125rem}@media (min-width:64em){.com-nav-mobile{display:none}' +
+    '.--header-fixed-margin{margin-top: 3.5rem !important}}';
 
 const CriticalCSS = () => {
     const { contextPath, deployment } = useAppContext();

@@ -2,6 +2,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import classNames from 'classnames';
 import GlobalProvider from '../private/common/context/globalContext';
 import { getSectionLogo } from '../private/common/utils/sectionUtils';
 import getBannerMegatop from '../private/common/utils/getBannerMegatop';
@@ -26,13 +27,20 @@ const lnNotaInfografia = ({
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
+
+    const classNameNotaMain = classNames(
+        'wrapper',
+        '--top-fixed',
+        'nota',
+        '--info',
+        magazine,
+        amp
+    );
+
     return (
         <GlobalProvider>
             {bannerMegatop}
-            <NotaMain
-                className={`nota --info ${magazine} ${amp}`}
-                outputType={outputType}
-            >
+            <NotaMain className={classNameNotaMain} outputType={outputType}>
                 {children}
             </NotaMain>
             <LoadBannersSSR />

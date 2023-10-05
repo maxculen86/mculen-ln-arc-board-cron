@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import StaticContent from '../../private/common/staticContent';
-import Header from '../../private/LN/common/header';
+import Header from '../../private/LN10/header';
 import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import '../../../resources/dist/css/ln/components/banners.css';
@@ -50,9 +50,12 @@ const LNSportsHome = props => {
                 idCollectionApertura={idCollectionApertura}
             >
                 {megatop}
-                <div id="wrapper" className="acumulado deportes">
+                <div
+                    id="wrapper"
+                    className="wrapper --top-fixed acumulado deportes"
+                >
                     <Header />
-                    <main id="content">
+                    <main id="content" className="--header-fixed-margin">
                         {stickyMobile}
                         <div className="row --top">
                             <div className="lay">

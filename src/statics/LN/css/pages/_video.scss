@@ -9,12 +9,16 @@
         .--apertura {
             background: $dark-neutral-50;
             color: $neutral-white;
-            padding: px(72) 0 $spacing-lg;
-            margin-top: px(-50);
+            padding: px(86) 0 $spacing-lg;
+            margin-top: px(-64);
             margin-bottom: $spacing-lg;
+            @media ($media-m) {
+                padding-top: px(111);
+                margin-top: px(-89);
+            }
             @media ($media-l) {
-                padding-top: px(104);
-                margin-top: px(-72);
+                padding-top: px(89);
+                margin-top: px(-57);
             }
             .com-title,
             .com-subhead {

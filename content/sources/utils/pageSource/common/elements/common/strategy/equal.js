@@ -8,8 +8,8 @@ export const equal = (element, configElement, lengthBannersPrevious) => {
         ? get(element, configElement.keyFind, null)
         : null;
     if (
-        configElement.minLengthBannersPrevious &&
-        lengthBannersPrevious >= configElement.minLengthBannersPrevious
+        configElement.minLengthElementsPrevious &&
+        lengthBannersPrevious >= configElement.minLengthElementsPrevious
     ) {
         return false;
     }

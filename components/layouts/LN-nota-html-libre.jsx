@@ -1,7 +1,8 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import Header from '../private/LN/common/header';
+import classNames from 'classnames';
+import Header from '../private/LN10/header';
 import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
 
 import GlobalProvider from '../private/common/context/globalContext';
@@ -16,14 +17,23 @@ const lnNotaNoticia = ({
     isAdmin
 }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
+
+    const classNameWrapper = classNames(
+        'wrapper',
+        '--top-fixed',
+        'nota',
+        'html-libre',
+        amp
+    );
+
     return (
         <GlobalProvider>
             {/* Banner Megatop */}
             {getBannerMegatop(bannerMegatop, amp, tree, isAdmin)}
 
-            <div id="wrapper" className={`nota html-libre ${amp}`}>
+            <div id="wrapper" className={classNameWrapper}>
                 <Header />
-                <main id="content">
+                <main id="content" className="--header-fixed-margin">
                     <div
                         className="lay --apertura"
                         style={{ maxWidth: '100%', padding: '0rem' }}

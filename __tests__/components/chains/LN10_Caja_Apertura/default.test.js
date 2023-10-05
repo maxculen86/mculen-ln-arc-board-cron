@@ -5,6 +5,21 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import renderables from '../../../../__mocks__/data/renderables/LN10_Caja_Bomba.json';
+import getDynamicBanners from '../../../../components/private/common/banners/dynamicBanners/getDynamicBanners';
+import DivBannerSSR from '../../../../components/private/common/banners/DivBannerSSR';
+import Context from 'fusion:context';
+
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+        return props.children(mockAvailableProps);
+    }
+}));
+
+jest.mock(
+    '../../../../components/private/common/banners/dynamicBanners/getDynamicBanners',
+    () => jest.fn()
+);
 
 jest.mock('fusion:consumer', component => {
     return function(component) {
@@ -18,6 +33,8 @@ jest.mock(
 );
 
 describe('components - chains - LN10_Caja_Apertura - helper', () => {
+    Context.useAppContext = jest.fn(() => ({}));
+
     const articleFeature = <ArticleFeature id="noteId" />;
 
     const getProps = (layout, children, isAdmin = true) => ({
@@ -77,6 +94,45 @@ describe('components - chains - LN10_Caja_Apertura - helper', () => {
             );
 
             expect(container.querySelector('.focal-70')).toBeNull();
+        });
+
+        test('should render banner mob returned from getDynamicBanners', () => {
+            getDynamicBanners.mockImplementation(() => ({
+                bannerMob: (
+                    <DivBannerSSR
+                        bannerConfiguration={{
+                            slotId: 'caja2_mob',
+                            classes: 'caja2_mob',
+                            withoutHide: true,
+                            isStatic: true
+                        }}
+                    />
+                )
+            }));
+
+            const { container } = render(
+                <section data-section="pre-apertura">
+                    <CajaApertura
+                        {...getProps('focal-70', [articleFeature], false)}
+                    />
+                </section>
+            );
+
+            const divBanner = container.querySelector('.mod-banner');
+            const comBanner = container.querySelector('.com-banner');
+            const idAttribute = comBanner.getAttribute('id');
+
+            expect(divBanner).toBeInTheDocument();
+            expect(divBanner).toHaveClass('--caja2_mob', 'caja2_mob');
+
+            expect(comBanner).toBeInTheDocument();
+            expect(comBanner).toHaveAttribute('data-prebid-enabled', 'false');
+            expect(comBanner).toHaveAttribute('data-size', '[]');
+            expect(comBanner).toHaveAttribute('data-sizemap', '[]');
+            expect(comBanner).toHaveAttribute('data-subscription', 'false');
+            expect(comBanner).toHaveAttribute('data-without-hide', 'true');
+
+            expect(idAttribute).toBe('caja2_mob');
         });
     });
 });

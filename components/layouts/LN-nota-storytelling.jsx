@@ -1,7 +1,6 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import StaticValidation from '../private/common/staticValidation';
-import Header from '../private/LN/common/header';
+import Header from '../private/LN10/header';
 import Footer from '../private/LN10/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
 import '../../resources/dist/css/ln/pages/storytelling.css';
@@ -16,6 +15,7 @@ import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
 import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import get from '../private/common/utils/get';
 import StaticContent from '../private/common/staticContent';
+import classNames from 'classnames';
 
 const lnNotaStorytelling = ({
     children,
@@ -47,15 +47,21 @@ const lnNotaStorytelling = ({
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
 
+    const classNameWrapper = classNames(
+        'wrapper',
+        '--top-fixed',
+        'nota',
+        magazine,
+        '--storytelling',
+        amp
+    );
+
     return (
         <GlobalProvider>
             {bannerMegatop}
-            <div
-                id="wrapper"
-                className={`nota ${magazine} --storytelling --transparent ${amp}`}
-            >
+            <div id="wrapper" className={classNameWrapper}>
                 <Header />
-                <main id="content">
+                <main id="content" className="--header-fixed-margin">
                     {children[1]}
 
                     {isLoadWithPicture && withoutVideoBackground ? (

@@ -16,7 +16,7 @@
   background-color: var(--dark-neutral-100);
   transform: rotate(225deg);
 }
-.--top-fixed.homepage .ln-tooltip {
+.--top-fixed .ln-tooltip {
   display: none;
 }
 .ln-tooltip.--bottom-right_xs {

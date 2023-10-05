@@ -77,7 +77,7 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
         expect(elementsWithAtLeastOne).toEqual(false);
     });
 
-    test('Equal when lengthBannersPrevious >= configElement.minLengthBannersPrevious', () => {
+    test('Equal when lengthBannersPrevious >= configElement.minLengthElementsPrevious', () => {
         const element = {
             type: 0,
             sectionAliasMobile: 'apertura',
@@ -94,7 +94,7 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
             sectionWeb: 'Apertura'
         };
         const configElement = Object.assign([], configBanner);
-        configElement.minLengthBannersPrevious = 1;
+        configElement.minLengthElementsPrevious = 1;
         const lengthBannersPrevious = 2;
         const elementsWithAtLeastOne = equal(
             element,
@@ -141,7 +141,7 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
             sectionWeb: 'Apertura'
         };
         const configElement = Object.assign([], configBanner);
-        configElement.minLengthBannersPrevious = 1;
+        configElement.minLengthElementsPrevious = 1;
         configElement.typeValue = 1;
         const lengthBannersPrevious = 0;
         const elementsWithAtLeastOne = equal(
@@ -162,7 +162,7 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
             sectionWeb: 'Apertura'
         };
         const configElement = Object.assign([], configBanner);
-        configElement.minLengthBannersPrevious = 3;
+        configElement.minLengthElementsPrevious = 3;
         configElement.maxLength = 3;
         const lengthBannersPrevious = 0;
 
@@ -184,7 +184,7 @@ describe('Test Method atleastone sources-utils-pageSource-common-elements-common
             sectionWeb: 'Apertura'
         };
         const configElement = Object.assign([], configBanner);
-        configElement.minLengthBannersPrevious = 3;
+        configElement.minLengthElementsPrevious = 3;
         configElement.value = [1, 2, 3, 4];
         const lengthBannersPrevious = 0;
         const elementsWithAtLeastOne = equal(

@@ -15,10 +15,13 @@
         "is_default_website": false
     },
     {
-        "_id": "recetas",
+        "_id": "foodit",
         "display_name": "FOODIT",
         "base_path": "/",
-        "is_default_website": false
+        "is_default_website": false,
+        "domains": [
+            "https://lanacionar-recetas-sandbox.web.arc-cdn.net/"
+        ]
     }
 
 ]

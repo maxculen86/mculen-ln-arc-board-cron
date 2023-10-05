@@ -4,8 +4,6 @@ import { render } from '@testing-library/react';
 import BannerLogoHeader from '../../../../../components/private/common/banners/BannerLogoHeader';
 import { queueGoogletagCommand } from '../../../../../components/private/LN/common/utils/bannerHelper';
 
-jest.mock('fusion:static', () => 'mock-static');
-
 jest.mock('fusion:context', () => () => ({
     default: props => {
         const mockAvailableProps = {};
