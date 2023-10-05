@@ -11,7 +11,7 @@
         "dev": "npm run build-dev && npm run start",
         "prod": "npm run build && npm run start",
         "watch": "npm run build-watch & npm run start",
-        "build": "npm run clean && npm run webpack",
+        "build": "npm run clean && npm run ln:home-ln10:cssmin && npm run webpack",
         "build-dev": "npm run ln:home-ln10 && npm run ln:home-ln10:cssmin && npm run clean && npm run webpack-dev",
         "build-watch": "npm run ln:home-ln10 && npm run ln:home-ln10:cssmin && npm run clean && npm run webpack-watch",
         "clean": "rm -rf resources/dist",
