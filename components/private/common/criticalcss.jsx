@@ -88,7 +88,7 @@ export const CriticalCSSString =
     'background:0 0;color:#333}.com-nav-mobile .row .item-foo p{font-size:.5625rem}@media (min-width :22em){.com-nav-mobile .row .item-foo p{font-size:.6875rem}}' +
     '.com-nav-mobile .row .item-foo i{margin-bottom:.25rem}.com-nav-mobile .row .item-foo.--active p{color:#0250c9}.com-nav-mobile .row .item-foo' +
     '.--active i{color:#0250c9}.com-nav-mobile .row .item-foo:first-child{margin:-.3125rem}@media (min-width:64em){.com-nav-mobile{display:none}' +
-    '.--header-fixed-margin{margin-top: 3.5rem !important}}';
+    '.--header-fixed-margin.--header-fixed-margin {margin-top: 3.5rem}}';
 
 const CriticalCSS = () => {
     const { contextPath, deployment } = useAppContext();
