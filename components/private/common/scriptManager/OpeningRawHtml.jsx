@@ -3,10 +3,11 @@ import parse from 'html-react-parser';
 
 const OpeningRawHTML = ({
     contentElements = [],
-    layoutsAllowed = [],
     layoutName = 'LN-nota-html-libre'
 }) => {
-    const templateAllowed = layoutsAllowed.includes(layoutName);
+    // TODO: Repensar donde poner 'LN-nota-html-libre' para que no quede hardcore
+    // Se sube rapido por ser hotfix
+    const templateAllowed = 'LN-nota-html-libre' === layoutName;
     const rawHTMLS = contentElements.filter(
         (contentElement = {}) => contentElement.type === 'raw_html'
     );

@@ -284,7 +284,6 @@ const Default = props => {
                 {addMetaNoIndexNoFollow({ requestUri })}
                 <OpeningRawHTML
                     contentElements={contentElements}
-                    layoutsAllowed={[siteProperties.layoutsName.HtmlLibre]}
                     layoutName={layout}
                 />
             </head>
