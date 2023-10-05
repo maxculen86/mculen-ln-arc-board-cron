@@ -282,7 +282,11 @@ const Default = props => {
                 />
                 <ScriptVideoPowaHTML subtype={subtype} />
                 {addMetaNoIndexNoFollow({ requestUri })}
-                <OpeningRawHTML contentElements={contentElements} />
+                <OpeningRawHTML
+                    contentElements={contentElements}
+                    layoutsAllowed={[siteProperties.layoutsName.HtmlLibre]}
+                    layoutName={layout}
+                />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />
