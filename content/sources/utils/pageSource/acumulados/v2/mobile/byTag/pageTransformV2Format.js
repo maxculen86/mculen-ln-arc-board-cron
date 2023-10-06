@@ -1,6 +1,6 @@
 const pageTransformV2Format = resultPageData => {
     const metadata = {
-        paginate: true
+        paginate: false
     };
 
     return {
