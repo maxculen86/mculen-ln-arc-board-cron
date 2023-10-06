@@ -35,6 +35,13 @@ const transform = async (dataPage, query) => {
                 setTitleByLayout[layoutPage](elementsPageHome, layoutPage)) ||
             elementsPageHome;
 
+            // Add Banners by Configuration set in file /pageSource/common/elements/banners/config/configTaskPositionBanners.json
+        elementsPageHome =
+        (setBannerByLayout[layoutPage] &&
+            setBannerByLayout[layoutPage](elementsPageHome, layoutPage)) ||
+        elementsPageHome;
+        
+
         // Add Component Dolar set file /pageSource/common/elements/dolar/config/configDolarPositionbySection.js
         elementsPageHome =
             (setDolarByLayout[layoutPage] &&
@@ -44,11 +51,7 @@ const transform = async (dataPage, query) => {
                 ))) ||
             elementsPageHome;
 
-        // Add Banners by Configuration set in file /pageSource/common/elements/banners/config/configTaskPositionBanners.json
-        elementsPageHome =
-            (setBannerByLayout[layoutPage] &&
-                setBannerByLayout[layoutPage](elementsPageHome, layoutPage)) ||
-            elementsPageHome;
+        
 
         // Add Ranking by Configuration set in file /pageSource/common/elements/ranking/config/configRankingPositionbySection.json
         const propsRanking = {
