@@ -35,6 +35,7 @@
         "@ln/common-ui-adaptableimage": "1.1.1",
         "@ln/common-ui-avatar": "0.0.1",
         "@ln/common-ui-anexorugby": "1.1.8",
+        "@ln/common-ui-animate": "0.0.2",
         "@ln/common-ui-badge": "1.1.0",
         "@ln/common-ui-button": "2.1.0",
         "@ln/common-ui-drawer": "0.0.5",
@@ -89,8 +90,8 @@
         "@ln/foodit-ui-header": "0.0.1",
         "@ln/foodit-ui-image": "0.0.1",
         "@ln/foodit-ui-link": "0.0.1",
-        "@ln/foodit-ui-modal": "0.0.1-beta.8",
-        "@ln/foodit-ui-sass": "0.0.2-beta.7",
+        "@ln/foodit-ui-modal": "0.0.2",
+        "@ln/foodit-ui-sass": "0.0.5",
         "@ln/foodit-ui-topnavigationbar": "0.0.1",
         "classnames": "2.3.2",
         "copyfiles": "2.4.1",
@@ -212,8 +213,5 @@
             "node_modules",
             "build"
         ]
-    },
-    "optionalDependencies": {
-        "fsevents": "2.3.3"
     }
 }

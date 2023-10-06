@@ -25,7 +25,7 @@ export const saveRecipeConfig = {
                 action: 'save'
             },
             showInputFolder: true,
-            suggestions: ['skere', 'skere 2', 'skere 3']
+            suggestions: ['Para los lunes', 'Para los martes', 'Para el finde']
         }
     },
     'current-folder': {

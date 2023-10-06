@@ -40,7 +40,6 @@ html {
 }
 
 body {
-  font-family: "Roboto", Arial, sans-serif;
   color: var(--neutral-light-800);
 }
 
@@ -116,6 +115,10 @@ select:focus {
   justify-content: space-between;
 }
 
+.jc-end {
+  justify-content: flex-end;
+}
+
 .ai-center {
   align-items: center;
 }
@@ -128,6 +131,26 @@ select:focus {
   align-self: flex-end;
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 .ratio-3-2 {
   aspect-ratio: 3 / 2;
 }

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { Animate } from '@ln/common-ui-animate';
 import { Modal as ModalFoodit } from '@ln/foodit-ui-modal';
 import SaveRecipe from './saveRecipe';
 import useIsomorphicPopupHandling from './hooks/useIsomorphicPopupHandling';
@@ -16,20 +17,28 @@ export const Modal = () => {
     };
 
     return (
-        <ModalFoodit
-            classNameModal="bg-light-1 rounded-24 h-fit p-24 flex gap-8_md"
-            classNameWrapper="px-16"
-            id="modal-save"
-            show={showModal}
+        <Animate
+            duration={400}
             onClose={() => close(restoreIndex)}
+            show={showModal}
+            transitionIn={['fade-in']}
+            transitionOut={['fade-out']}
         >
-            <SaveRecipe
-                ids={ids}
-                indexStep={indexStep}
-                setIndexStep={setIndexStep}
-                close={() => close(restoreIndex)}
-            />
-        </ModalFoodit>
+            <ModalFoodit
+                classNameModal="bg-light-1 rounded-24 h-fit p-24 flex gap-8_md"
+                classNameWrapper="px-16"
+                id="modal-save"
+                onClose={() => close(restoreIndex)}
+                show
+            >
+                <SaveRecipe
+                    close={() => close(restoreIndex)}
+                    ids={ids}
+                    indexStep={indexStep}
+                    setIndexStep={setIndexStep}
+                />
+            </ModalFoodit>
+        </Animate>
     );
 };
 

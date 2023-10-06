@@ -11,13 +11,9 @@ export default function useIsomorphicPopupHandling() {
             isVisible: true,
             data
         });
-
-        document.querySelector('body').classList.add('overflow-hidden');
     };
-
     useEffect(() => {
         window.LN.observable.subscribe('openModal', handleData);
-
         return () => {
             window.LN.observable.unsubscribe('openModal', handleData);
         };
@@ -28,7 +24,6 @@ export default function useIsomorphicPopupHandling() {
             customActions();
         }
 
-        document.querySelector('body').classList.remove('overflow-hidden');
         setModalData({
             isVisible: false,
             data: {}
