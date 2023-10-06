@@ -10,7 +10,7 @@ const pageTransformV2Format = (resultPageData, sectionData) => {
 
     return {
         metadata,
-        items: [...(resultPageData && resultPageData)]
+        items: [...resultPageData]
     };
 };
 
