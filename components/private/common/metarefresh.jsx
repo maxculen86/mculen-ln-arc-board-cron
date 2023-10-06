@@ -24,6 +24,7 @@ export const shouldBeExcluded = ({ globalContent }) => {
     const labelMetarefresh = get(globalContent, 'label.metarefresh.text', null);
     const contentElements = get(globalContent, 'content_elements', null);
     const promoItem = get(globalContent, 'promo_items.basic', null);
+
     return (
         (contentElements &&
             contentElements.some(

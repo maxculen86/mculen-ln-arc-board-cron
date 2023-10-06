@@ -41,7 +41,6 @@ let sourceInclude = [
 ];
 sourceInclude = !sourceExclude.length ? sourceInclude : [];
 
-
 const mustElements = days => {
     return [
         {
@@ -311,7 +310,9 @@ const fetch = async (query, { cachedCall }) => {
 
         return { ...stories, followedItems };
     } catch (error) {
-        const msjError = `SeguirSource - msj: ${error.message} - query: ${JSON.stringify(query || {})}`;
+        const msjError = `SeguirSource - msj: ${
+            error.message
+        } - query: ${JSON.stringify(query || {})}`;
 
         if (error && error.statusCode === 403) {
             console.warn(`Warn ${msjError}`);

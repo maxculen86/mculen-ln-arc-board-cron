@@ -17,7 +17,7 @@ const requestUri =
     '/arquitectura/videonota-de-prueba-nid15092021/?_website=la-nacion-ar';
 
 import Context from 'fusion:context';
-import { getCustParamsEnconde } from '../../../../../../components/private/LN/common/utils/getDataFormated';
+import { getCustParamsEncoded } from '../../../../../../components/private/LN/common/utils/getDataFormated';
 import urlForPrerollAds from '../../../../../../components/private/LN/common/utils/urlForPrerollAds';
 
 describe('private - LN - common - media - videoPlayer', () => {
@@ -195,10 +195,17 @@ describe('private - LN - common - media - videoPlayer - urlForPrerollAds', () =>
                 name: 'Estilo ¡HOLA!'
             }
         ];
+        const id = '123';
+        const author = [{ name: 'tch' }];
 
-        const custParamsEncoded = getCustParamsEnconde(tags, sections);
+        const custParamsEncoded = getCustParamsEncoded(
+            tags,
+            sections,
+            author,
+            id
+        );
         expect(custParamsEncoded).toEqual(
-            'te_cronicas%2Cca_economia%2Cca_dolar_hoy%2Cca_industria%2Cca_comercio_exterior%2Cca_revista__hola_%2Cca_estilo__hola_'
+            'te_cronicas%2Cca_economia%2Cca_dolar_hoy%2Cca_industria%2Cca_comercio_exterior%2Cca_revista__hola_%2Cca_estilo__hola_%2Cau_tch%2C123'
         );
 
         const sections2 = [
@@ -206,8 +213,13 @@ describe('private - LN - common - media - videoPlayer - urlForPrerollAds', () =>
                 name: 'Economía'
             }
         ];
-        const custParamsEncoded2 = getCustParamsEnconde([], sections2);
-        expect(custParamsEncoded2).toEqual('ca_economia');
+        const custParamsEncoded2 = getCustParamsEncoded(
+            [],
+            sections2,
+            author,
+            id
+        );
+        expect(custParamsEncoded2).toEqual('ca_economia%2Cau_tch%2C123');
     });
 });
 

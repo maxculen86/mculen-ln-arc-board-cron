@@ -237,6 +237,7 @@ const Default = props => {
                     canonicalUrl={canonicalUrl || _id}
                     arcSite={arcSite}
                     nodeType={nodeType}
+                    globalContent={globalContent}
                 />
                 {layout !== lnBuscador && (
                     <MetaTitle
@@ -281,7 +282,10 @@ const Default = props => {
                 />
                 <ScriptVideoPowaHTML subtype={subtype} />
                 {addMetaNoIndexNoFollow({ requestUri })}
-                <OpeningRawHTML contentElements={contentElements} />
+                <OpeningRawHTML
+                    contentElements={contentElements}
+                    layoutName={layout}
+                />
             </head>
             <body {...getBodyClass(siteProperties)}>
                 <Scripts location="body-top" />

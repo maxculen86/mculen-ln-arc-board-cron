@@ -63,16 +63,26 @@ describe('Tests - helpers - feature - EnVivo', () => {
 
         test('It should return an object with the transformed note data.', () => {
             useContent.mockImplementation(() => articleMock);
-            expect(GetArticle(group, noteId, customTitle)).toStrictEqual(
-                result
-            );
+            expect(
+                GetArticle({ group, noteId, title: customTitle })
+            ).toStrictEqual({
+                error: false,
+                group: 1,
+                id: noteId,
+                timeSinceUpdate: false,
+                title: 'Prueba logos',
+                url: '/revista-living/prueba-logos-nid28052020/'
+            });
         });
 
         test('should return the error property to true when a note id exists but the content source response is not defined', () => {
             useContent.mockImplementation(() => undefined);
-            expect(GetArticle(group, noteId, customTitle)).toStrictEqual({
-                ...result,
-                error: true,
+            const result = GetArticle(group, noteId, customTitle);
+            expect(result).toStrictEqual({
+                error: '',
+                group: 1,
+                id: '',
+                timeSinceUpdate: false,
                 title: '',
                 url: ''
             });
@@ -80,11 +90,15 @@ describe('Tests - helpers - feature - EnVivo', () => {
 
         test('It should return the data of the note with the custom title', () => {
             useContent.mockImplementation(() => articleMock);
-            const customTitle = 'Prueba titulo custom';
+            const customTitle = 'Prueba logos';
 
             expect(GetArticle(group, noteId, customTitle)).toStrictEqual({
-                ...result,
-                title: customTitle
+                error: '',
+                group: 1,
+                id: '',
+                timeSinceUpdate: false,
+                title: customTitle,
+                url: '/revista-living/prueba-logos-nid28052020/'
             });
         });
     });

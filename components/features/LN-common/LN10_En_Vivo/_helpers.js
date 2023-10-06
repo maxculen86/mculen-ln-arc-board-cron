@@ -45,7 +45,7 @@ export const getListOfNoteFields = (listCustomFields = []) => {
     }, []);
 };
 
-export const GetArticle = (group, noteId = '', customTitle = '') => {
+export const GetArticle = ({ group = 1, noteId = '', customTitle = '' }) => {
     const id = validateId(noteId);
     const article = useContent({
         source: id ? 'articleSourceNota' : null,
@@ -77,9 +77,9 @@ export const getNotesLists = (listCustomFields = []) => {
     return fields.map(field => {
         const noteId = get(field, 'noteId', '');
         const title = get(field, 'title', '');
-        const group = get(field, 'group');
+        const group = get(field, 'group', 1);
 
-        return GetArticle(group, noteId, title);
+        return GetArticle({ group, noteId, title });
     });
 };
 

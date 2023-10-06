@@ -78,7 +78,7 @@ describe('Tests - feature - EnVivo', () => {
                 noteId1: 'GD7P4ZTE2FFBDAVBMLAK7V3Y6M',
                 chapitaStyle: 1,
                 chapita: 'live',
-                title1: 'Nuevo titulo corto'
+                title1: 'Prueba logos'
             }
         };
 
