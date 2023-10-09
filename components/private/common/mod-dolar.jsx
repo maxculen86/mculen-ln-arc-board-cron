@@ -51,13 +51,13 @@ const ModDolar = ({
                 {pageDolarOficialHistorico && (
                     <ComLink
                         link={`${SITE_LANACION}/dolar-oficial-historico/`}
-                        classCondition="--mb-3xs --fivexs"
+                        classCondition="mb-4 --fivexs"
                         title="Ir a dólar oficial histórico"
                     >
                         Ver dólar oficial histórico
                     </ComLink>
                 )}
-                <div className="--d-flex">
+                <div className="flex">
                     <span className="--fivexs">Información de</span>
                     <ComImage
                         classCondition="logo byma"

@@ -35,7 +35,7 @@ const ForecastByDay = ({ id, title, data }) => {
                 </Text>
             </div>
             <div className="icon-content">
-                <Icon size={48} className="--mr-sm">
+                <Icon size={48} className="mr-16">
                     {optionsIcons[weather.id] || optionsIcons.sun}
                 </Icon>
                 <Text tag="p" weight="bold" size="--xl">
@@ -45,7 +45,7 @@ const ForecastByDay = ({ id, title, data }) => {
             </div>
             <div className="detail-province-icons">
                 <div className="box-icon-text">
-                    <Icon title="Humedad" size={24} className="--mb-3xs">
+                    <Icon title="Humedad" size={24} className="mb-4">
                         {optionsIcons.drop}
                     </Icon>
                     <Text weight="bold" size="--4xs">
@@ -56,7 +56,7 @@ const ForecastByDay = ({ id, title, data }) => {
                     <Icon
                         title="Dirección del viento"
                         size={24}
-                        className="--mb-3xs"
+                        className="mb-4"
                     >
                         {optionsIcons.windy}
                     </Icon>
@@ -71,7 +71,7 @@ const ForecastByDay = ({ id, title, data }) => {
                     <Icon
                         title="Probabilidad de lluvia"
                         size={24}
-                        className="--mb-3xs"
+                        className="mb-4"
                     >
                         {optionsIcons.rain}
                     </Icon>

@@ -23,31 +23,31 @@ const ErrorPage = props => {
     );
     return (
         <div id="wrapper" className="error404">
-            <header className="--pt-xl --prl-0">
+            <header className="pt-40 px-0">
                 <div className="lay">
                     <div className="row">
                         <div className="col-12 col-desksm-5">
                             <a
                                 href={host || '/'}
-                                className="header__middle__logo --d-flex --w-100 --jc-l-end"
+                                className="header__middle__logo flex w-100 jc-end_l"
                                 title="Ir a la página principal"
                             >
                                 <ComLogo
                                     logoName="la-nacion"
-                                    classCondition="--mb-sm --pr-md"
+                                    classCondition="mb-16 pr-24"
                                 />
                             </a>
                         </div>
-                        <div className="col-12 col-desksm-7 --border-l-left-gray --pl-l-md">
+                        <div className="col-12 col-desksm-7 --border-l-left-gray pl-24_l">
                             <h1 className="--font-primary --xl --font-bold">
                                 La página que buscás no está disponible.
                             </h1>
-                            <p className="--xs --mb-sm">
+                            <p className="--xs mb-16">
                                 Seguí navegando y encontrá lo que necesitás:
                             </p>
                             <nav>
                                 <a
-                                    className="--btn --secondary --d-block --mb-md --text-link"
+                                    className="--btn --secondary block mb-24 --text-link"
                                     href={host || '/'}
                                     title="Ir a la página principal"
                                 >
@@ -62,7 +62,7 @@ const ErrorPage = props => {
                 <div className="lay">
                     <div className="row">
                         <div className="col-12">
-                            <div className="--ar-mob-3-4 --mb-xl --mb-m-0 --ptb-m-lg">
+                            <div className="--ar-mob-3-4 mb-40 py-32_m">
                                 <Adaptableimage
                                     src={urlImageMob}
                                     sources={[
@@ -76,7 +76,7 @@ const ErrorPage = props => {
                                         }
                                     ]}
                                     alt="Imagen de Liniers"
-                                    className="--w-100 --m-auto"
+                                    className="w-100 m-auto"
                                 />
                             </div>
                         </div>
@@ -94,7 +94,7 @@ const ErrorPage = props => {
             </main>
             <footer>
                 <div className="lay">
-                    <div className="row footer-copyright --ptb-md">
+                    <div className="row footer-copyright py-24">
                         <div className="col-12 footer-copyright__reserved --tab-text-center --text-neutral-light-600">
                             <Copyright />
                         </div>

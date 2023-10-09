@@ -14,7 +14,7 @@
   align-items: center;
 }
 .ln-roof .--ln-roof-full .--ln-roof-left > .ln-link,
-.ln-roof .--ln-roof-full .--ln-roof-left > .--d-flex {
+.ln-roof .--ln-roof-full .--ln-roof-left > .flex {
   gap: var(--size-2xs);
 }
 .ln-roof .--ln-roof-full .--ln-roof-left .--roof-title {

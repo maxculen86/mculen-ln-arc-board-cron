@@ -3,7 +3,7 @@
 exports[`Components - private - services - weather - IconsReferences => Test when id props is invalid  1`] = `
 <div>
   <div
-    class="content-icon --d-flex --flex-col --jc-center --mb-lg"
+    class="content-icon flex flex-column jc-center mb-32"
   >
     <section
       class="mod-headersection  --line"
@@ -16,13 +16,13 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
       </h3>
     </section>
     <div
-      class="icon-references --w-100 --p-sm --rounded-4"
+      class="icon-references w-100 p-16 rounded-4"
     >
       <div
-        class="card-icon --d-flex --ai-center --w-100 --p-sm"
+        class="card-icon flex ai-center w-100 p-16"
       >
         <i
-          class="icon --mr-sm --icon-24 --hasWrapper"
+          class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
         >
           <svg
@@ -37,16 +37,16 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           </svg>
         </i>
         <span
-          class="com-text --flex --2xs"
+          class="com-text --2xs"
         >
           Despejado (día)
         </span>
       </div>
       <div
-        class="card-icon --d-flex --ai-center --w-100 --p-sm"
+        class="card-icon flex ai-center w-100 p-16"
       >
         <i
-          class="icon --mr-sm --icon-24 --hasWrapper"
+          class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
         >
           <svg
@@ -61,16 +61,16 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           </svg>
         </i>
         <span
-          class="com-text --flex --2xs"
+          class="com-text --2xs"
         >
           Despejado (noche)
         </span>
       </div>
       <div
-        class="card-icon --d-flex --ai-center --w-100 --p-sm"
+        class="card-icon flex ai-center w-100 p-16"
       >
         <i
-          class="icon --mr-sm --icon-24 --hasWrapper"
+          class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
         >
           <svg
@@ -85,16 +85,16 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           </svg>
         </i>
         <span
-          class="com-text --flex --2xs"
+          class="com-text --2xs"
         >
           Ventoso
         </span>
       </div>
       <div
-        class="card-icon --d-flex --ai-center --w-100 --p-sm"
+        class="card-icon flex ai-center w-100 p-16"
       >
         <i
-          class="icon --mr-sm --icon-24 --hasWrapper"
+          class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
         >
           <svg
@@ -109,16 +109,16 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           </svg>
         </i>
         <span
-          class="com-text --flex --2xs"
+          class="com-text --2xs"
         >
           Parcialmente nublado
         </span>
       </div>
       <div
-        class="card-icon --d-flex --ai-center --w-100 --p-sm"
+        class="card-icon flex ai-center w-100 p-16"
       >
         <i
-          class="icon --mr-sm --icon-24 --hasWrapper"
+          class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
         >
           <svg
@@ -133,16 +133,16 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           </svg>
         </i>
         <span
-          class="com-text --flex --2xs"
+          class="com-text --2xs"
         >
           Mayormente nublado
         </span>
       </div>
       <div
-        class="card-icon --d-flex --ai-center --w-100 --p-sm"
+        class="card-icon flex ai-center w-100 p-16"
       >
         <i
-          class="icon --mr-sm --icon-24 --hasWrapper"
+          class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
         >
           <svg
@@ -159,16 +159,16 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           </svg>
         </i>
         <span
-          class="com-text --flex --2xs"
+          class="com-text --2xs"
         >
           Llovizna
         </span>
       </div>
       <div
-        class="card-icon --d-flex --ai-center --w-100 --p-sm"
+        class="card-icon flex ai-center w-100 p-16"
       >
         <i
-          class="icon --mr-sm --icon-24 --hasWrapper"
+          class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
         >
           <svg
@@ -183,16 +183,16 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           </svg>
         </i>
         <span
-          class="com-text --flex --2xs"
+          class="com-text --2xs"
         >
           Lluvias Fuertes
         </span>
       </div>
       <div
-        class="card-icon --d-flex --ai-center --w-100 --p-sm"
+        class="card-icon flex ai-center w-100 p-16"
       >
         <i
-          class="icon --mr-sm --icon-24 --hasWrapper"
+          class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
         >
           <svg
@@ -209,16 +209,16 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           </svg>
         </i>
         <span
-          class="com-text --flex --2xs"
+          class="com-text --2xs"
         >
           Tormentas
         </span>
       </div>
       <div
-        class="card-icon --d-flex --ai-center --w-100 --p-sm"
+        class="card-icon flex ai-center w-100 p-16"
       >
         <i
-          class="icon --mr-sm --icon-24 --hasWrapper"
+          class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
         >
           <svg
@@ -233,16 +233,16 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           </svg>
         </i>
         <span
-          class="com-text --flex --2xs"
+          class="com-text --2xs"
         >
           Tormentas fuertes
         </span>
       </div>
       <div
-        class="card-icon --d-flex --ai-center --w-100 --p-sm"
+        class="card-icon flex ai-center w-100 p-16"
       >
         <i
-          class="icon --mr-sm --icon-24 --hasWrapper"
+          class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
         >
           <svg
@@ -273,16 +273,16 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           </svg>
         </i>
         <span
-          class="com-text --flex --2xs"
+          class="com-text --2xs"
         >
           Lluvia y Nevada
         </span>
       </div>
       <div
-        class="card-icon --d-flex --ai-center --w-100 --p-sm"
+        class="card-icon flex ai-center w-100 p-16"
       >
         <i
-          class="icon --mr-sm --icon-24 --hasWrapper"
+          class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
         >
           <svg
@@ -297,16 +297,16 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           </svg>
         </i>
         <span
-          class="com-text --flex --2xs"
+          class="com-text --2xs"
         >
           Nevadas Fuertes
         </span>
       </div>
       <div
-        class="card-icon --d-flex --ai-center --w-100 --p-sm"
+        class="card-icon flex ai-center w-100 p-16"
       >
         <i
-          class="icon --mr-sm --icon-24 --hasWrapper"
+          class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
         >
           <svg
@@ -321,7 +321,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
           </svg>
         </i>
         <span
-          class="com-text --flex --2xs"
+          class="com-text --2xs"
         >
           Humedad
         </span>

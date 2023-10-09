@@ -21,23 +21,23 @@ const IconsReferences = () => {
     ];
     if (!listIcons.length) return <></>;
     return (
-        <div className="content-icon --d-flex --flex-col --jc-center --mb-lg">
+        <div className="content-icon flex flex-column jc-center mb-32">
             <ModHeaderSection tag="h3" title="Referencias del clima" />
-            <div className="icon-references --w-100 --p-sm --rounded-4">
+            <div className="icon-references w-100 p-16 rounded-4">
                 {listIcons.map(({ id, description }) => (
                     <div
-                        className="card-icon --d-flex --ai-center --w-100 --p-sm"
+                        className="card-icon flex ai-center w-100 p-16"
                         key={id}
                     >
                         <Icon
                             size={24}
-                            className="--mr-sm"
+                            className="mr-16"
                             bgColor="#f2f2f2"
                             hasWrapper
                         >
                             {optionsIcons[id]}
                         </Icon>
-                        <Text size="--2xs" extraClass="com-text --flex">
+                        <Text size="--2xs" extraClass="com-text">
                             {description}
                         </Text>
                     </div>

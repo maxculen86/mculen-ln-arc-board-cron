@@ -28,7 +28,7 @@ const Anticipo = ({
                 const advance = document.querySelector('.ln-advance');
                 if (buttonCloseAdvance) {
                     buttonCloseAdvance.onclick = function() {
-                        advance && advance.classList.add('--none')
+                        advance && advance.classList.add('none')
                     };
                 } 
             });

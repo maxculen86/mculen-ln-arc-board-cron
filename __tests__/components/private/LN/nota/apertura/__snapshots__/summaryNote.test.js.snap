@@ -3,15 +3,15 @@
 exports[`SummaryNote => Should match the snapshot 1`] = `
 <div>
   <section
-    class="--pl-l-sm --border-l-left-gray --w-100 --mb-md"
+    class="pl-16_l --border-l-left-gray w-100 mb-24"
   >
     <h2
-      class="text ln-text --font-primary --font-medium --l --text-neutral-light-900 --mb-sm"
+      class="text ln-text --font-primary --font-medium --l --text-neutral-light-900 mb-16"
     >
       Lo que tenés que saber
     </h2>
     <ul
-      class="--d-flex --flex-col --gap-24 --mb-md --pl-md --list-inherit"
+      class="flex flex-column --gap-24 mb-24 pl-24 --list-inherit"
     >
       <li
         class="--font-m"

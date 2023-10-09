@@ -26,17 +26,17 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner dsk 
         roof-container="roof-container"
       >
         <div
-          class="--ln-roof-full --d-flex --jc-between --pt-md"
+          class="--ln-roof-full flex jc-between pt-24"
         >
           <div
             class="--ln-roof-left"
           >
             <div
-              class="--d-flex --ai-center --uppercase"
+              class="flex ai-center --uppercase"
               roof-group="left"
             >
               <h3
-                class="text ln-text --roof-title --prumo --font-xl-l"
+                class="text ln-text --roof-title --prumo --font-l"
               >
                 Caja Collection
               </h3>
@@ -44,7 +44,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner dsk 
             </div>
           </div>
           <div
-            class="--ln-roof-right --d-flex --ai-center --generico"
+            class="--ln-roof-right flex ai-center --generico"
             roof-group="right"
           >
             
@@ -55,16 +55,16 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner dsk 
         class="content-lab"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --3xl --regular --no-media"
+          class="ln-card flex flex-column ai-start --3xl --regular --no-media"
         >
           <a
-            class="link ln-link --d-flex --flex-col --unstyled"
+            class="link ln-link flex flex-column --unstyled"
             href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
             target="_self"
             title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
           >
             <section
-              class="description-container --relative --d-flex --flex-col"
+              class="description-container --relative flex flex-column"
               href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
             >
               <h2
@@ -96,17 +96,17 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner mob 
         roof-container="roof-container"
       >
         <div
-          class="--ln-roof-full --d-flex --jc-between --pt-md"
+          class="--ln-roof-full flex jc-between pt-24"
         >
           <div
             class="--ln-roof-left"
           >
             <div
-              class="--d-flex --ai-center --uppercase"
+              class="flex ai-center --uppercase"
               roof-group="left"
             >
               <h3
-                class="text ln-text --roof-title --prumo --font-xl-l"
+                class="text ln-text --roof-title --prumo --font-l"
               >
                 Caja Collection
               </h3>
@@ -114,7 +114,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner mob 
             </div>
           </div>
           <div
-            class="--ln-roof-right --d-flex --ai-center --generico"
+            class="--ln-roof-right flex ai-center --generico"
             roof-group="right"
           >
             
@@ -125,16 +125,16 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner mob 
         class="content-lab"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start --3xl --regular --no-media"
+          class="ln-card flex flex-column ai-start --3xl --regular --no-media"
         >
           <a
-            class="link ln-link --d-flex --flex-col --unstyled"
+            class="link ln-link flex flex-column --unstyled"
             href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
             target="_self"
             title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
           >
             <section
-              class="description-container --relative --d-flex --flex-col"
+              class="description-container --relative flex flex-column"
               href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
             >
               <h2
@@ -192,13 +192,13 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
         roof-container="roof-container"
       >
         <div
-          class="--ln-roof-full --d-flex --jc-between --pt-md"
+          class="--ln-roof-full flex jc-between pt-24"
         >
           <div
             class="--ln-roof-left"
           >
             <div
-              class="--d-flex --ai-center --uppercase"
+              class="flex ai-center --uppercase"
               roof-group="left"
             >
               <i
@@ -225,7 +225,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
                 </svg>
               </i>
               <h3
-                class="text ln-text --roof-title --prumo --font-xl-l"
+                class="text ln-text --roof-title --prumo --font-l"
               >
                 Caja Collection
               </h3>
@@ -233,7 +233,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
             </div>
           </div>
           <div
-            class="--ln-roof-right --d-flex --ai-center --generico"
+            class="--ln-roof-right flex ai-center --generico"
             roof-group="right"
           >
             
@@ -253,7 +253,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
                                 const button = document.querySelector(
                                     'a.--roof-button.--subscribe'
                                 );
-                                button && button.classList.add('--none');
+                                button && button.classList.add('none');
                             }      
                      })
                  
@@ -262,16 +262,16 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
         class="content-lab"
       >
         <article
-          class="ln-card --d-flex --flex-col --ai-start  --tab-text-center --3xl --regular --no-media"
+          class="ln-card flex flex-column ai-start  --tab-text-center --3xl --regular --no-media"
         >
           <a
-            class="link ln-link --d-flex --flex-col --unstyled"
+            class="link ln-link flex flex-column --unstyled"
             href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
             target="_self"
             title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
           >
             <section
-              class="description-container --relative --d-flex --flex-col"
+              class="description-container --relative flex flex-column"
               href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
             >
               <h2
@@ -369,16 +369,16 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --3xl --regular --no-media --tablet-img-right --desktop-img-right"
+              class="ln-card flex flex-column ai-start --3xl --regular --no-media --tablet-img-right --desktop-img-right"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 target="_self"
                 title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
               >
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 >
                   <h2
@@ -396,10 +396,10 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
+              class="ln-card flex flex-column ai-start --m-l --regular"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 target="_self"
                 title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
@@ -422,7 +422,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     />
                     <img
                       alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex --w-100 --h-100"
+                      class="image flex w-100 h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -431,7 +431,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   </picture>
                 </section>
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 >
                   <h2
@@ -441,11 +441,11 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                   </h2>
                   <div
-                    class="marquee-container --d-flex --ai-center"
+                    class="marquee-container flex ai-center"
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                      class="marquee-text flex flex-column --font-2xs w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -465,10 +465,10 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
+              class="ln-card flex flex-column ai-start --m-l --regular"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 target="_self"
                 title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
@@ -491,7 +491,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     />
                     <img
                       alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image flex --w-100 --h-100"
+                      class="image flex w-100 h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -500,7 +500,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   </picture>
                 </section>
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
@@ -525,11 +525,11 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                   </h2>
                   <div
-                    class="marquee-container --d-flex --ai-center"
+                    class="marquee-container flex ai-center"
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                      class="marquee-text flex flex-column --font-2xs w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -549,16 +549,16 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --no-media"
+              class="ln-card flex flex-column ai-start --m-l --regular --no-media"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                 target="_self"
                 title="Bullrich visita El Calafate y presenta libro"
               >
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                 >
                   <h2
@@ -573,11 +573,11 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     Incidentes frente al hotel donde convocó a militantes 
                   </h3>
                   <div
-                    class="marquee-container --d-flex --ai-center"
+                    class="marquee-container flex ai-center"
                     title="Por Mariela Arias"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                      class="marquee-text flex flex-column --font-2xs w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -597,16 +597,16 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --no-media"
+              class="ln-card flex flex-column ai-start --m-l --regular --no-media"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 target="_self"
                 title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
               >
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 >
                   <h2
@@ -663,16 +663,16 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --0 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --xl --regular --no-media"
+              class="ln-card flex flex-column ai-start --xl --regular --no-media"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 target="_self"
                 title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
               >
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 >
                   <h2
@@ -690,10 +690,10 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
+              class="ln-card flex flex-column ai-start --m-l --regular"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 target="_self"
                 title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
@@ -716,7 +716,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     />
                     <img
                       alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex --w-100 --h-100"
+                      class="image flex w-100 h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -725,7 +725,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   </picture>
                 </section>
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 >
                   <h2
@@ -735,11 +735,11 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                   </h2>
                   <div
-                    class="marquee-container --d-flex --ai-center"
+                    class="marquee-container flex ai-center"
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                      class="marquee-text flex flex-column --font-2xs w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -759,10 +759,10 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --tablet-img-none --desktop-img-none"
+              class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-none --desktop-img-none"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 target="_self"
                 title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
@@ -785,7 +785,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     />
                     <img
                       alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image flex --w-100 --h-100"
+                      class="image flex w-100 h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -794,7 +794,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   </picture>
                 </section>
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
@@ -819,11 +819,11 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                   </h2>
                   <div
-                    class="marquee-container --d-flex --ai-center"
+                    class="marquee-container flex ai-center"
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                      class="marquee-text flex flex-column --font-2xs w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -843,16 +843,16 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --no-media"
+              class="ln-card flex flex-column ai-start --m-l --regular --no-media"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                 target="_self"
                 title="Bullrich visita El Calafate y presenta libro"
               >
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                 >
                   <h2
@@ -867,11 +867,11 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     Incidentes frente al hotel donde convocó a militantes 
                   </h3>
                   <div
-                    class="marquee-container --d-flex --ai-center"
+                    class="marquee-container flex ai-center"
                     title="Por Mariela Arias"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                      class="marquee-text flex flex-column --font-2xs w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -891,16 +891,16 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --no-media --tablet-img-none --desktop-img-none"
+              class="ln-card flex flex-column ai-start --m-l --regular --no-media --tablet-img-none --desktop-img-none"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 target="_self"
                 title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
               >
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 >
                   <h2
@@ -957,16 +957,16 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --0 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --3xl --regular --no-media"
+              class="ln-card flex flex-column ai-start --3xl --regular --no-media"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 target="_self"
                 title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
               >
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 >
                   <h2
@@ -984,10 +984,10 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --1 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --tablet-img-right --desktop-img-right"
+              class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-right --desktop-img-right"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 target="_self"
                 title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
@@ -1010,7 +1010,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     />
                     <img
                       alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex --w-100 --h-100"
+                      class="image flex w-100 h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1019,7 +1019,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   </picture>
                 </section>
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 >
                   <h2
@@ -1029,11 +1029,11 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                   </h2>
                   <div
-                    class="marquee-container --d-flex --ai-center"
+                    class="marquee-container flex ai-center"
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                      class="marquee-text flex flex-column --font-2xs w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1053,10 +1053,10 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --2 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --tablet-img-right --desktop-img-right"
+              class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-right --desktop-img-right"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 target="_self"
                 title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
@@ -1079,7 +1079,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     />
                     <img
                       alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image flex --w-100 --h-100"
+                      class="image flex w-100 h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1088,7 +1088,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   </picture>
                 </section>
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
@@ -1113,11 +1113,11 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                   </h2>
                   <div
-                    class="marquee-container --d-flex --ai-center"
+                    class="marquee-container flex ai-center"
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                      class="marquee-text flex flex-column --font-2xs w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1137,16 +1137,16 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --3 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --no-media --tablet-img-right --desktop-img-right"
+              class="ln-card flex flex-column ai-start --m-l --regular --no-media --tablet-img-right --desktop-img-right"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                 target="_self"
                 title="Bullrich visita El Calafate y presenta libro"
               >
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                 >
                   <h2
@@ -1161,11 +1161,11 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     Incidentes frente al hotel donde convocó a militantes 
                   </h3>
                   <div
-                    class="marquee-container --d-flex --ai-center"
+                    class="marquee-container flex ai-center"
                     title="Por Mariela Arias"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                      class="marquee-text flex flex-column --font-2xs w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1224,16 +1224,16 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --txt-center --m --regular --no-media"
+              class="ln-card flex flex-column ai-start --txt-center --m --regular --no-media"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 target="_self"
                 title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
               >
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 >
                   <h2
@@ -1251,10 +1251,10 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
+              class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 target="_self"
                 title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
@@ -1277,7 +1277,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     />
                     <img
                       alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex --w-100 --h-100"
+                      class="image flex w-100 h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1286,7 +1286,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   </picture>
                 </section>
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 >
                   <h2
@@ -1303,10 +1303,10 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
+              class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 target="_self"
                 title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
@@ -1329,7 +1329,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     />
                     <img
                       alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image flex --w-100 --h-100"
+                      class="image flex w-100 h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1338,7 +1338,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   </picture>
                 </section>
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
@@ -1370,16 +1370,16 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular --no-media"
+              class="ln-card flex flex-column ai-start --txt-center --m-l --regular --no-media"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                 target="_self"
                 title="Bullrich visita El Calafate y presenta libro"
               >
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                 >
                   <h2
@@ -1401,16 +1401,16 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular --no-media"
+              class="ln-card flex flex-column ai-start --txt-center --m-l --regular --no-media"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 target="_self"
                 title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
               >
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 >
                   <h2
@@ -1428,10 +1428,10 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
+              class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 target="_self"
                 title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
@@ -1454,7 +1454,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     />
                     <img
                       alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex --w-100 --h-100"
+                      class="image flex w-100 h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1463,7 +1463,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   </picture>
                 </section>
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 >
                   <h2
@@ -1480,10 +1480,10 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --txt-center --m-l --regular"
+              class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 target="_self"
                 title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
@@ -1506,7 +1506,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     />
                     <img
                       alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image flex --w-100 --h-100"
+                      class="image flex w-100 h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1515,7 +1515,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   </picture>
                 </section>
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
@@ -1586,16 +1586,16 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --3xl --regular --no-media --tablet-img-right --desktop-img-right"
+              class="ln-card flex flex-column ai-start --3xl --regular --no-media --tablet-img-right --desktop-img-right"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 target="_self"
                 title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
               >
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 >
                   <h2
@@ -1613,10 +1613,10 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --1 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --tablet-img-right --desktop-img-right"
+              class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-right --desktop-img-right"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 target="_self"
                 title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
@@ -1639,7 +1639,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     />
                     <img
                       alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex --w-100 --h-100"
+                      class="image flex w-100 h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1648,7 +1648,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   </picture>
                 </section>
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 >
                   <h2
@@ -1658,11 +1658,11 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                   </h2>
                   <div
-                    class="marquee-container --d-flex --ai-center"
+                    class="marquee-container flex ai-center"
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                      class="marquee-text flex flex-column --font-2xs w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1682,10 +1682,10 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --2 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular --tablet-img-right --desktop-img-right"
+              class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-right --desktop-img-right"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 target="_self"
                 title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
@@ -1708,7 +1708,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     />
                     <img
                       alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image flex --w-100 --h-100"
+                      class="image flex w-100 h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1717,7 +1717,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   </picture>
                 </section>
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
@@ -1742,11 +1742,11 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                   </h2>
                   <div
-                    class="marquee-container --d-flex --ai-center"
+                    class="marquee-container flex ai-center"
                     title="Por Celina Chatruc"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                      class="marquee-text flex flex-column --font-2xs w-100"
                     >
                       <span
                         class="text ln-text marquee"
@@ -1805,16 +1805,16 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --0 --col-8 --col-md-9 --col-lg-9 --col-xl-9"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --2xl --regular --no-media --tablet-img-right --desktop-img-right"
+              class="ln-card flex flex-column ai-start --2xl --regular --no-media --tablet-img-right --desktop-img-right"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 target="_self"
                 title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
               >
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                 >
                   <h2
@@ -1832,10 +1832,10 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
             class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
           >
             <article
-              class="ln-card --d-flex --flex-col --ai-start --m-l --regular"
+              class="ln-card flex flex-column ai-start --m-l --regular"
             >
               <a
-                class="link ln-link --d-flex --flex-col --unstyled"
+                class="link ln-link flex flex-column --unstyled"
                 href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 target="_self"
                 title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
@@ -1858,7 +1858,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     />
                     <img
                       alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex --w-100 --h-100"
+                      class="image flex w-100 h-100"
                       decoding="async"
                       fetchpriority="low"
                       loading="lazy"
@@ -1867,7 +1867,7 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   </picture>
                 </section>
                 <section
-                  class="description-container --relative --d-flex --flex-col"
+                  class="description-container --relative flex flex-column"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                 >
                   <h2
@@ -1877,11 +1877,11 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                   </h2>
                   <div
-                    class="marquee-container --d-flex --ai-center"
+                    class="marquee-container flex ai-center"
                     title="Por Carlos Pagni"
                   >
                     <div
-                      class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                      class="marquee-text flex flex-column --font-2xs w-100"
                     >
                       <span
                         class="text ln-text marquee"

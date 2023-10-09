@@ -3,7 +3,7 @@
 exports[`Tests - Feature - CardHtml Tests variant HTML should return a iframe with attributes loading, title and the web component defined in custom field "Tablero / html"  1`] = `
 <div>
   <article
-    class="ln-card-html --h-100"
+    class="ln-card-html h-100"
   >
     <style>
       #iframe-responsive-featureId{height:100px}@media(min-width:768px){#iframe-responsive-featureId{height:100px}}@media(min-width:1024px){#iframe-responsive-featureId{height:100px}}

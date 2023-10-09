@@ -98,7 +98,7 @@ const MainHeaderLN = ({
                 <Link
                     href="/"
                     title="Ir a la página principal"
-                    className="logo-header --d-flex"
+                    className="logo-header flex"
                     onClick={logoCallback}
                     onAuxClick={logoCallback}
                 >

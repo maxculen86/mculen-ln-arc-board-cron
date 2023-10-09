@@ -277,14 +277,14 @@ exports[`When the _id !== "/economia/dolar-oficial-historico" Should match snaps
     class="container-logo"
   >
     <a
-      class="com-link --mb-3xs --fivexs"
+      class="com-link mb-4 --fivexs"
       href="https://www.lanacion.com.ar/dolar-oficial-historico/"
       title="Ir a dólar oficial histórico"
     >
       Ver dólar oficial histórico
     </a>
     <div
-      class="--d-flex"
+      class="flex"
     >
       <span
         class="--fivexs"
@@ -585,7 +585,7 @@ exports[`When the _id === "/economia/dolar-oficial-historico" Should match the s
     class="container-logo --withHistoricalDollar"
   >
     <div
-      class="--d-flex"
+      class="flex"
     >
       <span
         class="--fivexs"

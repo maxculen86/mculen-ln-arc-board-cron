@@ -74,7 +74,7 @@ export default function BuildRoof(props) {
                                 const button = document.querySelector(
                                     'a.--roof-button.--subscribe'
                                 );
-                                button && button.classList.add('--none');
+                                button && button.classList.add('none');
                             }      
                      })
                  `

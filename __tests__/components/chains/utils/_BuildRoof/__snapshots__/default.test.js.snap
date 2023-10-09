@@ -7,13 +7,13 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
     roof-container="roof-container"
   >
     <div
-      class="--ln-roof-full --d-flex --jc-between --pt-md"
+      class="--ln-roof-full flex jc-between pt-24"
     >
       <div
         class="--ln-roof-left"
       >
         <a
-          class="link ln-link --d-flex --ai-center --uppercase"
+          class="link ln-link flex ai-center --uppercase"
           href="https://lanacion.com.ar"
           roof-group="left"
           target="_self"
@@ -43,7 +43,7 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
             </svg>
           </i>
           <h3
-            class="text ln-text --roof-title --prumo --font-xl-l"
+            class="text ln-text --roof-title --prumo --font-l"
           >
             suscripcion
           </h3>
@@ -65,7 +65,7 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
         </a>
       </div>
       <div
-        class="--ln-roof-right --d-flex --ai-center --sub-exclusive"
+        class="--ln-roof-right flex ai-center --sub-exclusive"
         roof-group="right"
       >
         <a
@@ -93,7 +93,7 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
                                 const button = document.querySelector(
                                     'a.--roof-button.--subscribe'
                                 );
-                                button && button.classList.add('--none');
+                                button && button.classList.add('none');
                             }      
                      })
                  

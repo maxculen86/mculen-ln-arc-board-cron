@@ -6,13 +6,13 @@ import { Text } from '@ln/contenidos-ui-text';
 const SummaryNote = ({ paragraphs = [] }) => {
     if (!paragraphs.length) return <></>;
     return (
-        <section className="--pl-l-sm --border-l-left-gray --w-100 --mb-md">
+        <section className="pl-16_l --border-l-left-gray w-100 mb-24">
             <Text
                 as="h2"
-                className="--font-primary --font-medium --l --text-neutral-light-900 --mb-sm"
+                className="--font-primary --font-medium --l --text-neutral-light-900 mb-16"
                 text="Lo que tenés que saber"
             />
-            <ul className="--d-flex --flex-col --gap-24 --mb-md --pl-md --list-inherit">
+            <ul className="flex flex-column --gap-24 mb-24 pl-24 --list-inherit">
                 {paragraphs.map((paragraph, i) => {
                     return (
                         <li

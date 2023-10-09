@@ -35,7 +35,7 @@ export default function HtmlFeature({
 
     return (
         !error && (
-            <Cardhtml className="--h-100">
+            <Cardhtml className="h-100">
                 <SetFixedHeight
                     elementId={iframeId}
                     heightMobile={heightMobile}

@@ -2,16 +2,16 @@
 
 exports[`Components - Features - LN-Common - PreHeader should match snapshot of PreHeader 1`] = `
 <div
-  class="ln-pre-header --d-flex --ai-center --tablet-none"
+  class="ln-pre-header flex ai-center --tablet-none"
 >
   <div
     class="lay-container"
   >
     <div
-      class="--d-flex --ai-center"
+      class="flex ai-center"
     >
       <a
-        class="link ln-link --weather --mr-sm"
+        class="link ln-link --weather mr-16"
         data-event="e_linkclick"
         data-section="MenuLN"
         href="/clima"
@@ -19,15 +19,15 @@ exports[`Components - Features - LN-Common - PreHeader should match snapshot of 
         title="Clima"
       >
         <div
-          class="ln-weather --d-flex --ai-center --jc-start --w-max-content"
+          class="ln-weather flex ai-center jc-start w-max"
         >
           <span
-            class="text ln-text place --mr-2xs --font-xs"
+            class="text ln-text place mr-8 --font-xs"
           >
             Capital Federal
           </span>
           <i
-            class="icon --mr-3xs --icon-16"
+            class="icon mr-4 --icon-16"
           >
             <svg
               fill="none"
@@ -48,24 +48,24 @@ exports[`Components - Features - LN-Common - PreHeader should match snapshot of 
         </div>
       </a>
       <div
-        class="topics-container --d-flex --ai-center"
+        class="topics-container flex ai-center"
       >
         <nav
-          class="topics --d-flex --scroll-x --ai-center"
+          class="topics flex --scroll-x ai-center"
         >
           <span
-            class="text ln-text --mr-2xs --font-xs"
+            class="text ln-text mr-8 --font-xs"
           >
             HOY: 
           </span>
           <ul
-            class="tag-list --d-in-flex"
+            class="tag-list inline-flex"
           >
             <li
-              class="--w-max-content --d-flex --ai-center"
+              class="w-max flex ai-center"
             >
               <a
-                class="link --mr-2xs --font-bold --font-xs --unstyled"
+                class="link mr-8 --font-bold --font-xs --unstyled"
                 data-event="e_linkclick"
                 data-section="MenuLN"
                 href="/first-topic"
@@ -76,10 +76,10 @@ exports[`Components - Features - LN-Common - PreHeader should match snapshot of 
               </a>
             </li>
             <li
-              class="--w-max-content --d-flex --ai-center"
+              class="w-max flex ai-center"
             >
               <a
-                class="link --mr-2xs --font-bold --font-xs --unstyled"
+                class="link mr-8 --font-bold --font-xs --unstyled"
                 data-event="e_linkclick"
                 data-section="MenuLN"
                 href="/second-topic"
@@ -90,10 +90,10 @@ exports[`Components - Features - LN-Common - PreHeader should match snapshot of 
               </a>
             </li>
             <li
-              class="--w-max-content --d-flex --ai-center"
+              class="w-max flex ai-center"
             >
               <a
-                class="link --mr-2xs --font-bold --font-xs --unstyled"
+                class="link mr-8 --font-bold --font-xs --unstyled"
                 data-event="e_linkclick"
                 data-section="MenuLN"
                 href="/third-topic"

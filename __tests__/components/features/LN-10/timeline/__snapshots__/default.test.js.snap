@@ -22,52 +22,52 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
     class="ln-timeline"
   >
     <div
-      class="--d-flex --text-center"
+      class="flex --text-center"
     >
       <div
-        class="--uppercase --mb-sm --bbt"
+        class="--uppercase mb-16 --bbt"
       >
         <h3
-          class="text ln-text --font-s --pb-xs --bbt --tm-weight --prumo"
+          class="text ln-text --font-s pb-12 --bbt --tm-weight --prumo"
         >
           Últimas Noticias
         </h3>
       </div>
     </div>
     <ul
-      class="ln-timeline-list --mt-3xs --ml-3xs"
+      class="ln-timeline-list mt-4 ml-4"
     >
       <li
-        class="--d-flex --pb-sm"
+        class="flex pb-16"
       >
         <div
-          class="subtitle-list --d-flex"
+          class="subtitle-list flex"
         >
           <time
             class="--font-2xs"
           >
             aN:aN
             <span
-              class="text ln-text --none  --arial --font-bold"
+              class="text ln-text none  --arial --font-bold"
             >
               en vivo
             </span>
           </time>
           <article
-            class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="42CZD43D3REX5LZPKL4L7KDAFQ"
             data-notaid="42CZD43D3REX5LZPKL4L7KDAFQ"
             data-pos="tl01"
             data-source="editor"
           >
             <a
-              class="link ln-link --d-flex --flex-col --unstyled"
+              class="link ln-link flex flex-column --unstyled"
               href="/politica/elecciones-2023-patricia-bullrich-sumo-a-su-equipo-al-neurologo-conrado-estol-nid28032023/"
               target="_self"
               title="Elecciones 2023: Patricia Bullrich sumó a su equipo al neurólogo Conrado Estol"
             >
               <section
-                class="description-container --relative --d-flex --flex-col"
+                class="description-container --relative flex flex-column"
                 href="/politica/elecciones-2023-patricia-bullrich-sumo-a-su-equipo-al-neurologo-conrado-estol-nid28032023/"
               >
                 <h2
@@ -81,10 +81,10 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
         </div>
       </li>
       <li
-        class="--d-flex --pb-sm"
+        class="flex pb-16"
       >
         <div
-          class="subtitle-list --d-flex"
+          class="subtitle-list flex"
         >
           <time
             class="--font-2xs"
@@ -97,20 +97,20 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
             </span>
           </time>
           <article
-            class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="AB6IP5YPIZG3NEKW7TDZ72O2PA"
             data-notaid="AB6IP5YPIZG3NEKW7TDZ72O2PA"
             data-pos="tl02"
             data-source="editor"
           >
             <a
-              class="link ln-link --d-flex --flex-col --unstyled"
+              class="link ln-link flex flex-column --unstyled"
               href="/politica/preload-ultimas-noticias-nid09012023/"
               target="_self"
               title="preload ultimas noticias"
             >
               <section
-                class="description-container --relative --d-flex --flex-col"
+                class="description-container --relative flex flex-column"
                 href="/politica/preload-ultimas-noticias-nid09012023/"
               >
                 <h2
@@ -124,36 +124,36 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
         </div>
       </li>
       <li
-        class="--d-flex --pb-sm"
+        class="flex pb-16"
       >
         <div
-          class="subtitle-list --d-flex"
+          class="subtitle-list flex"
         >
           <time
             class="--font-2xs"
           >
             aN:aN
             <span
-              class="text ln-text --none  --arial --font-bold"
+              class="text ln-text none  --arial --font-bold"
             >
               en vivo
             </span>
           </time>
           <article
-            class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="H2K42QLZCJDELK2IIJPXKSA7FY"
             data-notaid="H2K42QLZCJDELK2IIJPXKSA7FY"
             data-pos="tl03"
             data-source="editor"
           >
             <a
-              class="link ln-link --d-flex --flex-col --unstyled"
+              class="link ln-link flex flex-column --unstyled"
               href="/politica/prueba-chat-en-vivo-nid23032023/"
               target="_self"
               title="Prueba chat en vivo"
             >
               <section
-                class="description-container --relative --d-flex --flex-col"
+                class="description-container --relative flex flex-column"
                 href="/politica/prueba-chat-en-vivo-nid23032023/"
               >
                 <h2
@@ -167,10 +167,10 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
         </div>
       </li>
       <li
-        class="--d-flex --pb-sm"
+        class="flex pb-16"
       >
         <div
-          class="subtitle-list --d-flex"
+          class="subtitle-list flex"
         >
           <time
             class="--font-2xs"
@@ -183,20 +183,20 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
             </span>
           </time>
           <article
-            class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="5LKZBWGDUREZBGKEEYD4RWJDLA"
             data-notaid="5LKZBWGDUREZBGKEEYD4RWJDLA"
             data-pos="tl04"
             data-source="editor"
           >
             <a
-              class="link ln-link --d-flex --flex-col --unstyled"
+              class="link ln-link flex flex-column --unstyled"
               href="/politica/a-fondo-sin-imagen-destacada-nid24022023/"
               target="_self"
               title="A Fondo sin imagen destacada"
             >
               <section
-                class="description-container --relative --d-flex --flex-col"
+                class="description-container --relative flex flex-column"
                 href="/politica/a-fondo-sin-imagen-destacada-nid24022023/"
               >
                 <h2
@@ -210,36 +210,36 @@ exports[`features - LN10 - Timeline should render pagebuilder message component 
         </div>
       </li>
       <li
-        class="--d-flex --pb-sm"
+        class="flex pb-16"
       >
         <div
-          class="subtitle-list --d-flex"
+          class="subtitle-list flex"
         >
           <time
             class="--font-2xs"
           >
             aN:aN
             <span
-              class="text ln-text --none  --arial --font-bold"
+              class="text ln-text none  --arial --font-bold"
             >
               en vivo
             </span>
           </time>
           <article
-            class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="SUW6AQPARNCGLBDM2YOUGGC474"
             data-notaid="SUW6AQPARNCGLBDM2YOUGGC474"
             data-pos="tl05"
             data-source="editor"
           >
             <a
-              class="link ln-link --d-flex --flex-col --unstyled"
+              class="link ln-link flex flex-column --unstyled"
               href="/politica/marcha-nacional-en-protesta-al-ministerio-de-desarrollo-social-nid16092021/"
               target="_self"
               title="Continúa la marcha nacional en protesta al Ministerio de Desarrollo Social "
             >
               <section
-                class="description-container --relative --d-flex --flex-col"
+                class="description-container --relative flex flex-column"
                 href="/politica/marcha-nacional-en-protesta-al-ministerio-de-desarrollo-social-nid16092021/"
               >
                 <h2
@@ -263,52 +263,52 @@ exports[`features - LN10 - Timeline should render timeline component when source
     class="ln-timeline"
   >
     <div
-      class="--d-flex --text-center"
+      class="flex --text-center"
     >
       <div
-        class="--uppercase --mb-sm --bbt"
+        class="--uppercase mb-16 --bbt"
       >
         <h3
-          class="text ln-text --font-s --pb-xs --bbt --tm-weight --prumo"
+          class="text ln-text --font-s pb-12 --bbt --tm-weight --prumo"
         >
           Últimas Noticias
         </h3>
       </div>
     </div>
     <ul
-      class="ln-timeline-list --mt-3xs --ml-3xs"
+      class="ln-timeline-list mt-4 ml-4"
     >
       <li
-        class="--d-flex --pb-sm"
+        class="flex pb-16"
       >
         <div
-          class="subtitle-list --d-flex"
+          class="subtitle-list flex"
         >
           <time
             class="--font-2xs"
           >
             aN:aN
             <span
-              class="text ln-text --none  --arial --font-bold"
+              class="text ln-text none  --arial --font-bold"
             >
               en vivo
             </span>
           </time>
           <article
-            class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="42CZD43D3REX5LZPKL4L7KDAFQ"
             data-notaid="42CZD43D3REX5LZPKL4L7KDAFQ"
             data-pos="tl01"
             data-source="editor"
           >
             <a
-              class="link ln-link --d-flex --flex-col --unstyled"
+              class="link ln-link flex flex-column --unstyled"
               href="/politica/elecciones-2023-patricia-bullrich-sumo-a-su-equipo-al-neurologo-conrado-estol-nid28032023/"
               target="_self"
               title="Elecciones 2023: Patricia Bullrich sumó a su equipo al neurólogo Conrado Estol"
             >
               <section
-                class="description-container --relative --d-flex --flex-col"
+                class="description-container --relative flex flex-column"
                 href="/politica/elecciones-2023-patricia-bullrich-sumo-a-su-equipo-al-neurologo-conrado-estol-nid28032023/"
               >
                 <h2
@@ -322,10 +322,10 @@ exports[`features - LN10 - Timeline should render timeline component when source
         </div>
       </li>
       <li
-        class="--d-flex --pb-sm"
+        class="flex pb-16"
       >
         <div
-          class="subtitle-list --d-flex"
+          class="subtitle-list flex"
         >
           <time
             class="--font-2xs"
@@ -338,20 +338,20 @@ exports[`features - LN10 - Timeline should render timeline component when source
             </span>
           </time>
           <article
-            class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="AB6IP5YPIZG3NEKW7TDZ72O2PA"
             data-notaid="AB6IP5YPIZG3NEKW7TDZ72O2PA"
             data-pos="tl02"
             data-source="editor"
           >
             <a
-              class="link ln-link --d-flex --flex-col --unstyled"
+              class="link ln-link flex flex-column --unstyled"
               href="/politica/preload-ultimas-noticias-nid09012023/"
               target="_self"
               title="preload ultimas noticias"
             >
               <section
-                class="description-container --relative --d-flex --flex-col"
+                class="description-container --relative flex flex-column"
                 href="/politica/preload-ultimas-noticias-nid09012023/"
               >
                 <h2
@@ -365,36 +365,36 @@ exports[`features - LN10 - Timeline should render timeline component when source
         </div>
       </li>
       <li
-        class="--d-flex --pb-sm"
+        class="flex pb-16"
       >
         <div
-          class="subtitle-list --d-flex"
+          class="subtitle-list flex"
         >
           <time
             class="--font-2xs"
           >
             aN:aN
             <span
-              class="text ln-text --none  --arial --font-bold"
+              class="text ln-text none  --arial --font-bold"
             >
               en vivo
             </span>
           </time>
           <article
-            class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="H2K42QLZCJDELK2IIJPXKSA7FY"
             data-notaid="H2K42QLZCJDELK2IIJPXKSA7FY"
             data-pos="tl03"
             data-source="editor"
           >
             <a
-              class="link ln-link --d-flex --flex-col --unstyled"
+              class="link ln-link flex flex-column --unstyled"
               href="/politica/prueba-chat-en-vivo-nid23032023/"
               target="_self"
               title="Prueba chat en vivo"
             >
               <section
-                class="description-container --relative --d-flex --flex-col"
+                class="description-container --relative flex flex-column"
                 href="/politica/prueba-chat-en-vivo-nid23032023/"
               >
                 <h2
@@ -408,10 +408,10 @@ exports[`features - LN10 - Timeline should render timeline component when source
         </div>
       </li>
       <li
-        class="--d-flex --pb-sm"
+        class="flex pb-16"
       >
         <div
-          class="subtitle-list --d-flex"
+          class="subtitle-list flex"
         >
           <time
             class="--font-2xs"
@@ -424,20 +424,20 @@ exports[`features - LN10 - Timeline should render timeline component when source
             </span>
           </time>
           <article
-            class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="5LKZBWGDUREZBGKEEYD4RWJDLA"
             data-notaid="5LKZBWGDUREZBGKEEYD4RWJDLA"
             data-pos="tl04"
             data-source="editor"
           >
             <a
-              class="link ln-link --d-flex --flex-col --unstyled"
+              class="link ln-link flex flex-column --unstyled"
               href="/politica/a-fondo-sin-imagen-destacada-nid24022023/"
               target="_self"
               title="A Fondo sin imagen destacada"
             >
               <section
-                class="description-container --relative --d-flex --flex-col"
+                class="description-container --relative flex flex-column"
                 href="/politica/a-fondo-sin-imagen-destacada-nid24022023/"
               >
                 <h2
@@ -451,36 +451,36 @@ exports[`features - LN10 - Timeline should render timeline component when source
         </div>
       </li>
       <li
-        class="--d-flex --pb-sm"
+        class="flex pb-16"
       >
         <div
-          class="subtitle-list --d-flex"
+          class="subtitle-list flex"
         >
           <time
             class="--font-2xs"
           >
             aN:aN
             <span
-              class="text ln-text --none  --arial --font-bold"
+              class="text ln-text none  --arial --font-bold"
             >
               en vivo
             </span>
           </time>
           <article
-            class="ln-card --d-flex --flex-col --ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
+            class="ln-card flex flex-column ai-start --m --regular --no-media --mobile-img-none --tablet-img-none --desktop-img-none"
             data-id="SUW6AQPARNCGLBDM2YOUGGC474"
             data-notaid="SUW6AQPARNCGLBDM2YOUGGC474"
             data-pos="tl05"
             data-source="editor"
           >
             <a
-              class="link ln-link --d-flex --flex-col --unstyled"
+              class="link ln-link flex flex-column --unstyled"
               href="/politica/marcha-nacional-en-protesta-al-ministerio-de-desarrollo-social-nid16092021/"
               target="_self"
               title="Continúa la marcha nacional en protesta al Ministerio de Desarrollo Social "
             >
               <section
-                class="description-container --relative --d-flex --flex-col"
+                class="description-container --relative flex flex-column"
                 href="/politica/marcha-nacional-en-protesta-al-ministerio-de-desarrollo-social-nid16092021/"
               >
                 <h2

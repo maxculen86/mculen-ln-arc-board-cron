@@ -19,17 +19,17 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
           roof-container="roof-container"
         >
           <div
-            class="--ln-roof-full --d-flex --jc-between --pt-md"
+            class="--ln-roof-full flex jc-between pt-24"
           >
             <div
               class="--ln-roof-left"
             >
               <div
-                class="--d-flex --ai-center --uppercase"
+                class="flex ai-center --uppercase"
                 roof-group="left"
               >
                 <h3
-                  class="text ln-text --roof-title --prumo --font-xl-l"
+                  class="text ln-text --roof-title --prumo --font-l"
                 >
                   Opinión
                 </h3>
@@ -37,7 +37,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               </div>
             </div>
             <div
-              class="--ln-roof-right --d-flex --ai-center --generico"
+              class="--ln-roof-right flex ai-center --generico"
               roof-group="right"
             >
               
@@ -55,14 +55,14 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --0 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --3xl --author --with-media"
+                class="ln-card flex flex-column ai-start --3xl --author --with-media"
                 data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
                 data-notaid="UV32UCCHWZH6LKMZKHGOQJHR4I"
                 data-pos="9801"
                 data-source="editor"
               >
                 <a
-                  class="link ln-link --d-flex --flex-col --unstyled"
+                  class="link ln-link flex flex-column --unstyled"
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   target="_self"
                   title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
@@ -89,7 +89,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       />
                       <img
                         alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                        class="image flex --w-100 --h-100"
+                        class="image flex w-100 h-100"
                         decoding="async"
                         fetchpriority="low"
                         loading="lazy"
@@ -98,7 +98,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                     </picture>
                   </section>
                   <section
-                    class="description-container --relative --d-flex --flex-col"
+                    class="description-container --relative flex flex-column"
                     href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
                     <h2
@@ -107,11 +107,11 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                     </h2>
                     <div
-                      class="marquee-container --d-flex --ai-center"
+                      class="marquee-container flex ai-center"
                       title="Por Celina Chatruc"
                     >
                       <picture
-                        class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                        class="marquee-placeholder flex jc-center ai-center --relative"
                       >
                         <img
                           alt="Celina Chatruc"
@@ -123,7 +123,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                        class="marquee-text flex flex-column --font-2xs w-100"
                       >
                         <span
                           class="text ln-text marquee"
@@ -146,20 +146,20 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                 class="opinion-flex-col"
               >
                 <article
-                  class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
+                  class="ln-card flex flex-column ai-start --m --author --no-media"
                   data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
                   data-notaid="M3JPASZJAVBIRIZPVCSSVBUAHI"
                   data-pos="9802"
                   data-source="editor"
                 >
                   <a
-                    class="link ln-link --d-flex --flex-col --unstyled"
+                    class="link ln-link flex flex-column --unstyled"
                     href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                     target="_self"
                     title="Bullrich visita El Calafate y presenta libro"
                   >
                     <section
-                      class="description-container --relative --d-flex --flex-col"
+                      class="description-container --relative flex flex-column"
                       href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                     >
                       <h2
@@ -168,11 +168,11 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         Bullrich visita El Calafate y presenta libro
                       </h2>
                       <div
-                        class="marquee-container --d-flex --ai-center"
+                        class="marquee-container flex ai-center"
                         title="Por Mariela Arias"
                       >
                         <picture
-                          class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                          class="marquee-placeholder flex jc-center ai-center --relative"
                         >
                           <img
                             alt="Mariela Arias"
@@ -184,7 +184,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                           />
                         </picture>
                         <div
-                          class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                          class="marquee-text flex flex-column --font-2xs w-100"
                         >
                           <span
                             class="text ln-text marquee"
@@ -200,20 +200,20 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                   </a>
                 </article>
                 <article
-                  class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
+                  class="ln-card flex flex-column ai-start --m --author --no-media"
                   data-id="PUTOXECLIZCMDI4Z5WDWQI5CUY"
                   data-notaid="PUTOXECLIZCMDI4Z5WDWQI5CUY"
                   data-pos="9803"
                   data-source="editor"
                 >
                   <a
-                    class="link ln-link --d-flex --flex-col --unstyled"
+                    class="link ln-link flex flex-column --unstyled"
                     href="/salud/beliz-cavallo-una-alianza-ya-imposible-nid14032022/"
                     target="_self"
                     title="Beliz-Cavallo, una alianza ya imposible"
                   >
                     <section
-                      class="description-container --relative --d-flex --flex-col"
+                      class="description-container --relative flex flex-column"
                       href="/salud/beliz-cavallo-una-alianza-ya-imposible-nid14032022/"
                     >
                       <h2
@@ -222,11 +222,11 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         Beliz-Cavallo, una alianza ya imposible
                       </h2>
                       <div
-                        class="marquee-container --d-flex --ai-center"
+                        class="marquee-container flex ai-center"
                         title="Por Joaquín Morales Solá"
                       >
                         <picture
-                          class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                          class="marquee-placeholder flex jc-center ai-center --relative"
                         >
                           <img
                             alt="Joaquín Morales Solá"
@@ -238,7 +238,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                           />
                         </picture>
                         <div
-                          class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                          class="marquee-text flex flex-column --font-2xs w-100"
                         >
                           <span
                             class="text ln-text marquee"
@@ -291,14 +291,14 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         class="grid-item --editoriales-0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
                       >
                         <article
-                          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-right --tablet-img-bottom --desktop-img-bottom"
+                          class="ln-card flex flex-column ai-start --m --regular --mobile-img-right --tablet-img-bottom --desktop-img-bottom"
                           data-id="UV32UCCHWZH6LKMZKHGOQJHR4I"
                           data-notaid="UV32UCCHWZH6LKMZKHGOQJHR4I"
                           data-pos="9901"
                           data-source="editor"
                         >
                           <a
-                            class="link ln-link --d-flex --flex-col --unstyled"
+                            class="link ln-link flex flex-column --unstyled"
                             href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                             target="_self"
                             title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
@@ -325,7 +325,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                                 />
                                 <img
                                   alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                                  class="image flex --w-100 --h-100"
+                                  class="image flex w-100 h-100"
                                   decoding="async"
                                   fetchpriority="low"
                                   loading="lazy"
@@ -334,7 +334,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                               </picture>
                             </section>
                             <section
-                              class="description-container --relative --d-flex --flex-col"
+                              class="description-container --relative flex flex-column"
                               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                             >
                               <h2
@@ -350,14 +350,14 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         class="grid-item --editoriales-1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
                       >
                         <article
-                          class="ln-card --d-flex --flex-col --ai-start --m --regular --mobile-img-none --tablet-img-none --desktop-img-none"
+                          class="ln-card flex flex-column ai-start --m --regular --mobile-img-none --tablet-img-none --desktop-img-none"
                           data-id="M3JPASZJAVBIRIZPVCSSVBUAHI"
                           data-notaid="M3JPASZJAVBIRIZPVCSSVBUAHI"
                           data-pos="9902"
                           data-source="editor"
                         >
                           <a
-                            class="link ln-link --d-flex --flex-col --unstyled"
+                            class="link ln-link flex flex-column --unstyled"
                             href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                             target="_self"
                             title="Bullrich visita El Calafate y presenta libro"
@@ -384,7 +384,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                                 />
                                 <img
                                   alt="Bullrich visita El Calafate y presenta libro"
-                                  class="image flex --w-100 --h-100"
+                                  class="image flex w-100 h-100"
                                   decoding="async"
                                   fetchpriority="low"
                                   loading="lazy"
@@ -393,7 +393,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                               </picture>
                             </section>
                             <section
-                              class="description-container --relative --d-flex --flex-col"
+                              class="description-container --relative flex flex-column"
                               href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                             >
                               <h2
@@ -409,20 +409,20 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                   </section>
                 </div>
                 <article
-                  class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
+                  class="ln-card flex flex-column ai-start --m --author --no-media"
                   data-id="KLCMCRBJMFCUBFE55NDGERCTJQ"
                   data-notaid="KLCMCRBJMFCUBFE55NDGERCTJQ"
                   data-pos="9804"
                   data-source="editor"
                 >
                   <a
-                    class="link ln-link --d-flex --flex-col --unstyled"
+                    class="link ln-link flex flex-column --unstyled"
                     href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
                     target="_self"
                     title="Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo"
                   >
                     <section
-                      class="description-container --relative --d-flex --flex-col"
+                      class="description-container --relative flex flex-column"
                       href="/deportes/tenis/papelon-benoit-paire-se-despidio-del-argentina-open-con-una-actuacion-escandalo-nid05032021/"
                     >
                       <h2
@@ -431,11 +431,11 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
                       </h2>
                       <div
-                        class="marquee-container --d-flex --ai-center"
+                        class="marquee-container flex ai-center"
                         title="Por Francisco Jueguen"
                       >
                         <picture
-                          class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                          class="marquee-placeholder flex jc-center ai-center --relative"
                         >
                           <img
                             alt="Francisco Jueguen"
@@ -447,7 +447,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                           />
                         </picture>
                         <div
-                          class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                          class="marquee-text flex flex-column --font-2xs w-100"
                         >
                           <span
                             class="text ln-text marquee"
@@ -468,20 +468,20 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
+                class="ln-card flex flex-column ai-start --m --author --no-media"
                 data-id="VD7B5NVJQFEVDP4CACDCKLACFQ"
                 data-notaid="VD7B5NVJQFEVDP4CACDCKLACFQ"
                 data-pos="9805"
                 data-source="editor"
               >
                 <a
-                  class="link ln-link --d-flex --flex-col --unstyled"
+                  class="link ln-link flex flex-column --unstyled"
                   href="/economia/dolar-libre-la-jugada-del-banco-central-que-impidio-una-suba-mayor-nid14042020/"
                   target="_self"
                   title="Dólar libre. La jugada del Banco Central que impidió una suba mayor"
                 >
                   <section
-                    class="description-container --relative --d-flex --flex-col"
+                    class="description-container --relative flex flex-column"
                     href="/economia/dolar-libre-la-jugada-del-banco-central-que-impidio-una-suba-mayor-nid14042020/"
                   >
                     <h2
@@ -490,11 +490,11 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       Dólar libre. La jugada del Banco Central que impidió una suba mayor
                     </h2>
                     <div
-                      class="marquee-container --d-flex --ai-center"
+                      class="marquee-container flex ai-center"
                       title="Por Javier Blanco, Diego Japas y José Del Rio"
                     >
                       <picture
-                        class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                        class="marquee-placeholder flex jc-center ai-center --relative"
                       >
                         <img
                           alt="Javier Blanco, Diego Japas y José Del Rio"
@@ -506,7 +506,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                        class="marquee-text flex flex-column --font-2xs w-100"
                       >
                         <span
                           class="text ln-text marquee"
@@ -526,20 +526,20 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
+                class="ln-card flex flex-column ai-start --m --author --no-media"
                 data-id="AVYWDWDAVVESZGD7HXMW46GTYA"
                 data-notaid="AVYWDWDAVVESZGD7HXMW46GTYA"
                 data-pos="9806"
                 data-source="editor"
               >
                 <a
-                  class="link ln-link --d-flex --flex-col --unstyled"
+                  class="link ln-link flex flex-column --unstyled"
                   href="/economia/el-gobierno-evalua-postular-a-una-diplomatica-de-carrera-para-la-embajada-en-el-vaticano-nid23012020/"
                   target="_self"
                   title="El Gobierno evalúa postular a una diplomática de carrera para la embajada en el Vaticano....LARGOoOoO"
                 >
                   <section
-                    class="description-container --relative --d-flex --flex-col"
+                    class="description-container --relative flex flex-column"
                     href="/economia/el-gobierno-evalua-postular-a-una-diplomatica-de-carrera-para-la-embajada-en-el-vaticano-nid23012020/"
                   >
                     <h2
@@ -548,11 +548,11 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       El Gobierno evalúa postular a una diplomática de carrera para la embajada en el Vaticano....LARGOoOoO
                     </h2>
                     <div
-                      class="marquee-container --d-flex --ai-center"
+                      class="marquee-container flex ai-center"
                       title="Por Alan Soria Guadalupe"
                     >
                       <picture
-                        class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                        class="marquee-placeholder flex jc-center ai-center --relative"
                       >
                         <img
                           alt="Alan Soria Guadalupe"
@@ -564,7 +564,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                        class="marquee-text flex flex-column --font-2xs w-100"
                       >
                         <span
                           class="text ln-text marquee"
@@ -584,20 +584,20 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
+                class="ln-card flex flex-column ai-start --m --author --no-media"
                 data-id="52CYTDWKNFCUTI3YX74GJM3GKU"
                 data-notaid="52CYTDWKNFCUTI3YX74GJM3GKU"
                 data-pos="9807"
                 data-source="editor"
               >
                 <a
-                  class="link ln-link --d-flex --flex-col --unstyled"
+                  class="link ln-link flex flex-column --unstyled"
                   href="/deportes/una-nueva-prueba-en-vivo-nid17032021/"
                   target="_self"
                   title="Una nueva prueba en vivo"
                 >
                   <section
-                    class="description-container --relative --d-flex --flex-col"
+                    class="description-container --relative flex flex-column"
                     href="/deportes/una-nueva-prueba-en-vivo-nid17032021/"
                   >
                     <h2
@@ -606,11 +606,11 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       Una nueva prueba en vivo
                     </h2>
                     <div
-                      class="marquee-container --d-flex --ai-center"
+                      class="marquee-container flex ai-center"
                       title="Por Javier Fuego Simondet"
                     >
                       <picture
-                        class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                        class="marquee-placeholder flex jc-center ai-center --relative"
                       >
                         <img
                           alt="Javier Fuego Simondet"
@@ -622,7 +622,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                        class="marquee-text flex flex-column --font-2xs w-100"
                       >
                         <span
                           class="text ln-text marquee"
@@ -642,20 +642,20 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
               class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
               <article
-                class="ln-card --d-flex --flex-col --ai-start --m --author --no-media"
+                class="ln-card flex flex-column ai-start --m --author --no-media"
                 data-id="KEBYELHATJHPRNAWO24GRV6YCQ"
                 data-notaid="KEBYELHATJHPRNAWO24GRV6YCQ"
                 data-pos="9808"
                 data-source="editor"
               >
                 <a
-                  class="link ln-link --d-flex --flex-col --unstyled"
+                  class="link ln-link flex flex-column --unstyled"
                   href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
                   target="_self"
                   title="Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos"
                 >
                   <section
-                    class="description-container --relative --d-flex --flex-col"
+                    class="description-container --relative flex flex-column"
                     href="/lifestyle/ansiedad-por-separacion-como-evitar-que-los-perros-sufran-cuando-vuelvan-a-quedarse-solos-nid24042020/"
                   >
                     <h2
@@ -664,11 +664,11 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                       Ansiedad por separación: cómo evitar que los perros sufran cuando vuelvan a quedarse solos
                     </h2>
                     <div
-                      class="marquee-container --d-flex --ai-center"
+                      class="marquee-container flex ai-center"
                       title="Por Patricia Osuna Gutiérrez"
                     >
                       <picture
-                        class="marquee-placeholder --d-flex --jc-center --ai-center --relative"
+                        class="marquee-placeholder flex jc-center ai-center --relative"
                       >
                         <img
                           alt="Patricia Osuna Gutiérrez"
@@ -680,7 +680,7 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                         />
                       </picture>
                       <div
-                        class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+                        class="marquee-text flex flex-column --font-2xs w-100"
                       >
                         <span
                           class="text ln-text marquee"

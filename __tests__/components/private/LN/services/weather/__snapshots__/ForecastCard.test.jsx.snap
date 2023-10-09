@@ -23,7 +23,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
       class="icon-content"
     >
       <i
-        class="icon --mr-sm --icon-48"
+        class="icon mr-16 --icon-48"
       >
         <svg
           fill="none"
@@ -54,7 +54,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
         class="box-icon-text"
       >
         <i
-          class="icon --mb-3xs --icon-24"
+          class="icon mb-4 --icon-24"
           title="Humedad"
         >
           <svg
@@ -78,7 +78,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
         class="box-icon-text"
       >
         <i
-          class="icon --mb-3xs --icon-24"
+          class="icon mb-4 --icon-24"
           title="Dirección del viento"
         >
           <svg
@@ -102,7 +102,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
         class="box-icon-text"
       >
         <i
-          class="icon --mb-3xs --icon-24"
+          class="icon mb-4 --icon-24"
           title="Probabilidad de lluvia"
         >
           <svg
@@ -150,7 +150,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
       class="icon-content"
     >
       <i
-        class="icon --mr-sm --icon-48"
+        class="icon mr-16 --icon-48"
       >
         <svg
           fill="none"
@@ -181,7 +181,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
         class="box-icon-text"
       >
         <i
-          class="icon --mb-3xs --icon-24"
+          class="icon mb-4 --icon-24"
           title="Humedad"
         >
           <svg
@@ -205,7 +205,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
         class="box-icon-text"
       >
         <i
-          class="icon --mb-3xs --icon-24"
+          class="icon mb-4 --icon-24"
           title="Dirección del viento"
         >
           <svg
@@ -229,7 +229,7 @@ exports[`Components - private - services - weather - ForecastCard => Test when d
         class="box-icon-text"
       >
         <i
-          class="icon --mb-3xs --icon-24"
+          class="icon mb-4 --icon-24"
           title="Probabilidad de lluvia"
         >
           <svg

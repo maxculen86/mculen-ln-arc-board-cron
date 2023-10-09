@@ -3,14 +3,14 @@
 exports[`components - feature - ln10 - webstory should match snapshot 1`] = `
 <div>
   <article
-    class="ln-card --d-flex --flex-col --ai-start --m --regular"
+    class="ln-card flex flex-column ai-start --m --regular"
     data-id="89P13"
     data-notaid="89P13"
     data-pos="0000"
     data-source="editor"
   >
     <a
-      class="link ln-link --d-flex --flex-col --unstyled"
+      class="link ln-link flex flex-column --unstyled"
       href="www.lanacion.com.ar"
       target="_self"
       title="Volanta Titulo"
@@ -28,7 +28,7 @@ exports[`components - feature - ln10 - webstory should match snapshot 1`] = `
             srcset="https://resizer.glanacion.com/resizer/lh-gNMcfgBevIHVti6EmwfG2SZo=/280x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SVH33PIGLVCGFON7ZOZYCT6KXM.jpg"
           />
           <img
-            class="image flex --w-100 --h-100"
+            class="image flex w-100 h-100"
             decoding="async"
             fetchpriority="low"
             loading="lazy"
@@ -37,7 +37,7 @@ exports[`components - feature - ln10 - webstory should match snapshot 1`] = `
         </picture>
       </section>
       <section
-        class="description-container --relative --d-flex --flex-col"
+        class="description-container --relative flex flex-column"
         href="www.lanacion.com.ar"
       >
         <h2

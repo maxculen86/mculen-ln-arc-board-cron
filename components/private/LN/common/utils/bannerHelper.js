@@ -271,7 +271,7 @@ export const buildBannerClasses = (config, customFields) => {
     if (sticky) classes += '--sticky ';
     if (fixed) classes += '--fixed ';
     if (closeButton) classes += '--close ';
-    if (!withoutHide) classes += '--none ';
+    if (!withoutHide) classes += 'none ';
     if (slotName.includes('comercial')) classes += '--comercial ';
 
     return classes;
@@ -476,9 +476,9 @@ export const queueGoogletagCommand = bannersToLoad => {
                     !isEmpty &&
                     bannersWithoutHide.indexOf(slot.getSlotElementId()) === -1
                 )
-                    banner.parentNode.classList.remove('--none');
+                    banner.parentNode.classList.remove('none');
                 if (isEmpty && hiddenBanners[slot.getSlotElementId()]) {
-                    banner.parentNode.classList.add('--none');
+                    banner.parentNode.classList.add('none');
                 }
             });
     });

@@ -45,7 +45,7 @@ const LNAcumuladoColumnistasLayout = props => {
                                         />
                                         <Text
                                             tag="p"
-                                            extraClass="com-text --mb-lg --font-primary --l --font-medium"
+                                            extraClass="com-text mb-32 --font-primary --l --font-medium"
                                             text={
                                                 'Leé los análisis de los columnistas, periodistas y escritores más destacados de la redacción. ' +
                                                 'Además, descubrí contenidos especializados de nuestros colaboradores. Informate con LA NACION.'

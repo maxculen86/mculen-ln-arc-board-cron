@@ -62,7 +62,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'comercial_dsk',
-                classes: '--comercial --none',
+                classes: '--comercial none',
                 closeButton: true,
                 isStatic: true
             }}
@@ -72,7 +72,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'comercial_mob',
-                classes: '--comercial --none',
+                classes: '--comercial none',
                 closeButton: true,
                 isStatic: true
             }}
@@ -422,7 +422,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'adhesion_dsk',
-                classes: '--adhesion_dsk --fixed --close --none',
+                classes: '--adhesion_dsk --fixed --close none',
                 hideForSubscriptor: true,
                 closeButton: true,
                 isStatic: true
@@ -433,7 +433,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'adhesion_mob',
-                classes: '--adhesion_mob --fixed --close --none',
+                classes: '--adhesion_mob --fixed --close none',
                 hideForSubscriptor: true,
                 closeButton: true,
                 isStatic: true
@@ -444,7 +444,7 @@ const bannersHome = {
         <DivBannerSSR
             bannerConfiguration={{
                 slotId: 'adhesion_tab',
-                classes: '--adhesion_tab --fixed --close --none',
+                classes: '--adhesion_tab --fixed --close none',
                 hideForSubscriptor: true,
                 closeButton: true,
                 isStatic: true
@@ -480,7 +480,7 @@ const bannersHome = {
         <>
             <DivBannerSSR
                 bannerConfiguration={{
-                    classes: '--logo --none',
+                    classes: '--logo none',
                     slotId: 'logo_header_dsk',
                     isStatic: true,
                     withoutHide: true
@@ -488,7 +488,7 @@ const bannersHome = {
             />
             <DivBannerSSR
                 bannerConfiguration={{
-                    classes: '--logo_sticky_dsk --none',
+                    classes: '--logo_sticky_dsk none',
                     slotId: 'logo_header_dsk_sticky',
                     isStatic: true,
                     withoutHide: true
@@ -496,7 +496,7 @@ const bannersHome = {
             />
             <DivBannerSSR
                 bannerConfiguration={{
-                    classes: '--logo --none',
+                    classes: '--logo none',
                     slotId: 'logo_header_tab',
                     isStatic: true,
                     withoutHide: true
@@ -504,7 +504,7 @@ const bannersHome = {
             />
             <DivBannerSSR
                 bannerConfiguration={{
-                    classes: '--logo --none',
+                    classes: '--logo none',
                     slotId: 'logo_header_mob',
                     isStatic: true,
                     withoutHide: true

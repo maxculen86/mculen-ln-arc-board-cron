@@ -2,13 +2,13 @@
 
 exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
 <div
-  class="ln-sub-header --border-bottom-gray"
+  class="ln-sub-header border border-thin border-bottom border-light-300 "
 >
   <div
     class="lay-container"
   >
     <div
-      class="--d-flex --ai-center --jc-between"
+      class="flex ai-center jc-between"
     >
       <div
         class="dollar-container --relative"
@@ -17,10 +17,10 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
           class="--scroll-x"
         >
           <ul
-            class="dollar --d-in-flex"
+            class="dollar inline-flex"
           >
             <li
-              class="--w-max-content --d-flex --ai-center"
+              class="w-max flex ai-center"
             >
               <a
                 class="link ln-link --font-xs"
@@ -30,14 +30,14 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
               >
                 Dólar oficial
                 <span
-                  class="text ln-text --mr-2xs --font-bold"
+                  class="text ln-text mr-8 --font-bold"
                 >
                    $205,00
                 </span>
               </a>
             </li>
             <li
-              class="--w-max-content --d-flex --ai-center"
+              class="w-max flex ai-center"
             >
               <a
                 class="link ln-link --font-xs"
@@ -47,14 +47,14 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
               >
                 Dólar blue
                 <span
-                  class="text ln-text --mr-2xs --font-bold"
+                  class="text ln-text mr-8 --font-bold"
                 >
                    $375,00
                 </span>
               </a>
             </li>
             <li
-              class="--w-max-content --d-flex --ai-center"
+              class="w-max flex ai-center"
             >
               <a
                 class="link ln-link --font-xs"
@@ -64,14 +64,14 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
               >
                 Dólar turista
                 <span
-                  class="text ln-text --mr-2xs --font-bold"
+                  class="text ln-text mr-8 --font-bold"
                 >
                    $410
                 </span>
               </a>
             </li>
             <li
-              class="--w-max-content --d-flex --ai-center"
+              class="w-max flex ai-center"
             >
               <a
                 class="link ln-link --font-xs"
@@ -81,7 +81,7 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
               >
                 Dólar CCL
                 <span
-                  class="text ln-text --mr-2xs --font-bold"
+                  class="text ln-text mr-8 --font-bold"
                 >
                    $365,93
                 </span>
@@ -94,19 +94,19 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
         class="access-container --tablet-none "
       >
         <ul
-          class="access --d-flex"
+          class="access flex"
         >
           <li
-            class="--w-max-content --mr-sm"
+            class="w-max mr-16"
           >
             <a
-              class="link ln-link --d-flex --ai-center --font-xs"
+              class="link ln-link flex ai-center --font-xs"
               href="https://www.lanacion.com.ar/mis-notas/"
               target="_self"
               title="Ir a Mis notas"
             >
               <i
-                class="icon --mr-3xs --icon-20"
+                class="icon mr-4 --icon-20"
               >
                 <svg
                   fill="none"
@@ -123,16 +123,16 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
             </a>
           </li>
           <li
-            class="--w-max-content --mr-sm"
+            class="w-max mr-16"
           >
             <a
-              class="link ln-link --d-flex --ai-center --font-xs"
+              class="link ln-link flex ai-center --font-xs"
               href="https://newsletter.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274"
               target="_self"
               title="Ir a Newsletters"
             >
               <i
-                class="icon --mr-3xs --icon-20"
+                class="icon mr-4 --icon-20"
               >
                 <svg
                   fill="none"
@@ -149,16 +149,16 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
             </a>
           </li>
           <li
-            class="--w-max-content --mr-sm"
+            class="w-max mr-16"
           >
             <a
-              class="link ln-link --d-flex --ai-center --font-xs"
+              class="link ln-link flex ai-center --font-xs"
               href="https://club.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274"
               target="_self"
               title="Ir a Club LA NACION"
             >
               <i
-                class="icon --mr-3xs --icon-20"
+                class="icon mr-4 --icon-20"
               >
                 <svg
                   fill="none"

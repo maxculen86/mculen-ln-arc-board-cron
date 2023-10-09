@@ -181,7 +181,7 @@ export const getRoofTitle = container => {
 
 export const setEventsNavigationLinks = () => {
     const navigationLinks = document.querySelectorAll(
-        '[roof-group="right"] > .link.ln-link.--d-flex'
+        '[roof-group="right"] > .link.ln-link.flex'
     );
 
     navigationLinks.forEach(link => {

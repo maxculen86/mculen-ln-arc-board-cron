@@ -3,7 +3,7 @@
 exports[`Components - features - LN-10 - articulo - default should test card autor variant 1`] = `
 <div>
   <article
-    class="ln-card --d-flex --flex-col --ai-start --m --regular"
+    class="ln-card flex flex-column ai-start --m --regular"
     data-feature-id="f0f9g3fKOoHW25c"
     data-id="2KOBND62KNFVVBFQZOADNN6WNY"
     data-notaid="2KOBND62KNFVVBFQZOADNN6WNY"
@@ -11,7 +11,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
     data-source="editor"
   >
     <a
-      class="link ln-link --d-flex --flex-col --unstyled"
+      class="link ln-link flex flex-column --unstyled"
       href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
       target="_self"
       title="LeadNota Nota"
@@ -26,7 +26,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         >
           <img
             alt="Nota"
-            class="image flex --w-100 --h-100 none"
+            class="image flex w-100 h-100 none"
             decoding="async"
             fetchpriority="low"
             height="1333"
@@ -36,7 +36,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         </figure>
       </section>
       <section
-        class="description-container --relative --d-flex --flex-col"
+        class="description-container --relative flex flex-column"
         href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
       >
         <h1
@@ -51,11 +51,11 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
           Nota
         </h1>
         <div
-          class="marquee-container --d-flex --ai-center"
+          class="marquee-container flex ai-center"
           title="Por "
         >
           <div
-            class="marquee-text --d-flex --flex-col --font-2xs --w-100"
+            class="marquee-text flex flex-column --font-2xs w-100"
           >
             <span
               class="text ln-text marquee"
@@ -74,7 +74,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
 exports[`Components - features - LN-10 - articulo - default should test card autor variant 2`] = `
 <div>
   <article
-    class="ln-card --d-flex --flex-col --ai-start --m --regular"
+    class="ln-card flex flex-column ai-start --m --regular"
     data-feature-id="f0f9g3fKOoHW25c"
     data-id="2KOBND62KNFVVBFQZOADNN6WNY"
     data-notaid="2KOBND62KNFVVBFQZOADNN6WNY"
@@ -82,7 +82,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
     data-source="editor"
   >
     <a
-      class="link ln-link --d-flex --flex-col --unstyled"
+      class="link ln-link flex flex-column --unstyled"
       href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
       target="_self"
       title="LeadNota Nota"
@@ -97,7 +97,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         >
           <img
             alt="Nota"
-            class="image flex --w-100 --h-100 none"
+            class="image flex w-100 h-100 none"
             decoding="async"
             fetchpriority="low"
             height="1333"
@@ -107,7 +107,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         </figure>
       </section>
       <section
-        class="description-container --relative --d-flex --flex-col"
+        class="description-container --relative flex flex-column"
         href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
       >
         <h1

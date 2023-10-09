@@ -8,10 +8,10 @@ exports[`Componentes - Chains - LN10_Caja_WebStories should match snapshot 1`] =
       data-diagramacion-id="webstories"
     >
       <div
-        class="wrap-webstories --pt-3xl"
+        class="wrap-webstories pt-80"
       >
         <div
-          class="web-roof --d-flex"
+          class="web-roof flex"
         >
           <h3
             class="icon-container"
@@ -40,7 +40,7 @@ exports[`Componentes - Chains - LN10_Caja_WebStories should match snapshot 1`] =
             </i>
           </h3>
           <div
-            class="--d-flex --ai-center --mobile-none"
+            class="flex ai-center --mobile-none"
           >
             <button
               class="button ln-button --hide --arial --sm"

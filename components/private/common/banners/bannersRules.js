@@ -223,7 +223,7 @@ export const getScriptForComercial = slodId => {
                     setTimeout(function(){
                         
                         const bannerComercial = document.getElementById("${slodId}");
-                        bannerComercial && bannerComercial.parentNode.classList.add('--none');
+                        bannerComercial && bannerComercial.parentNode.classList.add('none');
                     },12000)
                 })
             `
