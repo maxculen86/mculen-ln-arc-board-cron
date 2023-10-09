@@ -323,6 +323,16 @@ export const convertVideoArcToJw = (video, arcSite) => {
         })
         .catch(error => {
             if (error.statusCode === 404) {
+                logger.push(
+                    error,
+                    {
+                        source:
+                            'content/source/articleSourceNota/convertVideoArcToJw/notConverted',
+                        url: idVideoArc
+                    },
+                    arcSite,
+                    true
+                );
                 return video;
             }
             console.log(

@@ -28,22 +28,20 @@ export const RenderCollection = ({
             </>
         ),
         [BN_12_GRID]: (
-            <>
-                <StaticContent>
-                    <RoofFoodit
-                        title={{ text: title, as: roofAs }}
-                        hide={hideTitle}
-                    />
-                    <div className={classNameParent}>
-                        {articles.map(article => (
-                            <CommonCardFoodit
-                                article={article}
-                                className={classNameChildren}
-                            />
-                        ))}
-                    </div>
-                </StaticContent>
-            </>
+            <StaticContent>
+                <RoofFoodit
+                    title={{ text: title, as: roofAs }}
+                    hide={hideTitle}
+                />
+                <div className={classNameParent}>
+                    {articles.map(article => (
+                        <CommonCardFoodit
+                            article={article}
+                            className={classNameChildren}
+                        />
+                    ))}
+                </div>
+            </StaticContent>
         )
     };
 

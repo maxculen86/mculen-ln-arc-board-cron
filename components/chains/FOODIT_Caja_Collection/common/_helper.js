@@ -2,12 +2,9 @@ import pageBuilderValidator from '../../../private/common/utils/pageBuilderValid
 
 export const validateChainFoodit = ({
     minArticles,
-    maxArticles,
     idCollection,
     articles = [],
-    layout,
-    renderables = [],
-    chainId
+    layout
 }) => {
     const rules = [
         {

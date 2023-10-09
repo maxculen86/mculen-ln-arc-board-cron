@@ -3,16 +3,15 @@ import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import { validateChainFoodit } from './common/_helper';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
-import RenderCollection, {
-    renderCollection
-} from '../foodit-global/common/RenderCollection/foodit';
+import RenderCollection from '../foodit-global/common/RenderCollection/foodit';
 import { transformArticleFoodit } from '../../features/foodit-global/common/utils/notaFooditHelper';
 import fooditRules from '../../features/foodit-global/common/utils/fooditRules';
 import useGetArticleInCollectionFoodit from '../foodit-global/common/hooks/useGetArticleInCollectionFoodit';
 import setChainFooditCustomFields from '../foodit-global/common/utils/setChainCustomFieldsFoodit';
+import isSSR from '../../private/LN/common/utils/isSSR';
 
 const CajaCollection = props => {
-    const { id: chainId, isAdmin, customFields, renderables = [] } = props;
+    const { isAdmin, customFields } = props;
 
     const {
         idCollection,
@@ -29,19 +28,16 @@ const CajaCollection = props => {
 
     const articles = useGetArticleInCollectionFoodit({
         idCollection,
-        notesQuantity: minArticles,
         size: maxArticles,
         initialPosition: Number(initialPosition) - 1,
-        staticMode: isStatic
+        staticMode: isSSR() && isStatic
     });
 
     const error = validateChainFoodit({
         minArticles,
         idCollection,
-        renderables,
         layout,
-        articles,
-        chainId
+        articles
     });
 
     if (isAdmin && error) {
