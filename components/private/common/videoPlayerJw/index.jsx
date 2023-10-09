@@ -12,7 +12,6 @@ const videoPlayerJW = ({ data, parrafo, tituloNota, hasAutoplay }) => {
         embed: {
             config: {
                 idPlayer,
-                idVideo,
                 videoJw: { title = '', description = '', playlist = [] } = {}
             } = {}
         } = {}
@@ -41,7 +40,7 @@ const videoPlayerJW = ({ data, parrafo, tituloNota, hasAutoplay }) => {
                                         player,
                                         playlist,
                                         hasAutoplay,
-                                        idVideo,
+                                        mediaid,
                                         tagsUrl
                                     )
                                 }}

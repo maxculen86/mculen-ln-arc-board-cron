@@ -54,7 +54,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         const player = 'jwplayer';
         const playlist = [{ file: 'video.mp4' }];
         const hasAutoplay = true;
-        const idVideo = 'abc123';
+        const idVideo = 'yPJ53Pzg';
         const tagsUrl = 'te_testjw';
 
         const expectedScript = `

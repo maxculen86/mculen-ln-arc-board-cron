@@ -17,7 +17,7 @@ const getAcumulado = async queryParams => {
 
 const transform = async query => {
     try {
-        return Promise.resolve(getAcumulado(query)) || [];
+        return (await getAcumulado(query)) || [];
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(

@@ -114,7 +114,7 @@ describe('Test page', () => {
             };
             await page.fetch(queryParams);
         } catch (err) {
-            expect(err.message).toBe('Error');
+            expect(err.message).toBe('404 - Error');
         }
     });
 });

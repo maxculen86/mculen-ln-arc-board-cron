@@ -5,7 +5,7 @@ const pageTransformV2Format = resultPageData => {
 
     return {
         metadata,
-        items: [...(resultPageData && resultPageData)]
+        items: [...resultPageData]
     };
 };
 

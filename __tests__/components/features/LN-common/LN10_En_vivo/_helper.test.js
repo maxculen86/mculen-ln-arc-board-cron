@@ -1,7 +1,7 @@
 import { useContent } from 'fusion:content';
 import {
     findError,
-    GetArticle,
+    getArticle,
     calculateTimePublish,
     convertMillisecondsToMinutes,
     validateId,
@@ -38,7 +38,7 @@ describe('Tests - helpers - feature - EnVivo', () => {
         });
     });
 
-    describe('Tests function GetArticle', () => {
+    describe('Tests function getArticle', () => {
         const articleMock = {
             _id: 'GD7P4ZTE2FFBDAVBMLAK7V3Y6M',
             canonical_url: '/revista-living/prueba-logos-nid28052020/',
@@ -64,7 +64,7 @@ describe('Tests - helpers - feature - EnVivo', () => {
         test('It should return an object with the transformed note data.', () => {
             useContent.mockImplementation(() => articleMock);
             expect(
-                GetArticle({ group, noteId, title: customTitle })
+                getArticle({ group, noteId, title: customTitle })
             ).toStrictEqual({
                 error: false,
                 group: 1,
@@ -77,7 +77,7 @@ describe('Tests - helpers - feature - EnVivo', () => {
 
         test('should return the error property to true when a note id exists but the content source response is not defined', () => {
             useContent.mockImplementation(() => undefined);
-            const result = GetArticle(group, noteId, customTitle);
+            const result = getArticle(group, noteId, customTitle);
             expect(result).toStrictEqual({
                 error: '',
                 group: 1,
@@ -92,7 +92,7 @@ describe('Tests - helpers - feature - EnVivo', () => {
             useContent.mockImplementation(() => articleMock);
             const customTitle = 'Prueba logos';
 
-            expect(GetArticle(group, noteId, customTitle)).toStrictEqual({
+            expect(getArticle(group, noteId, customTitle)).toStrictEqual({
                 error: '',
                 group: 1,
                 id: '',
