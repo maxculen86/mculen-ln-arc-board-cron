@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests RoofFoodit Render component 1`] = `
+<div>
+  <div
+    class="flex ai-center jc-between gap-24 mb-24"
+  >
+    <h3
+      class="text prumo prumo-extrabold text-28 text-36_md text-40_lg"
+    >
+      Título de prueba
+    </h3>
+    <button
+      class="button foodit-button gap-8 roboto-bold text-12 ml-auto rounded-24 text-light-800 icon-light-800"
+      data-variant="link"
+      text="LLevar al recetario"
+    >
+      <i
+        class="icon w-24 w-16_md --dark"
+      >
+        <svg>
+          icono-de-prueba
+        </svg>
+      </i>
+      <span
+        class="text text-14 sm-none uppercase"
+      >
+        LLevar al recetario
+      </span>
+    </button>
+  </div>
+</div>
+`;

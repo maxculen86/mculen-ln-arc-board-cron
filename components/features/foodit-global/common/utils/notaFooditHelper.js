@@ -51,7 +51,7 @@ export const transformArticleFoodit = article => {
         title: get(article, 'headlines.basic', ''),
         author: getAuthorsAsString(article, false) || 'Por Foodit',
         image: get(article, 'promo_items.basic', {}),
-        href: get(article, 'promo_items.websites.recetas.website_url', '#'),
+        href: get(article, 'websites.foodit.website_url', '#'),
         time: get(article, 'promo_items.receta.embed.config.counterTime', null),
         tag: highestPriorityTag.toUpperCase(),
         variant: getVariantBySubtype(get(article, 'subtype', ''))

@@ -1,0 +1,94 @@
+import React from 'react';
+import Consumer from 'fusion:consumer';
+import PropTypes from 'fusion:prop-types';
+import { validateChainFoodit } from './common/_helper';
+import WarningMessage from '../../private/common/warningMessage/warningMessage';
+import RenderCollection, {
+    renderCollection
+} from '../foodit-global/common/RenderCollection/foodit';
+import { transformArticleFoodit } from '../../features/foodit-global/common/utils/notaFooditHelper';
+import fooditRules from '../../features/foodit-global/common/utils/fooditRules';
+import useGetArticleInCollectionFoodit from '../foodit-global/common/hooks/useGetArticleInCollectionFoodit';
+import setChainFooditCustomFields from '../foodit-global/common/utils/setChainCustomFieldsFoodit';
+
+const CajaCollection = props => {
+    const { id: chainId, isAdmin, customFields, renderables = [] } = props;
+
+    const {
+        idCollection,
+        layout = '',
+        initialPosition,
+        hideCaja,
+        hideTitle,
+        title
+    } = customFields;
+
+    const rules = fooditRules(layout) || {};
+
+    const { minArticles, maxArticles, size, isStatic } = rules;
+
+    const articles = useGetArticleInCollectionFoodit({
+        idCollection,
+        notesQuantity: minArticles,
+        size: maxArticles,
+        initialPosition: Number(initialPosition) - 1,
+        staticMode: isStatic
+    });
+
+    const error = validateChainFoodit({
+        minArticles,
+        idCollection,
+        renderables,
+        layout,
+        articles,
+        chainId
+    });
+
+    if (isAdmin && error) {
+        return <WarningMessage type={error.type} message={error.message} />;
+    }
+    const articlesTransformed = articles.map(article => {
+        return { ...transformArticleFoodit(article), size };
+    });
+
+    return (
+        <RenderCollection
+            rules={rules}
+            title={title}
+            hideCaja={hideCaja}
+            hideTitle={hideTitle}
+            articles={articlesTransformed}
+            layout={layout}
+            error={error}
+        />
+    );
+};
+
+CajaCollection.label = 'FOODIT Caja Collection';
+
+CajaCollection.propTypes = {
+    id: PropTypes.string.isRequired,
+    isAdmin: PropTypes.bool,
+    outputType: PropTypes.string,
+    renderables: PropTypes.arrayOf(
+        PropTypes.shape({
+            type: PropTypes.string,
+            props: PropTypes.shape({
+                customFields: PropTypes.shape({
+                    layout: PropTypes.string,
+                    idCollection: PropTypes.string,
+                    initialPosition: PropTypes.number
+                })
+            })
+        })
+    ),
+    customFields: PropTypes.shape({
+        ...setChainFooditCustomFields('cajaCollection')
+    }),
+    tree: PropTypes.shape(PropTypes.node),
+    globalContent: PropTypes.shape({
+        name: PropTypes.string
+    })
+};
+
+export default Consumer(CajaCollection);

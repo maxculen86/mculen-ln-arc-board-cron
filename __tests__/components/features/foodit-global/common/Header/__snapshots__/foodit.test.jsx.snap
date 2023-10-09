@@ -180,7 +180,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
               >
                 <li>
                   <a
-                    class="link foodit-link flex gap-4 ai-center roboto-bold text-14"
+                    class="link foodit-link flex gap-8 ai-center roboto-bold text-14"
                     href="/"
                     target="_self"
                     title="Ir a Recetario"
@@ -204,7 +204,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
                 </li>
                 <li>
                   <a
-                    class="link foodit-link flex gap-4 ai-center roboto-bold text-14"
+                    class="link foodit-link flex gap-8 ai-center roboto-bold text-14"
                     href="/"
                     target="_self"
                     title="Ir a Descubrir "
