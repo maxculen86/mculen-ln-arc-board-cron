@@ -6,7 +6,7 @@ import { SITE_LANACION, LANACIONAR_URLASSETS } from 'fusion:environment';
  */
 
 export function getLinkDomain(url) {
-    if (url.includes(LANACIONAR_URLASSETS))
+    if (url && url.includes(LANACIONAR_URLASSETS))
         return url.replace(LANACIONAR_URLASSETS, SITE_LANACION);
 
     return url;
