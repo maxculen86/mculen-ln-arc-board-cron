@@ -247,6 +247,14 @@ a {
   background: var(--secondary-positive);
 }
 
+.icon-dark-800 .icon.icon svg > path {
+  fill: var(--neutral-dark-800);
+}
+
+.icon-light-800 .icon.icon svg > path {
+  fill: var(--neutral-light-800);
+}
+
 .none {
   display: none;
 }

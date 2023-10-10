@@ -44,13 +44,17 @@ export const createHeaderObserver = (
             if (!entry.isIntersecting) {
                 isNegative && mainHeader.classList.remove('--negative');
                 wrapperHome && wrapperHome.classList.add('--top-fixed');
-                isHome && buttonText.classList.add('none');
-                isHome && stickyButtonText.classList.remove('none');
+                isHome && buttonText && buttonText.classList.add('none');
+                isHome &&
+                    stickyButtonText &&
+                    stickyButtonText.classList.remove('none');
             } else {
                 isNegative && mainHeader.classList.add('--negative');
                 wrapperHome && wrapperHome.classList.remove('--top-fixed');
-                isHome && buttonText.classList.remove('none');
-                isHome && stickyButtonText.classList.add('none');
+                isHome && buttonText && buttonText.classList.remove('none');
+                isHome &&
+                    stickyButtonText &&
+                    stickyButtonText.classList.add('none');
             }
         });
     };
