@@ -1,11 +1,11 @@
-const acuTransformV2Format = (transformedAcu, sectionData, paginationValue) => {
+const acuTransformV2Format = (transformedAcu, sectionSlug, paginationValue) => {
     const metadata = {
         paginate: paginationValue,
         title: transformedAcu[0].titulo,
         banners: transformedAcu[0].banners,
         total: transformedAcu[0].acumuladoTotal,
         category: {
-            slug: sectionData ? sectionData.slug : null,
+            slug: sectionSlug,
             value: transformedAcu[0].titulo
         }
     };
