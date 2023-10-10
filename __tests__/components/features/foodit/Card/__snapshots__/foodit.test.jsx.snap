@@ -9,7 +9,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 --day-recipe shadow-down-sm"
     >
       <a
-        class="link foodit-link flex gap-4 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+        class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
         href="#"
         target="_self"
         title="Receta para comer mas rico con ...POLLITO 2"
@@ -97,7 +97,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
     >
       <a
-        class="link foodit-link flex gap-4 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+        class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
         href="#"
         target="_self"
         title="Ficha nota FOODIT"
@@ -209,7 +209,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
     >
       <a
-        class="link foodit-link flex gap-4 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+        class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
         href="#"
         target="_self"
         title="Receta para comer mas rico con ...POLLITO 2"

@@ -1,0 +1,58 @@
+.media-scroller [data-scroller=track] {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc(var(--scroller-element-columns, 2) / var(--scroller-columns, 8) * 100% - var(--scroller-gap, 16px) * (1 - var(--scroller-element-columns, 2) / var(--scroller-columns, 8)));
+  gap: var(--scroller-gap, 16px);
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.media-scroller [data-scroller=track]::-webkit-scrollbar {
+  display: none;
+}
+.media-scroller [data-scroller=track] > [data-scroller=element] {
+  scroll-snap-align: start;
+}
+.media-scroller [data-scroller=track][data-scroller-elements="1"] ~ [data-scroller=arrow] {
+  display: none;
+}
+.media-scroller [data-scroller=track][data-scroller-elements="1"] ~ [data-scroller=progress] {
+  display: none;
+}
+.media-scroller [data-scroller=track][data-scroller-elements="2"] ~ [data-scroller=arrow] {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .media-scroller [data-scroller=track][data-scroller-elements="2"] ~ [data-scroller=progress] {
+    display: none;
+  }
+}
+.media-scroller [data-scroller=track][data-scroller-elements="3"] ~ [data-scroller=arrow], .media-scroller [data-scroller=track][data-scroller-elements="4"] ~ [data-scroller=arrow] {
+  display: none;
+}
+@media screen and (min-width: 1279px) {
+  .media-scroller [data-scroller=track][data-scroller-elements="3"] ~ [data-scroller=progress], .media-scroller [data-scroller=track][data-scroller-elements="4"] ~ [data-scroller=progress] {
+    display: none;
+  }
+}
+.media-scroller [data-scroller=arrow] {
+  top: 50%;
+}
+.media-scroller [data-scroller=arrow]:hover {
+  opacity: 1;
+}
+@media screen and (max-width: 1279px) {
+  .media-scroller [data-scroller=arrow] {
+    display: none;
+  }
+}
+.media-scroller [data-scroller-direction=next] {
+  transform: translate3d(50%, -50%, 0);
+  right: 0;
+}
+.media-scroller [data-scroller-direction=prev] {
+  transform: translate3d(-50%, -50%, 0);
+  left: 0;
+}

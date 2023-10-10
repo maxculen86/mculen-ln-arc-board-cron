@@ -9,11 +9,13 @@ jest.mock('html-react-parser', () => jest.fn(element => element));
 
 describe('components - private - common - OpeningRawHtml', () => {
     const validProps = {
-        layoutName: 'LN-nota-html-libre'
+        layoutName: 'LN-nota-html-libre',
+        allowedLayout: 'LN-nota-html-libre'
     };
 
     const notValidProps = {
-        layoutName: 'LN-nota-noticia'
+        layoutName: 'LN-nota-noticia',
+        allowedLayout: 'LN-nota-html-libre'
     };
 
     it('should render okay with empty state', () => {

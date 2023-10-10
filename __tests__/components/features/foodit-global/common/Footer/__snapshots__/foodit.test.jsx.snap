@@ -15,7 +15,7 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
         class="flex ai-center"
       >
         <a
-          class="link foodit-link flex gap-4 ai-center roboto-bold uppercase"
+          class="link foodit-link flex gap-8 ai-center roboto-bold uppercase"
           href="/"
           target="_self"
           title="Ir a undefined"
@@ -39,7 +39,7 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
           </svg>
         </i>
         <a
-          class="link foodit-link flex gap-4 ai-center roboto-bold uppercase"
+          class="link foodit-link flex gap-8 ai-center roboto-bold uppercase"
           href="/"
           target="_self"
           title="Ir a undefined"
@@ -59,7 +59,7 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
       class="flex gap-24"
     >
       <a
-        class="link foodit-link flex gap-4 ai-center roboto-regular"
+        class="link foodit-link flex gap-8 ai-center roboto-regular"
         href="https://www.facebook.com/lanacion/"
         target="_self"
         title="Ir a undefined"
@@ -81,7 +81,7 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
         </i>
       </a>
       <a
-        class="link foodit-link flex gap-4 ai-center roboto-regular"
+        class="link foodit-link flex gap-8 ai-center roboto-regular"
         href="https://www.twitter.com/lanacion/"
         target="_self"
         title="Ir a undefined"
@@ -103,7 +103,7 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
         </i>
       </a>
       <a
-        class="link foodit-link flex gap-4 ai-center roboto-regular"
+        class="link foodit-link flex gap-8 ai-center roboto-regular"
         href="https://www.instagram.com/lanacioncom/"
         target="_self"
         title="Ir a undefined"

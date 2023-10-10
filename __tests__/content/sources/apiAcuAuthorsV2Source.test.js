@@ -83,7 +83,23 @@ describe('content source apiAcuAuthorsV2Source integration test', () => {
         );
 
         expect(Object.keys(result.metadata.author).sort()).toEqual(
-            ['id', 'slug', 'value', 'image'].sort()
+            [
+                'id',
+                'slug',
+                'value',
+                'image',
+                'absoluteUrl',
+                'twitter',
+                'longBio',
+                'languages',
+                'books',
+                'location',
+                'affiliations',
+                'education',
+                'interests',
+                'mail',
+                'role'
+            ].sort()
         );
     });
 
