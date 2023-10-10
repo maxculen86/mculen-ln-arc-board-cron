@@ -60,7 +60,7 @@ const CajaCollection = props => {
     );
 };
 
-CajaCollection.label = 'FOODIT Caja Collection';
+CajaCollection.label = 'foodit Caja Collection';
 
 CajaCollection.propTypes = {
     id: PropTypes.string.isRequired,

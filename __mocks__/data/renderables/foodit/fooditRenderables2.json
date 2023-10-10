@@ -1,0 +1,570 @@
+[
+    {
+        "collection": "layouts",
+        "type": "Foodit-home",
+        "props": {
+            "collection": "layouts",
+            "type": "Foodit-home",
+            "id": "Foodit-home",
+            "childProps": [
+                {
+                    "collection": "sections",
+                    "id": 0
+                },
+                {
+                    "collection": "sections",
+                    "id": 1
+                },
+                {
+                    "collection": "sections",
+                    "id": 2
+                }
+            ]
+        },
+        "children": [
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 0
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "id": "f0f5gjwJmp3u2hM",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 1
+                },
+                "children": [
+                    {
+                        "collection": "chains",
+                        "type": "foodit_Caja_Manual",
+                        "props": {
+                            "collection": "chains",
+                            "type": "foodit_Caja_Manual",
+                            "id": "c0fJsvNSvoymtRG",
+                            "name": null,
+                            "customFields": {
+                                "idCollection": "",
+                                "layout": "bn_2_grid",
+                                "initialPosition": 1,
+                                "title": ""
+                            },
+                            "displayProperties": {}
+                        },
+                        "children": [
+                            {
+                                "collection": "features",
+                                "type": "foodit/Card",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "foodit/Card",
+                                    "id": "f0feV8KtsvPmtxw",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            },
+                            {
+                                "collection": "features",
+                                "type": "foodit/Card",
+                                "props": {
+                                    "collection": "features",
+                                    "type": "foodit/Card",
+                                    "id": "f0fasnZsNXTmtpS",
+                                    "name": null,
+                                    "contentConfig": {
+                                        "contentService": "",
+                                        "contentConfigValues": {},
+                                        "inherit": true
+                                    },
+                                    "customFields": {
+                                        "noteId": "FMLGIYTL2ZBCRAKQTSO27CCQ6U"
+                                    },
+                                    "displayProperties": {},
+                                    "localEdits": {},
+                                    "variants": {}
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "collection": "features",
+                        "type": "foodit/Banner",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Banner",
+                            "id": "f0fz3gh12C1B7JD",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "imageId": "3TWACUPTXVFANBCPGH5INPTGSU",
+                                "title": "el 10",
+                                "link": "lanacion.com.ar",
+                                "pbInternal_cloneId": "f0fz3gh12C1B7JD"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "id": "f0fUEEMF5zjM7F6",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU",
+                                "pbInternal_cloneId": "f0fUEEMF5zjM7F6"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "sections",
+                "props": {
+                    "collection": "sections",
+                    "id": 2
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "id": "f0fjtZzK85Je8mE",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "FMLGIYTL2ZBCRAKQTSO27CCQ6U"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 0
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "foodit/Card",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "id": "f0f5gjwJmp3u2hM",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 1
+        },
+        "children": [
+            {
+                "collection": "chains",
+                "type": "foodit_Caja_Manual",
+                "props": {
+                    "collection": "chains",
+                    "type": "foodit_Caja_Manual",
+                    "id": "c0fJsvNSvoymtRG",
+                    "name": null,
+                    "customFields": {
+                        "idCollection": "",
+                        "layout": "bn_2_grid",
+                        "initialPosition": 1,
+                        "title": ""
+                    },
+                    "displayProperties": {}
+                },
+                "children": [
+                    {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "id": "f0feV8KtsvPmtxw",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    },
+                    {
+                        "collection": "features",
+                        "type": "foodit/Card",
+                        "props": {
+                            "collection": "features",
+                            "type": "foodit/Card",
+                            "id": "f0fasnZsNXTmtpS",
+                            "name": null,
+                            "contentConfig": {
+                                "contentService": "",
+                                "contentConfigValues": {},
+                                "inherit": true
+                            },
+                            "customFields": {
+                                "noteId": "FMLGIYTL2ZBCRAKQTSO27CCQ6U"
+                            },
+                            "displayProperties": {},
+                            "localEdits": {},
+                            "variants": {}
+                        }
+                    }
+                ]
+            },
+            {
+                "collection": "features",
+                "type": "foodit/Banner",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Banner",
+                    "id": "f0fz3gh12C1B7JD",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "imageId": "3TWACUPTXVFANBCPGH5INPTGSU",
+                        "title": "el 10",
+                        "link": "lanacion.com.ar",
+                        "pbInternal_cloneId": "f0fz3gh12C1B7JD"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "foodit/Card",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "id": "f0fUEEMF5zjM7F6",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU",
+                        "pbInternal_cloneId": "f0fUEEMF5zjM7F6"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "sections",
+        "props": {
+            "collection": "sections",
+            "id": 2
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "foodit/Card",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "id": "f0fjtZzK85Je8mE",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "FMLGIYTL2ZBCRAKQTSO27CCQ6U"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Card",
+            "id": "f0f5gjwJmp3u2hM",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "chains",
+        "type": "foodit_Caja_Manual",
+        "props": {
+            "collection": "chains",
+            "type": "foodit_Caja_Manual",
+            "id": "c0fJsvNSvoymtRG",
+            "name": null,
+            "customFields": {
+                "idCollection": "",
+                "layout": "bn_2_grid",
+                "initialPosition": 1,
+                "title": ""
+            },
+            "displayProperties": {}
+        },
+        "children": [
+            {
+                "collection": "features",
+                "type": "foodit/Card",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "id": "f0feV8KtsvPmtxw",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            },
+            {
+                "collection": "features",
+                "type": "foodit/Card",
+                "props": {
+                    "collection": "features",
+                    "type": "foodit/Card",
+                    "id": "f0fasnZsNXTmtpS",
+                    "name": null,
+                    "contentConfig": {
+                        "contentService": "",
+                        "contentConfigValues": {},
+                        "inherit": true
+                    },
+                    "customFields": {
+                        "noteId": "FMLGIYTL2ZBCRAKQTSO27CCQ6U"
+                    },
+                    "displayProperties": {},
+                    "localEdits": {},
+                    "variants": {}
+                }
+            }
+        ]
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Banner",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Banner",
+            "id": "f0fz3gh12C1B7JD",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "imageId": "3TWACUPTXVFANBCPGH5INPTGSU",
+                "title": "el 10",
+                "link": "lanacion.com.ar",
+                "pbInternal_cloneId": "f0fz3gh12C1B7JD"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Card",
+            "id": "f0fUEEMF5zjM7F6",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU",
+                "pbInternal_cloneId": "f0fUEEMF5zjM7F6"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Card",
+            "id": "f0feV8KtsvPmtxw",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Card",
+            "id": "f0fasnZsNXTmtpS",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "FMLGIYTL2ZBCRAKQTSO27CCQ6U"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "props": {
+            "collection": "features",
+            "type": "foodit/Card",
+            "id": "f0fjtZzK85Je8mE",
+            "name": null,
+            "contentConfig": {
+                "contentService": "",
+                "contentConfigValues": {},
+                "inherit": true
+            },
+            "customFields": {
+                "noteId": "FMLGIYTL2ZBCRAKQTSO27CCQ6U"
+            },
+            "displayProperties": {},
+            "localEdits": {},
+            "variants": {}
+        }
+    }
+]

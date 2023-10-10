@@ -1,9 +1,9 @@
 import React from 'react';
-import CajaManual from '../../../../components/chains/Foodit_Caja_Manual/foodit';
+import CajaManual from '../../../../components/chains/foodit_Caja_Manual/foodit';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import CardFoodit from '../../../../components/features/foodit/Card/foodit.jsx';
-import mockChildProps from '../../../../__mocks__/data/Foodit_Caja_Manual/childProps.json';
+import mockChildProps from '../../../../__mocks__/data/foodit_Caja_Manual/childProps.json';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {

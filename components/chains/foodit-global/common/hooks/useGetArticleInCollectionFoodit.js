@@ -1,6 +1,6 @@
 import { useContent } from 'fusion:content';
 
-import filter from '../../../../../content/filters/FOODIT/home/collectionFoodit';
+import filter from '../../../../../content/filters/foodit/home/collectionFoodit';
 
 import get from '../../../../private/common/utils/get';
 

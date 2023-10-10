@@ -83,7 +83,7 @@ export const getRenderablesData = (renderables, featureId) => {
     const parent = renderables.find(
         elem =>
             get(elem, 'collection') === 'chains' &&
-            get(elem, 'type', '') === 'Foodit_Caja_Manual' &&
+            get(elem, 'type', '') === 'foodit_Caja_Manual' &&
             get(elem, 'children', []).some(
                 child => get(child, 'props.id') === featureId
             )

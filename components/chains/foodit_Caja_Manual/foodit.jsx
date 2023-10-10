@@ -65,7 +65,7 @@ const CajaManual = props => {
     return setStaticDynamically(Component);
 };
 
-CajaManual.label = 'Foodit Caja Manual';
+CajaManual.label = 'foodit Caja Manual';
 
 CajaManual.propTypes = {
     id: PropTypes.string.isRequired,

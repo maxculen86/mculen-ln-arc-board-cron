@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import CajaCollection from '../../../../components/chains/FOODIT_Caja_Collection/foodit';
-import articles from ' ../../../__mocks__/data/FOODIT_Caja_Collection/articlesCollection.json';
+import CajaCollection from '../../../../components/chains/foodit_Caja_Collection/foodit';
+import articles from ' ../../../__mocks__/data/foodit_Caja_Collection/articlesCollection.json';
 import useGetArticleInCollectionFoodit from '../../../../components/chains/foodit-global/common/hooks/useGetArticleInCollectionFoodit';
 
 const observe = jest.fn();

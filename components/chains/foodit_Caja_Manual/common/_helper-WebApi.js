@@ -2,8 +2,6 @@ import pageBuilderValidator from '../../../private/common/utils/pageBuilderValid
 import { setQuantityByLayout } from '../../utils/common/_helpers-WebApi';
 import get from '../../../private/common/utils/get';
 
-// TODO: Agrupar validaciones comunes entre chains
-
 const validateCajaManual = (layout, childProps = []) => {
     const minimum = setQuantityByLayout({ layout });
     const childrenPropsLength = get(childProps, 'length');
