@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import classNames from 'classnames';
 import { MainHeader } from '@ln/contenidos-ui-header';
 import { Button } from '@ln/contenidos-ui-button';
 import { Text } from '@ln/contenidos-ui-text';
 import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 import { Menu, Search } from '@ln/contenidos-ui-assets';
+import { createHeaderObserver } from '../../common/banners/intersectionObservers';
 
 import { getLoginData, isLoggedIn } from '../../LN/common/utils/contextHelper';
 import {
@@ -23,7 +25,24 @@ import MainHeaderEventsScript from '../../common/scriptManager/MainHeaderEventsS
 import showSubscribeButton from '../../LN/common/utils/showSubscribeButton';
 import bannersHome from '../../common/banners/bannersDivHome';
 
-const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
+const MainHeaderLN = ({
+    layout = '',
+    layoutsName = [],
+    toggleDesplegable,
+    userType = '',
+    isHome
+}) => {
+    const layoutsHeaderNegative = [
+        layoutsName.FotoAl100,
+        layoutsName.StoryTelling,
+        layoutsName.Video
+    ];
+    useEffect(() => {
+        //TODO: Buscar un mejor metodo para dejar de observar
+        createHeaderObserver(layout, layoutsHeaderNegative, false, isHome);
+        return () => createHeaderObserver(layout, layoutsHeaderNegative, true);
+    }, [layout, layoutsHeaderNegative]);
+
     const loginData = getLoginData() || {};
 
     const {
@@ -39,11 +58,15 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
     const logout = () => goToLogout(dispatch);
     const hasSubscribeButton = showSubscribeButton(loginData);
 
+    const classNameMainHeader = classNames({
+        '--negative': layoutsHeaderNegative.includes(layout)
+    });
+
     const desplegableData = setDesplegableData(logout) || [];
     const initials = setInitials(userFirstName, userLastName, userName);
 
     return (
-        <MainHeader>
+        <MainHeader className={classNameMainHeader}>
             <MainHeader.Left>
                 <Button
                     title="Secciones"
@@ -93,6 +116,7 @@ const MainHeaderLN = ({ userType = '', toggleDesplegable }) => {
                     loggedIn={loggedIn}
                     loading={loading}
                     hasSubscribeButton={hasSubscribeButton}
+                    isHome={isHome}
                 />
             </MainHeader.Right>
             <MainHeaderEventsScript />

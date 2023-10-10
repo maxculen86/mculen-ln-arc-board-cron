@@ -285,5 +285,10 @@ describe('Private - Common - Utils - subtypeNotesWithoutAmp - subtypeHelper', ()
                 '/politica/massa-acepto-la-propuesta-de-milei-y-postergara-el-debate-del-presupuesto-2024-hasta-despues-de-las-nid14092023/'
             )
         ).toBeFalsy();
+        expect(
+            subtypeNotesWithoutAmp(
+                '/economia/deuda-economia-pateo-vencimientos-por-unos-616000-millones-nid02102023/'
+            )
+        ).toBeFalsy();
     });
 });

@@ -30,7 +30,7 @@ const matchesLive = [
         },
         localTime: '16:00 HS',
         matchTime: '',
-        date: 'MAÑANA',
+        date: 'HOY',
         timeRemaining: {
             days: 0,
             hours: 0,
@@ -142,7 +142,7 @@ describe('Components - features - LN10 - AnexoRugby - utils', () => {
 
             expect(liveIds[0]).toStrictEqual('3ciedzqofwcg744nu312sfjtg');
             expect(updatedMatches[0].matchStatus).toBe('playing');
-            expect(updatedMatches[0].matchTime).toBe('INICIO 16:00 HS');
+            expect(updatedMatches[0].matchTime).toBe('INICIÓ 16:00 HS');
         });
 
         test('isMatchLiveCLientSide with NO live match', () => {
@@ -156,10 +156,29 @@ describe('Components - features - LN10 - AnexoRugby - utils', () => {
     });
 
     describe('isDelayedValidation', () => {
-        test('Test correct expected value', () => {
-            expect(isDelayedValidation(0, 0, 0)).toStrictEqual(true);
-            expect(isDelayedValidation(0, 0, -11)).toBe(false);
-            expect(isDelayedValidation(1, 0, 0)).toBe(false);
+        it('should return true if days, hours, and minutes are -1, -1, and -20 respectively', () => {
+            const result = isDelayedValidation(-1, -1, -20);
+            expect(result).toBe(false);
+        });
+
+        it('should return false if minutes is not within the valid range to be considered delayed', () => {
+            const result = isDelayedValidation(-1, -1, -21);
+            expect(result).toBe(false);
+        });
+
+        it('should return false if days is not -1', () => {
+            const result = isDelayedValidation(-3, -1, -20);
+            expect(result).toBe(false);
+        });
+
+        it('should return false if minutes is greater than 0', () => {
+            const result = isDelayedValidation(-1, -1, 1);
+            expect(result).toBe(false);
+        });
+
+        it('should return false if minutes is undefined', () => {
+            const result = isDelayedValidation(-1, -1, undefined);
+            expect(result).toBe(false);
         });
     });
 
@@ -194,8 +213,8 @@ describe('Components - features - LN10 - AnexoRugby - utils', () => {
                         ...match,
                         matchStatus: 'playing',
                         timeRemaining: {
-                            days: 0,
-                            hours: 0,
+                            days: -1,
+                            hours: -1,
                             minutes: -9
                         }
                     };
@@ -246,8 +265,8 @@ describe('Components - features - LN10 - AnexoRugby - utils', () => {
                         ...match,
                         matchStatus: 'playing',
                         timeRemaining: {
-                            days: 0,
-                            hours: 0,
+                            days: -1,
+                            hours: -1,
                             minutes: -9
                         }
                     };

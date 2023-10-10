@@ -64,7 +64,6 @@ const LN10Home = props => {
         if (!isAdmin) {
             createDifferVideosObserver();
             createDifferYoutubeVideosObserver();
-            createHeaderObserver();
         }
     }, [isAdmin]);
 
@@ -82,7 +81,7 @@ const LN10Home = props => {
                     '.ln-banner-container.--megatop_dsk.--megatop,.ln-banner-container.--megatop_tab.--megatop',
                     'section[data-section="pre-apertura"]'
                 )}
-                <div className="header-container --no-app">
+                <div className="--no-app">
                     <div data-section="cabezal">{cabezal}</div>
                     <Header />
                 </div>

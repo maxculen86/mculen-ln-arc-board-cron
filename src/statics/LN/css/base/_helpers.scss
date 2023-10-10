@@ -728,7 +728,7 @@
     display: none;
 }
 
-.--mobile-none {
+.--mobile-none.--mobile-none {
     @media (max-width: 767px) {
         display: none;
     }

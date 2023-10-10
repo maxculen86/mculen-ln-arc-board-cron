@@ -8,8 +8,18 @@ import mockContentElements from '../../../../../__mocks__/data/nota/cuerpo/htmlC
 jest.mock('html-react-parser', () => jest.fn(element => element));
 
 describe('components - private - common - OpeningRawHtml', () => {
+    const validProps = {
+        layoutName: 'LN-nota-html-libre',
+        allowedLayout: 'LN-nota-html-libre'
+    };
+
+    const notValidProps = {
+        layoutName: 'LN-nota-noticia',
+        allowedLayout: 'LN-nota-html-libre'
+    };
+
     it('should render okay with empty state', () => {
-        const { container } = render(<OpeningRawHtml />);
+        const { container } = render(<OpeningRawHtml {...validProps} />);
         expect(container).toBeEmptyDOMElement();
     });
 
@@ -27,9 +37,29 @@ describe('components - private - common - OpeningRawHtml', () => {
         ['one element with two raw htmls', mockContentElements.slice(1, 3), 1]
     ])('should return %s', (_, contentElements, expected) => {
         const { container } = render(
-            <OpeningRawHtml contentElements={contentElements} />
+            <OpeningRawHtml contentElements={contentElements} {...validProps} />
         );
         expect(container.childNodes).toHaveLength(expected);
         expect(container).toMatchSnapshot();
+    });
+
+    it('should mount the component when layoutsAllowed and layoutName match', () => {
+        const { container } = render(
+            <OpeningRawHtml
+                contentElements={mockContentElements}
+                {...validProps}
+            />
+        );
+        expect(container.childNodes).toHaveLength(1);
+    });
+
+    it('should not mount the component when layoutsAllowed and layoutName do not match', () => {
+        const { container } = render(
+            <OpeningRawHtml
+                contentElements={mockContentElements}
+                {...notValidProps}
+            />
+        );
+        expect(container).toBeEmptyDOMElement();
     });
 });

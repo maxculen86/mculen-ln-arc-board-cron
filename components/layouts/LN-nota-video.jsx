@@ -1,7 +1,8 @@
 import React from 'react';
+import classNames from 'classnames';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import Header from '../private/LN/common/header';
+import Header from '../private/LN10/header';
 import Footer from '../private/LN10/footer';
 import PwaModals from '../private/LN/common/pwaModals';
 
@@ -16,14 +17,23 @@ import intersectionObserverForRelatedTags from '../private/common/utils/relatedT
 const lnNotaVideo = ({ children, outputType, tree, isAdmin }) => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
+
+    const classNameWrapper = classNames(
+        'wrapper',
+        '--top-fixed',
+        'nota',
+        'video',
+        amp
+    );
+
     return (
         <GlobalProvider>
             {/* Banner MEGATOP */}
             {bannerMegatop}
             {/* Banner MEGATOP */}
-            <div id="wrapper" className={`nota video --transparent ${amp}`}>
+            <div id="wrapper" className={classNameWrapper}>
                 <Header />
-                <main id="content">
+                <main id="content" className="--header-fixed-margin">
                     <div className="--apertura">
                         {children[1]}
                         <div className="lay">

@@ -54,11 +54,12 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         const player = 'jwplayer';
         const playlist = [{ file: 'video.mp4' }];
         const hasAutoplay = true;
-        const idVideo = 'abc123';
+        const idVideo = 'yPJ53Pzg';
+        const tagsUrl = 'te_testjw';
 
         const expectedScript = `
         window.addEventListener('load', () => {
-            const facadeDiv = document.getElementById('facade-${title}');
+            const facadeDiv = document.getElementById(\`facade-${title}\`);
         
             const setJwScript = () => {    
                 const scriptElement = document.createElement('script');
@@ -66,9 +67,24 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 document.head.appendChild(scriptElement);
         
                 scriptElement.addEventListener('load', function() {
-                    window.jwplayer('${title}').setup({
+                    window.jwplayer(\`${title}\`).setup({
                         playlist: ${JSON.stringify(playlist)},
-                        autostart: true
+                        autostart: true,
+                        mute: ${hasAutoplay},
+                        ...('${player}' === 'ih0086X3'
+                        ? {
+                            advertising: {
+                              client: "googima",
+                              autoplayadsmuted: ${hasAutoplay},
+                              schedule: [
+                                {
+                                  tag: "${tagsUrl}",
+                                  offset: "pre"
+                                }
+                              ]
+                            }
+                          }
+                        : {})
                     });
         
                     ${handleVideoEventsScript(title, idVideo)}
@@ -83,7 +99,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
                 setJwScript();
             }
         
-            addToDataLayer('videoDisplay', '${title}', '${idVideo}');
+            addToDataLayer('videoDisplay', \`${title}\`, '${idVideo}');
         });
         `;
 
@@ -92,7 +108,8 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
             player,
             playlist,
             hasAutoplay,
-            idVideo
+            idVideo,
+            tagsUrl
         );
         expect(generatedScript.replace(/\s+/g, '')).toContain(
             expectedScript.replace(/\s+/g, '')
@@ -104,33 +121,33 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         const idVideo = 'abc123';
 
         const expectedScript = `
-        window.jwplayer('${title}').on('ready', function (e) {
+        window.jwplayer(\`${title}\`).on('ready', function (e) {
             const element = document.querySelector('.video-player');
             element.classList.remove('--background');
         });
     
-        const events = ['play', 'pause'];
-    
+        const events = [{jwEvent: 'play', eventName: 'videoPlay'}, {jwEvent: 'pause', eventName: 'videoPause'}];
+
         events.forEach((event) => {
-            window.jwplayer('${title}').on(event, function (e) {
-              addToDataLayer(event, '${title}', '${idVideo}');
-            });
+        window.jwplayer(\`${title}\`).on(event.jwEvent, function (e) {
+          addToDataLayer(event.eventName, \`${title}\`, '${idVideo}');
+        });
         });
     
-        window.jwplayer('${title}').on('time', function (e) {
+        window.jwplayer(\`${title}\`).on('time', function (e) {
             const percent = Math.floor((e.currentTime / e.duration) * 100);
             const percentagesToCheck = [25, 50, 75];
     
             percentagesToCheck.forEach((percentage) => {
             if (!isInDatalayerEvent(percentage.toString(), '${idVideo}') && percent === percentage) {
-                addToDataLayer(percentage.toString(), '${title}', '${idVideo}');
+                addToDataLayer(percentage.toString(), \`${title}\`, '${idVideo}');
             }
             });
         });
     
-        window.jwplayer('${title}').on('complete', function (e) {
-            if (!isInDatalayerEvent('complete', '${idVideo}')) {
-                addToDataLayer('complete', '${title}', '${idVideo}');
+        window.jwplayer(\`${title}\`).on('complete', function (e) {
+            if (!isInDatalayerEvent('videoComplete', '${idVideo}')) {
+                addToDataLayer('videoComplete', \`${title}\`, '${idVideo}');
             }
         });
     `;

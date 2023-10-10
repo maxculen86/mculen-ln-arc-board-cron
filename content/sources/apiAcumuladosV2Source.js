@@ -30,7 +30,7 @@ const fetch = async (query, { cachedCall }) => {
             ticksCache
         } = getParamsFromQuery(query);
 
-        const { paramsSectionsSource } = await fetchSectionSource(
+        const { sectionSourceParams } = await fetchSectionSource(
             sectionIdParam,
             query,
             isCustomPage,
@@ -38,12 +38,12 @@ const fetch = async (query, { cachedCall }) => {
         );
 
         title =
-            get(paramsSectionsSource, 'title', null) == null
+            get(sectionSourceParams, 'title', null) == null
                 ? title
-                : get(paramsSectionsSource, 'title', null);
+                : get(sectionSourceParams, 'title', null);
 
-        restriction = get(paramsSectionsSource, 'restriction', true);
-        configuration = get(paramsSectionsSource, 'configuration', null);
+        restriction = get(sectionSourceParams, 'restriction', true);
+        configuration = get(sectionSourceParams, 'configuration', null);
 
         const queryParams = {
             sectionId: customSectionsIds?.includes(sectionId)

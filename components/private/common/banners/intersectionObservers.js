@@ -31,31 +31,43 @@ export const createBannersIntersectionObserver = () => {
     });
 };
 
-export const createHeaderObserver = () => {
+export const createHeaderObserver = (
+    layout = '',
+    layoutsHeaderNegative = [],
+    unobserve,
+    isHome
+) => {
+    const isNegative = layoutsHeaderNegative.includes(layout);
+
     const callback = entries => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {
-                wrapper.classList.add('--top-fixed');
-                buttonHeaderDefault.classList.add('--none');
-                buttonSticky.classList.remove('--none');
+                isNegative && mainHeader.classList.remove('--negative');
+                wrapperHome && wrapperHome.classList.add('--top-fixed');
+                isHome && buttonText && buttonText.classList.add('none');
+                isHome &&
+                    stickyButtonText &&
+                    stickyButtonText.classList.remove('none');
             } else {
-                wrapper.classList.remove('--top-fixed');
-                buttonHeaderDefault.classList.remove('--none');
-                buttonSticky.classList.add('--none');
+                isNegative && mainHeader.classList.add('--negative');
+                wrapperHome && wrapperHome.classList.remove('--top-fixed');
+                isHome && buttonText && buttonText.classList.remove('none');
+                isHome &&
+                    stickyButtonText &&
+                    stickyButtonText.classList.add('none');
             }
         });
     };
+
     const interSectionObserver = new IntersectionObserver(callback);
+    const mainHeader = document.querySelector('.ln-main-header');
+    const wrapperHome = document.querySelector('.wrapper.homepage');
+    const headerSentinel = document.querySelector('.header-sentinel');
+    const buttonText = document.querySelector('#button-text');
+    const stickyButtonText = document.querySelector('#sticky-button-text');
 
-    const buttonHeaderDefault = document.querySelector(
-        '#button-header-default'
-    );
-    const buttonSticky = document.querySelector('#button-sticky');
-
-    const subHeader = document.querySelector('.ln-sub-header');
-    const wrapper = document.querySelector('.wrapper.homepage');
-
-    if (subHeader) interSectionObserver.observe(subHeader);
+    if (headerSentinel) interSectionObserver.observe(headerSentinel);
+    if (unobserve) interSectionObserver.unobserve(headerSentinel);
 };
 
 export const createDifferVideosObserver = () => {

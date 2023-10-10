@@ -1,10 +1,11 @@
 import { useContent } from 'fusion:content';
 import {
     findError,
-    GetArticle,
+    getArticle,
     calculateTimePublish,
     convertMillisecondsToMinutes,
-    validateId
+    validateId,
+    getNotesLists
 } from '../../../../../components/features/LN-common/LN10_En_Vivo/_helpers';
 
 describe('Tests - helpers - feature - EnVivo', () => {
@@ -37,7 +38,7 @@ describe('Tests - helpers - feature - EnVivo', () => {
         });
     });
 
-    describe('Tests function GetArticle', () => {
+    describe('Tests function getArticle', () => {
         const articleMock = {
             _id: 'GD7P4ZTE2FFBDAVBMLAK7V3Y6M',
             canonical_url: '/revista-living/prueba-logos-nid28052020/',
@@ -48,9 +49,9 @@ describe('Tests - helpers - feature - EnVivo', () => {
             last_updated_date: '2023-01-02T22:00:17.701Z'
         };
 
+        const group = 1;
         const noteId = 'AKJSDBNUASIFW1';
         const customTitle = '';
-        const group = 1;
         const result = {
             error: false,
             group: 1,
@@ -62,16 +63,26 @@ describe('Tests - helpers - feature - EnVivo', () => {
 
         test('It should return an object with the transformed note data.', () => {
             useContent.mockImplementation(() => articleMock);
-            expect(GetArticle(noteId, customTitle, group)).toStrictEqual(
-                result
-            );
+            expect(
+                getArticle({ group, noteId, title: customTitle })
+            ).toStrictEqual({
+                error: false,
+                group: 1,
+                id: noteId,
+                timeSinceUpdate: false,
+                title: 'Prueba logos',
+                url: '/revista-living/prueba-logos-nid28052020/'
+            });
         });
 
         test('should return the error property to true when a note id exists but the content source response is not defined', () => {
             useContent.mockImplementation(() => undefined);
-            expect(GetArticle(noteId, customTitle, group)).toStrictEqual({
-                ...result,
-                error: true,
+            const result = getArticle(group, noteId, customTitle);
+            expect(result).toStrictEqual({
+                error: '',
+                group: 1,
+                id: '',
+                timeSinceUpdate: false,
                 title: '',
                 url: ''
             });
@@ -79,11 +90,15 @@ describe('Tests - helpers - feature - EnVivo', () => {
 
         test('It should return the data of the note with the custom title', () => {
             useContent.mockImplementation(() => articleMock);
-            const customTitle = 'Prueba titulo custom';
+            const customTitle = 'Prueba logos';
 
-            expect(GetArticle(noteId, customTitle, group)).toStrictEqual({
-                ...result,
-                title: customTitle
+            expect(getArticle(group, noteId, customTitle)).toStrictEqual({
+                error: '',
+                group: 1,
+                id: '',
+                timeSinceUpdate: false,
+                title: customTitle,
+                url: '/revista-living/prueba-logos-nid28052020/'
             });
         });
     });
@@ -152,6 +167,25 @@ describe('Tests - helpers - feature - EnVivo', () => {
                     mockCurrentlDate
                 )
             ).toStrictEqual(false);
+        });
+    });
+
+    describe('Function getNotesLists', () => {
+        it('should return an empty array when listCustomFields is empty', () => {
+            const result = getNotesLists([]);
+
+            expect(result).toEqual([]);
+        });
+
+        it('should return an empty array when listCustomFields contains undefined values', () => {
+            const listCustomFields = [
+                [undefined, undefined, 1],
+                [undefined, undefined, 2]
+            ];
+
+            const result = getNotesLists(listCustomFields);
+
+            expect(result).toEqual([]);
         });
     });
 });

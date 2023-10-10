@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests - Feature - Foodit HtmlBanner Tests banners HTML should return a iframe with attributes loading, title and the web component defined in custom field "Tablero / html"  1`] = `
+<div>
+  <div
+    class="hidden"
+  >
+    <section
+      class="flex flex-column"
+    >
+      <div
+        class="w-100vw as-center py-72 bg-light-50"
+      >
+        <div
+          class="container"
+        >
+          <article
+            class="ln-card-html h-100"
+          >
+            <style>
+              #iframe-responsive-featureId{height:100px}@media(min-width:768px){#iframe-responsive-featureId{height:100px}}@media(min-width:1024px){#iframe-responsive-featureId{height:100px}}
+            </style>
+            <iframe
+              height="100%"
+              id="iframe-responsive-featureId"
+              loading="lazy"
+              sandbox="allow-scripts allow-popups"
+              srcdoc="
+                                        <style> html, body { width: 100%; height: 100%; overflow: hidden; }</style>
+                                        <!DOCTYPE html>
+                            <html lang=\\"en\\">
+                            <head>
+                                <meta charset=\\"UTF-8\\">
+                                <title>Contenido del Iframe</title>
+                            </head>
+                            <body>
+                                <h1>Contenido del Iframe</h1>
+                                <p>Este es un contenido simple dentro del iframe.</p>
+                                
+                                <a href=\\"https://www.lanacion.com.ar\\" target=\\"_top\\">
+                                    <button>Haz clic para ir a La Nación</button>
+                                </a>
+                            </body>
+                            </html>
+                                    "
+              title="Button Iframe"
+              width="100%"
+            />
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+`;

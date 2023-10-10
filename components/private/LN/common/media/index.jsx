@@ -145,7 +145,10 @@ const Media = ({
             )
         };
 
-        item = mediaTypeComponents[type || mediaData.subtype] || null;
+        item =
+            mediaTypeComponents[type] ||
+            mediaTypeComponents[mediaData.subtype] ||
+            null;
     }
 
     if (!item) {

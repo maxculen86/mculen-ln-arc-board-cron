@@ -1,5 +1,6 @@
 import request from 'request-promise-native';
 import logger from '../../../../components/private/common/utils/logger';
+import NotFoundError from '../notFoundError';
 
 const resolve = query => {
     const { rootPath, website, ticksCache, versionDeploy } = query;
@@ -39,6 +40,7 @@ const fetch = async query => {
                 }`
             );
             logger.push(error, { source: 'servicesSource/page/index', query });
+            throw new NotFoundError(error.message);
         });
 };
 

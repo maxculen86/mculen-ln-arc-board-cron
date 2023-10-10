@@ -27,21 +27,22 @@ export const fetchLiveData = async competitionIds => {
 
 export const isMatchLiveClienSide = matches => {
     const liveIds = [];
-    const updatedMatches = matches.map(match => {
-        const { timeRemaining } = match;
+    const updatedMatches = matches.map((match = {}) => {
+        const { timeRemaining = {}, date } = match;
         const { minutes } = timeRemaining;
 
         if (
             (minutes !== undefined &&
                 minutes <= 0 &&
-                match.matchStatus === 'upComing') ||
+                match.matchStatus === 'upComing' &&
+                date === 'HOY') ||
             match.matchStatus === 'playing'
         ) {
             liveIds.push(match.matchId);
             return {
                 ...match,
                 matchStatus: 'playing',
-                matchTime: `INICIO ${match.localTime}`
+                matchTime: `INICIÓ ${match.localTime}`
             };
         }
         return match;
@@ -56,7 +57,7 @@ export const isMatchLiveClienSide = matches => {
 export const isDelayedValidation = (days, hours, minutes) => {
     const minDelayed = minutes !== undefined && minutes <= 0 && minutes >= -10;
 
-    return minDelayed && hours === 0 && days === 0;
+    return minDelayed && hours === -1 && days === -1;
 };
 
 export const isPlayedOrDelayedFallBackClienSide = (rugbyMatches, optaRes) => {

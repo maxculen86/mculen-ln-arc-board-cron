@@ -297,6 +297,61 @@ const transform = async (
     );
 };
 
+// TODO agregar test a funcion
+export const convertVideoArcToJw = (video, arcSite) => {
+    const { _id: idVideoArc } = video;
+    const urlSearchIdJw = `https://videomapper.lanacion.com.ar/video/${idVideoArc}`;
+
+    return request(urlSearchIdJw, {
+        headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV'
+        }
+    })
+        .then(response => {
+            const { video_id: idJw } = JSON.parse(response);
+            const getMediaJw = `https://cdn.jwplayer.com/v2/media/${idJw}`;
+            return request(getMediaJw);
+        })
+        .then(jwObject => {
+            return {
+                embed: { config: { videoJw: { ...JSON.parse(jwObject) } } },
+                _id: idVideoArc,
+                type: 'custom_embed',
+                subtype: 'video_jw'
+            };
+        })
+        .catch(error => {
+            if (error.statusCode === 404) {
+                logger.push(
+                    error,
+                    {
+                        source:
+                            'content/source/articleSourceNota/convertVideoArcToJw/notConverted',
+                        url: idVideoArc
+                    },
+                    arcSite,
+                    true
+                );
+                return video;
+            }
+            console.log(
+                '🚀 ~ file: articleSourceNota.js:331 ~ convertVideoArcToJw ~ error:',
+                error
+            );
+            return logger.push(
+                error,
+                {
+                    source:
+                        'content/source/articleSourceNota/convertVideoArcToJw',
+                    url: idVideoArc
+                },
+                arcSite,
+                true
+            );
+        });
+};
+
 const transformContent = async (
     jsonArticle,
     arcSite,
@@ -306,6 +361,24 @@ const transformContent = async (
 ) => {
     const promiseArr = [];
     const sections = get(jsonArticle, 'taxonomy.sections');
+    const promoItem = get(jsonArticle, 'promo_items', {});
+    const promoItemEdited = {};
+
+    const parsePromoItem = promoItemObject => {
+        Object.keys(promoItemObject)
+            .filter(key => key !== 'video_jw' || key !== 'custom_embed')
+            .forEach(promoItemKey => {
+                const promoItem = get(promoItemObject, promoItemKey, undefined);
+                if (promoItem && promoItem.type === 'video') {
+                    promiseArr.push(
+                        convertVideoArcToJw(promoItem).then(data => {
+                            promoItemEdited[promoItemKey] = { ...data };
+                        })
+                    );
+                }
+            });
+    };
+
     const resp = {
         ...jsonArticle,
         taxonomy: {
@@ -315,6 +388,11 @@ const transformContent = async (
                 : null
         }
     };
+
+    if (jsonArticle && jsonArticle.promo_items) {
+        parsePromoItem(promoItem);
+    }
+
     const subtype = get(jsonArticle, `subtype`, null);
 
     resp &&
@@ -342,6 +420,15 @@ const transformContent = async (
                     i
                 ].content = addForwardSlashInParagraphsLinks(
                     addHttpsLinkInParagraphs(resp.content_elements[i].content)
+                );
+            }
+            if (e.type === 'video') {
+                promiseArr.push(
+                    convertVideoArcToJw(resp.content_elements[i], arcSite).then(
+                        data => {
+                            resp.content_elements[i] = data;
+                        }
+                    )
                 );
             }
         });
@@ -419,6 +506,9 @@ const transformContent = async (
         const relatedContent = get(resp, 'related_content.basic', []);
         relatedContent.length &&
             (resp.related_content.basic = removeInvalidRelated(relatedContent));
+        if (resp.promo_items) {
+            resp.promo_items = { ...resp.promo_items, ...promoItemEdited };
+        }
         return resp;
     });
 };

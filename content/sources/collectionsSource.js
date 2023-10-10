@@ -91,8 +91,8 @@ const transform = async (data, siteProps, cachedCall) => {
         (await Promise.all(
             contentElementsFiltered.map(async (elem, index) => {
                 if (!shouldUseV1 && shouldUseV2) {
-                    const newData = await getAllImagesAuth(data, cachedCall);
-                    Object.assign(data, newData);
+                    const newData = await getAllImagesAuth(elem, cachedCall);
+                    Object.assign(elem, newData);
                 }
 
                 const imageConfig = getImageConfig(

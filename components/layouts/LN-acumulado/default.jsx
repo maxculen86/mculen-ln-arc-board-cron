@@ -2,7 +2,8 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import Header from '../../private/LN/common/header';
+import classNames from 'classnames';
+import Header from '../../private/LN10/header';
 import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import AnexoDefault from '../../features/LN-common/anexo/default';
@@ -131,6 +132,17 @@ const LNAcumuladoLayout = props => {
         ? '--opening'
         : '';
 
+    const classNameWrapper = classNames(
+        'wrapper',
+        '--top-fixed',
+        'acumulado',
+        COLOR_CLASS,
+        classRevista,
+        sectionClass,
+        OPENING_CLASS,
+        amp
+    );
+
     return (
         <GlobalProvider>
             <GlobalProviderAcu
@@ -142,12 +154,9 @@ const LNAcumuladoLayout = props => {
                 globalContent={globalContent}
             >
                 {megatop}
-                <div
-                    id="wrapper"
-                    className={`acumulado ${HEADER_BACKGROUND} ${COLOR_CLASS} ${classRevista} ${sectionClass} ${OPENING_CLASS} ${amp}`}
-                >
+                <div id="wrapper" className={classNameWrapper}>
                     <Header />
-                    <main id="content">
+                    <main id="content" className="--header-fixed-margin">
                         {stickyMobile}
                         <div
                             className="row --top"

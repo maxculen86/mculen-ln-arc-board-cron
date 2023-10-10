@@ -1,0 +1,359 @@
+{
+    "_id": "SYOSVO6JBNB65NBJAO62LALZJQ",
+    "canonical_url": "/politica/20-anos-un-documental-exclusivo-de-la-nacion-nid24052023/",
+    "category": "Política",
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true
+    },
+    "content_elements": [
+        {
+            "_id": "YKVILS34IRFNLAE6SAANCXBHHI",
+            "additional_properties": {},
+            "content": "Historia y presente se conjugan en este jueves 25 de Mayo, cuando <b>el kirchnerismo vuelve a movilizarse para resignificar la fecha patria y convertirla en la celebración de sí mismo.</b> Los 20 años del movimiento que dominó la política argentina en lo que va del siglo XXI coinciden con su momento más crítico, en el que lucha por la supervivencia, amenazado por la estrechez económica y sin herramientas para enderezar la coalición peronista que elevó al poder a Alberto Fernández en 2019.",
+            "type": "text"
+        },
+        {
+            "_id": "XO6YJPUU6VDWLPI4JQVNHYAPGM",
+            "additional_properties": {},
+            "content": "<b>Cristina Kirchner hablará en la misma plaza que recibió en 2003 a Néstor Kirchner</b>, ese político ignoto para el gran público que se había hecho con el gobierno en un giro inesperado del destino. Esa Argentina, que procesaba aún la gran ruptura del 2001, producía al presidente menos pensado, surgido de una elección en la que salió segundo con 22% de los votos y de un ballotage que quedó trunco por la deserción de Carlos Menem.",
+            "type": "text"
+        },
+        {
+            "_id": "LY2KL26D55F6TN7YKUZIKXTRJE",
+            "additional_properties": {},
+            "content": "Acto del 25 de Mayo con Cristina Kirchner, en vivo",
+            "type": "interstitial_link",
+            "url": "https://www.lanacion.com.ar/politica/acto-del-25-de-mayo-con-cristina-kirchner-en-vivo-horario-funcionarios-que-asisten-y-los-detalles-nid24052023/"
+        },
+        {
+            "_id": "XO6YJPUU6VDWLPI4JQVNHYAPGM",
+            "additional_properties": {},
+            "content": "La línea de tiempo que empieza aquel día y nos trae a estas horas de incertidumbre, ocupan el metraje de <b>“20 años”, el documental exclusivo con la mirada de los periodistas de LA NACION e imágenes vitales para entender la Argentina actual.</b>",
+            "type": "text"
+        },
+        {
+            "_id": "N5I2L5S6V5APZL2DOD27QNOQCQ",
+            "additional_properties": {},
+            "content": "Ese trabajo culmina una amplia producción de textos y visualizaciones digitales, en los que LA NACION desmenuza este capítulo de la historia que todavía está en construcción.",
+            "type": "text"
+        }
+    ],
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "created_date": "2023-05-24T22:41:05.650Z",
+    "credits": {
+        "by": []
+    },
+    "description": {
+        "basic": ""
+    },
+    "display_date": "2023-05-25T12:54:11.923Z",
+    "distributor": {
+        "category": "staff",
+        "name": "LA NACION",
+        "reference_id": "35aa3ee5-fd10-4532-99fa-75052b0af967"
+    },
+    "first_publish_date": "2023-05-24T23:32:37.419Z",
+    "headlines": {
+        "basic": "“20 años”: un documental de LA NACION sobre la historia y el presente del kirchnerismo ",
+        "meta_title": "",
+        "mobile": "Un documental de LA NACION sobre la historia y el presente del kirchnerismo"
+    },
+    "isListenable": false,
+    "label": {
+        "edicion": {
+            "display": true,
+            "text": "Digital"
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "metarefresh": {
+            "display": true,
+            "text": "No"
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "recomendar": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "showcase": {
+            "display": true,
+            "text": "Si"
+        },
+        "trust": {
+            "text": "Noticia"
+        },
+        "volanta": {
+            "display": true,
+            "text": "20 años."
+        }
+    },
+    "last_updated_date": "2023-10-03T22:25:26.386Z",
+    "owner": {
+        "sponsored": false
+    },
+    "paywallEnabled": "",
+    "promo_items": {
+        "basic": {
+            "_id": "MVIZVLFUEVHRHJHIXWZHLVGK24",
+            "additional_properties": {},
+            "auth": {
+                "1": "0088aba08cefbc26ccff58741cade57b0d3edae9ef0e202bf439f85403b99247"
+            },
+            "caption": "20 años, un documental exclusivo de LA NACION",
+            "created_date": "2023-05-25T12:02:22Z",
+            "credits": {
+                "affiliation": []
+            },
+            "height": 513,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 587,
+                        "media_preload": "(min-width: 768px)",
+                        "minScreenWidth": 768,
+                        "proportion": "3:2",
+                        "width": 880
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/20-anos-un-documental-exclusivo-de-la-MVIZVLFUEVHRHJHIXWZHLVGK24.jpg?auth=0088aba08cefbc26ccff58741cade57b0d3edae9ef0e202bf439f85403b99247&width=880&height=586&quality=70&smart=false"
+                },
+                {
+                    "option": {
+                        "height": 280,
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "3:2",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://resizer.glanacion.com/resizer/v2/20-anos-un-documental-exclusivo-de-la-MVIZVLFUEVHRHJHIXWZHLVGK24.jpg?auth=0088aba08cefbc26ccff58741cade57b0d3edae9ef0e202bf439f85403b99247&width=420&height=280&quality=70&smart=false"
+                }
+            ],
+            "type": "image",
+            "url": "https://resizer.glanacion.com/resizer/v2/20-anos-un-documental-exclusivo-de-la-MVIZVLFUEVHRHJHIXWZHLVGK24.jpg?auth=0088aba08cefbc26ccff58741cade57b0d3edae9ef0e202bf439f85403b99247&width=768&quality=70&smart=false",
+            "width": 768
+        },
+        "video_jw": {
+            "embed": {
+                "config": {
+                    "idPlayer": "ih0086X3",
+                    "idVideo": "UaBkeh9u",
+                    "videoJw": {
+                        "description": " ",
+                        "kind": "Single Item",
+                        "playlist": [
+                            {
+                                "description": " ",
+                                "duration": "2510402",
+                                "image": "https://cdn.jwplayer.com/v2/media/UaBkeh9u/poster.jpg?width=720",
+                                "images": [
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/UaBkeh9u/poster.jpg?width=320",
+                                        "type": "image/jpeg",
+                                        "width": 320
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/UaBkeh9u/poster.jpg?width=480",
+                                        "type": "image/jpeg",
+                                        "width": 480
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/UaBkeh9u/poster.jpg?width=640",
+                                        "type": "image/jpeg",
+                                        "width": 640
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/UaBkeh9u/poster.jpg?width=720",
+                                        "type": "image/jpeg",
+                                        "width": 720
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/UaBkeh9u/poster.jpg?width=1280",
+                                        "type": "image/jpeg",
+                                        "width": 1280
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/UaBkeh9u/poster.jpg?width=1920",
+                                        "type": "image/jpeg",
+                                        "width": 1920
+                                    }
+                                ],
+                                "link": "https://cdn.jwplayer.com/previews/UaBkeh9u",
+                                "mediaid": "UaBkeh9u",
+                                "pubdate": 1685015257,
+                                "sources": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/manifests/UaBkeh9u.m3u8",
+                                        "type": "application/vnd.apple.mpegurl"
+                                    },
+                                    {
+                                        "bitrate": 308982,
+                                        "file": "https://cdn.jwplayer.com/videos/UaBkeh9u-kTExGaWf.mp4",
+                                        "filesize": 96943246,
+                                        "framerate": 30,
+                                        "height": 180,
+                                        "label": "180p",
+                                        "type": "video/mp4",
+                                        "width": 320
+                                    },
+                                    {
+                                        "bitrate": 459696,
+                                        "file": "https://cdn.jwplayer.com/videos/UaBkeh9u-K8B0kybS.mp4",
+                                        "filesize": 144229683,
+                                        "framerate": 30,
+                                        "height": 270,
+                                        "label": "270p",
+                                        "type": "video/mp4",
+                                        "width": 480
+                                    },
+                                    {
+                                        "bitrate": 1507065,
+                                        "file": "https://cdn.jwplayer.com/videos/UaBkeh9u-46NIuRKO.mp4",
+                                        "filesize": 472841890,
+                                        "framerate": 30,
+                                        "height": 720,
+                                        "label": "720p",
+                                        "type": "video/mp4",
+                                        "width": 1280
+                                    },
+                                    {
+                                        "bitrate": 113400,
+                                        "file": "https://cdn.jwplayer.com/videos/UaBkeh9u-hz5z2Tv4.m4a",
+                                        "filesize": 35579323,
+                                        "label": "AAC Audio",
+                                        "type": "audio/mp4"
+                                    },
+                                    {
+                                        "bitrate": 548899,
+                                        "file": "https://cdn.jwplayer.com/videos/UaBkeh9u-FnZGUVnC.mp4",
+                                        "filesize": 172217349,
+                                        "framerate": 30,
+                                        "height": 360,
+                                        "label": "360p",
+                                        "type": "video/mp4",
+                                        "width": 640
+                                    },
+                                    {
+                                        "bitrate": 941735,
+                                        "file": "https://cdn.jwplayer.com/videos/UaBkeh9u-0G6Pwvlw.mp4",
+                                        "filesize": 295469358,
+                                        "framerate": 30,
+                                        "height": 540,
+                                        "label": "540p",
+                                        "type": "video/mp4",
+                                        "width": 960
+                                    }
+                                ],
+                                "title": "20 años de kirchnerismo. El documental.",
+                                "tracks": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/strips/UaBkeh9u-120.vtt",
+                                        "kind": "thumbnails"
+                                    }
+                                ],
+                                "variations": {}
+                            }
+                        ],
+                        "title": "20 años de kirchnerismo. El documental."
+                    }
+                }
+            },
+            "subtype": "video_jw"
+        }
+    },
+    "publish_date": "2023-10-03T22:25:26.020Z",
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "subheadlines": {
+        "basic": "El 25 de mayo de 2003, Néstor Kirchner asumió como presidente de la República Argentina; desde aquel día, la política estuvo bajo el dominio del movimiento kirchnerista; LA NACION realizó un documental para recorrer las dos décadas de historia"
+    },
+    "subtype": "5",
+    "syndication": {
+        "external_distribution": true,
+        "search": true
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/politica",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {},
+                    "migration": {
+                        "id_section_ln9": "30",
+                        "migrated_mob": "false"
+                    },
+                    "site": {}
+                }
+            },
+            "name": "Política",
+            "parent_id": "/",
+            "path": "/politica",
+            "type": "section"
+        },
+        "sections": [
+            {
+                "_id": "/politica",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {},
+                        "migration": {
+                            "id_section_ln9": "30",
+                            "migrated_mob": "false"
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Política",
+                "parent_id": "/",
+                "path": "/politica",
+                "type": "section"
+            }
+        ],
+        "sites": [
+            {
+                "additional_properties": {
+                    "original": {
+                        "_id": "/politica",
+                        "migration": {
+                            "id_section_ln9": "30",
+                            "migrated_mob": "false"
+                        }
+                    }
+                }
+            }
+        ],
+        "tags": [
+            {
+                "description": "Kirchnerismo, 20 años",
+                "slug": "kirchnerismo-20-anos",
+                "text": "Kirchnerismo, 20 años"
+            },
+            {
+                "description": "Actualidad política",
+                "slug": "actualidad-politica-tid56691",
+                "text": "Actualidad política"
+            },
+            {
+                "description": "Cristina Kirchner",
+                "slug": "cristina-kirchner-tid988",
+                "text": "Cristina Kirchner"
+            }
+        ]
+    },
+    "type": "story",
+    "website_url": "/politica/20-anos-un-documental-exclusivo-de-la-nacion-nid24052023/",
+    "withFirmaDistributor": true,
+    "withSponsoredLink": false
+}

@@ -1,14 +1,14 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from '../../LN/common/header';
+import Header from '../../LN10/header';
 import Footer from '../../LN10/footer';
 
 const NotaMain = ({ children, className }) => {
     return (
         <div id="wrapper" className={className}>
             <Header />
-            <main id="content">
+            <main id="content" className="--header-fixed-margin">
                 {children[1]}
                 <div className="lay --apertura">
                     <div className="row">

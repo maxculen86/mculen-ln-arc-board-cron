@@ -1,6 +1,6 @@
 const pageTransformV2Format = (resultPageData, sectionData) => {
     const metadata = {
-        paginate: true,
+        paginate: false,
         title: sectionData ? sectionData.aliasTitle : null,
         category: {
             slug: sectionData ? sectionData.slug : null,
@@ -10,7 +10,7 @@ const pageTransformV2Format = (resultPageData, sectionData) => {
 
     return {
         metadata,
-        items: [...(resultPageData && resultPageData)]
+        items: [...resultPageData]
     };
 };
 
