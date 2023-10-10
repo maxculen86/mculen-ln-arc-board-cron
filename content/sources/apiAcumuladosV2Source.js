@@ -27,7 +27,8 @@ const fetch = async (query, { cachedCall }) => {
             title,
             page,
             isCustomPage,
-            ticksCache
+            ticksCache,
+            slug
         } = getParamsFromQuery(query);
 
         const { sectionSourceParams } = await fetchSectionSource(
@@ -84,11 +85,7 @@ const fetch = async (query, { cachedCall }) => {
             size,
             page
         );
-        return acuTransformV2Format(
-            transformedAcu,
-            sectionData,
-            paginationValue
-        );
+        return acuTransformV2Format(transformedAcu, slug, paginationValue);
     } catch (error) {
         if (error instanceof NotFoundError) {
             throw new NotFoundError(
@@ -133,6 +130,8 @@ const getParamsFromQuery = query => {
     const ticksCache = get(query, 'ticks', '').replace('/', '');
     const categoryUri = get(query, 'categoryUri', '').replace('/', '');
 
+    const slug = get(query, 'sectionId', '');
+
     const sectionId = get(query, 'sectionId', '').replace('/', '');
 
     const sectionIdParam = sectionId.substring(0, 2).includes('/')
@@ -176,7 +175,8 @@ const getParamsFromQuery = query => {
         size,
         title,
         page,
-        isCustomPage
+        isCustomPage,
+        slug
     };
 };
 
