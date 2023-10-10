@@ -4,11 +4,24 @@ import { isResizerV2 } from '../../../../../common/utils/image/resizer/v2/resize
 
 const imageCommon = image => {
     if (!image) return null;
-    const { _id: id, resized_urls: resizedUrls, url } = image;
-    if (!resizedUrls || resizedUrls.length === 0) return null;
+    const {
+        _id: id,
+        resized_urls: resizedUrlsWithInvisibleChracters,
+        url
+    } = image;
+    if (
+        !resizedUrlsWithInvisibleChracters ||
+        resizedUrlsWithInvisibleChracters.length === 0
+    )
+        return null;
+
+    const resizedUrls = resizedUrlsWithInvisibleChracters.map(x => ({
+        ...x,
+        resizedUrl: removeInvisibleChracters(x.resizedUrl)
+    }));
 
     const newRegex = /.*\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/;
-    const urlv2 = /.*\/resizer\/v2\/[a-zA-Z0-9]+.*[?](auth=.*)/;
+    const urlv2 = /.*\/resizer\/v2\/[a-zA-Z0-9-]+.*[?](auth=.*)/;
     const hrefRegex = new RegExp(
         /\/resizer\/([a-zA-Z0-9_\-=]+\/[0-9x]+(?:\/smart)?(?:\/+(?:filters:.+?)?)?)\/.*/
     );
@@ -57,7 +70,7 @@ const imageCommon = image => {
             const alto = get(resizedUrls, `[${index}].option.height`, 0);
             let firma;
             if (isV2) {
-                const regexUrl = /.*\/resizer\/v2\/[a-zA-Z0-9]+.*[?](auth=.*)/;
+                const regexUrl = /.*\/resizer\/v2\/[a-zA-Z0-9-]+.*[?](auth=.*)/;
                 firma =
                     (resizedUrls[index] &&
                         resizedUrls[index].resizedUrl &&
@@ -92,7 +105,7 @@ export const getImageUrl = url => {
 };
 
 export const getImageUrlResizerV2 = url => {
-    const regexV2 = /.*(\/resizer\/v2\/[a-zA-Z0-9]+.*[?]auth=(.*))/;
+    const regexV2 = /.*(\/resizer\/v2\/[a-zA-Z0-9-]+.*[?]auth=(.*))/;
     return regexV2.exec(url);
 };
 
@@ -151,6 +164,15 @@ const orderPattern = (a, b) => {
         return -1;
     }
     return -1;
+};
+
+const removeInvisibleChracters = textToFix => {
+    let textFixed = (textToFix || '').toString();
+
+    textFixed = textFixed.replace(/\u200E/, '');
+    textFixed = textFixed.replace('\u0200E', '');
+    //textFixed = textFixed.replace('-', '');
+    return textFixed;
 };
 
 export default imageCommon;
