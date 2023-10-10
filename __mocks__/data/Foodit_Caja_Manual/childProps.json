@@ -1,0 +1,36 @@
+[
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "id": "f0fQNoZVHnc84oO",
+        "name": null,
+        "contentConfig": {
+            "contentService": "",
+            "contentConfigValues": {},
+            "inherit": true
+        },
+        "customFields": {
+            "noteId": "D3SATI3N45FQTB5PYSC7TRFTTU"
+        },
+        "displayProperties": {},
+        "localEdits": {},
+        "variants": {}
+    },
+    {
+        "collection": "features",
+        "type": "foodit/Card",
+        "id": "f0fMKphhtsz84va",
+        "name": null,
+        "contentConfig": {
+            "contentService": "",
+            "contentConfigValues": {},
+            "inherit": true
+        },
+        "customFields": {
+            "noteId": "FMLGIYTL2ZBCRAKQTSO27CCQ6U"
+        },
+        "displayProperties": {},
+        "localEdits": {},
+        "variants": {}
+    }
+]

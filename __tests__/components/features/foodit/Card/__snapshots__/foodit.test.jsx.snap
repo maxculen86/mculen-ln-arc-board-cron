@@ -3,14 +3,14 @@
 exports[`Components - features - CardFoodit should test CardFoodit - variant day-recipe 1`] = `
 <div>
   <div
-    class="hidden"
+    class="hidden "
   >
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 --day-recipe shadow-down-sm"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
-        href="#"
+        href="/salados/pollo/receta-para-comer-mas-rico-con-pollito-2-nid18092023/"
         target="_self"
         title="Receta para comer mas rico con ...POLLITO 2"
       >
@@ -30,7 +30,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                 decoding="async"
                 fetchpriority="high"
                 loading="eager"
-                src="https://www.lanacion.com.ar/resizer/foUOO4slYCARU0-BwCtMoqbehBM=/1920x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                src="https://www.lanacion.com.ar/resizer/HYbSynyGCPurUAS4sNRW1i0qXyI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
               />
             </picture>
           </div>
@@ -93,14 +93,14 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
 exports[`Components - features - CardFoodit should test CardFoodit - variant note 1`] = `
 <div>
   <div
-    class="hidden"
+    class="hidden "
   >
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
-        href="#"
+        href="/guia-de-cocina/ficha-nota-foodit-nid18092023/"
         target="_self"
         title="Ficha nota FOODIT"
       >
@@ -207,14 +207,14 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
 exports[`Components - features - CardFoodit should test CardFoodit - variant recipe 1`] = `
 <div>
   <div
-    class="hidden"
+    class="hidden "
   >
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
-        href="#"
+        href="/salados/pollo/receta-para-comer-mas-rico-con-pollito-2-nid18092023/"
         target="_self"
         title="Receta para comer mas rico con ...POLLITO 2"
       >
@@ -234,14 +234,18 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
-                src="https://www.lanacion.com.ar/resizer/foUOO4slYCARU0-BwCtMoqbehBM=/1920x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                src="https://www.lanacion.com.ar/resizer/HYbSynyGCPurUAS4sNRW1i0qXyI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
               />
             </picture>
           </div>
-          
+          <span
+            class="foodit-badge inline-flex ai-center gap-4 py-4 px-8 rounded-4 bg-primary-positive text-light-200 text-14 absolute bottom-0 right-0 m-8"
+          >
+            FÁCIL
+          </span>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-100"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1"
         >
           <div
             class="flex flex-column gap-8"

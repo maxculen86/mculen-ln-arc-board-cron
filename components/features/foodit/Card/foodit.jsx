@@ -6,7 +6,7 @@ import Consumer from 'fusion:consumer';
 
 import { checkForId } from '../../LN-10/article/_helper';
 import {
-    isAperturaFoodit,
+    getRenderablesData,
     transformArticleFoodit,
     validateArticleFoodit
 } from '../../foodit-global/common/utils/notaFooditHelper.js';
@@ -18,22 +18,17 @@ import { Badge } from '@ln/foodit-ui-badge';
 import filter from '../../../../content/filters/foodit/home/articleFoodit.js';
 import { getImagesToLoadWithPicture } from '../../../private/LN/common/utils/mediaHelper';
 import StaticContent from '../../../private/common/staticContent';
+import fooditRules from '../../foodit-global/common/utils/fooditRules';
 
 const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
     const articleId = checkForId(id);
 
-    const {
-        isAdmin,
-        arcSite,
-        renderables
-        // layout: layoutPageBuilder
-    } = useAppContext();
+    const { isAdmin, arcSite, renderables } = useAppContext();
 
-    const isOpening = isAperturaFoodit(renderables, featureId);
+    const { isOpening, layout } = getRenderablesData(renderables, featureId);
 
-    // TODO: configurar imageConfig && size
+    // TODO: configurar imageConfig
     const imageConfig = 'm';
-    const size = 'small';
 
     const articleContent = useContent({
         source: articleId ? 'articleSourceNota' : null,
@@ -69,6 +64,7 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
         );
     }
 
+    const { size = 'small', classNameChildren = '' } = fooditRules(layout);
     const {
         title,
         author,
@@ -82,7 +78,10 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
     const { alt_text, url, resized_urls } = image;
 
     return (
-        <StaticContent>
+        <StaticContent
+            className={'hidden ' + classNameChildren}
+            key={featureId}
+        >
             {!error && articleContent && (
                 <Card
                     linkProps={{ href, title }}

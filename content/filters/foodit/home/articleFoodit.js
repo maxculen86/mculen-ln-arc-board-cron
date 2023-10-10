@@ -12,7 +12,8 @@ const image = `
 
 export default `
 {   
-    _id 
+    _id
+    website_url
     promo_items {
         basic {
             ${image}

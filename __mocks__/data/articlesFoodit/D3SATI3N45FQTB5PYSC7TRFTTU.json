@@ -30,7 +30,7 @@
                     "resizedUrl": "https://www.lanacion.com.ar/resizer/UAW2_6kmsNW2vZMJz0Ju7tE8PlY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
                 }
             ],
-            "url": "https://www.lanacion.com.ar/resizer/foUOO4slYCARU0-BwCtMoqbehBM=/1920x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg",
+            "url": "https://www.lanacion.com.ar/resizer/HYbSynyGCPurUAS4sNRW1i0qXyI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg",
             "width": 600
         },
         "receta": {
@@ -41,6 +41,19 @@
             }
         }
     },
-    "subtype": "4",
-    "taxonomy": {}
+    "subtype": "7",
+    "taxonomy": {
+        "tags": [
+            {
+                "text": "rápida"
+            },
+            {
+                "text": "fácil"
+            },
+            {
+                "text": "vegana"
+            }
+        ]
+    },
+    "website_url": "/salados/pollo/receta-para-comer-mas-rico-con-pollito-2-nid18092023/"
 }

@@ -1,9 +1,20 @@
 import PropTypes from 'fusion:prop-types';
 import { LAYOUTS } from './helper-WebApi';
 
-const { CAROUSEL, BN_12_GRID } = LAYOUTS;
+const { CAROUSEL, BN_12_GRID, BN_2_GRID } = LAYOUTS;
 
 const customFieldsRules = {
+    cajaManual: {
+        hideInitialPosition: true,
+        hideIdCollection: true,
+        hideHideCaja: false,
+        hideButton: false,
+        groupName: 'Ajuste Manual',
+        layouts: {
+            [BN_2_GRID]: 'BN Grilla 2'
+        },
+        defaultLayout: BN_2_GRID
+    },
     cajaCollection: {
         hideInitialPosition: false,
         hideIdCollection: false,
