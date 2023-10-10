@@ -64,7 +64,8 @@ const fetch = async (query, { cachedCall }) => {
         return acuTransformV2Format(
             transformedAcu,
             authorData,
-            paginationValue
+            paginationValue,
+            page == 1
         );
     } catch (error) {
         if (error instanceof NotFoundError) {
