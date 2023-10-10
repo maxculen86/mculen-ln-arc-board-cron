@@ -1,0 +1,348 @@
+{
+    "_id": "LE2MQMEPFZFLLN6ZLEEKUDOH2I",
+    "canonical_url": "/revista-living/prueba-nota-storytelling-video-nid06072023/",
+    "category": "Revista Living",
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true
+    },
+    "content_elements": [],
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "created_date": "2023-07-03T15:19:02.426Z",
+    "credits": {
+        "by": []
+    },
+    "description": {
+        "basic": ""
+    },
+    "display_date": "2023-07-06T16:58:34.538Z",
+    "distributor": {
+        "category": "staff",
+        "name": "LA NACION",
+        "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568"
+    },
+    "first_publish_date": "2023-07-06T16:58:34.538Z",
+    "headlines": {
+        "basic": "Prueba Nota storytelling VIDEO",
+        "meta_title": "",
+        "mobile": ""
+    },
+    "isListenable": false,
+    "label": {
+        "edicion": {
+            "display": true,
+            "text": "Digital"
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "metarefresh": {
+            "display": true,
+            "text": "Si"
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "recomendar": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "trust": {
+            "text": "Noticia Original"
+        }
+    },
+    "last_updated_date": "2023-10-10T12:17:15.018Z",
+    "owner": {
+        "sponsored": false
+    },
+    "paywallEnabled": "",
+    "promo_items": {
+        "basic": {
+            "_id": "5BWCIJMTUNA5BIBOU2DXSTI7BQ",
+            "additional_properties": {},
+            "auth": {
+                "1": "6046d35d74c30ddb55fe239afe25da9e4e91b350acc593b18f4257cb94d2f5ee"
+            },
+            "caption": "Dolar",
+            "created_date": "2023-07-02T23:10:28Z",
+            "height": 576,
+            "publish_date": "2023-07-02T20:10:18.0531624-03:00",
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 1280,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1440px)",
+                        "minScreenWidth": 1440,
+                        "proportion": "3:2",
+                        "width": 1920
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/dola-5BWCIJMTUNA5BIBOU2DXSTI7BQ.jpg?auth=6046d35d74c30ddb55fe239afe25da9e4e91b350acc593b18f4257cb94d2f5ee&width=1920&height=1280&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 800,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
+                        "minScreenWidth": 1024,
+                        "proportion": "3:2",
+                        "width": 1200
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/dola-5BWCIJMTUNA5BIBOU2DXSTI7BQ.jpg?auth=6046d35d74c30ddb55fe239afe25da9e4e91b350acc593b18f4257cb94d2f5ee&width=1200&height=800&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 1155,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 768px) and (max-width: 1023px)",
+                        "minScreenWidth": 768,
+                        "proportion": "2:3",
+                        "width": 770
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/dola-5BWCIJMTUNA5BIBOU2DXSTI7BQ.jpg?auth=6046d35d74c30ddb55fe239afe25da9e4e91b350acc593b18f4257cb94d2f5ee&width=770&height=1155&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 630,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "2:3",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/dola-5BWCIJMTUNA5BIBOU2DXSTI7BQ.jpg?auth=6046d35d74c30ddb55fe239afe25da9e4e91b350acc593b18f4257cb94d2f5ee&width=420&height=630&quality=70&smart=true"
+                }
+            ],
+            "subtitle": "El dolar imparable",
+            "type": "image",
+            "url": "https://sandbox.lanacion.com.ar/resizer/v2/dola-5BWCIJMTUNA5BIBOU2DXSTI7BQ.jpg?auth=6046d35d74c30ddb55fe239afe25da9e4e91b350acc593b18f4257cb94d2f5ee&width=1920&height=1080&quality=70&smart=true",
+            "width": 1024
+        },
+        "storytelling": {
+            "_id": "48fe9c46-5c21-467c-b0ac-dbf941996f39",
+            "additional_properties": {
+                "advertising": {
+                    "playAds": true
+                }
+            },
+            "created_date": "2023-09-14T16:01:01Z",
+            "credits": {},
+            "duration": 3878,
+            "headlines": {
+                "basic": "El nuevo iPhone 15"
+            },
+            "promo_items": {
+                "basic": {
+                    "auth": {
+                        "1": "e432e90dc6146fe5ca5719b78ded18c33f18fcf4a4c2debb1d6ba655d54c0c98"
+                    },
+                    "credits": {},
+                    "height": 720,
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 1280,
+                                "media": "(min-width: 1280px)",
+                                "media_preload": "(min-width: 1440px)",
+                                "minScreenWidth": 1440,
+                                "proportion": "3:2",
+                                "width": 1920
+                            },
+                            "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F09-14-2023%2Ft_10d753836b454e919af2d2f28ff955ac_name_file_1280x720_2000_v3_1_.jpg?auth=e432e90dc6146fe5ca5719b78ded18c33f18fcf4a4c2debb1d6ba655d54c0c98&width=1920&height=1280&quality=70&smart=false"
+                        },
+                        {
+                            "option": {
+                                "height": 800,
+                                "media": "(min-width: 1280px)",
+                                "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
+                                "minScreenWidth": 1024,
+                                "proportion": "3:2",
+                                "width": 1200
+                            },
+                            "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F09-14-2023%2Ft_10d753836b454e919af2d2f28ff955ac_name_file_1280x720_2000_v3_1_.jpg?auth=e432e90dc6146fe5ca5719b78ded18c33f18fcf4a4c2debb1d6ba655d54c0c98&width=1200&height=800&quality=70&smart=false"
+                        },
+                        {
+                            "option": {
+                                "height": 1155,
+                                "media": "(min-width: 1280px)",
+                                "media_preload": "(min-width: 768px) and (max-width: 1023px)",
+                                "minScreenWidth": 768,
+                                "proportion": "2:3",
+                                "width": 770
+                            },
+                            "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F09-14-2023%2Ft_10d753836b454e919af2d2f28ff955ac_name_file_1280x720_2000_v3_1_.jpg?auth=e432e90dc6146fe5ca5719b78ded18c33f18fcf4a4c2debb1d6ba655d54c0c98&width=770&height=1155&quality=70&smart=false"
+                        },
+                        {
+                            "option": {
+                                "height": 630,
+                                "media": "(min-width: 1280px)",
+                                "media_preload": "(max-width: 767px)",
+                                "proportion": "2:3",
+                                "width": 420
+                            },
+                            "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F09-14-2023%2Ft_10d753836b454e919af2d2f28ff955ac_name_file_1280x720_2000_v3_1_.jpg?auth=e432e90dc6146fe5ca5719b78ded18c33f18fcf4a4c2debb1d6ba655d54c0c98&width=420&height=630&quality=70&smart=false"
+                        }
+                    ],
+                    "type": "image",
+                    "url": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fd3us6z9haan6vf.cloudfront.net%2F09-14-2023%2Ft_10d753836b454e919af2d2f28ff955ac_name_file_1280x720_2000_v3_1_.jpg?auth=e432e90dc6146fe5ca5719b78ded18c33f18fcf4a4c2debb1d6ba655d54c0c98&width=1920&height=1282&quality=70&smart=false",
+                    "width": 1078
+                }
+            },
+            "publish_date": "2023-09-25T13:02:20Z",
+            "streams": [
+                {
+                    "height": 360,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/20230914/65032e3dc5dba66dd450df5c/t_5f1fadd82c0d44aca72c28b253941bd8_name_iphone/file_640x360-600.mp4",
+                    "width": 538
+                },
+                {
+                    "height": 720,
+                    "stream_type": "mp4",
+                    "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/20230914/65032e3dc5dba66dd450df5c/t_5f1fadd82c0d44aca72c28b253941bd8_name_iphone/file_1280x720-2000-v3_1.mp4",
+                    "width": 1078
+                }
+            ],
+            "subtype": "ln---videos-no-propios",
+            "type": "video"
+        },
+        "storytelling_mobile": {
+            "_id": "JJBX2DGWYFEQXB73M2TKM4WGGY",
+            "additional_properties": {},
+            "auth": {
+                "1": "fca27d64c3fb7e4aae1fc4fe9ef1047bfc93eb70310e74d13244d18ac26dc3db"
+            },
+            "caption": "Un mapa",
+            "height": 693,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 1280,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1440px)",
+                        "minScreenWidth": 1440,
+                        "proportion": "3:2",
+                        "width": 1920
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/un-JJBX2DGWYFEQXB73M2TKM4WGGY.png?auth=fca27d64c3fb7e4aae1fc4fe9ef1047bfc93eb70310e74d13244d18ac26dc3db&width=1920&height=1280&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 800,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
+                        "minScreenWidth": 1024,
+                        "proportion": "3:2",
+                        "width": 1200
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/un-JJBX2DGWYFEQXB73M2TKM4WGGY.png?auth=fca27d64c3fb7e4aae1fc4fe9ef1047bfc93eb70310e74d13244d18ac26dc3db&width=1200&height=800&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 1155,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 768px) and (max-width: 1023px)",
+                        "minScreenWidth": 768,
+                        "proportion": "2:3",
+                        "width": 770
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/un-JJBX2DGWYFEQXB73M2TKM4WGGY.png?auth=fca27d64c3fb7e4aae1fc4fe9ef1047bfc93eb70310e74d13244d18ac26dc3db&width=770&height=1155&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 630,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "2:3",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/un-JJBX2DGWYFEQXB73M2TKM4WGGY.png?auth=fca27d64c3fb7e4aae1fc4fe9ef1047bfc93eb70310e74d13244d18ac26dc3db&width=420&height=630&quality=70&smart=true"
+                }
+            ],
+            "subtitle": "Cambios de la frontera de mexico",
+            "type": "image",
+            "url": "https://sandbox.lanacion.com.ar/resizer/v2/un-JJBX2DGWYFEQXB73M2TKM4WGGY.png?auth=fca27d64c3fb7e4aae1fc4fe9ef1047bfc93eb70310e74d13244d18ac26dc3db&width=1920&height=2079&quality=70&smart=true",
+            "width": 640
+        }
+    },
+    "publish_date": "2023-10-10T12:17:14.624Z",
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "subheadlines": {
+        "basic": ""
+    },
+    "subtype": "4",
+    "syndication": {
+        "external_distribution": true,
+        "search": true
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/revista-living",
+            "_website": "la-nacion-ar",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {},
+                    "migration": {
+                        "id_section_ln9": "7353",
+                        "migrated_mob": "true"
+                    },
+                    "style": {
+                        "section_style_name": "living"
+                    }
+                }
+            },
+            "name": "Revista Living",
+            "parent_id": "/",
+            "path": "/revista-living",
+            "type": "section"
+        },
+        "sections": [
+            {
+                "_id": "/revista-living",
+                "_website": "la-nacion-ar",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {},
+                        "migration": {
+                            "id_section_ln9": "7353",
+                            "migrated_mob": "true"
+                        },
+                        "style": {
+                            "section_style_name": "living"
+                        }
+                    }
+                },
+                "name": "Revista Living",
+                "parent_id": "/",
+                "path": "/revista-living",
+                "type": "section"
+            }
+        ],
+        "sites": [
+            {
+                "additional_properties": {
+                    "original": {
+                        "_id": "/revista-living",
+                        "migration": {
+                            "id_section_ln9": "7353",
+                            "migrated_mob": "true"
+                        }
+                    }
+                }
+            }
+        ]
+    },
+    "type": "story",
+    "website_url": "/revista-living/prueba-nota-storytelling-video-nid06072023/",
+    "withFirmaDistributor": false,
+    "withSponsoredLink": false
+}

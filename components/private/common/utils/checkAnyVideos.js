@@ -1,7 +1,5 @@
 import get from './get';
 
-// TODO: agregar tests a la brevedad
-
 const checkAnyVideos = (globalContent = {}) => {
     const TYPE = 'video';
     const VIDEO_JW = 'video_jw';

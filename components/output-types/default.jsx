@@ -285,6 +285,10 @@ const Default = props => {
                 <OpeningRawHTML
                     contentElements={contentElements}
                     layoutName={layout}
+                    allowedLayout={
+                        siteProperties.layoutsName &&
+                        siteProperties.layoutsName.HtmlLibre
+                    }
                 />
             </head>
             <body {...getBodyClass(siteProperties)}>
