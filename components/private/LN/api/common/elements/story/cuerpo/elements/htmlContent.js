@@ -1,5 +1,6 @@
 import { OPTA_WIDGET_URL } from 'fusion:environment';
 import getEmbedHref from '../../../../../../../common/utils/getEmbedHref';
+import StoryErrorContent from '../../../../../common/models/storyErrorContent';
 
 const html = (nodo, notaId) => {
     if (!nodo || !nodo.content) return null;
@@ -14,10 +15,11 @@ const html = (nodo, notaId) => {
         case 'iframe':
             const src = getEmbedHref('src', content);
             if (!src) {
+
                 console.error(
-                    `${notaId} :Error Iframe: ${JSON.stringify(
-                        nodo || {}
-                    )}`
+                    new StoryErrorContent(
+                        `Story: ${notaId} - Error Iframe: ${JSON.stringify(nodo || {})}`
+                    )
                 );
                 return null;
             }
