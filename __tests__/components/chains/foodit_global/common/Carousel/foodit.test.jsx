@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
-import articlesTransformed from '../../../../../../__mocks__/data/foodit_Caja_Collection/articlesTransformed.json';
+import { render } from '@testing-library/react';
+import articlesTransformed from '../../../../../../__mocks__/data/foodit_Caja_Collection/articlesTransformed';
 import Carousel from '../../../../../../components/chains/foodit-global/common/Carousel/foodit';
 
 const observe = jest.fn();

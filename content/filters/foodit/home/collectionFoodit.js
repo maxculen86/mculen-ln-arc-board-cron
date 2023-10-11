@@ -6,8 +6,7 @@ export default `
     type
     subtype
     content_elements 
-        ${articleReceta}    
-    
+        ${articleReceta}
     display_date,
     created_date,
     first_publish_date,

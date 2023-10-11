@@ -5,7 +5,7 @@ const image = `
     width
     alt_text
     resized_urls {
-        ${imageResizedUrl}               
+        ${imageResizedUrl}          
     }
     url
 `;

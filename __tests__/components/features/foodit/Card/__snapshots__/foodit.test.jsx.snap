@@ -3,7 +3,7 @@
 exports[`Components - features - CardFoodit should test CardFoodit - variant day-recipe 1`] = `
 <div>
   <div
-    class="hidden "
+    class="hidden"
   >
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 --day-recipe shadow-down-sm"
@@ -93,7 +93,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
 exports[`Components - features - CardFoodit should test CardFoodit - variant note 1`] = `
 <div>
   <div
-    class="hidden "
+    class="hidden"
   >
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
@@ -207,7 +207,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
 exports[`Components - features - CardFoodit should test CardFoodit - variant recipe 1`] = `
 <div>
   <div
-    class="hidden "
+    class="hidden"
   >
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import articlesTransformed from '../../../../../../__mocks__/data/foodit_Caja_Collection/articlesTransformed.json';
+import articlesTransformed from '../../../../../../__mocks__/data/foodit_Caja_Collection/articlesTransformed';
 import RenderCollection from '../../../../../../components/chains/foodit-global/common/RenderCollection/foodit';
 
 const observe = jest.fn();

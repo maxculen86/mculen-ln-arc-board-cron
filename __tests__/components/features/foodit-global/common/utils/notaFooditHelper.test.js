@@ -4,7 +4,7 @@ import {
     getRenderablesData
 } from '../../../../../../components/features/foodit-global/common/utils/notaFooditHelper';
 
-import renderables from '../../../../../../__mocks__/data/renderables/foodit/fooditRenderables2.json';
+import renderables from '../../../../../../__mocks__/data/renderables/foodit/fooditRenderables2';
 
 describe('Foodit - notaFooditHelper', () => {
     describe('getHighestPriorityTag function', () => {

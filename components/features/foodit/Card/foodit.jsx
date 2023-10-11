@@ -19,6 +19,7 @@ import filter from '../../../../content/filters/foodit/home/articleFoodit.js';
 import { getImagesToLoadWithPicture } from '../../../private/LN/common/utils/mediaHelper';
 import StaticContent from '../../../private/common/staticContent';
 import fooditRules from '../../foodit-global/common/utils/fooditRules';
+import classNames from 'classnames';
 
 const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
     const articleId = checkForId(id);
@@ -65,6 +66,8 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
     }
 
     const { size = 'small', classNameChildren = '' } = fooditRules(layout);
+    const staticContentClassName = classNames('hidden', classNameChildren);
+
     const {
         title,
         author,
@@ -78,10 +81,7 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
     const { alt_text, url, resized_urls } = image;
 
     return (
-        <StaticContent
-            className={'hidden ' + classNameChildren}
-            key={featureId}
-        >
+        <StaticContent className={staticContentClassName} key={featureId}>
             {!error && articleContent && (
                 <Card
                     linkProps={{ href, title }}
