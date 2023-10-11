@@ -11,7 +11,7 @@ export const videoJWNota = videoData => {
 
     if (!id) {
         console.warn(
-            `private-LN-api-common-elements-story-videoJW.js Error: ${JSON.stringify(
+            `Error Version Global Video JW - Missing Id in content: ${JSON.stringify(
                 videoData || {}
             )}`
         );
@@ -63,7 +63,7 @@ export const videoJWNotaMobile = videoData => {
 
     if (!playList) {
         console.warn(
-            `private-LN-api-common-elements-story-videoJW.js Error: ${JSON.stringify(
+            `Error Version Mobile Video JW - Missing playList in content: ${JSON.stringify(
                 videoData || {}
             )}`
         );
