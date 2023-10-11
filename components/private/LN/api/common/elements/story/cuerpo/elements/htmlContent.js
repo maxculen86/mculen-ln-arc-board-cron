@@ -18,7 +18,7 @@ const html = (nodo, notaId) => {
 
                 console.error(
                     new StoryErrorContent(
-                        `Story: ${notaId} - Error Iframe: ${JSON.stringify(nodo || {})}`
+                        `Id: ${notaId} - Iframe content: ${JSON.stringify(nodo || {})}`
                     )
                 );
                 return null;
