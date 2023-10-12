@@ -8,7 +8,7 @@ const ObservableFoodit = () => {
         <script
             type="application/javascript"
             src={deployment(
-                `${contextPath}/resources/dist/common/js/observable.min.js`
+                `${contextPath}/resources/js/common/observable.min.js`
             )}
         />
     );
