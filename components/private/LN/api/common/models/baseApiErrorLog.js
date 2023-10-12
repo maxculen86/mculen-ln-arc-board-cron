@@ -2,7 +2,7 @@ export class BaseApiErrorLogs extends Error {
     constructor(message) {
         super(message);
         this.name = this.constructor.name;
-        this.customErrorType = BackEndErrorApiLogs.name;//Object.getPrototypeOf(this.__proto__);
+        this.customErrorType = BackEndErrorApiLogs.name;
     }
 }
 
