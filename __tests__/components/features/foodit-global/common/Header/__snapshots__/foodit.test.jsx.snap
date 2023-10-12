@@ -180,7 +180,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
               >
                 <li>
                   <a
-                    class="link foodit-link flex gap-4 ai-center roboto-bold text-14"
+                    class="link foodit-link flex gap-8 ai-center roboto-bold text-14"
                     href="/"
                     target="_self"
                     title="Ir a Recetario"
@@ -204,7 +204,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
                 </li>
                 <li>
                   <a
-                    class="link foodit-link flex gap-4 ai-center roboto-bold text-14"
+                    class="link foodit-link flex gap-8 ai-center roboto-bold text-14"
                     href="/"
                     target="_self"
                     title="Ir a Descubrir "
@@ -448,6 +448,33 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div
+        class="foodit-search container py-16 py-24_lg"
+      >
+        <div
+          class="border border-all border-thin border-light-300 p-16 rounded-100 flex gap-8 bg-light-1"
+        >
+          <i
+            class="icon --icon-24"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m18.031 16.617 4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617Zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15Z"
+                fill="#272727"
+              />
+            </svg>
+          </i>
+          <span
+            class="text text-16 roboto roboto-bold"
+          >
+            ¿Qué querés cocinar hoy?
+          </span>
         </div>
       </div>
     </header>

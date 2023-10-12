@@ -1,7 +1,10 @@
 import {
     getHighestPriorityTag,
-    validateArticleFoodit
+    validateArticleFoodit,
+    getRenderablesData
 } from '../../../../../../components/features/foodit-global/common/utils/notaFooditHelper';
+
+import renderables from '../../../../../../__mocks__/data/renderables/foodit/fooditRenderables2';
 
 describe('Foodit - notaFooditHelper', () => {
     describe('getHighestPriorityTag function', () => {
@@ -61,6 +64,32 @@ describe('Foodit - notaFooditHelper', () => {
                     content: undefined
                 })
             ).toMatchSnapshot();
+        });
+    });
+
+    describe('getRenderablesData', () => {
+        it('should return isOpening true if featureId is present in children', () => {
+            const featureId = 'f0f5gjwJmp3u2hM';
+            const result = getRenderablesData(renderables, featureId);
+            expect(result.isOpening).toBe(true);
+        });
+
+        it('should return isOpening false if featureId is not present in children', () => {
+            const featureId = 'fakeFeatureId';
+            const result = getRenderablesData(renderables, featureId);
+            expect(result.isOpening).toBe(false);
+        });
+
+        it('should return the correct layout value if featureId is present in children', () => {
+            const featureId = 'f0feV8KtsvPmtxw';
+            const result = getRenderablesData(renderables, featureId);
+            expect(result.layout).toEqual('bn_2_grid');
+        });
+
+        it('should return an empty layout value if featureId is not present in children', () => {
+            const featureId = 'fakeFeatureId';
+            const result = getRenderablesData(renderables, featureId);
+            expect(result.layout).toEqual('');
         });
     });
 });

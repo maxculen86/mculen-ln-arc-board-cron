@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommonCardFoodit should render the card with the correct data 1`] = `
+<div>
+  <article
+    class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+  >
+    <a
+      class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+      href="https://recetas.lanacion.com.ar"
+      target="_self"
+      title="Receta de tortilla de patatas"
+    >
+      <div
+        class="relative w-100"
+      >
+        <div
+          class="foodit-placeholder card-image ratio-3-2 w-100"
+        >
+          <img
+            alt="Tortilla de patatas"
+            class="image flex card-image ratio-3-2 w-100"
+            decoding="async"
+            fetchpriority="low"
+            loading="lazy"
+            src="https://www.recetasderecetas.com/wp-content/uploads/2020/01/tortilla-de-patatas-2.jpg"
+          />
+        </div>
+        <span
+          class="foodit-badge inline-flex ai-center gap-4 py-4 px-8 rounded-4 bg-primary-positive text-light-200 text-14 absolute bottom-0 right-0 m-8"
+        >
+          rica
+        </span>
+      </div>
+      <div
+        class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1"
+      >
+        <div
+          class="flex flex-column gap-8"
+        >
+          <span
+            class="text prumo text-ellipsis-3 prumo-medium text-20"
+          >
+            Receta de tortilla de patatas
+          </span>
+        </div>
+        <div
+          class="flex ai-center gap-16 text-light-600"
+        >
+          <div
+            class="flex flex-column gap-4 flex-grow-1"
+          >
+            <span
+              class="text text-14"
+            >
+              Juan Pérez
+            </span>
+            <div
+              class="flex ai-center gap-4"
+            >
+              <i
+                class="icon --icon-12 --gray"
+              >
+                <svg
+                  fill="none"
+                  viewBox="0 0 12 13"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="m8.809 3.983.727-.727.707.707-.727.727a4.5 4.5 0 1 1-.707-.707ZM6 10.998a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.5-6h1v3h-1v-3ZM4 1.499h4v1H4v-1Z"
+                    fill="#666"
+                  />
+                </svg>
+              </i>
+              <span
+                class="text text-14 roboto-light"
+              >
+                30 min
+              </span>
+            </div>
+          </div>
+          <button
+            class="flex"
+            title="Guardar receta"
+          >
+            <i
+              class="icon --icon-24 --dark"
+            >
+              <svg
+                fill="none"
+                height="25"
+                viewBox="0 0 24 25"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
+                  fill="#272727"
+                />
+              </svg>
+            </i>
+          </button>
+        </div>
+      </div>
+    </a>
+  </article>
+</div>
+`;

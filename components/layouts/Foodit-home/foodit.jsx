@@ -4,10 +4,8 @@ import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 // TODO: Estas secciones son a modo orientativo, pueden cambiar en base a definiciones de producto.
 const pageBuilderSections = ['Apertura', 'Bloque-1', 'Bloque-2'];
 
-// TODO: Layout base, ira cambiando segun vaya avanzando el layout final
 const HomeFoodit = ({ children }) => {
     const [opening, bloque1, bloque2] = children;
-
     return (
         <BaseLayout>
             <section className="pt-8 mb-64">

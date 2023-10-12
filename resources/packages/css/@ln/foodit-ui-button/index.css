@@ -1,12 +1,3 @@
 .button.foodit-button {
   text-transform: none;
 }
-.button.foodit-button[data-variant=primary] .icon svg > path {
-  fill: var(--neutral-dark-800);
-}
-.button.foodit-button[data-variant=secondary] .icon svg > path {
-  fill: var(--neutral-dark-800);
-}
-.button.foodit-button[data-variant=accent] .icon svg > path {
-  fill: var(--neutral-light-800);
-}

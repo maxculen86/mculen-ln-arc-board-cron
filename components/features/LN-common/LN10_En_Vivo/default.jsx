@@ -40,6 +40,7 @@ const EnVivo = ({ customFields, id: featureId }) => {
                                     chapita && chapita.trim() ? chapita : 'vivo'
                                 }
                                 badgeType={typeBadge[chapitaStyle]}
+                                data-testid="live-component"
                             />
                             {bannerMob}
                         </>

@@ -5,14 +5,15 @@ const image = `
     width
     alt_text
     resized_urls {
-        ${imageResizedUrl}               
+        ${imageResizedUrl}          
     }
     url
 `;
 
 export default `
 {   
-    _id 
+    _id
+    website_url
     promo_items {
         basic {
             ${image}

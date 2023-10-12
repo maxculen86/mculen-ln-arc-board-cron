@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import VideoPlayerJW from '../../../../../components/private/common/videoPlayerJw';
 import Context from 'fusion:context';
@@ -31,7 +31,7 @@ describe('componentes - private - common - videoPlayerJw', () => {
                             images: ['image1.jpg', 'image2.jpg'],
                             image: 'main-image.jpg',
                             pubdate: 16809218408,
-                            mediaid: 'abc123'
+                            mediaid: 'yPJ53Pzg'
                         }
                     ]
                 }
@@ -96,7 +96,7 @@ describe('componentes - private - common - videoPlayerJw', () => {
         );
 
         const ampJWPlayer = document.querySelector(
-            'amp-jwplayer[data-media-id="abc123"][data-player-id="ih0086X3"][height="9"][layout="responsive"][width="16"]'
+            'amp-jwplayer[data-media-id="yPJ53Pzg"][data-player-id="ih0086X3"][height="9"][layout="responsive"][width="16"]'
         );
 
         expect(ampJWPlayer).toBeInTheDocument();

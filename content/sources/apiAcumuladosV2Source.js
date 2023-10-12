@@ -27,10 +27,11 @@ const fetch = async (query, { cachedCall }) => {
             title,
             page,
             isCustomPage,
-            ticksCache
+            ticksCache,
+            slug
         } = getParamsFromQuery(query);
 
-        const { paramsSectionsSource } = await fetchSectionSource(
+        const { sectionSourceParams } = await fetchSectionSource(
             sectionIdParam,
             query,
             isCustomPage,
@@ -38,12 +39,12 @@ const fetch = async (query, { cachedCall }) => {
         );
 
         title =
-            get(paramsSectionsSource, 'title', null) == null
+            get(sectionSourceParams, 'title', null) == null
                 ? title
-                : get(paramsSectionsSource, 'title', null);
+                : get(sectionSourceParams, 'title', null);
 
-        restriction = get(paramsSectionsSource, 'restriction', true);
-        configuration = get(paramsSectionsSource, 'configuration', null);
+        restriction = get(sectionSourceParams, 'restriction', true);
+        configuration = get(sectionSourceParams, 'configuration', null);
 
         const queryParams = {
             sectionId: customSectionsIds?.includes(sectionId)
@@ -84,11 +85,7 @@ const fetch = async (query, { cachedCall }) => {
             size,
             page
         );
-        return acuTransformV2Format(
-            transformedAcu,
-            sectionData,
-            paginationValue
-        );
+        return acuTransformV2Format(transformedAcu, slug, paginationValue);
     } catch (error) {
         if (error instanceof NotFoundError) {
             throw new NotFoundError(
@@ -133,6 +130,8 @@ const getParamsFromQuery = query => {
     const ticksCache = get(query, 'ticks', '').replace('/', '');
     const categoryUri = get(query, 'categoryUri', '').replace('/', '');
 
+    const slug = get(query, 'sectionId', '');
+
     const sectionId = get(query, 'sectionId', '').replace('/', '');
 
     const sectionIdParam = sectionId.substring(0, 2).includes('/')
@@ -176,7 +175,8 @@ const getParamsFromQuery = query => {
         size,
         title,
         page,
-        isCustomPage
+        isCustomPage,
+        slug
     };
 };
 

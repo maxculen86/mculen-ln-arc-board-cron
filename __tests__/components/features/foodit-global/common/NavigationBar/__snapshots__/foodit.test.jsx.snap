@@ -12,7 +12,7 @@ exports[`Components - Features - foodit-global - Common - NavigationBar should m
         class="flex jc-center pt-8 pb-12"
       >
         <a
-          class="link foodit-link flex gap-4 ai-center roboto-regular flex flex-column flex-row_md ai-center jc-center gap-4 gap-8_md text-12"
+          class="link foodit-link flex gap-8 ai-center roboto-regular flex flex-column flex-row_md ai-center jc-center gap-4 gap-8_md text-12"
           href="https://www.recetas.lanacion.com.ar/"
           target="_self"
           title="Inicio"
@@ -66,7 +66,7 @@ exports[`Components - Features - foodit-global - Common - NavigationBar should m
         class="flex jc-center pt-8 pb-12"
       >
         <a
-          class="link foodit-link flex gap-4 ai-center roboto-regular flex flex-column flex-row_md ai-center jc-center gap-4 gap-8_md text-12"
+          class="link foodit-link flex gap-8 ai-center roboto-regular flex flex-column flex-row_md ai-center jc-center gap-4 gap-8_md text-12"
           href="https://www.recetas.lanacion.com.ar/"
           target="_self"
           title="Recetario"
@@ -92,7 +92,7 @@ exports[`Components - Features - foodit-global - Common - NavigationBar should m
         class="flex jc-center pt-8 pb-12"
       >
         <a
-          class="link foodit-link flex gap-4 ai-center roboto-regular flex flex-column flex-row_md ai-center jc-center gap-4 gap-8_md text-12"
+          class="link foodit-link flex gap-8 ai-center roboto-regular flex flex-column flex-row_md ai-center jc-center gap-4 gap-8_md text-12"
           href="https://www.recetas.lanacion.com.ar/"
           target="_self"
           title="Lista"
@@ -118,7 +118,7 @@ exports[`Components - Features - foodit-global - Common - NavigationBar should m
         class="flex jc-center pt-8 pb-12"
       >
         <a
-          class="link foodit-link flex gap-4 ai-center roboto-regular flex flex-column flex-row_md ai-center jc-center gap-4 gap-8_md text-12"
+          class="link foodit-link flex gap-8 ai-center roboto-regular flex flex-column flex-row_md ai-center jc-center gap-4 gap-8_md text-12"
           href="https://www.recetas.lanacion.com.ar/"
           target="_self"
           title="Perfil"

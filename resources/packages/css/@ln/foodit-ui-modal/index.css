@@ -1,0 +1,6 @@
+.modal-backdrop .modal-wrapper {
+  outline: 0;
+}
+.modal-backdrop .modal-wrapper .modal {
+  width: var(--modal-width);
+}

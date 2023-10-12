@@ -12,7 +12,14 @@ const html = (nodo, notaId) => {
     };
     switch (htmlTag) {
         case 'iframe':
-            resp.src = getEmbedHref('src', content).trim();
+            const src = getEmbedHref('src', content);
+            if (!src) {
+                console.error(
+                    `${notaId} :Error Iframe: ${JSON.stringify(nodo || {})}`
+                );
+                return null;
+            }
+            resp.src = src.trim();
             resp.id = 'ifrme';
             break;
         case 'opta-widget':

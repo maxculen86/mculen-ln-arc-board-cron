@@ -40,12 +40,19 @@ html {
 }
 
 body {
-  font-family: "Roboto", Arial, sans-serif;
   color: var(--neutral-light-800);
 }
 
 a {
   transition: all 0.2s ease-in-out;
+}
+
+select, option {
+  border-color: inherit;
+}
+
+select:focus {
+  outline: none;
 }
 
 .container, .container-fluid {
@@ -64,7 +71,6 @@ a {
 }
 
 :root {
-  --spacing: 16px;
   --primary-positive: #000;
   --secondary-positive: #414141;
   --accent-positive: #777;
@@ -78,28 +84,24 @@ a {
   --neutral-dark-800: #CCCCCC;
   --shadow-down-sm: 0px 8px 16px rgba(0, 0, 0, 0.06);
   --shadow-down-md: 0px 12px 24px rgba(0, 0, 0, 0.04);
+  --spacing: 1rem;
   --scroller-columns: 8;
   --scroller-element-columns: 7;
   --scroller-gap: var(--spacing);
+  --backdrop: rgba(0, 0, 0, 0.64);
+  --modal-width: 100%;
 }
 @media (min-width: 48rem) {
   :root {
-    --spacing: 24px;
-  }
-}
-@media (min-width: 80rem) {
-  :root {
-    --spacing: 32px;
-  }
-}
-@media (min-width: 48rem) {
-  :root {
+    --spacing: 1.5rem;
     --scroller-columns: 12;
     --scroller-element-columns: 5;
+    --modal-width: 33.75rem;
   }
 }
 @media (min-width: 80rem) {
   :root {
+    --spacing: 2rem;
     --scroller-columns: 16;
     --scroller-element-columns: 4;
   }
@@ -113,6 +115,10 @@ a {
   justify-content: space-between;
 }
 
+.jc-end {
+  justify-content: flex-end;
+}
+
 .ai-center {
   align-items: center;
 }
@@ -121,6 +127,30 @@ a {
   align-self: center;
 }
 
+.as-end {
+  align-self: flex-end;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 .ratio-3-2 {
   aspect-ratio: 3 / 2;
 }
@@ -245,6 +275,18 @@ a {
 
 .bg-secondary-positive {
   background: var(--secondary-positive);
+}
+
+.bg-backdrop {
+  background: var(--backdrop);
+}
+
+.icon-dark-800 .icon.icon svg > path {
+  fill: var(--neutral-dark-800);
+}
+
+.icon-light-800 .icon.icon svg > path {
+  fill: var(--neutral-light-800);
 }
 
 .none {
@@ -745,6 +787,11 @@ a {
   height: max-content;
 }
 
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 @media (min-width: 80rem) {
   .h-160_lg {
     height: 10rem;
@@ -756,6 +803,14 @@ a {
 
 .mb-4 {
   margin-bottom: 0.25rem;
+}
+
+.mb-8 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-16 {
+  margin-bottom: 1rem;
 }
 
 .mb-64 {
@@ -776,6 +831,10 @@ a {
 
 .ml-auto {
   margin-left: auto;
+}
+
+.p-4 {
+  padding: 0.25rem;
 }
 
 .p-8 {
@@ -919,6 +978,10 @@ a {
   z-index: 10;
 }
 
+.z-15 {
+  z-index: 15;
+}
+
 hr {
   border: thin solid var(--neutral-light-100);
 }
@@ -954,6 +1017,10 @@ hr {
 
 .transition-linear {
   transition: all 0.2s linear;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .banner-container {
