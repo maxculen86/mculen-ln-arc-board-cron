@@ -1,6 +1,6 @@
 import { OPTA_WIDGET_URL } from 'fusion:environment';
 import getEmbedHref from '../../../../../../../common/utils/getEmbedHref';
-import LnBackendError from '../../../../../common/models/lnBackendError';
+import BackendLnError from '../../../../../common/models/backendLnError';
 
 const html = (nodo, notaId) => {
     if (!nodo || !nodo.content) return null;
@@ -17,7 +17,7 @@ const html = (nodo, notaId) => {
             if (!src) {
 
                 console.error(
-                    new LnBackendError(
+                    new BackendLnError(
                         `StoryId: ${notaId} - Iframe content: ${JSON.stringify(nodo || {})}`,'StoryContentError'
                     )
                 );
