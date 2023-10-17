@@ -184,7 +184,7 @@ describe('Common - Resizer - v2 - resizerFactory', () => {
                     arcImage
                 });
                 expect(resizerUrl).toEqual(
-                    'https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=320&height=213&quality=70&smart=false'
+                    'https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=320&height=213&quality=70&smart=true'
                 );
             });
         });
@@ -219,7 +219,7 @@ describe('Common - Resizer - v2 - resizerFactory', () => {
                 arcImage
             });
             expect(resizerUrl).toEqual(
-                'https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=320&height=213&quality=70&smart=false'
+                'https://resizer.glanacion.com/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=5fc021d6cb100a1e636789f166523834845bae53e918308417ee6a0bcafbf069&width=320&height=213&quality=70&smart=true'
             );
         });
     });
