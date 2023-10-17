@@ -108,11 +108,6 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
                             buttonProps={{
                                 title: 'Guardar receta',
                                 fill: isOpening, // TODO: boolean cuando la receta está guardada
-                                onClick: e => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    console.log('click button');
-                                },
                                 'data-id': articleId,
                                 'data-modal': 'open-modal'
                             }}

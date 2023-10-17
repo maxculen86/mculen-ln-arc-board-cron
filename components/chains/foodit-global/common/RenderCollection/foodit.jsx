@@ -16,28 +16,31 @@ export const RenderCollection = ({
     error,
     articles
 }) => {
-    const { roofAs, classNameParent, classNameChildren } = rules;
+    const { roofAs, classNameParent, classNameChildren, classNameRoof } = rules;
     const options = {
         [CAROUSEL]: (
-            <>
+            <div className="carousel-container">
                 <RoofFoodit
                     title={{ text: title, as: roofAs }}
                     hide={hideTitle}
+                    className={classNameRoof}
                 />
                 <Carousel articles={articles} />
-            </>
+            </div>
         ),
         [BN_12_GRID]: (
-            <StaticContent>
+            <StaticContent className="hidden bn-12">
                 <RoofFoodit
                     title={{ text: title, as: roofAs }}
                     hide={hideTitle}
+                    className={classNameRoof}
                 />
                 <div className={classNameParent}>
                     {articles.map(article => (
                         <CommonCardFoodit
                             article={article}
                             className={classNameChildren}
+                            key={article.title}
                         />
                     ))}
                 </div>

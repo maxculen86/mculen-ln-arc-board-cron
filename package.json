@@ -91,7 +91,7 @@
         "@ln/foodit-ui-image": "0.0.1",
         "@ln/foodit-ui-link": "0.0.2",
         "@ln/foodit-ui-modal": "0.0.2",
-        "@ln/foodit-ui-sass": "0.0.5",
+        "@ln/foodit-ui-sass": "0.0.8",
         "@ln/foodit-ui-topnavigationbar": "0.0.1",
         "@ln/foodit-ui-variableicons": "0.0.1",
         "@ln/hooks": "1.1.1",

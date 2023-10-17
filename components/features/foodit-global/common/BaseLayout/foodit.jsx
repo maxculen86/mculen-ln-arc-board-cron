@@ -11,7 +11,7 @@ const BaseLayout = ({ children, ...r }) => {
             <Header />
             <div className="header-sentinel" />
             <DrawerMenu />
-            <main className="container mb-72" style={{ minHeight: '100vh' }}>
+            <main className="container flex flex-column mb-72 gap-72 min-vh-100">
                 {children}
             </main>
             <NavigationBar />
