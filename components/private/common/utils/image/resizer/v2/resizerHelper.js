@@ -111,7 +111,7 @@ export const buildQueryParams = ({
     newHeight,
     filterQuality = 70,
     focalPoint = [],
-    smartCropExcluded = false,
+    smartCropExcluded,
     crop = null,
     arcImage
 }) => {
@@ -163,8 +163,8 @@ export const buildQueryParams = ({
     // Regla: Si existe focalPoint, smart y crop deben ser siempre false.
     const smart = () =>
         !imgId || (focalPoint && focalPoint.length > 1)
-            ? `&smart=${false}`
-            : `&smart=${smartCropExcluded}`;
+            ? '&smart=false'
+            : '&smart=true';
 
     const image = imgId
         ? `${getSlugForImage(arcImage)}${imgId}${parsedExtension}`

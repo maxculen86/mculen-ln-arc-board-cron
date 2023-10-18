@@ -191,7 +191,7 @@ export const transform = data => {
             countryNames[home.id] || countryHome.name || 'A definir';
 
         const awayName =
-            countryNames[away.id] || countryHome.name || 'A definir';
+            countryNames[away.id] || countryAway.name || 'A definir';
 
         const localTime = dateAndTime[1].split(':');
         localTime.pop();

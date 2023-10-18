@@ -9,7 +9,7 @@ jest.mock('fusion:environment', () => {
 });
 
 describe('Common - Resizer', () => {
-    // https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=309&height=206&quality=80&smart=false
+    // https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=309&height=206&quality=80&smart=true
     describe('buildQueryParams', () => {
         const arcImage = {
             _id: 'J43DRG7ZGZCANB6PYJG2VQ35QY',
@@ -34,7 +34,7 @@ describe('Common - Resizer', () => {
                 arcImage
             });
             expect(queryParams).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=1200&height=1200&quality=70&smart=false'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=1200&height=1200&quality=70&smart=true'
             );
         });
 
@@ -44,7 +44,7 @@ describe('Common - Resizer', () => {
                     arcImage
                 })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=70&smart=false'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=70&smart=true'
             );
         });
 
@@ -52,7 +52,7 @@ describe('Common - Resizer', () => {
             expect(
                 resizerHelper.buildQueryParams({ newWidth: 1200, arcImage })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=1200&quality=70&smart=false'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=1200&quality=70&smart=true'
             );
         });
 
@@ -60,7 +60,7 @@ describe('Common - Resizer', () => {
             expect(
                 resizerHelper.buildQueryParams({ newWidth: [], arcImage })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=70&smart=false'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=70&smart=true'
             );
         });
 
@@ -68,7 +68,7 @@ describe('Common - Resizer', () => {
             expect(
                 resizerHelper.buildQueryParams({ newHeight: 1200, arcImage })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&height=1200&quality=70&smart=false'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&height=1200&quality=70&smart=true'
             );
         });
 
@@ -252,7 +252,7 @@ describe('Common - Resizer', () => {
         const v1Url =
             'https://resizer.glanacion.com/resizer/nvXI-Drw6YuzQFcRuFJ4q_7PhU8=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3IFEHM7KAFCWRJQIO4B36IHNLU.jpg';
         const v2Url =
-            'https://resizer.glanacion.com/resizer/v2/574B3ES775FGPMKR7SZ6TMTPVA.JPG?auth=67e2472eccb2fcf95e748698005353559059303fbfff9c7df6d0d6d7a60619c9&width=768&quality=80&smart=false';
+            'https://resizer.glanacion.com/resizer/v2/574B3ES775FGPMKR7SZ6TMTPVA.JPG?auth=67e2472eccb2fcf95e748698005353559059303fbfff9c7df6d0d6d7a60619c9&width=768&quality=80&smart=true';
 
         it('Should return false for v1 urls', () => {
             expect(resizerHelper.isResizerV2(v1Url)).toBeFalsy();
@@ -275,7 +275,7 @@ describe('Common - Resizer', () => {
         const v1Url =
             'https://resizer.glanacion.com/resizer/nvXI-Drw6YuzQFcRuFJ4q_7PhU8=/768x0/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/3IFEHM7KAFCWRJQIO4B36IHNLU.jpg';
         const v2Url =
-            'https://resizer.glanacion.com/resizer/v2/574B3ES775FGPMKR7SZ6TMTPVA.JPG?auth=67e2472eccb2fcf95e748698005353559059303fbfff9c7df6d0d6d7a60619c9&width=768&quality=80&smart=false';
+            'https://resizer.glanacion.com/resizer/v2/574B3ES775FGPMKR7SZ6TMTPVA.JPG?auth=67e2472eccb2fcf95e748698005353559059303fbfff9c7df6d0d6d7a60619c9&width=768&quality=80&smart=true';
         const externalUrl =
             'https://s3.amazonaws.com/arc-authors/lanacionar/2089284.png';
         it('Should return true for v1 urls', () => {

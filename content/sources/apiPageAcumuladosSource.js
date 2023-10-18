@@ -1,11 +1,11 @@
 import { SITE_LANACION } from 'fusion:environment';
 import get from '../../components/private/common/utils/get';
 import pages from './utils/pageSource/index';
-import jsonSectionsInPages from './utils/pageSource/pageAcumulados/config/configSectionPage.json';
 import transform from './utils/pageSource/pageAcumulados/v2/mobile/transform';
 import home from '../../components/private/LN/api/v2/mobile/homeAccumulated';
 import pageTransformV2Format from './utils/pageSource/acumulados/v2/mobile/bySection/pageTransformV2Format';
 import NotFoundError from './utils/notFoundError';
+import sectionSource from './sectionSource';
 
 const fetch = async (query, { cachedCall }) => {
     try {
@@ -14,17 +14,17 @@ const fetch = async (query, { cachedCall }) => {
             website,
             versionUri,
             ticksCache,
-            categoryUri,
-            sectionData,
-            sectioninPage
+            categoryUri
         } = getParamsFromQuery(query);
 
+        const { title } = await fetchSectionSource(query, cachedCall);
+
         const queryParams = {
-            rootPath: `${SITE_LANACION}/${sectioninPage}`,
+            rootPath: `${SITE_LANACION}${query.sectionId}`,
             ticksCache: ticksCache.toString(),
             website,
             uri,
-            title: sectioninPage,
+            title,
             categoryUri,
             versionUri,
             cookie: query.cookie
@@ -36,7 +36,7 @@ const fetch = async (query, { cachedCall }) => {
         });
 
         // Para revisar la data cruda que viene del Layout
-        //return resultPage;
+        // return resultPage;
         const { information } = resultPage;
 
         const resultPageTransform = await transform(resultPage);
@@ -50,7 +50,10 @@ const fetch = async (query, { cachedCall }) => {
         const resultPageData = Array.isArray(resultHomeTransformation)
             ? resultHomeTransformation[0]
             : {};
-        return pageTransformV2Format(resultPageData, sectionData);
+        return pageTransformV2Format(resultPageData, {
+            title,
+            slug: query.sectionId
+        });
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(
@@ -73,15 +76,6 @@ const getParamsFromQuery = query => {
     const ticksCache = get(query, 'ticks', '').replace('/', '');
     const categoryUri = get(query, 'categoryUri', '').replace('/', '');
 
-    const sectionId = get(query, 'sectionId', '').replace('/', '');
-
-    const sectionData = jsonSectionsInPages?.find(
-        e => e.sectionId === sectionId
-    );
-
-    const sectioninPage =
-        sectionData && sectionData.namePage ? sectionData.namePage : sectionId;
-
     if (!versionUri) {
         throw new Error('The api page must have a version');
     }
@@ -91,10 +85,34 @@ const getParamsFromQuery = query => {
         website,
         versionUri,
         ticksCache,
-        categoryUri,
-        sectionData,
-        sectioninPage
+        categoryUri
     };
+};
+
+const fetchSectionSource = async (query, cachedCall) => {
+    let sectionSourceResult = null;
+
+    const queryParams = {
+        id: query.sectionId,
+        website: query.website,
+        api: 'true'
+    };
+
+    sectionSourceResult = await cachedCall(
+        'apiPageSectionSource',
+        sectionSource.fetch,
+        {
+            query: queryParams
+        }
+    );
+
+    const title = get(
+        sectionSourceResult,
+        'acumuladoGeneral.hierarchy_navigation',
+        get(sectionSourceResult, 'name', null)
+    );
+
+    return { title };
 };
 
 export default {
