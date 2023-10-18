@@ -36,7 +36,7 @@ const fetch = async (query, { cachedCall }) => {
         });
 
         // Para revisar la data cruda que viene del Layout
-        //return resultPage;
+        // return resultPage;
         const { information } = resultPage;
 
         const resultPageTransform = await transform(resultPage);
