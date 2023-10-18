@@ -35,9 +35,9 @@ attachBanners.mockImplementation((box, sectionAlias) => {
     };
 });
 
-const paramsPage = { information: { layoutPage: 'LN-Home_Main' } };
+const paramsPage = { information: { layoutPage: 'LN10-Home_Main' } };
 
-describe('components - private - LN - api - v2 - home - index.js', () => {
+describe('components - private - LN - api - mobile - v2 - home - index.js', () => {
     it('Total test boxes expected', () => {
         const homeSections = homeDataSections;
         const home = index(homeSections, paramsPage);
@@ -47,7 +47,7 @@ describe('components - private - LN - api - v2 - home - index.js', () => {
     it('Test Caja Anticipo', () => {
         const homeSections = homeDataSections;
         const home = index(homeSections, paramsPage);
-        expect(home[0].items[0].tipoSeccion).toBe('anticipo');
+        expect(home[0].items[0].tipoSeccion).toBe('tema');
     });
 
     it('Test Caja Anexo', () => {
@@ -217,8 +217,7 @@ describe('components - private - LN - api - v2 - home - index.js', () => {
             expect.objectContaining({
                 tipoSeccion: 'tema',
                 idSeccion: 305,
-                diagramacion: 'focalLeft3',
-                tituloCaja: 'Mi techo abc'
+                diagramacion: 'focalLeft3'
             })
         );
     });
@@ -249,8 +248,7 @@ describe('components - private - LN - api - v2 - home - index.js', () => {
             expect.objectContaining({
                 tipoSeccion: 'tema',
                 idSeccion: 305,
-                diagramacion: 'focalLeft3',
-                tituloCaja: 'Multimedia'
+                diagramacion: 'focalLeft3'
             })
         );
     });
@@ -282,10 +280,9 @@ describe('components - private - LN - api - v2 - home - index.js', () => {
         const home = index(Seccion, paramsPage);
 
         expect(home[0].items[0]).toMatchObject({
-            tipoSeccion: 'comercial',
-            idSeccion: 1101,
-            diagramacion: 'grilla3',
-            tituloCaja: 'Comercial 2'
+            tipoSeccion: 'tema',
+            idSeccion: 305,
+            diagramacion: 'grilla3'
         });
     });
     it('Testeo Seccion Dolar', () => {
@@ -434,6 +431,7 @@ describe('components - private - LN - api - v2 - home - index.js', () => {
                     information: { layoutPage: 'LN10-Home_Main' }
                 }
             );
+
             expect(home[0].items[0].tipoSeccion).toBe('title');
             expect(home[0].items[0].banner).not.toBeNull();
         });

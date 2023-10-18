@@ -1,10 +1,10 @@
 import get from '../../../../../common/utils/get';
 import { removeEmptyItems } from '../../../common/utils/responseCleaner';
-import { Article as ArticleLN10 } from '../../../v1/mobile/home/article/index';
-import { ExternalArticle } from '../../../v1/mobile/home/externalArticle/index';
+import { Article as ArticleLN10 } from './article/index';
+import { ExternalArticle } from '../../../v1/mobile/home/externalArticle';
 import { cardRegular as Article } from '../../../common/article/cardRegular/index';
 import { cardAnexoItemMobile as CardAnexoLN } from '../../../common/article/cardAnexo/index';
-import { CardAnexo as CardAnexoLN10 } from '../../../v2/mobile/home/article/cardAnexo/index';
+import { CardAnexo as CardAnexoLN10 } from '../../../v1/mobile/home/article/cardAnexo/index';
 import configInfoSectionsByLayout from '../../../common/home/config/configInfoSectionsByLayout';
 import { boxInfoByLayoutBySectionAlias } from '../../../common/home/boxInformation/index';
 import { boxTypeByLayout } from '../../../common/home/boxTypes/index';
@@ -19,7 +19,7 @@ const FunctionsBoxContentsByLayout = {
         anexo: CardAnexoLN,
         externalArticle: ExternalArticle
     },
-    'LN10-Home_Main': {
+    'LN10-Home_Main-V2': {
         article: ArticleLN10,
         anexo: CardAnexoLN10,
         externalArticle: ExternalArticle
@@ -50,13 +50,14 @@ const index = (
             'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
     }
 ) => {
-    const layoutPage = get(paramsFromPage, 'information.layoutPage', 'null');
+    const layoutPage =
+        get(paramsFromPage, 'information.layoutPage', 'null') + '-V2';
     const typeSection = configInfoSectionsByLayout(layoutPage);
 
     if (!layoutPage || !typeSection) {
         // eslint-disable-next-line no-console
         console.warn(
-            `Error v1/mobile/home/index : ${JSON.stringify(
+            `Error v2/mobile/home/index : ${JSON.stringify(
                 paramsFromPage
             )} - errorMsj: Missing layoutPage`
         );
@@ -181,13 +182,14 @@ const index = (
         return result;
     }, []);
 
-    const homeV1Result = removeEmptyItems(ArticlesbyBox);
+    const resultWithoutEmptyItems = removeEmptyItems(ArticlesbyBox);
+
     return [
         {
             metadata: {
                 paginate: false
             },
-            items: homeV1Result
+            items: resultWithoutEmptyItems
         }
     ];
 };

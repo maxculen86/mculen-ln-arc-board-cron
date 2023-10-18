@@ -54,7 +54,8 @@ const configInfoSectionsByLayout = layout => {
         'LN-acumulado': infoLNMain,
         'LN-Home_Main': infoLNMain,
         'LN-Home_Sports': infoLNMain,
-        'LN10-Home_Main': infoLNMainLN10
+        'LN10-Home_Main': infoLNMainLN10,
+        'LN10-Home_Main-V2': infoLNMainLN10
     };
 
     return boxInformationSections[layout];
