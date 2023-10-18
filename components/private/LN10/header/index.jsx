@@ -19,6 +19,7 @@ import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-button/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-tooltip/index.css';
+import classNames from 'classnames';
 
 const HeaderLN = props => {
     const {
@@ -65,9 +66,12 @@ const HeaderLN = props => {
     if (outputType === 'amp')
         return <HeaderAMP toggleDesplegable={toggleDesplegable} />;
 
+    const headerContainerClassName = classNames('header-container', {
+        '--no-app': !isHome
+    });
     return (
         <>
-            <div className="header-container">
+            <div className={headerContainerClassName}>
                 <Header userType={userType}>
                     <MainHeader
                         layout={layout}

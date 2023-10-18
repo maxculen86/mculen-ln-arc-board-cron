@@ -15,6 +15,6 @@ export const setDropdownData = root =>
 
 export function toggleScroll(isActive) {
     if (typeof window !== 'undefined') {
-        window.document.body.style.overflowY = isActive ? 'hidden' : 'auto';
+        window.document.body.classList.toggle('overflow-hidden', isActive);
     }
 }
