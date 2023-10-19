@@ -1,12 +1,12 @@
 import Consumer from 'fusion:consumer';
 import IndexAcuV1 from '../../../private/LN/api/v1/global/accumulated';
 import IndexAcuV1Mobile from '../../../private/LN/api/v1/mobile/accumulated';
-import IndexAcuV2Mobile from '../../../private/LN/api/v2/mobile/accumulated';
+import IndexAcuV2Mobile from '../../../private/LN/api/v2/mobile/followByToken';
 import browser from '../../../private/common/utils/browser';
 
-// URL de ejemplo por token: http://localhost/pf/api/v1/notas/seguir/1F8794A8-BE03-48F9-B023-74356CE9C9F5/3/params=size:30;page:1/?_website=la-nacion-ar&outputType=json
-// URL de ejemplo por autor: http://localhost/pf/api/v2/notas/seguir/byautor/ricardo-sametband-268/20/params=size:1;page:2/?_website=la-nacion-ar&outputType=json
-//  Regex Resolver: ^\/api\/(?:mobile\/)?v([1-2]+)\/notas\/seguir\/(([A-Za-z0-9-]+)?|((byseccion\/([a-z-]+))|(bytag\/([a-z0-9-]+))|(byautor\/([a-z0-9-]+))))?\/(\d+)(\/params=(size:(\d+)[;]?)?(page:(\d+)[;]?)?)?\/$
+// URL de ejemplo por token: http://localhost/pf/api/v1/notas/follow/1F8794A8-BE03-48F9-B023-74356CE9C9F5/3/params=size:30;page:1/?_website=la-nacion-ar&outputType=json
+// URL de ejemplo por autor: http://localhost/pf/api/v2/notas/follow/byautor/ricardo-sametband-268/20/params=size:1;page:2/?_website=la-nacion-ar&outputType=json
+//  Regex Resolver: ^\/api\/(?:mobile\/)?v([1-2]+)\/notas\/follow\/(([A-Za-z0-9-]+)?|((byseccion\/([a-z-]+))|(bytag\/([a-z0-9-]+))|(byautor\/([a-z0-9-]+))))?\/(\d+)(\/params=(size:(\d+)[;]?)?(page:(\d+)[;]?)?)?\/$
 class AccumulatedFollow {
     constructor(props) {
         this.props = props;
