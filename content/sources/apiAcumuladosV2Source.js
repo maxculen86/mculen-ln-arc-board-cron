@@ -13,7 +13,7 @@ const fetch = async (query, { cachedCall }) => {
     let configuration = null;
 
     try {
-        let {
+        const {
             uri,
             website,
             versionUri,
@@ -24,27 +24,23 @@ const fetch = async (query, { cachedCall }) => {
             sectioninPage,
             customSectionsIds,
             size,
-            title,
             page,
             isCustomPage,
             ticksCache,
             slug
         } = getParamsFromQuery(query);
 
-        const { sectionSourceParams } = await fetchSectionSource(
+        const sectionSourceResult = await fetchSectionSource(
             sectionIdParam,
             query,
             isCustomPage,
             cachedCall
         );
 
-        title =
-            get(sectionSourceParams, 'title', null) == null
-                ? title
-                : get(sectionSourceParams, 'title', null);
+        const title = sectionSourceResult.title;
 
-        restriction = get(sectionSourceParams, 'restriction', true);
-        configuration = get(sectionSourceParams, 'configuration', null);
+        restriction = get(sectionSourceResult, 'restriction', true);
+        configuration = get(sectionSourceResult, 'configuration', null);
 
         const queryParams = {
             sectionId: customSectionsIds?.includes(sectionId)
@@ -153,9 +149,6 @@ const getParamsFromQuery = query => {
 
     const size = getSizeParamFromQuery(query);
 
-    let title = sectionData && sectionData.aliasTitle;
-    title = title == null ? sectionId.replace('/', '') : title;
-
     const page = getPageParamFromQuery(query);
 
     const isCustomPage =
@@ -173,7 +166,6 @@ const getParamsFromQuery = query => {
         sectioninPage,
         customSectionsIds,
         size,
-        title,
         page,
         isCustomPage,
         slug
@@ -204,20 +196,19 @@ const fetchSectionSource = async (
         );
     }
 
-    const title = get(
-        sectionSourceResult,
-        'acumuladoGeneral.hierarchy_navigation',
-        get(sectionSourceResult, 'name', null)
-    );
+    const sectionTitle =
+        sectionSourceResult.acumuladoGeneral?.hierarchy_navigation;
+    const sectionName = sectionSourceResult.name;
+
+    const title = sectionTitle ? sectionTitle : sectionName;
+
     const restriction = get(
         sectionSourceResult,
         'acumuladoGeneral.mostrar_en_acu_apps',
         'true'
     );
     const configuration = get(sectionSourceResult, 'configuration', null);
-    return {
-        sectionSourceParams: { title, restriction, configuration }
-    };
+    return { title, restriction, configuration };
 };
 
 export default {
