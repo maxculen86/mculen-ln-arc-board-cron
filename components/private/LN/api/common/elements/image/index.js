@@ -171,7 +171,6 @@ const removeInvisibleChracters = textToFix => {
 
     textFixed = textFixed.replace(/\u200E/, '');
     textFixed = textFixed.replace('\u0200E', '');
-    //textFixed = textFixed.replace('-', '');
     return textFixed;
 };
 

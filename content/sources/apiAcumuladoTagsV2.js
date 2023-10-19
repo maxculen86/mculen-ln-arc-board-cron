@@ -50,8 +50,10 @@ const fetch = async (query, { cachedCall }) => {
 const getSizeParamFromQuery = query => {
     const regexForSizeParam = new RegExp(/size:(\d+)/);
     const matchForSize = regexForSizeParam.exec(get(query, 'params', ''));
-    const size = matchForSize && matchForSize.length > 1 ? matchForSize[1] : 30;
-    return size;
+    if (matchForSize) {
+        return matchForSize.length > 1 ? matchForSize[1] : 30;
+    }
+    return 30;
 };
 
 const getPageParamFromQuery = query => {
