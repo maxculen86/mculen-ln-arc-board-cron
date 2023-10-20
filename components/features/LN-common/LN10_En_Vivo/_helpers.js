@@ -76,10 +76,10 @@ export const getNotesLists = (listCustomFields = []) => {
 
     return fields.map(field => {
         const noteId = get(field, 'noteId', '');
-        const title = get(field, 'title', '');
+        const customTitle = get(field, 'title', '');
         const group = get(field, 'group', 1);
 
-        return getArticle({ group, noteId, title });
+        return getArticle({ group, noteId, customTitle });
     });
 };
 
