@@ -13,11 +13,7 @@ const validatePropsRenderBasic = (
     const articleVideoRender = articleVideo;
 
     const { customFields = {} } = propsRender;
-    const {
-        hideAuthors = false,
-        hideImage = false,
-        hideDescription = false
-    } = customFields;
+    const { hideAuthors = false, hideImage = false } = customFields;
 
     if (hideAuthors) {
         const {

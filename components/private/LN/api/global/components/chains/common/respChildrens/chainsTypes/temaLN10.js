@@ -6,7 +6,6 @@ export const respChildrens = props => {
         children,
         customFields: { layout }
     } = props;
-    // const len = children.filter(c => c != null);
 
     if (!validateChildrensApi(children)) {
         return null;

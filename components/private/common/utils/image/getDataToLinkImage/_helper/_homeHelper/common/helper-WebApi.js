@@ -22,6 +22,7 @@ export const getValidElementForPreload = (layout, renderables) => {
             []
         );
     }
+    return null;
 };
 
 export default getValidElementForPreload;
