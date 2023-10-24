@@ -32,7 +32,7 @@ const acuTransformV2Format = (
             absoluteUrl: get(authorData, 'image.url', null),
             interests: authorData.intereses,
             mail: authorData.mail,
-            role: authorData.rol,
+            role: authorData.role,
             twitter: authorData.twitter
         }
     };

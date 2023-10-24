@@ -115,7 +115,7 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
             twitter: '@josedel_rio',
             interests: undefined,
             mail: undefined,
-            role: undefined
+            role: 'LA NACION'
         });
     });
 
@@ -210,7 +210,7 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
             books: [],
             interests: undefined,
             mail: undefined,
-            role: undefined,
+            role: 'LA NACION',
             affiliations: undefined
         });
     });
