@@ -70,5 +70,6 @@ export default {
     LOGIN_URL: 'https://qa-ingresar.lanacion.com.ar/auth0-login/?callback=',
     API_INGRESAR: 'https://qa-api-ingresar.lanacion.com.ar',
     CLL_BACK_BASE_URL: 'https://qa-api-cll-services.lanacion.com.ar/graphql/',
-    CLL_BACK_API_KEY: 'da2-r4webaw455h2jgund52rugagpe'
+    CLL_BACK_API_KEY: 'da2-r4webaw455h2jgund52rugagpe',
+    MARFEEL_ACCOUNT_ID: '3353'
 };
