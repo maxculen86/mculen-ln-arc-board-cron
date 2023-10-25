@@ -138,7 +138,8 @@ describe('getScriptsToLoad', () => {
             'Blockthrough',
             'AmazonPublisherServices',
             'ComscoreVideo',
-            'DevReactTracker'
+            'DevReactTracker',
+            'Marfeel'
         ]);
         expect(Object.keys(result)).toEqual([
             'Datadog',
@@ -158,7 +159,8 @@ describe('getScriptsToLoad', () => {
             'Blockthrough',
             'AmazonPublisherServices',
             'ComscoreVideo',
-            'DevReactTracker'
+            'DevReactTracker',
+            'Marfeel'
         ]);
         expect(result.Datadog).toBeDefined();
     });

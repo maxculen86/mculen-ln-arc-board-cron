@@ -82,5 +82,6 @@ export default {
     API_KEY_ARC_SERVICES_PROD: '6a484fb4-8c69-46b1-91ca-c476b055d87f',
     VIDEO_CDN_URL: 'https://lanacionar-prod.video.arc-cdn.net/',
     CLL_BACK_BASE_URL: 'https://api-cll-services.lanacion.com.ar/graphql/',
-    CLL_BACK_API_KEY: 'da2-6dgg5zavxjdlpmgjs2ztndfnl4'
+    CLL_BACK_API_KEY: 'da2-6dgg5zavxjdlpmgjs2ztndfnl4',
+    MARFEEL_ACCOUNT_ID: '3353'
 };
