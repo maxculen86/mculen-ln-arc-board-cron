@@ -37,7 +37,7 @@ const fetch = async (query, { cachedCall }) => {
             cachedCall
         );
 
-        const title = sectionSourceResult.title;
+        let title = sectionSourceResult.title;
 
         restriction = get(sectionSourceResult, 'restriction', true);
         configuration = get(sectionSourceResult, 'configuration', null);
@@ -197,8 +197,8 @@ const fetchSectionSource = async (
     }
 
     const sectionTitle =
-        sectionSourceResult.acumuladoGeneral?.hierarchy_navigation;
-    const sectionName = sectionSourceResult.name;
+        sectionSourceResult?.acumuladoGeneral?.hierarchy_navigation;
+    const sectionName = sectionSourceResult?.name;
 
     const title = sectionTitle ? sectionTitle : sectionName;
 

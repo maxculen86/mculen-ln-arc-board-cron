@@ -1,12 +1,23 @@
 const acuTransformV2Format = (transformedAcu, sectionSlug, paginationValue) => {
+    const specialSectionTItle =
+        sectionSlug === '/ultimas-noticias'
+            ? 'Últimas noticias'
+            : sectionSlug === '/suscriptores'
+            ? 'Exclusivo suscriptores'
+            : null;
+
+    const title = specialSectionTItle
+        ? specialSectionTItle
+        : transformedAcu[0].titulo;
+
     const metadata = {
         paginate: paginationValue,
-        title: transformedAcu[0].titulo,
+        title: title,
         banners: transformedAcu[0].banners,
         total: transformedAcu[0].acumuladoTotal,
         category: {
             slug: sectionSlug,
-            value: transformedAcu[0].titulo
+            value: title
         }
     };
 

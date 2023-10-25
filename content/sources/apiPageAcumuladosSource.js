@@ -17,7 +17,11 @@ const fetch = async (query, { cachedCall }) => {
             categoryUri
         } = getParamsFromQuery(query);
 
-        const { title } = await fetchSectionSource(query, cachedCall);
+        let { title } = await fetchSectionSource(query, cachedCall);
+
+        if (query.sectionId === '/suscriptores') {
+            title = 'Exclusivo suscriptores';
+        }
 
         const queryParams = {
             rootPath: `${SITE_LANACION}${query.sectionId}`,

@@ -78,4 +78,94 @@ describe('content source apiAcumuladosV2Source integration test', () => {
             new NotFoundError(`Seccion no encontrada: ${queryParams.sectionId}`)
         );
     });
+
+    test('should return right metadata for ultimas noticias Section', async () => {
+        const queryParams = {
+            uri:
+                '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
+            website: 'la-nacion-ar',
+            sectionId: '/ultimas-noticias',
+            params: 'params=size:30;page:1',
+            categoryUri: 'mobile',
+            versionUri: '2',
+            'arc-site': 'la-nacion-ar'
+        };
+
+        sectionSource.fetch.mockReturnValue(null);
+
+        acuArticlesSource.fetch.mockReturnValue(acuArticleSourceResponseMock);
+
+        const result = await apiAcumuladoSectionsV2.fetch(queryParams, {
+            cachedCall
+        });
+
+        expect(result.metadata).toEqual({
+            category: {
+                slug: '/ultimas-noticias',
+                value: 'Últimas noticias'
+            },
+            paginate: true,
+            title: 'Últimas noticias',
+            total: 10000,
+            banners: [
+                {
+                    idSeccion: 402,
+                    index: 4
+                },
+                {
+                    idSeccion: 403,
+                    index: 7
+                },
+                {
+                    idSeccion: 404,
+                    index: 10
+                }
+            ]
+        });
+    });
+
+    test('should return right metadata for suscriptores section', async () => {
+        const queryParams = {
+            uri:
+                '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
+            website: 'la-nacion-ar',
+            sectionId: '/suscriptores',
+            params: 'params=size:30;page:1',
+            categoryUri: 'mobile',
+            versionUri: '2',
+            'arc-site': 'la-nacion-ar'
+        };
+
+        sectionSource.fetch.mockReturnValue(null);
+
+        acuArticlesSource.fetch.mockReturnValue(acuArticleSourceResponseMock);
+
+        const result = await apiAcumuladoSectionsV2.fetch(queryParams, {
+            cachedCall
+        });
+
+        expect(result.metadata).toEqual({
+            category: {
+                slug: '/suscriptores',
+                value: 'Exclusivo suscriptores'
+            },
+            paginate: true,
+            title: 'Exclusivo suscriptores',
+            total: 10000,
+            banners: [
+                {
+                    idSeccion: 402,
+                    index: 4
+                },
+                {
+                    idSeccion: 403,
+                    index: 7
+                },
+                {
+                    idSeccion: 404,
+                    index: 10
+                }
+            ]
+        });
+    });
 });
