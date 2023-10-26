@@ -139,6 +139,10 @@ class AccumulatedSections {
                 total: acuArticlesSourceSection.count,
                 configuration
             };
+            if (acuData.slug === '/suscriptores') {
+                acuData.name = 'Exclusivo suscriptores';
+            }
+
             return indexAcu(acuData);
         } catch (err) {
             return { Success: false, Message: err.message };
