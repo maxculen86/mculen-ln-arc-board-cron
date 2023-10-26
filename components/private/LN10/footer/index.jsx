@@ -16,9 +16,6 @@ import FooterEventsScript from '../../common/scriptManager/FooterEventsScript';
 import { datesDiffInDays } from '../../common/utils/dateAndTimeUtil';
 import { getArgentinaDateMonthYear } from '../../common/utils/dateAndTimeUtil';
 
-import '../../../../resources/packages/css/@ln/contenidos-ui-footerhome/index.css';
-import '../../../../resources/packages/css/@ln/common-ui-grid/index.css';
-
 const Footer = () => {
     const { contextPath, deployment, outputType, layout } = useAppContext();
     const { layoutsName = {} } = siteConfig || {};

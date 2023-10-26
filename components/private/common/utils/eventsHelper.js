@@ -39,16 +39,15 @@ export const createDynamicLabel = (text = '') => {
 };
 
 export const setEventsFooter = () => {
-    const linksFooter = window.document.querySelectorAll(
-        '.ln-footer-home .secciones a, .ln-footer-home .revistas a, .ln-footer-home .productos a'
-    );
+    const linksFooter = window.document
+        .querySelector('.ln-footer-home')
+        .querySelectorAll('.text-start');
 
     linksFooter.forEach(link => {
         const payload = {
             action: 'footer',
             label: createDynamicLabel(link.text)
         };
-
         addEventListeners(link, payload);
     });
 };

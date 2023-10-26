@@ -2,10 +2,10 @@
 
 exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
 <footer
-  class="ln-footer-home lay-container"
+  class="ln-footer-home lay-container flex flex-column gap-32"
 >
   <section
-    class="top-module"
+    class="flex jc-center w-100 mt-32 pb-16 border border-thin border-bottom border-light-300"
   >
     <a
       class="link"
@@ -25,206 +25,206 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
     </a>
   </section>
   <div
-    class="grid middle-module --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-16 --gap-lg --grid-ai-start"
+    class="middle-module pb-24 ai-start border border-bottom border-thin border-light-300 grid grid-cols-8 grid-cols-12_m grid-cols-12_lg grid-cols-16_xl gap-32"
   >
     <div
-      class="grid-item mobileHidden secciones --col-md-4 --col-lg-4 --col-xl-5"
+      class="sm-none flex flex-column jc-center ai-start col-span-0 col-span-4_m col-span-4_lg col-span-5_xl gap-16"
     >
       <p
-        class="text ln-text mobileHidden --font-bold --font-xs"
+        class="text ln-text sm-none --font-bold --font-xs"
       >
         Secciones
       </p>
       <ul
-        class="list"
+        class="grid w-100 gap-16 grid-cols-2"
       >
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/ultimas-noticias/"
             target="_self"
             title="Ir a Últimas noticias"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Últimas noticias
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/politica/"
             target="_self"
             title="Ir a Política"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Política
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/economia/"
             target="_self"
             title="Ir a Economía"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Economía
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/el-mundo/"
             target="_self"
             title="Ir a El mundo"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               El mundo
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/sociedad/"
             target="_self"
             title="Ir a Sociedad"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Sociedad
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/opinion/"
             target="_self"
             title="Ir a Opinión"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Opinión
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/deportes/"
             target="_self"
             title="Ir a Deportes"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Deportes
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/lifestyle/"
             target="_self"
             title="Ir a Lifestyle"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Lifestyle
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/espectaculos/"
             target="_self"
             title="Ir a Espectáculos"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Espectáculos
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://edicionimpresa.lanacion.com.ar/la-nacion?_ga=2.226421138.948268382.1669638459-1845108145.1619557251/"
             target="_self"
             title="Ir a Edición impresa"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Edición impresa
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://lnmas.lanacion.com.ar/"
             target="_self"
             title="Ir a LN+"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               LN+
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://club.lanacion.com.ar/"
             target="_self"
             title="Ir a Club LA NACION"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Club LA NACION
             </span>
@@ -233,107 +233,107 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
       </ul>
     </div>
     <div
-      class="grid-item mobileHidden revistas --col-md-2 --col-lg-2 --col-xl-2"
+      class="sm-none flex flex-column jc-center ai-start col-span-0 col-span-2_m col-span-2_lg col-span-2_xl gap-16"
     >
       <p
-        class="text ln-text mobileHidden --font-bold --font-xs"
+        class="text ln-text sm-none --font-bold --font-xs"
       >
         Revistas
       </p>
       <ul
-        class="list"
+        class="grid w-100 gap-16 grid-cols-1"
       >
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.somosohlala.com/"
             target="_self"
             title="Ir a OHLALÁ!"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               OHLALÁ!
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/revista-hola/"
             target="_self"
             title="Ir a ¡HOLA!"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               ¡HOLA!
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/revista-living/"
             target="_self"
             title="Ir a LIVING"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               LIVING
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/revista-jardin/"
             target="_self"
             title="Ir a JARDÍN"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               JARDÍN
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/revista-lugares/"
             target="_self"
             title="Ir a LUGARES"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               LUGARES
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://es.rollingstone.com/arg/"
             target="_self"
             title="Ir a ROLLING STONE"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               ROLLING STONE
             </span>
@@ -342,86 +342,86 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
       </ul>
     </div>
     <div
-      class="grid-item mobileHidden productos --col-md-2 --col-lg-2 --col-xl-3"
+      class="sm-none col-span-0 col-span-2_m col-span-2_lg col-span-3_xl"
     >
       <ul
-        class="list"
+        class="grid w-100 gap-16 grid-cols-1"
       >
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://bonvivir.com/"
             target="_self"
             title="Ir a Bonvivir"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Bonvivir
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.libooks.com/"
             target="_self"
             title="Ir a LiBooks"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               LiBooks
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://colecciones.lanacion.com.ar/"
             target="_self"
             title="Ir a Colecciones"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Colecciones
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327/"
             target="_self"
             title="Ir a Máster en periodismo"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Máster en periodismo
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://fundacionlanacion.org.ar/"
             target="_self"
             title="Ir a Fundación LA NACION"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Fundación LA NACION
             </span>
@@ -430,102 +430,102 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
       </ul>
     </div>
     <div
-      class="grid-item mobileHidden productos --col-md-2 --col-lg-2 --col-xl-3"
+      class="sm-none col-span-0 col-span-2_m col-span-2_lg col-span-3_xl"
     >
       <ul
-        class="list"
+        class="grid w-100 gap-16 grid-cols-1"
       >
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.com.ar/mapa-del-sitio/"
             target="_self"
             title="Ir a Mapa del sitio"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Mapa del sitio
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.contacto.lanacion.com.ar/ayuda?_ga=2.125953413.948268382.1669638459-1845108145.1619557251/"
             target="_self"
             title="Ir a Ayuda"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Ayuda
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://club.lanacion.com.ar/ayuda/"
             target="_self"
             title="Ir a Atención al socio"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Atención al socio
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.contacto.lanacion.com.ar/tyc?_ga=2.125953413.948268382.1669638459-1845108145.1619557251/"
             target="_self"
             title="Ir a Términos y condiciones"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Términos y condiciones
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://www.lanacion.in/"
             target="_self"
             title="Ir a ¿Cómo anunciar?"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               ¿Cómo anunciar?
             </span>
           </a>
         </li>
         <li
-          class="link"
+          class="mb-0"
         >
           <a
-            class="link"
+            class="link text-start"
             href="https://suscripciones.lanacion.com.ar/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251/"
             target="_self"
             title="Ir a Suscribirse al diario impreso"
           >
             <span
-              class="text ln-text --font-xs"
+              class="text ln-text text-light-600 --font-xs"
             >
               Suscribirse al diario impreso
             </span>
@@ -534,18 +534,18 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
       </ul>
     </div>
     <div
-      class="grid-item social-stores --col-8 --col-md-2 --col-lg-2 --col-xl-3"
+      class="col-span-8 col-span-2_m col-span-2_lg col-span-3_xl"
     >
       <div
-        class="social"
+        class="flex flex-column_m jc-center ai-start mb-32 mb-24_m gap-16_m"
       >
         <p
-          class="text ln-text mobileHidden --font-bold --font-xs"
+          class="text ln-text sm-none --font-bold --font-xs"
         >
           Redes sociales:
         </p>
         <ul
-          class="icons"
+          class="flex jc-center jc-between_l w-100 max-w-152_l max-w-100px_m gap-24 row-gap-12_m column-gap-24_m column-gap-12_l flex-wrap jc-start_m"
         >
           <li>
             <a
@@ -557,6 +557,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             >
               <i
                 class="icon"
+                style="width: 20px; height: 20px;"
               >
                 <svg
                   fill="none"
@@ -581,6 +582,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             >
               <i
                 class="icon"
+                style="width: 20px; height: 20px;"
               >
                 <svg
                   fill="none"
@@ -605,6 +607,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             >
               <i
                 class="icon"
+                style="width: 20px; height: 20px;"
               >
                 <svg
                   fill="none"
@@ -631,6 +634,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             >
               <i
                 class="icon"
+                style="width: 20px; height: 20px;"
               >
                 <svg
                   fill="none"
@@ -650,15 +654,15 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
         </ul>
       </div>
       <div
-        class="stores"
+        class="flex jc-center flex-column_m gap-16"
       >
         <p
-          class="text ln-text mobileHidden --font-bold --font-xs"
+          class="text ln-text sm-none --font-bold --font-xs"
         >
           Descargá la app:
         </p>
         <ul
-          class="images"
+          class="images flex gap-24 flex-column_m gap-16_m"
         >
           <li>
             <a
@@ -703,27 +707,23 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
     </div>
   </div>
   <div
-    class="bottom-module"
+    class="flex flex-column bottom-module w-100 gap-32 mb-32"
   >
-    <div>
-      <div
-        class="copyright"
-      >
-        <p
-          class="text ln-text --font-xs"
-        >
-          © Copyright 2023 SA LA NACION | Todos los derechos reservados. Dirección Nacional del Derecho de Autor DNDA - EXPEDIENTE DNDA (renovación) RL-2023-95334553-APN-DNDA#MJ. Queda prohibida la reproducción total o parcial del presente diario.
-        </p>
-      </div>
-    </div>
     <div
-      class="bottom2"
+      class="grid gap-12 text-center text-initial_m"
     >
+      <p
+        class="text ln-text --font-xs"
+      >
+        © Copyright 2023 SA LA NACION | Todos los derechos reservados. Dirección Nacional del Derecho de Autor DNDA - EXPEDIENTE DNDA (renovación) RL-2023-95334553-APN-DNDA#MJ.
+        <br />
+        Queda prohibida la reproducción total o parcial del presente diario.
+      </p>
       <div
-        class="captcha"
+        class="flex flex-column flex-row_m jc-between_m ai-center_m"
       >
         <p
-          class="text ln-text --font-xs"
+          class="text ln-text flex flex-column gap-4 flex-row_m --font-xs"
         >
           <b
             class="--font-bold"
@@ -742,7 +742,7 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
               Condiciones
             </a>
             <span
-              class="dot"
+              class="dot w-4 h-4 rounded-circle bg-light-400 inline-block my-3 ml-7 mr-8"
             />
             <a
               class="link --unstyled"
@@ -754,48 +754,48 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             </a>
           </span>
         </p>
-      </div>
-      <div
-        class="gda"
-      >
-        <a
-          class="link"
-          href="https://www.gda.com/"
-          rel="nofollow"
-          target="_blank"
-          title="GDA"
+        <div
+          class="flex gap-8 ai-center jc-center"
         >
-          <i
-            class="icon"
-            style="width: 37px;"
+          <a
+            class="link"
+            href="https://www.gda.com/"
+            rel="nofollow"
+            target="_blank"
+            title="GDA"
           >
-            <img
-              alt="Grupo de Diarios América"
-              src="undefined/pf/resources/images/gda.svg"
-            />
-          </i>
-        </a>
-        <p
-          class="text ln-text --font-xs"
-        >
-          Miembro de GDA. Grupo de Diarios América
-        </p>
-        <a
-          class="link"
-          href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
-          rel="nofollow"
-          target="_blank"
-          title="Data fiscal"
-        >
-          <i
-            class="icon --icon-32"
+            <i
+              class="icon"
+              style="width: 37px;"
+            >
+              <img
+                alt="Grupo de Diarios América"
+                src="undefined/pf/resources/images/gda.svg"
+              />
+            </i>
+          </a>
+          <p
+            class="text ln-text --font-xs"
           >
-            <img
-              alt="Data fiscal"
-              src="undefined/pf/resources/images/data-fiscal.svg"
-            />
-          </i>
-        </a>
+            Miembro de GDA. Grupo de Diarios América
+          </p>
+          <a
+            class="link"
+            href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/publicInfoD.aspx"
+            rel="nofollow"
+            target="_blank"
+            title="Data fiscal"
+          >
+            <i
+              class="icon --icon-32"
+            >
+              <img
+                alt="Data fiscal"
+                src="undefined/pf/resources/images/data-fiscal.svg"
+              />
+            </i>
+          </a>
+        </div>
       </div>
     </div>
   </div>
