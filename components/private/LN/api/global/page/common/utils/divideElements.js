@@ -1,5 +1,88 @@
 import get from '../../../../../../common/utils/get';
 
+const moveSubElementToSection = (
+    elementsValidate,
+    subElementLayout,
+    subElementNoIncludeIndex
+) => {
+    if (
+        subElementLayout &&
+        subElementLayout.length &&
+        subElementLayout.length > 0
+    ) {
+        let positionSubSection = elementsValidate.length - 1;
+        positionSubSection = positionSubSection >= 0 ? positionSubSection : 0;
+        // Place the position of the feature as a section according to the visual order on the web
+        if (subElementNoIncludeIndex > 0) {
+            elementsValidate.push(subElementLayout[0]);
+        } else {
+            elementsValidate.splice(positionSubSection, 0, subElementLayout[0]);
+        }
+    }
+};
+
+const getAndMoveSubElementToSection = (
+    e,
+    elementsValidate,
+    subElement,
+    subElementNoIncludeIndex,
+    sectionbyDiagramation
+) => {
+    if (Array.isArray(e.articles)) {
+        e.articles
+            .filter(x => x && Array.isArray(x.articles))
+            .forEach(elem => {
+                const elemArray = [];
+                const subElementArray = {
+                    ...elem,
+                    information: {
+                        ...get(elem, 'information', null),
+                        hideCaja: get(subElement.information, 'hideCaja', null)
+                    }
+                };
+                elemArray.push(subElementArray);
+
+                const subElementLayout = segmentSectionbyDiagramation(
+                    elemArray,
+                    sectionbyDiagramation
+                );
+
+                moveSubElementToSection(
+                    elementsValidate,
+                    subElementLayout,
+                    subElementNoIncludeIndex
+                );
+            });
+    }
+};
+
+const findAndMoveSubElementToSection = (
+    e,
+    elementsValidate,
+    subElementNoIncludeIndex,
+    sectionbyDiagramation
+) => {
+    if (subElementNoIncludeIndex >= 0) {
+        const subElement = {
+            ...e,
+            articles: [
+                ...e.articles.filter(x => x && !Array.isArray(x.articles))
+            ]
+        };
+        elementsValidate.push(subElement);
+
+        getAndMoveSubElementToSection(
+            e,
+            elementsValidate,
+            subElement,
+            subElementNoIncludeIndex,
+            sectionbyDiagramation
+        );
+    } else {
+        elementsValidate.push(e);
+    }
+};
+
 export const segmentSectionbyDiagramation = (
     elements,
     sectionbyDiagramation
@@ -23,67 +106,13 @@ export const segmentSectionbyDiagramation = (
                     const subElementNoIncludeIndex = e.articles.findIndex(
                         x => x && x.articles && Array.isArray(x.articles)
                     );
-                    if (subElementNoIncludeIndex >= 0) {
-                        const subElement = {
-                            ...e,
-                            articles: [
-                                ...e.articles.filter(
-                                    x => x && !Array.isArray(x.articles)
-                                )
-                            ]
-                        };
-                        elementsValidate.push(subElement);
 
-                        e.articles
-                            .filter(x => x && Array.isArray(x.articles))
-                            .forEach(elem => {
-                                const elemArray = [];
-                                const subElementArray = {
-                                    ...elem,
-                                    information: {
-                                        ...get(elem, 'information', null),
-                                        hideCaja: get(
-                                            subElement.information,
-                                            'hideCaja',
-                                            null
-                                        )
-                                    }
-                                };
-                                elemArray.push(subElementArray);
-
-                                const subElementLayout = segmentSectionbyDiagramation(
-                                    elemArray,
-                                    sectionbyDiagramation
-                                );
-
-                                if (
-                                    subElementLayout &&
-                                    subElementLayout.length &&
-                                    subElementLayout.length > 0
-                                ) {
-                                    let positionSubSection =
-                                        elementsValidate.length - 1;
-                                    positionSubSection =
-                                        positionSubSection >= 0
-                                            ? positionSubSection
-                                            : 0;
-                                    // Place the position of the feature as a section according to the visual order on the web
-                                    if (subElementNoIncludeIndex > 0) {
-                                        elementsValidate.push(
-                                            subElementLayout[0]
-                                        );
-                                    } else {
-                                        elementsValidate.splice(
-                                            positionSubSection,
-                                            0,
-                                            subElementLayout[0]
-                                        );
-                                    }
-                                }
-                            });
-                    } else {
-                        elementsValidate.push(e);
-                    }
+                    findAndMoveSubElementToSection(
+                        e,
+                        elementsValidate,
+                        subElementNoIncludeIndex,
+                        sectionbyDiagramation
+                    );
                 } else {
                     elementsValidate.push(e);
                 }
