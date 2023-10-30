@@ -9,7 +9,7 @@ import getProperties from 'fusion:properties';
 import addParallaxData from './utils/addParallaxData';
 import get from '../../components/private/common/utils/get';
 import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
-import filter from '../filters/LN/nota/article';
+import filter from '../filters/LN/nota/articleListenable';
 import getRequest from './utils/getRequest';
 import Redirect from './utils/redirect';
 import validateExclusiveAccess from './utils/validateExclusiveAccess';

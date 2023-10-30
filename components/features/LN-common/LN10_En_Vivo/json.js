@@ -9,7 +9,7 @@ class EnVivo {
         this.state = {};
         this.notes = [];
         const sourceInclude =
-            '_id,last_updated_date,headlines,canonical_website,subtype,publish_date,website_url';
+            '_id,last_updated_date,headlines,canonical_website,subtype,publish_date,website_url,label.republicar_audio,source.system';
         this.customFields = customFields || {};
         if (customFields) {
             const paramsNotes = [1, 2, 3, 4];
