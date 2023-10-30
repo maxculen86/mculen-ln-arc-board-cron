@@ -1,5 +1,3 @@
-import get from '../../../../../common/utils/get';
-
 export const videoJWThumbnail = src => {
     if (!src) return null;
 

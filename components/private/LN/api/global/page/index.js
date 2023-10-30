@@ -6,6 +6,41 @@ import addPropertiesByLayout from './utils/addPropertiesByLayout';
 import configDiagramationsByLayout from './config/configDiagramationsByLayout';
 import configOrderArticlesbyDiagramation from './config/configOrderArticlesbyDiagramation';
 
+const getNewPageElements = (
+    r,
+    child,
+    configurations,
+    layoutPage,
+    sectionWeb
+) => {
+    if (child && Array.isArray(child) && child.length > 0) {
+        return r.concat(
+            [].concat(
+                child.reduce((res, b) => {
+                    if (b) {
+                        if (b.information && !b.information.hideCaja) {
+                            return res.concat(
+                                responseElementBox(
+                                    b,
+                                    sectionWeb,
+                                    configurations,
+                                    layoutPage
+                                )
+                            );
+                        }
+                        if (b.sectionAliasMobile) {
+                            return res.concat(b);
+                        }
+                    }
+                    return res;
+                }, [])
+            ) || []
+        );
+    }
+
+    return r;
+};
+
 const getPageElements = props => {
     const { children, renderables, arcSite, layout: layoutPage } = props;
     const configurations = {
@@ -56,32 +91,13 @@ const getPageElements = props => {
             // return r;
 
             const child = elements;
-            if (child && Array.isArray(child) && child.length > 0) {
-                return r.concat(
-                    [].concat(
-                        child.reduce((res, b) => {
-                            if (b) {
-                                if (b.information && !b.information.hideCaja) {
-                                    return res.concat(
-                                        responseElementBox(
-                                            b,
-                                            sectionWeb,
-                                            configurations,
-                                            layoutPage
-                                        )
-                                    );
-                                }
-                                if (b.sectionAliasMobile) {
-                                    return res.concat(b);
-                                }
-                            }
-                            return res;
-                        }, [])
-                    ) || []
-                );
-            }
-
-            return r;
+            return getNewPageElements(
+                r,
+                child,
+                configurations,
+                layoutPage,
+                sectionWeb
+            );
         }, []);
 
     return { information: { layoutPage }, content_elements: elementsPage };

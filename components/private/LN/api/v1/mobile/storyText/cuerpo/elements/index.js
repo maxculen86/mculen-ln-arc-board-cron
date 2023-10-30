@@ -2,7 +2,7 @@ import get from '../../../../../../../common/utils/get';
 import defaultCuerpo from '../../../../../common/elements/story/cuerpo/templates/default';
 import recetaCuerpo from '../../../../../common/elements/story/cuerpo/templates/receta';
 
-const getStoryElementBySubtype = storyBodyElements => {
+const getStoryElementBySubtype = elements => {
     const {
         Text,
         Header,
@@ -14,7 +14,7 @@ const getStoryElementBySubtype = storyBodyElements => {
         Embed,
         Html,
         Button
-    } = storyBodyElements;
+    } = elements;
 
     return {
         1: {
@@ -45,12 +45,12 @@ const getStoryElementBySubtype = storyBodyElements => {
     };
 };
 
-const storyBodyElements = (dataNota, storyBodyElements) => {
+const storyBodyElements = (dataNota, elements) => {
     const { id } = dataNota;
     const subtype = get(dataNota, 'subtype', '');
     if (!subtype) throw Error('The story does not have subtype');
 
-    const elementBySubtype = getStoryElementBySubtype(storyBodyElements);
+    const elementBySubtype = getStoryElementBySubtype(elements);
     const contentElements = get(dataNota, 'content_elements', '');
 
     const templates = {

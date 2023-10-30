@@ -37,21 +37,13 @@ const imageDefaultByPromoVideo = article => {
     return imageDefault();
 };
 
-const aperturaArticle = (article = {}, idsElements = null) => {
-    const promoItemBasicImage = promoItemArticleBasicImage(article);
-    let promoItem = promoItemArticle(article);
-    let isPromoInContent = false;
-    const indexFindPromoInContents =
-        idsElements &&
-        Array.isArray(idsElements) &&
-        idsElements.findIndex(x => x === get(promoItem, '_id', null));
-
-    if (promoItem && idsElements && indexFindPromoInContents === 0) {
-        promoItem = null;
-        isPromoInContent = true;
-    }
-    const typePromoItem =
-        get(promoItem, 'type', null) || get(promoItem, 'typeCustom', null);
+const setPromoByType = (
+    typePromoItem,
+    article,
+    isPromoInContent,
+    promoItem,
+    promoItemBasicImage
+) => {
     const resp = {};
 
     // eslint-disable-next-line default-case
@@ -94,6 +86,32 @@ const aperturaArticle = (article = {}, idsElements = null) => {
             }
             break;
     }
+    return resp;
+};
+
+const aperturaArticle = (article = {}, idsElements = null) => {
+    const promoItemBasicImage = promoItemArticleBasicImage(article);
+    let promoItem = promoItemArticle(article);
+    let isPromoInContent = false;
+    const indexFindPromoInContents =
+        idsElements &&
+        Array.isArray(idsElements) &&
+        idsElements.findIndex(x => x === get(promoItem, '_id', null));
+
+    if (promoItem && idsElements && indexFindPromoInContents === 0) {
+        promoItem = null;
+        isPromoInContent = true;
+    }
+    const typePromoItem =
+        get(promoItem, 'type', null) || get(promoItem, 'typeCustom', null);
+
+    const resp = setPromoByType(
+        typePromoItem,
+        article,
+        isPromoInContent,
+        promoItem,
+        promoItemBasicImage
+    );
 
     return {
         ...apertura(article),

@@ -1,4 +1,3 @@
-import { setBannerByLayout } from '../../../common/elements/banners/index';
 import configToDividebyDiagramation from '../../../../../../../components/private/LN/api/global/page/config/configToDividebyDiagramation';
 
 import {
@@ -15,11 +14,6 @@ const transform = async dataPage => {
 
     try {
         let elementsPageHome = elementsPage;
-
-        // elementsPageHome = setBannerByLayout[layoutPage](
-        //     elementsPageHome,
-        //     layoutPage
-        // );
 
         // Move Sections
         const configMovePositions = configToMoveBySection(layoutPage);

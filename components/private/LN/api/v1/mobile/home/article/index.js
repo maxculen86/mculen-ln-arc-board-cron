@@ -13,7 +13,6 @@ const articleComponents = {
     liveblogEnVivo: CardRegular
 };
 
-// TODO: Analizar si en este paso es mejor colocar las propiedades del design segun el archivo de configuracion: /layouts/config/api-diagramations/LN10-Home_Main.json
 export const Article = article => {
     const newArticle = article;
     const tipo =
