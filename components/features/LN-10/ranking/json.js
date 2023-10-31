@@ -25,8 +25,6 @@ class RankingFeature {
         this.state = {};
         this.title = title;
 
-        const rules = diagramationRules(RANKING_LAYOUT) || [];
-
         const query = {
             sectionId,
             imageConfig: 'boxArticles',
