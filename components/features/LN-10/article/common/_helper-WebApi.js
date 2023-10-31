@@ -242,3 +242,7 @@ export const handleTagWithBomba = (
 
     return deleteExtraH1(articlePosition, cardConfig);
 };
+
+export const checkForId = idValue => {
+    return idValue && idValue.trim();
+};

@@ -96,79 +96,9 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../components/private/LN/api/global/components/features/article/LN10/props/validatePropsRender',
-    () => {
-        return {
-            validatePropsRender: (
-                articleSourceNotaLN10,
-                articleImageLN10,
-                articleVideoLN10,
-                props,
-                configs
-            ) => ({
-                propsRender: props,
-                articleSourceNotaRender: articleSourceNotaLN10,
-                articleImageRender: articleImageLN10,
-                articleVideoRender: articleVideoLN10
-            })
-        };
-    }
-);
-
-jest.mock(
     '../../../../../components/private/common/utils/image/enableResizerV2',
     () => {
         return false;
-    }
-);
-
-jest.mock(
-    '../../../../../components/features/LN-10/article/common/_helper-WebApi.js',
-    () => {
-        return {
-            __esModule: true,
-            getChainConfig: ({ featureId, renderables, cajaTemaConfig }) => {
-                if (featureId === 'error') {
-                    return {
-                        index: 0,
-                        boxPosition: '01',
-                        layout: 'error',
-                        config: {
-                            titleTag: 'h1',
-                            subheadTag: 'h2',
-                            withSection: true,
-                            withMarquee: true,
-                            withMarqueeImg: true,
-                            withSubhead: false,
-                            withMedia: true
-                        }
-                    };
-                }
-                return {
-                    index: 0,
-                    boxPosition: '01',
-                    layout: 'bn-opening-4',
-                    config: {
-                        titleTag: 'h1',
-                        subheadTag: 'h2',
-                        withSection: true,
-                        withMarquee: true,
-                        withMarqueeImg: true,
-                        withSubhead: false,
-                        withMedia: true
-                    }
-                };
-            },
-            validateArticleFeature: params => {
-                if (params.layout === 'error') {
-                    return { message: 'error lalala' };
-                }
-                return null;
-            },
-            isInApertura: params => {
-                return false;
-            }
-        };
     }
 );
 
@@ -232,7 +162,7 @@ describe('components - feature - LN10 Articulo - json', () => {
     ];
 
     test('LN10 Article OK', () => {
-        const props = Object.assign({}, propsArticle);
+        const props = { ...propsArticle };
 
         const article = LN10Article;
         const resultFeature = new article(props);
@@ -268,7 +198,7 @@ describe('components - feature - LN10 Articulo - json', () => {
     });
 
     test('LN10 Article when state is null', () => {
-        const props = Object.assign({}, propsArticle);
+        const props = { ...propsArticle };
 
         const article = LN10Article;
         const resultFeature = new article(props);
@@ -290,7 +220,7 @@ describe('components - feature - LN10 Articulo - json', () => {
     });
 
     test('LN10 Article when this.configs is null', () => {
-        const props = Object.assign({}, propsArticle);
+        const props = { ...propsArticle };
 
         const article = LN10Article;
         const resultFeature = new article(props);
@@ -325,7 +255,7 @@ describe('components - feature - LN10 Articulo - json', () => {
     });
 
     test('LN10 Article when articleSourceNotaLN10 is null', () => {
-        const props = Object.assign({}, propsArticle);
+        const props = { ...propsArticle };
 
         const article = LN10Article;
         const resultFeature = new article(props);
@@ -353,8 +283,10 @@ describe('components - feature - LN10 Articulo - json', () => {
     });
 
     test('LN10 Article when validateArticleFeature is Error', () => {
-        const props = Object.assign({}, propsArticle);
-        props.id = 'error';
+        const props = {
+            ...propsArticle,
+            customFields: { ...propsArticle.customFields, video: 'RHlxTj40' }
+        };
 
         const article = LN10Article;
         const resultFeature = new article(props);
@@ -369,7 +301,7 @@ describe('components - feature - LN10 Articulo - json', () => {
             _id:
                 '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
         };
-        resultFeature.state.articleVideoLN10 = {};
+        resultFeature.state.articleVideoLN10 = null;
         const resultArticle = resultFeature.render();
 
         expect(resultArticle).toBeNull();
@@ -386,7 +318,7 @@ describe('components - feature - LN10 Articulo - json', () => {
     });
 
     test('LN10 Article when throw Error', () => {
-        const props = Object.assign({}, propsArticle);
+        const props = { ...propsArticle };
         props.id = 'throw';
 
         const article = LN10Article;
