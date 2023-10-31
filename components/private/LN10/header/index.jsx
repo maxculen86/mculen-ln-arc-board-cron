@@ -26,7 +26,8 @@ const HeaderLN = props => {
         outputType,
         siteProperties: { layoutsName = {} },
         layout,
-        arcSite
+        arcSite,
+        globalContent: { _id: sectionId = '' }
     } = props;
 
     const [dropdown, setDropdown] = useState(false);
@@ -78,6 +79,7 @@ const HeaderLN = props => {
                         userType={userType}
                         toggleDesplegable={toggleDesplegable}
                         layoutsName={layoutsName}
+                        section={sectionId}
                         isHome={isHome}
                     />
                     {isHome && <SubHeader />}
