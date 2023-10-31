@@ -202,15 +202,13 @@ export const getTermicaValues = propertyNames => {
     const gc = useContext(GlobalContext);
     const termicas = get(gc, 'state.siteService.termicas', []);
 
-    const values = propertyNames.reduce((acc, propertyName) => {
+    return propertyNames.reduce((acc, propertyName) => {
         const element = termicas.find(
             termica => termica && termica.key === propertyName
         );
         acc[propertyName] = (element && element.value) || '';
         return acc;
     }, {});
-
-    return values;
 };
 
 export const sectionsCallback = (e, toggleDesplegable) => {
