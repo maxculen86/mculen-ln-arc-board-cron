@@ -44,5 +44,3 @@ export default class Comscore extends Component {
         ];
     }
 }
-
-Comscore.static = true;
