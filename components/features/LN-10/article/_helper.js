@@ -245,10 +245,6 @@ export const isBombaHidden = renderables => {
     );
 };
 
-export const checkForId = idValue => {
-    return idValue && idValue.trim();
-};
-
 const getImageDestacada = articleData => {
     const mediaDataOfTheOpening = get(articleData, promoItemsBasic, {});
     const type = get(mediaDataOfTheOpening, 'type', '');

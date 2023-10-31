@@ -9,7 +9,6 @@ import { Card } from '@ln/contenidos-ui-card';
 import { transform } from '../../../private/LN/home/components/noteCard/noteCardHelper';
 import {
     getDataAuthor,
-    checkForId,
     getMediaData,
     getDataAttributesForViewability,
     validateVariant,
@@ -27,7 +26,8 @@ import {
 import {
     getChainConfig,
     validateArticleFeature,
-    isInApertura
+    isInApertura,
+    checkForId
 } from './common/_helper-WebApi';
 import filter from '../../../../content/filters/LN/nota/articleAcu';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
