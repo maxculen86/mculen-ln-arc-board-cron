@@ -22,7 +22,8 @@ export const CardRegular = article => {
         imagen: getArticleImage(article),
         videoYouTube: getYouTubeVideoLink(article),
         ...getBadgebyConfig(article),
-        opinion: false
+        opinion: false,
+        isListenable: article.isListenable
     };
 };
 
