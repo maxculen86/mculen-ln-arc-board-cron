@@ -38,8 +38,7 @@ const fetch = async query => {
                         content_element.sectionAliasMobile ===
                         'ln-acumulado/ultimasnoticias'
                 );
-                const sections = sectionsElement[0]?.information?.sections;
-                return sections;
+                return sectionsElement[0]?.information?.sections;
             }
             return response;
         })

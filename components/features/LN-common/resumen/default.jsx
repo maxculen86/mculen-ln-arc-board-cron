@@ -6,8 +6,6 @@ import get from '../../../private/common/utils/get';
 import SummaryNote from '../../../private/LN/common/summaryNote';
 import StaticContent from '../../../private/common/staticContent';
 
-// TODO realizar unit test
-
 const Resumen = ({ customFields: { hide } = {} }) => {
     const { globalContent } = useAppContext();
     const arrayBullets = get(
@@ -18,7 +16,7 @@ const Resumen = ({ customFields: { hide } = {} }) => {
 
     return (
         <StaticContent>
-            <SummaryNote paragraphs={arrayBullets} />
+            {hide ? <></> : <SummaryNote paragraphs={arrayBullets} />}
         </StaticContent>
     );
 };
