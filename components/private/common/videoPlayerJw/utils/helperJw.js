@@ -39,7 +39,7 @@ export const getJWScript = (
 ${addToDataLayer}
 ${isInDatalayerEvent}
 window.addEventListener('load', () => {
-    const facadeDiv = document.getElementById(\`facade-${title}\`);
+    const facadeDiv = document.getElementById(\`facade-${idVideo}\`);
 
     const setJwScript = () => {    
         const scriptElement = document.createElement('script');
@@ -47,7 +47,7 @@ window.addEventListener('load', () => {
         document.head.appendChild(scriptElement);
 
         scriptElement.addEventListener('load', function() {
-            window.jwplayer(\`${title}\`).setup({
+            window.jwplayer(\`${idVideo}\`).setup({
                 playlist: ${JSON.stringify(playlist)},
                 autostart: true,
                 mute: ${hasAutoplay},
@@ -84,7 +84,7 @@ window.addEventListener('load', () => {
 `;
 
 export const handleVideoEventsScript = (title, idVideo) => `
-    window.jwplayer(\`${title}\`).on('ready', function (e) {
+    window.jwplayer(\`${idVideo}\`).on('ready', function (e) {
         const element = document.querySelector('.video-player');
         element.classList.remove('--background');
     });
@@ -92,12 +92,12 @@ export const handleVideoEventsScript = (title, idVideo) => `
     const events = [{jwEvent: 'play', eventName: 'videoPlay'}, {jwEvent: 'pause', eventName: 'videoPause'}];
 
     events.forEach((event) => {
-        window.jwplayer(\`${title}\`).on(event.jwEvent, function (e) {
+        window.jwplayer(\`${idVideo}\`).on(event.jwEvent, function (e) {
           addToDataLayer(event.eventName, \`${title}\`, '${idVideo}');
         });
     });
 
-    window.jwplayer(\`${title}\`).on('time', function (e) {
+    window.jwplayer(\`${idVideo}\`).on('time', function (e) {
         const percent = Math.floor((e.currentTime / e.duration) * 100);
         const percentagesToCheck = [25, 50, 75];
 
@@ -108,7 +108,7 @@ export const handleVideoEventsScript = (title, idVideo) => `
         });
     });
 
-    window.jwplayer(\`${title}\`).on('complete', function (e) {
+    window.jwplayer(\`${idVideo}\`).on('complete', function (e) {
         if (!isInDatalayerEvent('videoComplete', '${idVideo}')) {
             addToDataLayer('videoComplete', \`${title}\`, '${idVideo}');
         }
