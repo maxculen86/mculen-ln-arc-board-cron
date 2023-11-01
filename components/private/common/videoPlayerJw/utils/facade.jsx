@@ -3,10 +3,10 @@ import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import { transformImages } from './helperJw';
 import get from '../../utils/get';
 
-export const Facade = ({ title = '', playlist = [] }) => {
+export const Facade = ({ id = '', playlist = [], title = '' }) => {
     const [video] = playlist || {};
     return (
-        <div id={`facade-${title}`} className="content-facade-jw">
+        <div id={`facade-${id}`} className="content-facade-jw">
             <div id="button-play" className="button-play" />
             <Adaptableimage
                 sources={transformImages(get(video, 'images', []))}
