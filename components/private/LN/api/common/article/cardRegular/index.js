@@ -12,7 +12,8 @@ export const cardRegular = article => {
         imagen: getArticleImage(article),
         video: getArticleVideos(article),
         videos: getArticleVideos(article, true),
-        videoYouTube: getYouTubeVideoLink(article)
+        videoYouTube: getYouTubeVideoLink(article),
+        isListenable: article.isListenable
     };
 };
 

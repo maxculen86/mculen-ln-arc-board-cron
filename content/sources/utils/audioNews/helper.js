@@ -48,11 +48,15 @@ export const isNoteListenableHome = data => {
     const textAudioNews = get(data, 'label.republicar_audio.text', null);
 
     if (
-        (sourceOrigin === 'composer' || sourceOrigin === null) &&
+        (sourceOrigin === 'composer' || sourceOrigin === '') &&
         labelAudioNews &&
         textAudioNews !== 'No mostrar audio'
     ) {
-        const date = get(data, 'last_updated_date', '');
+        const date = get(
+            data,
+            'last_updated_date',
+            get(data, 'display_date', '')
+        );
         const sectionId = get(data, 'taxonomy.primary_section._id', '');
         const { disableSubtypes } = config;
 
