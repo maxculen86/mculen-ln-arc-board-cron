@@ -31,7 +31,7 @@ const acuTransformV2Format = (
             image: image ? image[0] : null,
             absoluteUrl: get(authorData, 'image.url', null),
             interests: authorData.intereses,
-            mail: authorData.mail,
+            mail: authorData.email,
             role: authorData.role,
             twitter: authorData.twitter
         }
