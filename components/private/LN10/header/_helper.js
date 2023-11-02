@@ -63,3 +63,65 @@ export const onScrollHandler = (
 
     return { isScrollDown, isScrollUp };
 };
+
+export const isHeaderNegative = ({
+    layout = '',
+    section = '',
+    layoutsName = {}
+}) => {
+    const validationBy = [section, layout];
+
+    const validations = [
+        layoutsName.FotoAl100,
+        layoutsName.StoryTelling,
+        layoutsName.Video,
+        '/revista-hola',
+        '/revista-lugares'
+    ];
+
+    return validationBy.some(validation => validations.includes(validation));
+};
+
+export const createHeaderObserver = ({
+    layout = '',
+    section = '',
+    layoutsName = [],
+    unobserve = false,
+    isHome = false
+}) => {
+    const isNegative = isHeaderNegative({
+        layout,
+        section,
+        layoutsName
+    });
+
+    const callback = entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                isNegative && mainHeader.classList.remove('--negative');
+                wrapperHome && wrapperHome.classList.add('--top-fixed');
+                isHome && buttonText && buttonText.classList.add('none');
+                isHome &&
+                    stickyButtonText &&
+                    stickyButtonText.classList.remove('none');
+            } else {
+                isNegative && mainHeader.classList.add('--negative');
+                wrapperHome && wrapperHome.classList.remove('--top-fixed');
+                isHome && buttonText && buttonText.classList.remove('none');
+                isHome &&
+                    stickyButtonText &&
+                    stickyButtonText.classList.add('none');
+            }
+        });
+    };
+
+    const interSectionObserver = new IntersectionObserver(callback);
+    const mainHeader = document.querySelector('.ln-main-header');
+    const wrapperHome = document.querySelector('.wrapper.homepage');
+    const headerSentinel = document.querySelector('.header-sentinel');
+    const buttonText = document.querySelector('#button-text');
+    const stickyButtonText = document.querySelector('#sticky-button-text');
+
+    if (headerSentinel) interSectionObserver.observe(headerSentinel);
+    if (unobserve) interSectionObserver.unobserve(headerSentinel);
+};

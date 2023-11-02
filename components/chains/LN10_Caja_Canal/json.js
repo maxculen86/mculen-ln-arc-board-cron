@@ -1,4 +1,3 @@
-// import Consumer from 'fusion:consumer';
 import Consumer from 'fusion:consumer';
 import get from '../../private/common/utils/get';
 import GetCajaCollection from '../../private/LN/api/global/components/chains/LN10/getCajaCollection';

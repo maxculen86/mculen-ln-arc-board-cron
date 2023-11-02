@@ -6,7 +6,10 @@ import { Text } from '@ln/contenidos-ui-text';
 const SummaryNote = ({ paragraphs = [] }) => {
     if (!paragraphs.length) return <></>;
     return (
-        <section className="pl-16_l --border-l-left-gray w-100 mb-24">
+        <section
+            className="pl-16_l --border-l-left-gray w-100 mb-24"
+            data-testid="summary-note"
+        >
             <Text
                 as="h2"
                 className="--font-primary --font-medium --l --text-neutral-light-900 mb-16"

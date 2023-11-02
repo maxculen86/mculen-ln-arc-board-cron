@@ -4,6 +4,7 @@ exports[`SummaryNote => Should match the snapshot 1`] = `
 <div>
   <section
     class="pl-16_l --border-l-left-gray w-100 mb-24"
+    data-testid="summary-note"
   >
     <h2
       class="text ln-text --font-primary --font-medium --l --text-neutral-light-900 mb-16"

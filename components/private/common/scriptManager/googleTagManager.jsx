@@ -49,5 +49,3 @@ export default class GTM extends Component {
         return this.nodes;
     }
 }
-
-GTM.static = true;

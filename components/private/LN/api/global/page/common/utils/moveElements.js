@@ -1,5 +1,38 @@
 import get from '../../../../../../common/utils/get';
 
+const moveElementByKeyPosition = (
+    position,
+    elements,
+    elementToMove,
+    isDirectionToBottom,
+    indexSectionTo,
+    indexSectionFrom
+) => {
+    if (elements && elementToMove) {
+        elements.splice(indexSectionFrom, 1);
+        switch (position) {
+            case 'bottom':
+                if (isDirectionToBottom) {
+                    elements.splice(indexSectionTo, 0, elementToMove);
+                } else {
+                    elements.splice(indexSectionTo + 1, 0, elementToMove);
+                }
+
+                break;
+            case 'start':
+                if (isDirectionToBottom) {
+                    elements.splice(indexSectionTo - 1, 0, elementToMove);
+                } else {
+                    elements.splice(indexSectionTo, 0, elementToMove);
+                }
+
+                break;
+            default:
+                break;
+        }
+    }
+};
+
 export const moveElementsByKey = (
     configElementToMove,
     valueKeyFrom,
@@ -94,37 +127,14 @@ export const moveElementByKey = (
 
         if (indexSectionFrom > -1 && indexSectionTo > -1) {
             const elementToMove = elements[indexSectionFrom];
-            if (elementToMove) {
-                elements.splice(indexSectionFrom, 1);
-                switch (configElementToMove.position) {
-                    case 'bottom':
-                        if (isDirectionToBottom) {
-                            elements.splice(indexSectionTo, 0, elementToMove);
-                        } else {
-                            elements.splice(
-                                indexSectionTo + 1,
-                                0,
-                                elementToMove
-                            );
-                        }
-
-                        break;
-                    case 'start':
-                        if (isDirectionToBottom) {
-                            elements.splice(
-                                indexSectionTo - 1,
-                                0,
-                                elementToMove
-                            );
-                        } else {
-                            elements.splice(indexSectionTo, 0, elementToMove);
-                        }
-
-                        break;
-                    default:
-                        break;
-                }
-            }
+            moveElementByKeyPosition(
+                configElementToMove.position,
+                elements,
+                elementToMove,
+                isDirectionToBottom,
+                indexSectionTo,
+                indexSectionFrom
+            );
         }
     }
 

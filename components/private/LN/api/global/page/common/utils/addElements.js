@@ -21,7 +21,6 @@ export const addElementByPosition = (elements, typeElement, configElements) => {
                         elements.splice(indexToSetBanner + 1, 0, elementAdd);
                         break;
                     default:
-                        // elements.push(banner);
                         break;
                 }
             }

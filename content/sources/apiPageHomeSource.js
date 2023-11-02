@@ -3,7 +3,6 @@ import pages from './utils/pageSource/index';
 import get from '../../components/private/common/utils/get';
 import transformBitacorav1 from './utils/pageSource/pageHome/v1/bitacora/transform';
 import transformv1 from './utils/pageSource/pageHome/v1/mobile/transform';
-import transformv2 from './utils/pageSource/pageHome/v2/mobile/transform';
 import homev1 from '../../components/private/LN/api/v1/mobile/home';
 import homev2 from '../../components/private/LN/api/v2/mobile/home';
 

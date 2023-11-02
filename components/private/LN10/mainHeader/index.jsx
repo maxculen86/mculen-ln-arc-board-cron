@@ -8,7 +8,7 @@ import { Text } from '@ln/contenidos-ui-text';
 import { Link } from '@ln/contenidos-ui-link';
 import { Icon } from '@ln/common-ui-icon';
 import { Menu, Search } from '@ln/contenidos-ui-assets';
-import { createHeaderObserver } from '../../common/banners/intersectionObservers';
+import { createHeaderObserver, isHeaderNegative } from '../header/_helper';
 
 import { getLoginData, isLoggedIn } from '../../LN/common/utils/contextHelper';
 import {
@@ -27,21 +27,18 @@ import bannersHome from '../../common/banners/bannersDivHome';
 
 const MainHeaderLN = ({
     layout = '',
-    layoutsName = [],
+    section = '',
+    layoutsName = {},
     toggleDesplegable,
     userType = '',
     isHome
 }) => {
-    const layoutsHeaderNegative = [
-        layoutsName.FotoAl100,
-        layoutsName.StoryTelling,
-        layoutsName.Video
-    ];
     useEffect(() => {
         //TODO: Buscar un mejor metodo para dejar de observar
-        createHeaderObserver(layout, layoutsHeaderNegative, false, isHome);
-        return () => createHeaderObserver(layout, layoutsHeaderNegative, true);
-    }, [layout, layoutsHeaderNegative]);
+        createHeaderObserver({ layout, layoutsName, isHome });
+        return () =>
+            createHeaderObserver({ layout, layoutsName, true: unobserve });
+    }, [layout]);
 
     const loginData = getLoginData() || {};
 
@@ -59,7 +56,7 @@ const MainHeaderLN = ({
     const hasSubscribeButton = showSubscribeButton(loginData);
 
     const classNameMainHeader = classNames({
-        '--negative': layoutsHeaderNegative.includes(layout)
+        '--negative': isHeaderNegative({ layout, section, layoutsName })
     });
 
     const desplegableData = setDesplegableData(logout) || [];

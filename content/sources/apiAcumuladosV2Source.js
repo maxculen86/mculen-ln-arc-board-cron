@@ -37,7 +37,7 @@ const fetch = async (query, { cachedCall }) => {
             cachedCall
         );
 
-        const title = sectionSourceResult.title;
+        let title = sectionSourceResult.title;
 
         restriction = get(sectionSourceResult, 'restriction', true);
         configuration = get(sectionSourceResult, 'configuration', null);
@@ -101,8 +101,7 @@ const fetch = async (query, { cachedCall }) => {
 const getSizeParamFromQuery = query => {
     const regexForSizeParam = new RegExp(/size:(\d+)/);
     const matchForSize = regexForSizeParam.exec(get(query, 'params', ''));
-    const size = matchForSize && matchForSize.length > 1 ? matchForSize[1] : 30;
-    return size;
+    return matchForSize && matchForSize.length > 1 ? matchForSize[1] : 30;
 };
 
 const getPageParamFromQuery = query => {
@@ -197,8 +196,8 @@ const fetchSectionSource = async (
     }
 
     const sectionTitle =
-        sectionSourceResult.acumuladoGeneral?.hierarchy_navigation;
-    const sectionName = sectionSourceResult.name;
+        sectionSourceResult?.acumuladoGeneral?.hierarchy_navigation;
+    const sectionName = sectionSourceResult?.name;
 
     const title = sectionTitle ? sectionTitle : sectionName;
 

@@ -115,8 +115,7 @@ export const getImageUrlBasedOnResizerVersion = url => {
         : getImageUrl(url);
 
     if (imageUrl) {
-        const updatedUrl = updateUrlWithResizerBase(imageUrl[0]);
-        return updatedUrl;
+        return updateUrlWithResizerBase(imageUrl[0]);
     }
 
     return url;

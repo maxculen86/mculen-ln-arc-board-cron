@@ -4,7 +4,7 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
 
-import { checkForId } from '../../LN-10/article/_helper';
+import { checkForId } from '../../LN-10/article/common/_helper-WebApi.js';
 import { validateBannerReceta } from './_helper';
 import { getImagesToLoadWithPicture } from '../../../private/LN/common/utils/mediaHelper';
 import get from '../../../private/common/utils/get';

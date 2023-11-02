@@ -8,7 +8,8 @@ import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 import {
     getChainConfig,
     validateArticleFeature,
-    isInApertura
+    isInApertura,
+    checkForId
 } from './common/_helper-WebApi';
 import videoFilterLN10 from '../../../../content/filters/LN/home/LN10/videoFilterLN10';
 import filterVideo from '../../../../content/filters/LN/home/videoFilter';
@@ -41,15 +42,16 @@ class ArticleFeature {
         const sourceInclude = articleSourceNotaSourceInclude(typeCard);
         this.props = validateProps(props, this.configs);
 
-        videoId &&
-            videoId.trim() &&
+        checkForId(videoId) &&
             this.fetchContent({
                 articleVideoLN10: {
-                    source: 'videoSource',
+                    source: 'videosJwSource',
                     query: {
-                        id: videoId && videoId.trim(),
+                        id: checkForId(videoId),
                         website: 'la-nacion-ar',
+                        imageConfig,
                         isInApertura: this.onlyOneApeturaValidateForWWW,
+                        arcSite: 'la-nacion-ar',
                         shouldUseV2: this.shouldUseV2
                     },
                     filter: this.shouldUseV2 ? videoFilterLN10 : filterVideo
@@ -132,10 +134,10 @@ class ArticleFeature {
                 id: noteIdRender,
                 content: articleSourceNotaRender,
                 image: articleImageRender,
-                video: null,
+                video: articleVideoRender,
                 layout,
                 imageId: imageIdRender,
-                videoId: null,
+                videoId: videoIdRender,
                 config,
                 variant: variantRender,
                 variantsDisabled,

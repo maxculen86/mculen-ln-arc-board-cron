@@ -4,7 +4,7 @@ import {
 } from '../../utils/videoPlayerHelper';
 
 export function transformImages(data) {
-    const transformedImages = data
+    return data
         .filter(item => [480, 720, 1280].includes(item.width))
         .map(item => ({
             srcSet: item.src,
@@ -12,20 +12,16 @@ export function transformImages(data) {
             ...(item.width === 720 && { minWidth: 768 }),
             ...(item.width === 1280 && { minWidth: 1280 })
         }));
-
-    return transformedImages;
 }
 
 export function formatJwPlayerDate(timestamp) {
     if (!timestamp) return '';
     const date = new Date(timestamp * 1000);
 
-    const formattedDate = date
+    return date
         .toISOString()
         .replace('T', ' ')
         .substring(0, 19);
-
-    return formattedDate;
 }
 
 export const getJWScript = (

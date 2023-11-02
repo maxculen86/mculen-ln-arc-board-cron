@@ -95,21 +95,25 @@ export const authorHomeMobile = author => {
 
 export const articleSignature = (authors, signature = null) => {
     let authorsValue = [];
-    if (authors && !signature) {
-        const lastAuthor = authors[authors.length - 1];
-        authorsValue = `${authors.length > 0 ? 'Por' : ''} ${authors
-            .map(author => {
-                let resp = '';
-                if (lastAuthor === author && authors.length !== 1) {
-                    if (author.valor[0].toUpperCase() == 'I') resp = ' e ';
-                    else resp = ' y ';
-                } else if (author == authors[0]) resp = '';
-                else resp = ' ';
 
-                return resp + author.valor;
-            })
-            .toString()
-            .replace(/\,(?=[^,][ey])/, '')}`;
+    if (!authors || signature) {
+        return signature;
     }
-    return signature || authorsValue;
+
+    const lastAuthor = authors[authors.length - 1];
+    authorsValue = `${authors.length > 0 ? 'Por' : ''} ${authors
+        .map(author => {
+            let resp = '';
+            if (lastAuthor === author && authors.length !== 1) {
+                if (author.valor[0].toUpperCase() === 'I') resp = ' e ';
+                else resp = ' y ';
+            } else if (author === authors[0]);
+            else resp = ' ';
+
+            return resp + author.valor;
+        })
+        .toString()
+        .replace(/\,(?=[^,][ey])/, '')}`;
+
+    return authorsValue;
 };

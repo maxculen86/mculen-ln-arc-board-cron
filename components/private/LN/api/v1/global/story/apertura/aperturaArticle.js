@@ -10,25 +10,14 @@ import videoJW from '../cuerpo/elements/videoJW';
 import image from '../cuerpo/elements/image';
 import imageAcumulado from '../../../../common/elements/story/image';
 
-const aperturaArticle = (article, type, idsElements = null) => {
-    if (article.subtype === '9' && type === 'global') return null;
-
-    const promoItemBasicImage = promoItemArticleBasicImage(article);
-    let promoItem = promoItemArticle(article);
-    let isPromoInContent = false;
-    const indexFindPromoInContents =
-        idsElements &&
-        Array.isArray(idsElements) &&
-        idsElements.findIndex(x => x === get(promoItem, '_id', null));
-
-    if (promoItem && idsElements && indexFindPromoInContents === 0) {
-        promoItem = null;
-        isPromoInContent = true;
-    }
-    const typePromoItem =
-        get(promoItem, 'type', null) || get(promoItem, 'typeCustom', null);
+const setPromoByType = (
+    typePromoItem,
+    article,
+    isPromoInContent,
+    promoItem,
+    promoItemBasicImage
+) => {
     const resp = {};
-
     // eslint-disable-next-line default-case
     switch (typePromoItem) {
         case 'image':
@@ -65,6 +54,34 @@ const aperturaArticle = (article, type, idsElements = null) => {
             }
             break;
     }
+    return resp;
+};
+
+const aperturaArticle = (article, type, idsElements = null) => {
+    if (article.subtype === '9' && type === 'global') return null;
+
+    const promoItemBasicImage = promoItemArticleBasicImage(article);
+    let promoItem = promoItemArticle(article);
+    let isPromoInContent = false;
+    const indexFindPromoInContents =
+        idsElements &&
+        Array.isArray(idsElements) &&
+        idsElements.findIndex(x => x === get(promoItem, '_id', null));
+
+    if (promoItem && idsElements && indexFindPromoInContents === 0) {
+        promoItem = null;
+        isPromoInContent = true;
+    }
+    const typePromoItem =
+        get(promoItem, 'type', null) || get(promoItem, 'typeCustom', null);
+
+    const resp = setPromoByType(
+        typePromoItem,
+        article,
+        isPromoInContent,
+        promoItem,
+        promoItemBasicImage
+    );
 
     return {
         ...apertura(article),

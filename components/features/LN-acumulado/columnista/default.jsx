@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import ModArticle from '../../../private/common/mod-article';
+import StaticContent from '../../../private/common/staticContent';
 
 const Columnista = props => {
     const { customFields } = props;
@@ -34,15 +35,17 @@ const Columnista = props => {
     };
 
     return (
-        <ModArticle
-            withMedia
-            articleData={data}
-            isRenderAuthor
-            classCondition="--columnista"
-            authorSize="--twoxs"
-            link={canonicalUrl}
-            authors={name}
-        />
+        <StaticContent>
+            <ModArticle
+                withMedia
+                articleData={data}
+                isRenderAuthor
+                classCondition="--columnista"
+                authorSize="--twoxs"
+                link={canonicalUrl}
+                authors={name}
+            />
+        </StaticContent>
     );
 };
 Columnista.label = 'LN-Columnista-author';

@@ -38,11 +38,7 @@ export const equal = (element, configElement, lengthBannersPrevious) => {
         return false;
     }
 
-    if (configElement.value && configElement.value !== elementFind) {
-        return false;
-    }
-
-    return true;
+    return !(configElement.value && configElement.value !== elementFind);
 };
 
 export default equal;

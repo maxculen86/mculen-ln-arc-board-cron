@@ -26,12 +26,13 @@ const configSectionsByLayout = layout => {
             rules: rulesLN10HomeMain
         }
     };
-    const pageMergeSections = {};
+    const pageMergeSections = { title: 'Merge rules and sections' };
     pageMergeSections.sections =
         sectionsMerge[layout] && sectionsMerge[layout].front;
 
     pageMergeSections.rules =
         sectionsMerge[layout] && sectionsMerge[layout].rules;
+
     return pageMergeSections;
 };
 

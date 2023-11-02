@@ -24,14 +24,12 @@ export const CardAnexo = article => {
     }
 
     return null;
-    // if (url) return null;
-    // return [{ src: get(article[0], 'html') }];
 };
 
 const validateYoutubeUrl = url => {
-    var p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
-    if (url.match(p)) {
-        return url.match(p)[1];
+    const isYoutubeUrlRegex = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+    if (url.match(isYoutubeUrlRegex)) {
+        return url.match(isYoutubeUrlRegex)[1];
     }
     return false;
 };

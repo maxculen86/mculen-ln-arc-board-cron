@@ -8,14 +8,13 @@ export const fetchLiveData = async competitionIds => {
     };
 
     try {
-        const optaLiveData = await fetch(
+        return await fetch(
             'https://api.performfeeds.com/rugbyuniondata/match/1otvtpa0x4b9h1uv2p6s9zgz4k?' +
                 new URLSearchParams(matchDataQuery),
             {
                 method: 'GET'
             }
         );
-        return optaLiveData;
     } catch (err) {
         console.error(
             '🚀 ~ file: getLiveData.ts:39 ~ fetchLiveData ~ err:',
@@ -62,7 +61,7 @@ export const isDelayedValidation = (days, hours, minutes) => {
 
 export const isPlayedOrDelayedFallBackClienSide = (rugbyMatches, optaRes) => {
     if (!optaRes.match || optaRes.match.length === 0) {
-        const updatedMatches = rugbyMatches.map(match => {
+        return rugbyMatches.map(match => {
             if (match.matchStatus === 'playing') {
                 const { days, hours, minutes } = match.timeRemaining;
                 const isDelayed = isDelayedValidation(days, hours, minutes);
@@ -75,13 +74,12 @@ export const isPlayedOrDelayedFallBackClienSide = (rugbyMatches, optaRes) => {
                 return { ...match };
             }
         });
-        return updatedMatches;
     }
 };
 
 export const mapLiveDataToCard = (sourceMatches, optaLiveData) => {
     const { match: liveMatches } = optaLiveData;
-    const updatedMatches = sourceMatches.map(match => {
+    return sourceMatches.map(match => {
         const finded = liveMatches.find(
             element => element.matchInfo.id === match.matchId
         );
@@ -110,18 +108,13 @@ export const mapLiveDataToCard = (sourceMatches, optaLiveData) => {
             };
         }
     });
-    return updatedMatches;
 };
 
 export const updateHomeMatches = async (rugbyMatches, liveIds) => {
     const optaRes = await fetchLiveData(liveIds);
     const optaResParsed = await optaRes.json();
     if (!optaResParsed.match || optaResParsed.match.length === 0) {
-        const playedOrDelay = isPlayedOrDelayedFallBackClienSide(
-            rugbyMatches,
-            optaResParsed
-        );
-        return playedOrDelay;
+        return isPlayedOrDelayedFallBackClienSide(rugbyMatches, optaResParsed);
     } else {
         return mapLiveDataToCard(rugbyMatches, optaResParsed);
     }
