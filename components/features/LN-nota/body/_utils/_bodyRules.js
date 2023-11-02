@@ -73,16 +73,21 @@ export const bodyRules = {
             return componentElement.arcType === subtypeElement;
         }
     },
-    defaultFotoAl100: ({ componentElement, type }) => {
+    defaultFotoAl100: ({ componentElement, type, subtypeElement }) => {
         return (
             !(
                 type === 'oembed_response' ||
                 type === 'raw_html' ||
                 type === 'video'
-            ) && bodyRules.defaultRule({ componentElement, type })
+            ) &&
+            bodyRules.defaultRule({ componentElement, type, subtypeElement })
         );
     },
-    defaultRule: ({ componentElement, type }) => {
-        return componentElement.arcType === type;
+    defaultRule: ({ componentElement, type, subtypeElement }) => {
+        const isVideoJw =
+            componentElement.arcType === subtypeElement &&
+            componentElement.arcType === 'video_jw';
+
+        return componentElement.arcType === type || isVideoJw;
     }
 };
