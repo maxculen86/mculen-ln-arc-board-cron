@@ -240,7 +240,7 @@
             ],
             "created_date": "2020-06-10T17:56:14.117Z",
             "credits": {},
-            "display_date": "1900-01-01T03:00:00Z",
+            "display_date": "2023-01-01T03:00:00Z",
             "distributor": {
                 "category": "staff",
                 "name": "lanacionar",
@@ -259,9 +259,12 @@
                 "livefyre_entrada_id": {
                     "display": true,
                     "text": "416951"
+                },
+                "republicar_audio": {
+                    "text": "No"
                 }
             },
-            "last_updated_date": "2020-06-10T17:56:14.117Z",
+            "last_updated_date": "2023-06-10T17:56:14.117Z",
             "owner": {
                 "id": "lanacionar"
             },
@@ -342,7 +345,7 @@
                 "name": "lanacionar",
                 "source_id": "1305798",
                 "source_type": "staff",
-                "system": "Migracion MVP 2015"
+                "system": "composer"
             },
             "subheadlines": {
                 "basic": ""

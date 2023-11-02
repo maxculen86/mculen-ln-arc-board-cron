@@ -20,6 +20,7 @@ describe('storyBox LN9', () => {
                 {
                     id: 'K642LPFKHBDKLFIU5KNYC6FBBY',
                     templateId: '1',
+                    isListenable: false,
                     sitioId: null,
                     url:
                         '/sociedad/el-holocausto-olvidado-perpetrado-por-los-nazis-durante-la-segunda-guerra-mundial-nid27012023/',

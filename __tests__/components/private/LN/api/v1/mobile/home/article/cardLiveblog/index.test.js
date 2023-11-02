@@ -13,6 +13,7 @@ describe('Test-CardLiveblog when size is M', () => {
                 'badgeStyle',
                 'bajada',
                 'chapita',
+                'isListenable',
                 'enviarApps',
                 'fechaPublicacion',
                 'id',
