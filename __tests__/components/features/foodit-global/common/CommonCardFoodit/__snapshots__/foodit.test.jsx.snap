@@ -3,10 +3,10 @@
 exports[`CommonCardFoodit should render the card with the correct data 1`] = `
 <div>
   <article
-    class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+    class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
   >
     <a
-      class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+      class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
       href="https://recetas.lanacion.com.ar"
       target="_self"
       title="Receta de tortilla de patatas"
@@ -27,28 +27,32 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
           />
         </div>
         <span
-          class="foodit-badge inline-flex ai-center gap-4 py-4 px-8 rounded-4 bg-primary-positive text-light-200 text-14 absolute bottom-0 right-0 m-8"
+          class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute bottom-0 left-0 translate-y-50"
         >
           rica
         </span>
       </div>
       <div
-        class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1"
+        class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
       >
         <div
-          class="flex flex-column gap-8"
-        >
-          <span
-            class="text prumo text-ellipsis-3 prumo-medium text-20"
-          >
-            Receta de tortilla de patatas
-          </span>
-        </div>
-        <div
-          class="flex ai-center gap-16 text-light-600"
+          class="flex flex-column gap-12"
         >
           <div
-            class="flex flex-column gap-4 flex-grow-1"
+            class="flex flex-column gap-4"
+          >
+            <span
+              class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+            >
+              Receta de tortilla de patatas
+            </span>
+          </div>
+        </div>
+        <div
+          class="flex gap-16 text-light-800 ai-center"
+        >
+          <div
+            class="flex flex-column gap-8 flex-grow-1"
           >
             <span
               class="text text-14"
@@ -59,28 +63,33 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
               class="flex ai-center gap-4"
             >
               <i
-                class="icon --icon-12 --gray"
+                class="icon --icon-12 --inherit"
               >
                 <svg
                   fill="none"
-                  viewBox="0 0 12 13"
+                  viewBox="0 0 24 24"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="m8.809 3.983.727-.727.707.707-.727.727a4.5 4.5 0 1 1-.707-.707ZM6 10.998a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.5-6h1v3h-1v-3ZM4 1.499h4v1H4v-1Z"
-                    fill="#666"
+                    d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                    fill="#333"
+                  />
+                  <path
+                    d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                    fill="#333"
                   />
                 </svg>
               </i>
               <span
-                class="text text-14 roboto-light"
+                class="text text-12 roboto-light"
               >
                 30 min
               </span>
             </div>
           </div>
           <button
-            class="flex"
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+            data-variant="link"
             title="Guardar receta"
           >
             <i
@@ -88,17 +97,20 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
             >
               <svg
                 fill="none"
-                height="25"
-                viewBox="0 0 24 25"
-                width="24"
+                viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
-                  fill="#272727"
+                  d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                  fill="#333"
                 />
               </svg>
             </i>
+            <span
+              class="uppercase none"
+            >
+              Guardar
+            </span>
           </button>
         </div>
       </div>

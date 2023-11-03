@@ -3,7 +3,7 @@
 exports[`Tests Carousel Render component with articles 1`] = `
 <div>
   <div
-    class="media-scroller relative flex flex-column gap-16"
+    class="media-scroller relative flex flex-column gap-16 hide-mobile"
     data-scroller="container"
   >
     <ul
@@ -15,10 +15,10 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
             href="/dieta/una-comida-si-saludable-nid06092023/"
             target="_self"
             title="Una comida si saludable"
@@ -41,22 +41,26 @@ exports[`Tests Carousel Render component with articles 1`] = `
               
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
             >
               <div
-                class="flex flex-column gap-8"
-              >
-                <span
-                  class="text prumo text-ellipsis-3 prumo-medium text-20"
-                >
-                  Una comida si saludable
-                </span>
-              </div>
-              <div
-                class="flex ai-center gap-16 text-light-600"
+                class="flex flex-column gap-12"
               >
                 <div
-                  class="flex flex-column gap-4 flex-grow-1"
+                  class="flex flex-column gap-4"
+                >
+                  <span
+                    class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                  >
+                    Una comida si saludable
+                  </span>
+                </div>
+              </div>
+              <div
+                class="flex gap-16 text-light-800 ai-center"
+              >
+                <div
+                  class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
                     class="text text-14"
@@ -67,28 +71,33 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     class="flex ai-center gap-4"
                   >
                     <i
-                      class="icon --icon-12 --gray"
+                      class="icon --icon-12 --inherit"
                     >
                       <svg
                         fill="none"
-                        viewBox="0 0 12 13"
+                        viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m8.809 3.983.727-.727.707.707-.727.727a4.5 4.5 0 1 1-.707-.707ZM6 10.998a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.5-6h1v3h-1v-3ZM4 1.499h4v1H4v-1Z"
-                          fill="#666"
+                          d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                          fill="#333"
+                        />
+                        <path
+                          d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                          fill="#333"
                         />
                       </svg>
                     </i>
                     <span
-                      class="text text-14 roboto-light"
+                      class="text text-12 roboto-light"
                     >
                       5 min
                     </span>
                   </div>
                 </div>
                 <button
-                  class="flex"
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-variant="link"
                   title="Guardar receta"
                 >
                   <i
@@ -96,17 +105,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   >
                     <svg
                       fill="none"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      width="24"
+                      viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
-                        fill="#272727"
+                        d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                        fill="#333"
                       />
                     </svg>
                   </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
                 </button>
               </div>
             </div>
@@ -117,10 +129,10 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
             href="/dieta/una-dieta-poco-saludable-nid06092023/"
             target="_self"
             title="Una dieta ...poco saludable"
@@ -143,22 +155,26 @@ exports[`Tests Carousel Render component with articles 1`] = `
               
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
             >
               <div
-                class="flex flex-column gap-8"
-              >
-                <span
-                  class="text prumo text-ellipsis-3 prumo-medium text-20"
-                >
-                  Una dieta ...poco saludable
-                </span>
-              </div>
-              <div
-                class="flex ai-center gap-16 text-light-600"
+                class="flex flex-column gap-12"
               >
                 <div
-                  class="flex flex-column gap-4 flex-grow-1"
+                  class="flex flex-column gap-4"
+                >
+                  <span
+                    class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                  >
+                    Una dieta ...poco saludable
+                  </span>
+                </div>
+              </div>
+              <div
+                class="flex gap-16 text-light-800 ai-center"
+              >
+                <div
+                  class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
                     class="text text-14"
@@ -169,28 +185,33 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     class="flex ai-center gap-4"
                   >
                     <i
-                      class="icon --icon-12 --gray"
+                      class="icon --icon-12 --inherit"
                     >
                       <svg
                         fill="none"
-                        viewBox="0 0 12 13"
+                        viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m8.809 3.983.727-.727.707.707-.727.727a4.5 4.5 0 1 1-.707-.707ZM6 10.998a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.5-6h1v3h-1v-3ZM4 1.499h4v1H4v-1Z"
-                          fill="#666"
+                          d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                          fill="#333"
+                        />
+                        <path
+                          d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                          fill="#333"
                         />
                       </svg>
                     </i>
                     <span
-                      class="text text-14 roboto-light"
+                      class="text text-12 roboto-light"
                     >
                       9 min
                     </span>
                   </div>
                 </div>
                 <button
-                  class="flex"
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-variant="link"
                   title="Guardar receta"
                 >
                   <i
@@ -198,17 +219,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   >
                     <svg
                       fill="none"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      width="24"
+                      viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
-                        fill="#272727"
+                        d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                        fill="#333"
                       />
                     </svg>
                   </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
                 </button>
               </div>
             </div>
@@ -219,10 +243,10 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
             href="/dieta/una-comida-mas-o-menos-saludable-nid06092023/"
             target="_self"
             title="Una comida mas o menos saludable"
@@ -245,31 +269,63 @@ exports[`Tests Carousel Render component with articles 1`] = `
               
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
             >
               <div
-                class="flex flex-column gap-8"
-              >
-                <span
-                  class="text prumo text-ellipsis-3 prumo-medium text-20"
-                >
-                  Una comida mas o menos saludable
-                </span>
-              </div>
-              <div
-                class="flex ai-center gap-16 text-light-600"
+                class="flex flex-column gap-12"
               >
                 <div
-                  class="flex flex-column gap-4 flex-grow-1"
+                  class="flex flex-column gap-4"
+                >
+                  <span
+                    class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                  >
+                    Una comida mas o menos saludable
+                  </span>
+                </div>
+              </div>
+              <div
+                class="flex gap-16 text-light-800 ai-center"
+              >
+                <div
+                  class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
                     class="text text-14"
                   >
                     Por Maru Botana
                   </span>
+                  <div
+                    class="flex ai-center gap-4 opacity-0"
+                  >
+                    <i
+                      class="icon --icon-12 --inherit"
+                    >
+                      <svg
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                          fill="#333"
+                        />
+                        <path
+                          d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                          fill="#333"
+                        />
+                      </svg>
+                    </i>
+                    <span
+                      class="text text-12 roboto-light"
+                    >
+                      null min
+                    </span>
+                  </div>
                 </div>
                 <button
-                  class="flex"
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-variant="link"
                   title="Guardar receta"
                 >
                   <i
@@ -277,17 +333,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   >
                     <svg
                       fill="none"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      width="24"
+                      viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
-                        fill="#272727"
+                        d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                        fill="#333"
                       />
                     </svg>
                   </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
                 </button>
               </div>
             </div>
@@ -298,10 +357,10 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
             href="/clasica/receta-para-comer-mas-rico-con-milanesas-nid06092023/"
             target="_self"
             title="Receta para comer mas rico con ...MILANESAS "
@@ -324,22 +383,26 @@ exports[`Tests Carousel Render component with articles 1`] = `
               
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
             >
               <div
-                class="flex flex-column gap-8"
-              >
-                <span
-                  class="text prumo text-ellipsis-3 prumo-medium text-20"
-                >
-                  Receta para comer mas rico con ...MILANESAS 
-                </span>
-              </div>
-              <div
-                class="flex ai-center gap-16 text-light-600"
+                class="flex flex-column gap-12"
               >
                 <div
-                  class="flex flex-column gap-4 flex-grow-1"
+                  class="flex flex-column gap-4"
+                >
+                  <span
+                    class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                  >
+                    Receta para comer mas rico con ...MILANESAS 
+                  </span>
+                </div>
+              </div>
+              <div
+                class="flex gap-16 text-light-800 ai-center"
+              >
+                <div
+                  class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
                     class="text text-14"
@@ -350,28 +413,33 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     class="flex ai-center gap-4"
                   >
                     <i
-                      class="icon --icon-12 --gray"
+                      class="icon --icon-12 --inherit"
                     >
                       <svg
                         fill="none"
-                        viewBox="0 0 12 13"
+                        viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m8.809 3.983.727-.727.707.707-.727.727a4.5 4.5 0 1 1-.707-.707ZM6 10.998a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.5-6h1v3h-1v-3ZM4 1.499h4v1H4v-1Z"
-                          fill="#666"
+                          d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                          fill="#333"
+                        />
+                        <path
+                          d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                          fill="#333"
                         />
                       </svg>
                     </i>
                     <span
-                      class="text text-14 roboto-light"
+                      class="text text-12 roboto-light"
                     >
                       5 min
                     </span>
                   </div>
                 </div>
                 <button
-                  class="flex"
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-variant="link"
                   title="Guardar receta"
                 >
                   <i
@@ -379,17 +447,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   >
                     <svg
                       fill="none"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      width="24"
+                      viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
-                        fill="#272727"
+                        d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                        fill="#333"
                       />
                     </svg>
                   </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
                 </button>
               </div>
             </div>
@@ -400,16 +471,16 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-background-positive"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
             href="/clasica/ficha-nota-foodit-nid11092023/"
             target="_self"
             title="Ficha nota FOODIT"
           >
             <div
-              class="relative w-100"
+              class="relative w-100 px-16 pt-16 pb-4"
             >
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
@@ -426,22 +497,26 @@ exports[`Tests Carousel Render component with articles 1`] = `
               
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-100"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
             >
               <div
-                class="flex flex-column gap-8"
-              >
-                <span
-                  class="text prumo text-ellipsis-3 prumo-medium text-20"
-                >
-                  Ficha nota FOODIT
-                </span>
-              </div>
-              <div
-                class="flex ai-center gap-16 text-light-600"
+                class="flex flex-column gap-12"
               >
                 <div
-                  class="flex flex-column gap-4 flex-grow-1"
+                  class="flex flex-column gap-4"
+                >
+                  <span
+                    class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                  >
+                    Ficha nota FOODIT
+                  </span>
+                </div>
+              </div>
+              <div
+                class="flex gap-16 text-light-800 ai-center"
+              >
+                <div
+                  class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
                     class="text text-14"
@@ -452,28 +527,33 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     class="flex ai-center gap-4"
                   >
                     <i
-                      class="icon --icon-12 --gray"
+                      class="icon --icon-12 --inherit"
                     >
                       <svg
                         fill="none"
-                        viewBox="0 0 12 13"
+                        viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m8.809 3.983.727-.727.707.707-.727.727a4.5 4.5 0 1 1-.707-.707ZM6 10.998a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.5-6h1v3h-1v-3ZM4 1.499h4v1H4v-1Z"
-                          fill="#666"
+                          d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                          fill="#333"
+                        />
+                        <path
+                          d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                          fill="#333"
                         />
                       </svg>
                     </i>
                     <span
-                      class="text text-14 roboto-light"
+                      class="text text-12 roboto-light"
                     >
                       7 min
                     </span>
                   </div>
                 </div>
                 <button
-                  class="flex"
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-variant="link"
                   title="Guardar receta"
                 >
                   <i
@@ -481,17 +561,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   >
                     <svg
                       fill="none"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      width="24"
+                      viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
-                        fill="#272727"
+                        d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                        fill="#333"
                       />
                     </svg>
                   </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
                 </button>
               </div>
             </div>
@@ -502,16 +585,16 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-background-positive"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
             href="/clasica/receta-para-comer-mas-rico-con-pollito-nid04092023/"
             target="_self"
             title="Receta para comer mas rico con ...POLLITO 2"
           >
             <div
-              class="relative w-100"
+              class="relative w-100 px-16 pt-16 pb-4"
             >
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
@@ -528,22 +611,26 @@ exports[`Tests Carousel Render component with articles 1`] = `
               
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-100"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
             >
               <div
-                class="flex flex-column gap-8"
-              >
-                <span
-                  class="text prumo text-ellipsis-3 prumo-medium text-20"
-                >
-                  Receta para comer mas rico con ...POLLITO 2
-                </span>
-              </div>
-              <div
-                class="flex ai-center gap-16 text-light-600"
+                class="flex flex-column gap-12"
               >
                 <div
-                  class="flex flex-column gap-4 flex-grow-1"
+                  class="flex flex-column gap-4"
+                >
+                  <span
+                    class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                  >
+                    Receta para comer mas rico con ...POLLITO 2
+                  </span>
+                </div>
+              </div>
+              <div
+                class="flex gap-16 text-light-800 ai-center"
+              >
+                <div
+                  class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
                     class="text text-14"
@@ -554,28 +641,33 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     class="flex ai-center gap-4"
                   >
                     <i
-                      class="icon --icon-12 --gray"
+                      class="icon --icon-12 --inherit"
                     >
                       <svg
                         fill="none"
-                        viewBox="0 0 12 13"
+                        viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m8.809 3.983.727-.727.707.707-.727.727a4.5 4.5 0 1 1-.707-.707ZM6 10.998a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.5-6h1v3h-1v-3ZM4 1.499h4v1H4v-1Z"
-                          fill="#666"
+                          d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                          fill="#333"
+                        />
+                        <path
+                          d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                          fill="#333"
                         />
                       </svg>
                     </i>
                     <span
-                      class="text text-14 roboto-light"
+                      class="text text-12 roboto-light"
                     >
                       4 min
                     </span>
                   </div>
                 </div>
                 <button
-                  class="flex"
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-variant="link"
                   title="Guardar receta"
                 >
                   <i
@@ -583,17 +675,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   >
                     <svg
                       fill="none"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      width="24"
+                      viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
-                        fill="#272727"
+                        d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                        fill="#333"
                       />
                     </svg>
                   </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
                 </button>
               </div>
             </div>
@@ -604,10 +699,10 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
             href="/dieta/una-comida-no-saludable-nid06092023/"
             target="_self"
             title="Una comida no saludable"
@@ -630,31 +725,63 @@ exports[`Tests Carousel Render component with articles 1`] = `
               
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
             >
               <div
-                class="flex flex-column gap-8"
-              >
-                <span
-                  class="text prumo text-ellipsis-3 prumo-medium text-20"
-                >
-                  Una comida no saludable
-                </span>
-              </div>
-              <div
-                class="flex ai-center gap-16 text-light-600"
+                class="flex flex-column gap-12"
               >
                 <div
-                  class="flex flex-column gap-4 flex-grow-1"
+                  class="flex flex-column gap-4"
+                >
+                  <span
+                    class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                  >
+                    Una comida no saludable
+                  </span>
+                </div>
+              </div>
+              <div
+                class="flex gap-16 text-light-800 ai-center"
+              >
+                <div
+                  class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
                     class="text text-14"
                   >
                     Por Maru Botana
                   </span>
+                  <div
+                    class="flex ai-center gap-4 opacity-0"
+                  >
+                    <i
+                      class="icon --icon-12 --inherit"
+                    >
+                      <svg
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                          fill="#333"
+                        />
+                        <path
+                          d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                          fill="#333"
+                        />
+                      </svg>
+                    </i>
+                    <span
+                      class="text text-12 roboto-light"
+                    >
+                      null min
+                    </span>
+                  </div>
                 </div>
                 <button
-                  class="flex"
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-variant="link"
                   title="Guardar receta"
                 >
                   <i
@@ -662,17 +789,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   >
                     <svg
                       fill="none"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      width="24"
+                      viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
-                        fill="#272727"
+                        d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                        fill="#333"
                       />
                     </svg>
                   </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
                 </button>
               </div>
             </div>
@@ -683,10 +813,10 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
             href="/dulces/receta-rapida-nid06092023/"
             target="_self"
             title="Receta rapida"
@@ -708,31 +838,63 @@ exports[`Tests Carousel Render component with articles 1`] = `
               
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
             >
               <div
-                class="flex flex-column gap-8"
-              >
-                <span
-                  class="text prumo text-ellipsis-3 prumo-medium text-20"
-                >
-                  Receta rapida
-                </span>
-              </div>
-              <div
-                class="flex ai-center gap-16 text-light-600"
+                class="flex flex-column gap-12"
               >
                 <div
-                  class="flex flex-column gap-4 flex-grow-1"
+                  class="flex flex-column gap-4"
+                >
+                  <span
+                    class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                  >
+                    Receta rapida
+                  </span>
+                </div>
+              </div>
+              <div
+                class="flex gap-16 text-light-800 ai-center"
+              >
+                <div
+                  class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
                     class="text text-14"
                   >
                     Por Emilio Ocampo
                   </span>
+                  <div
+                    class="flex ai-center gap-4 opacity-0"
+                  >
+                    <i
+                      class="icon --icon-12 --inherit"
+                    >
+                      <svg
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                          fill="#333"
+                        />
+                        <path
+                          d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                          fill="#333"
+                        />
+                      </svg>
+                    </i>
+                    <span
+                      class="text text-12 roboto-light"
+                    >
+                      null min
+                    </span>
+                  </div>
                 </div>
                 <button
-                  class="flex"
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-variant="link"
                   title="Guardar receta"
                 >
                   <i
@@ -740,17 +902,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   >
                     <svg
                       fill="none"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      width="24"
+                      viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
-                        fill="#272727"
+                        d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                        fill="#333"
                       />
                     </svg>
                   </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
                 </button>
               </div>
             </div>
@@ -761,10 +926,10 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
             href="/clasica/prueba-nota-recetas-nuevo-nid04092023/"
             target="_self"
             title="Prueba nota recetas nuevo"
@@ -786,22 +951,26 @@ exports[`Tests Carousel Render component with articles 1`] = `
               
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
             >
               <div
-                class="flex flex-column gap-8"
-              >
-                <span
-                  class="text prumo text-ellipsis-3 prumo-medium text-20"
-                >
-                  Prueba nota recetas nuevo
-                </span>
-              </div>
-              <div
-                class="flex ai-center gap-16 text-light-600"
+                class="flex flex-column gap-12"
               >
                 <div
-                  class="flex flex-column gap-4 flex-grow-1"
+                  class="flex flex-column gap-4"
+                >
+                  <span
+                    class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                  >
+                    Prueba nota recetas nuevo
+                  </span>
+                </div>
+              </div>
+              <div
+                class="flex gap-16 text-light-800 ai-center"
+              >
+                <div
+                  class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
                     class="text text-14"
@@ -812,28 +981,33 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     class="flex ai-center gap-4"
                   >
                     <i
-                      class="icon --icon-12 --gray"
+                      class="icon --icon-12 --inherit"
                     >
                       <svg
                         fill="none"
-                        viewBox="0 0 12 13"
+                        viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m8.809 3.983.727-.727.707.707-.727.727a4.5 4.5 0 1 1-.707-.707ZM6 10.998a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.5-6h1v3h-1v-3ZM4 1.499h4v1H4v-1Z"
-                          fill="#666"
+                          d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                          fill="#333"
+                        />
+                        <path
+                          d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                          fill="#333"
                         />
                       </svg>
                     </i>
                     <span
-                      class="text text-14 roboto-light"
+                      class="text text-12 roboto-light"
                     >
                       69 min
                     </span>
                   </div>
                 </div>
                 <button
-                  class="flex"
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-variant="link"
                   title="Guardar receta"
                 >
                   <i
@@ -841,17 +1015,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   >
                     <svg
                       fill="none"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      width="24"
+                      viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
-                        fill="#272727"
+                        d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                        fill="#333"
                       />
                     </svg>
                   </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
                 </button>
               </div>
             </div>
@@ -862,10 +1039,10 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
             href="/dieta/vegetarianas/sopa-de-mani-nid24082023/"
             target="_self"
             title="Sopa de mani"
@@ -887,22 +1064,26 @@ exports[`Tests Carousel Render component with articles 1`] = `
               
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
             >
               <div
-                class="flex flex-column gap-8"
-              >
-                <span
-                  class="text prumo text-ellipsis-3 prumo-medium text-20"
-                >
-                  Sopa de mani
-                </span>
-              </div>
-              <div
-                class="flex ai-center gap-16 text-light-600"
+                class="flex flex-column gap-12"
               >
                 <div
-                  class="flex flex-column gap-4 flex-grow-1"
+                  class="flex flex-column gap-4"
+                >
+                  <span
+                    class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                  >
+                    Sopa de mani
+                  </span>
+                </div>
+              </div>
+              <div
+                class="flex gap-16 text-light-800 ai-center"
+              >
+                <div
+                  class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
                     class="text text-14"
@@ -913,28 +1094,33 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     class="flex ai-center gap-4"
                   >
                     <i
-                      class="icon --icon-12 --gray"
+                      class="icon --icon-12 --inherit"
                     >
                       <svg
                         fill="none"
-                        viewBox="0 0 12 13"
+                        viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m8.809 3.983.727-.727.707.707-.727.727a4.5 4.5 0 1 1-.707-.707ZM6 10.998a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.5-6h1v3h-1v-3ZM4 1.499h4v1H4v-1Z"
-                          fill="#666"
+                          d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                          fill="#333"
+                        />
+                        <path
+                          d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                          fill="#333"
                         />
                       </svg>
                     </i>
                     <span
-                      class="text text-14 roboto-light"
+                      class="text text-12 roboto-light"
                     >
                       11 min
                     </span>
                   </div>
                 </div>
                 <button
-                  class="flex"
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-variant="link"
                   title="Guardar receta"
                 >
                   <i
@@ -942,17 +1128,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   >
                     <svg
                       fill="none"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      width="24"
+                      viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
-                        fill="#272727"
+                        d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                        fill="#333"
                       />
                     </svg>
                   </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
                 </button>
               </div>
             </div>
@@ -963,10 +1152,10 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
             href="/dieta/veganas/como-traer-la-tercera-nid24082023/"
             target="_self"
             title="Como traer la tercera"
@@ -986,28 +1175,32 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 />
               </div>
               <span
-                class="foodit-badge inline-flex ai-center gap-4 py-4 px-8 rounded-4 bg-primary-positive text-light-200 text-14 absolute bottom-0 right-0 m-8"
+                class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute bottom-0 left-0 translate-y-50"
               >
                 FÁCIL
               </span>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
             >
               <div
-                class="flex flex-column gap-8"
-              >
-                <span
-                  class="text prumo text-ellipsis-3 prumo-medium text-20"
-                >
-                  Como traer la tercera
-                </span>
-              </div>
-              <div
-                class="flex ai-center gap-16 text-light-600"
+                class="flex flex-column gap-12"
               >
                 <div
-                  class="flex flex-column gap-4 flex-grow-1"
+                  class="flex flex-column gap-4"
+                >
+                  <span
+                    class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                  >
+                    Como traer la tercera
+                  </span>
+                </div>
+              </div>
+              <div
+                class="flex gap-16 text-light-800 ai-center"
+              >
+                <div
+                  class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
                     class="text text-14"
@@ -1018,28 +1211,33 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     class="flex ai-center gap-4"
                   >
                     <i
-                      class="icon --icon-12 --gray"
+                      class="icon --icon-12 --inherit"
                     >
                       <svg
                         fill="none"
-                        viewBox="0 0 12 13"
+                        viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m8.809 3.983.727-.727.707.707-.727.727a4.5 4.5 0 1 1-.707-.707ZM6 10.998a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.5-6h1v3h-1v-3ZM4 1.499h4v1H4v-1Z"
-                          fill="#666"
+                          d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                          fill="#333"
+                        />
+                        <path
+                          d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                          fill="#333"
                         />
                       </svg>
                     </i>
                     <span
-                      class="text text-14 roboto-light"
+                      class="text text-12 roboto-light"
                     >
                       36 min
                     </span>
                   </div>
                 </div>
                 <button
-                  class="flex"
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-variant="link"
                   title="Guardar receta"
                 >
                   <i
@@ -1047,17 +1245,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   >
                     <svg
                       fill="none"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      width="24"
+                      viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
-                        fill="#272727"
+                        d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                        fill="#333"
                       />
                     </svg>
                   </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
                 </button>
               </div>
             </div>
@@ -1068,10 +1269,10 @@ exports[`Tests Carousel Render component with articles 1`] = `
         data-scroller="element"
       >
         <article
-          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto rounded-24 border border-all border-thin border-light-100"
+          class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
         >
           <a
-            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 h-100 text-inherit"
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
             href="/dieta/veganas/prueba-receta-vegana-nid24082023/"
             target="_self"
             title="Prueba receta vegana"
@@ -1092,28 +1293,32 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 />
               </div>
               <span
-                class="foodit-badge inline-flex ai-center gap-4 py-4 px-8 rounded-4 bg-primary-positive text-light-200 text-14 absolute bottom-0 right-0 m-8"
+                class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute bottom-0 left-0 translate-y-50"
               >
                 RÁPIDA
               </span>
             </div>
             <div
-              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 p-16 bg-light-1"
+              class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
             >
               <div
-                class="flex flex-column gap-8"
-              >
-                <span
-                  class="text prumo text-ellipsis-3 prumo-medium text-20"
-                >
-                  Prueba receta vegana
-                </span>
-              </div>
-              <div
-                class="flex ai-center gap-16 text-light-600"
+                class="flex flex-column gap-12"
               >
                 <div
-                  class="flex flex-column gap-4 flex-grow-1"
+                  class="flex flex-column gap-4"
+                >
+                  <span
+                    class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                  >
+                    Prueba receta vegana
+                  </span>
+                </div>
+              </div>
+              <div
+                class="flex gap-16 text-light-800 ai-center"
+              >
+                <div
+                  class="flex flex-column gap-8 flex-grow-1"
                 >
                   <span
                     class="text text-14"
@@ -1124,28 +1329,33 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     class="flex ai-center gap-4"
                   >
                     <i
-                      class="icon --icon-12 --gray"
+                      class="icon --icon-12 --inherit"
                     >
                       <svg
                         fill="none"
-                        viewBox="0 0 12 13"
+                        viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="m8.809 3.983.727-.727.707.707-.727.727a4.5 4.5 0 1 1-.707-.707ZM6 10.998a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm-.5-6h1v3h-1v-3ZM4 1.499h4v1H4v-1Z"
-                          fill="#666"
+                          d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                          fill="#333"
+                        />
+                        <path
+                          d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                          fill="#333"
                         />
                       </svg>
                     </i>
                     <span
-                      class="text text-14 roboto-light"
+                      class="text text-12 roboto-light"
                     >
                       68 min
                     </span>
                   </div>
                 </div>
                 <button
-                  class="flex"
+                  class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-variant="link"
                   title="Guardar receta"
                 >
                   <i
@@ -1153,17 +1363,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   >
                     <svg
                       fill="none"
-                      height="25"
-                      viewBox="0 0 24 25"
-                      width="24"
+                      viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
-                        d="M5 2.00146H19C19.2652 2.00146 19.5196 2.10682 19.7071 2.29436C19.8946 2.48189 20 2.73625 20 3.00146V22.1445C20.0001 22.2339 19.9763 22.3217 19.9309 22.3987C19.8855 22.4758 19.8204 22.5392 19.7421 22.5825C19.6639 22.6258 19.5755 22.6474 19.4861 22.6449C19.3968 22.6424 19.3097 22.616 19.234 22.5685L12 18.0315L4.766 22.5675C4.69037 22.615 4.60339 22.6414 4.5141 22.6439C4.42482 22.6464 4.33649 22.625 4.2583 22.5818C4.1801 22.5386 4.11491 22.4753 4.06948 22.3984C4.02406 22.3215 4.00007 22.2338 4 22.1445V3.00146C4 2.73625 4.10536 2.48189 4.29289 2.29436C4.48043 2.10682 4.73478 2.00146 5 2.00146M18 4.00146H6V19.4335L12 15.6725L18 19.4335V4.00146Z"
-                        fill="#272727"
+                        d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                        fill="#333"
                       />
                     </svg>
                   </i>
+                  <span
+                    class="uppercase none"
+                  >
+                    Guardar
+                  </span>
                 </button>
               </div>
             </div>
@@ -1173,17 +1386,17 @@ exports[`Tests Carousel Render component with articles 1`] = `
     </ul>
     <button
       aria-label="Ir una slide hacia la izquierda"
-      class="button foodit-button gap-8 roboto-bold text-12 absolute z-1 rounded-circle bg-secondary-positive text-dark-800 icon-dark-800 p-12"
+      class="button foodit-button gap-8 roboto-bold text-12 rounded-circle bg-light-1 text-primary-positive border border-all border-thin border-primary-positive p-12 absolute z-1 rounded-circle visibility-hidden"
       data-scroller="arrow"
       data-scroller-direction="prev"
       data-variant="secondary"
       title="Ver anterior"
     >
       <i
-        class="icon --icon-16"
+        class="icon text-primary-positive --icon-16"
       >
         <svg
-          fill="none"
+          fill="currentColor"
           height="24"
           viewBox="0 0 24 24"
           width="24"
@@ -1192,7 +1405,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
           <path
             clip-rule="evenodd"
             d="M10.828 12.364L15.071 16.607C15.4615 16.9975 15.4615 17.6305 15.071 18.021C14.6805 18.4115 14.0475 18.4115 13.657 18.021L8.70711 13.0711C8.31658 12.6806 8.31658 12.0474 8.70711 11.6569L13.657 6.707C14.0475 6.31653 14.6805 6.31653 15.071 6.707C15.4615 7.09747 15.4615 7.73053 15.071 8.121L10.828 12.364Z"
-            fill="#333"
+            fill="currentColor"
             fill-rule="evenodd"
           />
         </svg>
@@ -1200,17 +1413,17 @@ exports[`Tests Carousel Render component with articles 1`] = `
     </button>
     <button
       aria-label="Ir una slide hacia la derecha"
-      class="button foodit-button gap-8 roboto-bold text-12 absolute z-1 rounded-circle bg-secondary-positive text-dark-800 icon-dark-800 p-12"
+      class="button foodit-button gap-8 roboto-bold text-12 rounded-circle bg-light-1 text-primary-positive border border-all border-thin border-primary-positive p-12 absolute z-1 rounded-circle"
       data-scroller="arrow"
       data-scroller-direction="next"
       data-variant="secondary"
       title="Ver siguiente"
     >
       <i
-        class="icon --icon-16"
+        class="icon text-primary-positive --icon-16"
       >
         <svg
-          fill="none"
+          fill="currentColor"
           height="24"
           viewBox="0 0 24 24"
           width="24"
@@ -1219,7 +1432,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
           <path
             clip-rule="evenodd"
             d="M13.172 12L8.92899 7.75699C8.53852 7.36652 8.53852 6.73345 8.92898 6.34299C9.31945 5.95252 9.95252 5.95252 10.343 6.34299L15.2929 11.2929C15.6834 11.6834 15.6834 12.3166 15.2929 12.7071L10.343 17.657C9.95252 18.0475 9.31945 18.0475 8.92898 17.657C8.53852 17.2665 8.53852 16.6335 8.92899 16.243L13.172 12Z"
-            fill="#333"
+            fill="currentColor"
             fill-rule="evenodd"
           />
         </svg>

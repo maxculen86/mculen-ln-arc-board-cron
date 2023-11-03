@@ -38,7 +38,7 @@
   }
 }
 .media-scroller [data-scroller=arrow] {
-  top: 50%;
+  top: 44%;
 }
 .media-scroller [data-scroller=arrow]:hover {
   opacity: 1;
@@ -55,4 +55,13 @@
 .media-scroller [data-scroller-direction=prev] {
   transform: translate3d(-50%, -50%, 0);
   left: 0;
+}
+@media (max-width: 767px) {
+  .media-scroller.hide-mobile [data-scroller=track] {
+    grid-auto-flow: row;
+    grid-auto-columns: 100%;
+  }
+  .media-scroller.hide-mobile [data-scroller=progress] {
+    display: none;
+  }
 }

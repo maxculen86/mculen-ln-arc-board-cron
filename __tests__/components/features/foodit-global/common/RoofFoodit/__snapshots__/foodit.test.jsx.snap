@@ -1,24 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tests RoofFoodit Render component 1`] = `
+exports[`Tests RoofFoodit Should match snapshot 1`] = `
 <div>
   <div
-    class="flex ai-center jc-between gap-24 mb-24"
+    class="flex ai-end jc-between gap-24 mb-24"
   >
-    <h3
-      class="text prumo prumo-extrabold text-28 text-36_md text-40_lg"
+    <a
+      class="link foodit-link flex gap-8 ai-center roboto-bold uppercase prumo prumo-light text-28 text-36_md text-40_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-batata__hover"
+      href="https://lanacion.com.ar/"
+      target="_self"
+      title="Ir a Texto del enlace"
     >
-      Título de prueba
-    </h3>
+      Texto del enlace
+    </a>
     <button
-      class="button foodit-button gap-8 roboto-bold text-12 ml-auto rounded-24 text-light-800 icon-light-800"
+      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 ml-auto"
       data-variant="link"
       text="LLevar al recetario"
     >
       <i
         class="icon w-24 w-16_md --dark"
       >
-        <svg>
+        <svg
+          data-testid="test-icon"
+        >
           icono-de-prueba
         </svg>
       </i>

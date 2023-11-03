@@ -6,7 +6,7 @@ const TopNavigationBar = () => {
     //TODO: contenido de dropdowns, eventos para registrar clicks.
     return (
         <Topnavigationbar className="lg-only">
-            <Dropdown>
+            <Dropdown toggleOn="hover">
                 <Dropdown.Toggle
                     onClick={() => console.log('COCINAR')}
                     className="ai-center roboto-bold text-14"
@@ -24,7 +24,7 @@ const TopNavigationBar = () => {
                     </ul>
                 </Dropdown.Menu>
             </Dropdown>
-            <Dropdown>
+            <Dropdown toggleOn="hover">
                 <Dropdown.Toggle
                     onClick={() => console.log('APRENDER')}
                     className="ai-center roboto-bold text-14"
@@ -42,7 +42,7 @@ const TopNavigationBar = () => {
                     </ul>
                 </Dropdown.Menu>
             </Dropdown>
-            <Dropdown>
+            <Dropdown toggleOn="hover">
                 <Dropdown.Toggle
                     onClick={() => console.log('DESCUBRIR')}
                     className="ai-center roboto-bold text-14"

@@ -7,7 +7,7 @@ export const Carousel = ({ articles }) => {
     return (
         <>
             <Mediascroller
-                className="flex flex-column gap-16"
+                className="flex flex-column gap-16 hide-mobile"
                 elementsToScroll={4}
             >
                 <Mediascroller.Track className="overflow-container">
@@ -18,7 +18,11 @@ export const Carousel = ({ articles }) => {
                 <Mediascroller.Arrows
                     arrowSize={16}
                     buttonTag={props => (
-                        <Button variant="secondary" {...props} />
+                        <Button
+                            variant="secondary"
+                            rounded="rounded-circle"
+                            {...props}
+                        />
                     )}
                 />
                 <Mediascroller.Progress

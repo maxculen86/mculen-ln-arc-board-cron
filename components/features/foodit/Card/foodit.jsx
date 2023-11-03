@@ -13,7 +13,6 @@ import {
 
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import { Card } from '@ln/foodit-ui-card';
-import { Badge } from '@ln/foodit-ui-badge';
 
 import filter from '../../../../content/filters/foodit/home/articleFoodit.js';
 import { getImagesToLoadWithPicture } from '../../../private/LN/common/utils/mediaHelper';
@@ -96,11 +95,7 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
                             loading={isOpening ? 'eager' : 'lazy'}
                             fetchPriority={isOpening ? 'high' : 'low'}
                         />
-                        {!isOpening && tag && (
-                            <Badge className="absolute bottom-0 right-0 m-8">
-                                {tag}
-                            </Badge>
-                        )}
+                        {!isOpening && tag && <Card.Badge>{tag}</Card.Badge>}
                     </Card.Top>
                     <Card.Main title={title}>
                         <Card.Footer
@@ -109,7 +104,8 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
                                 title: 'Guardar receta',
                                 fill: isOpening, // TODO: boolean cuando la receta está guardada
                                 'data-id': articleId,
-                                'data-modal': 'open-modal'
+                                'data-modal': 'open-modal',
+                                text: 'Guardar'
                             }}
                             {...(!isOpening
                                 ? { showTime: true, time: time }

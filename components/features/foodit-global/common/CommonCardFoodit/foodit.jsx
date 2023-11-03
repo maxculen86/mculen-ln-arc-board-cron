@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from '@ln/foodit-ui-card';
-import { Badge } from '@ln/foodit-ui-badge';
+
 const CommonCardFoodit = ({ article = {}, className = '' }) => {
     const {
         title,
@@ -23,11 +23,7 @@ const CommonCardFoodit = ({ article = {}, className = '' }) => {
         >
             <Card.Top>
                 <Card.Image src={url} alt={alt_text} />
-                {tag && (
-                    <Badge className="absolute bottom-0 right-0 m-8">
-                        {tag}
-                    </Badge>
-                )}
+                {tag && <Card.Badge>{tag}</Card.Badge>}
             </Card.Top>
             <Card.Main title={title}>
                 <Card.Footer
@@ -42,7 +38,8 @@ const CommonCardFoodit = ({ article = {}, className = '' }) => {
                             e.preventDefault();
                             e.stopPropagation();
                             console.log('click button');
-                        }
+                        },
+                        text: 'Guardar'
                     }}
                 />
             </Card.Main>

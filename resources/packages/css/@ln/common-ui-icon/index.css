@@ -118,3 +118,6 @@
 .icon.--violet svg > path {
   fill: #00033a;
 }
+.icon.--inherit svg > path {
+  fill: currentColor;
+}

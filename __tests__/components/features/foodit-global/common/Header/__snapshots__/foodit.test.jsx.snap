@@ -60,8 +60,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
                       </i>
                     </button>
                     <div
-                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0 top-0"
+                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max top-100 bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0"
                       data-position="left"
+                      data-visible="false"
                       role="menu"
                     >
                       <ul>
@@ -106,8 +107,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
                       </i>
                     </button>
                     <div
-                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0 top-0"
+                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max top-100 bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0"
                       data-position="center"
+                      data-visible="false"
                       role="menu"
                     >
                       <ul>
@@ -152,8 +154,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
                       </i>
                     </button>
                     <div
-                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0 top-0"
+                      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max top-100 bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0"
                       data-position="right"
+                      data-visible="false"
                       role="menu"
                     >
                       <ul>
@@ -190,12 +193,12 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
                     >
                       <svg
                         fill="none"
-                        viewBox="0 0 16 16"
+                        viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M3.333 1.333h9.334a.667.667 0 0 1 .666.667v12.762a.332.332 0 0 1-.51.283L8 12.02l-4.823 3.024a.333.333 0 0 1-.51-.282V2a.667.667 0 0 1 .666-.667ZM12 2.667H4v10.288l4-2.508 4 2.508V2.667Z"
-                          fill="#272727"
+                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                          fill="#333"
                         />
                       </svg>
                     </i>
@@ -214,12 +217,12 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
                     >
                       <svg
                         fill="none"
-                        viewBox="0 0 16 16"
+                        viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M2.667 4.276.505 2.115l.943-.944 2.161 2.162h10.162a.667.667 0 0 1 .638.858l-1.6 5.334a.667.667 0 0 1-.638.475H4v1.333h7.333v1.334h-8A.667.667 0 0 1 2.667 12V4.276ZM4 4.666v4h7.675l1.2-4H4Zm-.333 10.667a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm8 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-                          fill="#272727"
+                          d="M23.878 7.606a.833.833 0 0 0-.697-.38H5.45L1.42 3.244a.825.825 0 0 0-1.173 0 .802.802 0 0 0 0 1.159L4.26 8.367l2.18 7.221c.11.344.421.58.787.58h12.402a.849.849 0 0 0 .75-.471l3.536-7.312a.787.787 0 0 0-.036-.779Zm-4.745 6.933H7.868L6.146 8.855H21.88l-2.748 5.684ZM6.915 18.937c.293-1.123 1.227-1.503 2.272-1.303 1.044.18 1.776 1.122 1.465 2.008C10.267 20.765 9.278 21 8.619 21c-.861 0-1.997-.923-1.704-2.063ZM16.825 18.937c.293-1.123 1.227-1.503 2.272-1.303 1.044.18 1.776 1.122 1.465 2.008C20.177 20.765 19.188 21 18.529 21c-.861 0-1.979-.923-1.704-2.063Z"
+                          fill="#333"
                         />
                       </svg>
                     </i>
@@ -274,8 +277,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
                     </i>
                   </button>
                   <div
-                    class="dropdown-menu transition-regular absolute z-10 mt-8 w-max bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0 top-0"
+                    class="dropdown-menu transition-regular absolute z-10 mt-8 w-max top-100 bg-light-1 p-24 rounded-16 shadow-center visibility-hidden opacity-0"
                     data-position="right"
+                    data-visible="false"
                     role="menu"
                   >
                     <li
@@ -287,12 +291,12 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
                       >
                         <svg
                           fill="none"
-                          viewBox="0 0 16 16"
+                          viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M3.333 1.333h9.334a.667.667 0 0 1 .666.667v12.762a.332.332 0 0 1-.51.283L8 12.02l-4.823 3.024a.333.333 0 0 1-.51-.282V2a.667.667 0 0 1 .666-.667ZM12 2.667H4v10.288l4-2.508 4 2.508V2.667Z"
-                            fill="#272727"
+                            d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                            fill="#333"
                           />
                         </svg>
                       </i>
@@ -367,12 +371,16 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
                       >
                         <svg
                           fill="none"
-                          viewBox="0 0 25 24"
+                          viewBox="0 0 24 24"
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M12.5 22c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10Zm-4.987-3.744A7.966 7.966 0 0 0 12.5 20a7.97 7.97 0 0 0 5.167-1.892A6.978 6.978 0 0 0 12.66 16a6.982 6.982 0 0 0-5.147 2.256ZM6.116 16.82A8.975 8.975 0 0 1 12.66 14a8.972 8.972 0 0 1 6.362 2.634 8 8 0 1 0-12.906.187v-.001ZM12.5 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
-                            fill="#272727"
+                            d="M21.048 7.28c-1.121-2.798-3.111-4.59-5.59-5-3.527-.597-6.385-.242-8.502 1.082-1.845 1.12-2.731 2.706-3.328 3.769l-.055.112c-1.194 2.09-2.315 5.392-.94 9.235.76 2.108 2.26 3.712 4.36 4.627 1.338.596 2.93.895 4.576.895.47 0 .94-.019 1.411-.075 2.026-.224 3.998-.877 5.554-1.884 1.845-1.194 2.967-2.724 3.256-4.459.434-2.947.199-5.895-.742-8.302Zm-8.285 12.966c-1.9.206-4.016-.037-5.734-.97.307-.466 2.424-3.563 4.884-3.433h.036c3.582 0 4.703 2.817 4.848 3.247a11.824 11.824 0 0 1-4.034 1.156Zm7.38-4.944c-.216 1.269-1.067 2.24-1.935 2.91a6.75 6.75 0 0 0-1.158-1.828c-.886-1.007-2.478-2.201-5.083-2.22-3.292-.168-5.807 3.414-6.277 4.142a6.257 6.257 0 0 1-1.574-2.425c-1.14-3.21-.199-5.989.796-7.761l.072-.112c.543-.97 1.285-2.314 2.786-3.228 1.773-1.1 4.27-1.399 7.417-.858 2.587.43 3.835 2.687 4.36 3.974.796 2.108 1.013 4.795.597 7.406Z"
+                            fill="#333"
+                          />
+                          <path
+                            d="M11.75 13.567c-1.067 0-2.243-.634-3.003-1.641-.687-.915-.923-1.997-.67-3.041.562-2.258 2.389-3.377 4.795-2.93 1.194.225 2.243.952 2.822 1.96.488.84.579 1.81.29 2.705-.634 1.865-2.172 2.947-4.234 2.947Zm.127-6.026c-.85 0-1.846.336-2.207 1.773-.163.69.108 1.25.38 1.604.434.579 1.157.989 1.718.989.959 0 2.189-.317 2.677-1.81.181-.54.018-1.007-.144-1.306-.326-.578-.977-1.026-1.7-1.156a2.339 2.339 0 0 0-.724-.094Z"
+                            fill="#333"
                           />
                         </svg>
                       </i>
@@ -465,8 +473,8 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should ma
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="m18.031 16.617 4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617Zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15Z"
-                fill="#272727"
+                d="m21.758 20.577-4.835-4.882c2.573-2.563 3.085-5.959 1.298-9.566-2.305-4.647-7.514-4.471-9.945-3.728C4.65 3.509 1.24 7.73 2.148 12.02c.487 2.3 2.175 4.294 4.63 5.477 1.375.661 2.827.996 4.175.996 1.086 0 2.105-.218 2.96-.657a13.353 13.353 0 0 0 1.743-1.066l4.935 4.984a.818.818 0 0 0 1.167 0 .838.838 0 0 0 0-1.178Zm-8.596-4.226c-1.446.745-3.673.604-5.673-.36-1.989-.956-3.346-2.53-3.724-4.319-.701-3.307 2.057-6.78 4.988-7.674a8.333 8.333 0 0 1 2.369-.335c2.004 0 4.378.704 5.622 3.212 2.621 5.29-1.12 8.208-3.582 9.476Z"
+                fill="#333"
               />
             </svg>
           </i>

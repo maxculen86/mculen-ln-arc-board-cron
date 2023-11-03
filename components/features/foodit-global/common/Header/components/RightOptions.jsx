@@ -13,8 +13,9 @@ const RightOptions = ({
         <>
             {userType === 'unlogged' && (
                 <Button
+                    variant="link"
                     title="Iniciar sesión"
-                    className="text-uppercase lg-only"
+                    className="lg-only as-center"
                 >
                     INICIAR SESIÓN
                 </Button>

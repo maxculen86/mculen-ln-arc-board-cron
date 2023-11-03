@@ -24,9 +24,7 @@ describe('CommonCardFoodit', () => {
         expect(screen.getByText('rica')).toBeTruthy();
         expect(screen.getByAltText('Tortilla de patatas')).toBeTruthy();
         expect(screen.getByText('30 min')).toBeTruthy();
-        expect(
-            screen.getByRole('button', { name: 'Guardar receta' })
-        ).toBeTruthy();
+        expect(screen.getByRole('button', { name: 'Guardar' })).toBeTruthy();
         expect(screen.getByRole('link')).toHaveAttribute('href', article.href);
         expect(container).toMatchSnapshot();
     });

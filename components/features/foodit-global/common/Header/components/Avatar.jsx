@@ -56,7 +56,7 @@ const AvatarRecetas = ({
                 {initials}
             </Avatar.Initials>
             <Avatar.MailAndSuscription>
-                <Dropdown>
+                <Dropdown toggleOn="hover">
                     <Dropdown.Toggle
                         onClick={() => console.log('AVATAR')}
                         className="email-container ai-center roboto-bold text-14"

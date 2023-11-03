@@ -14,8 +14,8 @@ const FooterSaveRecipe = ({
     return (
         <footer className="flex gap-16 as-end">
             <Button
-                variant="accent"
-                title="Guardar"
+                variant="secondary"
+                title="Cancelar"
                 size={40}
                 onClick={() =>
                     actionButtons({
@@ -32,7 +32,7 @@ const FooterSaveRecipe = ({
                 {leftButton.text}
             </Button>
             <Button
-                variant="accent"
+                variant="primary"
                 title="Guardar"
                 size={40}
                 onClick={() =>
