@@ -15,6 +15,7 @@ import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/util
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
 import StaticContent from '../private/common/staticContent';
 import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
+import get from '../private/common/utils/get';
 
 const lnNotaFotoAl100 = ({
     children: [
@@ -48,7 +49,10 @@ const lnNotaFotoAl100 = ({
             listOfAllowedSection,
             noteType: subtype
         }) && !amp;
-
+    const withoutVideoBackground = !Boolean(
+        get(globalContent, 'promo_items.storytelling', null) ||
+            get(globalContent, 'promo_items.video_jw', null)
+    );
     const classNameWrapper = classNames(
         'wrapper',
         '--top-fixed',
@@ -65,11 +69,17 @@ const lnNotaFotoAl100 = ({
                 <Header />
                 <main id="content" className="--header-fixed-margin">
                     {preTitulo}
-                    <StaticContent>
+                    {isLoadWithPicture && withoutVideoBackground ? (
+                        <StaticContent>
+                            <AperturaStorytelling
+                                isLoadWithPicture={isLoadWithPicture}
+                            />
+                        </StaticContent>
+                    ) : (
                         <AperturaStorytelling
                             isLoadWithPicture={isLoadWithPicture}
                         />
-                    </StaticContent>
+                    )}
                     <div className="row">
                         {leftCuerpo}
                         {cuerpo}

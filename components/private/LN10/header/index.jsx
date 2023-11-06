@@ -27,7 +27,7 @@ const HeaderLN = props => {
         siteProperties: { layoutsName = {} },
         layout,
         arcSite,
-        globalContent: { _id: sectionId = '' }
+        globalContent: { _id: sectionId = '' } = {}
     } = props;
 
     const [dropdown, setDropdown] = useState(false);

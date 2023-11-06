@@ -1,35 +1,37 @@
-const bodyBottom = 'body-bottom';
+const BODYBOTTOM = 'body-bottom';
+const BODYTOP = 'body-top';
+const HEAD = 'head';
 
 export default {
     AmazonPublisherServices: {
         props: {},
-        location: ['head']
+        location: [HEAD]
     },
-    Datadog: { props: {}, location: ['head'] },
+    Datadog: { props: {}, location: [HEAD] },
     ScriptVideoPowa: {
         props: {},
-        location: ['head']
+        location: [HEAD]
     },
-    Permutive: { props: {}, location: ['head'] },
+    Permutive: { props: {}, location: [HEAD] },
     ScriptCripto: {
         props: {},
-        location: [bodyBottom]
+        location: [BODYBOTTOM]
     },
     GTM: {
         props: { id: 'GTM-GHV6', idAMP: 'GTM-PRT86FH' },
-        location: ['head', 'body-top']
+        location: [HEAD, BODYTOP]
     },
     PostBid: {
         props: {},
-        location: ['head']
+        location: [HEAD]
     },
     ArcAds: {
         props: {},
-        location: ['head']
+        location: [HEAD]
     },
     FacebookSDK: {
         props: {},
-        location: ['head']
+        location: [HEAD]
     },
     Comscore: {
         props: {
@@ -38,62 +40,63 @@ export default {
                 c2: '6906398'
             }
         },
-        location: ['head']
+        location: [HEAD]
     },
     Petametrics: {
         props: {},
-        location: ['head']
+        location: [HEAD]
     },
     AdblockDetector: {
         props: {},
-        location: [bodyBottom]
+        location: [BODYBOTTOM]
     },
     NewsMediaOrganization: {
         props: {},
-        location: ['head']
+        location: [HEAD]
     },
     LiftIgniter: {
         props: {},
-        location: ['body-top']
+        location: [BODYTOP]
     },
     GooglePublisherTag: {
         props: {},
-        location: ['head']
+        location: [HEAD]
     },
     GooglePublisherTagAcumulado: {
         props: {},
-        location: ['head']
+        location: [HEAD]
     },
     SocialEmbeds: {
         props: {},
-        location: ['body-top']
+        location: [BODYTOP]
     },
     OptaEmbed: {
         props: {},
-        location: ['head']
+        location: [HEAD]
     },
     ScriptHtmlLibre: {
         props: {},
-        location: ['head']
+        location: [HEAD]
     },
     Blockthrough: {
         props: {},
-        location: [bodyBottom]
+        location: [BODYBOTTOM]
     },
     Queryly: {
         props: {},
-        location: [bodyBottom]
+        location: [BODYBOTTOM]
     },
     Viafoura: {
         props: {},
-        location: [bodyBottom]
+        location: [BODYBOTTOM]
     },
     ComscoreVideo: {
         props: {},
-        location: ['body-top']
+        location: [BODYTOP]
     },
     DevReactTracker: {
         props: {},
-        location: ['head']
-    }
+        location: [HEAD]
+    },
+    Marfeel: { props: {}, location: [BODYBOTTOM] }
 };

@@ -20,6 +20,7 @@ jest.mock(
 
 describe('components - private - common -videoPlayerJw', () => {
     const mockTitle = 'MockTitle';
+    const idVideo = 'yPJ53Pzg';
     const mockPlaylist = [
         {
             images: ['image1.jpg', 'image2.jpg'],
@@ -27,9 +28,11 @@ describe('components - private - common -videoPlayerJw', () => {
         }
     ];
     it('should check that facade component renders correctly', () => {
-        render(<Facade title={mockTitle} playlist={mockPlaylist} />);
+        render(
+            <Facade id={idVideo} title={mockTitle} playlist={mockPlaylist} />
+        );
 
-        const facadeDiv = document.querySelector(`#facade-${mockTitle}`);
+        const facadeDiv = document.querySelector(`#facade-${idVideo}`);
         expect(facadeDiv).toBeInTheDocument();
 
         const adaptableImage = screen.getByAltText('Mock Adaptableimage');

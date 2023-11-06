@@ -31,8 +31,12 @@ const videoPlayerJW = ({ data, parrafo, tituloNota, hasAutoplay }) => {
                 <div className="mod-video">
                     {outputType !== 'amp' ? (
                         <div className="video-player --background --ar-16-9">
-                            <Facade title={title} playlist={playlist} />
-                            <div id={title} />
+                            <Facade
+                                id={mediaid}
+                                playlist={playlist}
+                                title={title}
+                            />
+                            <div id={mediaid} />
                             <script
                                 dangerouslySetInnerHTML={{
                                     __html: getJWScript(

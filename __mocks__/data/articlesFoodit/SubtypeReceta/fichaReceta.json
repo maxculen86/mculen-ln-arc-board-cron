@@ -1,0 +1,282 @@
+{
+    "_id": "6YTYZNJHLBCKRK3U62UGQCJXFY",
+    "canonical_url": "/recetas/receta-para-comer-mas-rico-con-milanesas-nid18092023/",
+    "category": "Pollo",
+    "comments": {
+        "allow_comments": true,
+        "display_comments": true
+    },
+    "content_elements": [
+        {
+            "powerUp": [
+                {
+                    "_id": "QSYRC5QNRBE2LNZIHBOWFJ3JP4",
+                    "embed": {
+                        "config": {
+                            "items": ["carne ", "pollo", "pan rayado"],
+                            "titleList": "Milensa",
+                            "typeList": "ingredientes"
+                        }
+                    },
+                    "subtype": "custom-ingrediente",
+                    "type": "custom_embed"
+                }
+            ],
+            "subtype": "power-up-receta",
+            "type": "custom_embed"
+        }
+    ],
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "created_date": "2023-09-06T21:14:33.169Z",
+    "credits": {
+        "by": [
+            {
+                "_id": "elisabetta-pique",
+                "additional_properties": {
+                    "original": {
+                        "author_type": "Estándar",
+                        "byline": "Elisabetta Piqué",
+                        "image": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F31%2F2089231.png?auth=1bc7c4692c820c7eee35fdaf9862e02133269f4a864bf1599d07a037bb09ee20&width=80&quality=70&smart=false",
+                        "role": "LA NACION"
+                    }
+                },
+                "image": {
+                    "auth": {
+                        "1": "1bc7c4692c820c7eee35fdaf9862e02133269f4a864bf1599d07a037bb09ee20"
+                    },
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 80,
+                                "media": "(min-width: 320px)",
+                                "width": 80
+                            },
+                            "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F31%2F2089231.png?auth=1bc7c4692c820c7eee35fdaf9862e02133269f4a864bf1599d07a037bb09ee20&width=80&quality=70&smart=false"
+                        }
+                    ],
+                    "url": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F31%2F2089231.png?auth=1bc7c4692c820c7eee35fdaf9862e02133269f4a864bf1599d07a037bb09ee20&width=768&quality=70&smart=false"
+                },
+                "name": "Elisabetta Piqué",
+                "slug": "elisabetta-pique",
+                "type": "author"
+            },
+            {
+                "_id": "ariel-torres",
+                "additional_properties": {
+                    "original": {
+                        "author_type": "Estándar",
+                        "byline": "Ariel Torres",
+                        "image": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F11%2F2089211.png?auth=85141819f19bcdcb5e044083ba455bb985545f5cafe83fcd0500a11bdaf11b99&width=80&quality=70&smart=false",
+                        "role": "LA NACION"
+                    }
+                },
+                "image": {
+                    "auth": {
+                        "1": "85141819f19bcdcb5e044083ba455bb985545f5cafe83fcd0500a11bdaf11b99"
+                    },
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 80,
+                                "media": "(min-width: 320px)",
+                                "width": 80
+                            },
+                            "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F11%2F2089211.png?auth=85141819f19bcdcb5e044083ba455bb985545f5cafe83fcd0500a11bdaf11b99&width=80&quality=70&smart=false"
+                        }
+                    ],
+                    "url": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F11%2F2089211.png?auth=85141819f19bcdcb5e044083ba455bb985545f5cafe83fcd0500a11bdaf11b99&width=768&quality=70&smart=false"
+                },
+                "name": "Ariel Torres",
+                "slug": "ariel-torres",
+                "type": "author"
+            },
+            {
+                "additional_properties": {
+                    "original": {
+                        "author_type": "GOAT"
+                    }
+                },
+                "name": "Leo Mechi",
+                "type": "author"
+            }
+        ]
+    },
+    "description": {
+        "basic": ""
+    },
+    "display_date": "2023-09-11T14:35:16.826Z",
+    "distributor": {
+        "category": "staff",
+        "name": "LA NACION",
+        "reference_id": "a19656bb-25db-481a-9492-55e88b0ff568"
+    },
+    "first_publish_date": "2023-09-06T21:15:23.311Z",
+    "headlines": {
+        "basic": "Receta para comer mas rico con ...MILANESAS ",
+        "meta_title": "",
+        "mobile": ""
+    },
+    "isListenable": false,
+    "label": {
+        "edicion": {
+            "display": true,
+            "text": "Digital"
+        },
+        "enviar_a_apps": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "metarefresh": {
+            "display": true,
+            "text": "Si"
+        },
+        "mostrar_banners": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "recomendar": {
+            "display": true,
+            "text": "Si",
+            "url": ""
+        },
+        "trust": {
+            "text": "Noticia Original"
+        }
+    },
+    "last_updated_date": "2023-11-02T15:25:48.789Z",
+    "owner": {
+        "sponsored": false
+    },
+    "paywallEnabled": "",
+    "promo_items": {
+        "basic": {
+            "_id": "QIMN3EHZZBHCFIOTSI6W6YHBJY",
+            "additional_properties": {},
+            "auth": {
+                "1": "3ff6e6c5380b892cfea80e335c062ca52c16b8a5e04a5d4635c54f0ac3e3e915"
+            },
+            "caption": "Acompañá las patas de pollo con zucchinis",
+            "created_date": "2019-12-04T02:21:52Z",
+            "description": {
+                "basic": "Acompañá las patas de pollo con zucchinis"
+            },
+            "distributor": {
+                "name": ""
+            },
+            "height": 400,
+            "publish_date": "2014-01-21T15:34:00Z",
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 587,
+                        "media_preload": "(min-width: 768px)",
+                        "minScreenWidth": 768,
+                        "proportion": "3:2",
+                        "width": 880
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/acompana-las-patas-de-pollo-con-QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg?auth=3ff6e6c5380b892cfea80e335c062ca52c16b8a5e04a5d4635c54f0ac3e3e915&width=880&height=586&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 280,
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "3:2",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/acompana-las-patas-de-pollo-con-QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg?auth=3ff6e6c5380b892cfea80e335c062ca52c16b8a5e04a5d4635c54f0ac3e3e915&width=420&height=280&quality=70&smart=true"
+                }
+            ],
+            "subtitle": "Patas de pollo",
+            "type": "image",
+            "url": "https://sandbox.lanacion.com.ar/resizer/v2/acompana-las-patas-de-pollo-con-QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg?auth=3ff6e6c5380b892cfea80e335c062ca52c16b8a5e04a5d4635c54f0ac3e3e915&width=768&height=512&quality=70&smart=true",
+            "width": 600
+        },
+        "receta": {
+            "embed": {
+                "config": {
+                    "cookTime": 18,
+                    "cookingTypes": ["A la cazuela"],
+                    "counterPortion": 1,
+                    "counterTime": 21,
+                    "occasions": ["Día de la Juventud", "Día de la Amistad"],
+                    "prepTime": 3,
+                    "regions": ["Sueca"],
+                    "title": "detalle-receta"
+                }
+            },
+            "subtype": "custom-detalle-receta"
+        }
+    },
+    "publish_date": "2023-11-02T15:25:48.436Z",
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "subheadlines": {
+        "basic": "con 10k me hago alta milanga"
+    },
+    "subtype": "7",
+    "syndication": {
+        "external_distribution": true,
+        "search": true
+    },
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/recetas/saladas/pollo",
+            "_website": "foodit",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {
+                        "default": ["/recetas", "/recetas/saladas"]
+                    },
+                    "site": {}
+                }
+            },
+            "name": "Pollo",
+            "parent_id": "/recetas/saladas",
+            "path": "/recetas/saladas/pollo",
+            "type": "section"
+        },
+        "sections": [
+            {
+                "_id": "/recetas/saladas/pollo",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": ["/recetas", "/recetas/saladas"]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Pollo",
+                "parent_id": "/recetas/saladas",
+                "path": "/recetas/saladas/pollo",
+                "type": "section"
+            },
+            {
+                "_id": "/salados/pollo",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": []
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Pollo",
+                "path": "/salados/pollo",
+                "type": "section"
+            }
+        ]
+    },
+    "type": "story",
+    "website_url": "/recetas/receta-para-comer-mas-rico-con-milanesas-nid18092023/",
+    "withFirmaDistributor": false,
+    "withSponsoredLink": false
+}

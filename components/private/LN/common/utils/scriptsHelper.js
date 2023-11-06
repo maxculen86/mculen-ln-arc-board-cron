@@ -19,6 +19,7 @@ import AdblockDetector from '../../../common/scriptManager/adblockDetector';
 import ScriptCripto from '../../../common/scriptManager/scriptCripto';
 import Permutive from '../../../common/scriptManager/Permutive';
 import { pipe } from '../../../common/utils/functional';
+import Marfeel from '../../../common/scriptManager/Marfeel';
 
 const scriptList = [
     {
@@ -99,7 +100,8 @@ const scriptList = [
             function: DevReactTracker
         },
         feature: 'none'
-    }
+    },
+    { component: { name: 'Marfeel', function: Marfeel }, feature: 'none' }
 ];
 
 const getPageBuilderFeatures = _renderables =>

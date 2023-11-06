@@ -114,7 +114,7 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
                 'https://resizer.glanacion.com/resizer/9K6El1ZrB_23M3Dl3l_R4toMTxw=/280x0/filters:format(webp):quality(70)/s3.amazonaws.com/arc-authors/lanacionar/271850b8-5085-4004-b5ef-6d95e1c04cf4.png',
             twitter: '@josedel_rio',
             interests: undefined,
-            mail: undefined,
+            mail: 'jdelrio@lanacion.com.ar',
             role: 'LA NACION'
         });
     });
@@ -209,7 +209,7 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
             languages: 'Español, Inglés',
             books: [],
             interests: undefined,
-            mail: undefined,
+            mail: 'jdelrio@lanacion.com.ar',
             role: 'LA NACION',
             affiliations: undefined
         });

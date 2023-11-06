@@ -48,7 +48,7 @@ describe('componentes - private - common - videoPlayerJw', () => {
                 hasAutoplay={true}
             />
         );
-        const facadeDiv = document.querySelector(`#facade-MockTitle`);
+        const facadeDiv = document.querySelector(`#facade-yPJ53Pzg`);
 
         expect(facadeDiv).toBeInTheDocument();
     });
@@ -62,7 +62,7 @@ describe('componentes - private - common - videoPlayerJw', () => {
                 hasAutoplay={true}
             />
         );
-        const videoPlayerDiv = document.querySelector(`#MockTitle`);
+        const videoPlayerDiv = document.querySelector(`#yPJ53Pzg`);
 
         expect(videoPlayerDiv).toBeInTheDocument();
     });
