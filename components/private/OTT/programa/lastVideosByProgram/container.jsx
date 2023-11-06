@@ -1,4 +1,5 @@
 import React from 'react';
+import { useContent } from 'fusion:content';
 import withLastVideosBySection from '../../../common/hocs/withLastVideosBySection';
 import LastVideosByProgramComponent from './component';
 import filter from '../../../../../content/filters/OTT/homeVideoItem';
@@ -6,10 +7,19 @@ import filter from '../../../../../content/filters/OTT/homeVideoItem';
 const PAGE_SIZE = 12;
 
 const LastVideosByProgram = props => {
-    if (!props.videos) return <></>;
+    const { jwVideosformatted = [] } = useContent({
+        source:
+            (props.globalContent.name && 'ottProgramVideosJwSource') || null,
+        query: {
+            sectionId: props.globalContent.name
+        }
+    });
+
+    if (!jwVideosformatted) return <></>;
+
     return (
         <LastVideosByProgramComponent
-            videos={props.videos}
+            videos={jwVideosformatted}
             nextPageHandler={props.nextPage}
             hasNext={props.hasNextPage}
             programName={props.globalContent && props.globalContent.name}

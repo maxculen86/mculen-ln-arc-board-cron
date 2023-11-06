@@ -71,5 +71,7 @@ export default {
     LOGIN_URL: 'https://qa-ingresar.lanacion.com.ar/auth0-login/?callback=',
     API_INGRESAR: 'https://qa-api-ingresar.lanacion.com.ar',
     CLL_BACK_BASE_URL: 'https://qa-api-cll-services.lanacion.com.ar/graphql/',
-    CLL_BACK_API_KEY: 'da2-r4webaw455h2jgund52rugagpe'
+    CLL_BACK_API_KEY: 'da2-r4webaw455h2jgund52rugagpe',
+    JWP_TOKE:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHlA2jUvxj+ey+zZiBAe3MOAAAApjCBowYJKoZIhvcNAQcGoIGVMIGSAgEAMIGMBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDN2vbS7VCeoGV3LfoAIBEIBfPdrJEEeMvrvz/07ci9dEJt+nfOY4JzanaHtPLHc4lX73pXElrzPGYyKLjqxbO+C+93w8N+t1vB6ejcAzfVbHj4N+HtgNFhSFG3kjO5gRwIp0kBsmYrKX78PJgtie3Y4=}'
 };
