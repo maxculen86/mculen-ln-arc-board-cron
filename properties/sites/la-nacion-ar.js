@@ -59,7 +59,8 @@ export default {
         OttFicha: 'OTT-ficha',
         StoryTelling: 'LN-nota-storytelling',
         Video: 'LN-nota-video',
-        HtmlLibre: 'LN-nota-html-libre'
+        HtmlLibre: 'LN-nota-html-libre',
+        Infografia: 'LN-nota-infografia'
     },
     notRecommendedSections: ['recetas']
 };

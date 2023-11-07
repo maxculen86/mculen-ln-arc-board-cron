@@ -6450,7 +6450,7 @@ a {
   --crucigrama: #e1435f;
   --palabras-cruzadas: #ca67d2;
   --sopa-de-letras: #ecb535;
-  --telar: #5bbb87;
+  --el-telar: #5bbb87;
   --trivias: #69c7c3;
   --neutral-light-900: #1a1a1a;
   --neutral-light-700: #4d4d4d;
@@ -6694,8 +6694,8 @@ a {
   background: var(--sopa-de-letras);
 }
 
-.bg-telar {
-  background: var(--telar);
+.bg-el-telar {
+  background: var(--el-telar);
 }
 
 .bg-trivias {
