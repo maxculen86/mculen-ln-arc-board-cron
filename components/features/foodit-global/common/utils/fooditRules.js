@@ -17,7 +17,7 @@ const fooditRules = diagramation => {
         [CAROUSEL]: {
             size: size.small,
             minArticles: 4,
-            maxArticles: 12,
+            maxArticles: 8,
             roofAs: tag.h1,
             isStatic: false,
             classNameRoof: 'mb-24'

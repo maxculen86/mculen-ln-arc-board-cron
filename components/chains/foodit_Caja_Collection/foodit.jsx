@@ -63,25 +63,10 @@ const CajaCollection = props => {
 CajaCollection.label = 'foodit Caja Collection';
 
 CajaCollection.propTypes = {
-    id: PropTypes.string.isRequired,
     isAdmin: PropTypes.bool,
-    outputType: PropTypes.string,
-    renderables: PropTypes.arrayOf(
-        PropTypes.shape({
-            type: PropTypes.string,
-            props: PropTypes.shape({
-                customFields: PropTypes.shape({
-                    layout: PropTypes.string,
-                    idCollection: PropTypes.string,
-                    initialPosition: PropTypes.number
-                })
-            })
-        })
-    ),
     customFields: PropTypes.shape({
         ...setChainFooditCustomFields('cajaCollection')
     }),
-    tree: PropTypes.shape(PropTypes.node),
     globalContent: PropTypes.shape({
         name: PropTypes.string
     })
