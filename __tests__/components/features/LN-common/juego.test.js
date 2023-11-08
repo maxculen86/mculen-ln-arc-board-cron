@@ -1,0 +1,97 @@
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import Game from '../../../../components/features/LN-common/juego';
+import Context from 'fusion:context';
+import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
+import getGameProperties from '../../../../components/private/LN/common/utils/getGameProperties';
+
+jest.mock('fusion:context', () => () => ({
+    default: props => {
+        const mockAvailableProps = {};
+        return props.children(mockAvailableProps);
+    },
+    useAppContext: jest.fn(() => ({}))
+}));
+
+jest.mock('fusion:consumer', component => {
+    return function(component) {
+        return component;
+    };
+});
+
+jest.mock(
+    '../../../../components/private/LN/common/utils/getGameProperties',
+    () => ({
+        __esModule: true,
+        default: jest.fn()
+    })
+);
+
+const mockContextValue = {
+    isAdmin: true
+    // ... add other necessary context values here
+};
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn(() => mockContextValue)
+}));
+
+const getAssetsPath = contextPath => deployment => path =>
+    `${contextPath}/${deployment}/${path}`;
+
+getGameProperties.mockReturnValue({
+    title: 'Criptograma',
+    logo: {
+        src: getAssetsPath('/pf')('assets')('games/criptograma.svg')
+    },
+    borderColor: 'bg-criptograma'
+});
+
+describe('Game Component', () => {
+    Context.useAppContext = jest.fn(() => ({}));
+
+    it('renders warning message when sectionId is falsy and isAdmin is true ', () => {
+        const customFields = { sectionId: '', gameType: 'SomeType' };
+        render(
+            <Game
+                id="test-feature"
+                customFields={customFields}
+                isAdmin={true}
+            />
+        );
+
+        const warningMessage = screen.queryByText(
+            'El sectionId es un campo obligatorio'
+        );
+        expect(warningMessage).toBeInTheDocument();
+    });
+
+    it('does not render warning message when sectionId is falsy and isAdmin is false', () => {
+        const customFields = {
+            sectionId: '',
+            gameType: 'SomeType',
+            isAdmin: false
+        };
+        render(<Game id="test-feature" customFields={customFields} />);
+
+        expect(
+            screen.queryByText('El sectionId es un campo obligatorio')
+        ).not.toBeInTheDocument();
+    });
+
+    it('renders GameCard with href as sectionId when gameType is Externo', () => {
+        const customFields = {
+            sectionId: '/juegos/criptograma',
+            gameType: 'Externo'
+        };
+        render(<Game customFields={customFields} />);
+
+        const gameCardLink = screen.getByRole('link', { name: /Criptograma/ });
+        expect(gameCardLink).toHaveAttribute('href', '/juegos/criptograma');
+
+        expect(screen.getByText('Criptograma')).toBeInTheDocument();
+
+        const gameCardDiv = gameCardLink.querySelector('div');
+        expect(gameCardDiv).toHaveClass('bg-criptograma');
+    });
+});
