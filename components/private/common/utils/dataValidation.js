@@ -1,5 +1,8 @@
 export const isValidNumber = number => typeof number === 'number';
 
+export const isValidNonZeroNumber = number =>
+    isValidNumber(number) && number !== 0;
+
 export const isValidString = string => typeof string === 'string';
 
 export const isEmptyString = string => {
