@@ -88,6 +88,11 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                     />
                   </svg>
                 </i>
+                <span
+                  class="text text-12 roboto-light"
+                >
+                  false min
+                </span>
               </div>
             </div>
             <button
@@ -212,7 +217,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
                 <span
                   class="text text-12 roboto-light"
                 >
-                  7
+                  7 min
                 </span>
               </div>
             </div>
@@ -342,7 +347,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
                 <span
                   class="text text-12 roboto-light"
                 >
-                  4
+                  4 min
                 </span>
               </div>
             </div>

@@ -12,13 +12,13 @@ import {
 } from '../../foodit-global/common/utils/notaFooditHelper.js';
 
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
-import { Card } from '@ln/foodit-ui-card';
 
 import filter from '../../../../content/filters/foodit/home/articleFoodit.js';
 import { getImagesToLoadWithPicture } from '../../../private/LN/common/utils/mediaHelper';
 import StaticContent from '../../../private/common/staticContent';
 import fooditRules from '../../foodit-global/common/utils/fooditRules';
 import classNames from 'classnames';
+import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit.jsx';
 
 const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
     const articleId = checkForId(id);
@@ -82,37 +82,23 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
     return (
         <StaticContent className={staticContentClassName} key={featureId}>
             {!error && articleContent && (
-                <Card
-                    linkProps={{ href, title }}
+                <CommonCardFoodit
+                    articleId={articleId}
+                    showTime={!isOpening}
+                    time={!isOpening && time}
+                    linksProps={{ href, title }}
+                    size={!isOpening && size}
                     variant={isOpening ? 'day-recipe' : variant}
-                    {...(!isOpening ? { size } : {})}
-                >
-                    <Card.Top>
-                        <Card.Image
-                            src={url}
-                            alt={alt_text}
-                            sources={getImagesToLoadWithPicture(resized_urls)}
-                            loading={isOpening ? 'eager' : 'lazy'}
-                            fetchPriority={isOpening ? 'high' : 'low'}
-                        />
-                        {!isOpening && tag && <Card.Badge>{tag}</Card.Badge>}
-                    </Card.Top>
-                    <Card.Main title={title}>
-                        <Card.Footer
-                            author={author}
-                            buttonProps={{
-                                title: 'Guardar receta',
-                                fill: isOpening, // TODO: boolean cuando la receta está guardada
-                                'data-id': articleId,
-                                'data-modal': 'open-modal',
-                                text: 'Guardar'
-                            }}
-                            {...(!isOpening
-                                ? { showTime: true, time: time }
-                                : {})}
-                        />
-                    </Card.Main>
-                </Card>
+                    src={url}
+                    alt={alt_text}
+                    sources={getImagesToLoadWithPicture(resized_urls)}
+                    loading={isOpening ? 'eager' : 'lazy'}
+                    fetchPriority={isOpening ? 'high' : 'low'}
+                    tag={!isOpening && tag}
+                    title={title}
+                    author={author}
+                    fill={isOpening} // TODO: boolean cuando la receta está guardada
+                />
             )}
         </StaticContent>
     );

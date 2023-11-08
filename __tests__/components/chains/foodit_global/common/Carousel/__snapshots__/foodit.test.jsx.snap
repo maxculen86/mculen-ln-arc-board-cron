@@ -29,14 +29,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
               >
-                <img
-                  alt="Hamburguesa de carne vacuna (Pixabay)"
-                  class="image flex card-image ratio-3-2 w-100"
-                  decoding="async"
-                  fetchpriority="low"
-                  loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="https://resizer.glanacion.com/resizer/-T5F1KO-3Gu4_hHJHlbjAkEhREM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                  />
+                  <img
+                    alt="Hamburguesa de carne vacuna (Pixabay)"
+                    class="image flex card-image ratio-3-2 w-100"
+                    decoding="async"
+                    fetchpriority="low"
+                    loading="lazy"
+                    src="https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                  />
+                </picture>
               </div>
               
             </div>
@@ -97,6 +103,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
                 >
@@ -143,14 +150,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
               >
-                <img
-                  alt="Hamburguesa de carne vacuna (Pixabay)"
-                  class="image flex card-image ratio-3-2 w-100"
-                  decoding="async"
-                  fetchpriority="low"
-                  loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="https://resizer.glanacion.com/resizer/-T5F1KO-3Gu4_hHJHlbjAkEhREM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                  />
+                  <img
+                    alt="Hamburguesa de carne vacuna (Pixabay)"
+                    class="image flex card-image ratio-3-2 w-100"
+                    decoding="async"
+                    fetchpriority="low"
+                    loading="lazy"
+                    src="https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                  />
+                </picture>
               </div>
               
             </div>
@@ -211,6 +224,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
                 >
@@ -257,14 +271,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
               >
-                <img
-                  alt="Hamburguesa de carne vacuna (Pixabay)"
-                  class="image flex card-image ratio-3-2 w-100"
-                  decoding="async"
-                  fetchpriority="low"
-                  loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="https://resizer.glanacion.com/resizer/-T5F1KO-3Gu4_hHJHlbjAkEhREM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                  />
+                  <img
+                    alt="Hamburguesa de carne vacuna (Pixabay)"
+                    class="image flex card-image ratio-3-2 w-100"
+                    decoding="async"
+                    fetchpriority="low"
+                    loading="lazy"
+                    src="https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                  />
+                </picture>
               </div>
               
             </div>
@@ -325,6 +345,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
                 >
@@ -371,14 +392,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
               >
-                <img
-                  alt="Acompañá las patas de pollo con zucchinis"
-                  class="image flex card-image ratio-3-2 w-100"
-                  decoding="async"
-                  fetchpriority="low"
-                  loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/HYbSynyGCPurUAS4sNRW1i0qXyI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="https://resizer.glanacion.com/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                  />
+                  <img
+                    alt="Acompañá las patas de pollo con zucchinis"
+                    class="image flex card-image ratio-3-2 w-100"
+                    decoding="async"
+                    fetchpriority="low"
+                    loading="lazy"
+                    src="https://resizer.glanacion.com/resizer/HYbSynyGCPurUAS4sNRW1i0qXyI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                  />
+                </picture>
               </div>
               
             </div>
@@ -439,6 +466,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
                 >
@@ -485,14 +513,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
               >
-                <img
-                  alt=""
-                  class="image flex card-image ratio-3-2 w-100"
-                  decoding="async"
-                  fetchpriority="low"
-                  loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/sjKjOz-Qkwp1fWlFQXqG-lAgTMI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="https://resizer.glanacion.com/resizer/JCYWqHBocu_465twQ4jXqcvKTY8=/420x280/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
+                  />
+                  <img
+                    alt=""
+                    class="image flex card-image ratio-3-2 w-100"
+                    decoding="async"
+                    fetchpriority="low"
+                    loading="lazy"
+                    src="https://resizer.glanacion.com/resizer/sjKjOz-Qkwp1fWlFQXqG-lAgTMI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
+                  />
+                </picture>
               </div>
               
             </div>
@@ -553,6 +587,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
                 >
@@ -599,14 +634,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
               >
-                <img
-                  alt="Acompañá las patas de pollo con zucchinis"
-                  class="image flex card-image ratio-3-2 w-100"
-                  decoding="async"
-                  fetchpriority="low"
-                  loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/HYbSynyGCPurUAS4sNRW1i0qXyI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="https://resizer.glanacion.com/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                  />
+                  <img
+                    alt="Acompañá las patas de pollo con zucchinis"
+                    class="image flex card-image ratio-3-2 w-100"
+                    decoding="async"
+                    fetchpriority="low"
+                    loading="lazy"
+                    src="https://resizer.glanacion.com/resizer/HYbSynyGCPurUAS4sNRW1i0qXyI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                  />
+                </picture>
               </div>
               
             </div>
@@ -667,6 +708,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
                 >
@@ -713,14 +755,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
               >
-                <img
-                  alt="Hamburguesa de carne vacuna (Pixabay)"
-                  class="image flex card-image ratio-3-2 w-100"
-                  decoding="async"
-                  fetchpriority="low"
-                  loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="https://resizer.glanacion.com/resizer/-T5F1KO-3Gu4_hHJHlbjAkEhREM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                  />
+                  <img
+                    alt="Hamburguesa de carne vacuna (Pixabay)"
+                    class="image flex card-image ratio-3-2 w-100"
+                    decoding="async"
+                    fetchpriority="low"
+                    loading="lazy"
+                    src="https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                  />
+                </picture>
               </div>
               
             </div>
@@ -781,6 +829,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
                 >
@@ -827,13 +876,19 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
               >
-                <img
-                  class="image flex card-image ratio-3-2 w-100"
-                  decoding="async"
-                  fetchpriority="low"
-                  loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/3Rpes7kYHc0yrSyXJYdR9vLK1R8=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3IBNBI7ITJFKDC6PQUXVEGNCWQ.jpg"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="https://resizer.glanacion.com/resizer/4euC7C0duGKCn3hj5T6WiNA5aL0=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3IBNBI7ITJFKDC6PQUXVEGNCWQ.jpg"
+                  />
+                  <img
+                    class="image flex card-image ratio-3-2 w-100"
+                    decoding="async"
+                    fetchpriority="low"
+                    loading="lazy"
+                    src="https://resizer.glanacion.com/resizer/3Rpes7kYHc0yrSyXJYdR9vLK1R8=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3IBNBI7ITJFKDC6PQUXVEGNCWQ.jpg"
+                  />
+                </picture>
               </div>
               
             </div>
@@ -894,6 +949,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
                 >
@@ -940,13 +996,19 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
               >
-                <img
-                  class="image flex card-image ratio-3-2 w-100"
-                  decoding="async"
-                  fetchpriority="low"
-                  loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/6yMye19gDxb92IUuoJqISyioUAM=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="https://resizer.glanacion.com/resizer/39iaG0em6yhSZIkIwxjfFRhZXw0=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg"
+                  />
+                  <img
+                    class="image flex card-image ratio-3-2 w-100"
+                    decoding="async"
+                    fetchpriority="low"
+                    loading="lazy"
+                    src="https://resizer.glanacion.com/resizer/6yMye19gDxb92IUuoJqISyioUAM=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg"
+                  />
+                </picture>
               </div>
               
             </div>
@@ -1007,6 +1069,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
                 >
@@ -1053,13 +1116,19 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
               >
-                <img
-                  class="image flex card-image ratio-3-2 w-100"
-                  decoding="async"
-                  fetchpriority="low"
-                  loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/ZU0-XzArUvlmFY_lS1eu8QaOg1E=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UETSUXOVHBESLGNH5OTMPYZGYI.webp"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="https://resizer.glanacion.com/resizer/ipLc_6K_t4yo-Smy0KpJuVxL420=/420x280/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UETSUXOVHBESLGNH5OTMPYZGYI.webp"
+                  />
+                  <img
+                    class="image flex card-image ratio-3-2 w-100"
+                    decoding="async"
+                    fetchpriority="low"
+                    loading="lazy"
+                    src="https://resizer.glanacion.com/resizer/ZU0-XzArUvlmFY_lS1eu8QaOg1E=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UETSUXOVHBESLGNH5OTMPYZGYI.webp"
+                  />
+                </picture>
               </div>
               
             </div>
@@ -1120,6 +1189,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
                 >
@@ -1166,13 +1236,19 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
               >
-                <img
-                  class="image flex card-image ratio-3-2 w-100"
-                  decoding="async"
-                  fetchpriority="low"
-                  loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/IzVHRPjH0eqA5mScJOHvSkVsOAA=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="https://resizer.glanacion.com/resizer/Gb-JZZkR73DjvH-pNLmt4EQESHM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+                  />
+                  <img
+                    class="image flex card-image ratio-3-2 w-100"
+                    decoding="async"
+                    fetchpriority="low"
+                    loading="lazy"
+                    src="https://resizer.glanacion.com/resizer/IzVHRPjH0eqA5mScJOHvSkVsOAA=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+                  />
+                </picture>
               </div>
               <span
                 class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute bottom-0 left-0 translate-y-50"
@@ -1237,6 +1313,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
                 >
@@ -1283,14 +1360,20 @@ exports[`Tests Carousel Render component with articles 1`] = `
               <div
                 class="foodit-placeholder card-image ratio-3-2 w-100"
               >
-                <img
-                  alt="Provoleta con vegetales"
-                  class="image flex card-image ratio-3-2 w-100"
-                  decoding="async"
-                  fetchpriority="low"
-                  loading="lazy"
-                  src="https://resizer.glanacion.com/resizer/mpDZYaDvBIh_2bnsmH41tsxny8w=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6DOWKDZ4ZFDFNEVFD4WJ3N2AXA.jpg"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 767px)"
+                    srcset="https://resizer.glanacion.com/resizer/ieCszURadyFnFeJKWMXeYzAgYdI=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6DOWKDZ4ZFDFNEVFD4WJ3N2AXA.jpg"
+                  />
+                  <img
+                    alt="Provoleta con vegetales"
+                    class="image flex card-image ratio-3-2 w-100"
+                    decoding="async"
+                    fetchpriority="low"
+                    loading="lazy"
+                    src="https://resizer.glanacion.com/resizer/mpDZYaDvBIh_2bnsmH41tsxny8w=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6DOWKDZ4ZFDFNEVFD4WJ3N2AXA.jpg"
+                  />
+                </picture>
               </div>
               <span
                 class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute bottom-0 left-0 translate-y-50"
@@ -1355,6 +1438,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
                 >

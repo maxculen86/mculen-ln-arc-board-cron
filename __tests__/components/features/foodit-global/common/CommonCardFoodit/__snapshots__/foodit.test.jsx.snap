@@ -7,9 +7,9 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
   >
     <a
       class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
-      href="https://recetas.lanacion.com.ar"
+      href="/rapidas-y-faciles/prueba-nota-recetas-nuevo-nid04092023/"
       target="_self"
-      title="Receta de tortilla de patatas"
+      title="Prueba nota recetas nuevo"
     >
       <div
         class="relative w-100"
@@ -17,14 +17,20 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
         <div
           class="foodit-placeholder card-image ratio-3-2 w-100"
         >
-          <img
-            alt="Tortilla de patatas"
-            class="image flex card-image ratio-3-2 w-100"
-            decoding="async"
-            fetchpriority="low"
-            loading="lazy"
-            src="https://www.recetasderecetas.com/wp-content/uploads/2020/01/tortilla-de-patatas-2.jpg"
-          />
+          <picture>
+            <source
+              media="(max-width: 767px)"
+              srcset="https://sandbox.lanacion.com.ar/resizer/v2/algo-bien-7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg?auth=df16a0c399ffbc23925cb0b8a210dc3e0851b79aafa339076a956a01025a710a&width=420&height=280&quality=70&smart=true"
+            />
+            <img
+              alt="Tortilla de patatas"
+              class="image flex card-image ratio-3-2 w-100"
+              decoding="async"
+              fetchpriority="low"
+              loading="lazy"
+              src="https://sandbox.lanacion.com.ar/resizer/v2/algo-bien-7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg?auth=df16a0c399ffbc23925cb0b8a210dc3e0851b79aafa339076a956a01025a710a&width=768&height=432&quality=70&smart=true"
+            />
+          </picture>
         </div>
         <span
           class="inline-flex ai-center gap-4 py-2 px-16 bg-accent-vino text-light-1 text-12 roboto-bold uppercase absolute bottom-0 left-0 translate-y-50"
@@ -44,7 +50,7 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
             <span
               class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
             >
-              Receta de tortilla de patatas
+              Prueba nota recetas nuevo
             </span>
           </div>
         </div>
@@ -57,7 +63,7 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
             <span
               class="text text-14"
             >
-              Juan Pérez
+              Por Carlos Pagni
             </span>
             <div
               class="flex ai-center gap-4"
@@ -89,6 +95,8 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
           </div>
           <button
             class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+            data-id="TDEG3VTIAFEW7BKS676OUVQAVE"
+            data-modal="open-modal"
             data-variant="link"
             title="Guardar receta"
           >

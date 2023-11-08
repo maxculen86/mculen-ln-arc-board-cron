@@ -43,9 +43,12 @@ const CajaCollection = props => {
     if (isAdmin && error) {
         return <WarningMessage type={error.type} message={error.message} />;
     }
-    const articlesTransformed = articles.map(article => {
+    const articlesWithSize = articles.map(article => {
         return { ...transformArticleFoodit(article), size };
     });
+    const articlesTransformed = articlesWithSize.filter(
+        article => article.href
+    );
 
     return (
         <RenderCollection

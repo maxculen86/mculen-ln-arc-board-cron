@@ -12,6 +12,7 @@ export const RoofFoodit = ({
     linkProps,
     title = { text: 'Techo titulo', as: 'h3' }
 }) => {
+    const { text = 'Techo titulo', as = 'h3' } = title;
     if (hide) return <></>;
     return (
         <div className="flex ai-end jc-between gap-24 mb-24">
@@ -23,7 +24,8 @@ export const RoofFoodit = ({
             ) : (
                 <Text
                     className="prumo prumo-light text-28 text-36_md text-40_lg"
-                    {...title}
+                    text={text}
+                    as={as}
                 />
             )}
 

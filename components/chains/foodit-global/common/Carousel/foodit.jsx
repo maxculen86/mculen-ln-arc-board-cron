@@ -1,8 +1,8 @@
 import React from 'react';
 import { Mediascroller } from '@ln/common-ui-mediascroller';
-import CommonCardFoodit from '../../../../features/foodit-global/common/CommonCardFoodit/foodit';
 import { Button } from '@ln/foodit-ui-button';
-import StaticContent from '../../../../private/common/staticContent';
+import CommonCardFoodit from '../../../../features/foodit-global/common/CommonCardFoodit/foodit';
+import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
 
 export const Carousel = ({ articles }) => {
     return (
@@ -11,9 +11,43 @@ export const Carousel = ({ articles }) => {
             elementsToScroll={4}
         >
             <Mediascroller.Track className="overflow-container">
-                {articles.map(article => {
-                    return <CommonCardFoodit article={article} />;
-                })}
+                {articles.map(
+                    ({
+                        articleId,
+                        author,
+                        href,
+                        size,
+                        tag,
+                        time,
+                        title,
+                        variant,
+                        image = {}
+                    }) => {
+                        const { alt_text, resized_urls, url } = image;
+                        return (
+                            <CommonCardFoodit
+                                articleId={articleId}
+                                showTime={Boolean(time)}
+                                time={time}
+                                linksProps={{ href, title }}
+                                size={size}
+                                variant={variant}
+                                src={url}
+                                alt={alt_text}
+                                sources={getImagesToLoadWithPicture(
+                                    resized_urls
+                                )}
+                                loading={'lazy'}
+                                fetchPriority={'low'}
+                                tag={tag}
+                                title={title}
+                                author={author}
+                                key={articleId}
+                                fill={false} // TODO: boolean receta guardada
+                            />
+                        );
+                    }
+                )}
             </Mediascroller.Track>
             <Mediascroller.Arrows
                 arrowSize={16}

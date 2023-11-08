@@ -48,6 +48,7 @@ export const transformArticleFoodit = article => {
     );
 
     return {
+        articleId: get(article, '_id', ''),
         title: get(article, 'headlines.basic', ''),
         author: getAuthorsAsString(article, false) || 'Por Foodit',
         image: get(article, 'promo_items.basic', {}),
