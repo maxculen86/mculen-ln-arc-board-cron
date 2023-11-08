@@ -7,17 +7,19 @@ import get from '../../private/common/utils/get';
 import BuildRoof from '../utils/_BuildRoof/default';
 import { useRoofData } from '../utils/_helpers';
 import config from '../../../properties/sites/la-nacion-ar';
+import GameEventScript from '../../private/common/scriptManager/GameEventsScript';
 
 const { layoutsName = {} } = config || {};
 
 const CajaJuegos = ({ customFields, children }) => {
     const { globalContent = {}, layout } = useAppContext() || {};
-    const { logoId, link, hideTitle, hideCaja } = customFields;
+    const { logoId, link, hideTitle, hideCaja, title } = customFields;
 
     const roofData = useRoofData({
         logoId,
         link,
-        hideTitle
+        hideTitle,
+        title
     });
 
     const shouldShowGame =
@@ -32,6 +34,7 @@ const CajaJuegos = ({ customFields, children }) => {
             <div className="grid grid-cols-8 grid-cols-12_m grid-cols-12_lg grid-cols-12_xl gap-16">
                 {children}
             </div>
+            <GameEventScript />
         </StaticContent>
     ) : (
         <></>
@@ -52,6 +55,12 @@ CajaJuegos.propTypes = {
             label: 'Url',
             description:
                 'Ingrese la url que redirige al hacer click al titulo. El formato debe empezar con https://',
+            defaultValue: '',
+            group: 'Techo'
+        }),
+        title: PropTypes.string.tag({
+            name: 'Texto',
+            description: 'Ingrese aquí el título de la caja.',
             defaultValue: '',
             group: 'Techo'
         }),

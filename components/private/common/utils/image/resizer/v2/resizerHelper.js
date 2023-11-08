@@ -11,7 +11,8 @@ import get from '../../../get';
 import {
     isValidNumber,
     isEmptyString,
-    isValidString
+    isValidString,
+    isValidNonZeroNumber
 } from '../../../dataValidation';
 import { resizeArcImage } from './buildResizerUrls';
 
@@ -137,15 +138,12 @@ export const buildQueryParams = ({
     const auth = () => (isEmptyString(imgAuth) ? '' : `auth=${imgAuth}`);
 
     const width = () =>
-        isValidNumber(newWidth) && newWidth !== 0 ? `&width=${newWidth}` : '';
-
+        isValidNonZeroNumber(newWidth) ? `&width=${newWidth}` : '';
     const height = () =>
-        isValidNumber(newHeight) && newHeight !== 0
-            ? `&height=${newHeight}`
-            : '';
+        isValidNonZeroNumber(newHeight) ? `&height=${newHeight}` : '';
 
     const quality = () =>
-        isValidNumber(filterQuality) ? `&quality=${filterQuality}` : '';
+        isValidNonZeroNumber(filterQuality) ? `&quality=${filterQuality}` : '';
 
     // TODO: Revisar crop (no deberia suceder junto con focalPoint ni junto con smart)
     // const setCrop = () => crop !== null ? `&crop=${crop}` : '';
@@ -153,8 +151,8 @@ export const buildQueryParams = ({
     // Se valida height y width ya que debe tenerlos SIEMPRE para focalPoint.
     const setFocal = () =>
         focalPoint.length > 1 &&
-        isValidNumber(newHeight) &&
-        isValidNumber(newWidth)
+        isValidNonZeroNumber(newHeight) &&
+        isValidNonZeroNumber(newWidth)
             ? `&focal=${focalPoint.map(
                   focal => isValidNumber(focal) && Math.round(focal)
               )}`
@@ -162,9 +160,12 @@ export const buildQueryParams = ({
 
     // Regla: Si existe focalPoint, smart y crop deben ser siempre false.
     const smart = () =>
-        !imgId || (focalPoint && focalPoint.length > 1)
-            ? '&smart=false'
-            : '&smart=true';
+        imgId &&
+        !get(focalPoint, 'length', 0) &&
+        isValidNonZeroNumber(newHeight) &&
+        isValidNonZeroNumber(newWidth)
+            ? '&smart=true'
+            : '&smart=false';
 
     const image = imgId
         ? `${getSlugForImage(arcImage)}${imgId}${parsedExtension}`
