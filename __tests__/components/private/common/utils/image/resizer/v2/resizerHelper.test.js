@@ -44,7 +44,7 @@ describe('Common - Resizer', () => {
                     arcImage
                 })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=70&smart=true'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=70&smart=false'
             );
         });
 
@@ -52,7 +52,7 @@ describe('Common - Resizer', () => {
             expect(
                 resizerHelper.buildQueryParams({ newWidth: 1200, arcImage })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=1200&quality=70&smart=true'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&width=1200&quality=70&smart=false'
             );
         });
 
@@ -60,7 +60,7 @@ describe('Common - Resizer', () => {
             expect(
                 resizerHelper.buildQueryParams({ newWidth: [], arcImage })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=70&smart=true'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&quality=70&smart=false'
             );
         });
 
@@ -68,7 +68,7 @@ describe('Common - Resizer', () => {
             expect(
                 resizerHelper.buildQueryParams({ newHeight: 1200, arcImage })
             ).toEqual(
-                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&height=1200&quality=70&smart=true'
+                'J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933&height=1200&quality=70&smart=false'
             );
         });
 
