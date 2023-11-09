@@ -43,15 +43,15 @@
     },
     "subtype": "7",
     "taxonomy": {
-        "tags": [
+        "sections": [
             {
-                "text": "rápida"
+                "name": "Rápida"
             },
             {
-                "text": "fácil"
+                "name": "Fácil"
             },
             {
-                "text": "vegana"
+                "name": "Vegana"
             }
         ]
     },
