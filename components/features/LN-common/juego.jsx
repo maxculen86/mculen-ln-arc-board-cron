@@ -15,8 +15,8 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
     const { contextPath, deployment, arcSite, globalContent } =
         useAppContext() || {};
 
-    const primarySection = checkSection(globalContent, '/juegos');
     const { sectionId, gameType } = customFields;
+    const primarySection = checkSection(globalContent, '/juegos');
 
     const { name: sectionTitle } =
         useContent({
@@ -53,7 +53,7 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
     }
 
     const GameCard = (props = {}) => (
-        <StaticContent className="col-span-4 col-span-3_m col-span-3_lg col-span-3_xl">
+        <StaticContent className="col-span-4 col-span-3_sm">
             <Cardgames {...props} isHomeGames={primarySection} />
         </StaticContent>
     );

@@ -21,7 +21,7 @@ const getGameProperties = (
         return {
             title: sectionTitle,
             logo: { src: gameLogo },
-            borderColor: `bg-${gameTitle}`
+            game: `${gameTitle}`
         };
     }
 };

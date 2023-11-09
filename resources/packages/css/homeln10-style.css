@@ -6585,6 +6585,14 @@ a {
   }
 }
 
+.ratio-3-2 {
+  aspect-ratio: 3 / 2;
+}
+
+.ratio-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
 @media (min-width: 64rem) {
   .--border-l-left-gray {
     border-left: 0.0625rem solid #CCCCCC;
@@ -6704,6 +6712,50 @@ a {
 
 .bg-light-400 {
   background: var(--light-neutral-400);
+}
+
+.bg-black {
+  background: black;
+}
+
+.bg-white {
+  background: white;
+}
+
+.bg-nunca-cuatro__hover:hover {
+  background-color: var(--nunca-cuatro);
+}
+
+.bg-criptograma__hover:hover {
+  background-color: var(--criptograma);
+}
+
+.bg-crucigrama__hover:hover {
+  background-color: var(--crucigrama);
+}
+
+.bg-sudoku__hover:hover {
+  background-color: var(--sudoku);
+}
+
+.bg-palabras-cruzadas__hover:hover {
+  background-color: var(--palabras-cruzadas);
+}
+
+.bg-sopa-de-letras__hover:hover {
+  background-color: var(--sopa-de-letras);
+}
+
+.bg-el-telar__hover:hover {
+  background-color: var(--el-telar);
+}
+
+.bg-trivias__hover:hover {
+  background-color: var(--trivias);
+}
+
+.cardGames__hover:hover .border-neutral-light-700 {
+  border-color: white;
 }
 
 strong:not(.--font-primary),
@@ -7073,6 +7125,30 @@ strong:not(.--font-primary),
   }
 }
 
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.visibility-visible {
+  visibility: visible;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-1 {
+  opacity: 0.01;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.opacity-1__hover.opacity-1__hover:hover {
+  opacity: 1;
+}
+
 .jc-center {
   justify-content: center;
 }
@@ -7268,6 +7344,48 @@ strong:not(.--font-primary),
   grid-column: span 8;
 }
 
+@media (min-width: 32rem) {
+  .grid-cols-12_sm {
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 1rem;
+  }
+  .col-span-1_sm {
+    grid-column: span 1;
+  }
+  .col-span-2_sm {
+    grid-column: span 2;
+  }
+  .col-span-3_sm {
+    grid-column: span 3;
+  }
+  .col-span-4_sm {
+    grid-column: span 4;
+  }
+  .col-span-5_sm {
+    grid-column: span 5;
+  }
+  .col-span-6_sm {
+    grid-column: span 6;
+  }
+  .col-span-7_sm {
+    grid-column: span 7;
+  }
+  .col-span-8_sm {
+    grid-column: span 8;
+  }
+  .col-span-9_sm {
+    grid-column: span 9;
+  }
+  .col-span-10_sm {
+    grid-column: span 10;
+  }
+  .col-span-11_sm {
+    grid-column: span 11;
+  }
+  .col-span-12_sm {
+    grid-column: span 12;
+  }
+}
 @media (min-width: 48rem) {
   .grid-cols-12_m {
     grid-template-columns: repeat(12, 1fr);
@@ -7477,6 +7595,10 @@ strong:not(.--font-primary),
     gap: 5rem;
   }
 }
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .--list-inherit {
   list-style: inherit;
 }

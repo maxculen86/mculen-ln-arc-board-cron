@@ -24,7 +24,7 @@ describe('Games test funcion gameProperties', () => {
             logo: {
                 src: `${contextPath}/resources/images/${deployment}/games/${sectionId}.svg`
             },
-            borderColor: `bg-${sectionId}`
+            game: `${sectionId}`
         };
 
         const result = getGameProperties(

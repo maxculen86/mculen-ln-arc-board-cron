@@ -31,7 +31,7 @@ const CajaJuegos = ({ customFields, children }) => {
     return shouldShowGame && !hideCaja ? (
         <StaticContent>
             <BuildRoof {...roofData} />
-            <div className="grid grid-cols-8 grid-cols-12_m grid-cols-12_lg grid-cols-12_xl gap-16">
+            <div className="grid grid-cols-8 grid-cols-12_sm gap-16 mb-32">
                 {children}
             </div>
             <GameEventScript />

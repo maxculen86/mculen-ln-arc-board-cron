@@ -92,6 +92,6 @@ describe('Game Component', () => {
         expect(screen.getByText('Criptograma')).toBeInTheDocument();
 
         const gameCardDiv = gameCardLink.querySelector('div');
-        expect(gameCardDiv).toHaveClass('bg-criptograma');
+        expect(gameCardDiv).toHaveClass('h-6 w-100');
     });
 });
