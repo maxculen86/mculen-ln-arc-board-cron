@@ -22,6 +22,7 @@
         "quantity": 20,
         "operatorToUse": "<=",
         "types": [
+            "Ln_Caja_Manual",
             "LN-acumulado/ultimasNoticias",
             "LN-common/bannerRefactor",
             "Ln_Caja_Collection",
