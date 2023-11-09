@@ -205,6 +205,9 @@ const labels = `
         mostrar_caja_dolar {
             ${label}
         }
+        mostrar_caja_juegos {
+            ${label}
+        }
         republicar_audio {
             display
             text
