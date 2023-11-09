@@ -23,7 +23,7 @@ const cachedCall = async (nameOfCall, callbackFunc, params) => {
 };
 
 describe('content source apiAcumuladosV2Source integration test', () => {
-    test('should return right output if notes exists', async () => {
+    test('should return right output keys if notes exists', async () => {
         const queryParams = {
             uri:
                 '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
@@ -52,6 +52,44 @@ describe('content source apiAcumuladosV2Source integration test', () => {
         expect(Object.keys(result.metadata).sort()).toEqual(
             ['paginate', 'title', 'total', 'banners', 'category'].sort()
         );
+    });
+
+    test('should return right note format', async () => {
+        const queryParams = {
+            uri:
+                '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
+            website: 'la-nacion-ar',
+            sectionId: '/economia',
+            params: 'params=size:30;page:1',
+            categoryUri: 'mobile',
+            versionUri: '2',
+            'arc-site': 'la-nacion-ar'
+        };
+
+        sectionSource.fetch.mockReturnValue({
+            acumuladoGeneral: {
+                hierarchy_navigation: 'Economia',
+                mostrar_en_acu_apps: 'true'
+            },
+            configuration: null
+        });
+
+        acuArticlesSource.fetch.mockReturnValue(acuArticleSourceResponseMock);
+
+        const result = await apiAcumuladoSectionsV2.fetch(queryParams, {
+            cachedCall
+        });
+
+        expect(result.items[0].notas[0]).toEqual({
+            enviarApps: true,
+            fechaPublicacion: '1899-12-31 19:43:12',
+            id: 'S457534CSVAXRLNSMCNBDHHATE',
+            isListenable: true,
+            opinion: false,
+            templateId: '1',
+            titulo: 'Entrevistadel lector',
+            url: '/economia/entrevistadel-lector-nid1305798/'
+        });
     });
 
     test('should return 404 if section does not exists', async () => {

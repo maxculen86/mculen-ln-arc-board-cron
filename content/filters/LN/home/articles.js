@@ -27,6 +27,12 @@ const article = `
             text
             display
         }
+        republicar_audio {
+            text
+        }
+    }
+    source {
+        system
     }
     content_elements {
         _id

@@ -10,6 +10,7 @@ import { boxInfoByLayoutBySectionAlias } from '../../../common/home/boxInformati
 import { boxTypeByLayout } from '../../../common/home/boxTypes/index';
 import banners from '../../../common/home/boxInformation/LN10/boxes/config/configBannersBySectionAliasMobile';
 import { attachBanners } from '../../../common/home/boxInformation/LN10/boxes/config/configHandler';
+import { isNoteListenableHome as isNoteListenable } from '../../../../../../../content/sources/utils/audioNews/helper';
 
 const excludeUrlsInBoxInfo = ['https://www.lanacion.com.ar/suscriptores/'];
 
@@ -85,6 +86,10 @@ const index = (
             typeSection
         );
 
+        if (f.articles && f.articles.length > 0) {
+            f.articles = addListenableFlagForArticles(f.articles);
+        }
+
         const boxInfo = attachBanners(box, sectionAliasMobile, banners);
 
         const type = Number(sectionBox.type);
@@ -127,6 +132,15 @@ const index = (
         return result;
     }, []);
     return [removeEmptyItems(ArticlesbyBox)];
+};
+
+const addListenableFlagForArticles = articles => {
+    return articles.map(x => {
+        return {
+            ...x,
+            isListenable: isNoteListenable(x)
+        };
+    });
 };
 
 export default index;

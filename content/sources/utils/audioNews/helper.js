@@ -41,4 +41,31 @@ const isNoteListenable = data => {
     return false;
 };
 
+export const isNoteListenableHome = data => {
+    const sourceOrigin = get(data, 'source.system', '');
+    const subtype = get(data, 'subtype', '');
+    const labelAudioNews = get(data, 'label.republicar_audio', null);
+    const textAudioNews = get(data, 'label.republicar_audio.text', null);
+
+    if (
+        (sourceOrigin === 'composer' || sourceOrigin === '') &&
+        labelAudioNews &&
+        textAudioNews !== 'No mostrar audio'
+    ) {
+        const date = get(
+            data,
+            'last_updated_date',
+            get(data, 'display_date', '')
+        );
+        const sectionId = get(data, 'taxonomy.primary_section._id', '');
+        const { disableSubtypes } = config;
+
+        return (
+            !disableSubtypes.includes(subtype) && isValidDate(date, sectionId)
+        );
+    }
+
+    return false;
+};
+
 export default isNoteListenable;

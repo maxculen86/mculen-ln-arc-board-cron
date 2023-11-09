@@ -126,6 +126,9 @@ export default `
             marca_anunciante {
                 ${label}
             }
+            republicar_audio {
+                text
+            }
         }
         related_content {
             basic{
