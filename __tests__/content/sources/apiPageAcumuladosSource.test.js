@@ -76,6 +76,60 @@ describe('content source apiPageAcumuladosSource integration test', () => {
         );
     });
 
+    test('should return right metadata for suscriptores page', async () => {
+        const queryParams = {
+            uri: '/api/mobile/v2//page/bySection/suscriptores/33/',
+            website: 'la-nacion-ar',
+            sectionId: '/suscriptores',
+            categoryUri: 'mobile',
+            versionUri: '2',
+            'arc-site': 'la-nacion-ar'
+        };
+
+        sectionSource.fetch.mockReturnValue(null);
+
+        const result = await apiPageAcumuladosSource.fetch(queryParams, {
+            cachedCall
+        });
+
+        expect(result.metadata).toEqual({
+            category: {
+                slug: '/suscriptores',
+                value: 'Exclusivo suscriptores'
+            },
+            paginate: false,
+            title: 'Exclusivo suscriptores'
+        });
+    });
+
+    test('should return right metadata for ultimas-noticias page', async () => {
+        const queryParams = {
+            uri: '/api/mobile/v2//page/bySection/ultimas-noticias/33/',
+            website: 'la-nacion-ar',
+            sectionId: '/ultimas-noticias',
+            categoryUri: 'mobile',
+            versionUri: '2',
+            'arc-site': 'la-nacion-ar'
+        };
+
+        sectionSource.fetch.mockReturnValue({
+            name: 'Últimas noticias'
+        });
+
+        const result = await apiPageAcumuladosSource.fetch(queryParams, {
+            cachedCall
+        });
+
+        expect(result.metadata).toEqual({
+            category: {
+                slug: '/ultimas-noticias',
+                value: 'Últimas noticias'
+            },
+            paginate: false,
+            title: 'Últimas noticias'
+        });
+    });
+
     test('should return 404 if section does not exists', async () => {
         const queryParams = {
             uri:
