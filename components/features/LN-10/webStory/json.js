@@ -1,7 +1,6 @@
 import Consumer from 'fusion:consumer';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getChainConfig } from '../article/common/_helper-WebApi';
-import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 import { validateProps } from '../../../private/LN/api/global/components/features/article/LN10/props/validateProps';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
 import { filterWebStoriesRenderables } from '../../../chains/LN10_Caja_WebStories/common/_helper-WebApi';
@@ -23,8 +22,7 @@ class WebStoryFeature {
                 renderables: filterWebStoriesRenderables(renderables)
             }) || {};
 
-        this.shouldUseV2 =
-            withResizerV2 && layoutPageBuilder === layoutsName.HomeLN10;
+        this.shouldUseV2 = layoutPageBuilder === layoutsName.HomeLN10;
 
         this.props = validateProps(props, this.configs);
 

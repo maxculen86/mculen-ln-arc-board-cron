@@ -4,7 +4,6 @@ import {
     RANKING_LAYOUT
 } from '../../../../../../../components/features/LN-10/ranking/common/_helper-WebApi';
 import siteConfig from '../../../../../../../properties/sites/la-nacion-ar';
-import withResizerV2 from '../../../../../../../components/private/common/utils/image/enableResizerV2';
 import rankingArticlesSource from '../../../../../rankingArticlesSource';
 import configRankingPositionbySection from './config/configRankingPositionbySection';
 import { addElementsByKey } from '../../../../../../../components/private/LN/api/global/page/common/utils/addElements';
@@ -27,9 +26,7 @@ export const getRankingInfo = async props => {
         imageConfig: 'boxArticles',
         'arc-site': website,
         layout,
-        shouldUseV2:
-            withResizerV2 &&
-            layout === get(siteConfig, 'layoutsName.HomeLN10', '')
+        shouldUseV2: layout === get(siteConfig, 'layoutsName.HomeLN10', '')
     };
 
     const articles = (await getRankingArticles(query)) || [];

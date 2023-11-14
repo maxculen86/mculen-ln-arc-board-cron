@@ -4,7 +4,6 @@ import { renderProps } from '../../../private/LN/api/global/components/features/
 import { articleSourceNotaSourceInclude } from '../../../private/LN/api/global/components/features/article/common/sources/articleSourceNotaSourceInclude';
 import { validateProps } from '../../../private/LN/api/global/components/features/article/LN10/props/validateProps';
 import { validatePropsRender } from '../../../private/LN/api/global/components/features/article/LN10/props/validatePropsRender';
-import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 import {
     getChainConfig,
     validateArticleFeature,
@@ -34,8 +33,7 @@ class ArticleFeature {
             config,
             articlePosition: index
         });
-        this.shouldUseV2 =
-            withResizerV2 && layoutPageBuilder === layoutsName.HomeLN10;
+        this.shouldUseV2 = layoutPageBuilder === layoutsName.HomeLN10;
 
         const imageConfig = this.configs && this.configs.imageConfig;
         const typeCard = variant || 'default';
