@@ -1,4 +1,4 @@
-import { RESIZER_KEY, RESIZER_URL, RANKING_URL } from 'fusion:environment';
+import { RESIZER_KEY, RESIZER_URL, CONTENT_BASE } from 'fusion:environment';
 import {
     FOTOAL100,
     STORYTELLING
@@ -52,7 +52,7 @@ export const resolveUri = key => {
     const endDate = new Date();
     const startDate = Object.assign(new Date(), endDate);
     days && startDate.setDate(startDate.getDate() - days);
-    const requestUri = `${RANKING_URL}/content/v4/search/published`;
+    const requestUri = `${CONTENT_BASE}/content/v4/search/published`;
     const includeFields =
         '_id,subtype,promo_items.basic,headlines.basic,headlines.mobile,subheadlines,canonical_url,body,related_content,website_url,label';
     const uriParams = [
