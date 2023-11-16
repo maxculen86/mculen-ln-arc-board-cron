@@ -10,21 +10,15 @@ const acuTransformV2Format = (
 ) => {
     const image = getImageUrl(get(authorData, 'image.url', null));
 
-    const authorBio = {
-        longBio: authorData.longBio,
-        location: authorData.location,
-        education: authorData.education,
-        languages: authorData.languages,
-        affiliations: authorData.affiliations,
-        books: authorData.books
-    };
-
     const metadata = {
         paginate: paginationValue,
         title: authorData.name,
         banners: transformedAcu[0].banners,
-        total: transformedAcu[0].acumuladoTotal,
-        author: {
+        total: transformedAcu[0].acumuladoTotal
+    };
+
+    if (isFirstPage) {
+        metadata.author = {
             id: getAuthorId(authorData._id),
             slug: authorData.slug,
             value: authorData.name,
@@ -33,14 +27,13 @@ const acuTransformV2Format = (
             interests: authorData.intereses,
             mail: authorData.email,
             role: authorData.role,
-            twitter: authorData.twitter
-        }
-    };
-
-    if (isFirstPage) {
-        metadata.author = {
-            ...metadata.author,
-            ...authorBio
+            twitter: authorData.twitter,
+            longBio: authorData.longBio,
+            location: authorData.location,
+            education: authorData.education,
+            languages: authorData.languages,
+            affiliations: authorData.affiliations,
+            books: authorData.books
         };
     }
 
