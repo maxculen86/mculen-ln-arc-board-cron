@@ -64,13 +64,8 @@ const LNAcumuladoLayout = props => {
         isAdmin,
         renderables,
         requestUri = '',
-        layout,
-        siteProperties
+        layout
     } = props;
-    console.log(
-        '🚀 ~ file: default.jsx:70 ~ LNAcumuladoLayout ~ siteProperties:',
-        siteProperties
-    );
 
     const { style, name = '', node_type: nodeType } = globalContent || {};
 
@@ -172,7 +167,7 @@ const LNAcumuladoLayout = props => {
             >
                 {megatop}
                 <div id="wrapper" className={classNameWrapper}>
-                    <Header className="relative z-1" />
+                    <Header />
                     <main id="content" className={classNameMain}>
                         {stickyMobile}
                         <div
