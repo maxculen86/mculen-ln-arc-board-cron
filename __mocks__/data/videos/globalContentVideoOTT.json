@@ -216,6 +216,9 @@
     },
     "duration": 3566848,
     "video_type": "clip",
+    "min_stream": {
+        "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/20220622/62b3224a32efa15b96e7157b/t_b38e9a2c05cc4b1d9c5e1dc37cfb5c54_name_Mesa_chica___21_de_Junio_2022/file_640x360-600.mp4"
+    },
     "streams": [
         {
             "height": 720,

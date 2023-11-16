@@ -1,6 +1,6 @@
-import getSourcesJwHome from '../../../../../../components/private/LN/common/utils/getSourcesJwHome';
+import getSourcesJw from '../../../../../../components/private/LN/common/utils/getSourcesJw';
 
-describe('components - private - LN - common - utils - getSourcesJwHome', () => {
+describe('components - private - LN - common - utils - getSourcesJw', () => {
     const testStreams = [
         {
             file: 'https://cdn.jwplayer.com/videos/sThbpj0B-kTExGaWf.mp4',
@@ -56,17 +56,17 @@ describe('components - private - LN - common - utils - getSourcesJwHome', () => 
     ];
 
     it('should return the source with the highest resolution when operator is ">"', () => {
-        const result = getSourcesJwHome(testStreams, '>');
+        const result = getSourcesJw(testStreams, '>');
         expect(result).toEqual(testStreams[0]);
     });
 
     it('should return the source with the lowest resolution when operator is "<"', () => {
-        const result = getSourcesJwHome(testStreams, '<');
+        const result = getSourcesJw(testStreams, '<');
         expect(result).toEqual(testStreams[1]);
     });
 
     it('should return null when no valid video sources are provided', () => {
-        const result = getSourcesJwHome(testStreamsWithoutHeigth, '>');
+        const result = getSourcesJw(testStreamsWithoutHeigth, '>');
         expect(result).toBeNull();
     });
 });

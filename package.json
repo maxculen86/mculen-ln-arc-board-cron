@@ -75,6 +75,7 @@
         "@ln/contenidos-ui-live": "1.1.6",
         "@ln/contenidos-ui-navbarmobile": "1.1.3",
         "@ln/contenidos-ui-opening": "1.1.0",
+        "@ln/ott-ui-sass": "0.0.3",
         "@ln/contenidos-ui-preheader": "1.1.4",
         "@ln/contenidos-ui-pwamodal": "1.1.9",
         "@ln/contenidos-ui-roof": "1.1.8",

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import VideoTabContainer from '../../private/OTT/ficha/videoTab';
 import StaticContent from '../../private/common/staticContent';
 
-const VideoFicha = props => {
+const VideoFicha = () => {
     return (
         <StaticContent>
             <VideoTabContainer />

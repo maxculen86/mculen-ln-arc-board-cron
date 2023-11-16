@@ -1,7 +1,5 @@
-/* eslint-disable camelcase */
 import React from 'react';
 import PropTypes from 'prop-types';
-import getStreams from '../../../LN/common/utils/getStreams';
 import VideoPlayerSnippet from '../../../common/scriptManager/snippetVideo';
 
 const ProgramSnippet = props => {
@@ -11,10 +9,9 @@ const ProgramSnippet = props => {
         headlines: { basic = '' } = {},
         promo_items = {},
         created_date = '',
-        streams = []
+        min_stream = {}
     } = globalContent;
 
-    const minStream = getStreams(streams);
     const descriptionRegex = /^([\+A-Za-z0-9\s]+)(\s?\-\s?)(\d{1,2}\s(de\s)?[a-zA-Z]+\s(del\s)?\d{4})$/g;
     const descriptionElements = descriptionRegex.exec(basic) || [];
     const description =
@@ -34,7 +31,7 @@ const ProgramSnippet = props => {
     return (
         <VideoPlayerSnippet
             mediaData={mediaData}
-            minStream={minStream}
+            minStream={min_stream}
             parrafo={description}
             tituloNota={basic}
         />
