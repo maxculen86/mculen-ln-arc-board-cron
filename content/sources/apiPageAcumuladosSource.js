@@ -17,27 +17,29 @@ const fetch = async (query, { cachedCall }) => {
             categoryUri
         } = getParamsFromQuery(query);
 
-        let { title } = await fetchSectionSource(query, cachedCall);
-
-        if (query.sectionId === '/suscriptores') {
-            title = 'Exclusivo suscriptores';
-        }
-
         const queryParams = {
             rootPath: `${SITE_LANACION}${query.sectionId}`,
             ticksCache: ticksCache.toString(),
             website,
             uri,
-            title,
             categoryUri,
             versionUri,
             cookie: query.cookie
         };
 
-        const resultPage = await cachedCall('ApiPageAcumulados', pages.fetch, {
-            query: queryParams,
-            ttl: 120
-        });
+        const [resultPage, fetchSectionSourceResult] = await Promise.all([
+            cachedCall('ApiPageAcumulados', pages.fetch, {
+                query: queryParams,
+                ttl: 120
+            }),
+            fetchSectionSource(query, cachedCall)
+        ]);
+
+        let { title } = fetchSectionSourceResult;
+
+        if (query.sectionId === '/suscriptores') {
+            title = 'Exclusivo suscriptores';
+        }
 
         // Para revisar la data cruda que viene del Layout
         // return resultPage;
