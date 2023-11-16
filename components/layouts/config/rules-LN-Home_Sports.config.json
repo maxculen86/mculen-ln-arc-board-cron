@@ -18,7 +18,7 @@
     },
     "Cuerpo": {
         "quantity": 1,
-        "operatorToUse": "!==",
+        "operatorToUse": "!=",
         "types": [
             "LN-common/bannerRefactor",
             "LN-common/metarefresh",
