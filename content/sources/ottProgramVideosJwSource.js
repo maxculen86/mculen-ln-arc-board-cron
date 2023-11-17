@@ -1,5 +1,5 @@
 import request from 'request-promise-native';
-import { JWP_TOKE } from 'fusion:environment';
+import { JWTOK } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import { transform } from './utils/ottJwVideoTransform/jwVideoTransform';
 
@@ -8,11 +8,11 @@ const params = { sectionId: 'text', pageLimit: 'text', page: 'text' };
 const fetch = ({ sectionId, pageLimit = '12', page = '1' }) => {
     const arcSite = 'la-nacion-ar';
     const opt = {
-        uri: `https://api.jwplayer.com/v2/sites/uafFIXv2/media?q=custom_param:"site:ott" AND custom_param:"section:${sectionId}"&&page_length=${pageLimit}&&sort=created:dsc&&page=${page}`,
+        uri: `https://api.jwplayer.com/v2/sites/uafFIXv2/media?q=custom_param:"site:ott" AND custom_param:"section:${sectionId}"&&page_length=${pageLimit}&&sort=publish_start_date:dsc&&page=${page}`,
         json: true,
         method: 'GET',
         auth: {
-            bearer: JWP_TOKE
+            bearer: JWTOK
         }
     };
 
@@ -23,7 +23,10 @@ const fetch = ({ sectionId, pageLimit = '12', page = '1' }) => {
         .catch(error => {
             logger.push(
                 error,
-                { source: 'content/source/ottProgramVideoJwSource', sectionId },
+                {
+                    source: 'content/source/ottProgramVideosJwSource',
+                    sectionId
+                },
                 arcSite
             );
         });

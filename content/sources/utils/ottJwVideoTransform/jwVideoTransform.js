@@ -9,6 +9,7 @@ export const jwURLFormatter = ({ videoTitle = '', videoId = '' }) => {
 export const transform = ({ data }) => {
     const videos = get(data, 'media', []);
     const page = get(data, 'page', '');
+    const total = get(data, 'total', '');
     const pageLength = get(data, 'page_length', '');
     const jwVideosformatted = videos.map(video => {
         const videoTitle = get(video, 'metadata.title', '');
@@ -32,5 +33,5 @@ export const transform = ({ data }) => {
         };
     });
 
-    return { jwVideosformatted, page, pageLength };
+    return { jwVideosformatted, page, pageLength, total };
 };
