@@ -30,7 +30,8 @@ const CajaManual = props => {
         layout = '',
         hideCaja = false,
         title = '',
-        hideTitle = false
+        hideTitle = false,
+        link = ''
     } = customFields;
 
     const error = validateCajaManual(layout, childProps);
@@ -53,8 +54,7 @@ const CajaManual = props => {
                     <RoofFoodit
                         title={{ text: title, as: 'h3' }}
                         hide={hideTitle}
-                        icon={null}
-                        buttonProps={{}}
+                        linkProps={{ href: link, text: title }}
                     />
                     <div className={classNameParent}>{cards}</div>
                 </StaticContent>

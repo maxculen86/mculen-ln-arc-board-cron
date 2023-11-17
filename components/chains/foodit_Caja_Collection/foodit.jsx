@@ -8,18 +8,21 @@ import { transformArticleFoodit } from '../../features/foodit-global/common/util
 import fooditRules from '../../features/foodit-global/common/utils/fooditRules';
 import useGetArticleInCollectionFoodit from '../foodit-global/common/hooks/useGetArticleInCollectionFoodit';
 import setChainFooditCustomFields from '../foodit-global/common/utils/setChainCustomFieldsFoodit';
-import isSSR from '../../private/LN/common/utils/isSSR';
+import get from '../../private/common/utils/get';
+import classNames from 'classnames';
+import { setStaticDynamically } from '../utils/_helpers';
 
 const CajaCollection = props => {
     const { isAdmin, customFields } = props;
 
     const {
         idCollection,
-        layout = '',
         initialPosition,
         hideCaja,
         hideTitle,
-        title
+        link,
+        title = '',
+        layout = ''
     } = customFields;
 
     const rules = fooditRules(layout) || {};
@@ -30,7 +33,7 @@ const CajaCollection = props => {
         idCollection,
         size: maxArticles,
         initialPosition: Number(initialPosition) - 1,
-        staticMode: isSSR() && isStatic
+        staticMode: isStatic
     });
 
     const error = validateChainFoodit({
@@ -49,18 +52,27 @@ const CajaCollection = props => {
     const articlesTransformed = articlesWithSize.filter(
         article => article.href
     );
+    const staticContentClassName = classNames(
+        'hidden',
+        get(rules, 'classStatic', '')
+    );
 
-    return (
+    const Component = (
         <RenderCollection
             rules={rules}
             title={title}
+            link={link}
             hideCaja={hideCaja}
             hideTitle={hideTitle}
             articles={articlesTransformed}
+            collectionId={idCollection}
             layout={layout}
             error={error}
         />
     );
+    return setStaticDynamically(Component, !isStatic, {
+        className: staticContentClassName
+    });
 };
 
 CajaCollection.label = 'foodit Caja Collection';
