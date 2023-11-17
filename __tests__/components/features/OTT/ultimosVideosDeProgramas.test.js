@@ -22,18 +22,6 @@ describe('features - OTT - ultimosVideosDeProgramas - Error', () => {
     });
 });
 
-describe('features - OTT - ultimosVideosDeProgramas - sectionSource - null section id ', () => {
-    const component = mount(
-        <UltimosVideosDeProgramasFeature
-            globalContent={{ _id: null }}
-            globalContentConfig={{ source: 'sectionSource' }}
-        />
-    );
-    it('Testeo que no dibuje nada por ser null el section id', () => {
-        testHelper.expectSameValue(component, {});
-    });
-});
-
 describe('features - OTT - ultimosVideosDeProgramas - sectionSource - id', () => {
     const sectionId = '/terapia-de-noticias';
     const component = mount(

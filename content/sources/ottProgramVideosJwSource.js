@@ -1,5 +1,5 @@
 import request from 'request-promise-native';
-import { JWTOK } from 'fusion:environment';
+import { JWP_TOKE } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import { transform } from './utils/ottJwVideoTransform/jwVideoTransform';
 
@@ -12,7 +12,7 @@ const fetch = ({ sectionId, pageLimit = '12', page = '1' }) => {
         json: true,
         method: 'GET',
         auth: {
-            bearer: JWTOK
+            bearer: JWP_TOKE
         }
     };
 
