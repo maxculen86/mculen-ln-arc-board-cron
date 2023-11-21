@@ -6,6 +6,17 @@ import {
     STORYTELLING
 } from '../../../../private/common/utils/subtypes/subtypeHelper';
 
+const PRIORITY_SORTED_TAGS = [
+    'Fácil',
+    'Vegana',
+    'Keto',
+    'Vegetariana',
+    'Rápida',
+    'Sin Gluten',
+    'Clásica',
+    'Maridaje'
+];
+
 const getVariantBySubtype = subtype => {
     const variants = {
         [STORYTELLING]: 'note',
@@ -15,28 +26,17 @@ const getVariantBySubtype = subtype => {
     return variants[subtype] || '';
 };
 
-export const getHighestPriorityTag = (tags = []) => {
-    if (!tags) return '';
+export const getHighestPriorityTag = (sections = []) => {
+    if (!sections) return '';
 
-    const prioritySortedTags = [
-        'fácil',
-        'rápida',
-        'saludable',
-        'clásica',
-        'vegana',
-        'vegetariana',
-        'keto',
-        'sin gluten'
-    ];
-
-    return tags.reduce((highestPriority, { text: tag }) => {
-        if (prioritySortedTags.includes(tag)) {
+    return sections.reduce((highestPriority, { name: section = '' } = {}) => {
+        if (PRIORITY_SORTED_TAGS.includes(section)) {
             if (
                 !highestPriority ||
-                prioritySortedTags.indexOf(tag) <
-                    prioritySortedTags.indexOf(highestPriority)
+                PRIORITY_SORTED_TAGS.indexOf(section) <
+                    PRIORITY_SORTED_TAGS.indexOf(highestPriority)
             )
-                return tag;
+                return section;
         }
         return highestPriority;
     }, '');
@@ -44,7 +44,7 @@ export const getHighestPriorityTag = (tags = []) => {
 
 export const transformArticleFoodit = article => {
     const highestPriorityTag = getHighestPriorityTag(
-        get(article, 'taxonomy.tags', [])
+        get(article, 'taxonomy.sections', [])
     );
 
     return {
