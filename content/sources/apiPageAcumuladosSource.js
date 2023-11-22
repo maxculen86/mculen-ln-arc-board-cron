@@ -14,8 +14,16 @@ const fetch = async (query, { cachedCall }) => {
             website,
             versionUri,
             ticksCache,
-            categoryUri
+            categoryUri,
+            turnOffFlag
         } = getParamsFromQuery(query);
+
+        if (turnOffFlag && turnOffFlag === 'true') {
+            return {
+                metadata: {},
+                items: []
+            };
+        }
 
         const queryParams = {
             rootPath: `${SITE_LANACION}${query.sectionId}`,
@@ -81,6 +89,7 @@ const getParamsFromQuery = query => {
     const { uri = '', website, versionUri } = query;
     const ticksCache = get(query, 'ticks', null);
     const categoryUri = get(query, 'categoryUri', '').replace('/', '');
+    const turnOffFlag = get(query, 'apagarApi', '');
 
     if (!versionUri) {
         throw new Error('The api page must have a version');
@@ -91,7 +100,8 @@ const getParamsFromQuery = query => {
         website,
         versionUri,
         ticksCache,
-        categoryUri
+        categoryUri,
+        turnOffFlag
     };
 };
 
@@ -131,7 +141,8 @@ export default {
         categoryUri: 'text',
         versionUri: 'text',
         ticks: 'text',
-        cookie: 'text'
+        cookie: 'text',
+        apagarApi: 'text'
     },
     ttl: 120
 };
