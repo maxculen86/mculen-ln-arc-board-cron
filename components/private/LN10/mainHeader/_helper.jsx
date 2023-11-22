@@ -9,6 +9,7 @@ import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 import useTermica from '../../common/hooks/useTermica';
 import { GlobalContext } from '../../common/context/globalContext';
 import get from '../../common/utils/get';
+import handleCookie from '../../LN/common/utils/handleCookie';
 import { Tooltip } from '@ln/contenidos-ui-tooltip';
 import classNames from 'classnames';
 
@@ -73,23 +74,100 @@ export const RightOptions = ({
     hasSubscribeButton = true,
     isHome
 }) => {
-    const buttonSuscribe = useTermica('buttonsuscribe');
+    const termicaSubscribe = useTermica('buttonsuscribe');
+    const termicaUpselling = useTermica('termica_upselling');
 
     const propertyNames = [
         'class_tooltip',
         'tooltip_text',
         'button_text',
-        'sticky_button_text'
+        'sticky_button_text',
+        'class_upselling_tooltip',
+        'upselling_tooltip_text',
+        'duo_button_text',
+        'triple_button_text',
+        'black_button_text'
     ];
     let {
         class_tooltip = '--top_l',
         tooltip_text = '',
         button_text = 'Suscribite',
-        sticky_button_text = 'Suscribite'
+        sticky_button_text = 'Suscribite',
+        class_upselling_tooltip = '--top_l',
+        upselling_tooltip_text = '¡Mejorá tu plan y <br> pagá lo mismo!',
+        // TODO !! Cambiar texto antes de mergear ------------------------------
+        duo_button_text = 'Fallback a dúo',
+        triple_button_text = 'Fallback a triple',
+        black_button_text = 'Fallback a black'
     } = getTermicaValues(propertyNames);
 
-    // Verifica el valor de buttonSuscribe y actualiza las variables según corresponda
-    if (!buttonSuscribe) {
+    const { getCookie } = handleCookie();
+    const valueCookie = termicaUpselling && (getCookie('gaComboType') || '');
+
+    const upsellingData = {
+        'ga-combo2': {
+            text: duo_button_text,
+            url:
+                'https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-duo?cv=733&fc=277'
+        },
+        'ga-comboDuo': {
+            text: triple_button_text,
+            url:
+                'https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-triple?cv=733&fc=277'
+        },
+        'ga-comboTriple': {
+            text: black_button_text,
+            url:
+                'https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-black?cv=733&fc=277'
+        }
+    };
+
+    const upsellingText = get(upsellingData, `${valueCookie}.text`, '');
+    const upsellingUrl = get(upsellingData, `${valueCookie}.url`, '');
+
+    const upsellingTooltipClassName = classNames(
+        !isHome && 'none',
+        '--mobile-none',
+        class_upselling_tooltip
+    );
+
+    const upsellingButtonClassName = classNames(
+        !loading && termicaUpselling ? '' : 'none',
+        'relative'
+    );
+
+    const UpsellingButton = (
+        <Button
+            id="btnupselling"
+            title="Pasate"
+            typeButton="subscribe"
+            className={upsellingButtonClassName}
+            // eslint-disable-next-line no-return-assign
+            onClick={() => {
+                window.location.href = valueCookie && upsellingUrl;
+            }}
+        >
+            {upselling_tooltip_text && (
+                <Tooltip
+                    className={upsellingTooltipClassName}
+                    text={upselling_tooltip_text}
+                />
+            )}
+
+            {valueCookie && (
+                <>
+                    <span
+                        id="button-text-upselling"
+                        dangerouslySetInnerHTML={{
+                            __html: upsellingText
+                        }}
+                    />
+                </>
+            )}
+        </Button>
+    );
+
+    if (!termicaSubscribe) {
         button_text = 'SUSCRIBITE';
         sticky_button_text = 'SUSCRIBITE';
     }
@@ -121,7 +199,7 @@ export const RightOptions = ({
                 )}`;
             }}
         >
-            {buttonSuscribe && tooltip_text && (
+            {termicaSubscribe && tooltip_text && (
                 <Tooltip className={tooltipClassName} text={tooltip_text} />
             )}
             <Icon
@@ -192,6 +270,7 @@ export const RightOptions = ({
     return (
         <>
             {BellButton}
+            {upsellingText && UpsellingButton}
             {rightOptions[userType] || <></>}
             {userType !== 'subscribed' && SubscribeButton}
         </>
