@@ -89,6 +89,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
 
             const objArticle = new storyText.default(props);
             objArticle.state.audionewsSource = {
+                audio_status: 7,
                 audio_url: 'url'
             };
 
@@ -159,6 +160,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
 
             const objArticle = new storyText.default(props);
             objArticle.state.audionewsSource = {
+                audio_status: 6,
                 audio_url: 'url'
             };
 

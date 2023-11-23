@@ -3,7 +3,7 @@ import audionewsSource from '../../../content/sources/audionewsSource';
 
 jest.mock('fusion:environment', () => {
     return {
-        AUDIO_NEWS_URL: 'api_url/'
+        AUDIONEWS_URL: 'api_url/'
     };
 });
 
@@ -11,8 +11,7 @@ jest.mock('request-promise-native', () => {
     return {
         __esModule: true,
         default: method => {
-            const path = method.uri.split('/');
-            path.splice(0, 2);
+            const path = method.uri;
 
             if (path.includes('123ASD123ASD')) {
                 return Promise.resolve({
@@ -46,20 +45,10 @@ describe('Audionews content sources Unit Tests', () => {
         };
 
         fetchContent(query)
-            .then(response => expect(response).toEqual(mockResp))
+            .then(response => {
+                expect(response).toEqual(mockResp);
+            })
             .then(done);
-    });
-
-    it('Should reject by invalid date number', async () => {
-        const query = { id: '123ASD123ASD', date: '111111111' };
-
-        try {
-            audionewsSource.fetch(query);
-        } catch (err) {
-            expect(err.message).toBe(
-                'El campo date con valor 111111111 no es valido para convertir a fecha'
-            );
-        }
     });
 
     it('Should reject by has not field id', async () => {
@@ -69,16 +58,6 @@ describe('Audionews content sources Unit Tests', () => {
             audionewsSource.fetch(query);
         } catch (err) {
             expect(err.message).toBe('El campo id es obligatorio');
-        }
-    });
-
-    it('Should reject by has not field date', async () => {
-        const query = { id: '123ASD123XCV' };
-
-        try {
-            audionewsSource.fetch(query);
-        } catch (err) {
-            expect(err.message).toBe('El campo date es obligatorio');
         }
     });
 

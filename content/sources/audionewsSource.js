@@ -1,4 +1,4 @@
-import { AUDIO_NEWS_URL } from 'fusion:environment';
+import { AUDIONEWS_URL, AUDIONEWS_APIKEY } from 'fusion:environment';
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 
@@ -19,20 +19,14 @@ const isValidStory = (id, date) => {
         throw new Error('El campo id es obligatorio');
     }
 
-    if (!date) {
-        throw new Error('El campo date es obligatorio');
-    }
-
     return true;
 };
 
 const resolve = key => {
-    const { id, date } = key;
+    const { id } = key;
 
-    if (isValidStory(id, date)) {
-        const formatDate = convertLastUpdated(date);
-
-        return `${AUDIO_NEWS_URL}${formatDate}/${id}/`;
+    if (isValidStory(id)) {
+        return `${AUDIONEWS_URL}${id}/`;
     }
 
     return null;
@@ -48,8 +42,13 @@ const fetch = query => {
         ...query
     });
 
+    opt.headers = {
+        'x-api-key': AUDIONEWS_APIKEY
+    };
+    console.warn(`LnWarnAudio: ${JSON.stringify(opt)}`);
     return request(opt)
         .then(resp => {
+            console.log(resp);
             if (resp.statusCode === 404 || resp.statusCode === 500) {
                 throw new Error(
                     `Error al obtener el audio de la nota, detalle ${resp.body}`
@@ -59,6 +58,7 @@ const fetch = query => {
             return resp;
         })
         .catch(error => {
+            console.log(error);
             logger.push(error, { source: 'audionewsSource', url });
         });
 };
