@@ -9,6 +9,7 @@ import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 import useTermica from '../../common/hooks/useTermica';
 import { GlobalContext } from '../../common/context/globalContext';
 import get from '../../common/utils/get';
+import handleCookie from '../../LN/common/utils/handleCookie';
 import { Tooltip } from '@ln/contenidos-ui-tooltip';
 import classNames from 'classnames';
 
@@ -73,23 +74,97 @@ export const RightOptions = ({
     hasSubscribeButton = true,
     isHome
 }) => {
-    const buttonSuscribe = useTermica('buttonsuscribe');
+    const termicaSubscribe = useTermica('buttonsuscribe');
+    const termicaUpselling = useTermica('termica_upselling');
+
+    const { getCookie } = handleCookie();
+    const valueCookie = getCookie('gaComboType') || '';
 
     const propertyNames = [
         'class_tooltip',
         'tooltip_text',
         'button_text',
-        'sticky_button_text'
+        'sticky_button_text',
+        'class_upselling_tooltip',
+        'upselling_tooltip_text',
+        'duo_button_text',
+        'triple_button_text',
+        'black_button_text'
     ];
     let {
         class_tooltip = '--top_l',
         tooltip_text = '',
         button_text = 'Suscribite',
-        sticky_button_text = 'Suscribite'
+        sticky_button_text = 'Suscribite',
+        class_upselling_tooltip = '--top_l',
+        upselling_tooltip_text = '¡Mejorá tu plan y <br> pagá lo mismo!',
+        duo_button_text = 'Pasate a dúo',
+        triple_button_text = 'Pasate a triple',
+        black_button_text = 'Pasate a black'
     } = getTermicaValues(propertyNames);
 
-    // Verifica el valor de buttonSuscribe y actualiza las variables según corresponda
-    if (!buttonSuscribe) {
+    const upsellingData = {
+        'ga-combo2': {
+            text: duo_button_text,
+            url:
+                'https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-duo?cv=733&fc=277'
+        },
+        'ga-comboDuo': {
+            text: triple_button_text,
+            url:
+                'https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-triple?cv=733&fc=277'
+        },
+        'ga-comboTriple': {
+            text: black_button_text,
+            url:
+                'https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-black?cv=733&fc=277'
+        }
+    };
+
+    const upsellingText = get(upsellingData, `${valueCookie}.text`, '');
+    const upsellingUrl = get(upsellingData, `${valueCookie}.url`, '');
+
+    const upsellingTooltipClassName = classNames(
+        !isHome && 'none',
+        '--mobile-none',
+        class_upselling_tooltip
+    );
+
+    const upsellingButtonClassName = classNames(
+        !loading && termicaUpselling ? '' : 'none',
+        'relative'
+    );
+
+    const UpsellingButton = () => {
+        if (userType !== 'subscribe' && !upsellingText && !upsellingUrl)
+            return <></>;
+        return (
+            <Button
+                id="btn-upselling"
+                title={upsellingText}
+                typeButton="subscribe"
+                className={upsellingButtonClassName}
+                onClick={() => {
+                    window.location.href = valueCookie && upsellingUrl;
+                }}
+            >
+                {upselling_tooltip_text && (
+                    <Tooltip
+                        className={upsellingTooltipClassName}
+                        text={upselling_tooltip_text}
+                    />
+                )}
+                <span
+                    id="button-text-upselling"
+                    dangerouslySetInnerHTML={{
+                        __html: upsellingText
+                    }}
+                />
+            </Button>
+        );
+    };
+
+    if (!termicaSubscribe) {
         button_text = 'SUSCRIBITE';
         sticky_button_text = 'SUSCRIBITE';
     }
@@ -108,48 +183,52 @@ export const RightOptions = ({
     const hideButtonText = isHome ? '' : 'none';
     const hideStickyButtonText = isHome ? 'none' : '';
 
-    const SubscribeButton = (
-        <Button
-            id="btnsuscribite"
-            title="Suscribite"
-            typeButton="subscribe"
-            className={subscribeButtonClassName}
-            // eslint-disable-next-line no-return-assign
-            onClick={() => {
-                window.location.href = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
-                    window.location.href
-                )}`;
-            }}
-        >
-            {buttonSuscribe && tooltip_text && (
-                <Tooltip className={tooltipClassName} text={tooltip_text} />
-            )}
-            <Icon
-                icon="suscriptorExclusivo"
-                size={18}
-                className="--mobile-none"
+    const SubscribeButton = () => {
+        if (userType === 'subscribed' || upsellingText) return <></>;
+        return (
+            <Button
+                id="btnsuscribite"
+                title="Suscribite"
+                typeButton="subscribe"
+                className={subscribeButtonClassName}
+                onClick={() => {
+                    window.location.href = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
+                        window.location.href
+                    )}`;
+                }}
             >
-                <ExclusivoSuscriptores />
-            </Icon>
+                {termicaSubscribe && tooltip_text && (
+                    <Tooltip className={tooltipClassName} text={tooltip_text} />
+                )}
+                <Icon
+                    icon="suscriptorExclusivo"
+                    size={18}
+                    className="--mobile-none"
+                >
+                    <ExclusivoSuscriptores />
+                </Icon>
 
-            {button_text || sticky_button_text ? (
-                <>
-                    <span
-                        id="button-text"
-                        className={hideButtonText}
-                        dangerouslySetInnerHTML={{ __html: button_text }}
-                    />
-                    <span
-                        id="sticky-button-text"
-                        className={hideStickyButtonText}
-                        dangerouslySetInnerHTML={{ __html: sticky_button_text }}
-                    />
-                </>
-            ) : (
-                'Suscribite'
-            )}
-        </Button>
-    );
+                {button_text || sticky_button_text ? (
+                    <>
+                        <span
+                            id="button-text"
+                            className={hideButtonText}
+                            dangerouslySetInnerHTML={{ __html: button_text }}
+                        />
+                        <span
+                            id="sticky-button-text"
+                            className={hideStickyButtonText}
+                            dangerouslySetInnerHTML={{
+                                __html: sticky_button_text
+                            }}
+                        />
+                    </>
+                ) : (
+                    'Suscribite'
+                )}
+            </Button>
+        );
+    };
 
     const MenuUser = (
         <MainHeader.MenuUser
@@ -192,8 +271,9 @@ export const RightOptions = ({
     return (
         <>
             {BellButton}
+            {<UpsellingButton />}
             {rightOptions[userType] || <></>}
-            {userType !== 'subscribed' && SubscribeButton}
+            {<SubscribeButton />}
         </>
     );
 };

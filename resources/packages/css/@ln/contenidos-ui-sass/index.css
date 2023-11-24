@@ -2487,12 +2487,6 @@ a {
   aspect-ratio: 16 / 9;
 }
 
-@media (min-width: 64rem) {
-  .--border-l-left-gray {
-    border-left: 0.0625rem solid #CCCCCC;
-  }
-}
-
 .rounded-4 {
   border-radius: 0.25rem;
 }
@@ -2525,11 +2519,20 @@ a {
 .border.border-neutral-light-700 {
   border-color: var(--neutral-light-700);
 }
+.border.border-dark-200 {
+  border-color: var(--dark-neutral-200);
+}
 .border.border-thin {
   border-width: thin;
 }
 .border.border-1 {
   border-width: 0.0625rem;
+}
+
+@media (min-width: 64rem) {
+  .--border-l-left-gray {
+    border-left: 0.0625rem solid #CCCCCC;
+  }
 }
 
 .z-1 {
@@ -2568,8 +2571,32 @@ a {
   color: var(--neutral-light-900);
 }
 
+.text-white {
+  color: var(--light-neutral-0);
+}
+
+.text-blue-300 {
+  color: var(--blue-300);
+}
+
 .bg-dark-100 {
   background: var(--dark-neutral-100);
+}
+
+.bg-light-400 {
+  background: var(--light-neutral-400);
+}
+
+.bg-light-900 {
+  background: var(--light-neutral-900);
+}
+
+.bg-black {
+  background: var(--dark-neutral-0);
+}
+
+.bg-white {
+  background: var(--light-neutral-0);
 }
 
 .bg-nunca-cuatro {
@@ -2602,18 +2629,6 @@ a {
 
 .bg-trivias {
   background: var(--trivias);
-}
-
-.bg-light-400 {
-  background: var(--light-neutral-400);
-}
-
-.bg-black {
-  background: black;
-}
-
-.bg-white {
-  background: white;
 }
 
 .bg-nunca-cuatro__hover:hover {
@@ -2886,6 +2901,10 @@ strong:not(.--font-primary),
   margin-block: 0.1875rem;
 }
 
+.p-0 {
+  padding: 0rem;
+}
+
 .p-8 {
   padding: 0.5rem;
 }
@@ -2954,6 +2973,10 @@ strong:not(.--font-primary),
   padding-right: 1.5rem;
 }
 
+.py-0 {
+  padding-block: 0rem;
+}
+
 .py-8 {
   padding-block: 0.5rem;
 }
@@ -2965,6 +2988,12 @@ strong:not(.--font-primary),
 @media (min-width: 48rem) {
   .mb-24_m {
     margin-bottom: 1.5rem;
+  }
+  .p-0_m {
+    padding: 0rem;
+  }
+  .py-24_m {
+    padding-block: 1.5rem;
   }
   .py-32_m {
     padding-block: 2rem;
@@ -3126,6 +3155,11 @@ strong:not(.--font-primary),
   width: max-content;
 }
 
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 .w-4 {
   width: 0.25rem;
 }
@@ -3149,6 +3183,11 @@ strong:not(.--font-primary),
     max-width: 9.5rem;
   }
 }
+.min-w-fit {
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+
 .h-100 {
   height: 100%;
 }
@@ -3167,6 +3206,11 @@ strong:not(.--font-primary),
 
 .h-64 {
   height: 4rem;
+}
+
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 @media (min-width: 64rem) {
@@ -3464,6 +3508,9 @@ strong:not(.--font-primary),
 }
 
 @media (min-width: 48rem) {
+  .gap-8_m {
+    gap: 0.5rem;
+  }
   .gap-16_m {
     gap: 1rem;
   }

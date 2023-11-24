@@ -66,6 +66,13 @@ const setChainFooditCustomFields = featuredName => {
             defaultValue: '',
             group: 'Techo'
         }),
+        link: PropTypes.url.tag({
+            label: 'Url',
+            description:
+                'Ingrese la url que redirige al hacer click al titulo. El formato debe empezar con https://',
+            defaultValue: '',
+            group: 'Techo'
+        }),
         hideTitle: PropTypes.boolean.tag({
             name: 'Ocultar techo',
             description: 'Marque para ocultar el techo',
