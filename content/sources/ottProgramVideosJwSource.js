@@ -8,7 +8,9 @@ const params = { sectionId: 'text', pageLimit: 'text', page: 'text' };
 const fetch = ({ sectionId, pageLimit = '12', page = '1' }) => {
     const arcSite = 'la-nacion-ar';
     const opt = {
-        uri: `https://api.jwplayer.com/v2/sites/uafFIXv2/media?q=custom_param:"site:ott" AND custom_param:"section:${sectionId}"&&page_length=${pageLimit}&&sort=publish_start_date:dsc&&page=${page}`,
+        uri: `https://api.jwplayer.com/v2/sites/uafFIXv2/media?q=custom_param:"site:ott" AND custom_param:"section:${encodeURIComponent(
+            sectionId
+        )}"&&page_length=${pageLimit}&&sort=publish_start_date:dsc&&page=${page}`,
         json: true,
         method: 'GET',
         auth: {

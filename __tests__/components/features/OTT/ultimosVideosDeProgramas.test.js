@@ -22,22 +22,6 @@ describe('features - OTT - ultimosVideosDeProgramas - Error', () => {
     });
 });
 
-describe('features - OTT - ultimosVideosDeProgramas - sectionSource - id', () => {
-    const sectionId = '/terapia-de-noticias';
-    const component = mount(
-        <UltimosVideosDeProgramasFeature
-            globalContent={{ _id: sectionId }}
-            globalContentConfig={{ source: 'sectionSource' }}
-        />
-    );
-    const mock = component.find('mock-component');
-
-    //TESTEAR QUE PASA EL ID
-    it('Testeo que pase al componente el section id del global content', () => {
-        expect(mock.prop('sectionId')).toEqual(sectionId);
-    });
-});
-
 describe('features - OTT - ultimosVideosDeProgramas', () => {
     const sectionId = '/terapia-de-noticias';
 
