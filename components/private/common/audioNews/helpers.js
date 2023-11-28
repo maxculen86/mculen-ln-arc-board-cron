@@ -4,6 +4,7 @@ import { addEventToDataLayer } from '../../LN/common/utils/shareHelper';
 import get from '../utils/get';
 import eventHandler from './trackerAudioNews';
 
+// POSIBLEMENTE TODAS LAS FUNCIONES SE ELIMINEN
 export const calculateTime = secs => {
     const minutes = Math.floor(secs / 60);
     const returnedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
@@ -24,6 +25,7 @@ export const parseDate = (date = '') =>
     date && date.replace(/-|:|[a-z]|\.[^\/]+/gi, '');
 
 export const handleClickAudioNews = (
+    // permanece
     token,
     suscription,
     setOpenPlayer,
