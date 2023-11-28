@@ -7194,9 +7194,16 @@ strong:not(.--font-primary),
   width: 4rem;
 }
 
+.w-28 {
+  width: 1.75rem;
+}
+
 @media (min-width: 80rem) {
   .w-140_lg {
     width: 8.75rem;
+  }
+  .w-40_lg {
+    width: 2.5rem;
   }
 }
 @media (min-width: 48rem) {
@@ -7562,6 +7569,50 @@ strong:not(.--font-primary),
     gap: 5rem;
   }
 }
+:root {
+  --newsletterbox-font-family: Prumo, georgia, serif;
+  --newsletterbox-text-font-variation: "wght" 170;
+  --newsletterbox-text-font-weight: 100;
+  --newsletterbox-title-font-variation: "wght" 170;
+  --newsletterbox-title-font-weight: 100;
+  --newsletterbox-description-font-variation: "wght" 110, "opsz" 0;
+  --newsletterbox-description-font-weight: 90;
+  --newsletterbox-title-color: var(--blue-500);
+  --newsletterbox-button-background-color: var(--blue-500);
+  --newsletterbox-button-color: var(--light-neutral-50);
+  --newsletterbox-button-radius: 0.25rem;
+  --newsletterbox-button-font-family: Arial, Roboto;
+  --newsletterbox-excusive-badge-font-family: Arial, Roboto;
+  --newsletterbox-exclusive-badge-background-color: #010101;
+  --newsletterbox-exlusive-badge-color: var(--light-neutral-50);
+  --newsletterbox-exclusive-button-background-color: var(--blue-300);
+  --newsletterbox-exclusive-button-color: var(--light-neutral-700);
+}
+
+.top--2 {
+  top: -0.125rem;
+}
+
+.right--2 {
+  right: -0.125rem;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }

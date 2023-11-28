@@ -1,4 +1,3 @@
-import get from '../../../common/utils/get';
 import getAssetsPath from '../../../common/utils/getAssetsPath';
 
 const getGameProperties = (

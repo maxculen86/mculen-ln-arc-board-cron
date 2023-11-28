@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Game from '../../../../components/features/LN-common/juego';
+import Game from '../../../../components/features/LN-common/Juego/default';
 import Context from 'fusion:context';
 import '@testing-library/jest-dom/extend-expect';
 import '@testing-library/jest-dom';
@@ -51,7 +51,11 @@ describe('Game Component', () => {
     Context.useAppContext = jest.fn(() => ({}));
 
     it('renders warning message when sectionId is falsy and isAdmin is true ', () => {
-        const customFields = { sectionId: '', gameType: 'SomeType' };
+        const customFields = {
+            sectionId: '',
+            gameType: 'SomeType',
+            subscriber: true
+        };
         render(
             <Game
                 id="test-feature"
@@ -70,9 +74,10 @@ describe('Game Component', () => {
         const customFields = {
             sectionId: '',
             gameType: 'SomeType',
-            isAdmin: false
+            isAdmin: false,
+            forSubscriber: true
         };
-        render(<Game id="test-feature" customFields={customFields} />);
+        render(<Game customFields={customFields} />);
 
         expect(
             screen.queryByText('El sectionId es un campo obligatorio')
@@ -82,7 +87,8 @@ describe('Game Component', () => {
     it('renders GameCard with href as sectionId when gameType is Externo', () => {
         const customFields = {
             sectionId: '/juegos/criptograma',
-            gameType: 'Externo'
+            gameType: 'Externo',
+            forSubscriber: false
         };
         render(<Game customFields={customFields} />);
 
