@@ -7,6 +7,7 @@ import {
     getTermicaValues
 } from '../../../../../components/private/LN10/mainHeader/_helper';
 import useTermica from '../../../../../components/private/common/hooks/useTermica';
+import handleCookie from '../../../../../components/private/LN/common/utils/handleCookie';
 
 jest.mock('../../../../../components/private/common/hooks/useTermica.js', () =>
     jest.fn()
@@ -21,12 +22,27 @@ jest.mock('react', () => ({
                     { key: 'class_tooltip', value: 'TooltipClass' },
                     { key: 'tooltip_text', value: 'TooltipText' },
                     { key: 'button_text', value: 'ButtonText' },
-                    { key: 'sticky_button_text', value: 'StickyButtonText' }
+                    { key: 'sticky_button_text', value: 'StickyButtonText' },
+                    {
+                        key: 'class_upselling_tooltip',
+                        value: 'TooltipClassUpselling'
+                    },
+                    { key: 'duo_button_text', value: 'Pasate a duo' },
+                    { key: 'triple_button_text', value: 'Pasate a triple' },
+                    { key: 'black_button_text', value: 'Pasate a black' }
                 ]
             }
         }
     }))
 }));
+
+jest.mock(
+    '../../../../../components/private/LN/common/utils/handleCookie',
+    () =>
+        jest.fn(() => ({
+            getCookie: jest.fn()
+        }))
+);
 
 describe('Private - LN10 - MainHeader - Helper =>', () => {
     describe('Helper - setDesplegableData', () => {
@@ -128,7 +144,7 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
 
         test('should return menu user, login button and subscribe buton when userType is unlogged', () => {
             useTermica.mockImplementation(() => false);
-            const { container, getByText } = render(
+            const { container } = render(
                 <RightOptions userType="unlogged" loggedIn={false} />
             );
 
@@ -194,6 +210,76 @@ describe('Private - LN10 - MainHeader - Helper =>', () => {
             expect(buttonElement).toBeInTheDocument();
             expect(stickyButtonElement).toBeInTheDocument();
         });
+        test('should show the upselling button with text and url if the plan cookie is ga-combo2', () => {
+            useTermica.mockImplementationOnce(arg => arg === 'buttonsuscribe');
+            useTermica.mockImplementationOnce(
+                arg => arg === 'termica_upselling'
+            );
+            handleCookie.mockReturnValue({
+                getCookie: jest.fn(() => 'ga-combo2')
+            });
+            const { getByRole } = render(
+                <RightOptions userType="subscribed" />
+            );
+            const UpsellingButton = getByRole('button', {
+                name: 'Pasate a duo'
+            });
+            expect(UpsellingButton).toBeInTheDocument();
+        });
+        test('should show the upselling button with text and url if the plan cookie is ga-comboDuo', () => {
+            useTermica.mockImplementationOnce(arg => arg === 'buttonsuscribe');
+            useTermica.mockImplementationOnce(
+                arg => arg === 'termica_upselling'
+            );
+            handleCookie.mockReturnValue({
+                getCookie: jest.fn(() => 'ga-comboDuo')
+            });
+            const { getByRole } = render(
+                <RightOptions userType="subscribed" />
+            );
+            const UpsellingButton = getByRole('button', {
+                name: 'Pasate a triple'
+            });
+            expect(UpsellingButton).toBeInTheDocument();
+        });
+        test('should show the upselling button with text and url if the plan cookie is ga-comboTriple', () => {
+            useTermica.mockImplementationOnce(arg => arg === 'buttonsuscribe');
+            useTermica.mockImplementationOnce(
+                arg => arg === 'termica_upselling'
+            );
+            handleCookie.mockReturnValue({
+                getCookie: jest.fn(() => 'ga-comboTriple')
+            });
+            const { getByRole } = render(
+                <RightOptions userType="subscribed" />
+            );
+            const UpsellingButton = getByRole('button', {
+                name: 'Pasate a black'
+            });
+            expect(UpsellingButton).toBeInTheDocument();
+        });
+        test('should not show the upselling button when cookie not have upselling', () => {
+            useTermica.mockImplementationOnce(arg => arg === 'buttonsuscribe');
+            useTermica.mockImplementationOnce(
+                arg => arg === 'termica_upselling'
+            );
+            handleCookie.mockReturnValue({
+                getCookie: jest.fn(() => 'ga-comboIncorrect')
+            });
+            render(<RightOptions userType="subscribed" />);
+
+            const UpsellingButton = document.querySelector('btn-upselling');
+            expect(UpsellingButton).toBeNull();
+        });
+        test('should not show the upselling button when termica_upselling is off', () => {
+            useTermica.mockImplementationOnce(() => false);
+            handleCookie.mockReturnValue({
+                getCookie: jest.fn(() => 'ga-combo2')
+            });
+            render(<RightOptions userType="subscribed" />);
+            const UpsellingButton = document.querySelector('btn-upselling');
+            expect(UpsellingButton).toBeNull();
+        });
     });
 });
 
@@ -203,7 +289,12 @@ describe('getTermicaValues function', () => {
             'class_tooltip',
             'tooltip_text',
             'button_text',
-            'sticky_button_text'
+            'sticky_button_text',
+            'class_upselling_tooltip',
+            'upselling_tooltip_text',
+            'duo_button_text',
+            'triple_button_text',
+            'black_button_text'
         ];
 
         // Call the getTermicaValues function

@@ -103,6 +103,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-id="AAABBBCCC111"
                   data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
@@ -224,6 +225,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-id="AAABBBCCC222"
                   data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
@@ -345,6 +347,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-id="AAABBBCCC333"
                   data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
@@ -466,6 +469,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-id="AAABBBCCC444"
                   data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
@@ -587,6 +591,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-id="AAABBBCCC555"
                   data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
@@ -708,6 +713,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-id="AAABBBCCC666"
                   data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
@@ -829,6 +835,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-id="AAABBBCCC777"
                   data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
@@ -949,6 +956,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-id="AAABBBCCC888"
                   data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
@@ -1069,6 +1077,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-id="AAABBBCCC888"
                   data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
@@ -1189,6 +1198,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-id="AAABBBCCC999"
                   data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
@@ -1313,6 +1323,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-id="AAABBBCCC000"
                   data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"
@@ -1438,6 +1449,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                 </div>
                 <button
                   class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                  data-id="AAABBBCCD111"
                   data-modal="open-modal"
                   data-variant="link"
                   title="Guardar receta"

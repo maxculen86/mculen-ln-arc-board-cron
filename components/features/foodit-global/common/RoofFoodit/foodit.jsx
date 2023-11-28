@@ -6,17 +6,17 @@ import { VariableBookmark } from '@ln/foodit-ui-variableicons';
 import { Link } from '@ln/foodit-ui-link';
 
 export const RoofFoodit = ({
-    buttonProps = { text: 'LLevar al recetario' },
+    buttonProps,
     hide,
-    icon = <VariableBookmark filled={false} />,
-    linkProps,
-    title = { text: 'Techo titulo', as: 'h3' }
+    icon = buttonProps && <VariableBookmark filled={false} />,
+    title = {},
+    linkProps = {}
 }) => {
     const { text = 'Techo titulo', as = 'h3' } = title;
     if (hide) return <></>;
     return (
         <div className="flex ai-end jc-between gap-24 mb-24">
-            {linkProps ? (
+            {linkProps.href ? (
                 <Link
                     className="prumo prumo-light text-28 text-36_md text-40_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-batata__hover"
                     {...linkProps}

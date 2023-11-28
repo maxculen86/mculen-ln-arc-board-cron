@@ -34,8 +34,8 @@ describe('Tests RoofFoodit', () => {
         );
     });
     it('should render Icon when buttonProps and icon props is provided', () => {
-        render(<RoofFoodit {...defaultMockProps} />);
-
+        const props = { ...defaultMockProps, buttonProps: {} };
+        render(<RoofFoodit {...props} />);
         const iconElement = screen.getByTestId('test-icon');
         expect(iconElement).toBeInTheDocument();
     });
