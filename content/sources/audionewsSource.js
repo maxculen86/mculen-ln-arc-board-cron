@@ -45,10 +45,9 @@ const fetch = query => {
     opt.headers = {
         'x-api-key': AUDIONEWS_APIKEY
     };
-    console.warn(`LnWarnAudio: ${JSON.stringify(opt)}`);
+
     return request(opt)
         .then(resp => {
-            console.log(resp);
             if (resp.statusCode === 404 || resp.statusCode === 500) {
                 throw new Error(
                     `Error al obtener el audio de la nota, detalle ${resp.body}`
@@ -58,7 +57,11 @@ const fetch = query => {
             return resp;
         })
         .catch(error => {
-            console.log(error);
+            console.error(
+                `AudionewsSource - msj: ${
+                    error.message
+                } - query: ${JSON.stringify(query || {})}`
+            );
             logger.push(error, { source: 'audionewsSource', url });
         });
 };

@@ -52,7 +52,7 @@ describe('Audionews content sources Unit Tests', () => {
     });
 
     it('Should reject by has not field id', async () => {
-        const query = { date: '111111111' };
+        const query = {};
 
         try {
             audionewsSource.fetch(query);
