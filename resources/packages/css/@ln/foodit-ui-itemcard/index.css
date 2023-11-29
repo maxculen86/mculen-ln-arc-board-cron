@@ -1,0 +1,15 @@
+.card-item[role=button]:hover, .card-item[role=link]:hover {
+  border-color: inherit;
+  --_main-color: var(--accent-lechuga);
+  color: var(--_main-color);
+}
+.card-item[role=button]:hover.--accent, .card-item[role=link]:hover.--accent {
+  --_main-color: var(--feedback-danger-600);
+}
+.card-item[role=button]:hover circle, .card-item[role=link]:hover circle {
+  fill: var(--_main-color);
+}
+.card-item .icon, .card-item circle {
+  transition: inherit;
+  transition-timing-function: linear;
+}

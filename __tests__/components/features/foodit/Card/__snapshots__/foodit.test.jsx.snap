@@ -7,9 +7,11 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
   >
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto --day-recipe bg-light-1"
+      data-variant="day-recipe"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit flex-row_lg"
+        data-variant="primary"
         href="/salados/pollo/receta-para-comer-mas-rico-con-pollito-2-nid18092023/"
         target="_self"
         title="Receta para comer mas rico con ...POLLITO 2"
@@ -50,7 +52,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                 Receta del día
               </span>
               <span
-                class="text prumo transition-regular text-accent-batata__hover prumo-book text-28 text-40_md text-48_lg"
+                class="text card-title prumo transition-regular prumo-book text-28 text-40_md text-48_lg"
               >
                 Receta para comer mas rico con ...POLLITO 2
               </span>
@@ -79,11 +81,11 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -96,14 +98,14 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 w-20_lg --dark"
               >
                 <svg
                   fill="none"
@@ -111,7 +113,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857"
                     fill="#333"
                   />
                 </svg>
@@ -137,9 +139,11 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
   >
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-background-positive"
+      data-variant="note"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/guia-de-cocina/ficha-nota-foodit-nid18092023/"
         target="_self"
         title="Ficha nota FOODIT"
@@ -176,7 +180,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Ficha nota FOODIT
               </span>
@@ -205,11 +209,11 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -222,14 +226,14 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="FMLGIYTL2ZBCRAKQTSO27CCQ6U"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -237,7 +241,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>
@@ -263,9 +267,11 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
   >
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+      data-variant="recipe"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/salados/pollo/receta-para-comer-mas-rico-con-pollito-2-nid18092023/"
         target="_self"
         title="Receta para comer mas rico con ...POLLITO 2"
@@ -306,7 +312,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Receta para comer mas rico con ...POLLITO 2
               </span>
@@ -335,11 +341,11 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -352,14 +358,14 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="D3SATI3N45FQTB5PYSC7TRFTTU"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -367,7 +373,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>

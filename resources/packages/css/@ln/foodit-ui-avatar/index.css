@@ -1,0 +1,3 @@
+.dropdown-toggle.--selected .avatar .avatar-initials {
+  border-color: var(--accent-maiz);
+}

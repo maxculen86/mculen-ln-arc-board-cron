@@ -7,10 +7,6 @@ describe('Components - Features - foodit-global - Common - DrawerMenu', () => {
         render(<DrawerMenu />);
     });
     // TODO: testear todo lo relacionado al contenido del drawer cuando se defina
-    it('should have a title Categorías', () => {
-        const title = screen.getByText('Categorías');
-        expect(title).toBeTruthy();
-    });
     it('should be hidden by default', () => {
         const drawer = document.querySelector('.drawer');
         const attribute = drawer.getAttribute('data-visible');

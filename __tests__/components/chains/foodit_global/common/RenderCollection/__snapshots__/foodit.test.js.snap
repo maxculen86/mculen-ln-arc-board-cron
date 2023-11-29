@@ -16,9 +16,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
   >
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      data-variant="recipe"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/dieta/una-comida-si-saludable-nid06092023/"
         target="_self"
         title="Una comida si saludable"
@@ -56,7 +58,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Una comida si saludable
               </span>
@@ -85,11 +87,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -102,14 +104,14 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="AAABBBCCC111"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -117,7 +119,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>
@@ -134,9 +136,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     </article>
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      data-variant="recipe"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/dieta/una-dieta-poco-saludable-nid06092023/"
         target="_self"
         title="Una dieta ...poco saludable"
@@ -174,7 +178,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Una dieta ...poco saludable
               </span>
@@ -203,11 +207,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -220,14 +224,14 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="AAABBBCCC222"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -235,7 +239,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>
@@ -252,9 +256,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     </article>
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      data-variant="recipe"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/dieta/una-comida-mas-o-menos-saludable-nid06092023/"
         target="_self"
         title="Una comida mas o menos saludable"
@@ -292,7 +298,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Una comida mas o menos saludable
               </span>
@@ -321,11 +327,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -338,14 +344,14 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="AAABBBCCC333"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -353,7 +359,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>
@@ -370,9 +376,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     </article>
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      data-variant="recipe"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/clasica/receta-para-comer-mas-rico-con-milanesas-nid06092023/"
         target="_self"
         title="Receta para comer mas rico con ...MILANESAS "
@@ -410,7 +418,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Receta para comer mas rico con ...MILANESAS 
               </span>
@@ -439,11 +447,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -456,14 +464,14 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="AAABBBCCC444"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -471,7 +479,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>
@@ -488,9 +496,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     </article>
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-background-positive col-span-8 col-span-4_md"
+      data-variant="note"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/clasica/ficha-nota-foodit-nid11092023/"
         target="_self"
         title="Ficha nota FOODIT"
@@ -528,7 +538,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Ficha nota FOODIT
               </span>
@@ -557,11 +567,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -574,14 +584,14 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="AAABBBCCC555"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -589,7 +599,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>
@@ -606,9 +616,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     </article>
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-background-positive col-span-8 col-span-4_md"
+      data-variant="note"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/clasica/receta-para-comer-mas-rico-con-pollito-nid04092023/"
         target="_self"
         title="Receta para comer mas rico con ...POLLITO 2"
@@ -646,7 +658,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Receta para comer mas rico con ...POLLITO 2
               </span>
@@ -675,11 +687,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -692,14 +704,14 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="AAABBBCCC666"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -707,7 +719,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>
@@ -724,9 +736,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     </article>
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      data-variant="recipe"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/dieta/una-comida-no-saludable-nid06092023/"
         target="_self"
         title="Una comida no saludable"
@@ -764,7 +778,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Una comida no saludable
               </span>
@@ -793,11 +807,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -810,14 +824,14 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="AAABBBCCC777"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -825,7 +839,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>
@@ -842,9 +856,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     </article>
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      data-variant="recipe"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/dulces/receta-rapida-nid06092023/"
         target="_self"
         title="Receta rapida"
@@ -881,7 +897,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Receta rapida
               </span>
@@ -910,11 +926,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -927,14 +943,14 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="AAABBBCCC888"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -942,7 +958,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>
@@ -959,9 +975,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     </article>
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      data-variant="recipe"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/clasica/prueba-nota-recetas-nuevo-nid04092023/"
         target="_self"
         title="Prueba nota recetas nuevo"
@@ -998,7 +1016,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Prueba nota recetas nuevo
               </span>
@@ -1027,11 +1045,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -1044,14 +1062,14 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="AAABBBCCC888"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -1059,7 +1077,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>
@@ -1076,9 +1094,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     </article>
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      data-variant=""
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/dieta/vegetarianas/sopa-de-mani-nid24082023/"
         target="_self"
         title="Sopa de mani"
@@ -1115,7 +1135,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Sopa de mani
               </span>
@@ -1144,11 +1164,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -1161,14 +1181,14 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="AAABBBCCC999"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -1176,7 +1196,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>
@@ -1193,9 +1213,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     </article>
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      data-variant="recipe"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/dieta/veganas/como-traer-la-tercera-nid24082023/"
         target="_self"
         title="Como traer la tercera"
@@ -1236,7 +1258,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Como traer la tercera
               </span>
@@ -1265,11 +1287,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -1282,14 +1304,14 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="AAABBBCCC000"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -1297,7 +1319,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>
@@ -1314,9 +1336,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     </article>
     <article
       class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      data-variant="recipe"
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+        data-variant="primary"
         href="/dieta/veganas/prueba-receta-vegana-nid24082023/"
         target="_self"
         title="Prueba receta vegana"
@@ -1358,7 +1382,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               class="flex flex-column gap-4"
             >
               <span
-                class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
               >
                 Prueba receta vegana
               </span>
@@ -1387,11 +1411,11 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                      d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                       fill="#333"
                     />
                     <path
-                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                      d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                       fill="#333"
                     />
                   </svg>
@@ -1404,14 +1428,14 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               </div>
             </div>
             <button
-              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
               data-id="AAABBBCCD111"
               data-modal="open-modal"
               data-variant="link"
               title="Guardar receta"
             >
               <i
-                class="icon --icon-24 --dark"
+                class="icon w-24 --dark"
               >
                 <svg
                   fill="none"
@@ -1419,7 +1443,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                     fill="#333"
                   />
                 </svg>
@@ -1448,6 +1472,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular prumo prumo-light text-28 text-36_md text-40_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-batata__hover"
+        data-variant="primary"
         href="https://lanacion.com"
         target="_self"
         title="Ir a carousel title"
@@ -1455,7 +1480,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         carousel title
       </a>
       <button
-        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 ml-auto"
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover ml-auto"
         data-id=""
         data-modal="open-modal"
         data-variant="link"
@@ -1499,9 +1524,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            data-variant="recipe"
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+              data-variant="primary"
               href="/dieta/una-comida-si-saludable-nid06092023/"
               target="_self"
               title="Una comida si saludable"
@@ -1539,7 +1566,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
                     >
                       Una comida si saludable
                     </span>
@@ -1568,11 +1595,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                             fill="#333"
                           />
                           <path
-                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                             fill="#333"
                           />
                         </svg>
@@ -1585,14 +1612,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     </div>
                   </div>
                   <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
                     data-id="AAABBBCCC111"
                     data-modal="open-modal"
                     data-variant="link"
                     title="Guardar receta"
                   >
                     <i
-                      class="icon --icon-24 --dark"
+                      class="icon w-24 --dark"
                     >
                       <svg
                         fill="none"
@@ -1600,7 +1627,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                           fill="#333"
                         />
                       </svg>
@@ -1621,9 +1648,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            data-variant="recipe"
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+              data-variant="primary"
               href="/dieta/una-dieta-poco-saludable-nid06092023/"
               target="_self"
               title="Una dieta ...poco saludable"
@@ -1661,7 +1690,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
                     >
                       Una dieta ...poco saludable
                     </span>
@@ -1690,11 +1719,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                             fill="#333"
                           />
                           <path
-                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                             fill="#333"
                           />
                         </svg>
@@ -1707,14 +1736,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     </div>
                   </div>
                   <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
                     data-id="AAABBBCCC222"
                     data-modal="open-modal"
                     data-variant="link"
                     title="Guardar receta"
                   >
                     <i
-                      class="icon --icon-24 --dark"
+                      class="icon w-24 --dark"
                     >
                       <svg
                         fill="none"
@@ -1722,7 +1751,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                           fill="#333"
                         />
                       </svg>
@@ -1743,9 +1772,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            data-variant="recipe"
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+              data-variant="primary"
               href="/dieta/una-comida-mas-o-menos-saludable-nid06092023/"
               target="_self"
               title="Una comida mas o menos saludable"
@@ -1783,7 +1814,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
                     >
                       Una comida mas o menos saludable
                     </span>
@@ -1812,11 +1843,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                             fill="#333"
                           />
                           <path
-                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                             fill="#333"
                           />
                         </svg>
@@ -1829,14 +1860,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     </div>
                   </div>
                   <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
                     data-id="AAABBBCCC333"
                     data-modal="open-modal"
                     data-variant="link"
                     title="Guardar receta"
                   >
                     <i
-                      class="icon --icon-24 --dark"
+                      class="icon w-24 --dark"
                     >
                       <svg
                         fill="none"
@@ -1844,7 +1875,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                           fill="#333"
                         />
                       </svg>
@@ -1865,9 +1896,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            data-variant="recipe"
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+              data-variant="primary"
               href="/clasica/receta-para-comer-mas-rico-con-milanesas-nid06092023/"
               target="_self"
               title="Receta para comer mas rico con ...MILANESAS "
@@ -1905,7 +1938,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
                     >
                       Receta para comer mas rico con ...MILANESAS 
                     </span>
@@ -1934,11 +1967,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                             fill="#333"
                           />
                           <path
-                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                             fill="#333"
                           />
                         </svg>
@@ -1951,14 +1984,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     </div>
                   </div>
                   <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
                     data-id="AAABBBCCC444"
                     data-modal="open-modal"
                     data-variant="link"
                     title="Guardar receta"
                   >
                     <i
-                      class="icon --icon-24 --dark"
+                      class="icon w-24 --dark"
                     >
                       <svg
                         fill="none"
@@ -1966,7 +1999,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                           fill="#333"
                         />
                       </svg>
@@ -1987,9 +2020,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-background-positive"
+            data-variant="note"
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+              data-variant="primary"
               href="/clasica/ficha-nota-foodit-nid11092023/"
               target="_self"
               title="Ficha nota FOODIT"
@@ -2027,7 +2062,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
                     >
                       Ficha nota FOODIT
                     </span>
@@ -2056,11 +2091,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                             fill="#333"
                           />
                           <path
-                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                             fill="#333"
                           />
                         </svg>
@@ -2073,14 +2108,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     </div>
                   </div>
                   <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
                     data-id="AAABBBCCC555"
                     data-modal="open-modal"
                     data-variant="link"
                     title="Guardar receta"
                   >
                     <i
-                      class="icon --icon-24 --dark"
+                      class="icon w-24 --dark"
                     >
                       <svg
                         fill="none"
@@ -2088,7 +2123,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                           fill="#333"
                         />
                       </svg>
@@ -2109,9 +2144,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-background-positive"
+            data-variant="note"
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+              data-variant="primary"
               href="/clasica/receta-para-comer-mas-rico-con-pollito-nid04092023/"
               target="_self"
               title="Receta para comer mas rico con ...POLLITO 2"
@@ -2149,7 +2186,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
                     >
                       Receta para comer mas rico con ...POLLITO 2
                     </span>
@@ -2178,11 +2215,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                             fill="#333"
                           />
                           <path
-                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                             fill="#333"
                           />
                         </svg>
@@ -2195,14 +2232,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     </div>
                   </div>
                   <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
                     data-id="AAABBBCCC666"
                     data-modal="open-modal"
                     data-variant="link"
                     title="Guardar receta"
                   >
                     <i
-                      class="icon --icon-24 --dark"
+                      class="icon w-24 --dark"
                     >
                       <svg
                         fill="none"
@@ -2210,7 +2247,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                           fill="#333"
                         />
                       </svg>
@@ -2231,9 +2268,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            data-variant="recipe"
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+              data-variant="primary"
               href="/dieta/una-comida-no-saludable-nid06092023/"
               target="_self"
               title="Una comida no saludable"
@@ -2271,7 +2310,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
                     >
                       Una comida no saludable
                     </span>
@@ -2300,11 +2339,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                             fill="#333"
                           />
                           <path
-                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                             fill="#333"
                           />
                         </svg>
@@ -2317,14 +2356,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     </div>
                   </div>
                   <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
                     data-id="AAABBBCCC777"
                     data-modal="open-modal"
                     data-variant="link"
                     title="Guardar receta"
                   >
                     <i
-                      class="icon --icon-24 --dark"
+                      class="icon w-24 --dark"
                     >
                       <svg
                         fill="none"
@@ -2332,7 +2371,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                           fill="#333"
                         />
                       </svg>
@@ -2353,9 +2392,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            data-variant="recipe"
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+              data-variant="primary"
               href="/dulces/receta-rapida-nid06092023/"
               target="_self"
               title="Receta rapida"
@@ -2392,7 +2433,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
                     >
                       Receta rapida
                     </span>
@@ -2421,11 +2462,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                             fill="#333"
                           />
                           <path
-                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                             fill="#333"
                           />
                         </svg>
@@ -2438,14 +2479,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     </div>
                   </div>
                   <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
                     data-id="AAABBBCCC888"
                     data-modal="open-modal"
                     data-variant="link"
                     title="Guardar receta"
                   >
                     <i
-                      class="icon --icon-24 --dark"
+                      class="icon w-24 --dark"
                     >
                       <svg
                         fill="none"
@@ -2453,7 +2494,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                           fill="#333"
                         />
                       </svg>
@@ -2474,9 +2515,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            data-variant="recipe"
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+              data-variant="primary"
               href="/clasica/prueba-nota-recetas-nuevo-nid04092023/"
               target="_self"
               title="Prueba nota recetas nuevo"
@@ -2513,7 +2556,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
                     >
                       Prueba nota recetas nuevo
                     </span>
@@ -2542,11 +2585,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                             fill="#333"
                           />
                           <path
-                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                             fill="#333"
                           />
                         </svg>
@@ -2559,14 +2602,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     </div>
                   </div>
                   <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
                     data-id="AAABBBCCC888"
                     data-modal="open-modal"
                     data-variant="link"
                     title="Guardar receta"
                   >
                     <i
-                      class="icon --icon-24 --dark"
+                      class="icon w-24 --dark"
                     >
                       <svg
                         fill="none"
@@ -2574,7 +2617,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                           fill="#333"
                         />
                       </svg>
@@ -2595,9 +2638,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            data-variant=""
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+              data-variant="primary"
               href="/dieta/vegetarianas/sopa-de-mani-nid24082023/"
               target="_self"
               title="Sopa de mani"
@@ -2634,7 +2679,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
                     >
                       Sopa de mani
                     </span>
@@ -2663,11 +2708,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                             fill="#333"
                           />
                           <path
-                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                             fill="#333"
                           />
                         </svg>
@@ -2680,14 +2725,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     </div>
                   </div>
                   <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
                     data-id="AAABBBCCC999"
                     data-modal="open-modal"
                     data-variant="link"
                     title="Guardar receta"
                   >
                     <i
-                      class="icon --icon-24 --dark"
+                      class="icon w-24 --dark"
                     >
                       <svg
                         fill="none"
@@ -2695,7 +2740,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                           fill="#333"
                         />
                       </svg>
@@ -2716,9 +2761,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            data-variant="recipe"
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+              data-variant="primary"
               href="/dieta/veganas/como-traer-la-tercera-nid24082023/"
               target="_self"
               title="Como traer la tercera"
@@ -2759,7 +2806,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
                     >
                       Como traer la tercera
                     </span>
@@ -2788,11 +2835,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                             fill="#333"
                           />
                           <path
-                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                             fill="#333"
                           />
                         </svg>
@@ -2805,14 +2852,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     </div>
                   </div>
                   <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
                     data-id="AAABBBCCC000"
                     data-modal="open-modal"
                     data-variant="link"
                     title="Guardar receta"
                   >
                     <i
-                      class="icon --icon-24 --dark"
+                      class="icon w-24 --dark"
                     >
                       <svg
                         fill="none"
@@ -2820,7 +2867,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                           fill="#333"
                         />
                       </svg>
@@ -2841,9 +2888,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         >
           <article
             class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            data-variant="recipe"
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit"
+              data-variant="primary"
               href="/dieta/veganas/prueba-receta-vegana-nid24082023/"
               target="_self"
               title="Prueba receta vegana"
@@ -2885,7 +2934,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text prumo transition-regular text-accent-batata__hover text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
                     >
                       Prueba receta vegana
                     </span>
@@ -2914,11 +2963,11 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                           xmlns="http://www.w3.org/2000/svg"
                         >
                           <path
-                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442Z"
+                            d="M21.045 7.278c-1.097-2.804-3.083-4.584-5.573-4.997-3.588-.594-6.375-.252-8.5 1.078-1.829 1.133-2.734 2.715-3.327 3.775l-.07.108c-1.706 3.02-2.037 6.22-.94 9.24.75 2.103 2.247 3.703 4.337 4.62 1.341.592 2.909.898 4.546.898.488 0 .975-.018 1.463-.072 2.003-.216 3.989-.88 5.556-1.887 1.829-1.205 2.944-2.733 3.222-4.44.488-2.984.227-5.932-.714-8.323Zm-.836 8.053c-.244 1.564-1.498 2.678-2.508 3.326-1.358.88-3.1 1.474-4.894 1.653-3.31.36-7.35-.593-8.709-4.386-.94-2.57-.662-5.195.802-7.82l.07-.125c.54-.97 1.288-2.301 2.803-3.254 1.777-1.114 4.215-1.402 7.438-.862 2.473.43 3.744 2.426 4.389 4.026.818 2.085 1.045 4.8.61 7.442"
                             fill="#333"
                           />
                           <path
-                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809Z"
+                            d="M18.102 12.221h-5.278V6.775a.793.793 0 0 0-.783-.81.793.793 0 0 0-.784.81v6.255c0 .45.348.809.784.809h6.06c.436 0 .785-.36.785-.809a.793.793 0 0 0-.784-.809"
                             fill="#333"
                           />
                         </svg>
@@ -2931,14 +2980,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     </div>
                   </div>
                   <button
-                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800"
+                    class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
                     data-id="AAABBBCCD111"
                     data-modal="open-modal"
                     data-variant="link"
                     title="Guardar receta"
                   >
                     <i
-                      class="icon --icon-24 --dark"
+                      class="icon w-24 --dark"
                     >
                       <svg
                         fill="none"
@@ -2946,7 +2995,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857ZM5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.713H5.656Z"
+                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
                           fill="#333"
                         />
                       </svg>
@@ -2965,14 +3014,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
       </ul>
       <button
         aria-label="Ir una slide hacia la izquierda"
-        class="button foodit-button gap-8 roboto-bold text-12 rounded-circle bg-light-1 text-primary-positive border border-all border-thin border-primary-positive p-12 absolute z-1 rounded-circle visibility-hidden"
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-circle text-secondary-positive border border-all border-thin border-secondary-positive text-accent-lechuga__hover border-accent-lechuga__hover p-12 absolute z-1 rounded-circle visibility-hidden bg-light-1"
         data-scroller="arrow"
         data-scroller-direction="prev"
         data-variant="secondary"
         title="Ver anterior"
       >
         <i
-          class="icon text-primary-positive --icon-16"
+          class="icon --icon-16 --inherit"
         >
           <svg
             fill="currentColor"
@@ -2992,14 +3041,14 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
       </button>
       <button
         aria-label="Ir una slide hacia la derecha"
-        class="button foodit-button gap-8 roboto-bold text-12 rounded-circle bg-light-1 text-primary-positive border border-all border-thin border-primary-positive p-12 absolute z-1 rounded-circle"
+        class="button foodit-button gap-8 roboto-bold text-12 rounded-circle text-secondary-positive border border-all border-thin border-secondary-positive text-accent-lechuga__hover border-accent-lechuga__hover p-12 absolute z-1 rounded-circle bg-light-1"
         data-scroller="arrow"
         data-scroller-direction="next"
         data-variant="secondary"
         title="Ver siguiente"
       >
         <i
-          class="icon text-primary-positive --icon-16"
+          class="icon --icon-16 --inherit"
         >
           <svg
             fill="currentColor"

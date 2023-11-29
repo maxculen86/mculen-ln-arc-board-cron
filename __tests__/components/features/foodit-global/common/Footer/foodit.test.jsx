@@ -26,7 +26,7 @@ describe('Components - Features - foodit-global - Common - FooterFoodit', () => 
     });
     it('should contain four icons', () => {
         const { length } = document.querySelectorAll('.icon');
-        expect(length).toEqual(6);
+        expect(length).toEqual(4);
     });
     it('should match snapshot', () => {
         const { container } = render(<FooterFoodit />);

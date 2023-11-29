@@ -7,6 +7,7 @@ exports[`Tests RoofFoodit Should match snapshot 1`] = `
   >
     <a
       class="link foodit-link flex gap-8 ai-center roboto-bold uppercase prumo prumo-light text-28 text-36_md text-40_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-batata__hover"
+      data-variant="primary"
       href="https://lanacion.com.ar/"
       target="_self"
       title="Ir a Texto del enlace"

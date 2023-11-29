@@ -10,6 +10,7 @@ exports[`Components - features - recetas - Banner should test Receta Banner 1`] 
     >
       <a
         class="link foodit-link flex gap-8 ai-center roboto-regular"
+        data-variant="primary"
         href="https://canchallena.lanacion.com.ar/"
         target="_self"
         title="Fulbo"

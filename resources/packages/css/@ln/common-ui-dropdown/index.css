@@ -16,9 +16,6 @@
   bottom: 100%;
   width: 100%;
 }
-.dropdown-menu[data-visible=false] {
-  top: calc(100% - 5px);
-}
 .dropdown-menu[data-position=left] {
   left: 0;
 }

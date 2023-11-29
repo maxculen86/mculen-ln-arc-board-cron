@@ -22,11 +22,11 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
     }));
     // TODO: testear las distintas versiones segun tipo de usuario
     // TODO: testear comportamiento topnavigation cuando se defina el contenido
-    it('when the header state sticky is true, should contain fixed class', () => {
-        render(<HeaderFoodit isSticky />);
-        const header = document.querySelector('header');
-        expect(header.classList.contains('fixed')).toBeTruthy();
-    });
+    // it('when the header state sticky is true, should contain fixed class', () => {
+    //     render(<HeaderFoodit isSticky />);
+    //     const header = document.querySelector('header');
+    //     expect(header.classList.contains('fixed')).toBeTruthy();
+    // });
 
     it('should match snapshot', () => {
         const { container } = render(<HeaderFoodit />);

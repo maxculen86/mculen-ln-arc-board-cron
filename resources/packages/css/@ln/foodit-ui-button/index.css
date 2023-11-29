@@ -1,3 +1,11 @@
 .button.foodit-button[data-variant=link] {
   text-transform: none;
 }
+.button.foodit-button .icon {
+  transition: inherit;
+  transition-timing-function: linear;
+}
+.button.foodit-button .icon > svg > path {
+  transition: inherit;
+  fill: currentColor;
+}
