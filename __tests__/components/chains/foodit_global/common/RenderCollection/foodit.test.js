@@ -30,7 +30,7 @@ describe('RenderCollection', () => {
             />
         );
 
-        const titleElement = screen.getByRole('heading', {
+        const titleElement = screen.getByRole('link', {
             name: 'carousel title'
         });
         const articleElements = screen.getAllByRole('article');
@@ -61,8 +61,7 @@ describe('RenderCollection', () => {
         );
 
         const articleElements = screen.getAllByRole('article');
-        const hiddenDiv = container.querySelector('.hidden');
-        expect(hiddenDiv).toBeInTheDocument();
+
         expect(articleElements).toHaveLength(12);
 
         expect(container).toMatchSnapshot();

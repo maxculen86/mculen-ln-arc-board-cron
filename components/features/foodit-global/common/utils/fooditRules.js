@@ -24,6 +24,7 @@ const fooditRules = diagramation => {
         },
         [BN_12_GRID]: {
             size: size.small,
+            classStatic: 'bn-12',
             minArticles: 12,
             maxArticles: 12,
             isStatic: true,

@@ -1,0 +1,249 @@
+{
+    "_id": "3WA35TYAJJBETLFALJ4U3YDAZM",
+    "canonical_url": "/recetas/ficha-nota-sin-video-nid10112023/",
+    "category": "Maridaje",
+    "content_elements": [],
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "created_date": "2023-11-10T14:25:35.531Z",
+    "credits": {
+        "by": [
+            {
+                "_id": "graciela-melgarejo",
+                "additional_properties": {
+                    "original": {
+                        "author_type": "Estándar",
+                        "byline": "Graciela Melgarejo",
+                        "image": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F45%2F2089245.png?auth=5f8968824bfa379e50367e6e25de9d2a47cb3fe162c73810291a3a47e4ffd1f0&width=80&quality=70&smart=false",
+                        "role": "LA NACION"
+                    }
+                },
+                "image": {
+                    "auth": {
+                        "1": "5f8968824bfa379e50367e6e25de9d2a47cb3fe162c73810291a3a47e4ffd1f0"
+                    },
+                    "resized_urls": [
+                        {
+                            "option": {
+                                "height": 80,
+                                "media": "(min-width: 320px)",
+                                "width": 80
+                            },
+                            "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F45%2F2089245.png?auth=5f8968824bfa379e50367e6e25de9d2a47cb3fe162c73810291a3a47e4ffd1f0&width=80&quality=70&smart=false"
+                        }
+                    ],
+                    "url": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F45%2F2089245.png?auth=5f8968824bfa379e50367e6e25de9d2a47cb3fe162c73810291a3a47e4ffd1f0&width=768&quality=70&smart=false"
+                },
+                "name": "Graciela Melgarejo",
+                "slug": "graciela-melgarejo",
+                "type": "author"
+            }
+        ]
+    },
+    "description": {
+        "basic": ""
+    },
+    "display_date": "2023-11-10T14:26:19.660Z",
+    "distributor": {
+        "category": "staff",
+        "name": "lanacionar"
+    },
+    "first_publish_date": "2023-11-10T14:26:19.660Z",
+    "headlines": {
+        "basic": "Ficha Nota Sin video",
+        "meta_title": "",
+        "mobile": ""
+    },
+    "isListenable": false,
+    "label": {},
+    "last_updated_date": "2023-11-10T14:27:28.850Z",
+    "owner": {
+        "sponsored": false
+    },
+    "paywallEnabled": "",
+    "promo_items": {
+        "basic": {
+            "_id": "GGV53JHPFFGJ5IHR2FNHBGVFLM",
+            "additional_properties": {},
+            "auth": {
+                "1": "8d0d8cf5d1a19c2a2bb4daea6fbacfd19860c4727bc1b7df1e21333b5e4936b6"
+            },
+            "created_date": "2023-11-10T11:10:29Z",
+            "height": 684,
+            "publish_date": "2023-11-10T08:10:24.0124514-03:00",
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 1280,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1440px)",
+                        "minScreenWidth": 1440,
+                        "proportion": "3:2",
+                        "width": 1920
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/GGV53JHPFFGJ5IHR2FNHBGVFLM.jpg?auth=8d0d8cf5d1a19c2a2bb4daea6fbacfd19860c4727bc1b7df1e21333b5e4936b6&width=1920&height=1280&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 800,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
+                        "minScreenWidth": 1024,
+                        "proportion": "3:2",
+                        "width": 1200
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/GGV53JHPFFGJ5IHR2FNHBGVFLM.jpg?auth=8d0d8cf5d1a19c2a2bb4daea6fbacfd19860c4727bc1b7df1e21333b5e4936b6&width=1200&height=800&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 1155,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 768px) and (max-width: 1023px)",
+                        "minScreenWidth": 768,
+                        "proportion": "2:3",
+                        "width": 770
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/GGV53JHPFFGJ5IHR2FNHBGVFLM.jpg?auth=8d0d8cf5d1a19c2a2bb4daea6fbacfd19860c4727bc1b7df1e21333b5e4936b6&width=770&height=1155&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 630,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "2:3",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/GGV53JHPFFGJ5IHR2FNHBGVFLM.jpg?auth=8d0d8cf5d1a19c2a2bb4daea6fbacfd19860c4727bc1b7df1e21333b5e4936b6&width=420&height=630&quality=70&smart=true"
+                }
+            ],
+            "type": "image",
+            "url": "https://sandbox.lanacion.com.ar/resizer/v2/GGV53JHPFFGJ5IHR2FNHBGVFLM.jpg?auth=8d0d8cf5d1a19c2a2bb4daea6fbacfd19860c4727bc1b7df1e21333b5e4936b6&width=1920&height=1283&quality=70&smart=true",
+            "width": 1024
+        },
+        "storytelling_mobile": {
+            "_id": "BPMJVKSDBZD5ZFPSAAPKBYSEQA",
+            "additional_properties": {},
+            "auth": {
+                "1": "4d4b928e045a065a1e194f5e4411c237d6aadb9eda6cbb7d23d5f8a83ae934f7"
+            },
+            "height": 3237,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 1280,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1440px)",
+                        "minScreenWidth": 1440,
+                        "proportion": "3:2",
+                        "width": 1920
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/BPMJVKSDBZD5ZFPSAAPKBYSEQA.jpg?auth=4d4b928e045a065a1e194f5e4411c237d6aadb9eda6cbb7d23d5f8a83ae934f7&width=1920&height=1280&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 800,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
+                        "minScreenWidth": 1024,
+                        "proportion": "3:2",
+                        "width": 1200
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/BPMJVKSDBZD5ZFPSAAPKBYSEQA.jpg?auth=4d4b928e045a065a1e194f5e4411c237d6aadb9eda6cbb7d23d5f8a83ae934f7&width=1200&height=800&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 1155,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 768px) and (max-width: 1023px)",
+                        "minScreenWidth": 768,
+                        "proportion": "2:3",
+                        "width": 770
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/BPMJVKSDBZD5ZFPSAAPKBYSEQA.jpg?auth=4d4b928e045a065a1e194f5e4411c237d6aadb9eda6cbb7d23d5f8a83ae934f7&width=770&height=1155&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 630,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "2:3",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/BPMJVKSDBZD5ZFPSAAPKBYSEQA.jpg?auth=4d4b928e045a065a1e194f5e4411c237d6aadb9eda6cbb7d23d5f8a83ae934f7&width=420&height=630&quality=70&smart=true"
+                }
+            ],
+            "type": "image",
+            "url": "https://sandbox.lanacion.com.ar/resizer/v2/BPMJVKSDBZD5ZFPSAAPKBYSEQA.jpg?auth=4d4b928e045a065a1e194f5e4411c237d6aadb9eda6cbb7d23d5f8a83ae934f7&width=1920&height=3047&quality=70&smart=true",
+            "width": 2040
+        }
+    },
+    "publish_date": "2023-11-10T14:27:28.608Z",
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "source": {
+        "system": "composer"
+    },
+    "subheadlines": {
+        "basic": ""
+    },
+    "subtype": "4",
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/recetas/Maridaje",
+            "_website": "foodit",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {
+                        "default": ["/recetas"]
+                    },
+                    "site": {}
+                }
+            },
+            "name": "Maridaje",
+            "parent_id": "/recetas",
+            "path": "/recetas/Maridaje",
+            "type": "section"
+        },
+        "sections": [
+            {
+                "_id": "/recetas/Maridaje",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": ["/recetas"]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Maridaje",
+                "parent_id": "/recetas",
+                "path": "/recetas/Maridaje",
+                "type": "section"
+            },
+            {
+                "_id": "/recetas",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": []
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Recetas",
+                "parent_id": "/",
+                "path": "/recetas",
+                "type": "section"
+            }
+        ]
+    },
+    "type": "story",
+    "website_url": "/recetas/ficha-nota-sin-video-nid10112023/",
+    "withFirmaDistributor": false,
+    "withSponsoredLink": false
+}

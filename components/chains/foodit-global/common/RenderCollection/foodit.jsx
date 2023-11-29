@@ -2,7 +2,6 @@ import React from 'react';
 import Carousel from '../Carousel/foodit';
 import { LAYOUTS } from '../utils/helper-WebApi';
 import RoofFoodit from '../../../../features/foodit-global/common/RoofFoodit/foodit';
-import StaticContent from '../../../../private/common/staticContent';
 import CommonCardFoodit from '../../../../features/foodit-global/common/CommonCardFoodit/foodit';
 import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
 
@@ -15,6 +14,8 @@ export const RenderCollection = ({
     hideTitle,
     layout,
     error,
+    link = '',
+    collectionId = '',
     articles = []
 }) => {
     const {
@@ -30,16 +31,24 @@ export const RenderCollection = ({
                     title={{ text: title, as: roofAs }}
                     hide={hideTitle}
                     className={classNameRoof}
+                    linkProps={{ href: link, text: title }}
+                    buttonProps={{
+                        text: 'Llevar al recetario',
+                        fill: 'false', // TODO: true cuando las recetas está guardada
+                        'data-id': collectionId,
+                        'data-modal': 'open-modal'
+                    }}
                 />
                 <Carousel articles={articles} />
             </div>
         ),
         [BN_12_GRID]: (
-            <StaticContent className="hidden bn-12">
+            <>
                 <RoofFoodit
                     title={{ text: title }}
                     hide={hideTitle}
                     className={classNameRoof}
+                    linkProps={{ href: link, text: title }}
                 />
                 <div className={classNameParent}>
                     {articles.map(
@@ -81,7 +90,7 @@ export const RenderCollection = ({
                         }
                     )}
                 </div>
-            </StaticContent>
+            </>
         )
     };
 

@@ -19,6 +19,8 @@ import getPresets from './utils/presets';
 import ArticleSourceNotas from './acuArticlesSourcebyIds';
 import parseUrl from './utils/parseUrl';
 import { isResizerV2 } from '../../components/private/common/utils/image/resizer/v2/resizerHelper';
+import { enumTypeError } from '../../components/private/LN/api/common/enums/enumTypeError';
+import BackendLnError from '../../components/private/LN/api/common/models/backendLnError';
 
 const transformArticles = (cantidadNotas, liftigniterArticles = []) =>
     liftigniterArticles &&
@@ -59,7 +61,8 @@ const fetch = query => {
         uri,
         nextIdArticle,
         listArticles,
-        sizeMax = 20
+        sizeMax = 20,
+        api = false
     } = query;
 
     let allArticles = action === 'activity' ? listArticles : excludeNotas;
@@ -82,7 +85,8 @@ const fetch = query => {
             Ids: allArticles,
             sizeMax,
             uri,
-            'arc-site': arcSiteStorys
+            'arc-site': arcSiteStorys,
+            sourceInclude: 'website,website_url,canonical_url'
         };
         return ArticleSourceNotas.fetch(queryArticles)
             .then(resp => {
@@ -140,14 +144,25 @@ const fetch = query => {
                 return resolveData(queryAdapted);
             })
             .catch(error => {
-                logger.push(
-                    error,
-                    {
-                        source: 'content/sources/articleSourcebyIds',
-                        url: `${uri}`
-                    },
-                    arcSiteStorys
-                );
+                if (api) {
+                    console.error(
+                        new BackendLnError(
+                            `ArticleSourcebyIds - msj: ${
+                                error.message
+                            } - Query: ${JSON.stringify(query || {})}`,
+                            enumTypeError.liftigniterError
+                        )
+                    );
+                } else {
+                    logger.push(
+                        error,
+                        {
+                            source: 'content/sources/articleSourcebyIds',
+                            url: `${uri}`
+                        },
+                        arcSiteStorys
+                    );
+                }
             });
     }
 
@@ -168,7 +183,8 @@ const resolveData = query => {
         widgetType,
         articles = [],
         urlReferer = null,
-        maxAgeInSeconds
+        maxAgeInSeconds,
+        widgetName = WIDGETS
     } = query;
 
     const userIdParam = userId && !userId.includes('/') ? `/${userId}` : '';
@@ -192,7 +208,7 @@ const resolveData = query => {
         widget_click: {
             ...body,
             type: 'widget_click',
-            widgetName: WIDGETS,
+            widgetName,
             clickUrl: nextUrl,
             source: 'LI',
             timestamp,
@@ -201,7 +217,7 @@ const resolveData = query => {
         widget_shown: {
             ...body,
             type: 'widget_shown',
-            widgetName: WIDGETS,
+            widgetName,
             source: 'LI',
             timestamp,
             visibleItems: articles
@@ -209,7 +225,7 @@ const resolveData = query => {
         widget_visible: {
             ...body,
             type: 'widget_visible',
-            widgetName: WIDGETS,
+            widgetName,
             source: 'LI',
             timestamp,
             visibleItems: articles // preguntar
@@ -232,14 +248,25 @@ const resolveData = query => {
                 return (response && JSON.parse(response)) || {};
             },
             reject: error => {
-                logger.push(
-                    error,
-                    {
-                        source: 'content/sources/liftigniterSource',
-                        url: `${baseUrl}/activity`
-                    },
-                    arcSite
-                );
+                if (api) {
+                    console.error(
+                        new BackendLnError(
+                            `Activity - msj: ${
+                                error.message
+                            } - Query: ${JSON.stringify(query || {})}`,
+                            enumTypeError.liftigniterError
+                        )
+                    );
+                } else {
+                    logger.push(
+                        error,
+                        {
+                            source: 'content/sources/liftigniterSource',
+                            url: `${baseUrl}/activity`
+                        },
+                        arcSite
+                    );
+                }
             }
         },
         model: {
@@ -247,7 +274,7 @@ const resolveData = query => {
             method: 'POST',
             headers,
             body: JSON.stringify({
-                widgetName: WIDGETS,
+                widgetName,
                 maxCount: cantidadNotas,
                 requestFields: [
                     'url',
@@ -273,14 +300,25 @@ const resolveData = query => {
                 );
             },
             reject: error => {
-                logger.push(
-                    error,
-                    {
-                        source: 'content/sources/liftigniterSource',
-                        url: `${baseUrl}/model`
-                    },
-                    arcSite
-                );
+                if (api) {
+                    console.error(
+                        new BackendLnError(
+                            `Model - msj: ${
+                                error.message
+                            } - Query: ${JSON.stringify(query || {})}`,
+                            enumTypeError.liftigniterError
+                        )
+                    );
+                } else {
+                    logger.push(
+                        error,
+                        {
+                            source: 'content/sources/liftigniterSource',
+                            url: `${baseUrl}/model`
+                        },
+                        arcSite
+                    );
+                }
             }
         }
     };
@@ -290,6 +328,7 @@ const resolveData = query => {
         headers: REQUESTS[action] && REQUESTS[action].headers,
         body: REQUESTS[action] && REQUESTS[action].body
     };
+
     return request(queryRequest)
         .then(response => REQUESTS[action].resolve(response))
         .catch(error => REQUESTS[action].reject(error));
@@ -372,7 +411,9 @@ export default {
         widgetType: 'text',
         nextIdArticle: 'text',
         listArticles: 'text',
-        sizeMax: 'text'
+        sizeMax: 'text',
+        api: 'bool',
+        widgetName: 'text'
     },
     ttl: 120
 };

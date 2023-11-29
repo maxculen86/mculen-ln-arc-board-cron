@@ -41,7 +41,7 @@ const getParamsAcus = query => {
         sectionId,
         size,
         excludeSourceOrigin,
-        website,
+        'arc-site': website,
         tagId,
         authorId
     };

@@ -1,7 +1,6 @@
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 import { API_CONVIVENCIA_TOKEN } from 'fusion:environment';
-const params = { videoId: 'text' };
 
 const fetch = query => {
     const { uri } = query;
@@ -32,6 +31,5 @@ const fetch = query => {
 
 export default {
     fetch,
-    params,
     ttl: 900
 };
