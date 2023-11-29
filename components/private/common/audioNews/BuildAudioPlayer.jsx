@@ -28,8 +28,8 @@ const BuildAudioPlayer = ({
                     }
                 }
             });
-            setEnableButton(true); //conservar
-            setOpenPlayer(false); //conservar
+            setEnableButton(true);
+            setOpenPlayer(false);
         }
     }, [error, dispatch, setEnableButton, setOpenPlayer]);
 
@@ -85,7 +85,7 @@ const BuildAudioPlayer = ({
     return (
         <>
             {!isLoading && !error ? (
-                <div className="audio-player" />
+                <div className="audio-player w-100 mb-24 mb-0_l" />
             ) : (
                 <LoadingIcon />
             )}
