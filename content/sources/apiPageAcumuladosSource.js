@@ -27,7 +27,6 @@ const fetch = async (query, { cachedCall }) => {
 
         const queryParams = {
             rootPath: `${SITE_LANACION}${query.sectionId}`,
-            ticksCache: ticksCache,
             website,
             uri,
             categoryUri,
@@ -38,7 +37,7 @@ const fetch = async (query, { cachedCall }) => {
         const [resultPage, fetchSectionSourceResult] = await Promise.all([
             cachedCall('ApiPageAcumulados', pages.fetch, {
                 query: queryParams,
-                ttl: 120
+                ttl: 300
             }),
             fetchSectionSource(query, cachedCall)
         ]);

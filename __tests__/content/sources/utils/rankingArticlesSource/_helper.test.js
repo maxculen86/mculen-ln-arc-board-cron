@@ -12,7 +12,7 @@ import config, {
 } from '../../../../../content/sources/utils/rankingArticlesSource/_config';
 jest.mock('fusion:environment', () => {
     return {
-        RANKING_URL: 'https://api.lanacionar.arcpublishing.com'
+        CONTENT_BASE: 'https://api.lanacionar.arcpublishing.com'
     };
 });
 
