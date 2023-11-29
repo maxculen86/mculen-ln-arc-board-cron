@@ -18,17 +18,22 @@ export default class Comscore extends Component {
         if (!this.config) return '';
         if (this.location !== 'head') return '';
 
-        const script = `var _comscore = _comscore || [];_comscore.push(${JSON.stringify(
-            this.config
-        )});(function() {
-                var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
-                s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";el.parentNode.insertBefore(s, el);
+        const script = `var _comscore = _comscore || [];
+        _comscore.push(${JSON.stringify({
+            ...this.config,
+            options: {
+                enableFirstPartyCookie: true
+            }
+        })});(function() {
+            var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+            s.src = "https://sb.scorecardresearch.com/cs/6906398/beacon.js";
+            el.parentNode.insertBefore(s, el);
             })();`;
 
         const urlConfig = Object.keys(this.config)
             .map(k => `${k}=${this.config[k]}`)
             .join('&');
-        const urlNoScript = `https://sb.scorecardresearch.com/p?${urlConfig}&cv=2.0&cj=1`;
+        const urlNoScript = `https://sb.scorecardresearch.com/p?${urlConfig}&cv=3.9.1&cj=1`;
 
         return [
             <script
