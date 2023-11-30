@@ -15,7 +15,7 @@ import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 const HeaderFoodit = ({ isSticky = false, ...r }) => {
     const { deployment, contextPath } = useAppContext();
     //TODO: validar tipos de usuario 'unlogged' | 'logged' | 'subscribed' | 'subscribedPlus';
-    const userType = 'subscribedPlus';
+    const userType = 'subscribed';
     const configPromotions = getConfig(userType);
 
     // TODO: obtener data de usuario

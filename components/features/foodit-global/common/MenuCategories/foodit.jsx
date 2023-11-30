@@ -1,10 +1,10 @@
 import React from 'react';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 
-export const MenuCategories = ({ data, fullWidth }) => {
+export const MenuCategories = ({ data = [], fullWidth }) => {
     return (
         <div className="flex flex-column flex-row_lg">
-            {data?.map(({ title, items }, i) => (
+            {data.map(({ title, items = [] }, i) => (
                 <ul
                     className={fullWidth ? 'w-100' : 'w-202'}
                     key={`section-${i}`}
@@ -21,7 +21,7 @@ export const MenuCategories = ({ data, fullWidth }) => {
                             />
                         </li>
                     )}
-                    {items?.map(({ href, text }) => (
+                    {items.map(({ href, text }) => (
                         <li key={text}>
                             <Itemcard
                                 type={href ? 'link' : 'text'}

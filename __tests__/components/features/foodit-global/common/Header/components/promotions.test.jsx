@@ -53,7 +53,8 @@ describe('Components - Features - foodit-global - common - Header - components -
             plan,
             containerClassName
         } = subscribedMock;
-        render(<Promotions {...subscribedMock} />);
+        const { debug } = render(<Promotions {...subscribedMock} />);
+        debug();
         const PromotionContainer = document.querySelector(
             '.promotions-container'
         );

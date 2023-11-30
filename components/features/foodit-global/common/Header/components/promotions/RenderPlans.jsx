@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from '@ln/common-ui-text';
 import RenderIcon from './RenderIcon';
 
-export const RenderPlans = ({ plan, iconClubLn, iconFoodit }) => {
+export const RenderPlans = ({ plan, iconClubLn = {}, iconFoodit = {} }) => {
     if (!plan) return <></>;
     return (
         <div className="flex flex-column">
@@ -11,7 +11,7 @@ export const RenderPlans = ({ plan, iconClubLn, iconFoodit }) => {
                 <Text className="prumo prumo-semibold text-light-800 mr-8">
                     {plan}
                 </Text>
-                {(iconFoodit?.element || iconClubLn?.element) && (
+                {(iconFoodit || iconClubLn) && (
                     <div className="pl-8 border border-left border-thin border-light-100 flex gap-8">
                         <RenderIcon iconData={iconFoodit} />
                         <RenderIcon iconData={iconClubLn} />

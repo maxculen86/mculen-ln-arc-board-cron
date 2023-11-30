@@ -2,10 +2,11 @@ import React from 'react';
 import { Icon } from '@ln/common-ui-icon';
 
 export const RenderIcon = ({ iconData }) => {
-    if (!iconData) return <></>;
+    const { element, backgroudColor } = iconData;
+    if (!element || !backgroudColor) return <></>;
     return (
-        <Icon size={12} hasWrapper bgColor={iconData?.backgroudColor}>
-            {iconData?.element}
+        <Icon size={12} hasWrapper bgColor={backgroudColor}>
+            {element}
         </Icon>
     );
 };
