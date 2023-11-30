@@ -1,6 +1,7 @@
 import { OPTA_WIDGET_URL } from 'fusion:environment';
 import getEmbedHref from '../../../../../../../common/utils/getEmbedHref';
 import BackendLnError from '../../../../../common/models/backendLnError';
+import { enumTypeError } from '../../../../../common/enums/enumTypeError';
 
 const html = (nodo, notaId) => {
     if (!nodo || !nodo.content) return null;
@@ -20,7 +21,7 @@ const html = (nodo, notaId) => {
                         `StoryId: ${notaId} - Iframe content: ${JSON.stringify(
                             nodo || {}
                         )}`,
-                        'StoryContentError'
+                        enumTypeError.storyContentError
                     )
                 );
                 return null;
