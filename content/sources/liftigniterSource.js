@@ -153,16 +153,15 @@ const fetch = query => {
                             enumTypeError.liftigniterError
                         )
                     );
-                } else {
-                    logger.push(
-                        error,
-                        {
-                            source: 'content/sources/articleSourcebyIds',
-                            url: `${uri}`
-                        },
-                        arcSiteStorys
-                    );
                 }
+                logger.push(
+                    error,
+                    {
+                        source: 'content/sources/articleSourcebyIds',
+                        url: `${uri}`
+                    },
+                    arcSiteStorys
+                );
             });
     }
 
@@ -184,7 +183,8 @@ const resolveData = query => {
         articles = [],
         urlReferer = null,
         maxAgeInSeconds,
-        widgetName = WIDGETS
+        widgetName = WIDGETS,
+        api = false
     } = query;
 
     const userIdParam = userId && !userId.includes('/') ? `/${userId}` : '';
@@ -257,16 +257,15 @@ const resolveData = query => {
                             enumTypeError.liftigniterError
                         )
                     );
-                } else {
-                    logger.push(
-                        error,
-                        {
-                            source: 'content/sources/liftigniterSource',
-                            url: `${baseUrl}/activity`
-                        },
-                        arcSite
-                    );
                 }
+                logger.push(
+                    error,
+                    {
+                        source: 'content/sources/liftigniterSource',
+                        url: `${baseUrl}/activity`
+                    },
+                    arcSite
+                );
             }
         },
         model: {
@@ -309,16 +308,15 @@ const resolveData = query => {
                             enumTypeError.liftigniterError
                         )
                     );
-                } else {
-                    logger.push(
-                        error,
-                        {
-                            source: 'content/sources/liftigniterSource',
-                            url: `${baseUrl}/model`
-                        },
-                        arcSite
-                    );
                 }
+                logger.push(
+                    error,
+                    {
+                        source: 'content/sources/liftigniterSource',
+                        url: `${baseUrl}/model`
+                    },
+                    arcSite
+                );
             }
         }
     };
