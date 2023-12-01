@@ -25,13 +25,13 @@ describe('Test - isNoteListenable', () => {
                 content: 'Un parrafo'
             }
         ],
-        last_updated_date: '2022-09-21T18:06:59.601Z'
+        last_updated_date: '2023-11-24T18:06:59.601Z'
     };
 
     describe('When the note is of spectacles', () => {
         const casesTruthy = [
             [
-                'It should return true when the source is composer, the subtype is enabled, and the publish date is 20/09/2022 onwards.',
+                'It should return true when the source is composer, the subtype is enabled, and the publish date is 23/11/2023 onwards.',
                 data
             ],
             [
@@ -51,7 +51,7 @@ describe('Test - isNoteListenable', () => {
             expect(isNoteListenable(data)).toBeTruthy();
         });
 
-        test('should return false when the publish date is before 13/10/2022', () => {
+        test('should return false when the publish date is before 23/11/2023', () => {
             expect(
                 isNoteListenable({
                     ...data,
@@ -69,16 +69,16 @@ describe('Test - isNoteListenable', () => {
                     _id: '/economia'
                 }
             },
-            last_updated_date: '2022-10-21T18:06:59.601Z'
+            last_updated_date: '2023-11-24T18:06:59.601Z'
         };
 
-        test('It should return true when the source is composer, the subtype is enabled, and the publish date is 20/09/2022 onwards.', () => {
+        test('It should return true when the source is composer, the subtype is enabled, and the publish date is 23/11/2023 onwards.', () => {
             expect(isNoteListenable(response)).toBeTruthy();
         });
 
         const casesFalsy = [
             [
-                'Should return false when the publish date is 13/10/2022 before.',
+                'Should return false when the publish date is 23/11/2023 before.',
                 {
                     ...response,
                     last_updated_date: '2022-09-21T18:06:59.601Z'
