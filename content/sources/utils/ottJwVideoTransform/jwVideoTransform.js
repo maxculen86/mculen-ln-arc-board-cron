@@ -1,6 +1,23 @@
 import slugify from 'slugify';
 import get from '../../../../components/private/common/utils/get';
 
+export function filterMediaBySection(data = {}, section = '') {
+    const filteredItems =
+        data.media &&
+        data.media.filter(mediaItem => {
+            const metadata = mediaItem.metadata || {};
+            const customParams = metadata.custom_params || {};
+            return customParams.section === section;
+        });
+
+    return {
+        media: filteredItems || [],
+        page: data.page,
+        page_length: data.page_length,
+        total: data.total / 2
+    };
+}
+
 export const jwURLFormatter = ({ videoTitle = '', videoId = '' }) => {
     const slug = slugify(videoTitle, { lower: true });
     return `/video/${slug}-jwid${videoId}`;
