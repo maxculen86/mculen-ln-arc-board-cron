@@ -1,6 +1,8 @@
-import { AUDIO_NEWS_URL } from 'fusion:environment';
+import { AUDIONEWS_URL, AUDIONEWS_APIKEY } from 'fusion:environment';
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
+import { enumTypeError } from '../../components/private/LN/api/common/enums/enumTypeError';
+import BackendLnError from '../../components/private/LN/api/common/models/backendLnError';
 
 const convertLastUpdated = date => {
     const dateFormated = new Date(date);
@@ -19,20 +21,14 @@ const isValidStory = (id, date) => {
         throw new Error('El campo id es obligatorio');
     }
 
-    if (!date) {
-        throw new Error('El campo date es obligatorio');
-    }
-
     return true;
 };
 
 const resolve = key => {
-    const { id, date } = key;
+    const { id } = key;
 
-    if (isValidStory(id, date)) {
-        const formatDate = convertLastUpdated(date);
-
-        return `${AUDIO_NEWS_URL}${formatDate}/${id}/`;
+    if (isValidStory(id)) {
+        return `${AUDIONEWS_URL}${id}/`;
     }
 
     return null;
@@ -48,6 +44,10 @@ const fetch = query => {
         ...query
     });
 
+    opt.headers = {
+        'x-api-key': AUDIONEWS_APIKEY
+    };
+
     return request(opt)
         .then(resp => {
             if (resp.statusCode === 404 || resp.statusCode === 500) {
@@ -59,6 +59,14 @@ const fetch = query => {
             return resp;
         })
         .catch(error => {
+            console.warn(
+                new BackendLnError(
+                    `AudionewsSource - msj: ${
+                        error.message
+                    } - Query: ${JSON.stringify(query || {})}`,
+                    enumTypeError.audionewsError
+                )
+            );
             logger.push(error, { source: 'audionewsSource', url });
         });
 };
