@@ -1,5 +1,4 @@
 import React from 'react';
-import { useContent } from 'fusion:content';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import LinkAmpHTML from '../../../../components/private/common/linkAmpHTML.jsx';
@@ -26,18 +25,6 @@ describe('Private - LN - Common - linkAmpHTML', () => {
         expect(container).toBeEmptyDOMElement();
     });
 
-    it('Validate sent props', () => {
-        useContent.mockImplementation(() => ({
-            '1': 'nota-noticia',
-            '2': 'nota-storytelling'
-        }));
-        const { container } = render(<LinkAmpHTML {...props} />);
-        const link = container.getElementsByTagName('link');
-        expect(link[0].href).toEqual(
-            `https://www.lanacion.com.ar${props.canonicalUrl}?outputType=amp`
-        );
-    });
-
     it('If no props are sended return empty dom element', () => {
         const { container } = render(<LinkAmpHTML />);
         expect(container).toBeEmptyDOMElement();
@@ -46,11 +33,7 @@ describe('Private - LN - Common - linkAmpHTML', () => {
     it('Should have the correct DOM attributes', () => {
         const { container } = render(<LinkAmpHTML {...props} />);
         const link = container.getElementsByTagName('link');
-        expect(link).toHaveLength(1);
-        expect(link[0].rel).toEqual('amphtml');
-        expect(link[0].href).toEqual(
-            'https://www.lanacion.com.ar/politica/cambios-en-el-gabinete-el-nombramiento-de-kelly-olmos-en-trabajo-no-despierta-entusiasmo-en-la-cgt-nid13102022/?outputType=amp'
-        );
+        expect(link).toHaveLength(0);
     });
 
     it('Snapshots', () => {

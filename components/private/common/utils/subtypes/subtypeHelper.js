@@ -90,7 +90,9 @@ export const subtypeNotesWithoutAmp = canonicalUrl => {
         '/buenos-aires/',
         '/seguridad/',
         '/sociedad/',
-        '/revistas/'
+        '/revistas/',
+        '/economia/',
+        '/politica/'
     ];
 
     return subtypeList.some(subtype => canonicalUrl.startsWith(subtype));
