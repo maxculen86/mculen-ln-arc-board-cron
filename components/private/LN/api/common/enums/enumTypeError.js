@@ -1,4 +1,5 @@
 export const enumTypeError = {
     storyContentError: 'StoryContentError',
-    liftigniterError: 'LiftigniterError'
+    liftigniterError: 'LiftigniterError',
+    audionewsError: 'AudionewsError'
 };

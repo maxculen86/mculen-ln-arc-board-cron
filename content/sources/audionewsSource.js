@@ -1,6 +1,8 @@
 import { AUDIONEWS_URL, AUDIONEWS_APIKEY } from 'fusion:environment';
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
+import { enumTypeError } from '../../components/private/LN/api/common/enums/enumTypeError';
+import BackendLnError from '../../components/private/LN/api/common/models/backendLnError';
 
 const convertLastUpdated = date => {
     const dateFormated = new Date(date);
@@ -57,10 +59,13 @@ const fetch = query => {
             return resp;
         })
         .catch(error => {
-            console.error(
-                `AudionewsSource - msj: ${
-                    error.message
-                } - query: ${JSON.stringify(query || {})}`
+            console.warn(
+                new BackendLnError(
+                    `AudionewsSource - msj: ${
+                        error.message
+                    } - Query: ${JSON.stringify(query || {})}`,
+                    enumTypeError.audionewsError
+                )
             );
             logger.push(error, { source: 'audionewsSource', url });
         });
