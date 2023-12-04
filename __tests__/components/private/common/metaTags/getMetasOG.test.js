@@ -114,6 +114,14 @@ describe('Common - getMetasOG function', () => {
                 content: `https://resizer.glanacion.com.ar/resizer/lBMqatupoieyG9OvjZ2Cu91TgVw=/768x513/smart/arc-anglerfish-arc2-sandbox-sandbox-lanacionar.s3.amazonaws.com/public/GDAKALQ7IZBETO6NO4MUEDYBCU.jpg`
             },
             {
+                property: 'og:image:width',
+                content: '512'
+            },
+            {
+                property: 'og:image:height',
+                content: '768'
+            },
+            {
                 property: 'og:url',
                 content: `https://www.lanacion.com.ar/recetas/platos-de-comida-principal/arroz-chaufa-de-mariscos-nid29102019-6/`
             },
@@ -176,6 +184,14 @@ describe('Common - getMetasOG function', () => {
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN.jpg'
                 )
+            },
+            {
+                property: 'og:image:width',
+                content: '512'
+            },
+            {
+                property: 'og:image:height',
+                content: '768'
             },
             {
                 property: 'og:url',
@@ -242,6 +258,14 @@ describe('Common - getMetasOG function', () => {
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN.jpg'
                 )
+            },
+            {
+                property: 'og:image:width',
+                content: '512'
+            },
+            {
+                property: 'og:image:height',
+                content: '768'
             },
             {
                 property: 'og:url',
@@ -325,6 +349,14 @@ describe('Metas home', () => {
                 )
             },
             {
+                property: 'og:image:width',
+                content: '512'
+            },
+            {
+                property: 'og:image:height',
+                content: '768'
+            },
+            {
                 property: 'og:url',
                 content: 'https://www.lanacion.com.ar/'
             },
@@ -401,6 +433,14 @@ describe('Metas OTT', () => {
                 content: getAssetsPath(props.contextPath)(props.deployment)(
                     'placeholderLN.jpg'
                 )
+            },
+            {
+                property: 'og:image:width',
+                content: '512'
+            },
+            {
+                property: 'og:image:height',
+                content: '768'
             },
             {
                 property: 'og:url',

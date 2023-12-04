@@ -114,9 +114,9 @@ describe('Private - LN - nota - snippet - noticia ', () => {
         expect(url).toBe(`${host}${canonical_url}`);
         expect(dateCreated).toBe(`${new Date(createdDate).toUTCString()}`);
         expect(datePublished).toBe(
-            `${new Date(firstPublishDate).toUTCString()}`
+            `${new Date(firstPublishDate).toISOString()}`
         );
-        expect(dateModified).toBe(`${new Date(displayDate).toUTCString()}`);
+        expect(dateModified).toBe(`${new Date(displayDate).toISOString()}`);
         expect(mainEntityOfPage).toBe(`${host}${path}/`);
         expect(articleSection).toBe(name);
         expect(isAccessibleForFree).toBe(`${contentCode === 'abierta'}`);
