@@ -13,6 +13,7 @@ const Foodit = ({ children, Libs, Fusion } = {}) => {
                     name="viewport"
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
+                <meta name="robots" content="noindex, nofollow" />
                 <meta name="theme-color" content="#ffffff" />
                 <title>Recetas</title>
                 <link rel="manifest" href="/manifest.json" />
