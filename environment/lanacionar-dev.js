@@ -30,8 +30,7 @@ export default {
             sessionReplaySampleRate: 30,
             trackResources: true,
             trackLongTasks: true,
-            trackInteractions: true,
-            trackFrustrations: true,
+            trackUserInteractions: true,
             trackSessionAcrossSubdomains: false
         },
         'la-nacion-ar': {
@@ -47,8 +46,7 @@ export default {
             sessionReplaySampleRate: 30,
             trackResources: true,
             trackLongTasks: true,
-            trackInteractions: true,
-            trackFrustrations: true,
+            trackUserInteractions: true,
             trackSessionAcrossSubdomains: false
         }
     },
