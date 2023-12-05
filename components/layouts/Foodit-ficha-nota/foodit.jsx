@@ -31,7 +31,7 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                 </StaticContent>
             )}
             <section>{leftBody}</section>
-            <section>{body}</section>
+            <section className="cuerpo__nota">{body}</section>
             <section>{third}</section>
             <section>{bottom}</section>
         </BaseLayout>
