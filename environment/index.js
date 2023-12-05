@@ -83,5 +83,9 @@ export default {
     VIDEO_CDN_URL: 'https://lanacionar-prod.video.arc-cdn.net/',
     CLL_BACK_BASE_URL: 'https://api-cll-services.lanacion.com.ar/graphql/',
     CLL_BACK_API_KEY: 'da2-6dgg5zavxjdlpmgjs2ztndfnl4',
-    MARFEEL_ACCOUNT_ID: '3353'
+    MARFEEL_ACCOUNT_ID: '3353',
+    JWP_TOKEN:
+        '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygGLUM58BbaA0IDztD/ncA/aAAAApjCBowYJKoZIhvcNAQcGoIGVMIGSAgEAMIGMBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDP0ymvk7Aa4QPi8U6QIBEIBfrjC4+oDkJvJn8tKOIRkjAl1GRYfHmu39S49s7DoJ6Z+NvjmK+aSjmpeJVEftron7lwhHVI1N8uT3OBLJJFL8QcZPxFraWqpPprmPu4CbZ42qCOCNqj3HVI1QkWxPrGE=}',
+    API_CONVIVENCIA_TOKEN: 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV',
+    SITE_OTT: 'https://lnmas.lanacion.com.ar'
 };

@@ -2,7 +2,7 @@
 import get from '../../../common/utils/get';
 import pageBuilderValidator from '../../../common/utils/pageBuilderValidator';
 import getStreams from './getStreams';
-import getSources from './getSourcesJwHome';
+import getSources from './getSourcesJw';
 
 export const validateFeature = (idCollection, articles, layout) => {
     const message =

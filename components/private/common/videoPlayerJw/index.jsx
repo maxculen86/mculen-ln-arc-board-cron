@@ -3,11 +3,17 @@ import { Facade } from './utils/facade';
 import { useAppContext } from 'fusion:context';
 import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
-import { getJWScript } from './utils/helperJw';
+import { getJWScript, configClassName } from './utils/helperJw';
 import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
 import useViewportSize from '../hooks/useViewportSize';
 
-const videoPlayerJW = ({ data, parrafo, tituloNota, hasAutoplay }) => {
+const videoPlayerJW = ({
+    data,
+    parrafo,
+    tituloNota,
+    hasAutoplay,
+    isOtt = false
+}) => {
     const {
         embed: {
             config: {
@@ -16,24 +22,33 @@ const videoPlayerJW = ({ data, parrafo, tituloNota, hasAutoplay }) => {
             } = {}
         } = {}
     } = data;
-    const player = idPlayer || 'ih0086X3';
+    const player = isOtt ? '81YXy6Mt' : idPlayer || 'ih0086X3';
     const [video] = playlist || [];
     const { mediaid = '' } = video || {};
-    const { outputType } = useAppContext();
+    const { outputType, arcSite } = useAppContext();
+
+    const {
+        container,
+        mediaContainer,
+        videoContainer,
+        videoPlayer,
+        facade
+    } = get(configClassName, arcSite, {});
 
     const device = useViewportSize();
 
     const tagsUrl = urlForPrerollAds(device, true);
 
     return (
-        <div className="content-media">
-            <section className="mod-media">
-                <div className="mod-video">
+        <div className={container}>
+            <section className={mediaContainer}>
+                <div className={videoContainer}>
                     {outputType !== 'amp' ? (
-                        <div className="video-player --background --ar-16-9">
+                        <div className={videoPlayer}>
                             <Facade
                                 id={mediaid}
                                 playlist={playlist}
+                                className={facade}
                                 title={title}
                             />
                             <div id={mediaid} />
@@ -61,12 +76,14 @@ const videoPlayerJW = ({ data, parrafo, tituloNota, hasAutoplay }) => {
                         ></amp-jwplayer>
                     )}
                 </div>
-                <VideoPlayerSnippet
-                    parrafo={parrafo || description}
-                    tituloNota={tituloNota}
-                    mediaData={video}
-                    minStream={{ url: get(video, 'link', '') }}
-                />
+                {!isOtt && (
+                    <VideoPlayerSnippet
+                        parrafo={parrafo || description}
+                        tituloNota={tituloNota}
+                        mediaData={video}
+                        minStream={{ url: get(video, 'link', '') }}
+                    />
+                )}
             </section>
         </div>
     );
