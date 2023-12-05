@@ -21,11 +21,11 @@ const setContextDatadog = () => {
         };
 
         window.DD_LOGS.onReady(() => {
-            window.DD_LOGS.logger.addContext(attName, obj);
+            window.DD_LOGS.logger.setContextProperty(attName, obj);
         });
 
         window.DD_RUM.onReady(() => {
-            window.DD_RUM.addRumGlobalContext(attName, obj);
+            window.DD_RUM.setGlobalContextProperty(attName, obj);
         });
     }
 };

@@ -64,8 +64,8 @@ const Datadog = ({ location = 'head' }) => {
           trackSessionAcrossSubdomains: ${trackSessionAcrossSubdomains},
         });
 
-        googleAnalyticsId && DD_LOGS.logger.addContext('user.gaId', googleAnalyticsId);
-        usuarioEmail && DD_LOGS.logger.addContext('user.email', usuarioEmail);
+        googleAnalyticsId && DD_LOGS.logger.setContextProperty('user.gaId', googleAnalyticsId);
+        usuarioEmail && DD_LOGS.logger.setContextProperty('user.email', usuarioEmail);
         
         if ("${env}" !== "prod")
           console.log(
