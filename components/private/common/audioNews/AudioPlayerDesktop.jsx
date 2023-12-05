@@ -56,7 +56,6 @@ const AudioPlayerDesktop = ({
                     {openPlayer && (
                         <BuildAudioPlayer
                             setEnableButton={setEnableButton}
-                            publishDate={publishDate}
                             noteId={noteId}
                             setOpenPlayer={setOpenPlayer}
                         />

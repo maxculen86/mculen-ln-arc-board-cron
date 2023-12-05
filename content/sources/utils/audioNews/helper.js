@@ -1,14 +1,9 @@
 import get from '../../../../components/private/common/utils/get';
 import config from './config';
 
-const isValidDate = (publishDate = '', sectionId = '') => {
+const isValidDate = (publishDate = '') => {
     const formatDate = publishDate.replace(/-|[a-z][^\/]+/gi, '');
-    const releaseDateInAllSections = 20221013;
-
-    if (sectionId.includes('espectaculos')) {
-        const releaseDateInEspectaculos = 20220920;
-        return Number(formatDate) >= releaseDateInEspectaculos;
-    }
+    const releaseDateInAllSections = 20231123;
 
     return Number(formatDate) >= releaseDateInAllSections;
 };
@@ -30,12 +25,9 @@ const isNoteListenable = data => {
         hasParagraphs(contentElements)
     ) {
         const date = get(data, 'last_updated_date', '');
-        const sectionId = get(data, 'taxonomy.primary_section._id', '');
         const { disableSubtypes } = config;
 
-        return (
-            !disableSubtypes.includes(subtype) && isValidDate(date, sectionId)
-        );
+        return !disableSubtypes.includes(subtype) && isValidDate(date);
     }
 
     return false;
@@ -57,12 +49,10 @@ export const isNoteListenableHome = data => {
             'last_updated_date',
             get(data, 'display_date', '')
         );
-        const sectionId = get(data, 'taxonomy.primary_section._id', '');
+
         const { disableSubtypes } = config;
 
-        return (
-            !disableSubtypes.includes(subtype) && isValidDate(date, sectionId)
-        );
+        return !disableSubtypes.includes(subtype) && isValidDate(date);
     }
 
     return false;

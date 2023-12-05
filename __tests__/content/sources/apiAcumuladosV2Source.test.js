@@ -54,7 +54,7 @@ describe('content source apiAcumuladosV2Source integration test', () => {
         );
     });
 
-    test('should return right note format', async () => {
+    test('should return flag isListenable true if note meets the requirements to have audio', async () => {
         const queryParams = {
             uri:
                 '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
@@ -74,7 +74,74 @@ describe('content source apiAcumuladosV2Source integration test', () => {
             configuration: null
         });
 
-        acuArticlesSource.fetch.mockReturnValue(acuArticleSourceResponseMock);
+        acuArticlesSource.fetch.mockReturnValue({
+            content_elements: [
+                {
+                    additional_properties: {
+                        has_published_copy: true
+                    },
+                    canonical_url: '/economia/entrevistadel-lector-nid1305798/',
+                    canonical_website: 'la-nacion-ar',
+                    comments: {
+                        allow_comments: true,
+                        display_comments: true,
+                        moderation_required: false
+                    },
+                    content_elements: [
+                        {
+                            _id: 'DKC7YT572BDXBOBIFTMKUBDFTY',
+                            additional_properties: {},
+                            content:
+                                '\nJAVIER TRUCCO <br></br> Gerente de Marketing de Schneider (cerveza)\n',
+                            level: 1,
+                            type: 'header'
+                        }
+                    ],
+                    created_date: '2023-12-12T17:56:14.117Z',
+                    credits: {},
+                    display_date: '2023-12-12T03:00:00Z',
+                    distributor: {
+                        category: 'staff',
+                        name: 'lanacionar',
+                        subcategory: ''
+                    },
+                    first_publish_date: '2023-12-12T03:00:00Z',
+                    headlines: {
+                        basic: 'Entrevistadel lector',
+                        mobile: 'Entrevistadel lector'
+                    },
+                    label: {
+                        republicar_audio: {
+                            text: 'No'
+                        }
+                    },
+                    last_updated_date: '2023-12-12T17:56:14.117Z',
+                    owner: {
+                        id: 'lanacionar'
+                    },
+                    publish_date: '1900-01-01T03:00:00Z',
+                    source: {
+                        name: 'lanacionar',
+                        source_id: '1305798',
+                        source_type: 'staff',
+                        system: 'composer'
+                    },
+                    subheadlines: {
+                        basic: ''
+                    },
+                    subtype: '1',
+                    type: 'story',
+                    version: '0.10.5',
+
+                    workflow: {
+                        status_code: 5
+                    },
+                    _id: 'S457534CSVAXRLNSMCNBDHHATE',
+                    website: 'la-nacion-ar',
+                    website_url: '/economia/entrevistadel-lector-nid1305798/'
+                }
+            ]
+        });
 
         const result = await apiAcumuladoSectionsV2.fetch(queryParams, {
             cachedCall

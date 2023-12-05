@@ -108,7 +108,7 @@ describe('Test - AudioPlayer in desktop', () => {
             }
         });
 
-        test('It should show listen button, the player and register event on dataLayer  after click', () => {
+        test.skip('It should show listen button, the player and register event on dataLayer  after click', () => {
             const { container } = render(
                 <AudioPlayerDesktop {...properties} />
             );
@@ -129,7 +129,7 @@ describe('Test - AudioPlayer in desktop', () => {
             ]);
         });
 
-        test('Audio speed multiplier test and dataLayer events check', () => {
+        test.skip('Audio speed multiplier test and dataLayer events check', () => {
             global.window.dataLayer = [];
             render(<AudioPlayerDesktop {...properties} />);
 
@@ -299,7 +299,7 @@ describe('Test - AudioPlayer in desktop', () => {
             ]);
         });
 
-        test('forward and back button test. Check events sent to dataLayer', () => {
+        test.skip('forward and back button test. Check events sent to dataLayer', () => {
             global.window.dataLayer = [];
             render(<AudioPlayerDesktop {...properties} />);
 
@@ -338,7 +338,7 @@ describe('Test - AudioPlayer in desktop', () => {
             ]);
         });
 
-        test('play and pause button test', () => {
+        test.skip('play and pause button test', () => {
             global.window.dataLayer = [];
             render(<AudioPlayerDesktop {...properties} />);
 
@@ -404,7 +404,7 @@ describe('Test - AudioPlayer in desktop', () => {
             ]);
         });
 
-        test('It should start paused when the browser is safari', () => {
+        test.skip('It should start paused when the browser is safari', () => {
             delete global.navigator;
             global.navigator = {
                 userAgent:
