@@ -49,7 +49,7 @@ const Datadog = ({ location = 'head' }) => {
         window,
         document,
         "script",
-        "https://www.datadoghq-browser-agent.com/datadog-logs-v4.js",
+        "https://www.datadoghq-browser-agent.com/datadog-logs-v5.js",
         "DD_LOGS"
       );
       DD_LOGS.onReady(function () {
@@ -91,7 +91,7 @@ const Datadog = ({ location = 'head' }) => {
         window,
         document,
         "script",
-        "https://www.datadoghq-browser-agent.com/datadog-rum-v4.js",
+        "https://www.datadoghq-browser-agent.com/datadog-rum-v5.js",
         "DD_RUM"
       );
       
