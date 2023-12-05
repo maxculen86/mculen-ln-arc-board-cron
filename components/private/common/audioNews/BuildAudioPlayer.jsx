@@ -5,15 +5,11 @@ import { BEYONDWORDS_PROJECT_ID } from 'fusion:environment';
 import LoadingIcon from '../../LN/common/loadingIcon';
 import { GlobalContext } from '../context/globalContext';
 
-const BuildAudioPlayer = ({
-    setOpenPlayer,
-    setEnableButton,
-    publishDate = '',
-    noteId = ''
-}) => {
+const BuildAudioPlayer = ({ setOpenPlayer, setEnableButton, noteId = '' }) => {
     const { dispatch } = useContext(GlobalContext) || {};
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
+
     useEffect(() => {
         if (error) {
             dispatch({
@@ -34,12 +30,17 @@ const BuildAudioPlayer = ({
     }, [error, dispatch, setEnableButton, setOpenPlayer]);
 
     useEffect(() => {
+        // Checking for connection before creating the script
+        if (!navigator.onLine) {
+            setError(true);
+        }
         const script = document.createElement('script');
         script.async = true;
         script.defer = true;
         script.src =
             'https://proxy.beyondwords.io/npm/@beyondwords/player@latest/dist/umd.js';
 
+        // Initializing the player
         const handleScriptLoad = () => {
             setIsLoading(false);
             const player = new BeyondWords.Player({
@@ -49,11 +50,11 @@ const BuildAudioPlayer = ({
                 playbackRates: [1, 1.25, 1.5, 1.7, 2],
                 playbackState: 'playing',
                 skipButtonStyle: 'seconds',
-                logoIconEnabled: false
+                logoIconEnabled: false,
+                widgetWidth: '40rem'
             });
 
             const handleNoContentAvailable = event => {
-                console.log(event);
                 setError(true);
             };
 
@@ -62,7 +63,7 @@ const BuildAudioPlayer = ({
                 handleNoContentAvailable
             );
 
-            // Store the event listener function in a variable
+            // Store the event listener remover function in a variable
             const removeEventListenerFunction = () => {
                 player.removeEventListener(
                     'NoContentAvailable',
@@ -94,7 +95,6 @@ const BuildAudioPlayer = ({
 };
 
 BuildAudioPlayer.propTypes = {
-    publishDate: PropTypes.string,
     noteId: PropTypes.string,
     setOpenPlayer: PropTypes.func,
     setEnableButton: PropTypes.func
