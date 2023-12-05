@@ -1,10 +1,7 @@
 import request from 'request-promise-native';
-import { JWP_TOKE } from 'fusion:environment';
+import { JWP_TOKEN } from 'fusion:environment';
 import logger from '../../components/private/common/utils/logger';
 import { transform } from './utils/ottJwVideoTransform/jwVideoTransform';
-
-const params = { sectionId: 'text' };
-// `https://api.jwplayer.com/v2/sites/uafFIXv2/media?q=custom_param:"site:ott" AND custom_param:"section:El noticiero AM"&&page_length=12&&sort=created:dsc&&page=2`
 
 const fetch = ({ website }) => {
     const arcSite = 'la-nacion-ar';
@@ -14,7 +11,7 @@ const fetch = ({ website }) => {
         json: true,
         method: 'GET',
         auth: {
-            bearer: JWP_TOKE
+            bearer: JWP_TOKEN
         }
     };
 
@@ -32,6 +29,6 @@ const fetch = ({ website }) => {
 
 export default {
     fetch,
-    params,
+    params: { sectionId: 'text' },
     ttl: 60
 };

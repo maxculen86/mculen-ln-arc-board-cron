@@ -1,6 +1,7 @@
 import {
     jwURLFormatter,
-    transform
+    transform,
+    filterMediaBySection
 } from '../../../../../content/sources/utils/ottJwVideoTransform/jwVideoTransform';
 
 describe('jwVideoTransform', () => {
@@ -19,7 +20,7 @@ describe('jwVideoTransform', () => {
                     ]
                 };
 
-                const expectDataFormatterd = {
+                const expectDataFormatter = {
                     jwVideosformatted: [
                         {
                             _id: 'wil1234',
@@ -42,7 +43,7 @@ describe('jwVideoTransform', () => {
                     total: ''
                 };
 
-                expect(transform({ data })).toEqual(expectDataFormatterd);
+                expect(transform({ data })).toEqual(expectDataFormatter);
             });
         });
 
@@ -71,6 +72,43 @@ describe('jwVideoTransform', () => {
         test('Should return a formatted URL without name and JWID at the end', () => {
             const result = jwURLFormatter({});
             expect(result).toBe('/video/-jwid');
+        });
+    });
+
+    describe('filterMediaBySection', () => {
+        test('filters media by section and adjusts total', () => {
+            const testData = {
+                media: [
+                    {
+                        metadata: {
+                            custom_params: {
+                                section: 'TestSection'
+                            }
+                        }
+                    }
+                ],
+                page: 1,
+                page_length: 10,
+                total: 20
+            };
+
+            const sectionToFilter = 'TestSection';
+
+            const result = filterMediaBySection(testData, sectionToFilter);
+
+            expect(result.media.length).toBe(1);
+            expect(result.page).toBe(1);
+            expect(result.page_length).toBe(10);
+            expect(result.total).toBe(testData.total / 2);
+        });
+
+        test('handles undefined data gracefully', () => {
+            const result = filterMediaBySection(undefined, 'TestSection');
+
+            expect(result.media.length).toBe(0);
+            expect(result.page).toBeUndefined();
+            expect(result.page_length).toBeUndefined();
+            expect(result.total).toBeNaN();
         });
     });
 });

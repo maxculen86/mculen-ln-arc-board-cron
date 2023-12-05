@@ -2,10 +2,10 @@ import { SITE_OTT } from 'fusion:environment';
 import { replaceVideoId } from './utils/replaceVideoId';
 import apiConvivenciaSource from './apiConvivenciaSource';
 import Redirect from './utils/redirect';
-// import logger from '../../components/private/common/utils/logger';
 
+// TODO: ver forma de implementar un logger/trycatch, se hicieron pruebas y da error
 const fetch = async (query, { cachedCall }) => {
-    const { url, 'arc-site': arcSite } = query;
+    const { url } = query;
     const { idJw } = await cachedCall(
         'apiConvivenciaSource',
         apiConvivenciaSource.fetch,
