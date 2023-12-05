@@ -1,4 +1,8 @@
-import { API_ENV, API_KEY_ARC_SERVICES_PROD } from 'fusion:environment';
+import {
+    API_ENV,
+    API_KEY_ARC_SERVICES_PROD,
+    ARC_ACCESS_TOKEN
+} from 'fusion:environment';
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 import get from '../../components/private/common/utils/get';
@@ -33,11 +37,20 @@ const fetch = (query, { cachedCall } = {}) => {
                 ...newQuery,
                 stories
             });
+
+            const opt = {
+                uri,
+                json: true
+            };
+
+            if (ARC_ACCESS_TOKEN) {
+                opt.auth = {
+                    bearer: ARC_ACCESS_TOKEN
+                };
+            }
+
             return get(stories, 'length', 0) >= MINIMUM_ITEMS
-                ? request({
-                      uri,
-                      json: true
-                  })
+                ? request(opt)
                       .then(articles =>
                           transform(
                               sortData(

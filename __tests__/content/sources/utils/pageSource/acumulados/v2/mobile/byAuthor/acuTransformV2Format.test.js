@@ -154,15 +154,11 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
                 'slug',
                 'value',
                 'image',
-                'affiliations',
-                'books',
-                'education',
                 'languages',
                 'location',
                 'longBio',
                 'absoluteUrl',
                 'twitter',
-                'interests',
                 'mail',
                 'role'
             ].sort()
@@ -177,12 +173,8 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
             absoluteUrl:
                 'https://resizer.glanacion.com/resizer/9K6El1ZrB_23M3Dl3l_R4toMTxw=/280x0/filters:format(webp):quality(70)/s3.amazonaws.com/arc-authors/lanacionar/271850b8-5085-4004-b5ef-6d95e1c04cf4.png',
             twitter: '@josedel_rio',
-            interests: undefined,
             mail: 'jdelrio@lanacion.com.ar',
             role: 'LA NACION',
-            affiliations: undefined,
-            books: [],
-            education: [],
             languages: 'Español, Inglés',
             location: 'Buenos Aires, Argentina',
             longBio: 'longBio'
@@ -254,11 +246,7 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
                 'twitter',
                 'longBio',
                 'languages',
-                'books',
                 'location',
-                'affiliations',
-                'education',
-                'interests',
                 'mail',
                 'role'
             ].sort()
@@ -275,13 +263,9 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
             twitter: '@josedel_rio',
             longBio: 'longBio',
             location: 'Buenos Aires, Argentina',
-            education: [],
             languages: 'Español, Inglés',
-            books: [],
-            interests: undefined,
             mail: 'jdelrio@lanacion.com.ar',
-            role: 'LA NACION',
-            affiliations: undefined
+            role: 'LA NACION'
         });
     });
 });

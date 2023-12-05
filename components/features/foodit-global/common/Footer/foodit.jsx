@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text } from '@ln/common-ui-text';
 import { Link } from '@ln/foodit-ui-link';
+import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { useAppContext } from 'fusion:context';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
@@ -19,42 +20,36 @@ const FooterFoodit = () => {
                             nuestra redes
                         </Text>
                         <div className="flex gap-24 jc-center">
-                            <Link
+                            <Button
                                 href="https://www.facebook.com/lanacion/"
                                 title="Seguinos en Facebook"
+                                iconOnly
+                                size={32}
                             >
-                                <Icon
-                                    size={32}
-                                    color="inherit"
-                                    className="p-8 bg-primary-positive text-light-1 rounded-4"
-                                >
+                                <Icon size={16}>
                                     <Facebook />
                                 </Icon>
-                            </Link>
-                            <Link
+                            </Button>
+                            <Button
                                 href="https://www.twitter.com/lanacion/"
                                 title="Seguinos en X"
+                                iconOnly
+                                size={32}
                             >
-                                <Icon
-                                    size={32}
-                                    color="inherit"
-                                    className="p-8 bg-primary-positive text-light-1 rounded-4"
-                                >
+                                <Icon size={16}>
                                     <Twitter />
                                 </Icon>
-                            </Link>
-                            <Link
+                            </Button>
+                            <Button
                                 href="https://www.instagram.com/lanacioncom/"
                                 title="Seguinos en Instagram"
+                                iconOnly
+                                size={32}
                             >
-                                <Icon
-                                    size={32}
-                                    color="inherit"
-                                    className="p-8 bg-primary-positive text-light-1 rounded-4"
-                                >
+                                <Icon size={16}>
                                     <Instagram />
                                 </Icon>
-                            </Link>
+                            </Button>
                         </div>
                     </section>
                     <section className="flex flex-column ai-center gap-16 text-16 col-span-6_md py-32 border border-top border-thin border-light-100 border-0_md ">
@@ -64,13 +59,14 @@ const FooterFoodit = () => {
                             unstyled
                             title="Ir a la página principal"
                         >
-                            <Icon width={151} height={16}>
-                                <img
-                                    src={getAssetsPath(contextPath)(deployment)(
-                                        'logo-ln-black.svg'
-                                    )}
-                                />
-                            </Icon>
+                            <img
+                                width={151}
+                                height={16}
+                                src={getAssetsPath(contextPath)(deployment)(
+                                    'logo-ln-black.webp'
+                                )}
+                                alt="La Nación"
+                            />
                         </Link>
                     </section>
                     <section className="flex flex-column flex-row_lg jc-center ai-center gap-16 text-14 col-span-6_md py-32 border border-top border-thin border-light-100">
@@ -83,13 +79,13 @@ const FooterFoodit = () => {
                             unstyled
                             title="Data fiscal"
                         >
-                            <Icon width={28} height={38.5}>
-                                <img
-                                    src={getAssetsPath(contextPath)(deployment)(
-                                        'data-fiscal.svg'
-                                    )}
-                                />
-                            </Icon>
+                            <img
+                                width={28}
+                                height={38}
+                                src={getAssetsPath(contextPath)(deployment)(
+                                    'data-fiscal.webp'
+                                )}
+                            />
                         </Link>
                     </section>
                     <section className="flex flex-column flex-row_lg ai-center ai-start_lg jc-center_lg gap-16 text-14 col-span-6_md pt-32 border border-top border-thin border-light-100">

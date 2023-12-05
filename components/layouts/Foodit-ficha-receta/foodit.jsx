@@ -36,7 +36,16 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
             <section>{oppening}</section>
             <section>{leftBody}</section>
             <section>{posOppening}</section>
-            <section>{body}</section>
+            <section className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg row-gap-40">
+                <div className="col-span-8 col-span-4_md col-span-5_lg flex flex-column gap-32">
+                    POWERUPS
+                </div>
+                <div className="col-span-1_md sm-none" />
+                <div className="col-span-8 col-span-7_md col-span-10_lg flex flex-column gap-32">
+                    RECETA
+                    {body}
+                </div>
+            </section>
             <section>{third}</section>
             <section>{bottom}</section>
         </BaseLayout>

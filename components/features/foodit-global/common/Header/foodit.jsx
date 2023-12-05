@@ -1,62 +1,80 @@
-import React, { useState, useEffect } from 'react';
-import { createHeaderObserver } from '../utils/intersectionObserver';
-import { Header, MainHeader, Search } from '@ln/foodit-ui-header';
+import React from 'react';
 import { useAppContext } from 'fusion:context';
-import siteProperties from '../../../../../properties/sites/foodit';
-import TopNavigationBar from './components/TopNavigationBar';
-import RightOptions from './components/RightOptions';
-import ExtraOptions from './components/ExtraOptions';
+import { toggleDrawer } from '@ln/common-ui-drawer';
+import { Button } from '@ln/common-ui-button';
+import { Icon } from '@ln/common-ui-icon';
+import { Menu } from '@ln/foodit-ui-assets';
+import { Header, MainHeader, SubHeader } from '@ln/common-ui-header';
+import { Search } from './components/Search';
+import { RightOptions } from './components/rightOptions/RightOptions';
+import { TopNavigationBar } from './components/TopNavigationBar';
+import { Promotions } from './components/promotions/Promotions';
+import { getConfig } from '../utils/promotions';
+import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 
 const HeaderFoodit = ({ isSticky = false, ...r }) => {
-    const [sticky, setSticky] = useState(isSticky);
-    const { layout } = useAppContext();
-    const { layoutsName = {} } = siteProperties;
-
-    //TODO: validar tipos de usuario 'logged' | 'unlogged' | 'subscribed';
+    const { deployment, contextPath } = useAppContext();
+    //TODO: validar tipos de usuario 'unlogged' | 'logged' | 'subscribed' | 'subscribedPlus';
     const userType = 'subscribed';
+    const configPromotions = getConfig(userType);
 
     // TODO: obtener data de usuario
     const userData = {
         userType,
         initialsClassName:
             userType === 'subscribed' ? 'bg-primary-positive' : 'bg-light-600',
-        email: 'lbarandiaran@lanacion.com',
+        email: 'lbarandiaran@lanacion.com.ar',
         initials: 'lb',
         suscription:
-            userType === 'subscribed' ? 'Suscriptor digital' : 'Sin suscripción'
+            userType === 'subscribed'
+                ? 'Suscriptor digital'
+                : 'Sin suscripción',
+        ...configPromotions
     };
-    const { email, initials, initialsClassName, suscription } = userData;
 
-    const isHome = layout === layoutsName.FooditHome;
-
-    useEffect(() => {
-        createHeaderObserver(setSticky);
-        return () => createHeaderObserver(setSticky, true);
-    }, []);
-
-    const classNameSubHeader = sticky
-        ? 'container lg-none py-16 bg-light-1'
-        : 'container py-16 py-24_lg';
+    // TODO: falta cerrar comportamiento de sticky
 
     return (
-        <Header sticky={sticky} {...r}>
-            <MainHeader className="foodit-main-header">
-                <MainHeader.Logo />
-                <MainHeader.Left>
-                    {sticky ? <Search /> : <TopNavigationBar />}
-                    {userType === 'subscribed' && <ExtraOptions />}
-                </MainHeader.Left>
-                <MainHeader.Right>
-                    <RightOptions
-                        userType={userType}
-                        email={email}
-                        initials={initials}
-                        initialsClassName={initialsClassName}
-                        suscription={suscription}
-                    />
-                </MainHeader.Right>
+        <Header {...r}>
+            <MainHeader>
+                <MainHeader.Content>
+                    <MainHeader.Content.Left className="flex jc-start ai-center lg-none">
+                        <Button
+                            title="Menu"
+                            onClick={() =>
+                                toggleDrawer({ id: 'drawer-menu', show: true })
+                            }
+                        >
+                            <Icon size={24}>
+                                <Menu />
+                            </Icon>
+                        </Button>
+                    </MainHeader.Content.Left>
+                    <MainHeader.Content.Center className="jc-center ai-center">
+                        <MainHeader.Brand href="/" title="Ir a inicio">
+                            <img
+                                className="w-118 w-160_md w-191_lg"
+                                src={getAssetsPath(contextPath)(deployment)(
+                                    'logo-foodit.webp'
+                                )}
+                                alt="Foodit"
+                            />
+                        </MainHeader.Brand>
+                    </MainHeader.Content.Center>
+                    <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
+                        <RightOptions {...userData} />
+                    </MainHeader.Content.Right>
+                    <MainHeader.Content.Search>
+                        <Search />
+                    </MainHeader.Content.Search>
+                </MainHeader.Content>
+                <MainHeader.Bottom className="flex ai-center border border-bottom border-thin border-light-100 lg-only">
+                    <TopNavigationBar />
+                </MainHeader.Bottom>
             </MainHeader>
-            {isHome && <Search className={classNameSubHeader} />}
+            <SubHeader className="py-8 h-48 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 lg-none">
+                <Promotions {...configPromotions} />
+            </SubHeader>
         </Header>
     );
 };

@@ -1,0 +1,349 @@
+{
+    "_id": "FMLGIYTL2ZBCRAKQTSO27CCQ6U",
+    "canonical_url": "/guia-de-cocina/ficha-nota-foodit-nid18092023/",
+    "category": "Guía de cocina",
+    "content_elements": [
+        {
+            "_id": "MKTFT6RQONH6TNSM73RPHNHKHE",
+            "additional_properties": {},
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque malesuada aliquam ipsum, in tristique mauris scelerisque a. Duis ut nulla dignissim, viverra neque ac, viverra justo. Donec dapibus bibendum pellentesque. Mauris blandit tincidunt condimentum. Donec nec congue magna, sed ullamcorper arcu. Nam accumsan consequat mi a elementum. Curabitur et sollicitudin risus, venenatis feugiat metus. Nam sollicitudin vulputate dapibus. Donec nec tristique ex, at euismod odio. Aliquam cursus volutpat lacus sit amet consectetur. Mauris ullamcorper nisl sit amet massa cursus, nec dictum nisl condimentum. Pellentesque elementum orci ac tellus euismod congue. Ut molestie nisi eu libero rhoncus lobortis. Cras porttitor purus et tortor imperdiet consequat. Etiam vitae justo aliquam, egestas risus vitae, tincidunt dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+            "type": "text"
+        }
+    ],
+    "content_restrictions": {
+        "content_code": "comun"
+    },
+    "created_date": "2023-09-11T14:29:18.973Z",
+    "credits": {
+        "by": [
+            {
+                "_id": "luca-di-leo-1038",
+                "additional_properties": {
+                    "original": {
+                        "author_type": "Estándar",
+                        "bio_page": "/autor/luca-di-leo-1038/",
+                        "byline": "Luca Di Leo",
+                        "image": "",
+                        "role": "The Wall Street Journal Americas"
+                    }
+                },
+                "image": {
+                    "url": ""
+                },
+                "name": "Luca Di Leo",
+                "slug": "luca-di-leo-1038",
+                "type": "author",
+                "url": "/autor/luca-di-leo-1038/"
+            },
+            {
+                "additional_properties": {
+                    "original": {
+                        "author_type": ""
+                    }
+                },
+                "name": "Leo Mechi",
+                "type": "author"
+            }
+        ]
+    },
+    "description": {
+        "basic": ""
+    },
+    "display_date": "2023-09-11T20:54:17.866Z",
+    "distributor": {
+        "category": "staff",
+        "name": "lanacionar"
+    },
+    "first_publish_date": "2023-09-11T14:37:39.280Z",
+    "headlines": {
+        "basic": "Ficha nota FOODIT",
+        "meta_title": "",
+        "mobile": ""
+    },
+    "isListenable": false,
+    "label": {},
+    "last_updated_date": "2023-11-10T14:24:39.200Z",
+    "owner": {
+        "sponsored": false
+    },
+    "paywallEnabled": "",
+    "promo_items": {
+        "basic": {
+            "_id": "YXS2J3YI7ZFWJC5I3ECOTV45O4",
+            "additional_properties": {},
+            "auth": {
+                "1": "603dc01e35a4ae0b09e2cc65bfa5aaf7aac6f255a9fc709b9764e6feae89b64e"
+            },
+            "caption": "comida",
+            "created_date": "2021-07-30T17:52:05Z",
+            "credits": {
+                "by": []
+            },
+            "height": 4032,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 1280,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1440px)",
+                        "minScreenWidth": 1440,
+                        "proportion": "3:2",
+                        "width": 1920
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/comid-YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg?auth=603dc01e35a4ae0b09e2cc65bfa5aaf7aac6f255a9fc709b9764e6feae89b64e&width=1920&height=1280&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 800,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
+                        "minScreenWidth": 1024,
+                        "proportion": "3:2",
+                        "width": 1200
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/comid-YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg?auth=603dc01e35a4ae0b09e2cc65bfa5aaf7aac6f255a9fc709b9764e6feae89b64e&width=1200&height=800&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 1155,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 768px) and (max-width: 1023px)",
+                        "minScreenWidth": 768,
+                        "proportion": "2:3",
+                        "width": 770
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/comid-YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg?auth=603dc01e35a4ae0b09e2cc65bfa5aaf7aac6f255a9fc709b9764e6feae89b64e&width=770&height=1155&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 630,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "2:3",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/comid-YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg?auth=603dc01e35a4ae0b09e2cc65bfa5aaf7aac6f255a9fc709b9764e6feae89b64e&width=420&height=630&quality=70&smart=true"
+                }
+            ],
+            "type": "image",
+            "url": "https://sandbox.lanacion.com.ar/resizer/v2/comid-YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg?auth=603dc01e35a4ae0b09e2cc65bfa5aaf7aac6f255a9fc709b9764e6feae89b64e&width=1920&height=2560&quality=70&smart=true",
+            "width": 3024
+        },
+        "storytelling_mobile": {
+            "_id": "EILWU6JH7NDNDLVCVEVQHB33UU",
+            "additional_properties": {
+                "iptc_source": "Shutterstock"
+            },
+            "auth": {
+                "1": "029fd2a3936e51c0946368e50f33e01208bc0dd7cfa04e309c214a721e7faab2"
+            },
+            "credits": {
+                "affiliation": [
+                    {
+                        "name": "Shutterstock",
+                        "type": "author"
+                    }
+                ]
+            },
+            "height": 1333,
+            "resized_urls": [
+                {
+                    "option": {
+                        "height": 1280,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1440px)",
+                        "minScreenWidth": 1440,
+                        "proportion": "3:2",
+                        "width": 1920
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/goldbitcoincryptocurrencyonbackgroundofchartdiagr-EILWU6JH7NDNDLVCVEVQHB33UU.jpg?auth=029fd2a3936e51c0946368e50f33e01208bc0dd7cfa04e309c214a721e7faab2&width=1920&height=1280&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 800,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
+                        "minScreenWidth": 1024,
+                        "proportion": "3:2",
+                        "width": 1200
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/goldbitcoincryptocurrencyonbackgroundofchartdiagr-EILWU6JH7NDNDLVCVEVQHB33UU.jpg?auth=029fd2a3936e51c0946368e50f33e01208bc0dd7cfa04e309c214a721e7faab2&width=1200&height=800&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 1155,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(min-width: 768px) and (max-width: 1023px)",
+                        "minScreenWidth": 768,
+                        "proportion": "2:3",
+                        "width": 770
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/goldbitcoincryptocurrencyonbackgroundofchartdiagr-EILWU6JH7NDNDLVCVEVQHB33UU.jpg?auth=029fd2a3936e51c0946368e50f33e01208bc0dd7cfa04e309c214a721e7faab2&width=770&height=1155&quality=70&smart=true"
+                },
+                {
+                    "option": {
+                        "height": 630,
+                        "media": "(min-width: 1280px)",
+                        "media_preload": "(max-width: 767px)",
+                        "proportion": "2:3",
+                        "width": 420
+                    },
+                    "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/goldbitcoincryptocurrencyonbackgroundofchartdiagr-EILWU6JH7NDNDLVCVEVQHB33UU.jpg?auth=029fd2a3936e51c0946368e50f33e01208bc0dd7cfa04e309c214a721e7faab2&width=420&height=630&quality=70&smart=true"
+                }
+            ],
+            "subtitle": "Gold,Bitcoin,Crypto,Currency,On,Background,Of,Chart,Diagram.",
+            "type": "image",
+            "url": "https://sandbox.lanacion.com.ar/resizer/v2/goldbitcoincryptocurrencyonbackgroundofchartdiagr-EILWU6JH7NDNDLVCVEVQHB33UU.jpg?auth=029fd2a3936e51c0946368e50f33e01208bc0dd7cfa04e309c214a721e7faab2&width=1920&height=1280&quality=70&smart=true",
+            "width": 2000
+        },
+        "video_jw": {
+            "embed": {
+                "config": {
+                    "idPlayer": "ih0086X3",
+                    "idVideo": "zvCisQNF",
+                    "videoJw": {
+                        "description": "El momento fue viral en Twitter",
+                        "kind": "Single Item",
+                        "playlist": [
+                            {
+                                "description": "El momento fue viral en Twitter",
+                                "duration": 36,
+                                "image": "https://cdn.jwplayer.com/v2/media/zvCisQNF/poster.jpg?width=720",
+                                "images": [
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/zvCisQNF/poster.jpg?width=320",
+                                        "type": "image/jpeg",
+                                        "width": 320
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/zvCisQNF/poster.jpg?width=480",
+                                        "type": "image/jpeg",
+                                        "width": 480
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/zvCisQNF/poster.jpg?width=640",
+                                        "type": "image/jpeg",
+                                        "width": 640
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/zvCisQNF/poster.jpg?width=720",
+                                        "type": "image/jpeg",
+                                        "width": 720
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/zvCisQNF/poster.jpg?width=1280",
+                                        "type": "image/jpeg",
+                                        "width": 1280
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/zvCisQNF/poster.jpg?width=1920",
+                                        "type": "image/jpeg",
+                                        "width": 1920
+                                    }
+                                ],
+                                "link": "https://cdn.jwplayer.com/previews/zvCisQNF",
+                                "mediaid": "zvCisQNF",
+                                "pubdate": 1699615663,
+                                "sources": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/manifests/zvCisQNF.m3u8",
+                                        "type": "application/vnd.apple.mpegurl"
+                                    },
+                                    {
+                                        "bitrate": 562118,
+                                        "file": "https://cdn.jwplayer.com/videos/zvCisQNF-kTExGaWf.mp4",
+                                        "filesize": 2529533,
+                                        "framerate": 60,
+                                        "height": 508,
+                                        "label": "180p",
+                                        "type": "video/mp4",
+                                        "width": 320
+                                    },
+                                    {
+                                        "bitrate": 761838,
+                                        "file": "https://cdn.jwplayer.com/videos/zvCisQNF-K8B0kybS.mp4",
+                                        "filesize": 3428273,
+                                        "framerate": 60,
+                                        "height": 762,
+                                        "label": "270p",
+                                        "type": "video/mp4",
+                                        "width": 480
+                                    },
+                                    {
+                                        "bitrate": 114463,
+                                        "file": "https://cdn.jwplayer.com/videos/zvCisQNF-hz5z2Tv4.m4a",
+                                        "filesize": 515085,
+                                        "label": "AAC Audio",
+                                        "type": "audio/mp4"
+                                    }
+                                ],
+                                "title": "El error de Taylor Swift en una de las canciones que interpretó",
+                                "tracks": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/strips/zvCisQNF-120.vtt",
+                                        "kind": "thumbnails"
+                                    }
+                                ],
+                                "variations": {}
+                            }
+                        ],
+                        "title": "El error de Taylor Swift en una de las canciones que interpretó"
+                    }
+                }
+            },
+            "subtype": "video_jw"
+        }
+    },
+    "publish_date": "2023-11-10T14:24:38.951Z",
+    "related_content": {
+        "basic": [],
+        "redirect": []
+    },
+    "source": {
+        "system": "composer"
+    },
+    "subheadlines": {
+        "basic": "Subtitulo"
+    },
+    "subtype": "4",
+    "taxonomy": {
+        "primary_section": {
+            "_id": "/guia-de-cocina",
+            "_website": "foodit",
+            "additional_properties": {
+                "original": {
+                    "ancestors": {
+                        "default": []
+                    },
+                    "site": {}
+                }
+            },
+            "name": "Guía de cocina",
+            "parent_id": "/",
+            "path": "/guia-de-cocina",
+            "type": "section"
+        },
+        "sections": [
+            {
+                "_id": "/guia-de-cocina",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": []
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Guía de cocina",
+                "parent_id": "/",
+                "path": "/guia-de-cocina",
+                "type": "section"
+            }
+        ]
+    },
+    "type": "story",
+    "website_url": "/guia-de-cocina/ficha-nota-foodit-nid18092023/",
+    "withFirmaDistributor": false,
+    "withSponsoredLink": false
+}

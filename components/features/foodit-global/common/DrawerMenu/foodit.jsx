@@ -1,46 +1,30 @@
 import React from 'react';
-import { Close } from '@ln/foodit-ui-assets';
-import { Button } from '@ln/common-ui-button';
-import { Drawer, toggleDrawer } from '@ln/common-ui-drawer';
-import { Icon } from '@ln/common-ui-icon';
+import DrawerContainer from '../DrawerContainer/foodit';
+import MenuCategories from '../MenuCategories/foodit';
+import { menuCategories } from '../utils/menuCategories';
 import { Text } from '@ln/common-ui-text';
 
 const DrawerMenu = () => {
-    const drawerId = 'drawer-menu';
-    // TODO: falta definir contenidos del drawer, reemplazar en linea 36
+    // TODO: contenido de menú
+    const sections = menuCategories ?? [];
+
+    if (!sections.length) return <></>;
+
     return (
-        <Drawer
-            id={drawerId}
+        <DrawerContainer
+            drawerId="drawer-menu"
             position="left"
-            className="max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular rounded-top-right-24 rounded-bottom-right-24"
-            overlayClasses="z-10"
-            handleClose={() => toggleDrawer({ id: drawerId })}
+            bodyClassName="pr-16"
         >
-            <Drawer.Header>
-                <Text className="text-xl text-2xl_md">
-                    <strong>Categorías</strong>
-                </Text>
-                <Button
-                    title="Cerrar menú"
-                    className="ml-auto"
-                    onClick={() => toggleDrawer({ id: drawerId })}
-                >
-                    <Icon size={24} color="dark">
-                        <Close />
-                    </Icon>
-                </Button>
-            </Drawer.Header>
-            <hr />
-            <Drawer.Body className="foodit-scrollbar">
-                <ul>
-                    {Array(50)
-                        .fill({})
-                        .map((_, i) => (
-                            <li key={i}>{i}</li>
-                        ))}
-                </ul>
-            </Drawer.Body>
-        </Drawer>
+            {sections.map(({ title, data }) => (
+                <div key={title}>
+                    <Text className="roboto-bold text-14 uppercase bg-background-positive p-8 block rounded-top-right-4 rounded-bottom-right-4">
+                        {title}
+                    </Text>
+                    <MenuCategories data={data} fullWidth />
+                </div>
+            ))}
+        </DrawerContainer>
     );
 };
 

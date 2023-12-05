@@ -138,23 +138,6 @@ export const setEventsDollar = () => {
         addEventListeners(dollar, payload);
     });
 };
-//TO DO : TEST
-export const setEventsGames = () => {
-    const games = window.document.querySelectorAll('.ln-card-games > a');
-    const ACTION = 'jugar';
-    const JUEGOS_LN10 = 'juegos_ln10';
-
-    games.forEach(game => {
-        const titleFormatted = createDynamicLabel(game.title);
-        const payload = {
-            action: ACTION,
-            label: `${ACTION}_${titleFormatted}`,
-            category: JUEGOS_LN10
-        };
-
-        addEventListeners(game, payload);
-    });
-};
 
 export const setEventsAccess = () => {
     const accesses = window.document.querySelectorAll('.access a');

@@ -4,18 +4,18 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import { Cardgames } from '@ln/contenidos-ui-cardgames';
 
-import StaticContent from '../../private/common/staticContent';
-import get from '../../private/common/utils/get';
-import getGameProperties from '../../private/LN/common/utils/getGameProperties';
-import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
-import checkSection from '../../private/LN/common/utils/checkSection';
-import { addInitialSlash } from '../../private/LN/common/utils/addInitialSlash';
+import StaticContent from '../../../private/common/staticContent';
+import get from '../../../private/common/utils/get';
+import getGameProperties from '../../../private/LN/common/utils/getGameProperties';
+import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
+import checkSection from '../../../private/LN/common/utils/checkSection';
+import { addInitialSlash } from '../../../private/LN/common/utils/addInitialSlash';
 
 const Game = ({ id: featureId, customFields, isAdmin }) => {
     const { contextPath, deployment, arcSite, globalContent } =
         useAppContext() || {};
 
-    const { sectionId, gameType } = customFields;
+    const { sectionId, gameType, subscriber } = customFields;
     const primarySection = checkSection(globalContent, '/juegos');
 
     const { name: sectionTitle } =
@@ -52,14 +52,30 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
         );
     }
 
-    const GameCard = (props = {}) => (
-        <StaticContent className="col-span-4 col-span-3_sm">
-            <Cardgames {...props} isHomeGames={primarySection} />
-        </StaticContent>
-    );
+    const GameCard = (props = {}) => {
+        const { forSubscriber, ...restProps } = props;
+
+        return (
+            <StaticContent className="col-span-4 col-span-3_sm">
+                <Cardgames
+                    {...restProps}
+                    isHomeGames={primarySection}
+                    forSubscriber={forSubscriber}
+                />
+            </StaticContent>
+        );
+    };
+
+    const forSubscriber = subscriber === 'SI';
 
     if (gameType === 'Externo') {
-        return <GameCard {...gameProperties} href={sectionId} />;
+        return (
+            <GameCard
+                {...gameProperties}
+                href={sectionId}
+                forSubscriber={forSubscriber}
+            />
+        );
     }
 
     const articleData =
@@ -75,7 +91,13 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
 
     const articleLink = get(articleData, 'content_elements[0].website_url', '');
 
-    return <GameCard {...gameProperties} href={articleLink} />;
+    return (
+        <GameCard
+            {...gameProperties}
+            href={articleLink}
+            forSubscriber={forSubscriber}
+        />
+    );
 };
 
 Game.label = 'LN Juego';
@@ -90,6 +112,10 @@ Game.propTypes = {
         gameType: PropTypes.oneOf(['Interno', 'Externo']).tag({
             defaultValue: 'Interno',
             name: 'Interno/Externo'
+        }).isRequired,
+        subscriber: PropTypes.oneOf(['SI', 'NO']).tag({
+            defaultValue: 'NO',
+            name: 'Es cerrada?'
         }).isRequired
     })
 };

@@ -1,6 +1,16 @@
-.link.foodit-link {
+.link.foodit-link[data-variant=primary] {
   color: var(--neutral-light-800);
 }
-.link.foodit-link:active {
-  color: var(--primary-positive);
+.link.foodit-link[data-variant=secondary] {
+  color: var(--secondary-positive);
+}
+.link.foodit-link:hover {
+  color: var(--accent-lechuga);
+}
+.link.foodit-link .icon {
+  transition: inherit;
+  transition-timing-function: linear;
+}
+.link.foodit-link .icon > svg > path {
+  fill: currentColor;
 }

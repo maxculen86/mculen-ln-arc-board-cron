@@ -1,3 +1,11 @@
 .card a:hover {
   opacity: inherit;
 }
+.card:not([data-variant=day-recipe]) a:hover .card-title {
+  color: var(--accent-lechuga);
+  opacity: 0.8;
+}
+.card[data-variant=day-recipe] .card-title:hover {
+  color: var(--accent-lechuga);
+  opacity: 0.8;
+}

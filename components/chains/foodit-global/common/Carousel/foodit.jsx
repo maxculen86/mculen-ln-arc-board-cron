@@ -51,6 +51,7 @@ export const Carousel = ({ articles }) => {
             </Mediascroller.Track>
             <Mediascroller.Arrows
                 arrowSize={16}
+                className="bg-light-1"
                 buttonTag={props => (
                     <Button
                         variant="secondary"

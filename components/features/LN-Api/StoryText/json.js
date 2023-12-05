@@ -52,8 +52,7 @@ class StoryText {
             audionewsSource: {
                 source: 'audionewsSource',
                 query: {
-                    id: storyid,
-                    date: lastupdateddate
+                    id: storyid
                 }
             }
         });

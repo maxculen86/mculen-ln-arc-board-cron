@@ -1,6 +1,7 @@
 import get from '../../../../../../../../components/private/common/utils/get';
 import { getAuthorId } from './getAuthorId';
 import { getImageUrl } from '../../../../../../../../components/private/LN/api/common/elements/image';
+import { removeEmptyItems } from '../../../../../../../../components/private/LN/api/common/utils/responseCleaner';
 
 const acuTransformV2Format = (
     transformedAcu,
@@ -18,9 +19,9 @@ const acuTransformV2Format = (
     };
 
     if (isFirstPage) {
-        metadata.author = {
+        metadata.author = removeEmptyItems({
             id: getAuthorId(authorData._id),
-            slug: authorData.slug,
+            slug: authorData.slug ? authorData.slug : authorData._id,
             value: authorData.name,
             image: image ? image[0] : null,
             absoluteUrl: get(authorData, 'image.url', null),
@@ -34,7 +35,7 @@ const acuTransformV2Format = (
             languages: authorData.languages,
             affiliations: authorData.affiliations,
             books: authorData.books
-        };
+        });
     }
 
     delete transformedAcu[0].paginar;

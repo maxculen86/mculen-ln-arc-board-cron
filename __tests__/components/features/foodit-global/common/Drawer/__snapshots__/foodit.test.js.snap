@@ -7,7 +7,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
     data-id="overlay-drawer-menu"
   >
     <div
-      class="drawer flex flex-column overflow-hidden fixed top-0 w-100 h-100vh max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular rounded-top-right-24 rounded-bottom-right-24 left-0"
+      class="drawer flex flex-column overflow-hidden fixed top-0 w-100 h-100vh max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular left-0"
       data-id="drawer-menu"
       data-position="left"
       data-visible="false"
@@ -15,13 +15,6 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
       <div
         class="flex"
       >
-        <span
-          class="text text-xl text-2xl_md"
-        >
-          <strong>
-            Categorías
-          </strong>
-        </span>
         <button
           class="button ml-auto"
           title="Cerrar menú"
@@ -36,7 +29,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
             >
               <path
                 clip-rule="evenodd"
-                d="m12 10.586 4.243-4.243a1 1 0 1 1 1.414 1.414L13.414 12l4.243 4.243a1 1 0 1 1-1.414 1.414L12 13.414l-4.243 4.243a1 1 0 1 1-1.414-1.414L10.586 12 6.343 7.757a1 1 0 1 1 1.414-1.414L12 10.586Z"
+                d="m12 10.586 4.243-4.243a1 1 0 1 1 1.414 1.414L13.414 12l4.243 4.243a1 1 0 1 1-1.414 1.414L12 13.414l-4.243 4.243a1 1 0 1 1-1.414-1.414L10.586 12 6.343 7.757a1 1 0 1 1 1.414-1.414z"
                 fill="#272727"
                 fill-rule="evenodd"
               />
@@ -44,162 +37,1049 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
           </i>
         </button>
       </div>
-      <hr />
       <div
-        class="drawer-body z-1 flex-grow-1 overflow-x-hidden foodit-scrollbar"
+        class="drawer-body z-1 flex-grow-1 overflow-x-hidden foodit-scrollbar flex flex-column gap-16 pr-16"
       >
-        <ul>
-          <li>
-            0
-          </li>
-          <li>
-            1
-          </li>
-          <li>
-            2
-          </li>
-          <li>
-            3
-          </li>
-          <li>
-            4
-          </li>
-          <li>
-            5
-          </li>
-          <li>
-            6
-          </li>
-          <li>
-            7
-          </li>
-          <li>
-            8
-          </li>
-          <li>
-            9
-          </li>
-          <li>
-            10
-          </li>
-          <li>
-            11
-          </li>
-          <li>
-            12
-          </li>
-          <li>
-            13
-          </li>
-          <li>
-            14
-          </li>
-          <li>
-            15
-          </li>
-          <li>
-            16
-          </li>
-          <li>
-            17
-          </li>
-          <li>
-            18
-          </li>
-          <li>
-            19
-          </li>
-          <li>
-            20
-          </li>
-          <li>
-            21
-          </li>
-          <li>
-            22
-          </li>
-          <li>
-            23
-          </li>
-          <li>
-            24
-          </li>
-          <li>
-            25
-          </li>
-          <li>
-            26
-          </li>
-          <li>
-            27
-          </li>
-          <li>
-            28
-          </li>
-          <li>
-            29
-          </li>
-          <li>
-            30
-          </li>
-          <li>
-            31
-          </li>
-          <li>
-            32
-          </li>
-          <li>
-            33
-          </li>
-          <li>
-            34
-          </li>
-          <li>
-            35
-          </li>
-          <li>
-            36
-          </li>
-          <li>
-            37
-          </li>
-          <li>
-            38
-          </li>
-          <li>
-            39
-          </li>
-          <li>
-            40
-          </li>
-          <li>
-            41
-          </li>
-          <li>
-            42
-          </li>
-          <li>
-            43
-          </li>
-          <li>
-            44
-          </li>
-          <li>
-            45
-          </li>
-          <li>
-            46
-          </li>
-          <li>
-            47
-          </li>
-          <li>
-            48
-          </li>
-          <li>
-            49
-          </li>
-        </ul>
+        <div>
+          <span
+            class="text roboto-bold text-14 uppercase bg-background-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
+          >
+            Recetas
+          </span>
+          <div
+            class="flex flex-column flex-row_lg"
+          >
+            <ul
+              class="w-100"
+            >
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+                  data-variant="primary"
+                  href="saladas"
+                  role="link"
+                  target="_self"
+                  title="Ir a Saladas"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714H5.656Z"
+                        fill="#333"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Saladas
+                  </span>
+                  <i
+                    class="icon --icon-16 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M8.781 8 5.953 5.171a.667.667 0 1 1 .942-.942L9.96 7.293a1 1 0 0 1 0 1.414l-3.065 3.064a.667.667 0 0 1-.942-.942L8.78 8"
+                        fill="#CCC"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </i>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Arroz"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Arroz
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Tartas"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Tartas
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Pollo"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Pollo
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Pizzas y empanadas"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Pizzas y empanadas
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Pasta"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Pasta
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Pescados"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Pescados
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Carne"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Carne
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <ul
+              class="w-100"
+            >
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+                  data-variant="primary"
+                  href="dulces"
+                  role="link"
+                  target="_self"
+                  title="Ir a Dulces"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.5 2a3.5 3.5 0 0 1 3.437 4.163l-.015.066a4.502 4.502 0 0 1 .303 8.428l-1.086 6.507a1 1 0 0 1-.986.836H6.847a1 1 0 0 1-.986-.836l-1.029-6.17a3 3 0 0 1-.829-5.824L4 9a6 6 0 0 1 8.574-5.421A3.496 3.496 0 0 1 15.5 2M9 15H6.86l.834 5H9zm4 0h-2v5h2zm4.139 0H15v5h1.305zM10 5C7.858 5 6.109 6.684 6.005 8.767L6 8.964l.003.17a2 2 0 0 1-1.186 1.863l-.15.059A1.001 1.001 0 0 0 5 13h12.5a2.5 2.5 0 1 0-.956-4.81l-.175.081a2 2 0 0 1-2.663-.804l-.07-.137A4 4 0 0 0 10 5m5.5-1a1.5 1.5 0 0 0-1.287.729 6.006 6.006 0 0 1 1.24 1.764c.444-.228.93-.384 1.446-.453A1.5 1.5 0 0 0 15.5 4"
+                        fill="#333"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Dulces
+                  </span>
+                  <i
+                    class="icon --icon-16 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 16 16"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M8.781 8 5.953 5.171a.667.667 0 1 1 .942-.942L9.96 7.293a1 1 0 0 1 0 1.414l-3.065 3.064a.667.667 0 0 1-.942-.942L8.78 8"
+                        fill="#CCC"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </i>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Tortas"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Tortas
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Postres"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Postres
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Panqueques"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Panqueques
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Budunes"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Budunes
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Helados"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Helados
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Batidos"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Batidos
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <ul
+              class="w-100"
+            >
+              <li>
+                <span
+                  class="text card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+                  role="text"
+                  title="Ir a Dieta"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.005 9.003a1 1 0 0 1 1 1 6.97 6.97 0 0 1 4.33 1.5h2.17c1.332 0 2.529.578 3.353 1.498l3.147.002a5 5 0 0 1 4.516 2.851c-2.365 3.12-6.194 5.149-10.516 5.149-2.79 0-5.15-.604-7.061-1.658a.998.998 0 0 1-.94.658h-3a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1h3m1 3v5.02l.045.034c1.794 1.26 4.133 1.946 6.955 1.946 3.004 0 5.798-1.156 7.835-3.13l.133-.133-.12-.1a2.994 2.994 0 0 0-1.643-.63l-.205-.007-2.112-.001c.073.321.112.656.112 1v1h-9v-2h6.79l-.034-.079a2.5 2.5 0 0 0-2.092-1.415l-.164-.005h-2.93a4.984 4.984 0 0 0-3.57-1.5m-2-1h-1v7h1v-7m9.646-7.425.354.354.353-.354a2.5 2.5 0 0 1 3.536 3.535l-3.89 3.89-3.888-3.89a2.5 2.5 0 1 1 3.535-3.535M11.53 4.992a.5.5 0 0 0-.059.637l.058.07 2.475 2.475 2.476-2.475a.5.5 0 0 0 .058-.638l-.058-.069a.5.5 0 0 0-.638-.058l-.07.058-1.769 1.769-1.767-1.77-.068-.057a.5.5 0 0 0-.638.058"
+                        fill="#333"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Dieta
+                  </span>
+                </span>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Vegetariana"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Vegetariana
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Sin gluten"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Sin gluten
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Keto"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Keto
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Sin lactosa"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Sin lactosa
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Vegana"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Vegana
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <ul
+              class="w-100"
+            >
+              <li>
+                <span
+                  class="text card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+                  role="text"
+                  title="Ir a ¿Que cocinar hoy?"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M23.878 7.606a.833.833 0 0 0-.697-.38H5.45L1.42 3.244a.825.825 0 0 0-1.173 0 .802.802 0 0 0 0 1.159L4.26 8.367l2.18 7.221c.11.344.421.58.787.58h12.402a.849.849 0 0 0 .75-.471l3.536-7.312a.787.787 0 0 0-.036-.779m-4.745 6.933H7.868L6.146 8.855H21.88l-2.748 5.684M6.915 18.937c.293-1.123 1.227-1.503 2.272-1.303 1.044.18 1.776 1.122 1.465 2.008C10.267 20.766 9.278 21 8.619 21c-.861 0-1.997-.923-1.704-2.063M16.825 18.937c.293-1.123 1.227-1.503 2.272-1.303 1.044.18 1.776 1.122 1.465 2.008C20.177 20.766 19.188 21 18.529 21c-.861 0-1.979-.923-1.704-2.063"
+                        fill="#333"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    ¿Que cocinar hoy?
+                  </span>
+                </span>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a De autor"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    De autor
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Fácil"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Fácil
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Saludable"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Saludable
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Bajo costo"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Bajo costo
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Rápida"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Rápida
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <span
+            class="text roboto-bold text-14 uppercase bg-background-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
+          >
+            Descubrir
+          </span>
+          <div
+            class="flex flex-column flex-row_lg"
+          >
+            <ul
+              class="w-100"
+            >
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Chef"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Chef
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Restaurantes"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Restaurantes
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Beneficion Club La Nación"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle
+                        cx="12"
+                        cy="12"
+                        fill="#E6E6E6"
+                        r="2"
+                      />
+                    </svg>
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Beneficion Club La Nación
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <span
+            class="text roboto-bold text-14 uppercase bg-background-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
+          >
+            Guía de cocina
+          </span>
+          <div
+            class="flex flex-column flex-row_lg"
+          />
+        </div>
+        <div>
+          <span
+            class="text roboto-bold text-14 uppercase bg-background-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
+          >
+            Masterclass
+          </span>
+          <div
+            class="flex flex-column flex-row_lg"
+          />
+        </div>
       </div>
     </div>
   </div>
