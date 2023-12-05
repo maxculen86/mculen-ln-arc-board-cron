@@ -3000,9 +3000,6 @@ strong:not(.--font-primary),
   }
 }
 @media (min-width: 64rem) {
-  .mb-0_l {
-    margin-bottom: 0rem;
-  }
   .pl-16_l {
     padding-left: 1rem;
   }
