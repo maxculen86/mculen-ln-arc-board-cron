@@ -3,7 +3,7 @@ import logger from '../../components/private/common/utils/logger';
 import { getMediaJwData } from './utils/videoFichaJwSource/_helper';
 
 const fetch = async query => {
-    const { uri, 'arc-site': arcSite } = query;
+    const { uri, url, 'arc-site': arcSite } = query;
 
     const regex = /jwid(\w{8})/;
     const { 1: videoId } = uri.match(regex) || {};
@@ -16,22 +16,21 @@ const fetch = async query => {
 
     try {
         const mediaResponse = await request(mediaUrl);
-        return mediaResponse;
+        return transform(mediaResponse, url);
     } catch (error) {
         const errorDetails = {
             source: 'content/source/videoFichaJwSource',
-            url: uri
+            url
         };
         logger.push(error, errorDetails, arcSite, true);
         throw error;
     }
 };
 
-const transform = data => getMediaJwData(data);
+const transform = (data, url) => getMediaJwData(data, url);
 
 export default {
     fetch,
-    transform,
     params: {
         url: 'text',
         website: 'text'

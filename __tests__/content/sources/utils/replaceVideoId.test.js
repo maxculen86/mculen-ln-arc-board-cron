@@ -14,4 +14,11 @@ describe('replaceVideoId', () => {
         expect(testData.originalUrl).toBe('https://example.com/vidabcdefgh');
         expect(testData.newId).toBe('12345678');
     });
+
+    test('should handle invalid URL', () => {
+        const url = null;
+        const newId = '12345678';
+        const result = replaceVideoId(url, newId);
+        expect(result).toBe(null);
+    });
 });

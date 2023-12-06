@@ -12,8 +12,7 @@ const sectionConfig = {
     '+ Noticias': { pageLimit: 12, filter: true }
 };
 
-// TODO: Encryptar Token
-// TODO: revisar query con custom_params: ( name: "abc" AND value: "123" )
+// TODO: revisar query con custom_params: ( name: "abc" AND value: "123" ), mandar mail a soporte JW para buscar otra solución
 const fetch = ({ sectionId, page = '1' }) => {
     const arcSite = 'la-nacion-ar';
     const config = sectionConfig[sectionId] || { pageLimit: 12, filter: false };

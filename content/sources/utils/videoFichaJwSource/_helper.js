@@ -1,6 +1,6 @@
 import getSourcesJw from '../../../../components/private/LN/common/utils/getSourcesJw';
 
-export const getMediaJwData = data => {
+export const getMediaJwData = (data, url) => {
     const parsedData = JSON.parse(data);
     const { title = '', description = '', playlist = [] } = parsedData;
     const [_playlist] = playlist;
@@ -11,13 +11,16 @@ export const getMediaJwData = data => {
 
     return {
         _id: _playlist.mediaid,
+        canonical_url: url,
         headlines: {
-            basic: title
+            basic: title,
+            meta_title: title
         },
         description: {
             basic: description
         },
         duration: _playlist.duration,
+        first_publish_date: publishDate,
         created_date: publishDate,
         publish_date: publishDate,
         min_stream: {
@@ -27,8 +30,10 @@ export const getMediaJwData = data => {
         promo_items: {
             basic: {
                 embed: { config: { videoJw: { ...parsedData } } },
-                url: _playlist.image
+                url: _playlist.image,
+                type: 'image'
             }
-        }
+        },
+        type: 'video'
     };
 };

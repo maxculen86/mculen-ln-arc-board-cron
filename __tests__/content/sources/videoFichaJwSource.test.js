@@ -35,13 +35,16 @@ describe('content - sources - videoFichaJwSource - helper', () => {
         it('should return the expected data', () => {
             const expectedData = {
                 _id: '3EZXXBG4',
+                canonical_url: '/video/mas-entrevistas-3-de-octubre-2023/',
                 created_date: new Date(1696422141 * 1000),
                 duration: 123,
                 min_stream: {
                     url: 'https://cdn.jwplayer.com/videos/3EZXXBG4-kTExGaWf.mp4'
                 },
+                first_publish_date: new Date(1696422141 * 1000),
                 headlines: {
-                    basic: '+ Entrevistas - 3 de Octubre 2023'
+                    basic: '+ Entrevistas - 3 de Octubre 2023',
+                    meta_title: '+ Entrevistas - 3 de Octubre 2023'
                 },
                 description: {
                     basic: 'Video sobre entrevistas LN+'
@@ -51,13 +54,18 @@ describe('content - sources - videoFichaJwSource - helper', () => {
                 promo_items: {
                     basic: {
                         embed: { config: { videoJw: { ...jsonData } } },
-                        url: 'poster.jpg'
+                        url: 'poster.jpg',
+                        type: 'image'
                     }
-                }
+                },
+                type: 'video'
             };
-            expect(getMediaJwData(JSON.stringify(jsonData))).toEqual(
-                expectedData
-            );
+            expect(
+                getMediaJwData(
+                    JSON.stringify(jsonData),
+                    '/video/mas-entrevistas-3-de-octubre-2023/'
+                )
+            ).toEqual(expectedData);
         });
     });
 });
