@@ -2266,6 +2266,11 @@ em {
   border: none;
 }
 
+button {
+  cursor: pointer;
+  background: unset;
+}
+
 input:focus,
 a,
 button {
@@ -2321,6 +2326,12 @@ a {
   --dark-neutral-700: #e4e4e4;
   --dark-neutral-800: #f2f2f2;
   --dark-neutral-900: #fefefe;
+  --neutral-light-1: #fefefe;
+  --neutral-light-50: #f2f2f2;
+  --neutral-light-100: #E6E6E6;
+  --neutral-light-700: #4d4d4d;
+  --neutral-light-800: #333333;
+  --neutral-light-900: #1a1a1a;
   --blue-500: #0250c9;
   --blue-300: #85b4fe;
   --danger-600: #99151d;
@@ -2346,8 +2357,6 @@ a {
   --sopa-de-letras: #ecb535;
   --el-telar: #5bbb87;
   --trivias: #69c7c3;
-  --neutral-light-900: #1a1a1a;
-  --neutral-light-700: #4d4d4d;
   --line-100: 100%;
   --line-110: 110%;
   --line-116: 116%;
@@ -2491,6 +2500,10 @@ a {
   border-radius: 0.25rem;
 }
 
+.rounded-8 {
+  border-radius: 0.25rem;
+}
+
 .rounded-circle {
   border-radius: 50%;
 }
@@ -2547,6 +2560,10 @@ a {
   z-index: 100;
 }
 
+.z-110 {
+  z-index: 110;
+}
+
 .--text-link {
   color: #0250c9;
 }
@@ -2571,12 +2588,24 @@ a {
   color: var(--neutral-light-900);
 }
 
+.text-neutral-light-800 {
+  color: var(--neutral-light-800);
+}
+
+.text-neutral-light-1 {
+  color: var(--neutral-light-1);
+}
+
 .text-white {
   color: var(--light-neutral-0);
 }
 
 .text-blue-300 {
   color: var(--blue-300);
+}
+
+.text-inherit {
+  color: inherit;
 }
 
 .bg-dark-100 {
@@ -2595,8 +2624,24 @@ a {
   background: var(--dark-neutral-0);
 }
 
+.bg-black-40 {
+  background: rgba(0, 0, 0, 0.4);
+}
+
 .bg-white {
   background: var(--light-neutral-0);
+}
+
+.bg-neutral-light-50 {
+  background: var(--neutral-light-50);
+}
+
+.bg-neutral-light-100 {
+  background: var(--neutral-light-100);
+}
+
+.bg-neutral-light-800 {
+  background: var(--neutral-light-800);
 }
 
 .bg-nunca-cuatro {
@@ -2629,6 +2674,22 @@ a {
 
 .bg-trivias {
   background: var(--trivias);
+}
+
+.bg-green {
+  background: #008759;
+}
+
+.bg-yellow {
+  background: #ffc402;
+}
+
+.bg-red {
+  background: #c61b25;
+}
+
+.bg-blue {
+  background: #2f3a4e;
 }
 
 .bg-nunca-cuatro__hover:hover {
@@ -3000,6 +3061,9 @@ strong:not(.--font-primary),
   }
 }
 @media (min-width: 64rem) {
+  .mb-0_l {
+    margin-bottom: 0rem;
+  }
   .pl-16_l {
     padding-left: 1rem;
   }
@@ -3168,9 +3232,21 @@ strong:not(.--font-primary),
   width: 4rem;
 }
 
+.w-28 {
+  width: 1.75rem;
+}
+
+@media (min-width: 48rem) {
+  .w-328_md {
+    width: 20.5rem;
+  }
+}
 @media (min-width: 80rem) {
   .w-140_lg {
     width: 8.75rem;
+  }
+  .w-40_lg {
+    width: 2.5rem;
   }
 }
 @media (min-width: 48rem) {
@@ -3534,6 +3610,95 @@ strong:not(.--font-primary),
 @media (min-width: 80rem) {
   .gap-80_lg {
     gap: 5rem;
+  }
+}
+:root {
+  --newsletterbox-font-family: Prumo, georgia, serif;
+  --newsletterbox-text-font-variation: "wght" 170;
+  --newsletterbox-text-font-weight: 100;
+  --newsletterbox-title-font-variation: "wght" 170;
+  --newsletterbox-title-font-weight: 100;
+  --newsletterbox-description-font-variation: "wght" 110, "opsz" 0;
+  --newsletterbox-description-font-weight: 90;
+  --newsletterbox-title-color: var(--blue-500);
+  --newsletterbox-button-background-color: var(--blue-500);
+  --newsletterbox-button-color: var(--light-neutral-50);
+  --newsletterbox-button-radius: 0.25rem;
+  --newsletterbox-button-font-family: Arial, Roboto;
+  --newsletterbox-excusive-badge-font-family: Arial, Roboto;
+  --newsletterbox-exclusive-badge-background-color: #010101;
+  --newsletterbox-exlusive-badge-color: var(--light-neutral-50);
+  --newsletterbox-exclusive-button-background-color: var(--blue-300);
+  --newsletterbox-exclusive-button-color: var(--light-neutral-700);
+}
+
+.top--2 {
+  top: -0.125rem;
+}
+
+.top-113 {
+  top: 7.0625rem;
+}
+
+.bottom-64 {
+  bottom: 4rem;
+}
+
+.right--2 {
+  right: -0.125rem;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
+@media (min-width: 48rem) {
+  .bottom-100_md {
+    bottom: 6.25rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .top-auto_md {
+    top: auto;
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(6.25rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes width-grow {
+  from {
+    width: 0;
   }
 }
 .cursor-pointer {

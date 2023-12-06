@@ -1,0 +1,73 @@
+.spinner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1/1;
+  border-style: solid;
+  border-color: #1c1c1f transparent transparent transparent;
+  border-radius: 50%;
+  animation-name: spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+.spinner > * {
+  animation-name: unspin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+.spinner.--sm {
+  width: 16px;
+  height: 16px;
+  border-width: 1px;
+}
+.spinner.--md {
+  width: 80px;
+  height: 80px;
+  border-width: 2px;
+  animation-duration: 1.3s;
+}
+.spinner.--md > * {
+  animation-duration: 1.3s;
+  width: 40px;
+  height: 40px;
+}
+.spinner.--lg {
+  width: 160px;
+  height: 160px;
+  border-width: 4px;
+  animation-duration: 1.5s;
+}
+.spinner.--lg::before, .spinner.--lg::after {
+  content: "";
+  border-radius: 50%;
+  background-color: #1c1c1f;
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  top: 19px;
+}
+.spinner.--lg::before {
+  left: 19px;
+}
+.spinner.--lg::after {
+  right: 19px;
+}
+.spinner.--lg > * {
+  animation-duration: 1.5s;
+  width: 80px;
+  height: 80px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes unspin {
+  to {
+    transform: rotate(-360deg);
+  }
+}
