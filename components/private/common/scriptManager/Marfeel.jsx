@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { MARFEEL_ACCOUNT_ID } from 'fusion:environment';
 
 const Marfeel = () => {
