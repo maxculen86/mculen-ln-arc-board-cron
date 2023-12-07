@@ -3,8 +3,24 @@ import {
     isInDatalayerEvent
 } from '../../utils/videoPlayerHelper';
 
+export const configClassName = {
+    'la-nacion-ar': {
+        container: 'content-media cursor-pointer',
+        mediaContainer: 'mod-media ratio-16-9',
+        videoContainer: 'mod-video',
+        videoPlayer: 'video-player bg-black ratio-16-9',
+        facade: 'com-image'
+    },
+    ott: {
+        container: 'container cursor-pointer pt-32',
+        mediaContainer: 'ratio-16-9',
+        videoPlayer: 'video-player bg-black ratio-16-9',
+        facade: 'flex w-100 h-100'
+    }
+};
+
 export function transformImages(data) {
-    return data
+    const transformedImages = data
         .filter(item => [480, 720, 1280].includes(item.width))
         .map(item => ({
             srcSet: item.src,
@@ -12,16 +28,20 @@ export function transformImages(data) {
             ...(item.width === 720 && { minWidth: 768 }),
             ...(item.width === 1280 && { minWidth: 1280 })
         }));
+
+    return transformedImages;
 }
 
 export function formatJwPlayerDate(timestamp) {
     if (!timestamp) return '';
     const date = new Date(timestamp * 1000);
 
-    return date
+    const formattedDate = date
         .toISOString()
         .replace('T', ' ')
         .substring(0, 19);
+
+    return formattedDate;
 }
 
 export const getJWScript = (
@@ -82,7 +102,7 @@ window.addEventListener('load', () => {
 export const handleVideoEventsScript = (title, idVideo) => `
     window.jwplayer(\`${idVideo}\`).on('ready', function (e) {
         const element = document.querySelector('.video-player');
-        element.classList.remove('--background');
+        if (element) element.classList.remove('bg-black');
     });
 
     const events = [{jwEvent: 'play', eventName: 'videoPlay'}, {jwEvent: 'pause', eventName: 'videoPause'}];
