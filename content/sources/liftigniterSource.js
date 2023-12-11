@@ -49,22 +49,138 @@ const transformArticles = (cantidadNotas, liftigniterArticles = []) =>
         };
     });
 
-const fetch = query => {
+const getUrlsbyIds = async (query, cachedCall) => {
     const {
         referrer = SITE_LANACION,
         idArticle,
         excludeItems = [],
         excludeNotas,
-        action,
         nextUrl,
         articles = [],
         uri,
         nextIdArticle,
         listArticles,
         sizeMax = 20,
-        api = false
+        allArticles,
+        idArticleClean,
+        keyCachedcall
     } = query;
 
+    if (allArticles && !!allArticles) {
+        const arcSiteStorys = get(query, 'arc-site', null);
+
+        const queryArticles = {
+            Ids: allArticles,
+            sizeMax,
+            uri,
+            'arc-site': arcSiteStorys,
+            sourceInclude: 'website,website_url,canonical_url'
+        };
+
+        //Para pruebas de cache cambiar keyCachedcall por new Date().getTime()
+
+        return cachedCall(keyCachedcall, ArticleSourceNotas.fetch, {
+            query: {
+                ...queryArticles
+            },
+            ttl: 500
+        })
+            .then(resp => {
+                const queryAdapted = { ...query };
+
+                let urlReferer = null;
+                let nextUrlReferer = nextUrl;
+
+                Array.isArray(resp.content_elements) &&
+                    resp.content_elements.map((item, i) => {
+                        let itemUrl = get(item, 'canonical_url', null);
+
+                        if (itemUrl && !itemUrl.includes('http')) {
+                            itemUrl = referrer.concat(itemUrl);
+                        }
+
+                        if (itemUrl && isvalidUrl(itemUrl)) {
+                            if (
+                                idArticle &&
+                                !!idArticle &&
+                                idArticle?.includes(item?._id)
+                            ) {
+                                urlReferer = itemUrl;
+                            }
+
+                            if (
+                                nextIdArticle &&
+                                !!nextIdArticle &&
+                                nextIdArticle?.includes(item?._id)
+                            ) {
+                                nextUrlReferer = itemUrl;
+                            }
+
+                            if (
+                                excludeNotas &&
+                                !!excludeNotas &&
+                                excludeNotas?.includes(item?._id)
+                            ) {
+                                excludeItems.push(itemUrl);
+                            }
+
+                            if (
+                                listArticles &&
+                                !!listArticles &&
+                                listArticles?.includes(item?._id)
+                            ) {
+                                articles.push(itemUrl);
+                            }
+                        }
+                    });
+
+                queryAdapted.excludeItems = excludeItems;
+                queryAdapted.urlReferer = urlReferer;
+                queryAdapted.idArticle = idArticleClean;
+                queryAdapted.nextUrl = nextUrlReferer;
+                queryAdapted.articles = articles;
+
+                return queryAdapted;
+            })
+            .catch(error => {
+                console.error(
+                    new BackendLnError(
+                        `ArticleSourcebyIds - msj: ${
+                            error.message
+                        } - Query: ${JSON.stringify(query || {})}`,
+                        enumTypeError.liftigniterError
+                    )
+                );
+
+                logger.push(
+                    error,
+                    {
+                        source: 'content/sources/articleSourcebyIds',
+                        url: `${uri}`
+                    },
+                    arcSiteStorys
+                );
+            });
+    }
+    throw new BackendLnError(
+        `ArticleSourcebyIds - Missing AllArticles - Query: ${JSON.stringify(
+            query || {}
+        )}`,
+        enumTypeError.liftigniterError
+    );
+};
+
+const fetch = (query, { cachedCall } = {}) => {
+    const {
+        idArticle,
+        excludeNotas,
+        action,
+        nextIdArticle,
+        listArticles,
+        sizeMax = 20,
+        api = false
+    } = query;
+    const arcSiteStorys = get(query, 'arc-site', null);
     let allArticles = action === 'activity' ? listArticles : excludeNotas;
     allArticles = allArticles?.replace('/', '') || '';
     allArticles = allArticles?.replace('[', '') || '';
@@ -79,90 +195,34 @@ const fetch = query => {
         allArticles = idArticleClean.concat(',', allArticles);
     }
 
-    if (allArticles && !!allArticles) {
-        const arcSiteStorys = get(query, 'arc-site', null);
-        const queryArticles = {
-            Ids: allArticles,
-            sizeMax,
-            uri,
-            'arc-site': arcSiteStorys,
-            sourceInclude: 'website,website_url,canonical_url'
-        };
-        return ArticleSourceNotas.fetch(queryArticles)
-            .then(resp => {
-                const queryAdapted = { ...query };
-                let urlReferer = null;
-                let nextUrlReferer = nextUrl;
+    if (api && allArticles && !!allArticles) {
+        const keyCachedcall = [
+            allArticles?.replace(',', '*') || '',
+            (sizeMax || 0).toString(),
+            arcSiteStorys || ''
+        ].join('-');
 
-                resp.content_elements.map((item, i) => {
-                    let itemUrl = get(item, 'canonical_url', null);
-
-                    if (itemUrl && !itemUrl.includes('http')) {
-                        itemUrl = referrer.concat(itemUrl);
-                    }
-                    if (itemUrl && isvalidUrl(itemUrl)) {
-                        if (
-                            idArticle &&
-                            !!idArticle &&
-                            idArticle?.includes(item?._id)
-                        ) {
-                            urlReferer = itemUrl;
-                        }
-
-                        if (
-                            nextIdArticle &&
-                            !!nextIdArticle &&
-                            nextIdArticle?.includes(item?._id)
-                        ) {
-                            nextUrlReferer = itemUrl;
-                        }
-
-                        if (
-                            excludeNotas &&
-                            !!excludeNotas &&
-                            excludeNotas?.includes(item?._id)
-                        ) {
-                            excludeItems.push(itemUrl);
-                        }
-
-                        if (
-                            listArticles &&
-                            !!listArticles &&
-                            listArticles?.includes(item?._id)
-                        ) {
-                            articles.push(itemUrl);
-                        }
-                    }
-                });
-
-                queryAdapted.excludeItems = excludeItems;
-                queryAdapted.urlReferer = urlReferer;
-                queryAdapted.idArticle = idArticleClean;
-                queryAdapted.nextUrl = nextUrlReferer;
-                queryAdapted.articles = articles;
-
-                return resolveData(queryAdapted);
-            })
-            .catch(error => {
-                if (api) {
-                    console.error(
-                        new BackendLnError(
-                            `ArticleSourcebyIds - msj: ${
-                                error.message
-                            } - Query: ${JSON.stringify(query || {})}`,
-                            enumTypeError.liftigniterError
-                        )
-                    );
-                }
-                logger.push(
-                    error,
-                    {
-                        source: 'content/sources/articleSourcebyIds',
-                        url: `${uri}`
-                    },
-                    arcSiteStorys
-                );
-            });
+        return Promise.resolve(
+            getUrlsbyIds(
+                {
+                    ...query,
+                    allArticles,
+                    idArticleClean,
+                    keyCachedcall
+                },
+                cachedCall
+            )
+        ).then(resp => {
+            console.log(
+                new BackendLnError(
+                    `Info Params - getUrlsbyIds - Query: ${JSON.stringify(
+                        resp || {}
+                    )}`,
+                    enumTypeError.liftigniterError
+                )
+            );
+            return resolveData(resp);
+        });
     }
 
     return resolveData(query);
