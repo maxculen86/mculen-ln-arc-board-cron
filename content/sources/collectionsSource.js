@@ -75,10 +75,7 @@ const transform = async (data, siteProps, cachedCall) => {
     const isFocal = get(siteProps, 'isFocal', null);
     const diagramation = get(siteProps, 'diagramation');
 
-    const { presets, presetsDefault, presetsCredits, shouldUseV2 } = getPresets(
-        siteProps
-    );
-    const shouldUseV1 = get(siteProps, 'shouldUseV1', true);
+    const { presets, presetsDefault, presetsCredits } = getPresets(siteProps);
     const presetsPromoItems = get(presets, 'promo_items', null);
 
     const contentElementsFiltered = filterArticlesInCollection(
@@ -90,10 +87,8 @@ const transform = async (data, siteProps, cachedCall) => {
         contentElementsFiltered &&
         (await Promise.all(
             contentElementsFiltered.map(async (elem, index) => {
-                if (!shouldUseV1 && shouldUseV2) {
-                    const newData = await getAllImagesAuth(elem, cachedCall);
-                    Object.assign(elem, newData);
-                }
+                const newData = await getAllImagesAuth(elem, cachedCall);
+                Object.assign(elem, newData);
 
                 const imageConfig = getImageConfig(
                     diagramation,
@@ -128,8 +123,7 @@ const transform = async (data, siteProps, cachedCall) => {
                         // y storytelling no sean excluidas de las validaciones del resizer
                         // y pueda aplicarse 3:2, focal point o smartcrop
                         subtype: isFotoAl100orStorytelling ? '-1' : subtype,
-                        shouldUseV2,
-                        shouldUseV1
+                        shouldUseV2: true
                     }),
                     ...(elem.canonical_url && {
                         website_url: elem.canonical_url

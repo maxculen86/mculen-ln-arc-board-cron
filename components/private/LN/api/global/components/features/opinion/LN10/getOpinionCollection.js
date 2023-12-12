@@ -7,7 +7,6 @@ import get from '../../../../../../../common/utils/get';
 import filter from '../../../../../../../../../content/filters/LN/acumulado/articleHomeMobile';
 import { articleSourceNotaSourceInclude } from '../../article/common/sources/articleSourceNotaSourceInclude';
 import diagramationRules from '../../../../../../../common/utils/diagramationRules';
-import withResizerV2 from '../../../../../../../common/utils/image/enableResizerV2';
 
 class GetOpinionCollection {
     constructor(props, typeChain) {
@@ -104,9 +103,7 @@ class GetOpinionCollection {
             layout,
             diagramation: layout,
             imageConfig: 'm',
-            isFocal: layout && layout.includes('focal'),
-            shouldUseV2: withResizerV2,
-            shouldUseV1: !withResizerV2
+            isFocal: layout && layout.includes('focal')
         };
     };
 
