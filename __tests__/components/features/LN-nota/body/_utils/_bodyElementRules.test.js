@@ -73,24 +73,21 @@ describe('_bodyElementRules', () => {
                 element: { type: 'video' },
                 outputType: 'default'
             });
-            expect(comp0).toBeFalsy();
-            expect(comp0).toEqual(undefined);
+            expect(comp0).toBeUndefined();
 
             const comp1 = bodyElementRules({
                 subtype: '8',
                 element: { type: 'raw_html' },
                 outputType: 'default'
             });
-            expect(comp1).toBeFalsy();
-            expect(comp1).toEqual(undefined);
+            expect(comp1).toBeUndefined();
 
             const comp2 = bodyElementRules({
                 subtype: '8',
                 element: { type: 'oembed_response' },
                 outputType: 'default'
             });
-            expect(comp2).toBeFalsy();
-            expect(comp2).toEqual(undefined);
+            expect(comp2).toBeUndefined();
 
             const comp3 = bodyElementRules({
                 subtype: '8',

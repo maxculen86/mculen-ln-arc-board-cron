@@ -118,7 +118,7 @@ export const validateMedia = (customFields, config, article) =>
         get(article, 'promo_items.basic.type', 'image') === 'image');
 
 export const validateVariant = (variant, authorsQuantity) =>
-    variant === 'author' && !(authorsQuantity === 1) ? 'regular' : variant;
+    variant === 'author' && authorsQuantity !== 1 ? 'regular' : variant;
 
 export const getBadgetConfig = ({
     article,
