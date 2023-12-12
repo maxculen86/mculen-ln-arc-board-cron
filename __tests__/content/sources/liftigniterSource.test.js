@@ -1,7 +1,5 @@
 import 'regenerator-runtime/runtime';
 import liftigniterSource from '../../../content/sources/liftigniterSource';
-import getProperties from 'fusion:properties';
-import logger from '../../../components/private/common/utils/logger';
 
 jest.mock('fusion:properties', () => () => ({
     getProperties: () => []
