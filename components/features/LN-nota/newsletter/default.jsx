@@ -23,12 +23,18 @@ const NewsLetter = ({ globalContent }) => {
             'taxonomy.primary_section._id',
             ''
         );
+        const token = getCookie('token');
+        const accessToken = getCookie('access-token');
+
         setProps({
             section: primarySection.split('/')[1],
             version: 3,
             site: 'all',
-            userIdToken: getCookie('token'),
-            userAccessToken: getCookie('access-token'),
+            ...(token &&
+                accessToken && {
+                    userIdToken: token,
+                    userAccessToken: accessToken
+                }),
             useTestEnvironment: API_ENV !== 'prod',
             onSubscription: ({ code }) =>
                 code >= 200 && code < 400
