@@ -1,6 +1,7 @@
 export const lastVideosQuery = () =>
     'sort=publish_date:desc&from=0&size=8&q=type:video';
 
+// TODO: Borrar este Source
 export const lastVideosBySectionQuery = ({ sectionName, from, size }) => {
     let qryFrom = '';
     let qrySize = '';

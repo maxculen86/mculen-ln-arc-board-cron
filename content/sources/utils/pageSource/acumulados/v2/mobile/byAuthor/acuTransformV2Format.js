@@ -1,6 +1,7 @@
 import get from '../../../../../../../../components/private/common/utils/get';
 import { getAuthorId } from './getAuthorId';
 import { getImageUrl } from '../../../../../../../../components/private/LN/api/common/elements/image';
+import { removeEmptyItems } from '../../../../../../../../components/private/LN/api/common/utils/responseCleaner';
 
 const acuTransformV2Format = (
     transformedAcu,
@@ -10,38 +11,31 @@ const acuTransformV2Format = (
 ) => {
     const image = getImageUrl(get(authorData, 'image.url', null));
 
-    const authorBio = {
-        longBio: authorData.longBio,
-        location: authorData.location,
-        education: authorData.education,
-        languages: authorData.languages,
-        affiliations: authorData.affiliations,
-        books: authorData.books
-    };
-
     const metadata = {
         paginate: paginationValue,
         title: authorData.name,
         banners: transformedAcu[0].banners,
-        total: transformedAcu[0].acumuladoTotal,
-        author: {
+        total: transformedAcu[0].acumuladoTotal
+    };
+
+    if (isFirstPage) {
+        metadata.author = removeEmptyItems({
             id: getAuthorId(authorData._id),
-            slug: authorData.slug,
+            slug: authorData.slug ? authorData.slug : authorData._id,
             value: authorData.name,
             image: image ? image[0] : null,
             absoluteUrl: get(authorData, 'image.url', null),
             interests: authorData.intereses,
             mail: authorData.email,
             role: authorData.role,
-            twitter: authorData.twitter
-        }
-    };
-
-    if (isFirstPage) {
-        metadata.author = {
-            ...metadata.author,
-            ...authorBio
-        };
+            twitter: authorData.twitter,
+            longBio: authorData.longBio,
+            location: authorData.location,
+            education: authorData.education,
+            languages: authorData.languages,
+            affiliations: authorData.affiliations,
+            books: authorData.books
+        });
     }
 
     delete transformedAcu[0].paginar;

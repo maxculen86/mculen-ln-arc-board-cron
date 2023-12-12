@@ -152,4 +152,25 @@ describe('content source apiPageAcumuladosSource integration test', () => {
             new NotFoundError(`seccion no encontrada: ${queryParams.sectionId}`)
         );
     });
+
+    test('should return empty metadata and items if apagarApi param is true', async () => {
+        const queryParams = {
+            uri: '/api/mobile/v2//page/bySection/ultimas-noticias/33/',
+            website: 'la-nacion-ar',
+            sectionId: '/economia',
+            categoryUri: 'mobile',
+            apagarApi: 'true',
+            versionUri: '2',
+            'arc-site': 'la-nacion-ar'
+        };
+
+        const result = await apiPageAcumuladosSource.fetch(queryParams, {
+            cachedCall
+        });
+
+        expect(result).toEqual({
+            metadata: {},
+            items: []
+        });
+    });
 });

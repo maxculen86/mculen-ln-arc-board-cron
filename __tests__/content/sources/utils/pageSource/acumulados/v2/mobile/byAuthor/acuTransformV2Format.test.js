@@ -35,7 +35,7 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
         );
     });
 
-    test('transform should return right values for metadata object', () => {
+    test('transform should not return author in metadata if page is not first page', () => {
         const acumulado = [
             {
                 tipoAcumulado: 2,
@@ -87,6 +87,64 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
         const result = acuTransformV2Format(acumulado, authorData, true, false);
 
         expect(Object.keys(result.metadata).sort()).toEqual(
+            ['paginate', 'title', 'total', 'banners'].sort()
+        );
+
+        expect(result.metadata.author).toBe(undefined);
+    });
+
+    test('transform should return author data in metadata if page is first page', () => {
+        const acumulado = [
+            {
+                tipoAcumulado: 2,
+                acumuladoTotal: 5,
+                paginar: false,
+                titulo: 'Author name',
+                notas: [
+                    {
+                        id: '',
+                        templateId: '1',
+                        titulo: '',
+                        tituloMobile: ''
+                    }
+                ]
+            }
+        ];
+
+        const authorData = {
+            _id: 'jose-del-rio-6753',
+            byline: 'José Del Río',
+            firstName: 'José',
+            lastName: 'Del Rio',
+            author_type: 'Estándar',
+            email: 'jdelrio@lanacion.com.ar',
+            image: {
+                url:
+                    'https://resizer.glanacion.com/resizer/9K6El1ZrB_23M3Dl3l_R4toMTxw=/280x0/filters:format(webp):quality(70)/s3.amazonaws.com/arc-authors/lanacionar/271850b8-5085-4004-b5ef-6d95e1c04cf4.png'
+            },
+            twitter: '@josedel_rio',
+            status: true,
+            role: 'LA NACION',
+            longBio: 'longBio',
+            slug: 'jose-del-rio-6753',
+            bio_page: '/autor/jose-del-rio-6753/',
+            last_updated_date: '2023-05-23T13:12:43.582Z',
+            books: [],
+            podcasts: [],
+            education: [],
+            awards: [],
+            expertise: 'Política, Economía y Negocios.',
+            location: 'Buenos Aires, Argentina',
+            languages: 'Español, Inglés',
+            node_type: 'author',
+            name: 'Author name',
+            canonical_url: '/autor/jose-del-rio-6753/',
+            subscription: undefined
+        };
+
+        const result = acuTransformV2Format(acumulado, authorData, true, true);
+
+        expect(Object.keys(result.metadata).sort()).toEqual(
             ['paginate', 'title', 'total', 'banners', 'author'].sort()
         );
 
@@ -96,9 +154,11 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
                 'slug',
                 'value',
                 'image',
+                'languages',
+                'location',
+                'longBio',
                 'absoluteUrl',
                 'twitter',
-                'interests',
                 'mail',
                 'role'
             ].sort()
@@ -113,9 +173,11 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
             absoluteUrl:
                 'https://resizer.glanacion.com/resizer/9K6El1ZrB_23M3Dl3l_R4toMTxw=/280x0/filters:format(webp):quality(70)/s3.amazonaws.com/arc-authors/lanacionar/271850b8-5085-4004-b5ef-6d95e1c04cf4.png',
             twitter: '@josedel_rio',
-            interests: undefined,
             mail: 'jdelrio@lanacion.com.ar',
-            role: 'LA NACION'
+            role: 'LA NACION',
+            languages: 'Español, Inglés',
+            location: 'Buenos Aires, Argentina',
+            longBio: 'longBio'
         });
     });
 
@@ -184,11 +246,7 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
                 'twitter',
                 'longBio',
                 'languages',
-                'books',
                 'location',
-                'affiliations',
-                'education',
-                'interests',
                 'mail',
                 'role'
             ].sort()
@@ -205,13 +263,9 @@ describe('Test acumulados byAuthor transformation with V2 Format', () => {
             twitter: '@josedel_rio',
             longBio: 'longBio',
             location: 'Buenos Aires, Argentina',
-            education: [],
             languages: 'Español, Inglés',
-            books: [],
-            interests: undefined,
             mail: 'jdelrio@lanacion.com.ar',
-            role: 'LA NACION',
-            affiliations: undefined
+            role: 'LA NACION'
         });
     });
 });

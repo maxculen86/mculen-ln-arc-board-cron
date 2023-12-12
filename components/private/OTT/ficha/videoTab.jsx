@@ -67,7 +67,6 @@ class VideoTab extends PureComponent {
                         key={this.videoId}
                     />
                 ))}
-
                 <Video
                     videoId={this.videoId}
                     videoData={this.videoData}

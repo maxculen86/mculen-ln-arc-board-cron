@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ProgramSnippet from '../../../../../../components/private/OTT/programa/snippet/programSnippet';
 import mockGlobalContent from '../../../../../../__mocks__/data/videos/globalContentVideoOTT.json';

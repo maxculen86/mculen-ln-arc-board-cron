@@ -17,7 +17,8 @@ jest.mock('fusion:context', Component => {
 
 describe('componentes - private - common - videoPlayerJw', () => {
     Context.useAppContext = jest.fn(() => ({
-        outputType: 'default'
+        outputType: 'default',
+        arcSite: 'la-nacion-ar'
     }));
 
     const mockData = {
@@ -83,7 +84,8 @@ describe('componentes - private - common - videoPlayerJw', () => {
 
     it('tests amp component', () => {
         Context.useAppContext = jest.fn(() => ({
-            outputType: 'amp'
+            outputType: 'amp',
+            arcSite: 'la-nacion-ar'
         }));
 
         render(
@@ -100,5 +102,21 @@ describe('componentes - private - common - videoPlayerJw', () => {
         );
 
         expect(ampJWPlayer).toBeInTheDocument();
+    });
+
+    it('should test component for ott', () => {
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'default',
+            arcSite: 'la-nacion-ar'
+        }));
+
+        render(
+            <VideoPlayerJW
+                data={mockData}
+                parrafo="MockParrafo"
+                tituloNota="MockTituloNota"
+                hasAutoplay={true}
+            />
+        );
     });
 });

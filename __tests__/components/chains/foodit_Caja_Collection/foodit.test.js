@@ -2,7 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CajaCollection from '../../../../components/chains/foodit_Caja_Collection/foodit';
-import articles from ' ../../../__mocks__/data/foodit_Caja_Collection/articlesTransformed';
+// import articles from ' ../../../__mocks__/data/foodit_Caja_Collection/articlesTransformed.json';
+import articlesCollection from ' ../../../__mocks__/data/CommonCollection/articles.json';
 import useGetArticleInCollectionFoodit from '../../../../components/chains/foodit-global/common/hooks/useGetArticleInCollectionFoodit';
 
 const observe = jest.fn();
@@ -25,9 +26,10 @@ jest.mock(
 
 describe('Tests Chain FOODIT Caja Collection', () => {
     describe('Tests cases for error', () => {
-        useGetArticleInCollectionFoodit.mockImplementation(() => articles);
-
         test('should show error without id collection', () => {
+            useGetArticleInCollectionFoodit.mockImplementation(
+                () => articlesCollection
+            );
             const customFields = {
                 idCollection: '',
                 initialPosition: 1,
@@ -35,7 +37,8 @@ describe('Tests Chain FOODIT Caja Collection', () => {
                 link: 'https://linktecho.com.ar',
                 hideTitle: false,
                 hideCaja: false,
-                layout: 'carousel'
+                layout: 'carousel',
+                link: 'https://lanacion'
             };
             const props = {
                 isAdmin: true,
@@ -58,7 +61,8 @@ describe('Tests Chain FOODIT Caja Collection', () => {
                 link: 'https://linktecho.com.ar',
                 hideTitle: false,
                 hideCaja: false,
-                layout: 'carousel'
+                layout: 'carousel',
+                link: 'https://lanacion'
             };
             const props = {
                 isAdmin: true,
@@ -94,6 +98,41 @@ describe('Tests Chain FOODIT Caja Collection', () => {
             expect(
                 screen.getByText('Se requiere que seleccione una diagramación')
             ).toBeInTheDocument();
+        });
+    });
+
+    describe('Tests cases success', () => {
+        test('should show collection', () => {
+            useGetArticleInCollectionFoodit.mockImplementation(
+                () => articlesCollection
+            );
+
+            const customFields = {
+                idCollection: 'ASDWQSCZXVASDASD',
+                initialPosition: 1,
+                title: 'Titulo techo',
+                link: 'https://linktecho.com.ar',
+                hideTitle: false,
+                hideCaja: false,
+                layout: 'carousel'
+            };
+            const props = {
+                isAdmin: true,
+                customFields
+            };
+
+            render(<CajaCollection {...props} />);
+            const link = screen.getByText('Titulo techo');
+            const buttonRoof = screen.getByRole('button', {
+                name: 'Llevar al recetario'
+            });
+
+            expect(buttonRoof).toBeTruthy();
+            expect(buttonRoof).toBeInTheDocument();
+            expect(buttonRoof).toHaveAttribute('data-modal', 'open-modal');
+            expect(link).toBeInTheDocument();
+            expect(link.href).toEqual('https://linktecho.com.ar/');
+            expect(link.textContent).toEqual('Titulo techo');
         });
     });
 });

@@ -14,30 +14,39 @@ const fetch = async (query, { cachedCall }) => {
             website,
             versionUri,
             ticksCache,
-            categoryUri
+            categoryUri,
+            turnOffFlag
         } = getParamsFromQuery(query);
 
-        let { title } = await fetchSectionSource(query, cachedCall);
-
-        if (query.sectionId === '/suscriptores') {
-            title = 'Exclusivo suscriptores';
+        if (turnOffFlag && turnOffFlag === 'true') {
+            return {
+                metadata: {},
+                items: []
+            };
         }
 
         const queryParams = {
             rootPath: `${SITE_LANACION}${query.sectionId}`,
-            ticksCache: ticksCache.toString(),
             website,
             uri,
-            title,
             categoryUri,
             versionUri,
             cookie: query.cookie
         };
 
-        const resultPage = await cachedCall('ApiPageAcumulados', pages.fetch, {
-            query: queryParams,
-            ttl: 120
-        });
+        const [resultPage, fetchSectionSourceResult] = await Promise.all([
+            cachedCall('ApiPageAcumulados', pages.fetch, {
+                query: queryParams,
+                ttl: 300
+            }),
+            fetchSectionSource(query, cachedCall)
+        ]);
+
+        let { title } = fetchSectionSourceResult;
+
+        if (query.sectionId === '/suscriptores') {
+            title = 'Exclusivo suscriptores';
+        }
 
         // Para revisar la data cruda que viene del Layout
         // return resultPage;
@@ -77,8 +86,9 @@ const fetch = async (query, { cachedCall }) => {
 
 const getParamsFromQuery = query => {
     const { uri = '', website, versionUri } = query;
-    const ticksCache = get(query, 'ticks', '').replace('/', '');
+    const ticksCache = get(query, 'ticks', null);
     const categoryUri = get(query, 'categoryUri', '').replace('/', '');
+    const turnOffFlag = get(query, 'apagarApi', '');
 
     if (!versionUri) {
         throw new Error('The api page must have a version');
@@ -89,7 +99,8 @@ const getParamsFromQuery = query => {
         website,
         versionUri,
         ticksCache,
-        categoryUri
+        categoryUri,
+        turnOffFlag
     };
 };
 
@@ -103,7 +114,7 @@ const fetchSectionSource = async (query, cachedCall) => {
     };
 
     sectionSourceResult = await cachedCall(
-        'apiPageSectionSource',
+        'sectionSource',
         sectionSource.fetch,
         {
             query: queryParams
@@ -129,7 +140,8 @@ export default {
         categoryUri: 'text',
         versionUri: 'text',
         ticks: 'text',
-        cookie: 'text'
+        cookie: 'text',
+        apagarApi: 'text'
     },
     ttl: 120
 };

@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useContent } from 'fusion:content';
+import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
 
 const TagsLoadingList = ({
@@ -12,9 +13,7 @@ const TagsLoadingList = ({
     Tag,
     globalContent
 }) => {
-    if (!Tag) return <></>;
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { contextPath, deployment } = useAppContext();
     const resp = useContent({
         sourceName: 'navigationTreeSource',
         query: {
@@ -25,8 +24,11 @@ const TagsLoadingList = ({
                 ${Tag}_loading_list
             }
         }`,
-        transform: data => get(data, `site.${Tag}_loading_list`, [])
+        transform: data => get(data, `site.${Tag}_loading_list`, []),
+        staticMode: true
     });
+
+    if (!Tag) return <></>;
 
     return resp.map((scriptConfig, index) => {
         try {
@@ -59,15 +61,17 @@ const TagsLoadingList = ({
                 }
             });
 
+            if (scriptData.addArcVersion) {
+                scriptData.src = deployment(`${contextPath}/${scriptData.src}`);
+            }
+
+            delete scriptData.addArcVersion;
             delete scriptData.location;
             delete scriptData.section;
 
             return (
                 section === _section &&
-                location === _location && (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <Tag {...scriptData} key={index} />
-                )
+                location === _location && <Tag {...scriptData} key={index} />
             );
         } catch (error) {
             // Agregar DataDog

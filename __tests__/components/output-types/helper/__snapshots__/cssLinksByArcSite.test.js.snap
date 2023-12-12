@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Components - outputType - helper - CssLinksFoodit should match snapshot 1`] = `
+exports[`CssLinksBySite Components - outputType - helper - CssLinksBySite should match snapshot 1`] = `
 <div>
   <link
-    href="/pf/dist/css/site-foodit.css"
+    href="/pf/dist/css/site-ott.css"
     id="fusion-output-type-styles"
     rel="stylesheet"
     type="text/css"

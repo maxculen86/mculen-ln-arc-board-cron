@@ -2,9 +2,17 @@ import React from 'react';
 import { useContent } from 'fusion:content';
 import { shallow, mount } from 'enzyme';
 import TagsLoadingList from '../../../../../components/private/common/scriptManager/tagsLoadingList';
+
 jest.mock('fusion:content', () => ({
     useContent: jest.fn()
 }));
+
+jest.mock('fusion:context', () => ({
+    useAppContext: () => {
+        return { contextPath: 'pf', deployment: () => {} };
+    }
+}));
+
 const globalContent = {
     content_restrictions: {
         content_code: 'cerrada'

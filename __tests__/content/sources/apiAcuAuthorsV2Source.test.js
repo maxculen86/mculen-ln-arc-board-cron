@@ -20,36 +20,29 @@ jest.mock('request-promise-native', () => {
     const mock = {
         __esModule: true,
         default: opt => {
-            console.log('oppppt', opt);
             if (opt.uri.includes('not-exists')) {
                 throw new mockNotFoundError();
             }
             const authorDataMock = {
+                _id: 'alfredo-leuco-330',
+                byline: 'Alfredo Leuco',
+                firstName: 'Alfredo',
+                lastName: 'Leuco',
                 author_type: 'Estándar',
-                awards: [],
-                bio_page: '/autor/vinciane-smeets-9110/',
-                books: [],
-                byline: 'Vinciane Smeets',
-                canonical_url: '/autor/vinciane-smeets-9110/',
-                education: [],
                 email: '',
-                image: {
-                    url:
-                        'https://lanacionar-la-nacion-ar-prod.cdn.arcpublishing.com/resizer/sZs50EMtDoyumsGsL1Hlp6g08S0=/280x0/filters:quality(100)/bucket.glanacion.com/anexos/fotos/33/3121633.png'
-                },
-                longBio: '',
-                name: 'Vinciane Smeets',
-                node_type: 'author',
-                podcasts: [],
+                image: '',
+                status: true,
                 role: 'PARA LA NACION',
-                slug: 'vinciane-smeets-9110',
-                twitter: '',
-                _id: 'vinciane-smeets-9110',
-                expertise: 'Deportes, Fútbol'
+                longBio: '',
+                slug: 'alfredo-leuco-330',
+                bio_page: '/autor/alfredo-leuco-330/',
+                last_updated_date: '2021-02-25T10:53:27.226Z',
+                books: [],
+                podcasts: [],
+                education: [],
+                awards: []
             };
-            return Promise.resolve({
-                body: authorDataMock
-            });
+            return Promise.resolve(authorDataMock);
         },
         defaults: () => mock.default
     };
@@ -70,7 +63,7 @@ describe('content source apiAcuAuthorsV2Source integration test', () => {
             'arc-site': 'la-nacion-ar'
         };
 
-        authorSource.resolve.mockReturnValue('/hardcoded-uri');
+        authorSource.resolve.mockReturnValue('/url');
 
         acuArticlesSource.fetch.mockReturnValue(acuArticleSourceResponseMock);
 
@@ -83,23 +76,7 @@ describe('content source apiAcuAuthorsV2Source integration test', () => {
         );
 
         expect(Object.keys(result.metadata.author).sort()).toEqual(
-            [
-                'id',
-                'slug',
-                'value',
-                'image',
-                'absoluteUrl',
-                'twitter',
-                'longBio',
-                'languages',
-                'books',
-                'location',
-                'affiliations',
-                'education',
-                'interests',
-                'mail',
-                'role'
-            ].sort()
+            ['id', 'slug', 'value', 'role'].sort()
         );
     });
 

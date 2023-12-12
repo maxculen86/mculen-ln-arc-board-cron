@@ -8,6 +8,7 @@ export const boxInfoByLayoutBySectionAlias = (layoutPage, sectionAlias) => {
         'LN-Home_Main': boxInfoBySectionAliasLN,
         'LN10-Home_Main': boxInfoBySectionAliasLN10,
         'LN-acumulado': boxInfoBySectionAcumuladoV2,
+        'LN-Home_Sports': boxInfoBySectionAcumuladoV2,
         'LN10-Home_Main-V2': boxInfoBySectionAliasLN10v2,
         default: boxInfoBySectionAliasLN
     };

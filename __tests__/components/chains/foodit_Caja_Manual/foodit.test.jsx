@@ -28,7 +28,8 @@ describe('Tests Chain - Foodit CajaManual', () => {
         website: 'foodit',
         title: 'TITLE',
         link: '',
-        hideTitle: false
+        hideTitle: false,
+        link: 'https://lanacion.com.ar'
     };
 
     const getProps = ({
@@ -110,7 +111,8 @@ describe('Tests Chain - Foodit CajaManual', () => {
         test('should return a grid of 2 items', () => {
             const fields = {
                 ...customFields,
-                layout: 'bn_2_grid'
+                layout: 'bn_2_grid',
+                link: 'https://lanacion.com.ar'
             };
             const children = [
                 mockedCardFoodit,
@@ -126,6 +128,11 @@ describe('Tests Chain - Foodit CajaManual', () => {
                     })}
                 />
             );
+            const link = screen.getByRole('link');
+
+            expect(link).toBeInTheDocument();
+            expect(link.href).toEqual('https://lanacion.com.ar/');
+            expect(link.textContent).toEqual('TITLE');
 
             expect(
                 container.getElementsByTagName('mocked-CardFoodit')

@@ -28,8 +28,8 @@ export default `
     }
     subtype
     taxonomy {
-        tags {
-            text
+        sections {
+            name
         }
     }
     headlines {

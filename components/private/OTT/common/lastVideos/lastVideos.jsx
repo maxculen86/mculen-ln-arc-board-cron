@@ -3,12 +3,15 @@ import get from '../../../common/utils/get';
 import Carousell from '../../../common/carousell';
 import VideoArticle from '../videoArticle';
 import Title from '../../../common/title';
-import filter from '../../../../../content/filters/OTT/homeVideoItem';
-import useGetLastVideos from '../hooks/useGetLastVideos';
+import { useContent } from 'fusion:content';
 
 const LastVideos = () => {
-    const { content_elements: videos = [] } =
-        useGetLastVideos(filter, 'ott', true) || {};
+    const media = useContent({
+        source: 'ottLastVideoJwSource',
+        query: {}
+    });
+
+    const videos = get(media, 'jwVideosformatted', []);
 
     const currentItem = videos.map(video => {
         const title = get(video, 'headlines.basic', null);

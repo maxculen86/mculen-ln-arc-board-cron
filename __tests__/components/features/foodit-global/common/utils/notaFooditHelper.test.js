@@ -10,23 +10,24 @@ describe('Foodit - notaFooditHelper', () => {
     describe('getHighestPriorityTag function', () => {
         it('should return the highest priority tag', () => {
             const tags = [
-                { text: 'saludable' },
-                { text: 'rápida' },
-                { text: 'clasica' },
-                { text: 'vegana' },
-                { text: 'vegetariana' }
+                { name: 'Sin Gluten' },
+                { name: 'Rápida' },
+                { name: 'Clasica' },
+                { name: 'Fácil' },
+                { name: 'Vegana' },
+                { name: 'Vegetariana' }
             ];
-            expect(getHighestPriorityTag(tags)).toBe('rápida');
+            expect(getHighestPriorityTag(tags)).toBe('Fácil');
         });
 
         it('should return the highest priority tag', () => {
             const tags = [
-                { text: 'saludable' },
-                { text: 'clasica' },
-                { text: 'vegana' },
-                { text: 'vegetariana' }
+                { name: 'Keto' },
+                { name: 'Maridaje' },
+                { name: 'Vegana' },
+                { name: 'Vegetariana' }
             ];
-            expect(getHighestPriorityTag(tags)).toBe('saludable');
+            expect(getHighestPriorityTag(tags)).toBe('Vegana');
         });
 
         it('should empty string if tag doesnt match', () => {

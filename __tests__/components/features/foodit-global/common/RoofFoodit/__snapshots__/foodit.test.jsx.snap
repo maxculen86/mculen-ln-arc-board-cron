@@ -13,26 +13,6 @@ exports[`Tests RoofFoodit Should match snapshot 1`] = `
     >
       Texto del enlace
     </a>
-    <button
-      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 ml-auto"
-      data-variant="link"
-      text="LLevar al recetario"
-    >
-      <i
-        class="icon w-24 w-16_md --dark"
-      >
-        <svg
-          data-testid="test-icon"
-        >
-          icono-de-prueba
-        </svg>
-      </i>
-      <span
-        class="text text-14 sm-none uppercase"
-      >
-        LLevar al recetario
-      </span>
-    </button>
   </div>
 </div>
 `;

@@ -166,71 +166,15 @@
             padding-top: 0;
             .--top {
                 padding-top: $spacing-lg;
+                @media ($media-l) {
+                    padding-top: $header-desktop + $spacing-sm;
+                }
                 padding-bottom: 0;
                 margin-bottom: $spacing-lg;
                 .com-title,
                 .com-link,
                 .com-button {
                     color: $neutral-white;
-                }
-            }
-        }
-    }
-    &.--transparent {
-        #content {
-            padding-top: 0;
-            .--top {
-                margin-top: px(-72);
-                padding-top: px(96);
-            }
-        }
-        &.ohlala {
-            #content {
-                .--top {
-                    background-color: $ohlala;
-                }
-            }
-        }
-        &.lugares {
-            #content {
-                .--top {
-                    background-color: $lugares;
-                }
-            }
-        }
-        &.hola {
-            #content {
-                .--top {
-                    background-color: $hola;
-                }
-            }
-        }
-        &.living {
-            #content {
-                .--top {
-                    background-color: $living;
-                }
-            }
-        }
-        &.brando {
-            #content {
-                .--top {
-                    background-color: $brando;
-                }
-            }
-        }
-        &.jardin {
-            #content {
-                .--top {
-                    background-color: $jardin;
-                }
-            }
-        }
-        &.rolling,
-        &.rolling-stone {
-            #content {
-                .--top {
-                    background-color: $rolling;
                 }
             }
         }
@@ -253,6 +197,13 @@
                 color: $lugares;
             }
         }
+        @media (max-width: px(1023)) {
+            .ln-header {
+                z-index: 1;
+                position: relative;
+                background-color: $lugares;
+            }
+        }
     }
     &.hola {
         #content {
@@ -260,6 +211,13 @@
             .--tags li .com-link,
             .mod-article .mod-description > div .com-link.--tags {
                 color: $hola;
+            }
+        }
+        @media (max-width: px(1023)) {
+            .ln-header {
+                z-index: 1;
+                position: relative;
+                background-color: $hola;
             }
         }
     }

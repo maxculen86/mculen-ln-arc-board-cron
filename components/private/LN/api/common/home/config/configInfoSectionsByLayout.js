@@ -51,9 +51,9 @@ export const infoLNMainLN10 = {
 
 const configInfoSectionsByLayout = layout => {
     const boxInformationSections = {
-        'LN-acumulado': infoLNMain,
+        'LN-acumulado': infoLNMainLN10,
         'LN-Home_Main': infoLNMain,
-        'LN-Home_Sports': infoLNMain,
+        'LN-Home_Sports': infoLNMainLN10,
         'LN10-Home_Main': infoLNMainLN10,
         'LN10-Home_Main-V2': infoLNMainLN10
     };

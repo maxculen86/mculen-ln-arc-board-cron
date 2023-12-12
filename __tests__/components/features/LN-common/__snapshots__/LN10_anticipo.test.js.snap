@@ -6,17 +6,19 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
     class="hidden"
   >
     <section
-      class="ln-advance --withVideo"
+      class="ln-advance bg-light-900 py-8 p-0_m --withVideo"
     >
       <div
         class="wrap"
       >
         <div
-          class="lay-container"
+          class="lay-container flex jc-between gap-8 gap-16_m"
         >
-          <article>
+          <article
+            class="flex flex-row ai-start gap-8 gap-16_m"
+          >
             <div
-              class="video"
+              class="video flex border border-all border-thin border-dark-200"
             >
               <iframe
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -27,15 +29,15 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
               />
             </div>
             <div
-              class="text-container"
+              class="text-container flex flex-column gap-8 py-24_m"
             >
               <span
-                class="badge ln-badge --font-2xs --positive"
+                class="badge ln-badge --font-2xs w-fit h-fit min-w-fit --positive"
               >
                 chapita
               </span>
               <h2
-                class="text ln-text --title --prumo --font-bold --font-xl-l-s"
+                class="text ln-text --title text-white --prumo --font-bold --font-xl-l-s"
                 title="texto Prueba Anticipo"
               >
                 <a
@@ -45,7 +47,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
                   title="texto Prueba Anticipo"
                 >
                   <span
-                    class="lead"
+                    class="lead text-blue-300"
                   >
                     texto
                      
@@ -56,7 +58,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
             </div>
           </article>
           <button
-            class="button ln-button --arial --md"
+            class="button ln-button p-0 py-24_m --arial --inherit"
             id="closeAdvance"
             title="Cerrar"
             type="button"
@@ -71,7 +73,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
               >
                 <path
                   clip-rule="evenodd"
-                  d="m12 10.586 4.243-4.243a1 1 0 1 1 1.414 1.414L13.414 12l4.243 4.243a1 1 0 1 1-1.414 1.414L12 13.414l-4.243 4.243a1 1 0 1 1-1.414-1.414L10.586 12 6.343 7.757a1 1 0 1 1 1.414-1.414L12 10.586Z"
+                  d="m12 10.586 4.243-4.243a1 1 0 1 1 1.414 1.414L13.414 12l4.243 4.243a1 1 0 1 1-1.414 1.414L12 13.414l-4.243 4.243a1 1 0 1 1-1.414-1.414L10.586 12 6.343 7.757a1 1 0 1 1 1.414-1.414z"
                   fill="#272727"
                   fill-rule="evenodd"
                 />

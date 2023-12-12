@@ -7,6 +7,7 @@ import Header from '../../private/LN10/header';
 import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import AnexoDefault from '../../features/LN-common/anexo/default';
+import isAllowedSection from '../../private/LN/common/utils/isAllowedSection';
 
 import '../../../resources/dist/css/ln/pages/acumulado.css';
 import '../../../resources/dist/css/ln/pages/lotteries.css';
@@ -62,7 +63,8 @@ const LNAcumuladoLayout = props => {
         tree,
         isAdmin,
         renderables,
-        requestUri = ''
+        requestUri = '',
+        layout
     } = props;
 
     const { style, name = '', node_type: nodeType } = globalContent || {};
@@ -99,7 +101,6 @@ const LNAcumuladoLayout = props => {
     const amp = outputType === 'amp' ? 'amp' : '';
     const megatop = getBannerMegatop(bannerMegatop, outputType, tree, isAdmin);
     const COLOR_CLASS = backgroundCategory || colorTags ? '--color' : '';
-    const HEADER_BACKGROUND = headerDark === 'true' ? ' --transparent' : '';
 
     const chainCollection =
         acumToSearchAperturaChain.includes(nodeType) &&
@@ -143,6 +144,17 @@ const LNAcumuladoLayout = props => {
         amp
     );
 
+    const listOfAllowedSection = [
+        { section: '/revista-hola', pageLayout: 'LN-acumulado' },
+        { section: '/revista-lugares', pageLayout: 'LN-acumulado' }
+    ];
+    const classNameMain = classNames({
+        '--header-fixed-margin': !isAllowedSection({
+            globalContent,
+            listOfAllowedSection,
+            layout
+        })
+    });
     return (
         <GlobalProvider>
             <GlobalProviderAcu
@@ -156,7 +168,7 @@ const LNAcumuladoLayout = props => {
                 {megatop}
                 <div id="wrapper" className={classNameWrapper}>
                     <Header />
-                    <main id="content" className="--header-fixed-margin">
+                    <main id="content" className={classNameMain}>
                         {stickyMobile}
                         <div
                             className="row --top"

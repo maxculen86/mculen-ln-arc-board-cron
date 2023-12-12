@@ -6,7 +6,6 @@ import MetasOG from '../private/common/metaTags/metasOG';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
 import Schemas from '../private/common/scriptManager/schemas';
 import DataLayerIndex from '../private/common/dataLayerIndex';
-import paths from '../../config/paths';
 import SnippetIndex from '../private/common/snippet';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
@@ -31,6 +30,7 @@ import {
 } from '../private/common/utils/outputTypeHelper';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import CssLinksLn10 from './Helper/cssLinksLn10';
+import CssLinksByArcSite from './Helper/cssLinksByArcSite';
 import ScriptVideoPowaHTML from '../private/common/scriptManager/scriptVideoPowaHTML';
 import OpeningRawHTML from '../private/common/scriptManager/OpeningRawHtml';
 
@@ -42,7 +42,6 @@ const getBodyClass = props => {
 
     return undefined;
 };
-const pathCss = `${paths.outputPath.base}/${paths.outputPath.css}`;
 
 const Default = props => {
     const {
@@ -169,21 +168,17 @@ const Default = props => {
                     layout={layout}
                 />
                 <CriticalCss isLN10={layoutsName.HomeLN10 === layout} />
-                {arcSite === 'ott' ? (
-                    <link
-                        rel="stylesheet"
-                        href={deployment(
-                            `${contextPath}${pathCss}/${arcSite}/style.css`
-                        )}
-                    />
-                ) : (
+                {arcSite === 'la-nacion-ar' ? (
                     <CssLinksLn10
                         CssLinks={CssLinks}
                         isLN10={layoutsName.HomeLN10 === layout}
                         deployment={deployment}
                         contextPath={contextPath}
                     />
+                ) : (
+                    <CssLinksByArcSite />
                 )}
+
                 <TagsLoadingList
                     section="all"
                     location="head"
