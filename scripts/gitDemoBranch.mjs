@@ -2,6 +2,7 @@ import inquirer from 'inquirer';
 import simpleGit from 'simple-git';
 import os from 'os';
 import { Spinner } from 'cli-spinner';
+import { spawn } from 'child_process';
 
 const git = simpleGit();
 const demoBranchPrefix = 'LN/';
@@ -51,17 +52,61 @@ async function selectEnvironment() {
     }
 }
 
+async function runTests() {
+    const spinner = new Spinner('Ejecutando tests... %s');
+    spinner.setSpinnerString('|/-\\');
+    spinner.start();
+
+    return new Promise((resolve, reject) => {
+        const testProcess = spawn('npm', ['run', 'test'], { stdio: 'inherit' });
+
+        const handleSigint = () => {
+            console.log('\nCancelación detectada. Limpiando...');
+            testProcess.kill(); // Mata el proceso de los tests
+            spinner.stop(true);
+            reject('Tests cancelados por el usuario');
+        };
+
+        process.on('SIGINT', handleSigint);
+
+        testProcess.on('close', code => {
+            process.removeListener('SIGINT', handleSigint); // Elimina el manejador de SIGINT
+            spinner.stop(true);
+            if (code === 0) {
+                resolve();
+            } else {
+                reject(`Test process exited with code ${code}`);
+            }
+        });
+    });
+}
+
 async function createDemoBranch() {
+    let originalBranch;
+
     try {
         await selectEnvironment();
         if (await checkUncommittedChanges()) {
             await commitChanges();
         }
 
-        const originalBranch = (await git.branchLocal()).current;
+        originalBranch = (await git.branchLocal()).current; // Asigna valor a originalBranch
         if (!originalBranch.startsWith(demoBranchPrefix)) {
             console.log("La rama actual no cumple con el criterio de 'LN/'.");
             return;
+        }
+
+        const testAnswer = await inquirer.prompt([
+            {
+                type: 'confirm',
+                name: 'runTests',
+                message: '¿Deseas ejecutar las pruebas antes del push?',
+                default: true
+            }
+        ]);
+
+        if (testAnswer.runTests) {
+            await runTests();
         }
 
         const username = os.userInfo().username;
@@ -85,7 +130,12 @@ async function createDemoBranch() {
             `Regresado a la rama original ${originalBranch} y eliminada la rama de demostración local ${newBranch}`
         );
     } catch (error) {
-        console.error('Error al crear la rama demo:', error);
+        console.error('Error:', error);
+        if (originalBranch) {
+            console.log(`Regresando a la rama original ${originalBranch}...`);
+            await git.checkout(originalBranch);
+            console.log(`Eliminando la rama de demostración...`);
+        }
     }
 }
 
