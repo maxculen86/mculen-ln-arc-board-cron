@@ -22,7 +22,8 @@ export default class Comscore extends Component {
         _comscore.push(${JSON.stringify({
             ...this.config,
             options: {
-                enableFirstPartyCookie: true
+                enableFirstPartyCookie: true,
+                bypassUserConsentRequirementFor1PCookie: true
             }
         })});(function() {
             var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
