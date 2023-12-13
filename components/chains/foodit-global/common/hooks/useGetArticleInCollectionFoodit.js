@@ -19,8 +19,7 @@ export const useGetArticleInCollectionFoodit = ({
             size,
             website: 'foodit',
             from: initialPosition,
-            imageConfig: 'm', // TODO: de momento queda en m
-            shouldUseV2: true
+            imageConfig: 'm' // TODO: de momento queda en m
         },
         staticMode,
         filter

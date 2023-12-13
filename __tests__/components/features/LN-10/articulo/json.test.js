@@ -95,13 +95,6 @@ jest.mock(
     }
 );
 
-jest.mock(
-    '../../../../../components/private/common/utils/image/enableResizerV2',
-    () => {
-        return false;
-    }
-);
-
 jest.mock('../../../../../content/filters/LN/home/LN10/videoFilterLN10', () => {
     return {
         videoFilterLN10: () => ({})

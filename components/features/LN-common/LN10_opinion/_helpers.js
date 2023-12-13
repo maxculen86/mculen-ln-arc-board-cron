@@ -26,8 +26,7 @@ export const getDataOpinion = ({
     isInSiteService,
     layout,
     website,
-    isHome,
-    shouldUseV2
+    isHome
 }) => {
     const articlesOpinion = !isInSiteService
         ? getArticleInCollection({
@@ -41,8 +40,7 @@ export const getDataOpinion = ({
               filterRepetead: !isInSiteService,
               layout,
               website,
-              hasHydrateOnly: isHome,
-              shouldUseV2
+              hasHydrateOnly: isHome
           })
         : [];
 
@@ -58,8 +56,7 @@ export const getDataOpinion = ({
               filterRepetead: !isInSiteService,
               layout,
               website,
-              hasHydrateOnly: isHome,
-              shouldUseV2
+              hasHydrateOnly: isHome
           })
         : [];
     return {

@@ -6,7 +6,6 @@ import {
     getIdsArticlesFromOtherCollections
 } from '../../private/LN/common/utils/cajaTemasValidators';
 import siteConfig from '../../../properties/sites/la-nacion-ar';
-import withResizerV2 from '../../private/common/utils/image/enableResizerV2';
 
 const getDataChainCollection = ({
     idCollection = '',
@@ -59,8 +58,7 @@ const getDataChainCollection = ({
         idsArticlesToExclude,
         titleSize,
         diagramation,
-        isHome,
-        shouldUseV2: isHomeLN10 && withResizerV2
+        isHome
     };
 };
 
