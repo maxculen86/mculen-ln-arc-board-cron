@@ -10,6 +10,30 @@ jest.mock('../../../components/private/common/utils/logger', () => {
     return { push };
 });
 
+jest.mock(
+    '../../../components/private/common/utils/image/resizer/addResizerUrls',
+    () => {
+        return {
+            __esModule: true,
+            addResizedUrls: (x, y) => {
+                return {};
+            }
+        };
+    }
+);
+
+jest.mock(
+    '../../../components/private/common/utils/image/resizer/v2/resizerHelper',
+    () => {
+        return {
+            __esModule: true,
+            isResizerV2: (x, y) => {
+                return true;
+            }
+        };
+    }
+);
+
 jest.mock('fusion:environment', () => {
     return {
         RESIZER_URL: 'https://resizer.glanacion.com/resizer',
@@ -21,7 +45,7 @@ jest.mock('fusion:environment', () => {
     };
 });
 
-const resultOkArticlesSourcceIds = {
+const resultOkArticlesSourceIds = {
     type: 'results',
     version: '0.6.0',
     content_elements: [
@@ -72,10 +96,7 @@ jest.mock('request-promise-native', () => {
         __esModule: true,
         default: method => {
             const path = method.uri;
-            if (
-                path.match(/model|activity/g) &&
-                !!path.match(/model|activity/g)
-            ) {
+            if (path.match(/model/g) && !!path.match(/model/g)) {
                 return Promise.resolve(
                     JSON.stringify({
                         items: [
@@ -214,6 +235,9 @@ jest.mock('request-promise-native', () => {
                     })
                 );
             }
+            if (path.match(/activity/g) && !!path.match(/activity/g)) {
+                return Promise.resolve(JSON.stringify({}));
+            }
 
             throw new Error('Error al obtener el listado de notas');
         }
@@ -253,11 +277,37 @@ describe('liftigniter content sources Unit Tests', () => {
         const resp = await fetchContent(query, {
             cachedCall: jest
                 .fn()
-                .mockReturnValue(Promise.resolve(resultOkArticlesSourcceIds))
+                .mockReturnValue(Promise.resolve(resultOkArticlesSourceIds))
         });
         expect(resp.map(r => r._id)).toMatchObject(mockResponse);
     });
 
+    it('When urlReferer is null', async () => {
+        const newQuery = { ...query };
+        newQuery.idArticle = '6WOCH47E2ND6RFNZBPRM24TVZU';
+        const resultRepetedUrlArticlesSourceIds = JSON.parse(
+            JSON.stringify(resultOkArticlesSourceIds)
+        );
+        resultRepetedUrlArticlesSourceIds.content_elements[2].canonical_url = resultRepetedUrlArticlesSourceIds.content_elements[2].canonical_url.concat(
+            resultRepetedUrlArticlesSourceIds.content_elements[2].canonical_url
+        );
+
+        const mockResponse = [
+            '63RWWTERHBDLRARXAZ6XEFCWHE',
+            'EUGUWQZ6IJGY7M26ECFYLD3DDU',
+            'FG4VTVBOENDW7A35NRI2BOOWVA',
+            'YEW6UFHRJZEMZDWUO2NXX7FVGA',
+            'DX2E6VAZYBEHLCJFV2VV6HBBPY'
+        ];
+        const resp = await fetchContent(newQuery, {
+            cachedCall: jest
+                .fn()
+                .mockReturnValue(
+                    Promise.resolve(resultRepetedUrlArticlesSourceIds)
+                )
+        });
+        expect(resp.map(r => r._id)).toMatchObject(mockResponse);
+    });
     it('Error Missing Articles', async () => {
         const newQuery = { ...query };
 
@@ -270,5 +320,20 @@ describe('liftigniter content sources Unit Tests', () => {
         } catch (err) {
             expect(err.message).toBe('Error');
         }
+    });
+
+    it('When action is  activity is ok', async () => {
+        const newQuery = { ...query };
+        newQuery.action = 'activity';
+        newQuery.listArticles =
+            '/[7VYTYGF7NZF2JMAHTTSRYM5GOY,6WOCH47E2ND6RFNZBPRM24TVZU]';
+
+        const mockResponse = {};
+        const resp = await fetchContent(newQuery, {
+            cachedCall: jest
+                .fn()
+                .mockReturnValue(Promise.resolve(resultOkArticlesSourceIds))
+        });
+        expect(resp).toMatchObject(mockResponse);
     });
 });
