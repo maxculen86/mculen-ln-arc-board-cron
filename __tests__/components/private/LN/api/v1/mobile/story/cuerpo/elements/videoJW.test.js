@@ -14,7 +14,6 @@ describe('Test de video JW en el cuerpo de la nota', () => {
             [
                 '_t',
                 'duration',
-                'title',
                 'multimediaFile',
                 'multimediaFiles',
                 'thumbnailImage'
@@ -40,7 +39,6 @@ describe('Test de video JW en el cuerpo de la nota', () => {
             [
                 '_t',
                 'duration',
-                'title',
                 'multimediaFile',
                 'multimediaFiles',
                 'thumbnailImage'
