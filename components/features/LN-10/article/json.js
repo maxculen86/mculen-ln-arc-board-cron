@@ -40,16 +40,18 @@ class ArticleFeature {
         const sourceInclude = articleSourceNotaSourceInclude(typeCard);
         this.props = validateProps(props, this.configs);
 
+        const website = 'la-nacion-ar';
+
         checkForId(videoId) &&
             this.fetchContent({
                 articleVideoLN10: {
                     source: 'videosJwSource',
                     query: {
                         id: checkForId(videoId),
-                        website: 'la-nacion-ar',
+                        website,
                         imageConfig,
                         isInApertura: this.onlyOneApeturaValidateForWWW,
-                        arcSite: 'la-nacion-ar',
+                        arcSite: website,
                         shouldUseV2: this.shouldUseV2
                     },
                     filter: this.shouldUseV2 ? videoFilterLN10 : filterVideo
@@ -82,7 +84,7 @@ class ArticleFeature {
                         id: imageId.trim(),
                         published: true,
                         imageConfig,
-                        'arc-site': 'la-nacion-ar',
+                        'arc-site': website,
                         nid: noteId,
                         boxType: 'ArticleFeature',
                         isInApertura: this.onlyOneApeturaValidateForWWW,

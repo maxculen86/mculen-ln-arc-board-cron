@@ -1,12 +1,7 @@
 import Consumer from 'fusion:consumer';
 import get from '../../../private/common/utils/get';
-import {
-    getRankingProps,
-    getSectionParentId,
-    RANKING_LAYOUT
-} from './common/_helper-WebApi';
+import { getRankingProps, getSectionParentId } from './common/_helper-WebApi';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
-import diagramationRules from '../../../private/common/utils/diagramationRules';
 
 class RankingFeature {
     constructor(props) {
