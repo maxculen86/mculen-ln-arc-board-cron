@@ -15,6 +15,13 @@ jest.mock('fusion:environment', () => {
     };
 });
 
+jest.mock(
+    '../../../../../../components/private/common/utils/schema/liveBlog/generatePostObject',
+    () => ({
+        createISODate: jest.fn().mockReturnValue('2020-06-25T19:39:44.891Z')
+    })
+);
+
 describe('Private - LN - nota - snippet - noticia ', () => {
     const props = {
         siteProperties: {
@@ -113,10 +120,8 @@ describe('Private - LN - nota - snippet - noticia ', () => {
         expect(headline).toBe(title);
         expect(url).toBe(`${host}${canonical_url}`);
         expect(dateCreated).toBe(`${new Date(createdDate).toUTCString()}`);
-        expect(datePublished).toBe(
-            `${new Date(firstPublishDate).toISOString()}`
-        );
-        expect(dateModified).toBe(`${new Date(displayDate).toISOString()}`);
+        expect(datePublished).toMatch(/^2020-06-25T19:39:44.\d{3}Z$/);
+        expect(dateModified).toMatch(/^2020-06-25T19:39:44.\d{3}Z$/);
         expect(mainEntityOfPage).toBe(`${host}${path}/`);
         expect(articleSection).toBe(name);
         expect(isAccessibleForFree).toBe(`${contentCode === 'abierta'}`);

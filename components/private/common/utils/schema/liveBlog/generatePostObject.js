@@ -12,13 +12,17 @@ const extracDataFromCredits = by => {
     }
     return { authors: authors.length ? authors : ['Redacción LA NACION'] };
 };
+export const createISODate = (date, time = '') => {
+    const dateTime = time !== '' ? new Date(`${date} ${time}`) : new Date(date);
 
-const createISODate = (date, time) => {
-    const dateTime =
-        date !== '' && time !== '' ? new Date(`${date} ${time}`) : '';
-    const isoString = dateTime ? dateTime.toISOString() : '';
+    if (isNaN(dateTime.getTime())) {
+        return '';
+    }
+
+    const isoString = dateTime.toISOString();
     const randomMs = (Math.floor(Math.random() * 900) + 100).toString();
-    return isoString ? `${isoString.slice(0, -4) + randomMs}Z` : '';
+
+    return `${isoString.slice(0, -4) + randomMs}Z`;
 };
 
 const concatenateBullets = (bullets = []) => {
