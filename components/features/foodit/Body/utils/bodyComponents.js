@@ -1,28 +1,28 @@
-import BlockQuote from '../../../../private/LN/nota/cuerpo/blockQuote';
-import Subtitle from '../../../../private/LN/nota/cuerpo/subtitle';
+import BlockQuote from '../../../foodit-global/Body/blockQuote/foodit';
+import Subtitle from '../../../foodit-global/Body/subtitle/foodit';
 import Gallery from '../../../../private/LN/common/carrousell';
-import ListOrderedOrUnordered from '../../../../private/LN/nota/cuerpo/listOrderedOrUnordered';
-import Image from '../../../../private/LN/nota/cuerpo/image';
+import ListOrderedOrUnordered from '../../../foodit-global/Body/listOrderedOrUnordered/foodit';
+import Image from '../../../foodit-global/Body/Image/foodit';
 import VideoJW from '../../../../private/common/videoPlayerJw/index';
 import RawHTML from '../../../../private/LN/common/rawHTML';
-import BotonLink from '../../../../private/LN/nota/cuerpo/botonLink';
+import BotonLink from '../../../foodit-global/Body/buttonLink/foodit';
 import Html from '../../../../private/LN/nota/cuerpo/html';
 import Table from '../../../../private/LN/nota/cuerpo/table';
-import Divider from '../../../../private/LN/nota/cuerpo/divider';
+import Divider from '../../../foodit-global/Body/divider/foodit';
 import PowerUpLiveBlog from '../../../../private/LN/nota/cuerpo/powerUpLiveBlog';
-import Paragraph from '../../../../private/LN/nota/cuerpo/parrafo';
+import Paragraph from '../../../foodit-global/Body/paragraph/foodit';
 
 const bodyComponents = {
     text: Paragraph,
     blockquote: BlockQuote,
     header: Subtitle,
-    gallery: Gallery,
+    gallery: Gallery, // TODO: a confirmar si se utiliza
     list: ListOrderedOrUnordered,
     image: Image,
-    oembed_response: RawHTML,
+    oembed_response: RawHTML, // TODO: agregar clases "flex as-center" al contenedor
     raw_html: Html,
     interstitial_link: BotonLink,
-    table: Table,
+    table: Table, // TODO: a confirmar si se utiliza
     divider: Divider,
     video_jw: VideoJW,
     'custom-liveblog': PowerUpLiveBlog

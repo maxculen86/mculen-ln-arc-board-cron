@@ -40,6 +40,9 @@ export const OpeningStorytelling = ({ article = {} }) => {
 
     if (videoUrl && isSSR()) return <></>;
 
+    // TODO: Video className='w-100 h-100 ratio-unset_lg ratio-16-9'
+    // TODO: Image className='w-100 h-100 ratio-unset_lg ratio-3-2'
+    // TODO: {title} y {author} no van en este feature
     return videoUrl && device === 'desktop' ? (
         <>
             <ModVideo video={videoUrl} image={posterUrl} autoplay loop />
