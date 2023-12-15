@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CajaCollection from '../../../../components/chains/foodit_Caja_Collection/foodit';
-// import articles from ' ../../../__mocks__/data/foodit_Caja_Collection/articlesTransformed.json';
 import articlesCollection from ' ../../../__mocks__/data/CommonCollection/articles.json';
 import useGetArticleInCollectionFoodit from '../../../../components/chains/foodit-global/common/hooks/useGetArticleInCollectionFoodit';
 
@@ -102,7 +101,17 @@ describe('Tests Chain FOODIT Caja Collection', () => {
     });
 
     describe('Tests cases success', () => {
-        test('should show collection', () => {
+        test('should show collection carousel', () => {
+            global.IntersectionObserver = jest.fn((callback, options) => {
+                return {
+                    observe: jest.fn(() => {
+                        callback([{ isIntersecting: true }]);
+                    }),
+                    disconnect: jest.fn(),
+                    unobserve: jest.fn()
+                };
+            });
+
             useGetArticleInCollectionFoodit.mockImplementation(
                 () => articlesCollection
             );
@@ -130,6 +139,35 @@ describe('Tests Chain FOODIT Caja Collection', () => {
             expect(buttonRoof).toBeTruthy();
             expect(buttonRoof).toBeInTheDocument();
             expect(buttonRoof).toHaveAttribute('data-modal', 'open-modal');
+            expect(link).toBeInTheDocument();
+            expect(link.href).toEqual('https://linktecho.com.ar/');
+            expect(link.textContent).toEqual('Titulo techo');
+            delete global.IntersectionObserver;
+        });
+
+        test('should show collection grid12', () => {
+            useGetArticleInCollectionFoodit.mockImplementation(() => [
+                ...articlesCollection,
+                ...articlesCollection.slice(0, 4)
+            ]);
+
+            const customFields = {
+                idCollection: 'ASDWQSCZXVASDASD',
+                initialPosition: 1,
+                title: 'Titulo techo',
+                link: 'https://linktecho.com.ar',
+                hideTitle: false,
+                hideCaja: false,
+                layout: 'bn_12_grid'
+            };
+            const props = {
+                isAdmin: true,
+                customFields
+            };
+
+            render(<CajaCollection {...props} />);
+            const link = screen.getByText('Titulo techo');
+
             expect(link).toBeInTheDocument();
             expect(link.href).toEqual('https://linktecho.com.ar/');
             expect(link.textContent).toEqual('Titulo techo');

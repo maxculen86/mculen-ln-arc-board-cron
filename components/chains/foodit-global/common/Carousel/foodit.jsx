@@ -4,7 +4,7 @@ import { Button } from '@ln/foodit-ui-button';
 import CommonCardFoodit from '../../../../features/foodit-global/common/CommonCardFoodit/foodit';
 import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
 
-export const Carousel = ({ articles }) => {
+export const Carousel = ({ articles = [] }) => {
     return (
         <Mediascroller
             className="flex flex-column gap-16 hide-mobile"
