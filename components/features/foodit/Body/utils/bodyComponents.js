@@ -2,7 +2,7 @@ import BlockQuote from '../../../foodit-global/Body/blockQuote/foodit';
 import Subtitle from '../../../foodit-global/Body/subtitle/foodit';
 import Gallery from '../../../../private/LN/common/carrousell';
 import ListOrderedOrUnordered from '../../../foodit-global/Body/listOrderedOrUnordered/foodit';
-import Image from '../../../foodit-global/Body/Image/foodit';
+import Image from '../../../foodit-global/Body/image/foodit';
 import VideoJW from '../../../../private/common/videoPlayerJw/index';
 import RawHTML from '../../../../private/LN/common/rawHTML';
 import BotonLink from '../../../foodit-global/Body/buttonLink/foodit';
