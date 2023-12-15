@@ -1,0 +1,134 @@
+{
+    "_id": "R3N27NYG25EQRKHHAHRUDOLGIM",
+    "canonical_url": "/recetas/waffle-sin-tacc-y-sin-lacteos-nid23112023/",
+    "category": "Postres",
+    "content_elements": [],
+    "content_restrictions": {
+        "content_code": "cerrada"
+    },
+    "created_date": "2023-11-23T19:38:26.788Z",
+    "credits": {
+        "by": [
+            {
+                "_id": "vinciane-smeets-9110",
+                "additional_properties": {
+                    "original": {
+                        "author_type": "Estándar",
+                        "bio_page": "/autor/vinciane-smeets-9110/",
+                        "byline": "Vinciane Smeets",
+                        "image": "https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F33%2F3121633.png?auth=e7790e11caeec140c10d21242e4cb028fe23b9d35494cb62ac8a3ce89bca2f7a&width=80&quality=70&smart=false",
+                        "role": "PARA LA NACION"
+                    }
+                },
+                "name": "Vinciane Smeets",
+                "slug": "vinciane-smeets-9110",
+                "type": "author",
+                "url": "/autor/vinciane-smeets-9110/"
+            }
+        ]
+    },
+    "first_publish_date": "2023-11-23T19:38:26.792Z",
+    "headlines": {
+        "basic": "Waffle sin TACC y sin lácteos",
+        "meta_title": "",
+        "mobile": "Waffle sin TACC y sin lácteos"
+    },
+    "promo_items": {
+        "video_jw": {
+            "embed": {
+                "config": {
+                    "idPlayer": "ih0086X3",
+                    "idVideo": "wzNCu0kE",
+                    "videoJw": {
+                        "description": " ",
+                        "kind": "Single Item",
+                        "playlist": [
+                            {
+                                "description": " ",
+                                "duration": "433634",
+                                "image": "https://cdn.jwplayer.com/v2/media/wzNCu0kE/poster.jpg?width=720",
+                                "images": [
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/wzNCu0kE/poster.jpg?width=320",
+                                        "type": "image/jpeg",
+                                        "width": 320
+                                    },
+                                    {
+                                        "src": "https://cdn.jwplayer.com/v2/media/wzNCu0kE/poster.jpg?width=480",
+                                        "type": "image/jpeg",
+                                        "width": 480
+                                    }
+                                ],
+                                "link": "https://cdn.jwplayer.com/previews/wzNCu0kE",
+                                "mediaid": "wzNCu0kE",
+                                "pubdate": 1657907249,
+                                "sources": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/manifests/wzNCu0kE.m3u8",
+                                        "type": "application/vnd.apple.mpegurl"
+                                    },
+                                    {
+                                        "bitrate": 413100,
+                                        "file": "https://cdn.jwplayer.com/videos/wzNCu0kE-kTExGaWf.mp4",
+                                        "filesize": 22359059,
+                                        "framerate": 30,
+                                        "height": 180,
+                                        "label": "180p",
+                                        "type": "video/mp4",
+                                        "width": 320
+                                    },
+                                    {
+                                        "bitrate": 647029,
+                                        "file": "https://cdn.jwplayer.com/videos/wzNCu0kE-K8B0kybS.mp4",
+                                        "filesize": 35020492,
+                                        "framerate": 30,
+                                        "height": 270,
+                                        "label": "270p",
+                                        "type": "video/mp4",
+                                        "width": 480
+                                    }
+                                ],
+                                "title": "Ariel en su salsa: Waffles de chocolate con bananas foster",
+                                "tracks": [
+                                    {
+                                        "file": "https://cdn.jwplayer.com/strips/wzNCu0kE-120.vtt",
+                                        "kind": "thumbnails"
+                                    }
+                                ],
+                                "variations": {}
+                            }
+                        ],
+                        "title": "Ariel en su salsa: Waffles de chocolate con bananas foster"
+                    }
+                }
+            },
+            "subtype": "video_jw"
+        }
+    },
+    "subheadlines": {
+        "basic": "Un waffle que se adapta a cualquier intolerancia alimenticia. No contiene harina, ni lácteos ni azúcar (en la masa)"
+    },
+    "subtype": "7",
+    "taxonomy": {
+        "sections": [
+            {
+                "_id": "/recetas/dietas/sin-gluten",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": ["/recetas", "/recetas/dietas"]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Sin Gluten",
+                "parent_id": "/recetas/dietas",
+                "path": "/recetas/dietas/sin-gluten",
+                "type": "section"
+            }
+        ]
+    },
+    "type": "story",
+    "website_url": "/recetas/waffle-sin-tacc-y-sin-lacteos-nid23112023/"
+}

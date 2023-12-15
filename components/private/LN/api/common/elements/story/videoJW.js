@@ -71,15 +71,14 @@ export const videoJWNotaMobile = videoData => {
     }
 
     const elementPlayList = Array.isArray(playList) ? playList[0] : playList;
-    const { duration, title, sources, image } = elementPlayList;
+    const { duration, sources, image } = elementPlayList;
 
     const durationCalculated =
         typeof duration == 'number' ? (duration || 0) * 1000 : duration * 1;
 
     const resp = {
         _t: 'video',
-        duration: durationCalculated,
-        title
+        duration: durationCalculated
     };
 
     const video = videoJWCommon(sources);

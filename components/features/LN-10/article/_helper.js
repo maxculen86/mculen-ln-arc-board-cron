@@ -21,7 +21,7 @@ import { isImageEager } from '../../../private/LN/home/components/noteCard/noteC
 import { getFirstParentSection } from '../../../private/common/utils/sectionUtils';
 import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
 import getElementFromRenderables from '../../../private/common/utils/getElementFromRenderables';
-import getSourcesJwHome from '../../../private/LN/common/utils/getSourcesJwHome';
+import getSourcesJw from '../../../private/LN/common/utils/getSourcesJw';
 
 export const typeMedia = {
     IMAGE: 'image',
@@ -288,7 +288,7 @@ export const transformVideoData = (
     const { resizedUrl } = getShortestImage(videoImagesResized);
     const streamOperator = getDynamicStreamOperator(size, cardSize);
     const { url } = getStreams(streams, streamOperator) || {};
-    const { file } = getSourcesJwHome(sources, streamOperator) || {};
+    const { file } = getSourcesJw(sources, streamOperator) || {};
 
     return {
         type,

@@ -13,7 +13,7 @@ class UltimosVideosDeProgramas extends PureComponent {
 
         switch (this.props.globalContentConfig.source) {
             case 'sectionSource':
-                this.sectionId = this.props.globalContent._id;
+                this.sectionId = this.props.globalContent.name;
                 break;
             case 'videoSource':
                 this.sectionId = get(

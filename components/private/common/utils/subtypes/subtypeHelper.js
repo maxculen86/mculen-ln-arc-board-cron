@@ -44,54 +44,6 @@ export const isFotoAl100orStorytelling = subtype => {
     return subtype === FOTOAL100 || subtype === STORYTELLING;
 };
 
-export const subtypeNotesWithoutAmp = canonicalUrl => {
-    const subtypeList = [
-        '/agencias/',
-        '/juegos/',
-        '/recetas/',
-        '/propiedades/',
-        '/salud/',
-        '/autos/',
-        '/economia/campo/',
-        '/estados-unidos/',
-        '/clima/',
-        '/loterias/',
-        '/revista-hola/',
-        '/revista-lugares/',
-        '/revista-living/',
-        '/revista-jardin/',
-        '/lifestyle/',
-        '/horoscopo/',
-        '/el-mundo/',
-        '/espectaculos/',
-        '/arquitectura/',
-        '/ciencia/',
-        '/comunidad/',
-        '/conversaciones-de-domingo/',
-        '/cultura/',
-        '/editoriales/',
-        '/educacion/',
-        '/feriados/',
-        '/ideas/',
-        '/data/',
-        '/la-nacion-revista/',
-        '/lnmas/',
-        '/moda-y-belleza/',
-        '/deportes/',
-        '/opinion/',
-        '/otros/',
-        '/revista-brando/',
-        '/revista-rolling-stone/',
-        '/sabado/',
-        '/tecnologia/',
-        '/transito/',
-        '/turismo/',
-        '/videos/',
-        '/buenos-aires/',
-        '/seguridad/',
-        '/sociedad/',
-        '/revistas/'
-    ];
-
-    return subtypeList.some(subtype => canonicalUrl.startsWith(subtype));
+export const subtypeNotesWithoutAmp = () => {
+    return true;
 };

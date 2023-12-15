@@ -25,6 +25,7 @@ jest.mock('fusion:environment', () => {
         PERSONALIZACION_API:
             'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
         PERSONALIZACION_APIV2:
-            'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/'
+            'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/',
+        MARFEEL_ACCOUNT_ID: 'test-id'
     };
 });

@@ -28,7 +28,7 @@ const Toast = ({ data, handleTimeout }) => {
     return (
         <>
             {showToast && (
-                <div className={`toast --${status}`}>
+                <div className={`toast-private --${status}`}>
                     <div className="icon-container">
                         {
                             {

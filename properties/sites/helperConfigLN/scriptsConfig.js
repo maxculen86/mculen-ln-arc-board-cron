@@ -99,5 +99,5 @@ export default {
         props: {},
         location: [HEAD]
     },
-    Marfeel: { props: {}, location: [BODYBOTTOM] }
+    Marfeel: { props: {}, location: [HEAD] }
 };

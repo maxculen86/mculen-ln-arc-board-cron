@@ -4,7 +4,6 @@ import { renderProps } from '../../../private/LN/api/global/components/features/
 import { articleSourceNotaSourceInclude } from '../../../private/LN/api/global/components/features/article/common/sources/articleSourceNotaSourceInclude';
 import { validateProps } from '../../../private/LN/api/global/components/features/article/LN10/props/validateProps';
 import { validatePropsRender } from '../../../private/LN/api/global/components/features/article/LN10/props/validatePropsRender';
-import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 import {
     getChainConfig,
     validateArticleFeature,
@@ -34,13 +33,14 @@ class ArticleFeature {
             config,
             articlePosition: index
         });
-        this.shouldUseV2 =
-            withResizerV2 && layoutPageBuilder === layoutsName.HomeLN10;
+        this.shouldUseV2 = layoutPageBuilder === layoutsName.HomeLN10;
 
         const imageConfig = this.configs && this.configs.imageConfig;
         const typeCard = variant || 'default';
         const sourceInclude = articleSourceNotaSourceInclude(typeCard);
         this.props = validateProps(props, this.configs);
+
+        const website = 'la-nacion-ar';
 
         checkForId(videoId) &&
             this.fetchContent({
@@ -48,10 +48,10 @@ class ArticleFeature {
                     source: 'videosJwSource',
                     query: {
                         id: checkForId(videoId),
-                        website: 'la-nacion-ar',
+                        website,
                         imageConfig,
                         isInApertura: this.onlyOneApeturaValidateForWWW,
-                        arcSite: 'la-nacion-ar',
+                        arcSite: website,
                         shouldUseV2: this.shouldUseV2
                     },
                     filter: this.shouldUseV2 ? videoFilterLN10 : filterVideo
@@ -84,7 +84,7 @@ class ArticleFeature {
                         id: imageId.trim(),
                         published: true,
                         imageConfig,
-                        'arc-site': 'la-nacion-ar',
+                        'arc-site': website,
                         nid: noteId,
                         boxType: 'ArticleFeature',
                         isInApertura: this.onlyOneApeturaValidateForWWW,

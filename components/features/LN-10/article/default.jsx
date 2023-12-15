@@ -41,7 +41,6 @@ import ErrorBoundary from '../../../private/common/ErrorBoundary';
 import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
-import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 import isContentLabAt100 from '../../../chains/utils/isContentLabAt100';
 import { LIVEBLOG } from '../../../private/common/utils/subtypes/subtypeHelper';
 import { checkVariants } from '../../../chains/utils/_helpers';
@@ -74,8 +73,7 @@ const ArticleFeature = ({
     } = useAppContext();
 
     const { layoutsName = {} } = siteConfig || {};
-    const shouldUseV2 =
-        withResizerV2 && layoutPageBuilder === layoutsName.HomeLN10;
+    const shouldUseV2 = layoutPageBuilder === layoutsName.HomeLN10;
     const {
         config: initialConfig = {},
         index,
@@ -204,7 +202,7 @@ const ArticleFeature = ({
         image,
         layout,
         renderables,
-        shouldUseV2: withResizerV2,
+        shouldUseV2: true,
         config,
         isAdmin,
         isLoadWithPicture

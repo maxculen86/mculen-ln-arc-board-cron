@@ -1,19 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import VideoPlayer from '../../common/videoPlayer';
-import '../../../../resources/dist/css/ln/components/video-player.css';
-import replaceUrlResizerToWWW from '../../../../content/sources/utils/replaceUrlResizerToWWW';
+import VideoPlayer from '../../../../components/private/common/videoPlayerJw/index';
 
-const Video = ({ videoId, videoData, arcSite }) => {
-    const videoImageData = replaceUrlResizerToWWW(videoData);
+const Video = ({ videoData }) => {
     return (
-        <section className="apertura --video">
-            <VideoPlayer
-                videoId={videoId}
-                videoImageData={videoImageData}
-                arcSite={arcSite}
-                isApertura
-            />
+        <section className="container-vw-100 bg-dark-100">
+            <VideoPlayer data={videoData} isOtt />
         </section>
     );
 };

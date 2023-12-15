@@ -12,7 +12,6 @@ import {
     getMediaData
 } from '../article/_helper';
 import filterImage from '../../../../content/filters/LN/home/imageFilter';
-import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import { getChainConfig } from '../article/common/_helper-WebApi';
 import { filterWebStoriesRenderables } from '../../../chains/LN10_Caja_WebStories/common/_helper-WebApi';
@@ -26,8 +25,7 @@ const WebStoryFeature = props => {
 
     const { cajaTemaConfig } = getProperties(arcSite);
 
-    const shouldUseV2 =
-        withResizerV2 && layoutPageBuilder === layoutsName.HomeLN10;
+    const shouldUseV2 = layoutPageBuilder === layoutsName.HomeLN10;
 
     const image = GetImage({
         imageId,
@@ -46,7 +44,7 @@ const WebStoryFeature = props => {
         image,
         layout: '',
         renderables,
-        shouldUseV2: withResizerV2,
+        shouldUseV2: true,
         isLoadWithPicture: true
     });
 

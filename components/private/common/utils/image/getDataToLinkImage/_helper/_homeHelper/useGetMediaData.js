@@ -4,7 +4,6 @@ import useGetVideoPosterResized from './useGetVideoPosterResizer';
 import isSSR from '../../../../../../LN/common/utils/isSSR';
 import { checkForId } from '../index';
 import { isHomeLN10 } from '../common/helper-WebApi';
-import withResizerV2 from '../../../enableResizerV2';
 
 const conditionallyCallSource = (
     id,
@@ -31,7 +30,7 @@ const useGetMediaData = ({
     isInApertura = true,
     arcSite
 }) => {
-    const shouldUseV2 = isHomeLN10(layout) && withResizerV2;
+    const shouldUseV2 = isHomeLN10(layout);
 
     const videoData = useGetVideoPosterResized({
         videoID,

@@ -1,13 +1,7 @@
 import Consumer from 'fusion:consumer';
 import get from '../../../private/common/utils/get';
-import {
-    getRankingProps,
-    getSectionParentId,
-    RANKING_LAYOUT
-} from './common/_helper-WebApi';
+import { getRankingProps, getSectionParentId } from './common/_helper-WebApi';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
-import diagramationRules from '../../../private/common/utils/diagramationRules';
-import withResizerV2 from '../../../private/common/utils/image/enableResizerV2';
 
 class RankingFeature {
     constructor(props) {
@@ -30,9 +24,7 @@ class RankingFeature {
             imageConfig: 'boxArticles',
             website: website || arcSite,
             layout,
-            shouldUseV2:
-                withResizerV2 &&
-                layout === get(siteConfig, 'layoutsName.HomeLN10', '')
+            shouldUseV2: layout === get(siteConfig, 'layoutsName.HomeLN10', '')
         };
         this.fetch(query);
         query.sectionId = sectionParentId;

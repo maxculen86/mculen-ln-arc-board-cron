@@ -123,7 +123,7 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         const expectedScript = `
         window.jwplayer(\`${idVideo}\`).on('ready', function (e) {
             const element = document.querySelector('.video-player');
-            element.classList.remove('--background');
+            if (element) element.classList.remove('bg-black');
         });
     
         const events = [{jwEvent: 'play', eventName: 'videoPlay'}, {jwEvent: 'pause', eventName: 'videoPause'}];

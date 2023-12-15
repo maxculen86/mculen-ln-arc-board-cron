@@ -1,16 +1,16 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 
-const CssLinksFoodit = () => {
-    const { contextPath, deployment } = useAppContext();
+const CssLinksByArcSite = () => {
+    const { contextPath, deployment, arcSite } = useAppContext();
 
     return (
         <link
             id="fusion-output-type-styles"
             rel="stylesheet"
             type="text/css"
-            href={deployment(`${contextPath}/dist/css/site-foodit.css`)}
+            href={deployment(`${contextPath}/dist/css/site-${arcSite}.css`)}
         />
     );
 };
-export default CssLinksFoodit;
+export default CssLinksByArcSite;

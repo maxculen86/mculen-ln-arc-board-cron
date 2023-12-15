@@ -1,6 +1,6 @@
 import React from 'react';
-import CssLinksFoodit from './Helper/cssLinksFoodit';
 import CriticalCSS from '../features/foodit-global/common/CriticalCss/foodit';
+import CssLinksByArcSite from './Helper/cssLinksByArcSite';
 import ObservableFoodit from './Helper/observableFoodit';
 
 // TODO: OutputType base, queda pendiente agregar manejo de scripts, metadatos y preload
@@ -18,7 +18,7 @@ const Foodit = ({ children, Libs, Fusion } = {}) => {
                 <title>Recetas</title>
                 <link rel="manifest" href="/manifest.json" />
                 <CriticalCSS />
-                <CssLinksFoodit />
+                <CssLinksByArcSite />
                 <Libs />
             </head>
             <body>
