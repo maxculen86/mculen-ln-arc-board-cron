@@ -1,14 +1,13 @@
 import React from 'react';
-import Context from 'fusion:context';
-import getProperties from 'fusion:properties';
-import { render, mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import Editoriales from '../../../../components/private/common/editoriales';
 
-jest.mock('fusion:context', Component => {
-    return function(Component) {
-        return props => <Component {...props} />;
-    };
-});
+// Mock de fusion:context y fusion:properties si es necesario
+jest.mock('fusion:context', () => Component => props => (
+    <Component {...props} />
+));
+jest.mock('fusion:properties', () => () => ({}));
 
 describe('Editoriales test', () => {
     const editorialesProps = {
@@ -18,18 +17,22 @@ describe('Editoriales test', () => {
         link: '',
         arcSite: 'la-nacion-ar'
     };
-    const component = mount(<Editoriales {...editorialesProps} />);
 
     it('Matches snapshot', () => {
-        expect(component).toMatchSnapshot;
+        const { container } = render(<Editoriales {...editorialesProps} />);
+        expect(container).toMatchSnapshot();
     });
 
     it('Renders title', () => {
-        expect(component.find('h4')).toHaveLength(1);
+        const { getByText } = render(<Editoriales {...editorialesProps} />);
+        expect(getByText('Editoriales')).toBeInTheDocument();
     });
 
     it('Renders empty articles', () => {
-        expect(component.find('article')).toHaveLength(0);
+        const { queryAllByRole } = render(
+            <Editoriales {...editorialesProps} />
+        );
+        expect(queryAllByRole('article')).toHaveLength(0);
     });
 
     it('renders with Articles', () => {
@@ -40,7 +43,7 @@ describe('Editoriales test', () => {
             link: '',
             arcSite: 'la-nacion-ar'
         };
-        const component = mount(<Editoriales {..._editorialesProps} />);
-        expect(component.find('article')).toHaveLength(3);
+        const { getAllByRole } = render(<Editoriales {..._editorialesProps} />);
+        expect(getAllByRole('article')).toHaveLength(3);
     });
 });

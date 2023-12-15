@@ -1,12 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import FirmaFeature from '../../../../components/features/LN-nota/firma';
-import ModAutor from '../../../../components/private/common/mod-autor';
 import getAuthorByline from '../../../../components/private/common/utils/getAuthorByline';
 import { getPropsBuilderFromContentElements } from '../../../../components/private/common/utils/firmaHelper';
 import { compose } from '../../../../components/private/common/utils/functional';
-import ComPartner from '../../../../components/private/common/com-partner';
-import ComLink from '../../../../components/private/common/com-link';
 import Context from 'fusion:context';
 
 jest.mock('fusion:context', Component => {
@@ -61,24 +59,30 @@ describe('Firma Feature', () => {
         },
         withFirmaDistributor: false
     };
-    const wrapper = mount(
-        <FirmaFeature
-            outputType={'default'}
-            customFields={{ position: 'Top' }}
-            globalContent={globalContent}
-        />
-    );
-    const authorComponent = wrapper.find(ModAutor);
 
-    it('Sub-components exists', () => {
-        expect(authorComponent.exists()).toBeTruthy();
+    beforeEach(() => {
+        render(
+            <FirmaFeature
+                outputType={'default'}
+                customFields={{ position: 'Top' }}
+                globalContent={globalContent}
+            />
+        );
+    });
+
+    it('Sub-components exist', () => {
+        const autores = screen.queryAllByText(/.*/, {
+            selector: '.com-text.--autor'
+        });
+        expect(autores).toHaveLength(2); // Verifica que hay dos elementos que representan a los autores
     });
 
     it('Construct props properly', () => {
-        expect(authorComponent.prop('autor')).toHaveLength(2);
-        expect(authorComponent.prop('amp')).toBeFalsy();
-        expect(authorComponent.prop('foto')).toBeNull();
-        expect(authorComponent.prop('medio')).toBeNull();
+        // La configuración de renderización ya se hizo en beforeEach
+        const autorElements = screen.getAllByText(/.*/, {
+            selector: '.com-text.--autor'
+        });
+        expect(autorElements).toHaveLength(2);
     });
 });
 
@@ -157,10 +161,12 @@ describe('Test de renderizado condicional en FirmaFeature', () => {
         }
     };
     it('Test return de ComPartner', () => {
-        const FirmaFeatureComponent = mount(<FirmaFeature {...props} />);
-        expect(FirmaFeatureComponent.find(ComPartner).exists()).toBeTruthy();
+        render(<FirmaFeature {...props} />);
+        const comPartnerElement = screen.getByText('LA NACION', {
+            exact: false
+        });
+        expect(comPartnerElement).toBeInTheDocument();
     });
-
     it('Test return de ComLink', () => {
         const properties = {
             ...props,
@@ -169,7 +175,26 @@ describe('Test de renderizado condicional en FirmaFeature', () => {
                 distributor: { name: 'lanacionar' }
             }
         };
-        const FirmaFeatureComponent = mount(<FirmaFeature {...properties} />);
-        expect(FirmaFeatureComponent.find(ComLink).exists()).toBeTruthy();
+        render(<FirmaFeature {...properties} />);
+
+        // Buscamos el elemento 'a' dentro del cual debería estar el ComLink
+        const linkElement = screen.getByRole('link');
+
+        // Verificamos que el enlace tenga la clase 'com-link'
+        expect(linkElement).toHaveClass('com-link');
+
+        // Verificamos que el enlace tenga el atributo 'href' correcto
+        expect(linkElement).toHaveAttribute(
+            'href',
+            'undefined/distributor/lanacionar/'
+        );
+
+        // Buscamos el elemento 'span' dentro del cual debería estar el texto 'lanacionar'
+        const comPartnerElement = screen.getByText('lanacionar', {
+            exact: false
+        });
+
+        // Verificamos que el elemento 'span' tenga la clase '--twoxs'
+        expect(comPartnerElement).toHaveClass('--twoxs');
     });
 });

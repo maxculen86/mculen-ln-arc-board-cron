@@ -1,22 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ModFirma Matches snapshot 1`] = `
-<div
-  class="container-firma"
->
-  <a
-    class="com-link --autor"
-    href="https://lanacion.com.ar"
-    title="Ir a notas de Pepe"
+<DocumentFragment>
+  <div
+    class="container-firma"
   >
-    Pepe
-  </a>
-  <a
-    class="com-link --autor"
-    href="https://lanacion.com.ar"
-    title="Ir a notas de Paco"
-  >
-    Paco
-  </a>
-</div>
+    <a
+      class="com-link --autor"
+      href="https://lanacion.com.ar"
+      title="Ir a notas de Pepe"
+    >
+      Pepe
+    </a>
+    <a
+      class="com-link --autor"
+      href="https://lanacion.com.ar"
+      title="Ir a notas de Paco"
+    >
+      Paco
+    </a>
+  </div>
+</DocumentFragment>
 `;

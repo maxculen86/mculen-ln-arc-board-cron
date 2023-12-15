@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Editoriales test Matches snapshot 1`] = `
+<div>
+  <h4
+    class="com-title --font-primary [object Object] --font-medium"
+  >
+    Editoriales
+  </h4>
+</div>
+`;

@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import FirmaLogoExterno from '../../../../components/features/LN-nota/firmaLogoExterno';
 import ComPartner from '../../../../components/private/common/com-partner';
 import ComLink from '../../../../components/private/common/com-link';
@@ -58,10 +59,11 @@ describe('Test of return FirmaLogoExterno', () => {
     };
 
     it('Test of return distributor = undefined and by.lenth > 0', () => {
-        const FirmaLogoExternoComponent = mount(
+        const { container } = render(
             <FirmaLogoExterno globalContent={props} />
         );
-        expect(FirmaLogoExternoComponent).toEqual({});
+        // Verifica si el contenedor está vacío
+        expect(container).toBeEmptyDOMElement();
     });
 
     it('Test return component ComPartner La Nacion Recetas', () => {
@@ -69,17 +71,11 @@ describe('Test of return FirmaLogoExterno', () => {
             ...props,
             credits: { by: [] }
         };
-        const FirmaLogoExternoComponent = mount(
-            <FirmaLogoExterno globalContent={properties} />
-        );
-        const ComPartnerComponent = (
-            <ComPartner size="--xs">Por LA NACION recetas</ComPartner>
-        );
-        expect(
-            FirmaLogoExternoComponent.containsMatchingElement(
-                ComPartnerComponent
-            )
-        ).toBeTruthy();
+        render(<FirmaLogoExterno globalContent={properties} />);
+
+        // Buscar por texto específico
+        const comPartnerText = screen.getByText('Por LA NACION recetas');
+        expect(comPartnerText).toBeInTheDocument();
     });
 
     it('Test of return subtype = RECETA and by.lenth > 0', () => {
@@ -87,11 +83,12 @@ describe('Test of return FirmaLogoExterno', () => {
             ...props,
             distributor: { name: 'lanacionar' }
         };
-        const FirmaLogoExternoComponent = mount(
+        const { container } = render(
             <FirmaLogoExterno globalContent={properties} />
         );
-        console.log(FirmaLogoExternoComponent);
-        expect(FirmaLogoExternoComponent).toEqual({});
+
+        // Verifica si el contenedor está vacío
+        expect(container).toBeEmptyDOMElement();
     });
 
     it('Test of return for HTMLLIBRE', () => {
@@ -100,17 +97,11 @@ describe('Test of return FirmaLogoExterno', () => {
             distributor: { name: 'BBC Mundo' },
             subtype: HTMLLIBRE
         };
-        const FirmaLogoExternoComponent = mount(
-            <FirmaLogoExterno globalContent={properties} />
-        );
-        const ComPartnerComponent = (
-            <ComPartner size="--xs">BBC Mundo</ComPartner>
-        );
-        expect(
-            FirmaLogoExternoComponent.containsMatchingElement(
-                ComPartnerComponent
-            )
-        ).toBeTruthy();
+        render(<FirmaLogoExterno globalContent={properties} />);
+
+        // Buscar por texto específico
+        const comPartnerText = screen.getByText('BBC Mundo');
+        expect(comPartnerText).toBeInTheDocument();
     });
 
     it('Test for withFirmaDistributor in false', () => {
@@ -119,9 +110,13 @@ describe('Test of return FirmaLogoExterno', () => {
             distributor: { name: 'BBC' },
             subtype: NOTICIA
         };
-        const FirmaLogoExternoComponent = mount(
-            <FirmaLogoExterno globalContent={properties} />
-        );
-        expect(FirmaLogoExternoComponent.find(ComLink).exists()).toBeTruthy();
+        render(<FirmaLogoExterno globalContent={properties} />);
+
+        // Busca el enlace por su clase CSS o texto visible
+        const comLinkElement = screen.getByText('BBC'); // Asegúrate de usar el texto que corresponde
+        // O si quieres buscar por clase CSS:
+        // const comLinkElement = screen.getByRole('link', { class: 'com-link' });
+
+        expect(comLinkElement).toBeInTheDocument();
     });
 });

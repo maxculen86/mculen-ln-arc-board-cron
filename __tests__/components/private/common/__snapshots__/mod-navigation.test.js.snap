@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mod-navigation test Matches snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="com-button --left hlp-none --icon"
+    data-event=""
+    data-section=""
+    id="left-arrow"
+    on=""
+    tabindex=""
+    title=""
+    type="button"
+  >
+    <i
+      class="com-icon icon-arrow-left"
+    >
+      <svg
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M10.828 12.364L15.071 16.607C15.4615 16.9975 15.4615 17.6305 15.071 18.021C14.6805 18.4115 14.0475 18.4115 13.657 18.021L8.70711 13.0711 C8.31658 12.6806 8.31658 12.0474 8.70711 11.6569L13.657 6.707C14.0475 6.31653 14.6805 6.31653 15.071 6.707C15.4615 7.09747 15.4615 7.73053  15.071 8.121L10.828 12.364Z"
+          fill="#272727"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </i>
+  </button>
+  <ul
+    class="com-unordered --no-scrollbar  "
+  >
+    <li
+      class="item"
+    >
+      <a
+        class="com-link"
+        href="http://www.google.com"
+        rel="nofollow"
+        target="_blank"
+        title="LN Link Custom"
+      >
+        LN Link Custom
+      </a>
+    </li>
+    <li
+      class="item"
+    >
+      <a
+        class="com-link"
+        href="/revista-ohlala"
+        target=""
+        title="OHLALA"
+      >
+        OHLALA
+      </a>
+    </li>
+  </ul>
+  <button
+    class="com-button hlp-none --icon"
+    data-event=""
+    data-section=""
+    id="right-arrow"
+    on=""
+    tabindex=""
+    title=""
+    type="button"
+  >
+    <i
+      class="com-icon icon-arrow-right"
+    >
+      <svg
+        fill="none"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M13.172 12L8.92899 7.75699C8.53852 7.36652 8.53852 6.73345 8.92898 6.34299V6.34299C9.31945 5.95252 9.95252 5.95252 10.343 6.34299L15.2929  11.2929C15.6834 11.6834 15.6834 12.3166 15.2929 12.7071L10.343 17.657C9.95252 18.0475 9.31945 18.0475 8.92899 17.657V17.657C8.53852 17.2665  8.53852 16.6335 8.92899 16.243L13.172 12Z"
+          fill="#272727"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </i>
+  </button>
+  <script
+    type="text/javascript"
+  >
+    
+                window.addEventListener('load', () =&gt; {
+                    const categories = document.querySelector(".com-unordered");
+                    const rightArrow = document.querySelector("#right-arrow");
+                    const leftArrow = document.querySelector("#left-arrow");
+                    if (categories.scrollLeft + categories.offsetWidth &lt; categories.scrollWidth) {
+                        rightArrow.classList.remove('hlp-none')
+                    }
+                    document.querySelector("#right-arrow").addEventListener('click', () =&gt; {
+                        const scrollPixel = categories.scrollLeft + 150
+                        categories.scroll({ left: scrollPixel, behavior: 'smooth' })
+                        if (categories.scrollLeft + categories.offsetWidth &gt;= categories.scrollWidth) {
+                            rightArrow.classList.add('hlp-none')
+                        }
+                        leftArrow.classList.remove('hlp-none')
+                    })
+                    document.querySelector("#left-arrow").addEventListener('click', () =&gt; {
+                        const scrollPixel = categories.scrollLeft - 150
+                        categories.scroll({ left: scrollPixel, behavior: 'smooth' })
+                        if (categories.scrollLeft === 0) {
+                            leftArrow.classList.add('hlp-none')
+                        }
+                        rightArrow.classList.remove('hlp-none')
+                    })
+                })
+            
+  </script>
+</DocumentFragment>
+`;

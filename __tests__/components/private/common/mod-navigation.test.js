@@ -1,6 +1,7 @@
 import React from 'react';
 import ModNavigation from '../../../../components/private/common/mod-navigation';
-import { render } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 
 describe('Mod-navigation test', () => {
     const modNavigationProps = {
@@ -31,12 +32,17 @@ describe('Mod-navigation test', () => {
     };
 
     it('Matches snapshot', () => {
-        const navigation = render(<ModNavigation />);
-        expect(navigation).toMatchSnapshot;
+        const { asFragment } = render(
+            <ModNavigation {...modNavigationProps} />
+        );
+        expect(asFragment()).toMatchSnapshot();
     });
 
     it('Renders link list', () => {
-        const component = render(<ModNavigation {...modNavigationProps} />);
-        expect(component.find('a')).toHaveLength(2);
+        const { getAllByRole } = render(
+            <ModNavigation {...modNavigationProps} />
+        );
+        const links = getAllByRole('link');
+        expect(links).toHaveLength(2);
     });
 });

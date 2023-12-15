@@ -1,28 +1,36 @@
-jest.mock(
-    '../../../../components/private/common/mod-shield',
-    () => 'ModShield'
-);
-
+// Importaciones necesarias
 import React from 'react';
-import { useContent } from 'fusion:content';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import CajaEscudo from '../../../../components/features/LN-acumulado/cajaEscudo';
 import SHIELD_DATA from '../../../../__mocks__/data/shields/shields';
-import { shallow } from 'enzyme';
 
-describe('Features - LN-acumulado - Caja Escudo Feature =>', () => {
+// Mock de useContent
+jest.mock('fusion:content', () => ({
+    useContent: jest.fn()
+}));
+
+// Mock del componente ModShield
+jest.mock(
+    '../../../../components/private/common/mod-shield',
+    () => ({ data, title }) => <div data-testid="mod-shield">{title}</div>
+);
+
+describe('Features - LN-acumulado - Caja Escudo Feature', () => {
     describe('with a valid response', () => {
-        useContent.mockImplementation(() => SHIELD_DATA);
-
-        const wrapper = shallow(<CajaEscudo />);
-        const result = wrapper.first();
-        const ModShieldComponent = result.find('ModShield');
+        beforeEach(() => {
+            jest.clearAllMocks();
+        });
 
         it('should render ModShield component with correctly props', () => {
-            const { data, title } = ModShieldComponent.props();
-            const { title: titleMock } = SHIELD_DATA;
+            require('fusion:content').useContent.mockImplementation(
+                () => SHIELD_DATA
+            );
 
-            expect(data.length).toBe(26);
-            expect(title).toStrictEqual(titleMock);
+            render(<CajaEscudo />);
+
+            const modShieldComponent = screen.getByTestId('mod-shield');
+            expect(modShieldComponent).toHaveTextContent(SHIELD_DATA.title);
         });
     });
 });

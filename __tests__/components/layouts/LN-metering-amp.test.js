@@ -1,11 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import LNMeteringAmp from '../../../components/layouts/LN-metering-amp';
-import Consumer from 'fusion:consumer';
 
-jest.mock('fusion:consumer', Component => {
-    return function(Component) {
-        return props => <Component {...props} />;
+jest.mock('fusion:consumer', () => Component => {
+    return function(props) {
+        return <Component {...props} />;
     };
 });
 
@@ -16,13 +16,14 @@ describe('layout LN-meteting-amp', () => {
         },
         params: ['comun', 'BL4RTKROKZFUXKO5IJZ25PYG2I']
     };
-    it('should return  meteringAMP script', () => {
-        const wrapper = shallow(<LNMeteringAmp globalContent={props} />);
-        expect(wrapper.html()).toMatchSnapshot();
+
+    it('should return meteringAMP script', () => {
+        const { container } = render(<LNMeteringAmp globalContent={props} />);
+        expect(container.innerHTML).toMatchSnapshot();
     });
 
-    it('should return  empty frame', () => {
-        const wrapper = shallow(<LNMeteringAmp />);
-        expect(wrapper.html()).toEqual('');
+    it('should return empty frame', () => {
+        const { container } = render(<LNMeteringAmp />);
+        expect(container.innerHTML).toEqual('');
     });
 });
