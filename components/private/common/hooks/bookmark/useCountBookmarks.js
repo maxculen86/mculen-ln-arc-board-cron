@@ -1,22 +1,33 @@
-import { PERSONALIZACION_API } from 'fusion:environment';
+import { PERSONALIZACION_APIV2 } from 'fusion:environment';
 import { useState, useEffect, useCallback } from 'react';
 
-export default function useCountBookmarks(termicaBookmark, token, isSuscriber) {
+export default function useCountBookmarks(
+    termicaBookmark,
+    token,
+    accessToken,
+    isSuscriber
+) {
     const [data, setData] = useState(null);
 
     const getDataFromAPI = useCallback(async () => {
         try {
-            const res = await fetch(`${PERSONALIZACION_API}bookmarks-count`, {
-                method: 'GET',
-                headers: {
-                    Authorization: token
-                }
-            });
+            if (accessToken && token) {
+                const res = await fetch(
+                    `${PERSONALIZACION_APIV2}bookmarks-count`,
+                    {
+                        method: 'GET',
+                        headers: {
+                            Authorization: `Bearer ${accessToken}`,
+                            'X-Token': token
+                        }
+                    }
+                );
 
-            if (res.ok) {
-                const datos = await res.json();
-                const { bookmarkCount = 0 } = datos;
-                setData(bookmarkCount);
+                if (res.ok) {
+                    const datos = await res.json();
+                    const { bookmarkCount = 0 } = datos;
+                    setData(bookmarkCount);
+                }
             }
         } catch (err) {
             // eslint-disable-next-line no-console

@@ -132,12 +132,20 @@ export const onButtonClicked = (
     bookmark,
     setBookmark,
     dispatch,
-    state
+    state,
+    accessToken
 ) => {
     addEventToDataLayer('Guardar Nota');
     const { open } = get(state, 'showModal', {});
     if (token && suscription && !open) {
-        toggleBookmark(token, bookmark, setBookmark, dispatch, globalContent);
+        toggleBookmark(
+            accessToken,
+            token,
+            bookmark,
+            setBookmark,
+            dispatch,
+            globalContent
+        );
     }
 
     !suscription &&

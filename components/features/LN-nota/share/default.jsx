@@ -36,6 +36,7 @@ const Share = () => {
     const [enableButton, setEnableButton] = useState(false);
 
     const token = getToken();
+    const accessToken = getToken('access-token');
     const termicaBookmark = useTermica('bookmark_web');
     const classCondition = getClassCondition(subtype);
     const suscription = isSuscription(token);
@@ -43,6 +44,7 @@ const Share = () => {
     const checkBookmarkId = useCheckBookmark(
         termicaBookmark,
         token,
+        accessToken,
         id,
         suscription
     );

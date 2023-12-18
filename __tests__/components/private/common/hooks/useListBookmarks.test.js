@@ -11,6 +11,7 @@ describe('Private - Common - Hooks - Bookmark - useListBookmarks', () => {
 
     const termicaBookmark = true;
     const token = 'D5A09D56-8E4B-4BED-AD7E-65B73EBC8DF3';
+    const accessToken = 'D5A09D56-8E4B-4BED-AD7E-65B73EBC8DF3';
     const isSuscriber = true;
 
     global.fetch = jest.fn();
@@ -43,14 +44,20 @@ describe('Private - Common - Hooks - Bookmark - useListBookmarks', () => {
         expect(fetch).not.toBeCalled();
     });
     it('Should call fetch correctly and return bookmarks when called with termica and token', async () => {
-        const data = useListBookmarks(termicaBookmark, token, isSuscriber);
+        const data = useListBookmarks(
+            termicaBookmark,
+            token,
+            accessToken,
+            isSuscriber
+        );
         const { bookmarks, morePages, getNextPage } = data || {};
         expect(data).toBeDefined();
         expect(fetch).toBeCalledWith(
-            `https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/bookmarks?size=30`,
+            `https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/bookmarks?size=30`,
             {
                 headers: {
-                    Authorization: token
+                    Authorization: `Bearer ${accessToken}`,
+                    'X-Token': token
                 },
                 method: 'GET'
             }

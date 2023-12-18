@@ -11,6 +11,7 @@ describe('Private - Common - Hooks - Bookmark - useCountBookmarks', () => {
 
     const termicaBookmark = true;
     const token = 'D5A09D56-8E4B-4BED-AD7E-65B73EBC8DF3';
+    const accessToken = 'D5A09D56-8E4B-4BED-AD7E-65B73EBC8DF3';
     const isSuscriber = true;
 
     global.fetch = jest.fn();
@@ -61,13 +62,15 @@ describe('Private - Common - Hooks - Bookmark - useCountBookmarks', () => {
         const { bookmarkCount } = useCountBookmarks(
             termicaBookmark,
             token,
+            accessToken,
             isSuscriber
         );
         expect(fetch).toBeCalledWith(
-            `https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/bookmarks-count`,
+            `https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/bookmarks-count`,
             {
                 headers: {
-                    Authorization: token
+                    Authorization: `Bearer ${accessToken}`,
+                    'X-Token': token
                 },
                 method: 'GET'
             }

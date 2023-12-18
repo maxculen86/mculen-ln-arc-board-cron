@@ -17,6 +17,7 @@ const BookmarkLayout = () => {
     const { state, dispatch } = useContext(GlobalContext);
     const [showHelper, setShowHelper] = useState(false);
     const token = getToken();
+    const accessToken = getToken('access-token');
     const termica = useTermica('bookmark_web');
     const { getCookie } = handleCookie();
     const productoPremiumId = getCookie('ProductoPremiumId');
@@ -27,11 +28,12 @@ const BookmarkLayout = () => {
         getNextPage,
         loading,
         deleteArticle
-    } = useListBookmarks(termica, token, isSubscribed);
+    } = useListBookmarks(termica, token, accessToken, isSubscribed);
 
     const { bookmarkCount, substractOne } = useCountBookmarks(
         termica,
         token,
+        accessToken,
         isSubscribed
     );
 
