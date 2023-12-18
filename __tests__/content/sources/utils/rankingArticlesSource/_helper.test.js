@@ -2,7 +2,8 @@ import {
     getAnalitycUrls,
     getCanonicalUrls,
     resolveUri,
-    getQuery
+    getQuery,
+    sortData
     // transformData
 } from '../../../../../content/sources/utils/rankingArticlesSource/_helper';
 import config, {
@@ -186,4 +187,39 @@ describe('function => getQuery', () => {
 
 describe('function => transformData', () => {
     it('should return data with images resized', () => {});
+});
+
+describe('Función => sortData', () => {
+    const articles = [
+        { canonical_url: 'url1', title: 'Artículo 1' },
+        { canonical_url: 'url2', title: 'Artículo 2' },
+        { canonical_url: 'url3', title: 'Artículo 3' }
+    ];
+
+    const stories = ['url1', 'url2', 'url3'];
+
+    test.each`
+        description                                                | size | expected
+        ${'debería devolver un array vacío si el tamaño es 0'}     | ${0} | ${[]}
+        ${'debería devolver un array vacío si stories está vacío'} | ${2} | ${[]}
+    `('$description', ({ size, expected }) => {
+        const result = sortData(articles, [], size);
+        expect(result).toEqual(expected);
+    });
+
+    test('debería devolver un array de artículos con el tamaño especificado', () => {
+        const result = sortData(articles, stories, 2);
+        expect(result).toHaveLength(2);
+    });
+
+    test('debería devolver un array con los artículos correspondientes a stories', () => {
+        const result = sortData(articles, stories, 3);
+        expect(result).toEqual(articles);
+    });
+
+    test('no debería incluir artículos que no coincidan con ninguna historia', () => {
+        const customStories = ['url1', 'url4', 'url5'];
+        const result = sortData(articles, customStories, 2);
+        expect(result).toEqual([articles[0]]);
+    });
 });

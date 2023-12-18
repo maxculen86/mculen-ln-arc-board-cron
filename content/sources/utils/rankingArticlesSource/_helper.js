@@ -170,10 +170,11 @@ export const transformData = (data, query, cachedCall) => {
     );
 };
 
-export const sortData = (articles, stories, size) =>
-    stories.reduce((acc, story) => {
-        if (acc.length >= size) return acc;
+export const sortData = (articles, stories, size) => {
+    return stories.reduce((acc, story) => {
+        if (acc.length >= size) return [...acc];
         const art = articles.find(article => article.canonical_url === story);
         art && acc.push(art);
         return acc;
     }, []);
+};
