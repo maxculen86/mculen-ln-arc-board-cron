@@ -215,7 +215,7 @@ const fetch = (query, { cachedCall } = {}) => {
                 cachedCall
             )
         ).then(resp => {
-            console.log(
+            console.warn(
                 new BackendLnInfo(
                     `Info Params - getUrlsbyIds - Query: ${JSON.stringify(
                         resp || {}
