@@ -26,22 +26,22 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
     const { isAdmin, arcSite, renderables } = useAppContext();
 
     const { isOpening, layout } = getRenderablesData(renderables, featureId);
-
-    // TODO: configurar imageConfig
-    const imageConfig = 'm';
+    const {
+        size = 'small',
+        classNameChildren = '',
+        layoutImgConfig
+    } = fooditRules(layout);
 
     const articleContent = useContent({
-        source: articleId ? 'articleSourceNota' : null,
+        source: articleId ? 'fooditArticleSource' : null,
         query: {
             id: articleId,
             published: true,
             website: arcSite,
             isInApertura: isOpening,
             isAdmin,
-            imageConfig,
-            checkExclusiveAccess: false,
-            shouldUseV2: false,
-            shouldUseV1: true
+            imageConfig: isOpening ? 'recipeDay' : layoutImgConfig,
+            checkExclusiveAccess: false
         },
         staticMode: true,
         filter
@@ -64,7 +64,6 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
         );
     }
 
-    const { size = 'small', classNameChildren = '' } = fooditRules(layout);
     const staticContentClassName = classNames('hidden', classNameChildren);
 
     const {

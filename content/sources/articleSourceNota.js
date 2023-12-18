@@ -40,6 +40,11 @@ import {
     addForwardSlashInInterstitialLink,
     addForwardSlashInParagraphsLinks
 } from '../../components/private/LN/common/utils/addForwardSlash';
+import convertVideoArcToJw from './utils/articleSourceNota/cachedCalls/convertVideoArcToJW';
+import addGalleryData from './utils/articleSourceNota/cachedCalls/addGalleryData';
+import addFollowAnotherNoteData from './utils/articleSourceNota/cachedCalls/addFollowAnotherNoteData';
+
+// TODO: Queda pendiente refactor de este source, utilizando los helpers ubicados en /content/sources/utils/articleSourceNota (Tomar como referencia el fooditArticleSource.)
 
 export const resolve = (key, a) => {
     const { url, id, published } = key;
@@ -297,61 +302,6 @@ const transform = async (
     );
 };
 
-// TODO agregar test a funcion
-export const convertVideoArcToJw = (video, arcSite) => {
-    const { _id: idVideoArc } = video;
-    const urlSearchIdJw = `https://videomapper.lanacion.com.ar/video/${idVideoArc}`;
-
-    return request(urlSearchIdJw, {
-        headers: {
-            'Content-Type': 'application/json',
-            'x-api-key': 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV'
-        }
-    })
-        .then(response => {
-            const { video_id: idJw } = JSON.parse(response);
-            const getMediaJw = `https://cdn.jwplayer.com/v2/media/${idJw}`;
-            return request(getMediaJw);
-        })
-        .then(jwObject => {
-            return {
-                embed: { config: { videoJw: { ...JSON.parse(jwObject) } } },
-                _id: idVideoArc,
-                type: 'custom_embed',
-                subtype: 'video_jw'
-            };
-        })
-        .catch(error => {
-            if (error.statusCode === 404) {
-                logger.push(
-                    error,
-                    {
-                        source:
-                            'content/source/articleSourceNota/convertVideoArcToJw/notConverted',
-                        url: idVideoArc
-                    },
-                    arcSite,
-                    true
-                );
-                return video;
-            }
-            console.log(
-                '🚀 ~ file: articleSourceNota.js:331 ~ convertVideoArcToJw ~ error:',
-                error
-            );
-            return logger.push(
-                error,
-                {
-                    source:
-                        'content/source/articleSourceNota/convertVideoArcToJw',
-                    url: idVideoArc
-                },
-                arcSite,
-                true
-            );
-        });
-};
-
 const transformContent = async (
     jsonArticle,
     arcSite,
@@ -511,85 +461,6 @@ const transformContent = async (
         }
         return resp;
     });
-};
-
-const addGalleryData = (cachedCall, gallery, arcSite) => {
-    const { _id: galleryId } = gallery;
-    return cachedCall('gallerySource', getRequest, {
-        query: `${CONTENT_BASE}/content/v4/galleries?website=${arcSite}&_id=${galleryId}&included_fields=content_elements,content_elements.credits`
-    })
-        .then(fetchedGallery => {
-            const resp = {
-                ...gallery
-            };
-            resp.content_elements = gallery.content_elements.map((v, i) => {
-                return {
-                    ...v,
-                    ...fetchedGallery.content_elements[i]
-                };
-            });
-
-            return resp;
-        })
-        .catch(error => {
-            return logger.push(
-                error,
-                {
-                    source: 'content/source/articleSourceNota/addGalleryData',
-                    url: galleryId
-                },
-                arcSite,
-                true
-            );
-        });
-};
-
-const addFollowAnotherNoteData = async (
-    cachedCall,
-    anotherNoteData,
-    arcSite,
-    i
-) => {
-    const { _id: id } = anotherNoteData;
-
-    try {
-        const fetchedRelated = await cachedCall('relatedSource', getRequest, {
-            query: `${CONTENT_BASE}/content/v4/stories/?website=${arcSite}&_id=${id}&included_fields=headlines,label,website_url,type,additional_properties`,
-            independent: true
-        });
-        const published = get(
-            fetchedRelated,
-            'additional_properties.has_published_copy',
-            false
-        );
-        if (!published) return null;
-
-        const {
-            headlines,
-            label,
-            website_url: websiteUrl,
-            type
-        } = fetchedRelated;
-
-        return {
-            ...anotherNoteData,
-            headlines,
-            label,
-            website_url: websiteUrl,
-            type
-        };
-    } catch (error) {
-        return logger.push(
-            error,
-            {
-                source:
-                    'content/source/articleSourceNota/addFollowAnotherNoteData',
-                url: id
-            },
-            arcSite,
-            true
-        );
-    }
 };
 
 export default {

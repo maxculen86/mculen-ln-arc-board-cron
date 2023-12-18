@@ -21,7 +21,8 @@ const fooditRules = diagramation => {
             maxArticles: 8,
             roofAs: tag.h1,
             isStatic: false,
-            classNameRoof: 'mb-24'
+            classNameRoof: 'mb-24',
+            layoutImgConfig: 'm'
         },
         [BN_12_GRID]: {
             size: size.small,
@@ -32,7 +33,8 @@ const fooditRules = diagramation => {
             isStatic: true,
             classNameParent:
                 'grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-32',
-            classNameChildren: 'col-span-8 col-span-4_md'
+            classNameChildren: 'col-span-8 col-span-4_md',
+            layoutImgConfig: 'm'
         },
         [BN_2_GRID]: {
             size: size.small,
@@ -40,7 +42,8 @@ const fooditRules = diagramation => {
             classNameParent:
                 'grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-32',
             classNameChildren: 'col-span-8 col-span-6_md col-span-8_lg',
-            classNameRoof: 'mb-24'
+            classNameRoof: 'mb-24',
+            layoutImgConfig: 'grid2Notes'
         }
     };
 

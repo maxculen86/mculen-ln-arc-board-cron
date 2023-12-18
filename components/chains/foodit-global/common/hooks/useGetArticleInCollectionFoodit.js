@@ -8,7 +8,8 @@ export const useGetArticleInCollectionFoodit = ({
     idCollection,
     initialPosition = 0,
     size,
-    staticMode
+    staticMode,
+    imageConfig = 'm'
 }) => {
     const checkIdCollection =
         idCollection && idCollection.trim() && idCollection;
@@ -19,7 +20,8 @@ export const useGetArticleInCollectionFoodit = ({
             size,
             website: 'foodit',
             from: initialPosition,
-            imageConfig: 'm' // TODO: de momento queda en m
+            imageConfig,
+            shouldUseV2: true
         },
         staticMode,
         filter

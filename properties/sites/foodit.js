@@ -1,4 +1,4 @@
-import imageConfig from './helperConfigLN/imageConfig';
+import imageConfig from './helperConfigFoodit/imageConfig';
 // TODO: Base de propiedades del sitio RECETAS, mientras tanto usa el mismo imageConfig de LN, queda pendiente armar nuevas configuraciones de ser necesario. El titulo y descripcion son de ejemplo.
 export default {
     longTitle: 'Foodit, recetas faciles y rapidas.',
