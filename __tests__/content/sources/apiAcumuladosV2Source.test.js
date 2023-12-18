@@ -54,6 +54,70 @@ describe('content source apiAcumuladosV2Source integration test', () => {
         );
     });
 
+    test('should return banners if biggest note index is less than 16', async () => {
+        const queryParams = {
+            uri:
+                '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:1/33/',
+            website: 'la-nacion-ar',
+            sectionId: '/economia',
+            params: 'params=size:30;page:1',
+            categoryUri: 'mobile',
+            versionUri: '2',
+            'arc-site': 'la-nacion-ar'
+        };
+
+        sectionSource.fetch.mockReturnValue({
+            acumuladoGeneral: {
+                hierarchy_navigation: 'Economia',
+                mostrar_en_acu_apps: 'true'
+            },
+            configuration: null
+        });
+
+        acuArticlesSource.fetch.mockReturnValue(acuArticleSourceResponseMock);
+
+        const result = await apiAcumuladoSectionsV2.fetch(queryParams, {
+            cachedCall
+        });
+
+        expect(Object.keys(result.metadata).sort()).toEqual(
+            ['paginate', 'title', 'total', 'banners', 'category'].sort()
+        );
+        expect(result.metadata.banners.length).toBe(3);
+    });
+
+    test('should not return banners if smallest note index is more than 16', async () => {
+        const queryParams = {
+            uri:
+                '/api/mobile/v2//byTag/slug-example-221/params=size:30;page:2/33/',
+            website: 'la-nacion-ar',
+            sectionId: '/economia',
+            params: 'params=size:30;page:2',
+            categoryUri: 'mobile',
+            versionUri: '2',
+            'arc-site': 'la-nacion-ar'
+        };
+
+        sectionSource.fetch.mockReturnValue({
+            acumuladoGeneral: {
+                hierarchy_navigation: 'Economia',
+                mostrar_en_acu_apps: 'true'
+            },
+            configuration: null
+        });
+
+        acuArticlesSource.fetch.mockReturnValue(acuArticleSourceResponseMock);
+
+        const result = await apiAcumuladoSectionsV2.fetch(queryParams, {
+            cachedCall
+        });
+
+        expect(Object.keys(result.metadata).sort()).toEqual(
+            ['paginate', 'title', 'total', 'banners', 'category'].sort()
+        );
+        expect(result.metadata.banners).toBe(undefined);
+    });
+
     test('should return flag isListenable true if note meets the requirements to have audio', async () => {
         const queryParams = {
             uri:
