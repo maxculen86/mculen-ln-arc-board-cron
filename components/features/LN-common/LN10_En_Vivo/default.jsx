@@ -8,6 +8,10 @@ import get from '../../../private/common/utils/get';
 import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
 import getDynamicBanners from '../../../private/common/banners/dynamicBanners/getDynamicBanners';
 import setRender from '../../../chains/utils/setRender';
+import { findPositionInsideSection } from '../../../private/LN/common/utils/cajaTemasHelper';
+import { getMarkupForDatalayer } from '../../../private/LN/common/utils/cajaTemasHelper';
+import { getDataAttributesForViewability } from '../../../features/LN-10/article/_helper';
+import sectionsValidations from '../../../layouts/config/LN10-Home.config.json';
 
 const EnVivo = ({ customFields, id: featureId }) => {
     const { isAdmin, renderables } = useAppContext() || {};
@@ -24,18 +28,43 @@ const EnVivo = ({ customFields, id: featureId }) => {
             featureId
         }) || {};
 
+    const positionInsideSection = findPositionInsideSection(
+        featureId,
+        renderables
+    );
+
+    const LIVE_POSITION = '97';
+
+    const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
+        'EnVivo',
+        '',
+        LIVE_POSITION,
+        '',
+        positionInsideSection,
+        ''
+    );
+
+    const articlesWithData = articles
+        .map((article, index) => ({
+            ...article,
+            ...getDataAttributesForViewability(article.id, LIVE_POSITION, index)
+        }))
+        .filter(article => article.id);
+
     return (
-        <StaticContent>
+        <StaticContent {...extraOptsDiv}>
             {setRender({
                 isAdmin,
                 error,
-                withSection: false,
+                withSection: true,
+                chainId: featureId,
+                viewabilityData,
                 extraOptions: {
                     isEmpty: hideFeature && <></>,
                     default: !hideFeature && (
                         <>
                             <Live
-                                notes={articles}
+                                notes={articlesWithData}
                                 badgeText={
                                     chapita && chapita.trim() ? chapita : 'vivo'
                                 }

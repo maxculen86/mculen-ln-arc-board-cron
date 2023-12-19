@@ -177,6 +177,16 @@ export const getMarkupForDatalayer = (
                 'data-module': 'tema_webstories'
             }
         },
+        EnVivo: {
+            extraOpts: {
+                'data-block-name': 'h_enVivo',
+                ...extraOptsdefault,
+                'data-diagramacion-id': 'enVivo'
+            },
+            extraOptsDiv: {
+                'data-module': 'tema_enVivo'
+            }
+        },
         Default: () => {
             if (!position) return {};
 
