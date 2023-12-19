@@ -199,25 +199,25 @@ describe('Función => sortData', () => {
     const stories = ['url1', 'url2', 'url3'];
 
     test.each`
-        description                                                | size | expected
-        ${'debería devolver un array vacío si el tamaño es 0'}     | ${0} | ${[]}
-        ${'debería devolver un array vacío si stories está vacío'} | ${2} | ${[]}
+        description                                              | size | expected
+        ${'It should return an empty array if the size is 0'}    | ${0} | ${[]}
+        ${'It should return an empty array if stories is empty'} | ${2} | ${[]}
     `('$description', ({ size, expected }) => {
         const result = sortData(articles, [], size);
         expect(result).toEqual(expected);
     });
 
-    test('debería devolver un array de artículos con el tamaño especificado', () => {
+    test('It should return an array of articles with the specified size', () => {
         const result = sortData(articles, stories, 2);
         expect(result).toHaveLength(2);
     });
 
-    test('debería devolver un array con los artículos correspondientes a stories', () => {
+    test('It should return an array with articles corresponding to stories', () => {
         const result = sortData(articles, stories, 3);
         expect(result).toEqual(articles);
     });
 
-    test('no debería incluir artículos que no coincidan con ninguna historia', () => {
+    test('It should not include articles that do not match any story', () => {
         const customStories = ['url1', 'url4', 'url5'];
         const result = sortData(articles, customStories, 2);
         expect(result).toEqual([articles[0]]);
