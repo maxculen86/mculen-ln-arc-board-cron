@@ -1,37 +1,39 @@
 import Context from 'fusion:context';
+import React from 'react';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import HeaderComponent from '../../../../../../../components/private/OTT/common/header/headerItem';
+
 jest.mock(
     '../../../../../../../components/private/common/utils/hrefHelper',
     () => {
         return { createCorrectHref: (a, b) => b };
     }
 );
-//Otros imports
-import React from 'react';
-import { mount } from 'enzyme';
-import HeaderComponent from '../../../../../../../components/private/OTT/common/header/headerItem';
-import testHelper from '../../../../../../utils/testHelper';
 
 describe('OTT - layout - headerItem - components', () => {
     const data = { 'data-event': 'LinkClick', 'data-section': 'HeaderOTT' };
     const props = {
         description: 'descripcion',
-        href: '#gogle',
+        href: 'ott',
         alt: 'description'
-        //data: data
     };
 
-    const container = mount(<HeaderComponent {...props} />);
-    const link = container.find('a');
-
     it('Testeo que renderee el link', () => {
-        testHelper.expectSameValue(link.length, 1);
+        const { getByRole } = render(<HeaderComponent {...props} />);
+        const link = getByRole('link');
+
+        expect(link).toBeInTheDocument();
     });
 
-    it('Testeo que lleguen las props que envien', () => {
-        testHelper.expectProp(container, 'href', props.href);
-        testHelper.expectProp(container, 'alt', props.alt);
-        testHelper.expectSameValue(container.text(), props.description);
-        testHelper.expectProp(link, 'data-section', data['data-section']);
-        testHelper.expectProp(link, 'data-event', data['data-event']);
+    it('Testeo que lleguen las props que envíen', () => {
+        const { getByRole } = render(<HeaderComponent {...props} />);
+        const link = getByRole('link');
+
+        expect(link).toHaveAttribute('href', props.href);
+        expect(link).toHaveAttribute('alt', props.alt);
+        expect(link).toHaveTextContent(props.description);
+        expect(link).toHaveAttribute('data-section', data['data-section']);
+        expect(link).toHaveAttribute('data-event', data['data-event']);
     });
 });

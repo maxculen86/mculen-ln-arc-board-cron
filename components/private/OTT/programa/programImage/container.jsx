@@ -6,7 +6,7 @@ import ImageComponent from './component';
 class ProgramImageContainer extends PureComponent {
     render() {
         const url = get(this.props.image, 'url', null);
-        return <ImageComponent imgSrc={url} />;
+        return <ImageComponent imgSrc={url} {...this.props} />;
     }
 }
 

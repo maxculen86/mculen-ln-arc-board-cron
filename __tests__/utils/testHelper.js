@@ -13,6 +13,13 @@ function testDoNotRenderChildren(component, childrenName) {
     });
 }
 
+function testDoNotRenderChildrenRTL(container, childrenName) {
+    const children = queryByTestId(container, childrenName);
+    it('TestHelper - Testeo que no renderee los children', () => {
+        expect(children).toBeNull();
+    });
+}
+
 function expectProps(component, expectedProps) {
     const keys = Object.keys(expectedProps);
     keys.map(key => expectProp(component, key, expectedProps[key]));
@@ -32,6 +39,7 @@ export default {
     expectProp: expectProp,
     expectSameValue: expectSameValue,
     testDoNotRenderChildren: testDoNotRenderChildren,
+    testDoNotRenderChildrenRTL: testDoNotRenderChildrenRTL,
     testToRenderChildrenAsText: testToRenderChildrenAsText,
     expectProps: expectProps,
     expectHTML: expectHTML
