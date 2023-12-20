@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
-import { mount, shallow } from 'enzyme';
-import get from '../../../../../components/private/common/utils/get';
-import getAuthorByline from '../../../../../components/private/common/utils/getAuthorByline';
-
+import React from 'react';
+import { shallow } from 'enzyme';
 import LiftIgniter from '../../../../../components/private/common/scriptManager/Liftigniter';
+
+jest.mock('fusion:context', () => ({
+    useAppContext: () => {
+        return { contextPath: 'pf', deployment: () => {} };
+    }
+}));
 
 const globalContentMock = {
     _id: 'IIEEJBWQWNCZNDOUTKP47C4L24',
