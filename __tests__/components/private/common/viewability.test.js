@@ -409,6 +409,58 @@ describe('Viewability', () => {
                 'excSuscriptor_bn_2_1_2_grid'
             );
         });
+
+        it('getDataSetProps should return an specific object when diagramationId is enVivo', () => {
+            const element = {
+                dataset: {
+                    pos: '9703',
+                    id: '2CKE7WFVBNHR7C4ZPD2W2M4O2I',
+                    notaid: '2CKE7WFVBNHR7C4ZPD2W2M4O2I',
+                    source: 'editor'
+                },
+                closest: () => {
+                    return {
+                        dataset: {
+                            blockName: 'h_enVivo',
+                            diagramacionId: 'enVivo',
+                            isBlock: 'true',
+                            chainPosition: '01',
+                            chainId: 'f0fg9n1PSOm71Ue',
+                            mrfRecirculation: 'h_enVivo',
+                            section: 'apertura'
+                        }
+                    };
+                },
+                querySelectorAll: jest.fn(() => [
+                    {
+                        innerText: 'mock title'
+                    }
+                ])
+            };
+
+            const result = getDataSetProps(element);
+
+            expect(result.product).toMatchObject({
+                position: 'lv9703',
+                id: '2CKE7WFVBNHR7C4ZPD2W2M4O2I',
+                variant: 'editor',
+                brand: 'apertura_enVivo',
+                list: 'h_enVivo',
+                name: 'mock title'
+            });
+
+            expect(result.item).toMatchObject({
+                item_list_id: 'lv9703',
+                item_id: '2CKE7WFVBNHR7C4ZPD2W2M4O2I',
+                item_variant: 'editor',
+                item_brand: 'apertura_enVivo',
+                item_list_name: 'h_enVivo',
+                item_name: 'mock title',
+                item_category: 'enVivo',
+                price: 1,
+                quantity: 1
+            });
+        });
     });
 
     describe('find position in renderables', () => {

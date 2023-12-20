@@ -62,7 +62,32 @@ export const getDataSetProps = element => {
         const { section } = sectionDataSet;
         const { pos, id, source } = articleDataSet;
 
+        const isLive = diagramacionId === 'enVivo';
         const itemBrand = isSubscriptor ? 'excSuscriptor' : section;
+
+        if (isLive) {
+            return {
+                product: {
+                    position: `lv${pos}`,
+                    id,
+                    variant: source,
+                    brand: `${itemBrand}_${diagramacionId}`,
+                    list: blockName,
+                    name: getName(element)
+                },
+                item: {
+                    item_list_id: `lv${pos}`,
+                    item_id: id,
+                    item_variant: source,
+                    item_brand: `${itemBrand}_${diagramacionId}`,
+                    item_list_name: blockName,
+                    item_name: getName(element),
+                    item_category: diagramacionId,
+                    price: 1,
+                    quantity: 1
+                }
+            };
+        }
 
         const product = {
             position: `${chainPosition || ''}${pos}`,
@@ -72,6 +97,7 @@ export const getDataSetProps = element => {
             list: blockName,
             name: getName(element)
         };
+
         const item = {
             item_list_id: `${chainPosition || ''}${pos}`,
             item_id: id,
@@ -84,6 +110,7 @@ export const getDataSetProps = element => {
             index: 1,
             quantity: 1
         };
+
         return {
             product,
             item
@@ -93,7 +120,7 @@ export const getDataSetProps = element => {
 };
 
 const getName = element => {
-    const subtitle = element.querySelectorAll('h2, h1');
+    const subtitle = element.querySelectorAll('h4, h2, h1');
     if (subtitle && subtitle.length > 0) {
         return (subtitle[0].innerText && subtitle[0].innerText.trim()) || '';
     }
@@ -102,7 +129,7 @@ const getName = element => {
 
 export const productClickFromClient = (element = {}) => {
     const { product, item } = getDataSetProps(element.currentTarget);
-    if (product.id) {
+    if (product.id || product.item_id) {
         window.dataLayer.push({
             event: `productClickScore`,
             product,
@@ -155,11 +182,13 @@ export const createIntersectionObserver = () => {
             threshold: 0.1
         });
 
-        document.querySelectorAll('article').forEach(element => {
-            if (element) {
-                observer.observe(element);
-            }
-        });
+        document
+            .querySelectorAll('article, .live-body > article')
+            .forEach(element => {
+                if (element) {
+                    observer.observe(element);
+                }
+            });
 
         return observer;
     } catch (error) {
