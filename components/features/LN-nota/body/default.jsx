@@ -58,6 +58,7 @@ const body = ({ customFields }) => {
                     isListenable={isListenable}
                     publishDate={date}
                     noteId={_id}
+                    className={'no-app'}
                 />
             }
             {renderComponents}

@@ -52,6 +52,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                 label="CERRAR"
             />
         );
+    const classNoApp = slotId.includes('cabezal') ? 'no-app' : '';
     const classNames = `${
         layout !== get(siteProperties, homeLN10PropName)
             ? 'mod-banner'
@@ -65,7 +66,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                     layout !== get(siteProperties, homeLN10PropName)
                         ? 'com-banner'
                         : 'ln-banner'
-                } ${lazyClass}`}
+                } ${lazyClass} ${classNoApp}`}
                 data-slot-group={slotGroup}
                 data-device={device}
                 data-subscription={hideForSubscriptor || false}

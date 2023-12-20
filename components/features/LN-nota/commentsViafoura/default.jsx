@@ -127,7 +127,11 @@ const CommentsViafouraFeature = props => {
 
             {!isReady && <LoadingIcon />}
 
-            <div className={`viafoura${messageProps ? ' not-comment' : ''}`}>
+            <div
+                className={`viafoura${
+                    messageProps ? ' not-comment' : ''
+                } no-app`}
+            >
                 <vf-tray />
                 <vf-conversations
                     limit="15"

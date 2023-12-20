@@ -14,7 +14,8 @@ import useTermica from '../hooks/useTermica';
 const AudioPlayerDesktop = ({
     publishDate = '',
     noteId = '',
-    isListenable
+    isListenable,
+    className
 }) => {
     const { dispatch } = useContext(GlobalContext) || {};
     const [openPlayer, setOpenPlayer] = useState(false);
@@ -51,6 +52,7 @@ const AudioPlayerDesktop = ({
                         }}
                         textname="escuchar"
                         disabled={enableButton || openPlayer}
+                        classesNames={className}
                     />
 
                     {openPlayer && (

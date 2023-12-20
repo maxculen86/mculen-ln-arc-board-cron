@@ -55,7 +55,7 @@ const Share = () => {
     const share = useRef();
 
     return (
-        <div className={`mod-share-container${classCondition}`}>
+        <div className={`mod-share-container${classCondition} no-app`}>
             <ShowToast />
             <ShowBarrier token={token} />
             <div
