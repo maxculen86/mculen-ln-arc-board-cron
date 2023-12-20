@@ -64,11 +64,10 @@ export const revistas = [
 
 export const productos = [
     commonPropsFooter('Bonvivir', 'https://bonvivir.com/'),
-    commonPropsFooter('LiBooks', 'https://www.libooks.com/'),
-    commonPropsFooter('Colecciones', 'https://colecciones.lanacion.com.ar/'),
+    commonPropsFooter('Colecciones', 'https://colecciones.lanacion.com.ar'),
     commonPropsFooter(
         'Máster en periodismo',
-        'https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327/'
+        'https://www.utdt.edu/ver_contenido.php?id_contenido=1111&id_item_menu=2327'
     ),
     commonPropsFooter(
         'Fundación LA NACION',
@@ -83,7 +82,7 @@ export const masInformacion = [
     ),
     commonPropsFooter(
         'Ayuda',
-        'https://www.contacto.lanacion.com.ar/ayuda?_ga=2.125953413.948268382.1669638459-1845108145.1619557251/'
+        'https://www.contacto.lanacion.com.ar/ayuda?_ga=2.125953413.948268382.1669638459-1845108145.1619557251'
     ),
     commonPropsFooter(
         'Atención al socio',

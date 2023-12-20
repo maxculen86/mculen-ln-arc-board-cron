@@ -117,12 +117,6 @@
         "event": "e_linkclick",
         "dynamic_action": "footer",
         "dynamic_category": "home_ln10",
-        "dynamic_label": "libooks"
-    },
-    {
-        "event": "e_linkclick",
-        "dynamic_action": "footer",
-        "dynamic_category": "home_ln10",
         "dynamic_label": "colecciones"
     },
     {
