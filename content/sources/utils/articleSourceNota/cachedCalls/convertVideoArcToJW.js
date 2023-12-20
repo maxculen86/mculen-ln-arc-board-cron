@@ -1,4 +1,5 @@
 import request from 'request-promise-native';
+import logger from '../../../../../components/private/common/utils/logger';
 
 // TODO: Esto deberia ser un content source, que posteriormente se use con un cachedCall
 
