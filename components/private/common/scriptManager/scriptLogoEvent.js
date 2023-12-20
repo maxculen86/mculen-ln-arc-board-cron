@@ -1,21 +1,17 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
+import { useAppContext } from 'fusion:context';
 
 const ScriptLogoEvent = () => {
-    const script = `window.addEventListener('DOMContentLoaded', (event) => {
-        document.querySelectorAll('.nacion-home').forEach(item => {
-            item.addEventListener('click', event => {
-                sessionStorage.removeItem('hp');
-                sessionStorage.removeItem('lb');
-            })
-          })
-    });`;
-
+    const { contextPath, deployment } = useAppContext();
     return (
         <script
+            id="script-logo-event"
             defer
             type="text/javascript"
-            dangerouslySetInnerHTML={{ __html: script }}
+            src={deployment(
+                `${contextPath}/resources/js/LN/scriptLogoEvent.min.js`
+            )}
         />
     );
 };
