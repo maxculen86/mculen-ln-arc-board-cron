@@ -10,7 +10,6 @@ import AMPSnippet from '../private/common/ampSnippet';
 import Robot from '../private/common/robot';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
-import MetaSectionParsely from '../private/common/metaSectionParsely';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
@@ -192,7 +191,6 @@ const Amp = props => {
                     subtype={subtype}
                 />
                 <AMPSnippet {...props} />
-                <MetaSectionParsely arcSite={arcSite} taxonomy={taxonomy} />
                 <title>{customTitle}</title>
             </head>
             <body data-amp-auto-lightbox-disable>

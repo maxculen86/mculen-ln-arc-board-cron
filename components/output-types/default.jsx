@@ -9,7 +9,6 @@ import DataLayerIndex from '../private/common/dataLayerIndex';
 import SnippetIndex from '../private/common/snippet';
 import MetaTitle from '../private/common/metaTitle';
 import MetaDescription from '../private/common/metaDescription';
-import MetaSectionParsely from '../private/common/metaSectionParsely';
 import MetasFBNews from '../private/common/metaTags/metasFBNews';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import Syndication from '../private/common/syndication';
@@ -195,11 +194,6 @@ const Default = props => {
                  */}
                 <DataLayerIndex {...props} />
                 <SnippetIndex {...props} />
-                <MetaSectionParsely
-                    taxonomy={taxonomy}
-                    arcSite={arcSite}
-                    subtype={subtype}
-                />
                 <Scripts location="head" {...props} />
                 <TagsLoadingList
                     section={_nodeType}
