@@ -1,5 +1,7 @@
 const getConfigForAnexo = (anexoData = '') => {
-    const anexoConfigElements = anexoData.replace(/ /g, '').split('|', 2) || [];
+    const anexoDataToReplace = anexoData || '';
+    const anexoConfigElements =
+        anexoDataToReplace.replace(/ /g, '').split('|', 2) || [];
     const anexoUrl = anexoConfigElements[0] || '';
     const anexoHeight = anexoConfigElements[1] || '';
 

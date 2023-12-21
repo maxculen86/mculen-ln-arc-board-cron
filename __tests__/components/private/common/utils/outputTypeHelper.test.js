@@ -430,6 +430,14 @@ describe('getTagTitle function test', () => {
             ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
         });
 
+        test('Return meta robots no index no follow when the page is home-juegos', () => {
+            expect(
+                addMetaNoIndexNoFollow({
+                    requestUri: '/home-juegos/?_website=la-nacion-ar'
+                })
+            ).toStrictEqual(<meta name="robots" content="noindex, nofollow" />);
+        });
+
         test('Return fragment when when the page is home LN10', () => {
             expect(
                 addMetaNoIndexNoFollow({

@@ -38,4 +38,10 @@ describe('getConfigForAnexo must throw the correct config for anexo', () => {
 
         expect(anexoInferiorConfig2.anexoHeight).toBe('250px');
     });
+
+    it('Expect the config for anexo null', () => {
+        const anexoNull = getConfigForAnexo(null);
+        expect(anexoNull.anexoUrl).toBe('');
+        expect(anexoNull.anexoHeight).toBe('');
+    });
 });

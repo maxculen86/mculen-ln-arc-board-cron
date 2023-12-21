@@ -15,6 +15,7 @@ import {
     extractDataFromPromoItems,
     urlShema
 } from '../../common/utils/extractDataFromPromoItems';
+import { createISODate } from '../../../common/utils/schema/liveBlog/generatePostObject';
 
 const extractDataFromTags = tags => {
     let keywords = [];
@@ -159,6 +160,8 @@ const SnippetNoticia = props => {
     const trust = get(label, 'trust.text', 'Noticia Original');
     const creators = authors.map(a => a.name);
     const articleBody = getFirstParagraph(contentElements);
+    const datePublishedISO = createISODate(firstPublishDate);
+    const dateModifiedISO = createISODate(displayDate);
 
     let data = {
         '@context': urlShema,
@@ -167,8 +170,8 @@ const SnippetNoticia = props => {
         ...(articleBody && { articleBody }),
         url: `${siteProperties.host}${canonical_url}`,
         dateCreated: `${new Date(createdDate).toUTCString()}`,
-        datePublished: `${new Date(firstPublishDate).toISOString()}`,
-        dateModified: `${new Date(displayDate).toISOString()}`,
+        datePublished: datePublishedISO,
+        dateModified: dateModifiedISO,
         mainEntityOfPage: addForwardSlash(`${siteProperties.host}${path}`),
         articleSection: `${name}`,
         isAccessibleForFree: `${contentCode === 'abierta'}`,
