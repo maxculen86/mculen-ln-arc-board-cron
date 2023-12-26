@@ -10,6 +10,7 @@ import flatArray from '../utils/flatArray';
 import StaticContent from '../staticContent';
 import siteProperties from '../../../../properties/sites/la-nacion-ar';
 import get from '../utils/get';
+import classNames from 'classnames';
 import '../../../../resources/packages/css/@ln/contenidos-ui-banners/index.css';
 import '../../../../resources/dist/css/ln/modules/mod-banner.css';
 import '../../../../resources/dist/css/ln/components/com-banner.css';
@@ -52,8 +53,18 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                 label="CERRAR"
             />
         );
-    const classNoApp = slotId.includes('cabezal') ? 'no-app' : '';
-    const classNames = `${
+    const classNoApp = slotId.includes('cabezal') ? '--no-app' : '';
+    const bannerClass = classNames(
+        `${
+            layout !== get(siteProperties, homeLN10PropName)
+                ? 'com-banner'
+                : 'ln-banner'
+        }`,
+        lazyClass,
+        classNoApp
+    );
+
+    const _classNames = `${
         layout !== get(siteProperties, homeLN10PropName)
             ? 'mod-banner'
             : 'ln-banner-container'
@@ -62,11 +73,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
         <>
             <div
                 id={slotId}
-                className={`${
-                    layout !== get(siteProperties, homeLN10PropName)
-                        ? 'com-banner'
-                        : 'ln-banner'
-                } ${lazyClass} ${classNoApp}`}
+                className={bannerClass}
                 data-slot-group={slotGroup}
                 data-device={device}
                 data-subscription={hideForSubscriptor || false}
@@ -112,9 +119,9 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
     );
 
     return isStatic ? (
-        <StaticContent className={classNames}>{Comp}</StaticContent>
+        <StaticContent className={_classNames}>{Comp}</StaticContent>
     ) : (
-        <div className={classNames}>{Comp}</div>
+        <div className={_classNames}>{Comp}</div>
     );
 };
 
