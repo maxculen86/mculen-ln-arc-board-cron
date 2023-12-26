@@ -46,6 +46,7 @@ export const infoLNMainLN10 = {
     title: { tipoSeccion: 'title', idSeccion: 704 },
     ranking: { tipoSeccion: 'ranking', idSeccion: 701 },
     webstories: { tipoSeccion: 'webstories', idSeccion: 702 },
+    ln10_caja_juegos: { tipoSeccion: 'juegos', idSeccion: 705 },
     default: { tipoSeccion: 'tema', idSeccion: 305 }
 };
 

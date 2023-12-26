@@ -5,6 +5,7 @@ import { anticipoBox } from '../LN10/boxes/anticipoBox';
 import { sectionAcuBox } from '../LN10/boxes/sectionAcumuladoBox';
 import { titleBox } from './boxes/titleBox';
 import { dolarBox } from './boxes/dolarBox';
+import { emptyBox } from './boxes/emptyBox';
 
 export const boxTypesLN10v2 = {
     0: storyBox,
@@ -14,6 +15,7 @@ export const boxTypesLN10v2 = {
     4: titleBox,
     5: dolarBox,
     6: sectionAcuBox,
-    7: storyBox
+    7: storyBox,
+    8: emptyBox
 };
 export default boxTypesLN10v2;

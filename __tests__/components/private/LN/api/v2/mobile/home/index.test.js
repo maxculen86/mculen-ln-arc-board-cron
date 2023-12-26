@@ -38,10 +38,23 @@ attachBanners.mockImplementation((box, sectionAlias) => {
 const paramsPage = { information: { layoutPage: 'LN10-Home_Main' } };
 
 describe('components - private - LN - api - mobile - v2 - home - index.js', () => {
+    it('Should return caja juegos in position 14', () => {
+        const homeSections = homeDataSections;
+        const home = index(homeSections, paramsPage);
+        expect(home[0].items[36]).toEqual({
+            idSeccion: 705,
+            parameters: {
+                title: 'Juegos',
+                url: 'https://www.lanacion.com.ar/juegos/'
+            },
+            tipoSeccion: 'juegos'
+        });
+    });
+
     it('Total test boxes expected', () => {
         const homeSections = homeDataSections;
         const home = index(homeSections, paramsPage);
-        expect(home[0].items).toHaveLength(37);
+        expect(home[0].items).toHaveLength(38);
     });
 
     it('Test Caja Anticipo', () => {
@@ -108,7 +121,7 @@ describe('components - private - LN - api - mobile - v2 - home - index.js', () =
         homeSectionsboxes[2].articles = [];
         homeSectionsboxes[8].articles = [];
         const home = index(homeSectionsboxes, paramsPage);
-        expect(home[0].items).toHaveLength(35);
+        expect(home[0].items).toHaveLength(36);
     });
     it('Testeo Seccion Array vacio', () => {
         const Seccion = [];

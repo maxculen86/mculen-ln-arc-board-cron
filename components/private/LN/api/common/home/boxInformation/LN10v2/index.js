@@ -7,6 +7,7 @@ import { boxInfoExclusiveSuscriptor } from '../LN10/boxes/boxInfoExclusiveSuscri
 import { boxInfoBomba } from '../LN10/boxes/boxInfoBomba';
 import { boxInfoOpinion } from './boxes/boxInfoOpinion';
 import { boxInfoEditorial } from './boxes/boxInfoEditoriales';
+import { boxInfoCajaJuegos } from './boxes/boxInfoCajaJuegos';
 
 export const boxInfoBySectionAliasLN10v2 = {
     'ln-common/ln10_anticipo': boxInfoAnticipo,
@@ -18,6 +19,7 @@ export const boxInfoBySectionAliasLN10v2 = {
     bombita: boxInfoBomba,
     'ln-common/ln10_opinion': boxInfoOpinion,
     'ln-common/ln10_editorial': boxInfoEditorial,
+    ln10_caja_juegos: boxInfoCajaJuegos,
     default: boxInfoComplete
 };
 

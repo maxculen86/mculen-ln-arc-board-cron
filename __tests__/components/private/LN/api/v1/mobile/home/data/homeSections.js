@@ -1691,6 +1691,22 @@ export const homeSections = [
         sectionWeb: 'Bloque_8'
     },
     {
+        0: [],
+        1: [],
+        2: [],
+        3: [],
+        type: 8,
+        sectionAliasMobile: 'ln10_caja_juegos',
+        information: {
+            nameChain: 'LN10_Caja_Juegos',
+            idRender: 'c0fU1OqL2uBK1s3'
+        },
+        configurations: {
+            arcSite: 'la-nacion-ar'
+        },
+        sectionWeb: 'Breaking_1'
+    },
+    {
         type: 2,
         sectionAliasMobile: 'LN-common/anexoMobile',
         information: {
@@ -1716,6 +1732,6 @@ export const homeSections = [
 
 describe('test home formatted from childres of features and Chains', () => {
     it('Total test boxes expected', () => {
-        expect(homeSections).toHaveLength(38);
+        expect(homeSections).toHaveLength(39);
     });
 });
