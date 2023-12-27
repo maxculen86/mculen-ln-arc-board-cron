@@ -4,7 +4,7 @@ import Text from '../../../common/text';
 
 const HeaderComments = () => {
     return (
-        <>
+        <div className="--no-app">
             <section className="mod-headersection --line --button">
                 <ComTitle
                     tag="h4"
@@ -46,7 +46,7 @@ const HeaderComments = () => {
                 `
                 }}
             />
-        </>
+        </div>
     );
 };
 

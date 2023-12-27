@@ -19,6 +19,7 @@ import { isSubscribed } from '../../../private/LN/common/utils/contextHelper';
 import HeaderComments from '../../../private/LN/nota/comments/header';
 import useTermica from '../../../private/common/hooks/useTermica';
 import get from '../../../private/common/utils/get';
+import classNames from 'classnames';
 import '../../../../resources/dist/css/ln/modules/comments.css';
 
 const CommentsViafouraFeature = props => {
@@ -121,17 +122,17 @@ const CommentsViafouraFeature = props => {
 
     if (!showComponent || outputType !== 'default') return <></>;
 
+    const viafouraClassName = classNames('viafoura --no-app', {
+        'not-comment': messageProps
+    });
+
     return (
         <>
             {messageProps ? <Message {...messageProps} /> : <HeaderComments />}
 
-            {!isReady && <LoadingIcon />}
+            {!isReady && <LoadingIcon className="--no-app" />}
 
-            <div
-                className={`viafoura${
-                    messageProps ? ' not-comment' : ''
-                } no-app`}
-            >
+            <div className={viafouraClassName}>
                 <vf-tray />
                 <vf-conversations
                     limit="15"

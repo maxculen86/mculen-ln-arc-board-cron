@@ -59,7 +59,7 @@ export const setRedirect = ({ response, query, siteUrl }) => {
 
     if (
         (paywallEnabled === '1' || paywallEnabled === 'true') &&
-        get(query, 'checkExclusiveAccess')
+        get(query, 'checkExclusiveAccess', true)
     ) {
         validateExclusiveAccess({
             contentCode: get(response, 'content_restrictions.content_code', ''),
