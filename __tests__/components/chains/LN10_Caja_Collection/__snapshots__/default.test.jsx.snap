@@ -12,7 +12,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner dsk 
         class="mod-banner --billboard_dsk billboard_dsk "
       >
         <div
-          class="com-banner lazy "
+          class="com-banner lazy"
           data-prebid-enabled="false"
           data-size="[]"
           data-sizemap="[]"
@@ -152,7 +152,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner mob 
         class="mod-banner --billboard_mob billboard_mob "
       >
         <div
-          class="com-banner lazy "
+          class="com-banner lazy"
           data-prebid-enabled="false"
           data-size="[]"
           data-sizemap="[]"
@@ -178,7 +178,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
         class="mod-banner --billboard_dsk billboard_dsk "
       >
         <div
-          class="com-banner lazy "
+          class="com-banner lazy"
           data-prebid-enabled="false"
           data-size="[]"
           data-sizemap="[]"
@@ -292,7 +292,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
           class="mod-banner --cajasuscriptores_dsk  "
         >
           <div
-            class="com-banner lazy "
+            class="com-banner lazy"
             data-prebid-enabled="false"
             data-size="[]"
             data-sizemap="[]"
@@ -305,7 +305,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
           class="mod-banner --cajasuscriptores_mob  "
         >
           <div
-            class="com-banner lazy "
+            class="com-banner lazy"
             data-prebid-enabled="false"
             data-size="[]"
             data-sizemap="[]"
@@ -318,7 +318,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
           class="mod-banner --cajasuscriptores_tab  "
         >
           <div
-            class="com-banner lazy "
+            class="com-banner lazy"
             data-prebid-enabled="false"
             data-size="[]"
             data-sizemap="[]"

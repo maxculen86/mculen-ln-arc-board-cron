@@ -62,7 +62,7 @@ const LiftIgniter = ({ globalContent }) => {
                 id="liftigniter"
                 type="text/javascript"
                 src={deployment(
-                    `${contextPath}/resources/js/LN/Liftigniter.min.js`
+                    `${contextPath}/resources/js/LN/LiftIgniter.min.js`
                 )}
             />
 

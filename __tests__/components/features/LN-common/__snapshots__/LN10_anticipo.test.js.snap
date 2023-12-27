@@ -84,18 +84,8 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
       </div>
     </section>
   </div>
-  <script>
-    
-            window.addEventListener('load', () =&gt; {
-                const buttonCloseAdvance = document.getElementById('closeAdvance');
-                const advance = document.querySelector('.ln-advance');
-                if (buttonCloseAdvance) {
-                    buttonCloseAdvance.onclick = function() {
-                        advance && advance.classList.add('none')
-                    };
-                } 
-            });
-            
-  </script>
+  <script
+    id="scriptAnticipoLN10"
+  />
 </div>
 `;

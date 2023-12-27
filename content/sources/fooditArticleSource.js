@@ -2,14 +2,15 @@ import request from 'request-promise-native';
 import {
     CONTENT_BASE,
     ARC_ACCESS_TOKEN,
-    SITE_LANACION
+    SITE_FOODIT
 } from 'fusion:environment';
 import { transform } from './utils/fooditSources/fooditArticleSource';
 import get from '../../components/private/common/utils/get';
-import logger from '../../components/private/common/utils/logger';
+import logger from '../../components/private/common/utils/logger.js';
 import { getUrlQuery, setRedirect } from './utils/articleSourceNota/_helper';
 
 const fetch = (query, { cachedCall } = {}) => {
+    const arcSite = query['arc-site'];
     const opt = {
         uri: `${CONTENT_BASE}${getUrlQuery(query)}`,
         json: true
@@ -23,9 +24,9 @@ const fetch = (query, { cachedCall } = {}) => {
 
     const resolveData = async () => {
         try {
-            setRedirect({ response, query, siteUrl: SITE_LANACION });
-
             const response = await request(opt);
+
+            setRedirect({ response, query, siteUrl: SITE_FOODIT });
 
             return transform(response, query, cachedCall);
         } catch (error) {
