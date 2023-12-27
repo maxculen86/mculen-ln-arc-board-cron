@@ -5,6 +5,7 @@ export const pushAdblockEventToDataLayer = detectado => {
         detectado
     });
 };
+
 const checkAdblock = async () => {
     try {
         await fetch(

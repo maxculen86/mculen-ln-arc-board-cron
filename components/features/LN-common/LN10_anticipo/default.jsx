@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
 import { Advance } from '@ln/contenidos-ui-advance';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
 import StaticContent from '../../../private/common/staticContent';
@@ -9,6 +8,7 @@ import StaticContent from '../../../private/common/staticContent';
 const Anticipo = ({
     customFields: { textBadge, lead, hide, title, url, video } = {}
 }) => {
+    const { contextPath, deployment } = useAppContext();
     return !hide ? (
         <>
             <StaticContent>
@@ -21,25 +21,17 @@ const Anticipo = ({
                 />
             </StaticContent>
             <script
-                dangerouslySetInnerHTML={{
-                    __html: `
-            window.addEventListener('load', () => {
-                const buttonCloseAdvance = document.getElementById('closeAdvance');
-                const advance = document.querySelector('.ln-advance');
-                if (buttonCloseAdvance) {
-                    buttonCloseAdvance.onclick = function() {
-                        advance && advance.classList.add('none')
-                    };
-                } 
-            });
-            `
-                }}
+                id="scriptAnticipoLN10"
+                src={deployment(
+                    `${contextPath}/resources/js/LN/scriptAnticipoLN10.min.js`
+                )}
             />
         </>
     ) : (
         <></>
     );
 };
+
 Anticipo.label = 'LN10 Anticipo';
 
 Anticipo.propTypes = {

@@ -92,72 +92,6 @@
 .anexo-wrap.--loading .Opta {
   height: 0rem;
   overflow: hidden;
-}.live-animation {
-  display: flex;
-}
-.live-animation .circle {
-  position: relative;
-  align-self: center;
-  width: 0.25rem;
-  height: 0.25rem;
-  left: 0.25rem;
-  top: 0;
-  background: var(--light-neutral-0);
-  border-radius: 50%;
-}
-.live-animation .ringring {
-  position: relative;
-  border: 0.125rem solid var(--light-neutral-0);
-  height: 0.75rem;
-  width: 0.75rem;
-  right: 0.25rem;
-  border-radius: 1.875rem;
-  animation: pulsate 1s ease-out;
-  animation-iteration-count: infinite;
-}
-@keyframes pulsate {
-  0% {
-    -webkit-transform: scale(0.1, 0.1);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(1.2, 1.2);
-    opacity: 0;
-  }
-}
-.badge.ln-badge {
-  background: var(--dark-neutral-0);
-  color: var(--light-neutral-0);
-  flex-wrap: nowrap;
-  overflow: hidden;
-  text-transform: uppercase;
-  z-index: 1;
-}
-.badge.ln-badge.--negative, .badge.ln-badge.--contentlab {
-  background: var(--dark-neutral-0);
-}
-.badge.ln-badge.--positive {
-  background: var(--light-neutral-0);
-  color: var(--dark-neutral-0);
-}
-.badge.ln-badge.--live {
-  background: var(--danger-600);
-}
-.badge.ln-badge.--exclusive-ln, .badge.ln-badge.--bold {
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0.25rem 0.5rem 0.25rem 0.25rem;
-  background: var(--light-neutral-50);
-  border: 1px solid var(--light-neutral-300);
-  text-transform: none;
-  color: var(--dark-neutral-0);
-}
-.badge.ln-badge.--exclusive-ln .icon.--icon-m, .badge.ln-badge.--bold .icon.--icon-m {
-  width: 1.125rem;
-  height: 1.125rem;
 }.ln-banner-container {
   background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 4px, rgba(0, 0, 0, 0.15) 6px);
   background-color: var(--light-neutral-0);
@@ -6358,10 +6292,12 @@ a {
   --neutral-light-700: #4d4d4d;
   --neutral-light-800: #333333;
   --neutral-light-900: #1a1a1a;
+  --neutral-dark-50: #0D0D0D;
   --blue-500: #0250c9;
   --blue-300: #85b4fe;
   --danger-600: #99151d;
   --danger-300: #e95e66;
+  --yellow-subscribe: #ffff24;
   --la-nacion: #006998;
   --ln-campo: #008561;
   --comunidad-negocios: #e2342d;
@@ -6530,6 +6466,10 @@ a {
   border-radius: 0.25rem;
 }
 
+.rounded-16 {
+  border-radius: 1rem;
+}
+
 .rounded-circle {
   border-radius: 50%;
 }
@@ -6560,6 +6500,15 @@ a {
 }
 .border.border-dark-200 {
   border-color: var(--dark-neutral-200);
+}
+.border.border-blue-500 {
+  border-color: var(--blue-500);
+}
+.border.border-transparent {
+  border-color: transparent;
+}
+.border.border-neutral-light-100 {
+  border-color: var(--neutral-light-100);
 }
 .border.border-thin {
   border-width: thin;
@@ -6602,12 +6551,24 @@ a {
   color: #666666;
 }
 
+.text-black {
+  color: var(--dark-neutral-0);
+}
+
+.text-light-0 {
+  color: var(--light-neutral-0);
+}
+
 .text-light-50 {
   color: var(--light-neutral-50);
 }
 
 .text-light-600 {
   color: var(--light-neutral-600);
+}
+
+.text-light-700 {
+  color: var(--light-neutral-700);
 }
 
 .text-neutral-light-900 {
@@ -6638,6 +6599,18 @@ a {
   background: var(--dark-neutral-100);
 }
 
+.bg-white {
+  background: var(--light-neutral-0);
+}
+
+.bg-light-0 {
+  background: var(--light-neutral-0);
+}
+
+.bg-light-50 {
+  background: var(--light-neutral-50);
+}
+
 .bg-light-400 {
   background: var(--light-neutral-400);
 }
@@ -6654,10 +6627,6 @@ a {
   background: rgba(0, 0, 0, 0.4);
 }
 
-.bg-white {
-  background: var(--light-neutral-0);
-}
-
 .bg-neutral-light-50 {
   background: var(--neutral-light-50);
 }
@@ -6668,6 +6637,26 @@ a {
 
 .bg-neutral-light-800 {
   background: var(--neutral-light-800);
+}
+
+.bg-neutral-dark-50 {
+  background: var(--neutral-dark-50);
+}
+
+.bg-transparent {
+  background: transparent;
+}
+
+.bg-blue-500 {
+  background: var(--blue-500);
+}
+
+.bg-yellow-subscribe {
+  background: var(--yellow-subscribe);
+}
+
+.bg-danger-600 {
+  background: var(--danger-600);
 }
 
 .bg-nunca-cuatro {
@@ -6754,9 +6743,23 @@ a {
   border-color: white;
 }
 
+.bg-secondary__hover:hover {
+  background: var(--neutral-light-50);
+}
+
+.text-12 {
+  font-size: 0.75rem;
+  line-height: 100%;
+}
+
 strong:not(.--font-primary),
-.--font-bold:not(.--font-primary) {
+.--font-bold:not(.--font-primary),
+.font-bold:not(.--font-primary) {
   font-weight: 700;
+}
+
+.line-height-18.line-height-18 {
+  line-height: 1.125rem;
 }
 
 .--font-regular {
@@ -7008,6 +7011,10 @@ strong:not(.--font-primary),
   padding-inline: 0rem;
 }
 
+.px-6 {
+  padding-inline: 0.375rem;
+}
+
 .px-8 {
   padding-inline: 0.5rem;
 }
@@ -7048,12 +7055,24 @@ strong:not(.--font-primary),
   padding-bottom: 1.5rem;
 }
 
+.pl-4 {
+  padding-left: 0.25rem;
+}
+
 .pl-8 {
   padding-left: 0.5rem;
 }
 
+.pl-10 {
+  padding-left: 0.625rem;
+}
+
 .pl-24 {
   padding-left: 1.5rem;
+}
+
+.pr-8 {
+  padding-right: 0.5rem;
 }
 
 .pr-24 {
@@ -7064,8 +7083,24 @@ strong:not(.--font-primary),
   padding-block: 0rem;
 }
 
+.py-4 {
+  padding-block: 0.25rem;
+}
+
+.py-6 {
+  padding-block: 0.375rem;
+}
+
 .py-8 {
   padding-block: 0.5rem;
+}
+
+.py-10 {
+  padding-block: 0.625rem;
+}
+
+.py-12 {
+  padding-block: 0.75rem;
 }
 
 .py-24 {
@@ -7230,6 +7265,10 @@ strong:not(.--font-primary),
   flex-wrap: wrap;
 }
 
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
 @media (min-width: 64rem) {
   .flex-grow-1_l {
     flex-grow: 1;
@@ -7252,6 +7291,10 @@ strong:not(.--font-primary),
 
 .w-4 {
   width: 0.25rem;
+}
+
+.w-5 {
+  width: 0.3125rem;
 }
 
 .w-64 {
@@ -7298,8 +7341,20 @@ strong:not(.--font-primary),
   height: 0.25rem;
 }
 
+.h-5 {
+  height: 0.3125rem;
+}
+
 .h-6 {
   height: 0.375rem;
+}
+
+.h-24 {
+  height: 1.5rem;
+}
+
+.h-26 {
+  height: 1.625rem;
 }
 
 .h-140 {
@@ -7342,6 +7397,10 @@ strong:not(.--font-primary),
     text-align: initial;
   }
 }
+.uppercase {
+  text-transform: uppercase;
+}
+
 .grid-cols-2 {
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 1rem;
@@ -7722,9 +7781,17 @@ strong:not(.--font-primary),
     visibility: hidden;
   }
 }
-@keyframes width-grow {
-  from {
+@keyframes width-shrink {
+  to {
     width: 0;
+  }
+}
+@keyframes pulse-shadow {
+  0% {
+    box-shadow: 0 0 0 0 rgb(255, 255, 255), 0 0 0 0 rgb(255, 255, 255);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 109, 74, 0), 0 0 0 6px rgba(255, 109, 74, 0);
   }
 }
 .cursor-pointer {
