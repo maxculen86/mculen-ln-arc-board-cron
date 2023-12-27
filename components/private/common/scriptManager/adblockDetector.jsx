@@ -1,31 +1,16 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
+import { useAppContext } from 'fusion:context';
 
 const AdblockDetector = () => {
-    const script = `
-    window.addEventListener('load', () => {
-      const check = new Request(
-        'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-        { method: 'HEAD', mode: 'no-cors' }
-      );
-  
-      fetch(check)
-        .then(() => dataLayer.push({
-          'event': 'adblock-detected',
-          'detectado': false
-        }))
-        
-        .catch((err) => {
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            'event' : 'adblock-detected',
-            'detectado': true
-          });
-        });
-    });
-  `;
-
-    return <script defer dangerouslySetInnerHTML={{ __html: script }} />;
+    const { contextPath, deployment } = useAppContext();
+    return (
+        <script
+            defer
+            src={deployment(
+                `${contextPath}/resources/js/LN/scriptAdblockDetector.min.js`
+            )}
+        />
+    );
 };
 
 export default AdblockDetector;
