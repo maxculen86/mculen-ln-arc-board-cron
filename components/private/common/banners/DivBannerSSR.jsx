@@ -46,7 +46,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
             />
         ) : (
             <Button
-                typeButton="primary"
+                variant="primary"
                 dataEvent="LinkClick"
                 dataSection="Comercial-home"
                 id={`${slotId}_btnCloseAd`}

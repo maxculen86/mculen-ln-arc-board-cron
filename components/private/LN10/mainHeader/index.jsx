@@ -67,7 +67,7 @@ const MainHeaderLN = ({
             <MainHeader.Left>
                 <Button
                     title="Secciones"
-                    typeButton="secondary"
+                    variant="secondary"
                     className="secciones"
                     onClick={e => sectionsCallback(e, toggleDesplegable)}
                     onAuxClick={e => sectionsCallback(e, toggleDesplegable)}
