@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BodyComponents - Foodit - Html Should match snapshots - HTML 1`] = `
+<DocumentFragment>
+  <div
+    class="com-embed --html"
+    id="anexo-AHYEKXSUEQIUXZD"
+  >
+    <div
+      class="empty"
+      style="padding: 20px;background-color:#333;color:white;text-align:center;font-size:2em;"
+    >
+      sample html block
+    </div>
+  </div>
+</DocumentFragment>
+`;

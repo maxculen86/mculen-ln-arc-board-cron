@@ -1,10 +1,8 @@
 import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
 
-export const Tags = props => {
-    const { items } = props;
-    if (items.legth) return <></>;
-    return (
+export const Tags = ({ items = [] }) => {
+    return items.length > 0 ? (
         <ul className="flex flex-wrap gap-16">
             {items.map(({ text, url }, i) => {
                 return (
@@ -16,6 +14,8 @@ export const Tags = props => {
                 );
             })}
         </ul>
+    ) : (
+        <></>
     );
 };
 

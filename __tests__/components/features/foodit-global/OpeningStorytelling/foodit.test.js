@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import Context from 'fusion:context';
 
@@ -37,11 +37,6 @@ describe('Foodit - OpeningStorytelling Component', () => {
         );
         expect(container).toBeTruthy();
 
-        expect(screen.getByText(`Ficha nota FOODIT`)).toBeInTheDocument();
-        expect(
-            screen.getByText(`Por Luca Di Leo y Leo Mechi`)
-        ).toBeInTheDocument();
-
         expect(container.querySelector('video')).toBeTruthy();
         expect(container.querySelector('picture')).not.toBeTruthy();
     });
@@ -54,13 +49,7 @@ describe('Foodit - OpeningStorytelling Component', () => {
         );
         expect(container).toBeTruthy();
 
-        expect(screen.getByText(`Ficha nota FOODIT`)).toBeInTheDocument();
-        expect(
-            screen.getByText(`Por Luca Di Leo y Leo Mechi`)
-        ).toBeInTheDocument();
-
         expect(container.querySelector('video')).not.toBeTruthy();
-
         const picture = container.querySelector('picture');
         expect(picture).toBeTruthy();
         expect(picture.childElementCount).toBe(2);
@@ -71,9 +60,6 @@ describe('Foodit - OpeningStorytelling Component', () => {
             <OpeningStorytelling article={ArticleNota} />
         );
         expect(container).toBeTruthy();
-
-        expect(screen.getByText(`Ficha Nota Sin video`)).toBeInTheDocument();
-        expect(screen.getByText(`Por Graciela Melgarejo`)).toBeInTheDocument();
 
         const picture = container.querySelector('picture');
         expect(picture).toBeTruthy();

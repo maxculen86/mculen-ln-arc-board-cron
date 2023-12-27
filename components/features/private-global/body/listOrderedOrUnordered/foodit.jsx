@@ -2,7 +2,6 @@ import React from 'react';
 import { List } from '@ln/foodit-ui-list';
 
 export const ListOrderedOrUnordered = ({ data }) => {
-    // TODO: Evaluar si se lleva esta función a un utilitario para consumirlo también desde el componente <Paragraph />
     const setExternalLinks = (text = '') => {
         const regex = /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g;
         const classRegex = /(?:<a)(?:.(?!<\/a>))*?class="(link)"/g;
@@ -11,7 +10,7 @@ export const ListOrderedOrUnordered = ({ data }) => {
         });
         return filteredText.replace(regex, match => {
             return match.replace(/href=(["'\\])+(.*?)\1/, _match => {
-                return `${_match} class="link foodit-link contents" data-variant="secondary"`; // Las clases y data-variant son necesarios para los estilos propios de links
+                return `${_match} class="link foodit-link contents" data-variant="secondary"`;
             });
         });
     };
@@ -22,7 +21,12 @@ export const ListOrderedOrUnordered = ({ data }) => {
         <List variant={data.list_type}>
             {data.items.map(element => {
                 if (element.type === 'list') {
-                    return <ListOrderedOrUnordered data={element} />;
+                    return (
+                        <ListOrderedOrUnordered
+                            key={element._id}
+                            data={element}
+                        />
+                    );
                 }
 
                 return (

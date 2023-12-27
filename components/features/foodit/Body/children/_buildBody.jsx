@@ -1,72 +1,47 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import bodyComponents from '../utils/bodyComponents';
-import get from '../../../../private/common/utils/get';
 import { transformEmbedScript } from '../../../LN-nota/body/_utils/_embedHelper';
+import { STORYTELLING } from '../../../../private/common/utils/subtypes/subtypeHelper';
 
 const buildBody = ({ globalContent = {} }) => {
     const {
         content_elements: contentElements = [],
         headlines: { basic: tituloNota } = {},
-        withSponsoredLink
+        subtype: articleSubtype = ''
     } = globalContent;
+
+    const extraProps = {
+        video_jw: {
+            tituloNota,
+            className: 'w-100 ratio-16-9'
+        }
+    };
 
     return contentElements.map((element, currentIndex) => {
         if (!element) return <></>;
 
-        const newElement = element.subtype
+        const { type, subtype } = element.subtype
             ? transformEmbedScript(element)
             : element;
-
-        const capitalIndex = contentElements.findIndex(v => v.type === 'text');
-        // TODO: ajustar videoJW para notas del subtipo recetas, pendiente a nuevo content source
-        const { type, subtype } = newElement;
 
         const Component =
             bodyComponents[type] || bodyComponents[subtype] || null;
 
-        const arcType = get(Component, 'arcType', '');
-
-        const extraProps = setExtraProps({
-            tituloNota,
-            capitalIndex,
-            globalContent,
-            contentElements,
-            withSponsoredLink
-        });
-
-        const ComponentWithProps = setDataComponent({
-            Component,
-            extraProps,
-            element,
-            currentIndex,
-            capitalIndex,
-            arcType
-        });
-
-        return Component ? ComponentWithProps : <></>;
+        return Component ? (
+            setDataComponent({
+                Component,
+                extraProps,
+                element,
+                currentIndex,
+                type,
+                subtype,
+                articleSubtype
+            })
+        ) : (
+            <></>
+        );
     });
-};
-
-const setExtraProps = ({
-    tituloNota,
-    capitalIndex,
-    globalContent,
-    contentElements,
-    withSponsoredLink
-}) => {
-    return {
-        image: { withZoom: '--zoom', insideBody: true, globalContent },
-        gallery: { withZoom: '--zoom' },
-        video_jw: {
-            tituloNota,
-            primerParrafo:
-                (capitalIndex !== -1 && contentElements[capitalIndex]) || ''
-        },
-        text: {
-            withSponsoredLink
-        }
-    };
 };
 
 const setDataComponent = ({
@@ -74,19 +49,33 @@ const setDataComponent = ({
     extraProps,
     element,
     currentIndex,
-    capitalIndex,
-    arcType
-}) =>
-    Component ? (
+    type,
+    subtype,
+    articleSubtype
+}) => {
+    return articleSubtype === STORYTELLING ? (
+        <section
+            key={`body-${currentIndex}`}
+            className={
+                type === 'image' || subtype === 'video_jw'
+                    ? 'full-width'
+                    : 'content'
+            }
+        >
+            <Component
+                data={element}
+                outputType={'foodit'}
+                {...(extraProps[type] || extraProps[subtype] || {})}
+            />
+        </section>
+    ) : (
         <Component
             key={`body-${currentIndex}`}
             data={element}
-            capital={currentIndex === capitalIndex}
             outputType={'foodit'}
-            {...(extraProps[arcType] || {})}
+            {...(extraProps[type] || extraProps[subtype] || {})}
         />
-    ) : (
-        <></>
     );
+};
 
 export default buildBody;

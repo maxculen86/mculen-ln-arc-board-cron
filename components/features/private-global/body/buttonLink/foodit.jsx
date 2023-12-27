@@ -11,7 +11,7 @@ export const BotonLink = ({ data }) => {
             href={url}
             target="_blank"
             variant="secondary"
-            className="as-center"
+            className="as-center mx-auto"
         >
             {content}
         </Button>

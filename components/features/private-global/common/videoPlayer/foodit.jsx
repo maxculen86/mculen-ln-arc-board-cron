@@ -2,7 +2,12 @@ import React from 'react';
 import Facade from '../facade/foodit';
 import { getJWScript } from './utils/helperJw';
 
-const VideoPlayer = ({ data = {}, tituloNota = '', className = '' }) => {
+const VideoPlayer = ({
+    data = {},
+    tituloNota = '',
+    className = '',
+    isOpening = false
+}) => {
     const {
         embed: {
             config: {
@@ -16,14 +21,15 @@ const VideoPlayer = ({ data = {}, tituloNota = '', className = '' }) => {
     const { mediaid = '', image = '', images = [] } = video || {};
 
     return (
-        <section className={className}>
+        <section className={`video-player bg-black ${className}`}>
             <Facade
                 id={mediaid}
                 image={image}
                 resizedUrls={images}
                 altText={tituloNota}
+                isOpening={isOpening}
             />
-            <div id={mediaid} />
+            <div className="jw-player w-100 h-100 none" id={mediaid} />
             <script
                 dangerouslySetInnerHTML={{
                     __html: getJWScript({

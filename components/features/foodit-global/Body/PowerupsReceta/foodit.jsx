@@ -1,36 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Timer, Resto } from '@ln/foodit-ui-assets';
 import Ingredients from './ingredientsBox/ingredients';
 import ExternalLinks from './ingredientsBox/externalLinks';
 import Nutritional from './ingredientsBox/nutritional';
 import Tags from './ingredientsBox/tags';
 import SummaryBox from './summaryBox/foodit';
+import get from '../../../../private/common/utils/get';
 
 export const PowerupsReceta = ({ article = {} }) => {
-    // const { content_elements = [] } = article;
-    // revisar como obtener los powerups segun el nuevo content source para foodit
-    // const { powerUp = [] } = content_elements.find(
-    //     element => element && element.subtype === 'power-up-receta'
-    // );
+    const { content_elements = [], promo_items = {}, taxonomy = {} } = article;
 
-    // TODO: hacer dinamica las constante mockeadas
-    const ingredientsMock = {
-        items: [
-            '2 pechugas de pollo',
-            '1 zucchini',
-            'Mostaza',
-            'Crema de leche (optativo)',
-            'Pimentón ahumado',
-            'Sal & pimienta',
-            'Papel aluminio o manteca'
-        ],
-        titleList: 'Para el bajon'
-    };
-    const nutritionalMock = {
-        items: ['list item 1', 'list item 2', 'list item 3'],
-        titleList: 'Nutricional'
-    };
+    const {
+        prepTime,
+        cookTime,
+        counterTime,
+        counterPortion,
+        cookingTypes = [],
+        occasions = [],
+        regions = []
+    } = get(promo_items, 'receta.embed.config', {});
+
+    const sections = get(taxonomy, 'sections', []);
+
+    const tags = [...cookingTypes, ...occasions, ...regions, ...sections].map(
+        item => ({
+            text: (item.name && item.name) || item || '',
+            url: item.path || '#'
+        })
+    );
+
+    const {
+        'custom-nutrition': nutritionLists,
+        'foodit-ingredientes': ingredientsLists
+    } = content_elements.reduce(
+        (acc, item) => {
+            const subtype = get(item, 'subtype', '');
+            if (acc.hasOwnProperty(subtype)) {
+                const embed = get(item, 'embed.config');
+                if (embed) {
+                    acc[subtype].push(embed);
+                }
+            }
+            return acc;
+        },
+        { 'custom-nutrition': [], 'foodit-ingredientes': [] }
+    );
+
     const externalLinksMock = {
         items: [
             {
@@ -43,37 +58,27 @@ export const PowerupsReceta = ({ article = {} }) => {
             }
         ]
     };
-    const tagsMock = {
-        items: [
-            {
-                text: 'Fácil',
-                url: '#'
-            },
-            {
-                text: 'Económica',
-                url: '#'
-            }
-        ]
-    };
-    const summaryBoxMock = [
-        { icon: <Timer />, time: '{x} min.', text: 'Tiempo de cocción' },
-        { icon: <Resto />, time: '{x} min.', text: 'Tiempo de Preparación' },
-        { icon: <Timer />, time: '{x} min.', text: 'Tiempo total' }
-    ];
 
     return (
         <>
             <div>
-                <SummaryBox items={summaryBoxMock} />
+                <SummaryBox
+                    cookTime={cookTime}
+                    prepTime={prepTime}
+                    counterTime={counterTime}
+                />
             </div>
             <div className="bg-background-positive flex flex-column gap-16 p-16 p-24_md p-32_lg">
-                <Ingredients {...ingredientsMock} />
+                <Ingredients
+                    ingredientsLists={ingredientsLists}
+                    portions={counterPortion}
+                />
                 <hr />
                 <ExternalLinks {...externalLinksMock} />
                 <hr />
-                <Nutritional {...nutritionalMock} />
+                <Nutritional nutritionLists={nutritionLists} />
                 <hr />
-                <Tags {...tagsMock} />
+                <Tags items={tags} />
             </div>
         </>
     );

@@ -1,31 +1,27 @@
-import BlockQuote from '../../../foodit-global/Body/blockQuote/foodit';
-import Subtitle from '../../../foodit-global/Body/subtitle/foodit';
-import Gallery from '../../../../private/LN/common/carrousell';
-import ListOrderedOrUnordered from '../../../foodit-global/Body/listOrderedOrUnordered/foodit';
-import Image from '../../../foodit-global/Body/image/foodit';
-import VideoJW from '../../../../private/common/videoPlayerJw/index';
-import RawHTML from '../../../../private/LN/common/rawHTML';
-import BotonLink from '../../../foodit-global/Body/buttonLink/foodit';
-import Html from '../../../../private/LN/nota/cuerpo/html';
-import Table from '../../../../private/LN/nota/cuerpo/table';
-import Divider from '../../../foodit-global/Body/divider/foodit';
-import PowerUpLiveBlog from '../../../../private/LN/nota/cuerpo/powerUpLiveBlog';
-import Paragraph from '../../../foodit-global/Body/paragraph/foodit';
+import Html from '../../../private-global/body/html/foodit';
+import BlockQuote from '../../../private-global/body/blockQuote/foodit';
+import Subtitle from '../../../private-global/body/subtitle/foodit';
+import ListOrderedOrUnordered from '../../../private-global/body/listOrderedOrUnordered/foodit';
+import Image from '../../../private-global/body/image/foodit';
+import BotonLink from '../../../private-global/body/buttonLink/foodit';
+import Divider from '../../../private-global/body/divider/foodit';
+import Paragraph from '../../../private-global/body/paragraph/foodit';
+import VideoPlayer from '../../../private-global/common/videoPlayer/foodit';
+import RawHTML from '../../../private-global/body/rawHTML/foodit';
+import PowerUpPreparacion from '../../../private-global/body/powerUpPreparacion/foodit';
 
 const bodyComponents = {
     text: Paragraph,
     blockquote: BlockQuote,
     header: Subtitle,
-    gallery: Gallery, // TODO: a confirmar si se utiliza
     list: ListOrderedOrUnordered,
     image: Image,
-    oembed_response: RawHTML, // TODO: agregar clases "flex as-center" al contenedor
+    oembed_response: RawHTML,
     raw_html: Html,
     interstitial_link: BotonLink,
-    table: Table, // TODO: a confirmar si se utiliza
     divider: Divider,
-    video_jw: VideoJW,
-    'custom-liveblog': PowerUpLiveBlog
+    video_jw: VideoPlayer,
+    'custom-preparacion': PowerUpPreparacion
 };
 
 export default bodyComponents;

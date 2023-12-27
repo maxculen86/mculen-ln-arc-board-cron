@@ -1,42 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import getAuthorsAsString from '../../../../private/common/utils/getAuthorsAsString';
-import get from '../../../../private/common/utils/get';
-
 import { Text } from '@ln/common-ui-text';
+import { Dropdown } from '@ln/common-ui-dropdown';
+import { Icon } from '@ln/common-ui-icon';
 import { Recipe } from '@ln/foodit-ui-recipe';
 import { Image } from '@ln/foodit-ui-image';
-import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
 import { Badge } from '@ln/foodit-ui-badge';
 import { Button } from '@ln/foodit-ui-button';
-import { Icon } from '@ln/common-ui-icon';
-import { Bookmark } from '@ln/foodit-ui-assets';
+import { Bookmark, Facebook, Instagram, Twitter } from '@ln/foodit-ui-assets';
+
 import ActionsButtons from '../ActionsButtons/foodit';
 import StaticContent from '../../../../private/common/staticContent';
 import VideoPlayer from '../../../private-global/common/videoPlayer/foodit';
 
-export const OpeningRecipe = ({ article = {} }) => {
-    const { promo_items = {}, headlines = {}, subheadlines = {} } = article;
+import { getHighestPriorityTag } from '../utils/notaFooditHelper';
+import getAuthorsAsString from '../../../../private/common/utils/getAuthorsAsString';
+import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
+import get from '../../../../private/common/utils/get';
 
-    const {
-        cookTime = 0,
-        prepTime = 0,
-        counterTime = 0,
-        regions = [],
-        cookingTypes = [],
-        occasions = []
-    } = get(promo_items, 'receta.embed.config', {});
+export const OpeningRecipe = ({ article = {} }) => {
+    const { promo_items = {}, headlines = {}, taxonomy } = article;
+    const sections = get(taxonomy, 'sections', []);
+    const badge = getHighestPriorityTag(sections);
 
     const author = getAuthorsAsString(article);
 
-    // TODO: Get badge dinamically
-    const badge = 'FACIL';
     const videoJW = get(promo_items, 'video_jw', null);
 
-    // TODO: Make a new filter for foodit, the actual filter doesnt have some embed properties
     // TODO: Icons still pending design definitions
-    // TODO: Add functions to buttons
     return (
         <Recipe>
             <Recipe.Media>
@@ -45,6 +37,7 @@ export const OpeningRecipe = ({ article = {} }) => {
                         <VideoPlayer
                             data={videoJW}
                             tituloNota={get(headlines, 'basic', '')}
+                            isOpening
                             className="w-100 ratio-16-9"
                         />
                     ) : (

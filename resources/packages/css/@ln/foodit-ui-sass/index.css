@@ -446,7 +446,7 @@ select:focus {
   background: var(--accent-rucula);
 }
 
-.bg-bg-black {
+.bg-black {
   background: #000000;
 }
 
@@ -1390,6 +1390,10 @@ b {
 
 .pb-16 {
   padding-bottom: 1rem;
+}
+
+.pb-24 {
+  padding-bottom: 1.5rem;
 }
 
 .pb-32 {

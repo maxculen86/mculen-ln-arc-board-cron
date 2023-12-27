@@ -5,7 +5,7 @@ import { Text } from '@ln/common-ui-text';
 export const IngredientsSection = ({ items = [], titleList = '' }) => {
     if (items.legth) return <></>;
     return (
-        <div className="flex flex-column gap-16">
+        <div className="flex flex-column gap-16" key={titleList}>
             {titleList && (
                 <Text as="h4" className="roboto-bold text-14 text-18_md">
                     {titleList}

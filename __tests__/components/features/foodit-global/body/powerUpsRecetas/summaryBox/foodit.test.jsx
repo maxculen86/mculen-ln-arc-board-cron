@@ -5,20 +5,30 @@ import { Timer, Resto } from '@ln/foodit-ui-assets';
 import SummaryBox from '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/summaryBox/foodit';
 
 describe('components - features - foodit-global - body - powerUpRecetas - summaryBox - foodit', () => {
-    const summaryBoxMock = [
-        { icon: <Timer />, time: '10 min.', text: 'Tiempo de cocción' },
-        { icon: <Resto />, time: '11 min.', text: 'Tiempo de Preparación' },
-        { icon: <Timer />, time: '12 min.', text: 'Tiempo total' }
-    ];
+    const cookTime = 10;
+    const prepTime = 5;
+    const counterTime = 15;
+
     it('should render correctly, items mapper and title', () => {
-        const { getByText } = render(<SummaryBox items={summaryBoxMock} />);
-        summaryBoxMock.forEach(item => {
-            const text = getByText(item.text);
-            const time = getByText(item.time);
-            expect(text).toBeInTheDocument();
-            expect(time).toBeInTheDocument();
-        });
+        const { getByText } = render(
+            <SummaryBox
+                cookTime={cookTime}
+                prepTime={prepTime}
+                counterTime={counterTime}
+            />
+        );
+
+        expect(getByText('Tiempo de cocción')).toBeInTheDocument();
+        expect(getByText('Tiempo de Preparación')).toBeInTheDocument();
+        expect(getByText('Tiempo total')).toBeInTheDocument();
+
         const icons = document.querySelectorAll('i');
         expect(icons.length).toBe(3);
+    });
+
+    it('should render correctly with no props', () => {
+        const { container } = render(<SummaryBox />);
+
+        expect(container).toBeTruthy();
     });
 });
