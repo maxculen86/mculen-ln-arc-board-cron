@@ -1,5 +1,6 @@
 import React from 'react';
 import CajaCanal from '../../../../components/chains/LN10_Caja_Canal/default';
+import Context from 'fusion:context';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import renderables from '../../../../__mocks__/data/LN10_Caja_Collection/renderablesGrid8And4.json';
@@ -17,7 +18,16 @@ jest.mock(
     () => jest.fn()
 );
 
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
+
 describe('components - chains - LN10_Caja_canal', () => {
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
+
     const getProps = ({
         customFields = {},
         id = 'c0fwX0hVZJbN0f',
