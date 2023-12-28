@@ -1,0 +1,22 @@
+.group-button > * {
+  position: relative;
+}
+.group-button > *:not(:first-child):not(:last-child):not(:only-child) {
+  border-radius: 0;
+}
+.group-button > *:not(:first-child):before {
+  content: "";
+  width: 0.0625rem;
+  height: 0.875rem;
+  background-color: white;
+  position: absolute;
+  left: 0;
+}
+.group-button > *:first-child:not(:only-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.group-button > *:last-child:not(:only-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

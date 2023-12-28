@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { fireEvent } from '@testing-library/dom';
-import { initializeAnticipoScript } from '../../../../src/statics/LN/js/scriptAnticipoLN10';
+import { initializeAnticipoScript } from '../../../../../src/statics/LN/js/scriptAnticipoLN10';
 
 document.body.innerHTML = `
   <button id="closeAdvance">Close</button>

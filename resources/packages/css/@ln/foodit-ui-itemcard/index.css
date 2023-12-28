@@ -1,12 +1,20 @@
-.card-item[role=button]:hover, .card-item[role=link]:hover {
+.card-item.--selected {
+  pointer-events: none;
+  border-color: inherit;
+  color: var(--secondary-positive);
+}
+.card-item.--selected circle {
+  fill: var(--secondary-positive);
+}
+.card-item:not(.--selected)[role=button]:hover, .card-item:not(.--selected)[role=link]:hover {
   border-color: inherit;
   --_main-color: var(--accent-lechuga);
   color: var(--_main-color);
 }
-.card-item[role=button]:hover.--accent, .card-item[role=link]:hover.--accent {
+.card-item:not(.--selected)[role=button]:hover.--accent, .card-item:not(.--selected)[role=link]:hover.--accent {
   --_main-color: var(--feedback-danger-600);
 }
-.card-item[role=button]:hover circle, .card-item[role=link]:hover circle {
+.card-item:not(.--selected)[role=button]:hover circle, .card-item:not(.--selected)[role=link]:hover circle {
   fill: var(--_main-color);
 }
 .card-item .icon, .card-item circle {
