@@ -9,6 +9,9 @@ export default {
     imageConfig,
     host: 'https://lanacionar-foodit-sandbox.web.arc-cdn.net/',
     layoutsName: {
-        FooditHome: 'Foodit-home'
+        FooditHome: 'Foodit-home',
+        FooditFichaReceta: 'Foodit-ficha-receta',
+        FooditFichaNota: 'Foodit-ficha-nota',
+        FooditRecetario: 'Foodit-recetario'
     }
 };

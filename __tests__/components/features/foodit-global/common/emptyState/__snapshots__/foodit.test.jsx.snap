@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyState component should match snapshot 1`] = `
+<div>
+  <section
+    class="flex flex-column ai-center gap-32 px-16 px-24_md px-32_lg"
+  >
+    <div
+      class="foodit-placeholder"
+    >
+      <img
+        class="image flex"
+        decoding="async"
+        fetchpriority="low"
+        loading="lazy"
+        src="https://sandbox.lanacion.com.ar/resizer/v2/algo-bien-7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg?auth=df16a0c399ffbc23925cb0b8a210dc3e0851b79aafa339076a956a01025a710a&width=238&height=158&quality=70&smart=true"
+      />
+    </div>
+    <div
+      class="flex flex-column ai-center gap-8 text-center"
+    >
+      <span
+        class="text prumo prumo-semibold text-24 text-28_md text-32_lg"
+      >
+        some title
+      </span>
+      <span
+        class="text text-16 text-light-600"
+      >
+        some description
+      </span>
+    </div>
+    <button
+      class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover px-16 py-12"
+      data-variant="primary"
+    >
+      some button
+    </button>
+  </section>
+</div>
+`;
