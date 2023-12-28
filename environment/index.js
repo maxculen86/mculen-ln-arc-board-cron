@@ -31,7 +31,7 @@ export default {
             site: 'datadoghq.com',
             forwardErrorsToLogs: true,
             sampleRateLog: 20,
-            sampleRateRum: 20,
+            sampleRateRum: 7,
             service: 'lnmas',
             env: 'prod',
             sessionReplaySampleRate: 30,

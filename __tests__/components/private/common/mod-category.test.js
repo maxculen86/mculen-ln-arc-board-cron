@@ -1,15 +1,23 @@
 import React from 'react';
-import Consumer from 'fusion:consumer';
-import { render, screen } from '@testing-library/react';
+import Context from 'fusion:context';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import ModCategory from '../../../../components/private/common/mod-category';
 import useGetLogoImage from '../../../../components/private/common/hooks/useGetLogoImage';
+
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
 
 jest.mock('../../../../components/private/common/hooks/useGetLogoImage', () =>
     jest.fn()
 );
 
 describe('components - private - common - mod-category', () => {
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
     const props = {
         revista: 'QJFKLBWXHVGUFA3O65BIHPFILA',
         imageId: 'QJFKLBWXHVGUFA3O65BIHPFILA',

@@ -6,7 +6,7 @@ exports[`Private - Common - Banners - Div Banners SSR should return div banner w
     class="ln-banner-container --random_banner --random_banner --fixed --close "
   >
     <div
-      class="ln-banner  "
+      class="ln-banner"
       data-prebid-enabled="false"
       data-size="[]"
       data-sizemap="[]"

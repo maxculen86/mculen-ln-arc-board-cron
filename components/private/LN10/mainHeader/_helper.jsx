@@ -142,7 +142,7 @@ export const RightOptions = ({
             <Button
                 id="btn-upselling"
                 title={upsellingText}
-                typeButton="subscribe"
+                variant="subscribe"
                 className={upsellingButtonClassName}
                 onClick={() => {
                     window.location.href = valueCookie && upsellingUrl;
@@ -189,7 +189,7 @@ export const RightOptions = ({
             <Button
                 id="btnsuscribite"
                 title="Suscribite"
-                typeButton="subscribe"
+                variant="subscribe"
                 className={subscribeButtonClassName}
                 onClick={() => {
                     window.location.href = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
@@ -244,7 +244,7 @@ export const RightOptions = ({
         <>
             <Button
                 title="Iniciar sesión"
-                typeButton="secondary"
+                variant="secondary"
                 className={!loggedIn && !loading ? '--tablet-none' : 'none'}
                 onClick={goToLoginUrl}
                 id="btningresar"

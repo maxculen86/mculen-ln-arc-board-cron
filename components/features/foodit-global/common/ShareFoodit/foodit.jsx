@@ -1,0 +1,66 @@
+import React, { useEffect, useState } from 'react';
+import { Dropdown } from '@ln/common-ui-dropdown';
+import { Icon } from '@ln/common-ui-icon';
+import { Button } from '@ln/foodit-ui-button';
+import { socials } from './socials';
+import { Itemcard } from '@ln/foodit-ui-itemcard';
+
+export const ShareFoodit = ({
+    type,
+    title,
+    onClickShare,
+    article,
+    IconButton
+}) => {
+    const [hasNavigator, setHasNavigator] = useState(false);
+    const socialList = socials;
+
+    useEffect(() => {
+        const canShare = Boolean(
+            navigator && navigator.canShare && navigator.share
+        );
+        setHasNavigator(canShare);
+    }, []);
+    if (hasNavigator) {
+        return (
+            <Button
+                key={type}
+                title={title}
+                variant="link"
+                onClick={() => onClickShare(article)}
+            >
+                <Icon size={24}>{IconButton}</Icon>
+            </Button>
+        );
+    }
+
+    return (
+        <Dropdown hideArrow className="flex" title={title}>
+            <Dropdown.Toggle>
+                <Icon size={24}>{IconButton}</Icon>
+            </Dropdown.Toggle>
+            <Dropdown.Menu
+                alignment="right"
+                className="bg-light-1 p-24 rounded-4 shadow-center"
+            >
+                <ul className="w-202">
+                    {socialList.map(({ type, onClick, title, text, icon }) => {
+                        return (
+                            <Itemcard
+                                type={type}
+                                onClick={() => {
+                                    onClick({ article });
+                                }}
+                                title={title}
+                                text={text}
+                                icon={icon}
+                                key={text}
+                            />
+                        );
+                    })}
+                </ul>
+            </Dropdown.Menu>
+        </Dropdown>
+    );
+};
+export default ShareFoodit;

@@ -1,9 +1,18 @@
 import React from 'react';
+import Context from 'fusion:context';
 import Anticipo from '../../../../components/features/LN-common/LN10_anticipo/default';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
+
 describe('Components - Features - Anticipo =>', () => {
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
     const mock = {
         title: 'Prueba Anticipo',
         url: 'https://www.lanacion.com.ar/',

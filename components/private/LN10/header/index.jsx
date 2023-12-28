@@ -16,7 +16,6 @@ import '../../../../resources/packages/css/@ln/contenidos-ui-header/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-dropdown/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-icon/index.css';
 import '../../../../resources/packages/css/@ln/common-ui-button/index.css';
-import '../../../../resources/packages/css/@ln/contenidos-ui-button/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-sass/index.css';
 import '../../../../resources/packages/css/@ln/contenidos-ui-tooltip/index.css';
 import classNames from 'classnames';

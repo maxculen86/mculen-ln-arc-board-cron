@@ -20,8 +20,7 @@ export default {
             props: {
                 config: {
                     c1: '2',
-                    c2: '6906398',
-                    cs_ucfr: '1'
+                    c2: '6906398'
                 }
             },
             location: ['head']

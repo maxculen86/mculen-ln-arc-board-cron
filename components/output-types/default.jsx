@@ -177,6 +177,7 @@ const Default = props => {
                 ) : (
                     <CssLinksByArcSite />
                 )}
+                <Libs />
 
                 <TagsLoadingList
                     section="all"
@@ -291,7 +292,6 @@ const Default = props => {
                 />
                 <div id="fusion-app">{children}</div>
                 <Fusion hydrateOnly />
-                <Libs />
                 <Scripts
                     location="body-bottom"
                     section={_nodeType}
