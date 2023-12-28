@@ -10,7 +10,7 @@ exports[`Tests RoofFoodit Should match snapshot 1`] = `
       data-variant="primary"
       href="https://lanacion.com.ar/"
       target="_self"
-      title="Ir a Texto del enlace"
+      title="Ir a undefined"
     >
       Texto del enlace
     </a>

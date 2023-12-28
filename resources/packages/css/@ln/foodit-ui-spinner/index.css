@@ -1,0 +1,16 @@
+.foodit-spinner {
+  transition: width 200ms linear;
+  animation: rotate 1s linear infinite;
+}
+.foodit-spinner[data-variant=primary] {
+  border-color: var(--neutral-light-900);
+  border-bottom-color: var(--neutral-light-1);
+}
+.foodit-spinner[data-variant=secondary] {
+  border-color: var(--neutral-light-100);
+  border-bottom-color: var(--secondary-positive);
+}
+.foodit-spinner[data-variant=tertiary] {
+  border-color: var(--neutral-light-100);
+  border-bottom-color: var(--neutral-light-800);
+}
