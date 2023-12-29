@@ -70,18 +70,6 @@ describe('Tests - Component - AperturaStorytelling', () => {
             );
         });
 
-        test('should return the epigraph', () => {
-            render(
-                <OpeningStorytelling
-                    {...getProps({ withoutVideo: true, device: 'desktop' })}
-                />
-            );
-
-            expect(
-                screen.getByText('Trastornos de la alimentación')
-            ).toBeVisible();
-        });
-
         test('should return the title note', () => {
             render(
                 <OpeningStorytelling
@@ -156,6 +144,20 @@ describe('Tests - Component - AperturaStorytelling', () => {
             expect(picture).toBeVisible();
             expect(picture.querySelectorAll('source')).toHaveLength(3);
             expect(container).toMatchSnapshot();
+        });
+
+        test('should return the epigraph', () => {
+            render(
+                <OpeningStorytelling
+                    {...getProps({ withoutVideo: false, device: 'desktop' })}
+                />
+            );
+
+            expect(
+                screen.getByText(
+                    'Federico Levrino es uno de los profesionales de alto rango de Telefe'
+                )
+            ).toBeVisible();
         });
 
         test('should return the title note', () => {
