@@ -69,11 +69,13 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
         roof-group="right"
       >
         <a
-          class="link ln-link button ln-button --sm --roof-button --subscribe"
+          class="button ln-button line-height-18 font-bold border border-thin rounded-4 gap-8 bg-yellow-subscribe px-16 py-6 --roof-button --subscribe"
+          data-variant="subscribe"
           href="https://linkDelBoton.com.ar"
           id="btnsexclusivo"
           target="_self"
           title="suscribite"
+          type="button"
         >
           suscribite
         </a>

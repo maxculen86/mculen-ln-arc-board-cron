@@ -82,15 +82,24 @@ const statusActions = {
                 open: true,
                 data: !bookmarkContent
                     ? {
+                          title: '¡Listo!',
                           status: 'success',
-                          description: 'Se borró de <strong>Mis notas</strong>',
-                          timeout: 2750
+                          description: 'Se borró de "Mis notas"',
+                          timeout: 2750,
+                          buttonLabel: 'Mis Notas',
+                          href: 'https://www.lanacion.com.ar/mis-notas/',
+                          closable: true,
+                          pauseOnHover: true
                       }
                     : {
+                          title: '¡Listo!',
                           status: 'success',
-                          description:
-                              'Podés acceder desde <b>Menú de usuario, <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Mis notas</a></b>',
-                          timeout: 2750
+                          description: 'Podés acceder desde "Menú de usuario"',
+                          timeout: 2750,
+                          buttonLabel: 'Mis Notas',
+                          href: 'https://www.lanacion.com.ar/mis-notas/',
+                          closable: true,
+                          pauseOnHover: true
                       }
             }
         });
@@ -102,10 +111,15 @@ const statusActions = {
                 typeModal: 'toast',
                 open: true,
                 data: {
+                    title: '¡Atención!',
                     status: 'warning',
                     description:
-                        'No se pudo guardar porque llegaste al límite permitido. <a class="com-link" href="https://www.lanacion.com.ar/mis-notas/">Ir a mis notas</a>',
-                    timeout: 2750
+                        'No se pudo guardar porque llegaste al límite permitido.',
+                    timeout: 2750,
+                    buttonLabel: 'Mis Notas',
+                    href: 'https://www.lanacion.com.ar/mis-notas/',
+                    closable: true,
+                    pauseOnHover: true
                 }
             }
         });
@@ -117,10 +131,13 @@ const statusActions = {
                 typeModal: 'toast',
                 open: true,
                 data: {
+                    title: '¡Ups!',
                     status: 'danger',
                     description:
                         'Hubo un problema de conexión. Reintenta más tarde.',
-                    timeout: 2750
+                    timeout: 2750,
+                    closable: true,
+                    pauseOnHover: true
                 }
             }
         });
