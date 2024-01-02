@@ -32,7 +32,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
               class="text-container flex flex-column gap-8 py-24_m"
             >
               <span
-                class="badge ln-badge --font-2xs w-fit h-fit min-w-fit --positive"
+                class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-light-0 text-black uppercase py-6 px-8 w-fit h-fit min-w-fit"
               >
                 chapita
               </span>
@@ -58,7 +58,8 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
             </div>
           </article>
           <button
-            class="button ln-button p-0 py-24_m --arial --inherit"
+            class="button ln-button line-height-18 font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent text-light-700 px-16 p-0 py-24_m --default"
+            data-variant="default"
             id="closeAdvance"
             title="Cerrar"
             type="button"
@@ -84,18 +85,8 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
       </div>
     </section>
   </div>
-  <script>
-    
-            window.addEventListener('load', () =&gt; {
-                const buttonCloseAdvance = document.getElementById('closeAdvance');
-                const advance = document.querySelector('.ln-advance');
-                if (buttonCloseAdvance) {
-                    buttonCloseAdvance.onclick = function() {
-                        advance && advance.classList.add('none')
-                    };
-                } 
-            });
-            
-  </script>
+  <script
+    id="scriptAnticipoLN10"
+  />
 </div>
 `;

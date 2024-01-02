@@ -1,11 +1,11 @@
 import React from 'react';
+import Context from 'fusion:context';
 import CajaManual from '../../../../components/chains/LN10_Caja_Manual/default';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import ArticleFearute from '../../../../components/features/LN-10/article/default';
 import renderables from '../../../../__mocks__/data/LN10_Caja_Manual/renderables.json';
 import mockChildProps from '../../../../__mocks__/data/LN10_Caja_Manual/childProps.json';
-import getDynamicBanners from '../../../../components/private/common/banners/dynamicBanners/getDynamicBanners';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -22,7 +22,16 @@ jest.mock(
     '../../../../components/private/common/banners/dynamicBanners/getDynamicBanners',
     () => jest.fn()
 );
+
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
+
 describe('Tests Chain CajaManual', () => {
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
     const mockedArticleFeature = (
         <ArticleFearute noteId="BBU3ZCWFBRALRO4FZAHJ5XGW74" />
     );

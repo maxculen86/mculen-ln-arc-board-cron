@@ -1,4 +1,5 @@
 import React from 'react';
+import Context from 'fusion:context';
 import {
     buildBannerClasses,
     changeSegmentAdUnit,
@@ -12,9 +13,7 @@ import {
 } from '../../../../components/private/LN/common/utils/bannerHelper';
 import Banner from '../../../../components/features/LN-common/bannerRefactor/default';
 import BannerAmp from '../../../../components/features/LN-common/bannerRefactor/amp';
-import Context from 'fusion:context';
-import { mount, render, shallow } from 'enzyme';
-import { render as testingLibraryRender } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 jest.mock(
     '../../../../components/private/common/staticContent',
@@ -35,7 +34,8 @@ jest.mock('fusion:context', () => () => ({
         };
 
         return props.children(mockAvailableProps);
-    }
+    },
+    useAppContext: jest.fn()
 }));
 
 jest.mock('react', () => {
@@ -55,7 +55,7 @@ jest.mock('react', () => {
                     ]
                 }
             }
-        }) // what you want to return when useContext get fired goes here
+        })
     };
 });
 
@@ -599,6 +599,10 @@ const subSections = [
 ];
 
 describe('isPrimarySectionInBannerSegments =>', () => {
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
     const segments = ['campo', 'propiedades'];
 
     const evalSectionInBanner = (section, equal) => {
@@ -644,6 +648,10 @@ describe('isPrimarySectionInBannerSegments =>', () => {
 });
 
 describe('handleCanchallenaException =>', () => {
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
     it('it should return true and canchallena section =>', () => {
         expect(handleCanchallenaException(subSections)).toEqual([
             true,
@@ -661,6 +669,10 @@ describe('handleCanchallenaException =>', () => {
 });
 
 describe('getTargetingFormat =>', () => {
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
     const { taxonomy } = globalContent;
     const { sections, tags } = taxonomy;
     const targeting = getTargetingFormat(sections)(tags);
@@ -670,6 +682,10 @@ describe('getTargetingFormat =>', () => {
 });
 
 describe('getDimsFromSiteService =>', () => {
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
     it('should test getDimsFromSiteService func', () => {
         let dimensions = getDimsFromSiteService(
             [],
@@ -751,6 +767,10 @@ describe('getDimsFromSiteService =>', () => {
 });
 
 describe('changeSegmentAdUnit =>', () => {
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
     it('Deberia cambiar el nombre de slot si uno de los segmentos del adserver esta en el path', () => {
         const slotName = changeSegmentAdUnit(
             'campo',
@@ -820,7 +840,9 @@ describe('changeSegmentAdUnit =>', () => {
 describe('getBannerConfiguration =>', () => {
     Context.useAppContext = jest.fn(() => ({
         globalContent,
-        siteProperties
+        siteProperties,
+        deployment: jest.fn(),
+        contextPath: '/pf'
     }));
 
     let customFields = {
@@ -898,12 +920,12 @@ describe('getBannerConfiguration =>', () => {
             //amp
         };
 
-        const componentBannerCabezal = shallow(
+        const componentBannerCabezal = render(
             <Banner customFields={customFields} globalContent={globalContent} />
         );
         expect(componentBannerCabezal).toMatchSnapshot();
 
-        const componentBannerCabezalNoShow = shallow(
+        const componentBannerCabezalNoShow = render(
             <Banner
                 customFields={customFields}
                 globalContent={{
@@ -962,7 +984,7 @@ describe('getBannerConfiguration =>', () => {
     });
 
     it('No deberia renderizar el adhesion_amp con y sin suscripcion', () => {
-        const componentAmp = mount(
+        const componentAmp = render(
             <Banner
                 customFields={{
                     mobile: 'adhesion_amp',
@@ -977,7 +999,7 @@ describe('getBannerConfiguration =>', () => {
     });
 
     it('Deberia renderizar el caja1_amp con y sin suscripcion', () => {
-        const componentCajaAmp = render(
+        const { container } = render(
             <BannerAmp
                 customFields={{
                     desktop: 'caja1_amp',
@@ -989,17 +1011,19 @@ describe('getBannerConfiguration =>', () => {
             />
         );
 
-        expect(componentCajaAmp).toBeDefined();
-        expect(componentCajaAmp.find('amp-ad')).toBeTruthy();
-        expect(componentCajaAmp.find('DivBannerAMP')).toBeTruthy();
-        expect(componentCajaAmp).toMatchSnapshot();
+        const ampAd = container.querySelector('.mod-banner.--bg-banner amp-ad');
+        const divBannerAMP = container.querySelector('.mod-banner.--bg-banner');
+
+        expect(container).toBeDefined();
+        expect(ampAd).toBeTruthy();
+        expect(divBannerAMP).toBeTruthy();
+        expect(container).toMatchSnapshot();
     });
 
     it('Validar si el banner es para amp o no', () => {
         expect(isForAmp(undefined, undefined, undefined)).toBeFalsy();
         expect(isForAmp('caja1_desk', undefined, 'caja1_tab')).toBeFalsy();
         expect(isForAmp('caja1_amp', undefined, undefined)).toBeTruthy();
-        // expect(isForAmp(null, null, null)).toBeFalsy();
     });
 
     it('Validar que las clases css se construyan bien segun la configuracion del banner', () => {
@@ -1047,7 +1071,7 @@ describe('getBannerConfiguration =>', () => {
             )
         ).toEqual(true);
 
-        const banner = shallow(
+        const banner = render(
             <Banner
                 customFields={customFields}
                 globalContent={{
@@ -1065,20 +1089,20 @@ describe('getBannerConfiguration =>', () => {
             solo_no_suscriptores: true,
             group: 'nota'
         };
-        const { container } = testingLibraryRender(
+        const { container } = render(
             <Banner customFields={customFields} globalContent={globalContent} />
         );
         expect(container.innerHTML).toStrictEqual('');
     });
     it('deberia mostrar banner para todos los usuarios con nuevo custom field', () => {
-        const cabezalBanner = `<div class=\"mod-banner --cabezal_dsk  \"><div id=\"cabezal_dsk\" class=\"com-banner  no-app\" data-slot-group=\"nota\" data-device=\"desktop\" data-subscription=\"false\" data-ad-unit-path=\"/133919216/la_nacion_desktop/Nota/cabezal_dsk\" data-targeting=\"{&quot;sitio&quot;:&quot;lanacion&quot;,&quot;seccion&quot;:&quot;nota&quot;}\" data-without-hide=\"true\" data-size=\"[[1,1],[728,90],[920,100],[920,170],[970,90],[1260,100],[1260,170]]\" data-sizemap=\"[]\" data-prebid-enabled=\"true\"></div></div>`;
+        const cabezalBanner = `<div class=\"mod-banner --cabezal_dsk  \"><div id=\"cabezal_dsk\" class=\"com-banner --no-app\" data-slot-group=\"nota\" data-device=\"desktop\" data-subscription=\"false\" data-ad-unit-path=\"/133919216/la_nacion_desktop/Nota/cabezal_dsk\" data-targeting=\"{&quot;sitio&quot;:&quot;lanacion&quot;,&quot;seccion&quot;:&quot;nota&quot;}\" data-without-hide=\"true\" data-size=\"[[1,1],[728,90],[920,100],[920,170],[970,90],[1260,100],[1260,170]]\" data-sizemap=\"[]\" data-prebid-enabled=\"true\"></div></div>`;
 
         customFields = {
             desktop: 'cabezal_dsk',
             solo_no_suscriptores: false,
             group: 'nota'
         };
-        const { container } = testingLibraryRender(
+        const { container } = render(
             <Banner customFields={customFields} globalContent={globalContent} />
         );
         expect(container.innerHTML).toStrictEqual(cabezalBanner);
@@ -1090,7 +1114,7 @@ describe('getBannerConfiguration =>', () => {
             amp: true,
             group: 'nota'
         };
-        const { container } = testingLibraryRender(
+        const { container } = render(
             <BannerAmp
                 customFields={customFields}
                 globalContent={globalContent}
@@ -1106,7 +1130,7 @@ describe('getBannerConfiguration =>', () => {
             amp: true,
             group: 'nota'
         };
-        const { container } = testingLibraryRender(
+        const { container } = render(
             <BannerAmp
                 customFields={customFields}
                 globalContent={globalContent}

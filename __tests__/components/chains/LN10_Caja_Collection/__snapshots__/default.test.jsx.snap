@@ -12,7 +12,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner dsk 
         class="mod-banner --billboard_dsk billboard_dsk "
       >
         <div
-          class="com-banner lazy "
+          class="com-banner lazy"
           data-prebid-enabled="false"
           data-size="[]"
           data-sizemap="[]"
@@ -152,7 +152,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner mob 
         class="mod-banner --billboard_mob billboard_mob "
       >
         <div
-          class="com-banner lazy "
+          class="com-banner lazy"
           data-prebid-enabled="false"
           data-size="[]"
           data-sizemap="[]"
@@ -178,7 +178,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
         class="mod-banner --billboard_dsk billboard_dsk "
       >
         <div
-          class="com-banner lazy "
+          class="com-banner lazy"
           data-prebid-enabled="false"
           data-size="[]"
           data-sizemap="[]"
@@ -241,23 +241,9 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
         </div>
       </div>
       <script
+        id="scriptBtnSuscriptionRoof"
         type="text/javascript"
-      >
-        
-                     window.addEventListener('DOMContentLoaded', () =&gt; {
-                        const parts = document.cookie.split("; ProductoPremiumId=");
-                        const productsPremium = parts.length === 2
-                            ? parts.pop().split(';').shift()
-                            : '';  
-                            if(productsPremium && productsPremium.includes("2")){
-                                const button = document.querySelector(
-                                    'a.--roof-button.--subscribe'
-                                );
-                                button && button.classList.add('none');
-                            }      
-                     })
-                 
-      </script>
+      />
       <section
         class="content-lab"
       >
@@ -292,7 +278,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
           class="mod-banner --cajasuscriptores_dsk  "
         >
           <div
-            class="com-banner lazy "
+            class="com-banner lazy"
             data-prebid-enabled="false"
             data-size="[]"
             data-sizemap="[]"
@@ -305,7 +291,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
           class="mod-banner --cajasuscriptores_mob  "
         >
           <div
-            class="com-banner lazy "
+            class="com-banner lazy"
             data-prebid-enabled="false"
             data-size="[]"
             data-sizemap="[]"
@@ -318,7 +304,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
           class="mod-banner --cajasuscriptores_tab  "
         >
           <div
-            class="com-banner lazy "
+            class="com-banner lazy"
             data-prebid-enabled="false"
             data-size="[]"
             data-sizemap="[]"
@@ -504,16 +490,14 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
-                    class="badge ln-badge --font-2xs --live"
+                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24"
                   >
                     <div
-                      class="live-animation"
+                      class="pulse-animation"
                     >
                       <div
-                        class="circle"
-                      />
-                      <div
-                        class="ringring"
+                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
                       />
                     </div>
                     vivo
@@ -798,16 +782,14 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
-                    class="badge ln-badge --font-2xs --live"
+                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24"
                   >
                     <div
-                      class="live-animation"
+                      class="pulse-animation"
                     >
                       <div
-                        class="circle"
-                      />
-                      <div
-                        class="ringring"
+                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
                       />
                     </div>
                     vivo
@@ -1092,16 +1074,14 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
-                    class="badge ln-badge --font-2xs --live"
+                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24"
                   >
                     <div
-                      class="live-animation"
+                      class="pulse-animation"
                     >
                       <div
-                        class="circle"
-                      />
-                      <div
-                        class="ringring"
+                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
                       />
                     </div>
                     vivo
@@ -1342,16 +1322,14 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
-                    class="badge ln-badge --font-2xs --live"
+                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24"
                   >
                     <div
-                      class="live-animation"
+                      class="pulse-animation"
                     >
                       <div
-                        class="circle"
-                      />
-                      <div
-                        class="ringring"
+                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
                       />
                     </div>
                     vivo
@@ -1519,16 +1497,14 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
-                    class="badge ln-badge --font-2xs --live"
+                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24"
                   >
                     <div
-                      class="live-animation"
+                      class="pulse-animation"
                     >
                       <div
-                        class="circle"
-                      />
-                      <div
-                        class="ringring"
+                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
                       />
                     </div>
                     vivo
@@ -1721,16 +1697,14 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
-                    class="badge ln-badge --font-2xs --live"
+                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24"
                   >
                     <div
-                      class="live-animation"
+                      class="pulse-animation"
                     >
                       <div
-                        class="circle"
-                      />
-                      <div
-                        class="ringring"
+                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
                       />
                     </div>
                     vivo

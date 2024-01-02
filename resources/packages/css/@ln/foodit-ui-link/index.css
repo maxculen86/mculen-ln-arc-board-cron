@@ -1,3 +1,6 @@
+.link.foodit-link.--loading .icon {
+  display: none;
+}
 .link.foodit-link[data-variant=primary] {
   color: var(--neutral-light-800);
 }

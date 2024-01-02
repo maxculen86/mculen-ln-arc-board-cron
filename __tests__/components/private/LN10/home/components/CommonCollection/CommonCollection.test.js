@@ -1,4 +1,5 @@
 import React from 'react';
+import Context from 'fusion:context';
 import CommonCollection from '../../../../../../../components/private/LN10/home/components/CommonCollection/default';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
@@ -18,7 +19,15 @@ jest.mock('fusion:consumer', Component => {
     };
 });
 
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
+
 describe('Tests Component CommonCollection', () => {
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
     const roofData = {
         title: 'CommonCOllection',
         titleLink: '',

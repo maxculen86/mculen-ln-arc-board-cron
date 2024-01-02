@@ -3,6 +3,7 @@ import {
     SITE_LANACION,
     API_ENV
 } from 'fusion:environment';
+
 import {
     getEventData,
     getNavbarItems
@@ -25,9 +26,9 @@ describe('Components - Private - LN10 - Helper', () => {
             'https://www.lanacion.com.ar/mis-notas/'
         );
     });
-    it('should redirect to paywall', () => {
+    it('should redirect to Club La Nacion', () => {
         expect(getNavbarItems(true, true, false)[3].link).toStrictEqual(
-            'https://ingresar.lanacion.com.ar/suscripcion/E/1/1/?callback='
+            'https://club.lanacion.com.ar/'
         );
     });
     it('should test getEventData', () => {

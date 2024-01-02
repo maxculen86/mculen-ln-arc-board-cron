@@ -1,7 +1,8 @@
-import BuildRoof from '../../../../../components/chains/utils/_BuildRoof/default';
 import React from 'react';
+import Context from 'fusion:context';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
+import BuildRoof from '../../../../../components/chains/utils/_BuildRoof/default';
 
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
@@ -9,7 +10,15 @@ jest.mock('fusion:consumer', Component => {
     };
 });
 
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
+
 describe('Tests component BuildRoof', () => {
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
     const props = {
         title: 'Titulo del Techo',
         titleLink: 'https://lanacion.com.ar',

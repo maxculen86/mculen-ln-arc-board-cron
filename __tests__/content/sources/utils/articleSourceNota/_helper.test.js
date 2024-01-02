@@ -808,12 +808,16 @@ describe('Tests articleSourceNota - _helper', () => {
             ).not.toThrow();
         });
 
-        test('should not validate exclusive access when checkExclusiveAccess is not present', () => {
+        test('should not validate exclusive access when checkExclusiveAccess is false', () => {
             const response = {
                 content_restrictions: { content_code: 'cerrada' },
                 type: 'story'
             };
-            const query = { paywallEnabled: 'true', uri: '/some-path' };
+            const query = {
+                paywallEnabled: 'true',
+                uri: '/some-path',
+                checkExclusiveAccess: false
+            };
 
             expect(() =>
                 setRedirect({ response, query, siteUrl })

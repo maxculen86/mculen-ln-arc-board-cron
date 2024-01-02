@@ -15,7 +15,7 @@ const Navbar = ({ isHome, toggleDesplegable }) => {
             data={getNavbarItems(
                 isHome,
                 withBookmark,
-                isSubscribed,
+                isSubscribed(),
                 toggleDesplegable
             )}
             className="--no-app"

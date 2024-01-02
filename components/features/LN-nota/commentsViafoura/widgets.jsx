@@ -1,5 +1,5 @@
-/* eslint-disable react/no-danger */
 import React, { useContext } from 'react';
+import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import { GlobalContext } from '../../../private/common/context/globalContext';
@@ -12,6 +12,7 @@ import StaticContent from '../../../private/common/staticContent';
 
 const CommentsViafouraFeature = props => {
     const { globalContent: { messageType = '' } = {} } = props;
+    const { contextPath, deployment } = useAppContext();
     const gc = useContext(GlobalContext);
     const messageProps = getMessageProps(props, messageType, gc);
 
@@ -33,50 +34,10 @@ const CommentsViafouraFeature = props => {
                 />
             </div>
             <script
-                dangerouslySetInnerHTML={{
-                    __html: `
-                    window.addEventListener('load', (event) => {
-                            
-                            let token = '';
-                            let productoPremium = '';
-                            const value = '; ' + document.cookie;
-                            const parts = value.split('; token=');
-                            const partsPremiumd = value.split('; ProductoPremiumId=');
-
-                            if (parts.length === 2) 
-                                token = parts.pop().split(';').shift();
-                            
-                            if (partsPremiumd.length === 2) 
-                                productoPremium = partsPremiumd.pop().split(';').shift();
-
-                                window.vfQ = window.vfQ || [];
-                                window.vfQ.push(() => {
-                                    window.vf.$prepublish((channel, event, ...args) => {
-                                        if (channel === 'authentication' && event === 'required') {
-                                            return false;
-                                        }
-                                        if (channel === 'commenting' && event === 'loaded') {
-                                            const loader = document.getElementsByClassName('loader');
-                                            loader && loader[0].classList.add('hlp-none');
-                                        }
-                                        return { channel, event, args };
-                                    });
-                                    if (productoPremium && productoPremium.includes('2')) {
-                                        window.vf &&
-                                        window.vf.session &&
-                                        window.vf.session.login
-                                            .cookie(token)
-                                            .then(successMessage => {
-                                                console.log('Viafoura Login correcto ', successMessage);
-                                            })
-                                            .catch(error => {
-                                                console.log('Viafoura Login incorrecto ', error);
-                                            });  
-                                    }
-                                });     
-                    });
-                `
-                }}
+                id="scriptCommentsViafouraWidgets"
+                src={deployment(
+                    `${contextPath}/resources/js/LN/scriptCommentsViafouraWidgets.min.js`
+                )}
             />
         </StaticContent>
     );

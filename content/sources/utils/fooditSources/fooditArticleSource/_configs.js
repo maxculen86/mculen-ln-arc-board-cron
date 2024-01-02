@@ -44,7 +44,7 @@ export const configCallbackContentElements = {
         const interstitialLink = get(element, 'url', '');
         const validUrl = formatInterstitialLink(interstitialLink);
 
-        return url && { ...element, url: validUrl };
+        return validUrl && { ...element, url: validUrl };
     },
     custom_embed: ({ element }) =>
         get(element, 'subtype', '') !== 'custom-parallax' && element,

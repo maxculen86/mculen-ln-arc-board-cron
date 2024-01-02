@@ -1,54 +1,20 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useAppContext } from 'fusion:context';
 
 function AmazonPublisherServices({ location = 'head' }) {
-    const script = `
-    //load the apstag.js library
-    !(function(a9, a, p, s, t, A, g) {
-        if (a[a9]) return;
-        function q(c, r) {
-            a[a9]._Q.push([c, r]);
-        }
-        a[a9] = {
-            init: function() {
-                q('i', arguments);
-            },
-            fetchBids: function() {
-                q('f', arguments);
-            },
-            setDisplayBids: function() {},
-            targetingKeys: function() {
-                return [];
-            },
-            _Q: []
-        };
-        A = p.createElement(s);
-        A.async = !0;
-        A.src = t;
-        g = p.getElementsByTagName(s)[0];
-        g.parentNode.insertBefore(A, g);
-    })(
-        'apstag',
-        window,
-        document,
-        'script',
-        '//c.amazon-adsystem.com/aax2/apstag.js'
-    );
-
-    // initialize the apstag.js library on the page to allow bidding
-    apstag.init({
-        pubID: '8670178e-76cd-476d-9c5f-0ed20920dd2a', // enter your pub ID here as shown above, it must within quotes
-        adServer: 'googletag'
-    });`;
+    const { contextPath, deployment } = useAppContext();
 
     return (
         location === 'head' && (
             <>
                 <script
+                    id="scriptAmazonPublisherServices"
                     async
                     type="text/javascript"
-                    dangerouslySetInnerHTML={{ __html: script }}
+                    src={deployment(
+                        `${contextPath}/resources/js/LN/scriptAmazonPublisherServices.min.js`
+                    )}
                 />
             </>
         )

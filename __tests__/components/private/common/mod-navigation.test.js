@@ -1,9 +1,21 @@
 import React from 'react';
-import ModNavigation from '../../../../components/private/common/mod-navigation';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
+import Context from 'fusion:context';
+import ModNavigation from '../../../../components/private/common/mod-navigation';
+
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
 
 describe('Mod-navigation test', () => {
+    beforeEach(() => {
+        Context.useAppContext.mockImplementation(() => ({
+            deployment: jest.fn(),
+            contextPath: '/pf'
+        }));
+    });
+
     const modNavigationProps = {
         navigation: [
             {
@@ -32,17 +44,13 @@ describe('Mod-navigation test', () => {
     };
 
     it('Matches snapshot', () => {
-        const { asFragment } = render(
-            <ModNavigation {...modNavigationProps} />
-        );
-        expect(asFragment()).toMatchSnapshot();
+        const { container } = render(<ModNavigation />);
+        expect(container).toMatchSnapshot();
     });
 
     it('Renders link list', () => {
-        const { getAllByRole } = render(
-            <ModNavigation {...modNavigationProps} />
-        );
-        const links = getAllByRole('link');
+        const { container } = render(<ModNavigation {...modNavigationProps} />);
+        const links = container.querySelectorAll('a');
         expect(links).toHaveLength(2);
     });
 });
