@@ -39,7 +39,7 @@ export const CriticalCSSString =
     '{flex-basis:calc(100% - 380px);margin-right:5rem}}[class^=lay],[class*=" lay"]{width:100%;padding-right:1rem;padding-left:1rem;margin-right:auto;margin-left:auto}' +
     '@media (min-width:83.75em){[class^=lay],[class*=" lay"]{max-width:83.75rem;padding-right:2.5rem;padding-left:2.5rem}}.lay-full-width{padding-left:0;padding-right:0;' +
     'max-width:100%}#fusion-app>#wrapper:not(.sitemap):not(.html-libre.--transparent){position:relative;overflow-x:clip}#fusion-app>#wrapper:not(.sitemap):not' +
-    '(.html-libre.--transparent):before{background:-webkit-repeating-linear-gradient(45deg,rgba(255,255,255,.1),rgba(255,255,255,.1),' +
+    '(.html-libre):before{background:-webkit-repeating-linear-gradient(45deg,rgba(255,255,255,.1),rgba(255,255,255,.1),' +
     'rgba(255,255,255,.1),rgba(255,255,255,.1) 4px,rgba(0,0,0,.15) 6px);background:repeating-linear-gradient(45deg,rgba(255,255,255,.1),' +
     'rgba(255,255,255,.1),rgba(255,255,255,.1),rgba(255,255,255,.1) 4px,rgba(0,0,0,.15) 6px);' +
     'content:"";height:3.125rem;width:100%;display:block}@media (min-width:768px){#fusion-app>#wrapper:not(.sitemap):not(.html-libre.--transparent):before{display:none}}' +

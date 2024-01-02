@@ -1,13 +1,13 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ComButton from './com-button';
 import ComLinkList from './com-link-list';
+import { useAppContext } from 'fusion:context';
 
 const ModNavigation = props => {
     const { navigation, classCondition = '', style } = props;
     const EXTRA_CLASS = ` ${classCondition}`;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const { contextPath, deployment } = useAppContext();
 
     if (!navigation || !navigation.length) return null;
 
@@ -27,35 +27,11 @@ const ModNavigation = props => {
                 classCondition="hlp-none"
             />
             <script
+                id="mod-navigation"
                 type="text/javascript"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                window.addEventListener('load', () => {
-                    const categories = document.querySelector(".com-unordered");
-                    const rightArrow = document.querySelector("#right-arrow");
-                    const leftArrow = document.querySelector("#left-arrow");
-                    if (categories.scrollLeft + categories.offsetWidth < categories.scrollWidth) {
-                        rightArrow.classList.remove('hlp-none')
-                    }
-                    document.querySelector("#right-arrow").addEventListener('click', () => {
-                        const scrollPixel = categories.scrollLeft + 150
-                        categories.scroll({ left: scrollPixel, behavior: 'smooth' })
-                        if (categories.scrollLeft + categories.offsetWidth >= categories.scrollWidth) {
-                            rightArrow.classList.add('hlp-none')
-                        }
-                        leftArrow.classList.remove('hlp-none')
-                    })
-                    document.querySelector("#left-arrow").addEventListener('click', () => {
-                        const scrollPixel = categories.scrollLeft - 150
-                        categories.scroll({ left: scrollPixel, behavior: 'smooth' })
-                        if (categories.scrollLeft === 0) {
-                            leftArrow.classList.add('hlp-none')
-                        }
-                        rightArrow.classList.remove('hlp-none')
-                    })
-                })
-            `
-                }}
+                src={deployment(
+                    `${contextPath}/resources/js/LN/scriptModNavigation.min.js`
+                )}
             />
         </>
     );

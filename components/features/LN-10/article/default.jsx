@@ -132,11 +132,9 @@ const ArticleFeature = ({
         shouldUseV2
     });
 
-    const article = transform(
-        articleContent,
-        customFields,
-        image && image.promo_items
-    );
+    const promoItems = image && image.promo_items;
+
+    const article = transform(articleContent, customFields, promoItems);
 
     const withMedia = validateMedia(customFields, config, article);
 

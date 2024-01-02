@@ -1,18 +1,20 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import Component from '../../../../components/private/common/androidButton';
-import TestHelper from '../../../utils/testHelper';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import AndroidButton from '../../../../components/private/common/androidButton'; // Asegúrate de ajustar la ruta de importación
 
-describe('private - common - androidButton', () => {
-    const child = <h1>Soy un child</h1>;
-    const onClick = () => {
-        console.log('asd');
-    };
-    const component = mount(<Component onClick={onClick}>{child}</Component>);
+describe('AndroidButton', () => {
+    it('se renderiza correctamente', () => {
+        const { getByRole } = render(<AndroidButton />);
+        const button = getByRole('button');
+        expect(button).toBeInTheDocument();
+    });
 
-    TestHelper.testDoNotRenderChildren(component, 'child');
-
-    it('testeo que el evento onClick sea el mismo que le pase', () => {
-        TestHelper.expectSameValue(component.prop('onClick'), onClick);
+    it('dispara evento onClick cuando se hace clic', () => {
+        const onClickMock = jest.fn();
+        const { getByRole } = render(<AndroidButton onClick={onClickMock} />);
+        const button = getByRole('button');
+        fireEvent.click(button);
+        expect(onClickMock).toHaveBeenCalled();
     });
 });

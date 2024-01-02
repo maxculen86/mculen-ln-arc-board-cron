@@ -1,6 +1,6 @@
 import React from 'react';
-import { mount, shallow, render } from 'enzyme';
-
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import ModFirma from '../../../../components/private/common/mod-firma';
 
 describe('ModFirma', () => {
@@ -13,13 +13,13 @@ describe('ModFirma', () => {
     };
 
     it('Matches snapshot', () => {
-        const component = render(<ModFirma {...props} />);
-        expect(component).toMatchSnapshot();
+        const { asFragment } = render(<ModFirma {...props} />);
+        expect(asFragment()).toMatchSnapshot();
     });
 
     it('Renders as many authors as given', () => {
-        const component = mount(<ModFirma {...props} />);
-        console.log(component.debug());
-        expect(component.find('a.com-link')).toHaveLength(2);
+        const { getAllByRole } = render(<ModFirma {...props} />);
+        const links = getAllByRole('link');
+        expect(links).toHaveLength(2);
     });
 });

@@ -201,16 +201,14 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
-                    class="badge ln-badge --font-2xs --live"
+                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24"
                   >
                     <div
-                      class="live-animation"
+                      class="pulse-animation"
                     >
                       <div
-                        class="circle"
-                      />
-                      <div
-                        class="ringring"
+                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
                       />
                     </div>
                     vivo
@@ -533,16 +531,14 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
-                    class="badge ln-badge --font-2xs --live"
+                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24"
                   >
                     <div
-                      class="live-animation"
+                      class="pulse-animation"
                     >
                       <div
-                        class="circle"
-                      />
-                      <div
-                        class="ringring"
+                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
                       />
                     </div>
                     vivo
@@ -834,16 +830,14 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
-                    class="badge ln-badge --font-2xs --live"
+                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24"
                   >
                     <div
-                      class="live-animation"
+                      class="pulse-animation"
                     >
                       <div
-                        class="circle"
-                      />
-                      <div
-                        class="ringring"
+                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
                       />
                     </div>
                     vivo
@@ -1135,16 +1129,14 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
-                    class="badge ln-badge --font-2xs --live"
+                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24"
                   >
                     <div
-                      class="live-animation"
+                      class="pulse-animation"
                     >
                       <div
-                        class="circle"
-                      />
-                      <div
-                        class="ringring"
+                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
                       />
                     </div>
                     vivo
@@ -1554,16 +1546,14 @@ exports[`components - chains - LN10_Caja_canal should return six articles with l
                   href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                 >
                   <span
-                    class="badge ln-badge --font-2xs --live"
+                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24"
                   >
                     <div
-                      class="live-animation"
+                      class="pulse-animation"
                     >
                       <div
-                        class="circle"
-                      />
-                      <div
-                        class="ringring"
+                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
                       />
                     </div>
                     vivo

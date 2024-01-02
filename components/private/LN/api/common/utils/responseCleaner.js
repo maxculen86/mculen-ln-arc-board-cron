@@ -27,10 +27,6 @@ const removeEmptyItems = obj => {
             // eslint-disable-next-line no-param-reassign
             return (a[k] = v), a;
         }, {});
-
-    if (Object.keys(obj).length === 0) {
-        return null;
-    }
 };
 
 export { removeEmptyItems };

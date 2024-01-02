@@ -12,13 +12,14 @@ export const RoofFoodit = ({
     title = {},
     linkProps = {}
 }) => {
-    const { text = 'Techo titulo', as = 'h3' } = title;
+    const { text = '', as = 'h3' } = title;
     if (hide) return <></>;
     return (
         <div className="flex ai-end jc-between gap-24 mb-24">
             {linkProps.href ? (
                 <Link
                     className="prumo prumo-light text-28 text-36_md text-40_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-batata__hover"
+                    title={`Ir a ${title.text}`}
                     {...linkProps}
                 />
             ) : (

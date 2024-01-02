@@ -1,8 +1,7 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import AMPScripts from '../../../../components/private/common/ampIndex';
-// import getOembedScripts from '../../../../components/private/common/scriptManager/getOembedScripts';
-// import get from '../../../../components/private/common/utils/get';
 
 describe('Check ampScrips works correctly', () => {
     const props = {
@@ -182,10 +181,11 @@ describe('Check ampScrips works correctly', () => {
             type: 'story'
         }
     };
-    const wrapper = shallow(<AMPScripts {...props} />);
+
     it('Expect to throw correct length and snapshot test', () => {
-        expect(wrapper.length).toBe(8);
-        expect(wrapper).toBeDefined();
-        expect(wrapper).toMatchSnapshot();
+        const { container } = render(<AMPScripts {...props} />);
+        expect(container.childElementCount).toBe(8);
+        expect(container).toBeDefined();
+        expect(container).toMatchSnapshot();
     });
 });

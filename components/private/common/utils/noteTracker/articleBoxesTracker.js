@@ -1,13 +1,14 @@
 import { checkUserRealoadAction } from './ctrTracker';
 import { eventListenerAttacher } from '../linksTracker';
 
-const articleBoxesTracker = ({ boxType, diagramation }) => {
+const articleBoxesTracker = ({ boxType, diagramation, sectionTitle }) => {
     const { dataLayer } = window;
     const refresh = checkUserRealoadAction(window);
 
     const articlesToTrack =
         boxArticleEventBuilder[boxType]({
-            grid: diagramation
+            grid: diagramation,
+            sectionTitle
         }) || [];
     if (!refresh) {
         const callback = entries => {
@@ -53,27 +54,28 @@ const addPositionInBox = (elem, brand, elemPosition, indexElem) => {
 };
 
 const boxArticleEventBuilder = {
-    masNotas: ({ grid }) => {
-        if (grid === 3) {
-            const boxArticlesThree = document.querySelectorAll(
+    masNotas: ({ grid = 9, sectionTitle }) => {
+        if (grid === 3 && sectionTitle === 'OtrasNoticias') {
+            const boxArticlesOtherNews = document.querySelectorAll(
                 '[data-block-name="n_otras_noticias"] div article'
             );
 
-            boxArticlesThree.forEach((boxArt3, i) => {
+            boxArticlesOtherNews.forEach((boxArt3, i) => {
                 addPositionInBox(boxArt3, 'otrasNoticias_diag3', '0600', i);
             });
 
-            return boxArticlesThree;
+            return boxArticlesOtherNews;
         }
-        const boxArticlesNine = document.querySelectorAll(
+
+        const boxArticlesLastNews = document.querySelectorAll(
             '[data-block-name="n_ultimas_noticias"] div article'
         );
 
-        boxArticlesNine.forEach((boxArt9, i) => {
-            addPositionInBox(boxArt9, 'ultimasNoticias_diag9', '1000', i);
+        boxArticlesLastNews.forEach((boxArt, i) => {
+            addPositionInBox(boxArt, `ultimasNoticias_diag${grid}`, '1000', i);
         });
 
-        return boxArticlesNine;
+        return boxArticlesLastNews;
     },
     seguirLeyendo: () => {
         const keepReadingArticles = document.querySelectorAll(

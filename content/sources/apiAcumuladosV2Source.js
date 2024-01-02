@@ -76,6 +76,10 @@ const fetch = async (query, { cachedCall }) => {
 
         const transformedAcu = await transformAcu(queryParams);
 
+        if (page * size - size > 16) {
+            delete transformedAcu[0].banners;
+        }
+
         const paginationValue = calculatePaginationValue(
             transformedAcu[0].acumuladoTotal,
             size,

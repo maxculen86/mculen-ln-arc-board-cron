@@ -54,7 +54,8 @@ describe('articleBoxTracker funtion for all article boxes', () => {
 
     const observer = articleBoxesTracker({
         boxType: 'masNotas',
-        diagramation: 3
+        diagramation: 3,
+        sectionTitle: 'OtrasNoticias'
     });
 
     const [callback] = window.IntersectionObserver.mock.calls[0];
@@ -124,7 +125,8 @@ describe('articleBoxTracker funtion for all article boxes', () => {
 
         const observer2 = articleBoxesTracker({
             boxType: 'masNotas',
-            diagramation: 9
+            diagramation: 9,
+            sectionTitle: 'UltimasNoticias'
         });
 
         const [callback2] = window.IntersectionObserver.mock.calls[0];

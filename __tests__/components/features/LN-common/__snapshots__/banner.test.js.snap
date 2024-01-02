@@ -1,167 +1,295 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`getBannerConfiguration => Deberia renderizar el caja1_amp con y sin suscripcion 1`] = `
-<div
-  class="row "
->
+<div>
   <div
-    class="mod-banner --bg-banner "
+    class="row "
   >
-    <amp-ad
-      class="banner"
-      data-slot="/133919216/AMP/ROS/caja1_amp"
-      height="250"
-      id="caja1_amp"
-      json="{\\"tags\\":[\\"ca_el mundo|ca_ciencia|te_deportes|te_sake\\"],\\"tags_nuevos\\":[\\"ca_el mundo\\",\\"ca_ciencia\\",\\"te_deportes\\",\\"te_sake\\"]}"
-      type="doubleclick"
-      width="300"
-    />
+    <div
+      class="mod-banner --bg-banner "
+    >
+      <amp-ad
+        class="banner"
+        data-slot="/133919216/AMP/ROS/caja1_amp"
+        height="250"
+        id="caja1_amp"
+        json="{\\"tags\\":[\\"ca_el mundo|ca_ciencia|te_deportes|te_sake\\"],\\"tags_nuevos\\":[\\"ca_el mundo\\",\\"ca_ciencia\\",\\"te_deportes\\",\\"te_sake\\"]}"
+        type="doubleclick"
+        width="300"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`getBannerConfiguration => Deberia traer la configuracion del adhesion_mob con y sin suscripcion 1`] = `
-<div
-  class="mod-banner --adhesion_mob --fixed --close none  "
->
-  <div
-    class="com-banner "
-    data-ad-unit-path="/133919216/la_nacion_mobile/Nota/adhesion_mob"
-    data-device="mobile"
-    data-prebid-enabled="false"
-    data-size="[[320,50]]"
-    data-sizemap="[]"
-    data-slot-group="nota"
-    data-subscription="false"
-    data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-    data-without-hide="false"
-    id="adhesion_mob"
-  />
-  <button
-    aria-label="Close"
-    class="button ln-button"
-    id="adhesion_mob_btnCloseAd"
-    type="button"
-  >
-    <i
-      class="icon icon-close --light"
-    >
-      <svg
-        fill="none"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mod-banner --adhesion_mob --fixed --close none  "
       >
-        <path
-          clip-rule="evenodd"
-          d="m12 10.586 4.243-4.243a1 1 0 1 1 1.414 1.414L13.414 12l4.243 4.243a1 1 0 1 1-1.414 1.414L12 13.414l-4.243 4.243a1 1 0 1 1-1.414-1.414L10.586 12 6.343 7.757a1 1 0 1 1 1.414-1.414z"
-          fill="#272727"
-          fill-rule="evenodd"
+        <div
+          class="com-banner"
+          data-ad-unit-path="/133919216/la_nacion_mobile/Nota/adhesion_mob"
+          data-device="mobile"
+          data-prebid-enabled="false"
+          data-size="[[320,50]]"
+          data-sizemap="[]"
+          data-slot-group="nota"
+          data-subscription="false"
+          data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+          data-without-hide="false"
+          id="adhesion_mob"
         />
-      </svg>
-    </i>
-  </button>
-</div>
+        <button
+          aria-label="Close"
+          class="button ln-button"
+          id="adhesion_mob_btnCloseAd"
+          type="button"
+        >
+          <i
+            class="icon icon-close --light"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="m12 10.586 4.243-4.243a1 1 0 1 1 1.414 1.414L13.414 12l4.243 4.243a1 1 0 1 1-1.414 1.414L12 13.414l-4.243 4.243a1 1 0 1 1-1.414-1.414L10.586 12 6.343 7.757a1 1 0 1 1 1.414-1.414z"
+                fill="#272727"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+        </button>
+        <script>
+          
+                            window.addEventListener('DOMContentLoaded', () =&gt; {
+                                document.getElementById('adhesion_mob_btnCloseAd').onclick = function() {
+                                    
+                                    this.parentNode && this.parentNode.classList.add('none')
+                                };
+                            });
+                            
+        </script>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mod-banner --adhesion_mob --fixed --close none  "
+    >
+      <div
+        class="com-banner"
+        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/adhesion_mob"
+        data-device="mobile"
+        data-prebid-enabled="false"
+        data-size="[[320,50]]"
+        data-sizemap="[]"
+        data-slot-group="nota"
+        data-subscription="false"
+        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+        data-without-hide="false"
+        id="adhesion_mob"
+      />
+      <button
+        aria-label="Close"
+        class="button ln-button"
+        id="adhesion_mob_btnCloseAd"
+        type="button"
+      >
+        <i
+          class="icon icon-close --light"
+        >
+          <svg
+            fill="none"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="m12 10.586 4.243-4.243a1 1 0 1 1 1.414 1.414L13.414 12l4.243 4.243a1 1 0 1 1-1.414 1.414L12 13.414l-4.243 4.243a1 1 0 1 1-1.414-1.414L10.586 12 6.343 7.757a1 1 0 1 1 1.414-1.414z"
+              fill="#272727"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </i>
+      </button>
+      <script>
+        
+                            window.addEventListener('DOMContentLoaded', () =&gt; {
+                                document.getElementById('adhesion_mob_btnCloseAd').onclick = function() {
+                                    
+                                    this.parentNode && this.parentNode.classList.add('none')
+                                };
+                            });
+                            
+      </script>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;
 
 exports[`getBannerConfiguration => Deberia traer la configuracion del banner cabezal 1`] = `
-<Fragment>
-  <DivBannerSSR
-    bannerConfiguration={
-      Object {
-        "bidding": Object {
-          "prebid": Object {
-            "enabled": true,
-          },
-        },
-        "classes": "--sticky ",
-        "device": "desktop",
-        "dfpId": 133919216,
-        "dimensions": Array [
-          Array [
-            1,
-            1,
-          ],
-          Array [
-            728,
-            90,
-          ],
-          Array [
-            920,
-            100,
-          ],
-          Array [
-            920,
-            170,
-          ],
-          Array [
-            970,
-            90,
-          ],
-          Array [
-            1260,
-            100,
-          ],
-          Array [
-            1260,
-            170,
-          ],
-        ],
-        "slotGroup": "nota",
-        "slotId": "cabezal_dsk",
-        "slotName": "la_nacion_desktop/Nota/cabezal_dsk",
-        "targeting": Object {
-          "seccion": "nota",
-          "sitio": "lanacion",
-        },
-        "withoutHide": true,
-      }
-    }
-    key="la_nacion_desktop/Nota/cabezal_dsk"
-  />
-  <script
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "
-                    window.addEventListener('DOMContentLoaded', () => {
-                        const banners = Array.from(document.querySelectorAll('.--cabezal_dsk')) || [];
-                        const header = document.querySelector(\\"#header\\");
-                        const viewportLimit = document.querySelector('.lay-sidebar') || {};
-                        const content = document.querySelector('#content') || {};
-                        let paddingTop = 0;
-                        let oldScrollY = window.scrollY;
-
-                        const handleSticky = (banner = {}) => {
-                            const isScrollUp = oldScrollY > window.scrollY
-                            const { top: topViewportLimit } = viewportLimit.getBoundingClientRect();
-                            const viewPoint = topViewportLimit - banner.clientHeight - (header ? header.clientHeight : 0);
-
-                            if (viewPoint <= 0 && banner.classList.contains('--sticky')) {
-                                if  (content instanceof Element){
-                                    paddingTop = parseFloat(window.getComputedStyle(content).getPropertyValue('padding-top')) || 0;
-                                }
-                                banner.classList.remove('--sticky');
-                                banner.style.top = Math.abs(viewportLimit.offsetTop - banner.clientHeight - paddingTop) + 'px';
-                                banner.style.position = 'relative';
-                            } else if (viewPoint > 0 && !banner.classList.contains('--sticky')) {
-                                banner.classList.add('--sticky');
-                                banner.style.cssText = '';
-                            }
-
-                            if (isScrollUp) {
-                                banner.classList.remove('--sticky');
-                                banner.style.top = '0';
-                            }
-                        }
-                        
-                        window.addEventListener('scroll', () => {
-                            banners.forEach(handleSticky)
-                            oldScrollY = window.scrollY;
-                        })
-                    })
-                ",
-      }
-    }
-    type="text/javascript"
-  />
-</Fragment>
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="mod-banner --cabezal_dsk --sticky  "
+      >
+        <div
+          class="com-banner --no-app"
+          data-ad-unit-path="/133919216/la_nacion_desktop/Nota/cabezal_dsk"
+          data-device="desktop"
+          data-prebid-enabled="true"
+          data-size="[[1,1],[728,90],[920,100],[920,170],[970,90],[1260,100],[1260,170]]"
+          data-sizemap="[]"
+          data-slot-group="nota"
+          data-subscription="false"
+          data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+          data-without-hide="true"
+          id="cabezal_dsk"
+        />
+      </div>
+      <script
+        data-banner-classes=".--cabezal_dsk"
+        data-viewport=".lay-sidebar"
+        id="getStickyBanner"
+        type="text/javascript"
+      />
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="mod-banner --cabezal_dsk --sticky  "
+    >
+      <div
+        class="com-banner --no-app"
+        data-ad-unit-path="/133919216/la_nacion_desktop/Nota/cabezal_dsk"
+        data-device="desktop"
+        data-prebid-enabled="true"
+        data-size="[[1,1],[728,90],[920,100],[920,170],[970,90],[1260,100],[1260,170]]"
+        data-sizemap="[]"
+        data-slot-group="nota"
+        data-subscription="false"
+        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+        data-without-hide="true"
+        id="cabezal_dsk"
+      />
+    </div>
+    <script
+      data-banner-classes=".--cabezal_dsk"
+      data-viewport=".lay-sidebar"
+      id="getStickyBanner"
+      type="text/javascript"
+    />
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
 `;

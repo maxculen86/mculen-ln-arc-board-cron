@@ -1,3 +1,5 @@
+import setMediaCondition from '../utils/setMediaCondition';
+
 // TODO: Revisar estas variables y eliminar las que no sean necesarias a medida que se vayan habilitando configuraciones para carga con picture
 const minWidth1920 = '(min-width: 1920px)';
 const minWidth1440 = '(min-width: 1440px)';
@@ -13,18 +15,6 @@ const min768max1024 = '(min-width: 768px and max-width: 1023px)';
 const min375max768 = '(min-width: 376px and max-width: 767px)';
 const maxWidth767 = '(max-width: 767px)';
 const maxWidth375 = '(max-width: 375px)';
-
-const setMediaCondition = ({ minWidth, maxWidth }) => {
-    if (minWidth && maxWidth) {
-        return `(min-width: ${minWidth}px) and (max-width: ${maxWidth}px)`;
-    }
-
-    if (minWidth) {
-        return `(min-width: ${minWidth}px)`;
-    }
-
-    return `(max-width: ${maxWidth}px)`;
-};
 
 const contentElementSizes = {
     sizes: [

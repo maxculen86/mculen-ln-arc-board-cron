@@ -51,7 +51,7 @@ export const bodyElementRules = (props = {}) => {
     const { element = {}, outputType = '', subtype } = props;
     const { type, subtype: subtypeElement, content } = element;
 
-    return bodyComponents.find(componentElement => {
+    const selectedComponent = bodyComponents.find(componentElement => {
         const componentSelected = selectRule({
             subtype,
             type,
@@ -67,6 +67,8 @@ export const bodyElementRules = (props = {}) => {
             type
         });
     });
+
+    return selectedComponent || undefined;
 };
 
 export default bodyElementRules;

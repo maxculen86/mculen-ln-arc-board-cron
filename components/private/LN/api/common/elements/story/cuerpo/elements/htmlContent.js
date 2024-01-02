@@ -28,14 +28,17 @@ const html = (nodo, notaId) => {
             }
             resp.src = src.trim();
             resp.id = 'ifrme';
+            resp.arc_content = nodo;
             break;
         case 'opta-widget':
             resp.src = `${OPTA_WIDGET_URL}/${contentId}/${notaId}/?_website=la-nacion-ar&outputType=opta`;
             resp.id = 'html';
+            resp.arc_content = nodo;
             break;
         default:
             resp.id = 'html';
             resp.src = content;
+            resp.arc_content = nodo;
             break;
     }
 

@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/no-danger */
 import React from 'react';
+import { useAppContext } from 'fusion:context';
 import getParagraphCount from '../../LN/common/utils/getParagraphCount';
 import get from '../utils/get';
 
@@ -11,11 +10,7 @@ export default {
                 customScript: ({ sticky }) => {
                     return (
                         sticky &&
-                        getStickyBanner(
-                            '.--cabezal_dsk',
-                            '.lay-sidebar',
-                            'header'
-                        )
+                        getStickyBanner('.--cabezal_dsk', '.lay-sidebar')
                     );
                 }
             },
@@ -165,69 +160,31 @@ export default {
     }
 };
 
-export const getStickyBanner = (bannerClass, viewport, header) => {
+export const getStickyBanner = (bannerClass, viewport) => {
+    const { contextPath, deployment } = useAppContext();
     return (
         <script
+            id="getStickyBanner"
             type="text/javascript"
-            dangerouslySetInnerHTML={{
-                __html: `
-                    window.addEventListener('DOMContentLoaded', () => {
-                        const banners = Array.from(document.querySelectorAll('${bannerClass}')) || [];
-                        const header = document.querySelector("#${header}");
-                        const viewportLimit = document.querySelector('${viewport}') || {};
-                        const content = document.querySelector('#content') || {};
-                        let paddingTop = 0;
-                        let oldScrollY = window.scrollY;
-
-                        const handleSticky = (banner = {}) => {
-                            const isScrollUp = oldScrollY > window.scrollY
-                            const { top: topViewportLimit } = viewportLimit.getBoundingClientRect();
-                            const viewPoint = topViewportLimit - banner.clientHeight - (${header} ? header.clientHeight : 0);
-
-                            if (viewPoint <= 0 && banner.classList.contains('--sticky')) {
-                                if  (content instanceof Element){
-                                    paddingTop = parseFloat(window.getComputedStyle(content).getPropertyValue('padding-top')) || 0;
-                                }
-                                banner.classList.remove('--sticky');
-                                banner.style.top = Math.abs(viewportLimit.offsetTop - banner.clientHeight - paddingTop) + 'px';
-                                banner.style.position = 'relative';
-                            } else if (viewPoint > 0 && !banner.classList.contains('--sticky')) {
-                                banner.classList.add('--sticky');
-                                banner.style.cssText = '';
-                            }
-
-                            if (isScrollUp) {
-                                banner.classList.remove('--sticky');
-                                banner.style.top = '0';
-                            }
-                        }
-                        
-                        window.addEventListener('scroll', () => {
-                            banners.forEach(handleSticky)
-                            oldScrollY = window.scrollY;
-                        })
-                    })
-                `
-            }}
+            data-banner-classes={bannerClass}
+            data-viewport={viewport}
+            src={deployment(
+                `${contextPath}/resources/js/LN/scriptBannerRulesSticky.min.js`
+            )}
         />
     );
 };
 
-export const getScriptForComercial = slodId => {
+export const getScriptForComercial = slotId => {
+    const { contextPath, deployment } = useAppContext();
     return (
         <script
+            id="getScriptForComercial"
             type="text/javascript"
-            dangerouslySetInnerHTML={{
-                __html: `
-                window.addEventListener('DOMContentLoaded', () => {
-                    setTimeout(function(){
-                        
-                        const bannerComercial = document.getElementById("${slodId}");
-                        bannerComercial && bannerComercial.parentNode.classList.add('none');
-                    },12000)
-                })
-            `
-            }}
+            data-slotId={slotId}
+            src={deployment(
+                `${contextPath}/resources/js/LN/scriptBannerRulesComercial.min.js`
+            )}
         />
     );
 };

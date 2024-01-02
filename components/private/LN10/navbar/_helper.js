@@ -9,7 +9,8 @@ import {
     Search,
     Sections,
     Bookmark,
-    Profile
+    Profile,
+    ClubLnDefault
 } from '@ln/contenidos-ui-assets';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 import dynamicallyLoadScript from '../../LN/common/utils/dynamicallyLoadScript';
@@ -74,17 +75,25 @@ export const getNavbarItems = (
             addEventToDataLayer(getEventData('secciones'));
         }
     },
-    withBookmark && {
-        text: 'Mis Notas',
-        icon: <Bookmark />,
-        className: 'bookmark',
-        link: isSubscribed
-            ? bookmarkUrl
-            : `${SITIO_SEGURO_REGISTRACION}/suscripcion/E/1/1/?callback=`,
-        callback: () => {
-            addEventToDataLayer(getEventData('mis_notas'));
-        }
-    },
+    isSubscribed
+        ? withBookmark && {
+              text: 'Mis Notas',
+              icon: <Bookmark />,
+              className: 'bookmark',
+              link: bookmarkUrl,
+              callback: () => {
+                  addEventToDataLayer(getEventData('mis_notas'));
+              }
+          }
+        : {
+              text: 'Club LN',
+              icon: <ClubLnDefault />,
+              className: 'club-ln',
+              link: 'https://club.lanacion.com.ar/',
+              callback: () => {
+                  addEventToDataLayer(getEventData('club_la_nacion'));
+              }
+          },
     {
         text: 'Perfil',
         icon: <Profile />,

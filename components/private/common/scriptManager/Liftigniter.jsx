@@ -1,20 +1,31 @@
-/* eslint-disable class-methods-use-this      */
 /* eslint-disable react/require-default-props */
-
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
 import getAuthorByline from '../utils/getAuthorByline';
 import { googlePublisherAndLiftIgniterPropTypes } from '../utils/propTypesHelper';
 
-class LiftIgniter extends Component {
-    constructor(props) {
-        super(props);
-        const { location = 'body-top' } = props;
-        this.location = location;
-    }
+const LiftIgniter = ({ globalContent }) => {
+    const { contextPath, deployment } = useAppContext();
+    const {
+        taxonomy,
+        label,
+        content_elements: contentElements = [],
+        credits,
+        display_date: displayDate,
+        _id,
+        headlines
+    } = globalContent || {};
+    const { primary_section: primarySection, tags = [] } = taxonomy || {};
+    const { name: tematica } = primarySection || {};
+    const { by: authors = [] } = credits || {};
+    const recomendar = get(label, 'recomendar.text', 'Si');
+    const titleShort = get(headlines, 'mobile', '');
+    const title = get(headlines, 'basic', '');
+    const leadText = get(label, 'volanta.text', '');
 
-    getAuthorsFromContentElements(object) {
+    const getAuthorsFromContentElements = object => {
         return object
             .filter(
                 contentElement =>
@@ -23,106 +34,52 @@ class LiftIgniter extends Component {
             )
             .map(author => author.content)
             .join(', ');
-    }
+    };
 
-    getAuthors(object) {
+    const getAuthors = object => {
         return object.map(author => getAuthorByline(author)).join(', ');
-    }
+    };
 
-    render() {
-        const { globalContent } = this.props;
-        const {
-            taxonomy,
-            label,
-            content_elements: contentElements = [],
-            credits,
-            display_date: displayDate,
-            _id,
-            headlines
-        } = globalContent || {};
+    const script = {
+        id: _id,
+        title,
+        titleShort,
+        leadText,
+        published_time: displayDate,
+        noShow: recomendar !== 'Si',
+        noIndex: false,
+        tematica,
+        tags: tags.map(tag => tag.text),
+        autor:
+            authors && authors.length > 0
+                ? getAuthors(authors)
+                : getAuthorsFromContentElements(contentElements)
+    };
 
-        const { primary_section: primarySection, tags = [] } = taxonomy || {};
-        const { name: tematica } = primarySection || {};
-        const { by: authors = [] } = credits || {};
-        const recomendar = get(label, 'recomendar.text', 'Si');
-        const titleShort = get(headlines, 'mobile', '');
-        const title = get(headlines, 'basic', '');
-        const leadText = get(label, 'volanta.text', '');
-        const scriptRum = `
-            window.addEventListener("DOMContentLoaded", (event) => {
-                const userId = localStorage.getItem('CDUserId')
-                if (typeof $igniter_var === "undefined") {
-                !(function n(t, c, o, r, a, i, e, s, f) {
-                    (f = null != t[o] && "function" == typeof t[o].now ? t[o].now() : null),
-                    (t.$igniter_var = i),
-                    (t[i] =
-                        t[i] ||
-                        function () {
-                        (t[i].q = t[i].q || []).push(arguments);
-                        }),
-                    (e = c.getElementsByTagName(r)[0]),
-                    ((s = c.createElement(r)).async = 1),
-                    "//cdn" == a
-                        ? ((t[i].s = f),
-                        (s.onerror = function (e) {
-                            (t[i].e = e), n(t, c, o, r, a + "-fallback", i);
-                        }))
-                        : (t[i].r = f),
-                    (s.src =
-                        a +
-                        ".petametrics.com/8561ps8ov66e7mim.js?ts=" +
-                        ((new Date() / 36e5) | 0)),
-                    e.parentNode.insertBefore(s, e);
-                })(window, document, "performance", "script", "//cdn", "$p");
-                $p("init", "8561ps8ov66e7mim");
-                $p("setUserId", userId);
-                $p("setNoTag", true);
-                $p("send", "pageview");
-                }
-            });
-        `;
+    return (
+        <>
+            <script
+                id="liftigniter"
+                type="text/javascript"
+                src={deployment(
+                    `${contextPath}/resources/js/LN/LiftIgniter.min.js`
+                )}
+            />
 
-        const script = {
-            id: _id,
-            title,
-            titleShort,
-            leadText,
-            published_time: displayDate,
-            noShow: recomendar !== 'Si',
-            noIndex: false,
-            tematica,
-            tags: tags.map(tag => tag.text),
-            autor:
-                authors && authors.length > 0
-                    ? this.getAuthors(authors)
-                    : this.getAuthorsFromContentElements(contentElements)
-        };
-
-        return (
-            <>
-                <script
-                    id="liftigniter"
-                    type="text/javascript"
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{ __html: scriptRum }}
-                />
-
-                <script
-                    defer
-                    id="liftigniter-metadata"
-                    type="application/json"
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{
-                        __html: JSON.stringify(script)
-                    }}
-                />
-            </>
-        );
-    }
-}
+            <script
+                defer
+                id="liftigniter-metadata"
+                type="application/json"
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(script)
+                }}
+            />
+        </>
+    );
+};
 
 LiftIgniter.propTypes = {
-    location: PropTypes.string,
     globalContent: PropTypes.shape({
         taxonomy: PropTypes.shape({
             primary_section: PropTypes.shape({
@@ -143,5 +100,4 @@ LiftIgniter.propTypes = {
             googlePublisherAndLiftIgniterPropTypes.label
     })
 };
-
 export default LiftIgniter;

@@ -1,18 +1,21 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import Component from '../../../../components/private/common/instagramButton';
-import TestHelper from '../../../utils/testHelper';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import InstagramButton from '../../../../components/private/common/instagramButton'; // Asegúrate de ajustar la ruta de importación
 
 describe('private - common - instagramButton', () => {
-    const child = <h1>Soy un child</h1>;
-    const onClick = () => {
-        console.log('asd');
-    };
-    const component = mount(<Component onClick={onClick}>{child}</Component>);
+    const onClick = jest.fn(); // Usamos jest.fn() para crear una función mock
 
-    TestHelper.testDoNotRenderChildren(component, 'child');
+    it('se renderiza correctamente', () => {
+        const { getByRole } = render(<InstagramButton onClick={onClick} />);
+        const button = getByRole('button');
+        expect(button).toBeInTheDocument();
+    });
 
-    it('testeo que el evento onClick sea el mismo que le pase', () => {
-        TestHelper.expectSameValue(component.prop('onClick'), onClick);
+    it('testeo que el evento onClick se dispare correctamente', () => {
+        const { getByRole } = render(<InstagramButton onClick={onClick} />);
+        const button = getByRole('button');
+        fireEvent.click(button);
+        expect(onClick).toHaveBeenCalled();
     });
 });

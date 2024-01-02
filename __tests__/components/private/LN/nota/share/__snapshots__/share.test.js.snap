@@ -3,7 +3,7 @@
 exports[`Note display comment in false  Matches snapshot when the note is not comments 1`] = `
 <div>
   <div
-    class="mod-share-container"
+    class="mod-share-container --no-app"
   >
     <div
       class="mod-share "
@@ -245,7 +245,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
 exports[`Share Snapshot - Should show 7 buttons  1`] = `
 <div>
   <div
-    class="mod-share-container"
+    class="mod-share-container --no-app"
   >
     <div
       class="mod-share "
@@ -517,7 +517,7 @@ exports[`Share Snapshot - Should show 7 buttons  1`] = `
 exports[`Share Test click button bookmark 1`] = `
 <div>
   <div
-    class="mod-share-container"
+    class="mod-share-container --no-app"
   >
     <div
       class="mod-share "

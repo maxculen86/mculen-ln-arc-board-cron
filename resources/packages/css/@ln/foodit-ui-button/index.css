@@ -1,3 +1,9 @@
+.button.foodit-button.--full-width {
+  width: 100%;
+}
+.button.foodit-button.--loading .icon {
+  display: none;
+}
 .button.foodit-button[data-variant=link] {
   text-transform: none;
 }

@@ -128,7 +128,7 @@ const Index = ({ home }) => {
         commonProps(
             'Colecciones',
             'Ir a tienda online de Colecciones LA NACION',
-            'https://colecciones.lanacion.com.ar/',
+            'https://colecciones.lanacion.com.ar',
             '_blank'
         ),
         commonProps(
@@ -141,16 +141,6 @@ const Index = ({ home }) => {
             'Fundación LA NACION',
             'Ir a la Fundación LA NACION',
             'https://fundacionlanacion.org.ar/',
-            '_blank'
-        )
-    ];
-
-    const listText2c = [
-        commonProps('Libros:'),
-        commonProps(
-            'LiBooks',
-            'Ir a tienda online de LiBooks',
-            'https://www.libooks.com/',
             '_blank'
         )
     ];
@@ -289,9 +279,6 @@ const Index = ({ home }) => {
                                 mod="--delivery --font-bold"
                             >
                                 {listText2b}
-                            </List>
-                            <List inline size="--fourxs" mod="--font-bold">
-                                {listText2c}
                             </List>
                         </div>
                     </section>

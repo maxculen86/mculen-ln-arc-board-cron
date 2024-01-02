@@ -1,7 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import DataLayerIndex from '../../../../components/private/common/dataLayerIndex';
 
+// Mock de fusion:context
 jest.mock('fusion:context', () => () => ({
     default: props => {
         const mockAvailableProps = {
@@ -26,24 +28,24 @@ describe('LN - Common - DataLayer', () => {
     }));
 
     it('DataLayer nota recetas snapshot', () => {
-        const comp = mount(
+        const { container } = render(
             <DataLayerIndex
                 arcSite="la-nacion-ar"
                 layout="LN-nota-receta"
                 globalContent={globalContent}
             />
         );
-        expect(comp).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
     });
 
     it('DataLayer home Deportes snapshot', () => {
-        const comp = mount(
+        const { container } = render(
             <DataLayerIndex
                 arcSite="la-nacion-ar"
                 layout="LN-Home_Sports"
                 globalContent={globalContent}
             />
         );
-        expect(comp).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
     });
 });

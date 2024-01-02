@@ -1,5 +1,5 @@
 import get from '../../../components/private/common/utils/get';
-
+// TODO: una vez que salga foodit, eliminar las funciones recipePowerUps y powerUpsJoin
 export const recipePowerUps = contentElements => {
     const powerUps = powerUpsJoin(contentElements);
     const newContentElements = contentElements.filter(e => {

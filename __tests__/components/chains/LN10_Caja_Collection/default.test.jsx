@@ -24,7 +24,8 @@ jest.mock('fusion:context', () => () => ({
     default: props => {
         const mockAvailableProps = {};
         return props.children(mockAvailableProps);
-    }
+    },
+    useAppContext: jest.fn()
 }));
 
 jest.mock(
@@ -38,6 +39,11 @@ jest.mock(
 );
 
 describe('Tests Chain CajaCollection', () => {
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
+
     const customFields = {
         title: 'Caja Collection',
         layout: '',
@@ -413,7 +419,6 @@ describe('Tests Chain CajaCollection', () => {
     });
 
     describe('Tests banner cases', () => {
-        Context.useAppContext = jest.fn(() => ({}));
         useGetArticleInCollection.mockImplementation(() =>
             responseSource.slice(0, 1)
         );

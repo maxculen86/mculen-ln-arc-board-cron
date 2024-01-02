@@ -7,7 +7,7 @@ export const toastProps = {
         buttonProps: {
             label: 'Newsletter',
             href: 'https://newsletter.lanacion.com.ar/#/',
-            typeButton: 'secondary',
+            variant: 'secondary',
             target: '_blank',
             title: 'Ir al newsletter de LA NACION'
         },

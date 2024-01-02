@@ -6,25 +6,31 @@ import Footer from '../Footer/foodit';
 import Modal from '../Modals/SaveRecipe/foodit';
 import DrawerMyAccount from '../DrawerMyAccount/foodit';
 import classNames from 'classnames';
+import FloatingGroupButton from '../floatingGroupButton/foodit';
 
 const BaseLayout = ({ children }) => {
     const { layout, siteProperties } = useAppContext();
     const { layoutsName = {} } = siteProperties || {};
 
     const classNameHeaderContainer = classNames({
-        'mb-16': layout === layoutsName.FooditHome
+        'mb-16 mb-40_lg':
+            layout === layoutsName.FooditHome ||
+            layout === layoutsName.FooditFichaReceta,
+        'mb-40': layout === layoutsName.FooditRecetario
     });
+
     return (
-        <div className="wrapper overflox-x-clip roboto">
+        <div className="wrapper overflow-x-clip roboto">
             <Header classNameContainer={classNameHeaderContainer} />
             <div className="header-sentinel" />
             <DrawerMenu />
             <DrawerMyAccount />
-            <main className="container flex flex-column pb-64 gap-40 min-vh-100">
+            <main className="container flex flex-column pb-64 gap-40">
                 {children}
             </main>
             <Footer />
             <Modal />
+            <FloatingGroupButton layout={layout} />
         </div>
     );
 };

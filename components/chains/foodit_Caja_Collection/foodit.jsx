@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import { validateChainFoodit } from './common/_helper';
+import { getIdCollection, validateChainFoodit } from './common/_helper';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
 import RenderCollection from '../foodit-global/common/RenderCollection/foodit';
 import { transformArticleFoodit } from '../../features/foodit-global/common/utils/notaFooditHelper';
@@ -10,9 +10,11 @@ import useGetArticleInCollectionFoodit from '../foodit-global/common/hooks/useGe
 import setChainFooditCustomFields from '../foodit-global/common/utils/setChainCustomFieldsFoodit';
 import get from '../../private/common/utils/get';
 import classNames from 'classnames';
-import { setStaticDynamically } from '../utils/_helpers';
+import LazyLoad from '../../features/foodit-global/common/LazyLoad/foodit';
+import StaticContent from '../../private/common/staticContent';
 
 const CajaCollection = props => {
+    const [inViewport, setInViewport] = useState(false);
     const { isAdmin, customFields } = props;
 
     const {
@@ -30,7 +32,7 @@ const CajaCollection = props => {
     const { minArticles, maxArticles, size, isStatic } = rules;
 
     const articles = useGetArticleInCollectionFoodit({
-        idCollection,
+        idCollection: getIdCollection(isStatic, inViewport, idCollection),
         size: maxArticles,
         initialPosition: Number(initialPosition) - 1,
         staticMode: isStatic
@@ -70,9 +72,19 @@ const CajaCollection = props => {
             error={error}
         />
     );
-    return setStaticDynamically(Component, !isStatic, {
-        className: staticContentClassName
-    });
+
+    return !isStatic ? (
+        <LazyLoad
+            onViewport={() => setInViewport(true)}
+            showComponent={articlesTransformed.length > 0}
+        >
+            {Component}
+        </LazyLoad>
+    ) : (
+        <StaticContent className={staticContentClassName}>
+            {Component}
+        </StaticContent>
+    );
 };
 
 CajaCollection.label = 'foodit Caja Collection';

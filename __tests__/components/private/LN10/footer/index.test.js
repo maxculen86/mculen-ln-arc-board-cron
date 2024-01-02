@@ -31,7 +31,7 @@ describe('Tests - Footer - LN10', () => {
     });
 
     test('should first', () => {
-        expect(screen.getAllByRole('link')).toHaveLength(40);
+        expect(screen.getAllByRole('link')).toHaveLength(39);
     });
 
     test('should match snapshot of footer.', () => {

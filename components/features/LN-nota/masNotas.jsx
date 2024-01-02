@@ -65,7 +65,8 @@ const masNotas = props => {
     useEffect(() => {
         articleBoxesTracker({
             boxType: 'masNotas',
-            diagramation: cantidadNotas
+            diagramation: cantidadNotas,
+            sectionTitle
         });
     }, [cantidadNotas]);
 

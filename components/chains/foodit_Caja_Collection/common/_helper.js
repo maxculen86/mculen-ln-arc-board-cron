@@ -27,3 +27,10 @@ export const validateChainFoodit = ({
 
     return pageBuilderValidator(rules);
 };
+
+export const getIdCollection = (isStatic, inViewport, idCollection) => {
+    if (isStatic) {
+        return idCollection;
+    }
+    return (inViewport && idCollection) || null;
+};

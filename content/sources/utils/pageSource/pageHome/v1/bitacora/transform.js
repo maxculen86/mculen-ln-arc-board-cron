@@ -10,11 +10,12 @@ const specialBox = {
     'ln-common/ln10_editorial': 'h_editoriales'
 };
 const omitSections = {
-    'ln-common/ln10_en_vivo': true
+    'ln-common/ln10_en_vivo': false
 };
 const specialBoxRoot = {
     'ln-common/opinion': 'h_opinion',
-    'ln-common/ln10_opinion': 'h_opinion'
+    'ln-common/ln10_opinion': 'h_opinion',
+    'ln-common/ln10_en_vivo': 'h_enVivo'
 };
 
 const configPositionArticlesByBox = {
@@ -30,7 +31,12 @@ const createBoxAndNotas = (elem, cajaCount, cajas) => {
         ? specialBoxRoot[sectionAliasMobile]
         : cajaCount.toString().padStart(2, '0');
     const hideCaja = information ? information.hideCaja : undefined;
-    const layout = information ? information.layout : undefined;
+    const layout =
+        elem.sectionAliasMobile === 'ln-common/ln10_en_vivo'
+            ? 'enVivo'
+            : information
+            ? information.layout
+            : undefined;
     const caja = createBox(
         boxId,
         hideCaja,

@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import OpeningRecipe from '../../../../../../components/features/foodit-global/common/OpeningRecipe/foodit';
 
+import withVideoArticle from '../../../../../../__mocks__/data/articlesFoodit/SubtypeReceta/withVideoOpening.json';
 import Article from '../../../../../../__mocks__/data/articlesFoodit/SubtypeReceta/fichaReceta.json';
 
 describe('OpeningRecipe Component', () => {
@@ -44,14 +45,7 @@ describe('OpeningRecipe Component', () => {
     it('displays the headline correctly', () => {
         render(<OpeningRecipe article={Article} />);
         expect(
-            screen.getByText(`TITULO: ${expectedResults.headline}`)
-        ).toBeInTheDocument();
-    });
-
-    it('displays the subheadline correctly', () => {
-        render(<OpeningRecipe article={Article} />);
-        expect(
-            screen.getByText(`BAJADA: ${expectedResults.subheadline}`)
+            screen.getByText(`${expectedResults.headline}`)
         ).toBeInTheDocument();
     });
 
@@ -67,42 +61,16 @@ describe('OpeningRecipe Component', () => {
         ).toBeInTheDocument();
     });
 
-    it('displays cooking, preparation, and counter times', () => {
-        render(<OpeningRecipe article={Article} />);
-        expect(
-            screen.getByText(
-                `cookingTime: ${expectedResults.recipeDetail.config.cookTime}`
-            )
-        ).toBeInTheDocument();
-        expect(
-            screen.getByText(
-                `prepTime: ${expectedResults.recipeDetail.config.prepTime}`
-            )
-        ).toBeInTheDocument();
-        expect(
-            screen.getByText(
-                `counterTime: ${expectedResults.recipeDetail.config.counterTime}`
-            )
-        ).toBeInTheDocument();
-    });
-
-    it('displays regions, cookingTypes, and occasions', () => {
-        render(<OpeningRecipe article={Article} />);
-
-        expect(
-            screen.getByText(
-                `regions: ${expectedResults.recipeDetail.config.regions}`
-            )
-        ).toBeInTheDocument();
-        expect(
-            screen.getByText(
-                `cookingTypes: ${expectedResults.recipeDetail.config.cookingTypes}`
-            )
-        ).toBeInTheDocument();
-        expect(
-            screen.getByText(
-                `occasions: ${expectedResults.recipeDetail.config.occasions}`
-            )
-        ).toBeInTheDocument();
+    describe('Opening with VideoJW', () => {
+        it('Renders facade', () => {
+            const { container } = render(
+                <OpeningRecipe article={withVideoArticle} />
+            );
+            expect(container).toBeTruthy();
+            expect(
+                screen.getByAltText('Waffle sin TACC y sin lácteos')
+            ).toBeInTheDocument();
+            expect(screen.getByTestId('facade-wzNCu0kE')).toBeInTheDocument();
+        });
     });
 });

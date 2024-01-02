@@ -1,8 +1,21 @@
 import React from 'react';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import Context from 'fusion:context';
 import ModNavigation from '../../../../components/private/common/mod-navigation';
-import { render } from 'enzyme';
+
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
 
 describe('Mod-navigation test', () => {
+    beforeEach(() => {
+        Context.useAppContext.mockImplementation(() => ({
+            deployment: jest.fn(),
+            contextPath: '/pf'
+        }));
+    });
+
     const modNavigationProps = {
         navigation: [
             {
@@ -31,12 +44,13 @@ describe('Mod-navigation test', () => {
     };
 
     it('Matches snapshot', () => {
-        const navigation = render(<ModNavigation />);
-        expect(navigation).toMatchSnapshot;
+        const { container } = render(<ModNavigation />);
+        expect(container).toMatchSnapshot();
     });
 
     it('Renders link list', () => {
-        const component = render(<ModNavigation {...modNavigationProps} />);
-        expect(component.find('a')).toHaveLength(2);
+        const { container } = render(<ModNavigation {...modNavigationProps} />);
+        const links = container.querySelectorAll('a');
+        expect(links).toHaveLength(2);
     });
 });
