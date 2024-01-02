@@ -20,6 +20,7 @@ import ScriptCripto from '../../../common/scriptManager/scriptCripto';
 import Permutive from '../../../common/scriptManager/Permutive';
 import { pipe } from '../../../common/utils/functional';
 import Marfeel from '../../../common/scriptManager/Marfeel';
+import ScriptDivBannerSSR from '../../../common/scriptManager/scriptDivBannerSSR';
 
 const scriptList = [
     {
@@ -101,7 +102,11 @@ const scriptList = [
         },
         feature: 'none'
     },
-    { component: { name: 'Marfeel', function: Marfeel }, feature: 'none' }
+    { component: { name: 'Marfeel', function: Marfeel }, feature: 'none' },
+    {
+        component: { name: 'ScriptDivBannerSSR', function: ScriptDivBannerSSR },
+        feature: 'none'
+    }
 ];
 
 const getPageBuilderFeatures = _renderables =>

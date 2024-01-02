@@ -1,4 +1,3 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
@@ -100,19 +99,6 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                             </Icon>
                         </button>
                     )}
-
-                    <script
-                        dangerouslySetInnerHTML={{
-                            __html: `
-                            window.addEventListener('DOMContentLoaded', () => {
-                                document.getElementById('${slotId}_btnCloseAd').onclick = function() {
-                                    
-                                    this.parentNode && this.parentNode.classList.add('none')
-                                };
-                            });
-                            `
-                        }}
-                    />
                 </>
             )}
         </>
