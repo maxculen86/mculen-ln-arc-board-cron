@@ -16,8 +16,8 @@ exports[`Tests the month list. Should match the snapshot 1`] = `
         >
           <a
             class="com-link"
-            href="/feriados/2023/enero/"
-            title="Ir a feriados de enero del 2023"
+            href="/feriados/2024/enero/"
+            title="Ir a feriados de enero del 2024"
           >
             enero
           </a>
@@ -31,8 +31,8 @@ exports[`Tests the month list. Should match the snapshot 1`] = `
         >
           <a
             class="com-link"
-            href="/feriados/2023/febrero/"
-            title="Ir a feriados de febrero del 2023"
+            href="/feriados/2024/febrero/"
+            title="Ir a feriados de febrero del 2024"
           >
             febrero
           </a>
@@ -46,8 +46,8 @@ exports[`Tests the month list. Should match the snapshot 1`] = `
         >
           <a
             class="com-link"
-            href="/feriados/2023/marzo/"
-            title="Ir a feriados de marzo del 2023"
+            href="/feriados/2024/marzo/"
+            title="Ir a feriados de marzo del 2024"
           >
             marzo
           </a>
@@ -61,8 +61,8 @@ exports[`Tests the month list. Should match the snapshot 1`] = `
         >
           <a
             class="com-link"
-            href="/feriados/2023/abril/"
-            title="Ir a feriados de abril del 2023"
+            href="/feriados/2024/abril/"
+            title="Ir a feriados de abril del 2024"
           >
             abril
           </a>
@@ -76,8 +76,8 @@ exports[`Tests the month list. Should match the snapshot 1`] = `
         >
           <a
             class="com-link"
-            href="/feriados/2023/mayo/"
-            title="Ir a feriados de mayo del 2023"
+            href="/feriados/2024/mayo/"
+            title="Ir a feriados de mayo del 2024"
           >
             mayo
           </a>
@@ -91,8 +91,8 @@ exports[`Tests the month list. Should match the snapshot 1`] = `
         >
           <a
             class="com-link"
-            href="/feriados/2023/junio/"
-            title="Ir a feriados de junio del 2023"
+            href="/feriados/2024/junio/"
+            title="Ir a feriados de junio del 2024"
           >
             junio
           </a>
@@ -106,8 +106,8 @@ exports[`Tests the month list. Should match the snapshot 1`] = `
         >
           <a
             class="com-link"
-            href="/feriados/2023/julio/"
-            title="Ir a feriados de julio del 2023"
+            href="/feriados/2024/julio/"
+            title="Ir a feriados de julio del 2024"
           >
             julio
           </a>
@@ -121,8 +121,8 @@ exports[`Tests the month list. Should match the snapshot 1`] = `
         >
           <a
             class="com-link"
-            href="/feriados/2023/agosto/"
-            title="Ir a feriados de agosto del 2023"
+            href="/feriados/2024/agosto/"
+            title="Ir a feriados de agosto del 2024"
           >
             agosto
           </a>
@@ -136,8 +136,8 @@ exports[`Tests the month list. Should match the snapshot 1`] = `
         >
           <a
             class="com-link"
-            href="/feriados/2023/septiembre/"
-            title="Ir a feriados de septiembre del 2023"
+            href="/feriados/2024/septiembre/"
+            title="Ir a feriados de septiembre del 2024"
           >
             septiembre
           </a>
@@ -151,8 +151,8 @@ exports[`Tests the month list. Should match the snapshot 1`] = `
         >
           <a
             class="com-link"
-            href="/feriados/2023/octubre/"
-            title="Ir a feriados de octubre del 2023"
+            href="/feriados/2024/octubre/"
+            title="Ir a feriados de octubre del 2024"
           >
             octubre
           </a>
@@ -166,8 +166,8 @@ exports[`Tests the month list. Should match the snapshot 1`] = `
         >
           <a
             class="com-link"
-            href="/feriados/2023/noviembre/"
-            title="Ir a feriados de noviembre del 2023"
+            href="/feriados/2024/noviembre/"
+            title="Ir a feriados de noviembre del 2024"
           >
             noviembre
           </a>
@@ -181,8 +181,8 @@ exports[`Tests the month list. Should match the snapshot 1`] = `
         >
           <a
             class="com-link"
-            href="/feriados/2023/diciembre/"
-            title="Ir a feriados de diciembre del 2023"
+            href="/feriados/2024/diciembre/"
+            title="Ir a feriados de diciembre del 2024"
           >
             diciembre
           </a>
