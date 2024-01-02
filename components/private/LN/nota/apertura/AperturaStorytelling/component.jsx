@@ -107,9 +107,14 @@ const Component = props => {
                     </div>
                 </div>
             </ComFigure>
-            <div className="lay">
-                <ModFigcaption title={caption || ''} credit={credit || ''} />
-            </div>
+            {!video && (
+                <div className="lay">
+                    <ModFigcaption
+                        title={caption || ''}
+                        credit={credit || ''}
+                    />
+                </div>
+            )}
         </section>
     );
 };

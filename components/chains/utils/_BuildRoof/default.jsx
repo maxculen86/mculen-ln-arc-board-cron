@@ -1,6 +1,6 @@
-/* eslint-disable react/no-danger */
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import { useAppContext } from 'fusion:context';
 import { Roof } from '@ln/contenidos-ui-roof';
 import PropTypes from 'prop-types';
 import validateRoof from './_helper/validateRoof';
@@ -24,6 +24,8 @@ export default function BuildRoof(props) {
         isAdmin,
         isAFondo
     } = props;
+
+    const { contextPath, deployment } = useAppContext();
 
     const chainStyle =
         !VERTICALS.includes(chainStyleUncheked) && chainStyleUncheked;
@@ -62,23 +64,11 @@ export default function BuildRoof(props) {
 
     const scriptBtnSuscription = isSubExclusive ? (
         <script
+            id="scriptBtnSuscriptionRoof"
             type="text/javascript"
-            dangerouslySetInnerHTML={{
-                __html: `
-                     window.addEventListener('DOMContentLoaded', () => {
-                        const parts = document.cookie.split("; ProductoPremiumId=");
-                        const productsPremium = parts.length === 2
-                            ? parts.pop().split(';').shift()
-                            : '';  
-                            if(productsPremium && productsPremium.includes("2")){
-                                const button = document.querySelector(
-                                    'a.--roof-button.--subscribe'
-                                );
-                                button && button.classList.add('none');
-                            }      
-                     })
-                 `
-            }}
+            src={deployment(
+                `${contextPath}/resources/js/LN/scriptBuildRoof.min.js`
+            )}
         />
     ) : (
         <></>

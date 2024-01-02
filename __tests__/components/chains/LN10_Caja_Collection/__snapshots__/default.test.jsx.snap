@@ -241,23 +241,9 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
         </div>
       </div>
       <script
+        id="scriptBtnSuscriptionRoof"
         type="text/javascript"
-      >
-        
-                     window.addEventListener('DOMContentLoaded', () =&gt; {
-                        const parts = document.cookie.split("; ProductoPremiumId=");
-                        const productsPremium = parts.length === 2
-                            ? parts.pop().split(';').shift()
-                            : '';  
-                            if(productsPremium && productsPremium.includes("2")){
-                                const button = document.querySelector(
-                                    'a.--roof-button.--subscribe'
-                                );
-                                button && button.classList.add('none');
-                            }      
-                     })
-                 
-      </script>
+      />
       <section
         class="content-lab"
       >

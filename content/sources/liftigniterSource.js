@@ -21,8 +21,6 @@ import parseUrl from './utils/parseUrl';
 import { isResizerV2 } from '../../components/private/common/utils/image/resizer/v2/resizerHelper';
 import { enumTypeError } from '../../components/private/LN/api/common/enums/enumTypeError';
 import BackendLnError from '../../components/private/LN/api/common/models/backendLnError';
-import { enumTypeInfo } from '../../components/private/LN/api/common/enums/enumTypeInfo';
-import BackendLnInfo from '../../components/private/LN/api/common/models/backendLnInfo';
 
 const transformArticles = (cantidadNotas, liftigniterArticles = []) =>
     liftigniterArticles &&
@@ -215,14 +213,6 @@ const fetch = (query, { cachedCall } = {}) => {
                 cachedCall
             )
         ).then(resp => {
-            console.warn(
-                new BackendLnInfo(
-                    `Info Params - getUrlsbyIds - Query: ${JSON.stringify(
-                        resp || {}
-                    )}`,
-                    enumTypeInfo.liftigniterInfo
-                )
-            );
             return resolveData(resp);
         });
     }

@@ -1475,7 +1475,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         data-variant="primary"
         href="https://lanacion.com"
         target="_self"
-        title="Ir a undefined"
+        title="Ir a carousel title"
       >
         carousel title
       </a>
