@@ -4,7 +4,8 @@ import handleCookie from '../../LN/common/utils/handleCookie';
 
 const Permutive = () => {
     const {
-        layout,
+        contextPath,
+        deployment,
         globalContent: {
             publish_date: publishDate = '',
             credits: { by: creditsBy = [] } = {},
@@ -17,13 +18,6 @@ const Permutive = () => {
     } = useAppContext();
 
     const { getCookie } = handleCookie();
-
-    const getTemplateType = layoutName => {
-        if (['LN-Home_Main', 'LN10-Home_Main'].includes(layoutName))
-            return 'home';
-        if (layoutName.includes('nota')) return 'article';
-        return 'section';
-    };
 
     const authorNames =
         creditsBy.length &&
@@ -38,64 +32,19 @@ const Permutive = () => {
         ...(primarySectionName && { section: primarySectionName }),
         ...(basicHeadline && { title: basicHeadline })
     };
-
-    const conditionalArticleData = Object.keys(article).length
-        ? `"article": ${JSON.stringify(article)}`
-        : '';
-
-    const type = getTemplateType(layout);
     // TODO: Pedir a Permutive para que la key del objeto "user", pase de "suscribed" a "subscribed".
-    const permutiveScript = `
-    ${getTemplateType.toString()}
-    const permutiveGetCookie = ${getCookie};
-    const userCookie = permutiveGetCookie('ProductoPremiumId') || [];
-    const isUserLoggedIn = !!permutiveGetCookie('token');
-    const isUserSubscribed = userCookie.includes('2');
 
-    const user = {
-        loggedIn: isUserLoggedIn,
-        suscribed: isUserSubscribed,
-        ...(userCookie &&
-            userCookie.length && {typeOfSuscription: userCookie.split(',')})
-      }
-
-
-    !function(e,o,n,i){if(!e){e=e||{},window.permutive=e,e.q=[];var t=function(){return([1e7]+-1e3+-4e3+-8e3+-1e11)
-    .replace(/[018]/g,function(e){return(e^(window.crypto||window.msCrypto).getRandomValues(new Uint8Array(1))[0]&15>>e/4)
-    .toString(16)})};e.config=i||{},e.config.apiKey=o,e.config.workspaceId=n,e.config.environment=e.config.environment||"production",
-    (window.crypto||window.msCrypto)&&(e.config.viewId=t());
-    for(var g=["addon","identify","track","trigger","query","segment","segments","ready","on","once","user","consent"],
-    r=0;r<g.length;r++){var w=g[r];e[w]=function(o){return function(){var n=Array.prototype.slice.call(arguments,0);
-    e.q.push({functionName:o,arguments:n})}}(w)}}}
-    (window.permutive,"2f46069c-4d57-4535-9aeb-582079606f3b","867f8423-d142-4fd1-ae8d-1a9bbbdf2358",{"consentRequired": false});
-    window.googletag=window.googletag||{},window.googletag.cmd=window.googletag.cmd||[],window.googletag.cmd.push(function()
-    {if(0===window.googletag.pubads().getTargeting("permutive").length){var e=window.localStorage.getItem("_pdfps");window.googletag.pubads()
-    .setTargeting("permutive",e?JSON.parse(e):[]);var o=window.localStorage.getItem("permutive-id");o&&(window.googletag.pubads()
-    .setTargeting("puid",o),window.googletag.pubads().setTargeting("ptime",Date.now().toString())),window.permutive.config.viewId&&window
-    .googletag.pubads().setTargeting("prmtvvid",window.permutive.config.viewId),window.permutive.config.workspaceId&&window.googletag.pubads()
-    .setTargeting("prmtvwid",window.permutive.config.workspaceId)}});
-    permutive.addon('web',{
-      "page": {
-        "classifications_watson": {
-          "categories": "$alchemy_taxonomy",
-          "concepts": "$alchemy_concepts",
-          "emotion": "$alchemy_document_emotion",
-          "entities": "$alchemy_entities",
-          "keywords": "$alchemy_keywords",
-          "sentiment": "$alchemy_document_sentiment"
-        },
-        "type": "${type}",
-        "user": user,
-        ${conditionalArticleData}
-      }
-    });
-    `;
     return (
         <>
             <script
+                id="script-permutive"
+                data-article={JSON.stringify(article)}
+                data-get-cookie={getCookie.toString()}
                 async
                 type="text/javascript"
-                dangerouslySetInnerHTML={{ __html: permutiveScript }}
+                src={deployment(
+                    `${contextPath}/resources/js/LN/Permutive.min.js`
+                )}
             />
             <script
                 async

@@ -60,7 +60,7 @@ const googlePublisherTagAcumulado = props => {
         const googleTagGetCookie = ${getCookie};
         const googleTagUserCookie = googleTagGetCookie('ProductoPremiumId') || [];
         const googleTagEmailCookie = googleTagGetCookie('usuarioemail') || '';
-        const googleTagSuscriptionType = userCookie.includes('2') ? 'suscriptor' : 'no suscriptor';
+        const googleTagSuscriptionType = googleTagUserCookie.includes('2') ? 'suscriptor' : 'no suscriptor';
 
             var pbjs = pbjs || {};
             pbjs.que = pbjs.que || [];
