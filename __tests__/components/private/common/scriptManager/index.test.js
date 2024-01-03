@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/no-multi-comp */
 import React, { Component } from 'react';
 import Consumer from 'fusion:consumer';
 import { mount, shallow } from 'enzyme';
@@ -31,12 +28,6 @@ describe('ScriptManager ...', () => {
             ERRORS.ARGUMENTS_COMPONENTS
         );
     });
-
-    // it('... que requiere configuracion', () => {
-    //     expect(() => ScriptManager({ foo: 'foo' }, undefined)).toThrowError(
-    //         ERRORS.ARGUMENTS_COMPONENTS
-    //     );
-    // });
 });
 
 describe('ScriptManager genera un builder', () => {
@@ -139,7 +130,8 @@ describe('getScriptsToLoad', () => {
             'AmazonPublisherServices',
             'ComscoreVideo',
             'DevReactTracker',
-            'Marfeel'
+            'Marfeel',
+            'ScriptDivBannerSSR'
         ]);
         expect(Object.keys(result)).toEqual([
             'Datadog',
@@ -160,7 +152,8 @@ describe('getScriptsToLoad', () => {
             'AmazonPublisherServices',
             'ComscoreVideo',
             'DevReactTracker',
-            'Marfeel'
+            'Marfeel',
+            'ScriptDivBannerSSR'
         ]);
         expect(result.Datadog).toBeDefined();
     });

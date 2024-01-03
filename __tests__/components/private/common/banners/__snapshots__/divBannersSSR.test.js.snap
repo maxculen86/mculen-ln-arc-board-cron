@@ -37,16 +37,6 @@ exports[`Private - Common - Banners - Div Banners SSR should return div banner w
         </svg>
       </i>
     </button>
-    <script>
-      
-                            window.addEventListener('DOMContentLoaded', () =&gt; {
-                                document.getElementById('random_banner_btnCloseAd').onclick = function() {
-                                    
-                                    this.parentNode && this.parentNode.classList.add('none')
-                                };
-                            });
-                            
-    </script>
   </div>
 </div>
 `;
