@@ -9,7 +9,7 @@ import '../../../../../resources/dist/css/ln/components/appointment.css';
 
 import Paragraph from './parrafo';
 
-const pullQuote = props => {
+const pullQuote = (props, ...p) => {
     const {
         data: {
             citation: { content: author = '' } = {},
@@ -22,7 +22,7 @@ const pullQuote = props => {
 
     return (
         subtype === 'pullquote' && (
-            <section className="com-cita autor">
+            <section {...p} className="com-cita autor">
                 <section className="cont-cita">
                     <div className="title-cita">
                         <Paragraph

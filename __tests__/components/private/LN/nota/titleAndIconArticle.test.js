@@ -1,5 +1,6 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import Context from 'fusion:context';
 import nota from '../../../../../__mocks__/data/articles/TWKFZQ6FCNF3ZKPHGGZPMSSOGQ';
 import TitleArticle from '../../../../../components/private/LN/nota/apertura/titleAndIconArticle';
@@ -22,14 +23,15 @@ describe('features - LaNacion - Nota - TituloNota', () => {
         deployment: () => {},
         contextPath: ''
     }));
-    const component = render(
-        <TitleArticle
-            globalContent={nota}
-            layout={'LN-nota-noticia'}
-            customFields={{ prefix: '' }}
-        />
-    );
+
     it('Test de snapshot Titulo e Icono en Nota', () => {
-        expect(component).toMatchSnapshot();
+        const { container } = render(
+            <TitleArticle
+                globalContent={nota}
+                layout={'LN-nota-noticia'}
+                customFields={{ prefix: '' }}
+            />
+        );
+        expect(container).toMatchSnapshot();
     });
 });

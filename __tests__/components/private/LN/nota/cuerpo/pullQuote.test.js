@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import PullQuote from '../../../../../../components/private/LN/nota/cuerpo/pullQuote';
 
 describe('PullQuote', () => {
@@ -9,38 +10,23 @@ describe('PullQuote', () => {
         },
         content_elements: [
             {
-                content: `Lorem ipsum dolor sit amet, <b>consectetur</b> adipiscing elit. Donec 
-                          nulla elit, fermentum non neque sed, feugiat interdum <i>ligula</i>`
+                content: `Lorem ipsum dolor sit amet, <b>consectetur</b> adipiscing elit. Donec
+                      nulla elit, fermentum non neque sed, feugiat interdum <i>ligula</i>`
             }
         ],
         subtype: 'pullquote'
     };
 
-    let component;
-
-    beforeEach(() => {
-        component = mount(<PullQuote data={data} />);
-    });
-
-    afterEach(() => {
-        component = null;
-    });
-
     it('Matches snapshot', () => {
-        const pullquote = render(<PullQuote data={data} />);
-        expect(pullquote).toMatchSnapshot();
-    });
-
-    it('Prints author', () => {
-        expect(component.find('h3.nombre-firma').text()).toMatch(
-            data.citation.content
+        const { container } = render(
+            <PullQuote data={data} data-testid="quote" />
         );
+        expect(container).toMatchSnapshot();
     });
 
     it('Prints quote and quotation marks correctly', () => {
-        expect(component.find('div.title-cita').text()).toContain(`"`);
-        expect(component.find('div.title-cita').text()).toContain(
-            `Lorem ipsum dolor sit amet`
-        );
+        render(<PullQuote data={data} data-testid="quote" />);
+        const textoElement = screen.getByText(/Lorem ipsum dolor sit amet,/);
+        expect(textoElement).toBeInTheDocument();
     });
 });

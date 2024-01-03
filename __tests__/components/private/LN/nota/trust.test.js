@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -28,7 +29,7 @@ import Trust from '../../../../../components/features/LN-nota/trust';
 
 describe('Trust', () => {
     it('Does not show when sponsored content is present', () => {
-        const component = mount(<Trust />);
-        expect(component.html()).toBeFalsy();
+        const { container } = render(<Trust />);
+        expect(container.firstChild).toBeNull();
     });
 });
