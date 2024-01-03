@@ -1,9 +1,10 @@
-import { PERSONALIZACION_API } from 'fusion:environment';
+import { PERSONALIZACION_APIV2 } from 'fusion:environment';
 import { useState, useEffect, useCallback } from 'react';
 
 export default function useCheckBookmark(
     termicaBookmark,
     token,
+    accessToken,
     noteId,
     isSuscriber
 ) {
@@ -11,20 +12,23 @@ export default function useCheckBookmark(
 
     const getDataFromAPI = useCallback(async () => {
         try {
-            const res = await fetch(
-                `${PERSONALIZACION_API}bookmarks-type/story/${noteId}`,
-                {
-                    method: 'GET',
-                    headers: {
-                        Authorization: token
+            if (accessToken && token) {
+                const res = await fetch(
+                    `${PERSONALIZACION_APIV2}bookmarks-type/story/${noteId}`,
+                    {
+                        method: 'GET',
+                        headers: {
+                            Authorization: `Bearer ${accessToken}`,
+                            'X-Token': token
+                        }
                     }
-                }
-            );
+                );
 
-            if (res.ok) {
-                const datos = await res.json();
-                const { bookmarkId = '' } = datos;
-                setData(bookmarkId);
+                if (res.ok) {
+                    const datos = await res.json();
+                    const { bookmarkId = '' } = datos;
+                    setData(bookmarkId);
+                }
             }
         } catch (err) {
             // eslint-disable-next-line no-console

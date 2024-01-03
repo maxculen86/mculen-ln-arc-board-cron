@@ -11,6 +11,7 @@ describe('Private - Common - Hooks - Bookmark - useCheckBookmark', () => {
 
     const termicaBookmark = true;
     const token = 'D5A09D56-8E4B-4BED-AD7E-65B73EBC8DF3';
+    const accessToken = 'D5A09D56-8E4B-4BED-AD7E-65B73EBC8DF3';
     const id = '53EATJZRNRF7XBWU76XLHLTURI';
     const bookmarkId = '722cd2ae-3917-48f5-8c1d-775ab46a27fe';
     const isSuscriber = true;
@@ -49,12 +50,13 @@ describe('Private - Common - Hooks - Bookmark - useCheckBookmark', () => {
         expect(fetch).not.toBeCalled();
     });
     it('Should call fetch correctly and return bookmarkId when note is saved', async () => {
-        useCheckBookmark(termicaBookmark, token, id, isSuscriber);
+        useCheckBookmark(termicaBookmark, token, accessToken, id, isSuscriber);
         expect(fetch).toBeCalledWith(
-            `https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/bookmarks-type/story/${id}`,
+            `https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/bookmarks-type/story/${id}`,
             {
                 headers: {
-                    Authorization: token
+                    Authorization: `Bearer ${accessToken}`,
+                    'X-Token': token
                 },
                 method: 'GET'
             }

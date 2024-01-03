@@ -84,6 +84,7 @@ const Barrier = ({
                                 classCondition={buttons.confirm.style}
                                 onClick={() => {
                                     toggleBookmark(
+                                        getToken('access-token'),
                                         getToken(),
                                         bookmarkId,
                                         false,

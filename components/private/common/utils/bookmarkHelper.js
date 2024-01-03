@@ -1,9 +1,10 @@
-import { PERSONALIZACION_API } from 'fusion:environment';
+import { PERSONALIZACION_APIV2 } from 'fusion:environment';
 import get from './get';
 import { getAutorId, getTagId } from './getElementId';
 import dateAndTimeUtil from './dateAndTimeUtil';
 
 export default function toggleBookmark(
+    accessToken,
     token,
     isDelete,
     setBookmark,
@@ -39,24 +40,29 @@ export default function toggleBookmark(
         });
 
         try {
-            const res = await fetch(
-                `${PERSONALIZACION_API}bookmarks${fetchBookmarkPath}`,
-                {
-                    method: isDelete ? 'DELETE' : 'POST',
-                    headers: {
-                        Authorization: token
-                    },
-                    body: JSON.stringify(bookmarkRequestBody)
-                }
-            );
-            statusActions[res.status]
-                ? statusActions[res.status]({
-                      response: res,
-                      dispatch,
-                      setBookmark
-                  })
-                : statusActions.default({ dispatch });
-            return res.status;
+            if (accessToken && token) {
+                const res = await fetch(
+                    `${PERSONALIZACION_APIV2}bookmarks${fetchBookmarkPath}`,
+                    {
+                        method: isDelete ? 'DELETE' : 'POST',
+                        headers: {
+                            Authorization: `Bearer ${accessToken}`,
+                            'X-Token': token
+                        },
+                        body: JSON.stringify(bookmarkRequestBody)
+                    }
+                );
+
+                statusActions[res.status]
+                    ? statusActions[res.status]({
+                          response: res,
+                          dispatch,
+                          setBookmark
+                      })
+                    : statusActions.default({ dispatch });
+
+                return res.status;
+            }
         } catch (err) {
             // eslint-disable-next-line no-console
             console.error(err);
