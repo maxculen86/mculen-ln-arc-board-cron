@@ -4,6 +4,7 @@ import { setTitleByLayout } from '../../../common/elements/titles/index';
 import { setDolarByLayout } from '../../../common/elements/dolars/index';
 import { divideSectionsByDiagramation } from '../../../common/elements/sections/index';
 import { setRankingByLayout } from '../../../common/elements/ranking/index';
+import BackendLnError from '../../../../../../../components/private/LN/api/common/models/backendLnError';
 
 const transform = async (dataPage, query) => {
     const {
@@ -65,12 +66,11 @@ const transform = async (dataPage, query) => {
         return elementsPageHome;
     } catch (error) {
         // eslint-disable-next-line no-console
-        console.warn(
+        throw new BackendLnError(
             `Error Transform - v1/mobile/transform :  layout: ${layoutPage} - query: ${JSON.stringify(
                 query
             )} - errorMsj:${error.message}`
         );
-        throw new Error(error);
     }
 };
 

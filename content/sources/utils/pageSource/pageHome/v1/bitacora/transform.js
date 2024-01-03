@@ -2,6 +2,7 @@ import {
     infoLNMainLN10,
     infoLNMain
 } from '../../../../../../../components/private/LN/api/common/home/config/configInfoSectionsByLayout';
+import BackendLnError from '../../../../../../../components/private/LN/api/common/models/backendLnError';
 
 const specialBox = {
     'ln-acumulado/timeline': 'timeline',
@@ -133,12 +134,11 @@ const transform = async (dataPage, query) => {
         return { cajas };
     } catch (error) {
         // eslint-disable-next-line no-console
-        console.warn(
-            `Error Transform - v1/bitacora/transform :  layout: ${layoutPage} - query: ${JSON.stringify(
-                query
-            )} - errorMsj:${error.message}`
-        );
-        throw new Error(error);
+
+        throw new BackendLnError(`Error Transform - v1/bitacora/transform :  layout: ${layoutPage} - query: ${JSON.stringify(
+            query
+        )} - errorMsj:${error.message}
+        dataPage: ${JSON.stringify(dataPage)}`);
     }
 };
 
