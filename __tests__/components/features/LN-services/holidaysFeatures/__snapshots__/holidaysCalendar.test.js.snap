@@ -31,17 +31,6 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
         class="year"
       >
         <li
-          class="--font-bold --fivexs"
-        >
-          <a
-            class="com-link"
-            href="/feriados/2022/"
-            title="Ir a feriados 2022"
-          >
-            2022
-          </a>
-        </li>
-        <li
           class="--font-bold --fivexs --active"
         >
           <span
@@ -59,6 +48,17 @@ exports[`Components- Features - HolidaysCalendar - default.jsx - test Should mat
             title="Ir a feriados 2024"
           >
             2024
+          </a>
+        </li>
+        <li
+          class="--font-bold --fivexs"
+        >
+          <a
+            class="com-link"
+            href="/feriados/2025/"
+            title="Ir a feriados 2025"
+          >
+            2025
           </a>
         </li>
       </ol>
