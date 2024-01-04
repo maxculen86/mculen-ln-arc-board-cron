@@ -135,10 +135,12 @@ const transform = async (dataPage, query) => {
     } catch (error) {
         // eslint-disable-next-line no-console
 
-        throw new BackendLnError(`Error Transform - v1/bitacora/transform :  layout: ${layoutPage} - query: ${JSON.stringify(
-            query
-        )} - errorMsj:${error.message}
-        dataPage: ${JSON.stringify(dataPage)}`);
+        throw new BackendLnError(
+            `Error Transform - v1/bitacora/transform :  layout: ${layoutPage} - 
+        query: ${JSON.stringify(query)} - errorMsj:${error.message}
+        dataPage: ${JSON.stringify(dataPage)}`,
+            enumTypeError.bitacoraError
+        );
     }
 };
 
