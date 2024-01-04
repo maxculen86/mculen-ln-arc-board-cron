@@ -6,6 +6,7 @@ const Permutive = () => {
     const {
         contextPath,
         deployment,
+        layout,
         globalContent: {
             publish_date: publishDate = '',
             credits: { by: creditsBy = [] } = {},
@@ -38,6 +39,7 @@ const Permutive = () => {
         <>
             <script
                 id="script-permutive"
+                data-layout={layout}
                 data-article={JSON.stringify(article)}
                 data-get-cookie={getCookie.toString()}
                 async
