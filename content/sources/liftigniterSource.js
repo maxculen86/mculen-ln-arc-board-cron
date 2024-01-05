@@ -83,7 +83,8 @@ const getUrlsbyIds = async (query, cachedCall) => {
             query: {
                 ...queryArticles
             },
-            ttl: 500
+            ttl: 3600,
+            independent: true
         })
             .then(resp => {
                 const queryAdapted = { ...query };
