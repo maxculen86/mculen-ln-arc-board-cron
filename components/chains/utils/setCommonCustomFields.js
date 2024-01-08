@@ -1,6 +1,6 @@
 import PropTypes from 'fusion:prop-types';
 
-const typesButtonStyle = {
+export const typesButtonStyle = {
     'sub-exclusive': 'Exclusivo Suscriptor',
     generico: 'Genérico',
     ln: 'LN+'

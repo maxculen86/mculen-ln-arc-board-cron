@@ -12,6 +12,10 @@ import getDynamicBanners from '../../../private/common/banners/dynamicBanners/ge
 import { getErrorMessage, isInSection } from './common/_helper-WebApi';
 import SetFixedHeight from '../../../private/common/SetFixedHeight';
 import '../../../../resources/dist/css/ln/modules/skeleton-box.css';
+import { useRoofData } from '../../../chains/utils/_helpers';
+import BuildRoof from '../../../chains/utils/_BuildRoof/default';
+import classNames from 'classnames';
+import { typesButtonStyle } from '../../../chains/utils/setCommonCustomFields';
 
 const AnexoFeature = props => {
     const { id, customFields = {} } = props;
@@ -22,12 +26,37 @@ const AnexoFeature = props => {
         siteProperties
     } = useAppContext();
 
-    const { heightDesktop, heightTablet, heightMobile } = customFields;
+    const {
+        heightDesktop,
+        heightTablet,
+        heightMobile,
+        logoId,
+        link,
+        hideTitle,
+        title,
+        navigator,
+        buttonText,
+        linkButton,
+        buttonStyle
+    } = customFields;
 
     const isPreApertura = isInSection({
         sectionName: 'Pre_Apertura',
         id,
         renderables
+    });
+
+    const classNameRoof = classNames({ 'lay-container': isPreApertura });
+
+    const roofData = useRoofData({
+        logoId,
+        link,
+        hideTitle,
+        title,
+        navigator,
+        buttonText,
+        linkButton,
+        buttonStyle
     });
 
     const errorMessage = getErrorMessage({ isPreApertura, customFields });
@@ -53,7 +82,9 @@ const AnexoFeature = props => {
                 isAdmin
             },
             bannerMob,
-            bannerDsk
+            bannerDsk,
+            roofData,
+            classNameRoof
         );
 
     const anexoId = `anexo-responsive-${id}`;
@@ -82,17 +113,19 @@ const AnexoFeature = props => {
         </>
     );
 
-    const iframeFinal =
-        layout === get(siteProperties, 'layoutsName.Home') ? (
-            <StaticContent>{iframeURLContent}</StaticContent>
-        ) : (
-            iframeURLContent
-        );
+    const iframeFinal = <StaticContent>{iframeURLContent}</StaticContent>;
 
     return _type === 'Iframe' ? iframeFinal : comp();
 };
 
-const getComponentFromConfig = (_type, _props, bannerMob, bannerDsk) => {
+export const getComponentFromConfig = (
+    _type,
+    _props,
+    bannerMob,
+    bannerDsk,
+    roofData,
+    classNameRoof
+) => {
     const components = {
         Error: ({ id, errorMessage }) => (
             <PageBuilderMessage
@@ -103,6 +136,9 @@ const getComponentFromConfig = (_type, _props, bannerMob, bannerDsk) => {
         ),
         Html: ({ customFields: { html = '' }, extraClass }) => (
             <>
+                <div className={classNameRoof}>
+                    <BuildRoof {...roofData} />
+                </div>
                 <div
                     className={`com-anexo ${extraClass}`}
                     dangerouslySetInnerHTML={{
@@ -116,22 +152,27 @@ const getComponentFromConfig = (_type, _props, bannerMob, bannerDsk) => {
         Iframe: ({ id, customFields: { url = '' } }) => {
             const anexoId = `anexo-${id}`;
             return (
-                <iframe
-                    id={anexoId}
-                    title={anexoId}
-                    data-src={!_props.isAdmin ? url : undefined}
-                    src={_props.isAdmin ? url : undefined}
-                    frameBorder="0"
-                    width="100%"
-                    height="100%"
-                />
+                <>
+                    <div className={classNameRoof}>
+                        <BuildRoof {...roofData} />
+                    </div>
+                    <iframe
+                        id={anexoId}
+                        title={anexoId}
+                        data-src={!_props.isAdmin ? url : undefined}
+                        src={_props.isAdmin ? url : undefined}
+                        frameBorder="0"
+                        width="100%"
+                        height="100%"
+                    />
+                </>
             );
         }
     };
     return (components[_type] && components[_type](_props)) || <></>;
 };
 
-const getComponentType = ({
+export const getComponentType = ({
     isAdmin,
     errorMessage,
     customFields: {
@@ -204,6 +245,61 @@ AnexoFeature.propTypes = {
             group: adjustByHTML,
             description: 'Marque para ocultar el anexo',
             defaultValue: false
+        }),
+        title: PropTypes.string.tag({
+            name: 'Texto',
+            description: 'Ingrese aquí el título de la caja.',
+            defaultValue: '',
+            group: 'Techo'
+        }),
+        link: PropTypes.url.tag({
+            label: 'Url',
+            description:
+                'Ingrese la url que redirige al hacer click al titulo. El formato debe empezar con https://',
+            defaultValue: '',
+            group: 'Techo'
+        }),
+        logoId: PropTypes.string.tag({
+            name: 'Logo',
+            description: 'Ingrese aquí el id de Photo Center de la imagen',
+            defaultValue: '',
+            group: 'Techo'
+        }),
+        hideTitle: PropTypes.boolean.tag({
+            name: 'Ocultar techo',
+            description: 'Marque para ocultar el techo',
+            defaultValue: true,
+            group: 'Techo'
+        }),
+        navigator: PropTypes.string.tag({
+            name: 'Navegador',
+            description:
+                'Ingrese aquí el nombre de una navegación creada en site services',
+            defaultValue: '',
+            group: 'Techo'
+        }),
+        buttonText: PropTypes.string.tag({
+            name: 'Texto del botón',
+            description: 'Ingrese aquí el texto del botón',
+            defaultValue: '',
+            group: 'Techo',
+            hidden: false
+        }),
+        linkButton: PropTypes.string.tag({
+            name: 'Url del botón',
+            description:
+                'Ingrese la url que redirige al hacer click al botón. El formato debe empezar con https://',
+            defaultValue: '',
+            group: 'Techo',
+            hidden: false
+        }),
+        buttonStyle: PropTypes.oneOf(Object.keys(typesButtonStyle)).tag({
+            label: 'Estilo del boton',
+            defaultValue: 'generic',
+            description: 'Cambiar el diseño de la caja',
+            group: 'Techo',
+            labels: typesButtonStyle,
+            hidden: false
         })
     }).isRequired
 };
