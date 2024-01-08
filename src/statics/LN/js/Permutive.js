@@ -1,6 +1,9 @@
 const article = JSON.parse(
     document.getElementById('script-permutive').getAttribute('data-article')
 );
+const layout = document
+    .getElementById('script-permutive')
+    .getAttribute('data-layout');
 const serializedGetCookie = document.getElementById('script-permutive').dataset
     .getCookie;
 const permutiveGetCookie = eval(`(${serializedGetCookie})`);
@@ -22,7 +25,7 @@ const user = {
         userCookie.length && { typeOfSuscription: userCookie.split(',') })
 };
 
-const type = getTemplateType(Fusion.layout);
+const type = getTemplateType(layout);
 
 const permutivecustomProperties = {
     page: {

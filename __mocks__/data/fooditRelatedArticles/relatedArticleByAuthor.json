@@ -1,0 +1,186 @@
+[
+    {
+        "_id": "NSPVLYYPBBBNVEPBDDBMDW6DMQ",
+        "credits": {
+            "by": [
+                {
+                    "_id": "maru-botana-3363",
+                    "name": "Maru Botana",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Una comida no saludable"
+        },
+        "promo_items": {
+            "basic": {
+                "height": 340,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 280,
+                            "maxScreenWidth": 767,
+                            "media_preload": "(max-width: 767px)",
+                            "proportion": "3:2",
+                            "width": 420
+                        },
+                        "resizedUrl": "https://www.lanacion.com.ar/resizer/-T5F1KO-3Gu4_hHJHlbjAkEhREM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media_preload": "(min-width: 768px)",
+                            "proportion": "3:2",
+                            "width": 238
+                        },
+                        "resizedUrl": "https://www.lanacion.com.ar/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                    }
+                ],
+                "url": "https://www.lanacion.com.ar/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg",
+                "width": 453
+            }
+        },
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/dieta/una-comida-no-saludable-nid06092023/"
+    },
+    {
+        "_id": "W3X6SLG6HREC5OMEHHYURYOLOM",
+        "credits": {
+            "by": [
+                {
+                    "_id": "maru-botana-3363",
+                    "name": "Maru Botana",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Una dieta ...poco saludable"
+        },
+        "promo_items": {
+            "basic": {
+                "height": 340,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 280,
+                            "maxScreenWidth": 767,
+                            "media_preload": "(max-width: 767px)",
+                            "proportion": "3:2",
+                            "width": 420
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/-T5F1KO-3Gu4_hHJHlbjAkEhREM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media_preload": "(min-width: 768px)",
+                            "proportion": "3:2",
+                            "width": 238
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                    }
+                ],
+                "url": "https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg",
+                "width": 453
+            }
+        },
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/dieta/una-dieta-poco-saludable-nid18092023/"
+    },
+    {
+        "_id": "JGVKXH4GTJEOXBZYZQ27HCG53E",
+        "credits": {
+            "by": [
+                {
+                    "_id": "maru-botana-3363",
+                    "name": "Maru Botana",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Una comida si saludable"
+        },
+        "promo_items": {
+            "basic": {
+                "height": 340,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 280,
+                            "maxScreenWidth": 767,
+                            "media_preload": "(max-width: 767px)",
+                            "proportion": "3:2",
+                            "width": 420
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/-T5F1KO-3Gu4_hHJHlbjAkEhREM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media_preload": "(min-width: 768px)",
+                            "proportion": "3:2",
+                            "width": 238
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                    }
+                ],
+                "url": "https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg",
+                "width": 453
+            }
+        },
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/dieta/una-comida-si-saludable-nid18092023/"
+    },
+    {
+        "_id": "MLYMNJ3XGVD5DASADX74FTZKZU",
+        "credits": {
+            "by": [
+                {
+                    "_id": "maru-botana-3363",
+                    "name": "Maru Botana",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Una comida mas o menos saludable"
+        },
+        "promo_items": {
+            "basic": {
+                "height": 340,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 280,
+                            "maxScreenWidth": 767,
+                            "media_preload": "(max-width: 767px)",
+                            "proportion": "3:2",
+                            "width": 420
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/-T5F1KO-3Gu4_hHJHlbjAkEhREM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media_preload": "(min-width: 768px)",
+                            "proportion": "3:2",
+                            "width": 238
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/uyeqgz-uiqDUf-wLyAO6FeiisMQ=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg"
+                    }
+                ],
+                "url": "https://resizer.glanacion.com/resizer/ttw_XUbR1t55Ty0ISOaOlcVCJ2c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/A4K4E42OW5GKHAPCLOBH7A2WBY.jpg",
+                "width": 453
+            }
+        },
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/dieta/una-comida-mas-o-menos-saludable-nid18092023/"
+    }
+]

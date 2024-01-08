@@ -2,7 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import RelatedArticles from '../../../../../components/features/foodit/RelatedArticles/foodit';
-import articles from ' ../../../__mocks__/data/foodit_Caja_Collection/articlesTransformed';
+import relatedArticlesMock from ' ../../../__mocks__/data/fooditRelatedArticles/relatedArticles.json';
+import relatedArticlesByAuthorMock from ' ../../../__mocks__/data/fooditRelatedArticles/relatedArticleByAuthor.json';
 import useGetRelatedArticles from '../../../../../components/features/foodit-global/hooks/useGetRelatedArticles';
 
 jest.mock('fusion:consumer', Component => {
@@ -10,10 +11,19 @@ jest.mock('fusion:consumer', Component => {
         return props => <Component {...props} />;
     };
 });
+
 jest.mock(
     '../../../../../components/features/foodit-global/hooks/useGetRelatedArticles',
     () => jest.fn()
 );
+
+const observe = jest.fn();
+const unobserve = jest.fn();
+
+window.IntersectionObserver = jest.fn(() => ({
+    observe,
+    unobserve
+}));
 
 describe('Tests feature Foodit RelatedArticles', () => {
     describe('Tests cases for error', () => {
@@ -124,6 +134,127 @@ describe('Tests feature Foodit RelatedArticles', () => {
             render(<RelatedArticles {...props} />);
             expect(
                 screen.getByText('Se requiere que seleccione una diagramación')
+            ).toBeInTheDocument();
+        });
+    });
+
+    describe('Tests cases for RelatedArticles', () => {
+        test('should show articles carousel', () => {
+            useGetRelatedArticles.mockImplementation(() => relatedArticlesMock);
+
+            const customFields = {
+                idSectionOrAuthor: '',
+                filterBy: 'relatedArticles',
+                layout: 'carousel'
+            };
+            const props = {
+                id: '12345',
+                isAdmin: true,
+                customFields,
+                globalContent: {
+                    taxonomy: {
+                        primary_section: {
+                            _id: 'primary section id',
+                            name: 'Pollo'
+                        }
+                    }
+                }
+            };
+
+            render(<RelatedArticles {...props} />);
+
+            expect(screen.getByText('Más recetas: Pollo')).toBeInTheDocument();
+
+            expect(
+                screen.getByText('Torta de chocolate, chiles y almendras')
+            ).toBeInTheDocument();
+        });
+
+        test('should show articles grid 12', () => {
+            useGetRelatedArticles.mockImplementation(() => relatedArticlesMock);
+
+            const customFields = {
+                idSectionOrAuthor: '',
+                filterBy: 'relatedArticles',
+                layout: 'bn_12_grid'
+            };
+            const props = {
+                id: '12345',
+                isAdmin: true,
+                customFields,
+                globalContent: {
+                    taxonomy: {
+                        primary_section: {
+                            _id: 'primary section id',
+                            name: 'Fácil'
+                        }
+                    }
+                }
+            };
+
+            render(<RelatedArticles {...props} />);
+
+            expect(screen.getByText('Más recetas: Fácil')).toBeInTheDocument();
+
+            expect(
+                screen.getByText('Torta de chocolate, chiles y almendras')
+            ).toBeInTheDocument();
+        });
+
+        test('Should show title by section', () => {
+            useGetRelatedArticles.mockImplementation(() => relatedArticlesMock);
+
+            const customFields = {
+                idSectionOrAuthor: '/recetas/saladas/pizza',
+                filterBy: 'section',
+                layout: 'carousel'
+            };
+            const props = {
+                id: '12345',
+                isAdmin: true,
+                customFields,
+                globalContent: {
+                    taxonomy: {
+                        primary_section: {
+                            _id: 'primary section id',
+                            name: 'Pollo'
+                        }
+                    }
+                }
+            };
+
+            render(<RelatedArticles {...props} />);
+            expect(screen.getByText('Más recetas: Pizza')).toBeInTheDocument();
+        });
+
+        test('Should show title by author', () => {
+            useGetRelatedArticles.mockImplementation(
+                () => relatedArticlesByAuthorMock
+            );
+
+            const customFields = {
+                idSectionOrAuthor: 'maru-botana-3363', // Mocked response made from this author Id
+                filterBy: 'author',
+                layout: 'carousel'
+            };
+            const props = {
+                id: '12345',
+                isAdmin: true,
+                customFields,
+                globalContent: {
+                    taxonomy: {
+                        primary_section: {
+                            _id: 'primary section id',
+                            name: 'Pollo'
+                        }
+                    }
+                }
+            };
+
+            render(<RelatedArticles {...props} />);
+
+            expect(
+                screen.getByText('Más recetas: Maru Botana')
             ).toBeInTheDocument();
         });
     });
