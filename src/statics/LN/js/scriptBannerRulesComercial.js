@@ -5,7 +5,7 @@ export const hideBannerComercial = () => {
         const slotId = scriptElement.getAttribute('data-slotId');
 
         setTimeout(() => {
-            const bannerComercial = document.getElementById(slotId);
+            const bannerComercial = document.getElementById(`${slotId}`);
             bannerComercial && bannerComercial.parentNode.classList.add('none');
         }, 12000);
     }
