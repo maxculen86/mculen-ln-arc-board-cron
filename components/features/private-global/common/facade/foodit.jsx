@@ -33,7 +33,7 @@ const Facade = ({ id, altText, image, resizedUrls, isOpening = false }) => {
             <Adaptableimage
                 alt={altText}
                 src={image}
-                className="w-100"
+                className="w-100 ratio-inherit"
                 fetchPriority={isOpening ? 'high' : 'low'}
                 loading={isOpening ? 'eager' : 'lazy'}
                 sources={getImagesToLoadWithPicture(resizedUrls)}

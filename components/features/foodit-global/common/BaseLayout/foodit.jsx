@@ -7,6 +7,7 @@ import Modal from '../Modals/SaveRecipe/foodit';
 import DrawerMyAccount from '../DrawerMyAccount/foodit';
 import classNames from 'classnames';
 import FloatingGroupButton from '../floatingGroupButton/foodit';
+import Toasts from '../toasts/foodit';
 
 const BaseLayout = ({ children }) => {
     const { layout, siteProperties } = useAppContext();
@@ -30,6 +31,7 @@ const BaseLayout = ({ children }) => {
             </main>
             <Footer />
             <Modal />
+            <Toasts />
             <FloatingGroupButton layout={layout} />
         </div>
     );

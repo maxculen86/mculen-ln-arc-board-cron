@@ -46,7 +46,7 @@ const FooterSaveRecipe = ({
                         setIndexStep
                     })
                 }
-                disabled={selectedFolder === 'Elegir carpeta'}
+                disabled={!selectedFolder?.value}
             >
                 {rightButton.text}
             </Button>

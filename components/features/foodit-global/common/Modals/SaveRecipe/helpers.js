@@ -59,9 +59,14 @@ export const actionButtons = ({
         nextStep: () => setIndexStep(indexStep + 1),
         save: () => {
             const nameFolder =
-                selectedFolder === 'Nueva carpeta' ? newFolder : selectedFolder;
-
-            alert(`Se guardaron los ids: ${ids} en la carpeta ${nameFolder}`);
+                selectedFolder.value === 'new'
+                    ? newFolder
+                    : selectedFolder?.label;
+            window.LN.observable.publish('addToast', {
+                variant: 'success',
+                title: 'Guardado!',
+                message: `Se guardaron los ids: ${ids} en la carpeta ${nameFolder}`
+            });
             close();
         }
     };
@@ -70,7 +75,7 @@ export const actionButtons = ({
 
 export const getConfig = (saveRecipeConfig, selectedFolder, indexStep) => {
     const optionsSave =
-        selectedFolder === 'Nueva carpeta' ? 'new-folder' : 'current-folder';
+        selectedFolder.value === 'new' ? 'new-folder' : 'current-folder';
     const stepIndex = `step-${indexStep}`;
 
     return {
