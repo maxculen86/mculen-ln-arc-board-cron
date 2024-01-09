@@ -44,15 +44,15 @@ describe('getAperturaStorytelling', () => {
 
     it('should handle only basicImageDsk', () => {
         const result = getAperturaStorytelling(
-            {},
+            null,
             basicImageDsk,
-            {},
+            null,
             'desktop'
         );
 
         expect(result.videoUrl).toBe('');
         expect(result.defaultUrl).toBe(
-            'https://sandbox.lanacion.com.ar/resizer/v2/comid-YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg?auth=603dc01e35a4ae0b09e2cc65bfa5aaf7aac6f255a9fc709b9764e6feae89b64e&width=1200&height=800&quality=70&smart=true'
+            'https://sandbox.lanacion.com.ar/resizer/v2/comid-YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg?auth=603dc01e35a4ae0b09e2cc65bfa5aaf7aac6f255a9fc709b9764e6feae89b64e&width=420&height=630&quality=70&smart=true'
         );
         expect(result.resizedUrls.length).toBeGreaterThan(0);
     });

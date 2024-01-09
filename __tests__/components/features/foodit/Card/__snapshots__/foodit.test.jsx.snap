@@ -28,11 +28,12 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                 srcset="https://www.lanacion.com.ar/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
               />
               <img
+                alt=""
                 class="image flex card-image ratio-3-2 w-100"
                 decoding="async"
                 fetchpriority="high"
                 loading="eager"
-                src="https://www.lanacion.com.ar/resizer/HYbSynyGCPurUAS4sNRW1i0qXyI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                src="https://www.lanacion.com.ar/resizer/UAW2_6kmsNW2vZMJz0Ju7tE8PlY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
               />
             </picture>
           </div>
@@ -160,11 +161,12 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
                 srcset="https://resizer.glanacion.com/resizer/Spw-P_Ze--P3HO9SaTYjxuMlPNw=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
               />
               <img
+                alt=""
                 class="image flex card-image ratio-3-2 w-100"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
-                src="https://resizer.glanacion.com/resizer/6r_NB8wBXa3ot_VbRpyo3ypij9Q=/1920x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
+                src="https://resizer.glanacion.com/resizer/Y3c9dz-FJtxyQGLQUN4VDMWeaOY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg"
               />
             </picture>
           </div>
@@ -288,11 +290,12 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
                 srcset="https://www.lanacion.com.ar/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
               />
               <img
+                alt=""
                 class="image flex card-image ratio-3-2 w-100"
                 decoding="async"
                 fetchpriority="low"
                 loading="lazy"
-                src="https://www.lanacion.com.ar/resizer/HYbSynyGCPurUAS4sNRW1i0qXyI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                src="https://www.lanacion.com.ar/resizer/UAW2_6kmsNW2vZMJz0Ju7tE8PlY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
               />
             </picture>
           </div>

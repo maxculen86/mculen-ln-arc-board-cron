@@ -14,7 +14,10 @@ import {
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 
 import filter from '../../../../content/filters/foodit/home/articleFoodit.js';
-import { getImagesToLoadWithPicture } from '../../../private/LN/common/utils/mediaHelper';
+import {
+    getImagesToLoadWithPicture,
+    getShortestImage
+} from '../../../private/LN/common/utils/mediaHelper';
 import StaticContent from '../../../private/common/staticContent';
 import fooditRules from '../../foodit-global/common/utils/fooditRules';
 import classNames from 'classnames';
@@ -76,7 +79,8 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
         href
     } = transformArticleFoodit(articleContent);
 
-    const { alt_text, url, resized_urls } = image;
+    const { alt_text = '', url = '', resized_urls = [] } = image;
+    const { resizedUrl = '' } = getShortestImage(resized_urls);
 
     return (
         <StaticContent className={staticContentClassName} key={featureId}>
@@ -88,7 +92,7 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
                     linksProps={{ href, title }}
                     size={!isOpening && size}
                     variant={isOpening ? 'day-recipe' : variant}
-                    src={url}
+                    src={resizedUrl || url}
                     alt={alt_text}
                     sources={getImagesToLoadWithPicture(resized_urls)}
                     loading={isOpening ? 'eager' : 'lazy'}

@@ -2,9 +2,18 @@ import React from 'react';
 import CriticalCSS from '../features/foodit-global/common/CriticalCss/foodit';
 import CssLinksByArcSite from './Helper/cssLinksByArcSite';
 import ObservableFoodit from './Helper/observableFoodit';
+import PreloadFooditImages from '../features/foodit-global/common/image/preloadImage/foodit';
 
-// TODO: OutputType base, queda pendiente agregar manejo de scripts, metadatos y preload
-const Foodit = ({ children, Libs, Fusion } = {}) => {
+// TODO: OutputType base, queda pendiente agregar manejo de scripts y metadatos
+const Foodit = ({
+    children,
+    Libs,
+    Fusion,
+    layout = '',
+    renderables,
+    globalContent = {},
+    isAdmin
+} = {}) => {
     return (
         <html lang="es">
             <head>
@@ -15,8 +24,14 @@ const Foodit = ({ children, Libs, Fusion } = {}) => {
                 />
                 <meta name="robots" content="noindex, nofollow" />
                 <meta name="theme-color" content="#ffffff" />
-                <title>Recetas</title>
+                <title>Foodit</title>
                 <link rel="manifest" href="/manifest.json" />
+                <PreloadFooditImages
+                    layout={layout}
+                    renderables={renderables}
+                    globalContent={globalContent}
+                    isAdmin={isAdmin}
+                />
                 <CriticalCSS />
                 <CssLinksByArcSite />
                 <Libs />
