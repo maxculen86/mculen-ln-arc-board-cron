@@ -158,14 +158,16 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
             >
               <span
-                class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24"
+                class="badge ln-badge --font-2xs --live"
               >
                 <div
-                  class="pulse-animation"
+                  class="live-animation"
                 >
                   <div
-                    class="pulse w-5 h-5 bg-light-0 rounded-circle"
-                    style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
+                    class="circle"
+                  />
+                  <div
+                    class="ringring"
                   />
                 </div>
                 vivo
@@ -774,14 +776,16 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
             >
               <span
-                class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24"
+                class="badge ln-badge --font-2xs --live"
               >
                 <div
-                  class="pulse-animation"
+                  class="live-animation"
                 >
                   <div
-                    class="pulse w-5 h-5 bg-light-0 rounded-circle"
-                    style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
+                    class="circle"
+                  />
+                  <div
+                    class="ringring"
                   />
                 </div>
                 vivo
