@@ -16,7 +16,7 @@ export default {
             },
             comercial_dsk: {
                 customScript: () => {
-                    return getScriptForComercial('comercial_dsk');
+                    return getScriptForComercial();
                 }
             },
             adhesion_dsk: {
@@ -50,7 +50,7 @@ export default {
         mobile: {
             comercial_mob: {
                 customScript: () => {
-                    return getScriptForComercial('comercial_mob');
+                    return getScriptForComercial();
                 }
             },
             adhesion_mob: {
@@ -91,7 +91,7 @@ export default {
         desktop: {
             comercial_dsk: {
                 customScript: () => {
-                    return getScriptForComercial('comercial_dsk');
+                    return getScriptForComercial();
                 }
             },
             adhesion_dsk: {
@@ -104,7 +104,7 @@ export default {
             },
             comercial_mob: {
                 customScript: () => {
-                    return getScriptForComercial('comercial_mob');
+                    return getScriptForComercial();
                 }
             }
         },
@@ -118,7 +118,7 @@ export default {
         desktop: {
             comercial_dsk: {
                 customScript: () => {
-                    return getScriptForComercial('comercial_dsk');
+                    return getScriptForComercial();
                 }
             },
             adhesion_dsk: {
@@ -145,7 +145,7 @@ export default {
             },
             comercial_mob: {
                 customScript: () => {
-                    return getScriptForComercial('comercial_mob');
+                    return getScriptForComercial();
                 }
             }
         },
@@ -175,13 +175,12 @@ export const getStickyBanner = (bannerClass, viewport) => {
     );
 };
 
-export const getScriptForComercial = slotId => {
+export const getScriptForComercial = () => {
     const { contextPath, deployment } = useAppContext();
     return (
         <script
             id="getScriptForComercial"
             type="text/javascript"
-            data-slotId={slotId}
             src={deployment(
                 `${contextPath}/resources/js/LN/scriptBannerRulesComercial.min.js`
             )}
