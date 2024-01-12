@@ -3,6 +3,7 @@ import {
     infoLNMain
 } from '../../../../../../../components/private/LN/api/common/home/config/configInfoSectionsByLayout';
 import BackendLnError from '../../../../../../../components/private/LN/api/common/models/backendLnError';
+import { enumTypeError } from '../../../../../../../components/private/LN/api/common/enums/enumTypeError';
 
 const specialBox = {
     'ln-acumulado/timeline': 'timeline',
@@ -74,6 +75,14 @@ const createNotasArray = elem => {
     const configPositionArticles =
         configPositionArticlesByBox[elem && elem.sectionAliasMobile] ||
         configPositionArticlesByBox.default;
+
+    if (!elem.articles) {
+        return {
+            ...resp,
+            notasArray
+        };
+    }
+
     for (const element of elem.articles) {
         const article = element;
         if (specialBox[article.sectionAliasMobile]) {
@@ -137,8 +146,7 @@ const transform = async (dataPage, query) => {
 
         throw new BackendLnError(
             `Error Transform - v1/bitacora/transform :  layout: ${layoutPage} - 
-        query: ${JSON.stringify(query)} - errorMsj:${error.message}
-        dataPage: ${JSON.stringify(dataPage)}`,
+        query: ${JSON.stringify(query)} - errorMsj:${error.message}`,
             enumTypeError.bitacoraError
         );
     }
