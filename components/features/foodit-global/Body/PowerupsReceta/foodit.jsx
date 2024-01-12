@@ -31,7 +31,8 @@ export const PowerupsReceta = ({ article = {} }) => {
 
     const {
         'custom-nutrition': nutritionLists,
-        'foodit-ingredientes': ingredientsLists
+        'foodit-ingredientes': ingredientsLists,
+        'custom-ingrediente': customIngredientsLists
     } = content_elements.reduce(
         (acc, item) => {
             const subtype = get(item, 'subtype', '');
@@ -43,7 +44,11 @@ export const PowerupsReceta = ({ article = {} }) => {
             }
             return acc;
         },
-        { 'custom-nutrition': [], 'foodit-ingredientes': [] }
+        {
+            'custom-nutrition': [],
+            'foodit-ingredientes': [],
+            'custom-ingrediente': []
+        }
     );
 
     const externalLinksMock = {
@@ -70,7 +75,10 @@ export const PowerupsReceta = ({ article = {} }) => {
             </div>
             <div className="bg-background-positive flex flex-column gap-16 p-16 p-24_md p-32_lg">
                 <Ingredients
-                    ingredientsLists={ingredientsLists}
+                    ingredientsLists={[
+                        ...ingredientsLists,
+                        ...customIngredientsLists
+                    ]}
                     portions={counterPortion}
                 />
                 <hr />
