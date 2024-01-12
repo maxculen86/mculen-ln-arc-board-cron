@@ -1,8 +1,10 @@
 import React from 'react';
 import CriticalCSS from '../features/foodit-global/common/CriticalCss/foodit';
 import CssLinksByArcSite from './Helper/cssLinksByArcSite';
-import ObservableFoodit from './Helper/observableFoodit';
 import PreloadFooditImages from '../features/foodit-global/common/image/preloadImage/foodit';
+import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
+import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
+import getSectionName from '../private/LN/common/utils/getSectionName';
 
 // TODO: OutputType base, queda pendiente agregar manejo de scripts y metadatos
 const Foodit = ({
@@ -12,8 +14,21 @@ const Foodit = ({
     layout = '',
     renderables,
     globalContent = {},
+    siteProperties,
+    arcSite,
     isAdmin
 } = {}) => {
+    const { node_type: nodeType, type } = globalContent;
+
+    const _nodeType = getSectionName({ nodeType, type, arcSite });
+
+    // TODO: validar cuales scripts se deben cargar y verificar el correcto comportamiento de estos
+    const Scripts = buildScriptComponent(
+        renderables,
+        siteProperties.scripts,
+        globalContent
+    );
+
     return (
         <html lang="es">
             <head>
@@ -35,29 +50,26 @@ const Foodit = ({
                 <CriticalCSS />
                 <CssLinksByArcSite />
                 <Libs />
+                <Scripts location="head" />
             </head>
             <body>
+                <Scripts location="body-top" />
+                <TagsLoadingList
+                    section={_nodeType}
+                    location="body-top"
+                    arcSite={arcSite}
+                    Tag="script"
+                    globalContent={globalContent}
+                />
                 <div id="fusion-app">{children}</div>
                 <Fusion hydrateOnly />
-                <ObservableFoodit />
-                {/* TODO: mover script a donde corresponda cuando se cree la nueva implementacion de manejo de scrips */}
-                <script
-                    type="text/javascript"
-                    dangerouslySetInnerHTML={{
-                        __html: `
-                        window.addEventListener('DOMContentLoaded', () => {
-                            const buttons = document.querySelectorAll('[data-modal="open-modal"]');
-                            buttons.forEach(button => {
-                                button.addEventListener('click', (e) => {
-                                    e.preventDefault();
-                                    window.LN.observable.publish('openModal', {
-                                        ids: button.dataset.id.split(',')
-                                    });                                    
-                                });
-                            });
-                        })
-                    `
-                    }}
+                <Scripts location="body-bottom" />
+                <TagsLoadingList
+                    section={_nodeType}
+                    location="body-bottom"
+                    arcSite={arcSite}
+                    Tag="script"
+                    globalContent={globalContent}
                 />
             </body>
         </html>

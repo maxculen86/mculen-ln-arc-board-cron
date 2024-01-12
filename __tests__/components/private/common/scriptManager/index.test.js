@@ -131,7 +131,9 @@ describe('getScriptsToLoad', () => {
             'ComscoreVideo',
             'DevReactTracker',
             'Marfeel',
-            'ScriptDivBannerSSR'
+            'ScriptDivBannerSSR',
+            'ObservableFoodit',
+            'DataModal'
         ]);
         expect(Object.keys(result)).toEqual([
             'Datadog',
@@ -153,7 +155,9 @@ describe('getScriptsToLoad', () => {
             'ComscoreVideo',
             'DevReactTracker',
             'Marfeel',
-            'ScriptDivBannerSSR'
+            'ScriptDivBannerSSR',
+            'ObservableFoodit',
+            'DataModal'
         ]);
         expect(result.Datadog).toBeDefined();
     });
