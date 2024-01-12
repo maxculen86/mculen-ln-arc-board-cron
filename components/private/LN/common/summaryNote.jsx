@@ -12,7 +12,7 @@ const SummaryNote = ({ paragraphs = [] }) => {
         >
             <Text
                 as="h2"
-                className="--font-primary --font-medium --l --text-neutral-light-900 mb-16"
+                className="--font-primary --font-medium --l text-neutral-light-900 mb-16"
                 text="Lo que tenés que saber"
             />
             <ul className="flex flex-column --gap-24 mb-24 pl-24 --list-inherit">
@@ -28,7 +28,7 @@ const SummaryNote = ({ paragraphs = [] }) => {
             </ul>
             <Text
                 text="Este resumen fue realizado por inteligencia artificial bajo supervisión de editores de LA NACION"
-                className="--text-neutral-light-600 --font-2xs"
+                className="text-light-600 --font-2xs"
             />
         </section>
     );

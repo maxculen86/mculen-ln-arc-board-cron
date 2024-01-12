@@ -13,7 +13,7 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
         class="--ln-roof-left"
       >
         <a
-          class="link ln-link flex ai-center --uppercase"
+          class="link ln-link flex ai-center uppercase"
           href="https://lanacion.com.ar"
           roof-group="left"
           target="_self"

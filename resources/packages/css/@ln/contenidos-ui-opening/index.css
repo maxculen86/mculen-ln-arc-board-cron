@@ -332,7 +332,7 @@
   .container-op.--center-focal .grid .--3 {
     grid-row: 2/span 3;
   }
-  .container-op.--focal-70 .grid .--0 .ln-card .ln-link .description-container .badge {
+  .container-op.--focal-70 .grid .--0 .ln-card .ln-link .description-container .ln-badge {
     right: -2rem;
   }
   .container-op.--focal-70 .grid .--0 .ln-card .ln-link .media-container {

@@ -22,11 +22,11 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         title="Nota"
       >
         <figure
-          class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
+          class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
         >
           <img
             alt="Nota"
-            class="image flex w-100 h-100 none"
+            class="image flex w-100 h-100 none --cover"
             decoding="async"
             fetchpriority="low"
             height="1333"
@@ -36,7 +36,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         </figure>
       </section>
       <section
-        class="description-container --relative flex flex-column"
+        class="description-container relative flex flex-column"
         href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
       >
         <h1
@@ -93,11 +93,11 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         title="Nota"
       >
         <figure
-          class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
+          class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
         >
           <img
             alt="Nota"
-            class="image flex w-100 h-100 none"
+            class="image flex w-100 h-100 none --cover"
             decoding="async"
             fetchpriority="low"
             height="1333"
@@ -107,7 +107,7 @@ exports[`Components - features - LN-10 - articulo - default should test card aut
         </figure>
       </section>
       <section
-        class="description-container --relative flex flex-column"
+        class="description-container relative flex flex-column"
         href="/lifestyle/dejo-un-puesto-gerencial-se-mudo-a-un-pueblo-de-800-habitantes-y-armo-un-lodge-de-lujo-ganamos-una-nid23112021/"
       >
         <h1

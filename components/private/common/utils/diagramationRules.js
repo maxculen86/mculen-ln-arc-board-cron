@@ -290,7 +290,7 @@ const diagramationRules = diagramation => {
                 withSection: true,
                 cardSize: size.sixXL,
                 imageConfig: 'bombaHorizontal',
-                aspectRatio: 'ar-picture',
+                aspectRatio: 'ratio-3-2',
                 className: txtCenter,
                 withPreload: true,
                 extraClass: { withoutMedia: '--no-mc' },
@@ -309,7 +309,7 @@ const diagramationRules = diagramation => {
                 withSection: true,
                 cardSize: size.sixXL,
                 imageConfig: 'bombaVertical',
-                aspectRatio: 'ar-square',
+                aspectRatio: 'ratio-3-4',
                 className: txtCenter,
                 withPreload: true,
                 isLoadWithPicture: true

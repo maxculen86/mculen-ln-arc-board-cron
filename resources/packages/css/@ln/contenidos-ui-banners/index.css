@@ -194,9 +194,6 @@
     position: absolute;
     margin-top: 0;
   }
-  .--top-fixed .ln-banner-container.--logo_sticky_dsk {
-    display: block;
-  }
   .ln-banner-container.--megatop {
     height: 15.625rem;
   }
@@ -267,4 +264,10 @@
 [class*="--1x1_"] {
   margin: 0;
   position: absolute;
+}
+
+@media (min-width: 80rem) {
+  .--top-fixed .--logo_sticky_dsk {
+    display: flex;
+  }
 }

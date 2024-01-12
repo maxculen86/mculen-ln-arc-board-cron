@@ -12,7 +12,7 @@
 .bomba .ln-card > .link .description-container .subhead {
   color: var(--dark-neutral-600);
 }
-.bomba .ln-card > .link .description-container .badge {
+.bomba .ln-card > .link .description-container .ln-badge {
   transform: none;
   position: static;
 }

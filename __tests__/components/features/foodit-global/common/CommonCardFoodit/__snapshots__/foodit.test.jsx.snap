@@ -26,7 +26,7 @@ exports[`CommonCardFoodit should render the card with the correct data 1`] = `
             />
             <img
               alt="Tortilla de patatas"
-              class="image flex card-image ratio-3-2 w-100"
+              class="image flex card-image ratio-3-2 w-100 --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"

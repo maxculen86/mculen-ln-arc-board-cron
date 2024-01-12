@@ -11,7 +11,7 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
       class="flex ai-center jc-between"
     >
       <div
-        class="dollar-container --relative"
+        class="dollar-container relative"
       >
         <div
           class="--scroll-x"

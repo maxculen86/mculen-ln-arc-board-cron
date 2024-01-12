@@ -68,7 +68,7 @@ export const setFinalClassName = (
     index,
     chainStyle,
     className,
-    newClass = ' --tab-text-center'
+    newClass = ' text-center_m'
 ) => {
     return index === 0 && chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE
         ? className.concat(newClass)

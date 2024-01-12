@@ -21,14 +21,14 @@ exports[`components - feature - ln10 - webstory should match snapshot 1`] = `
         title="Titulo"
       >
         <picture
-          class="ln-placeholder --d-flex --jc-center --ai-center --relative --ar-picture"
+          class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
         >
           <source
             media="(max-width: 767px)"
             srcset="https://resizer.glanacion.com/resizer/lh-gNMcfgBevIHVti6EmwfG2SZo=/280x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/SVH33PIGLVCGFON7ZOZYCT6KXM.jpg"
           />
           <img
-            class="image flex w-100 h-100"
+            class="image flex w-100 h-100 --cover"
             decoding="async"
             fetchpriority="low"
             loading="lazy"
@@ -37,7 +37,7 @@ exports[`components - feature - ln10 - webstory should match snapshot 1`] = `
         </picture>
       </section>
       <section
-        class="description-container --relative flex flex-column"
+        class="description-container relative flex flex-column"
         href="www.lanacion.com.ar"
       >
         <h2
