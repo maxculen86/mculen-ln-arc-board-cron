@@ -26,31 +26,45 @@ const configPositionArticlesByBox = {
 };
 
 const createBoxAndNotas = (elem, cajaCount, cajas) => {
-    const { sectionAliasMobile, information } = elem;
-    const notas = createNotasArray(elem);
     const isSpecialBox = specialBoxRoot[sectionAliasMobile];
-    const boxId = isSpecialBox
-        ? specialBoxRoot[sectionAliasMobile]
-        : cajaCount.toString().padStart(2, '0');
-    const hideCaja = information ? information.hideCaja : undefined;
-    const layout =
-        elem.sectionAliasMobile === 'ln-common/ln10_en_vivo'
-            ? 'enVivo'
-            : information
-            ? information.layout
-            : undefined;
-    const caja = createBox(
-        boxId,
-        hideCaja,
-        getFeature(sectionAliasMobile),
-        layout,
-        notas.notasArray
-    );
-    cajas.push(caja);
-    if (notas.specialBox) cajas.push(notas.specialBox);
-    // eslint-disable-next-line no-param-reassign
-    if (!isSpecialBox) cajaCount += 1;
-    return cajaCount;
+
+    try {
+        const { sectionAliasMobile, information } = elem;
+        const notas = createNotasArray(elem);
+        const boxId = isSpecialBox
+            ? specialBoxRoot[sectionAliasMobile]
+            : cajaCount.toString().padStart(2, '0');
+        const hideCaja = information ? information.hideCaja : undefined;
+        const layout =
+            elem.sectionAliasMobile === 'ln-common/ln10_en_vivo'
+                ? 'enVivo'
+                : information
+                ? information.layout
+                : undefined;
+        const caja = createBox(
+            boxId,
+            hideCaja,
+            getFeature(sectionAliasMobile),
+            layout,
+            notas.notasArray
+        );
+        cajas.push(caja);
+        if (notas.specialBox) cajas.push(notas.specialBox);
+        // eslint-disable-next-line no-param-reassign
+        if (!isSpecialBox) cajaCount += 1;
+        return cajaCount;
+    } catch (error) {
+        if (!isSpecialBox) cajaCount += 1;
+        console.error(
+            new BackendLnError(
+                `Error Transform - v1/bitacora/transform 
+            La caja ${elem.sectionAliasMobile} no se pudo parsear correctamente,
+            elem: ${elem}`,
+                enumTypeError.bitacoraError
+            )
+        );
+        return cajaCount;
+    }
 };
 
 const createNota = (article, index) => ({
