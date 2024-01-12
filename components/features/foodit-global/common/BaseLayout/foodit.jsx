@@ -17,7 +17,9 @@ const BaseLayout = ({ children }) => {
         'mb-16 mb-40_lg':
             layout === layoutsName.FooditHome ||
             layout === layoutsName.FooditFichaReceta,
-        'mb-40': layout === layoutsName.FooditRecetario
+        'mb-40':
+            layout === layoutsName.FooditRecetario ||
+            layout === layoutsName.FooditAcumulado
     });
 
     return (
