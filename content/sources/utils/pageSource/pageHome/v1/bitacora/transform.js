@@ -26,10 +26,10 @@ const configPositionArticlesByBox = {
 };
 
 const createBoxAndNotas = (elem, cajaCount, cajas) => {
+    const { sectionAliasMobile, information } = elem;
     const isSpecialBox = specialBoxRoot[sectionAliasMobile];
 
     try {
-        const { sectionAliasMobile, information } = elem;
         const notas = createNotasArray(elem);
         const boxId = isSpecialBox
             ? specialBoxRoot[sectionAliasMobile]
