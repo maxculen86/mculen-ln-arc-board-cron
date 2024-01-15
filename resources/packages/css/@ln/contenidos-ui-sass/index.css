@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html,
 body,
 div,
@@ -481,6 +482,10 @@ a {
   color: var(--light-neutral-700);
 }
 
+.text-light-800 {
+  color: var(--light-neutral-800);
+}
+
 .text-neutral-light-1 {
   color: var(--neutral-light-1);
 }
@@ -523,6 +528,10 @@ a {
 
 .bg-light-50 {
   background: var(--light-neutral-50);
+}
+
+.bg-light-100 {
+  background: var(--light-neutral-100);
 }
 
 .bg-light-400 {
@@ -981,6 +990,10 @@ strong:not(.--font-primary),
   padding-left: 0.625rem;
 }
 
+.pl-16 {
+  padding-left: 1rem;
+}
+
 .pl-24 {
   padding-left: 1.5rem;
 }
@@ -991,6 +1004,10 @@ strong:not(.--font-primary),
 
 .pr-24 {
   padding-right: 1.5rem;
+}
+
+.pr-60 {
+  padding-right: 3.75rem;
 }
 
 .py-0 {
@@ -1275,12 +1292,16 @@ strong:not(.--font-primary),
   height: 1.625rem;
 }
 
-.h-140 {
-  height: 8.75rem;
+.h-48 {
+  height: 3rem;
 }
 
 .h-64 {
   height: 4rem;
+}
+
+.h-140 {
+  height: 8.75rem;
 }
 
 .h-fit {
@@ -1723,6 +1744,10 @@ strong:not(.--font-primary),
     box-shadow: 0 0 0 0 rgba(255, 109, 74, 0), 0 0 0 6px rgba(255, 109, 74, 0);
   }
 }
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .--text-8xl {
   font-size: 4rem;
   line-height: 120%;
@@ -2730,6 +2755,14 @@ strong:not(.--font-primary),
 
 .--fixed {
   position: fixed;
+}
+
+.--bullet-list li:not(:first-child):before {
+  content: "•";
+  color: #cccccc;
+  position: relative;
+  display: flex;
+  margin-inline: 0.5rem;
 }
 
 .cursor-pointer {
