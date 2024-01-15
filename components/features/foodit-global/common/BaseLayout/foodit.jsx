@@ -8,6 +8,7 @@ import DrawerMyAccount from '../DrawerMyAccount/foodit';
 import classNames from 'classnames';
 import FloatingGroupButton from '../floatingGroupButton/foodit';
 import Toasts from '../toasts/foodit';
+import AuthProvider from '../context/authContext/foodit';
 
 const BaseLayout = ({ children }) => {
     const { layout, siteProperties } = useAppContext();
@@ -23,19 +24,21 @@ const BaseLayout = ({ children }) => {
     });
 
     return (
-        <div className="wrapper overflow-x-clip roboto">
-            <Header classNameContainer={classNameHeaderContainer} />
-            <div className="header-sentinel" />
-            <DrawerMenu />
-            <DrawerMyAccount />
-            <main className="container flex flex-column pb-64 gap-40">
-                {children}
-            </main>
-            <Footer />
-            <Modal />
-            <Toasts />
-            <FloatingGroupButton layout={layout} />
-        </div>
+        <AuthProvider>
+            <div className="wrapper overflow-x-clip roboto">
+                <Header classNameContainer={classNameHeaderContainer} />
+                <div className="header-sentinel" />
+                <DrawerMenu />
+                <DrawerMyAccount />
+                <main className="container flex flex-column pb-64 gap-40">
+                    {children}
+                </main>
+                <Footer />
+                <Modal />
+                <Toasts />
+                <FloatingGroupButton layout={layout} />
+            </div>
+        </AuthProvider>
     );
 };
 

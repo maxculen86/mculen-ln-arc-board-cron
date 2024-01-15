@@ -4,7 +4,7 @@ import { Itemcard } from '@ln/foodit-ui-itemcard';
 import { Avatar } from '@ln/foodit-ui-avatar';
 
 export const MyAccount = ({ avatarProps = {}, itemsList = [], fullWidth }) => {
-    const { email, initials, hasSubscription } = avatarProps;
+    const { email, initials, hasSubscription, restoreContext } = avatarProps;
 
     if (!itemsList.length) return <></>;
 
@@ -41,7 +41,9 @@ export const MyAccount = ({ avatarProps = {}, itemsList = [], fullWidth }) => {
                                 text={text}
                                 icon={icon}
                                 title={title ?? `Ir a ${text}`}
-                                onClick={onClick}
+                                onClick={() =>
+                                    onClick({ callback: restoreContext })
+                                }
                                 level={1}
                                 fullWidth
                                 variant={variant}

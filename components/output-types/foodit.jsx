@@ -6,7 +6,7 @@ import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 
-// TODO: OutputType base, queda pendiente agregar manejo de scripts y metadatos
+// TODO: OutputType base, queda pendiente agregar manejo de metadatos
 const Foodit = ({
     children,
     Libs,
@@ -49,7 +49,6 @@ const Foodit = ({
                 />
                 <CriticalCSS />
                 <CssLinksByArcSite />
-                <Libs />
                 <Scripts location="head" />
             </head>
             <body>
@@ -63,6 +62,7 @@ const Foodit = ({
                 />
                 <div id="fusion-app">{children}</div>
                 <Fusion hydrateOnly />
+                <Libs />
                 <Scripts location="body-bottom" />
                 <TagsLoadingList
                     section={_nodeType}
