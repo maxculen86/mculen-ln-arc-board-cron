@@ -1,6 +1,7 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useAppContext } from 'fusion:context';
 import handleCookie from '../../LN/common/utils/handleCookie';
 import createHash from '../utils/createHash';
 
@@ -41,8 +42,9 @@ const getTopic = content =>
 
 const getAuthor = content => (content.slug ? ['au_'.concat(content.slug)] : []);
 
-const googlePublisherTagAcumulado = props => {
+const GooglePublisherTagAcumulado = props => {
     const { globalContent } = props;
+    const { contextPath, deployment } = useAppContext();
     const { type, parent, ancestors, name } = globalContent;
 
     if (type === 'story') return null;
@@ -55,37 +57,6 @@ const googlePublisherTagAcumulado = props => {
 
     const { getCookie } = handleCookie();
 
-    const script = `
-        const createHash = ${createHash.toString()};
-        const googleTagGetCookie = ${getCookie};
-        const googleTagUserCookie = googleTagGetCookie('ProductoPremiumId') || [];
-        const googleTagEmailCookie = googleTagGetCookie('usuarioemail') || '';
-        const googleTagSuscriptionType = googleTagUserCookie.includes('2') ? 'suscriptor' : 'no suscriptor';
-
-            var pbjs = pbjs || {};
-            pbjs.que = pbjs.que || [];
-            
-            (window.googletag = window.googletag || { cmd: [] });
-                googletag.cmd.push(function() {
-                    if (googleTagEmailCookie) {
-                        createHash(googleTagEmailCookie)
-                        .then(hash => {
-                            googletag.pubads().setPublisherProvidedId(hash);
-                        })
-                    }
-            
-                    googletag.enableServices();
-                    googletag.pubads().setTargeting('tags_nuevos', ${JSON.stringify(
-                        [...category, ...topic, ...author]
-                    )});
-                    googletag.pubads().setTargeting('usuario_tipo', googleTagSuscriptionType);
-                    googletag.pubads().setTargeting('seccion', 'acumulado');
-                    //googletag.pubads().setTargeting('adstest', testQueryString());
-                    googletag.pubads().setTargeting('sitio', 'lanacion');
-                }
-            )
-    `;
-
     return (
         <>
             <script
@@ -96,14 +67,22 @@ const googlePublisherTagAcumulado = props => {
                 async
                 id="googlePublisherTag-metadata"
                 type="text/javascript"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: script }}
+                data-new-tags={JSON.stringify([
+                    ...category,
+                    ...topic,
+                    ...author
+                ])}
+                data-create-hash={createHash.toString()}
+                data-get-cookie={getCookie.toString()}
+                src={deployment(
+                    `${contextPath}/resources/js/LN/googlePublisherTagAcumulado.min.js`
+                )}
             />
         </>
     );
 };
 
-googlePublisherTagAcumulado.propTypes = {
+GooglePublisherTagAcumulado.propTypes = {
     globalContent: PropTypes.shape({
         id: PropTypes.string,
         type: PropTypes.string,
@@ -117,4 +96,4 @@ googlePublisherTagAcumulado.propTypes = {
     }).isRequired
 };
 
-export default googlePublisherTagAcumulado;
+export default GooglePublisherTagAcumulado;
