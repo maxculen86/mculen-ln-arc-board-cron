@@ -10,6 +10,7 @@ const ObservableFoodit = () => {
             src={deployment(
                 `${contextPath}/resources/js/common/observable.min.js`
             )}
+            defer
         />
     );
 };

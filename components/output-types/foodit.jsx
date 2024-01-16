@@ -37,6 +37,7 @@ const Foodit = ({
                     name="viewport"
                     content="width=device-width,initial-scale=1.0,minimum-scale=0.5,maximum-scale=5.0,user-scalable=yes"
                 />
+                {/*  TODO: Una vez salga foodit a PROD, elminar el meta noindex,nofollow y sumar la validacion para agregarlo al preview de composer*/}
                 <meta name="robots" content="noindex, nofollow" />
                 <meta name="theme-color" content="#ffffff" />
                 <title>Foodit</title>

@@ -133,7 +133,7 @@ describe('Tests Chain FOODIT Caja Collection', () => {
             render(<CajaCollection {...props} />);
             const link = screen.getByText('Titulo techo');
             const buttonRoof = screen.getByRole('button', {
-                name: 'Llevar al recetario'
+                name: 'Guardar todo'
             });
 
             expect(buttonRoof).toBeTruthy();
