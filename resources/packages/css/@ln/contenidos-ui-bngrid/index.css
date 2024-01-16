@@ -318,7 +318,7 @@
     text-align: center;
     align-items: center;
   }
-  .ln-bngrid.--canal_1_4_grid .grid .grid-item:first-child > article a .description-container .badge, .ln-bngrid.--canal_1_2_grid .grid .grid-item:first-child > article a .description-container .badge {
+  .ln-bngrid.--canal_1_4_grid .grid .grid-item:first-child > article a .description-container .ln-badge, .ln-bngrid.--canal_1_2_grid .grid .grid-item:first-child > article a .description-container .ln-badge {
     transform: none;
     position: static;
   }

@@ -16,7 +16,7 @@ Array [
           class="--ln-roof-left"
         >
           <div
-            class="flex ai-center --uppercase"
+            class="flex ai-center uppercase"
             roof-group="left"
           />
         </div>

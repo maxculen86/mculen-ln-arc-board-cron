@@ -6,31 +6,15 @@ import { Icon } from '@ln/common-ui-icon';
 import { Menu } from '@ln/foodit-ui-assets';
 import { Header, MainHeader, SubHeader } from '@ln/common-ui-header';
 import { Search } from './components/Search';
-import { RightOptions } from './components/rightOptions/RightOptions';
 import { TopNavigationBar } from './components/TopNavigationBar';
 import { Promotions } from './components/promotions/Promotions';
-import { getConfig } from '../utils/promotions';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
+import LoginSubscribeButtons from './components/LoginSubscribeButtons';
+import RenderUserOptions from './components/rightOptions/RenderUserOptions';
 
 const HeaderFoodit = ({ isSticky = false, ...r }) => {
     const { deployment, contextPath } = useAppContext();
-    //TODO: validar tipos de usuario 'unlogged' | 'logged' | 'subscribed' | 'subscribedPlus';
-    const userType = 'subscribed';
-    const configPromotions = getConfig(userType);
-
-    // TODO: obtener data de usuario
-    const userData = {
-        userType,
-        initialsClassName:
-            userType === 'subscribed' ? 'bg-primary-positive' : 'bg-light-600',
-        email: 'lbarandiaran@lanacion.com.ar',
-        initials: 'lb',
-        suscription:
-            userType === 'subscribed'
-                ? 'Suscriptor digital'
-                : 'Sin suscripción',
-        ...configPromotions
-    };
+    //TODO: validar tipo de usuario  'subscribedPlus';
 
     // TODO: falta cerrar comportamiento de sticky
 
@@ -62,7 +46,8 @@ const HeaderFoodit = ({ isSticky = false, ...r }) => {
                         </MainHeader.Brand>
                     </MainHeader.Content.Center>
                     <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
-                        <RightOptions {...userData} />
+                        <LoginSubscribeButtons />
+                        <RenderUserOptions />
                     </MainHeader.Content.Right>
                     <MainHeader.Content.Search>
                         <Search />
@@ -73,7 +58,7 @@ const HeaderFoodit = ({ isSticky = false, ...r }) => {
                 </MainHeader.Bottom>
             </MainHeader>
             <SubHeader className="py-8 h-48 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 lg-none">
-                <Promotions {...configPromotions} />
+                <Promotions />
             </SubHeader>
         </Header>
     );

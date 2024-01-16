@@ -18,9 +18,12 @@ import DevReactTracker from '../../../common/scriptManager/DevReactTracker';
 import AdblockDetector from '../../../common/scriptManager/adblockDetector';
 import ScriptCripto from '../../../common/scriptManager/scriptCripto';
 import Permutive from '../../../common/scriptManager/Permutive';
-import { pipe } from '../../../common/utils/functional';
 import Marfeel from '../../../common/scriptManager/Marfeel';
 import ScriptDivBannerSSR from '../../../common/scriptManager/scriptDivBannerSSR';
+import ScriptDataModal from '../../../common/scriptManager/scriptDataModal';
+import ObservableFoodit from '../../../../output-types/Helper/observableFoodit';
+
+import { pipe } from '../../../common/utils/functional';
 
 const scriptList = [
     {
@@ -105,6 +108,14 @@ const scriptList = [
     { component: { name: 'Marfeel', function: Marfeel }, feature: 'none' },
     {
         component: { name: 'ScriptDivBannerSSR', function: ScriptDivBannerSSR },
+        feature: 'none'
+    },
+    {
+        component: { name: 'ObservableFoodit', function: ObservableFoodit },
+        feature: 'none'
+    },
+    {
+        component: { name: 'DataModal', function: ScriptDataModal },
         feature: 'none'
     }
 ];

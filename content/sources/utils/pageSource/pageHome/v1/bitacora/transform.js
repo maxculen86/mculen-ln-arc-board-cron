@@ -3,6 +3,7 @@ import {
     infoLNMain
 } from '../../../../../../../components/private/LN/api/common/home/config/configInfoSectionsByLayout';
 import BackendLnError from '../../../../../../../components/private/LN/api/common/models/backendLnError';
+import { enumTypeError } from '../../../../../../../components/private/LN/api/common/enums/enumTypeError';
 
 const specialBox = {
     'ln-acumulado/timeline': 'timeline',
@@ -26,30 +27,44 @@ const configPositionArticlesByBox = {
 
 const createBoxAndNotas = (elem, cajaCount, cajas) => {
     const { sectionAliasMobile, information } = elem;
-    const notas = createNotasArray(elem);
     const isSpecialBox = specialBoxRoot[sectionAliasMobile];
-    const boxId = isSpecialBox
-        ? specialBoxRoot[sectionAliasMobile]
-        : cajaCount.toString().padStart(2, '0');
-    const hideCaja = information ? information.hideCaja : undefined;
-    const layout =
-        elem.sectionAliasMobile === 'ln-common/ln10_en_vivo'
-            ? 'enVivo'
-            : information
-            ? information.layout
-            : undefined;
-    const caja = createBox(
-        boxId,
-        hideCaja,
-        getFeature(sectionAliasMobile),
-        layout,
-        notas.notasArray
-    );
-    cajas.push(caja);
-    if (notas.specialBox) cajas.push(notas.specialBox);
-    // eslint-disable-next-line no-param-reassign
-    if (!isSpecialBox) cajaCount += 1;
-    return cajaCount;
+
+    try {
+        const notas = createNotasArray(elem);
+        const boxId = isSpecialBox
+            ? specialBoxRoot[sectionAliasMobile]
+            : cajaCount.toString().padStart(2, '0');
+        const hideCaja = information ? information.hideCaja : undefined;
+        const layout =
+            elem.sectionAliasMobile === 'ln-common/ln10_en_vivo'
+                ? 'enVivo'
+                : information
+                ? information.layout
+                : undefined;
+        const caja = createBox(
+            boxId,
+            hideCaja,
+            getFeature(sectionAliasMobile),
+            layout,
+            notas.notasArray
+        );
+        cajas.push(caja);
+        if (notas.specialBox) cajas.push(notas.specialBox);
+        // eslint-disable-next-line no-param-reassign
+        if (!isSpecialBox) cajaCount += 1;
+        return cajaCount;
+    } catch (error) {
+        if (!isSpecialBox) cajaCount += 1;
+        console.error(
+            new BackendLnError(
+                `Error Transform - v1/bitacora/transform 
+            La caja ${elem.sectionAliasMobile} no se pudo parsear correctamente,
+            elem: ${elem}`,
+                enumTypeError.bitacoraError
+            )
+        );
+        return cajaCount;
+    }
 };
 
 const createNota = (article, index) => ({
@@ -74,6 +89,14 @@ const createNotasArray = elem => {
     const configPositionArticles =
         configPositionArticlesByBox[elem && elem.sectionAliasMobile] ||
         configPositionArticlesByBox.default;
+
+    if (!elem.articles) {
+        return {
+            ...resp,
+            notasArray
+        };
+    }
+
     for (const element of elem.articles) {
         const article = element;
         if (specialBox[article.sectionAliasMobile]) {
@@ -137,8 +160,7 @@ const transform = async (dataPage, query) => {
 
         throw new BackendLnError(
             `Error Transform - v1/bitacora/transform :  layout: ${layoutPage} - 
-        query: ${JSON.stringify(query)} - errorMsj:${error.message}
-        dataPage: ${JSON.stringify(dataPage)}`,
+        query: ${JSON.stringify(query)} - errorMsj:${error.message}`,
             enumTypeError.bitacoraError
         );
     }

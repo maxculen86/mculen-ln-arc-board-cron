@@ -4,13 +4,16 @@ import { Icon } from '@ln/common-ui-icon';
 import { Profile } from '@ln/foodit-ui-assets';
 import { toggleDrawer } from '@ln/common-ui-drawer';
 import AvatarRecetas from '../Avatar';
+import useGetUserData from '../../../../hooks/useGetUserData';
 
-const RenderUserOptions = ({
-    userType,
-    initials,
-    initialsClassName,
-    suscription
-}) => {
+const RenderUserOptions = () => {
+    const {
+        userType,
+        initials,
+        initialsClassName,
+        suscription
+    } = useGetUserData();
+
     if (userType === 'unlogged') return <></>;
     return (
         <>

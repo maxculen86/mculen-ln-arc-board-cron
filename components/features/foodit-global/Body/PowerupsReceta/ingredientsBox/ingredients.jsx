@@ -44,7 +44,10 @@ export const Ingredients = ({ ingredientsLists = [], portions }) => {
             {ingredientsLists.map(list => {
                 const { items = [], titleList = '' } = list || {};
                 const ingredientsNames = items.map(
-                    item => item.fullIngredientString
+                    item =>
+                        item.fullIngredientString ||
+                        (typeof item === 'string' && item) ||
+                        ''
                 );
                 return (
                     <IngredientsSection

@@ -3,13 +3,13 @@
 exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot 1`] = `
 <div>
   <section
-    class="cll-anexo-rugby --d-grid --gap-20"
+    class="cll-anexo-rugby grid gap-20"
   >
     <div
-      class="cll-roof --d-flex --jc-between --d-flex --ai-start --jc-start --gap-12"
+      class="cll-roof flex jc-between ai-start gap-12"
     >
       <a
-        class="link --roof-title-full --d-flex --ai-center --gap-8"
+        class="link --roof-title-full flex ai-center gap-8"
         href="https://canchallena.lanacion.com.ar/rugby/"
         rel="nofollow"
         target="_blank"
@@ -37,7 +37,7 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
         </i>
       </a>
       <a
-        class="link --fixture --d-flex --ai-center --gap-8"
+        class="link --fixture flex ai-center gap-8"
         href="https://canchallena.lanacion.com.ar/rugby/mundial-2023/fixture/"
         rel="nofollow"
         target="_blank"
@@ -66,7 +66,7 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
       </a>
     </div>
     <div
-      class="cll-sponsor --d-flex --flex-row --gap-8 --ai-end --jc-end"
+      class="cll-sponsor flex flex-row gap-8 ai-end jc-end"
     >
       <span
         class="text --mobile-none --font-2xs"
@@ -151,21 +151,21 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
       </ul>
     </div>
     <ul
-      class="cll-body --d-flex --gap-20"
+      class="cll-body flex gap-20"
     >
       <li
-        class="cll-match --d-flex --grow-1"
+        class="cll-match flex --grow-1"
         matchid="3ciedzqofwcg744nu312sfjtg"
         timeremaining="[object Object]"
       >
         <div
-          class="--w-100"
+          class="w-100"
         >
           <article
-            class="--d-flex --flex-col --w-100"
+            class="flex flex-column w-100"
           >
             <div
-              class="--status --d-flex --ai-center"
+              class="--status flex ai-center"
             >
               <h3
                 class="text --upComing --font-2xs"
@@ -175,10 +175,10 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
             </div>
             <ul>
               <li
-                class="--d-flex --row --w-100 --jc-between"
+                class="flex --row w-100 jc-between"
               >
                 <div
-                  class="--name-icon --prumo --d-flex --ai-center --grow-1 --gap-12"
+                  class="--name-icon --prumo flex ai-center --grow-1 gap-12"
                 >
                   <img
                     alt="Bandera de Francia"
@@ -191,16 +191,16 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
                   </span>
                 </div>
                 <span
-                  class="--score --d-flex --jc-center --ai-center --prumo"
+                  class="--score flex jc-center ai-center --prumo"
                 >
                   -
                 </span>
               </li>
               <li
-                class="--d-flex --row --w-100 --jc-between"
+                class="flex --row w-100 jc-between"
               >
                 <div
-                  class="--name-icon --prumo --d-flex --ai-center --grow-1 --gap-12"
+                  class="--name-icon --prumo flex ai-center --grow-1 gap-12"
                 >
                   <img
                     alt="Bandera de Uruguay"
@@ -213,7 +213,7 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
                   </span>
                 </div>
                 <span
-                  class="--score --d-flex --jc-center --ai-center --prumo"
+                  class="--score flex jc-center ai-center --prumo"
                 >
                   -
                 </span>
@@ -223,18 +223,18 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
         </div>
       </li>
       <li
-        class="cll-match --d-flex --grow-1"
+        class="cll-match flex --grow-1"
         matchid="d6dhivuil8rilv2mutn2nocus"
         timeremaining="[object Object]"
       >
         <div
-          class="--w-100"
+          class="w-100"
         >
           <article
-            class="--d-flex --flex-col --w-100"
+            class="flex flex-column w-100"
           >
             <div
-              class="--status --d-flex --ai-center"
+              class="--status flex ai-center"
             >
               <h3
                 class="text --upComing --font-2xs"
@@ -244,10 +244,10 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
             </div>
             <ul>
               <li
-                class="--d-flex --row --w-100 --jc-between"
+                class="flex --row w-100 jc-between"
               >
                 <div
-                  class="--name-icon --prumo --d-flex --ai-center --grow-1 --gap-12"
+                  class="--name-icon --prumo flex ai-center --grow-1 gap-12"
                 >
                   <img
                     alt="Bandera de Nueva Zelanda"
@@ -260,16 +260,16 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
                   </span>
                 </div>
                 <span
-                  class="--score --d-flex --jc-center --ai-center --prumo"
+                  class="--score flex jc-center ai-center --prumo"
                 >
                   -
                 </span>
               </li>
               <li
-                class="--d-flex --row --w-100 --jc-between"
+                class="flex --row w-100 jc-between"
               >
                 <div
-                  class="--name-icon --prumo --d-flex --ai-center --grow-1 --gap-12"
+                  class="--name-icon --prumo flex ai-center --grow-1 gap-12"
                 >
                   <img
                     alt="Bandera de Namibia"
@@ -282,7 +282,7 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
                   </span>
                 </div>
                 <span
-                  class="--score --d-flex --jc-center --ai-center --prumo"
+                  class="--score flex jc-center ai-center --prumo"
                 >
                   -
                 </span>
@@ -292,18 +292,18 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
         </div>
       </li>
       <li
-        class="cll-match --d-flex --grow-1"
+        class="cll-match flex --grow-1"
         matchid="dajismvba3qn1n3v4gyhgkn4k"
         timeremaining="[object Object]"
       >
         <div
-          class="--w-100"
+          class="w-100"
         >
           <article
-            class="--d-flex --flex-col --w-100"
+            class="flex flex-column w-100"
           >
             <div
-              class="--status --d-flex --ai-center"
+              class="--status flex ai-center"
             >
               <h3
                 class="text --upComing --font-2xs"
@@ -313,10 +313,10 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
             </div>
             <ul>
               <li
-                class="--d-flex --row --w-100 --jc-between"
+                class="flex --row w-100 jc-between"
               >
                 <div
-                  class="--name-icon --prumo --d-flex --ai-center --grow-1 --gap-12"
+                  class="--name-icon --prumo flex ai-center --grow-1 gap-12"
                 >
                   <img
                     alt="Bandera de Samoa"
@@ -329,16 +329,16 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
                   </span>
                 </div>
                 <span
-                  class="--score --d-flex --jc-center --ai-center --prumo"
+                  class="--score flex jc-center ai-center --prumo"
                 >
                   -
                 </span>
               </li>
               <li
-                class="--d-flex --row --w-100 --jc-between"
+                class="flex --row w-100 jc-between"
               >
                 <div
-                  class="--name-icon --prumo --d-flex --ai-center --grow-1 --gap-12"
+                  class="--name-icon --prumo flex ai-center --grow-1 gap-12"
                 >
                   <img
                     alt="Bandera de Chile"
@@ -351,7 +351,7 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
                   </span>
                 </div>
                 <span
-                  class="--score --d-flex --jc-center --ai-center --prumo"
+                  class="--score flex jc-center ai-center --prumo"
                 >
                   -
                 </span>
@@ -361,18 +361,18 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
         </div>
       </li>
       <li
-        class="cll-match --d-flex --grow-1"
+        class="cll-match flex --grow-1"
         matchid="d92p6boez37x90hwqph59ao7o"
         timeremaining="[object Object]"
       >
         <div
-          class="--w-100"
+          class="w-100"
         >
           <article
-            class="--d-flex --flex-col --w-100"
+            class="flex flex-column w-100"
           >
             <div
-              class="--status --d-flex --ai-center"
+              class="--status flex ai-center"
             >
               <h3
                 class="text --upComing --font-2xs"
@@ -382,10 +382,10 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
             </div>
             <ul>
               <li
-                class="--d-flex --row --w-100 --jc-between"
+                class="flex --row w-100 jc-between"
               >
                 <div
-                  class="--name-icon --prumo --d-flex --ai-center --grow-1 --gap-12"
+                  class="--name-icon --prumo flex ai-center --grow-1 gap-12"
                 >
                   <img
                     alt="Bandera de Gales"
@@ -398,16 +398,16 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
                   </span>
                 </div>
                 <span
-                  class="--score --d-flex --jc-center --ai-center --prumo"
+                  class="--score flex jc-center ai-center --prumo"
                 >
                   -
                 </span>
               </li>
               <li
-                class="--d-flex --row --w-100 --jc-between"
+                class="flex --row w-100 jc-between"
               >
                 <div
-                  class="--name-icon --prumo --d-flex --ai-center --grow-1 --gap-12"
+                  class="--name-icon --prumo flex ai-center --grow-1 gap-12"
                 >
                   <img
                     alt="Bandera de Portugal"
@@ -420,7 +420,7 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
                   </span>
                 </div>
                 <span
-                  class="--score --d-flex --jc-center --ai-center --prumo"
+                  class="--score flex jc-center ai-center --prumo"
                 >
                   -
                 </span>
@@ -431,7 +431,7 @@ exports[`Components - features - LN10 - AnexoRugby Correct render test, snapshot
       </li>
     </ul>
     <div
-      class="cll-powered --d-flex --ai-center --gap-4 --jc-start"
+      class="cll-powered flex ai-center gap-4 jc-start"
     >
       <h3
         class="text --mobile-none --font-2xs"

@@ -22,7 +22,7 @@ exports[`Components - features - recetas - Banner should test Receta Banner 1`] 
           />
           <img
             alt="Fulbo"
-            class="image flex"
+            class="image flex --cover"
             decoding="async"
             fetchpriority="low"
             loading="lazy"

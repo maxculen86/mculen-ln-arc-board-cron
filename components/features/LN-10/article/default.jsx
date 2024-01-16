@@ -283,7 +283,7 @@ const ArticleFeature = ({
                     })}
                     variant={validateVariant(variant, authorsQuantity)}
                     liveblogList={getLiveblogTitles(articleContent)}
-                    aspectRatio={get(config, 'aspectRatio', 'ar-picture')}
+                    aspectRatio={get(config, 'aspectRatio', 'ratio-3-2')}
                     className={showExtraClass(
                         typeOfMedia,
                         className,

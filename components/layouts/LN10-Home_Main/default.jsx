@@ -1,4 +1,3 @@
-/* eslint-disable react/no-danger */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect } from 'react';
@@ -27,7 +26,6 @@ import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamic
 import Ranking from '../../features/LN-10/ranking/default';
 import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
 import {
-    createHeaderObserver,
     createBannersIntersectionObserver,
     createDifferVideosObserver,
     createDifferYoutubeVideosObserver
@@ -58,6 +56,7 @@ const LN10Home = props => {
             isAdmin
         );
     });
+
     useEffect(() => {
         createViewabilityObservers(true);
         createBannersIntersectionObserver();
@@ -71,9 +70,8 @@ const LN10Home = props => {
         <GlobalProvider>
             {bannersHome.b1x1}
             {bannersHome.comercialDsk}
-            {getScriptForComercial('comercial_dsk')}
+            {getScriptForComercial()}
             {bannersHome.comercialMob}
-            {getScriptForComercial('comercial_mob')}
             <div className="wrapper homepage">
                 {bannersHome.megatopDsk}
                 {bannersHome.megatopTab}

@@ -17,7 +17,9 @@ class EnVivo {
                 if (get(customFields, 'noteId'.concat(e), null)) {
                     return {
                         orden: e,
-                        noteId: get(customFields, 'noteId'.concat(e), null),
+                        noteId: (
+                            get(customFields, 'noteId'.concat(e), null) || ''
+                        ).trim(),
                         title: get(customFields, 'title'.concat(e), null)
                     };
                 }
