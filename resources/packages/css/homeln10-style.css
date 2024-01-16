@@ -4591,11 +4591,22 @@ a {
   background: var(--neutral-light-50);
 }
 
+.text-10 {
+  font-size: 0.625rem;
+  line-height: 100%;
+}
+
 .text-12 {
   font-size: 0.75rem;
   line-height: 100%;
 }
 
+@media (min-width: 80rem) {
+  .text-12_lg {
+    font-size: 0.75rem;
+    line-height: 100%;
+  }
+}
 strong:not(.--font-primary),
 .--font-bold:not(.--font-primary),
 .font-bold:not(.--font-primary) {
@@ -4783,6 +4794,10 @@ strong:not(.--font-primary),
   margin-bottom: 0.25rem;
 }
 
+.mb-10 {
+  margin-bottom: 0.625rem;
+}
+
 .mb-16 {
   margin-bottom: 1rem;
 }
@@ -4829,6 +4844,10 @@ strong:not(.--font-primary),
 
 .mr-16 {
   margin-right: 1rem;
+}
+
+.-mx-12 {
+  margin-inline: -0.75rem;
 }
 
 .my-3 {
@@ -5667,6 +5686,13 @@ strong:not(.--font-primary),
 }
 .overflow-hidden {
   overflow: hidden;
+}
+
+.transition.transition-all {
+  transition-property: all;
+}
+.transition.transition-duration-800 {
+  transition-duration: 800ms;
 }
 
 .--text-8xl {
