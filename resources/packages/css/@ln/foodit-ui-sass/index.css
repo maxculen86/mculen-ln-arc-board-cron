@@ -501,31 +501,31 @@ select:focus {
   background: var(--accent-lechuga);
 }
 
-.none {
+.none.none {
   display: none;
 }
 
-.flex {
+.flex.flex {
   display: flex;
 }
 
-.grid {
+.grid.grid {
   display: grid;
 }
 
-.block {
+.block.block {
   display: block;
 }
 
-.inline-flex {
+.inline-flex.inline-flex {
   display: inline-flex;
 }
 
-.inline-block {
+.inline-block.inline-block {
   display: inline-block;
 }
 
-.contents {
+.contents.contents {
   display: contents;
 }
 
@@ -637,6 +637,11 @@ select:focus {
 }
 .prumo-semibold {
   --prumo-font-variation: 130;
+}
+.prumo.text-16 {
+  font-size: 1rem;
+  line-height: 130%;
+  --prumo-letter-spacing: -0.16px;
 }
 .prumo.text-20 {
   font-size: 1.25rem;
@@ -1179,6 +1184,9 @@ b {
 @media (min-width: 48rem) {
   .w-16_md {
     width: 1rem;
+  }
+  .w-20_md {
+    width: 1.25rem;
   }
   .w-328_md {
     width: 20.5rem;
