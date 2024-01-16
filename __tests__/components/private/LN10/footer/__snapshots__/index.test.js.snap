@@ -19,7 +19,11 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
       >
         <img
           alt="Logo de LA NACION"
-          src="undefined/pf/resources/images/la-nacion.svg"
+          class="w-100"
+          decoding="async"
+          fetchpriority="low"
+          loading="lazy"
+          src="undefined/pf/resources/images/la-nacion.webp"
         />
       </i>
     </a>
@@ -662,7 +666,11 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
               >
                 <img
                   alt="Google app store"
-                  src="undefined/pf/resources/images/android-store.svg"
+                  class="w-100"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="undefined/pf/resources/images/android-store.webp"
                 />
               </i>
             </a>
@@ -681,7 +689,11 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
               >
                 <img
                   alt="App store"
-                  src="undefined/pf/resources/images/ios-store.svg"
+                  class="w-100"
+                  decoding="async"
+                  fetchpriority="low"
+                  loading="lazy"
+                  src="undefined/pf/resources/images/app-store.webp"
                 />
               </i>
             </a>
@@ -754,7 +766,11 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             >
               <img
                 alt="Grupo de Diarios América"
-                src="undefined/pf/resources/images/gda.svg"
+                class="w-100"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src="undefined/pf/resources/images/gda.webp"
               />
             </i>
           </a>
@@ -775,7 +791,11 @@ exports[`Tests - Footer - LN10 should match snapshot of footer. 1`] = `
             >
               <img
                 alt="Data fiscal"
-                src="undefined/pf/resources/images/data-fiscal.svg"
+                class="w-100"
+                decoding="async"
+                fetchpriority="low"
+                loading="lazy"
+                src="undefined/pf/resources/images/data-fiscal.webp"
               />
             </i>
           </a>

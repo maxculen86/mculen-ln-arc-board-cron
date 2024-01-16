@@ -5,17 +5,60 @@ import getAssetsPath from '../../common/utils/getAssetsPath';
 export const optionsIcons = (contextPath, deployment) => {
     const url = asset => getAssetsPath(contextPath)(deployment)(asset);
     return {
-        laNacion: <img src={url('la-nacion.svg')} alt="Logo de LA NACION" />,
+        laNacion: (
+            <img
+                src={url('la-nacion.webp')}
+                alt="Logo de LA NACION"
+                className="w-100"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+            />
+        ),
         facebook: <Facebook />,
         twitter: <Twitter />,
         instagram: <Instagram />,
         rss: <Rss />,
         storesAndroid: (
-            <img src={url('android-store.svg')} alt="Google app store" />
+            <img
+                src={url('android-store.webp')}
+                alt="Google app store"
+                className="w-100"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+            />
         ),
-        storesIos: <img src={url('ios-store.svg')} alt="App store" />,
-        gdaXs: <img src={url('gda.svg')} alt="Grupo de Diarios América" />,
-        dataFiscal: <img src={url('data-fiscal.svg')} alt="Data fiscal" />
+        storesIos: (
+            <img
+                src={url('app-store.webp')}
+                alt="App store"
+                className="w-100"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+            />
+        ),
+        gdaXs: (
+            <img
+                src={url('gda.webp')}
+                alt="Grupo de Diarios América"
+                className="w-100"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+            />
+        ),
+        dataFiscal: (
+            <img
+                src={url('data-fiscal.webp')}
+                alt="Data fiscal"
+                className="w-100"
+                loading="lazy"
+                fetchpriority="low"
+                decoding="async"
+            />
+        )
     };
 };
 
