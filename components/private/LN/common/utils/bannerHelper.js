@@ -423,7 +423,8 @@ export const queueGoogletagCommand = bannersToLoad => {
             function(bids) {
                 // set apstag targeting on googletag, then trigger the first GAM request in googletag's disableInitialLoad integration
                 googletag.cmd.push(function() {
-                    if (pbjs.adserverRequestSent) return;
+                    if (typeof pbjs === 'undefined' || pbjs.adserverRequestSent)
+                        return;
                     apstag.setDisplayBids();
                 });
             }
@@ -434,24 +435,29 @@ export const queueGoogletagCommand = bannersToLoad => {
         //	once by Prebid when the auction's done
         //	once by the failsafe timeout
         // so a boolean is used to make sure ads are refreshed only once
-        pbjs.adserverRequestSent = false;
+        if (typeof pbjs !== 'undefined') {
+            pbjs.adserverRequestSent = false;
+        }
         const sendAdServerRequest = _headerBiddingSlots => {
             if (_headerBiddingSlots.length === 0) return;
             googletag.cmd.push(() => {
                 // don't run again if already ran
-                if (pbjs.adserverRequestSent) return;
+                if (typeof pbjs === 'undefined' && pbjs.adserverRequestSent)
+                    return;
                 pbjs.adserverRequestSent = true;
                 googletag.pubads().refresh(_headerBiddingSlots);
             });
         };
 
-        !isWebview(navigator.userAgent) &&
-            pbjs.que.push(function() {
-                pbjs.rp.requestBids({
-                    callback: sendAdServerRequest,
-                    gptSlotObjects: headerBiddingSlots
+        if (typeof pbjs !== 'undefined') {
+            !isWebview(navigator.userAgent) &&
+                pbjs.que.push(function() {
+                    pbjs.rp.requestBids({
+                        callback: sendAdServerRequest,
+                        gptSlotObjects: headerBiddingSlots
+                    });
                 });
-            });
+        }
 
         // this timeout is a failsafe
         // the ad ops team can set lower thresholds that will be respected by Prebid
