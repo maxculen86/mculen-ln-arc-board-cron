@@ -18,13 +18,13 @@ export const RoofFoodit = ({
         <div className="flex ai-end jc-between gap-24 mb-24">
             {linkProps.href ? (
                 <Link
-                    className="prumo prumo-light text-28 text-36_md text-40_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-batata__hover"
+                    className="prumo prumo-light text-24 text-32_md text-36_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-batata__hover"
                     title={`Ir a ${title.text}`}
                     {...linkProps}
                 />
             ) : (
                 <Text
-                    className="prumo prumo-light text-28 text-36_md text-40_lg"
+                    className="prumo prumo-light text-24 text-32_md text-36_lg"
                     text={text}
                     as={as}
                 />
@@ -33,12 +33,12 @@ export const RoofFoodit = ({
             {buttonProps && (
                 <Button {...buttonProps} variant="link" className="ml-auto">
                     {icon && (
-                        <Icon color="dark" className="w-24 w-16_md">
+                        <Icon color="dark" className="w-24 w-20_md">
                             {icon}
                         </Icon>
                     )}
                     {buttonProps.text && (
-                        <Text className="text-14 sm-none uppercase">
+                        <Text className="text-12 sm-none uppercase">
                             {buttonProps.text}
                         </Text>
                     )}

@@ -126,7 +126,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     class="dropdown relative h-max flex ai-center"
                   >
                     <button
-                      class="dropdown-toggle inline-flex gap-4 ai-center roboto-bold text-14 uppercase"
+                      class="dropdown-toggle inline-flex ai-center roboto-bold text-12 uppercase gap-8"
                     >
                       Recetas
                       <i
@@ -1031,7 +1031,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     class="dropdown relative h-max flex ai-center"
                   >
                     <button
-                      class="dropdown-toggle inline-flex gap-4 ai-center roboto-bold text-14 uppercase"
+                      class="dropdown-toggle inline-flex ai-center roboto-bold text-12 uppercase gap-8"
                     >
                       Descubrir
                       <i
@@ -1167,7 +1167,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 </li>
                 <li>
                   <a
-                    class="link foodit-link flex gap-8 ai-center roboto-regular text-14 roboto-bold uppercase"
+                    class="link foodit-link flex gap-8 ai-center roboto-regular text-12 roboto-bold uppercase"
                     data-variant="primary"
                     href="#"
                     target="_self"
@@ -1178,7 +1178,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 </li>
                 <li>
                   <a
-                    class="link foodit-link flex gap-8 ai-center roboto-regular text-14 roboto-bold uppercase"
+                    class="link foodit-link flex gap-8 ai-center roboto-regular text-12 roboto-bold uppercase"
                     data-variant="primary"
                     href="#"
                     target="_self"
@@ -1204,7 +1204,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     title="Ir a mis recetas"
                   >
                     <i
-                      class="icon --icon-24"
+                      class="icon --icon-20"
                     >
                       <svg
                         fill="none"
@@ -1229,7 +1229,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     title="Ir a lista de compras"
                   >
                     <i
-                      class="icon --icon-24"
+                      class="icon --icon-20"
                     >
                       <svg
                         fill="none"

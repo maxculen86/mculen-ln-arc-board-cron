@@ -45,9 +45,12 @@ describe('components - private - common - utils', () => {
 
         const result = urlForPrerollAds(device, isJw);
 
-        expect(result).toContain(
-            'https://pubads.g.doubleclick.net/gampad/ads?slotname=/133919216/la_nacion_video/nota/preroll&sz=640x480|400x300&ciu_szs=300x250&unviewed_position_start=1&output=vast&impl=s&env=vp&gdfp_req=1&ad_rule=0&vad_type=linear&vpos=preroll&cust_params=tags_nuevos%3D%2C%2C%2C%2C%2C123&pod=3&ppos=1&lip=true&min_ad_duration=0&max_ad_duration=30000&vrid=6256&url=undefined&description_url=undefined&video_doc_id=short_onecue&cmsid=496&kfa=0&tfcd=0&correlator='
-        );
+        const baseUrl =
+            'https://pubads.g.doubleclick.net/gampad/ads?slotname=/133919216/la_nacion_video/nota/preroll&sz=640x480|400x300&ciu_szs=300x250&unviewed_position_start=1&output=vast&impl=s&env=vp&gdfp_req=1&ad_rule=0&vad_type=linear&vpos=preroll&cust_params=tags_nuevos%3D%2C%2C%2C%2C%2C123&pod=3&ppos=1&lip=true&min_ad_duration=0&max_ad_duration=30000&vrid=6256&url=undefined&description_url=undefined&video_doc_id=short_onecue&cmsid=496&kfa=0&tfcd=0&correlator=';
+        expect(result).toMatch(new RegExp(`^${baseUrl}`));
+
+        const correlatorValue = result.split('correlator=')[1];
+        expect(correlatorValue).toMatch(/^\d+$/);
     });
 
     it('should return an empty string when mostrar_banners label is set to No', () => {

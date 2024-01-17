@@ -6,7 +6,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     class="flex ai-end jc-between gap-24 mb-24"
   >
     <h3
-      class="text prumo prumo-light text-28 text-36_md text-40_lg"
+      class="text prumo prumo-light text-24 text-32_md text-36_lg"
     >
       Grid Title
     </h3>
@@ -1471,7 +1471,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
       class="flex ai-end jc-between gap-24 mb-24"
     >
       <a
-        class="link foodit-link flex gap-8 ai-center roboto-regular prumo prumo-light text-28 text-36_md text-40_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-batata__hover"
+        class="link foodit-link flex gap-8 ai-center roboto-regular prumo prumo-light text-24 text-32_md text-36_lg border border-bottom border-thin border-light-800 text-accent-batata__hover border-accent-batata__hover"
         data-variant="primary"
         href="https://lanacion.com"
         target="_self"
@@ -1485,10 +1485,10 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
         data-modal="open-modal"
         data-variant="link"
         fill="false"
-        text="Llevar al recetario"
+        text="Guardar todo"
       >
         <i
-          class="icon w-24 w-16_md --dark"
+          class="icon w-24 w-20_md --dark"
         >
           <svg
             fill="none"
@@ -1504,9 +1504,9 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           </svg>
         </i>
         <span
-          class="text text-14 sm-none uppercase"
+          class="text text-12 sm-none uppercase"
         >
-          Llevar al recetario
+          Guardar todo
         </span>
       </button>
     </div>
