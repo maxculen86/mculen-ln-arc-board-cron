@@ -164,6 +164,7 @@ export const getStickyBanner = (bannerClass, viewport) => {
     const { contextPath, deployment } = useAppContext();
     return (
         <script
+            defer
             id="getStickyBanner"
             type="text/javascript"
             data-banner-classes={bannerClass}
@@ -179,6 +180,7 @@ export const getScriptForComercial = () => {
     const { contextPath, deployment } = useAppContext();
     return (
         <script
+            async
             id="getScriptForComercial"
             type="text/javascript"
             src={deployment(
