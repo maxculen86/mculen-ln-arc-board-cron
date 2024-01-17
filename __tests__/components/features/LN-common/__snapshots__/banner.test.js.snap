@@ -190,6 +190,7 @@ Object {
       <script
         data-banner-classes=".--cabezal_dsk"
         data-viewport=".lay-sidebar"
+        defer=""
         id="getStickyBanner"
         type="text/javascript"
       />
@@ -216,6 +217,7 @@ Object {
     <script
       data-banner-classes=".--cabezal_dsk"
       data-viewport=".lay-sidebar"
+      defer=""
       id="getStickyBanner"
       type="text/javascript"
     />
