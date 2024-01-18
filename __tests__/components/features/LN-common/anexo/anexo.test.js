@@ -1,8 +1,12 @@
 import React from 'react';
 import Context from 'fusion:context';
 import { render, mount, shallow } from 'enzyme';
-import AnexoFeature from '../../../../../components/features/LN-common/anexo/default';
+import AnexoFeature, {
+    getComponentFromConfig,
+    getComponentType
+} from '../../../../../components/features/LN-common/anexo/default';
 import { isInSection } from '../../../../../components/features/LN-common/anexo/common/_helper-WebApi';
+import BuildRoof from '../../../../../components/chains/utils/_BuildRoof/default';
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -31,6 +35,34 @@ jest.mock(
     })
 );
 
+const testCases = [
+    {
+        type: 'Html',
+        props: {
+            id: '123',
+            customFields: {
+                html: '<p>Test HTML content</p>'
+            },
+            extraClass: 'extra-class'
+        },
+        expected: (
+            <>
+                <div className="roof-class">
+                    <BuildRoof logoId="456" link="https://example.com" />
+                </div>
+                <div
+                    className="com-anexo extra-class"
+                    dangerouslySetInnerHTML={{
+                        __html: '<p>Test HTML content</p>'
+                    }}
+                />
+                <div>Banner Mobile</div>
+                <div>Banner Desktop</div>
+            </>
+        )
+    }
+];
+
 describe('features - LN-common - anexo - default', () => {
     isInSection.mockRestore();
     describe('With HTML anexo props', () => {
@@ -48,7 +80,17 @@ describe('features - LN-common - anexo - default', () => {
         it('Should render HTML anexo correctly', () => {
             const component = mount(<AnexoFeature {...propsHtml} />);
             expect(component.html()).not.toBeNull();
-            expect(component.find('div').hasClass('com-anexo')).toBeTruthy();
+
+            // Find the BuildRoof component
+            const buildRoofComponent = component.find(BuildRoof);
+
+            expect(buildRoofComponent.exists()).toBeTruthy();
+
+            const anexoDiv = component.find('div.com-anexo');
+
+            expect(anexoDiv.exists()).toBeTruthy();
+            expect(anexoDiv.hasClass('com-anexo')).toBeTruthy();
+
             expect(component.html()).toContain(propsHtml.customFields.html);
         });
         it('Should match HTML anexo snapshot', () => {
@@ -77,20 +119,23 @@ describe('features - LN-common - anexo - default', () => {
                 hideByHtml: true
             }
         };
+
         it('Should render iframe correctly', () => {
             const component = mount(<AnexoFeature {...propsUrl} />);
+
             expect(component.html()).not.toBeNull();
             expect(component.find('iframe')).toHaveLength(1);
             expect(component.find('iframe').props()['data-src']).toBe(
                 propsUrl.customFields.url
             );
             expect(component.find('iframe').props().src).toBe(undefined);
+
             expect(
-                component
-                    .find('div')
-                    .at(0)
-                    .hasClass('com-anexo skeleton-box')
+                component.find('div.com-anexo.skeleton-box').exists()
             ).toBeTruthy();
+
+            const buildRoofComponent = component.find(BuildRoof);
+            expect(buildRoofComponent.exists()).toBeTruthy();
         });
         it('Should generate style tag with media queries correctly', () => {
             const component = mount(<AnexoFeature {...propsUrl} />);
@@ -157,6 +202,209 @@ describe('features - LN-common - anexo - default', () => {
             expect(component.html()).toContain(
                 'Se requiere agregue la URL o HTML del anexo'
             );
+        });
+    });
+
+    describe('getComponentFromConfig', () => {
+        testCases.forEach(({ type, props, expected }) => {
+            it(`should render the expected component for type '${type}'`, () => {
+                const bannerMob = <div>Banner Mobile</div>;
+                const bannerDsk = <div>Banner Desktop</div>;
+                const roofData = { logoId: '456', link: 'https://example.com' };
+                const classNameRoof = 'roof-class';
+
+                const result = getComponentFromConfig(
+                    type,
+                    props,
+                    bannerMob,
+                    bannerDsk,
+                    roofData,
+                    classNameRoof
+                );
+
+                expect(result).toEqual(expected);
+            });
+        });
+
+        it('should render an empty fragment when the type is not recognized and there is no error message', () => {
+            const type = 'Unknown';
+            const props = {
+                id: '123'
+            };
+            const bannerMob = <div>Banner Mobile</div>;
+            const bannerDsk = <div>Banner Desktop</div>;
+            const roofData = { logoId: '456', link: 'https://example.com' };
+            const classNameRoof = 'roof-class';
+
+            const result = getComponentFromConfig(
+                type,
+                props,
+                bannerMob,
+                bannerDsk,
+                roofData,
+                classNameRoof
+            );
+
+            expect(result).toEqual(<></>);
+        });
+
+        it('should render an empty fragment when the Html component has no HTML content', () => {
+            const type = 'Html';
+            const props = {
+                id: '123',
+                customFields: {}
+            };
+            const bannerMob = <div>Banner Mobile</div>;
+            const bannerDsk = <div>Banner Desktop</div>;
+            const roofData = { logoId: '456', link: 'https://example.com' };
+            const classNameRoof = 'roof-class';
+
+            const result = getComponentFromConfig(
+                type,
+                props,
+                bannerMob,
+                bannerDsk,
+                roofData,
+                classNameRoof
+            );
+
+            expect(result).toEqual(expect.any(Object));
+        });
+
+        it('should render an Iframe component with an empty data-src', () => {
+            const type = 'Iframe';
+            const props = {
+                id: '123',
+                customFields: {}
+            };
+            const bannerMob = <div>Banner Mobile</div>;
+            const bannerDsk = <div>Banner Desktop</div>;
+            const roofData = { logoId: '456', link: 'https://example.com' };
+            const classNameRoof = 'roof-class';
+
+            const expectedIframeResult = (
+                <React.Fragment>
+                    <div className="roof-class">
+                        <BuildRoof
+                            buttonStyle=""
+                            buttonText=""
+                            chainStyle="generic"
+                            hideRoof={false}
+                            link="https://example.com"
+                            linkButton=""
+                            logoId="456"
+                            navigationId=""
+                            titleLink=""
+                        />
+                    </div>
+                    <iframe
+                        data-src=""
+                        frameBorder="0"
+                        height="100%"
+                        id="anexo-123"
+                        title="anexo-123"
+                        width="100%"
+                    />
+                </React.Fragment>
+            );
+
+            const result = getComponentFromConfig(
+                type,
+                props,
+                bannerMob,
+                bannerDsk,
+                roofData,
+                classNameRoof
+            );
+
+            expect(result).toEqual(expectedIframeResult);
+        });
+
+        describe('getComponentType', () => {
+            it('should return "Error" for admin with error message', () => {
+                const result = getComponentType({
+                    isAdmin: true,
+                    errorMessage: 'Test error message'
+                });
+                expect(result).toBe('Error');
+            });
+
+            it('should return "Html" for non-admin with HTML content', () => {
+                const result = getComponentType({
+                    isAdmin: false,
+                    customFields: {
+                        html: '<p>Test HTML content</p>'
+                    }
+                });
+                expect(result).toBe('Html');
+            });
+
+            it('should return "Iframe" for non-admin with URL and height settings', () => {
+                const result = getComponentType({
+                    isAdmin: false,
+                    customFields: {
+                        url: 'https://example.com',
+                        heightDesktop: '100px',
+                        heightTablet: '75px',
+                        heightMobile: '50px'
+                    }
+                });
+                expect(result).toBe('Iframe');
+            });
+
+            it('should return "Iframe" for non-admin with URL and default height settings', () => {
+                const result = getComponentType({
+                    isAdmin: false,
+                    customFields: {
+                        url: 'https://example.com',
+                        heightDesktop: '100px',
+                        heightTablet: '75px',
+                        heightMobile: '50px'
+                    }
+                });
+                expect(result).toBe('Iframe');
+            });
+
+            const testCasesGetComponentType = [
+                {
+                    description:
+                        'should return "Iframe" for non-admin with URL and hide settings',
+                    input: {
+                        isAdmin: false,
+                        customFields: {
+                            url: 'https://example.com',
+                            hideByUrl: true
+                        }
+                    },
+                    expected: false
+                },
+                {
+                    description:
+                        'should return "Iframe" for non-admin with URL and hide by HTML setting',
+                    input: {
+                        isAdmin: false,
+                        customFields: {
+                            url: 'https://example.com',
+                            hideByHtml: true
+                        }
+                    },
+                    expected: undefined
+                }
+            ];
+
+            testCasesGetComponentType.forEach(
+                ({ description, input, expected }) => {
+                    it(description, () => {
+                        const result = getComponentType(input);
+                        expect(result).toBe(expected);
+                    });
+                }
+            );
+
+            it('should return undefined if no valid conditions are met', () => {
+                const result = getComponentType({});
+                expect(result).toBe('');
+            });
         });
     });
 });

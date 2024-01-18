@@ -7,7 +7,7 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
     data-id="overlay-drawer-account"
   >
     <div
-      class="drawer flex flex-column overflow-hidden fixed top-0 w-100 h-100vh max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular right-0"
+      class="drawer flex flex-column overflow-hidden fixed top-0 w-100 h-100vh h-100dvh max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular right-0"
       data-id="drawer-account"
       data-position="right"
       data-visible="false"
@@ -40,35 +40,6 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
       <div
         class="drawer-body z-1 flex-grow-1 overflow-x-hidden foodit-scrollbar flex flex-column gap-16"
       >
-        <div
-          class="flex flex-column ai-center gap-16"
-        >
-          <div
-            class="flex flex-column ai-center gap-8"
-          >
-            <div
-              class="avatar flex flex-column ai-center gap-8 text-center"
-            >
-              <div
-                class="avatar-initials flex ai-center jc-center rounded-circle ratio-1-1 roboto-bold uppercase text-light-1 text-14 w-56 bg-light-600"
-              >
-                LB
-              </div>
-              <span
-                class="text roboto-light text-12"
-              >
-                lbarandiaran@lanacion.com.ar
-              </span>
-            </div>
-          </div>
-          <button
-            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-12"
-            data-variant="accent"
-            title="Ir a Suscribirse"
-          >
-            Suscribite
-          </button>
-        </div>
         <ul
           class="w-100"
         >

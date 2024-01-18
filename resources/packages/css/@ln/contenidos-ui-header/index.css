@@ -214,7 +214,6 @@
 .ln-main-header .campanita {
   padding: 0.25rem 0.25rem !important;
 }
-@charset "UTF-8";
 .ln-sub-header {
   height: 3rem;
 }
@@ -251,13 +250,6 @@
 .ln-sub-header .dollar.dollar {
   padding: 0.9375rem 0;
   padding-right: 3.75rem;
-}
-.ln-sub-header .dollar.dollar li:not(:first-child):before {
-  content: "•";
-  color: #cccccc;
-  position: relative;
-  top: 0.0625rem;
-  margin-right: 0.5rem;
 }
 .ln-sub-header .ln-link {
   color: inherit;

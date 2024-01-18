@@ -47,7 +47,7 @@ const ErrorPage = props => {
                             </p>
                             <nav>
                                 <a
-                                    className="--btn --secondary block mb-24 --text-link"
+                                    className="--btn --secondary block mb-24 text-blue-500"
                                     href={host || '/'}
                                     title="Ir a la página principal"
                                 >
@@ -62,7 +62,7 @@ const ErrorPage = props => {
                 <div className="lay">
                     <div className="row">
                         <div className="col-12">
-                            <div className="--ar-mob-3-4 mb-40 py-32_m">
+                            <div className="ratio-3-4_max767 mb-40 py-32_m">
                                 <Adaptableimage
                                     src={urlImageMob}
                                     sources={[
@@ -95,7 +95,7 @@ const ErrorPage = props => {
             <footer>
                 <div className="lay">
                     <div className="row footer-copyright py-24">
-                        <div className="col-12 footer-copyright__reserved --tab-text-center --text-neutral-light-600">
+                        <div className="col-12 footer-copyright__reserved text-center_m text-light-600">
                             <Copyright />
                         </div>
                     </div>

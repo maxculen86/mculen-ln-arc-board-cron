@@ -38,7 +38,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   />
                   <img
                     alt="Hamburguesa de carne vacuna (Pixabay)"
-                    class="image flex card-image ratio-3-2 w-100"
+                    class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -162,7 +162,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   />
                   <img
                     alt="Hamburguesa de carne vacuna (Pixabay)"
-                    class="image flex card-image ratio-3-2 w-100"
+                    class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -286,7 +286,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   />
                   <img
                     alt="Hamburguesa de carne vacuna (Pixabay)"
-                    class="image flex card-image ratio-3-2 w-100"
+                    class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -410,7 +410,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   />
                   <img
                     alt="Acompañá las patas de pollo con zucchinis"
-                    class="image flex card-image ratio-3-2 w-100"
+                    class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -534,7 +534,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   />
                   <img
                     alt=""
-                    class="image flex card-image ratio-3-2 w-100"
+                    class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -658,7 +658,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   />
                   <img
                     alt="Acompañá las patas de pollo con zucchinis"
-                    class="image flex card-image ratio-3-2 w-100"
+                    class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -782,7 +782,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   />
                   <img
                     alt="Hamburguesa de carne vacuna (Pixabay)"
-                    class="image flex card-image ratio-3-2 w-100"
+                    class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -905,7 +905,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     srcset="https://resizer.glanacion.com/resizer/4euC7C0duGKCn3hj5T6WiNA5aL0=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/3IBNBI7ITJFKDC6PQUXVEGNCWQ.jpg"
                   />
                   <img
-                    class="image flex card-image ratio-3-2 w-100"
+                    class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -1028,7 +1028,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     srcset="https://resizer.glanacion.com/resizer/39iaG0em6yhSZIkIwxjfFRhZXw0=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg"
                   />
                   <img
-                    class="image flex card-image ratio-3-2 w-100"
+                    class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -1151,7 +1151,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     srcset="https://resizer.glanacion.com/resizer/ipLc_6K_t4yo-Smy0KpJuVxL420=/420x280/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/UETSUXOVHBESLGNH5OTMPYZGYI.webp"
                   />
                   <img
-                    class="image flex card-image ratio-3-2 w-100"
+                    class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -1274,7 +1274,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                     srcset="https://resizer.glanacion.com/resizer/Gb-JZZkR73DjvH-pNLmt4EQESHM=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
                   />
                   <img
-                    class="image flex card-image ratio-3-2 w-100"
+                    class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"
@@ -1402,7 +1402,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   />
                   <img
                     alt="Provoleta con vegetales"
-                    class="image flex card-image ratio-3-2 w-100"
+                    class="image flex card-image ratio-3-2 w-100 --cover"
                     decoding="async"
                     fetchpriority="low"
                     loading="lazy"

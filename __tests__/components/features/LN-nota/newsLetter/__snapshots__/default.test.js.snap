@@ -12,7 +12,7 @@ exports[`components - features - LN-Nota - newsLetters Render and snapshot Test 
         class="newsletterbox-image"
       >
         <img
-          class="image flex"
+          class="image flex --cover"
           decoding="async"
           fetchpriority="low"
           height="170"

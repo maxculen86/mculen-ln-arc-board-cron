@@ -19,7 +19,8 @@ export const TopNavigationBar = () => {
                     <>
                         <Dropdown.Toggle
                             onClick={() => console.log(title)}
-                            className="ai-center roboto-bold text-14 uppercase"
+                            className="ai-center roboto-bold text-12 uppercase"
+                            gap={8}
                         >
                             {title}
                         </Dropdown.Toggle>
@@ -36,7 +37,7 @@ export const TopNavigationBar = () => {
         return (
             <Link
                 href={href}
-                className="text-14 roboto-bold uppercase"
+                className="text-12 roboto-bold uppercase"
                 text={title}
             />
         );
@@ -54,7 +55,7 @@ export const TopNavigationBar = () => {
                     title="Ir a mis recetas"
                     className="gap-8"
                 >
-                    <Icon size={24}>
+                    <Icon size={20}>
                         <Bookmark />
                     </Icon>
                     MIS RECETAS
@@ -64,7 +65,7 @@ export const TopNavigationBar = () => {
                     title="Ir a lista de compras"
                     className="gap-8"
                 >
-                    <Icon size={24}>
+                    <Icon size={20}>
                         <Cart />
                     </Icon>
                     LISTA DE COMPRAS

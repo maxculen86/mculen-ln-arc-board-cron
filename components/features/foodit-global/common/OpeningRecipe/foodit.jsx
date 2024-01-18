@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Text } from '@ln/common-ui-text';
-import { Dropdown } from '@ln/common-ui-dropdown';
 import { Icon } from '@ln/common-ui-icon';
 import { Recipe } from '@ln/foodit-ui-recipe';
 import { Image } from '@ln/foodit-ui-image';
 import { Badge } from '@ln/foodit-ui-badge';
 import { Button } from '@ln/foodit-ui-button';
-import { Bookmark, Facebook, Instagram, Twitter } from '@ln/foodit-ui-assets';
+import { Bookmark } from '@ln/foodit-ui-assets';
 
 import ActionsButtons from '../ActionsButtons/foodit';
 import StaticContent from '../../../../private/common/staticContent';
@@ -16,7 +15,10 @@ import VideoPlayer from '../../../private-global/common/videoPlayer/foodit';
 
 import { getHighestPriorityTag } from '../utils/notaFooditHelper';
 import getAuthorsAsString from '../../../../private/common/utils/getAuthorsAsString';
-import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
+import {
+    getImagesToLoadWithPicture,
+    getShortestImage
+} from '../../../../private/LN/common/utils/mediaHelper';
 import get from '../../../../private/common/utils/get';
 
 export const OpeningRecipe = ({ article = {} }) => {
@@ -27,6 +29,12 @@ export const OpeningRecipe = ({ article = {} }) => {
     const author = getAuthorsAsString(article);
 
     const videoJW = get(promo_items, 'video_jw', null);
+    const { caption = '', resized_urls = [], url = '' } = get(
+        promo_items,
+        'basic',
+        {}
+    );
+    const { resizedUrl = '' } = getShortestImage(resized_urls);
 
     // TODO: Icons still pending design definitions
     return (
@@ -42,14 +50,12 @@ export const OpeningRecipe = ({ article = {} }) => {
                         />
                     ) : (
                         <Image
-                            alt={get(promo_items, 'basic.caption', '')}
-                            src={get(promo_items, 'basic.url', '')}
+                            alt={caption}
+                            src={resizedUrl || url}
                             className="w-100 ratio-3-2"
                             fetchPriority="high"
                             loading="eager"
-                            sources={getImagesToLoadWithPicture(
-                                get(promo_items, 'basic.resized_urls', [])
-                            )}
+                            sources={getImagesToLoadWithPicture(resized_urls)}
                         />
                     )}
                     {badge && (

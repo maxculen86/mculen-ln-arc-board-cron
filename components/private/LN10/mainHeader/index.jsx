@@ -15,9 +15,9 @@ import {
     RightOptions,
     setDesplegableData,
     sectionsCallback,
-    logoCallback,
-    setInitials
+    logoCallback
 } from './_helper';
+import getUserInitials from '../../common/utils/getUserInitials';
 import { handleClickBuscar } from '../navbar/_helper';
 import { GlobalContext } from '../../common/context/globalContext';
 import { goToLogout } from '../../LN/common/utils/loginHelper';
@@ -60,7 +60,7 @@ const MainHeaderLN = ({
     });
 
     const desplegableData = setDesplegableData(logout) || [];
-    const initials = setInitials(userFirstName, userLastName, userName);
+    const initials = getUserInitials(userFirstName, userLastName, userName);
 
     return (
         <MainHeader className={classNameMainHeader}>

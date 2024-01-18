@@ -69,6 +69,15 @@ describe('FoodIt', () => {
                         titleList: 'Wafflesito rico'
                     }
                 }
+            },
+            {
+                subtype: 'custom-ingrediente',
+                embed: {
+                    config: {
+                        items: ['item1', 'item2'],
+                        titleList: 'Powerup ingrediente antiguo'
+                    }
+                }
             }
         ]
     };
@@ -88,5 +97,6 @@ describe('FoodIt', () => {
                 `PORCIONES: ${article.promo_items.receta.embed.config.counterPortion}`
             )
         ).toBeInTheDocument();
+        expect(getByText(`item2`)).toBeInTheDocument();
     });
 });

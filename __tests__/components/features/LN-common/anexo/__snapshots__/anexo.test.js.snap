@@ -1,28 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`features - LN-common - anexo - default With HTML anexo props Should match HTML anexo snapshot 1`] = `
-<div
-  class="com-anexo "
->
-  <p>
-    Mock HTML anexo
-  </p>
-</div>
+Array [
+  <div
+    class=""
+  >
+    <div
+      class="ln-roof --generic"
+      roof-container="roof-container"
+    >
+      <div
+        class="--ln-roof-full flex jc-between pt-24"
+      >
+        <div
+          class="--ln-roof-left"
+        >
+          <div
+            class="flex ai-center uppercase"
+            roof-group="left"
+          />
+        </div>
+        <div
+          class="--ln-roof-right flex ai-center --generico"
+          roof-group="right"
+        />
+      </div>
+    </div>
+  </div>,
+  <div
+    class="com-anexo "
+  >
+    <p>
+      Mock HTML anexo
+    </p>
+  </div>,
+]
 `;
 
 exports[`features - LN-common - anexo - default With anexo URL props Should match URL anexo snapshot 1`] = `
 <div
-  class="com-anexo skeleton-box"
-  id="anexo-responsive-f0f0raOK8mKx1sc"
-  style="overflow:hidden;width:100%"
->
-  <iframe
-    data-src="https://especialess3.lanacion.com.ar/21/03/anexo-home-vacunas-test/"
-    frameborder="0"
-    height="100%"
-    id="anexo-f0f0raOK8mKx1sc"
-    title="anexo-f0f0raOK8mKx1sc"
-    width="100%"
-  />
-</div>
+  class="hidden"
+/>
 `;

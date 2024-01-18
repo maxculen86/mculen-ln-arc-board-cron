@@ -6,7 +6,10 @@ import Consumer from 'fusion:consumer';
 
 import { checkForId } from '../../LN-10/article/common/_helper-WebApi.js';
 import { validateBannerReceta } from './_helper';
-import { getImagesToLoadWithPicture } from '../../../private/LN/common/utils/mediaHelper';
+import {
+    getImagesToLoadWithPicture,
+    getShortestImage
+} from '../../../private/LN/common/utils/mediaHelper';
 import get from '../../../private/common/utils/get';
 
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
@@ -38,7 +41,12 @@ const Banner = ({
         staticMode: true
     });
 
-    const { url, resized_urls } = get(relatedImage, 'promo_items.basic', {});
+    const { resized_urls = [], url = '' } = get(
+        relatedImage,
+        'promo_items.basic',
+        {}
+    );
+    const { resizedUrl } = getShortestImage(resized_urls);
 
     const error = validateBannerReceta({
         title,
@@ -65,7 +73,7 @@ const Banner = ({
                 <div className="banner-container relative w-100 z-1 flex jc-center ai-center h-250 h-160_lg overflow-y-clip">
                     <Link href={redirectUrl} title={title}>
                         <Adaptableimage
-                            src={url}
+                            src={resizedUrl || url}
                             sources={getImagesToLoadWithPicture(resized_urls)}
                             alt={title}
                         />

@@ -45,9 +45,27 @@ describe('components - private - LN - api - mobile - v2 - home - index.js', () =
             idSeccion: 705,
             parameters: {
                 title: 'Juegos',
-                url: 'https://www.lanacion.com.ar/juegos/'
+                url: 'https://www.lanacion.com.ar'
             },
-            tipoSeccion: 'juegos'
+            tipoSeccion: 'juegos',
+            items: [
+                {
+                    closed: 'NO',
+                    id: '/juegos/crucigrama'
+                },
+                {
+                    closed: 'NO',
+                    id: '/juegos/sopa-de-letras'
+                },
+                {
+                    closed: 'NO',
+                    id: '/juegos/sudoku'
+                },
+                {
+                    closed: 'SI',
+                    id: '/juegos/trivias'
+                }
+            ]
         });
     });
 

@@ -1,6 +1,8 @@
 import React from 'react';
+import { useAppContext } from 'fusion:context';
 
 const Buscador = () => {
+    const { contextPath, deployment } = useAppContext();
     return (
         <>
             <article id="nota" className="floatFix">
@@ -19,12 +21,12 @@ const Buscador = () => {
 
             <script src="https://www.queryly.com/js/queryly.v4.js" />
             <script
+                id="scriptBuscadorQueryly"
                 defer
                 type="text/javascript"
-                dangerouslySetInnerHTML={{
-                    __html:
-                        "queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));"
-                }}
+                src={deployment(
+                    `${contextPath}/resources/js/LN/scriptBuscadorQueryly.min.js`
+                )}
             />
 
             <script

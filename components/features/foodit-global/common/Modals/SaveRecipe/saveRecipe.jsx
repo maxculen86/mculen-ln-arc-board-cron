@@ -4,17 +4,17 @@ import HeaderSaveRecipe from './components/header';
 import MainSaveRecipe from './components/main';
 import FooterSaveRecipe from './components/footer';
 import useInputListener from './hooks/useInputListener';
+import { useRef } from 'react';
 
 const SaveRecipe = props => {
     const { close, ids, indexStep, setIndexStep } = props;
+    const inputRef = useRef(null);
 
     const {
         onChange: onInputFolderChange,
         value: inputValue
     } = useInputListener('');
-    const { onChange: onSelectChange, value: selectValue } = useInputListener(
-        'Elegir carpeta'
-    );
+    const { onChange: onSelectChange, value: selectValue } = useInputListener();
 
     const {
         leftButton,
@@ -36,6 +36,7 @@ const SaveRecipe = props => {
                 showInputFolder={showInputFolder}
                 showSelect={showSelect}
                 suggestions={suggestions}
+                inputRef={inputRef}
             />
             <FooterSaveRecipe
                 close={close}
@@ -46,6 +47,7 @@ const SaveRecipe = props => {
                 rightButton={rightButton}
                 selectedFolder={selectValue}
                 setIndexStep={setIndexStep}
+                inputRef={inputRef}
             />
         </>
     );

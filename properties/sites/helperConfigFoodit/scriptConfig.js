@@ -1,0 +1,55 @@
+const BODYBOTTOM = 'body-bottom';
+const BODYTOP = 'body-top';
+const HEAD = 'head';
+
+export default {
+    Datadog: { props: {}, location: [HEAD] },
+    Permutive: { props: {}, location: [HEAD] },
+    ScriptCripto: {
+        props: {},
+        location: [BODYBOTTOM]
+    },
+    GTM: {
+        props: { id: 'GTM-GHV6' },
+        location: [HEAD, BODYTOP]
+    },
+    PostBid: {
+        props: {},
+        location: [HEAD]
+    },
+    Comscore: {
+        props: {
+            config: {
+                c1: '2',
+                c2: '6906398'
+            }
+        },
+        location: [HEAD]
+    },
+    AdblockDetector: {
+        props: {},
+        location: [BODYBOTTOM]
+    },
+    LiftIgniter: {
+        props: {},
+        location: [BODYTOP]
+    },
+    GooglePublisherTag: {
+        props: {},
+        location: [HEAD]
+    },
+    GooglePublisherTagAcumulado: {
+        props: {},
+        location: [HEAD]
+    },
+    ComscoreVideo: {
+        props: {},
+        location: [BODYTOP]
+    },
+    DevReactTracker: {
+        props: {},
+        location: [HEAD]
+    },
+    ObservableFoodit: { props: {}, location: [BODYBOTTOM] },
+    DataModal: { props: {}, location: [BODYBOTTOM] }
+};

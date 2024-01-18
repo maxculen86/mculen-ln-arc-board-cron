@@ -1,10 +1,12 @@
 import React from 'react';
-import { Button } from '@ln/foodit-ui-button';
 import { RenderPlans } from './RenderPlans';
-
+import LoginSubscribeButtons from '../LoginSubscribeButtons';
+import useGetUserData from '../../../../hooks/useGetUserData';
 import classNames from 'classnames';
 
-export const Promotions = props => {
+export const Promotions = () => {
+    const { promotions } = useGetUserData();
+
     const {
         buttonLogginText,
         plan,
@@ -12,7 +14,7 @@ export const Promotions = props => {
         iconFoodit,
         iconClubLn,
         containerClassName
-    } = props;
+    } = promotions;
 
     const containerClasses = classNames(
         'promotions-container lg-none flex ai-center gap-24 w-100',
@@ -26,16 +28,11 @@ export const Promotions = props => {
                 iconClubLn={iconClubLn}
                 iconFoodit={iconFoodit}
             />
-            {buttonSubscribeText && (
-                <Button title="Suscribirse" variant="accent" size={32}>
-                    {buttonSubscribeText}
-                </Button>
-            )}
-            {buttonLogginText && (
-                <Button title="Iniciar sesión" variant="link">
-                    {buttonLogginText}
-                </Button>
-            )}
+
+            <LoginSubscribeButtons
+                buttonSubscribeText={buttonSubscribeText}
+                buttonLogginText={buttonLogginText}
+            />
         </div>
     );
 };

@@ -1691,12 +1691,26 @@ export const homeSections = [
         sectionWeb: 'Bloque_8'
     },
     {
-        0: [],
-        1: [],
-        2: [],
-        3: [],
         type: 8,
         sectionAliasMobile: 'ln10_caja_juegos',
+        items: [
+            {
+                closed: 'NO',
+                id: '/juegos/crucigrama'
+            },
+            {
+                closed: 'NO',
+                id: '/juegos/sopa-de-letras'
+            },
+            {
+                closed: 'NO',
+                id: '/juegos/sudoku'
+            },
+            {
+                closed: 'SI',
+                id: '/juegos/trivias'
+            }
+        ],
         information: {
             nameChain: 'LN10_Caja_Juegos',
             idRender: 'c0fU1OqL2uBK1s3'

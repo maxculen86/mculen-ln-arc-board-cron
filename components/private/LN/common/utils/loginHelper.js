@@ -13,7 +13,7 @@ const {
     DiccionarioCookiesAGuardar
 } = handleCookie();
 
-const _UserClientLibs = func =>
+export const _UserClientLibs = func =>
     window.UserClientLibs && window.UserClientLibs[func]
         ? window.UserClientLibs[func]
         : () => {};
@@ -60,7 +60,7 @@ const convertTo24Hour = time => {
     return newDate.replace(/(a.m.|p.m.)/, '');
 };
 
-const getTokenBodyHelper = (res, position) => {
+export const getTokenBodyHelper = (res, position) => {
     try {
         return res.split('|')[position];
     } catch (ex) {
@@ -68,7 +68,7 @@ const getTokenBodyHelper = (res, position) => {
     }
 };
 
-const mustRelogin = () => {
+export const mustRelogin = () => {
     let syncValue = getCookie('syncLfLN');
     const cookieSalt = getCookie('token');
 

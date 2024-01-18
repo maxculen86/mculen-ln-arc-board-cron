@@ -11,13 +11,13 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
       class="flex ai-center jc-between"
     >
       <div
-        class="dollar-container --relative"
+        class="dollar-container relative"
       >
         <div
           class="--scroll-x"
         >
           <ul
-            class="dollar inline-flex"
+            class="dollar inline-flex --bullet-list"
           >
             <li
               class="w-max flex ai-center"
@@ -30,7 +30,7 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
               >
                 Dólar oficial
                 <span
-                  class="text ln-text mr-8 --font-bold"
+                  class="text ln-text --font-bold"
                 >
                    $205,00
                 </span>
@@ -47,7 +47,7 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
               >
                 Dólar blue
                 <span
-                  class="text ln-text mr-8 --font-bold"
+                  class="text ln-text --font-bold"
                 >
                    $375,00
                 </span>
@@ -64,7 +64,7 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
               >
                 Dólar turista
                 <span
-                  class="text ln-text mr-8 --font-bold"
+                  class="text ln-text --font-bold"
                 >
                    $410
                 </span>
@@ -81,7 +81,7 @@ exports[`Private - LN10 - SubHeader should match snapshot of SubHeader 1`] = `
               >
                 Dólar CCL
                 <span
-                  class="text ln-text mr-8 --font-bold"
+                  class="text ln-text --font-bold"
                 >
                    $365,93
                 </span>

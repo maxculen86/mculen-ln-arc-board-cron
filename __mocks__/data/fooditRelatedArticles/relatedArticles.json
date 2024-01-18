@@ -1,0 +1,456 @@
+[
+    {
+        "_id": "IDEDE5L2YZB7ZMS3QLBZMAYXJM",
+        "credits": {
+            "by": []
+        },
+        "headlines": {
+            "basic": "Torta de chocolate, chiles y almendras"
+        },
+        "promo_items": {
+            "basic": {
+                "height": 400,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 280,
+                            "maxScreenWidth": 767,
+                            "media_preload": "(max-width: 767px)",
+                            "proportion": "3:2",
+                            "width": 420
+                        },
+                        "resizedUrl": "https://www.lanacion.com.ar/resizer/mFwlSxNLzddjrHHguwyhAwgpBiQ=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HSQVHQQT6FDHVFWJK53ZKGHBBY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media_preload": "(min-width: 768px)",
+                            "proportion": "3:2",
+                            "width": 238
+                        },
+                        "resizedUrl": "https://www.lanacion.com.ar/resizer/W2vB1__uXvVJOFiOeN12NPCfFQ4=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HSQVHQQT6FDHVFWJK53ZKGHBBY.jpg"
+                    }
+                ],
+                "url": "https://www.lanacion.com.ar/resizer/H9lroJSC2DqyZ8QulYU5VfrDRo8=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/HSQVHQQT6FDHVFWJK53ZKGHBBY.jpg",
+                "width": 600
+            }
+        },
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/recetas/torta-de-chocolate-chiles-y-almendras-nid21122023/"
+    },
+    {
+        "_id": "KD2JPNCR2NGWPKWDX6UWP4SMKE",
+        "credits": {
+            "by": [
+                {
+                    "_id": "adrian-ventura-9",
+                    "name": "Adrián Ventura",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Receta Fácil y rápida Arabe"
+        },
+        "promo_items": {},
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/recetas/receta-facil-y-rapida-arabe-nid02112023/"
+    },
+    {
+        "_id": "SOTT2OCQKJCHTFGBFOESKCLXTE",
+        "credits": {
+            "by": [
+                {
+                    "_id": "adrian-ventura-9",
+                    "name": "Adrián Ventura",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Receta Fácil y rápida Arabe"
+        },
+        "promo_items": {},
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/recetas/receta-facil-y-rapida-arabe-nid02112023/"
+    },
+    {
+        "_id": "EI5C2ODJB5HBFDHAJRNLUH36RM",
+        "credits": {
+            "by": [
+                {
+                    "_id": "adrian-ventura-9",
+                    "name": "Adrián Ventura",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Receta Torta fácil y rápida"
+        },
+        "promo_items": {},
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/recetas/receta-torta-facil-y-rapida-nid02112023/"
+    },
+    {
+        "_id": "6YTYZNJHLBCKRK3U62UGQCJXFY",
+        "credits": {
+            "by": [
+                {
+                    "_id": "elisabetta-pique",
+                    "name": "Elisabetta Piqué",
+                    "type": "author"
+                },
+                {
+                    "_id": "ariel-torres",
+                    "name": "Ariel Torres",
+                    "type": "author"
+                },
+                {
+                    "name": "Leo Mechi",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Receta para comer mas rico con ...MILANESAS "
+        },
+        "promo_items": {
+            "basic": {
+                "height": 400,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 280,
+                            "maxScreenWidth": 767,
+                            "media_preload": "(max-width: 767px)",
+                            "proportion": "3:2",
+                            "width": 420
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/UGjxrx8lNRZ4UUUncPnYY8j_pTA=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media_preload": "(min-width: 768px)",
+                            "proportion": "3:2",
+                            "width": 238
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/UAW2_6kmsNW2vZMJz0Ju7tE8PlY=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg"
+                    }
+                ],
+                "url": "https://resizer.glanacion.com/resizer/HYbSynyGCPurUAS4sNRW1i0qXyI=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QIMN3EHZZBHCFIOTSI6W6YHBJY.jpg",
+                "width": 600
+            }
+        },
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/recetas/receta-para-comer-mas-rico-con-milanesas-nid18092023/"
+    },
+    {
+        "_id": "WXY6IOQUDVCZJI7UVOZ5QMSHZQ",
+        "credits": {
+            "by": [
+                {
+                    "_id": "miriam-becker-384",
+                    "name": "Miriam Becker",
+                    "type": "author"
+                },
+                {
+                    "name": "Fulano",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Trufas de chocolate al Grand Marnier"
+        },
+        "promo_items": {
+            "basic": {
+                "height": 565,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 280,
+                            "maxScreenWidth": 767,
+                            "media_preload": "(max-width: 767px)",
+                            "proportion": "3:2",
+                            "width": 420
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/zNdVPHXQCevh5YalDwIJn-3yeQ0=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/WZ7L6FYFIFCJTH5YMDZDB35FJM.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media_preload": "(min-width: 768px)",
+                            "proportion": "3:2",
+                            "width": 238
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Er0IcyOlXHCJsDK1hUKUXAxFOLw=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/WZ7L6FYFIFCJTH5YMDZDB35FJM.jpg"
+                    }
+                ],
+                "url": "https://resizer.glanacion.com/resizer/omHI_XpLsYzeRslkRgFCOi-4uTY=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/WZ7L6FYFIFCJTH5YMDZDB35FJM.jpg",
+                "width": 1004
+            }
+        },
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/recetas/trufas-de-chocolate-al-grand-marnier-nid23112023/"
+    },
+    {
+        "_id": "T6ETMWB5ANCIHKQMYMIUGG3IFM",
+        "credits": {
+            "by": [
+                {
+                    "_id": "vinciane-smeets-9110",
+                    "name": "Vinciane Smeets",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Ensalada fría de couscous de coliflor"
+        },
+        "promo_items": {
+            "basic": {
+                "height": 1224,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 280,
+                            "maxScreenWidth": 767,
+                            "media_preload": "(max-width: 767px)",
+                            "proportion": "3:2",
+                            "width": 420
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/WgjBT77eiVX6EfLGRza8pvnT1GE=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6OJQG2JVEZDWDBLCZF5NHX76VY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media_preload": "(min-width: 768px)",
+                            "proportion": "3:2",
+                            "width": 238
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/w1e5QvLbclgYy8NLUGXnqZiupss=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6OJQG2JVEZDWDBLCZF5NHX76VY.jpg"
+                    }
+                ],
+                "url": "https://resizer.glanacion.com/resizer/VKZPEhJA7tvaJNi6mwymT8RZHHw=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/6OJQG2JVEZDWDBLCZF5NHX76VY.jpg",
+                "width": 1632
+            }
+        },
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/recetas/ensalada-fria-de-couscous-de-coliflor-nid23112023/"
+    },
+    {
+        "_id": "GMJCZZAWLZCTZDQ2ZN65DL4DGM",
+        "credits": {},
+        "headlines": {
+            "basic": "Jugo detox \"antioxidante\""
+        },
+        "promo_items": {
+            "basic": {
+                "height": 1024,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 280,
+                            "maxScreenWidth": 767,
+                            "media_preload": "(max-width: 767px)",
+                            "proportion": "3:2",
+                            "width": 420
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/f5ZE-xCeckrzT2ptLJVrp_xZ6iQ=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/2Z7SYVRS5ZFAZOXCR32C6NDMCQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media_preload": "(min-width: 768px)",
+                            "proportion": "3:2",
+                            "width": 238
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/uh_G0Zfk0l___RaiCvQO_IXpA_o=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/2Z7SYVRS5ZFAZOXCR32C6NDMCQ.jpg"
+                    }
+                ],
+                "url": "https://resizer.glanacion.com/resizer/Bkuni3cymqE1V1wlWQxZEXcEZoE=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/2Z7SYVRS5ZFAZOXCR32C6NDMCQ.jpg",
+                "width": 1007
+            }
+        },
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/recetas/jugo-detox-antioxidante-nid23112023/"
+    },
+    {
+        "_id": "VY5J3SD7WFEXLJES6INVFAXG5I",
+        "credits": {},
+        "headlines": {
+            "basic": "Jugo detox \"mañana energizante\""
+        },
+        "promo_items": {
+            "basic": {
+                "height": 681,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 280,
+                            "maxScreenWidth": 767,
+                            "media_preload": "(max-width: 767px)",
+                            "proportion": "3:2",
+                            "width": 420
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/J0nHIHgrP6o0s5xpthaQlu2CJFE=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/B3ORSX3CVBEJLIWVULONYZCY2Y.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media_preload": "(min-width: 768px)",
+                            "proportion": "3:2",
+                            "width": 238
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/-UW2T1kbC01m1Id1srnbD8emqdg=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/B3ORSX3CVBEJLIWVULONYZCY2Y.jpg"
+                    }
+                ],
+                "url": "https://resizer.glanacion.com/resizer/iWuHkMiHaCuj_uyAHVEfPWcSlAs=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/B3ORSX3CVBEJLIWVULONYZCY2Y.jpg",
+                "width": 957
+            }
+        },
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/recetas/jugo-detox-manana-energizante-nid23112023/"
+    },
+    {
+        "_id": "GRTRLBFV5RDZVPMXK3UZVRJNL4",
+        "credits": {},
+        "headlines": {
+            "basic": "Jugo detox \"todo verde\""
+        },
+        "promo_items": {
+            "basic": {
+                "height": 4000,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 280,
+                            "maxScreenWidth": 767,
+                            "media_preload": "(max-width: 767px)",
+                            "proportion": "3:2",
+                            "width": 420
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/m2rY6O0sdH5xbM4l04bHcpdXOJo=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QLRFTLJT5RH6NOEZXTVSNBSKQY.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media_preload": "(min-width: 768px)",
+                            "proportion": "3:2",
+                            "width": 238
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/Ehm_lqhMxjlwnTddW-c-eTcS4ec=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QLRFTLJT5RH6NOEZXTVSNBSKQY.jpg"
+                    }
+                ],
+                "url": "https://resizer.glanacion.com/resizer/izGIOoynKbbk7uzKR6lcYtV45q4=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/QLRFTLJT5RH6NOEZXTVSNBSKQY.jpg",
+                "width": 2649
+            }
+        },
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/recetas/jugo-detox-todo-verde-nid23112023/"
+    },
+    {
+        "_id": "46BZI5QHDNCA7HFZYG4T3BJI2E",
+        "credits": {
+            "by": [
+                {
+                    "_id": "miriam-becker-384",
+                    "name": "Miriam Becker",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Verduras salteadas"
+        },
+        "promo_items": {
+            "basic": {
+                "height": 341,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 280,
+                            "maxScreenWidth": 767,
+                            "media_preload": "(max-width: 767px)",
+                            "proportion": "3:2",
+                            "width": 420
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/SQ0vFnROL40zjQNcE2xAYc2_vck=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7657QZLB3JE7VBLPUG2QQF42RQ.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media_preload": "(min-width: 768px)",
+                            "proportion": "3:2",
+                            "width": 238
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/FEXyGb7dKL1Vp8urlxUHhBb0vdI=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7657QZLB3JE7VBLPUG2QQF42RQ.jpg"
+                    }
+                ],
+                "url": "https://resizer.glanacion.com/resizer/kNA6Jg4jmk9RmiBFTCc1oU-iZ0c=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/7657QZLB3JE7VBLPUG2QQF42RQ.jpg",
+                "width": 640
+            }
+        },
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/recetas/verduras-salteadas-nid23112023/"
+    },
+    {
+        "_id": "WWOS6AZQKFBC3LV4UCZQGASLUA",
+        "credits": {
+            "by": [
+                {
+                    "_id": "vinciane-smeets-9110",
+                    "name": "Vinciane Smeets",
+                    "type": "author"
+                }
+            ]
+        },
+        "headlines": {
+            "basic": "Tortitas húmedas de chocolate y palta"
+        },
+        "promo_items": {
+            "basic": {
+                "height": 2448,
+                "resized_urls": [
+                    {
+                        "option": {
+                            "height": 280,
+                            "maxScreenWidth": 767,
+                            "media_preload": "(max-width: 767px)",
+                            "proportion": "3:2",
+                            "width": 420
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/cV1X6RYvJ3SqcPlaQlnnRimuI5Q=/420x280/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/2ODGAMZVIVA55NBH5QBL27WDDA.jpg"
+                    },
+                    {
+                        "option": {
+                            "height": 159,
+                            "media_preload": "(min-width: 768px)",
+                            "proportion": "3:2",
+                            "width": 238
+                        },
+                        "resizedUrl": "https://resizer.glanacion.com/resizer/XmcBRMHKT9yEMB2B29qgP5cPq2c=/238x158/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/2ODGAMZVIVA55NBH5QBL27WDDA.jpg"
+                    }
+                ],
+                "url": "https://resizer.glanacion.com/resizer/WLllTON1x3rnopcGVvADGULJXE4=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/2ODGAMZVIVA55NBH5QBL27WDDA.jpg",
+                "width": 3264
+            }
+        },
+        "subtype": "7",
+        "taxonomy": {},
+        "website_url": "/recetas/tortitas-humedas-de-chocolate-y-palta-nid23112023/"
+    }
+]

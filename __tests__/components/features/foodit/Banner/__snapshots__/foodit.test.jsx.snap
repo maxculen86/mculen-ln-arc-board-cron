@@ -22,11 +22,11 @@ exports[`Components - features - recetas - Banner should test Receta Banner 1`] 
           />
           <img
             alt="Fulbo"
-            class="image flex"
+            class="image flex --cover"
             decoding="async"
             fetchpriority="low"
             loading="lazy"
-            src="https://resizer.glanacion.com/resizer/IzVHRPjH0eqA5mScJOHvSkVsOAA=/768x0/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
+            src="https://resizer.glanacion.com/resizer/4ce4g3cQ_ksL4Lum2opc6yvlCI8=/238x158/smart/filters:format(webp):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/TR5C3TK6F5BWRCYRR3AUO4RMQ4.jpeg"
           />
         </picture>
       </a>

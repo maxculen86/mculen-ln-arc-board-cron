@@ -9,7 +9,7 @@ exports[`EmptyState component should match snapshot 1`] = `
       class="foodit-placeholder"
     >
       <img
-        class="image flex"
+        class="image flex --cover"
         decoding="async"
         fetchpriority="low"
         loading="lazy"

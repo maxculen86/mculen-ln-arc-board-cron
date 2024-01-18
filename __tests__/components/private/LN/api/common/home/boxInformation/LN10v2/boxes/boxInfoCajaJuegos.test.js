@@ -14,7 +14,7 @@ describe('boxInfoCajaJuegos test suite', () => {
             idSeccion: 705,
             parameters: {
                 title: 'Juegos',
-                url: 'https://www.lanacion.com.ar/juegos/'
+                url: 'https://www.lanacion.com.ar'
             }
         });
     });

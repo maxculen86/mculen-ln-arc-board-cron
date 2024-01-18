@@ -1,5 +1,7 @@
 import React from 'react';
 import { Bookmark, Exit, List, Profile } from '@ln/foodit-ui-assets';
+import { goToLogout } from '../../../../private/LN/common/utils/loginHelper';
+import { logout } from '../context/authContext/_helpers';
 
 // TODO: Eliminar cuando se consigan los datos dinámicamente
 export const menuUser = [
@@ -27,8 +29,8 @@ export const menuUser = [
     {
         text: 'Cerrar sesión',
         icon: <Exit />,
-        onClick: () => {
-            console.log('click');
+        onClick: ({ callback }) => {
+            logout(callback);
         },
         variant: 'danger',
         title: 'Cerrar sesión'

@@ -33,7 +33,7 @@ export const RenderCollection = ({
                     className={classNameRoof}
                     linkProps={{ href: link, text: title }}
                     buttonProps={{
-                        text: 'Llevar al recetario',
+                        text: 'Guardar todo',
                         fill: 'false', // TODO: true cuando las recetas está guardada
                         'data-id': collectionId,
                         'data-modal': 'open-modal'

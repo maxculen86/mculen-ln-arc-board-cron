@@ -1,0 +1,72 @@
+import { useContent } from 'fusion:content';
+
+import get from '../../../../../private/common/utils/get';
+import { checkForId } from '../../../../LN-10/article/common/_helper-WebApi.js';
+import { filterImagesByProportion } from '../../../../private-global/common/utils/filterImagesByProportion.js';
+import { getVideoData } from '../../../../private-global/common/utils/getVideoData.js';
+
+import filter from '../../../../../../content/filters/foodit/home/articleFoodit.js';
+
+export const getHomeOpeningImages = (renderables = [], isAdmin = false) => {
+    const aperturaSection = renderables.find(
+        item => item.collection === 'sections'
+    );
+    const children = get(aperturaSection, 'children', []);
+    const { noteId = '' } = get(children, '[0].props.customFields', {});
+    const id = checkForId(noteId);
+
+    const { promo_items = {} } =
+        useContent({
+            source: id ? 'fooditArticleSource' : null,
+            query: {
+                id,
+                published: true,
+                website: 'foodit',
+                isInApertura: true,
+                isAdmin,
+                imageConfig: 'recipeDay',
+                checkExclusiveAccess: false
+            },
+            staticMode: true,
+            filter
+        }) || {};
+
+    return get(promo_items, 'basic.resized_urls', []);
+};
+
+export const getPromoItemsImages = (article = {}, layout = '') => {
+    const { promo_items } = article;
+
+    const videoJw = get(promo_items, 'video_jw', null);
+    const basicImage = get(promo_items, 'basic', {});
+    const basicImageMobile =
+        layout === 'Foodit-ficha-nota' &&
+        get(promo_items, 'storytelling_mobile', null);
+
+    if (videoJw) {
+        const { posterUrl = '' } = getVideoData(videoJw);
+        const posterImage = {
+            resizedUrl: posterUrl,
+            ...(basicImageMobile && {
+                option: {
+                    media_preload: '(min-width: 1024px)',
+                    useFullSize: true,
+                    proportion: '3:2'
+                }
+            })
+        };
+
+        return [
+            ...filterImagesByProportion(basicImageMobile, '2:3'),
+            posterImage
+        ];
+    }
+
+    if (basicImageMobile)
+        return [
+            ...filterImagesByProportion(basicImage, '3:2'),
+            ...filterImagesByProportion(basicImageMobile, '2:3')
+        ];
+
+    return get(basicImage, 'resized_urls', []);
+};

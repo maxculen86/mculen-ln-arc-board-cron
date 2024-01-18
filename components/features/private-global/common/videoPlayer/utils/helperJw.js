@@ -1,7 +1,21 @@
-import {
-    addToDataLayer,
-    isInDatalayerEvent
-} from '../../../../../private/common/utils/videoPlayerHelper';
+const isInDatalayerEvent = (event, videoId) => {
+    const result =
+        window &&
+        window.dataLayer &&
+        window.dataLayer.find(
+            element => element.event === event && element.videoID === videoId
+        );
+
+    return result || false;
+};
+
+const addToDataLayer = (eventName, titulo, id) => {
+    window.dataLayer.push({
+        event: eventName,
+        videoName: titulo,
+        videoID: id
+    });
+};
 
 const setJwScript = (
     playlist,
@@ -47,7 +61,7 @@ const setJwScript = (
         ];
 
         events.forEach(event => {
-            window.jwplayer(`${idVideo}`).on(event.jwEvent, function(e) {
+            window.jwplayer(idVideo).on(event.jwEvent, function(e) {
                 addToDataLayer(event.eventName, title, idVideo);
             });
         });
@@ -84,9 +98,9 @@ export const getJWScript = ({
     idVideo,
     tagsUrl
 }) => `
-${setJwScript}
 ${addToDataLayer}
 ${isInDatalayerEvent}
+${setJwScript}
 window.addEventListener('load', () => {
     const facadeDiv = document.getElementById(\`facade-${idVideo}\`);
 

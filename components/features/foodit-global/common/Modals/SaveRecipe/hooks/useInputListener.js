@@ -4,7 +4,7 @@ const useInputListener = (initialValue = '') => {
     const [value, setValue] = useState(initialValue);
 
     const handleInputChange = event => {
-        setValue(event.target.value);
+        setValue(event);
     };
 
     const restoreInputValue = () => setValue(initialValue);

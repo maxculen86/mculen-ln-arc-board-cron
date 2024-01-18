@@ -7,7 +7,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
     data-id="overlay-drawer-menu"
   >
     <div
-      class="drawer flex flex-column overflow-hidden fixed top-0 w-100 h-100vh max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular left-0"
+      class="drawer flex flex-column overflow-hidden fixed top-0 w-100 h-100vh h-100dvh max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular left-0"
       data-id="drawer-menu"
       data-position="left"
       data-visible="false"

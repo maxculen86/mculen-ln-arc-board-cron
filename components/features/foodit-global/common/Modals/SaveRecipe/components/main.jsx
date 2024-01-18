@@ -1,5 +1,6 @@
-import { Icon } from '@ln/common-ui-icon';
-import { Resto } from '@ln/foodit-ui-assets';
+import { Inputfield } from '@ln/common-ui-inputfield';
+import { Select } from '@ln/common-ui-select';
+import { Itemcard } from '@ln/foodit-ui-itemcard';
 
 const MainSaveRecipe = props => {
     const {
@@ -9,47 +10,53 @@ const MainSaveRecipe = props => {
         onSelectChange,
         showInputFolder,
         showSelect,
-        suggestions
+        suggestions,
+        inputRef
     } = props;
     // TODO: Tomar valores de la API
-    const folders = ['Para los martes', 'Para los jueves', 'Para los viernes'];
+    const folders = [
+        { value: 'new', label: 'Nueva carpeta' },
+        { value: 'martes', label: 'Para los martes' },
+        { value: 'jueves', label: 'Para los jueves' },
+        { value: 'jueves', label: 'Para los viernes' }
+    ];
 
     return (
         <main className="mb-16">
-            <div className="flex ai-center border border-all border-thin border-light-300 rounded-4 py-4 px-8">
-                <Icon size={24}>
-                    <Resto />
-                </Icon>
-                {showSelect && (
-                    <select
-                        name="select"
-                        className="w-100 py-8 px-16 cursor-pointer"
-                        value={selectedFolder}
-                        onChange={onSelectChange}
-                    >
-                        <option className="p-8" disabled value="Elegir carpeta">
-                            Elegir carpeta
-                        </option>
-                        <option className="p-8" value="Nueva carpeta">
-                            Nueva carpeta
-                        </option>
-                        {folders.map(folder => (
-                            <option key={folder} value={folder}>
-                                {folder}
-                            </option>
-                        ))}
-                    </select>
-                )}
-                {showInputFolder && (
-                    <input
-                        type="text"
-                        placeholder="Introducir nombre nueva carpeta"
-                        onChange={onInputFolderChange}
-                        value={newFolder}
-                        className="w-100 py-8 px-16"
-                    />
-                )}
-            </div>
+            {showSelect && (
+                <Select
+                    label="Elegir carpeta"
+                    defaultValue={selectedFolder}
+                    openClassName="border-secondary-positive"
+                    hoverClassName="border-accent-lechuga__hover"
+                    listClassName="foodit-scrollbar"
+                    onChange={onSelectChange}
+                    name="select"
+                >
+                    {folders.map(({ label, value }) => (
+                        <Select.Options
+                            key={value}
+                            value={value}
+                            label={label}
+                            as={props => (
+                                <Itemcard type="button" hideIcon {...props} />
+                            )}
+                        />
+                    ))}
+                </Select>
+            )}
+            {showInputFolder && (
+                <Inputfield
+                    autoFocus
+                    type="text"
+                    placeholder="Introducir nombre nueva carpeta"
+                    onChange={onInputFolderChange}
+                    value={newFolder}
+                    focusClassName="border-secondary-positive"
+                    hoverClassName="border-accent-lechuga__hover"
+                    inputRef={inputRef}
+                />
+            )}
             {suggestions.length ? (
                 <div className="py-16">
                     {suggestions.map(suggestion => (
