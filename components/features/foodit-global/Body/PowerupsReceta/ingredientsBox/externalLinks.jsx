@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from '@ln/foodit-ui-link';
 import { Icon } from '@ln/common-ui-icon';
-import { Cart } from '@ln/foodit-ui-assets';
+import IconSprite from '../../../../../features/private-global/common/iconSprite/IconSprite';
 
 export const ExternalLinks = props => {
     const { items = [] } = props || {};
@@ -18,7 +18,7 @@ export const ExternalLinks = props => {
                             className="text-12"
                         >
                             <Icon size={16}>
-                                <Cart />
+                                <IconSprite name="cart" critical />
                             </Icon>
                             {text}
                         </Link>

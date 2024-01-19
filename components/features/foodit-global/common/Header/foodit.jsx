@@ -3,7 +3,6 @@ import { useAppContext } from 'fusion:context';
 import { toggleDrawer } from '@ln/common-ui-drawer';
 import { Button } from '@ln/common-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import { Menu } from '@ln/foodit-ui-assets';
 import { Header, MainHeader, SubHeader } from '@ln/common-ui-header';
 import { Search } from './components/Search';
 import { TopNavigationBar } from './components/TopNavigationBar';
@@ -11,6 +10,7 @@ import { Promotions } from './components/promotions/Promotions';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import LoginSubscribeButtons from './components/LoginSubscribeButtons';
 import RenderUserOptions from './components/rightOptions/RenderUserOptions';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 const HeaderFoodit = ({ isSticky = false, ...r }) => {
     const { deployment, contextPath } = useAppContext();
@@ -30,7 +30,7 @@ const HeaderFoodit = ({ isSticky = false, ...r }) => {
                             }
                         >
                             <Icon size={24}>
-                                <Menu />
+                                <IconSprite name="menu" critical />
                             </Icon>
                         </Button>
                     </MainHeader.Content.Left>

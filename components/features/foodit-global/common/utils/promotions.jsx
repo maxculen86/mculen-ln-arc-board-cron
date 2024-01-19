@@ -1,6 +1,6 @@
 import React from 'react';
 import get from '../../../../private/common/utils/get';
-import { Foodit, ClubLn } from '@ln/foodit-ui-assets';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 export const mockConfigUserTypes = {
     unlogged: {
@@ -18,7 +18,7 @@ export const mockConfigUserTypes = {
         plan: 'Digital',
         icons: {
             foodit: {
-                element: <Foodit />,
+                element: <IconSprite name="foodit" />,
                 backgroudColor: '#143318'
             }
         },
@@ -28,11 +28,11 @@ export const mockConfigUserTypes = {
         plan: 'Digital + Club',
         icons: {
             foodit: {
-                element: <Foodit />,
+                element: <IconSprite name="foodit" />,
                 backgroudColor: '#143318'
             },
             clubLn: {
-                element: <ClubLn />,
+                element: <IconSprite name="club-ln" />,
                 backgroudColor: '#0003A6'
             }
         },

@@ -1,34 +1,33 @@
 import React from 'react';
-import { Bookmark, Exit, List, Profile } from '@ln/foodit-ui-assets';
-import { goToLogout } from '../../../../private/LN/common/utils/loginHelper';
 import { logout } from '../context/authContext/_helpers';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 // TODO: Eliminar cuando se consigan los datos dinámicamente
 export const menuUser = [
     {
         text: 'Mis recetas',
-        icon: <Bookmark />,
+        icon: <IconSprite name="bookmark" critical />,
         onClick: () => {
             console.log('click');
         }
     },
     {
         text: 'Lista de compras',
-        icon: <List />,
+        icon: <IconSprite name="list" />,
         onClick: () => {
             console.log('click');
         }
     },
     {
         text: 'Mi cuenta',
-        icon: <Profile />,
+        icon: <IconSprite name="profile" critical />,
         onClick: () => {
             console.log('click');
         }
     },
     {
         text: 'Cerrar sesión',
-        icon: <Exit />,
+        icon: <IconSprite name="exit" />,
         onClick: ({ callback }) => {
             logout(callback);
         },

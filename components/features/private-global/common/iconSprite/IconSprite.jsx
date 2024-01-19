@@ -1,0 +1,15 @@
+import React from 'react';
+import { Spriteicon } from '@ln/common-ui-spriteicon';
+import { useAppContext } from 'fusion:context';
+import { getIconPath } from './utils/getIconPath';
+
+const IconSprite = ({ critical, name, ...props }) => {
+    const { deployment, contextPath, arcSite } = useAppContext();
+    const path = getIconPath({ deployment, contextPath, critical, arcSite });
+
+    if (!path || !name) return <></>;
+
+    return <Spriteicon path={path} name={name} {...props} />;
+};
+
+export default IconSprite;

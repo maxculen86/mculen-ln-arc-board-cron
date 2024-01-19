@@ -27,18 +27,9 @@ exports[`DrawerRecetario component should match snapshot 1`] = `
           <i
             class="icon --icon-24 --dark"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clip-rule="evenodd"
-                d="m12 10.586 4.243-4.243a1 1 0 1 1 1.414 1.414L13.414 12l4.243 4.243a1 1 0 1 1-1.414 1.414L12 13.414l-4.243 4.243a1 1 0 1 1-1.414-1.414L10.586 12 6.343 7.757a1 1 0 1 1 1.414-1.414z"
-                fill="#272727"
-                fill-rule="evenodd"
-              />
-            </svg>
+            <mock-icon
+              name="close"
+            />
           </i>
         </button>
       </div>

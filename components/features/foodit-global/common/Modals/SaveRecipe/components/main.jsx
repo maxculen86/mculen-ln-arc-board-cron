@@ -38,9 +38,7 @@ const MainSaveRecipe = props => {
                             key={value}
                             value={value}
                             label={label}
-                            as={props => (
-                                <Itemcard type="button" hideIcon {...props} />
-                            )}
+                            as={props => <Itemcard type="button" {...props} />}
                         />
                     ))}
                 </Select>

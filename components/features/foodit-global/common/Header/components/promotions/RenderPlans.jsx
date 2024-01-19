@@ -12,7 +12,7 @@ export const RenderPlans = ({ plan, iconClubLn = {}, iconFoodit = {} }) => {
                     {plan}
                 </Text>
                 {(iconFoodit || iconClubLn) && (
-                    <div className="pl-8 border border-left border-thin border-light-100 flex gap-8">
+                    <div className="pl-8 border border-left border-thin border-light-100 flex gap-8 text-light-50">
                         <RenderIcon iconData={iconFoodit} />
                         <RenderIcon iconData={iconClubLn} />
                     </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 import { Avatar } from '@ln/foodit-ui-avatar';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 export const MyAccount = ({ avatarProps = {}, itemsList = [], fullWidth }) => {
     const { email, initials, hasSubscription, restoreContext } = avatarProps;
@@ -47,6 +48,7 @@ export const MyAccount = ({ avatarProps = {}, itemsList = [], fullWidth }) => {
                                 level={1}
                                 fullWidth
                                 variant={variant}
+                                arrowIcon={<IconSprite name="arrow-right" />}
                             />
                         </li>
                     );

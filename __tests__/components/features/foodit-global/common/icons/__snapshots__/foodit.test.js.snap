@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components - Features - foodit-global - Common - icons should match snapshot 1`] = `
+<div>
+  <svg
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+  >
+    <use
+      href="/pf/resources/images/foodit-sprite-critical.svg#some-name"
+    />
+  </svg>
+</div>
+`;

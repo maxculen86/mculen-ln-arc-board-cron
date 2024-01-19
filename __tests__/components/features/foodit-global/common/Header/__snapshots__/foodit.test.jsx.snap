@@ -27,18 +27,10 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 <i
                   class="icon --icon-24"
                 >
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 25"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M3 5.5a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 7a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 7a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1"
-                      fill="#272727"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
+                  <mock-icon
+                    critical="true"
+                    name="menu"
+                  />
                 </i>
               </button>
             </div>
@@ -88,16 +80,10 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                   <i
                     class="icon --icon-24"
                   >
-                    <svg
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="m21.758 20.577-4.835-4.882c2.573-2.563 3.085-5.959 1.298-9.566-2.305-4.647-7.514-4.471-9.945-3.728C4.65 3.509 1.24 7.73 2.148 12.02c.487 2.3 2.175 4.294 4.63 5.477 1.375.661 2.827.996 4.175.996 1.086 0 2.105-.218 2.96-.657a13.353 13.353 0 0 0 1.743-1.066l4.935 4.984a.818.818 0 0 0 1.167 0 .838.838 0 0 0 0-1.178m-8.596-4.226c-1.446.745-3.673.604-5.673-.36-1.989-.956-3.346-2.53-3.724-4.319-.701-3.307 2.057-6.78 4.988-7.674a8.333 8.333 0 0 1 2.369-.335c2.004 0 4.378.704 5.622 3.212 2.621 5.29-1.12 8.208-3.582 9.476"
-                        fill="#333"
-                      />
-                    </svg>
+                    <mock-icon
+                      critical="true"
+                      name="search"
+                    />
                   </i>
                   <span
                     class="text text-light-600 text-14"
@@ -171,22 +157,23 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714z"
-                                    fill="#333"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  critical="true"
+                                  name="bookmark"
+                                />
                               </i>
                               <span
                                 class="text-left"
                               >
                                 Saladas
                               </span>
+                              <i
+                                class="icon --icon-16 --inherit"
+                              >
+                                <mock-icon
+                                  name="arrow-right"
+                                />
+                              </i>
                             </a>
                           </li>
                           <li>
@@ -201,18 +188,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -233,18 +211,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -265,18 +234,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -297,18 +257,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -329,18 +280,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -361,18 +303,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -393,18 +326,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -429,22 +353,22 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M15.5 2a3.5 3.5 0 0 1 3.437 4.163l-.015.066a4.502 4.502 0 0 1 .303 8.428l-1.086 6.507a1 1 0 0 1-.986.836H6.847a1 1 0 0 1-.986-.836l-1.029-6.17a3 3 0 0 1-.829-5.824L4 9a6 6 0 0 1 8.574-5.421A3.496 3.496 0 0 1 15.5 2M9 15H6.86l.834 5H9zm4 0h-2v5h2zm4.139 0H15v5h1.305zM10 5C7.858 5 6.109 6.684 6.005 8.767L6 8.964l.003.17a2 2 0 0 1-1.186 1.863l-.15.059A1.001 1.001 0 0 0 5 13h12.5a2.5 2.5 0 1 0-.956-4.81l-.175.081a2 2 0 0 1-2.663-.804l-.07-.137A4 4 0 0 0 10 5m5.5-1a1.5 1.5 0 0 0-1.287.729 6.006 6.006 0 0 1 1.24 1.764c.444-.228.93-.384 1.446-.453A1.5 1.5 0 0 0 15.5 4"
-                                    fill="#333"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="cake"
+                                />
                               </i>
                               <span
                                 class="text-left"
                               >
                                 Dulces
                               </span>
+                              <i
+                                class="icon --icon-16 --inherit"
+                              >
+                                <mock-icon
+                                  name="arrow-right"
+                                />
+                              </i>
                             </a>
                           </li>
                           <li>
@@ -459,18 +383,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -491,18 +406,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -523,18 +429,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -555,18 +452,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -587,18 +475,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -619,18 +498,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -652,16 +522,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M5.005 9.003a1 1 0 0 1 1 1 6.97 6.97 0 0 1 4.33 1.5h2.17c1.332 0 2.529.578 3.353 1.498l3.147.002a5 5 0 0 1 4.516 2.851c-2.365 3.12-6.194 5.149-10.516 5.149-2.79 0-5.15-.604-7.061-1.658a.998.998 0 0 1-.94.658h-3a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1zm1 3v5.02l.045.034c1.794 1.26 4.133 1.946 6.955 1.946 3.004 0 5.798-1.156 7.835-3.13l.133-.133-.12-.1a2.994 2.994 0 0 0-1.643-.63l-.205-.007-2.112-.001c.073.321.112.656.112 1v1h-9v-2h6.79l-.034-.079a2.5 2.5 0 0 0-2.092-1.415l-.164-.005h-2.93a4.984 4.984 0 0 0-3.57-1.5m-2-1h-1v7h1zm9.646-7.425.354.354.353-.354a2.5 2.5 0 0 1 3.536 3.535l-3.89 3.89-3.888-3.89a2.5 2.5 0 1 1 3.535-3.535M11.53 4.992a.5.5 0 0 0-.059.637l.058.07 2.475 2.475 2.476-2.475a.5.5 0 0 0 .058-.638l-.058-.069a.5.5 0 0 0-.638-.058l-.07.058-1.769 1.769-1.767-1.77-.068-.057a.5.5 0 0 0-.638.058"
-                                    fill="#333"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="diet"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -682,18 +545,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -714,18 +568,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -746,18 +591,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -778,18 +614,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -810,18 +637,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -843,16 +661,10 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <path
-                                    d="M23.878 7.606a.833.833 0 0 0-.697-.38H5.45L1.42 3.244a.825.825 0 0 0-1.173 0 .802.802 0 0 0 0 1.159L4.26 8.367l2.18 7.221c.11.344.421.58.787.58h12.402a.849.849 0 0 0 .75-.471l3.536-7.312a.787.787 0 0 0-.036-.779m-4.745 6.933H7.868L6.146 8.855H21.88zM6.915 18.937c.293-1.123 1.227-1.503 2.272-1.303 1.044.18 1.776 1.122 1.465 2.008C10.267 20.766 9.278 21 8.619 21c-.861 0-1.997-.923-1.704-2.063M16.825 18.937c.293-1.123 1.227-1.503 2.272-1.303 1.044.18 1.776 1.122 1.465 2.008C20.177 20.766 19.188 21 18.529 21c-.861 0-1.979-.923-1.704-2.063"
-                                    fill="#333"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  critical="true"
+                                  name="cart"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -873,18 +685,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -905,18 +708,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -937,18 +731,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -969,18 +754,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -1001,18 +777,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -1076,18 +843,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -1108,18 +866,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -1140,18 +889,9 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <i
                                 class="icon --icon-20 --inherit"
                               >
-                                <svg
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    fill="#E6E6E6"
-                                    r="2"
-                                  />
-                                </svg>
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
                               </i>
                               <span
                                 class="text-left"
@@ -1206,16 +946,10 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     <i
                       class="icon --icon-20"
                     >
-                      <svg
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M19.172 22a.754.754 0 0 1-.515-.19l-5.848-4.743-7.54 4.8a.797.797 0 0 1-.846.019.87.87 0 0 1-.423-.743V2.857C4 2.381 4.368 2 4.828 2h14.344c.46 0 .828.38.828.857v18.286a.851.851 0 0 1-.828.857M5.655 3.714V19.62l6.768-4.305a.78.78 0 0 1 .938.057l4.965 4.02V3.714z"
-                          fill="#333"
-                        />
-                      </svg>
+                      <mock-icon
+                        critical="true"
+                        name="bookmark"
+                      />
                     </i>
                     MIS RECETAS
                   </a>
@@ -1231,16 +965,10 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     <i
                       class="icon --icon-20"
                     >
-                      <svg
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M23.878 7.606a.833.833 0 0 0-.697-.38H5.45L1.42 3.244a.825.825 0 0 0-1.173 0 .802.802 0 0 0 0 1.159L4.26 8.367l2.18 7.221c.11.344.421.58.787.58h12.402a.849.849 0 0 0 .75-.471l3.536-7.312a.787.787 0 0 0-.036-.779m-4.745 6.933H7.868L6.146 8.855H21.88zM6.915 18.937c.293-1.123 1.227-1.503 2.272-1.303 1.044.18 1.776 1.122 1.465 2.008C10.267 20.766 9.278 21 8.619 21c-.861 0-1.997-.923-1.704-2.063M16.825 18.937c.293-1.123 1.227-1.503 2.272-1.303 1.044.18 1.776 1.122 1.465 2.008C20.177 20.766 19.188 21 18.529 21c-.861 0-1.979-.923-1.704-2.063"
-                          fill="#333"
-                        />
-                      </svg>
+                      <mock-icon
+                        critical="true"
+                        name="cart"
+                      />
                     </i>
                     LISTA DE COMPRAS
                   </a>

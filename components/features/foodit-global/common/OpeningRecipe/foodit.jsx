@@ -7,7 +7,6 @@ import { Recipe } from '@ln/foodit-ui-recipe';
 import { Image } from '@ln/foodit-ui-image';
 import { Badge } from '@ln/foodit-ui-badge';
 import { Button } from '@ln/foodit-ui-button';
-import { Bookmark } from '@ln/foodit-ui-assets';
 
 import ActionsButtons from '../ActionsButtons/foodit';
 import StaticContent from '../../../../private/common/staticContent';
@@ -20,6 +19,7 @@ import {
     getShortestImage
 } from '../../../../private/LN/common/utils/mediaHelper';
 import get from '../../../../private/common/utils/get';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 export const OpeningRecipe = ({ article = {} }) => {
     const { promo_items = {}, headlines = {}, taxonomy } = article;
@@ -82,7 +82,7 @@ export const OpeningRecipe = ({ article = {} }) => {
                 <div className="flex ai-center gap-24">
                     <Button title="Guardar" size={{ sm: 32, lg: 40 }}>
                         <Icon size={16} className="sm-none">
-                            <Bookmark />
+                            <IconSprite name="bookmark" critical />
                         </Icon>
                         Guardar
                     </Button>
