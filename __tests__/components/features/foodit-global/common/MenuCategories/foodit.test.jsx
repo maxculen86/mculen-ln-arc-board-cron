@@ -1,13 +1,17 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Bookmark, Cake } from '@ln/foodit-ui-assets';
 import '@testing-library/jest-dom/extend-expect';
 import MenuCategories from '../../../../../../components/features/foodit-global/common/MenuCategories/foodit';
+import IconSprite from '../../../../../../components/features/private-global/common/iconSprite/IconSprite';
 
 describe('components - feature - foodit-glogal - common - MenuCategories', () => {
     const mockMenuCategories = [
         {
-            title: { text: 'Saladas', href: '/saladas', icon: <Bookmark /> },
+            title: {
+                text: 'Saladas',
+                href: '/saladas',
+                icon: <IconSprite name="bookmark" critical />
+            },
             items: [
                 { text: 'Arroz', href: '#' },
                 { text: 'Tartas', href: '#' },
@@ -19,7 +23,11 @@ describe('components - feature - foodit-glogal - common - MenuCategories', () =>
             ]
         },
         {
-            title: { text: 'Dulces', href: 'dulces', icon: <Cake /> },
+            title: {
+                text: 'Dulces',
+                href: 'dulces',
+                icon: <IconSprite name="cake" />
+            },
             items: [
                 { text: 'Tortas', href: '#' },
                 { text: 'Postres', href: '#' },

@@ -1,183 +1,93 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import getAuthorByline from '../utils/getAuthorByline';
+import { useAppContext } from 'fusion:context';
+import {
+    decorator,
+    getCategories,
+    getAuthors,
+    getAuthorsFromContentElements
+} from '../../LN/common/utils/getDataFormated';
 import { googlePublisherAndLiftIgniterPropTypes } from '../utils/propTypesHelper';
 import handleCookie from '../../LN/common/utils/handleCookie';
 import createHash from '../utils/createHash';
 
-// TODO refactorizar a componente funcional, extraer logica de funciones que se duplican en getDataFormated.js y en liftigniter
-// la unica diferencia es que en este archivo, this.decorate las devuelve como string
+const GooglePublisherTag = props => {
+    const { globalContent = {} } = props;
+    const { type } = globalContent;
+    const { getCookie } = handleCookie();
+    const { contextPath, deployment } = useAppContext();
+    if (!type || type !== 'story') return <></>;
 
-class GooglePublisherTag extends Component {
-    static decorate(prefix, regex, replace, string) {
-        this.decorate(prefix, regex, replace, string);
-    }
+    const {
+        taxonomy,
+        canonical_url: canonicalUrl,
+        credits = { by: [] },
+        content_elements: contentElements = []
+    } = globalContent;
 
-    constructor(props) {
-        super(props);
-        const { location = 'head' } = props;
-        this.location = location;
-        this.decorate = (prefix, regex, replace, string) => {
-            return regex && replace && string
-                ? `'${prefix}${string
-                      .toLowerCase()
-                      .normalize('NFD')
-                      .replace(/[\u0300-\u036f]/g, '')
-                      .replace(/[!¡]/g, '')
-                      .replace(regex, replace)}'`
-                : '';
-        };
-    }
+    const { tags = [], sections = [] } = taxonomy || {};
+    const { by: authors = [] } = credits || {};
 
-    getCategories(sections) {
-        return sections && sections.length
-            ? sections
-                  .map(section =>
-                      this.decorate('ca_', /\W/g, '_', section.name)
-                  )
-                  .join(',')
-                  .concat(',')
-            : '';
-    }
-
-    getTopics(tags) {
+    const getTopics = tags => {
         return tags && tags.length
-            ? tags
-                  .map(tag => this.decorate('te_', /\W/g, '_', tag.text))
-                  .join(',')
-                  .concat(',')
-            : '';
-    }
+            ? tags.map(tag => decorator('te_', /\W/g, '_', tag.text))
+            : [];
+    };
 
-    getAuthors(object) {
-        return object && object.length
-            ? object
-                  .map(author => {
-                      const name = getAuthorByline(author);
-                      return this.decorate('au_', /\W/g, '_', name);
-                  })
-                  .join(',')
-                  .concat(',')
-            : '';
-    }
-
-    getAuthorsFromContentElements(object) {
-        const authors =
-            object &&
-            object.length &&
-            object.filter(
-                contentElement =>
-                    contentElement.additional_properties &&
-                    contentElement.additional_properties.nodeType === 'firma'
-            );
-        return authors && authors.length
-            ? authors
-                  .map(author =>
-                      this.decorate('au_', /\W/g, '_', author.content)
-                  )
-                  .join(',')
-                  .concat(',')
-            : '';
-    }
-
-    getUrl(url) {
+    const getUrl = url => {
         if (!url) return '';
-        return `${this.decorate('url', /\//g, '_', url.replace(/\/$/g, ''))},`;
-    }
+        return `${decorator('url', /\//g, '_', url.replace(/\/$/g, ''))}`;
+    };
 
-    getArticleId() {
-        const { globalContent: { _id } = {} } = this.props;
+    const getArticleId = () => {
+        const { globalContent: { _id } = {} } = props;
 
-        return `'te_${_id}'`;
-    }
+        return `te_${_id}`;
+    };
 
-    render() {
-        const { globalContent = {} } = this.props;
-        const { type } = globalContent;
+    const articleId = getArticleId();
 
-        const { getCookie } = handleCookie();
+    if (
+        !sections.length &&
+        !tags.length &&
+        !canonicalUrl &&
+        (!authors.length || contentElements.length)
+    )
+        return <></>;
 
-        if (!type || type !== 'story') return <></>;
+    const categories = getCategories(sections);
+    const topics = getTopics(tags);
+    const url = getUrl(canonicalUrl);
+    const authorList = authors.length
+        ? getAuthors(authors)
+        : getAuthorsFromContentElements(contentElements);
 
-        const {
-            taxonomy,
-            canonical_url: canonicalUrl,
-            credits = { by: [] },
-            content_elements: contentElements = []
-        } = globalContent;
-
-        const { tags = [], sections = [] } = taxonomy || {};
-        const { by: authors = [] } = credits || {};
-
-        const articleId = this.getArticleId();
-
-        if (
-            !sections.length &&
-            !tags.length &&
-            !canonicalUrl &&
-            (!authors.length || contentElements.length)
-        )
-            return <></>;
-
-        const categories = this.getCategories(sections);
-        const topics = this.getTopics(tags);
-        const url = this.getUrl(canonicalUrl);
-        const authorList = authors.length
-            ? this.getAuthors(authors)
-            : this.getAuthorsFromContentElements(contentElements);
-
-        const script = `
-            const createHash = ${createHash.toString()};
-            const googleTagGetCookie = ${getCookie};
-            const googleTagUserCookie = googleTagGetCookie('ProductoPremiumId') || [];
-            const googleTagEmailCookie = googleTagGetCookie('usuarioemail') || '';
-            const googleTagSuscriptionType = googleTagUserCookie.includes('2') ? 'suscriptor' : 'no suscriptor';
-
-            var pbjs = pbjs || {};
-            pbjs.que = pbjs.que || [];
-            
-            window.googletag = window.googletag || { cmd: [] };
-            googletag.cmd.push(() => {
-                // initialize
-                googletag.pubads().enableSingleRequest();
-                googletag.pubads().enableAsyncRendering();
-                googletag.pubads().disableInitialLoad();
-        
-                if (googleTagEmailCookie) {
-                    createHash(googleTagEmailCookie)
-                    .then(hash => {
-                        googletag.pubads().setPublisherProvidedId(hash);
-                    })
-                }
-        
-                googletag.enableServices();
-        
-                console.log('🚀 ::: setTargeting ON ::: 🚀');
-                googletag.pubads().setTargeting('tags_nuevos', [${categories} ${topics} ${authorList} ${url} ${articleId}]);
-                googletag.pubads().setTargeting('usuario_tipo', googleTagSuscriptionType);
-            });
-        `;
-
-        return (
-            <>
-                <script
-                    async
-                    src=" https://securepubads.g.doubleclick.net/tag/js/gpt.js?network-code=133919216"
-                />
-                <script
-                    defer
-                    id="googlePublisherTag-metadata"
-                    type="text/javascript"
-                    // eslint-disable-next-line react/no-danger
-                    dangerouslySetInnerHTML={{ __html: script }}
-                />
-            </>
-        );
-    }
-}
+    return (
+        <>
+            <script
+                async
+                src=" https://securepubads.g.doubleclick.net/tag/js/gpt.js?network-code=133919216"
+            />
+            <script
+                defer
+                id="googlePublisherTag-metadata"
+                type="text/javascript"
+                data-new-tags={JSON.stringify(
+                    [categories, topics, authorList, url, articleId]
+                        .flat()
+                        .filter(Boolean)
+                )}
+                data-create-hash={createHash.toString()}
+                data-get-cookie={getCookie.toString()}
+                src={deployment(
+                    `${contextPath}/resources/js/LN/googlePublisherTag.min.js`
+                )}
+            />
+        </>
+    );
+};
 
 GooglePublisherTag.propTypes = {
-    location: PropTypes.string.isRequired,
     globalContent: PropTypes.shape({
         _id: PropTypes.string,
         type: PropTypes.string,

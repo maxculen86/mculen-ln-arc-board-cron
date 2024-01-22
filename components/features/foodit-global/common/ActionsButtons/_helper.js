@@ -1,10 +1,10 @@
 import React from 'react';
 import get from '../../../../private/common/utils/get';
 
-import { Bookmark, Cake, Exit, Profile } from '@ln/foodit-ui-assets';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import ShareFoodit from '../ShareFoodit/foodit';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 const buttonCopy = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -31,7 +31,7 @@ export const buttonConfig = [
             buttonCopy();
         },
         description: 'Copiar',
-        IconButton: <Bookmark />
+        IconButton: <IconSprite name="bookmark" critical />
     },
     {
         type: 'print',
@@ -40,7 +40,7 @@ export const buttonConfig = [
             buttonPrint();
         },
         description: 'Imprimir',
-        IconButton: <Profile />
+        IconButton: <IconSprite name="profile" critical />
     },
     {
         type: 'share',
@@ -49,7 +49,7 @@ export const buttonConfig = [
             buttonShare(shareData);
         },
         description: 'Compartir',
-        IconButton: <Exit />
+        IconButton: <IconSprite name="exit" />
     },
     {
         type: 'comment',
@@ -58,7 +58,7 @@ export const buttonConfig = [
             buttonComment();
         },
         description: 'Comentarios',
-        IconButton: <Cake />
+        IconButton: <IconSprite name="cake" />
     }
 ];
 

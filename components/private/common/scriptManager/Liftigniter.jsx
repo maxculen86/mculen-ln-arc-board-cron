@@ -59,6 +59,7 @@ const LiftIgniter = ({ globalContent }) => {
     return (
         <>
             <script
+                defer
                 id="liftigniter"
                 type="text/javascript"
                 src={deployment(

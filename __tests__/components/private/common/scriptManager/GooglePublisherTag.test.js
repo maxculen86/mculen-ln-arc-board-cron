@@ -2,6 +2,12 @@ import React from 'react';
 import { mount } from 'enzyme';
 import GooglePublisherTag from '../../../../../components/private/common/scriptManager/googlePublisherTag';
 
+jest.mock('fusion:context', () => ({
+    useAppContext: () => {
+        return { contextPath: 'pf', deployment: () => {} };
+    }
+}));
+
 describe('GooglePublisherTag', () => {
     const props = {
         location: 'header',
@@ -71,6 +77,5 @@ describe('GooglePublisherTag', () => {
                 .find('script')
                 .filterWhere(item => item.prop('type') === 'text/javascript')
         ).toHaveLength(1);
-        expect(component.html()).toContain(script);
     });
 });

@@ -2,6 +2,12 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import GooglePublisherTagAcumulado from '../../../../../components/private/common/scriptManager/googlePublisherTagAcumulado';
 
+jest.mock('fusion:context', () => ({
+    useAppContext: () => {
+        return { contextPath: 'pf', deployment: () => {} };
+    }
+}));
+
 describe('GooglePublisherTagAcumulado', () => {
     const content = {
         globalContent: {

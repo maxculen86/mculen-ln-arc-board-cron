@@ -11,10 +11,10 @@ import { Note } from '@ln/foodit-ui-note';
 import { Text } from '@ln/common-ui-text';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import { Bookmark } from '@ln/foodit-ui-assets';
 
 import getAuthorsAsString from '../../private/common/utils/getAuthorsAsString';
 import get from '../../private/common/utils/get';
+import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 
 const pageBuilderSections = [
     'Pre-titulo',
@@ -78,7 +78,7 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                                     size={{ sm: 32, lg: 40 }}
                                 >
                                     <Icon size={16} className="sm-none">
-                                        <Bookmark />
+                                        <IconSprite name="bookmark" critical />
                                     </Icon>
                                     Guardar
                                 </Button>

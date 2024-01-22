@@ -5,7 +5,7 @@ import { Spinner } from 'cli-spinner';
 import { spawn } from 'child_process';
 
 const git = simpleGit();
-const demoBranchPrefix = 'LN/';
+const demoBranchPrefixes = ['LN/', 'hotfix', 'release'];
 let demoBranchSuffix = 'demo';
 
 async function checkUncommittedChanges() {
@@ -91,8 +91,16 @@ async function createDemoBranch() {
         }
 
         originalBranch = (await git.branchLocal()).current; // Asigna valor a originalBranch
-        if (!originalBranch.startsWith(demoBranchPrefix)) {
-            console.log("La rama actual no cumple con el criterio de 'LN/'.");
+        if (
+            !demoBranchPrefixes.some(prefix =>
+                originalBranch.startsWith(prefix)
+            )
+        ) {
+            console.log(
+                `La rama actual no cumple con el criterio de prefijos validos: ${demoBranchPrefixes.join(
+                    ' '
+                )}.`
+            );
             return;
         }
 

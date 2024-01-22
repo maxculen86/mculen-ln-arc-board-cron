@@ -1,5 +1,4 @@
 import React from 'react';
-import { Email, Facebook, Twitter, Whatsapp } from '@ln/foodit-ui-assets';
 import config from '../../../../../properties/sites/foodit';
 import {
     popUpCompartirMailTo,
@@ -8,6 +7,7 @@ import {
     shareWhatsAppDesktop
 } from '../../../../private/LN/common/utils/shareHelper';
 import get from '../../../../private/common/utils/get';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 export const socials = [
     {
@@ -20,7 +20,7 @@ export const socials = [
         },
         title: 'Compartir por Facebook',
         text: 'Facebook',
-        icon: <Facebook />
+        icon: <IconSprite name="facebook" />
     },
     {
         type: 'button',
@@ -32,7 +32,7 @@ export const socials = [
         },
         title: 'Compartir por Twitter',
         text: 'Twitter',
-        icon: <Twitter />
+        icon: <IconSprite name="twitter" />
     },
     {
         type: 'button',
@@ -44,7 +44,7 @@ export const socials = [
         },
         title: 'Compartir por Whatsapp',
         text: 'Whatsapp',
-        icon: <Whatsapp />
+        icon: <IconSprite name="whatsapp" />
     },
     {
         type: 'button',
@@ -54,6 +54,6 @@ export const socials = [
         },
         title: 'Compartir por Email',
         text: 'Email',
-        icon: <Email />
+        icon: <IconSprite name="email" />
     }
 ];

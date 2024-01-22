@@ -1,21 +1,21 @@
 import React from 'react';
 import { SummaryItem } from './summaryItem';
-import { Timer, Resto } from '@ln/foodit-ui-assets';
+import IconSprite from '../../../../../features/private-global/common/iconSprite/IconSprite';
 
 export const SummaryBox = ({ cookTime, prepTime, counterTime }) => {
     const items = [
         {
-            icon: <Timer />,
+            icon: <IconSprite name="timer" />,
             time: `${cookTime} min.`,
             text: 'Tiempo de cocción'
         },
         {
-            icon: <Resto />,
+            icon: <IconSprite name="resto" />,
             time: `${prepTime} min.`,
             text: 'Tiempo de Preparación'
         },
         {
-            icon: <Timer />,
+            icon: <IconSprite name="timer" />,
             time: `${counterTime} min.`,
             text: 'Tiempo total'
         }

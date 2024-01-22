@@ -1,5 +1,6 @@
 export const emptyBox = (element, featureInfo) => {
-    return { ...featureInfo };
+    const { items } = element;
+    return { items, ...featureInfo };
 };
 
 export default emptyBox;
