@@ -28,3 +28,6 @@
     font-size: 1.125rem;
   }
 }
+.foodit-list .list-item > * {
+  display: contents;
+}

@@ -10,7 +10,7 @@ export const ListOrderedOrUnordered = ({ data }) => {
         });
         return filteredText.replace(regex, match => {
             return match.replace(/href=(["'\\])+(.*?)\1/, _match => {
-                return `${_match} class="link foodit-link contents" data-variant="secondary"`;
+                return `${_match} class="link foodit-link" data-variant="secondary"`;
             });
         });
     };

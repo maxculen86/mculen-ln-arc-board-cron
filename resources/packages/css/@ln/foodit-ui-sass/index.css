@@ -722,7 +722,7 @@ i, .italic {
   font-style: italic;
 }
 
-b {
+b, strong {
   font-weight: 700;
 }
 

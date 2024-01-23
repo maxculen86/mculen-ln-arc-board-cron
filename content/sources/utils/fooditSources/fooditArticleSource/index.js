@@ -15,9 +15,11 @@ import {
 import {
     transformElementsBasedOnType,
     transformPromoItems,
+    formatElementText,
     transformAuthors,
     filterSections
 } from '../../articleSourceNota/_helper';
+import { compose } from '../../../../../components/private/common/utils/functional';
 
 export const getImageConfig = (response, query) => {
     const siteProperties = getProperties('foodit');
@@ -162,6 +164,26 @@ export const setExternalLinks = ({ content, withSponsoredLink } = {}) => {
     }
     return '';
 };
+
+export const transformElementText = ({
+    element = {},
+    withSponsoredLink
+} = {}) => {
+    const newElement = formatElementText(element);
+    const content = compose(
+        replaceClassForMark,
+        setOtherChar,
+        setExternalLinks,
+        setItalicText,
+        setBoldText
+    )({ content: get(newElement, 'content', ''), withSponsoredLink });
+
+    return {
+        ...newElement,
+        content
+    };
+};
+
 // TODO: Pendiente por sumar tests al transform
 export const transform = async (response, query, cachedCall) => {
     const {
