@@ -7,18 +7,17 @@ import ModArticle from '../../../private/common/mod-article';
 const Columnista = props => {
     const { customFields } = props;
     const { id: Id } = customFields;
-    const author = useContent({
-        source: 'authorSource',
-        query: { _id: Id, imageConfig: 'columnistas' }
-    });
+    const author =
+        useContent({
+            source: 'authorSource',
+            query: { _id: Id, imageConfig: 'columnistas' }
+        }) || {};
     const {
         name,
         node_type: nodeType,
         image,
         canonical_url: canonicalUrl
-    } = author || {
-        image: { url: '' }
-    };
+    } = author;
 
     const data = {
         credits: {
@@ -26,7 +25,13 @@ const Columnista = props => {
                 {
                     author: name,
                     type: nodeType,
-                    image: { resized_urls: [{ resizedUrl: image.url }] },
+                    image: {
+                        resized_urls: [
+                            {
+                                resizedUrl: image?.url
+                            }
+                        ]
+                    },
                     alt_text: name
                 }
             ]

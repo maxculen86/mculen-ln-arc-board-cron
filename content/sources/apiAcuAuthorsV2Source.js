@@ -22,32 +22,24 @@ const fetch = async (query, { cachedCall }) => {
             website: 'la-nacion-ar'
         };
 
-        const authourSourceResolve = authorSource.resolve({
-            website: 'la-nacion-ar',
-            outputType: 'json',
-            _id: query.authorId.replace('/', '')
-        });
-
-        const opt = {
-            uri: `${CONTENT_BASE}${authourSourceResolve}`,
-            json: true
-        };
-        if (ARC_ACCESS_TOKEN) {
-            opt.auth = {
-                bearer: ARC_ACCESS_TOKEN
-            };
-        }
-
-        const authorData = await request(opt)
+        const authorData = await authorSource
+            .fetch(
+                {
+                    website: 'la-nacion-ar',
+                    outputType: 'json',
+                    _id: query.authorId.replace('/', '')
+                },
+                { cachedCall }
+            )
             .then(resp => {
-                return authorSource.transform(resp, queryParams);
+                return resp;
             })
             .catch(error => {
                 logger.push(
                     error,
                     {
                         source: 'content/sources/apiAcuAuthorsV2Source',
-                        url: opt.uri
+                        query
                     },
                     query['arc-site']
                 );

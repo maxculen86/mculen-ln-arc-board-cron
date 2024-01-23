@@ -98,7 +98,7 @@ export const resizeCredits = ({ credits, resizeOptions, isInApertura }) => {
     Object.keys(credits).forEach(key => {
         const credit = credits[key];
         resp[key] =
-            credit &&
+            !!credit &&
             credit.map(c => {
                 if (!!c.image && !!c.image.url) {
                     return {

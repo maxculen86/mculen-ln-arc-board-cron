@@ -1,6 +1,9 @@
 import get from '../../../../../../../../components/private/common/utils/get';
 import { getAuthorId } from './getAuthorId';
-import { getImageUrl } from '../../../../../../../../components/private/LN/api/common/elements/image';
+import {
+    getImageUrl,
+    getImageUrlBasedOnResizerVersion
+} from '../../../../../../../../components/private/LN/api/common/elements/image';
 import { removeEmptyItems } from '../../../../../../../../components/private/LN/api/common/utils/responseCleaner';
 
 const acuTransformV2Format = (
@@ -9,7 +12,9 @@ const acuTransformV2Format = (
     paginationValue,
     isFirstPage
 ) => {
-    const image = getImageUrl(get(authorData, 'image.url', null));
+    const image = getImageUrlBasedOnResizerVersion(
+        get(authorData, 'image.url', null)
+    );
 
     const metadata = {
         paginate: paginationValue,
@@ -23,7 +28,7 @@ const acuTransformV2Format = (
             id: getAuthorId(authorData._id),
             slug: authorData.slug ? authorData.slug : authorData._id,
             value: authorData.name,
-            image: image ? image[0] : null,
+            image: !image ? null : image,
             absoluteUrl: get(authorData, 'image.url', null),
             interests: authorData.intereses,
             mail: authorData.email,
