@@ -1713,7 +1713,12 @@ export const homeSections = [
         ],
         information: {
             nameChain: 'LN10_Caja_Juegos',
-            idRender: 'c0fU1OqL2uBK1s3'
+            idRender: 'c0fU1OqL2uBK1s3',
+            logoId: '4L5K3PAGEREHFPJOPLZXX2DESI',
+            link: 'https://www.lanacion.com.ar/juegos/',
+            title: 'Ln Juegos',
+            hideTitle: false,
+            hideCaja: false
         },
         configurations: {
             arcSite: 'la-nacion-ar'

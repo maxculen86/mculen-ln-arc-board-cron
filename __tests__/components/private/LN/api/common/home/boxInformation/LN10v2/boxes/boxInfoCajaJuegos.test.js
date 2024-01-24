@@ -5,7 +5,9 @@ describe('boxInfoCajaJuegos test suite', () => {
     test('Should return right values', () => {
         const typeSection = configInfoSectionsByLayout('LN10-Home_Main-V2');
         const section = 'ln10_caja_juegos';
-        const information = {};
+        const information = {
+            link: 'https://www.lanacion.com.ar/juegos/'
+        };
 
         const result = boxInfoCajaJuegos(information, section, typeSection);
 
@@ -14,7 +16,7 @@ describe('boxInfoCajaJuegos test suite', () => {
             idSeccion: 705,
             parameters: {
                 title: 'Juegos',
-                url: 'https://www.lanacion.com.ar'
+                url: 'https://www.lanacion.com.ar/juegos/'
             }
         });
     });
