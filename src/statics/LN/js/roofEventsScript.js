@@ -1,0 +1,4 @@
+window.addEventListener('DOMContentLoaded', () => {
+    window.LN.eventshelper.setEventsRoof();
+    window.LN.eventshelper.setEventsNavigationLinks();
+});

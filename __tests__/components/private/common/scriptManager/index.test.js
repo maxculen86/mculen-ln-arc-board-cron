@@ -133,7 +133,8 @@ describe('getScriptsToLoad', () => {
             'Marfeel',
             'ScriptDivBannerSSR',
             'ObservableFoodit',
-            'DataModal'
+            'DataModal',
+            'EventsHelper'
         ]);
         expect(Object.keys(result)).toEqual([
             'Datadog',
@@ -157,7 +158,8 @@ describe('getScriptsToLoad', () => {
             'Marfeel',
             'ScriptDivBannerSSR',
             'ObservableFoodit',
-            'DataModal'
+            'DataModal',
+            'EventsHelper'
         ]);
         expect(result.Datadog).toBeDefined();
     });

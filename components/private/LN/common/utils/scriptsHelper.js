@@ -24,6 +24,7 @@ import ScriptDataModal from '../../../common/scriptManager/scriptDataModal';
 import ObservableFoodit from '../../../../output-types/Helper/observableFoodit';
 
 import { pipe } from '../../../common/utils/functional';
+import EventsHelpers from './EventsHelpers';
 
 const scriptList = [
     {
