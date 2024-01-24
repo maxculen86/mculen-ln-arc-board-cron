@@ -7,6 +7,7 @@ export default function RoofEventsScript() {
 
     return (
         <script
+            defer
             id="script-roof-events"
             src={deployment(
                 `${contextPath}/resources/js/LN/roofEventsScript.min.js`

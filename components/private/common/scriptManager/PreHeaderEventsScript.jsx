@@ -6,6 +6,7 @@ export default function PreHeaderEventsScript() {
     const { contextPath, deployment } = useAppContext();
     return (
         <script
+            defer
             id="script-pre-header-event"
             src={deployment(
                 `${contextPath}/resources/js/LN/preHeaderEventsScript.min.js`

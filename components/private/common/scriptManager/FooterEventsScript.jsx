@@ -7,6 +7,7 @@ export default function FooterEventsScript() {
 
     return (
         <script
+            defer
             id="script-footer-events"
             src={deployment(
                 `${contextPath}/resources/js/LN/footerEventsScript.min.js`

@@ -249,6 +249,23 @@ class EventsHelper {
 
         this.addEventListeners(searchIcon, payload);
     }
+
+    setEventsGames() {
+        const games = window.document.querySelectorAll('.ln-card-games > a');
+        const ACTION = 'jugar';
+        const JUEGOS_LN10 = 'juegos_ln10';
+        games.forEach(game => {
+            if (!game) return;
+            const titleFormatted = this.createDynamicLabel(game.title);
+            const payload = {
+                action: ACTION,
+                label: `${ACTION}_${titleFormatted}`,
+                category: JUEGOS_LN10
+            };
+
+            this.addEventListeners(game, payload);
+        });
+    }
 }
 
 window.LN = {

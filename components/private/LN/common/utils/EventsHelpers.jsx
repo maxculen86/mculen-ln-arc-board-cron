@@ -6,6 +6,7 @@ export default function EventsHelpers() {
 
     return (
         <script
+            defer
             type="application/javascript"
             src={deployment(
                 `${contextPath}/resources/js/common/eventsHelper.min.js`

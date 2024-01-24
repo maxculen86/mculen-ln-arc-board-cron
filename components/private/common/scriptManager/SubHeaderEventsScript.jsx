@@ -7,6 +7,7 @@ export default function SubHeaderEventsScript() {
 
     return (
         <script
+            defer
             id="script-sub-header-events"
             src={deployment(
                 `${contextPath}/resources/js/LN/subHeaderEventsScript.min.js`
