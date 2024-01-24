@@ -1,30 +1,15 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import {
-    setEventsWeather,
-    setEventsTopics,
-    addEventListeners,
-    addEventToDataLayer,
-    createDynamicLabel
-} from '../utils/eventsHelper';
+import { useAppContext } from 'fusion:context';
 
 export default function PreHeaderEventsScript() {
+    const { contextPath, deployment } = useAppContext();
     return (
         <script
-            dangerouslySetInnerHTML={{
-                __html: `
-                    window.addEventListener('DOMContentLoaded', () => {
-                        ${createDynamicLabel}
-                        ${addEventToDataLayer}
-                        ${addEventListeners}
-                        ${setEventsWeather}
-                        ${setEventsTopics}
-
-                        setEventsWeather();
-                        setEventsTopics();
-                    });
-                `
-            }}
+            id="script-pre-header-event"
+            src={deployment(
+                `${contextPath}/resources/js/LN/preHeaderEventsScript.min.js`
+            )}
         />
     );
 }

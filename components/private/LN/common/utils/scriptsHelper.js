@@ -117,6 +117,10 @@ const scriptList = [
     {
         component: { name: 'DataModal', function: ScriptDataModal },
         feature: 'none'
+    },
+    {
+        component: { name: 'EventsHelper', function: EventsHelpers },
+        feature: 'none'
     }
 ];
 
