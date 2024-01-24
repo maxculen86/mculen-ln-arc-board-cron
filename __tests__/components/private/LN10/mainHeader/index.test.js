@@ -50,6 +50,13 @@ jest.mock('fusion:context', () => () => ({
     }
 }));
 
+jest.mock(
+    '../../../../../components/private/common/scriptManager/MainHeaderEventsScript',
+    () => {
+        return jest.fn(() => <div id="mock-main-header-events-script" />);
+    }
+);
+
 describe('Private - LN10 - MainHeader', () => {
     Context.useAppContext = jest.fn(() => ({}));
 

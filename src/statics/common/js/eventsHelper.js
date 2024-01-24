@@ -212,6 +212,43 @@ class EventsHelper {
             this.addEventListeners(access, payload);
         });
     }
+
+    setEventSignIn() {
+        const btnSignIn = window.document.querySelector(
+            'button[title="Iniciar sesión"]'
+        );
+
+        const payload = {
+            action: 'header_logo',
+            label: 'iniciar_sesion'
+        };
+
+        this.addEventListeners(btnSignIn, payload);
+    }
+
+    setEventsSections() {
+        const sections = window.document.querySelectorAll('.dd-link');
+
+        sections.forEach(section => {
+            const payload = {
+                action: 'menu_secciones',
+                label: this.createDynamicLabel(section.innerHTML)
+            };
+
+            this.addEventListeners(section, payload);
+        });
+    }
+
+    setEventSearch() {
+        const searchIcon = window.document.querySelector('#querylyButton');
+
+        const payload = {
+            action: 'header_logo',
+            label: 'buscar'
+        };
+
+        this.addEventListeners(searchIcon, payload);
+    }
 }
 
 window.LN = {
