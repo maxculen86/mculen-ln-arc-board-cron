@@ -1,27 +1,16 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import {
-    createDynamicLabel,
-    setEventsFooter,
-    addEventListeners,
-    addEventToDataLayer
-} from '../utils/eventsHelper';
+import { useAppContext } from 'fusion:context';
 
 export default function FooterEventsScript() {
+    const { contextPath, deployment } = useAppContext();
+
     return (
         <script
-            dangerouslySetInnerHTML={{
-                __html: `
-                    window.addEventListener('DOMContentLoaded', () => {                
-                        ${addEventToDataLayer}
-                        ${addEventListeners}
-                        ${createDynamicLabel}
-                        ${setEventsFooter}
-                        
-                        setEventsFooter();
-                    });
-                `
-            }}
+            id="script-footer-events"
+            src={deployment(
+                `${contextPath}/resources/js/LN/footerEventsScript.min.js`
+            )}
         />
     );
 }
