@@ -45,7 +45,7 @@ describe('components - private - LN - api - mobile - v2 - home - index.js', () =
             idSeccion: 705,
             parameters: {
                 title: 'Juegos',
-                url: 'https://www.lanacion.com.ar'
+                url: 'https://www.lanacion.com.ar/juegos/'
             },
             tipoSeccion: 'juegos',
             items: [

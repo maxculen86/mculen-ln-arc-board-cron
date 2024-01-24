@@ -8,10 +8,11 @@ import addFollowAnotherNoteData from '../../articleSourceNota/cachedCalls/addFol
 import get from '../../../../../components/private/common/utils/get';
 import { compose } from '../../../../../components/private/common/utils/functional';
 import {
+    transformElementText,
     replaceClassForMark,
     setExternalLinks,
-    setOtherChar,
     setItalicText,
+    setOtherChar,
     setBoldText
 } from '.';
 
@@ -25,21 +26,7 @@ export const configCallbackContentElements = {
     gallery: ({ cachedCall, element, arcSite } = {}) => {
         return addGalleryData(cachedCall, element, arcSite);
     },
-    text: ({ element = {}, withSponsoredLink } = {}) => {
-        const newElement = formatElementText(element);
-        const content = compose(
-            replaceClassForMark,
-            setOtherChar,
-            setExternalLinks,
-            setItalicText,
-            setBoldText
-        )({ content: get(newElement, 'content', ''), withSponsoredLink });
-
-        return {
-            ...newElement,
-            content
-        };
-    },
+    text: props => transformElementText(props),
     interstitial_link: ({ element = {} } = {}) => {
         const interstitialLink = get(element, 'url', '');
         const validUrl = formatInterstitialLink(interstitialLink);
@@ -50,6 +37,14 @@ export const configCallbackContentElements = {
         get(element, 'subtype', '') !== 'custom-parallax' && element,
     video: ({ element, arcSite } = {}) => {
         return convertVideoArcToJw(element, arcSite);
+    },
+    list: ({ element, withSponsoredLink } = {}) => {
+        return {
+            ...element,
+            items: get(element, 'items', []).map(item =>
+                transformElementText({ element: item, withSponsoredLink })
+            )
+        };
     }
 };
 
