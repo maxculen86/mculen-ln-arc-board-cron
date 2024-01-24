@@ -10,6 +10,7 @@ class EventsHelper {
                 .replace(/ó/g, 'o')
                 .replace(/ú/g, 'u');
         };
+
         this.addEventToDataLayer = ({
             label,
             action,
@@ -18,6 +19,7 @@ class EventsHelper {
         } = {}) => {
             const HOME_LN10 = 'home_ln10';
             const E_LINK_CLICK = 'e_linkclick';
+
             window.dataLayer &&
                 window.dataLayer.push({
                     event: event || E_LINK_CLICK,
@@ -26,12 +28,14 @@ class EventsHelper {
                     dynamic_label: label
                 });
         };
+
         this.addEventListeners = (element, payload, callback) => {
             const CLICK = 'click';
             const AUX_CLICK = 'auxclick';
             const defaultCallback = () => {
                 this.addEventToDataLayer(payload);
             };
+
             if (element) {
                 element.addEventListener(CLICK, callback || defaultCallback);
                 element.addEventListener(
@@ -40,15 +44,18 @@ class EventsHelper {
                 );
             }
         };
+
         this.getAnchorsFromGroup = roof => {
             const groupRight = roof.querySelector('[roof-group="right"]');
             const groupLeft = roof.querySelector('[roof-group="left"]');
             const anchorRight = groupRight && groupRight.lastChild;
             const isAnchorLeft = groupLeft && groupLeft.tagName === 'A';
+
             const isButtonLink =
                 anchorRight &&
                 anchorRight.getAttribute &&
                 anchorRight.getAttribute('class').includes('button');
+
             return {
                 anchorLeft: isAnchorLeft && groupLeft,
                 actionLeft: 'techo',
@@ -56,24 +63,31 @@ class EventsHelper {
                 actionRight: 'cta'
             };
         };
+
         this.getRoofTitle = container => {
             const logo = container.querySelector('.image');
             const title = container.querySelector('.--roof-title');
+
             return (logo && logo.alt) || (title && title.innerText);
         };
     }
+
     setEventsWeather() {
         const linkWeather = window.document.querySelector(
             '.link.ln-link.--weather'
         );
+
         const payload = {
             action: 'header_clima',
             label: 'clima'
         };
+
         this.addEventListeners(linkWeather, payload);
     }
+
     setEventsTopics() {
         const topics = window.document.querySelectorAll('.tag-list a');
+
         topics.forEach(topicElement => {
             const payload = {
                 action: 'header_temas_hoy',
@@ -82,16 +96,21 @@ class EventsHelper {
             this.addEventListeners(topicElement, payload);
         });
     }
+
     setEventSubscribe() {
         const btnSuscribite = window.document.querySelector('#btnsuscribite');
+
         const payload = {
             action: 'header_logo',
             label: 'suscribite'
         };
+
         this.addEventListeners(btnSuscribite, payload);
     }
+
     setEventsDollar() {
         const dollars = window.document.querySelectorAll('.dollar a');
+
         dollars.forEach(dollar => {
             const payload = {
                 action: 'header_dolar',
@@ -100,35 +119,44 @@ class EventsHelper {
             this.addEventListeners(dollar, payload);
         });
     }
+
     setEventsFooter() {
         const linksFooter = window.document
             .querySelector('.ln-footer-home')
             .querySelectorAll('.text-start');
+
         linksFooter.forEach(link => {
             const payload = {
                 action: 'footer',
                 label: this.createDynamicLabel(link.text)
             };
+
             this.addEventListeners(link, payload);
         });
     }
+
     setEventsNavigationLinks() {
         const navigationLinks = document.querySelectorAll(
             '[roof-group="right"] > .link.ln-link.flex'
         );
+
         navigationLinks.forEach(link => {
             const roofTitle = this.getRoofTitle(link.parentNode.parentNode);
+
             const payload = {
                 action: this.createDynamicLabel(`caja_${roofTitle}`),
                 label: this.createDynamicLabel(`tag_${link.innerText}`)
             };
+
             this.addEventListeners(link, payload);
         });
     }
+
     setEventsRoof() {
         const roofs =
             document.querySelectorAll('[roof-container="roof-container"]') ||
             [];
+
         roofs.forEach(roof => {
             const {
                 anchorLeft,
@@ -136,32 +164,52 @@ class EventsHelper {
                 anchorRight,
                 actionRight
             } = this.getAnchorsFromGroup(roof);
+
             const roofTitle = this.getRoofTitle(roof);
+
             const addEventRoof = (elem, type, title) => {
                 const elemChildren = elem.target.children;
+
                 const description =
                     elem.target.innerText ||
                     elem.target.alt ||
                     (elemChildren[0] &&
                         (elemChildren[0].alt || elemChildren[0].innerHTML));
+
                 const payload = {
                     action: this.createDynamicLabel(
                         `caja_${title || description}`
                     ),
                     label: this.createDynamicLabel(`${type}_${description}`)
                 };
+
                 this.addEventToDataLayer(payload);
             };
+
             if (anchorLeft) {
                 this.addEventListeners(anchorLeft, null, elem =>
                     addEventRoof(elem, actionLeft)
                 );
             }
+
             if (anchorRight) {
                 this.addEventListeners(anchorRight, null, elem =>
                     addEventRoof(elem, actionRight, roofTitle)
                 );
             }
+        });
+    }
+
+    setEventsAccess() {
+        const accesses = window.document.querySelectorAll('.access a');
+
+        accesses.forEach(access => {
+            const payload = {
+                action: 'header_accesos',
+                label: this.createDynamicLabel(access.text)
+            };
+
+            this.addEventListeners(access, payload);
         });
     }
 }

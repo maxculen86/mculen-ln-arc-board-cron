@@ -45,6 +45,12 @@ jest.mock('../../../../../components/private/LN10/subHeader/_helper', () => ({
     setAccessData: jest.fn()
 }));
 
+jest.mock('fusion:context', () => ({
+    useAppContext: () => {
+        return { contextPath: 'pf', deployment: () => {} };
+    }
+}));
+
 describe('Private - LN10 - SubHeader', () => {
     global.window.dataLayer = [];
 

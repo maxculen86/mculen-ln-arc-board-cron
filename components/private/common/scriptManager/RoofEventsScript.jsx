@@ -4,6 +4,7 @@ import { useAppContext } from 'fusion:context';
 
 export default function RoofEventsScript() {
     const { contextPath, deployment } = useAppContext();
+
     return (
         <script
             id="script-roof-events"
