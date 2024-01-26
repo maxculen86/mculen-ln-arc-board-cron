@@ -5,462 +5,49 @@ import {
     SITE_LANACION,
     API_ENV
 } from 'fusion:environment';
-import getProperties from 'fusion:properties';
-import addParallaxData from './utils/addParallaxData';
 import get from '../../components/private/common/utils/get';
-import { addResizedUrls } from '../../components/private/common/utils/image/resizer/addResizerUrls';
 import filter from '../filters/LN/nota/articleListenable';
-import getRequest from './utils/getRequest';
-import Redirect from './utils/redirect';
-import validateExclusiveAccess from './utils/validateExclusiveAccess';
-import replaceTagInTextListRaw from './utils/replaceTagInTextListRaw';
-import removeInvalidRelated from './utils/removeInvalidRelated';
-import {
-    FOTOAL100,
-    RECETA,
-    STORYTELLING,
-    isSubtypeWithAmp
-} from '../../components/private/common/utils/subtypes/subtypeHelper';
 import logger from '../../components/private/common/utils/logger';
-import paywallUtils from './utils/paywall';
-import removeInvalidUrlTagA from '../../components/private/common/utils/removeInvalidUrlTagA';
-import isNotShowcase from './utils/isNotShowcase';
-import { recipePowerUps, removeParallaxPowerUp } from './utils/powerUp';
-import firmaDistributorValidation from './utils/firmaDistributorValidator';
-import isNoteListenable from './utils/audioNews/helper';
-import force404AMP from './utils/force404AMP';
-import validateSponsoredLink from './utils/validateSponsoredLink';
-import { getPrincipalCategory } from '../../components/private/LN/api/common/elements/category';
-import { getAllImagesAuth } from './utils/signingServiceSource/getImagesAuth';
 import {
-    addHttpsInterstitialLink,
-    addHttpsLinkInParagraphs
+    getUrlQuery,
+    setRedirect,
+    transform
 } from './utils/articleSourceNota/_helper';
-import {
-    addForwardSlashInInterstitialLink,
-    addForwardSlashInParagraphsLinks
-} from '../../components/private/LN/common/utils/addForwardSlash';
-import convertVideoArcToJw from './utils/articleSourceNota/cachedCalls/convertVideoArcToJW';
-import addGalleryData from './utils/articleSourceNota/cachedCalls/addGalleryData';
-import addFollowAnotherNoteData from './utils/articleSourceNota/cachedCalls/addFollowAnotherNoteData';
-
-// TODO: Queda pendiente refactor de este source, utilizando los helpers ubicados en /content/sources/utils/articleSourceNota (Tomar como referencia el fooditArticleSource.)
-
-export const resolve = (key, a) => {
-    const { url, id, published } = key;
-
-    const arcSite = key['arc-site'];
-    let basePath = `/content/v4/stories/?website=${arcSite}`;
-    const uriParams = [
-        `${
-            key && key.sourceInclude && key.sourceInclude !== ''
-                ? `&included_fields=${key.sourceInclude}`
-                : ''
-        }`
-    ].join('');
-
-    if (published) basePath = `${basePath}&published=${published}`;
-
-    if (uriParams && uriParams !== '') {
-        basePath = `${basePath}${uriParams}`;
-    }
-    if (id) return `${basePath}&_id=${id}`;
-
-    if (url) {
-        let urlClear = url;
-        const regexUrl = /^\/api\/(?:mobile\/)?v([1-2]+)\/notas\/(byUrl(\/.+\/$)|byId\/(.+)\/$)/;
-        const groups = regexUrl.exec(url);
-        if (groups) urlClear = groups[3];
-        return `${basePath}&website_url=${urlClear}`;
-    }
-    throw new Error('Debe definir url o id para obtener la nota');
-};
 
 const fetch = (query, { cachedCall } = {}) => {
-    const {
-        url = '',
-        imageConfig,
-        meteringVariant,
-        paywallEnabled = '',
-        checkExclusiveAccess = true,
-        isInApertura = false,
-        isAdmin = false,
-        outputType = '',
-        shouldUseV1 = false,
-        shouldUseV2
-    } = query;
-
     const arcSite = query['arc-site'];
-    const properties = getProperties(arcSite);
+
     const opt = {
-        uri: `${CONTENT_BASE}${resolve(query)}`,
+        uri: `${CONTENT_BASE}${getUrlQuery(query)}`,
         json: true
     };
+
     if (ARC_ACCESS_TOKEN) {
         opt.auth = {
             bearer: ARC_ACCESS_TOKEN
         };
     }
 
-    return request(opt)
-        .then(response => {
-            if (
-                response &&
-                response.type === 'redirect' &&
-                response.redirect_url
-            ) {
-                throw new Redirect(response.redirect_url, 301);
-            }
-            const forwardUrl = get(
-                response,
-                'related_content.redirect[0].redirect_url'
-            );
-            const regExp = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
-            if (forwardUrl && regExp.test(forwardUrl)) {
-                throw new Redirect(forwardUrl, 301);
-            }
+    const resolveData = async () => {
+        try {
+            const response = await request(opt);
 
-            /**
-             * TODO: incluir siguiente bloque dentro de paywallUtils
-             */
-            if (
-                (paywallEnabled === '1' || paywallEnabled === 'true') &&
-                response &&
-                checkExclusiveAccess
-            ) {
-                validateExclusiveAccess({
-                    contentCode:
-                        response.content_restrictions &&
-                        response.content_restrictions.content_code,
-                    meteringVariant: query.meteringVariant,
-                    host: SITE_LANACION,
-                    path: query.uri
-                });
-            }
+            setRedirect({ response, query, siteUrl: SITE_LANACION });
 
-            isSubtypeWithAmp(response) && force404AMP({ outputType });
-
-            isNotShowcase(response) &&
-                paywallUtils.checkPaywall({
-                    queryData: query,
-                    urlBase: SITE_LANACION,
-                    responseData: response
-                });
-
-            return transform(
-                response,
-                arcSite,
-                properties,
-                imageConfig,
-                url,
-                meteringVariant,
-                paywallEnabled,
-                cachedCall,
-                isInApertura,
-                isAdmin,
-                shouldUseV1,
-                shouldUseV2
-            );
-        })
-        .catch(error => {
-            // eslint-disable-next-line no-console
-            console.log(
-                '🚀 ~ file: articleSourceNota.js ~ line 90 ~ error',
-                error
-            );
+            return transform(response, query, cachedCall);
+        } catch (error) {
             return logger.push(
                 error,
-                { source: 'content/source/articleSourceNota', url },
+                {
+                    source: 'content/source/ArticleSourceNota',
+                    url: get(query, 'url', '')
+                },
                 arcSite
             );
-        });
-};
-
-// Al no poder exportar esta fn para que la utilice Fusion directamente, ya que devuelve una promise y no lo soporta, la llamamos
-// directamente nosotros desde el fetch
-
-const transform = async (
-    data,
-    arcSite,
-    properties,
-    imageConfig,
-    urlQuery,
-    meteringVariant,
-    paywallEnabled,
-    cachedCall,
-    isInApertura,
-    isAdmin,
-    shouldUseV1,
-    shouldUseV2
-) => {
-    // Data
-    const subtype = get(data, 'subtype', null);
-
-    // With firma distributor data
-    const name = get(data, 'distributor.name', 'LA NACION');
-    const sponsored = get(data, 'owner.sponsored', false);
-    const sections = get(data, 'taxonomy.sections', []);
-    const authors = get(data, 'credits.by', []);
-    const layout = 'LN-nota-noticia';
-
-    if (!shouldUseV1 || shouldUseV2) {
-        const newData = await getAllImagesAuth(data, cachedCall);
-        Object.assign(data, newData);
-    }
-
-    const withFirmaDistributor = firmaDistributorValidation(
-        sections,
-        layout,
-        name,
-        subtype,
-        authors,
-        sponsored
-    );
-
-    // Presets
-    const presetsDefault = get(properties, `imageConfig.resize.default`, null);
-    const presetsZoom = get(
-        properties,
-        'imageConfig.resize.zoom.promo_items.sizes',
-        presetsDefault
-    );
-
-    const {
-        promo_items: presetsPromoItemsCustom,
-        content_elements: presetsContentElementsCustom,
-        credits: presetsCreditsCustom
-    } = get(properties, `imageConfig.resize.${imageConfig}`, {});
-
-    const presetsPromoItemsVideo =
-        get(data, 'promo_items.apertura_multimedia.type', '') === 'video' &&
-        get(properties, 'imageConfig.resize.videoImage.promo_items', null);
-
-    const presetsPromoItemsFotoAl100 =
-        (data.subtype === FOTOAL100 || data.subtype === STORYTELLING) &&
-        get(properties, 'imageConfig.resize.fotoAl100.promo_items', null);
-    const presetsContentElementsFotoAl100 =
-        data.subtype === FOTOAL100 &&
-        get(properties, 'imageConfig.resize.fotoAl100.content_elements', null);
-    const presetsPromoItems = get(
-        properties,
-        'imageConfig.resize.l.promo_items',
-        null
-    );
-    const presetsContentElements = get(
-        properties,
-        'imageConfig.resize.l.content_elements',
-        null
-    );
-    const presetsCredits = get(
-        properties,
-        'imageConfig.resize.l.credits',
-        null
-    );
-
-    const primarySection = get(data, 'taxonomy.primary_section');
-    const category = primarySection && getPrincipalCategory(primarySection);
-
-    // Data con urls Resizeadas
-    const resp = {
-        paywallEnabled,
-        ...data,
-        subscription: meteringVariant,
-        withFirmaDistributor,
-        isListenable: isNoteListenable(data),
-        withSponsoredLink: validateSponsoredLink(data),
-        category: get(category, 'valor', null),
-        ...addResizedUrls(data, {
-            presets: {
-                promoItems:
-                    presetsPromoItemsCustom ||
-                    presetsPromoItemsFotoAl100 ||
-                    presetsPromoItemsVideo ||
-                    presetsPromoItems ||
-                    presetsDefault,
-                contentElements:
-                    presetsContentElementsCustom ||
-                    presetsContentElementsFotoAl100 ||
-                    presetsContentElements ||
-                    presetsDefault,
-                credits: presetsCreditsCustom || presetsCredits,
-                presetsDefault,
-                zoomSizes: presetsZoom
-            },
-            subtype,
-            isInApertura,
-            isAdmin,
-            shouldUseV1,
-            shouldUseV2
-        })
-    };
-    return transformContent(
-        resp,
-        arcSite,
-        urlQuery,
-        cachedCall,
-        presetsPromoItemsFotoAl100
-    );
-};
-
-const transformContent = async (
-    jsonArticle,
-    arcSite,
-    urlQuery,
-    cachedCall,
-    presetsPromoItemsFotoAl100
-) => {
-    const promiseArr = [];
-    const sections = get(jsonArticle, 'taxonomy.sections');
-    const promoItem = get(jsonArticle, 'promo_items', {});
-    const promoItemEdited = {};
-
-    const parsePromoItem = promoItemObject => {
-        Object.keys(promoItemObject)
-            .filter(key => key !== 'video_jw' || key !== 'custom_embed')
-            .forEach(promoItemKey => {
-                const promoItem = get(promoItemObject, promoItemKey, undefined);
-                if (promoItem && promoItem.type === 'video') {
-                    promiseArr.push(
-                        convertVideoArcToJw(promoItem).then(data => {
-                            promoItemEdited[promoItemKey] = { ...data };
-                        })
-                    );
-                }
-            });
-    };
-
-    const resp = {
-        ...jsonArticle,
-        taxonomy: {
-            ...jsonArticle.taxonomy,
-            sections: sections
-                ? sections.filter(s => s.type === 'section')
-                : null
         }
     };
 
-    if (jsonArticle && jsonArticle.promo_items) {
-        parsePromoItem(promoItem);
-    }
-
-    const subtype = get(jsonArticle, `subtype`, null);
-
-    resp &&
-        resp.content_elements &&
-        resp.content_elements.forEach((e, i) => {
-            e.type === 'gallery' &&
-                promiseArr.push(
-                    addGalleryData(cachedCall, e, arcSite).then(g => {
-                        resp.content_elements[i] = g;
-                    })
-                );
-
-            resp.content_elements[i] = replaceTagInTextListRaw(e, 'TERCERA=""');
-
-            if (e.type === 'interstitial_link') {
-                resp.content_elements[
-                    i
-                ].url = addForwardSlashInInterstitialLink(
-                    addHttpsInterstitialLink(resp.content_elements[i].url)
-                );
-            }
-
-            if (e.type === 'text') {
-                resp.content_elements[
-                    i
-                ].content = addForwardSlashInParagraphsLinks(
-                    addHttpsLinkInParagraphs(resp.content_elements[i].content)
-                );
-            }
-            if (e.type === 'video') {
-                promiseArr.push(
-                    convertVideoArcToJw(resp.content_elements[i], arcSite).then(
-                        data => {
-                            resp.content_elements[i] = data;
-                        }
-                    )
-                );
-            }
-        });
-
-    if (resp && resp.related_content && resp.related_content.basic) {
-        resp.related_content.basic.forEach((element, i) => {
-            const referentType = get(element, 'referent.type', '');
-
-            element.type === 'reference' &&
-                referentType === 'image' &&
-                (resp.related_content.basic[i] = element);
-
-            referentType === 'story' &&
-                promiseArr.push(
-                    addFollowAnotherNoteData(
-                        cachedCall,
-                        element,
-                        arcSite,
-                        i
-                    ).then(newContent => {
-                        resp.related_content.basic[i] = newContent;
-                    })
-                );
-        });
-    }
-
-    if (get(resp, 'promo_items.basic.type', '') === 'gallery') {
-        promiseArr.push(
-            addGalleryData(cachedCall, resp.promo_items.basic, arcSite).then(
-                g => {
-                    resp.promo_items.basic = g;
-                }
-            )
-        );
-    }
-
-    get(resp, 'credits.by', []).forEach((elem, i) =>
-        promiseArr.push(
-            new Promise(resolver =>
-                resolver(get(elem, 'image.resized_urls[0].resizedUrl'))
-            ).then(url => {
-                url &&
-                    (resp.credits.by[
-                        i
-                    ].additional_properties.original.image = url);
-            })
-        )
-    );
-
-    // Url Validator
-    const validateResp = resp && resp.content_elements;
-
-    if (validateResp) {
-        resp.content_elements = removeInvalidUrlTagA(
-            resp.content_elements,
-            arcSite,
-            urlQuery,
-            API_ENV
-        );
-        subtype === RECETA &&
-            (resp.content_elements = recipePowerUps(resp.content_elements));
-        subtype !== FOTOAL100 &&
-            (resp.content_elements = removeParallaxPowerUp(
-                resp.content_elements
-            ));
-        subtype === FOTOAL100 &&
-            (resp.content_elements = await addParallaxData(
-                resp.content_elements,
-                cachedCall,
-                presetsPromoItemsFotoAl100
-            ));
-    }
-
-    return Promise.all(promiseArr).then(() => {
-        const relatedContent = get(resp, 'related_content.basic', []);
-        relatedContent.length &&
-            (resp.related_content.basic = removeInvalidRelated(relatedContent));
-        if (resp.promo_items) {
-            resp.promo_items = { ...resp.promo_items, ...promoItemEdited };
-        }
-        return resp;
-    });
+    return Promise.resolve(resolveData());
 };
 
 export default {
