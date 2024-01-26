@@ -106,6 +106,10 @@ const scriptList = [
         },
         feature: 'none'
     },
+    {
+        component: { name: 'MarfeelMarkup', function: MarfeelMarkup },
+        feature: 'none'
+    },
     { component: { name: 'Marfeel', function: Marfeel }, feature: 'none' },
     {
         component: { name: 'ScriptDivBannerSSR', function: ScriptDivBannerSSR },
@@ -117,10 +121,6 @@ const scriptList = [
     },
     {
         component: { name: 'DataModal', function: ScriptDataModal },
-        feature: 'none'
-    },
-    {
-        component: { name: 'MarfeelMarkup', function: MarfeelMarkup },
         feature: 'none'
     }
 ];

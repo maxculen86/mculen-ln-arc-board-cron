@@ -15,37 +15,22 @@ jest.mock('fusion:context', () => ({
     })
 }));
 
-describe('MarfeelMarkup', () => {
-    describe('Renders script', () => {
-        it('renders script with isAccessibleForFree as true', () => {
-            const { container } = render(<MarfeelMarkup />);
-            const scriptElement = container.querySelector(
-                '#scriptMarfeelMarkup'
-            );
+describe('MarfeelMarkup Renders script', () => {
+    it('should return a script tag with type "application/ld+json"', () => {
+        const { container } = render(<MarfeelMarkup />);
+        const scriptElement = container.querySelector(
+            'script[type="application/ld+json"]'
+        );
 
-            expect(scriptElement).toBeInTheDocument();
-        });
+        expect(scriptElement).toBeInTheDocument();
+    });
 
-        it('renders script with isAccessibleForFree as false', () => {
-            jest.clearAllMocks();
-            jest.mock('fusion:context', () => ({
-                useAppContext: () => ({
-                    contextPath: '/pf',
-                    deployment: jest.fn(),
-                    globalContent: {
-                        content_restrictions: {
-                            content_code: 'cerrada'
-                        }
-                    }
-                })
-            }));
+    it('renders script with isAccessibleForFree', () => {
+        const { container } = render(<MarfeelMarkup />);
 
-            const { container } = render(<MarfeelMarkup />);
-            const scriptElement = container.querySelector(
-                '#scriptMarfeelMarkup'
-            );
-
-            expect(scriptElement).toBeInTheDocument();
-        });
+        const scriptElement = container.querySelector(
+            'script[type="application/ld+json"]'
+        );
+        expect(scriptElement).toBeInTheDocument();
     });
 });
