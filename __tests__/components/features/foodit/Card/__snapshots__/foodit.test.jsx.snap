@@ -98,8 +98,8 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                 class="icon w-24 w-20_lg --dark"
               >
                 <mock-icon
-                  critical="false"
-                  name="bookmark-filled"
+                  critical="true"
+                  name="bookmark"
                 />
               </i>
               <span

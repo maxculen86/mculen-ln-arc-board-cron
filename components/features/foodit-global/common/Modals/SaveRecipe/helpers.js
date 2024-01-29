@@ -1,4 +1,6 @@
 import get from '../../../../../private/common/utils/get';
+import saveBookmarks from '../../bookmark/api/postBookmarks';
+
 export const saveRecipeConfig = {
     'new-folder': {
         'step-1': {
@@ -47,26 +49,23 @@ export const saveRecipeConfig = {
 export const actionButtons = ({
     action,
     close,
-    ids,
     indexStep,
     newFolder,
     selectedFolder,
-    setIndexStep
+    setIndexStep,
+    articlesDetails
 }) => {
     const actions = {
         close,
         forwardStep: () => setIndexStep(indexStep - 1),
         nextStep: () => setIndexStep(indexStep + 1),
-        save: () => {
-            const nameFolder =
-                selectedFolder.value === 'new'
-                    ? newFolder
-                    : selectedFolder?.label;
-            window.LN.observable.publish('addToast', {
-                variant: 'success',
-                title: 'Guardado!',
-                message: `Se guardaron los ids: ${ids} en la carpeta ${nameFolder}`
-            });
+        save: async () => {
+            const addFolder = selectedFolder.value == 'new';
+
+            const nameFolder = addFolder ? newFolder : selectedFolder?.label;
+
+            await saveBookmarks(articlesDetails, nameFolder, addFolder);
+
             close();
         }
     };

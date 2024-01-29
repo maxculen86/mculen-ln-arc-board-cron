@@ -88,6 +88,8 @@ export const logout = (callback = () => {}) => {
         redirectToLogin: false,
         isVoluntary: true
     }).then(response => {
+        localStorage.removeItem('bookmarkFolders');
+        localStorage.removeItem('bookmarkedItems');
         eraseCookie('shouldrelogin');
         callback(response);
     });

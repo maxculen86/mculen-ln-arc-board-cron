@@ -74,6 +74,8 @@ export default {
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
     PERSONALIZACION_APIV2:
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/',
+    PERSONALIZACION_API_FOODIT:
+        'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/foodit/',
     BOOKMARK_URL: 'https://www.lanacion.com.ar/mis-notas/',
     AUDIO_NEWS_URL: 'https://audionews.lanacion.com.ar/api/v1/audio/status/',
     AUDIONEWS_URL: 'https://api-audios.lanacion.com.ar/status/',

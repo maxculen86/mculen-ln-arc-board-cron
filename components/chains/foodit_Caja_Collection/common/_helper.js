@@ -28,9 +28,14 @@ export const validateChainFoodit = ({
     return pageBuilderValidator(rules);
 };
 
-export const getIdCollection = (isStatic, inViewport, idCollection) => {
+export const getIdCollection = (
+    isStatic,
+    inViewport,
+    idCollection,
+    isAdmin
+) => {
     if (isStatic) {
         return idCollection;
     }
-    return (inViewport && idCollection) || null;
+    return (inViewport && idCollection) || (isAdmin && idCollection) || null;
 };
