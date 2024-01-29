@@ -50,12 +50,16 @@ export const transformArticleFoodit = article => {
     return {
         articleId: get(article, '_id', ''),
         title: get(article, 'headlines.basic', ''),
+        mobileTitle: get(article, 'headlines.mobile', ''),
         author: getAuthorsAsString(article, false) || 'Por Foodit',
         image: get(article, 'promo_items.basic', {}),
         href: get(article, 'website_url', ''),
         time: get(article, 'promo_items.receta.embed.config.counterTime', null),
         tag: highestPriorityTag.toUpperCase(),
-        variant: getVariantBySubtype(get(article, 'subtype', ''))
+        variant: getVariantBySubtype(get(article, 'subtype', '')),
+        primarySection: get(article, 'taxonomy.primary_section.name', ''),
+        canonicalUrl: get(article, 'canonical_url', ''),
+        credits: get(article, 'credits', {})
     };
 };
 

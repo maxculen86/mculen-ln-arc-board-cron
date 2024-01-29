@@ -4,6 +4,8 @@ import { LAYOUTS } from '../utils/helper-WebApi';
 import RoofFoodit from '../../../../features/foodit-global/common/RoofFoodit/foodit';
 import CommonCardFoodit from '../../../../features/foodit-global/common/CommonCardFoodit/foodit';
 import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import { filterBookmarksByArticledIs } from '../../../../features/foodit-global/common/bookmark/_helper';
 
 const { CAROUSEL, BN_12_GRID } = LAYOUTS;
 
@@ -18,6 +20,11 @@ export const RenderCollection = ({
     collectionId = '',
     articles = []
 }) => {
+    const bookmarkedArticles = filterBookmarksByArticledIs(articles);
+    const fill =
+        bookmarkedArticles.length &&
+        bookmarkedArticles.length === articles.length;
+
     const {
         roofAs = '',
         classNameParent = '',
@@ -34,12 +41,28 @@ export const RenderCollection = ({
                     linkProps={{ href: link, text: title }}
                     buttonProps={{
                         text: 'Guardar todo',
-                        fill: 'false', // TODO: true cuando las recetas está guardada
-                        'data-id': collectionId,
-                        'data-modal': 'open-modal'
+                        'data-collectionid': collectionId,
+                        onClick: e => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.LN.observable.publish('openModal', {
+                                ids: articles.map(article => article.articleId),
+                                collectionId,
+                                collectionArticles: articles
+                            });
+                        }
                     }}
+                    icon={
+                        <IconSprite
+                            name={fill ? 'bookmark-filled' : 'bookmark-plus'}
+                            critical={false}
+                        />
+                    }
                 />
-                <Carousel articles={articles} />
+                <Carousel
+                    articles={articles}
+                    bookmarkedArticlesIds={bookmarkedArticles}
+                />
             </div>
         ),
         [BN_12_GRID]: (
@@ -84,7 +107,6 @@ export const RenderCollection = ({
                                     author={author}
                                     className={classNameChildren}
                                     key={articleId}
-                                    fill={false} // TODO: boolean receta guardada
                                 />
                             );
                         }

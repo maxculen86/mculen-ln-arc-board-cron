@@ -1277,16 +1277,15 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
       </a>
       <button
         class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover ml-auto"
-        data-id=""
-        data-modal="open-modal"
+        data-collectionid=""
         data-variant="link"
-        fill="false"
         text="Guardar todo"
       >
         <i
           class="icon w-24 w-20_md --dark"
         >
           <mock-icon
+            critical="false"
             name="bookmark-plus"
           />
         </i>

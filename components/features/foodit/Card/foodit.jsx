@@ -100,7 +100,6 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
                     tag={!isOpening && tag}
                     title={title}
                     author={author}
-                    fill={isOpening} // TODO: boolean cuando la receta está guardada
                 />
             )}
         </StaticContent>

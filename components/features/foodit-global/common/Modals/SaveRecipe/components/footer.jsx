@@ -1,16 +1,24 @@
+import { transformBookmarkContent } from '../../../bookmark/_helper';
+import { useGetFooditArticles } from '../../../bookmark/hooks/useGetFooditArticle';
 import { actionButtons } from '../helpers';
 import { Button } from '@ln/foodit-ui-button';
 
 const FooterSaveRecipe = ({
     close,
-    ids,
     indexStep,
     leftButton,
     newFolder,
     rightButton,
     selectedFolder,
-    setIndexStep
+    setIndexStep,
+    ids,
+    articles = []
 }) => {
+    const articlesDetails =
+        (articles.length &&
+            articles.map(article => transformBookmarkContent(article))) ||
+        useGetFooditArticles(ids);
+
     return (
         <footer className="flex gap-16 as-end">
             <Button
@@ -39,11 +47,11 @@ const FooterSaveRecipe = ({
                     actionButtons({
                         action: rightButton.action,
                         close,
-                        ids,
                         indexStep,
                         newFolder,
                         selectedFolder,
-                        setIndexStep
+                        setIndexStep,
+                        articlesDetails
                     })
                 }
                 disabled={!selectedFolder?.value}

@@ -2,13 +2,12 @@ import React from 'react';
 import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import { Button } from '@ln/foodit-ui-button';
-import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { Link } from '@ln/foodit-ui-link';
 
 export const RoofFoodit = ({
     buttonProps,
     hide,
-    icon = buttonProps && <IconSprite name="bookmark-plus" />,
+    icon,
     title = {},
     linkProps = {}
 }) => {
