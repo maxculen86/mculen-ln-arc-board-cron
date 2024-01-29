@@ -7,53 +7,30 @@ import List from '../../../common/mod-list';
 import Copyright from './copyright';
 import ComLogo from '../../../common/com-logo';
 import commonProps from './helpers/commonProps';
+import { SITIO_SEGURO_REGISTRACION, SITE_LANACION } from 'fusion:environment';
 
 const Index = ({ home }) => {
     const listText = [
         commonProps(
             'Últimas noticias',
             'Ir a Últimas noticias',
-            'https://www.lanacion.com.ar/ultimas-noticias/'
+            `${SITE_LANACION}/ultimas-noticias/`
         ),
-        commonProps(
-            'Política',
-            'Ir a Política',
-            'https://www.lanacion.com.ar/politica/'
-        ),
-        commonProps(
-            'Economía',
-            'Ir a Economía',
-            'https://www.lanacion.com.ar/economia/'
-        ),
-        commonProps(
-            'El mundo',
-            'Ir a El mundo',
-            'https://www.lanacion.com.ar/el-mundo/'
-        ),
-        commonProps(
-            'Sociedad',
-            'Ir a Sociedad',
-            'https://www.lanacion.com.ar/sociedad/'
-        ),
-        commonProps(
-            'Opinión',
-            'Ir a Opinión',
-            'https://www.lanacion.com.ar/opinion/'
-        ),
-        commonProps(
-            'Deportes',
-            'Ir a Deportes',
-            'https://www.lanacion.com.ar/deportes/'
-        ),
+        commonProps('Política', 'Ir a Política', `${SITE_LANACION}/politica/`),
+        commonProps('Economía', 'Ir a Economía', `${SITE_LANACION}/economia/`),
+        commonProps('El mundo', 'Ir a El mundo', `${SITE_LANACION}/el-mundo/`),
+        commonProps('Sociedad', 'Ir a Sociedad', `${SITE_LANACION}/sociedad/`),
+        commonProps('Opinión', 'Ir a Opinión', `${SITE_LANACION}/opinion/`),
+        commonProps('Deportes', 'Ir a Deportes', `${SITE_LANACION}/deportes/`),
         commonProps(
             'Lifestyle',
             'Ir a Lifestyle',
-            'https://www.lanacion.com.ar/lifestyle/'
+            `${SITE_LANACION}/lifestyle/`
         ),
         commonProps(
             'Espectáculos',
             'Ir a Espectáculos',
-            'https://www.lanacion.com.ar/espectaculos/'
+            `${SITE_LANACION}/espectaculos/`
         ),
         commonProps(
             'Edición impresa',
@@ -73,37 +50,37 @@ const Index = ({ home }) => {
         commonProps(
             'OHLALÁ!',
             'Ir a Revista OHLALÁ',
-            'https://www.lanacion.com.ar/revista-ohlala/'
+            `${SITE_LANACION}/revista-ohlala/`
         ),
         commonProps(
             '¡HOLA!',
             'Ir a Revista HOLA',
-            'https://www.lanacion.com.ar/revista-hola/'
+            `${SITE_LANACION}/revista-hola/`
         ),
         commonProps(
             'ROLLING STONE',
             'Ir a Revista Rolling Stone',
-            'https://www.lanacion.com.ar/revista-rolling-stone/'
+            `${SITE_LANACION}/revista-rolling-stone/`
         ),
         commonProps(
             'LIVING',
             'Ir a Revista Living',
-            'https://www.lanacion.com.ar/revista-living/'
+            `${SITE_LANACION}/revista-living/`
         ),
         commonProps(
             'BRANDO',
             'Ir a Revista Brando',
-            'https://www.lanacion.com.ar/revista-brando/'
+            `${SITE_LANACION}/revista-brando/`
         ),
         commonProps(
             'JARDÍN',
             'Ir a Revista Jardín',
-            'https://www.lanacion.com.ar/revista-jardin/'
+            `${SITE_LANACION}/revista-jardin/`
         ),
         commonProps(
             'LUGARES',
             'Ir a Revista Lugares',
-            'https://www.lanacion.com.ar/revista-lugares/'
+            `${SITE_LANACION}/revista-lugares/`
         )
     ];
 
@@ -149,7 +126,7 @@ const Index = ({ home }) => {
         commonProps(
             'Mapa del sitio',
             'Ir al mapa del sitio de LA NACION',
-            'https://www.lanacion.com.ar/mapa-del-sitio/'
+            `${SITE_LANACION}/mapa-del-sitio/`
         ),
         commonProps(
             'Ayuda',
@@ -170,7 +147,7 @@ const Index = ({ home }) => {
         commonProps(
             'Suscribirse al diario impreso',
             'Ir a las suscripciones al diario',
-            'https://suscripciones.lanacion.com.ar/suscribirme'
+            `${SITIO_SEGURO_REGISTRACION}/suscribirme`
         )
     ];
 
@@ -219,7 +196,7 @@ const Index = ({ home }) => {
                             />
                             <Icon
                                 name="rss"
-                                href="https://www.lanacion.com.ar/arc/outboundfeeds/rss/?outputType=xml"
+                                href={`${SITE_LANACION}/arc/outboundfeeds/rss/?outputType=xml`}
                                 target="_blank"
                                 rel
                                 title="Ir a Rss"
@@ -227,7 +204,7 @@ const Index = ({ home }) => {
                         </div>
                         <div className="col-desksm-4 --center">
                             <ComLogo
-                                href="https://www.lanacion.com.ar/"
+                                href={`${SITE_LANACION}/`}
                                 logoName="la-nacion"
                                 size="--sm"
                                 title="Ir a la página principal"

@@ -4,7 +4,11 @@ import { MainHeader } from '@ln/contenidos-ui-header';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { ExclusivoSuscriptores, Bell } from '@ln/contenidos-ui-assets';
-import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
+import {
+    SITIO_SEGURO_REGISTRACION,
+    MY_ACCOUNT_URL,
+    SITE_LANACION
+} from 'fusion:environment';
 import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 import useTermica from '../../common/hooks/useTermica';
 import { GlobalContext } from '../../common/context/globalContext';
@@ -18,25 +22,25 @@ export const setDesplegableData = (goToLogout = () => {}) => {
 
     const defaultOptions = [
         {
-            url: 'https://www.lanacion.com.ar/mis-notas/',
+            url: `${SITE_LANACION}/mis-notas/`,
             text: 'Mis notas',
             title: 'Ir a mis notas',
             target: '_self'
         },
         {
-            url: 'https://myaccount.lanacion.com.ar/mi-usuario/',
+            url: `${MY_ACCOUNT_URL}/mi-usuario/`,
             text: 'Mi cuenta',
             title: 'Ir a mi cuenta',
             target: '_self'
         },
         {
-            url: 'https://myaccount.lanacion.com.ar/datos-personales/',
+            url: `${MY_ACCOUNT_URL}/datos-personales/`,
             text: 'Mis datos',
             title: 'Ir a mis datos',
             target: '_self'
         },
         {
-            url: 'https://myaccount.lanacion.com.ar/mis-suscripciones/',
+            url: `${MY_ACCOUNT_URL}/mis-suscripciones/`,
             text: 'Mis suscripciones',
             title: 'Ir a mis suscripciones',
             target: '_self'
@@ -106,18 +110,15 @@ export const RightOptions = ({
     const upsellingData = {
         'ga-combo2': {
             text: duo_button_text,
-            url:
-                'https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-duo?cv=733&fc=277'
+            url: `${MY_ACCOUNT_URL}/confirmar-upselling/up-selling/pasate-a-duo?cv=733&fc=277`
         },
         'ga-comboDuo': {
             text: triple_button_text,
-            url:
-                'https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-triple?cv=733&fc=277'
+            url: `${MY_ACCOUNT_URL}/confirmar-upselling/up-selling/pasate-a-triple?cv=733&fc=277`
         },
         'ga-comboTriple': {
             text: black_button_text,
-            url:
-                'https://myaccount.lanacion.com.ar/confirmar-upselling/up-selling/pasate-a-black?cv=733&fc=277'
+            url: `${MY_ACCOUNT_URL}/confirmar-upselling/up-selling/pasate-a-black?cv=733&fc=277`
         }
     };
 

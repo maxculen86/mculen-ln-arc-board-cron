@@ -1,14 +1,16 @@
 import React from 'react';
-import {
-    SITIO_SEGURO_REGISTRACION,
-    SITE_LANACION,
-    API_ENV
-} from 'fusion:environment';
 import Navbar from '../../../../../components/private/LN10/navbar';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { GlobalContext } from '../../../../../components/private/common/context/globalContext';
 
+jest.mock('fusion:environment', () => {
+    return {
+        SITE_LANACION: 'https://www.lanacion.com.ar',
+        SITIO_SEGURO_REGISTRACION: 'https://suscripciones.lanacion.com.ar',
+        MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar'
+    };
+});
 jest.mock(
     '../../../../../components/private/LN/common/utils/contextHelper',
     () => ({

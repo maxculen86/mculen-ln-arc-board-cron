@@ -1,20 +1,9 @@
 import addGalleryData from '../../articleSourceNota/cachedCalls/addGalleryData';
-import {
-    formatElementText,
-    formatInterstitialLink
-} from '../../articleSourceNota/_helper';
+import { formatInterstitialLink } from '../../articleSourceNota/_helper';
 import convertVideoArcToJw from '../../articleSourceNota/cachedCalls/convertVideoArcToJW';
 import addFollowAnotherNoteData from '../../articleSourceNota/cachedCalls/addFollowAnotherNoteData';
 import get from '../../../../../components/private/common/utils/get';
-import { compose } from '../../../../../components/private/common/utils/functional';
-import {
-    transformElementText,
-    replaceClassForMark,
-    setExternalLinks,
-    setItalicText,
-    setOtherChar,
-    setBoldText
-} from '.';
+import { transformElementText } from '.';
 
 export const configPromoItems = {
     video: ({ element }) => convertVideoArcToJw(element),

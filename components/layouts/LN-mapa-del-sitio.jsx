@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import { SITE_LANACION } from 'fusion:environment';
+import { SITE_LANACION, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import List from '../private/common/mod-list';
 import Title from '../private/common/com-title';
 import Copyright from '../private/LN/common/footer/copyright';
@@ -38,7 +38,7 @@ const LNMapaDelSitio = ({ children }) => {
         { text: 'LN+', href: 'https://lnmas.lanacion.com.ar/' },
         {
             text: 'Suscribite',
-            href: 'https://suscripciones.lanacion.com.ar/suscribirme'
+            href: `${SITIO_SEGURO_REGISTRACION}/suscribirme/`
         },
         {
             text: 'Acceso a PDF',

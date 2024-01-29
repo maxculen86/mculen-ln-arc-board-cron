@@ -6,6 +6,15 @@ import Context from 'fusion:context';
 import Footer from '../../../../../../components/private/LN/common/footer';
 import commonProps from '../../../../../../components/private/LN/common/footer/helpers/commonProps';
 
+jest.mock('fusion:environment', () => {
+    return {
+        SITE_LANACION: 'https://www.lanacion.com.ar',
+        SITIO_SEGURO_REGISTRACION: 'https://suscripciones.lanacion.com.ar',
+        BOOKMARK_URL: 'https://www.lanacion.com.ar/mis-notas/',
+        MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar/mi-usuario/'
+    };
+});
+
 jest.mock('fusion:consumer', component => {
     return function(component) {
         return component;

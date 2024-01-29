@@ -1,6 +1,7 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Rss } from '@ln/contenidos-ui-assets';
 import getAssetsPath from '../../common/utils/getAssetsPath';
+import { SITIO_SEGURO_REGISTRACION, SITE_LANACION } from 'fusion:environment';
 
 export const optionsIcons = (contextPath, deployment) => {
     const url = asset => getAssetsPath(contextPath)(deployment)(asset);
@@ -70,21 +71,15 @@ export const commonPropsFooter = (text, href) => {
 };
 
 export const secciones = [
-    commonPropsFooter(
-        'Últimas noticias',
-        'https://www.lanacion.com.ar/ultimas-noticias/'
-    ),
-    commonPropsFooter('Política', 'https://www.lanacion.com.ar/politica/'),
-    commonPropsFooter('Economía', 'https://www.lanacion.com.ar/economia/'),
-    commonPropsFooter('El mundo', 'https://www.lanacion.com.ar/el-mundo/'),
-    commonPropsFooter('Sociedad', 'https://www.lanacion.com.ar/sociedad/'),
-    commonPropsFooter('Opinión', 'https://www.lanacion.com.ar/opinion/'),
-    commonPropsFooter('Deportes', 'https://www.lanacion.com.ar/deportes/'),
-    commonPropsFooter('Lifestyle', 'https://www.lanacion.com.ar/lifestyle/'),
-    commonPropsFooter(
-        'Espectáculos',
-        'https://www.lanacion.com.ar/espectaculos/'
-    ),
+    commonPropsFooter('Últimas noticias', `${SITE_LANACION}/ultimas-noticias/`),
+    commonPropsFooter('Política', `${SITE_LANACION}/politica/`),
+    commonPropsFooter('Economía', `${SITE_LANACION}/economia/`),
+    commonPropsFooter('El mundo', `${SITE_LANACION}/el-mundo/`),
+    commonPropsFooter('Sociedad', `${SITE_LANACION}/sociedad/`),
+    commonPropsFooter('Opinión', `${SITE_LANACION}/opinion/`),
+    commonPropsFooter('Deportes', `${SITE_LANACION}/deportes/`),
+    commonPropsFooter('Lifestyle', `${SITE_LANACION}/lifestyle/`),
+    commonPropsFooter('Espectáculos', `${SITE_LANACION}/espectaculos/`),
     commonPropsFooter(
         'Edición impresa',
         'https://edicionimpresa.lanacion.com.ar/la-nacion?_ga=2.226421138.948268382.1669638459-1845108145.1619557251/'
@@ -95,13 +90,10 @@ export const secciones = [
 
 export const revistas = [
     commonPropsFooter('OHLALÁ!', 'https://www.somosohlala.com/'),
-    commonPropsFooter('¡HOLA!', 'https://www.lanacion.com.ar/revista-hola/'),
-    commonPropsFooter('LIVING', 'https://www.lanacion.com.ar/revista-living/'),
-    commonPropsFooter('JARDÍN', 'https://www.lanacion.com.ar/revista-jardin/'),
-    commonPropsFooter(
-        'LUGARES',
-        'https://www.lanacion.com.ar/revista-lugares/'
-    ),
+    commonPropsFooter('¡HOLA!', `${SITE_LANACION}/revista-hola/`),
+    commonPropsFooter('LIVING', `${SITE_LANACION}/revista-living/`),
+    commonPropsFooter('JARDÍN', `${SITE_LANACION}/revista-jardin/`),
+    commonPropsFooter('LUGARES', `${SITE_LANACION}/revista-lugares/`),
     commonPropsFooter('ROLLING STONE', 'https://es.rollingstone.com/arg/')
 ];
 
@@ -119,10 +111,7 @@ export const productos = [
 ];
 
 export const masInformacion = [
-    commonPropsFooter(
-        'Mapa del sitio',
-        'https://www.lanacion.com.ar/mapa-del-sitio/'
-    ),
+    commonPropsFooter('Mapa del sitio', `${SITE_LANACION}/mapa-del-sitio/`),
     commonPropsFooter(
         'Ayuda',
         'https://www.contacto.lanacion.com.ar/ayuda?_ga=2.125953413.948268382.1669638459-1845108145.1619557251'
@@ -138,7 +127,7 @@ export const masInformacion = [
     commonPropsFooter('¿Cómo anunciar?', 'https://www.lanacion.in/'),
     commonPropsFooter(
         'Suscribirse al diario impreso',
-        'https://suscripciones.lanacion.com.ar/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251/'
+        `${SITIO_SEGURO_REGISTRACION}/suscribirme?_ga=2.159335858.948268382.1669638459-1845108145.1619557251/`
     )
 ];
 

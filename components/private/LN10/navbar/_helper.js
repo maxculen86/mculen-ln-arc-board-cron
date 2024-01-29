@@ -1,9 +1,5 @@
 import * as React from 'react';
-import {
-    SITIO_SEGURO_REGISTRACION,
-    SITE_LANACION,
-    API_ENV
-} from 'fusion:environment';
+import { SITE_LANACION, API_ENV, MY_ACCOUNT_URL } from 'fusion:environment';
 import {
     Home,
     Search,
@@ -48,7 +44,7 @@ export const getNavbarItems = (
         text: 'Inicio',
         icon: <Home />,
         className: 'home',
-        link: isHome ? '#' : 'https://www.lanacion.com.ar/',
+        link: isHome ? '#' : `${SITE_LANACION}/`,
         callback: () => {
             addEventToDataLayer(getEventData('inicio'));
         }
@@ -98,7 +94,7 @@ export const getNavbarItems = (
         text: 'Perfil',
         icon: <Profile />,
         className: 'profile',
-        link: 'https://myaccount.lanacion.com.ar/mi-usuario/',
+        link: `${MY_ACCOUNT_URL}/mi-usuario/`,
         callback: () => {
             addEventToDataLayer(getEventData('perfil'));
         }
