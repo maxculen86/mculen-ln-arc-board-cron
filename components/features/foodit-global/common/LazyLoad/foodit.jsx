@@ -5,9 +5,10 @@ export const LazyLoad = ({
     children,
     PlaceholderComponent = Placeholder,
     showComponent = true,
-    rootMargin = '0px',
+    rootMargin = '600px',
     threshold = 0.1,
     onViewport,
+    hide,
     ...props
 }) => {
     const targetRef = useRef(null);
@@ -30,6 +31,9 @@ export const LazyLoad = ({
         }
     }, [rootMargin, threshold]);
 
+    if (hide) {
+        return <></>;
+    }
     return (
         <div ref={targetRef} {...props}>
             {isIntersecting && showComponent ? (

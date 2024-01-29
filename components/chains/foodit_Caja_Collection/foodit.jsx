@@ -32,7 +32,12 @@ const CajaCollection = props => {
     const { minArticles, maxArticles, size, isStatic } = rules;
 
     const articles = useGetArticleInCollectionFoodit({
-        idCollection: getIdCollection(isStatic, inViewport, idCollection),
+        idCollection: getIdCollection(
+            isStatic,
+            inViewport,
+            idCollection,
+            isAdmin
+        ),
         size: maxArticles,
         initialPosition: Number(initialPosition) - 1,
         staticMode: isStatic
@@ -75,6 +80,7 @@ const CajaCollection = props => {
 
     return !isStatic ? (
         <LazyLoad
+            hide={hideCaja}
             onViewport={() => setInViewport(true)}
             showComponent={articlesTransformed.length > 0}
         >
