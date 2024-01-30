@@ -1,5 +1,6 @@
 import Redirect from './redirect';
 import { setCallback } from './paywall';
+import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 
 const validateExclusiveAccess = ({
     contentCode,
@@ -15,8 +16,7 @@ const validateExclusiveAccess = ({
                 /\/api\/(?:mobile\/)?v([1-2]+)\/notas\/(text\/)?(byId\/(.+)\/$|byUrl(\/.+\/$))/g
             )
         ) {
-            const PAYWALL_URL =
-                'https://suscripciones.lanacion.com.ar/suscripcion/E/1/1/?callback=';
+            const PAYWALL_URL = `${SITIO_SEGURO_REGISTRACION}/suscripcion/E/1/1/?callback=`;
 
             const callback = setCallback(host, path);
 

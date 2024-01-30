@@ -7,8 +7,13 @@ import {
     setBoldText,
     setItalicText,
     setExternalLinks,
-    transformElementText
+    transformElementText,
+    getArticleSubtype
 } from '../../../../../../content/sources/utils/fooditSources/fooditArticleSource';
+import {
+    STORYTELLING,
+    RECETA
+} from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 import getProperties from 'fusion:properties';
 
 const mockResults = {
@@ -512,6 +517,28 @@ describe('Tests helpers fooditArticleSource', () => {
                 ...element,
                 content: expect.stringContaining('title="Enlace interno"')
             });
+        });
+    });
+
+    describe('getArticleSubtype', () => {
+        test('Should return STORYTELLING for an invalid subtype', () => {
+            expect(getArticleSubtype('1')).toBe(STORYTELLING);
+        });
+
+        test('Should return the subtype given for STORYTELLING', () => {
+            expect(getArticleSubtype(STORYTELLING)).toBe(STORYTELLING);
+        });
+
+        test('Should return the subtype given for RECETA', () => {
+            expect(getArticleSubtype(RECETA)).toBe(RECETA);
+        });
+
+        test('Should return STORYTELLING for a null subtype', () => {
+            expect(getArticleSubtype(null)).toBe(STORYTELLING);
+        });
+
+        test('Should return STORYTELLING for an undefined subtype', () => {
+            expect(getArticleSubtype(undefined)).toBe(STORYTELLING);
         });
     });
 });
