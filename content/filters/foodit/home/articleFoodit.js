@@ -14,6 +14,7 @@ export default `
 {   
     _id
     website_url
+    canonical_url
     promo_items {
         basic {
             ${image}
@@ -31,9 +32,13 @@ export default `
         sections {
             name
         }
+        primary_section {
+            name
+        }
     }
     headlines {
         basic
+        mobile
     }
     credits {
         by {

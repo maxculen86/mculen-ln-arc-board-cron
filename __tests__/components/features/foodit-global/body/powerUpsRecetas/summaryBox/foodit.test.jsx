@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Timer, Resto } from '@ln/foodit-ui-assets';
 import SummaryBox from '../../../../../../../components/features/foodit-global/Body/PowerupsReceta/summaryBox/foodit';
 
 describe('components - features - foodit-global - body - powerUpRecetas - summaryBox - foodit', () => {

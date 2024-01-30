@@ -1,13 +1,16 @@
 import {
-    SITIO_SEGURO_REGISTRACION,
-    SITE_LANACION,
-    API_ENV
-} from 'fusion:environment';
-
-import {
     getEventData,
     getNavbarItems
 } from '../../../../../components/private/LN10/navbar/_helper';
+
+jest.mock('fusion:environment', () => {
+    return {
+        API_ENV: 'prod',
+        SITE_LANACION: 'https://www.lanacion.com.ar',
+        SITIO_SEGURO_REGISTRACION: 'https://suscripciones.lanacion.com.ar',
+        MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar'
+    };
+});
 
 describe('Components - Private - LN10 - Helper', () => {
     it('should have Navbar Items', () => {

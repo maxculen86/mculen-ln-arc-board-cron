@@ -5,8 +5,8 @@ import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { useAppContext } from 'fusion:context';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
-import { Twitter, Facebook, Instagram, BulletXs } from '@ln/foodit-ui-assets';
 import StaticContent from '../../../../private/common/staticContent';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 const FooterFoodit = () => {
     const { contextPath, deployment } = useAppContext();
@@ -27,7 +27,7 @@ const FooterFoodit = () => {
                                 size={32}
                             >
                                 <Icon size={16}>
-                                    <Facebook />
+                                    <IconSprite name="facebook" />
                                 </Icon>
                             </Button>
                             <Button
@@ -37,7 +37,7 @@ const FooterFoodit = () => {
                                 size={32}
                             >
                                 <Icon size={16}>
-                                    <Twitter />
+                                    <IconSprite name="twitter" />
                                 </Icon>
                             </Button>
                             <Button
@@ -47,7 +47,7 @@ const FooterFoodit = () => {
                                 size={32}
                             >
                                 <Icon size={16}>
-                                    <Instagram />
+                                    <IconSprite name="instagram" />
                                 </Icon>
                             </Button>
                         </div>
@@ -102,7 +102,7 @@ const FooterFoodit = () => {
                                 CONDICIONES
                             </Link>
                             <Icon size={24}>
-                                <BulletXs />
+                                <IconSprite name="bullet-xs" />
                             </Icon>
                             <Link
                                 href="https://policies.google.com/privacy?hl=es-419/"

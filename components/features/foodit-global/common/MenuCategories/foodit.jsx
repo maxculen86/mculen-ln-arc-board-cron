@@ -1,5 +1,6 @@
 import React from 'react';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 export const MenuCategories = ({ data = [], fullWidth }) => {
     return (
@@ -18,6 +19,9 @@ export const MenuCategories = ({ data = [], fullWidth }) => {
                                 level={1}
                                 icon={title.icon}
                                 fullWidth={fullWidth}
+                                {...(title.href && {
+                                    arrowIcon: <IconSprite name="arrow-right" />
+                                })}
                             />
                         </li>
                     )}
@@ -29,6 +33,7 @@ export const MenuCategories = ({ data = [], fullWidth }) => {
                                 text={text}
                                 level={2}
                                 fullWidth={fullWidth}
+                                icon={<IconSprite name="bullet-xs" />}
                             />
                         </li>
                     ))}

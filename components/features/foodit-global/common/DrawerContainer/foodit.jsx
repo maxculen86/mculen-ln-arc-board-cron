@@ -2,9 +2,9 @@ import React from 'react';
 import { Button } from '@ln/common-ui-button';
 import { Drawer, toggleDrawer } from '@ln/common-ui-drawer';
 import { Icon } from '@ln/common-ui-icon';
-import { Close } from '@ln/foodit-ui-assets';
 import { Text } from '@ln/common-ui-text';
 import classNames from 'classnames';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 export const DrawerContainer = ({
     drawerId,
@@ -37,7 +37,7 @@ export const DrawerContainer = ({
                     onClick={handleClose}
                 >
                     <Icon size={24} color="dark">
-                        <Close />
+                        <IconSprite name="close" />
                     </Icon>
                 </Button>
             </Drawer.Header>

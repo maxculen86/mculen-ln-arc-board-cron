@@ -60,6 +60,8 @@ export default {
         'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
     PERSONALIZACION_APIV2:
         'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/',
+    PERSONALIZACION_API_FOODIT:
+        'https://qa-api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/foodit/',
     BOOKMARK_URL:
         'https://dev.lanacionar.arcpublishing.com/pf/mis-notas/?_website=la-nacion-ar',
     AUDIO_NEWS_URL: 'https://qa-audionews.lanacion.com.ar/api/v1/audio/status/',
@@ -76,5 +78,7 @@ export default {
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygHlA2jUvxj+ey+zZiBAe3MOAAAApjCBowYJKoZIhvcNAQcGoIGVMIGSAgEAMIGMBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDN2vbS7VCeoGV3LfoAIBEIBfPdrJEEeMvrvz/07ci9dEJt+nfOY4JzanaHtPLHc4lX73pXElrzPGYyKLjqxbO+C+93w8N+t1vB6ejcAzfVbHj4N+HtgNFhSFG3kjO5gRwIp0kBsmYrKX78PJgtie3Y4=}',
     API_CONVIVENCIA_TOKEN: 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV',
     SITE_OTT: 'https://lnmas.lanacion.com.ar',
-    SITE_FOODIT: 'https://lanacionar-foodit-sandbox.web.arc-cdn.net'
+    SITE_FOODIT: 'https://sandbox-foodit.lanacion.com.ar/',
+    MY_ACCOUNT_URL: 'https://qa-myaccount.lanacion.com.ar',
+    SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar'
 };

@@ -11,7 +11,6 @@ const CollectionBox = ({ title, list = [] }) => {
                     <Itemcard
                         key={id}
                         level={1}
-                        hideIcon
                         text={`${text} (${quantity})`}
                         type="button" //TODO: en caso de ser link, type="link"
                         selected={false} // TODO: booleano en true para cambiar estilos

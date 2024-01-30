@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from '@ln/foodit-ui-card';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 const CommonCardFoodit = ({
     articleId,
@@ -42,17 +43,24 @@ const CommonCardFoodit = ({
                     author={author}
                     showTime={Boolean(time) && showTime}
                     time={time + ' min'}
-                    // TODO: revisar interaccion click (home SSR)
+                    icon={<IconSprite name="timer" />}
                     buttonProps={{
                         title: 'Guardar receta',
-                        fill, // TODO: true cuando la receta está guardada
                         'data-id': articleId,
                         'data-modal': 'open-modal',
                         text: 'Guardar',
+                        icon: (
+                            <IconSprite
+                                name={fill ? 'bookmark-filled' : 'bookmark'}
+                                critical={!fill}
+                            />
+                        ),
                         onClick: e => {
                             e.preventDefault();
                             e.stopPropagation();
-                            console.log('click button');
+                            window.LN.observable.publish('openModal', {
+                                ids: [articleId]
+                            });
                         }
                     }}
                 />

@@ -5,7 +5,7 @@ import { menuCategories } from '../../utils/menuCategories';
 import { MenuCategories } from '../../MenuCategories/foodit';
 import { Icon } from '@ln/common-ui-icon';
 import { Link } from '@ln/foodit-ui-link';
-import { Bookmark, Cart } from '@ln/foodit-ui-assets';
+import IconSprite from '../../../../../features/private-global/common/iconSprite/IconSprite';
 
 export const TopNavigationBar = () => {
     const Categories = ({ title, href, data }) => {
@@ -56,7 +56,7 @@ export const TopNavigationBar = () => {
                     className="gap-8"
                 >
                     <Icon size={20}>
-                        <Bookmark />
+                        <IconSprite name="bookmark" critical />
                     </Icon>
                     MIS RECETAS
                 </Link>
@@ -66,7 +66,7 @@ export const TopNavigationBar = () => {
                     className="gap-8"
                 >
                     <Icon size={20}>
-                        <Cart />
+                        <IconSprite name="cart" critical />
                     </Icon>
                     LISTA DE COMPRAS
                 </Link>

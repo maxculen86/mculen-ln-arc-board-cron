@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bookmark, Cake, Cart, Diet } from '@ln/foodit-ui-assets';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 // TODO: Eliminar cuando se consigan los datos dinámicamente
 export const menuCategories = [
@@ -7,7 +7,11 @@ export const menuCategories = [
         title: 'Recetas',
         data: [
             {
-                title: { text: 'Saladas', href: 'saladas', icon: <Bookmark /> },
+                title: {
+                    text: 'Saladas',
+                    href: 'saladas',
+                    icon: <IconSprite name="bookmark" critical />
+                },
                 items: [
                     { text: 'Arroz', href: '#' },
                     { text: 'Tartas', href: '#' },
@@ -19,7 +23,11 @@ export const menuCategories = [
                 ]
             },
             {
-                title: { text: 'Dulces', href: 'dulces', icon: <Cake /> },
+                title: {
+                    text: 'Dulces',
+                    href: 'dulces',
+                    icon: <IconSprite name="cake" />
+                },
                 items: [
                     { text: 'Tortas', href: '#' },
                     { text: 'Postres', href: '#' },
@@ -30,7 +38,10 @@ export const menuCategories = [
                 ]
             },
             {
-                title: { text: 'Dieta', icon: <Diet /> },
+                title: {
+                    text: 'Dieta',
+                    icon: <IconSprite name="diet" />
+                },
                 items: [
                     { text: 'Vegetariana', href: '#' },
                     { text: 'Sin gluten', href: '#' },
@@ -40,7 +51,10 @@ export const menuCategories = [
                 ]
             },
             {
-                title: { text: '¿Que cocinar hoy?', icon: <Cart /> },
+                title: {
+                    text: '¿Que cocinar hoy?',
+                    icon: <IconSprite name="cart" critical />
+                },
                 items: [
                     { text: 'De autor', href: '#' },
                     { text: 'Fácil', href: '#' },

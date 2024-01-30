@@ -2,8 +2,8 @@ import React from 'react';
 import { Text } from '@ln/common-ui-text';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import { Cart } from '@ln/foodit-ui-assets';
 import IngredientsSection from './ingredientsSection';
+import IconSprite from '../../../../../features/private-global/common/iconSprite/IconSprite';
 
 export const Ingredients = ({ ingredientsLists = [], portions }) => {
     return (
@@ -59,7 +59,7 @@ export const Ingredients = ({ ingredientsLists = [], portions }) => {
             })}
             <Button title="Agregar" size={{ sm: 32, md: 40 }}>
                 <Icon size={16}>
-                    <Cart />
+                    <IconSprite name="cart" critical />
                 </Icon>
                 Agregar a la lista
             </Button>

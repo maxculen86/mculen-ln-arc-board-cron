@@ -1,6 +1,9 @@
 import { Inputfield } from '@ln/common-ui-inputfield';
 import { Select } from '@ln/common-ui-select';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
+import { loadBookmarkFolders } from '../../../bookmark/foldersHelper';
+import { useEffect, useState } from 'react';
+import safeJSONParse from '../../../../../private-global/common/utils/safeJSONParse';
 
 const MainSaveRecipe = props => {
     const {
@@ -13,13 +16,24 @@ const MainSaveRecipe = props => {
         suggestions,
         inputRef
     } = props;
-    // TODO: Tomar valores de la API
-    const folders = [
-        { value: 'new', label: 'Nueva carpeta' },
-        { value: 'martes', label: 'Para los martes' },
-        { value: 'jueves', label: 'Para los jueves' },
-        { value: 'jueves', label: 'Para los viernes' }
-    ];
+    const [folders, setFolders] = useState([
+        { bookmarkGroup: 'Nueva carpeta', value: 'new' }
+    ]);
+
+    useEffect(() => {
+        const fetchFolders = async () => {
+            const localFolders = localStorage.getItem('bookmarkFolders');
+
+            if (localFolders) {
+                setFolders([...folders, ...safeJSONParse(localFolders)]);
+            } else {
+                const fetchedFolders = await loadBookmarkFolders();
+                setFolders([...folders, ...safeJSONParse(fetchedFolders)]);
+            }
+        };
+
+        fetchFolders();
+    }, []);
 
     return (
         <main className="mb-16">
@@ -33,14 +47,12 @@ const MainSaveRecipe = props => {
                     onChange={onSelectChange}
                     name="select"
                 >
-                    {folders.map(({ label, value }) => (
+                    {folders.map(({ bookmarkGroup, value }) => (
                         <Select.Options
-                            key={value}
-                            value={value}
-                            label={label}
-                            as={props => (
-                                <Itemcard type="button" hideIcon {...props} />
-                            )}
+                            key={value || bookmarkGroup}
+                            value={value || bookmarkGroup}
+                            label={bookmarkGroup}
+                            as={props => <Itemcard type="button" {...props} />}
                         />
                     ))}
                 </Select>
