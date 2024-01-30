@@ -13,6 +13,8 @@ import {
     setRedirect,
     transform
 } from './utils/articleSourceNota/_helper';
+import { isSubtypeWithAmp } from '../../components/private/common/utils/subtypes/subtypeHelper';
+import force404AMP from './utils/force404AMP';
 
 const fetch = (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
@@ -31,6 +33,9 @@ const fetch = (query, { cachedCall } = {}) => {
     const resolveData = async () => {
         try {
             const response = await request(opt);
+
+            isSubtypeWithAmp(response) &&
+                force404AMP({ outputType: get(query, 'outputType', '') });
 
             setRedirect({ response, query, siteUrl: SITE_LANACION });
 

@@ -9,9 +9,7 @@ import {
     removeParallaxPowerUp
 } from '../../../content/sources/utils/powerUp';
 import contentElementRecipe from '../../../__mocks__/data/articles/contentElementsRecipe.json';
-import articleSourceNota, {
-    resolve
-} from '../../../content/sources/articleSourceNota';
+import articleSourceNota from '../../../content/sources/articleSourceNota';
 import validateExclusiveAccess from '../../../content/sources/utils/validateExclusiveAccess';
 import responseNotaNoticia from '../../../__mocks__/data/articles/3SHTRO3NKBCN7L3JITCDQYSJLM.json';
 import responseSinCategoria from '../../../__mocks__/data/articles/3SHTRO3NKBCN7L3JITCDQYSJLM.json';
@@ -455,29 +453,6 @@ describe('Content - sources - utils - removeParallaxPowerUp', () => {
         ];
         const wrapper = removeParallaxPowerUp(contentElementsRecipeParallax);
         expect(wrapper).toStrictEqual(expectedResult);
-    });
-});
-
-describe('ByUrl regex', () => {
-    const key = {
-        'arc-site': 'la-nacion-ar',
-        url:
-            '/api/v1/notas/byUrl/deportes/futbol/river-campeon-como-quedo-la-tabla-historica-del-futbol-argentino-y-asi-esta-la-pelea-con-boca-nid25112021/'
-    };
-    it('Return url ok when url is not clear', () => {
-        expect(resolve(key)).toEqual(
-            '/content/v4/stories/?website=la-nacion-ar&website_url=/deportes/futbol/river-campeon-como-quedo-la-tabla-historica-del-futbol-argentino-y-asi-esta-la-pelea-con-boca-nid25112021/'
-        );
-    });
-    const key_ = {
-        'arc-site': 'la-nacion-ar',
-        url:
-            '/deportes/futbol/river-campeon-como-quedo-la-tabla-historica-del-futbol-argentino-y-asi-esta-la-pelea-con-boca-nid25112021/'
-    };
-    it('Return url ok when url is clear', () => {
-        expect(resolve(key_)).toEqual(
-            '/content/v4/stories/?website=la-nacion-ar&website_url=/deportes/futbol/river-campeon-como-quedo-la-tabla-historica-del-futbol-argentino-y-asi-esta-la-pelea-con-boca-nid25112021/'
-        );
     });
 });
 

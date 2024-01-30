@@ -1,7 +1,6 @@
 import addGalleryData from './cachedCalls/addGalleryData';
 import { formatElementText, formatInterstitialLink } from './_helper';
 import convertVideoArcToJw from './cachedCalls/convertVideoArcToJW';
-// import addFollowAnotherNoteData from '../../articleSourceNota/cachedCalls/addFollowAnotherNoteData';
 import addFollowAnotherNoteData from './cachedCalls/addFollowAnotherNoteData';
 import get from '../../../../components/private/common/utils/get';
 
@@ -13,8 +12,6 @@ export const configPromoItems = {
 };
 
 export const configCallbackContentElements = {
-    // agregar custom_embed de la nacion (se agrupa)
-
     gallery: ({ cachedCall, element, arcSite } = {}) => {
         return addGalleryData(cachedCall, element, arcSite);
     },

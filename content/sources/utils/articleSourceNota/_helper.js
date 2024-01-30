@@ -7,8 +7,6 @@ import Redirect from '../redirect';
 import validateExclusiveAccess from '../validateExclusiveAccess';
 import isNotShowcase from '../isNotShowcase';
 import paywallUtils from '../paywall';
-
-// new adds
 import {
     configPromoItems,
     configCallbackContentElements,
@@ -269,7 +267,6 @@ export const transformElementsBasedOnType = ({
 };
 
 export const getImageConfig = ({ response, siteProperties, imageConfig }) => {
-    // Presets
     const presetsDefault = get(
         siteProperties,
         `imageConfig.resize.default`,
@@ -364,7 +361,7 @@ const transformContentElements = async ({
             presetsPromoItemsFotoAl100
         );
     }
-    //TODO: Eliminar cuando salga FOODIT!!! xD
+    //TODO: Eliminar cuando salga FOODIT!!!
     if (get(result, 'subtype', '') === RECETA) {
         return recipePowerUps(contentElementTransformed);
     }
@@ -442,7 +439,6 @@ export const transform = async (response, query, cachedCall) => {
         )
     ]);
 
-    // TODO: Traer el resto que se necesita de resp linea 292 de articleSourceNota.
     return {
         ...result,
         withSponsoredLink: validateSponsoredLink(result),
