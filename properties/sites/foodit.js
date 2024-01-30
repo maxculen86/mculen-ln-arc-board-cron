@@ -10,6 +10,7 @@ export default {
         'FOODIT ofrece una inmensa variedad de recetas, que permiten planificar las comidas de la semana',
     imageConfig,
     scripts,
+    loggerExcludedErrors: [404, 301, 302],
     host: 'https://lanacionar-foodit-sandbox.web.arc-cdn.net/',
     layoutsName: {
         FooditHome: 'Foodit-home',

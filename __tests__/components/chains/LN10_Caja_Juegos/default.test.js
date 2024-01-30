@@ -24,6 +24,13 @@ jest.mock('../../../../components/chains/utils/_helpers', () => ({
     useGetLinks: jest.fn()
 }));
 
+jest.mock(
+    '../../../../components/private/common/scriptManager/GameEventsScript',
+    () => {
+        return jest.fn(() => <div id="mock-game-events-script" />);
+    }
+);
+
 describe('CajaJuegos Component', () => {
     beforeEach(() => {
         jest.clearAllMocks();

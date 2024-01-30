@@ -74,6 +74,8 @@ export default {
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v1/zones/lanacion/',
     PERSONALIZACION_APIV2:
         'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/lanacion/',
+    PERSONALIZACION_API_FOODIT:
+        'https://api-personalizacion.lanacion.com.ar/personalizacion/v2/zones/foodit/',
     BOOKMARK_URL: 'https://www.lanacion.com.ar/mis-notas/',
     AUDIO_NEWS_URL: 'https://audionews.lanacion.com.ar/api/v1/audio/status/',
     AUDIONEWS_URL: 'https://api-audios.lanacion.com.ar/status/',
@@ -88,5 +90,7 @@ export default {
     JWP_TOKEN:
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygGLUM58BbaA0IDztD/ncA/aAAAApjCBowYJKoZIhvcNAQcGoIGVMIGSAgEAMIGMBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDP0ymvk7Aa4QPi8U6QIBEIBfrjC4+oDkJvJn8tKOIRkjAl1GRYfHmu39S49s7DoJ6Z+NvjmK+aSjmpeJVEftron7lwhHVI1N8uT3OBLJJFL8QcZPxFraWqpPprmPu4CbZ42qCOCNqj3HVI1QkWxPrGE=}',
     API_CONVIVENCIA_TOKEN: 'Fwm2XQ4Llr6dwzu08V6xT8cZuNuKVrd28RAYUJhV',
-    SITE_OTT: 'https://lnmas.lanacion.com.ar'
+    SITE_OTT: 'https://lnmas.lanacion.com.ar',
+    MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar',
+    SITE_FOODIT: 'https://foodit.lanacion.com.ar/'
 };

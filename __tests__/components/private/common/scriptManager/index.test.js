@@ -130,10 +130,12 @@ describe('getScriptsToLoad', () => {
             'AmazonPublisherServices',
             'ComscoreVideo',
             'DevReactTracker',
+            'MarfeelMarkup',
             'Marfeel',
             'ScriptDivBannerSSR',
             'ObservableFoodit',
-            'DataModal'
+            'DataModal',
+            'EventsHelper'
         ]);
         expect(Object.keys(result)).toEqual([
             'Datadog',
@@ -154,10 +156,12 @@ describe('getScriptsToLoad', () => {
             'AmazonPublisherServices',
             'ComscoreVideo',
             'DevReactTracker',
+            'MarfeelMarkup',
             'Marfeel',
             'ScriptDivBannerSSR',
             'ObservableFoodit',
-            'DataModal'
+            'DataModal',
+            'EventsHelper'
         ]);
         expect(result.Datadog).toBeDefined();
     });

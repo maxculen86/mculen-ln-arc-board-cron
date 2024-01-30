@@ -44,7 +44,6 @@ const CommonCardFoodit = ({
                     showTime={Boolean(time) && showTime}
                     time={time + ' min'}
                     icon={<IconSprite name="timer" />}
-                    // TODO: revisar interaccion click (home SSR)
                     buttonProps={{
                         title: 'Guardar receta',
                         'data-id': articleId,
@@ -59,7 +58,9 @@ const CommonCardFoodit = ({
                         onClick: e => {
                             e.preventDefault();
                             e.stopPropagation();
-                            console.log('click button');
+                            window.LN.observable.publish('openModal', {
+                                ids: [articleId]
+                            });
                         }
                     }}
                 />

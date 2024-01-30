@@ -6,8 +6,14 @@ import {
     replaceClassForMark,
     setBoldText,
     setItalicText,
-    setExternalLinks
+    setExternalLinks,
+    transformElementText,
+    getArticleSubtype
 } from '../../../../../../content/sources/utils/fooditSources/fooditArticleSource';
+import {
+    STORYTELLING,
+    RECETA
+} from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 import getProperties from 'fusion:properties';
 
 const mockResults = {
@@ -458,6 +464,81 @@ describe('Tests helpers fooditArticleSource', () => {
                     withSponsoredLink: true
                 })
             ).toBe('This text does not contain anchor tags.');
+        });
+    });
+
+    describe('Tests functiojn transformElementText', () => {
+        test('should replace the <i> tag with <em> and <b> with <strong>', () => {
+            const element = {
+                type: 'text',
+                content:
+                    '<b>Texto en negrita</b> <i>Texto en cursiva</i> <a href="https://example.com">Enlace</a>'
+            };
+
+            const result = transformElementText({ element });
+
+            expect(result).toEqual({
+                ...element,
+                content: expect.stringContaining(
+                    '<strong>Texto en negrita</strong> <em>Texto en cursiva</em>'
+                )
+            });
+        });
+
+        test('should add the rel=nofollow attribute when the withSponsoredLink attribute is false', () => {
+            const element = {
+                type: 'text',
+                content: '<a href="https://externo.com">Enlace externo</a>'
+            };
+
+            const result = transformElementText({
+                element,
+                withSponsoredLink: false
+            });
+
+            expect(result).toEqual({
+                ...element,
+                content: expect.stringContaining('rel="nofollow"')
+            });
+        });
+
+        test('should add the title attribute with the content of the tag in case the anchor does not have it', () => {
+            const element = {
+                type: 'text',
+                content: '<a href="https://lanacion.com.ar">Enlace interno</a>'
+            };
+
+            const result = transformElementText({
+                element,
+                withSponsoredLink: false
+            });
+
+            expect(result).toEqual({
+                ...element,
+                content: expect.stringContaining('title="Enlace interno"')
+            });
+        });
+    });
+
+    describe('getArticleSubtype', () => {
+        test('Should return STORYTELLING for an invalid subtype', () => {
+            expect(getArticleSubtype('1')).toBe(STORYTELLING);
+        });
+
+        test('Should return the subtype given for STORYTELLING', () => {
+            expect(getArticleSubtype(STORYTELLING)).toBe(STORYTELLING);
+        });
+
+        test('Should return the subtype given for RECETA', () => {
+            expect(getArticleSubtype(RECETA)).toBe(RECETA);
+        });
+
+        test('Should return STORYTELLING for a null subtype', () => {
+            expect(getArticleSubtype(null)).toBe(STORYTELLING);
+        });
+
+        test('Should return STORYTELLING for an undefined subtype', () => {
+            expect(getArticleSubtype(undefined)).toBe(STORYTELLING);
         });
     });
 });

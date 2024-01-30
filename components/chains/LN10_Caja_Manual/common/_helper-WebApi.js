@@ -1,7 +1,7 @@
 import pageBuilderValidator from '../../../private/common/utils/pageBuilderValidator';
 import { setQuantityByLayout } from '../../utils/common/_helpers-WebApi';
 import get from '../../../private/common/utils/get';
-import { validarEstilo } from '../../utils/checkValidationStyle';
+import { validateStyle } from '../../utils/checkValidationStyle';
 
 // TODO: Agrupar validaciones comunes entre chains
 
@@ -11,7 +11,7 @@ const validateCajaManual = (layout, childProps = [], chainStyle) => {
     const LN_CARD_HTML = 'LN-10/CardHtml';
     const minimum = setQuantityByLayout({ layout });
     const childrenPropsLength = get(childProps, 'length');
-    const fondoValidation = validarEstilo(layout, chainStyle);
+    const aFondoValidation = validateStyle(layout, chainStyle);
 
     const rules = [
         {
@@ -19,7 +19,7 @@ const validateCajaManual = (layout, childProps = [], chainStyle) => {
             message: 'Se requiere que seleccione una diagramación'
         },
         {
-            validation: fondoValidation,
+            validation: aFondoValidation,
             message:
                 'El estilo de caja seleccionado no corresponde para esta diagramación'
         },

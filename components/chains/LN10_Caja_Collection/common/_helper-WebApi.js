@@ -8,7 +8,7 @@ import {
 import getChildrenBySection from '../../utils/getChildrenBySection';
 import sectionValidation from '../../../layouts/config/LN10-Home.config.json';
 import get from '../../../private/common/utils/get';
-import { validarEstilo } from '../../utils/checkValidationStyle';
+import { validateStyle } from '../../utils/checkValidationStyle';
 
 const { GRILLA4VERTICALES } = LAYOUTS;
 const { HASHTAG, SUB_EXCLUSIVE } = CHAIN_STYLE;
@@ -24,7 +24,7 @@ export const validateChain = ({
 }) => {
     const articlesLength = get(articles, 'length');
     const minimum = setQuantityByLayout({ layout });
-    const fondoValidation = validarEstilo(layout, chainStyle);
+    const aFondoValidation = validateStyle(layout, chainStyle);
 
     const rules = [
         {
@@ -36,7 +36,7 @@ export const validateChain = ({
             message: 'Se requiere el id de la colección'
         },
         {
-            validation: fondoValidation,
+            validation: aFondoValidation,
             message:
                 'El estilo de caja seleccionado no corresponde para esta diagramación'
         },

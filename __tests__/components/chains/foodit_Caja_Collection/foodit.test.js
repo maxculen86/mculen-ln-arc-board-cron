@@ -138,7 +138,6 @@ describe('Tests Chain FOODIT Caja Collection', () => {
 
             expect(buttonRoof).toBeTruthy();
             expect(buttonRoof).toBeInTheDocument();
-            expect(buttonRoof).toHaveAttribute('data-modal', 'open-modal');
             expect(link).toBeInTheDocument();
             expect(link.href).toEqual('https://linktecho.com.ar/');
             expect(link.textContent).toEqual('Titulo techo');

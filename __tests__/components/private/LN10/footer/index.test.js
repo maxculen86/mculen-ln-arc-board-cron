@@ -5,6 +5,13 @@ import footerEventLogResult from '../../../../../__mocks__/data/LN10_Footer/foot
 import Footer from '../../../../../components/private/LN10/footer';
 import { setEventsFooter } from '../../../../../components/private/common/utils/eventsHelper';
 
+jest.mock('fusion:environment', () => {
+    return {
+        SITE_LANACION: 'https://www.lanacion.com.ar',
+        SITIO_SEGURO_REGISTRACION: 'https://suscripciones.lanacion.com.ar'
+    };
+});
+
 jest.mock('fusion:consumer', component => {
     return function(component) {
         return component;

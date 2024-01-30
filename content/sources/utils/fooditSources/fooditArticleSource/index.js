@@ -15,9 +15,11 @@ import {
 import {
     transformElementsBasedOnType,
     transformPromoItems,
+    formatElementText,
     transformAuthors,
     filterSections
 } from '../../articleSourceNota/_helper';
+import { compose } from '../../../../../components/private/common/utils/functional';
 
 export const getImageConfig = (response, query) => {
     const siteProperties = getProperties('foodit');
@@ -162,6 +164,33 @@ export const setExternalLinks = ({ content, withSponsoredLink } = {}) => {
     }
     return '';
 };
+
+export const transformElementText = ({
+    element = {},
+    withSponsoredLink
+} = {}) => {
+    const newElement = formatElementText(element);
+    const content = compose(
+        replaceClassForMark,
+        setOtherChar,
+        setExternalLinks,
+        setItalicText,
+        setBoldText
+    )({ content: get(newElement, 'content', ''), withSponsoredLink });
+
+    return {
+        ...newElement,
+        content
+    };
+};
+
+export const getArticleSubtype = subtype => {
+    if (![STORYTELLING, RECETA].includes(subtype)) {
+        return STORYTELLING;
+    }
+    return subtype;
+};
+
 // TODO: Pendiente por sumar tests al transform
 export const transform = async (response, query, cachedCall) => {
     const {
@@ -177,7 +206,7 @@ export const transform = async (response, query, cachedCall) => {
     const newData = await getAllImagesAuth(response, cachedCall);
     Object.assign(response, newData);
 
-    const subtype = get(response, 'subtype', null);
+    const subtype = getArticleSubtype(get(response, 'subtype', null));
 
     const result = {
         ...response,
@@ -232,6 +261,7 @@ export const transform = async (response, query, cachedCall) => {
 
     return {
         ...result,
+        subtype,
         promo_items,
         content_elements,
         related_content: {
