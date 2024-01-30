@@ -2,7 +2,12 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { Live } from '@ln/contenidos-ui-live';
-import { getFieldsFromNotes, getNotesLists, findError } from './_helpers';
+import {
+    getFieldsFromNotes,
+    getNotesLists,
+    findError,
+    validateId
+} from './_helpers';
 import StaticContent from '../../../private/common/staticContent';
 import get from '../../../private/common/utils/get';
 import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
@@ -45,11 +50,19 @@ const EnVivo = ({ customFields, id: featureId }) => {
     );
 
     const articlesWithData = articles
-        .map((article, index) => ({
-            ...article,
-            ...getDataAttributesForViewability(article.id, LIVE_POSITION, index)
-        }))
-        .filter(article => article.id);
+        .map((article, index) => {
+            const trimmedId = validateId(article.id);
+            return {
+                ...article,
+                id: trimmedId,
+                ...getDataAttributesForViewability(
+                    trimmedId,
+                    LIVE_POSITION,
+                    index
+                )
+            };
+        })
+        .filter(article => validateId(article.id));
 
     return (
         <StaticContent {...extraOptsDiv}>
