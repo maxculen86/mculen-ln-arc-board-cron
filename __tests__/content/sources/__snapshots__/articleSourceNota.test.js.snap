@@ -26,7 +26,9 @@ Object {
     },
   ],
   "created_date": "2020-05-22T17:00:32.832Z",
-  "credits": Object {},
+  "credits": Object {
+    "by": Array [],
+  },
   "display_date": "2004-02-04T03:00:00Z",
   "distributor": Object {
     "category": "staff",
@@ -51,6 +53,7 @@ Object {
   "last_updated_date": "2020-05-22T17:00:32.832Z",
   "owner": Object {},
   "paywallEnabled": "",
+  "promo_items": Object {},
   "publish_date": "2004-02-04T03:00:00Z",
   "related_content": Object {
     "basic": Array [],

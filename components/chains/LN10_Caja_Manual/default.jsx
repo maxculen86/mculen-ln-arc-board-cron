@@ -42,7 +42,7 @@ const CajaManual = props => {
 
     const { position, positionInsideSection } = getCommonProps(props);
 
-    const error = validateCajaManual(layout, childProps);
+    const error = validateCajaManual(layout, childProps, chainStyle);
 
     const { extraOptsDiv, extraOpts: viewabilityData } = getMarkupForDatalayer(
         '',

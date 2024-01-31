@@ -2,6 +2,7 @@
     "_id": "3SHTRO3NKBCN7L3JITCDQYSJLM",
     "canonical_url": "/deportes/por-el-mercado-nid570000/",
     "category": "Deportes",
+    "promo_items": {},
     "content_elements": [
         {
             "_id": "UGOTNNA5NNH3NK2KSBIANFMLM4",
@@ -23,7 +24,9 @@
         }
     ],
     "created_date": "2020-05-22T17:00:32.832Z",
-    "credits": {},
+    "credits": {
+        "by": []
+    },
     "display_date": "2004-02-04T03:00:00Z",
     "distributor": {
         "category": "staff",
