@@ -36,7 +36,6 @@ describe('BodyComponents - Foodit - Image', () => {
         };
         render(<ListOrderedOrUnordered data={data} />);
         const link = screen.getByText('Example');
-        expect(link).toHaveAttribute('data-variant', 'secondary');
         expect(link).toHaveAttribute('href', 'http://example.com');
     });
 });

@@ -18,7 +18,8 @@ const CommonCardFoodit = ({
     tag,
     fill = false,
     title,
-    author
+    author,
+    subtitle
 }) => {
     return (
         <Card
@@ -38,7 +39,7 @@ const CommonCardFoodit = ({
 
                 {tag && <Card.Badge>{tag}</Card.Badge>}
             </Card.Top>
-            <Card.Main title={title}>
+            <Card.Main title={title} subtitle={subtitle}>
                 <Card.Footer
                     author={author}
                     showTime={Boolean(time) && showTime}

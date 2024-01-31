@@ -16,16 +16,10 @@ import getAuthorsAsString from '../../private/common/utils/getAuthorsAsString';
 import get from '../../private/common/utils/get';
 import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 
-const pageBuilderSections = [
-    'Pre-titulo',
-    'Left-Cuerpo',
-    'Cuerpo',
-    'Tercera',
-    'Bottom'
-];
+const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
 const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
-    const [preTitle, leftBody, body, third, bottom] = children;
+    const [body, bottom] = children;
     const { promo_items, headlines, subheadlines } = globalContent;
     const video = Boolean(promo_items && promo_items.video_jw);
 
@@ -39,7 +33,6 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
 
     return (
         <BaseLayout>
-            {/* <section>{preTitle}</section> */}
             <div className="flex flex-column">
                 <div
                     className={`note-media-container w-100vw as-center ratio-unset_lg overflow-hidden ${
@@ -92,8 +85,6 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                     {body}
                 </div>
             </div>
-            <section>{leftBody}</section>
-            <section>{third}</section>
             <section>{bottom}</section>
         </BaseLayout>
     );

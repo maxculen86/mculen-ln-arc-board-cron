@@ -22,6 +22,7 @@ import StaticContent from '../../../private/common/staticContent';
 import fooditRules from '../../foodit-global/common/utils/fooditRules';
 import classNames from 'classnames';
 import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit.jsx';
+import get from '../../../private/common/utils/get.js';
 
 const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
     const articleId = checkForId(id);
@@ -100,6 +101,9 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
                     tag={!isOpening && tag}
                     title={title}
                     author={author}
+                    subtitle={
+                        isOpening && get(articleContent, 'subheadlines.basic')
+                    }
                 />
             )}
         </StaticContent>

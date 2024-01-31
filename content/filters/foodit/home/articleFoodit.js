@@ -40,6 +40,9 @@ export default `
         basic
         mobile
     }
+    subheadlines {
+        basic
+    }
     credits {
         by {
             _id

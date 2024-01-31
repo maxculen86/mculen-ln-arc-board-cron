@@ -6,7 +6,7 @@ import {
     replaceClassForMark,
     setBoldText,
     setItalicText,
-    setExternalLinks,
+    transformLinks,
     transformElementText,
     getArticleSubtype
 } from '../../../../../../content/sources/utils/fooditSources/fooditArticleSource';
@@ -141,14 +141,12 @@ describe('Tests helpers fooditArticleSource', () => {
     });
 
     describe('Tests function addAttribute', () => {
-        const nameAttribute = 'class';
-        const valueAttribute = 'pollito';
+        const attributes = [{ property: 'class', value: 'pollito' }];
 
         test('should add attribute to the text', () => {
             expect(
                 addAttribute({
-                    nameAttribute,
-                    valueAttribute,
+                    attributes,
                     text: '<div>Hello World</div>'
                 })
             ).toBe('<div class="pollito">Hello World</div>');
@@ -157,8 +155,7 @@ describe('Tests helpers fooditArticleSource', () => {
         test('should add attribute with spaces around existing attributes', () => {
             expect(
                 addAttribute({
-                    nameAttribute,
-                    valueAttribute,
+                    attributes,
                     text: '<div id="container">Content</div>'
                 })
             ).toBe('<div id="container" class="pollito">Content</div>');
@@ -167,28 +164,37 @@ describe('Tests helpers fooditArticleSource', () => {
         test('should handle multiple spaces in the text', () => {
             expect(
                 addAttribute({
-                    nameAttribute,
-                    valueAttribute,
+                    attributes,
                     text: '<p>   Some   Text   </p>'
                 })
             ).toBe('<p class="pollito">   Some   Text   </p>');
         });
 
         test('should handle empty text', () => {
-            expect(
-                addAttribute({ nameAttribute, valueAttribute, text: '' })
-            ).toBe('');
+            expect(addAttribute({ attributes, text: '' })).toBe('');
         });
 
         test('should return the value of text as received, if the text is null', () => {
-            expect(
-                addAttribute({ nameAttribute, valueAttribute, text: null })
-            ).toBeNull();
+            expect(addAttribute({ attributes, text: null })).toBeNull();
         });
 
         test('should handle null nameAttribute and valueAttribute', () => {
             expect(addAttribute({ text: '<span>Some Text</span>' })).toBe(
                 '<span>Some Text</span>'
+            );
+        });
+
+        test('Should return all attributes defined in the attributes array', () => {
+            expect(
+                addAttribute({
+                    attributes: [
+                        ...attributes,
+                        { property: 'data-variant', value: 'secondary' }
+                    ],
+                    text: '<div id="container">Content</div>'
+                })
+            ).toBe(
+                '<div id="container" class="pollito" data-variant="secondary">Content</div>'
             );
         });
     });
@@ -403,45 +409,45 @@ describe('Tests helpers fooditArticleSource', () => {
         });
     });
 
-    describe('Tests function setExternalLinks', () => {
+    describe('Tests function transformLinks', () => {
         test('should set title attribute and replace target for internal link', () => {
             expect(
-                setExternalLinks({
+                transformLinks({
                     content:
                         '<a href="https://lanacion.com.ar" target="_blank">La Nacion</a>',
                     withSponsoredLink: true
                 })
             ).toBe(
-                '<a href="https://lanacion.com.ar" target="_self" title="La Nacion">La Nacion</a>'
+                '<a href="https://lanacion.com.ar" target="_self" title="La Nacion" class="link foodit-link" data-variant="secondary">La Nacion</a>'
             );
         });
 
         test('should set rel="nofollow" for external link without sponsored link', () => {
             expect(
-                setExternalLinks({
+                transformLinks({
                     content: '<a href="https://example.com">External Link</a>',
                     withSponsoredLink: false
                 })
             ).toBe(
-                '<a href="https://example.com" title="External Link" rel="nofollow">External Link</a>'
+                '<a href="https://example.com" title="External Link" class="link foodit-link" data-variant="secondary" rel="nofollow">External Link</a>'
             );
         });
 
         test('should set title attribute, replace target, and add rel="nofollow" for external link without sponsored link', () => {
             expect(
-                setExternalLinks({
+                transformLinks({
                     content:
                         '<a href="https://example.com" target="_blank">External Link</a>',
                     withSponsoredLink: false
                 })
             ).toBe(
-                '<a href="https://example.com" target="_blank" title="External Link" rel="nofollow">External Link</a>'
+                '<a href="https://example.com" target="_blank" title="External Link" class="link foodit-link" data-variant="secondary" rel="nofollow">External Link</a>'
             );
         });
 
         test('should handle empty content', () => {
             expect(
-                setExternalLinks({
+                transformLinks({
                     content: '',
                     withSponsoredLink: true
                 })
@@ -450,7 +456,7 @@ describe('Tests helpers fooditArticleSource', () => {
 
         test('should handle null content', () => {
             expect(
-                setExternalLinks({
+                transformLinks({
                     content: null,
                     withSponsoredLink: false
                 })
@@ -459,7 +465,7 @@ describe('Tests helpers fooditArticleSource', () => {
 
         test('should not modify content without <a> tags', () => {
             expect(
-                setExternalLinks({
+                transformLinks({
                     content: 'This text does not contain anchor tags.',
                     withSponsoredLink: true
                 })

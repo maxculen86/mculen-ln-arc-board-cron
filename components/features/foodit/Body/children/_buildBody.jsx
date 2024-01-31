@@ -25,6 +25,10 @@ const buildBody = ({ globalContent = {} }) => {
             ? transformEmbedScript(element)
             : element;
 
+        const capitalIndex = contentElements.findIndex(
+            element => element.type === 'text'
+        );
+
         const Component =
             bodyComponents[type] || bodyComponents[subtype] || null;
 
@@ -34,6 +38,7 @@ const buildBody = ({ globalContent = {} }) => {
                 extraProps,
                 element,
                 currentIndex,
+                capitalIndex,
                 type,
                 subtype,
                 articleSubtype
@@ -49,6 +54,7 @@ const setDataComponent = ({
     extraProps,
     element,
     currentIndex,
+    capitalIndex,
     type,
     subtype,
     articleSubtype
@@ -64,6 +70,7 @@ const setDataComponent = ({
         >
             <Component
                 data={element}
+                capital={currentIndex === capitalIndex}
                 outputType={'foodit'}
                 {...(extraProps[type] || extraProps[subtype] || {})}
             />

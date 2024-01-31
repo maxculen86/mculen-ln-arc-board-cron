@@ -97,12 +97,16 @@ export const getImageConfig = (response, query) => {
 export const deleteTagsForTitle = text =>
     text ? text.replace(/(<|<\/)(em|strong)>/g, '') : '';
 
-export const addAttribute = ({ nameAttribute, valueAttribute, text = '' }) => {
-    if (valueAttribute && nameAttribute && text) {
-        return text.replace(
-            /(<[^>]+)/,
-            `$1 ${nameAttribute}="${valueAttribute}"`
-        );
+export const addAttribute = ({ attributes, text = '' }) => {
+    if (Array.isArray(attributes) && attributes.length && text) {
+        const attributeString = attributes
+            .map(
+                ({ property, value }) =>
+                    property && value && ` ${property}="${value}"`
+            )
+            .join('');
+
+        return text.replace(/(<[^>]+)/, `$1${attributeString}`);
     }
 
     return text;
@@ -126,18 +130,24 @@ export const setItalicText = ({ text, withSponsoredLink } = {}) => ({
     withSponsoredLink
 });
 
-export const setExternalLinks = ({ content, withSponsoredLink } = {}) => {
+export const transformLinks = ({ content, withSponsoredLink } = {}) => {
     if (content) {
         return content.replace(
             /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
-            (match, atributtes, string) => {
+            (match, attributes, string) => {
                 let newText = addAttribute({
-                    nameAttribute: 'title',
-                    valueAttribute: deleteTagsForTitle(string),
+                    attributes: [
+                        {
+                            property: 'title',
+                            value: deleteTagsForTitle(string)
+                        },
+                        { property: 'class', value: 'link foodit-link' },
+                        { property: 'data-variant', value: 'secondary' }
+                    ],
                     text: match
                 });
 
-                const [, , link] = atributtes.match(
+                const [, , link] = attributes.match(
                     /href=(["'\\])+(.*?)\1/
                 ) || [null, null, '#'];
 
@@ -152,8 +162,7 @@ export const setExternalLinks = ({ content, withSponsoredLink } = {}) => {
 
                 if (!isInternalLink && !withSponsoredLink) {
                     newText = addAttribute({
-                        nameAttribute: 'rel',
-                        valueAttribute: 'nofollow',
+                        attributes: [{ property: 'rel', value: 'nofollow' }],
                         text: newText
                     });
                 }
@@ -173,7 +182,7 @@ export const transformElementText = ({
     const content = compose(
         replaceClassForMark,
         setOtherChar,
-        setExternalLinks,
+        transformLinks,
         setItalicText,
         setBoldText
     )({ content: get(newElement, 'content', ''), withSponsoredLink });
