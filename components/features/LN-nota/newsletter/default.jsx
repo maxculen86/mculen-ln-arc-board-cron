@@ -9,6 +9,7 @@ import get from '../../../private/common/utils/get';
 import { ToastContainer } from '@ln/common-ui-toast';
 import { toastProps } from './_helper';
 import { Toast } from '@ln/contenidos-ui-toast';
+import NewsLetterEventsScript from '../../../private/common/scriptManager/NewsLetterEventScript';
 
 import '../../../../resources/packages/css/@ln/common-ui-toast/index.css';
 
@@ -62,6 +63,7 @@ const NewsLetter = ({ globalContent }) => {
                     <NewsletterBox {...props} />
                 </div>
             </AmpContainer>
+            <NewsLetterEventsScript />
         </Lazy>
     );
 };

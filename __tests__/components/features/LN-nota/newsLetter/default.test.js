@@ -28,6 +28,15 @@ global.MutationObserver = class {
     disconnect() {}
     observe(element, initObject) {}
 };
+
+beforeAll(() => {
+    window.LN = {
+        eventshelper: {
+            setEventsNewsLetter: jest.fn()
+        }
+    };
+});
+
 const props = {
     section: 'economia',
     version: 3,
