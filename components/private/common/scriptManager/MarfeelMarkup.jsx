@@ -15,11 +15,11 @@ const MarfeelMarkup = () => {
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-                __html: `{
-            "@context": "https://schema.org",
-            "@type": "NewsArticle",
-            "isAccessibleForFree": ${isAccessibleForFree}
-          }}`
+                __html: JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'NewsArticle',
+                    isAccessibleForFree: isAccessibleForFree
+                })
             }}
         />
     );
