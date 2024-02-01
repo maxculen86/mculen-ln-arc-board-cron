@@ -75,7 +75,11 @@ export const OpeningRecipe = ({ article = {} }) => {
                                 text={get(headlines, 'basic', '')}
                                 as="h1"
                             />
-                            <Text className="text-14" text={author} as="h3" />
+                            <Text
+                                className="text-14"
+                                text={author || 'Por foodit'}
+                                as="h3"
+                            />
                         </div>
                     </div>
                 </StaticContent>

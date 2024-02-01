@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import getToken from '../../../../../../private/common/utils/getToken';
+import safeJSONParse from '../../../../../private-global/common/utils/safeJSONParse';
 
 export default function useIsomorphicPopupHandling() {
     const [modalData, setModalData] = useState({
