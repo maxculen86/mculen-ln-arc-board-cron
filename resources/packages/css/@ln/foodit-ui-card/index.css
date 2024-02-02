@@ -9,3 +9,12 @@
   color: var(--accent-lechuga);
   opacity: 0.8;
 }
+.card .--img-full-width_max1280 {
+  --_spacing: var(--spacing) * 2;
+  width: calc(100% + var(--_spacing));
+}
+@media (min-width: 80rem) {
+  .card .--img-full-width_max1280 {
+    --_spacing: 0;
+  }
+}

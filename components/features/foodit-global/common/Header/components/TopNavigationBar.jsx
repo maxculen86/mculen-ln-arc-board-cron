@@ -19,8 +19,9 @@ export const TopNavigationBar = () => {
                     <>
                         <Dropdown.Toggle
                             onClick={() => console.log(title)}
-                            className="ai-center roboto-bold text-12 uppercase"
+                            className="ai-center roboto-bold text-12 uppercase text-light-800 text-accent-lechuga__hover"
                             gap={8}
+                            title={`Ir a ${title}`}
                         >
                             {title}
                         </Dropdown.Toggle>
@@ -39,11 +40,12 @@ export const TopNavigationBar = () => {
                 href={href}
                 className="text-12 roboto-bold uppercase"
                 text={title}
+                title={`Ir a ${title}`}
             />
         );
     };
     return (
-        <div className="flex w-100 jc-between container py-8">
+        <div className="flex w-100 jc-between container py-12">
             <Topnavigationbar className="flex jc-center">
                 {menuCategories.map((category, i) => (
                     <Categories {...category} key={i} />

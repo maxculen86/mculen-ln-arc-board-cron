@@ -6,8 +6,10 @@ export const PowerUpPreparacion = ({ data }) => {
     const { items = [], titleList = '' } = get(data, 'embed.config', {});
 
     return items.length > 0 ? (
-        <>
-            <h3 className="prumo prumo-light text-24">{titleList}</h3>
+        <div className="flex flex-column gap-24">
+            <h3 className="prumo prumo-light text-24 text-32_md text-36_lg">
+                {titleList}
+            </h3>
             <List variant="unordered">
                 {items.map(item => {
                     return (
@@ -20,7 +22,7 @@ export const PowerUpPreparacion = ({ data }) => {
                     );
                 })}
             </List>
-        </>
+        </div>
     ) : (
         <></>
     );

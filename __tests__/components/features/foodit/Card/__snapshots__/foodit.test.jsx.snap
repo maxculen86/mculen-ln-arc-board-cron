@@ -6,7 +6,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
     class="hidden"
   >
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto --day-recipe bg-light-1"
+      class="card relative h-100 w-100 max-w-1366 mx-auto --day-recipe bg-light-1"
       data-variant="day-recipe"
     >
       <a
@@ -17,7 +17,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
         title="Receta para comer mas rico con ...POLLITO 2"
       >
         <div
-          class="relative w-100"
+          class="relative w-100 --img-full-width_max1280"
         >
           <div
             class="foodit-placeholder card-image ratio-3-2 w-100"
@@ -39,7 +39,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
           </div>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800 pr-64_lg max-w-483_lg"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 max-w-483_lg pt-16 pt-0_lg"
         >
           <div
             class="flex flex-column gap-12"
@@ -71,7 +71,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
                 Por Foodit
               </span>
               <div
-                class="flex ai-center gap-4 opacity-0"
+                class="none"
               >
                 <i
                   class="icon --icon-12 --inherit"
@@ -122,7 +122,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
     class="hidden"
   >
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-background-positive"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-background-positive"
       data-variant="note"
     >
       <a
@@ -156,7 +156,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
           
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -234,7 +234,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
     class="hidden"
   >
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
       data-variant="recipe"
     >
       <a
@@ -272,7 +272,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant rec
           </span>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"

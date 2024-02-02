@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
@@ -26,7 +25,8 @@ const AcumuladoFoodit = props => {
                         {title}
                     </Text>
                 </section>
-                <section>{apertura}</section>
+                {/* TODO: Descomentar si un acumulado lleva apertura */}
+                {/* <section>{apertura}</section> */}
                 <section className="flex flex-column gap-32">{notas}</section>
             </div>
         </BaseLayout>

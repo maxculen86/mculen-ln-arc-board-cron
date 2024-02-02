@@ -33,26 +33,39 @@ export const MyAccount = ({ avatarProps = {}, itemsList = [], fullWidth }) => {
                     )}
                 </div>
             )}
-            <ul className={fullWidth ? 'w-100' : 'w-288'}>
-                {itemsList.map(({ icon, onClick, text, variant, title }) => {
-                    return (
-                        <li key={text}>
-                            <Itemcard
-                                type="button"
-                                text={text}
-                                icon={icon}
-                                title={title ?? `Ir a ${text}`}
-                                onClick={() =>
-                                    onClick({ callback: restoreContext })
-                                }
-                                level={1}
-                                fullWidth
-                                variant={variant}
-                                arrowIcon={<IconSprite name="arrow-right" />}
-                            />
-                        </li>
-                    );
-                })}
+            <ul
+                className={fullWidth ? 'flex flex-column w-100 h-100' : 'w-288'}
+            >
+                {itemsList.map(
+                    ({
+                        icon,
+                        onClick,
+                        text,
+                        variant,
+                        title,
+                        classNameList
+                    }) => {
+                        return (
+                            <li key={text} className={classNameList}>
+                                <Itemcard
+                                    type="button"
+                                    text={text}
+                                    icon={icon}
+                                    title={title ?? `Ir a ${text}`}
+                                    onClick={() =>
+                                        onClick({ callback: restoreContext })
+                                    }
+                                    level={1}
+                                    fullWidth
+                                    variant={variant}
+                                    arrowIcon={
+                                        <IconSprite name="arrow-right" />
+                                    }
+                                />
+                            </li>
+                        );
+                    }
+                )}
             </ul>
         </>
     );

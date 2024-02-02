@@ -12,7 +12,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
         class="common-main-header"
       >
         <div
-          class="content bg-light-50 py-16"
+          class="content bg-positive py-16"
         >
           <div
             class="container grid gap-16 gap-32_lg"
@@ -21,11 +21,11 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
               class="left-options flex flex jc-start ai-center lg-none"
             >
               <button
-                class="button"
+                class="button text-light-800"
                 title="Menu"
               >
                 <i
-                  class="icon --icon-24"
+                  class="icon --icon-24 --dark"
                 >
                   <mock-icon
                     critical="true"
@@ -38,14 +38,14 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
               class="center-options flex jc-center ai-center"
             >
               <a
-                class="link"
+                class="link flex"
                 href="/"
                 target="_self"
                 title="Ir a inicio"
               >
                 <img
                   alt="Foodit"
-                  class="w-118 w-160_md w-191_lg"
+                  class="h-32 h-44_md h-52_lg"
                   src=""
                 />
               </a>
@@ -54,7 +54,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
               class="right-options flex jc-end ai-center gap-16 gap-24_md"
             >
               <button
-                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 lg-only"
+                class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg lg-only"
                 data-variant="accent"
                 title="Suscribirse"
               >
@@ -99,7 +99,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
           class="bottom-options flex flex ai-center border border-bottom border-thin border-light-100 lg-only"
         >
           <div
-            class="flex w-100 jc-between container py-8"
+            class="flex w-100 jc-between container py-12"
           >
             <nav
               class="top-navigation-bar flex jc-center"
@@ -112,11 +112,12 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     class="dropdown relative h-max flex ai-center"
                   >
                     <button
-                      class="dropdown-toggle inline-flex ai-center roboto-bold text-12 uppercase gap-8"
+                      class="dropdown-toggle inline-flex ai-center roboto-bold text-12 uppercase text-light-800 text-accent-lechuga__hover gap-8"
+                      title="Ir a Recetas"
                     >
                       Recetas
                       <i
-                        class="icon dropdown-icon --icon-16 --dark"
+                        class="icon dropdown-icon --icon-16 --inherit"
                       >
                         <svg
                           fill="none"
@@ -321,7 +322,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               href="#"
                               role="link"
                               target="_self"
-                              title="Ir a Carne"
+                              title="Ir a Carnes"
                             >
                               <i
                                 class="icon --icon-20 --inherit"
@@ -333,7 +334,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <span
                                 class="text-left"
                               >
-                                Carne
+                                Carnes
                               </span>
                             </a>
                           </li>
@@ -447,7 +448,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               href="#"
                               role="link"
                               target="_self"
-                              title="Ir a Budunes"
+                              title="Ir a Budines"
                             >
                               <i
                                 class="icon --icon-20 --inherit"
@@ -459,7 +460,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <span
                                 class="text-left"
                               >
-                                Budunes
+                                Budines
                               </span>
                             </a>
                           </li>
@@ -798,11 +799,12 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     class="dropdown relative h-max flex ai-center"
                   >
                     <button
-                      class="dropdown-toggle inline-flex ai-center roboto-bold text-12 uppercase gap-8"
+                      class="dropdown-toggle inline-flex ai-center roboto-bold text-12 uppercase text-light-800 text-accent-lechuga__hover gap-8"
+                      title="Ir a Descubrir"
                     >
                       Descubrir
                       <i
-                        class="icon dropdown-icon --icon-16 --dark"
+                        class="icon dropdown-icon --icon-16 --inherit"
                       >
                         <svg
                           fill="none"
@@ -838,7 +840,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               href="#"
                               role="link"
                               target="_self"
-                              title="Ir a Chef"
+                              title="Ir a Nutrición"
                             >
                               <i
                                 class="icon --icon-20 --inherit"
@@ -850,7 +852,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               <span
                                 class="text-left"
                               >
-                                Chef
+                                Nutrición
                               </span>
                             </a>
                           </li>
@@ -911,7 +913,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     data-variant="primary"
                     href="#"
                     target="_self"
-                    title="Ir a undefined"
+                    title="Ir a Guía de cocina"
                   >
                     Guía de cocina
                   </a>
@@ -922,7 +924,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     data-variant="primary"
                     href="#"
                     target="_self"
-                    title="Ir a undefined"
+                    title="Ir a Masterclass"
                   >
                     Masterclass
                   </a>
@@ -979,20 +981,20 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
         </div>
       </div>
       <div
-        class="sub-header container py-8 h-48 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 lg-none"
+        class="sub-header container py-12 h-48 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 lg-none"
       >
         <div
           class="promotions-container lg-none flex ai-center gap-24 w-100 jc-center"
         >
           <button
-            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 lg-only"
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-subscription-positive text-light-800 bg-accent-lechuga__hover px-16 py-8 py-8_md py-12_lg"
             data-variant="accent"
             title="Suscribirse"
           >
             SUSCRIBIRSE POR $999
           </button>
           <button
-            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover lg-only"
+            class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
             data-variant="link"
             title="Iniciar sesión"
           >

@@ -4,7 +4,7 @@ const Paragraph = props => {
     const { data, capital } = props;
     const { content } = data || {};
 
-    const className = `text-18 ${capital ? 'initial-letter-2' : ''}`;
+    const className = `text-16 text-18_md ${capital ? 'initial-letter-2' : ''}`;
 
     return (
         <p

@@ -3,7 +3,7 @@ import { Button } from '@ln/foodit-ui-button';
 import { LOGIN_URL } from 'fusion:environment';
 import useGetUserData from '../../../hooks/useGetUserData';
 
-const LoginSubscribeButtons = () => {
+const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
     const { promotions } = useGetUserData();
     const { buttonLogginText, buttonSubscribeText } = promotions;
 
@@ -11,17 +11,17 @@ const LoginSubscribeButtons = () => {
         <>
             {buttonSubscribeText && (
                 <Button
-                    className="lg-only"
+                    className={classNameButtons}
                     title="Suscribirse"
                     variant="accent"
-                    size={32}
+                    size={{ sm: 32, md: 32, lg: 40 }}
                 >
                     {buttonSubscribeText}
                 </Button>
             )}
             {buttonLogginText && (
                 <Button
-                    className="lg-only"
+                    className={classNameButtons}
                     title="Iniciar sesión"
                     variant="link"
                     onClick={() =>

@@ -37,7 +37,7 @@ const fooditRules = diagramation => {
             layoutImgConfig: 'm'
         },
         [BN_2_GRID]: {
-            size: size.small,
+            size: size.large,
             minArticles: 2,
             classNameParent:
                 'grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-32',

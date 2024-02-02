@@ -32,6 +32,7 @@ export const menuUser = [
             logout(callback);
         },
         variant: 'danger',
-        title: 'Cerrar sesión'
+        title: 'Cerrar sesión',
+        classNameList: 'mt-auto'
     }
 ];
