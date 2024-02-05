@@ -1,17 +1,16 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 
-const GameEventScript = () => {
+export default function EventsHelpers() {
     const { deployment, contextPath } = useAppContext();
+
     return (
         <script
             defer
-            id="script-games-events"
+            type="application/javascript"
             src={deployment(
-                `${contextPath}/resources/js/LN/gameEventsScript.min.js`
+                `${contextPath}/resources/js/common/eventsHelper.min.js`
             )}
         />
     );
-};
-
-export default GameEventScript;
+}

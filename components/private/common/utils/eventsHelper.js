@@ -1,3 +1,4 @@
+//TODO: DELETE FUNCTIONS NOT USED IN SCRIPTS FROM THIS FILE
 export const addEventToDataLayer = ({
     label,
     action,

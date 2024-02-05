@@ -1,30 +1,17 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import {
-    createDynamicLabel,
-    setEventsDollar,
-    setEventsAccess,
-    addEventListeners,
-    addEventToDataLayer
-} from '../utils/eventsHelper';
+import { useAppContext } from 'fusion:context';
 
 export default function SubHeaderEventsScript() {
+    const { contextPath, deployment } = useAppContext();
+
     return (
         <script
-            dangerouslySetInnerHTML={{
-                __html: `
-                    window.addEventListener('DOMContentLoaded', () => {
-                        ${addEventToDataLayer}
-                        ${addEventListeners}
-                        ${createDynamicLabel}
-                        ${setEventsDollar}
-                        ${setEventsAccess}
-
-                        setEventsDollar();
-                        setEventsAccess();
-                    });
-                `
-            }}
+            defer
+            id="script-sub-header-events"
+            src={deployment(
+                `${contextPath}/resources/js/LN/subHeaderEventsScript.min.js`
+            )}
         />
     );
 }

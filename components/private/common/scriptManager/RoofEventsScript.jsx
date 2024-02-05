@@ -1,35 +1,17 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
-import {
-    createDynamicLabel,
-    setEventsRoof,
-    setEventsNavigationLinks,
-    getAnchorsFromGroup,
-    addEventListeners,
-    addEventToDataLayer,
-    getRoofTitle
-} from '../utils/eventsHelper';
+import { useAppContext } from 'fusion:context';
 
 export default function RoofEventsScript() {
+    const { contextPath, deployment } = useAppContext();
+
     return (
         <script
-            dangerouslySetInnerHTML={{
-                __html: `
-                    window.addEventListener('DOMContentLoaded', () => {
-                        ${createDynamicLabel}
-                        ${addEventToDataLayer}
-                        ${addEventListeners}
-                        ${setEventsRoof}
-                        ${getAnchorsFromGroup}
-                        ${getRoofTitle}
-                        ${setEventsRoof}
-                        ${setEventsNavigationLinks}
-
-                        setEventsRoof()
-                        setEventsNavigationLinks()
-                    });
-                `
-            }}
+            defer
+            id="script-roof-events"
+            src={deployment(
+                `${contextPath}/resources/js/LN/roofEventsScript.min.js`
+            )}
         />
     );
 }

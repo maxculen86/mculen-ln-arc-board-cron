@@ -1,0 +1,4 @@
+window.addEventListener('DOMContentLoaded', () => {
+    window.LN.eventshelper.setEventsWeather();
+    window.LN.eventshelper.setEventsTopics();
+});

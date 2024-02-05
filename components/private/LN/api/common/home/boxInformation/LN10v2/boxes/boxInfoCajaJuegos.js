@@ -7,7 +7,7 @@ export const boxInfoCajaJuegos = (information, section, typeSection) => {
             ...type,
             parameters: {
                 title: 'Juegos',
-                url: 'https://www.lanacion.com.ar'
+                url: information.link
             }
         };
     }

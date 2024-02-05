@@ -13,6 +13,12 @@ import {
 import preHeaderEventLogResult from '../../../../../__mocks__/data/preHeader/preHeaderEventLogResult.json';
 import { Sun } from '@ln/contenidos-ui-assets';
 
+jest.mock('fusion:context', () => ({
+    useAppContext: () => {
+        return { contextPath: 'pf', deployment: () => {} };
+    }
+}));
+
 jest.mock(
     '../../../../../components/features/LN-common/preHeader/_helper',
     () => ({
