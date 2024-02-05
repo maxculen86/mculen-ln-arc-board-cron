@@ -28,7 +28,7 @@ const acuTransformV2Format = (
             id: getAuthorId(authorData._id),
             slug: authorData.slug ? authorData.slug : authorData._id,
             value: authorData.name,
-            image: !image ? null : image,
+            image: image ? image : null,
             absoluteUrl: get(authorData, 'image.url', null),
             interests: authorData.intereses,
             mail: authorData.email,
