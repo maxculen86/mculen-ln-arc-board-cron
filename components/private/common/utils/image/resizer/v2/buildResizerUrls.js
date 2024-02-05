@@ -128,7 +128,11 @@ export const resizeImgUrl = ({
 
     // TODO: quitar este early return, solo cumple funcion temporal para que no fallen imagenes con url v1 de liftigniter te puede interesar
     const imageUrl = get(arcImage, 'url', '');
-    if (!get(arcImage, '_id', '') && resizerHelper.isResizerV1(imageUrl)) {
+    if (
+        !get(arcImage, '_id', '') &&
+        (resizerHelper.isResizerV1(imageUrl) ||
+            resizerHelper.isResizerV2(imageUrl))
+    ) {
         return imageUrl;
     }
 
