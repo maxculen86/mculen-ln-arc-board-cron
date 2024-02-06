@@ -3,7 +3,7 @@ import { Facade } from './utils/facade';
 import { useAppContext } from 'fusion:context';
 import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
-import { getJWScript, configClassName } from './utils/helperJw';
+import { configClassName } from './utils/helperJw';
 import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
 import useViewportSize from '../hooks/useViewportSize';
 
@@ -25,7 +25,7 @@ const videoPlayerJW = ({
     const player = isOtt ? '81YXy6Mt' : idPlayer || 'ih0086X3';
     const [video] = playlist || [];
     const { mediaid = '' } = video || {};
-    const { outputType, arcSite } = useAppContext();
+    const { arcSite, deployment, contextPath } = useAppContext();
 
     const {
         container,
@@ -43,38 +43,29 @@ const videoPlayerJW = ({
         <div className={container}>
             <section className={mediaContainer}>
                 <div className={videoContainer}>
-                    {outputType !== 'amp' ? (
-                        <div className={videoPlayer}>
-                            <Facade
-                                id={mediaid}
-                                playlist={playlist}
-                                className={facade}
-                                title={title}
-                            />
-                            <div id={mediaid} />
-                            <script
-                                dangerouslySetInnerHTML={{
-                                    __html: getJWScript(
-                                        title,
-                                        player,
-                                        playlist,
-                                        hasAutoplay,
-                                        mediaid,
-                                        tagsUrl
-                                    )
-                                }}
-                            />
-                        </div>
-                    ) : (
-                        <amp-jwplayer
+                    <div className={videoPlayer}>
+                        <Facade
+                            id={mediaid}
+                            playlist={playlist}
+                            className={facade}
+                            title={title}
+                        />
+                        <div id={mediaid} />
+                        <script
+                            defer
+                            className="video-jw"
+                            id="scriptVideosJw"
+                            data-title={title}
+                            data-player={player}
+                            data-playlist={JSON.stringify(playlist)}
+                            data-has-autoplay={hasAutoplay}
                             data-media-id={mediaid}
-                            data-player-id={'ih0086X3'}
-                            data-tag={tagsUrl}
-                            layout="responsive"
-                            width="16"
-                            height="9"
-                        ></amp-jwplayer>
-                    )}
+                            data-tags-url={tagsUrl}
+                            src={deployment(
+                                `${contextPath}/resources/js/LN/scriptVideosJw.min.js`
+                            )}
+                        />
+                    </div>
                 </div>
                 {!isOtt && (
                     <VideoPlayerSnippet

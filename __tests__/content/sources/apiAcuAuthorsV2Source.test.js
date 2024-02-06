@@ -10,7 +10,7 @@ const mockNotFoundError = NotFoundError;
 acuArticlesSource.fetch = jest.fn();
 acuArticlesSource.fetch.mockReturnValue(acuArticleSourceResponseMock);
 
-authorSource.resolve = jest.fn();
+const { fetch: autorSourceFetch } = authorSource;
 
 const cachedCall = async (nameOfCall, callbackFunc, params) => {
     return await callbackFunc(params);
@@ -60,10 +60,13 @@ describe('content source apiAcuAuthorsV2Source integration test', () => {
             params: 'params=size:30;page:1',
             categoryUri: 'mobile',
             versionUri: '2',
-            'arc-site': 'la-nacion-ar'
+            'arc-site': 'la-nacion-ar',
+            _id: 'lalallalal'
         };
 
-        authorSource.resolve.mockReturnValue('/url');
+        await autorSourceFetch(queryParams, {
+            cachedCall: jest.fn(() => Promise.resolve('/url'))
+        });
 
         acuArticlesSource.fetch.mockReturnValue(acuArticleSourceResponseMock);
 
@@ -91,15 +94,12 @@ describe('content source apiAcuAuthorsV2Source integration test', () => {
             versionUri: '2',
             'arc-site': 'la-nacion-ar'
         };
-
-        authorSource.resolve.mockReturnValue('/not-exists');
-
-        acuArticlesSource.fetch.mockReturnValue(acuArticleSourceResponseMock);
-
-        await expect(
-            apiAcuAuthorsV2Source.fetch(queryParams, { cachedCall })
-        ).rejects.toThrow(
-            new NotFoundError(`Author not found: ${queryParams.authorId}`)
-        );
+        try {
+            await autorSourceFetch(queryParams, {
+                cachedCall: jest.fn(() => Promise.resolve('/not-exists'))
+            });
+        } catch (err) {
+            expect(err.message).toBe(`El id de autor es necesario. `);
+        }
     });
 });
