@@ -1,15 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/no-danger */
 import React from 'react';
-import { parse } from 'node-html-parser';
 import { RESIZER_URL_PUBLIC } from 'fusion:environment';
 import getProperties from 'fusion:properties';
 import EpigrafeAndCreditsData from '../../../common/utils/epigrafeAndCreditsData';
 import get from '../../../common/utils/get';
-import {
-    FOTOAL100,
-    STORYTELLING
-} from '../../../common/utils/subtypes/subtypeHelper';
 import replaceUrlResizerToWWW from '../../../../../content/sources/utils/replaceUrlResizerToWWW';
 
 const optionWidth = 'option.width';
@@ -42,13 +37,6 @@ export const getEpigrafe = basic => {
             <span className="com-text --credit --twoxs">{creditVideo}</span>
         )
     };
-};
-
-export const getWidthForZoomEvaluation = (subtype, width) => {
-    if (subtype === FOTOAL100 || subtype === STORYTELLING) {
-        return 768;
-    }
-    return width;
 };
 
 export const getSourceSet = (isVertical, image, sourceActive = []) => {
@@ -252,78 +240,6 @@ export const replaceAllUrlsResizerObject = (object = {}) => {
 
 export const replaceAllUrlsResizerArray = (array = []) => {
     return array.map(data => replaceAllUrlsResizerObject(data));
-};
-
-export const buildScriptForZoom = (mediaData, subtype) => {
-    const { width = 0, _id: idMedia, type } = mediaData || {};
-    return (
-        (type === 'image' && idMedia && (
-            <script
-                dangerouslySetInnerHTML={{
-                    __html: `
-                    window.addEventListener('DOMContentLoaded', (event) => {
-                        const zoom = document.documentElement.clientWidth < ${getWidthForZoomEvaluation(
-                            subtype,
-                            width
-                        )};
-                        const modMedia = document.getElementById('${idMedia}');
-                        if (zoom && modMedia) {
-                            const figure = modMedia.querySelector('.mod-figure');
-                            modMedia.classList.add('--zoom');
-                            figure.addEventListener('click', (event) => {
-                                if (!document.body.classList.contains('--no-scroll')) {
-                                    document.body.classList.add('--no-scroll');
-                                    modMedia.classList.add('--active');
-                                } else {
-                                    document.body.classList.remove('--no-scroll');
-                                    modMedia.classList.remove('--active');
-                                }
-                            });
-                        }
-                    });
-                `
-                }}
-            />
-        )) ||
-        undefined
-    );
-};
-
-export const buildScriptResizeSSRInfography = (promoItems = {}) => {
-    const idMedia =
-        get(promoItems, 'apertura_multimedia._id') ||
-        get(promoItems, 'basic._id');
-    const type =
-        get(promoItems, 'apertura_multimedia.type') ||
-        get(promoItems, 'basic.type');
-    const content =
-        get(promoItems, 'apertura_multimedia.content') ||
-        get(promoItems, 'basic.content');
-
-    const htmlNode = content ? parse(content.trim()).firstChild : {};
-    const { src } = htmlNode.attributes || {};
-
-    if (
-        type !== 'raw_html' ||
-        !content ||
-        !src ||
-        htmlNode.tagName !== 'iframe'
-    ) {
-        return null;
-    }
-
-    return (
-        <script
-            defer
-            type="text/javascript"
-            dangerouslySetInnerHTML={{
-                __html: `
-                window.addEventListener("DOMContentLoaded", () => {
-                    const pymIframe = new pym.Parent("anexo-${idMedia}", "${src}", {});
-                });`
-            }}
-        />
-    );
 };
 
 export const getMediaData = (promoItems = {}) => {

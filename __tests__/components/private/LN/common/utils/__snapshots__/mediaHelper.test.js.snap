@@ -1,20 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Private - LN - Common - Utils -> mediaHelper Deberia retornar script al ser llamado con los parametros correctos, con promo_items.basic 1`] = `
-<script
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "
-                window.addEventListener(\\"DOMContentLoaded\\", () => {
-                    const pymIframe = new pym.Parent(\\"anexo-6POSMWEMKZCZBHINVUG3F4O3BY\\", \\"https://especialess3.lanacion.com.ar/18/mundial/mundial2018-historicos/\\", {});
-                });",
-    }
-  }
-  defer={true}
-  type="text/javascript"
-/>
-`;
-
 exports[`Private - LN - Common - Utils -> mediaHelper Tests - helper - LinkImagePreload Load image with tag picture: Should return a preload link for each image with the valid attributes for a preloaded image. 1`] = `
 <div>
   <link
