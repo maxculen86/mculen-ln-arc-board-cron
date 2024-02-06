@@ -39,7 +39,7 @@ export const OpeningRecipe = ({ article = {} }) => {
     // TODO: Icons still pending design definitions
     return (
         <Recipe>
-            <Recipe.Media>
+            <Recipe.Media className="z-1">
                 <StaticContent>
                     {videoJW ? (
                         <VideoPlayer

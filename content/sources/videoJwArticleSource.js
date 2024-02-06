@@ -2,7 +2,7 @@ import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 
 const fetch = query => {
-    const { idVideoArc = '' } = query;
+    const { idVideoArc = '', video } = query;
 
     const urlSearchIdJw = `https://videomapper.lanacion.com.ar/video/${idVideoArc}`;
 

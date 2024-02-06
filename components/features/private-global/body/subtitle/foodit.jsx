@@ -17,7 +17,7 @@ const Subtitle = ({ data }) => {
 
     return (
         <Component
-            className={'prumo prumo-light ' + _props.className}
+            className={'-mb-8 prumo prumo-light ' + _props.className}
             dangerouslySetInnerHTML={{ __html: content }}
         />
     );

@@ -36,7 +36,7 @@ export const ShareFoodit = ({
 
     return (
         <Dropdown hideArrow className="flex" title={title}>
-            <Dropdown.Toggle className="text-light-800">
+            <Dropdown.Toggle className="text-light-800 text-accent-lechuga__hover">
                 <Icon size={24}>{IconButton}</Icon>
             </Dropdown.Toggle>
             <Dropdown.Menu

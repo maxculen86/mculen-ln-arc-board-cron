@@ -19,7 +19,7 @@ export const menuCategories = [
                     { text: 'Pizzas y empanadas', href: '#' },
                     { text: 'Pasta', href: '#' },
                     { text: 'Pescados', href: '#' },
-                    { text: 'Carne', href: '#' }
+                    { text: 'Carnes', href: '#' }
                 ]
             },
             {
@@ -32,7 +32,7 @@ export const menuCategories = [
                     { text: 'Tortas', href: '#' },
                     { text: 'Postres', href: '#' },
                     { text: 'Panqueques', href: '#' },
-                    { text: 'Budunes', href: '#' },
+                    { text: 'Budines', href: '#' },
                     { text: 'Helados', href: '#' },
                     { text: 'Batidos', href: '#' }
                 ]
@@ -70,7 +70,7 @@ export const menuCategories = [
         data: [
             {
                 items: [
-                    { text: 'Chef', href: '#' },
+                    { text: 'Nutrición', href: '#' },
                     { text: 'Restaurantes', href: '#' },
                     { text: 'Beneficion Club La Nación', href: '#' }
                 ]

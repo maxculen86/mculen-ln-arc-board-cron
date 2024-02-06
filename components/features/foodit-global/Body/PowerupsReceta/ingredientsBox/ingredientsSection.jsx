@@ -7,7 +7,7 @@ export const IngredientsSection = ({ items = [], titleList = '' }) => {
     return (
         <div className="flex flex-column gap-16" key={titleList}>
             {titleList && (
-                <Text as="h4" className="roboto-bold text-14 text-18_md">
+                <Text as="h4" className="roboto-bold text-16 text-18_md">
                     {titleList}
                 </Text>
             )}

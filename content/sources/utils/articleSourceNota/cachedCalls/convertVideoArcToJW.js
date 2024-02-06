@@ -9,7 +9,7 @@ const convertVideoArcToJw = async (video, arcSite, cachedCall) => {
             'videoJwArticleSource',
             videoJwArticleSource.fetch,
             {
-                query: { idVideoArc, arcSite },
+                query: { idVideoArc, arcSite, video },
                 independent: true
             }
         );

@@ -3,7 +3,7 @@
 exports[`BodyComponents - Foodit - RawHTML Matches snapshot 1`] = `
 <div>
   <div
-    class="com-embed mx-auto --spotify"
+    class="com-embed flex jc-center --spotify"
   >
     <iframe
       allow="encrypted-media"

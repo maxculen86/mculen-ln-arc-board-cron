@@ -85,7 +85,7 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                     {body}
                 </div>
             </div>
-            <section>{bottom}</section>
+            <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>
     );
 };

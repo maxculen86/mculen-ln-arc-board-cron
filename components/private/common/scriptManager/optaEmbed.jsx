@@ -2,9 +2,9 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-
-import config from '../../../../properties/sites/la-nacion-ar';
+import { useAppContext } from 'fusion:context';
 import get from '../utils/get';
+import config from '../../../../properties/sites/la-nacion-ar';
 
 const optaWidget = 'opta-widget';
 
@@ -49,33 +49,23 @@ const OptaEmbed = props => {
         },
         renderables
     } = props;
+    const { deployment, contextPath } = useAppContext();
 
     if (type === 'story' && !contentElements) return null;
     if (!hasOptaElements(contentElements, renderables, promoItems)) return null;
-    const script = `
-        window.onload = function() {
-            let tag = document.createElement('link');
-            tag.rel = "stylesheet";
-            tag.href = 'https://secure.widget.cloud.opta.net/v3/css/v3.all.opta-widgets.css';
-            document.head.appendChild(tag);
-        };
 
-        var opta_settings = {
-            subscription_id: '${config.optaConfig.subscription_id}',
-            language: '${config.optaConfig.language}',
-            timezone: '${config.optaConfig.timezone}'
-        };
-    `;
+    const { subscription_id, language, timezone } = { ...config.optaConfig };
 
     return (
-        <>
-            <script
-                async
-                src="https://secure.widget.cloud.opta.net/v3/v3.opta-widgets.js"
-            />
-            <script dangerouslySetInnerHTML={{ __html: script }} />
-            <noscript>Your browser does not suport javascript</noscript>
-        </>
+        <script
+            id="script-opta-embed"
+            defer
+            data-subscriptionId={subscription_id}
+            data-language={language}
+            data-timezone={timezone}
+            type="text/javascript"
+            src={deployment(`${contextPath}/resources/js/LN/optaEmbed.min.js`)}
+        />
     );
 };
 

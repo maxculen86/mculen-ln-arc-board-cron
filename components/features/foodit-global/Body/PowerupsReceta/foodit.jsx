@@ -73,7 +73,7 @@ export const PowerupsReceta = ({ article = {} }) => {
                     counterTime={counterTime}
                 />
             </div>
-            <div className="bg-background-positive flex flex-column gap-16 p-16 p-24_md p-32_lg">
+            <div className="bg-positive flex flex-column gap-16 p-16 p-24_md p-32_lg">
                 <Ingredients
                     ingredientsLists={[
                         ...ingredientsLists,
@@ -85,7 +85,6 @@ export const PowerupsReceta = ({ article = {} }) => {
                 <ExternalLinks {...externalLinksMock} />
                 <hr />
                 <Nutritional nutritionLists={nutritionLists} />
-                <hr />
                 <Tags items={tags} />
             </div>
         </>

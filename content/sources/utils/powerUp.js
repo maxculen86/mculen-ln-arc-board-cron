@@ -3,7 +3,7 @@ import get from '../../../components/private/common/utils/get';
 export const recipePowerUps = contentElements => {
     const powerUps = powerUpsJoin(contentElements);
     const newContentElements = contentElements.filter(e => {
-        return e.type !== 'custom_embed';
+        return e.type !== 'custom_embed' || e.subtype === 'video_jw';
     });
     if (powerUps.powerUp.length) {
         newContentElements.splice(0, 0, powerUps);

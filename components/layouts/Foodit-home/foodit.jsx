@@ -9,12 +9,13 @@ const pageBuilderSections = ['Apertura', 'Bloque-1', 'Bloque-2'];
 // TODO: Layout base, ira cambiando segun vaya avanzando el layout final
 const HomeFoodit = ({ children }) => {
     const [opening, bloque1, bloque2] = children;
-    const sectionClasses = classNames('flex flex-column gap-72');
+    const sectionClasses = classNames('flex flex-column gap-40');
 
     return (
         <BaseLayout>
             <UserBookmarks />
             <section>{opening}</section>
+            <hr className="lg-none" />
             <section className={sectionClasses}>{bloque1}</section>
             <section className={sectionClasses}>{bloque2}</section>
         </BaseLayout>

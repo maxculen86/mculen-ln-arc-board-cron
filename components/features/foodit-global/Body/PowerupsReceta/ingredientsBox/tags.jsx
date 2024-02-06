@@ -7,7 +7,12 @@ export const Tags = ({ items = [] }) => {
             {items.map(({ text, url }, i) => {
                 return (
                     <li key={text}>
-                        <Button variant="secondary" title={text} href={url}>
+                        <Button
+                            variant="secondary"
+                            title={text}
+                            size={32}
+                            href={url}
+                        >
                             {text}
                         </Button>
                     </li>

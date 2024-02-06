@@ -25,6 +25,11 @@ export const floatingButtonConfig = {
         className: defaultClassName,
         buttons: defaultButtons
     },
+    [layoutsName.FooditAcumulado]: {
+        observerSelector: '.card',
+        className: defaultClassName,
+        buttons: defaultButtons
+    },
     [layoutsName.FooditRecetario]: {
         observerSelector: '.floating-button-sentinel',
         className: 'sm-only',

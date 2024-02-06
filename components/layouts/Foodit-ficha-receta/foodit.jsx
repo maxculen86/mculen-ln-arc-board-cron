@@ -29,7 +29,7 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
                     {body}
                 </div>
             </section>
-            <section>{bottom}</section>
+            <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>
     );
 };
