@@ -1006,6 +1006,10 @@ b, strong {
      object-fit: cover;
 }
 
+.order-1 {
+  order: 1;
+}
+
 @media (min-width: 80rem) {
   .order-1_lg {
     order: 1;
@@ -1207,6 +1211,10 @@ b, strong {
   max-width: 85.375rem;
 }
 
+.max-w-248 {
+  max-width: 15.5rem;
+}
+
 .max-w-328 {
   max-width: 20.5rem;
 }
@@ -1239,6 +1247,10 @@ b, strong {
 
 .h-48 {
   height: 3rem;
+}
+
+.h-50 {
+  height: 3.125rem;
 }
 
 .h-56 {
@@ -1352,6 +1364,10 @@ b, strong {
   margin-top: 0.5rem;
 }
 
+.mt-24 {
+  margin-top: 1.5rem;
+}
+
 .ml-auto {
   margin-left: auto;
 }
@@ -1452,8 +1468,16 @@ b, strong {
   padding-top: 1.25rem;
 }
 
+.pt-24 {
+  padding-top: 1.5rem;
+}
+
 .pt-32 {
   padding-top: 2rem;
+}
+
+.pt-48 {
+  padding-top: 3rem;
 }
 
 .pb-4 {
@@ -1493,6 +1517,9 @@ b, strong {
 }
 
 @media (min-width: 48rem) {
+  .ml-0_md {
+    margin-left: 0rem;
+  }
   .p-8_md {
     padding: 0.5rem;
   }
@@ -1510,6 +1537,9 @@ b, strong {
   }
   .py-12_md {
     padding-block: 0.75rem;
+  }
+  .pt-0_md {
+    padding-top: 0rem;
   }
   .pt-24_md {
     padding-top: 1.5rem;

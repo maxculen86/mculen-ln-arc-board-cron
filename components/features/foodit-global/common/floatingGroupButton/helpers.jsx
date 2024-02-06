@@ -1,5 +1,8 @@
+import React from 'react';
 import { toggleDrawer } from '@ln/common-ui-drawer';
 import siteProperties from '../../../../../properties/sites/foodit';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
+import { Icon } from '@ln/common-ui-icon';
 
 const { layoutsName = {} } = siteProperties || {};
 
@@ -44,6 +47,24 @@ export const floatingButtonConfig = {
                 children: 'Elegir colección',
                 onClick: () =>
                     toggleDrawer({ id: 'drawer-recetario', show: true })
+            }
+        ]
+    },
+    [layoutsName.FooditListadoCompras]: {
+        observerSelector: '.floating-button-sentinel',
+        className: defaultClassName,
+        buttons: [
+            {
+                title: 'Copiar todo',
+                children: (
+                    <>
+                        <Icon size={16}>
+                            <IconSprite name="copy" />
+                        </Icon>
+                        Copiar todo
+                    </>
+                )
+                // TODO: agregar callback para el botón
             }
         ]
     }

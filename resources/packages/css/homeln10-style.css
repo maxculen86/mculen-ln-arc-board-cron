@@ -6944,6 +6944,19 @@ strong:not(.--font-primary),
 .wrap-webstories > .scrolX > div > div .description-container .ln-text.title:not(#special) .lead::after {
   content: "\a";
   white-space: pre;
+}.accordion-body:not(.--visible) {
+  grid-template-rows: 0fr;
+  visibility: hidden;
+}
+.accordion-body.--visible {
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+.accordion-icon {
+  transition: all 0.2s ease-in-out;
+}
+.accordion-icon.--rotate {
+  transform: rotate(180deg);
 }.cll-anexo-rugby {
   margin-top: 3rem;
   min-width: auto;

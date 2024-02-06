@@ -1,0 +1,36 @@
+import get from '../../../../../../private/common/utils/get';
+
+const removeIngredientsConfig = {
+    recipe: {
+        modal: {
+            title: 'Eliminar receta',
+            description: 'Se sacará del listado de compras.<br />¿Está seguro?'
+        },
+        toast: {
+            title: '¡Listo!',
+            description: 'ya no forma parte de tu listado de compras.',
+            button: {
+                children: 'Deshacer'
+            }
+        }
+    },
+    ingredient: {
+        modal: {
+            title: 'Eliminar ingrediente',
+            description: 'Se sacará de esta receta.<br />¿Está seguro?'
+        },
+        toast: {
+            title: '¡Listo!',
+            description: 'ya no forma parte de esta receta.',
+            button: {
+                children: 'Deshacer'
+            }
+        }
+    }
+};
+
+export const getModalMessages = type =>
+    get(removeIngredientsConfig[type], 'modal', {});
+
+export const getToastMessages = type =>
+    get(removeIngredientsConfig[type], 'toast', {});

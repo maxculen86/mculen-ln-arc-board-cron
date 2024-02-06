@@ -24,7 +24,8 @@ const HeaderFoodit = () => {
             layout === layoutsName.FooditFichaReceta,
         'mb-40':
             layout === layoutsName.FooditRecetario ||
-            layout === layoutsName.FooditAcumulado
+            layout === layoutsName.FooditAcumulado ||
+            layout === layoutsName.FooditListadoCompras
     });
     //TODO: validar tipo de usuario  'subscribedPlus';
 
