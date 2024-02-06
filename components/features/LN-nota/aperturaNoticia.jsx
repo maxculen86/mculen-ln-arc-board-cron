@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import Media from '../../private/LN/common/media';
+import BuildScriptForZoom from '../../private/LN/common/utils/BuildScriptForZoom';
 import { INFOGRAFIA } from '../../private/common/utils/subtypes/subtypeHelper';
 import {
-    buildScriptForZoom,
     getEpigrafe,
     getMediaData
 } from '../../private/LN/common/utils/mediaHelper';
@@ -28,9 +28,12 @@ const AperturaNoticia = props => {
                     element => element.type === 'text'
                 );
 
-                const scriptForZoom =
-                    outputType !== 'amp' &&
-                    buildScriptForZoom(mediaData, subtype);
+                const scriptForZoom = outputType !== 'amp' && (
+                    <BuildScriptForZoom
+                        mediaData={mediaData}
+                        subtype={subtype}
+                    />
+                );
                 const { caption, credit } = getEpigrafe(mediaData);
 
                 return (
