@@ -3,6 +3,12 @@ import { render, mount, shallow } from 'enzyme';
 import ArticleWithEmbeds from '../../../../../../__mocks__/data/nota/cuerpo/embed/articleWithEmbeds.json';
 import SocialEmbeds from '../../../../../../components/private/common/scriptManager/socialEmbeds';
 
+jest.mock('fusion:context', () => ({
+    useAppContext: () => {
+        return { contextPath: 'pf', deployment: () => {} };
+    }
+}));
+
 jest.mock('fusion:consumer', Component => {
     return function(Component) {
         const globalContent = {
@@ -87,8 +93,6 @@ jest.mock('fusion:consumer', Component => {
         return props => <Component {...props} globalContent={globalContent} />;
     };
 });
-
-import Consumer from 'fusion:consumer';
 
 describe('Test de las embebidos en el cuerpo de una nota', () => {
     const props = {

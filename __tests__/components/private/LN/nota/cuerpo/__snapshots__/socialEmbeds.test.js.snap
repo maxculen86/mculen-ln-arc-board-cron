@@ -89,29 +89,15 @@ Our anniversary has a lot of meaning to me as an opportunity to reflect on how..
   >
     <script
       defer={true}
+      id="script-social-embeds-ig"
       src="https://www.instagram.com/embed.js"
     />
     <script
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: 154042854349421,
-                autoLogAppEvents: true,
-                xfbml: true,
-                version: 'v2.11'
-            });
-            FB.AppEvents.logPageView();
-        };
-    ",
-        }
-      }
+      data-appId="154042854349421"
+      defer={true}
+      id="script-social-embeds-fb"
       type="text/javascript"
     />
-    <noscript>
-      Your browser does not support javascript
-    </noscript>
   </SocialEmbeds>
 </Component>
 `;
