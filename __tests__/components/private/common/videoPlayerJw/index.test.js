@@ -18,9 +18,7 @@ jest.mock('fusion:context', Component => {
 describe('componentes - private - common - videoPlayerJw', () => {
     Context.useAppContext = jest.fn(() => ({
         outputType: 'default',
-        arcSite: 'la-nacion-ar',
-        deployment: jest.fn(),
-        contextPath: '/pf'
+        arcSite: 'la-nacion-ar'
     }));
 
     const mockData = {
@@ -84,12 +82,32 @@ describe('componentes - private - common - videoPlayerJw', () => {
         expect(buttonPlay).toBeInTheDocument();
     });
 
+    it('tests amp component', () => {
+        Context.useAppContext = jest.fn(() => ({
+            outputType: 'amp',
+            arcSite: 'la-nacion-ar'
+        }));
+
+        render(
+            <VideoPlayerJW
+                data={mockData}
+                parrafo="MockParrafo"
+                tituloNota="MockTituloNota"
+                hasAutoplay={true}
+            />
+        );
+
+        const ampJWPlayer = document.querySelector(
+            'amp-jwplayer[data-media-id="yPJ53Pzg"][data-player-id="ih0086X3"][height="9"][layout="responsive"][width="16"]'
+        );
+
+        expect(ampJWPlayer).toBeInTheDocument();
+    });
+
     it('should test component for ott', () => {
         Context.useAppContext = jest.fn(() => ({
             outputType: 'default',
-            arcSite: 'ott',
-            deployment: jest.fn(),
-            contextPath: '/pf'
+            arcSite: 'la-nacion-ar'
         }));
 
         render(

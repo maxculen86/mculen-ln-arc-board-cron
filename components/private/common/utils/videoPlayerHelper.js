@@ -1,3 +1,5 @@
+import { comscorePlayEvent } from '../videoPlayer/comscoreStreamingTag';
+
 export const setPrerollAdsForPowa = adsURL => {
     window.PoWaSettings = window.PoWaSettings || {};
     window.PoWaSettings.advertising = window.PoWaSettings.advertising || {};
@@ -178,11 +180,20 @@ export const setProgressEvent = (player, tituloVideo, videoId) => {
     });
 };
 
-export const setVideoEvents = (event, videoId, tituloVideo) => {
+export const setVideoEvents = (
+    event,
+    videoId,
+    tituloVideo,
+    withComscore,
+    streamingAnalyticInstance = {}
+) => {
     const setEvent = (player, _event, eventName) => {
         player.on(_event, () => {
             !isInDatalayerEvent(eventName, videoId) &&
                 addToDataLayer(eventName, tituloVideo, videoId);
+            withComscore &&
+                event === 'play' &&
+                comscorePlayEvent(streamingAnalyticInstance);
         });
     };
 

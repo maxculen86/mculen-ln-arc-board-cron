@@ -13,9 +13,7 @@ jest.mock('fusion:context', Component => {
 describe('components - private - ott - ficha', () => {
     Context.useAppContext = jest.fn(() => ({
         outputType: 'default',
-        arcSite: 'ott',
-        deployment: jest.fn(),
-        contextPath: '/pf'
+        arcSite: 'ott'
     }));
 
     const videoData = {
