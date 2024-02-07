@@ -6,7 +6,7 @@ export const isValidNonZeroNumber = number =>
 export const isValidString = string => typeof string === 'string';
 
 export const isEmptyString = string => {
-    if (typeof string === 'string') {
+    if (isValidString(string)) {
         return !string.trim();
     }
     return true;

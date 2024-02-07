@@ -57,10 +57,12 @@ export const authorAcu = (author, page) => {
     const authorData = getAuthorData(author);
     const authorBio = getAuthorBio(author);
     const { email, twitter } = author;
-    const image = getImageUrl(get(author, 'image.url', null));
+    const image = getImageUrlBasedOnResizerVersion(
+        get(author, 'image.url', null)
+    );
     return {
         ...authorData,
-        imagen: image ? image[0] : null,
+        imagen: !image ? null : image,
         mail: email,
         twitter: twitter ? twitter.trim() : twitter,
         ...(page <= 1 ? authorBio : null)

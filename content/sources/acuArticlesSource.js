@@ -198,7 +198,10 @@ const fetch = query => {
                     query
                 )} - errorMsj:${error.message}`
             );
-            logger.push(error, { source: 'content/acuArticlesSource', query });
+            logger.push(error, {
+                source: 'content/sources/acuArticlesSource',
+                query
+            });
         });
 };
 

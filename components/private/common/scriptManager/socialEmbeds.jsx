@@ -2,6 +2,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import { useAppContext } from 'fusion:context';
 import config from '../../../../properties/sites/la-nacion-ar';
 import get from '../utils/get';
 
@@ -32,6 +33,7 @@ const hasFacebookEmbed = contentElements => {
 const SocialEmbeds = props => {
     const { globalContent } = props;
     const { type, content_elements: contentElements } = globalContent || {};
+    const { deployment, contextPath } = useAppContext();
 
     if (!contentElements) return null;
 
@@ -40,36 +42,30 @@ const SocialEmbeds = props => {
     const instagramEmbed = hasInstagramEmbed(content);
     const facebookEmbed = hasFacebookEmbed(content);
 
-    const facebookScript = `
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: ${get(config, 'shareConfig.facebook.appID', null)},
-                autoLogAppEvents: true,
-                xfbml: true,
-                version: 'v2.11'
-            });
-            FB.AppEvents.logPageView();
-        };
-    `;
+    const appId = get(config, 'shareConfig.facebook.appID', null);
 
     if (type !== 'story') return null;
     if (!instagramEmbed && !facebookEmbed) return null;
     return (
         <>
             {instagramEmbed && (
-                <>
-                    <script defer src="https://www.instagram.com/embed.js" />
-                </>
+                <script
+                    id="script-social-embeds-ig"
+                    defer
+                    src="https://www.instagram.com/embed.js"
+                />
             )}
             {facebookEmbed && (
-                <>
-                    <script
-                        type="text/javascript"
-                        dangerouslySetInnerHTML={{ __html: facebookScript }}
-                    />
-                </>
+                <script
+                    id="script-social-embeds-fb"
+                    defer
+                    type="text/javascript"
+                    data-appId={appId}
+                    src={deployment(
+                        `${contextPath}/resources/js/LN/socialEmbedsScript.min.js`
+                    )}
+                />
             )}
-            <noscript>Your browser does not support javascript</noscript>
         </>
     );
 };

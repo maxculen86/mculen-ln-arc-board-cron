@@ -298,3 +298,26 @@ describe('Common - Resizer', () => {
         });
     });
 });
+describe('Common - Resizer - updateHeight fn', () => {
+    const opt = {
+        width: 768,
+        height: 513
+    };
+    it('Should return new height for vertical images, according to proportion', () => {
+        const height = resizerHelper.updateHeight(2880, 1944, opt);
+        expect(height).toBe(1137);
+    });
+    it('Should return same height for horizontal images', () => {
+        const opt = {
+            width: 768,
+            height: 513
+        };
+        const height = resizerHelper.updateHeight(1944, 2880, opt);
+        expect(height).toBe(513);
+    });
+    it('Should return same height for images with proportion set', () => {
+        opt.proportion = '2:3';
+        const height = resizerHelper.updateHeight(2880, 1944, opt);
+        expect(height).toBe(513);
+    });
+});
