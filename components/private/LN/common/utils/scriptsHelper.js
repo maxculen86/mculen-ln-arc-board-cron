@@ -22,7 +22,6 @@ import Marfeel from '../../../common/scriptManager/Marfeel';
 import ScriptDivBannerSSR from '../../../common/scriptManager/scriptDivBannerSSR';
 import ScriptDataModal from '../../../common/scriptManager/scriptDataModal';
 import ObservableFoodit from '../../../../output-types/Helper/observableFoodit';
-import MarfeelMarkup from '../../../common/scriptManager/MarfeelMarkup';
 
 import { pipe } from '../../../common/utils/functional';
 import EventsHelpers from './EventsHelpers';
@@ -105,10 +104,6 @@ const scriptList = [
             name: 'DevReactTracker',
             function: DevReactTracker
         },
-        feature: 'none'
-    },
-    {
-        component: { name: 'MarfeelMarkup', function: MarfeelMarkup },
         feature: 'none'
     },
     { component: { name: 'Marfeel', function: Marfeel }, feature: 'none' },
