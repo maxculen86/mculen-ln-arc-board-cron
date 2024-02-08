@@ -3,7 +3,6 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import DataLayerIndex from '../../../../components/private/common/dataLayerIndex';
 
-// Mock de fusion:context
 jest.mock('fusion:context', () => () => ({
     default: props => {
         const mockAvailableProps = {
@@ -24,7 +23,9 @@ describe('LN - Common - DataLayer', () => {
     };
 
     Context.useAppContext = jest.fn(() => ({
-        globalContent: globalContent
+        globalContent: globalContent,
+        deployment: jest.fn(),
+        contextPath: '/pf'
     }));
 
     it('DataLayer nota recetas snapshot', () => {
