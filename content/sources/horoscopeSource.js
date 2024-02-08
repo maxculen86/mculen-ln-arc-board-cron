@@ -1,7 +1,16 @@
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
+import BackendLnError from '../../components/private/LN/api/common/models/backendLnError';
 
 export const resolve = (horoscopo, signo, anio) => {
+    if (horoscopo !== 'horoscopo') {
+        console.error(
+            new BackendLnError(
+                `Horoscopo fue llamado con los siguientes parametros: ${horoscopo} - signo: ${signo} - ${anio}`
+            )
+        );
+    }
+
     return `https://api-contenidos.lanacion.com.ar/json/v2/${horoscopo}`
         .concat(anio ? `-${anio}` : '')
         .concat(signo ? `/${signo}` : '');
