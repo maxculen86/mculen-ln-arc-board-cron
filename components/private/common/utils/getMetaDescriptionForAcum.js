@@ -68,7 +68,13 @@ const metaDescriptionFactory = {
 };
 
 export const isInPVS = (id = '') => {
-    const pvsServices = ['horoscopo', 'clima', 'loterias', 'feriados'];
+    const pvsServices = [
+        'horoscopo',
+        'clima',
+        'loterias',
+        'feriados',
+        'juegos'
+    ];
     const currentAcu = id !== '/' && id !== '' ? id.match(/([^/]+)/g)[0] : id;
 
     return pvsServices.includes(currentAcu);
