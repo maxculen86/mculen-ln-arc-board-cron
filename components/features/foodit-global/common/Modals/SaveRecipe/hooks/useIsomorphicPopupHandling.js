@@ -9,6 +9,8 @@ export default function useIsomorphicPopupHandling() {
     });
 
     const handleData = data => {
+        if (!localStorage || !localStorage.getItem('bookmarkedItems')) return;
+
         const premiumProduct = getToken('ProductoPremiumId');
 
         if (typeof premiumProduct !== 'string') {
@@ -31,13 +33,22 @@ export default function useIsomorphicPopupHandling() {
             return;
         }
 
-        const { ids = [], collectionId = '', collectionArticles = [] } =
-            data || {};
+        const { ids = [], collectionArticles = [] } = data || {};
 
         const idSet = new Set(ids);
         const allArticles = safeJSONParse(
             localStorage.getItem('bookmarkedItems')
         );
+
+        if (allArticles.length >= 150) {
+            window.LN.observable.publish('addToast', {
+                variant: 'danger',
+                title: 'Error!',
+                message: `Se alcanzo el limite de 150 articulos guardados`
+            });
+
+            return;
+        }
 
         const bookmarkedArticles = allArticles.filter(({ bookmarkTypeId }) => {
             if (idSet.has(bookmarkTypeId)) {
@@ -59,8 +70,7 @@ export default function useIsomorphicPopupHandling() {
                 ...(deleteBookmarks
                     ? { bookmarkedArticles }
                     : { noBookmarkedArticles }),
-                ...((collectionId && { collectionId, collectionArticles }) ||
-                    {})
+                ...((collectionArticles.length && { collectionArticles }) || {})
             }
         });
     };

@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text } from '@ln/common-ui-text';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 
-const CollectionBox = ({ title, list = [], button = <></> }) => {
+const CollectionBox = ({
+    title,
+    list = [],
+    button = <></>,
+    onItemSelected
+}) => {
+    const [selectedId, setSelectedId] = useState(null);
+
+    const handleItemClick = (id, quantity) => {
+        setSelectedId(id);
+        if (onItemSelected) onItemSelected({ id, quantity });
+    };
+
     return (
         <div className="flex flex-column gap-24">
             <Text className="prumo prumo-light text-24">{title}</Text>
@@ -13,8 +25,8 @@ const CollectionBox = ({ title, list = [], button = <></> }) => {
                         level={1}
                         text={text}
                         type="button" //TODO: en caso de ser link, type="link"
-                        selected={false} // TODO: booleano en true para cambiar estilos
-                        onClick={() => null} // TODO: agregar lógica
+                        selected={id === selectedId}
+                        onClick={() => handleItemClick(id, quantity)}
                     />
                 ))}
             </ol>

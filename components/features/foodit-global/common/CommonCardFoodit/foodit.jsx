@@ -19,7 +19,8 @@ const CommonCardFoodit = ({
     fill = false,
     title,
     author,
-    subtitle
+    subtitle,
+    bookmarkAction = null
 }) => {
     return (
         <Card
@@ -59,9 +60,14 @@ const CommonCardFoodit = ({
                         onClick: e => {
                             e.preventDefault();
                             e.stopPropagation();
-                            window.LN.observable.publish('openModal', {
-                                ids: [articleId]
-                            });
+
+                            if (bookmarkAction) {
+                                bookmarkAction();
+                            } else {
+                                window.LN.observable.publish('openModal', {
+                                    ids: [articleId]
+                                });
+                            }
                         }
                     }}
                 />

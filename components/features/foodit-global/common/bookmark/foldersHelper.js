@@ -3,7 +3,10 @@ import safeJSONParse from '../../../private-global/common/utils/safeJSONParse';
 
 export const loadBookmarkFolders = async () => {
     const { data = [] } = await getBookmarkGroups();
-    localStorage.setItem('bookmarkFolders', JSON.stringify(data));
+    localStorage.setItem(
+        'bookmarkFolders',
+        JSON.stringify(data.filter(({ bookmarkCount }) => bookmarkCount > 0))
+    );
 
     return localStorage.getItem('bookmarkFolders');
 };

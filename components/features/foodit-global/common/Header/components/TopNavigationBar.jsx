@@ -53,7 +53,7 @@ export const TopNavigationBar = () => {
             </Topnavigationbar>
             <Topnavigationbar className="text-12">
                 <Link
-                    href="/mis-recetas"
+                    href="/recetario"
                     title="Ir a mis recetas"
                     className="gap-8"
                 >

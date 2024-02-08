@@ -941,7 +941,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                   <a
                     class="link foodit-link flex gap-8 ai-center roboto-regular gap-8"
                     data-variant="primary"
-                    href="/mis-recetas"
+                    href="/recetario"
                     target="_self"
                     title="Ir a mis recetas"
                   >

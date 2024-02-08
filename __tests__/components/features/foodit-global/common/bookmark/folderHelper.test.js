@@ -39,14 +39,18 @@ describe('Bookmark Functions', () => {
     describe('loadBookmarkFolders', () => {
         it('should save data from getBookmarkGroups to localStorage', async () => {
             getBookmarkGroups.mockResolvedValueOnce({
-                data: [{ bookmarkGroup: 'test' }, { bookmarkGroup: 'test2' }]
+                data: [
+                    { bookmarkGroup: 'test', bookmarkCount: 3 },
+                    { bookmarkGroup: 'test2', bookmarkCount: 4 },
+                    { bookmarkGroup: 'test2', bookmarkCount: 0 }
+                ]
             });
             await loadBookmarkFolders();
             expect(localStorage.setItem).toHaveBeenCalledWith(
                 'bookmarkFolders',
                 JSON.stringify([
-                    { bookmarkGroup: 'test' },
-                    { bookmarkGroup: 'test2' }
+                    { bookmarkGroup: 'test', bookmarkCount: 3 },
+                    { bookmarkGroup: 'test2', bookmarkCount: 4 }
                 ])
             );
         });
