@@ -9,8 +9,6 @@ export default function useIsomorphicPopupHandling() {
     });
 
     const handleData = data => {
-        if (!localStorage || !localStorage.getItem('bookmarkedItems')) return;
-
         const premiumProduct = getToken('ProductoPremiumId');
 
         if (typeof premiumProduct !== 'string') {
@@ -32,6 +30,8 @@ export default function useIsomorphicPopupHandling() {
 
             return;
         }
+
+        if (!localStorage || !localStorage.getItem('bookmarkedItems')) return;
 
         const { ids = [], collectionArticles = [] } = data || {};
 

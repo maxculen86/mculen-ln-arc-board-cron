@@ -10,6 +10,8 @@ import { Text } from '@ln/common-ui-text';
 const pageBuilderSections = ['Apertura', 'Bloque-1'];
 
 // TODO: Layout base, ira cambiando segun vaya avanzando el layout final
+
+// TODO: Validar si no tienen suscripcion, deberia redirigiar al login / paywall
 const RecetarioFoodit = ({ children }) => {
     const [opening, bloque1] = children;
 
