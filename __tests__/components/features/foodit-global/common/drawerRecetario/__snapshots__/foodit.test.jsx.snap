@@ -18,7 +18,7 @@ exports[`DrawerRecetario component should match snapshot 1`] = `
         <span
           class="text roboto-bold text-24"
         >
-          Elegir colecciones
+          Elegir colección
         </span>
         <button
           class="cursor-pointer transition-regular flex opacity-80_hover ml-auto"
@@ -45,22 +45,41 @@ exports[`DrawerRecetario component should match snapshot 1`] = `
       <div
         class="drawer-body z-1 flex-grow-1 overflow-x-hidden foodit-scrollbar flex flex-column gap-16"
       >
-        <select>
-          <option>
-            Colección 1
-          </option>
-          <option>
-            Colección 2
-          </option>
-          <option>
-            Colección 3
-          </option>
-          <option>
-            Colección 4
-          </option>
-        </select>
+        <div
+          class="select w-100 max-w-328 relative"
+        >
+          <div
+            class="flex jc-between ai-center gap-16 p-16 opacity-80_hover h-56 border border-all border-thin border-light-100 rounded-8 cursor-pointer border-accent-lechuga__hover mt-8"
+            tabindex="0"
+          >
+            <label
+              class="floating-label absolute cursor-inherit transition-regular pointer-events-none"
+            >
+              Colección
+            </label>
+            <span
+              class="text-16"
+            />
+            <i
+              class="icon --icon-24"
+            >
+              <svg
+                fill="none"
+                viewBox="0 0 17 16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="m8.743 8.634 2.828-2.828a.667.667 0 0 1 .943.942L9.45 9.813a1 1 0 0 1-1.414 0L4.97 6.748a.667.667 0 0 1 .943-.942z"
+                  fill="#272727"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </i>
+          </div>
+        </div>
         <button
-          class="button foodit-button gap-8 roboto-bold text-12 --full-width rounded-4 text-secondary-positive border border-all border-thin border-secondary-positive text-accent-lechuga__hover border-accent-lechuga__hover px-16 py-12"
+          class="button foodit-button gap-8 roboto-bold text-12 --full-width rounded-4 text-secondary-positive border border-all border-thin border-secondary-positive text-accent-lechuga__hover border-accent-lechuga__hover px-16 py-12 mt-auto"
           data-variant="secondary"
           title="Aplicar"
         >

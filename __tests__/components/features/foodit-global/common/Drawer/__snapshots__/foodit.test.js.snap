@@ -42,7 +42,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
       >
         <div>
           <span
-            class="text roboto-bold text-14 uppercase bg-background-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
+            class="text roboto-bold text-14 uppercase bg-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
           >
             Recetas
           </span>
@@ -700,7 +700,7 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
         </div>
         <div>
           <span
-            class="text roboto-bold text-14 uppercase bg-background-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
+            class="text roboto-bold text-14 uppercase bg-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
           >
             Descubrir
           </span>
@@ -710,6 +710,29 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
             <ul
               class="w-100"
             >
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Chef protagonistas"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Chef protagonistas
+                  </span>
+                </a>
+              </li>
               <li>
                 <a
                   class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
@@ -783,21 +806,53 @@ exports[`Components - Features - foodit-global - Common - DrawerMenu should matc
           </div>
         </div>
         <div>
-          <span
-            class="text roboto-bold text-14 uppercase bg-background-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
+          <a
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+            data-variant="primary"
+            href="#"
+            role="link"
+            target="_self"
+            title="Ir a Guía de cocina"
           >
-            Guía de cocina
-          </span>
+            <span
+              class="text-left flex-grow-1"
+            >
+              Guía de cocina
+            </span>
+            <i
+              class="icon --icon-16 --inherit"
+            >
+              <mock-icon
+                name="arrow-right"
+              />
+            </i>
+          </a>
           <div
             class="flex flex-column flex-row_lg"
           />
         </div>
         <div>
-          <span
-            class="text roboto-bold text-14 uppercase bg-background-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
+          <a
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+            data-variant="primary"
+            href="#"
+            role="link"
+            target="_self"
+            title="Ir a Masterclass"
           >
-            Masterclass
-          </span>
+            <span
+              class="text-left flex-grow-1"
+            >
+              Masterclass
+            </span>
+            <i
+              class="icon --icon-16 --inherit"
+            >
+              <mock-icon
+                name="arrow-right"
+              />
+            </i>
+          </a>
           <div
             class="flex flex-column flex-row_lg"
           />

@@ -70,6 +70,7 @@ export const menuCategories = [
         data: [
             {
                 items: [
+                    { text: 'Chef protagonistas', href: '#' },
                     { text: 'Nutrición', href: '#' },
                     { text: 'Restaurantes', href: '#' },
                     { text: 'Beneficion Club La Nación', href: '#' }

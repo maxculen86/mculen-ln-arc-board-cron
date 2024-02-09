@@ -840,6 +840,29 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                               href="#"
                               role="link"
                               target="_self"
+                              title="Ir a Chef protagonistas"
+                            >
+                              <i
+                                class="icon --icon-20 --inherit"
+                              >
+                                <mock-icon
+                                  name="bullet-xs"
+                                />
+                              </i>
+                              <span
+                                class="text-left"
+                              >
+                                Chef protagonistas
+                              </span>
+                            </a>
+                          </li>
+                          <li>
+                            <a
+                              class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                              data-variant="primary"
+                              href="#"
+                              role="link"
+                              target="_self"
                               title="Ir a Nutrición"
                             >
                               <i

@@ -1301,7 +1301,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
       data-scroller="container"
     >
       <ul
-        class="relative overflow-container"
+        class="relative --full-width"
         data-scroller="track"
         data-scroller-elements="12"
       >

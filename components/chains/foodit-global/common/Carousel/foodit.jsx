@@ -10,7 +10,7 @@ export const Carousel = ({ articles = [], bookmarkedArticlesIds = [] }) => {
             className="flex flex-column gap-16 hide-mobile"
             elementsToScroll={4}
         >
-            <Mediascroller.Track className="overflow-container">
+            <Mediascroller.Track fullWidth>
                 {articles.map(
                     ({
                         articleId,
