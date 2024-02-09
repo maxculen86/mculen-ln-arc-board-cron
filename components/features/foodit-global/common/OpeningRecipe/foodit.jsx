@@ -22,7 +22,7 @@ import get from '../../../../private/common/utils/get';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 export const OpeningRecipe = ({ article = {} }) => {
-    const { promo_items = {}, headlines = {}, taxonomy } = article;
+    const { promo_items = {}, headlines = {}, taxonomy, _id = '' } = article;
     const sections = get(taxonomy, 'sections', []);
     const badge = getHighestPriorityTag(sections);
 
@@ -84,7 +84,12 @@ export const OpeningRecipe = ({ article = {} }) => {
                     </div>
                 </StaticContent>
                 <div className="flex ai-center gap-24">
-                    <Button title="Guardar" size={{ sm: 32, lg: 40 }}>
+                    <Button
+                        title="Guardar"
+                        size={{ sm: 32, lg: 40 }}
+                        data-id={_id}
+                        data-modal={'open-modal'}
+                    >
                         <Icon size={16} className="sm-none">
                             <IconSprite name="bookmark" critical />
                         </Icon>
