@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import { addMetaNoIndexNoFollow } from '../private/common/utils/outputTypeHelper';
+import { getStyleFontsInLineForLN10 } from '../private/common/fontface';
 
 const TAGS_BY_WIDGET = {
     viafoura: ({ globalContent, contextPath, deployment }) => {
@@ -15,10 +16,6 @@ const TAGS_BY_WIDGET = {
         const domain = SITE_LANACION.replace(
             /^(?:https?:\/\/)?(?:www\.)?/i,
             ''
-        );
-
-        const webFont = deployment(
-            `${contextPath}/resources/fonts/suecaslab-bold-webfont.woff2`
         );
 
         return (
@@ -42,13 +39,10 @@ const TAGS_BY_WIDGET = {
                                 .widget {
                                     padding: 32px 16px 0;
                                 }
-                                @font-face {
-                                    font-family: 'SuecaSlab';
-                                    src: url('${webFont}') format('woff2');
-                                    font-weight: 700;
-                                    font-style: normal;
-                                    font-display: swap;
-                                }
+                                ${getStyleFontsInLineForLN10({
+                                    contextPath,
+                                    deployment
+                                })}
                             `
                         }}
                     />

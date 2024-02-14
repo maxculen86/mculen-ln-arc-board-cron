@@ -1,11 +1,13 @@
 import React from 'react';
 import ComTitle from '../../../common/com-title';
 import Text from '../../../common/text';
+import classNames from 'classnames';
 
-const HeaderComments = () => {
+const HeaderComments = ({ className }) => {
+    const _class = classNames('mod-headersection --line --button', className);
     return (
-        <div className="--no-app">
-            <section className="mod-headersection --line --button">
+        <>
+            <section className={_class}>
                 <ComTitle
                     tag="h4"
                     size="--xl"
@@ -46,7 +48,7 @@ const HeaderComments = () => {
                 `
                 }}
             />
-        </div>
+        </>
     );
 };
 

@@ -128,7 +128,11 @@ const CommentsViafouraFeature = props => {
 
     return (
         <>
-            {messageProps ? <Message {...messageProps} /> : <HeaderComments />}
+            {messageProps ? (
+                <Message {...messageProps} />
+            ) : (
+                <HeaderComments className="--no-app" />
+            )}
 
             {!isReady && <LoadingIcon className="--no-app" />}
 

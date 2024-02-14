@@ -52,7 +52,13 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                 label="CERRAR"
             />
         );
-    const classNoApp = slotId.includes('cabezal') ? '--no-app' : '';
+    const bannersNoApp = [
+        'cabezal_dsk',
+        'cabezal_tab',
+        'comercial_dsk',
+        'comercial_mob'
+    ];
+
     const bannerClass = classNames(
         `${
             layout !== get(siteProperties, homeLN10PropName)
@@ -60,7 +66,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                 : 'ln-banner'
         }`,
         lazyClass,
-        classNoApp
+        { '--no-app': bannersNoApp.includes(slotId) }
     );
 
     const _classNames = `${
