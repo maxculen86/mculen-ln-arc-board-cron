@@ -15,10 +15,10 @@ exports[`Private - LN - nota - snippet - noticia  Snapshot Snippet Noticia 1`] =
   \\"dateModified\\": \\"2020-06-25T19:39:44.891Z\\",
   \\"mainEntityOfPage\\": \\"https://www.lanacion.com.ar/arquitectura/\\",
   \\"articleSection\\": \\"Arquitectura\\",
-  \\"isAccessibleForFree\\": \\"true\\",
+  \\"isAccessibleForFree\\": true,
   \\"hasPart\\": {
     \\"@type\\": \\"WebPageElement\\",
-    \\"isAccessibleForFree\\": \\"true\\",
+    \\"isAccessibleForFree\\": true,
     \\"cssSelector\\": \\".nota\\"
   },
   \\"isPartOf\\": {
