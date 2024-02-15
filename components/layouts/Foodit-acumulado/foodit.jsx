@@ -1,23 +1,23 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-
+import BreadcrumbFoodit from '../../features/foodit-global/common/breadcrumb/foodit';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import { Text } from '@ln/common-ui-text';
+import { formatSectionName } from '../../features/foodit-global/common/breadcrumb/_helpers';
 
-const pageBuilderSections = ['Breadcrumb', 'Apertura', 'Notas'];
+const pageBuilderSections = ['Apertura', 'Notas'];
 
 const AcumuladoFoodit = props => {
     const { globalContent, children } = props;
     const { _id: id = '' } = globalContent;
-    const title = id && id.replace(/\//g, ' ').trim();
-
-    const [breadcrumb, apertura, notas] = children;
+    const title = formatSectionName(id, true);
+    const [apertura, notas] = children;
 
     return (
         <BaseLayout>
             <div className="flex flex-column gap-32">
+                <BreadcrumbFoodit globalContent={globalContent} />
                 <section>
-                    {breadcrumb}
                     <Text
                         as="h1"
                         className="prumo prumo-semibold text-28 text-40_md text-48_lg"
