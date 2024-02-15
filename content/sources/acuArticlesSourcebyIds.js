@@ -73,7 +73,11 @@ const fetch = query => {
             return transform(objresponse, query, resultsIds);
         })
         .catch(error => {
-            logger.push(error, { source: 'content/source', uri }, arcSite);
+            logger.push(
+                error,
+                { source: 'content/acuArticlesSourcebyIds', uri },
+                arcSite
+            );
         });
 };
 
