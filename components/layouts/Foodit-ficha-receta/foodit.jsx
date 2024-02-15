@@ -17,8 +17,10 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
     return (
         <BaseLayout>
             <UserBookmarks />
-            <Breadcrumb globalContent={globalContent} className="lg-only" />
-            <OpeningRecipe article={globalContent} />
+            <section className="flex flex-column gap-24">
+                <Breadcrumb globalContent={globalContent} className="lg-only" />
+                <OpeningRecipe article={globalContent} />
+            </section>
             <Subtitle globalContent={globalContent} calssName="lg-none" />
             <section className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg row-gap-40 cuerpo__nota">
                 <div className="col-span-8 col-span-4_md col-span-5_lg flex flex-column gap-32">

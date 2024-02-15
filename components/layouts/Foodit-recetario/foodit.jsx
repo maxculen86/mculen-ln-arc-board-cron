@@ -14,10 +14,12 @@ const RecetarioFoodit = ({ children }) => {
     return (
         <BaseLayout>
             <div className="flex flex-column gap-32">
-                <BreadcrumbCustomFoodit
-                    sectionsCustom={[{ name: 'Recetario', url: '/recetario/' }]}
-                />
-                <section>
+                <section className="flex flex-column gap-24">
+                    <BreadcrumbCustomFoodit
+                        sectionsCustom={[
+                            { name: 'Recetario', url: '/recetario/' }
+                        ]}
+                    />
                     <Text
                         as="h1"
                         className="prumo prumo-semibold text-28 text-40_md text-48_lg"

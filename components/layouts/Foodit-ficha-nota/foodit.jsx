@@ -16,6 +16,7 @@ import { Icon } from '@ln/common-ui-icon';
 import getAuthorsAsString from '../../private/common/utils/getAuthorsAsString';
 import get from '../../private/common/utils/get';
 import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
+import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
@@ -89,6 +90,7 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                     {body}
                 </div>
             </div>
+            <Breadcrumb globalContent={globalContent} />
             <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>
     );

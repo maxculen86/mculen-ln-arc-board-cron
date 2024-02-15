@@ -47,6 +47,34 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
             <button
               class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
               role="button"
+              title="Ir a Mi cuenta"
+            >
+              <i
+                class="icon --icon-20 --inherit"
+              >
+                <mock-icon
+                  critical="true"
+                  name="profile"
+                />
+              </i>
+              <span
+                class="text-left flex-grow-1"
+              >
+                Mi cuenta
+              </span>
+              <i
+                class="icon --icon-16 --inherit"
+              >
+                <mock-icon
+                  name="arrow-right"
+                />
+              </i>
+            </button>
+          </li>
+          <li>
+            <button
+              class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+              role="button"
               title="Ir a Mis recetas"
             >
               <i
@@ -102,20 +130,46 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
             <button
               class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
               role="button"
-              title="Ir a Mi cuenta"
+              title="Ir a Newsletters"
             >
               <i
                 class="icon --icon-20 --inherit"
               >
                 <mock-icon
-                  critical="true"
-                  name="profile"
+                  name="calendar"
                 />
               </i>
               <span
                 class="text-left flex-grow-1"
               >
-                Mi cuenta
+                Newsletters
+              </span>
+              <i
+                class="icon --icon-16 --inherit"
+              >
+                <mock-icon
+                  name="arrow-right"
+                />
+              </i>
+            </button>
+          </li>
+          <li>
+            <button
+              class="card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+              role="button"
+              title="Ir a ¿Cómo podemos ayudarte?"
+            >
+              <i
+                class="icon --icon-20 --inherit"
+              >
+                <mock-icon
+                  name="diet"
+                />
+              </i>
+              <span
+                class="text-left flex-grow-1"
+              >
+                ¿Cómo podemos ayudarte?
               </span>
               <i
                 class="icon --icon-16 --inherit"

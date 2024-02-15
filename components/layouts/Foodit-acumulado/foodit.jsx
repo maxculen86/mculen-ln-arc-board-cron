@@ -16,8 +16,8 @@ const AcumuladoFoodit = props => {
     return (
         <BaseLayout>
             <div className="flex flex-column gap-32">
-                <BreadcrumbFoodit globalContent={globalContent} />
-                <section>
+                <section className="flex flex-column gap-24">
+                    <BreadcrumbFoodit globalContent={globalContent} />
                     <Text
                         as="h1"
                         className="prumo prumo-semibold text-28 text-40_md text-48_lg"
