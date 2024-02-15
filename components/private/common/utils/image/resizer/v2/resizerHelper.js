@@ -101,10 +101,7 @@ export const updateHeight = (originalHeight, originalWidth, opt = {}) => {
 // URl Logic
 
 export const baseUrl = ({ isInApertura, isAdmin }) => {
-    if (API_ENV === 'prod') {
-        return isInApertura && !isAdmin ? SITE_LANACION : RESIZER_URL_PUBLIC;
-    }
-    return SITE_LANACION;
+    return isInApertura && !isAdmin ? SITE_LANACION : RESIZER_URL_PUBLIC;
 };
 
 export const buildQueryParams = ({
