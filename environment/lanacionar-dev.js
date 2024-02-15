@@ -80,5 +80,6 @@ export default {
     SITE_OTT: 'https://lnmas.lanacion.com.ar',
     SITE_FOODIT: 'https://sandbox-foodit.lanacion.com.ar',
     MY_ACCOUNT_URL: 'https://qa-myaccount.lanacion.com.ar',
-    SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar'
+    SITIO_SEGURO_REGISTRACION: 'https://qa-swg-ln9.lanacion.com.ar',
+    RESIZER_URL_PUBLIC: 'https://sandbox-resizer.glanacion.com'
 };
