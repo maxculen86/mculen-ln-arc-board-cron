@@ -1,39 +1,5 @@
 /* eslint-disable no-console */
-/* eslint-disable react/no-danger */
-import React from 'react';
 import get from './get';
-
-export const productClickFromServer = () => {
-    return (
-        <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={{
-                __html: `
-                    window.addEventListener('DOMContentLoaded', () => {
-                        const articles = document.querySelectorAll('article');
-                        ${isSandbox.toString()}
-                        ${getName.toString()}
-                        ${getDataSetProps.toString()}
-                        ${productClickFromClient.toString()}
-                        articles.forEach(art => {
-                
-                            art.addEventListener('click', (element) => {
-                                productClickFromClient(element);
-                            });
-
-                            art.addEventListener('auxclick', (element) => {
-                                productClickFromClient(element);
-                               
-                            });
-
-                        })
-              
-                    })
-                `
-            }}
-        />
-    );
-};
 
 export const getDataSetProps = element => {
     if (element) {
@@ -215,11 +181,6 @@ const shouldAddArticle = (entry, articlesSeen) => {
             art => art.id === idArticle && art.list === blockName
         )
     );
-};
-
-const isSandbox = () => {
-    if (window && window.location.host === 'lanacion.com.ar') return '';
-    return '_DESA';
 };
 
 export const updateIndexOfItems = (items = []) => {

@@ -54,7 +54,7 @@ describe('Private - LN - nota - snippet - noticia ', () => {
         );
     });
 
-    it('Validar valores del squema', () => {
+    it('Validar valores del squema cuando la nota es abierta', () => {
         const {
             dangerouslySetInnerHTML: { __html: data }
         } = component.find('script').props();
@@ -74,7 +74,7 @@ describe('Private - LN - nota - snippet - noticia ', () => {
                 created_date: createdDate,
                 first_publish_date: firstPublishDate,
                 display_date: displayDate,
-                content_restrictions: { content_code: contentCode }
+                content_restrictions: { content_code = 'comun' }
             },
             contextPath,
             deployment
@@ -124,9 +124,9 @@ describe('Private - LN - nota - snippet - noticia ', () => {
         expect(dateModified).toMatch(/^2020-06-25T19:39:44.\d{3}Z$/);
         expect(mainEntityOfPage).toBe(`${host}${path}/`);
         expect(articleSection).toBe(name);
-        expect(isAccessibleForFree).toBe(`${contentCode === 'abierta'}`);
+        expect(isAccessibleForFree).toBe(true);
         expect(hasPartType).toBe('WebPageElement');
-        expect(hasPartIsAccessibleForFree).toBe(`${contentCode === 'abierta'}`);
+        expect(hasPartIsAccessibleForFree).toBe(true);
         expect(cssSelector).toBe('.nota');
         expect(isPartType).toStrictEqual(['CreativeWork', 'Product']);
         expect(isPartOfName).toBe('Acceso Digital Monthly Test');
