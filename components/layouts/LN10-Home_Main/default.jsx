@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import { Pwamodal } from '@ln/contenidos-ui-pwamodal';
-import Header from '../../private/LN10/header';
+import Header from '../../features/LN-10-global/header/default';
 import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import LoadBanners from '../../private/common/banners/LoadBanners';

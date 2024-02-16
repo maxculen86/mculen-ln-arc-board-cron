@@ -43,7 +43,8 @@ exports[`Componentes - Chains - LN10_Caja_WebStories should match snapshot 1`] =
             class="flex ai-center --mobile-none"
           >
             <button
-              class="button ln-button line-height-18 font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent text-light-700 px-16 py-6 visibility-hidden opacity-0 --default"
+              class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 h-32 px-12 py-8 visibility-hidden opacity-0 --default"
               data-variant="default"
               title="Anterior historia"
               type="button"
@@ -65,7 +66,8 @@ exports[`Componentes - Chains - LN10_Caja_WebStories should match snapshot 1`] =
               </i>
             </button>
             <button
-              class="button ln-button line-height-18 font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent text-light-700 px-16 py-6 --default"
+              class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 h-32 px-12 py-8 --default"
               data-variant="default"
               title="Siguiente historia"
               type="button"

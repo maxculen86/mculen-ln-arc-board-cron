@@ -1,0 +1,84 @@
+import React from 'react';
+import { MY_ACCOUNT_URL } from 'fusion:environment';
+import { Button } from '@ln/contenidos-ui-button';
+import { Tooltip } from '@ln/contenidos-ui-tooltip';
+import { useHeaderContext } from '../../../context';
+import { getTermicaValues } from '../../_helper';
+import { termicaValuesUpselling } from './_helper';
+import useTermica from '../../../../../../private/common/hooks/useTermica';
+import get from '../../../../../../private/common/utils/get';
+import handleCookie from '../../../../../../private/LN/common/utils/handleCookie';
+import classNames from 'classnames';
+
+export const UpsellingButton = () => {
+    const { userType, isHome } = useHeaderContext();
+
+    const termicaUpselling = useTermica('termica_upselling');
+
+    const { getCookie } = handleCookie();
+    const valueCookie = getCookie('gaComboType') || '';
+
+    const {
+        black_button_text,
+        class_upselling_tooltip,
+        duo_button_text,
+        triple_button_text,
+        upselling_tooltip_text
+    } = getTermicaValues(termicaValuesUpselling);
+
+    const upsellingData = {
+        'ga-combo2': {
+            text: duo_button_text,
+            url: `${MY_ACCOUNT_URL}/confirmar-upselling/up-selling/pasate-a-duo?cv=733&fc=277`
+        },
+        'ga-comboDuo': {
+            text: triple_button_text,
+            url: `${MY_ACCOUNT_URL}/confirmar-upselling/up-selling/pasate-a-triple?cv=733&fc=277`
+        },
+        'ga-comboTriple': {
+            text: black_button_text,
+            url: `${MY_ACCOUNT_URL}/confirmar-upselling/up-selling/pasate-a-black?cv=733&fc=277`
+        }
+    };
+
+    const upsellingText = get(upsellingData, `${valueCookie}.text`, '');
+    const upsellingUrl = get(upsellingData, `${valueCookie}.url`, '');
+
+    const upsellingTooltipClassName = classNames(
+        !isHome && 'none',
+        '--mobile-none',
+        class_upselling_tooltip
+    );
+    if (
+        userType !== 'subscribed' ||
+        !upsellingText ||
+        !upsellingUrl ||
+        !termicaUpselling
+    )
+        return <></>;
+    return (
+        <Button
+            id="btn-upselling"
+            title={upsellingText}
+            variant="subscribe"
+            size={{ sm: 32, md: 40 }}
+            className="relative"
+            onClick={() => {
+                window.location.href = valueCookie && upsellingUrl;
+            }}
+        >
+            {upselling_tooltip_text && (
+                <Tooltip
+                    className={upsellingTooltipClassName}
+                    text={upselling_tooltip_text}
+                />
+            )}
+            <span
+                id="button-text-upselling"
+                dangerouslySetInnerHTML={{
+                    __html: upsellingText
+                }}
+            />
+        </Button>
+    );
+};

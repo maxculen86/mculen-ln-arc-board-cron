@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN-10-global - header - mainHeader - rightOptions - BellButton should match snapshot 1`] = `
+<div>
+  <button
+    class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 h-40 px-16 py-12 campanita none --default"
+    data-variant="default"
+    title="Campanita"
+    type="button"
+  >
+    <i
+      class="icon --icon-24"
+    >
+      <svg
+        fill="none"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20 17h2v2H2v-2h2v-7a8 8 0 1 1 16 0zm-2 0v-7a6 6 0 1 0-12 0v7zm-9 4h6v2H9z"
+          fill="#272727"
+        />
+      </svg>
+    </i>
+  </button>
+</div>
+`;

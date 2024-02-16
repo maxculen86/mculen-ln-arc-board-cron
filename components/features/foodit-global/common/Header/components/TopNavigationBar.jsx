@@ -22,6 +22,7 @@ export const TopNavigationBar = () => {
                             className="ai-center roboto-bold text-12 uppercase text-light-800 text-accent-lechuga__hover"
                             gap={8}
                             title={`Ir a ${title}`}
+                            iconProps={{ color: 'inherit' }}
                         >
                             {title}
                         </Dropdown.Toggle>

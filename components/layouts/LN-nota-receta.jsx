@@ -4,7 +4,7 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import classNames from 'classnames';
 import GlobalProvider from '../private/common/context/globalContext';
-import Header from '../private/LN10/header';
+import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 
 import LoadBannersSSR from '../private/common/banners/LoadBannersSSR';

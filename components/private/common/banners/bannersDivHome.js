@@ -488,7 +488,7 @@ const bannersHome = {
             />
             <DivBannerSSR
                 bannerConfiguration={{
-                    classes: '--logo_sticky_dsk none',
+                    classes: '--logo --logo_sticky_dsk none',
                     slotId: 'logo_header_dsk_sticky',
                     isStatic: true,
                     withoutHide: true

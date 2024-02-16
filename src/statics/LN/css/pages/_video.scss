@@ -6,6 +6,9 @@
     }
     #content {
         padding-top: 0;
+        @media ($media-l) {
+            padding-top: px(56);
+        }
         .--apertura {
             background: $dark-neutral-50;
             color: $neutral-white;
