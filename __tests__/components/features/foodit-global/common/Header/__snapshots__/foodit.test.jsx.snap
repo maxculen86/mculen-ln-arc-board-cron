@@ -3,7 +3,7 @@
 exports[`Components - Features - foodit-global - Common - HeaderFoodit should return buttons login and button suscribed when the user is unlogged 1`] = `
 <div>
   <div
-    class="common-header-container"
+    class="common-header-container mb-40"
   >
     <header
       class="common-header flex flex-column w-100"

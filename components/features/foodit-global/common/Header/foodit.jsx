@@ -18,15 +18,12 @@ const HeaderFoodit = () => {
 
     const { layoutsName = {} } = siteProperties || {};
 
-    const classNameHeaderContainer = classNames({
-        'mb-12 mb-40_lg':
-            layout === layoutsName.FooditHome ||
-            layout === layoutsName.FooditFichaReceta,
-        'mb-40':
-            layout === layoutsName.FooditRecetario ||
-            layout === layoutsName.FooditAcumulado ||
-            layout === layoutsName.FooditListadoCompras
-    });
+    const classNameHeaderContainer = classNames(
+        layout === layoutsName.FooditHome ||
+            layout === layoutsName.FooditFichaReceta
+            ? 'mb-12 mb-40_lg'
+            : 'mb-40'
+    );
     //TODO: validar tipo de usuario  'subscribedPlus';
 
     // TODO: falta cerrar comportamiento de sticky

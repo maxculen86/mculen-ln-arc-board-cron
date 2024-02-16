@@ -18,6 +18,8 @@ export default {
         FooditFichaNota: 'Foodit-ficha-nota',
         FooditRecetario: 'Foodit-recetario',
         FooditAcumulado: 'Foodit-acumulado',
-        FooditListadoCompras: 'Foodit-compras'
+        FooditListadoCompras: 'Foodit-compras',
+        FooditAcumuladoChef: 'Foodit-acumulado-chef',
+        FooditChef: 'Foodit-chef'
     }
 };
