@@ -5,9 +5,9 @@ import { Icon } from '@ln/common-ui-icon';
 import { Menu, Search } from '@ln/contenidos-ui-assets';
 import { useHeaderContext } from '../../context';
 import { sectionsCallback } from '../_helper';
-import { handleClickBuscar } from '../../_helper';
 
 import classNames from 'classnames';
+import { setEventSearch } from '../../../../../private/common/utils/eventsHelper';
 
 export const LeftOptions = () => {
     const { toggleDesplegable, negative } = useHeaderContext();
@@ -35,7 +35,7 @@ export const LeftOptions = () => {
                 <Text className="text-14">SECCIONES</Text>
             </Button>
             <label
-                onClick={handleClickBuscar}
+                onClick={setEventSearch()}
                 id="querylyButton"
                 htmlFor="queryly_toggle"
                 title="Ir al buscador"

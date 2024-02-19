@@ -44,7 +44,7 @@ export const getNavbarItems = (
         id: 'querylyButton',
         htmlFor: 'queryly_toggle',
         callback: () => {
-            handleClickBuscar();
+            setEventSearch();
             addEventToDataLayer(getEventData('buscar'));
         }
     },

@@ -1,3 +1,5 @@
+import dynamicallyLoadScript from '../../LN/common/utils/dynamicallyLoadScript';
+
 //TODO: DELETE FUNCTIONS NOT USED IN SCRIPTS FROM THIS FILE
 export const addEventToDataLayer = ({
     label,
@@ -91,14 +93,21 @@ export const setEventsSections = () => {
 };
 
 export const setEventSearch = () => {
-    const searchIcon = window.document.querySelector('#querylyButton');
+    dynamicallyLoadScript('//www.queryly.com/js/queryly.v4.js', 'body').then(
+        () => {
+            const initScript = document.createElement('script');
+            initScript.innerHTML = `queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));`;
+            document.body.appendChild(initScript);
 
-    const payload = {
-        action: 'header_logo',
-        label: 'buscar'
-    };
+            const searchIcon = window.document.querySelector('#querylyButton');
+            const payload = {
+                action: 'header_logo',
+                label: 'buscar'
+            };
 
-    addEventListeners(searchIcon, payload);
+            addEventListeners(searchIcon, payload);
+        }
+    );
 };
 
 export const setEventsWeather = () => {

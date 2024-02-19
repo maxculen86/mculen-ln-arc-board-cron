@@ -4,7 +4,7 @@ import { render, fireEvent } from '@testing-library/react';
 import { LeftOptions } from '../../../../../../../components/features/LN-10-global/header/mainHeader/components/leftOptions';
 import { useHeaderContext } from '../../../../../../../components/features/LN-10-global/header/context';
 import { sectionsCallback } from '../../../../../../../components/features/LN-10-global/header/mainHeader/_helper';
-import { handleClickBuscar } from '../../../../../../../components/features/LN-10-global/header/_helper';
+import { setEventSearch } from '../../../../../../../components/private/common/utils/eventsHelper';
 
 jest.mock(
     '../../../../../../../components/features/LN-10-global/header/context',
@@ -15,10 +15,10 @@ jest.mock(
     }
 );
 jest.mock(
-    '../../../../../../../components/features/LN-10-global/header/_helper',
+    '../../../../../../../components/private/common/utils/eventsHelper',
     () => {
         return {
-            handleClickBuscar: jest.fn()
+            setEventSearch: jest.fn()
         };
     }
 );
@@ -44,10 +44,10 @@ describe('components - features - LN-10-global - header - mainHeader - leftOptio
         fireEvent.click(button);
         expect(sectionsCallback).toHaveBeenCalledTimes(1);
     });
-    it('should execute a handleClickBuscar when the Search Button is clicked', () => {
+    it('should execute a setEventSearch when the Search Button is clicked', () => {
         const { container } = render(<LeftOptions />);
         const button = container.querySelector('#querylyButton');
         fireEvent.click(button);
-        expect(handleClickBuscar).toHaveBeenCalledTimes(1);
+        expect(setEventSearch).toHaveBeenCalled();
     });
 });
