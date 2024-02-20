@@ -5,7 +5,7 @@
     "private": true,
     "main": "index.js",
     "scripts": {
-        "ln:home-ln10": "scripts/copyContenidosCommon.sh",
+        "ln:home-ln10": "node scripts/copyCssLibsHomeLn10LaNacionAr.js",
         "ln:home-ln10:cssmin": "npx uglifycss resources/packages/css/homeln10-style.css > resources/packages/css/homeln10-style.min.css",
         "ln:copycss": "copyfiles --up 1 node_modules/@ln/*-ui*/**/*.css resources/packages/css/",
         "ln:buildjs": "scripts/esbuildScripts.sh",
