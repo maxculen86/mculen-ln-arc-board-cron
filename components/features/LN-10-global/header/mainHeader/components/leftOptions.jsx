@@ -35,7 +35,7 @@ export const LeftOptions = () => {
                 <Text className="text-14">SECCIONES</Text>
             </Button>
             <label
-                onClick={setEventSearch()}
+                onClick={setEventSearch}
                 id="querylyButton"
                 htmlFor="queryly_toggle"
                 title="Ir al buscador"
