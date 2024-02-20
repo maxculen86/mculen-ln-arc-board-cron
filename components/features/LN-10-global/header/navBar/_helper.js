@@ -9,6 +9,7 @@ import {
     ClubLnDefault
 } from '@ln/contenidos-ui-assets';
 import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
+import { setEventSearch } from '../../../../private/common/utils/eventsHelper';
 
 const bookmarkUrl =
     API_ENV === 'prod'

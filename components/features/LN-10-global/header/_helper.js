@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import dynamicallyLoadScript from '../../../private/LN/common/utils/dynamicallyLoadScript';
 import handleCookie from '../../../private/LN/common/utils/handleCookie';
 import { LOGIN_URL } from 'fusion:environment';
 
@@ -52,17 +51,6 @@ export const isHeaderNegative = ({
 
     return validationBy.some(validation => validations.includes(validation));
 };
-
-// export const handleClickBuscar = () => {
-//     dynamicallyLoadScript('//www.queryly.com/js/queryly.v4.js', 'body').then(
-//         () => {
-//             const initScript = document.createElement('script');
-//             initScript.innerHTML = `queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));`;
-//             document.body.appendChild(initScript);
-//             document.getElementById('querylyButton').click();
-//         }
-//     );
-// };
 
 export const getUserData = () => {
     const { getCookie } = handleCookie();

@@ -2,7 +2,8 @@ import request from 'request-promise-native';
 import {
     CONTENT_BASE,
     ARC_ACCESS_TOKEN,
-    SITE_FOODIT
+    SITE_FOODIT,
+    SITIO_SEGURO_REGISTRACION
 } from 'fusion:environment';
 import { transform } from './utils/fooditSources/fooditArticleSource';
 import get from '../../components/private/common/utils/get';
@@ -26,7 +27,12 @@ const fetch = (query, { cachedCall } = {}) => {
         try {
             const response = await request(opt);
 
-            setRedirect({ response, query, siteUrl: SITE_FOODIT });
+            setRedirect({
+                response,
+                query,
+                siteUrl: SITE_FOODIT,
+                paywallUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/`
+            });
 
             return transform(response, query, cachedCall);
         } catch (error) {

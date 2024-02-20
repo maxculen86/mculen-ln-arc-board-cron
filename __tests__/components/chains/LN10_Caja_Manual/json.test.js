@@ -29,21 +29,6 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../components/chains/LN10_Caja_Manual/common/_helper-WebApi.js',
-    () => {
-        return {
-            __esModule: true,
-            default: (layout, childProps = []) => {
-                if (layout === 'error') {
-                    return { message: 'error lalala' };
-                }
-                return null;
-            }
-        };
-    }
-);
-
-jest.mock(
     '../../../../components/private/LN/api/global/components/chains/common/respChildrens/index',
     () => {
         return {
@@ -110,15 +95,21 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
     propsChain.renderables = [
         {
             props: {
-                id: '1'
+                id: 1
             },
-            children: [1, 2, 3]
+            children: [
+                { collection: 'features', type: 'LN-10/article', props: {} },
+                { collection: 'features', type: 'LN-10/article', props: {} },
+                { collection: 'features', type: 'LN-10/article', props: {} },
+                { collection: 'features', type: 'LN-10/article', props: {} },
+                { collection: 'features', type: 'LN-10/article', props: {} }
+            ]
         },
         {
             props: {
-                id: '2'
+                id: 2
             },
-            children: [1, 2, 3]
+            children: [1, 2, 3, 4]
         }
     ];
 
@@ -201,7 +192,7 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
     test('LN10 Caja Manual with validate Error', () => {
         const props = Object.assign({}, propsChain);
         const customFields = Object.assign({}, propsChain.customFields);
-        customFields.layout = 'error';
+        customFields.layout = 'bnFondo';
         props.customFields = customFields;
 
         const resultChain = new LN10CajaManual(props);
@@ -216,7 +207,7 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         );
         expect(console.warn).toHaveBeenCalledTimes(1);
         expect(console.warn.mock.calls[0][0]).toBe(
-            'error - {"message":"error lalala"}'
+            'bnFondo - {"type":"warning","message":"El estilo de caja seleccionado no corresponde para esta diagramación"}'
         );
     });
 
@@ -235,5 +226,45 @@ describe('components - chains - LN10_Caja_Manual - json', () => {
         );
         expect(result.Message).toBe('Error');
         expect(result.Success).toBe(false);
+    });
+
+    test('Test result LN10 Caja Manual with diagramacion = BnFondo should return right data', () => {
+        const props = Object.assign({}, propsChain);
+        const customFields = Object.assign({}, propsChain.customFields);
+        customFields.imageId = 'AAAAAABBBBBB';
+        customFields.layout = 'bnFondo';
+        customFields.chainStyle = 'red';
+        props.customFields = customFields;
+
+        // Mock fetchContent in exteded class
+        const getCajaManual = Object.getPrototypeOf(LN10CajaManual.prototype);
+        getCajaManual.fetchContent = jest.fn();
+        const cajaManual = LN10CajaManual;
+        cajaManual.prototype.prototype = getCajaManual;
+        const resultChain = new cajaManual(props);
+
+        resultChain.state.containerImage = {
+            promo_items: {},
+            _id:
+                '6ab4c6fbd7a33de3058066487fc4a3b1291b066e47ed979b9385a228e04a23c3'
+        };
+        const resultCajaManual = resultChain.render();
+
+        expect(Object.keys(resultChain).sort()).toEqual(
+            ['props', 'renderResponse', 'state', 'validate'].sort()
+        );
+        expect(resultCajaManual.information).toMatchObject({
+            layout: 'bnFondo',
+            initialPosition: 1,
+            hideTitle: false,
+            hideCaja: false,
+            title: 'Tensión política',
+            url: 'https://www.lanacion.com.ar/ultimas-noticias/',
+            pbInternal_cloneId: 'c0fUbCAOj3bz5Bd',
+            idCollection: 'LJSSBABHGJGGDLLAOOGFOFXXIY',
+            typeChain: null,
+            nameChain: 'LN10_Caja_Manual',
+            idRender: 'c0fw64w2jaz0cQV'
+        });
     });
 });
