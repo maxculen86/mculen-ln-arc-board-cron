@@ -3,7 +3,7 @@ import {
     CONTENT_BASE,
     ARC_ACCESS_TOKEN,
     SITE_LANACION,
-    API_ENV
+    SITIO_SEGURO_REGISTRACION
 } from 'fusion:environment';
 import get from '../../components/private/common/utils/get';
 import filter from '../filters/LN/nota/articleListenable';
@@ -37,7 +37,12 @@ const fetch = (query, { cachedCall } = {}) => {
             isSubtypeWithAmp(response) &&
                 force404AMP({ outputType: get(query, 'outputType', '') });
 
-            setRedirect({ response, query, siteUrl: SITE_LANACION });
+            setRedirect({
+                response,
+                query,
+                siteUrl: SITE_LANACION,
+                paywallUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/E/1/1/?callback=`
+            });
 
             return transform(response, query, cachedCall);
         } catch (error) {
