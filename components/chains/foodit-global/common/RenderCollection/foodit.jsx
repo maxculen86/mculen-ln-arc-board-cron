@@ -67,18 +67,6 @@ export const RenderCollection = ({
                     articles={articles}
                     bookmarkedArticlesIds={bookmarkedArticles}
                 />
-                {/* TODO: Agregar botón en mobile para cargar más elementos si existen */}
-                {/* {hasMore && (
-                <div className='flex jc-center pt-32 sm-only'>
-                    <Button
-                        title='Ver más'
-                        variant='secondary'
-                        onClick={loadMore}
-                    >
-                        Ver más
-                    </Button>
-                </div>
-                )} */}
             </div>
         ),
         [BN_12_GRID]: (
