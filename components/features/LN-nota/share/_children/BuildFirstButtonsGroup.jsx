@@ -3,21 +3,28 @@ import { VIAFOURA_UUID } from 'fusion:environment';
 import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { GlobalContext } from '../../../../private/common/context/globalContext';
-import ComButton from '../../../../private/common/com-button';
 import {
     scrollToComments,
     onButtonClicked,
     addEventToDataLayer,
-    getClassAndIconByBookmark
+    getClassAndIconByBookmark,
+    getFirstGroupClassNames
 } from '../../../../private/LN/common/utils/shareHelper';
-import { handleClickAudioNews } from '../../../../private/common/audioNews/helpers';
-import '../../../../../resources/dist/css/ln/components/build-first-buttons-group.css';
+import {
+    handleClickAudioNews,
+    getIconByOpenPlayer
+} from '../../../../private/common/audioNews/helpers';
 import useFetch from '../../../../private/common/hooks/useFetch';
 import get from '../../../../private/common/utils/get';
 import { conditionallyCallViafoura } from '../../../../private/common/utils/commentsHelper';
 import eventHandler from '../../../../private/common/audioNews/trackerAudioNews';
 import useTermica from '../../../../private/common/hooks/useTermica';
 import getToken from '../../../../private/common/utils/getToken';
+import { Button } from '@ln/contenidos-ui-button';
+import { Icon } from '@ln/common-ui-icon';
+import { Chat } from '@ln/contenidos-ui-assets';
+import { Text } from '@ln/contenidos-ui-text';
+import classNames from 'classnames';
 
 const BuildFirtsButtonsGroup = ({
     termicaBookmark,
@@ -28,17 +35,16 @@ const BuildFirtsButtonsGroup = ({
     openPlayer,
     setOpenPlayer,
     enableButton,
-    bookmark = ''
+    bookmark = '',
+    subtypeVideo
 } = {}) => {
     const { dispatch, state } = useContext(GlobalContext) || {};
-
     const {
         _id: id,
         comments: { display_comments: displayComments = true } = {},
         first_publish_date: firstPublishDate,
         isListenable
     } = globalContent;
-
     const { data } = useFetch({
         url: conditionallyCallViafoura(firstPublishDate)
             ? `https://livecomments.viafoura.co/v4/livecomments/${VIAFOURA_UUID}/contentcontainer/id?container_id=${id}`
@@ -50,23 +56,27 @@ const BuildFirtsButtonsGroup = ({
             }
         }
     });
-
     const totalVisibleContent = get(data, 'total_visible_content', '');
     const accessToken = getToken('access-token');
 
-    const { className, icon } = getClassAndIconByBookmark(bookmark);
+    const { bookmarkClass, bookmarkIcon } = getClassAndIconByBookmark(bookmark);
+    const bookmarkClassCondition = classNames('bookmark', bookmarkClass);
+
+    const { headphoneIcon } = getIconByOpenPlayer(openPlayer || enableButton);
     const showListenButton =
         !useTermica('hide_listening_articles') && isListenable;
 
+    const classes = getFirstGroupClassNames({ subtypeVideo });
+
     return (
-        <div className="first-buttons-group">
+        <div className={classes.firstGroupClasses}>
             {showListenButton && (
-                <ComButton
+                <Button
                     id="btnAudio"
-                    size="--fourxs"
-                    iconName="headset"
                     title="Escuchar nota"
-                    classCondition="headset --tertiary"
+                    variant="primary"
+                    className={classes.displayClasses}
+                    iconOnly
                     dataEvent="LinkClick"
                     dataSection="Escuchar Nota"
                     onClick={() => {
@@ -82,13 +92,15 @@ const BuildFirtsButtonsGroup = ({
                             eventLabel: 'escuchar'
                         });
                     }}
-                    textname="escuchar"
                     disabled={openPlayer || enableButton}
-                />
+                >
+                    <Icon size={24} color="inherit">
+                        {headphoneIcon}
+                    </Icon>
+                </Button>
             )}
-
             {termicaBookmark && (
-                <ComButton
+                <Button
                     id="btnbookmark"
                     dataEvent="LinkClick"
                     dataSection="Guardar Nota"
@@ -104,15 +116,19 @@ const BuildFirtsButtonsGroup = ({
                             accessToken
                         );
                     }}
-                    size="--fourxs"
-                    iconName={icon}
+                    variant="secondary"
+                    iconOnly
                     title="Notas guardadas"
-                    classCondition={`bookmark ${className}`}
-                />
+                    className={bookmarkClassCondition}
+                    isNegative={subtypeVideo}
+                >
+                    <Icon size={24} color="inherit">
+                        {bookmarkIcon}
+                    </Icon>
+                </Button>
             )}
-
             {displayComments && (
-                <ComButton
+                <Button
                     id="btncomments"
                     dataEvent="LinkClick"
                     dataSection="CompartirNotaLN"
@@ -120,17 +136,21 @@ const BuildFirtsButtonsGroup = ({
                         scrollToComments();
                         addEventToDataLayer('Ir a los comentarios');
                     }}
-                    size="--fivexs"
-                    iconName="chat"
+                    variant="secondary"
                     title="Ir a los comentarios de la nota"
-                    classCondition="comment-btn"
-                    textname={`${totalVisibleContent}`}
-                />
+                    className={classes.commentsClasses}
+                    isNegative={subtypeVideo}
+                    size="inherit"
+                >
+                    <Icon size={24} color="inherit">
+                        <Chat />
+                    </Icon>
+                    <Text>{totalVisibleContent}</Text>
+                </Button>
             )}
         </div>
     );
 };
-
 BuildFirtsButtonsGroup.propTypes = {
     globalContent: PropTypes.shape({
         _id: PropTypes.string,
@@ -157,7 +177,7 @@ BuildFirtsButtonsGroup.propTypes = {
     termicaBookmark: PropTypes.bool,
     openPlayer: PropTypes.bool,
     setOpenPlayer: PropTypes.func,
-    enableButton: PropTypes.bool
+    enableButton: PropTypes.bool,
+    subtypeVideo: PropTypes.string
 };
-
 export default BuildFirtsButtonsGroup;

@@ -1,6 +1,6 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
-import Header from '../private/LN10/header';
+import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import AperturaStorytelling from '../private/LN/nota/apertura/AperturaStorytelling';
 import '../../resources/dist/css/ln/pages/storytelling.css';

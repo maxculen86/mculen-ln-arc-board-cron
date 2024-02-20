@@ -3,7 +3,7 @@
 exports[`Components - Features - foodit-global - Common - HeaderFoodit should return buttons login and button suscribed when the user is unlogged 1`] = `
 <div>
   <div
-    class="common-header-container"
+    class="common-header-container mb-40"
   >
     <header
       class="common-header flex flex-column w-100"
@@ -117,10 +117,10 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     >
                       Recetas
                       <i
-                        class="icon dropdown-icon --icon-16 --inherit"
+                        class="icon dropdown-icon --inherit"
                       >
                         <svg
-                          fill="none"
+                          fill="inherit"
                           height="17"
                           viewBox="0 0 16 17"
                           width="16"
@@ -129,7 +129,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                           <path
                             clip-rule="evenodd"
                             d="M8.24267 9.13331L11.0713 6.30465C11.3316 6.04434 11.7537 6.04434 12.014 6.30465C12.2743 6.56496 12.2743 6.987 12.014 7.24731L8.94977 10.3115C8.55925 10.7021 7.92608 10.7021 7.53556 10.3115L4.47133 7.24731C4.21102 6.987 4.21102 6.56496 4.47133 6.30465C4.73164 6.04434 5.15369 6.04434 5.414 6.30465L8.24267 9.13331Z"
-                            fill="#272727"
+                            fill="inherit"
                             fill-rule="evenodd"
                           />
                         </svg>
@@ -804,10 +804,10 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     >
                       Descubrir
                       <i
-                        class="icon dropdown-icon --icon-16 --inherit"
+                        class="icon dropdown-icon --inherit"
                       >
                         <svg
-                          fill="none"
+                          fill="inherit"
                           height="17"
                           viewBox="0 0 16 17"
                           width="16"
@@ -816,7 +816,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                           <path
                             clip-rule="evenodd"
                             d="M8.24267 9.13331L11.0713 6.30465C11.3316 6.04434 11.7537 6.04434 12.014 6.30465C12.2743 6.56496 12.2743 6.987 12.014 7.24731L8.94977 10.3115C8.55925 10.7021 7.92608 10.7021 7.53556 10.3115L4.47133 7.24731C4.21102 6.987 4.21102 6.56496 4.47133 6.30465C4.73164 6.04434 5.15369 6.04434 5.414 6.30465L8.24267 9.13331Z"
-                            fill="#272727"
+                            fill="inherit"
                             fill-rule="evenodd"
                           />
                         </svg>

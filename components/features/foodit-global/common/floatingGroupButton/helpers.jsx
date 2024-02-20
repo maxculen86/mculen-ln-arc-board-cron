@@ -67,6 +67,16 @@ export const floatingButtonConfig = {
                 // TODO: agregar callback para el botón
             }
         ]
+    },
+    [layoutsName.FooditAcumuladoChef]: {
+        observerSelector: '.floating-button-sentinel',
+        className: defaultClassName,
+        buttons: defaultButtons
+    },
+    [layoutsName.FooditChef]: {
+        observerSelector: '.floating-button-sentinel',
+        className: defaultClassName,
+        buttons: defaultButtons
     }
 };
 

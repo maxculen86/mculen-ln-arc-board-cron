@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import classNames from 'classnames';
-import Header from '../../private/LN10/header';
+import Header from '../../features/LN-10-global/header/default';
 import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import AnexoDefault from '../../features/LN-common/anexo/default';
