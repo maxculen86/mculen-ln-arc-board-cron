@@ -5,7 +5,8 @@ import ModTooltip from '../../../../private/common/mod-tooltip';
 import {
     buttonsList,
     BtnContainer,
-    addEventToDataLayer
+    addEventToDataLayer,
+    setEventShare
 } from '../../../../private/LN/common/utils/shareHelper';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
@@ -52,7 +53,10 @@ const BuildSecondButtonsGroup = ({
                 label="Compartir"
                 className="sm-only"
                 isNegative={subtypeVideo}
-                onClick={shareButton}
+                onClick={() => {
+                    shareButton();
+                    setEventShare();
+                }}
             />
             {buttonsList.map(
                 ({

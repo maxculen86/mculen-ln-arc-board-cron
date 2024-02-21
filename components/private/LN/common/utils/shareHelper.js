@@ -208,6 +208,15 @@ export const addEventToDataLayer = clickText => {
     });
 };
 
+export const setEventShare = () => {
+    window.dataLayer.push({
+        event: 'e_linkclick',
+        dynamic_action: 'toolbard',
+        dynamic_category: 'nota_ln9',
+        dynamic_label: 'compartir_mobile'
+    });
+};
+
 export const buttonsList = [
     {
         dataEvent: 'LinkClick',
