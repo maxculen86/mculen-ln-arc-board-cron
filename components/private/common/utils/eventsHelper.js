@@ -92,22 +92,17 @@ export const setEventsSections = () => {
     });
 };
 
-export const setEventSearch = () => {
-    dynamicallyLoadScript('//www.queryly.com/js/queryly.v4.js', 'body').then(
-        () => {
+export const getQuerylyScript = () => {
+    window.addEventListener('DOMContentLoaded', () => {
+        dynamicallyLoadScript(
+            '//www.queryly.com/js/queryly.v4.js',
+            'body'
+        ).then(() => {
             const initScript = document.createElement('script');
             initScript.innerHTML = `queryly.init('8075c0c1c4c44847', document.querySelectorAll('#fusion-app'));`;
             document.body.appendChild(initScript);
-
-            const searchIcon = window.document.querySelector('#querylyButton');
-            const payload = {
-                action: 'header_logo',
-                label: 'buscar'
-            };
-
-            addEventListeners(searchIcon, payload);
-        }
-    );
+        });
+    });
 };
 
 export const setEventsWeather = () => {

@@ -5,9 +5,10 @@ import { Icon } from '@ln/common-ui-icon';
 import { Menu, Search } from '@ln/contenidos-ui-assets';
 import { useHeaderContext } from '../../context';
 import { sectionsCallback } from '../_helper';
+import { getQuerylyScript } from '../../../../../private/common/utils/eventsHelper';
+import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 import classNames from 'classnames';
-import { setEventSearch } from '../../../../../private/common/utils/eventsHelper';
 
 export const LeftOptions = () => {
     const { toggleDesplegable, negative } = useHeaderContext();
@@ -34,17 +35,28 @@ export const LeftOptions = () => {
                 </Icon>
                 <Text className="text-14">SECCIONES</Text>
             </Button>
+
             <label
-                onClick={setEventSearch}
-                id="querylyButton"
                 htmlFor="queryly_toggle"
                 title="Ir al buscador"
                 className={customButtonsClassName}
+                onClick={() =>
+                    addEventToDataLayer({
+                        event: 'e_linkclick',
+                        action: 'header_logo',
+                        category: 'home_ln10',
+                        label: 'search'
+                    })
+                }
             >
                 <Icon size={24} color="inherit">
                     <Search />
                 </Icon>
             </label>
+
+            <script
+                dangerouslySetInnerHTML={{ __html: `${getQuerylyScript()}` }}
+            />
         </>
     );
 };
