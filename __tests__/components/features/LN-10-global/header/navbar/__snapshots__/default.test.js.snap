@@ -40,7 +40,6 @@ exports[`components - features - LN-10-global - header - navbar should match sna
         <label
           class="--font-2xs"
           for="queryly_toggle"
-          id="querylyButton"
           title="Ir al buscador"
         >
           <i

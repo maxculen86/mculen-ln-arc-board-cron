@@ -239,17 +239,6 @@ class EventsHelper {
         });
     }
 
-    setEventSearch() {
-        const searchIcon = window.document.querySelector('#querylyButton');
-
-        const payload = {
-            action: 'header_logo',
-            label: 'buscar'
-        };
-
-        this.addEventListeners(searchIcon, payload);
-    }
-
     setEventsGames() {
         const games = window.document.querySelectorAll('.ln-card-games > a');
         const ACTION = 'jugar';

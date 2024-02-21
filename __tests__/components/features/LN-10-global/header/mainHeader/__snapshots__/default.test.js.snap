@@ -46,7 +46,6 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
             <label
               class="button ln-button rounded-4 p-4 text-light-700 bg-secondary__hover"
               for="queryly_toggle"
-              id="querylyButton"
               title="Ir al buscador"
             >
               <i
@@ -64,6 +63,9 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 </svg>
               </i>
             </label>
+            <div
+              id="mock-getQuerylyScript"
+            />
           </div>
           <div
             class="center-options flex jc-start jc-center_lg ai-center"
