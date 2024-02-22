@@ -24,18 +24,10 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
               <i
                 class="icon --icon-24 --inherit"
               >
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    clip-rule="evenodd"
-                    d="M3 5a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 7a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1m0 7a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1"
-                    fill="#272727"
-                    fill-rule="evenodd"
-                  />
-                </svg>
+                <mock-icon
+                  critical="true"
+                  name="menu"
+                />
               </i>
               <span
                 class="text ln-text text-14"
@@ -51,16 +43,10 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
               <i
                 class="icon --icon-24 --inherit"
               >
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="m18.031 16.617 4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617m-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975z"
-                    fill="#272727"
-                  />
-                </svg>
+                <mock-icon
+                  critical="true"
+                  name="search"
+                />
               </i>
             </label>
             <div
@@ -276,25 +262,11 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 class="icon --mobile-none --icon-16"
                 icon="suscriptorExclusivo"
               >
-                <svg
-                  fill="none"
-                  viewBox="0 0 32 33"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    fill="#0D0D0D"
-                    height="32"
-                    rx="16"
-                    width="32"
-                    y="0.298"
-                  />
-                  <path
-                    clip-rule="evenodd"
-                    d="M12.706 12.13H8v.874h1.092v6.253H8v.874h6.878v-3.394H14v.503c0 .826-.268 1.314-.678 1.605-.423.3-1.025.412-1.732.412h-.088v-6.253h1.204zm6.151 0h-3.419v.874h.357c.33 0 .663.271.663.682v4.964c0 .3-.08.435-.163.503-.092.075-.228.104-.408.104H15.4v.874h3.04v-.874h-.38a2.71 2.71 0 0 1-.413-.024.574.574 0 0 1-.23-.077c-.083-.056-.146-.16-.146-.45v-4.443l4.517 5.868h1.156v-6.717a.35.35 0 0 1 .125-.262c.09-.079.246-.148.496-.148H24v-.873h-3.046v.873h.497c.257 0 .427.048.529.121.09.066.144.163.144.323v2.912z"
-                    fill="#FDB727"
-                    fill-rule="evenodd"
-                  />
-                </svg>
+                <mock-icon
+                  critical="true"
+                  fill="#FDB727"
+                  name="exclusivoSuscriptores"
+                />
               </i>
               <span>
                 Suscribite

@@ -39,16 +39,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
           <i
             class="icon mr-16 --icon-48"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12m0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8M11 1h2v3h-2zm0 19h2v3h-2zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414zm2.121-14.85 1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414zM23 11v2h-3v-2zM4 11v2H1v-2z"
-                fill="#272727"
-              />
-            </svg>
+            <mock-icon
+              critical="true"
+              name="sun"
+            />
           </i>
           <p
             class="com-text --font-bold --xl"
@@ -71,16 +65,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
               class="icon mb-4 --icon-24"
               title="Humedad"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="m12 3.828-4.95 4.95a7 7 0 1 0 9.9 0zM12 1l6.364 6.364a9 9 0 1 1-12.728 0z"
-                  fill="#000"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="drop"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -95,16 +83,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
               class="icon mb-4 --icon-24"
               title="Dirección del viento"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.5 17H4v-2h6.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 10.5 17M5 11h13.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 18.5 13H5a3 3 0 1 1 0-6h8.5a1.5 1.5 0 1 0-1.405-2.027l-1.873-.702A3.501 3.501 0 0 1 17 5.5 3.5 3.5 0 0 1 13.5 9H5a1 1 0 1 0 0 2"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="windy"
+              />
             </i>
             <span
               title="Noroeste 9Km/h"
@@ -119,16 +101,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
               class="icon mb-4 --icon-24"
               title="Probabilidad de lluvia"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 16.93a8 8 0 1 1 11.458-9.831A5.5 5.5 0 0 1 19 17.793v-2.13a3.5 3.5 0 1 0-4-5.612V10a6 6 0 1 0-10 4.472zM7 14h2v6H7zm8 0h2v6h-2zm-4 3h2v6h-2z"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="rain"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -161,16 +137,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
           <i
             class="icon mr-16 --icon-48"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12m0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8M11 1h2v3h-2zm0 19h2v3h-2zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414zm2.121-14.85 1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414zM23 11v2h-3v-2zM4 11v2H1v-2z"
-                fill="#272727"
-              />
-            </svg>
+            <mock-icon
+              critical="true"
+              name="sun"
+            />
           </i>
           <p
             class="com-text --font-bold --xl"
@@ -193,16 +163,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
               class="icon mb-4 --icon-24"
               title="Humedad"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="m12 3.828-4.95 4.95a7 7 0 1 0 9.9 0zM12 1l6.364 6.364a9 9 0 1 1-12.728 0z"
-                  fill="#000"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="drop"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -217,16 +181,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
               class="icon mb-4 --icon-24"
               title="Dirección del viento"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.5 17H4v-2h6.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 10.5 17M5 11h13.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 18.5 13H5a3 3 0 1 1 0-6h8.5a1.5 1.5 0 1 0-1.405-2.027l-1.873-.702A3.501 3.501 0 0 1 17 5.5 3.5 3.5 0 0 1 13.5 9H5a1 1 0 1 0 0 2"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="windy"
+              />
             </i>
             <span
               title="Noroeste 9Km/h"
@@ -241,16 +199,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
               class="icon mb-4 --icon-24"
               title="Probabilidad de lluvia"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 16.93a8 8 0 1 1 11.458-9.831A5.5 5.5 0 0 1 19 17.793v-2.13a3.5 3.5 0 1 0-4-5.612V10a6 6 0 1 0-10 4.472zM7 14h2v6H7zm8 0h2v6h-2zm-4 3h2v6h-2z"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="rain"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -283,16 +235,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
           <i
             class="icon mr-16 --icon-48"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12m0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8M11 1h2v3h-2zm0 19h2v3h-2zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414zm2.121-14.85 1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414zM23 11v2h-3v-2zM4 11v2H1v-2z"
-                fill="#272727"
-              />
-            </svg>
+            <mock-icon
+              critical="true"
+              name="sun"
+            />
           </i>
           <p
             class="com-text --font-bold --xl"
@@ -315,16 +261,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
               class="icon mb-4 --icon-24"
               title="Humedad"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="m12 3.828-4.95 4.95a7 7 0 1 0 9.9 0zM12 1l6.364 6.364a9 9 0 1 1-12.728 0z"
-                  fill="#000"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="drop"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -339,16 +279,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
               class="icon mb-4 --icon-24"
               title="Dirección del viento"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.5 17H4v-2h6.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 10.5 17M5 11h13.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 18.5 13H5a3 3 0 1 1 0-6h8.5a1.5 1.5 0 1 0-1.405-2.027l-1.873-.702A3.501 3.501 0 0 1 17 5.5 3.5 3.5 0 0 1 13.5 9H5a1 1 0 1 0 0 2"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="windy"
+              />
             </i>
             <span
               title="Noroeste 9Km/h"
@@ -363,16 +297,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test forec
               class="icon mb-4 --icon-24"
               title="Probabilidad de lluvia"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 16.93a8 8 0 1 1 11.458-9.831A5.5 5.5 0 0 1 19 17.793v-2.13a3.5 3.5 0 1 0-4-5.612V10a6 6 0 1 0-10 4.472zM7 14h2v6H7zm8 0h2v6h-2zm-4 3h2v6h-2z"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="rain"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -426,16 +354,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
           <i
             class="icon mr-16 --icon-48"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12m0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8M11 1h2v3h-2zm0 19h2v3h-2zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414zm2.121-14.85 1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414zM23 11v2h-3v-2zM4 11v2H1v-2z"
-                fill="#272727"
-              />
-            </svg>
+            <mock-icon
+              critical="true"
+              name="sun"
+            />
           </i>
           <p
             class="com-text --font-bold --xl"
@@ -458,16 +380,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Humedad"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="m12 3.828-4.95 4.95a7 7 0 1 0 9.9 0zM12 1l6.364 6.364a9 9 0 1 1-12.728 0z"
-                  fill="#000"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="drop"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -482,16 +398,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Dirección del viento"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.5 17H4v-2h6.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 10.5 17M5 11h13.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 18.5 13H5a3 3 0 1 1 0-6h8.5a1.5 1.5 0 1 0-1.405-2.027l-1.873-.702A3.501 3.501 0 0 1 17 5.5 3.5 3.5 0 0 1 13.5 9H5a1 1 0 1 0 0 2"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="windy"
+              />
             </i>
             <span
               title="Noroeste 9Km/h"
@@ -506,16 +416,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Probabilidad de lluvia"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 16.93a8 8 0 1 1 11.458-9.831A5.5 5.5 0 0 1 19 17.793v-2.13a3.5 3.5 0 1 0-4-5.612V10a6 6 0 1 0-10 4.472zM7 14h2v6H7zm8 0h2v6h-2zm-4 3h2v6h-2z"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="rain"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -548,16 +452,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
           <i
             class="icon mr-16 --icon-48"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12m0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8M11 1h2v3h-2zm0 19h2v3h-2zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414zm2.121-14.85 1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414zM23 11v2h-3v-2zM4 11v2H1v-2z"
-                fill="#272727"
-              />
-            </svg>
+            <mock-icon
+              critical="true"
+              name="sun"
+            />
           </i>
           <p
             class="com-text --font-bold --xl"
@@ -580,16 +478,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Humedad"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="m12 3.828-4.95 4.95a7 7 0 1 0 9.9 0zM12 1l6.364 6.364a9 9 0 1 1-12.728 0z"
-                  fill="#000"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="drop"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -604,16 +496,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Dirección del viento"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.5 17H4v-2h6.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 10.5 17M5 11h13.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 18.5 13H5a3 3 0 1 1 0-6h8.5a1.5 1.5 0 1 0-1.405-2.027l-1.873-.702A3.501 3.501 0 0 1 17 5.5 3.5 3.5 0 0 1 13.5 9H5a1 1 0 1 0 0 2"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="windy"
+              />
             </i>
             <span
               title="Noroeste 9Km/h"
@@ -628,16 +514,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Probabilidad de lluvia"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 16.93a8 8 0 1 1 11.458-9.831A5.5 5.5 0 0 1 19 17.793v-2.13a3.5 3.5 0 1 0-4-5.612V10a6 6 0 1 0-10 4.472zM7 14h2v6H7zm8 0h2v6h-2zm-4 3h2v6h-2z"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="rain"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -670,16 +550,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
           <i
             class="icon mr-16 --icon-48"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12m0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8M11 1h2v3h-2zm0 19h2v3h-2zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414zm2.121-14.85 1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414zM23 11v2h-3v-2zM4 11v2H1v-2z"
-                fill="#272727"
-              />
-            </svg>
+            <mock-icon
+              critical="true"
+              name="sun"
+            />
           </i>
           <p
             class="com-text --font-bold --xl"
@@ -702,16 +576,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Humedad"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="m12 3.828-4.95 4.95a7 7 0 1 0 9.9 0zM12 1l6.364 6.364a9 9 0 1 1-12.728 0z"
-                  fill="#000"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="drop"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -726,16 +594,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Dirección del viento"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.5 17H4v-2h6.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 10.5 17M5 11h13.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 18.5 13H5a3 3 0 1 1 0-6h8.5a1.5 1.5 0 1 0-1.405-2.027l-1.873-.702A3.501 3.501 0 0 1 17 5.5 3.5 3.5 0 0 1 13.5 9H5a1 1 0 1 0 0 2"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="windy"
+              />
             </i>
             <span
               title="Noroeste 9Km/h"
@@ -750,16 +612,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Probabilidad de lluvia"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 16.93a8 8 0 1 1 11.458-9.831A5.5 5.5 0 0 1 19 17.793v-2.13a3.5 3.5 0 1 0-4-5.612V10a6 6 0 1 0-10 4.472zM7 14h2v6H7zm8 0h2v6h-2zm-4 3h2v6h-2z"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="rain"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -813,16 +669,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
           <i
             class="icon mr-16 --icon-48"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12m0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8M11 1h2v3h-2zm0 19h2v3h-2zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414zm2.121-14.85 1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414zM23 11v2h-3v-2zM4 11v2H1v-2z"
-                fill="#272727"
-              />
-            </svg>
+            <mock-icon
+              critical="true"
+              name="sun"
+            />
           </i>
           <p
             class="com-text --font-bold --xl"
@@ -845,16 +695,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Humedad"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="m12 3.828-4.95 4.95a7 7 0 1 0 9.9 0zM12 1l6.364 6.364a9 9 0 1 1-12.728 0z"
-                  fill="#000"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="drop"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -869,16 +713,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Dirección del viento"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.5 17H4v-2h6.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 10.5 17M5 11h13.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 18.5 13H5a3 3 0 1 1 0-6h8.5a1.5 1.5 0 1 0-1.405-2.027l-1.873-.702A3.501 3.501 0 0 1 17 5.5 3.5 3.5 0 0 1 13.5 9H5a1 1 0 1 0 0 2"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="windy"
+              />
             </i>
             <span
               title="Noroeste 9Km/h"
@@ -893,16 +731,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Probabilidad de lluvia"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 16.93a8 8 0 1 1 11.458-9.831A5.5 5.5 0 0 1 19 17.793v-2.13a3.5 3.5 0 1 0-4-5.612V10a6 6 0 1 0-10 4.472zM7 14h2v6H7zm8 0h2v6h-2zm-4 3h2v6h-2z"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="rain"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -935,16 +767,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
           <i
             class="icon mr-16 --icon-48"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12m0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8M11 1h2v3h-2zm0 19h2v3h-2zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414zm2.121-14.85 1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414zM23 11v2h-3v-2zM4 11v2H1v-2z"
-                fill="#272727"
-              />
-            </svg>
+            <mock-icon
+              critical="true"
+              name="sun"
+            />
           </i>
           <p
             class="com-text --font-bold --xl"
@@ -967,16 +793,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Humedad"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="m12 3.828-4.95 4.95a7 7 0 1 0 9.9 0zM12 1l6.364 6.364a9 9 0 1 1-12.728 0z"
-                  fill="#000"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="drop"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -991,16 +811,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Dirección del viento"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.5 17H4v-2h6.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 10.5 17M5 11h13.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 18.5 13H5a3 3 0 1 1 0-6h8.5a1.5 1.5 0 1 0-1.405-2.027l-1.873-.702A3.501 3.501 0 0 1 17 5.5 3.5 3.5 0 0 1 13.5 9H5a1 1 0 1 0 0 2"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="windy"
+              />
             </i>
             <span
               title="Noroeste 9Km/h"
@@ -1015,16 +829,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Probabilidad de lluvia"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 16.93a8 8 0 1 1 11.458-9.831A5.5 5.5 0 0 1 19 17.793v-2.13a3.5 3.5 0 1 0-4-5.612V10a6 6 0 1 0-10 4.472zM7 14h2v6H7zm8 0h2v6h-2zm-4 3h2v6h-2z"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="rain"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -1057,16 +865,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
           <i
             class="icon mr-16 --icon-48"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12m0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8M11 1h2v3h-2zm0 19h2v3h-2zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414zm2.121-14.85 1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414zM23 11v2h-3v-2zM4 11v2H1v-2z"
-                fill="#272727"
-              />
-            </svg>
+            <mock-icon
+              critical="true"
+              name="sun"
+            />
           </i>
           <p
             class="com-text --font-bold --xl"
@@ -1089,16 +891,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Humedad"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="m12 3.828-4.95 4.95a7 7 0 1 0 9.9 0zM12 1l6.364 6.364a9 9 0 1 1-12.728 0z"
-                  fill="#000"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="drop"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"
@@ -1113,16 +909,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Dirección del viento"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M10.5 17H4v-2h6.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 10.5 17M5 11h13.5a3.5 3.5 0 1 1-3.278 4.73l1.873-.703A1.5 1.5 0 1 0 18.5 13H5a3 3 0 1 1 0-6h8.5a1.5 1.5 0 1 0-1.405-2.027l-1.873-.702A3.501 3.501 0 0 1 17 5.5 3.5 3.5 0 0 1 13.5 9H5a1 1 0 1 0 0 2"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="windy"
+              />
             </i>
             <span
               title="Noroeste 9Km/h"
@@ -1137,16 +927,10 @@ exports[`Components - private - services - weather - ForecastByDay => Test when 
               class="icon mb-4 --icon-24"
               title="Probabilidad de lluvia"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 16.93a8 8 0 1 1 11.458-9.831A5.5 5.5 0 0 1 19 17.793v-2.13a3.5 3.5 0 1 0-4-5.612V10a6 6 0 1 0-10 4.472zM7 14h2v6H7zm8 0h2v6h-2zm-4 3h2v6h-2z"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                critical="true"
+                name="rain"
+              />
             </i>
             <span
               class="com-text --font-bold --4xs"

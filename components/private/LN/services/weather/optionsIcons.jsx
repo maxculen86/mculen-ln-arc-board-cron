@@ -1,32 +1,19 @@
 import React from 'react';
-import {
-    ClearNight,
-    Cloudy,
-    Rain,
-    RainyCloudy,
-    Snow,
-    SnowCloudy,
-    Storm,
-    StormCloudy,
-    Sun,
-    SunCloudy,
-    Windy,
-    Drop
-} from '@ln/contenidos-ui-assets';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 const optionsIcons = {
-    sun: <Sun />,
-    'clear-night': <ClearNight />,
-    windy: <Windy />,
-    'sun-cloudy': <SunCloudy />,
-    cloudy: <Cloudy />,
-    'rainy-cloudy': <RainyCloudy />,
-    rain: <Rain />,
-    'storm-cloudy': <StormCloudy />,
-    storm: <Storm />,
-    'snow-cloudy': <SnowCloudy />,
-    snow: <Snow />,
-    drop: <Drop />
+    sun: <IconSprite name="sun" critical />,
+    'clear-night': <IconSprite name="clearNight" critical />,
+    windy: <IconSprite name="windy" critical />,
+    'sun-cloudy': <IconSprite name="sunCloudy" critical />,
+    cloudy: <IconSprite name="cloudy" critical />,
+    'rainy-cloudy': <IconSprite name="rainyCloudy" critical />,
+    rain: <IconSprite name="rain" critical />,
+    'storm-cloudy': <IconSprite name="stormCloudy" critical />,
+    storm: <IconSprite name="storm" critical />,
+    'snow-cloudy': <IconSprite name="snowCloudy" critical />,
+    snow: <IconSprite name="snow" critical />,
+    drop: <IconSprite name="drop" critical />
 };
 
 export default optionsIcons;

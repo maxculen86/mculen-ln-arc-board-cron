@@ -1,13 +1,6 @@
 import * as React from 'react';
 import { SITE_LANACION, API_ENV, MY_ACCOUNT_URL } from 'fusion:environment';
-import {
-    Home,
-    Search,
-    Sections,
-    Bookmark,
-    Profile,
-    ClubLnDefault
-} from '@ln/contenidos-ui-assets';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 const bookmarkUrl =
@@ -30,7 +23,7 @@ export const getNavbarItems = (
 ) => [
     {
         text: 'Inicio',
-        icon: <Home />,
+        icon: <IconSprite name="home" critical />,
         className: 'home',
         link: isHome ? '#' : `${SITE_LANACION}/`,
         callback: () => {
@@ -39,7 +32,7 @@ export const getNavbarItems = (
     },
     {
         text: 'Buscar',
-        icon: <Search />,
+        icon: <IconSprite name="search" critical />,
         className: 'search',
         htmlFor: 'queryly_toggle',
         callback: () => {
@@ -48,7 +41,7 @@ export const getNavbarItems = (
     },
     {
         text: 'Secciones',
-        icon: <Sections />,
+        icon: <IconSprite name="sections" critical />,
         className: 'sections',
         link: '#',
         callback: e => {
@@ -60,7 +53,7 @@ export const getNavbarItems = (
     isSubscribed
         ? withBookmark && {
               text: 'Mis Notas',
-              icon: <Bookmark />,
+              icon: <IconSprite name="bookmark" critical />,
               className: 'bookmark',
               link: bookmarkUrl,
               callback: () => {
@@ -69,7 +62,7 @@ export const getNavbarItems = (
           }
         : {
               text: 'Club LN',
-              icon: <ClubLnDefault />,
+              icon: <IconSprite name="clubLnDefault" critical />,
               className: 'club-ln',
               link: 'https://club.lanacion.com.ar/',
               callback: () => {
@@ -78,7 +71,7 @@ export const getNavbarItems = (
           },
     {
         text: 'Perfil',
-        icon: <Profile />,
+        icon: <IconSprite name="profile" critical />,
         className: 'profile',
         link: `${MY_ACCOUNT_URL}/mi-usuario/`,
         callback: () => {
