@@ -1201,6 +1201,10 @@ b, strong {
   width: 12.625rem;
 }
 
+.w-240 {
+  width: 15rem;
+}
+
 .w-288 {
   width: 18rem;
 }
@@ -1216,6 +1220,9 @@ b, strong {
   }
   .w-20_md {
     width: 1.25rem;
+  }
+  .w-51_md {
+    width: 3.1875rem;
   }
   .w-328_md {
     width: 20.5rem;
@@ -1254,6 +1261,14 @@ b, strong {
 
 .h-5 {
   height: 0.3125rem;
+}
+
+.h-24 {
+  height: 1.5rem;
+}
+
+.h-28 {
+  height: 1.75rem;
 }
 
 .h-32 {
@@ -1303,11 +1318,20 @@ b, strong {
 }
 
 @media (min-width: 48rem) {
+  .h-16_md {
+    height: 1rem;
+  }
+  .h-37_md {
+    height: 2.3125rem;
+  }
   .h-44_md {
     height: 2.75rem;
   }
 }
 @media (min-width: 80rem) {
+  .h-42_lg {
+    height: 2.625rem;
+  }
   .h-52_lg {
     height: 3.25rem;
   }

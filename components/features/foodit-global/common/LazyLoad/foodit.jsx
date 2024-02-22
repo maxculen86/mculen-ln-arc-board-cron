@@ -1,9 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
-import Placeholder from '../Placeholder/foodit';
+import { SkeletonCarousel } from '../skeletons/Carousel/foodit';
 
 export const LazyLoad = ({
     children,
-    PlaceholderComponent = Placeholder,
+    PlaceholderComponent = SkeletonCarousel,
     showComponent = true,
     rootMargin = '600px',
     threshold = 0.1,
