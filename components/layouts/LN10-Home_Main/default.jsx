@@ -17,14 +17,12 @@ import {
     getStickyBanner
 } from '../../private/common/banners/bannersRules';
 import { homeLayoutsPropTypes } from '../../private/common/utils/propTypesHelper';
-import {
-    createViewabilityObservers,
-    productClickFromServer
-} from '../../private/common/utils/viewability';
+import { createViewabilityObservers } from '../../private/common/utils/viewability';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamicBannersHelper';
 import Ranking from '../../features/LN-10/ranking/default';
 import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
+import ScriptViewability from '../../private/common/utils/ScriptViewability';
 import {
     createBannersIntersectionObserver,
     createDifferVideosObserver,
@@ -192,7 +190,7 @@ const LN10Home = props => {
             <Metarefresh />
             <Pwamodal outputType={outputType} />
             <RoofEventsScript />
-            {productClickFromServer()}
+            <ScriptViewability />
         </GlobalProvider>
     );
 };

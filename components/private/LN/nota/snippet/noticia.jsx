@@ -174,10 +174,12 @@ const SnippetNoticia = props => {
         dateModified: dateModifiedISO,
         mainEntityOfPage: addForwardSlash(`${siteProperties.host}${path}`),
         articleSection: `${name}`,
-        isAccessibleForFree: `${contentCode === 'abierta'}`,
+        isAccessibleForFree:
+            contentCode === 'abierta' || contentCode === 'comun',
         hasPart: {
             '@type': 'WebPageElement',
-            isAccessibleForFree: `${contentCode === 'abierta'}`,
+            isAccessibleForFree:
+                contentCode === 'abierta' || contentCode === 'comun',
             cssSelector: '.nota'
         },
         isPartOf: {

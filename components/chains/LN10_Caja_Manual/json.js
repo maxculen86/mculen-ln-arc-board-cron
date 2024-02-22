@@ -12,7 +12,7 @@ class CajaManual extends GetCajaManual {
     validate = propsValidate => {
         const {
             id: chainId,
-            customFields: { layout = '' },
+            customFields: { layout = '', chainStyle },
             renderables = []
         } = propsValidate;
 
@@ -22,7 +22,7 @@ class CajaManual extends GetCajaManual {
 
         childrenRenders = childrenRenders && childrenRenders.children;
 
-        return validateCajaManual(layout, childrenRenders);
+        return validateCajaManual(layout, childrenRenders, chainStyle);
     };
 
     render() {
