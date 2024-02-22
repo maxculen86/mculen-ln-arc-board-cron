@@ -9,7 +9,6 @@ import {
     ClubLnDefault
 } from '@ln/contenidos-ui-assets';
 import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
-import { setEventSearch } from '../../../../private/common/utils/eventsHelper';
 
 const bookmarkUrl =
     API_ENV === 'prod'
@@ -42,10 +41,8 @@ export const getNavbarItems = (
         text: 'Buscar',
         icon: <Search />,
         className: 'search',
-        id: 'querylyButton',
         htmlFor: 'queryly_toggle',
         callback: () => {
-            setEventSearch();
             addEventToDataLayer(getEventData('buscar'));
         }
     },

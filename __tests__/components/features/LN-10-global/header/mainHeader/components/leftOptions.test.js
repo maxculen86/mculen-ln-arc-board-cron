@@ -4,7 +4,10 @@ import { render, fireEvent } from '@testing-library/react';
 import { LeftOptions } from '../../../../../../../components/features/LN-10-global/header/mainHeader/components/leftOptions';
 import { useHeaderContext } from '../../../../../../../components/features/LN-10-global/header/context';
 import { sectionsCallback } from '../../../../../../../components/features/LN-10-global/header/mainHeader/_helper';
-import { setEventSearch } from '../../../../../../../components/private/common/utils/eventsHelper';
+
+jest.mock('fusion:context', () => () => ({
+    useAppContext: jest.fn()
+}));
 
 jest.mock(
     '../../../../../../../components/features/LN-10-global/header/context',
@@ -14,20 +17,20 @@ jest.mock(
         };
     }
 );
-jest.mock(
-    '../../../../../../../components/private/common/utils/eventsHelper',
-    () => {
-        return {
-            setEventSearch: jest.fn()
-        };
-    }
-);
+
 jest.mock(
     '../../../../../../../components/features/LN-10-global/header/mainHeader/_helper',
     () => {
         return {
             sectionsCallback: jest.fn()
         };
+    }
+);
+
+jest.mock(
+    '../../../../../../../components/private/common/scriptManager/GetQuerylyScript',
+    () => {
+        return jest.fn(() => <div id="mock-getQuerylyScript" />);
     }
 );
 describe('components - features - LN-10-global - header - mainHeader - leftOptions', () => {
@@ -43,11 +46,5 @@ describe('components - features - LN-10-global - header - mainHeader - leftOptio
         const button = getByRole('button', { name: 'SECCIONES' });
         fireEvent.click(button);
         expect(sectionsCallback).toHaveBeenCalledTimes(1);
-    });
-    it('should execute a setEventSearch when the Search Button is clicked', () => {
-        const { container } = render(<LeftOptions />);
-        const button = container.querySelector('#querylyButton');
-        fireEvent.click(button);
-        expect(setEventSearch).toHaveBeenCalled();
     });
 });

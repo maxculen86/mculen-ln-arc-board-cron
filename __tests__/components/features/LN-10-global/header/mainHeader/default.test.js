@@ -59,6 +59,13 @@ jest.mock(
     }
 );
 
+jest.mock(
+    '../../../../../../components/private/common/scriptManager/GetQuerylyScript',
+    () => {
+        return jest.fn(() => <div id="mock-getQuerylyScript" />);
+    }
+);
+
 describe('components - features - LN-10-global - header - mainHeader - default', () => {
     Context.useAppContext = jest.fn(() => ({}));
     it('should render successfully', () => {
