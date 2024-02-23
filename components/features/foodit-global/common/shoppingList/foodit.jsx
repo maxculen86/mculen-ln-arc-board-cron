@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useShoppingList } from './hooks/useShoppingList';
 import EmptyState from '../emptyState/foodit';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
@@ -9,15 +9,34 @@ import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { useAppContext } from 'fusion:context';
+import { copyListToClipboard } from './_helpers';
 
 const ShoppingList = () => {
     const { contextPath, deployment } = useAppContext();
-    const { loading, isMobile, shoppingList } = useShoppingList();
+
+    const {
+        loading,
+        isMobile,
+        shoppingList,
+        setShoppingList
+    } = useShoppingList();
+
+    const [selectedItem, setSelectedItem] = useState({ id: 'Todas' });
+
+    const selectedArticle = shoppingList.find(
+        list => list.id === selectedItem.id
+    );
+
+    const displayList =
+        selectedItem.id !== 'Todas' ? [selectedArticle] : shoppingList;
+
+    if (selectedItem.id !== 'Todas' && !selectedArticle)
+        setSelectedItem({ id: 'Todas' });
 
     // TODO: agregar loader cuando esté definido
     if (loading) return <div className="h-250 bg-positive">Cargando...</div>;
 
-    if (shoppingList.length === 0)
+    if (!shoppingList.length)
         return (
             <EmptyState
                 title="Aún no hay nada por aca"
@@ -38,19 +57,33 @@ const ShoppingList = () => {
             <aside className="sm-none col-span-5 bg-positive p-24 p-32_lg">
                 <CollectionBox
                     title="Colecciones"
-                    list={shoppingList}
+                    list={[
+                        {
+                            text: 'Todas',
+                            quantity: shoppingList.length,
+                            id: 'Todas'
+                        },
+                        ...shoppingList
+                    ]}
                     button={
-                        // TODO: agregar funcionalidad para el onClick
-                        <Button title="copiar" onClick={() => null}>
+                        <Button
+                            title="copiar"
+                            onClick={() => copyListToClipboard(shoppingList)}
+                        >
                             <Icon size={16}>
                                 <IconSprite name="copy" />
                             </Icon>
                             Copiar todo
                         </Button>
                     }
+                    onItemSelected={setSelectedItem}
                 />
             </aside>
-            <IngredientsList list={shoppingList} isMobile={isMobile} />
+            <IngredientsList
+                list={displayList}
+                isMobile={isMobile}
+                setShoppingList={setShoppingList}
+            />
             <ModalRemoveIngredient />
         </div>
     );

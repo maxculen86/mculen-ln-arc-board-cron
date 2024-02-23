@@ -8,7 +8,13 @@ import SummaryBox from './summaryBox/foodit';
 import get from '../../../../private/common/utils/get';
 
 export const PowerupsReceta = ({ article = {} }) => {
-    const { content_elements = [], promo_items = {}, taxonomy = {} } = article;
+    const {
+        content_elements = [],
+        promo_items = {},
+        taxonomy = {},
+        headlines = {},
+        _id = ''
+    } = article;
 
     const {
         prepTime,
@@ -75,10 +81,12 @@ export const PowerupsReceta = ({ article = {} }) => {
             </div>
             <div className="bg-positive flex flex-column gap-16 p-16 p-24_md p-32_lg">
                 <Ingredients
+                    articleId={_id}
                     ingredientsLists={[
                         ...ingredientsLists,
                         ...customIngredientsLists
                     ]}
+                    title={get(headlines, 'basic', '')}
                     portions={counterPortion}
                 />
                 <hr />

@@ -1,11 +1,12 @@
+import React from 'react';
 import { Icon } from '@ln/common-ui-icon';
 import { Button } from '@ln/foodit-ui-button';
 import { Dropdown } from '@ln/common-ui-dropdown';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
-import { recipeOptionsConfig } from '../helpers/recipeOptionsConfig';
+import { copyListToClipboard } from '../../shoppingList/_helpers';
 
-export const RecipeOptions = ({ recipeName }) => {
+export const RecipeOptions = ({ list, bookmarkId, setShoppingList }) => {
     const handleClick = e => {
         e.preventDefault();
         e.stopPropagation();
@@ -34,16 +35,41 @@ export const RecipeOptions = ({ recipeName }) => {
                 className="bg-light-1 p-24 rounded-4 shadow-center"
             >
                 <ul className="w-202">
-                    {recipeOptionsConfig.map(
-                        ({ icon, onClick, ...item }, i) => (
-                            <Itemcard
-                                key={i}
-                                icon={<IconSprite name={icon} />}
-                                onClick={() => onClick(recipeName)}
-                                {...item}
-                            />
-                        )
-                    )}
+                    <Itemcard
+                        key={`copy-${bookmarkId}`}
+                        icon={<IconSprite name={'copy'} />}
+                        onClick={() =>
+                            copyListToClipboard([
+                                list.find(
+                                    articleList =>
+                                        articleList.bookmarkId === bookmarkId
+                                )
+                            ])
+                        }
+                        text="copiar"
+                        variant="default"
+                        type="button"
+                    />
+                    <Itemcard
+                        key={`delete-${bookmarkId}`}
+                        icon={<IconSprite name={'delete'} />}
+                        onClick={() =>
+                            window.LN.observable.publish(
+                                'showModalIngredient',
+                                {
+                                    show: true,
+                                    data: {
+                                        type: 'recipe',
+                                        bookmarkId,
+                                        setShoppingList
+                                    }
+                                }
+                            )
+                        }
+                        text="Eliminar"
+                        variant="danger"
+                        type="button"
+                    />
                 </ul>
             </Dropdown.Menu>
         </Dropdown>

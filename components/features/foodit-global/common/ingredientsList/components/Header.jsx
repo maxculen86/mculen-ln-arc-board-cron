@@ -2,7 +2,12 @@ import React from 'react';
 import { Text } from '@ln/common-ui-text';
 import { RecipeOptions } from './RecipeOptions';
 
-export const IngredientsListHeader = ({ title }) => {
+export const IngredientsListHeader = ({
+    list,
+    title,
+    bookmarkId,
+    setShoppingList
+}) => {
     return (
         <div className="flex gap-24 ai-center">
             <Text
@@ -11,7 +16,11 @@ export const IngredientsListHeader = ({ title }) => {
             >
                 {title}
             </Text>
-            <RecipeOptions recipeName={title} />
+            <RecipeOptions
+                list={list}
+                bookmarkId={bookmarkId}
+                setShoppingList={setShoppingList}
+            />
         </div>
     );
 };
