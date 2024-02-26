@@ -8,9 +8,9 @@ import {
 
 export const resolve = (horoscopo, signo, anio) => {
     const endpoint = {
-        uri: `${LANACION_SERVICES_URL}/api/v2.0/horoscopo/`
-            .concat(anio ? `-${anio}` : '')
-            .concat(signo ? `/${signo}` : ''),
+        uri: `${LANACION_SERVICES_URL}/api/v2.0/${horoscopo}${
+            anio ? `-${anio}` : ''
+        }/`.concat(signo ? `${signo}` : ''),
         json: true,
         headers: {
             Referer: API_ENV,
