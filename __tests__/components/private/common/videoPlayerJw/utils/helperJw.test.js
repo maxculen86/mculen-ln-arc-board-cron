@@ -49,111 +49,121 @@ describe('Components - Private - Common - videoPlayerJw - Utils', () => {
         expect(formattedDate).toMatch(/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/);
     });
 
-    it('generates the expected JWScript', () => {
-        const title = 'videoPlayer';
-        const player = 'jwplayer';
-        const playlist = [{ file: 'video.mp4' }];
-        const hasAutoplay = true;
-        const idVideo = 'yPJ53Pzg';
-        const tagsUrl = 'te_testjw';
-
-        const expectedScript = `
-        window.addEventListener('load', () => {
-            const facadeDiv = document.getElementById(\`facade-${idVideo}\`);
-        
-            const setJwScript = () => {    
-                const scriptElement = document.createElement('script');
-                scriptElement.src = 'https://cdn.jwplayer.com/libraries/${player}.js';
-                document.head.appendChild(scriptElement);
-        
-                scriptElement.addEventListener('load', function() {
-                    window.jwplayer(\`${idVideo}\`).setup({
-                        playlist: ${JSON.stringify(playlist)},
-                        autostart: true,
-                        mute: ${hasAutoplay},
-                        ...('${player}' === 'ih0086X3'
-                        ? {
-                            advertising: {
-                              client: "googima",
-                              autoplayadsmuted: ${hasAutoplay},
-                              schedule: [
-                                {
-                                  tag: "${tagsUrl}",
-                                  offset: "pre"
-                                }
-                              ]
-                            }
-                          }
-                        : {})
-                    });
-        
-                    ${handleVideoEventsScript(title, idVideo)}
-                });
-        
-                if (facadeDiv) facadeDiv.remove();
-            };    
-        
-            facadeDiv.addEventListener('click', setJwScript);
-        
-            if (${hasAutoplay}) {
-                setJwScript();
-            }
-        
-            addToDataLayer('videoDisplay', \`${title}\`, '${idVideo}');
+    it('should handle video events correctly', () => {
+        window.jwplayer = jest.fn().mockReturnValue({
+            on: jest.fn()
         });
-        `;
+        window.isInDatalayerEvent = jest.fn(() => false);
+        window.addToDataLayer = jest.fn();
 
-        const generatedScript = getJWScript(
-            title,
-            player,
-            playlist,
-            hasAutoplay,
-            idVideo,
-            tagsUrl
+        const title = 'Test Title';
+        const idVideo = 'testId';
+
+        handleVideoEventsScript(title, idVideo);
+
+        expect(window.jwplayer).toHaveBeenCalledWith(idVideo);
+        expect(window.jwplayer().on).toHaveBeenCalledWith(
+            'ready',
+            expect.any(Function)
         );
-        expect(generatedScript.replace(/\s+/g, '')).toContain(
-            expectedScript.replace(/\s+/g, '')
+        expect(window.jwplayer().on).toHaveBeenCalledWith(
+            'play',
+            expect.any(Function)
+        );
+        expect(window.jwplayer().on).toHaveBeenCalledWith(
+            'pause',
+            expect.any(Function)
+        );
+        expect(window.jwplayer().on).toHaveBeenCalledWith(
+            'time',
+            expect.any(Function)
+        );
+        expect(window.jwplayer().on).toHaveBeenCalledWith(
+            'complete',
+            expect.any(Function)
         );
     });
 
-    it('tests handleVideoEventsScript function', () => {
-        const title = 'videoPlayer';
-        const idVideo = 'abc123';
+    describe('getJWScript function', () => {
+        document.getElementById = jest.fn().mockReturnValue({
+            addEventListener: jest.fn(),
+            remove: jest.fn()
+        });
 
-        const expectedScript = `
-        window.jwplayer(\`${idVideo}\`).on('ready', function (e) {
-            const element = document.querySelector('.video-player');
-            if (element) element.classList.remove('bg-black');
+        document.createElement = jest.fn().mockReturnValue({
+            addEventListener: jest.fn(),
+            src: '',
+            setAttribute: jest.fn()
         });
-    
-        const events = [{jwEvent: 'play', eventName: 'videoPlay'}, {jwEvent: 'pause', eventName: 'videoPause'}];
 
-        events.forEach((event) => {
-        window.jwplayer(\`${idVideo}\`).on(event.jwEvent, function (e) {
-          addToDataLayer(event.eventName, \`${title}\`, '${idVideo}');
-        });
-        });
-    
-        window.jwplayer(\`${idVideo}\`).on('time', function (e) {
-            const percent = Math.floor((e.currentTime / e.duration) * 100);
-            const percentagesToCheck = [25, 50, 75];
-    
-            percentagesToCheck.forEach((percentage) => {
-            if (!isInDatalayerEvent(percentage.toString(), '${idVideo}') && percent === percentage) {
-                addToDataLayer(percentage.toString(), \`${title}\`, '${idVideo}');
-            }
-            });
-        });
-    
-        window.jwplayer(\`${idVideo}\`).on('complete', function (e) {
-            if (!isInDatalayerEvent('videoComplete', '${idVideo}')) {
-                addToDataLayer('videoComplete', \`${title}\`, '${idVideo}');
-            }
-        });
-    `;
+        document.head.appendChild = jest.fn();
 
-        expect(
-            handleVideoEventsScript(title, idVideo).replace(/\s+/g, '')
-        ).toContain(expectedScript.replace(/\s+/g, ''));
+        window.jwplayer = jest.fn().mockReturnValue({
+            setup: jest.fn(),
+            on: jest.fn()
+        });
+
+        window.dataLayer = window.dataLayer || [];
+
+        window.isInDatalayerEvent = jest.fn(() => false);
+
+        window.addToDataLayer = jest.fn();
+
+        beforeEach(() => {
+            jest.clearAllMocks();
+        });
+        it('should setup JWPlayer and handle video events on click', () => {
+            const title = 'Test Title';
+            const player = 'testPlayer';
+            const playlist = ['video1', 'video2'];
+            const hasAutoplay = true;
+            const idVideo = 'testId';
+            const tagsUrl = 'testUrl';
+
+            getJWScript(title, player, playlist, hasAutoplay, idVideo, tagsUrl);
+
+            expect(document.getElementById).toHaveBeenCalledWith(
+                `facade-${idVideo}`
+            );
+
+            expect(document.createElement).toHaveBeenCalledTimes(1);
+            expect(document.createElement).toHaveBeenCalledWith('script');
+            expect(document.head.appendChild).toHaveBeenCalledWith(
+                expect.any(Object)
+            );
+
+            expect(window.dataLayer).toStrictEqual([
+                {
+                    event: 'videoDisplay',
+                    videoName: 'Test Title',
+                    videoID: 'testId'
+                }
+            ]);
+        });
+
+        it('should add event listener if autoplay is false', () => {
+            const title = 'Test Title';
+            const player = 'testPlayer';
+            const playlist = ['video1', 'video2'];
+            const hasAutoplay = false;
+            const idVideo = 'testId';
+            const tagsUrl = 'testUrl';
+
+            getJWScript(title, player, playlist, hasAutoplay, idVideo, tagsUrl);
+
+            expect(
+                document.getElementById(idVideo).addEventListener
+            ).toHaveBeenCalledWith('click', expect.any(Function));
+
+            expect(document.createElement).not.toHaveBeenCalled();
+            expect(window.jwplayer).not.toHaveBeenCalled();
+            expect(window.dataLayer).toStrictEqual([
+                {
+                    event: 'videoDisplay',
+                    videoName: 'Test Title',
+                    videoID: 'testId'
+                }
+            ]);
+        });
     });
 });

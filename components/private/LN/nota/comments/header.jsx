@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import ComTitle from '../../../common/com-title';
 import Text from '../../../common/text';
@@ -5,6 +7,11 @@ import classNames from 'classnames';
 
 const HeaderComments = ({ className }) => {
     const _class = classNames('mod-headersection --line --button', className);
+    const handleToggleVerLegales = () => {
+        const verLegalesText = document.querySelector('#ver-legales-text');
+        verLegalesText.classList.toggle('none');
+    };
+
     return (
         <>
             <section className={_class}>
@@ -14,19 +21,20 @@ const HeaderComments = ({ className }) => {
                     weight="--font-extra"
                     content="Enviá tu comentario"
                 />
-                <a
-                    className="com-link --threexs"
+                <span
+                    onClick={handleToggleVerLegales}
+                    className="com-link --threexs cursor-pointer "
                     title="Ver legales"
                     id="ver-legales-btn"
                 >
                     Ver legales
-                </a>
+                </span>
             </section>
             <Text
                 tag="p"
                 size="--threexs"
                 id="ver-legales-text"
-                extraClass="hlp-none"
+                extraClass="none"
             >
                 Los comentarios publicados son de exclusiva responsabilidad de
                 sus autores y las consecuencias derivadas de ellos pueden ser
@@ -35,19 +43,6 @@ const HeaderComments = ({ className }) => {
                 eliminado e inhabilitado para volver a comentar. Enviar
                 comentario implica la aceptación del Reglamento.
             </Text>
-            <script
-                dangerouslySetInnerHTML={{
-                    __html: `
-                    window.addEventListener('load', (event) => {
-                        const verLegalesBtn = document.querySelector('#ver-legales-btn');
-                        verLegalesBtn.onclick = () =>{
-                            const verLegalesText = document.querySelector('#ver-legales-text');
-                            verLegalesText.classList.toggle('hlp-none')
-                        };
-                    });
-                `
-                }}
-            />
         </>
     );
 };
