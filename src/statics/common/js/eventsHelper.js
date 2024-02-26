@@ -255,27 +255,6 @@ class EventsHelper {
             this.addEventListeners(game, payload);
         });
     }
-
-    setEventsNewsLetter() {
-        const buttonElement =
-            window.document.querySelector('.button.newsletterbox-button') || {};
-        const titleElements =
-            window.document.querySelectorAll('.text.newsletterbox-title') || [];
-
-        const titleText = titleElements[0]
-            ? titleElements[0].textContent.trim()
-            : '';
-
-        const ACTION = 'newsletter';
-        const NOTA_LN9 = 'nota_ln9';
-
-        const payload = {
-            action: ACTION,
-            label: titleText,
-            category: NOTA_LN9
-        };
-        this.addEventListeners(buttonElement, payload);
-    }
 }
 
 window.LN = {

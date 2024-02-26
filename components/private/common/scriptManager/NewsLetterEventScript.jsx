@@ -1,8 +1,29 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
+import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 
 const NewsLetterEventsScript = () => {
     useEffect(() => {
-        window.LN.eventshelper.setEventsNewsLetter();
+        const handleClick = () => {
+            const titleElement = document.querySelector(
+                'h4.text.newsletterbox-title'
+            );
+            const titleText = titleElement
+                ? titleElement.textContent.trim()
+                : '';
+
+            addEventToDataLayer({
+                event: 'e_linkclick',
+                action: 'newsletter',
+                category: 'nota_ln9',
+                label: titleText
+            });
+        };
+
+        document.addEventListener('click', handleClick);
+
+        return () => {
+            document.removeEventListener('click', handleClick);
+        };
     }, []);
 
     return null;
