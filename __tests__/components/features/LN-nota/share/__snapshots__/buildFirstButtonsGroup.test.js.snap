@@ -20,16 +20,9 @@ Object {
           <i
             class="icon --icon-24 --inherit"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 4a8 8 0 0 0-8 8h3a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7C2 6.477 6.477 2 12 2s10 4.477 10 10v7a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h3a8 8 0 0 0-8-8M4 14v5h3v-5zm13 0v5h3v-5z"
-                fill="#333"
-              />
-            </svg>
+            <mock-icon
+              name="headphone"
+            />
           </i>
         </button>
         <button
@@ -44,16 +37,10 @@ Object {
           <i
             class="icon --icon-24 --inherit"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M5 2h14a1 1 0 0 1 1 1v19.143a.5.5 0 0 1-.766.424L12 18.03l-7.234 4.536A.5.5 0 0 1 4 22.143V3a1 1 0 0 1 1-1m13 2H6v15.432l6-3.761 6 3.761z"
-                fill="#272727"
-              />
-            </svg>
+            <mock-icon
+              critical="true"
+              name="bookmark"
+            />
           </i>
         </button>
         <button
@@ -68,18 +55,9 @@ Object {
           <i
             class="icon --icon-24 --inherit"
           >
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M14 3h-4a8 8 0 0 0-8 8c0 6.5 7 9.5 12 11.5V19a8 8 0 0 0 0-16m-2 14v2.48C6.462 16.966 4 14.61 4 11a6 6 0 0 1 6-6h4a6 6 0 0 1 0 12zm-3-7H7v2h2zm2 0h2v2h-2zm6 0h-2v2h2z"
-                fill="#333"
-                fill-rule="evenodd"
-              />
-            </svg>
+            <mock-icon
+              name="chat"
+            />
           </i>
           <span
             class="text ln-text"
@@ -106,16 +84,9 @@ Object {
         <i
           class="icon --icon-24 --inherit"
         >
-          <svg
-            fill="none"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 4a8 8 0 0 0-8 8h3a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7C2 6.477 6.477 2 12 2s10 4.477 10 10v7a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h3a8 8 0 0 0-8-8M4 14v5h3v-5zm13 0v5h3v-5z"
-              fill="#333"
-            />
-          </svg>
+          <mock-icon
+            name="headphone"
+          />
         </i>
       </button>
       <button
@@ -130,16 +101,10 @@ Object {
         <i
           class="icon --icon-24 --inherit"
         >
-          <svg
-            fill="none"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5 2h14a1 1 0 0 1 1 1v19.143a.5.5 0 0 1-.766.424L12 18.03l-7.234 4.536A.5.5 0 0 1 4 22.143V3a1 1 0 0 1 1-1m13 2H6v15.432l6-3.761 6 3.761z"
-              fill="#272727"
-            />
-          </svg>
+          <mock-icon
+            critical="true"
+            name="bookmark"
+          />
         </i>
       </button>
       <button
@@ -154,18 +119,9 @@ Object {
         <i
           class="icon --icon-24 --inherit"
         >
-          <svg
-            fill="none"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              clip-rule="evenodd"
-              d="M14 3h-4a8 8 0 0 0-8 8c0 6.5 7 9.5 12 11.5V19a8 8 0 0 0 0-16m-2 14v2.48C6.462 16.966 4 14.61 4 11a6 6 0 0 1 6-6h4a6 6 0 0 1 0 12zm-3-7H7v2h2zm2 0h2v2h-2zm6 0h-2v2h2z"
-              fill="#333"
-              fill-rule="evenodd"
-            />
-          </svg>
+          <mock-icon
+            name="chat"
+          />
         </i>
         <span
           class="text ln-text"

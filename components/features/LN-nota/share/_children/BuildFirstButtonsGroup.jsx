@@ -1,7 +1,11 @@
 /* eslint-disable react/require-default-props */
-import { VIAFOURA_UUID } from 'fusion:environment';
 import React, { useContext } from 'react';
 import PropTypes from 'fusion:prop-types';
+import { VIAFOURA_UUID } from 'fusion:environment';
+import { Button } from '@ln/contenidos-ui-button';
+import { Icon } from '@ln/common-ui-icon';
+import { Text } from '@ln/contenidos-ui-text';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 import { GlobalContext } from '../../../../private/common/context/globalContext';
 import {
     scrollToComments,
@@ -20,10 +24,6 @@ import { conditionallyCallViafoura } from '../../../../private/common/utils/comm
 import eventHandler from '../../../../private/common/audioNews/trackerAudioNews';
 import useTermica from '../../../../private/common/hooks/useTermica';
 import getToken from '../../../../private/common/utils/getToken';
-import { Button } from '@ln/contenidos-ui-button';
-import { Icon } from '@ln/common-ui-icon';
-import { Chat } from '@ln/contenidos-ui-assets';
-import { Text } from '@ln/contenidos-ui-text';
 import classNames from 'classnames';
 
 const BuildFirtsButtonsGroup = ({
@@ -143,7 +143,7 @@ const BuildFirtsButtonsGroup = ({
                     size="inherit"
                 >
                     <Icon size={24} color="inherit">
-                        <Chat />
+                        <IconSprite name="chat" />
                     </Icon>
                     <Text>{totalVisibleContent}</Text>
                 </Button>

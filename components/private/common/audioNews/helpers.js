@@ -4,7 +4,7 @@ import { AUDIO_NEWS_URL } from 'fusion:environment';
 import { addEventToDataLayer } from '../../LN/common/utils/shareHelper';
 import get from '../utils/get';
 import eventHandler from './trackerAudioNews';
-import { Headphone, HeadphoneFilled } from '@ln/contenidos-ui-assets';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 
 // POSIBLEMENTE TODAS LAS FUNCIONES SE ELIMINEN
 export const calculateTime = secs => {
@@ -28,8 +28,8 @@ export const parseDate = (date = '') =>
 
 export const getIconByOpenPlayer = enableButton =>
     enableButton
-        ? { headphoneIcon: <HeadphoneFilled /> }
-        : { headphoneIcon: <Headphone /> };
+        ? { headphoneIcon: <IconSprite name="headphoneFilled" /> }
+        : { headphoneIcon: <IconSprite name="headphone" /> };
 
 export const handleClickAudioNews = (
     // permanece
