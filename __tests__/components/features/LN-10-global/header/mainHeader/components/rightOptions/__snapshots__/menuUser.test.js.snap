@@ -12,10 +12,10 @@ exports[`components - features - LN-10-global - header - mainHeader - rightOptio
         class="flex cursor-pointer l-only"
       >
         <div
-          class="avatar w-40 h-40 rounded-circle text-12 flex ai-center jc-center font-bold mr-8 bg-no-digital text-light-700"
+          class="avatar w-40 h-40 rounded-circle text-12 flex ai-center jc-center font-bold mr-8 border border-all border-thin bg-no-digital text-light-700 border-no-digital"
         />
         <div
-          class="flex flex-column ai-start jc-center gap-4 text-12_130 w-115 w-118"
+          class="flex flex-column ai-start jc-center gap-4 text-12_130 white-space-nowrap w-118"
         >
           <div
             class="email flex font-bold gap-4 w-100 text-neutral-light-800"
@@ -126,10 +126,10 @@ exports[`components - features - LN-10-global - header - mainHeader - rightOptio
         class="flex cursor-pointer l-only"
       >
         <div
-          class="avatar w-40 h-40 rounded-circle text-12 flex ai-center jc-center font-bold mr-8 bg-neutral-dark-50 text-exclusive-subscription"
+          class="avatar w-40 h-40 rounded-circle text-12 flex ai-center jc-center font-bold mr-8 border border-all border-thin bg-neutral-dark-50 text-exclusive-subscription border-neutral-light-900"
         />
         <div
-          class="flex flex-column ai-start jc-center gap-4 text-12_130 w-115 w-115"
+          class="flex flex-column ai-start jc-center gap-4 text-12_130 white-space-nowrap w-115"
         >
           <div
             class="email flex font-bold gap-4 w-100 text-neutral-light-800"
