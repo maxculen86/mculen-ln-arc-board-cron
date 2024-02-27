@@ -36,6 +36,8 @@ const RelatedArticles = ({
         {}
     );
 
+    const idArticle = get(globalContent, '_id', '');
+
     const id =
         filterBy === 'relatedArticles' ? primarySectionId : idSectionOrAuthor;
 
@@ -84,9 +86,12 @@ const RelatedArticles = ({
         }
     };
 
-    const articlesWithSize = articles.map(article => {
-        return { ...transformArticleFoodit(article), size };
-    });
+    const articlesWithSize = articles
+        .filter(article => article._id !== idArticle)
+        .map(article => {
+            return { ...transformArticleFoodit(article), size };
+        });
+
     const articlesTransformed = articlesWithSize.filter(
         article => article.href
     );
