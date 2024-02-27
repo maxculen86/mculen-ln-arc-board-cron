@@ -5,6 +5,7 @@ import PreloadFooditImages from '../features/foodit-global/common/image/preloadI
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
 import getSectionName from '../private/LN/common/utils/getSectionName';
+import MetaFoodit from '../features/foodit-global/common/MetaFoodit/foodit';
 
 // TODO: OutputType base, queda pendiente agregar manejo de metadatos
 const Foodit = ({
@@ -16,6 +17,9 @@ const Foodit = ({
     globalContent = {},
     siteProperties,
     arcSite,
+    contextPath,
+    deployment,
+    metaValue,
     isAdmin
 } = {}) => {
     const { node_type: nodeType, type } = globalContent;
@@ -40,13 +44,19 @@ const Foodit = ({
                 {/*  TODO: Una vez salga foodit a PROD, elminar el meta noindex,nofollow y sumar la validacion para agregarlo al preview de composer*/}
                 <meta name="robots" content="noindex, nofollow" />
                 <meta name="theme-color" content="#ffffff" />
-                <title>Foodit</title>
                 <link rel="manifest" href="/manifest.json" />
                 <PreloadFooditImages
                     layout={layout}
                     renderables={renderables}
                     globalContent={globalContent}
                     isAdmin={isAdmin}
+                />
+                <MetaFoodit
+                    metaValue={metaValue}
+                    globalContent={globalContent}
+                    contextPath={contextPath}
+                    siteProperties={siteProperties}
+                    deployment={deployment}
                 />
                 <CriticalCSS />
                 <CssLinksByArcSite />

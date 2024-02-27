@@ -9,6 +9,11 @@ export default {
     description:
         'FOODIT ofrece una inmensa variedad de recetas, que permiten planificar las comidas de la semana',
     imageConfig,
+    shareConfig: {
+        facebook: {
+            appID: '154042854349421'
+        }
+    },
     scripts,
     loggerExcludedErrors: [404, 301, 302],
     host: 'https://lanacionar-foodit-sandbox.web.arc-cdn.net/',
