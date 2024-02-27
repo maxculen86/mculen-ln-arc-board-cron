@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { render, screen } from '@testing-library/react';
 import HeaderFoodit from '../../../../../../components/features/foodit-global/common/Header/foodit';
 import Context from 'fusion:context';
+import { useContent } from 'fusion:content';
+import menuCategories from '../../../../../../__mocks__/data/fooditMenuCategories/menuCategories';
 
 const observe = jest.fn();
 const unobserve = jest.fn();
@@ -34,6 +36,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
     // });
 
     it('should return buttons login and button suscribed when the user is unlogged', () => {
+        useContent.mockReturnValue(menuCategories);
         useContext.mockReturnValue({
             ProductoPremiumId: '',
             UsuarioDetalleEmail: '',
@@ -49,6 +52,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
     });
 
     it('should show the user avatar with the initials of their name and the upgrade plan button when the user is logged in and subscribed to foodit.', () => {
+        useContent.mockReturnValue(menuCategories);
         useContext.mockReturnValue({
             ProductoPremiumId: '2,3,4,5',
             UsuarioDetalleEmail: 'hola@mundo.com',
@@ -63,6 +67,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
     });
 
     it('Should show the initials of the email in the avatar when the user does not have a first or last name', () => {
+        useContent.mockReturnValue(menuCategories);
         useContext.mockReturnValue({
             ProductoPremiumId: '2,3,4,5',
             UsuarioDetalleEmail: 'hola@mundo.com',
@@ -77,6 +82,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
     });
 
     it('should show the users avatar and the subscribe button when the user is logged in but is not a subscriber.', () => {
+        useContent.mockReturnValue(menuCategories);
         useContext.mockReturnValue({
             ProductoPremiumId: '',
             UsuarioDetalleEmail: 'hola@mundo.com',

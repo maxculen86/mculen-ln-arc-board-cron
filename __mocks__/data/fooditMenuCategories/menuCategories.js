@@ -1,8 +1,6 @@
 import React from 'react';
-import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
-// TODO: Eliminar cuando se consigan los datos dinámicamente
-export const menuCategories = [
+export default [
     {
         title: 'Recetas',
         data: [
@@ -10,7 +8,7 @@ export const menuCategories = [
                 title: {
                     text: 'Saladas',
                     href: 'saladas',
-                    icon: <IconSprite name="bookmark" critical />
+                    icon: <mock-icon name="bookmark" critical />
                 },
                 items: [
                     { text: 'Arroz', href: '#' },
@@ -26,7 +24,7 @@ export const menuCategories = [
                 title: {
                     text: 'Dulces',
                     href: 'dulces',
-                    icon: <IconSprite name="cake" />
+                    icon: <mock-icon name="cake" />
                 },
                 items: [
                     { text: 'Tortas', href: '#' },
@@ -40,7 +38,7 @@ export const menuCategories = [
             {
                 title: {
                     text: 'Dieta',
-                    icon: <IconSprite name="diet" />
+                    icon: <mock-icon name="diet" />
                 },
                 items: [
                     { text: 'Vegetariana', href: '#' },
@@ -53,7 +51,7 @@ export const menuCategories = [
             {
                 title: {
                     text: '¿Que cocinar hoy?',
-                    icon: <IconSprite name="cart" critical />
+                    icon: <mock-icon name="cart" critical />
                 },
                 items: [
                     { text: 'De autor', href: '#' },

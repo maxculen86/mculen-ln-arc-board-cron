@@ -117,7 +117,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     >
                       Recetas
                       <i
-                        class="icon dropdown-icon --inherit"
+                        class="icon dropdown-icon"
                       >
                         <svg
                           fill="inherit"
@@ -804,7 +804,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                     >
                       Descubrir
                       <i
-                        class="icon dropdown-icon --inherit"
+                        class="icon dropdown-icon"
                       >
                         <svg
                           fill="inherit"
@@ -954,52 +954,56 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 </li>
               </ul>
             </nav>
-            <nav
-              class="top-navigation-bar text-12"
+            <div
+              class="hidden"
             >
-              <ul
-                class="flex ai-center gap-24"
+              <nav
+                class="top-navigation-bar text-12"
               >
-                <li>
-                  <a
-                    class="link foodit-link flex gap-8 ai-center roboto-regular gap-8"
-                    data-variant="primary"
-                    href="/recetario"
-                    target="_self"
-                    title="Ir a mis recetas"
-                  >
-                    <i
-                      class="icon --icon-20"
+                <ul
+                  class="flex ai-center gap-24"
+                >
+                  <li>
+                    <a
+                      class="link foodit-link flex gap-8 ai-center roboto-regular gap-8"
+                      data-variant="primary"
+                      href="/recetario"
+                      target="_self"
+                      title="Ir a mis recetas"
                     >
-                      <mock-icon
-                        critical="true"
-                        name="bookmark"
-                      />
-                    </i>
-                    MIS RECETAS
-                  </a>
-                </li>
-                <li>
-                  <a
-                    class="link foodit-link flex gap-8 ai-center roboto-regular gap-8"
-                    data-variant="primary"
-                    href="/lista-de-compras"
-                    target="_self"
-                    title="Ir a lista de compras"
-                  >
-                    <i
-                      class="icon --icon-20"
+                      <i
+                        class="icon --icon-20"
+                      >
+                        <mock-icon
+                          critical="true"
+                          name="bookmark"
+                        />
+                      </i>
+                      MIS RECETAS
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="link foodit-link flex gap-8 ai-center roboto-regular gap-8"
+                      data-variant="primary"
+                      href="/lista-de-compras"
+                      target="_self"
+                      title="Ir a lista de compras"
                     >
-                      <mock-icon
-                        critical="true"
-                        name="cart"
-                      />
-                    </i>
-                    LISTA DE COMPRAS
-                  </a>
-                </li>
-              </ul>
-            </nav>
+                      <i
+                        class="icon --icon-20"
+                      >
+                        <mock-icon
+                          critical="true"
+                          name="cart"
+                        />
+                      </i>
+                      LISTA DE COMPRAS
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
         </div>
       </div>
@@ -1026,6 +1030,864 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
         </div>
       </div>
     </header>
+  </div>
+  <div
+    class="drawer-overlay fixed top-0 left-0 w-100 h-100vh visibility-hidden opacity-0 z-15"
+    data-id="overlay-drawer-menu"
+  >
+    <div
+      class="drawer flex flex-column overflow-hidden fixed top-0 w-100 h-100vh h-100dvh max-w-520_md bg-light-1 gap-16 p-16 p-24_md p-32_lg shadow-down-md transition-regular left-0"
+      data-id="drawer-menu"
+      data-position="left"
+      data-visible="false"
+    >
+      <div
+        class="flex"
+      >
+        <button
+          class="cursor-pointer transition-regular flex opacity-80_hover ml-auto"
+          title="Cerrar menú"
+        >
+          <i
+            class="icon --icon-24"
+          >
+            <svg
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M12 10.586L16.243 6.34299C16.6335 5.95252 17.2665 5.95252 17.657 6.34299C18.0475 6.73345 18.0475 7.36652 17.657 7.75699L13.414 12L17.657 16.243C18.0475 16.6335 18.0475 17.2665 17.657 17.657C17.2665 18.0475 16.6335 18.0475 16.243 17.657L12 13.414L7.75699 17.657C7.36652 18.0475 6.73345 18.0475 6.34299 17.657C5.95252 17.2665 5.95252 16.6335 6.34299 16.243L10.586 12L6.34299 7.75699C5.95252 7.36652 5.95252 6.73345 6.34299 6.34299C6.73345 5.95252 7.36652 5.95252 7.75699 6.34299L12 10.586Z"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+        </button>
+      </div>
+      <div
+        class="drawer-body z-1 flex-grow-1 overflow-x-hidden foodit-scrollbar flex flex-column gap-16 pr-16"
+      >
+        <div>
+          <span
+            class="text roboto-bold text-14 uppercase bg-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
+          >
+            Recetas
+          </span>
+          <div
+            class="flex flex-column flex-row_lg"
+          >
+            <ul
+              class="w-100"
+            >
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+                  data-variant="primary"
+                  href="saladas"
+                  role="link"
+                  target="_self"
+                  title="Ir a Saladas"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      critical="true"
+                      name="bookmark"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Saladas
+                  </span>
+                  <i
+                    class="icon --icon-16 --inherit"
+                  >
+                    <mock-icon
+                      name="arrow-right"
+                    />
+                  </i>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Arroz"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Arroz
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Tartas"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Tartas
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Pollo"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Pollo
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Pizzas y empanadas"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Pizzas y empanadas
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Pasta"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Pasta
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Pescados"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Pescados
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Carnes"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Carnes
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <ul
+              class="w-100"
+            >
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+                  data-variant="primary"
+                  href="dulces"
+                  role="link"
+                  target="_self"
+                  title="Ir a Dulces"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="cake"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Dulces
+                  </span>
+                  <i
+                    class="icon --icon-16 --inherit"
+                  >
+                    <mock-icon
+                      name="arrow-right"
+                    />
+                  </i>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Tortas"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Tortas
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Postres"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Postres
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Panqueques"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Panqueques
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Budines"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Budines
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Helados"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Helados
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Batidos"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Batidos
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <ul
+              class="w-100"
+            >
+              <li>
+                <span
+                  class="text card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+                  role="text"
+                  title="Ir a Dieta"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="diet"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Dieta
+                  </span>
+                </span>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Vegetariana"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Vegetariana
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Sin gluten"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Sin gluten
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Keto"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Keto
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Sin lactosa"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Sin lactosa
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Vegana"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Vegana
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <ul
+              class="w-100"
+            >
+              <li>
+                <span
+                  class="text card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+                  role="text"
+                  title="Ir a ¿Que cocinar hoy?"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      critical="true"
+                      name="cart"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    ¿Que cocinar hoy?
+                  </span>
+                </span>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a De autor"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    De autor
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Fácil"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Fácil
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Saludable"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Saludable
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Bajo costo"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Bajo costo
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Rápida"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Rápida
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <span
+            class="text roboto-bold text-14 uppercase bg-positive p-8 block rounded-top-right-4 rounded-bottom-right-4"
+          >
+            Descubrir
+          </span>
+          <div
+            class="flex flex-column flex-row_lg"
+          >
+            <ul
+              class="w-100"
+            >
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Chef protagonistas"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Chef protagonistas
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Nutrición"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Nutrición
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Restaurantes"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Restaurantes
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-14"
+                  data-variant="primary"
+                  href="#"
+                  role="link"
+                  target="_self"
+                  title="Ir a Beneficion Club La Nación"
+                >
+                  <i
+                    class="icon --icon-20 --inherit"
+                  >
+                    <mock-icon
+                      name="bullet-xs"
+                    />
+                  </i>
+                  <span
+                    class="text-left flex-grow-1"
+                  >
+                    Beneficion Club La Nación
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <a
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+            data-variant="primary"
+            href="#"
+            role="link"
+            target="_self"
+            title="Ir a Guía de cocina"
+          >
+            <span
+              class="text-left flex-grow-1"
+            >
+              Guía de cocina
+            </span>
+            <i
+              class="icon --icon-16 --inherit"
+            >
+              <mock-icon
+                name="arrow-right"
+              />
+            </i>
+          </a>
+          <div
+            class="flex flex-column flex-row_lg"
+          />
+        </div>
+        <div>
+          <a
+            class="link foodit-link flex gap-8 ai-center roboto-regular card-item py-8 flex gap-8 ai-center roboto-regular w-100 transition-regular text-12 uppercase border border-bottom border-thin border-light-100"
+            data-variant="primary"
+            href="#"
+            role="link"
+            target="_self"
+            title="Ir a Masterclass"
+          >
+            <span
+              class="text-left flex-grow-1"
+            >
+              Masterclass
+            </span>
+            <i
+              class="icon --icon-16 --inherit"
+            >
+              <mock-icon
+                name="arrow-right"
+              />
+            </i>
+          </a>
+          <div
+            class="flex flex-column flex-row_lg"
+          />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 `;
