@@ -24,8 +24,8 @@ export const getConfigClassName = ({ sticky, negative, isHome }) => {
             sticky ? 'h-64 h-86_md h-56_l' : 'h-64 h-86_md h-88_l'
         ),
         centerOptionsClassNames: classNames(
-            'logo-header flex jc-center relative',
-            sticky ? 'w-152 w-304_md w-268_l' : 'w-152 w-304_md'
+            'logo-header flex jc-center relative w-152 h-16 w-304_md h-32_md',
+            sticky ? 'w-268_l h-28_l' : 'w-380_lg h-40_lg'
         ),
         subHeaderClassNames: classNames(
             'border border-thin border-bottom border-light-300',

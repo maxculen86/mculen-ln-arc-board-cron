@@ -26,6 +26,13 @@ export const useHeaderVariants = ({
         if (!headerSentinel) return;
         const handleVariants = entries => {
             const wrapperHome = document.querySelector('.wrapper.homepage');
+            const sectionsWithoutToggleNegative = [
+                '/revista-lugares',
+                '/revista-hola'
+            ];
+            const toogleNegative = !sectionsWithoutToggleNegative.includes(
+                section
+            );
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     setVariants(prev => ({
@@ -36,7 +43,10 @@ export const useHeaderVariants = ({
                 } else {
                     setVariants(prev => ({
                         sticky: isHome ? true : prev.sticky,
-                        negative: !isHome && negative && !prev.negative
+                        negative:
+                            !isHome && negative && toogleNegative
+                                ? !prev.negative
+                                : prev.negative
                     }));
                     wrapperHome && wrapperHome.classList.add('--top-fixed');
                 }
