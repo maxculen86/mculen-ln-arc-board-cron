@@ -575,6 +575,11 @@ export default {
                 dimensions: [[800, 600]],
                 targeting: targetingAcumulado
             },
+            middle_1_dsk: {
+                slotName: 'la_nacion_desktop/Acumulado/middle_1_dsk',
+                dimensions: [[920, 250]],
+                targeting: targetingAcumulado
+            },
             '1x1_dsk': {
                 slotName: `la_nacion_desktop/Acumulado/1x1_dsk`,
                 dimensions: [[1, 1]],
