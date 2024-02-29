@@ -4,7 +4,6 @@ import Image from './imageBase';
 import ComFigure from '../../../common/com-figure';
 import ModMedia from '../../../common/mod-media';
 import ComPicture from '../../../common/com-picture';
-import VideoPlayer from './videoPlayer';
 import {
     FOTOAL100,
     STORYTELLING
@@ -31,8 +30,6 @@ const Media = ({
     html,
     titleText,
     scriptForZoom,
-    autoplay,
-    isPowa,
     insideBody,
     withMobileImage,
     searchableField,
@@ -119,21 +116,6 @@ const Media = ({
                         </>
                     )}
                 </ComFigure>
-            ),
-            video: (
-                <figure className="mod-figure">
-                    <VideoPlayer
-                        videoId={idMedia}
-                        mediaData={mediaData}
-                        parrafo={parrafo}
-                        tituloNota={tituloNota}
-                        autoplay={autoplay}
-                        isPowa={isPowa}
-                        href={href}
-                        isApertura={isApertura}
-                    />
-                    {children}
-                </figure>
             ),
             video_jw: (
                 <VideoPlayerJW
