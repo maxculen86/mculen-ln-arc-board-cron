@@ -1,11 +1,20 @@
 import React, { useContext } from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { getTermicaValues } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/_helper';
 import { useHeaderContext } from '../../../../../../../../components/features/LN-10-global/header/context';
 import { SubscribeButton } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/components/rightOptions/subscribeButton';
 import { termicaValuesSubscribe } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/components/rightOptions/_helper';
 import useTermica from '../../../../../../../../components/private/common/hooks/useTermica';
+import addEventToDataLayer from '../../../../../../../../components/private/LN/common/utils/addEventToDataLayer';
+
+jest.mock(
+    '../../../../../../../../components/private/LN/common/utils/addEventToDataLayer',
+    () => ({
+        __esModule: true,
+        default: jest.fn()
+    })
+);
 
 jest.mock(
     '../../../../../../../../components/private/common/hooks/useTermica',
@@ -144,5 +153,18 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
         }));
         const { container } = render(<SubscribeButton />);
         expect(container).toMatchSnapshot();
+    });
+
+    it('should push correct event data to dataLayer', () => {
+        render(<SubscribeButton />);
+
+        fireEvent.click(document.getElementById('btnsuscribite'));
+
+        expect(addEventToDataLayer).toHaveBeenCalledWith({
+            category: 'home_ln10',
+            label: 'suscribite',
+            action: 'header_logo',
+            event: 'e_linkclick'
+        });
     });
 });
