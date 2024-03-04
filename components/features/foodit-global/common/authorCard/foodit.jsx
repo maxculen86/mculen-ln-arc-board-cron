@@ -8,6 +8,7 @@ export const AuthorCard = ({ href, name, imageProps }) => {
         <Link
             href={href}
             className="card-author flex flex-column gap-16 pb-16 col-span-4"
+            title={`Ir a ${name}`}
         >
             <div className="border border-all border-thin p-16 p-24_md p-32_lg w-100 transition-regular">
                 <Image {...imageProps} className="ratio-1-1 h-100" />
