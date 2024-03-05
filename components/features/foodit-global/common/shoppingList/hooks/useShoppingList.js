@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getTypeOfDevice } from '@ln/hooks';
 import getToken from '../../../../../private/common/utils/getToken';
 import getBookmarks from '../../bookmark/api/getBookmarks';
+import { isFooditSuscriptor } from '../../../hooks/useGetUserData';
 
 export const useShoppingList = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -35,8 +36,7 @@ export const useShoppingList = () => {
 
         setIsMobile(isMobile);
 
-        const premiumProduct = getToken('ProductoPremiumId');
-        if (typeof premiumProduct === 'string' && premiumProduct.includes('2'))
+        if (isFooditSuscriptor(getToken('ProductoPremiumId')))
             fetchUserBookmarks();
     }, []);
 

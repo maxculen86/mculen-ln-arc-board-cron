@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import getToken from '../../../../../../private/common/utils/getToken';
 import safeJSONParse from '../../../../../private-global/common/utils/safeJSONParse';
+import { isFooditSuscriptor } from '../../../../hooks/useGetUserData';
 
 export default function useIsomorphicPopupHandling() {
     const [modalData, setModalData] = useState({
@@ -21,7 +22,7 @@ export default function useIsomorphicPopupHandling() {
             return;
         }
 
-        if (!premiumProduct.includes('2')) {
+        if (!isFooditSuscriptor(premiumProduct)) {
             window.LN.observable.publish('addToast', {
                 variant: 'danger',
                 title: 'Error!',

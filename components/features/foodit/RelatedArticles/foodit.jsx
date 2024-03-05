@@ -9,13 +9,14 @@ import useGetRelatedArticles from '../../foodit-global/hooks/useGetRelatedArticl
 import { transformArticleFoodit } from '../../foodit-global/common/utils/notaFooditHelper';
 import setRelatedArticlesCustomFields from '../../foodit-global/common/utils/setRelatedArticlesCustomFields';
 import fooditRules from '../../foodit-global/common/utils/fooditRules';
-import { setStaticDynamically } from '../../../chains/utils/_helpers';
 import { validateRelatedArticlesFeature } from './validateRelatedArticlesFeature';
 import get from '../../../private/common/utils/get';
 import isSSR from '../../../private/LN/common/utils/isSSR';
 import classNames from 'classnames';
 import getAuthorsAsString from '../../../private/common/utils/getAuthorsAsString';
 import capitalizeFirstLetter from '../../../private/common/utils/capitalizeFirstLetter';
+import LazyLoad from '../../foodit-global/common/LazyLoad/foodit';
+import StaticContent from '../../../private/common/staticContent';
 
 const RelatedArticles = ({
     isAdmin,
@@ -113,9 +114,19 @@ const RelatedArticles = ({
             error={error}
         />
     );
-    return setStaticDynamically(Component, !isStatic, {
-        className: staticContentClassName
-    });
+
+    return !isStatic ? (
+        <LazyLoad
+            onViewport={() => null}
+            showComponent={articlesTransformed.length > 0}
+        >
+            {Component}
+        </LazyLoad>
+    ) : (
+        <StaticContent className={staticContentClassName}>
+            {Component}
+        </StaticContent>
+    );
 };
 
 RelatedArticles.propTypes = {

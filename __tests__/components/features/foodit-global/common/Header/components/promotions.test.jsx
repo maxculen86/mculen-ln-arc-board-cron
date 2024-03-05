@@ -47,7 +47,7 @@ describe('Components - Features - foodit-global - common - Header - components -
 
     it('renders correctly for user type "subscribed"', () => {
         useContext.mockReturnValue({
-            ProductoPremiumId: '2,3,4,5',
+            ProductoPremiumId: '2,3,4,5,22',
             UsuarioDetalleEmail: 'hola@mundo.com',
             UsuarioDetalleNombre: 'Hola',
             UsuarioDetalleApellido: 'Mundo'

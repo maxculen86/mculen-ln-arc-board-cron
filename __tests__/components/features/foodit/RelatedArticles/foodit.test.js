@@ -17,13 +17,15 @@ jest.mock(
     () => jest.fn()
 );
 
-const observe = jest.fn();
-const unobserve = jest.fn();
-
-window.IntersectionObserver = jest.fn(() => ({
-    observe,
-    unobserve
-}));
+global.IntersectionObserver = jest.fn((callback, options) => {
+    return {
+        observe: jest.fn(() => {
+            callback([{ isIntersecting: true }]);
+        }),
+        disconnect: jest.fn(),
+        unobserve: jest.fn()
+    };
+});
 
 describe('Tests feature Foodit RelatedArticles', () => {
     describe('Tests cases for error', () => {

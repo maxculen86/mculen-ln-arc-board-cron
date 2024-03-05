@@ -59,7 +59,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
     it('should show the user avatar with the initials of their name and the upgrade plan button when the user is logged in and subscribed to foodit.', () => {
         useContent.mockReturnValue(menuCategories);
         useContext.mockReturnValue({
-            ProductoPremiumId: '2,3,4,5',
+            ProductoPremiumId: '2,3,4,5,22',
             UsuarioDetalleEmail: 'hola@mundo.com',
             UsuarioDetalleNombre: 'Hola',
             UsuarioDetalleApellido: 'Mundo'
@@ -74,7 +74,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
     it('Should show the initials of the email in the avatar when the user does not have a first or last name', () => {
         useContent.mockReturnValue(menuCategories);
         useContext.mockReturnValue({
-            ProductoPremiumId: '2,3,4,5',
+            ProductoPremiumId: '2,3,4,5,22',
             UsuarioDetalleEmail: 'hola@mundo.com',
             UsuarioDetalleNombre: '',
             UsuarioDetalleApellido: ''

@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import getBookmarks from '../api/getBookmarks';
 import { fillBookmarks } from '../iconHelper';
 import getToken from '../../../../../private/common/utils/getToken';
+import { isFooditSuscriptor } from '../../../hooks/useGetUserData';
 
 export const UserBookmarks = () => {
     useEffect(() => {
@@ -25,8 +26,7 @@ export const UserBookmarks = () => {
         };
 
         const premiumProduct = getToken('ProductoPremiumId');
-        if (typeof premiumProduct === 'string' && premiumProduct.includes('2'))
-            fetchUserBookmarks();
+        isFooditSuscriptor(premiumProduct) && fetchUserBookmarks();
     }, []);
 
     return <></>;
