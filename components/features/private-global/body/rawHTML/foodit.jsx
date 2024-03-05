@@ -12,7 +12,7 @@ const RawHTML = ({
 
     return (
         <div
-            className={trim(`com-embed mx-auto ${modifier}`)}
+            className={trim(`com-embed flex jc-center ${modifier}`)}
             dangerouslySetInnerHTML={addPropertyLoading({
                 subtype,
                 tagHtml: html

@@ -6,6 +6,7 @@ import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import StaticContent from '../../private/common/staticContent';
 import ActionsButtons from '../../features/foodit-global/common/ActionsButtons/foodit';
 import Epigraph from '../../features/foodit-global/common/epigraph/foodit';
+import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
 import { OpeningStorytelling } from '../../features/foodit-global/common/OpeningStorytelling/foodit';
 import { Note } from '@ln/foodit-ui-note';
 import { Text } from '@ln/common-ui-text';
@@ -15,12 +16,13 @@ import { Icon } from '@ln/common-ui-icon';
 import getAuthorsAsString from '../../private/common/utils/getAuthorsAsString';
 import get from '../../private/common/utils/get';
 import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
+import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
 const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
     const [body, bottom] = children;
-    const { promo_items, headlines, subheadlines } = globalContent;
+    const { promo_items, headlines, subheadlines, _id } = globalContent;
     const video = Boolean(promo_items && promo_items.video_jw);
 
     const title = get(headlines, 'basic', '');
@@ -33,6 +35,7 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
 
     return (
         <BaseLayout>
+            <UserBookmarks />
             <div className="flex flex-column">
                 <div
                     className={`note-media-container w-100vw as-center ratio-unset_lg overflow-hidden ${
@@ -69,6 +72,8 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                                 <Button
                                     title="Guardar"
                                     size={{ sm: 32, lg: 40 }}
+                                    data-id={_id}
+                                    data-modal={'open-modal'}
                                 >
                                     <Icon size={16} className="sm-none">
                                         <IconSprite name="bookmark" critical />
@@ -85,7 +90,8 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                     {body}
                 </div>
             </div>
-            <section>{bottom}</section>
+            <Breadcrumb globalContent={globalContent} />
+            <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>
     );
 };

@@ -1,28 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import getBookmarks from '../api/getBookmarks';
 import { fillBookmarks } from '../iconHelper';
 import getToken from '../../../../../private/common/utils/getToken';
 
 export const UserBookmarks = () => {
-    const [userBookmarks, setUserBookmarks] = useState([]);
-
-    if (userBookmarks.length)
-        localStorage.setItem('bookmarkedItems', JSON.stringify(userBookmarks));
-
     useEffect(() => {
+        localStorage.removeItem('bookmarkFolders');
+        localStorage.removeItem('bookmarkItems');
+
         const fetchUserBookmarks = async () => {
             const { data = [] } = await getBookmarks();
 
             const bookmarks = data.map(({ bookmarkTypeId, bookmarkId }) => {
                 return { bookmarkTypeId, bookmarkId };
             });
+            localStorage.setItem('bookmarkedItems', JSON.stringify(bookmarks));
 
             if (bookmarks.length) {
                 fillBookmarks(
                     bookmarks.map(bookmarks => bookmarks.bookmarkTypeId)
                 );
-                setUserBookmarks(bookmarks);
             }
         };
 

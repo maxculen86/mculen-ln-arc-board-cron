@@ -42,4 +42,24 @@ describe('PowerUpPreparacion', () => {
         const { container } = render(<PowerUpPreparacion />);
         expect(container).toBeEmptyDOMElement();
     });
+    it('Should show title Preparacion', () => {
+        const data = {
+            embed: {
+                config: {
+                    items: ['Item 1', 'Item 2'],
+                    titleList: 'Título de Prueba 2'
+                }
+            }
+        };
+
+        render(<PowerUpPreparacion data={data} />);
+        expect(screen.getByText('Preparación')).toBeInTheDocument();
+        expect(screen.getByText('Título de Prueba 2')).toBeInTheDocument();
+        expect(
+            screen.getByText('Item 1', { selector: 'li' })
+        ).toBeInTheDocument();
+        expect(
+            screen.getByText('Item 2', { selector: 'li' })
+        ).toBeInTheDocument();
+    });
 });

@@ -55,7 +55,7 @@ export const getUrlQuery = key => {
     throw new Error('Debe definir url o id para obtener la nota');
 };
 
-export const setRedirect = ({ response, query, siteUrl }) => {
+export const setRedirect = ({ response, query, siteUrl, paywallUrl }) => {
     const typeResponse = get(response, 'type', '');
     const redirectUrl = get(response, 'redirect_url', '');
     const paywallEnabled = get(query, 'paywallEnabled', '');
@@ -83,7 +83,8 @@ export const setRedirect = ({ response, query, siteUrl }) => {
             contentCode: get(response, 'content_restrictions.content_code', ''),
             meteringVariant: get(query, 'meteringVariant', ''),
             host: siteUrl,
-            path: query.uri
+            path: query.uri,
+            paywallUrl
         });
     }
 

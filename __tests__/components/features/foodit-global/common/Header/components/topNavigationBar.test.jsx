@@ -22,7 +22,7 @@ describe('Components - features - foodit-global - common - header - components -
         const listaDeComprasLink = getByText('LISTA DE COMPRAS');
 
         expect(misRecetasLink).toBeInTheDocument();
-        expect(misRecetasLink).toHaveAttribute('href', '/mis-recetas');
+        expect(misRecetasLink).toHaveAttribute('href', '/recetario');
         expect(listaDeComprasLink).toBeInTheDocument();
         expect(listaDeComprasLink).toHaveAttribute('href', '/lista-de-compras');
     });

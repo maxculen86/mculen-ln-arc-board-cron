@@ -1,13 +1,21 @@
 import React from 'react';
 import { List } from '@ln/foodit-ui-list';
 import get from '../../../../private/common/utils/get';
+import { Text } from '@ln/common-ui-text';
 
 export const PowerUpPreparacion = ({ data }) => {
     const { items = [], titleList = '' } = get(data, 'embed.config', {});
 
     return items.length > 0 ? (
-        <>
-            <h3 className="prumo prumo-light text-24">{titleList}</h3>
+        <div className="flex flex-column gap-24">
+            <h3 className="prumo prumo-light text-24 text-32_md text-36_lg">
+                Preparación
+            </h3>
+            {titleList && (
+                <Text as="h4" className="roboto-bold text-16 text-18_md">
+                    {titleList}
+                </Text>
+            )}
             <List variant="unordered">
                 {items.map(item => {
                     return (
@@ -20,7 +28,7 @@ export const PowerUpPreparacion = ({ data }) => {
                     );
                 })}
             </List>
-        </>
+        </div>
     ) : (
         <></>
     );

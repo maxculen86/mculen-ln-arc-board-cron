@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN-10-global - header - navbar should match snapshot 1`] = `
+<div>
+  <nav
+    class="ln-navbar --no-app"
+  >
+    <ul>
+      <li
+        class="--item home"
+      >
+        <a
+          class="link ln-link --font-2xs"
+          href="https://www.lanacion.com.ar/"
+          target="_self"
+          title="Ir a Inicio"
+        >
+          <i
+            class="icon --icon-20"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M19 21H5a1 1 0 0 1-1-1v-9h-.413c-.914 0-1.35-1.125-.673-1.74l8.413-7.648a1 1 0 0 1 1.346 0l8.413 7.648c.676.615.241 1.74-.673 1.74H20v9c0 .552-1 1-1 1m-6-2h5V9.157l-6-5.454-6 5.454V19h5v-5a1 1 0 1 1 2 0z"
+                fill="#272727"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+          Inicio
+        </a>
+      </li>
+      <li
+        class="--item search"
+      >
+        <label
+          class="--font-2xs"
+          for="queryly_toggle"
+          title="Ir al buscador"
+        >
+          <i
+            class="icon --icon-20"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m18.031 16.617 4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617m-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975z"
+                fill="#272727"
+              />
+            </svg>
+          </i>
+          Buscar
+        </label>
+      </li>
+      <li
+        class="--item sections"
+      >
+        <a
+          class="link ln-link --font-2xs"
+          href="#"
+          target="_self"
+          title="Ir a Secciones"
+        >
+          <i
+            class="icon --icon-20"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M5.002 3H9a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2l-4.058-.001-.175-.012A2 2 0 0 1 3 9l.001-4a2 2 0 0 1 2-2M9 5H5.002L5 9h4zm-3.998 8H9a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2l-4.058-.001-.175-.012A2 2 0 0 1 3 19l.001-4a2 2 0 0 1 2-2M9 15H5.002L5 19h4zM19 3h-3.998c-1.105 0-2 .895-2 2L13 9a2 2 0 0 0 1.767 1.987l.175.012L19 11a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-3.998 2H19v4h-4zm0 8H19a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2l-4.058-.001-.175-.012A2 2 0 0 1 13 19l.001-4a2 2 0 0 1 2-2M19 15h-3.998L15 19h4z"
+                fill="#272727"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </i>
+          Secciones
+        </a>
+      </li>
+      <li
+        class="--item bookmark"
+      >
+        <a
+          class="link ln-link --font-2xs"
+          href="https://www.lanacion.com.ar/pf/mis-notas/?_website=la-nacion-ar"
+          target="_self"
+          title="Ir a Mis Notas"
+        >
+          <i
+            class="icon --icon-20"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 2h14a1 1 0 0 1 1 1v19.143a.5.5 0 0 1-.766.424L12 18.03l-7.234 4.536A.5.5 0 0 1 4 22.143V3a1 1 0 0 1 1-1m13 2H6v15.432l6-3.761 6 3.761z"
+                fill="#272727"
+              />
+            </svg>
+          </i>
+          Mis Notas
+        </a>
+      </li>
+      <li
+        class="--item profile"
+      >
+        <a
+          class="link ln-link --font-2xs"
+          href="https://myaccount.lanacion.com.ar/mi-usuario/"
+          target="_self"
+          title="Ir a Perfil"
+        >
+          <i
+            class="icon --icon-20"
+          >
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10m-4.987-3.744A7.966 7.966 0 0 0 12 20a7.97 7.97 0 0 0 5.167-1.892A6.978 6.978 0 0 0 12.16 16a6.982 6.982 0 0 0-5.147 2.256M5.616 16.82A8.975 8.975 0 0 1 12.16 14a8.972 8.972 0 0 1 6.362 2.634 8 8 0 1 0-12.906.187zM12 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8m0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4"
+                fill="#272727"
+              />
+            </svg>
+          </i>
+          Perfil
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;

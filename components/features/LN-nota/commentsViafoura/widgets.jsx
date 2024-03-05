@@ -39,6 +39,13 @@ const CommentsViafouraFeature = props => {
                     `${contextPath}/resources/js/LN/scriptCommentsViafouraWidgets.min.js`
                 )}
             />
+            <script
+                id="script-header-comments"
+                defer
+                src={deployment(
+                    `${contextPath}/resources/js/LN/scriptHeaderComments.min.js`
+                )}
+            />
         </StaticContent>
     );
 };

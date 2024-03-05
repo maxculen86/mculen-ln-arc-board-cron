@@ -2,7 +2,7 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import classNames from 'classnames';
-import Header from '../private/LN10/header';
+import Header from '../features/LN-10-global/header/default';
 import HtmlLibre from '../private/LN/nota/cuerpo/htmlLibre';
 
 import GlobalProvider from '../private/common/context/globalContext';

@@ -37,6 +37,12 @@
     display: none;
   }
 }
+.media-scroller [data-scroller=track].--full-width {
+  width: calc(100% + var(--spacing) * 2);
+  padding-inline: var(--spacing);
+  scroll-padding-inline: var(--spacing);
+  transform: translate3d(calc(-1 * var(--spacing)), 0, 0);
+}
 .media-scroller [data-scroller=arrow] {
   top: 44%;
 }
@@ -60,6 +66,7 @@
   .media-scroller.hide-mobile [data-scroller=track] {
     grid-auto-flow: row;
     grid-auto-columns: 100%;
+    grid-row-gap: var(--scroller-vertical-gap, 16px);
   }
   .media-scroller.hide-mobile [data-scroller=progress] {
     display: none;

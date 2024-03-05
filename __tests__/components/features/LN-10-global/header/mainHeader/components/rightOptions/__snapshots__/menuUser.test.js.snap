@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN-10-global - header - mainHeader - rightOptions - MenuUser should match snapshot when userType is logged 1`] = `
+<div>
+  <div
+    class="dropdown relative h-max flex cursor-pointer l-only pt-4"
+  >
+    <button
+      class="dropdown-toggle inline-flex"
+    >
+      <div
+        class="flex cursor-pointer l-only"
+      >
+        <div
+          class="avatar w-40 h-40 rounded-circle text-12 flex ai-center jc-center font-bold mr-8 border border-all border-thin bg-no-digital text-light-700 border-no-digital"
+        />
+        <div
+          class="flex flex-column ai-start jc-center gap-4 text-12_130 white-space-nowrap w-118"
+        >
+          <div
+            class="email flex font-bold gap-4 w-100 text-neutral-light-800"
+          >
+            <span
+              class="block text-ellipsis-1"
+            />
+          </div>
+          <span
+            class="w-100 text-start text-neutral-light-600"
+          >
+            Sin suscripción digital
+          </span>
+        </div>
+      </div>
+      <i
+        class="icon dropdown-icon relative top-3 --dark"
+      >
+        <svg
+          fill="inherit"
+          height="17"
+          viewBox="0 0 16 17"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M8.24267 9.13331L11.0713 6.30465C11.3316 6.04434 11.7537 6.04434 12.014 6.30465C12.2743 6.56496 12.2743 6.987 12.014 7.24731L8.94977 10.3115C8.55925 10.7021 7.92608 10.7021 7.53556 10.3115L4.47133 7.24731C4.21102 6.987 4.21102 6.56496 4.47133 6.30465C4.73164 6.04434 5.15369 6.04434 5.414 6.30465L8.24267 9.13331Z"
+            fill="inherit"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </i>
+    </button>
+    <div
+      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max top-100 bg-light-0 rounded-4 shadow-center min-w-100 visibility-hidden opacity-0"
+      data-position="center"
+      role="menu"
+    >
+      <ul
+        class="p-12 text-14"
+      >
+        <li>
+          <a
+            class="link ln-link --unstyled"
+            href="https://www.lanacion.com.ar/mis-notas/"
+            target="_self"
+            title="Ir a mis notas"
+          >
+            Mis notas mock
+          </a>
+        </li>
+        <li>
+          <a
+            class="link ln-link --unstyled"
+            href="https://myaccount.lanacion.com.ar/mi-usuario/"
+            target="_self"
+            title="Ir a mi cuenta"
+          >
+            Mi cuenta
+          </a>
+        </li>
+        <li>
+          <a
+            class="link ln-link --unstyled"
+            href="https://myaccount.lanacion.com.ar/datos-personales/"
+            target="_self"
+            title="Ir a mis datos"
+          >
+            Mis datos
+          </a>
+        </li>
+        <li>
+          <a
+            class="link ln-link --unstyled"
+            href="https://micuenta.lanacion.com.ar/mis-suscripciones/"
+            target="_self"
+            title="Ir a mis suscripciones"
+          >
+            Mis suscripciones
+          </a>
+        </li>
+        <li>
+          <a
+            class="link ln-link --unstyled"
+            href="#"
+            target="_self"
+            title="Cerrar sesión"
+          >
+            Cerrar sesión
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components - features - LN-10-global - header - mainHeader - rightOptions - MenuUser should match snapshot when userType is subscribed 1`] = `
+<div>
+  <div
+    class="dropdown relative h-max flex cursor-pointer l-only pt-4"
+  >
+    <button
+      class="dropdown-toggle inline-flex"
+    >
+      <div
+        class="flex cursor-pointer l-only"
+      >
+        <div
+          class="avatar w-40 h-40 rounded-circle text-12 flex ai-center jc-center font-bold mr-8 border border-all border-thin bg-neutral-dark-50 text-exclusive-subscription border-neutral-light-900"
+        />
+        <div
+          class="flex flex-column ai-start jc-center gap-4 text-12_130 white-space-nowrap w-115"
+        >
+          <div
+            class="email flex font-bold gap-4 w-100 text-neutral-light-800"
+          >
+            <span
+              class="block text-ellipsis-1"
+            />
+          </div>
+          <span
+            class="w-100 text-start text-neutral-light-600"
+          >
+            Suscripción digital
+          </span>
+        </div>
+      </div>
+      <i
+        class="icon dropdown-icon relative top-3 --dark"
+      >
+        <svg
+          fill="inherit"
+          height="17"
+          viewBox="0 0 16 17"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M8.24267 9.13331L11.0713 6.30465C11.3316 6.04434 11.7537 6.04434 12.014 6.30465C12.2743 6.56496 12.2743 6.987 12.014 7.24731L8.94977 10.3115C8.55925 10.7021 7.92608 10.7021 7.53556 10.3115L4.47133 7.24731C4.21102 6.987 4.21102 6.56496 4.47133 6.30465C4.73164 6.04434 5.15369 6.04434 5.414 6.30465L8.24267 9.13331Z"
+            fill="inherit"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </i>
+    </button>
+    <div
+      class="dropdown-menu transition-regular absolute z-10 mt-8 w-max top-100 bg-light-0 rounded-4 shadow-center min-w-100 visibility-hidden opacity-0"
+      data-position="center"
+      role="menu"
+    >
+      <ul
+        class="p-12 text-14"
+      >
+        <li>
+          <a
+            class="link ln-link --unstyled"
+            href="https://www.lanacion.com.ar/mis-notas/"
+            target="_self"
+            title="Ir a mis notas"
+          >
+            Mis notas mock
+          </a>
+        </li>
+        <li>
+          <a
+            class="link ln-link --unstyled"
+            href="https://myaccount.lanacion.com.ar/mi-usuario/"
+            target="_self"
+            title="Ir a mi cuenta"
+          >
+            Mi cuenta
+          </a>
+        </li>
+        <li>
+          <a
+            class="link ln-link --unstyled"
+            href="https://myaccount.lanacion.com.ar/datos-personales/"
+            target="_self"
+            title="Ir a mis datos"
+          >
+            Mis datos
+          </a>
+        </li>
+        <li>
+          <a
+            class="link ln-link --unstyled"
+            href="https://micuenta.lanacion.com.ar/mis-suscripciones/"
+            target="_self"
+            title="Ir a mis suscripciones"
+          >
+            Mis suscripciones
+          </a>
+        </li>
+        <li>
+          <a
+            class="link ln-link --unstyled"
+            href="#"
+            target="_self"
+            title="Cerrar sesión"
+          >
+            Cerrar sesión
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

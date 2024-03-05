@@ -24,3 +24,6 @@
     grid-row: main-start;
   }
 }
+.common-header-container .common-main-header .content > div .bottom-options {
+  grid-column: left-start/right-end;
+}

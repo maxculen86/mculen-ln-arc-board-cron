@@ -5,6 +5,13 @@ import IconSprite from '../../../../features/private-global/common/iconSprite/Ic
 // TODO: Eliminar cuando se consigan los datos dinámicamente
 export const menuUser = [
     {
+        text: 'Mi cuenta',
+        icon: <IconSprite name="profile" critical />,
+        onClick: () => {
+            console.log('click');
+        }
+    },
+    {
         text: 'Mis recetas',
         icon: <IconSprite name="bookmark" critical />,
         onClick: () => {
@@ -19,8 +26,15 @@ export const menuUser = [
         }
     },
     {
-        text: 'Mi cuenta',
-        icon: <IconSprite name="profile" critical />,
+        text: 'Newsletters',
+        icon: <IconSprite name="calendar" />,
+        onClick: () => {
+            console.log('click');
+        }
+    },
+    {
+        text: '¿Cómo podemos ayudarte?',
+        icon: <IconSprite name="diet" />,
         onClick: () => {
             console.log('click');
         }
@@ -32,6 +46,7 @@ export const menuUser = [
             logout(callback);
         },
         variant: 'danger',
-        title: 'Cerrar sesión'
+        title: 'Cerrar sesión',
+        classNameList: 'mt-auto'
     }
 ];

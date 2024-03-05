@@ -3,6 +3,8 @@ import DrawerContainer from '../DrawerContainer/foodit';
 import MenuCategories from '../MenuCategories/foodit';
 import { menuCategories } from '../utils/menuCategories';
 import { Text } from '@ln/common-ui-text';
+import { Itemcard } from '@ln/foodit-ui-itemcard';
+import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
 const DrawerMenu = () => {
     // TODO: contenido de menú
@@ -16,11 +18,22 @@ const DrawerMenu = () => {
             position="left"
             bodyClassName="pr-16"
         >
-            {sections.map(({ title, data }) => (
+            {sections.map(({ title, data, href }) => (
                 <div key={title}>
-                    <Text className="roboto-bold text-14 uppercase bg-background-positive p-8 block rounded-top-right-4 rounded-bottom-right-4">
-                        {title}
-                    </Text>
+                    {href ? (
+                        <Itemcard
+                            type="link"
+                            href={href}
+                            text={title}
+                            level={1}
+                            fullWidth
+                            arrowIcon={<IconSprite name="arrow-right" />}
+                        />
+                    ) : (
+                        <Text className="roboto-bold text-14 uppercase bg-positive p-8 block rounded-top-right-4 rounded-bottom-right-4">
+                            {title}
+                        </Text>
+                    )}
                     <MenuCategories data={data} fullWidth />
                 </div>
             ))}

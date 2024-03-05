@@ -3,7 +3,6 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import RenderCollection from '../../../../../../components/chains/foodit-global/common/RenderCollection/foodit';
 import {
-    checkCarouselsRoofBookmark,
     fillBookmarks,
     unfillBookmarks
 } from '../../../../../../components/features/foodit-global/common/bookmark/iconHelper';
@@ -69,8 +68,6 @@ describe('Bookmark functionality tests', () => {
                 expect(href).toContain('bookmark-filled');
             });
         });
-        // After filling all the bookmarks in the carousel, I execute the function responsible for checking if the roof bookmark should be filled and validate that it has been filled.
-        checkCarouselsRoofBookmark();
 
         const carouselElements = elements.flatMap(el =>
             Array.from(

@@ -34,7 +34,7 @@ describe('components - features - foodit-global - body - powerUpRecetas - ingred
             <Ingredients ingredientsLists={ingredientsListMock} />
         );
         items.forEach(item => {
-            const text = getByText(item.fullIngredientString);
+            const text = getByText(item.fullIngredientString.toLowerCase());
             expect(text).toBeInTheDocument();
         });
         const title = getByText(titleList);

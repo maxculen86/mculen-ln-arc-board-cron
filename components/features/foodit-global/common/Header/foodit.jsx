@@ -11,33 +11,48 @@ import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import LoginSubscribeButtons from './components/LoginSubscribeButtons';
 import RenderUserOptions from './components/rightOptions/RenderUserOptions';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import classNames from 'classnames';
 
-const HeaderFoodit = ({ isSticky = false, ...r }) => {
-    const { deployment, contextPath } = useAppContext();
+const HeaderFoodit = () => {
+    const { deployment, contextPath, siteProperties, layout } = useAppContext();
+
+    const { layoutsName = {} } = siteProperties || {};
+
+    const classNameHeaderContainer = classNames(
+        layout === layoutsName.FooditHome ||
+            layout === layoutsName.FooditFichaReceta
+            ? 'mb-12 mb-40_lg'
+            : 'mb-40'
+    );
     //TODO: validar tipo de usuario  'subscribedPlus';
 
     // TODO: falta cerrar comportamiento de sticky
 
     return (
-        <Header {...r}>
+        <Header classNameContainer={classNameHeaderContainer}>
             <MainHeader>
-                <MainHeader.Content>
+                <MainHeader.Content containerClassName="bg-positive py-16">
                     <MainHeader.Content.Left className="flex jc-start ai-center lg-none">
                         <Button
                             title="Menu"
+                            className="text-light-800"
                             onClick={() =>
                                 toggleDrawer({ id: 'drawer-menu', show: true })
                             }
                         >
-                            <Icon size={24}>
+                            <Icon size={24} color="dark">
                                 <IconSprite name="menu" critical />
                             </Icon>
                         </Button>
                     </MainHeader.Content.Left>
                     <MainHeader.Content.Center className="jc-center ai-center">
-                        <MainHeader.Brand href="/" title="Ir a inicio">
+                        <MainHeader.Brand
+                            href="/"
+                            title="Ir a inicio"
+                            className="flex"
+                        >
                             <img
-                                className="w-118 w-160_md w-191_lg"
+                                className="h-32 h-44_md h-52_lg"
                                 src={getAssetsPath(contextPath)(deployment)(
                                     'logo-foodit.webp'
                                 )}
@@ -46,7 +61,7 @@ const HeaderFoodit = ({ isSticky = false, ...r }) => {
                         </MainHeader.Brand>
                     </MainHeader.Content.Center>
                     <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
-                        <LoginSubscribeButtons />
+                        <LoginSubscribeButtons classNameButtons="lg-only" />
                         <RenderUserOptions />
                     </MainHeader.Content.Right>
                     <MainHeader.Content.Search>
@@ -57,7 +72,7 @@ const HeaderFoodit = ({ isSticky = false, ...r }) => {
                     <TopNavigationBar />
                 </MainHeader.Bottom>
             </MainHeader>
-            <SubHeader className="py-8 h-48 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 lg-none">
+            <SubHeader className="py-12 h-48 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 lg-none">
                 <Promotions />
             </SubHeader>
         </Header>

@@ -7,19 +7,17 @@ import config from '../../../../properties/sites/la-nacion-ar';
 import useTermica from '../../../private/common/hooks/useTermica';
 import getToken from '../../../private/common/utils/getToken';
 import useCheckBookmark from '../../../private/common/hooks/bookmark/useCheckBookmark';
-import ComLine from '../../../private/common/com-line';
 import {
     getClassCondition,
-    isSuscription,
-    scrollShare
+    isSuscription
 } from '../../../private/LN/common/utils/shareHelper';
 import BuildSecondButtonsGroup from './_children/BuildSecondButtonsGroup';
 import BuildFirstButtonsGroup from './_children/BuildFirstButtonsGroup';
-import Icon from '../../../private/common/icon';
 import ShowBarrier from '../../../private/common/barrier/showBarrier';
 import BuildAudioPlayer from '../../../private/common/audioNews/BuildAudioPlayer';
 import ShowToast from '../../../private/common/toast/showToast';
 import '../../../../resources/dist/css/ln/modules/mod-share.css';
+import classNames from 'classnames';
 
 const Share = () => {
     const { globalContent, requestUri } = useAppContext() || {};
@@ -27,8 +25,7 @@ const Share = () => {
         _id: id,
         headlines: { basic: title, mobile: mobileTitle } = {},
         subtype,
-        last_updated_date: date,
-        isListenable
+        last_updated_date: date
     } = globalContent;
 
     const [bookmark, setBookmark] = useState('');
@@ -38,7 +35,7 @@ const Share = () => {
     const token = getToken();
     const accessToken = getToken('access-token');
     const termicaBookmark = useTermica('bookmark_web');
-    const classCondition = getClassCondition(subtype);
+    const subtypeVideo = getClassCondition(subtype);
     const suscription = isSuscription(token);
 
     const checkBookmarkId = useCheckBookmark(
@@ -56,19 +53,34 @@ const Share = () => {
     const shareContainer = useRef();
     const share = useRef();
 
+    const modShareContainerSubClasses = !subtypeVideo
+        ? 'sticky float-l_l z-101 transition transition-all transition-duration-250 top-73_min1024'
+        : '-order-1 ratio-auto order-initial_min1024';
+
+    const modShareContainerClass = classNames(
+        'mod-share-container',
+        '--no-app',
+        subtypeVideo,
+        modShareContainerSubClasses
+    );
+
+    const shareSubClasses = !subtypeVideo
+        ? 'flex-column_l bg-neutral-light-1_l pb-16_l pt-8_l px-8_l'
+        : 'mb-8_l';
+    const shareClasses = classNames(
+        'share',
+        'flex relative z-100',
+        shareSubClasses
+    );
+
+    const hrVideoClasses = subtypeVideo ? 'border border-neutral-dark-300' : '';
+
     return (
-        <div className={`mod-share-container${classCondition} --no-app`}>
+        <div className={modShareContainerClass}>
             <ShowToast />
             <ShowBarrier token={token} />
-            <div
-                className={`mod-share ${isListenable ? '--scroll' : ''}`}
-                ref={shareContainer}
-                onScroll={() => {
-                    scrollShare(shareContainer.current, share.current);
-                }}
-            >
-                <Icon name="arrow-left" />
-                <div id="v-share" className="share" ref={share}>
+            <div className="mod-share flex mb-24 mb-0_l" ref={shareContainer}>
+                <div id="v-share" className={shareClasses} ref={share}>
                     <BuildFirstButtonsGroup
                         bookmark={bookmark}
                         setBookmark={setBookmark}
@@ -79,18 +91,19 @@ const Share = () => {
                         openPlayer={openPlayer}
                         enableButton={enableButton}
                         setOpenPlayer={setOpenPlayer}
+                        subtypeVideo={subtypeVideo}
                     />
 
-                    <ComLine />
+                    <hr className={hrVideoClasses} />
 
                     <BuildSecondButtonsGroup
                         requestUri={requestUri}
                         host={config.host}
                         title={title}
                         mobileTitle={mobileTitle}
+                        subtypeVideo={subtypeVideo}
                     />
                 </div>
-                <Icon name="arrow-right" />
             </div>
             {openPlayer && (
                 <BuildAudioPlayer

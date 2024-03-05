@@ -97,17 +97,6 @@ class EventsHelper {
         });
     }
 
-    setEventSubscribe() {
-        const btnSuscribite = window.document.querySelector('#btnsuscribite');
-
-        const payload = {
-            action: 'header_logo',
-            label: 'suscribite'
-        };
-
-        this.addEventListeners(btnSuscribite, payload);
-    }
-
     setEventsDollar() {
         const dollars = window.document.querySelectorAll('.dollar a');
 
@@ -237,17 +226,6 @@ class EventsHelper {
 
             this.addEventListeners(section, payload);
         });
-    }
-
-    setEventSearch() {
-        const searchIcon = window.document.querySelector('#querylyButton');
-
-        const payload = {
-            action: 'header_logo',
-            label: 'buscar'
-        };
-
-        this.addEventListeners(searchIcon, payload);
     }
 
     setEventsGames() {

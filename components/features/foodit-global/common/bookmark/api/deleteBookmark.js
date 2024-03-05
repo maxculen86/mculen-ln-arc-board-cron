@@ -1,20 +1,20 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 
 import getToken from '../../../../../private/common/utils/getToken';
-import { checkCarouselsRoofBookmark, unfillBookmarks } from '../iconHelper';
+import { fillBookmarks } from '../iconHelper';
 
-const deleteBookmark = async bookmarkIds => {
+const deleteBookmark = async bookmarks => {
     // TODO: should use useClientLibs
     const token = getToken();
     const accessToken = getToken('access-token');
 
-    if (!token || !accessToken || !bookmarkIds) return [];
+    if (!token || !accessToken || !bookmarks) return [];
 
     const results = await Promise.all(
-        bookmarkIds.map(async ({ bookmarkId = '', bookmarkTypeId = '' }) => {
-            if (!bookmarkId) {
+        bookmarks.map(async ({ bookmarkId = '', bookmarkTypeId = '' }) => {
+            if (!bookmarkId || !bookmarkTypeId) {
                 console.error(
-                    `Error al guardar nota ${bookmarkTypeId}, id del Bookmark requerido`
+                    `Error al eliminar nota ${bookmarkTypeId}, id del Bookmark requerido`
                 );
                 return null;
             }
@@ -32,39 +32,61 @@ const deleteBookmark = async bookmarkIds => {
 
             if (!response.ok) {
                 console.error(
-                    `Error al guardar nota ${bookmarkTypeId}, status: ${response.status}`
+                    `Error al eliminar nota ${bookmarkTypeId}, status: ${response.status}`
                 );
-                return null;
+                return { bookmarkTypeId };
             }
 
-            return bookmarkTypeId;
+            return { bookmarkTypeId, bookmarkId };
         })
     );
 
-    return results.filter(
-        result => typeof result === 'string' && result.length
+    const { successfullResponses, failureResponses } = results.reduce(
+        (acum, response) => {
+            if (response.bookmarkId) {
+                acum.successfullResponses.push(response.bookmarkTypeId);
+            } else {
+                acum.failureResponses.push(response.bookmarkTypeId);
+            }
+            return acum;
+        },
+        { successfullResponses: [], failureResponses: [] }
     );
+
+    return { successfullResponses, failureResponses };
 };
 
-const fetchDeleteBookmark = async bookmarkedArticles => {
-    const responses = await deleteBookmark(bookmarkedArticles);
+const fetchDeleteBookmark = async (bookmarkedArticles, setUserBookmarks) => {
+    const { successfullResponses, failureResponses } = await deleteBookmark(
+        bookmarkedArticles
+    );
 
-    if (responses.length) {
-        const bookmarkedItems =
-            JSON.parse(localStorage.getItem('bookmarkedItems')) || [];
-
-        localStorage.setItem(
-            'bookmarkedItems',
-            JSON.stringify(
-                bookmarkedItems.filter(
-                    article => !responses.includes(article.bookmarkTypeId)
+    if (successfullResponses && successfullResponses.length) {
+        if (setUserBookmarks) {
+            setUserBookmarks(previousBookmarks =>
+                previousBookmarks.filter(
+                    ({ bookmarkTypeId }) =>
+                        !successfullResponses.includes(bookmarkTypeId)
                 )
-            )
-        );
+            );
+        } else {
+            const bookmarkedItems =
+                JSON.parse(localStorage.getItem('bookmarkedItems')) || [];
 
-        unfillBookmarks(responses);
+            localStorage.setItem(
+                'bookmarkedItems',
+                JSON.stringify(
+                    bookmarkedItems.filter(
+                        article =>
+                            !successfullResponses.includes(
+                                article.bookmarkTypeId
+                            )
+                    )
+                )
+            );
+        }
 
-        if (responses.length === bookmarkedArticles.length) {
+        if (successfullResponses.length === bookmarkedArticles.length) {
             window.LN.observable.publish('addToast', {
                 variant: 'success',
                 title: 'Guardado!',
@@ -77,14 +99,16 @@ const fetchDeleteBookmark = async bookmarkedArticles => {
                 message: `Algunos articulos fallaron al ser eliminados, intente nuevamente`
             });
         }
-
-        checkCarouselsRoofBookmark();
     } else {
         window.LN.observable.publish('addToast', {
             variant: 'danger',
             title: 'Error!',
             message: `No fue posible eliminar los articulos guardados`
         });
+    }
+
+    if (!setUserBookmarks && failureResponses && failureResponses.length) {
+        fillBookmarks(failureResponses);
     }
 };
 

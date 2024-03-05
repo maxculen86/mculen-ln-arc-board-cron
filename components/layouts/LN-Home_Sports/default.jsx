@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import StaticContent from '../../private/common/staticContent';
-import Header from '../../private/LN10/header';
+import Header from '../../features/LN-10-global/header/default';
 import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
 import '../../../resources/dist/css/ln/components/banners.css';

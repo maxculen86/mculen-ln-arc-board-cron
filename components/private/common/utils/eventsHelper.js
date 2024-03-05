@@ -53,17 +53,6 @@ export const setEventsFooter = () => {
     });
 };
 
-export const setEventSubscribe = () => {
-    const btnSuscribite = window.document.querySelector('#btnsuscribite');
-
-    const payload = {
-        action: 'header_logo',
-        label: 'suscribite'
-    };
-
-    addEventListeners(btnSuscribite, payload);
-};
-
 export const setEventSignIn = () => {
     const btnSignIn = window.document.querySelector(
         'button[title="Iniciar sesión"]'
@@ -88,17 +77,6 @@ export const setEventsSections = () => {
 
         addEventListeners(section, payload);
     });
-};
-
-export const setEventSearch = () => {
-    const searchIcon = window.document.querySelector('#querylyButton');
-
-    const payload = {
-        action: 'header_logo',
-        label: 'buscar'
-    };
-
-    addEventListeners(searchIcon, payload);
 };
 
 export const setEventsWeather = () => {

@@ -1,11 +1,21 @@
 /* eslint-disable no-restricted-globals */
 import React from 'react';
+import classNames from 'classnames';
 import dynamicallyLoadScript from './dynamicallyLoadScript';
 import config from '../../../../../properties/sites/la-nacion-ar';
 import get from '../../../common/utils/get';
 import toggleBookmark from '../../../common/utils/bookmarkHelper';
 import { isSubscribed } from './contextHelper';
 import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
+import {
+    Bookmark,
+    BookmarkFilled,
+    Whatsapp,
+    FileCopy,
+    Facebook,
+    Twitter,
+    Mail
+} from '@ln/contenidos-ui-assets';
 
 export function popUpCompartirNotaTW(notaId, dominio, titulo) {
     if (notaId.length > 0) {
@@ -122,8 +132,27 @@ export const getTwitterTitle = (mobileTitle, title) =>
 
 export const getClassAndIconByBookmark = bookmark =>
     bookmark
-        ? { className: '--is-saved', icon: 'bookmark-filled' }
-        : { className: '', icon: 'bookmark' };
+        ? { bookmarkClass: '--is-saved', bookmarkIcon: <BookmarkFilled /> }
+        : { bookmarkIcon: '', bookmarkIcon: <Bookmark /> };
+
+export const getFirstGroupClassNames = ({ subtypeVideo }) => {
+    return {
+        firstGroupClasses: classNames(
+            'first-buttons-group',
+            'flex gap-16',
+            subtypeVideo ? 'pr-8' : 'pr-8_max1023 pb-16_l flex-column_l'
+        ),
+        displayClasses: classNames(subtypeVideo ? 'none' : 'l-none'),
+
+        commentsClasses: classNames(
+            'comment-btn',
+            'flex w-fit-content p-8 gap-4',
+            subtypeVideo
+                ? 'h-40'
+                : 'h-40_max1023 h-fit-content_min1024 w-40_min1024 flex-column_l'
+        )
+    };
+};
 
 export const onButtonClicked = (
     token,
@@ -163,7 +192,7 @@ export const onButtonClicked = (
 export const BtnContainer = ({ children, withContainer, id }) => {
     if (withContainer) {
         return (
-            <div className="btn-container" id={id}>
+            <div className="btn-container sm-none flex relative" id={id}>
                 {children}
             </div>
         );
@@ -179,85 +208,72 @@ export const addEventToDataLayer = clickText => {
     });
 };
 
+export const setEventShare = () => {
+    window.dataLayer.push({
+        event: 'e_linkclick',
+        dynamic_action: 'toolbard',
+        dynamic_category: 'nota_ln9',
+        dynamic_label: 'compartir_mobile'
+    });
+};
+
 export const buttonsList = [
     {
         dataEvent: 'LinkClick',
         dataSection: 'CompartirNotaLN',
-        iconName: 'whatsapp',
+        icon: <Whatsapp />,
         title: 'Compartir la nota en WhatsApp',
         id: 'whatsAppShareDesktop',
         handleClick: ({ requestUri, host }) => {
             shareWhatsAppDesktop(requestUri, host);
-        }
+        },
+        className: 'p-0 sm-none'
     },
     {
         dataEvent: 'LinkClick',
         dataSection: 'CompartirNotaLN',
-        iconName: 'copy',
+        icon: <FileCopy />,
         title: 'Copiar link de la nota',
         id: 'copyLinkNote',
         handleClick: ({ setCopy }) => {
             copyToClipboard();
             setCopy(true);
         },
-        withContainer: true
+        withContainer: true,
+        className: 'p-0 sm-none'
     },
     {
         dataEvent: 'LinkClick',
         dataSection: 'CompartirNotaLN',
-        iconName: 'facebook',
+        icon: <Facebook />,
         title: 'Compartir la nota en Facebook',
         id: 'btnfacebook',
         handleClick: ({ requestUri, host, title }) => {
             popUpCompartirNotaFB(requestUri, host, title);
-        }
+        },
+        className: 'p-0 sm-none'
     },
     {
         dataEvent: 'LinkClick',
         dataSection: 'CompartirNotaLN',
-        iconName: 'twitter',
+        icon: <Twitter />,
         title: 'Compartir la nota en X',
         id: 'btntwitter',
         handleClick: ({ requestUri, host, basic: title, mobileTitle }) => {
             const twitterTitle = getTwitterTitle(mobileTitle, title);
             popUpCompartirNotaTW(requestUri, host, twitterTitle);
-        }
+        },
+        className: 'p-0 sm-none'
     },
     {
         dataEvent: 'LinkClick',
         dataSection: 'CompartirNotaLN',
-        iconName: 'email',
+        icon: <Mail />,
         title: 'Compartir la nota por E-mail',
         id: 'btnemail',
         handleClick: ({ requestUri, host }) => {
             popUpCompartirMailTo(requestUri, host);
         },
-        className: 'email'
+        className: 'email p-0 sm-none'
     }
 ];
-
-export const scrollShare = (shareContainer, share) => {
-    const leftArrow = document.querySelector('.icon-arrow-left') || {};
-    const rightArrow = document.querySelector('.icon-arrow-right') || {};
-
-    if (shareContainer && share) {
-        if (shareContainer.scrollLeft >= 20) {
-            leftArrow.classList.remove('--idle');
-            leftArrow.classList.add('--active');
-        } else if (leftArrow.classList.contains('--active')) {
-            leftArrow.classList.remove('--active');
-            leftArrow.classList.add('--idle');
-        }
-
-        if (
-            shareContainer.scrollLeft + window.innerWidth >
-            shareContainer.scrollWidth
-        ) {
-            rightArrow.classList.add('--idle');
-            rightArrow.classList.remove('--active');
-        } else {
-            rightArrow.classList.add('--active');
-            rightArrow.classList.remove('--idle');
-        }
-    }
-};

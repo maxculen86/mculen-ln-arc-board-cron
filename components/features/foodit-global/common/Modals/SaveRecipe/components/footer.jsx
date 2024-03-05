@@ -12,12 +12,18 @@ const FooterSaveRecipe = ({
     selectedFolder,
     setIndexStep,
     ids,
-    articles = []
+    collectionArticles = []
 }) => {
+    const articles = useGetFooditArticles(
+        (!collectionArticles.length && ids) || []
+    );
+
     const articlesDetails =
-        (articles.length &&
-            articles.map(article => transformBookmarkContent(article))) ||
-        useGetFooditArticles(ids);
+        (collectionArticles.length &&
+            collectionArticles.map(article =>
+                transformBookmarkContent(article)
+            )) ||
+        articles;
 
     return (
         <footer className="flex gap-16 as-end">
@@ -54,7 +60,7 @@ const FooterSaveRecipe = ({
                         articlesDetails
                     })
                 }
-                disabled={!selectedFolder?.value}
+                disabled={!selectedFolder?.value || !articlesDetails.length}
             >
                 {rightButton.text}
             </Button>

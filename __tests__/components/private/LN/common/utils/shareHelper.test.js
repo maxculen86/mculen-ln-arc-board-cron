@@ -1,4 +1,5 @@
 import {
+    setEventShare,
     shareWhatsAppDesktop,
     shareWhatsAppMobile
 } from '../../../../../../components/private/LN/common/utils/shareHelper';
@@ -18,6 +19,10 @@ const mockLocation = {
     })
 };
 
+const mockDataLayer = {
+    push: jest.fn()
+};
+
 beforeEach(() => {
     delete global.window.location;
     global.window.location = Object.create(mockLocation);
@@ -32,6 +37,30 @@ describe('shareWhatsAppDesktop', () => {
             `https://wa.me/?text=${encodeURIComponent(dominio + notaId)}`,
             '_blank'
         );
+    });
+});
+
+describe('setEventShare', () => {
+    const input = {
+        dynamic_category: 'nota_ln9',
+        dynamic_action: 'toolbard',
+        dynamic_label: 'compartir_mobile',
+        event: 'e_linkclick'
+    };
+
+    it('should push correct event data to dataLayer', () => {
+        delete window.dataLayer;
+        global.window.dataLayer = [];
+
+        setEventShare(input);
+        expect(window.dataLayer).toStrictEqual([
+            {
+                dynamic_category: 'nota_ln9',
+                dynamic_action: 'toolbard',
+                dynamic_label: 'compartir_mobile',
+                event: 'e_linkclick'
+            }
+        ]);
     });
 });
 

@@ -43,12 +43,13 @@ export const Ingredients = ({ ingredientsLists = [], portions }) => {
             </Text>
             {ingredientsLists.map(list => {
                 const { items = [], titleList = '' } = list || {};
-                const ingredientsNames = items.map(
-                    item =>
+                const ingredientsNames = items.map(item => {
+                    const ingredientName =
                         item.fullIngredientString ||
                         (typeof item === 'string' && item) ||
-                        ''
-                );
+                        '';
+                    return ingredientName.toLowerCase();
+                });
                 return (
                     <IngredientsSection
                         key={titleList}

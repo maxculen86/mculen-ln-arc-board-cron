@@ -1,5 +1,6 @@
 import get from '../../../../../private/common/utils/get';
 import saveBookmarks from '../../bookmark/api/postBookmarks';
+import { fillBookmarks } from '../../bookmark/iconHelper';
 
 export const saveRecipeConfig = {
     'new-folder': {
@@ -60,13 +61,16 @@ export const actionButtons = ({
         forwardStep: () => setIndexStep(indexStep - 1),
         nextStep: () => setIndexStep(indexStep + 1),
         save: async () => {
+            fillBookmarks(
+                articlesDetails.map(({ content = {} }) => content.id)
+            );
+            close();
+
             const addFolder = selectedFolder.value == 'new';
 
             const nameFolder = addFolder ? newFolder : selectedFolder?.label;
 
             await saveBookmarks(articlesDetails, nameFolder, addFolder);
-
-            close();
         }
     };
     return actions[action] && actions[action]();

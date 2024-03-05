@@ -5,6 +5,7 @@ import SaveRecipe from './saveRecipe';
 import useIsomorphicPopupHandling from './hooks/useIsomorphicPopupHandling';
 import get from '../../../../../private/common/utils/get';
 import fetchDeleteBookmark from '../../bookmark/api/deleteBookmark';
+import { unfillBookmarks } from '../../bookmark/iconHelper';
 
 export const Modal = () => {
     const { close, modalData } = useIsomorphicPopupHandling();
@@ -17,6 +18,10 @@ export const Modal = () => {
 
     useEffect(() => {
         if (bookmarkedArticles.length > 0) {
+            unfillBookmarks(
+                bookmarkedArticles.map(article => article.bookmarkTypeId)
+            );
+
             const deleteBookmarkedArticles = async () => {
                 await fetchDeleteBookmark(bookmarkedArticles);
             };
