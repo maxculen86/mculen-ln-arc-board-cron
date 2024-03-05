@@ -171,6 +171,17 @@ export default {
             },
             credits: creditsSizes
         },
+        chefs: {
+            credits: {
+                sizes: {
+                    width: 280,
+                    height: 280,
+                    media: '(min-width: 320px)',
+                    class: '',
+                    type: 'image'
+                }
+            }
+        },
         default: [
             {
                 width: 1033,

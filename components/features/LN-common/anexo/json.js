@@ -13,7 +13,12 @@ class AnexoFeature {
             hideByUrl = false,
             url,
             heightMobile,
-            html
+            html,
+
+            // Roof properties
+            title,
+            link,
+            hideTitle
         } = customFields;
 
         const isApertura = isInSection({
@@ -32,20 +37,29 @@ class AnexoFeature {
         let resp = {};
         let articles = [];
         let hideCaja = true;
+
+        const information = {
+            hideCaja,
+            layout: 'grilla1'
+        };
+
         const urlAnexo = (url && url.trim()) || '';
         if (!hideByHtml && html) {
-            hideCaja = false;
+            information.hideCaja = false;
             articles = [{ html }];
         }
         if (!hideByUrl && urlAnexo && heightMobile) {
-            hideCaja = false;
+            information.hideCaja = false;
             articles = urlAnexo !== '' ? [{ url, alto: heightMobile }] : [];
         }
+
+        if (!hideTitle) {
+            information.title = title;
+            information.link = link;
+        }
+
         resp = {
-            information: {
-                hideCaja,
-                layout: 'grilla1'
-            },
+            information,
             articles
         };
 
