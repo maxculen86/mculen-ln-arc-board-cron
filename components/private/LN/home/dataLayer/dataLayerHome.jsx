@@ -1,20 +1,21 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import dataLayerScriptHome from './dataLayerScriptHome';
+import { useAppContext } from 'fusion:context';
 
 const dataLayerHome = props => {
     const { globalContent } = props;
     const { _id } = globalContent || {};
-
-    const dataLayer = dataLayerScriptHome(_id);
+    const { contextPath, deployment } = useAppContext();
 
     return (
         <script
+            async
+            id="scriptDataLayerHome"
             type="text/javascript"
-            dangerouslySetInnerHTML={{
-                __html: dataLayer
-            }}
+            data-section={_id}
+            src={deployment(
+                `${contextPath}/resources/js/LN/scriptDataLayerHome.min.js`
+            )}
         />
     );
 };
