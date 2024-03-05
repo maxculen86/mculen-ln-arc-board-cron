@@ -1,22 +1,37 @@
-/* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import useSubtype from '../../../common/hooks/useSubtype';
+import { useAppContext } from 'fusion:context';
+import { Subtypes } from '../../../common/utils/subtypes/subtypeHelper';
 
-// Cuando surgan los dataLayers de los otros templates, intentar usar este y que
-// quede completo para todos. Si no se puede, crear carpeta.
 const dataLayer = props => {
     const { globalContent } = props;
+    const { contextPath, deployment } = useAppContext();
 
-    const { subtipo } = useSubtype();
-    const scriptDataLayer = subtipo.execute('getDataLayer', globalContent);
+    const { content_restrictions, subtype: _subtype, _id } = globalContent;
+    const valor =
+        (content_restrictions && content_restrictions.content_code) || 'comun';
+    const pageType = 'nota';
+    const pageTypeText = 'nota';
+    const subtype = Subtypes.find(sub => sub.id === _subtype);
+
+    const scriptPath =
+        subtype && subtype.nombre === 'Receta'
+            ? 'scriptDataLayerReceta'
+            : 'scriptDataLayerNota';
 
     return (
         <script
+            async
+            id="scriptDataLayerNota"
             type="text/javascript"
-            dangerouslySetInnerHTML={{
-                __html: scriptDataLayer
-            }}
+            data-id={_id}
+            data-valor={valor}
+            data-page-type={pageType}
+            data-page-type-text={pageTypeText}
+            data-subtype={JSON.stringify(subtype)}
+            src={deployment(
+                `${contextPath}/resources/js/LN/${scriptPath}.min.js`
+            )}
         />
     );
 };

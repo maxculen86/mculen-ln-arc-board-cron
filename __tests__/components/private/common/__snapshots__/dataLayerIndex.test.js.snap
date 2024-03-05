@@ -3,6 +3,7 @@
 exports[`LN - Common - DataLayer DataLayer home Deportes snapshot 1`] = `
 <div>
   <script
+    async=""
     data-section="/deportes"
     id="scriptDataLayerHome"
     type="text/javascript"
@@ -13,34 +14,14 @@ exports[`LN - Common - DataLayer DataLayer home Deportes snapshot 1`] = `
 exports[`LN - Common - DataLayer DataLayer nota recetas snapshot 1`] = `
 <div>
   <script
+    async=""
+    data-id="/deportes"
+    data-page-type="nota"
+    data-page-type-text="nota"
+    data-subtype="{\\"id\\":\\"7\\",\\"nombre\\":\\"Receta\\"}"
+    data-valor="comun"
+    id="scriptDataLayerNota"
     type="text/javascript"
-  >
-    var dataLayer = [
-    {
-        metarefresh: 'N/A',
-        pageType: 'N/A',
-        mainTag: 'N/A',
-        tags: 'N/A',
-        autor: 'N/A',
-        seccion: 'Recetas',
-        longitud: 'N/A',
-        formato: 'N/A',
-        genero: 'N/A',
-        tematica: 'N/A',
-        valor: 'N/A',
-        age: 'N/A',
-        gender: 'N/A',
-        marital: 'N/A',
-        country: 'N/A',
-        city: 'N/A',
-        education: 'N/A',
-        career: 'N/A',
-        industry: 'N/A',
-        income: 'N/A',
-        interest: 'N/A'
-    }
-];
-
-  </script>
+  />
 </div>
 `;

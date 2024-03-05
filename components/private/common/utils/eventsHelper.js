@@ -53,17 +53,6 @@ export const setEventsFooter = () => {
     });
 };
 
-export const setEventSubscribe = () => {
-    const btnSuscribite = window.document.querySelector('#btnsuscribite');
-
-    const payload = {
-        action: 'header_logo',
-        label: 'suscribite'
-    };
-
-    addEventListeners(btnSuscribite, payload);
-};
-
 export const setEventSignIn = () => {
     const btnSignIn = window.document.querySelector(
         'button[title="Iniciar sesión"]'

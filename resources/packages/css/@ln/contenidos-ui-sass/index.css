@@ -1241,6 +1241,8 @@ a {
   --sopa-de-letras: #ecb535;
   --el-telar: #5bbb87;
   --trivias: #69c7c3;
+  --cruciexpress: #ff8ea9;
+  --palabra-oculta: #97c7ff;
   --line-100: 100%;
   --line-110: 110%;
   --line-116: 116%;
@@ -1644,6 +1646,14 @@ a {
   background: var(--trivias);
 }
 
+.bg-cruciexpress {
+  background: var(--cruciexpress);
+}
+
+.bg-palabra-oculta {
+  background: var(--palabra-oculta);
+}
+
 .bg-green {
   background: #008759;
 }
@@ -1694,6 +1704,14 @@ a {
 
 .bg-trivias__hover:hover {
   background-color: var(--trivias);
+}
+
+.bg-cruciexpress__hover:hover {
+  background-color: var(--cruciexpress);
+}
+
+.bg-palabra-oculta__hover:hover {
+  background-color: var(--palabra-oculta);
 }
 
 .cardGames__hover:hover .border-neutral-light-700 {
