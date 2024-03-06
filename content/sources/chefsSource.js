@@ -15,6 +15,7 @@ const resolve = key => {
 };
 
 const fetch = (query, { cachedCall } = {}) => {
+    console.log('🚀 ~ file: chefsSource.js:18 ~ fetch ~ query:', query);
     const queryResolved = resolve(query);
     const opt = {
         uri: `${CONTENT_BASE}${queryResolved}`,

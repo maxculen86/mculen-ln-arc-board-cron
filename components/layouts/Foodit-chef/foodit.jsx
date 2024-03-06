@@ -1,10 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Consumer from 'fusion:consumer';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import AuthorBiography from '../../features/foodit-global/common/authorBiography/foodit';
 
 const pageBuilderSections = ['Notas'];
 
 const ChefFoodit = props => {
+    console.log('🚀 ~ file: foodit.jsx:8 ~ ChefFoodit ~ props:', props);
     const { children } = props;
 
     const [notas] = children;
@@ -39,4 +42,9 @@ const ChefFoodit = props => {
 
 ChefFoodit.sections = pageBuilderSections;
 
-export default ChefFoodit;
+ChefFoodit.propTypes = {
+    children: PropTypes.array,
+    globalContent: PropTypes.object
+};
+
+export default Consumer(ChefFoodit);
