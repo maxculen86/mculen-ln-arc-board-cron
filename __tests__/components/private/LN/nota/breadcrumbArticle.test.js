@@ -34,6 +34,12 @@ jest.mock('fusion:content', () => ({
     })
 }));
 
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn(() => ({
+        arcSite: 'la-nacion-ar'
+    }))
+}));
+
 describe('features - LaNacion - Nota - ', () => {
     it('Test de snapshot Breadcrumb', () => {
         const component = render(
