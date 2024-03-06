@@ -8,7 +8,7 @@ export const LoadMoreButton = ({ clickMoreArticle, loading }) => {
                 title="Ver más"
                 onClick={clickMoreArticle}
                 variant="secondary"
-                size={{ sm: 32, lg: 40 }}
+                size={40}
                 loading={loading}
             >
                 Ver más

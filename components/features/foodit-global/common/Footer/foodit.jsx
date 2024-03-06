@@ -13,7 +13,7 @@ const FooterFoodit = () => {
     return (
         <StaticContent>
             <footer className="container">
-                <div className="grid grid-cols-12_md relative w-100 pb-32 text-center border border-top border-thin border-light-100">
+                <div className="grid grid-cols-12_md relative w-100 pb-32 pb-0_lg text-center border border-top border-thin border-light-100">
                     <section className="flex flex-column ai-center gap-16 text-16 col-span-6_md my-32 border border-thin border-light-100 border-right_md -mx-12">
                         <Text>
                             <strong className="roboto-bold">Seguinos</strong> en

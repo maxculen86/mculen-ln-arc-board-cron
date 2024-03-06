@@ -2,10 +2,16 @@ import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
 import { LOGIN_URL } from 'fusion:environment';
 import useGetUserData from '../../../hooks/useGetUserData';
+import classNames from 'classnames';
 
 const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
     const { promotions } = useGetUserData();
     const { buttonLogginText, buttonSubscribeText } = promotions;
+
+    const classNameLoginButton = classNames(
+        'button foodit-button gap-8 roboto-regular text-12 rounded-4 text-light-800 text-accent-lechuga__hover',
+        classNameButtons
+    );
 
     return (
         <>
@@ -20,16 +26,16 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
                 </Button>
             )}
             {buttonLogginText && (
-                <Button
-                    className={classNameButtons}
+                <button
+                    className={classNameLoginButton}
                     title="Iniciar sesión"
-                    variant="link"
+                    data-variant="link"
                     onClick={() =>
                         (location.href = LOGIN_URL + window.btoa(location.href))
                     }
                 >
                     {buttonLogginText}
-                </Button>
+                </button>
             )}
         </>
     );

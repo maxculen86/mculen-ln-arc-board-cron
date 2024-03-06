@@ -1287,6 +1287,10 @@ b, strong {
   height: 3.125rem;
 }
 
+.h-53 {
+  height: 3.3125rem;
+}
+
 .h-56 {
   height: 3.5rem;
 }
@@ -1634,6 +1638,9 @@ b, strong {
   }
   .pt-32_lg {
     padding-top: 2rem;
+  }
+  .pb-0_lg {
+    padding-bottom: 0rem;
   }
 }
 .capitalize {

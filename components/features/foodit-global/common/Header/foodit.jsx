@@ -29,6 +29,8 @@ const HeaderFoodit = () => {
             : 'mb-40'
     );
 
+    const isHome = layout === layoutsName.FooditHome;
+
     const categories = useContent({
         source: 'navigationSource',
         query: {
@@ -91,9 +93,11 @@ const HeaderFoodit = () => {
                         <TopNavigationBar categories={categories} />
                     </MainHeader.Bottom>
                 </MainHeader>
-                <SubHeader className="py-12 h-48 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 lg-none">
-                    <Promotions />
-                </SubHeader>
+                {isHome && (
+                    <SubHeader className="py-12 h-53 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 lg-none">
+                        <Promotions />
+                    </SubHeader>
+                )}
             </Header>
             <DrawerMenu categories={categories} />
         </>
