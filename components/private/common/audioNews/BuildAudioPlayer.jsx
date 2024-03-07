@@ -4,8 +4,14 @@ import PropTypes from 'fusion:prop-types';
 import { BEYONDWORDS_PROJECT_ID } from 'fusion:environment';
 import LoadingIcon from '../../LN/common/loadingIcon';
 import { GlobalContext } from '../context/globalContext';
+import loader from 'sass-loader';
 
-const BuildAudioPlayer = ({ setOpenPlayer, setEnableButton, noteId = '' }) => {
+const BuildAudioPlayer = ({
+    setOpenPlayer,
+    setEnableButton,
+    noteId = '',
+    loaderClass = ''
+}) => {
     const { dispatch } = useContext(GlobalContext) || {};
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(false);
@@ -88,7 +94,7 @@ const BuildAudioPlayer = ({ setOpenPlayer, setEnableButton, noteId = '' }) => {
             {!isLoading && !error ? (
                 <div className="audio-player w-100 mb-24 mb-0_l" />
             ) : (
-                <LoadingIcon />
+                <LoadingIcon className={loaderClass} />
             )}
         </>
     );
@@ -97,7 +103,8 @@ const BuildAudioPlayer = ({ setOpenPlayer, setEnableButton, noteId = '' }) => {
 BuildAudioPlayer.propTypes = {
     noteId: PropTypes.string,
     setOpenPlayer: PropTypes.func,
-    setEnableButton: PropTypes.func
+    setEnableButton: PropTypes.func,
+    loaderClass: PropTypes.string
 };
 
 export default BuildAudioPlayer;

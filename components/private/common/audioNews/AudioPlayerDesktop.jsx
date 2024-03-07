@@ -10,17 +10,11 @@ import { getIconByOpenPlayer } from './helpers';
 import BuildAudioPlayer from './BuildAudioPlayer';
 import { isSubscribed } from '../../LN/common/utils/contextHelper';
 import { GlobalContext } from '../context/globalContext';
-import '../../../../resources/dist/css/ln/components/audio-player-desktop.css';
 import eventHandler from './trackerAudioNews';
 import useTermica from '../hooks/useTermica';
 import classNames from 'classnames';
 
-const AudioPlayerDesktop = ({
-    publishDate = '',
-    noteId = '',
-    isListenable,
-    className
-}) => {
+const AudioPlayerDesktop = ({ noteId = '', isListenable, className }) => {
     const { dispatch } = useContext(GlobalContext) || {};
     const [openPlayer, setOpenPlayer] = useState(false);
     const [enableButton, setEnableButton] = useState(false);
@@ -35,7 +29,10 @@ const AudioPlayerDesktop = ({
     return (
         <>
             {showListenButton && (
-                <div className="btn-container" id="audio-player-desktop">
+                <div
+                    className="btn-container l-only flex w-100 mb-32 ai-center transition transition-all transition-ease-in transition-duration-1000 min-h-56"
+                    id="audio-player-desktop"
+                >
                     <Button
                         id="btnAudioDesktop"
                         title="Escuchar nota"
@@ -69,6 +66,7 @@ const AudioPlayerDesktop = ({
                             setEnableButton={setEnableButton}
                             noteId={noteId}
                             setOpenPlayer={setOpenPlayer}
+                            loaderClass="m-0"
                         />
                     )}
                 </div>
