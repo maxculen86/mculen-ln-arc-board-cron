@@ -25,7 +25,12 @@ jest.mock('react', () => ({
 
 describe('Components - Features - foodit-global - Common - HeaderFoodit', () => {
     Context.useAppContext = jest.fn(() => ({
-        layout: 'Foodit-home'
+        layout: 'Foodit-home',
+        siteProperties: {
+            layoutsName: {
+                FooditHome: 'Foodit-home'
+            }
+        }
     }));
 
     // TODO: testear comportamiento topnavigation cuando se defina el contenido

@@ -40,6 +40,7 @@ const SaveRecipe = props => {
                 suggestions={suggestions}
                 inputRef={inputRef}
             />
+            <hr />
             <FooterSaveRecipe
                 close={close}
                 indexStep={indexStep}

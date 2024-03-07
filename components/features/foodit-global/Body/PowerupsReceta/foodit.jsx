@@ -72,14 +72,12 @@ export const PowerupsReceta = ({ article = {} }) => {
 
     return (
         <>
-            <div>
-                <SummaryBox
-                    cookTime={cookTime}
-                    prepTime={prepTime}
-                    counterTime={counterTime}
-                />
-            </div>
-            <div className="bg-positive flex flex-column gap-16 p-16 p-24_md p-32_lg">
+            <SummaryBox
+                cookTime={cookTime}
+                prepTime={prepTime}
+                counterTime={counterTime}
+            />
+            <div className="bg-positive flex flex-column gap-32 p-16 p-24_md p-32_lg">
                 <Ingredients
                     articleId={_id}
                     ingredientsLists={[

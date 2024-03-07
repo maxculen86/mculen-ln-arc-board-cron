@@ -7,6 +7,12 @@ import {
     getDescription
 } from '../../../../../components/private/common/utils/getMetasOGHelper';
 
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn(() => ({
+        arcSite: 'la-nacion-ar'
+    }))
+}));
+
 describe('Test return functions by getMetasOGHelper', () => {
     it('Test return default function getAppId', () => {
         const siteProperties = undefined;

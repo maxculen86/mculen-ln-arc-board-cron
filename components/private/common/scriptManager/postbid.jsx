@@ -24,7 +24,7 @@ export default class PostBid extends Component {
             ) && (
                 <script
                     async
-                    src={`https://ads.rubiconproject.com/prebid/20148_LaNacion_Desktop${isTest}.js`}
+                    src={`https://micro.rubiconproject.com/prebid/dynamic/20148${isTest}.js`}
                 />
             )
         );
