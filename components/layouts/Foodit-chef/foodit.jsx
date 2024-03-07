@@ -7,32 +7,53 @@ import AuthorBiography from '../../features/foodit-global/common/authorBiography
 const pageBuilderSections = ['Notas'];
 
 const ChefFoodit = props => {
-    console.log('🚀 ~ file: foodit.jsx:8 ~ ChefFoodit ~ props:', props);
-    const { children } = props;
+    const { children, globalContent = {} } = props;
 
+    const {
+        byline = '',
+        longBio = '',
+        image: { url: imageUrl = '' } = {},
+        instagram = '',
+        youtube = '',
+        pinterest = '',
+        twitter = ''
+    } = globalContent;
     const [notas] = children;
 
-    // TODO: eliminar mock cuando se traiga la data
-    const authorBiographyMock = {
-        name: 'Dolli Beatriz Irigoyen Fontaine',
+    const authorBiography = {
+        name: byline,
         imageProps: {
-            src:
-                'https://genealogiafamiliar.net//GF-datos/photos/Dolli%20Irigoyen.jpg'
+            src: imageUrl
         },
-        description:
-            'Lana soñaba con volar a la luna. Todas las tardes se tumbaba en su cama y se imaginaba cómo sería su viaje a bordo de su propia nave espacial.',
+        description: longBio,
         socialNetworks: [
-            { icon: 'instagram', name: '{user instagram}', href: '#' },
-            { icon: 'youtube', name: '{user youtube}', href: '#' },
-            { icon: 'pinterest', name: '{user pinterest}', href: '#' },
-            { icon: 'twitter', name: '{user twitter}', href: '#' }
-        ]
+            {
+                icon: 'instagram',
+                name: instagram,
+                href: `https://www.instagram.com/${instagram.replace('@', '')}/`
+            },
+            {
+                icon: 'youtube',
+                name: youtube,
+                href: `https://www.youtube.com/${youtube}`
+            },
+            {
+                icon: 'pinterest',
+                name: pinterest,
+                href: `https://www.pinterest.com/${pinterest.replace('@', '')}`
+            },
+            {
+                icon: 'twitter',
+                name: twitter,
+                href: `https://twitter.com/${twitter.replace('@', '')}`
+            }
+        ].filter(social => Boolean(social.name))
     };
 
     return (
         <BaseLayout>
             <div className="flex flex-column gap-32">
-                <AuthorBiography {...authorBiographyMock} />
+                <AuthorBiography {...authorBiography} />
                 <hr className="floating-button-sentinel" />
                 <section className="flex flex-column gap-32">{notas}</section>
             </div>

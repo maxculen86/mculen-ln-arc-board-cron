@@ -13,11 +13,4 @@ export default `
             ${imageResizedUrl}
         }
     }
-    longBio
-    creditHash
-    twitter
-    facebook
-    youtube
-    instagram
-    pinterest
 }`;

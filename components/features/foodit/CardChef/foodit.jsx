@@ -4,6 +4,7 @@ import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import { transform } from './_helper';
+import filter from '../../../../content/filters/foodit/chefs';
 import AuthorCard from '../../foodit-global/common/authorCard/foodit';
 
 const CardChef = ({ customFields: { id = '' } }) => {
@@ -15,6 +16,7 @@ const CardChef = ({ customFields: { id = '' } }) => {
             _id: idAuthor,
             website: arcSite
         },
+        filter,
         transform,
         staticMode: true
     });
@@ -45,6 +47,7 @@ const CardChef = ({ customFields: { id = '' } }) => {
     if (error) {
         return <></>;
     }
+
     return (
         <AuthorCard
             key={authorId}
