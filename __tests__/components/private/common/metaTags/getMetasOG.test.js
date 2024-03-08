@@ -37,6 +37,111 @@ jest.mock('fusion:context', Component => {
     };
 });
 
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
+
+describe('Metas OTT', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+        jest.resetModules();
+        Context.useAppContext = jest.fn(() => ({
+            arcSite: 'ott'
+        }));
+    });
+
+    afterEach(() => {
+        Context.useAppContext = jest.fn(() => ({
+            arcSite: 'la-nacion-ar'
+        }));
+    });
+
+    it('Test for video case in OTT', () => {
+        const props = {
+            globalContent: {
+                _id: '21621bbe-f267-4155-bc0e-76482ab5d1ac',
+                type: 'video',
+                canonical_url:
+                    '/video/noticias-fin-de-semana-04-de-febrero-2023-vid21621bbe',
+                headlines: {
+                    basic: '+ Noticias fin de semana - 04 de Febrero 2023'
+                }
+            },
+            siteProperties: {
+                title: 'LN+ Mirá todos los programas y videos online',
+                description:
+                    'Ingresá a LN+ para ver todos los programas y videos online: La Cornisa, Odisea Argentina, El diario de Leuco, Mesa chica y mucho más!',
+                shareConfig: {
+                    facebook: {
+                        appID: ''
+                    }
+                }
+            },
+            metaValue: function metaValue(name) {
+                if (name === 'title')
+                    return 'LN+ Mirá todos los programas y videos online';
+            },
+            contextPath: '/pf',
+            deployment: function deployment() {
+                return '$LATEST';
+            },
+            section: 'video',
+            arcSite: 'ott',
+            layout: 'OTT-ficha',
+            ottMetaTitle:
+                '+ Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023 - LN+',
+            ottMetaDescription:
+                'Ingresá en LN+ para ver + Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023. Los mejores programas están en LN+'
+        };
+
+        const metas = [
+            {
+                property: 'fb_app_id',
+                content: ''
+            },
+            {
+                property: 'og:type',
+                content: 'website'
+            },
+            {
+                property: 'og:title',
+                content:
+                    '+ Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023 - LN+'
+            },
+            {
+                property: 'og:description',
+                content:
+                    'Ingresá en LN+ para ver + Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023. Los mejores programas están en LN+'
+            },
+            {
+                property: 'og:image',
+                content: getAssetsPath(props.contextPath)(props.deployment)(
+                    'placeholderLN.jpg'
+                )
+            },
+            {
+                property: 'og:image:width',
+                content: '512'
+            },
+            {
+                property: 'og:image:height',
+                content: '768'
+            },
+            {
+                property: 'og:url',
+                content:
+                    'https://lnmas.lanacion.com.ar/video/noticias-fin-de-semana-04-de-febrero-2023-vid21621bbe/'
+            },
+            {
+                property: 'og:site_name',
+                content: 'LN+ Mirá todos los programas y videos online'
+            }
+        ];
+
+        expect(getMetasOG(props)).toStrictEqual(metas);
+    });
+});
+
 describe('Common - getMetasOG function', () => {
     it('es una function', () => {
         expect(typeof getMetasOG).toEqual('function');
@@ -134,6 +239,7 @@ describe('Common - getMetasOG function', () => {
                 property: 'og:site_name'
             }
         ];
+
         expect(getMetasOG(props)).toStrictEqual(metas);
     });
 
@@ -272,9 +378,11 @@ describe('Common - getMetasOG function', () => {
                 content: `https://www.lanacion.com.ar/recetas/autor/javier-blanco-170/`
             }
         ];
+
         expect(getMetasOG(props)).toStrictEqual(metas);
     });
 });
+
 jest.mock('fusion:content', () => ({
     useContent: () => ({
         content_elements: [
@@ -283,10 +391,12 @@ jest.mock('fusion:content', () => ({
         ]
     })
 }));
+
 describe('Common - getMetasOG function metaDescriptionForAcum', () => {
     it('metaDescriptionForAcum para Section', () => {
         Context.useAppContext = jest.fn(() => ({
-            globalContent: {}
+            globalContent: {},
+            arcSite: 'la-nacion-ar'
         }));
         const meteDescription = getMetaDescriptionForAcum(
             'Description',
@@ -296,6 +406,7 @@ describe('Common - getMetasOG function metaDescriptionForAcum', () => {
             '',
             'la-nacion-ar'
         );
+
         expect(meteDescription).toEqual(
             'Description Titulo Nota 1, Titulo Nota 2'
         );
@@ -363,93 +474,6 @@ describe('Metas home', () => {
             {
                 content: 'LA NACION',
                 property: 'og:site_name'
-            }
-        ];
-
-        expect(getMetasOG(props)).toStrictEqual(metas);
-    });
-});
-
-describe('Metas OTT', () => {
-    it('Test for video case in OTT', () => {
-        const props = {
-            globalContent: {
-                _id: '21621bbe-f267-4155-bc0e-76482ab5d1ac',
-                type: 'video',
-                canonical_url:
-                    '/video/noticias-fin-de-semana-04-de-febrero-2023-vid21621bbe',
-                headlines: {
-                    basic: '+ Noticias fin de semana - 04 de Febrero 2023'
-                }
-            },
-            siteProperties: {
-                title: 'LN+ Mirá todos los programas y videos online',
-                description:
-                    'Ingresá a LN+ para ver todos los programas y videos online: La Cornisa, Odisea Argentina, El diario de Leuco, Mesa chica y mucho más!',
-                shareConfig: {
-                    facebook: {
-                        appID: ''
-                    }
-                }
-            },
-            metaValue: function metaValue(name) {
-                if (name === 'title')
-                    return 'LN+ Mirá todos los programas y videos online';
-            },
-            contextPath: '/pf',
-            deployment: function deployment() {
-                return '$LATEST';
-            },
-            section: 'video',
-            arcSite: 'ott',
-            layout: 'OTT-ficha',
-            ottMetaTitle:
-                '+ Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023 - LN+',
-            ottMetaDescription:
-                'Ingresá en LN+ para ver + Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023. Los mejores programas están en LN+'
-        };
-
-        const metas = [
-            {
-                property: 'fb_app_id',
-                content: ''
-            },
-            {
-                property: 'og:type',
-                content: 'website'
-            },
-            {
-                property: 'og:title',
-                content:
-                    '+ Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023 - LN+'
-            },
-            {
-                property: 'og:description',
-                content:
-                    'Ingresá en LN+ para ver + Noticias fin de semana - 04 de Febrero 2023 programa emitido el 04 de Febrero de 2023. Los mejores programas están en LN+'
-            },
-            {
-                property: 'og:image',
-                content: getAssetsPath(props.contextPath)(props.deployment)(
-                    'placeholderLN.jpg'
-                )
-            },
-            {
-                property: 'og:image:width',
-                content: '512'
-            },
-            {
-                property: 'og:image:height',
-                content: '768'
-            },
-            {
-                property: 'og:url',
-                content:
-                    'https://www.lanacion.com.ar/video/noticias-fin-de-semana-04-de-febrero-2023-vid21621bbe/'
-            },
-            {
-                property: 'og:site_name',
-                content: 'LN+ Mirá todos los programas y videos online'
             }
         ];
 

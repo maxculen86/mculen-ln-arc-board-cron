@@ -23,7 +23,7 @@ export default function BreadcrumbFoodit({ globalContent, className }) {
     return (
         <div className={classNames('flex ai-center gap-8', className)}>
             <StaticContent>
-                <Breadcrumb gap={8}>
+                <Breadcrumb gap={8} className="text-14">
                     {sections.map(({ name, url, disabled = false } = {}) => (
                         <Link
                             href={url}

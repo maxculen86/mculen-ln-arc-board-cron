@@ -28,8 +28,7 @@ export const getConfigClassName = ({ sticky, negative, isHome }) => {
             sticky ? 'w-268_l h-28_l' : 'w-380_lg h-40_lg'
         ),
         subHeaderClassNames: classNames(
-            'border border-thin border-bottom border-light-300',
-            { 'mt-88_l': sticky }
+            'border border-thin border-bottom border-light-300 h-52'
         )
     };
 };

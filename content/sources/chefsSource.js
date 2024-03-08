@@ -1,9 +1,10 @@
 import request from 'request-promise-native';
 import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import get from '../../components/private/common/utils/get';
-import filter from '../filters/foodit/chef';
+import getProperties from 'fusion:properties';
 import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
 import { isEmptyString } from '../../components/private/common/utils/dataValidation';
+import { resizeImgUrl } from '../../components/private/common/utils/image/resizer/v2/buildResizerUrls';
 
 const resolve = key => {
     const { _id, website } = key;
@@ -26,6 +27,19 @@ const fetch = (query, { cachedCall } = {}) => {
         };
     }
 
+    const properties = getProperties('foodit');
+    const imagePreset = get(
+        properties,
+        `imageConfig.resize.chefs.credits.sizes`,
+        {
+            width: 280,
+            height: 280,
+            media: '(min-width: 320px)',
+            class: '',
+            type: 'image'
+        }
+    );
+
     const resolveData = async () => {
         try {
             const response = await request(opt);
@@ -36,9 +50,24 @@ const fetch = (query, { cachedCall } = {}) => {
                     image,
                     cachedCall
                 ));
+
+            let imageUrl =
+                get(response, 'image.url', '') || get(response, 'image', '');
+
             return {
                 ...response,
-                creditHash: get(signingResponse, 'hash')
+                ...(imageUrl && {
+                    image: {
+                        url: resizeImgUrl({
+                            arcImage: {
+                                url: imageUrl,
+                                auth: { 1: get(signingResponse, 'hash') },
+                                type: 'image'
+                            },
+                            defaultResizeWithSmart: imagePreset
+                        })
+                    }
+                })
             };
         } catch (error) {
             logger.push(
@@ -61,6 +90,5 @@ export default {
         website: 'text',
         outputType: 'text'
     },
-    filter,
     ttl: 360
 };

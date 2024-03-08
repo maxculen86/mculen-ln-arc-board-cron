@@ -10,14 +10,13 @@ import {
     secciones,
     optionsIcons
 } from './_helper';
-import OldFooter from '../../LN/common/footer';
 import StaticContent from '../../common/staticContent';
 import FooterEventsScript from '../../common/scriptManager/FooterEventsScript';
 import { datesDiffInDays } from '../../common/utils/dateAndTimeUtil';
 import { getArgentinaDateMonthYear } from '../../common/utils/dateAndTimeUtil';
 
 const Footer = () => {
-    const { contextPath, deployment, outputType, layout } = useAppContext();
+    const { contextPath, deployment, layout } = useAppContext();
     const { layoutsName = {} } = siteConfig || {};
 
     const refDate = new Date('1995-12-13T03:00:00');
@@ -27,23 +26,17 @@ const Footer = () => {
     return (
         <>
             <StaticContent>
-                {outputType === 'amp' ? (
-                    <OldFooter />
-                ) : (
-                    <>
-                        <Footerhome
-                            listFooterMasInformacion={masInformacion}
-                            listFooterProductos={productos}
-                            listFooterRevistas={revistas}
-                            listFooterSecciones={secciones}
-                            optionsIcons={optionsIcons(contextPath, deployment)}
-                            isHome={layout === layoutsName.HomeLN10}
-                            edDate={getArgentinaDateMonthYear()}
-                            edNumber={currentEdNumber}
-                        />
-                        <FooterEventsScript />
-                    </>
-                )}
+                <Footerhome
+                    listFooterMasInformacion={masInformacion}
+                    listFooterProductos={productos}
+                    listFooterRevistas={revistas}
+                    listFooterSecciones={secciones}
+                    optionsIcons={optionsIcons(contextPath, deployment)}
+                    isHome={layout === layoutsName.HomeLN10}
+                    edDate={getArgentinaDateMonthYear()}
+                    edNumber={currentEdNumber}
+                />
+                <FooterEventsScript />
             </StaticContent>
         </>
     );

@@ -97,17 +97,6 @@ class EventsHelper {
         });
     }
 
-    setEventSubscribe() {
-        const btnSuscribite = window.document.querySelector('#btnsuscribite');
-
-        const payload = {
-            action: 'header_logo',
-            label: 'suscribite'
-        };
-
-        this.addEventListeners(btnSuscribite, payload);
-    }
-
     setEventsDollar() {
         const dollars = window.document.querySelectorAll('.dollar a');
 

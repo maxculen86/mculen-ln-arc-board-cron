@@ -13,7 +13,6 @@ import MetaDescription from '../private/common/metaDescription';
 import getFirstParagraph from '../private/common/utils/getFirstParagraph';
 import Syndication from '../private/common/syndication';
 import getCollectionsFromRenderables from '../private/common/utils/getCollectionsFromRenderables';
-import dataLayerIndexAmp from '../private/common/dataLayerIndexAmp';
 import MetasOG from '../private/common/metaTags/metasOG';
 import ScriptLogoBBCAMP from '../private/common/scriptManager/scriptLogoBBCAMP';
 import getSectionName from '../private/LN/common/utils/getSectionName';
@@ -99,7 +98,6 @@ const Amp = props => {
     });
 
     const metaTitleValue = metaValue('title') || title || 'LA NACION';
-    const dataLayerAmp = dataLayerIndexAmp(arcSite, layout, globalContent);
     const basicPromoItems = replaceUrlResizerToWWW(
         get(globalContent, 'promo_items.basic', {})
     );
@@ -197,16 +195,7 @@ const Amp = props => {
                 <amp-analytics
                     config={`https://www.googletagmanager.com/amp.json?id=${idAMP}`}
                     data-credentials="include"
-                >
-                    {dataLayerAmp && (
-                        <script
-                            type="application/json"
-                            dangerouslySetInnerHTML={{
-                                __html: dataLayerAmp
-                            }}
-                        />
-                    )}
-                </amp-analytics>
+                ></amp-analytics>
                 <ScriptLogoBBCAMP distributorName={distributorName} />
                 {children}
                 <MeteringAMP

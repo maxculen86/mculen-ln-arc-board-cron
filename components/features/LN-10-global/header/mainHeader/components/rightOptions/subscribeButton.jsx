@@ -13,6 +13,7 @@ import {
 } from './_helper';
 import { showSubscribeButton } from '../../_helper';
 import useTermica from '../../../../../../private/common/hooks/useTermica';
+import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
 
 export const SubscribeButton = () => {
     const { isHome, sticky, userType, negative } = useHeaderContext();
@@ -49,6 +50,12 @@ export const SubscribeButton = () => {
                 window.location.href = `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${window.btoa(
                     window.location.href
                 )}`;
+                addEventToDataLayer({
+                    category: 'home_ln10',
+                    label: 'suscribite',
+                    action: 'header_logo',
+                    event: 'e_linkclick'
+                });
             }}
         >
             {termicaSubscribe && tooltip_text && (

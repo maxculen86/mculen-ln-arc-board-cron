@@ -6,7 +6,8 @@ import {
     buttonsList,
     BtnContainer,
     addEventToDataLayer,
-    setEventShare
+    setEventShare,
+    getTwitterTitle
 } from '../../../../private/LN/common/utils/shareHelper';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
@@ -34,9 +35,12 @@ const BuildSecondButtonsGroup = ({
     );
 
     const shareButton = () => {
+        const shareTitle = getTwitterTitle(mobileTitle, basic);
+        const shareUrl = host.concat(requestUri);
         const shareData = {
-            title: mobileTitle,
-            url: window.location.href
+            title: shareTitle,
+            text: shareTitle,
+            url: shareUrl
         };
 
         if (navigator && Boolean(navigator.canShare)) {
@@ -48,7 +52,7 @@ const BuildSecondButtonsGroup = ({
         <div className={_classes}>
             <Button
                 id="compartirMobile"
-                title="btnCompartirMobile"
+                title="Compartir"
                 variant="secondary"
                 label="Compartir"
                 className="sm-only"

@@ -9,6 +9,7 @@ const dataLayerHome = props => {
 
     return (
         <script
+            async
             id="scriptDataLayerHome"
             type="text/javascript"
             data-section={_id}
