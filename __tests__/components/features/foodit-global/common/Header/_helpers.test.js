@@ -103,4 +103,101 @@ describe('transformMenuData function', () => {
             }
         ]);
     });
+
+    test('should construct the three level URLs correctly.', () => {
+        const input = {
+            children: [
+                {
+                    _id: '/recetas',
+                    name: 'Recetas',
+                    children: [
+                        {
+                            _id: '/recetas/saladas',
+                            name: 'Saladas',
+                            children: [
+                                {
+                                    _id: '/recetas/saladas/arroz',
+                                    name: 'Arroz'
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
+
+        const result = transformMenuData(input);
+        expect(result).toEqual([
+            {
+                title: 'Recetas',
+                data: [
+                    {
+                        title: {
+                            text: 'Saladas',
+                            icon: <mock-icon critical={true} name="bookmark" />,
+                            href:
+                                'https://foodit.lanacion.com.ar/recetas/saladas/'
+                        },
+                        items: [
+                            {
+                                href:
+                                    'https://foodit.lanacion.com.ar/recetas/saladas/arroz/',
+                                text: 'Arroz'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: 'Descubrir',
+                data: [
+                    {
+                        items: [
+                            {
+                                text: 'Chef protagonistas',
+                                href: 'https://foodit.lanacion.com.ar/chefs/'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]);
+    });
+
+    test('should create the url independently of sections that do not have subsections (children)', () => {
+        const input = {
+            children: [
+                {
+                    _id: '/masterclass',
+                    name: 'Masterclass',
+                    children: []
+                }
+            ]
+        };
+
+        const result = transformMenuData(input);
+        expect(result).toEqual([
+            {
+                title: 'Recetas',
+                data: []
+            },
+            {
+                title: 'Descubrir',
+                data: [
+                    {
+                        items: [
+                            {
+                                text: 'Chef protagonistas',
+                                href: 'https://foodit.lanacion.com.ar/chefs/'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                href: 'https://foodit.lanacion.com.ar/masterclass/',
+                title: 'Masterclass'
+            }
+        ]);
+    });
 });

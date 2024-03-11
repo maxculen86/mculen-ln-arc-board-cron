@@ -27,19 +27,20 @@ const iconList = [
     }
 ];
 
+const setPageUrl = (path = '') => `${SITE_FOODIT}${path}/`;
+
 const transformSubategorie = (subcategoryList = []) => {
     return subcategoryList.map(({ name, _id, children = [] } = {}) => {
-        const subcategorieUrl = `${SITE_FOODIT}${_id}/`;
         const newElement = {
             title: {
                 text: name,
-                href: subcategorieUrl,
+                href: setPageUrl(_id),
                 icon: iconList.find(icon => _id.includes(icon.section)).icon
             },
             items: children.map(({ name, _id } = {}) => {
                 return {
                     text: name,
-                    href: subcategorieUrl
+                    href: setPageUrl(_id)
                 };
             })
         };
@@ -51,7 +52,7 @@ export default function transformMenuData({ children = [] } = {}) {
     return children.reduce(
         (acc, category) => {
             const { name, _id, children } = category || {};
-            const pageUrl = `${SITE_FOODIT}${_id}/`;
+            const pageUrl = setPageUrl(_id);
 
             if (children.length) {
                 const dataSections = transformSubategorie(children);
