@@ -34,6 +34,8 @@ describe('Tests Component CommonCollection', () => {
         logoId: '',
         buttonText: '',
         linkButton: '',
+        //buttonHTML: '',
+        buttonLogo: '',
         buttonStyle: '',
         hideRoof: false,
         navigationId: '',
