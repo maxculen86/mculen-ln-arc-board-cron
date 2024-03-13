@@ -1,6 +1,7 @@
 import React from 'react';
+import { useAppContext } from 'fusion:context';
+
 import Facade from '../facade/foodit';
-import { getJWScript } from './utils/helperJw';
 
 const VideoPlayer = ({
     data = {},
@@ -8,6 +9,8 @@ const VideoPlayer = ({
     className = '',
     isOpening = false
 }) => {
+    const { deployment, contextPath } = useAppContext();
+
     const {
         embed: {
             config: {
@@ -16,6 +19,7 @@ const VideoPlayer = ({
             } = {}
         } = {}
     } = data;
+
     const player = idPlayer || 'ih0086X3';
     const [video] = playlist || [];
     const { mediaid = '', image = '', images = [] } = video || {};
@@ -31,16 +35,18 @@ const VideoPlayer = ({
             />
             <div className="jw-player w-100 h-100 none" id={mediaid} />
             <script
-                dangerouslySetInnerHTML={{
-                    __html: getJWScript({
-                        title,
-                        player,
-                        playlist,
-                        hasAutoplay: false,
-                        idVideo: mediaid,
-                        tagsUrl: ''
-                    })
-                }}
+                defer
+                className="video-jw"
+                id="scriptVideosJw"
+                data-title={title}
+                data-player={player}
+                data-playlist={JSON.stringify(playlist)}
+                data-has-autoplay={isOpening}
+                data-media-id={mediaid}
+                data-tags-url={''}
+                src={deployment(
+                    `${contextPath}/resources/js/LN/scriptVideosJw.min.js`
+                )}
             />
         </section>
     );

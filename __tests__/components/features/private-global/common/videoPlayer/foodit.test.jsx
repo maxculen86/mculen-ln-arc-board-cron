@@ -1,9 +1,24 @@
 import React from 'react';
+import Context from 'fusion:context';
+
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+
 import VideoPlayer from '../../../../../../components/features/private-global/common/videoPlayer/foodit';
 
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+
 describe('Features - private-global/common - VideoPlayer Component, outputType Foodit', () => {
+    Context.useAppContext = jest.fn(() => ({
+        outputType: 'foodit',
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
+
     it('renders without crashing when no props are provided', () => {
         const { container } = render(<VideoPlayer />);
         expect(container).toBeTruthy();

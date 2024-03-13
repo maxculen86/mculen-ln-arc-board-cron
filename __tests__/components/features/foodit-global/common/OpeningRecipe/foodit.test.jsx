@@ -1,12 +1,26 @@
 import React from 'react';
+import Context from 'fusion:context';
+
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import OpeningRecipe from '../../../../../../components/features/foodit-global/common/OpeningRecipe/foodit';
 
+import OpeningRecipe from '../../../../../../components/features/foodit-global/common/OpeningRecipe/foodit';
 import withVideoArticle from '../../../../../../__mocks__/data/articlesFoodit/SubtypeReceta/withVideoOpening.json';
 import Article from '../../../../../../__mocks__/data/articlesFoodit/SubtypeReceta/fichaReceta.json';
 
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+
 describe('OpeningRecipe Component', () => {
+    Context.useAppContext = jest.fn(() => ({
+        outputType: 'foodit',
+        deployment: jest.fn(),
+        contextPath: '/pf'
+    }));
+
     it('renders without crashing when no props are provided', () => {
         const { container } = render(<OpeningRecipe />);
         expect(container).toBeTruthy();
