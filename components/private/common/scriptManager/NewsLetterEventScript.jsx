@@ -4,10 +4,10 @@ import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 const NewsLetterEventsScript = () => {
     useEffect(() => {
         const handleClick = event => {
-            const botonRecibirNewsletter = event.target.closest(
+            const redirectToNewsletter = event.target.closest(
                 '.newsletterbox-button'
             );
-            if (botonRecibirNewsletter) {
+            if (redirectToNewsletter) {
                 const titleElement = document.querySelector(
                     'h4.text.newsletterbox-title'
                 );
