@@ -6,8 +6,10 @@ import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import MetaFoodit from '../features/foodit-global/common/MetaFoodit/foodit';
+import BuildComments from '../features/foodit-global/common/MetaCommentsViafoura/foodit';
+import useTermica from '../private/common/hooks/useTermica';
+import { allowCommentsFoodit } from '../private/common/utils/commentsHelper';
 
-// TODO: OutputType base, queda pendiente agregar manejo de metadatos
 const Foodit = ({
     children,
     Libs,
@@ -22,7 +24,17 @@ const Foodit = ({
     metaValue,
     isAdmin
 } = {}) => {
-    const { node_type: nodeType, type } = globalContent;
+    const {
+        node_type: nodeType,
+        type,
+        _id,
+        canonical_url: canonicalUrl = '',
+        headlines: { mobile, basic } = {}
+    } = globalContent;
+    const { layoutsName = {} } = siteProperties || {};
+
+    const allowCommentsValidate =
+        useTermica('livefyre') && allowCommentsFoodit({ globalContent });
 
     const _nodeType = getSectionName({ nodeType, type, arcSite });
 
@@ -61,6 +73,15 @@ const Foodit = ({
                 <CriticalCSS />
                 <CssLinksByArcSite />
                 <Scripts location="head" />
+                <BuildComments
+                    _id={_id}
+                    layout={layout}
+                    canonicalUrl={canonicalUrl}
+                    mobile={mobile}
+                    basic={basic}
+                    allowComments={allowCommentsValidate}
+                    layoutsName={layoutsName}
+                />
             </head>
             <body>
                 <Scripts location="body-top" />
