@@ -3,20 +3,25 @@ import addEventToDataLayer from '../../LN/common/utils/addEventToDataLayer';
 
 const NewsLetterEventsScript = () => {
     useEffect(() => {
-        const handleClick = () => {
-            const titleElement = document.querySelector(
-                'h4.text.newsletterbox-title'
+        const handleClick = event => {
+            const botonRecibirNewsletter = event.target.closest(
+                '.newsletterbox-button'
             );
-            const titleText = titleElement
-                ? titleElement.textContent.trim()
-                : '';
+            if (botonRecibirNewsletter) {
+                const titleElement = document.querySelector(
+                    'h4.text.newsletterbox-title'
+                );
+                const titleText = titleElement
+                    ? titleElement.textContent.trim()
+                    : '';
 
-            addEventToDataLayer({
-                event: 'e_linkclick',
-                action: 'newsletter',
-                category: 'nota_ln9',
-                label: titleText
-            });
+                addEventToDataLayer({
+                    event: 'e_linkclick',
+                    action: 'newsletter',
+                    category: 'nota_ln9',
+                    label: titleText
+                });
+            }
         };
 
         document.addEventListener('click', handleClick);
