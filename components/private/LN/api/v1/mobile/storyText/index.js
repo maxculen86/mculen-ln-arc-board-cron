@@ -15,12 +15,20 @@ const indexNotaText = dataNota => {
 
     const content = removeEmptyItems(cuerpo(dataNota));
 
+    const authors = [];
+    if (dataNota.credits && dataNota.credits.by?.length > 0) {
+        dataNota.credits.by.forEach(author => {
+            authors.push(author.name);
+        });
+    }
+
     return content && content.length > 0
         ? {
               ...storyTitleAndResume(dataNota),
               contenido: content.concat('Fin de la nota').join('\n'),
               audio_url: dataNota.audio_url,
-              categoria: dataNota.category
+              categoria: dataNota.category,
+              authors
           }
         : {};
 };
