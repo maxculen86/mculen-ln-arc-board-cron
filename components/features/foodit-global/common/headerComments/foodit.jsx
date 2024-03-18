@@ -17,7 +17,7 @@ export const HeaderComments = () => {
                     <span
                         title="Ver legales"
                         onClick={() => handleVerLegales()}
-                        className="text-14"
+                        className="text-14 cursor-pointer"
                     >
                         Ver legales
                     </span>

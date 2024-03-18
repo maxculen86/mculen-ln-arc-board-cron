@@ -45,8 +45,11 @@ const CommentFoodit = props => {
         }
     }, [isVisible]);
 
+    // TODO: reemplazar por el componente empty state, con la variante,
+    // barrier-unlogged o barrier-logged segun corresponda por tipo de usuario
+
     if (shouldLoad && !termicaLivefyre && messageType === CLOSED_BY_TERMIC)
-        return <Message {...messageProps} />;
+        return <PlaceholderBarrier />;
 
     if (!allowCommentsValidate || hideCaja) return <></>;
 
@@ -54,9 +57,15 @@ const CommentFoodit = props => {
         setIsVisible(true);
     };
 
+    // TODO: reemplazar por el componente empty state, con la variante,
+    // barrier-unlogged o barrier-logged segun corresponda por tipo de usuario
+    const PlaceholderBarrier = () => {
+        return <div>Placeholder Barrier</div>;
+    };
+
     return (
         <div>
-            {messageProps ? <Message {...messageProps} /> : <HeaderComments />}
+            {messageProps ? <PlaceholderBarrier /> : <HeaderComments />}
             <LazyLoad
                 showComponent={isReady}
                 rootMargin="600px"
