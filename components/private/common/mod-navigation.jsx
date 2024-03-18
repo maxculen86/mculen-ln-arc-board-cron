@@ -27,6 +27,7 @@ const ModNavigation = props => {
                 classCondition="hlp-none"
             />
             <script
+                async
                 id="mod-navigation"
                 type="text/javascript"
                 src={deployment(
