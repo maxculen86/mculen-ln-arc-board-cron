@@ -156,6 +156,8 @@ export const useRoofData = props => {
         link,
         logoId,
         navigator,
+        //buttonHTML,
+        buttonLogo,
         buttonText,
         linkButton,
         buttonStyle,
@@ -164,6 +166,7 @@ export const useRoofData = props => {
     } = props;
 
     const logo = useGetLogo(logoId, title);
+    const buttonLogoData = useGetLogo(buttonLogo, title);
     const links = useGetLinks({ navigationSection: navigator });
 
     return {
@@ -171,6 +174,8 @@ export const useRoofData = props => {
         titleLink: link,
         logo,
         logoId,
+        //buttonHTML,
+        buttonLogo: buttonLogoData,
         buttonText,
         linkButton,
         buttonStyle,

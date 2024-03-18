@@ -4223,14 +4223,11 @@
   position: absolute;
 }
 .ln-roof .--ln-roof-full .--ln-roof-right {
-  height: 33px;
   margin: auto 0 auto 1rem;
   -moz-column-gap: 1rem;
        column-gap: 1rem;
   flex-wrap: wrap;
   flex-direction: row-reverse;
-  justify-content: end;
-  overflow: hidden;
 }
 .ln-roof .--ln-roof-full .--ln-roof-right .ln-link:not(.ln-button) {
   white-space: nowrap;
@@ -6610,6 +6607,12 @@ strong:not(.--font-primary),
   }
 }
 
+@media (max-width: 389.9px) {
+  .until-390-none {
+    display: none !important;
+  }
+}
+
 @media (max-width: 767.9px) {
   .sm-none {
     display: none !important;
@@ -6903,6 +6906,10 @@ strong:not(.--font-primary),
 
 .h-32.h-32 {
   height: 2rem;
+}
+
+.h-36.h-36 {
+  height: 2.25rem;
 }
 
 .h-40.h-40 {
@@ -7482,7 +7489,7 @@ strong:not(.--font-primary),
   --notification-drawer-scrollbar-color: #0250c9;
   --notification-drawer-tooltip-background: #0250c9;
   --notification-drawer-tooltip-border-radius: 0.25rem;
-  --notification-drawer-tooltip-z-index: 1600;
+  --notification-drawer-tooltip-z-index: 1500;
   --notification-card-border-radius: 0.25rem;
   --notification-header-font-family: Prumo, georgia, serif;
   --notification-header-line-height: 110%;

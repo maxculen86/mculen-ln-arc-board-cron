@@ -56,6 +56,8 @@ describe('Tests Chain CajaCollection', () => {
         buttonStyle: '',
         buttonText: '',
         navigator: '',
+        //buttonHTML: '',
+        buttonLogo: '',
         idCollection: '',
         initialPosition: 0
     };
@@ -302,6 +304,8 @@ describe('Tests Chain CajaCollection', () => {
             logoId: '4HYEWZCP5VBZRBAOCOF5S3IGR4',
             hideTitle: false,
             navigator: 'Politics',
+            //buttonHTML: '',
+            buttonLogo: '',
             buttonText: '',
             linkButton: '',
             buttonStyle: 'generico'
