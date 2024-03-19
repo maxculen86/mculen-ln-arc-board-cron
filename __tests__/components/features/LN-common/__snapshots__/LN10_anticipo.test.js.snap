@@ -87,6 +87,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
     </section>
   </div>
   <script
+    async=""
     id="scriptAnticipoLN10"
   />
 </div>
