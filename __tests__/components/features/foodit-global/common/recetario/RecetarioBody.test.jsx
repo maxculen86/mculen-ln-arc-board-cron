@@ -41,11 +41,21 @@ describe('RecetarioBody', () => {
             contextPath: '/test-path',
             deployment: () => '/test-deployment'
         }));
+
+        global.IntersectionObserver = jest.fn((callback, options) => {
+            return {
+                observe: jest.fn(() => {
+                    callback([{ isIntersecting: true }]);
+                }),
+                disconnect: jest.fn(),
+                unobserve: jest.fn()
+            };
+        });
     });
 
     test('Should render Loading icon and after should render empty state component', async () => {
         getBookmarks.mockResolvedValueOnce({ data: [] });
-        getToken.mockReturnValue('2');
+        getToken.mockReturnValue('22');
         console.log(window.navigator.userAgent);
 
         render(<RecetarioBody />);
@@ -69,7 +79,7 @@ describe('RecetarioBody', () => {
             ]
         });
 
-        getToken.mockReturnValue('2');
+        getToken.mockReturnValue('22');
 
         render(<RecetarioBody />);
         await waitFor(() =>

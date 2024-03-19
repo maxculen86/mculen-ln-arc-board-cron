@@ -27,16 +27,9 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 2h14a1 1 0 0 1 1 1v19.143a.5.5 0 0 1-.766.424L12 18.03l-7.234 4.536A.5.5 0 0 1 4 22.143V3a1 1 0 0 1 1-1"
-                  fill="#333"
-                />
-              </svg>
+              <mock-icon
+                name="bookmarkFilled"
+              />
             </i>
           </button>
         </div>
@@ -50,7 +43,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 px-16 py-12 sm-only --secondary"
             data-variant="secondary"
             id="compartirMobile"
-            title="btnCompartirMobile"
+            title="Compartir"
             type="button"
           >
             Compartir
@@ -68,16 +61,9 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="m7.253 18.494.724.423A7.953 7.953 0 0 0 12 20a8 8 0 1 0-6.916-3.976l.422.724-.653 2.401zM2.004 22l1.352-4.968A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.953 9.953 0 0 1-5.03-1.355zM8.391 7.308c.134-.01.269-.01.403-.004.054.004.108.01.162.016.159.018.334.115.393.249.298.676.588 1.357.868 2.04.062.152.025.347-.093.537a4.372 4.372 0 0 1-.263.372c-.113.145-.356.411-.356.411s-.099.118-.061.265c.014.056.06.137.102.205l.059.095c.256.427.6.86 1.02 1.268.12.116.237.235.363.346.468.413.998.75 1.57 1l.005.002c.085.037.128.057.252.11.062.026.126.049.191.066a.35.35 0 0 0 .367-.13c.724-.877.79-.934.796-.934v.002a.482.482 0 0 1 .378-.127c.06.004.121.015.177.04.531.243 1.4.622 1.4.622l.582.261c.098.047.187.158.19.265.004.067.01.175-.013.373-.032.259-.11.57-.188.733a1.155 1.155 0 0 1-.21.302 2.38 2.38 0 0 1-.33.288l-.125.09a5.044 5.044 0 0 1-.383.22 1.989 1.989 0 0 1-.833.23c-.185.01-.37.024-.556.014-.008 0-.568-.087-.568-.087a9.448 9.448 0 0 1-3.84-2.046c-.226-.199-.435-.413-.649-.626-.89-.885-1.562-1.84-1.97-2.742A3.47 3.47 0 0 1 6.9 9.62a2.729 2.729 0 0 1 .564-1.68c.073-.094.142-.192.261-.305.127-.12.207-.184.294-.228a.961.961 0 0 1 .371-.1z"
-                  fill="#333"
-                />
-              </svg>
+              <mock-icon
+                name="whatsapp"
+              />
             </i>
           </button>
           <div
@@ -96,16 +82,9 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
               <i
                 class="icon --icon-24 --inherit"
               >
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1 1 0 0 1 3 21l.003-14c0-.552.45-1 1.007-1zM5.003 8 5 20h10V8zM9 6h8v10h2V4H9z"
-                    fill="#333"
-                  />
-                </svg>
+                <mock-icon
+                  name="fileCopy"
+                />
               </i>
             </button>
           </div>
@@ -122,16 +101,9 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M13 19.938A8.001 8.001 0 0 0 12 4a8 8 0 0 0-1 15.938V14H9v-2h2v-1.654c0-1.337.14-1.822.4-2.311.256-.484.652-.88 1.136-1.135.382-.205.857-.328 1.687-.381.329-.021.755.005 1.278.08v1.9H15c-.917 0-1.296.043-1.522.164a.727.727 0 0 0-.314.314c-.12.226-.164.45-.164 1.368V12h2.5l-.5 2h-2zM12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                name="facebook"
+              />
             </i>
           </button>
           <button
@@ -147,16 +119,9 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.045 3H3l7.134 9.848-6.745 8.034h2.288l5.517-6.57 4.76 6.57H22L14.566 10.62 20.964 3h-2.289l-5.17 6.157zm7.773 16.094L6.455 4.788h1.727l10.364 14.306z"
-                  fill="#333"
-                />
-              </svg>
+              <mock-icon
+                name="twitter"
+              />
             </i>
           </button>
           <button
@@ -172,18 +137,9 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1m17 4.238-7.266 6.507a1 1 0 0 1-1.329.005L4 7.216V19h16zM4.511 5l7.55 6.662L19.502 5z"
-                  fill="#333"
-                  fill-rule="evenodd"
-                />
-              </svg>
+              <mock-icon
+                name="mail"
+              />
             </i>
           </button>
         </div>
@@ -220,16 +176,9 @@ exports[`Share Snapshot - Should show 7 buttons  1`] = `
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 2h14a1 1 0 0 1 1 1v19.143a.5.5 0 0 1-.766.424L12 18.03l-7.234 4.536A.5.5 0 0 1 4 22.143V3a1 1 0 0 1 1-1"
-                  fill="#333"
-                />
-              </svg>
+              <mock-icon
+                name="bookmarkFilled"
+              />
             </i>
           </button>
           <button
@@ -244,18 +193,9 @@ exports[`Share Snapshot - Should show 7 buttons  1`] = `
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M14 3h-4a8 8 0 0 0-8 8c0 6.5 7 9.5 12 11.5V19a8 8 0 0 0 0-16m-2 14v2.48C6.462 16.966 4 14.61 4 11a6 6 0 0 1 6-6h4a6 6 0 0 1 0 12zm-3-7H7v2h2zm2 0h2v2h-2zm6 0h-2v2h2z"
-                  fill="#333"
-                  fill-rule="evenodd"
-                />
-              </svg>
+              <mock-icon
+                name="chat"
+              />
             </i>
           </button>
         </div>
@@ -269,7 +209,7 @@ exports[`Share Snapshot - Should show 7 buttons  1`] = `
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 px-16 py-12 sm-only --secondary"
             data-variant="secondary"
             id="compartirMobile"
-            title="btnCompartirMobile"
+            title="Compartir"
             type="button"
           >
             Compartir
@@ -287,16 +227,9 @@ exports[`Share Snapshot - Should show 7 buttons  1`] = `
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="m7.253 18.494.724.423A7.953 7.953 0 0 0 12 20a8 8 0 1 0-6.916-3.976l.422.724-.653 2.401zM2.004 22l1.352-4.968A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.953 9.953 0 0 1-5.03-1.355zM8.391 7.308c.134-.01.269-.01.403-.004.054.004.108.01.162.016.159.018.334.115.393.249.298.676.588 1.357.868 2.04.062.152.025.347-.093.537a4.372 4.372 0 0 1-.263.372c-.113.145-.356.411-.356.411s-.099.118-.061.265c.014.056.06.137.102.205l.059.095c.256.427.6.86 1.02 1.268.12.116.237.235.363.346.468.413.998.75 1.57 1l.005.002c.085.037.128.057.252.11.062.026.126.049.191.066a.35.35 0 0 0 .367-.13c.724-.877.79-.934.796-.934v.002a.482.482 0 0 1 .378-.127c.06.004.121.015.177.04.531.243 1.4.622 1.4.622l.582.261c.098.047.187.158.19.265.004.067.01.175-.013.373-.032.259-.11.57-.188.733a1.155 1.155 0 0 1-.21.302 2.38 2.38 0 0 1-.33.288l-.125.09a5.044 5.044 0 0 1-.383.22 1.989 1.989 0 0 1-.833.23c-.185.01-.37.024-.556.014-.008 0-.568-.087-.568-.087a9.448 9.448 0 0 1-3.84-2.046c-.226-.199-.435-.413-.649-.626-.89-.885-1.562-1.84-1.97-2.742A3.47 3.47 0 0 1 6.9 9.62a2.729 2.729 0 0 1 .564-1.68c.073-.094.142-.192.261-.305.127-.12.207-.184.294-.228a.961.961 0 0 1 .371-.1z"
-                  fill="#333"
-                />
-              </svg>
+              <mock-icon
+                name="whatsapp"
+              />
             </i>
           </button>
           <div
@@ -315,16 +248,9 @@ exports[`Share Snapshot - Should show 7 buttons  1`] = `
               <i
                 class="icon --icon-24 --inherit"
               >
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1 1 0 0 1 3 21l.003-14c0-.552.45-1 1.007-1zM5.003 8 5 20h10V8zM9 6h8v10h2V4H9z"
-                    fill="#333"
-                  />
-                </svg>
+                <mock-icon
+                  name="fileCopy"
+                />
               </i>
             </button>
           </div>
@@ -341,16 +267,9 @@ exports[`Share Snapshot - Should show 7 buttons  1`] = `
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M13 19.938A8.001 8.001 0 0 0 12 4a8 8 0 0 0-1 15.938V14H9v-2h2v-1.654c0-1.337.14-1.822.4-2.311.256-.484.652-.88 1.136-1.135.382-.205.857-.328 1.687-.381.329-.021.755.005 1.278.08v1.9H15c-.917 0-1.296.043-1.522.164a.727.727 0 0 0-.314.314c-.12.226-.164.45-.164 1.368V12h2.5l-.5 2h-2zM12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                name="facebook"
+              />
             </i>
           </button>
           <button
@@ -366,16 +285,9 @@ exports[`Share Snapshot - Should show 7 buttons  1`] = `
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.045 3H3l7.134 9.848-6.745 8.034h2.288l5.517-6.57 4.76 6.57H22L14.566 10.62 20.964 3h-2.289l-5.17 6.157zm7.773 16.094L6.455 4.788h1.727l10.364 14.306z"
-                  fill="#333"
-                />
-              </svg>
+              <mock-icon
+                name="twitter"
+              />
             </i>
           </button>
           <button
@@ -391,18 +303,9 @@ exports[`Share Snapshot - Should show 7 buttons  1`] = `
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1m17 4.238-7.266 6.507a1 1 0 0 1-1.329.005L4 7.216V19h16zM4.511 5l7.55 6.662L19.502 5z"
-                  fill="#333"
-                  fill-rule="evenodd"
-                />
-              </svg>
+              <mock-icon
+                name="mail"
+              />
             </i>
           </button>
         </div>
@@ -439,16 +342,9 @@ exports[`Share Test click button bookmark 1`] = `
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 2h14a1 1 0 0 1 1 1v19.143a.5.5 0 0 1-.766.424L12 18.03l-7.234 4.536A.5.5 0 0 1 4 22.143V3a1 1 0 0 1 1-1"
-                  fill="#333"
-                />
-              </svg>
+              <mock-icon
+                name="bookmarkFilled"
+              />
             </i>
           </button>
           <button
@@ -463,18 +359,9 @@ exports[`Share Test click button bookmark 1`] = `
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M14 3h-4a8 8 0 0 0-8 8c0 6.5 7 9.5 12 11.5V19a8 8 0 0 0 0-16m-2 14v2.48C6.462 16.966 4 14.61 4 11a6 6 0 0 1 6-6h4a6 6 0 0 1 0 12zm-3-7H7v2h2zm2 0h2v2h-2zm6 0h-2v2h2z"
-                  fill="#333"
-                  fill-rule="evenodd"
-                />
-              </svg>
+              <mock-icon
+                name="chat"
+              />
             </i>
           </button>
         </div>
@@ -488,7 +375,7 @@ exports[`Share Test click button bookmark 1`] = `
             class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all  border-neutral-light-800 bg-secondary__hover text-neutral-light-800 h-40 px-16 py-12 sm-only --secondary"
             data-variant="secondary"
             id="compartirMobile"
-            title="btnCompartirMobile"
+            title="Compartir"
             type="button"
           >
             Compartir
@@ -506,16 +393,9 @@ exports[`Share Test click button bookmark 1`] = `
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="m7.253 18.494.724.423A7.953 7.953 0 0 0 12 20a8 8 0 1 0-6.916-3.976l.422.724-.653 2.401zM2.004 22l1.352-4.968A9.954 9.954 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10a9.953 9.953 0 0 1-5.03-1.355zM8.391 7.308c.134-.01.269-.01.403-.004.054.004.108.01.162.016.159.018.334.115.393.249.298.676.588 1.357.868 2.04.062.152.025.347-.093.537a4.372 4.372 0 0 1-.263.372c-.113.145-.356.411-.356.411s-.099.118-.061.265c.014.056.06.137.102.205l.059.095c.256.427.6.86 1.02 1.268.12.116.237.235.363.346.468.413.998.75 1.57 1l.005.002c.085.037.128.057.252.11.062.026.126.049.191.066a.35.35 0 0 0 .367-.13c.724-.877.79-.934.796-.934v.002a.482.482 0 0 1 .378-.127c.06.004.121.015.177.04.531.243 1.4.622 1.4.622l.582.261c.098.047.187.158.19.265.004.067.01.175-.013.373-.032.259-.11.57-.188.733a1.155 1.155 0 0 1-.21.302 2.38 2.38 0 0 1-.33.288l-.125.09a5.044 5.044 0 0 1-.383.22 1.989 1.989 0 0 1-.833.23c-.185.01-.37.024-.556.014-.008 0-.568-.087-.568-.087a9.448 9.448 0 0 1-3.84-2.046c-.226-.199-.435-.413-.649-.626-.89-.885-1.562-1.84-1.97-2.742A3.47 3.47 0 0 1 6.9 9.62a2.729 2.729 0 0 1 .564-1.68c.073-.094.142-.192.261-.305.127-.12.207-.184.294-.228a.961.961 0 0 1 .371-.1z"
-                  fill="#333"
-                />
-              </svg>
+              <mock-icon
+                name="whatsapp"
+              />
             </i>
           </button>
           <div
@@ -534,16 +414,9 @@ exports[`Share Test click button bookmark 1`] = `
               <i
                 class="icon --icon-24 --inherit"
               >
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1 1 0 0 1 3 21l.003-14c0-.552.45-1 1.007-1zM5.003 8 5 20h10V8zM9 6h8v10h2V4H9z"
-                    fill="#333"
-                  />
-                </svg>
+                <mock-icon
+                  name="fileCopy"
+                />
               </i>
             </button>
           </div>
@@ -560,16 +433,9 @@ exports[`Share Test click button bookmark 1`] = `
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M13 19.938A8.001 8.001 0 0 0 12 4a8 8 0 0 0-1 15.938V14H9v-2h2v-1.654c0-1.337.14-1.822.4-2.311.256-.484.652-.88 1.136-1.135.382-.205.857-.328 1.687-.381.329-.021.755.005 1.278.08v1.9H15c-.917 0-1.296.043-1.522.164a.727.727 0 0 0-.314.314c-.12.226-.164.45-.164 1.368V12h2.5l-.5 2h-2zM12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10"
-                  fill="#272727"
-                />
-              </svg>
+              <mock-icon
+                name="facebook"
+              />
             </i>
           </button>
           <button
@@ -585,16 +451,9 @@ exports[`Share Test click button bookmark 1`] = `
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.045 3H3l7.134 9.848-6.745 8.034h2.288l5.517-6.57 4.76 6.57H22L14.566 10.62 20.964 3h-2.289l-5.17 6.157zm7.773 16.094L6.455 4.788h1.727l10.364 14.306z"
-                  fill="#333"
-                />
-              </svg>
+              <mock-icon
+                name="twitter"
+              />
             </i>
           </button>
           <button
@@ -610,18 +469,9 @@ exports[`Share Test click button bookmark 1`] = `
             <i
               class="icon --icon-24 --inherit"
             >
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1m17 4.238-7.266 6.507a1 1 0 0 1-1.329.005L4 7.216V19h16zM4.511 5l7.55 6.662L19.502 5z"
-                  fill="#333"
-                  fill-rule="evenodd"
-                />
-              </svg>
+              <mock-icon
+                name="mail"
+              />
             </i>
           </button>
         </div>

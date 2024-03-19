@@ -58,7 +58,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <span
-                    class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                   >
                     Una comida si saludable
                   </span>
@@ -165,7 +165,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <span
-                    class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                   >
                     Una dieta ...poco saludable
                   </span>
@@ -272,7 +272,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <span
-                    class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                   >
                     Una comida mas o menos saludable
                   </span>
@@ -379,7 +379,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <span
-                    class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                   >
                     Receta para comer mas rico con ...MILANESAS 
                   </span>
@@ -486,7 +486,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <span
-                    class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                   >
                     Ficha nota FOODIT
                   </span>
@@ -593,7 +593,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <span
-                    class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                   >
                     Receta para comer mas rico con ...POLLITO 2
                   </span>
@@ -700,7 +700,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <span
-                    class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                   >
                     Una comida no saludable
                   </span>
@@ -806,7 +806,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <span
-                    class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                   >
                     Receta rapida
                   </span>
@@ -912,7 +912,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <span
-                    class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                   >
                     Prueba nota recetas nuevo
                   </span>
@@ -1018,7 +1018,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <span
-                    class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                   >
                     Sopa de mani
                   </span>
@@ -1128,7 +1128,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <span
-                    class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                   >
                     Como traer la tercera
                   </span>
@@ -1239,7 +1239,7 @@ exports[`Tests Carousel Render component with articles 1`] = `
                   class="flex flex-column gap-4"
                 >
                   <span
-                    class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                    class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                   >
                     Prueba receta vegana
                   </span>

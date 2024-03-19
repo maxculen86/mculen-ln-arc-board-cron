@@ -68,6 +68,7 @@ export const Carousel = ({ articles = [], bookmarkedArticlesIds = [] }) => {
                                     fill={bookmarkedArticlesIds.includes(
                                         articleId
                                     )}
+                                    titleEllipsis={2}
                                 />
                             );
                         }

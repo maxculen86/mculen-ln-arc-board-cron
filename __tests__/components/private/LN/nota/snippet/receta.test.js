@@ -47,6 +47,7 @@ jest.mock('fusion:context', Component => {
 });
 
 describe('SNIPPET - La Nacion - Nota - Receta ', () => {
+    Context.useAppContext = jest.fn(() => ({}));
     const props = {
         arcSite: 'la-nacion-ar',
         globalContent: article

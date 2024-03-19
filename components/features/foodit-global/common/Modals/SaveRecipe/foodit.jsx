@@ -44,7 +44,7 @@ export const Modal = () => {
             transitionOut={['fade-out']}
         >
             <ModalFoodit
-                classNameModal="bg-light-1 rounded-24 h-fit p-24 flex gap-8_md"
+                classNameModal="bg-light-1 rounded-4 h-fit max-w-328 p-32 flex gap-32"
                 classNameWrapper="px-16"
                 id="modal-save"
                 onClose={() => close(restoreIndex)}

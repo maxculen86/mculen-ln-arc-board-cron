@@ -15,6 +15,7 @@ import { createSummaryList } from '../utils/recetarioHelper';
 import getToken from '../../../../private/common/utils/getToken';
 import getBookmarks from '../bookmark/api/getBookmarks';
 import { Button } from '@ln/foodit-ui-button';
+import { isFooditSuscriptor } from '../../hooks/useGetUserData';
 
 const RecetarioBody = () => {
     const { contextPath, deployment } = useAppContext();
@@ -25,8 +26,7 @@ const RecetarioBody = () => {
     const { id: selectedItemId, quantity: selectedItemQuantity } = selectedItem;
 
     useEffect(() => {
-        const premiumProduct = getToken('ProductoPremiumId');
-        if (typeof premiumProduct === 'string' && premiumProduct.includes('2'))
+        if (isFooditSuscriptor(getToken('ProductoPremiumId')))
             (async () => {
                 const { data = [] } = await getBookmarks();
                 setUserBookmarks(data);

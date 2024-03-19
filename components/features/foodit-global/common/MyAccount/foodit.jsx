@@ -12,7 +12,7 @@ export const MyAccount = ({ avatarProps = {}, itemsList = [], fullWidth }) => {
     return (
         <>
             {(initials || email) && (
-                <div className="flex flex-column ai-center gap-16">
+                <div className="flex flex-column ai-center gap-24">
                     <div className="flex flex-column ai-center gap-8">
                         <Avatar
                             size={56}

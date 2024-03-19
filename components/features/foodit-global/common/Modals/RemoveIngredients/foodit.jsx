@@ -1,3 +1,4 @@
+import React from 'react';
 import { Animate } from '@ln/common-ui-animate';
 import { Modal } from '@ln/foodit-ui-modal';
 import { Message } from './components/Message';
@@ -5,12 +6,18 @@ import { ButtonAccept } from './components/ButtonAccept';
 import { ButtonCancel } from './components/ButtonCancel';
 import { usePopupHandling } from './hooks/usePopupHandling';
 import get from '../../../../../private/common/utils/get';
+import deleteIngredientList from '../../shoppingList/api/deleteIngredientList';
 
 export const ModalRemoveIngredient = () => {
     const { close, modalData } = usePopupHandling();
     const showModal = get(modalData, 'show', false);
 
-    const { type = 'recipe', displayName = '' } = get(modalData, 'data', {});
+    const {
+        type = 'recipe',
+        displayName = '',
+        bookmarkId,
+        setShoppingList
+    } = get(modalData, 'data', {});
 
     return (
         <Animate
@@ -34,6 +41,9 @@ export const ModalRemoveIngredient = () => {
                         close={close}
                         type={type}
                         displayName={displayName}
+                        clickAction={() =>
+                            deleteIngredientList(bookmarkId, setShoppingList)
+                        }
                     />
                     <ButtonCancel close={close} />
                 </div>

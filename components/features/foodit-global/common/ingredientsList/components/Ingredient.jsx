@@ -1,27 +1,35 @@
 import React from 'react';
-import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
-import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
-import { Button } from '@ln/foodit-ui-button';
 
-export const Ingredient = ({ ingredient, quantity }) => {
+export const Ingredient = ({ item, typeList }) => {
+    const { ingredient = item || '', amount, abbreviation = '' } = item;
+    const quantity = (amount && `${amount} ${abbreviation}`) || abbreviation;
+
     return (
         <>
             <li className="flex ai-center jc-between">
                 <div className="flex flex-column gap-4">
                     <Text className="text-16">{ingredient}</Text>
-                    <Text className="text-14 text-light-600">{quantity}</Text>
+                    {typeList === 'foodit-ingredientes' && (
+                        <Text className="text-14 text-light-600">
+                            {quantity}
+                        </Text>
+                    )}
                 </div>
+                {/* 
+                Pendiente a posibilidad de modificar bookmarkContent para eliminar ingredientes de la lista de compras
                 <Button
                     title="Quitar ingrediente"
                     variant="link"
                     onClick={() => {
-                        // TODO: agregar funcion para eliminar el ingrediente
                         window.LN.observable.publish('showModalIngredient', {
                             show: true,
                             data: {
                                 type: 'ingredient',
-                                displayName: ingredient
+                                displayName: ingredient,
+                                bookmarkId,
+                                bookmarkContent: { id, sections, text },
+                                setShoppingList
                             }
                         });
                     }}
@@ -29,7 +37,7 @@ export const Ingredient = ({ ingredient, quantity }) => {
                     <Icon size={24}>
                         <IconSprite name="delete" />
                     </Icon>
-                </Button>
+                </Button> */}
             </li>
             <hr className="sm-none" />
         </>

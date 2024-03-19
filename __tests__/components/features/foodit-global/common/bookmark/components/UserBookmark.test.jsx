@@ -27,7 +27,7 @@ describe('UserBookmarks', () => {
     });
 
     it('fetches bookmarks and updates state and localStorage when premium token is valid', async () => {
-        getToken.mockReturnValue('2');
+        getToken.mockReturnValue('22');
 
         await act(async () => {
             render(<UserBookmarks />);

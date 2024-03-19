@@ -2,7 +2,7 @@ import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 
 import getToken from '../../../../../private/common/utils/getToken';
 
-const getBookmarks = async () => {
+const getBookmarks = async (bookmarkType = 'article') => {
     // TODO: should use useClientLibs
     const token = getToken();
     const accessToken = getToken('access-token');
@@ -10,7 +10,7 @@ const getBookmarks = async () => {
 
     try {
         const response = await fetch(
-            `${PERSONALIZACION_API_FOODIT}bookmarks/?bookmarkType=article&size=150`,
+            `${PERSONALIZACION_API_FOODIT}bookmarks/?bookmarkType=${bookmarkType}&size=150`,
             {
                 method: 'GET',
                 headers: {

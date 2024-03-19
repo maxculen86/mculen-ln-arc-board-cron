@@ -20,7 +20,8 @@ const CommonCardFoodit = ({
     title,
     author,
     subtitle,
-    bookmarkAction = null
+    bookmarkAction = null,
+    titleEllipsis
 }) => {
     return (
         <Card
@@ -40,7 +41,11 @@ const CommonCardFoodit = ({
 
                 {tag && <Card.Badge>{tag}</Card.Badge>}
             </Card.Top>
-            <Card.Main title={title} subtitle={subtitle}>
+            <Card.Main
+                title={title}
+                subtitle={subtitle}
+                titleEllipsis={titleEllipsis}
+            >
                 <Card.Footer
                     author={author}
                     showTime={Boolean(time) && showTime}

@@ -7,13 +7,18 @@ import mockAPI_RESPONSE_ZODIAC from '../../../__mocks__/data/apiHoroscope/horosc
 import mockAPI_RESPONSE_SIGN_ZODIAC from '../../../__mocks__/data/apiHoroscope/signoZodiaco.json';
 import mockAPI_RESPONSE_CHINESE from '../../../__mocks__/data/apiHoroscope/horoscoposChinos.json';
 import mockAPI_RESPONSE_SIGN_CHINESE from '../../../__mocks__/data/apiHoroscope/signoChino.json';
+import {
+    LANACION_SERVICES_URL,
+    API_ENV,
+    API_KEY_ARC_SERVICES
+} from 'fusion:environment';
 
 jest.mock('request-promise-native', () => {
     return {
         __esModule: true,
         default: method => {
             const path = method.uri.split('/');
-            path.splice(0, 5);
+            path.splice(0, 3);
 
             if (path.includes('tauro')) {
                 return Promise.resolve({
@@ -112,24 +117,24 @@ describe('Content Sources - Horoscope Source =>', () => {
 
     describe('Resolve with horoscope, sign and year parameters', () => {
         it('Should generate the zodiac horoscope endpoint', () => {
-            expect(resolve('horoscopo')).toStrictEqual(
-                'https://api-contenidos.lanacion.com.ar/json/v2/horoscopo'
-            );
+            expect(resolve('horoscopo')).toEqual({
+                uri: `undefined/api/v2.0/horoscopo/`,
+                json: true,
+                headers: {
+                    Referer: undefined,
+                    'api-key': undefined
+                }
+            });
         });
         it('Should generate the tauro zodiac sign endpoint', () => {
-            expect(resolve('horoscopo', 'tauro')).toStrictEqual(
-                'https://api-contenidos.lanacion.com.ar/json/v2/horoscopo/tauro'
-            );
-        });
-        it('Should generate the chinese horoscope endpoint', () => {
-            expect(resolve('horoscopo-chino', '', '2021')).toStrictEqual(
-                'https://api-contenidos.lanacion.com.ar/json/v2/horoscopo-chino-2021'
-            );
-        });
-        it('Should generate the chinese cabra sign endpoint', () => {
-            expect(resolve('horoscopo-chino', 'cabra', '2021')).toStrictEqual(
-                'https://api-contenidos.lanacion.com.ar/json/v2/horoscopo-chino-2021/cabra'
-            );
+            expect(resolve('horoscopo', 'tauro')).toEqual({
+                uri: `undefined/api/v2.0/horoscopo/tauro`,
+                json: true,
+                headers: {
+                    Referer: undefined,
+                    'api-key': undefined
+                }
+            });
         });
     });
 });

@@ -22,11 +22,13 @@ export const SummaryBox = ({ cookTime, prepTime, counterTime }) => {
     ];
 
     return cookTime && prepTime && counterTime ? (
-        <ul className="p-16 p-24_md p-32_lg flex flex-column gap-16 border border-all border-thin border-light-300 text-16">
-            {items.map((item, i) => (
-                <SummaryItem key={i} {...item} />
-            ))}
-        </ul>
+        <div>
+            <ul className="p-16 p-24_md p-32_lg flex flex-column gap-16 border border-all border-thin border-light-300 text-16">
+                {items.map((item, i) => (
+                    <SummaryItem key={i} {...item} />
+                ))}
+            </ul>
+        </div>
     ) : (
         <></>
     );

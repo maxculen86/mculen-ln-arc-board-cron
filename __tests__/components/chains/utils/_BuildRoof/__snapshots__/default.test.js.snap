@@ -65,7 +65,7 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
         </a>
       </div>
       <div
-        class="--ln-roof-right flex ai-center --sub-exclusive"
+        class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --sub-exclusive"
         roof-group="right"
       >
         <a

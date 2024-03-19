@@ -1,16 +1,12 @@
 import React from 'react';
 import DrawerContainer from '../DrawerContainer/foodit';
 import MenuCategories from '../MenuCategories/foodit';
-import { menuCategories } from '../utils/menuCategories';
 import { Text } from '@ln/common-ui-text';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
 
-const DrawerMenu = () => {
-    // TODO: contenido de menú
-    const sections = menuCategories ?? [];
-
-    if (!sections.length) return <></>;
+const DrawerMenu = ({ categories = [] }) => {
+    if (!categories.length) return <></>;
 
     return (
         <DrawerContainer
@@ -18,7 +14,7 @@ const DrawerMenu = () => {
             position="left"
             bodyClassName="pr-16"
         >
-            {sections.map(({ title, data, href }) => (
+            {categories.map(({ title, data, href }) => (
                 <div key={title}>
                     {href ? (
                         <Itemcard

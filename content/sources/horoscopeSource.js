@@ -1,19 +1,23 @@
 import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
-import BackendLnError from '../../components/private/LN/api/common/models/backendLnError';
+import {
+    LANACION_SERVICES_URL,
+    API_ENV,
+    API_KEY_ARC_SERVICES
+} from 'fusion:environment';
 
 export const resolve = (horoscopo, signo, anio) => {
-    if (horoscopo !== 'horoscopo') {
-        console.error(
-            new BackendLnError(
-                `Horoscopo fue llamado con los siguientes parametros: ${horoscopo} - signo: ${signo} - ${anio}`
-            )
-        );
-    }
-
-    return `https://api-contenidos.lanacion.com.ar/json/v2/${horoscopo}`
-        .concat(anio ? `-${anio}` : '')
-        .concat(signo ? `/${signo}` : '');
+    const endpoint = {
+        uri: `${LANACION_SERVICES_URL}/api/v2.0/${horoscopo}${
+            anio ? `-${anio}` : ''
+        }/`.concat(signo ? `${signo}` : ''),
+        json: true,
+        headers: {
+            Referer: API_ENV,
+            'api-key': API_KEY_ARC_SERVICES
+        }
+    };
+    return endpoint;
 };
 
 const fetch = ({ arcSite, horoscope, sign, year }) => {
@@ -23,10 +27,7 @@ const fetch = ({ arcSite, horoscope, sign, year }) => {
 
     const getData = async () => {
         try {
-            const response = await request({
-                json: true,
-                uri: generatedEndpoint
-            });
+            const response = await request(generatedEndpoint);
             return {
                 data: response
             };

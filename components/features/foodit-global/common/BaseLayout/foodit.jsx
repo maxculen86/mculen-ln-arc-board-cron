@@ -14,7 +14,6 @@ const BaseLayout = ({ children }) => {
             <div className="wrapper overflow-x-clip roboto">
                 <Header />
                 <div className="header-sentinel" />
-                <DrawerMenu />
                 <DrawerMyAccount />
                 <main className="container flex flex-column pb-64 gap-40">
                     {children}

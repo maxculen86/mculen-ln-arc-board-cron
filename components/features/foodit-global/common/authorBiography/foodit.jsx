@@ -21,7 +21,7 @@ export const AuthorBiography = ({
                 {description && (
                     <Text className="text-16 text-18_md">{description}</Text>
                 )}
-                {socialNetworks.length && (
+                {socialNetworks.length > 0 && (
                     <div className="flex jc-center flex-wrap gap-24 gap-16_md">
                         {socialNetworks.map((socialNetwork, i) => (
                             <React.Fragment key={i}>

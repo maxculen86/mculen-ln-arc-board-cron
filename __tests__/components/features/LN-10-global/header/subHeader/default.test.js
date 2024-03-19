@@ -6,7 +6,7 @@ import {
     setDollarData,
     setAccessData
 } from '../../../../../../components/features/LN-10-global/header/subHeader/_helper';
-import { Bookmark, ClubLnDefault, EmailOpen } from '@ln/contenidos-ui-assets';
+import IconSprite from '../../../../../../components/features/private-global/common/iconSprite/IconSprite';
 import {
     setEventsAccess,
     setEventsDollar
@@ -22,18 +22,18 @@ jest.mock('../../../../../../components/private/common/hooks/useTermica', () =>
 const mockDollar = dollarData;
 const mockAccess = [
     {
-        icon: <Bookmark />,
+        icon: <IconSprite name="bookmark" critical />,
         text: 'Mis notas',
         href: 'https://www.lanacion.com.ar/mis-notas/'
     },
     {
-        icon: <EmailOpen />,
+        icon: <IconSprite name="emailOpen" critical />,
         text: 'Newsletters',
         href:
             'https://newsletter.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274'
     },
     {
-        icon: <ClubLnDefault />,
+        icon: <IconSprite name="clubLnDefault" critical />,
         text: 'Club LA NACION',
         href:
             'https://club.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274'

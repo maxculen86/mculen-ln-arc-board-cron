@@ -8,10 +8,7 @@ const removeIngredientsConfig = {
         },
         toast: {
             title: '¡Listo!',
-            description: 'ya no forma parte de tu listado de compras.',
-            button: {
-                children: 'Deshacer'
-            }
+            description: 'ya no forma parte de tu listado de compras.'
         }
     },
     ingredient: {
@@ -21,10 +18,7 @@ const removeIngredientsConfig = {
         },
         toast: {
             title: '¡Listo!',
-            description: 'ya no forma parte de esta receta.',
-            button: {
-                children: 'Deshacer'
-            }
+            description: 'ya no forma parte de esta receta.'
         }
     }
 };

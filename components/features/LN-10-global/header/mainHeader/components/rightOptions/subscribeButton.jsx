@@ -3,7 +3,7 @@ import { SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { Tooltip } from '@ln/contenidos-ui-tooltip';
-import { ExclusivoSuscriptores } from '@ln/contenidos-ui-assets';
+import IconSprite from '../../../../../private-global/common/iconSprite/IconSprite';
 import { useHeaderContext } from '../../../context';
 import { getTermicaValues } from '../../_helper';
 import {
@@ -66,7 +66,11 @@ export const SubscribeButton = () => {
                 size={16}
                 className="--mobile-none"
             >
-                <ExclusivoSuscriptores />
+                <IconSprite
+                    name="exclusivoSuscriptores"
+                    fill="#FDB727"
+                    critical
+                />
             </Icon>
             <FallBackTextButton
                 buttonText={button_text}

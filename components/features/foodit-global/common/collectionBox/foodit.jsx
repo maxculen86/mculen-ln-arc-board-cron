@@ -24,7 +24,7 @@ const CollectionBox = ({
                         key={id}
                         level={1}
                         text={text}
-                        type="button" //TODO: en caso de ser link, type="link"
+                        type="button"
                         selected={id === selectedId}
                         onClick={() => handleItemClick(id, quantity)}
                     />

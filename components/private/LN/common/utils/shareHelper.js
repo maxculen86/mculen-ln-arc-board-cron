@@ -7,15 +7,7 @@ import get from '../../../common/utils/get';
 import toggleBookmark from '../../../common/utils/bookmarkHelper';
 import { isSubscribed } from './contextHelper';
 import { VIDEO } from '../../../common/utils/subtypes/subtypeHelper';
-import {
-    Bookmark,
-    BookmarkFilled,
-    Whatsapp,
-    FileCopy,
-    Facebook,
-    Twitter,
-    Mail
-} from '@ln/contenidos-ui-assets';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 export function popUpCompartirNotaTW(notaId, dominio, titulo) {
     if (notaId.length > 0) {
@@ -132,8 +124,13 @@ export const getTwitterTitle = (mobileTitle, title) =>
 
 export const getClassAndIconByBookmark = bookmark =>
     bookmark
-        ? { bookmarkClass: '--is-saved', bookmarkIcon: <BookmarkFilled /> }
-        : { bookmarkIcon: '', bookmarkIcon: <Bookmark /> };
+        ? {
+              bookmarkClass: '--is-saved',
+              bookmarkIcon: <IconSprite name="bookmarkFilled" />
+          }
+        : {
+              bookmarkIcon: <IconSprite name="bookmark" critical />
+          };
 
 export const getFirstGroupClassNames = ({ subtypeVideo }) => {
     return {
@@ -221,7 +218,7 @@ export const buttonsList = [
     {
         dataEvent: 'LinkClick',
         dataSection: 'CompartirNotaLN',
-        icon: <Whatsapp />,
+        icon: <IconSprite name="whatsapp" />,
         title: 'Compartir la nota en WhatsApp',
         id: 'whatsAppShareDesktop',
         handleClick: ({ requestUri, host }) => {
@@ -232,7 +229,7 @@ export const buttonsList = [
     {
         dataEvent: 'LinkClick',
         dataSection: 'CompartirNotaLN',
-        icon: <FileCopy />,
+        icon: <IconSprite name="fileCopy" />,
         title: 'Copiar link de la nota',
         id: 'copyLinkNote',
         handleClick: ({ setCopy }) => {
@@ -245,7 +242,7 @@ export const buttonsList = [
     {
         dataEvent: 'LinkClick',
         dataSection: 'CompartirNotaLN',
-        icon: <Facebook />,
+        icon: <IconSprite name="facebook" />,
         title: 'Compartir la nota en Facebook',
         id: 'btnfacebook',
         handleClick: ({ requestUri, host, title }) => {
@@ -256,7 +253,7 @@ export const buttonsList = [
     {
         dataEvent: 'LinkClick',
         dataSection: 'CompartirNotaLN',
-        icon: <Twitter />,
+        icon: <IconSprite name="twitter" />,
         title: 'Compartir la nota en X',
         id: 'btntwitter',
         handleClick: ({ requestUri, host, basic: title, mobileTitle }) => {
@@ -268,7 +265,7 @@ export const buttonsList = [
     {
         dataEvent: 'LinkClick',
         dataSection: 'CompartirNotaLN',
-        icon: <Mail />,
+        icon: <IconSprite name="mail" />,
         title: 'Compartir la nota por E-mail',
         id: 'btnemail',
         handleClick: ({ requestUri, host }) => {

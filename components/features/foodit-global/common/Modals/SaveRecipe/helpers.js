@@ -6,12 +6,14 @@ export const saveRecipeConfig = {
     'new-folder': {
         'step-1': {
             title: 'Guardar',
-            leftButton: {
+            rightButton: {
                 text: 'Cancelar',
+                title: 'Cancelar',
                 action: 'close'
             },
-            rightButton: {
+            leftButton: {
                 text: 'Siguiente',
+                title: 'Siguiente',
                 action: 'nextStep'
             },
             showSelect: true,
@@ -19,12 +21,14 @@ export const saveRecipeConfig = {
         },
         'step-2': {
             title: 'Nueva carpeta',
-            leftButton: {
+            rightButton: {
                 text: 'Atras',
+                title: 'Atras',
                 action: 'forwardStep'
             },
-            rightButton: {
+            leftButton: {
                 text: 'Guardar',
+                title: 'Guardar',
                 action: 'save'
             },
             showInputFolder: true,
@@ -34,12 +38,14 @@ export const saveRecipeConfig = {
     'current-folder': {
         'step-1': {
             title: 'Guardar',
-            leftButton: {
+            rightButton: {
                 text: 'Cancelar',
+                title: 'Cancelar',
                 action: 'close'
             },
-            rightButton: {
-                text: 'Guardar',
+            leftButton: {
+                text: 'Siguiente',
+                title: 'Siguiente',
                 action: 'save'
             },
             showSelect: true

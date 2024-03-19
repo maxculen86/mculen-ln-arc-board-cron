@@ -89,7 +89,7 @@ const fetchDeleteBookmark = async (bookmarkedArticles, setUserBookmarks) => {
         if (successfullResponses.length === bookmarkedArticles.length) {
             window.LN.observable.publish('addToast', {
                 variant: 'success',
-                title: 'Guardado!',
+                title: 'Eliminado!',
                 message: `Fueron eliminados los articulos guardados`
             });
         } else {

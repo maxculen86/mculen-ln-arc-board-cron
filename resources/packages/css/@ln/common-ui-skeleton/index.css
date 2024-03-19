@@ -1,0 +1,41 @@
+@keyframes shimmer {
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+.skeleton-loader {
+  position: relative;
+  background-color: #E6E6E6;
+  overflow: hidden;
+  height: auto;
+}
+.skeleton-loader:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translate3d(-100%, 0, 0);
+  background-image: linear-gradient(90deg, rgba(242, 242, 242, 0) 0, rgba(242, 242, 242, 0.2) 10%, rgba(242, 242, 242, 0.5) 30%, rgba(242, 242, 242, 0));
+  animation: shimmer 2s infinite;
+}
+.skeleton-loader.--rounded-circle {
+  aspect-ratio: 1/1;
+}
+.skeleton-loader.--square {
+  aspect-ratio: 1/1;
+}
+.skeleton-loader.--fill {
+  width: 100%;
+  height: 100%;
+}
+.skeleton-loader.--lines {
+  width: 100%;
+}
+.skeleton-loader.--lines:not(:last-of-type) {
+  margin-bottom: 0.5rem;
+}
+.skeleton-loader.--lines:last-of-type {
+  width: 75%;
+}

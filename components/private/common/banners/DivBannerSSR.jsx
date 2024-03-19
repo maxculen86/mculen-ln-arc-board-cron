@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
+import { Closebutton } from '@ln/common-ui-closebutton';
 import { Button } from '@ln/contenidos-ui-button';
-import { Icon } from '@ln/common-ui-icon';
-import { Close } from '@ln/contenidos-ui-assets';
 import ComButton from '../com-button';
 import flatArray from '../utils/flatArray';
 import StaticContent from '../staticContent';
@@ -94,16 +93,16 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                     {slotId.includes('comercial') ? (
                         comercialButton
                     ) : (
-                        <button
+                        <Closebutton
                             id={`${slotId}_btnCloseAd`}
                             type="button"
                             aria-label="Close"
                             className="button ln-button"
-                        >
-                            <Icon className="icon-close" color="light">
-                                <Close />
-                            </Icon>
-                        </button>
+                            iconProps={{
+                                className: 'icon-close',
+                                color: 'light'
+                            }}
+                        />
                     )}
                 </>
             )}

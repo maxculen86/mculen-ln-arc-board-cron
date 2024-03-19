@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from '@ln/contenidos-ui-text';
 import { Button } from '@ln/contenidos-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import { Menu, Search } from '@ln/contenidos-ui-assets';
+import IconSprite from '../../../../private-global/common/iconSprite/IconSprite';
 import { useHeaderContext } from '../../context';
 import { sectionsCallback } from '../_helper';
 import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
@@ -31,7 +31,7 @@ export const LeftOptions = () => {
                 onAuxClick={e => sectionsCallback(e, toggleDesplegable)}
             >
                 <Icon size={24} color="inherit">
-                    <Menu />
+                    <IconSprite name="menu" critical />
                 </Icon>
                 <Text className="text-14">SECCIONES</Text>
             </Button>
@@ -50,7 +50,7 @@ export const LeftOptions = () => {
                 }
             >
                 <Icon size={24} color="inherit">
-                    <Search />
+                    <IconSprite name="search" critical />
                 </Icon>
             </label>
 

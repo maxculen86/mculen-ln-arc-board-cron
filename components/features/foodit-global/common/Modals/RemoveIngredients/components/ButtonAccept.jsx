@@ -3,9 +3,10 @@ import { Button } from '@ln/foodit-ui-button';
 import { getToastMessages } from '../helpers/messagesConfig';
 
 export const ButtonAccept = ({
-    type, // Puede ser 'recipe' o 'ingredient'
+    type,
     displayName = '',
-    close = () => null
+    close = () => null,
+    clickAction
 }) => {
     const {
         title = '',
@@ -14,7 +15,6 @@ export const ButtonAccept = ({
     } = getToastMessages(type);
 
     const handleClick = () => {
-        // TODO: agregar función para eliminar la receta o el ingrediente
         window.LN.observable.publish('addToast', {
             variant: 'success',
             title,
@@ -22,7 +22,7 @@ export const ButtonAccept = ({
             ...(button && {
                 buttonProps: {
                     ...button,
-                    onClick: () => console.log('deshacer')
+                    onClick: clickAction()
                 }
             })
         });

@@ -17,13 +17,15 @@ jest.mock(
     () => jest.fn()
 );
 
-const observe = jest.fn();
-const unobserve = jest.fn();
-
-window.IntersectionObserver = jest.fn(() => ({
-    observe,
-    unobserve
-}));
+global.IntersectionObserver = jest.fn((callback, options) => {
+    return {
+        observe: jest.fn(() => {
+            callback([{ isIntersecting: true }]);
+        }),
+        disconnect: jest.fn(),
+        unobserve: jest.fn()
+    };
+});
 
 describe('Tests feature Foodit RelatedArticles', () => {
     describe('Tests cases for error', () => {
@@ -196,9 +198,42 @@ describe('Tests feature Foodit RelatedArticles', () => {
 
             expect(screen.getByText('Más recetas: Fácil')).toBeInTheDocument();
 
+            expect(screen.getAllByRole('article')).toHaveLength(12);
+
             expect(
                 screen.getByText('Torta de chocolate, chiles y almendras')
             ).toBeInTheDocument();
+        });
+
+        test('should show articles grid 12 and not show the article', () => {
+            useGetRelatedArticles.mockImplementation(() => relatedArticlesMock);
+
+            const customFields = {
+                idSectionOrAuthor: '',
+                filterBy: 'relatedArticles',
+                layout: 'bn_12_grid'
+            };
+            const props = {
+                id: '12345',
+                customFields,
+                globalContent: {
+                    _id: 'IDEDE5L2YZB7ZMS3QLBZMAYXJM',
+                    taxonomy: {
+                        primary_section: {
+                            _id: 'primary section id',
+                            name: 'Fácil'
+                        }
+                    }
+                }
+            };
+
+            render(<RelatedArticles {...props} />);
+            const articles = screen.getAllByRole('article');
+            const titleArticles = articles.map(article => article.textContent);
+            expect(articles).toHaveLength(11);
+            expect(
+                titleArticles.includes('Trufas de chocolate al Grand Marnier')
+            ).toBeFalsy();
         });
 
         test('Should show title by section', () => {
