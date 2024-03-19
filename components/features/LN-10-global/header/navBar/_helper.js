@@ -16,7 +16,6 @@ export const getEventData = label => ({
 });
 
 export const getNavbarItems = (
-    isHome,
     withBookmark,
     isSubscribed,
     toggleDesplegable
@@ -25,7 +24,7 @@ export const getNavbarItems = (
         text: 'Inicio',
         icon: <IconSprite name="home" critical />,
         className: 'home',
-        link: isHome ? '#' : `${SITE_LANACION}/`,
+        link: `${SITE_LANACION}/`,
         callback: () => {
             addEventToDataLayer(getEventData('inicio'));
         }

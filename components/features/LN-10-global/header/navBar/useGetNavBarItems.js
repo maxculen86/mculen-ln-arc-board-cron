@@ -6,20 +6,13 @@ import useTermica from '../../../../private/common/hooks/useTermica';
 export const useGetNavBarItems = () => {
     const withBookmark = useTermica('bookmark_web');
     const [data, setData] = useState(
-        getNavbarItems(isHome, withBookmark, isSubscribed, toggleDesplegable)
+        getNavbarItems(withBookmark, isSubscribed, toggleDesplegable)
     );
 
-    const { isHome, toggleDesplegable, isSubscribed } = useHeaderContext();
+    const { toggleDesplegable, isSubscribed } = useHeaderContext();
 
     useEffect(() => {
-        setData(
-            getNavbarItems(
-                isHome,
-                withBookmark,
-                isSubscribed,
-                toggleDesplegable
-            )
-        );
+        setData(getNavbarItems(withBookmark, isSubscribed, toggleDesplegable));
     }, [isSubscribed]);
 
     return { data };

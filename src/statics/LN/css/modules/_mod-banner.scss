@@ -255,7 +255,10 @@
         }
 
         &.--middle_1_dsk {
-            height: px(250);
+            height: px(450);
+            .acumulado.propiedades & {
+                height: px(250);
+            }
         }
         &.--middle_2_dsk {
             height: px(90);
