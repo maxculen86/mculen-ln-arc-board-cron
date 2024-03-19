@@ -22,7 +22,7 @@ describe('components - features - LN-10-global - header - navbar', () => {
         );
     });
     it('should not have bookmark item', () => {
-        expect(getNavbarItems(true, false, true)[3]).toStrictEqual(false);
+        expect(getNavbarItems(false, true, true)[3]).toStrictEqual(false);
     });
     it('should redirect to mis notas', () => {
         expect(getNavbarItems(true, true, true)[3].link).toStrictEqual(
@@ -30,7 +30,7 @@ describe('components - features - LN-10-global - header - navbar', () => {
         );
     });
     it('should redirect to Club La Nacion', () => {
-        expect(getNavbarItems(true, true, false)[3].link).toStrictEqual(
+        expect(getNavbarItems(true, false, true)[3].link).toStrictEqual(
             'https://club.lanacion.com.ar/'
         );
     });
