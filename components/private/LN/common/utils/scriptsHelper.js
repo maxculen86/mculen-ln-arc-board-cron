@@ -19,7 +19,7 @@ import AdblockDetector from '../../../common/scriptManager/adblockDetector';
 import ScriptCripto from '../../../common/scriptManager/scriptCripto';
 import Permutive from '../../../common/scriptManager/Permutive';
 import Marfeel from '../../../common/scriptManager/Marfeel';
-import ScriptDivBannerSSR from '../../../common/scriptManager/scriptDivBannerSSR';
+import ScriptCloseBanners from '../../../common/scriptManager/scriptCloseBanners';
 import ScriptDataModal from '../../../common/scriptManager/scriptDataModal';
 import ObservableFoodit from '../../../../output-types/Helper/observableFoodit';
 
@@ -108,7 +108,7 @@ const scriptList = [
     },
     { component: { name: 'Marfeel', function: Marfeel }, feature: 'none' },
     {
-        component: { name: 'ScriptDivBannerSSR', function: ScriptDivBannerSSR },
+        component: { name: 'ScriptCloseBanners', function: ScriptCloseBanners },
         feature: 'none'
     },
     {
