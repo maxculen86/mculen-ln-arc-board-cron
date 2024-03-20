@@ -131,7 +131,7 @@ describe('getScriptsToLoad', () => {
             'ComscoreVideo',
             'DevReactTracker',
             'Marfeel',
-            'ScriptDivBannerSSR',
+            'ScriptCloseBanners',
             'ObservableFoodit',
             'DataModal',
             'EventsHelper'
@@ -156,7 +156,7 @@ describe('getScriptsToLoad', () => {
             'ComscoreVideo',
             'DevReactTracker',
             'Marfeel',
-            'ScriptDivBannerSSR',
+            'ScriptCloseBanners',
             'ObservableFoodit',
             'DataModal',
             'EventsHelper'

@@ -1,6 +1,6 @@
-import { addCloseListenerToDivBanners } from '../../../../../src/statics/LN/js/scriptDivBannerSSR';
+import { addCloseListenerToDivBanners } from '../../../../../src/statics/LN/js/scriptCloseBanners';
 
-describe('src - statics - LN - js', () => {
+describe('src - statics - LN - js - scriptCloseBanners', () => {
     test('addCloseListenerToDivBanners adds click event listener to close buttons', () => {
         document.body.innerHTML = `
             <div class="ln-banner" id="banner1">

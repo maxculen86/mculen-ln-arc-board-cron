@@ -99,6 +99,6 @@ export default {
         location: [HEAD]
     },
     Marfeel: { props: {}, location: [HEAD] },
-    ScriptDivBannerSSR: { props: {}, location: [BODYBOTTOM] },
+    ScriptCloseBanners: { props: {}, location: [BODYBOTTOM] },
     EventsHelper: { props: {}, location: [HEAD] }
 };

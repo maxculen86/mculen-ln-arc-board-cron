@@ -1,17 +1,18 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 
-const ScriptDivBannerSSR = () => {
+const ScriptCloseBanners = () => {
     const { contextPath, deployment } = useAppContext();
 
     return (
         <script
-            id="scriptDivBannerSSR"
+            async
+            id="scriptCloseBanners"
             src={deployment(
-                `${contextPath}/resources/js/LN/scriptDivBannerSSR.min.js`
+                `${contextPath}/resources/js/LN/scriptCloseBanners.min.js`
             )}
         />
     );
 };
 
-export default ScriptDivBannerSSR;
+export default ScriptCloseBanners;
