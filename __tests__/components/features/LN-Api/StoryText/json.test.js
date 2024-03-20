@@ -54,6 +54,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             expect(Object.keys(result).sort()).toEqual(
                 [
                     'audio_url',
+                    'authors',
                     'bajada',
                     'categoria',
                     'contenido',
@@ -98,6 +99,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             expect(Object.keys(result).sort()).toEqual(
                 [
                     'audio_url',
+                    'authors',
                     'bajada',
                     'categoria',
                     'contenido',
@@ -133,6 +135,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             expect(Object.keys(result).sort()).toEqual(
                 [
                     'audio_url',
+                    'authors',
                     'bajada',
                     'categoria',
                     'contenido',
@@ -175,6 +178,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             expect(Object.keys(result).sort()).toEqual(
                 [
                     'audio_url',
+                    'authors',
                     'bajada',
                     'categoria',
                     'contenido',
@@ -214,6 +218,7 @@ describe('components - features - LN-Api - StoryText - json.js', () => {
             expect(Object.keys(result).sort()).toEqual(
                 [
                     'audio_url',
+                    'authors',
                     'bajada',
                     'categoria',
                     'contenido',
