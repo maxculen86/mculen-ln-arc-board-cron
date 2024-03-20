@@ -23,7 +23,7 @@ describe('components - features - LN-10-global - Desplegable', () => {
     });
 
     test('should renders without props', () => {
-        const { getAllByRole } = render(<Desplegable arcSite="la-nacion-ar" />);
+        const { getAllByRole } = render(<Desplegable />);
         const [wrapperDropdown] = getAllByRole('button');
         expect(wrapperDropdown).toBeInTheDocument();
     });
@@ -31,7 +31,7 @@ describe('components - features - LN-10-global - Desplegable', () => {
         useHeaderContext.mockImplementation(() => ({
             showMenu: true
         }));
-        const { getAllByRole } = render(<Desplegable arcSite="la-nacion-ar" />);
+        const { getAllByRole } = render(<Desplegable />);
         const [wrapperDropdown] = getAllByRole('button');
         expect(wrapperDropdown.classList).toContain('--dd-active');
     });
@@ -39,8 +39,15 @@ describe('components - features - LN-10-global - Desplegable', () => {
         useHeaderContext.mockImplementation(() => ({
             showMenu: false
         }));
-        const { getAllByRole } = render(<Desplegable arcSite="la-nacion-ar" />);
+        const { getAllByRole } = render(<Desplegable />);
         const [wrapperDropdown] = getAllByRole('button');
         expect(wrapperDropdown.classList).not.toContain('--dd-active');
+    });
+    test('should match snapshot', () => {
+        useHeaderContext.mockImplementation(() => ({
+            showMenu: true
+        }));
+        const { container } = render(<Desplegable />);
+        expect(container).toMatchSnapshot();
     });
 });

@@ -15,11 +15,8 @@ export const getEventData = label => ({
     label
 });
 
-export const getNavbarItems = (
-    withBookmark,
-    isSubscribed,
-    toggleDesplegable
-) => [
+export const getNavbarItems = toggleDesplegable => [
+    // TODO: agregar botton de foodit junto al lanzamiento del sitio
     {
         text: 'Inicio',
         icon: <IconSprite name="home" critical />,
@@ -27,15 +24,6 @@ export const getNavbarItems = (
         link: `${SITE_LANACION}/`,
         callback: () => {
             addEventToDataLayer(getEventData('inicio'));
-        }
-    },
-    {
-        text: 'Buscar',
-        icon: <IconSprite name="search" critical />,
-        className: 'search',
-        htmlFor: 'queryly_toggle',
-        callback: () => {
-            addEventToDataLayer(getEventData('buscar'));
         }
     },
     {
@@ -49,25 +37,24 @@ export const getNavbarItems = (
             addEventToDataLayer(getEventData('secciones'));
         }
     },
-    isSubscribed
-        ? withBookmark && {
-              text: 'Mis Notas',
-              icon: <IconSprite name="bookmark" critical />,
-              className: 'bookmark',
-              link: bookmarkUrl,
-              callback: () => {
-                  addEventToDataLayer(getEventData('mis_notas'));
-              }
-          }
-        : {
-              text: 'Club LN',
-              icon: <IconSprite name="clubLnDefault" critical />,
-              className: 'club-ln',
-              link: 'https://club.lanacion.com.ar/',
-              callback: () => {
-                  addEventToDataLayer(getEventData('club_la_nacion'));
-              }
-          },
+    {
+        text: 'Mis Notas',
+        icon: <IconSprite name="bookmark" critical />,
+        className: 'bookmark',
+        link: bookmarkUrl,
+        callback: () => {
+            addEventToDataLayer(getEventData('mis_notas'));
+        }
+    },
+    {
+        text: 'Club LN',
+        icon: <IconSprite name="clubLnDefault" critical />,
+        className: 'club-ln',
+        link: 'https://club.lanacion.com.ar/',
+        callback: () => {
+            addEventToDataLayer(getEventData('club_la_nacion'));
+        }
+    },
     {
         text: 'Perfil',
         icon: <IconSprite name="profile" critical />,

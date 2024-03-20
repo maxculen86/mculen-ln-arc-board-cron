@@ -2,6 +2,7 @@ import {
     getNavbarItems,
     getEventData
 } from '../../../../../../components/features/LN-10-global/header/navBar/_helper';
+import { useHeaderContext } from '../../../../../../components/features/LN-10-global/header/context';
 
 jest.mock('fusion:environment', () => {
     return {
@@ -11,27 +12,41 @@ jest.mock('fusion:environment', () => {
         MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar'
     };
 });
+jest.mock(
+    '../../../../../../components/features/LN-10-global/header/context',
+    () => {
+        return {
+            useHeaderContext: jest.fn()
+        };
+    }
+);
 
 describe('components - features - LN-10-global - header - navbar', () => {
+    useHeaderContext.mockImplementation(() => ({
+        toggleDesplegable: jest.fn()
+    }));
+
     it('should have Navbar Items', () => {
-        expect(getNavbarItems(true, true, true)).toHaveLength(5);
+        expect(getNavbarItems()).toHaveLength(5);
     });
     it('should redirect to home', () => {
-        expect(getNavbarItems(false, true, true)[0].link).toStrictEqual(
+        expect(getNavbarItems()[0].link).toStrictEqual(
             'https://www.lanacion.com.ar/'
         );
     });
-    it('should not have bookmark item', () => {
-        expect(getNavbarItems(false, true, true)[3]).toStrictEqual(false);
-    });
-    it('should redirect to mis notas', () => {
-        expect(getNavbarItems(true, true, true)[3].link).toStrictEqual(
+    it('should redirect to bookmark template', () => {
+        expect(getNavbarItems()[2].link).toStrictEqual(
             'https://www.lanacion.com.ar/mis-notas/'
         );
     });
     it('should redirect to Club La Nacion', () => {
-        expect(getNavbarItems(true, false, true)[3].link).toStrictEqual(
+        expect(getNavbarItems()[3].link).toStrictEqual(
             'https://club.lanacion.com.ar/'
+        );
+    });
+    it('should redirect to myaccount', () => {
+        expect(getNavbarItems()[4].link).toStrictEqual(
+            'https://myaccount.lanacion.com.ar/mi-usuario/'
         );
     });
     it('should test getEventData', () => {
