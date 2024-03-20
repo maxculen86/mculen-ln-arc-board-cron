@@ -33,25 +33,11 @@ describe('components - features - LN-10-global - header - navbar', () => {
     useHeaderContext.mockImplementation(() => ({
         isHome: true,
         userType: 'subscribed',
-        isSubscribed: true
+        isSubscribed: true,
+        toggleDesplegable: jest.fn()
     }));
-    it('should render "Mis notas" button when user is subscribed', () => {
-        const { getByText } = render(<NavBar />);
 
-        expect(getByText('Mis Notas')).toBeInTheDocument();
-    });
-
-    it('should render Club LN button when user is not subscribed', () => {
-        useHeaderContext.mockImplementation(() => ({
-            isHome: false,
-            userType: 'unlogged',
-            isSubscribed: false
-        }));
-        const { getByText } = render(<NavBar />);
-
-        expect(getByText('Club LN')).toBeInTheDocument();
-    });
-    it('should render "Home, "Sections" and "Profile" button regardless of the userType', () => {
+    it('should render "Home, "Sections", "Profile", "Club LN", "Mis notas" buttons regardless of the userType', () => {
         useHeaderContext.mockImplementation(() => ({
             isHome: false,
             userType: 'subscribed',
@@ -61,6 +47,8 @@ describe('components - features - LN-10-global - header - navbar', () => {
 
         expect(getByText('Inicio')).toBeInTheDocument();
         expect(getByText('Secciones')).toBeInTheDocument();
+        expect(getByText('Mis Notas')).toBeInTheDocument();
+        expect(getByText('Club LN')).toBeInTheDocument();
         expect(getByText('Perfil')).toBeInTheDocument();
     });
 

@@ -2059,6 +2059,10 @@ strong:not(.--font-primary),
   padding-inline: 1rem;
 }
 
+.px-20 {
+  padding-inline: 1.25rem;
+}
+
 .pt-8 {
   padding-top: 0.5rem;
 }
@@ -2329,6 +2333,12 @@ strong:not(.--font-primary),
   }
 }
 
+@media (min-width: 1280px) {
+  .lg-none {
+    display: none !important;
+  }
+}
+
 .visibility-hidden {
   visibility: hidden;
 }
@@ -2449,6 +2459,10 @@ strong:not(.--font-primary),
   flex-wrap: nowrap;
 }
 
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
 @media (min-width: 64rem) {
   .flex-grow-1_l {
     flex-grow: 1;
@@ -2487,6 +2501,10 @@ strong:not(.--font-primary),
 
 .w-40.w-40 {
   width: 2.5rem;
+}
+
+.w-50.w-50 {
+  width: 3.125rem;
 }
 
 .w-64.w-64 {
@@ -2604,6 +2622,10 @@ strong:not(.--font-primary),
 
 .h-48.h-48 {
   height: 3rem;
+}
+
+.h-50.h-50 {
+  height: 3.125rem;
 }
 
 .h-52.h-52 {
