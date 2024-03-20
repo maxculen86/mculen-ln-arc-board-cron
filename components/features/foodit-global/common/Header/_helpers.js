@@ -79,8 +79,8 @@ export default function transformMenuData({ children = [] } = {}) {
                     {
                         items: [
                             {
-                                text: 'Chef protagonistas',
-                                href: `${SITE_FOODIT}/chefs/`
+                                text: 'Chefs protagonistas',
+                                href: `${SITE_FOODIT}/chefs-protagonistas/`
                             }
                         ]
                     }

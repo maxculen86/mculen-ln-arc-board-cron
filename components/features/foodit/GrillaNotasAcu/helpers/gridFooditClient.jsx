@@ -3,15 +3,22 @@ import { GridArticlesFoodit } from './gridArticles';
 import { LoadMoreButton } from './loadMoreButton';
 import useGridArticlesFoodit from '../hooks/useGridArticles';
 
-const GridFooditClient = ({ idSection = '' }) => {
+const GridFooditClient = ({
+    id = '',
+    layout = '',
+    showButton = false,
+    maxArticles = 24
+}) => {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalArticles, setTotalArticles] = useState([]);
     const [pageLoaded, setPageLoaded] = useState({});
 
     const { idArticleList, articles, hasMoreArticle } = useGridArticlesFoodit({
-        id: idSection,
-        page: currentPage
+        id,
+        page: currentPage,
+        layout,
+        maxArticles
     });
 
     const articleListIsLoaded = !Object.values(pageLoaded).includes(
@@ -34,7 +41,7 @@ const GridFooditClient = ({ idSection = '' }) => {
             {totalArticles.length > 0 && (
                 <GridArticlesFoodit articles={totalArticles} />
             )}
-            {(currentPage === 1 || loading || hasMoreArticle) && (
+            {(currentPage === 1 || loading || hasMoreArticle) && showButton && (
                 <LoadMoreButton
                     clickMoreArticle={clickMoreArticle}
                     loading={loading}

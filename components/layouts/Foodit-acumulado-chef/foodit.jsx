@@ -18,8 +18,8 @@ const AcumuladoChefFoodit = ({ children }) => {
                         <BreadcrumbCustomFoodit
                             sectionsCustom={[
                                 {
-                                    name: 'Chef protagonistas',
-                                    url: '/acumulado-chef/'
+                                    name: 'Chefs protagonistas',
+                                    url: `/chefs-protagonistas/`
                                 }
                             ]}
                         />
@@ -27,7 +27,7 @@ const AcumuladoChefFoodit = ({ children }) => {
                             as="h1"
                             className="prumo prumo-semibold text-28 text-40_md text-48_lg floating-button-sentinel"
                         >
-                            Chef protagonistas
+                            Chefs protagonistas
                         </Text>
                     </section>
                     <section className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-32">

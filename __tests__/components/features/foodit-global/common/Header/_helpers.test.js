@@ -18,8 +18,9 @@ describe('transformMenuData function', () => {
                     {
                         items: [
                             {
-                                text: 'Chef protagonistas',
-                                href: 'https://foodit.lanacion.com.ar/chefs/'
+                                text: 'Chefs protagonistas',
+                                href:
+                                    'https://foodit.lanacion.com.ar/chefs-protagonistas/'
                             }
                         ]
                     }
@@ -63,8 +64,9 @@ describe('transformMenuData function', () => {
                     {
                         items: [
                             {
-                                text: 'Chef protagonistas',
-                                href: 'https://foodit.lanacion.com.ar/chefs/'
+                                text: 'Chefs protagonistas',
+                                href:
+                                    'https://foodit.lanacion.com.ar/chefs-protagonistas/'
                             }
                         ]
                     }
@@ -89,8 +91,9 @@ describe('transformMenuData function', () => {
                     {
                         items: [
                             {
-                                text: 'Chef protagonistas',
-                                href: 'https://foodit.lanacion.com.ar/chefs/'
+                                text: 'Chefs protagonistas',
+                                href:
+                                    'https://foodit.lanacion.com.ar/chefs-protagonistas/'
                             },
                             {
                                 text: 'Restaurantes',
@@ -154,8 +157,9 @@ describe('transformMenuData function', () => {
                     {
                         items: [
                             {
-                                text: 'Chef protagonistas',
-                                href: 'https://foodit.lanacion.com.ar/chefs/'
+                                text: 'Chefs protagonistas',
+                                href:
+                                    'https://foodit.lanacion.com.ar/chefs-protagonistas/'
                             }
                         ]
                     }
@@ -187,8 +191,9 @@ describe('transformMenuData function', () => {
                     {
                         items: [
                             {
-                                text: 'Chef protagonistas',
-                                href: 'https://foodit.lanacion.com.ar/chefs/'
+                                text: 'Chefs protagonistas',
+                                href:
+                                    'https://foodit.lanacion.com.ar/chefs-protagonistas/'
                             }
                         ]
                     }
