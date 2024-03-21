@@ -54,8 +54,6 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                     <section className="content note-article-container bg-light-1 pt-16 pt-24_md pt-32_lg pb-24 cuerpo__nota">
                         <Note>
                             <Note.Body>
-                                <Epigraph credits={credits} caption={title} />
-                                <hr />
                                 <div className="flex flex-column gap-12">
                                     <Text className="prumo prumo-book text-28 text-40_md text-48_lg">
                                         {title}
