@@ -68,6 +68,7 @@ export default function BuildRoof(props) {
 
     const scriptBtnSuscription = isSubExclusive ? (
         <script
+            async
             id="scriptBtnSuscriptionRoof"
             type="text/javascript"
             src={deployment(

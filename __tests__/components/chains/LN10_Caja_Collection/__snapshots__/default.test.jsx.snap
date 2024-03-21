@@ -235,6 +235,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
         </div>
       </div>
       <script
+        async=""
         id="scriptBtnSuscriptionRoof"
         type="text/javascript"
       />

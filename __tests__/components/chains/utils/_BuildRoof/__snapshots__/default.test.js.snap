@@ -83,6 +83,7 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
     </div>
   </div>
   <script
+    async=""
     id="scriptBtnSuscriptionRoof"
     type="text/javascript"
   />
