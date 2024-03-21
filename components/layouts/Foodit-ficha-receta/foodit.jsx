@@ -32,6 +32,9 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
                         globalContent={globalContent}
                         calssName="lg-only"
                     />
+                    <h3 className="prumo prumo-light text-24 text-32_md text-36_lg">
+                        Preparación
+                    </h3>
                     {body}
                 </div>
             </section>

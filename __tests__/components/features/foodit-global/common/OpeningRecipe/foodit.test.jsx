@@ -68,6 +68,14 @@ describe('OpeningRecipe Component', () => {
         expect(screen.getByText(expectedResults.author)).toBeInTheDocument();
     });
 
+    it('should show the author as: "Por Foodit" in case there is not author', () => {
+        const { container } = render(
+            <OpeningRecipe article={{ ...Article, credits: { by: [] } }} />
+        );
+
+        expect(screen.getByText('Por Foodit')).toBeInTheDocument();
+    });
+
     it('displays the image with correct alt text', () => {
         render(<OpeningRecipe article={Article} />);
         expect(

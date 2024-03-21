@@ -77,7 +77,7 @@ export const OpeningRecipe = ({ article = {} }) => {
                             />
                             <Text
                                 className="text-14"
-                                text={author || 'Por foodit'}
+                                text={author || 'Por Foodit'}
                                 as="h3"
                             />
                         </div>

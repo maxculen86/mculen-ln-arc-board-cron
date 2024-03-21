@@ -56,7 +56,6 @@ const Foodit = ({
                 {/*  TODO: Una vez salga foodit a PROD, elminar el meta noindex,nofollow y sumar la validacion para agregarlo al preview de composer*/}
                 <meta name="robots" content="noindex, nofollow" />
                 <meta name="theme-color" content="#ffffff" />
-                <link rel="manifest" href="/manifest.json" />
                 <PreloadFooditImages
                     layout={layout}
                     renderables={renderables}

@@ -101,7 +101,7 @@ export const Ingredients = ({
                 <Icon size={16}>
                     <IconSprite name="cart" critical />
                 </Icon>
-                Agregar a la lista
+                AGREGAR A LISTA DE COMPRAS
             </Button>
         </div>
     );
