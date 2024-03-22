@@ -1,14 +1,72 @@
-import React from 'react';
-import { Button } from '@ln/contenidos-ui-button';
-import { Icon } from '@ln/common-ui-icon';
-import IconSprite from '../../../../../private-global/common/iconSprite/IconSprite';
+import React, { useEffect, useState } from 'react';
+import { API_ENV, LOGIN_URL } from 'fusion:environment';
+import handleCookie from '../../../../../../private/LN/common/utils/handleCookie';
+import { getInitialState } from '../../_helper';
+import { NotificationsCentre } from '@ln/lib-personalizacion';
 
 export const BellButton = () => {
-    return (
-        <Button title="Campanita" className="campanita none">
-            <Icon size={24}>
-                <IconSprite name="bell" critical />
-            </Icon>
-        </Button>
-    );
+    const [showTooltip, setShowTooltip] = useState(false);
+    const [props, setProps] = useState({});
+
+    useEffect(() => {
+        setShowTooltip(getInitialState());
+        const { getCookie } = handleCookie();
+        const token = getCookie('token');
+        const accessToken = getCookie('access-token');
+        const { dataLayer } = window;
+        setProps({
+            ...(token &&
+                accessToken && {
+                    userIdToken: token,
+                    userAccessToken: accessToken
+                }),
+            isTestEnvironment: API_ENV !== 'prod',
+            zone: 'lanacion',
+            showTooltip: showTooltip,
+            loginHref: LOGIN_URL,
+            notificationsRequestSize: 5,
+            messagesRequestSize: 5,
+            tooltipText: 'Aquí encontrarás todas nuestras notificaciones',
+            loginOnClick: () => {
+                dataLayer.push({
+                    event: 'trackEvent',
+                    category: 'campanita',
+                    action: 'click',
+                    label: 'Iniciar Sesión'
+                });
+            },
+            onBellClick: () => {
+                setShowTooltip(false);
+                localStorage.setItem('showTooltip', false);
+                dataLayer.push({
+                    event: 'trackEvent',
+                    category: 'campanita',
+                    action: 'campanita',
+                    label: 'N/A'
+                });
+            },
+            onNotificationsClick: notification =>
+                dataLayer.push({
+                    event: 'action_notification',
+                    button: notification.buttonLabel || 'N/A',
+                    title:
+                        (notification.title &&
+                            `notificación-${notification.title}`) ||
+                        'N/A',
+                    page_notification: notification.url || 'N/A'
+                }),
+            onMessageButtonClick: message =>
+                dataLayer.push({
+                    event: 'action_notification',
+                    button: message.buttonLabel || 'N/A',
+                    title:
+                        (message.title && `mensaje-${message.title}`) || 'N/A',
+                    page_notification: message.url || 'N/A'
+                })
+        });
+    }, [showTooltip]);
+
+    return <NotificationsCentre {...props} />;
 };
+
+export default BellButton;

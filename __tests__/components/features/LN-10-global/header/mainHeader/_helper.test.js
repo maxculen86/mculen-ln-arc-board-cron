@@ -1,7 +1,8 @@
 import useTermica from '../../../../../../components/private/common/hooks/useTermica';
 import {
     showSubscribeButton,
-    getTermicaValues
+    getTermicaValues,
+    getInitialState
 } from '../../../../../../components/features/LN-10-global/header/mainHeader/_helper';
 
 jest.mock('../../../../../../components/private/common/hooks/useTermica', () =>
@@ -54,6 +55,7 @@ describe('components - features - LN-10-global - header - mainHeader - helper', 
             });
         });
     });
+
     describe('showSubscribeButton function', () => {
         global.window = {
             location: {
@@ -75,6 +77,30 @@ describe('components - features - LN-10-global - header - mainHeader - helper', 
             useTermica.mockImplementation(() => false);
             const subscription = true;
             expect(showSubscribeButton(subscription)).toBe(false);
+        });
+    });
+
+    describe('getInitialState function', () => {
+        beforeEach(() => {
+            localStorage.clear();
+        });
+
+        it('should return true if showTooltip is not in localStorage', () => {
+            const initialState = getInitialState();
+            expect(initialState).toBe(true);
+        });
+
+        it('should return the parsed value of showTooltip if it is in localStorage', () => {
+            Object.defineProperty(window, 'localStorage', {
+                value: {
+                    getItem: jest.fn().mockReturnValue(JSON.stringify(false)),
+                    clear: jest.fn()
+                },
+                writable: true
+            });
+
+            const initialState = getInitialState();
+            expect(initialState).toBe(false);
         });
     });
 });
