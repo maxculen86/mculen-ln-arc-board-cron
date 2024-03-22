@@ -7,14 +7,22 @@ import { NotificationsCentre } from '@ln/lib-personalizacion';
 export const BellButton = () => {
     const [showTooltip, setShowTooltip] = useState(false);
     const [props, setProps] = useState({});
+    const { getCookie } = handleCookie();
+    const token = getCookie('token');
+    const accessToken = getCookie('access-token');
+    const { dataLayer } = window;
 
     useEffect(() => {
+        initializeTooltip();
+        setProps(buildProps());
+    }, [showTooltip]);
+
+    const initializeTooltip = () => {
         setShowTooltip(getInitialState());
-        const { getCookie } = handleCookie();
-        const token = getCookie('token');
-        const accessToken = getCookie('access-token');
-        const { dataLayer } = window;
-        setProps({
+    };
+
+    const buildProps = () => {
+        return {
             ...(token &&
                 accessToken && {
                     userIdToken: token,
@@ -35,36 +43,42 @@ export const BellButton = () => {
                     label: 'Iniciar Sesión'
                 });
             },
-            onBellClick: () => {
-                setShowTooltip(false);
-                localStorage.setItem('showTooltip', false);
-                dataLayer.push({
-                    event: 'trackEvent',
-                    category: 'campanita',
-                    action: 'campanita',
-                    label: 'N/A'
-                });
-            },
-            onNotificationsClick: notification =>
-                dataLayer.push({
-                    event: 'action_notification',
-                    button: notification.buttonLabel || 'N/A',
-                    title:
-                        (notification.title &&
-                            `notificación-${notification.title}`) ||
-                        'N/A',
-                    page_notification: notification.url || 'N/A'
-                }),
-            onMessageButtonClick: message =>
-                dataLayer.push({
-                    event: 'action_notification',
-                    button: message.buttonLabel || 'N/A',
-                    title:
-                        (message.title && `mensaje-${message.title}`) || 'N/A',
-                    page_notification: message.url || 'N/A'
-                })
+            onBellClick: handleBellClick,
+            onNotificationsClick: handleNotificationsClick,
+            onMessageButtonClick: handleMessageButtonClick
+        };
+    };
+
+    const handleBellClick = () => {
+        setShowTooltip(false);
+        localStorage.setItem('showTooltip', false);
+        dataLayer.push({
+            event: 'trackEvent',
+            category: 'campanita',
+            action: 'campanita',
+            label: 'N/A'
         });
-    }, [showTooltip]);
+    };
+
+    const handleNotificationsClick = notification => {
+        dataLayer.push({
+            event: 'action_notification',
+            button: notification.buttonLabel || 'N/A',
+            title:
+                (notification.title && `notificación-${notification.title}`) ||
+                'N/A',
+            page_notification: notification.url || 'N/A'
+        });
+    };
+
+    const handleMessageButtonClick = message => {
+        dataLayer.push({
+            event: 'action_notification',
+            button: message.buttonLabel || 'N/A',
+            title: (message.title && `mensaje-${message.title}`) || 'N/A',
+            page_notification: message.url || 'N/A'
+        });
+    };
 
     return <NotificationsCentre {...props} />;
 };
