@@ -2,16 +2,11 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import TituloNota from '../../private/LN/nota/apertura/titleAndIconArticle';
-import StaticContent from '../../private/common/staticContent';
 
 // TODO fix props y hacer unit test
 
 const tituloNota = props => {
-    return (
-        <StaticContent>
-            <TituloNota {...props} />
-        </StaticContent>
-    );
+    return <TituloNota {...props} />;
 };
 
 tituloNota.label = 'LN-Nota-Titulo';

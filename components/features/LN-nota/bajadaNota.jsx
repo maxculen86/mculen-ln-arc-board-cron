@@ -6,7 +6,6 @@ import ContainerValidation from '../../private/common/containerValidation';
 import { VIDEO } from '../../private/common/utils/subtypes/subtypeHelper';
 import BadgeUsertype from '../../private/common/badge/UserType';
 import BajadaNota from '../../private/LN/nota/bajada';
-import StaticContent from '../../private/common/staticContent';
 
 // TODO migrar test a testing library, fix de props, testear static content
 
@@ -20,14 +19,14 @@ const bajadaNota = props => {
     } = props;
 
     return (
-        <StaticContent>
+        <>
             <BajadaNota {...props} />
             {contentCode === 'cerrada' && (
                 <ContainerValidation layout={layout}>
                     <BadgeUsertype dark={VIDEO === subtype} />
                 </ContainerValidation>
             )}
-        </StaticContent>
+        </>
     );
 };
 
