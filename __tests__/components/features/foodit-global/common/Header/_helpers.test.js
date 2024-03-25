@@ -168,6 +168,90 @@ describe('transformMenuData function', () => {
         ]);
     });
 
+    test('should construct the three level URLs correctly. And exclude subcategories (dietas, que cocinar hoy)', () => {
+        const input = {
+            children: [
+                {
+                    _id: '/recetas',
+                    name: 'Recetas',
+                    children: [
+                        {
+                            _id: '/recetas/dietas',
+                            name: 'Excluir esto',
+                            children: [
+                                {
+                                    _id: '/recetas/saladas/arroz',
+                                    name: 'Arroz'
+                                }
+                            ]
+                        },
+                        {
+                            _id: '/recetas/que-cocinar-hoy',
+                            name: 'Excluir esto tambien',
+                            children: [
+                                {
+                                    _id: '/recetas/saladas/pastas',
+                                    name: 'Pastas'
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        };
+
+        const result = transformMenuData(input);
+        expect(result).toEqual([
+            {
+                title: 'Recetas',
+                data: [
+                    {
+                        title: {
+                            text: 'Excluir esto',
+                            icon: <mock-icon name="diet" />,
+                            href: null
+                        },
+                        items: [
+                            {
+                                href:
+                                    'https://foodit.lanacion.com.ar/recetas/saladas/arroz/',
+                                text: 'Arroz'
+                            }
+                        ]
+                    },
+                    {
+                        title: {
+                            text: 'Excluir esto tambien',
+                            icon: <mock-icon critical={true} name="cart" />,
+                            href: null
+                        },
+                        items: [
+                            {
+                                href:
+                                    'https://foodit.lanacion.com.ar/recetas/saladas/pastas/',
+                                text: 'Pastas'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: 'Descubrir',
+                data: [
+                    {
+                        items: [
+                            {
+                                text: 'Chefs protagonistas',
+                                href:
+                                    'https://foodit.lanacion.com.ar/chefs-protagonistas/'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]);
+    });
+
     test('should create the url independently of sections that do not have subsections (children)', () => {
         const input = {
             children: [
