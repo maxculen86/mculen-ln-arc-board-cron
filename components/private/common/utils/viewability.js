@@ -202,9 +202,12 @@ const addEventImpressionToDataLayer = (
     if (articlesToAdd.length > 0) {
         const itemsUpdated = updateIndexOfItems(itemsToAdd);
         window.dataLayer.push({
+            ecommerce: null
+        });
+        window.dataLayer.push({
             event: `impressionsScore`,
-            products: articlesToAdd,
-            items: itemsUpdated
+            ecommerce: { items: itemsUpdated },
+            products: articlesToAdd
         });
 
         articlesSeen.push(...articlesToAdd);
