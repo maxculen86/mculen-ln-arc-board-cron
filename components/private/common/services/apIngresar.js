@@ -9,6 +9,7 @@ const apiIngresar = () => {
         fetch(`${urlApi}ReLogin`, {
             method: 'POST',
             headers: {
+                Authorization: `Bearer ${getCookie('access-token')}`,
                 'X-Token': token,
                 'X-Value': xvalue,
                 'Content-Type': 'application/json'
@@ -23,7 +24,7 @@ const apiIngresar = () => {
             return res.json();
         });
 
-    const getMe = (token, xvalue, isRelogin = false) => {
+    const getMe = (token, xvalue, accessToken, isRelogin = false) => {
         const ProductoPremiumId = getCookie('ProductoPremiumId') || '';
         const UsuarioDetalleEmail = getCookie('usuarioemail') || '';
 
@@ -46,7 +47,7 @@ const apiIngresar = () => {
         }
 
         const headers = {};
-
+        headers.Authorization = accessToken || getCookie('access-token');
         headers['X-Token'] = token || getCookie('token');
 
         if (xvalue) headers['X-Value'] = xvalue;
