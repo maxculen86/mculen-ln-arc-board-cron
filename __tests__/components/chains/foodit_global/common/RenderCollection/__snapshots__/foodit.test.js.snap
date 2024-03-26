@@ -15,7 +15,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
     class="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg gap-32"
   >
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
       data-variant="recipe"
     >
       <a
@@ -49,7 +49,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
           
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -118,7 +118,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
       </a>
     </article>
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
       data-variant="recipe"
     >
       <a
@@ -152,7 +152,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
           
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -221,7 +221,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
       </a>
     </article>
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
       data-variant="recipe"
     >
       <a
@@ -255,7 +255,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
           
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -282,7 +282,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                 Por Maru Botana
               </span>
               <div
-                class="flex ai-center gap-4 opacity-0"
+                class="opacity-0"
               >
                 <i
                   class="icon --icon-12 --inherit"
@@ -324,7 +324,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
       </a>
     </article>
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
       data-variant="recipe"
     >
       <a
@@ -358,7 +358,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
           
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -427,7 +427,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
       </a>
     </article>
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-background-positive col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-background-positive col-span-8 col-span-4_md"
       data-variant="note"
     >
       <a
@@ -461,7 +461,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
           
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -530,7 +530,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
       </a>
     </article>
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-background-positive col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-background-positive col-span-8 col-span-4_md"
       data-variant="note"
     >
       <a
@@ -564,7 +564,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
           
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -633,7 +633,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
       </a>
     </article>
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
       data-variant="recipe"
     >
       <a
@@ -667,7 +667,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
           
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -694,7 +694,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                 Por Maru Botana
               </span>
               <div
-                class="flex ai-center gap-4 opacity-0"
+                class="opacity-0"
               >
                 <i
                   class="icon --icon-12 --inherit"
@@ -736,7 +736,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
       </a>
     </article>
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
       data-variant="recipe"
     >
       <a
@@ -769,7 +769,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
           
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -796,7 +796,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
                 Por Emilio Ocampo
               </span>
               <div
-                class="flex ai-center gap-4 opacity-0"
+                class="opacity-0"
               >
                 <i
                   class="icon --icon-12 --inherit"
@@ -838,7 +838,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
       </a>
     </article>
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
       data-variant="recipe"
     >
       <a
@@ -871,7 +871,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
           
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -940,7 +940,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
       </a>
     </article>
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
       data-variant=""
     >
       <a
@@ -973,7 +973,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
           
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -1042,7 +1042,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
       </a>
     </article>
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
       data-variant="recipe"
     >
       <a
@@ -1079,7 +1079,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
           </span>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -1148,7 +1148,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
       </a>
     </article>
     <article
-      class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1 col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-8 col-span-4_md"
       data-variant="recipe"
     >
       <a
@@ -1186,7 +1186,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
           </span>
         </div>
         <div
-          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+          class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
         >
           <div
             class="flex flex-column gap-12"
@@ -1301,7 +1301,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
       data-scroller="container"
     >
       <ul
-        class="relative overflow-container"
+        class="relative --full-width"
         data-scroller="track"
         data-scroller-elements="12"
       >
@@ -1309,7 +1309,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
             data-variant="recipe"
           >
             <a
@@ -1343,7 +1343,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                 
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -1352,7 +1352,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Una comida si saludable
                     </span>
@@ -1416,7 +1416,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
             data-variant="recipe"
           >
             <a
@@ -1450,7 +1450,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                 
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -1459,7 +1459,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Una dieta ...poco saludable
                     </span>
@@ -1523,7 +1523,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
             data-variant="recipe"
           >
             <a
@@ -1557,7 +1557,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                 
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -1566,7 +1566,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Una comida mas o menos saludable
                     </span>
@@ -1584,7 +1584,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       Por Maru Botana
                     </span>
                     <div
-                      class="flex ai-center gap-4 opacity-0"
+                      class="opacity-0"
                     >
                       <i
                         class="icon --icon-12 --inherit"
@@ -1630,7 +1630,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
             data-variant="recipe"
           >
             <a
@@ -1664,7 +1664,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                 
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -1673,7 +1673,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Receta para comer mas rico con ...MILANESAS 
                     </span>
@@ -1737,7 +1737,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-background-positive"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-background-positive"
             data-variant="note"
           >
             <a
@@ -1771,7 +1771,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                 
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -1780,7 +1780,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Ficha nota FOODIT
                     </span>
@@ -1844,7 +1844,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-background-positive"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-background-positive"
             data-variant="note"
           >
             <a
@@ -1878,7 +1878,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                 
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -1887,7 +1887,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Receta para comer mas rico con ...POLLITO 2
                     </span>
@@ -1951,7 +1951,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
             data-variant="recipe"
           >
             <a
@@ -1985,7 +1985,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                 
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -1994,7 +1994,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Una comida no saludable
                     </span>
@@ -2012,7 +2012,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       Por Maru Botana
                     </span>
                     <div
-                      class="flex ai-center gap-4 opacity-0"
+                      class="opacity-0"
                     >
                       <i
                         class="icon --icon-12 --inherit"
@@ -2058,7 +2058,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
             data-variant="recipe"
           >
             <a
@@ -2091,7 +2091,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                 
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -2100,7 +2100,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Receta rapida
                     </span>
@@ -2118,7 +2118,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                       Por Emilio Ocampo
                     </span>
                     <div
-                      class="flex ai-center gap-4 opacity-0"
+                      class="opacity-0"
                     >
                       <i
                         class="icon --icon-12 --inherit"
@@ -2164,7 +2164,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
             data-variant="recipe"
           >
             <a
@@ -2197,7 +2197,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                 
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -2206,7 +2206,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Prueba nota recetas nuevo
                     </span>
@@ -2270,7 +2270,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
             data-variant=""
           >
             <a
@@ -2303,7 +2303,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                 
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -2312,7 +2312,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Sopa de mani
                     </span>
@@ -2376,7 +2376,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
             data-variant="recipe"
           >
             <a
@@ -2413,7 +2413,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                 </span>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -2422,7 +2422,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Como traer la tercera
                     </span>
@@ -2486,7 +2486,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card overflow-hidden relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 bg-light-1"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1"
             data-variant="recipe"
           >
             <a
@@ -2524,7 +2524,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                 </span>
               </div>
               <div
-                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16 px-16 pb-16 pt-20 text-light-800"
+                class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
               >
                 <div
                   class="flex flex-column gap-12"
@@ -2533,7 +2533,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     class="flex flex-column gap-4"
                   >
                     <span
-                      class="text card-title prumo transition-regular text-ellipsis-3 prumo-medium text-20"
+                      class="text card-title prumo transition-regular text-ellipsis-2 prumo-medium text-20"
                     >
                       Prueba receta vegana
                     </span>

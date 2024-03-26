@@ -11,56 +11,96 @@ import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import LoginSubscribeButtons from './components/LoginSubscribeButtons';
 import RenderUserOptions from './components/rightOptions/RenderUserOptions';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import classNames from 'classnames';
+import DrawerMenu from '../DrawerMenu/foodit';
+import transformMenuData from './_helpers';
+import { useContent } from 'fusion:content';
+import filterMenuSections from '../../../../../content/filters/foodit/filterMenuSections';
 
-const HeaderFoodit = ({ isSticky = false, ...r }) => {
-    const { deployment, contextPath } = useAppContext();
+const HeaderFoodit = () => {
+    const { deployment, contextPath, siteProperties, layout } = useAppContext();
+
+    const { layoutsName = {} } = siteProperties || {};
+
+    const classNameHeaderContainer = classNames(
+        layout === layoutsName.FooditHome ||
+            layout === layoutsName.FooditFichaReceta
+            ? 'mb-12 mb-40_lg'
+            : 'mb-40'
+    );
+
+    const isHome = layout === layoutsName.FooditHome;
+
+    const categories = useContent({
+        source: 'navigationSource',
+        query: {
+            hierarchy: 'header_menu_foodit',
+            website: 'foodit'
+        },
+        transform: transformMenuData,
+        filter: filterMenuSections
+    });
+
     //TODO: validar tipo de usuario  'subscribedPlus';
 
     // TODO: falta cerrar comportamiento de sticky
 
     return (
-        <Header {...r}>
-            <MainHeader>
-                <MainHeader.Content>
-                    <MainHeader.Content.Left className="flex jc-start ai-center lg-none">
-                        <Button
-                            title="Menu"
-                            onClick={() =>
-                                toggleDrawer({ id: 'drawer-menu', show: true })
-                            }
-                        >
-                            <Icon size={24}>
-                                <IconSprite name="menu" critical />
-                            </Icon>
-                        </Button>
-                    </MainHeader.Content.Left>
-                    <MainHeader.Content.Center className="jc-center ai-center">
-                        <MainHeader.Brand href="/" title="Ir a inicio">
-                            <img
-                                className="w-118 w-160_md w-191_lg"
-                                src={getAssetsPath(contextPath)(deployment)(
-                                    'logo-foodit.webp'
-                                )}
-                                alt="Foodit"
-                            />
-                        </MainHeader.Brand>
-                    </MainHeader.Content.Center>
-                    <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
-                        <LoginSubscribeButtons />
-                        <RenderUserOptions />
-                    </MainHeader.Content.Right>
-                    <MainHeader.Content.Search>
-                        <Search />
-                    </MainHeader.Content.Search>
-                </MainHeader.Content>
-                <MainHeader.Bottom className="flex ai-center border border-bottom border-thin border-light-100 lg-only">
-                    <TopNavigationBar />
-                </MainHeader.Bottom>
-            </MainHeader>
-            <SubHeader className="py-8 h-48 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 lg-none">
-                <Promotions />
-            </SubHeader>
-        </Header>
+        <>
+            <Header classNameContainer={classNameHeaderContainer}>
+                <MainHeader>
+                    <MainHeader.Content containerClassName="bg-positive py-16">
+                        <MainHeader.Content.Left className="flex jc-start ai-center lg-none">
+                            <Button
+                                title="Menu"
+                                className="text-light-800"
+                                onClick={() =>
+                                    toggleDrawer({
+                                        id: 'drawer-menu',
+                                        show: true
+                                    })
+                                }
+                            >
+                                <Icon size={24} color="dark">
+                                    <IconSprite name="menu" critical />
+                                </Icon>
+                            </Button>
+                        </MainHeader.Content.Left>
+                        <MainHeader.Content.Center className="jc-center ai-center">
+                            <MainHeader.Brand
+                                href="/"
+                                title="Ir a inicio"
+                                className="flex"
+                            >
+                                <img
+                                    className="h-32 h-44_md h-52_lg"
+                                    src={getAssetsPath(contextPath)(deployment)(
+                                        'logo-foodit.webp'
+                                    )}
+                                    alt="Foodit"
+                                />
+                            </MainHeader.Brand>
+                        </MainHeader.Content.Center>
+                        <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
+                            <LoginSubscribeButtons classNameButtons="lg-only" />
+                            <RenderUserOptions />
+                        </MainHeader.Content.Right>
+                        <MainHeader.Content.Search>
+                            <Search />
+                        </MainHeader.Content.Search>
+                    </MainHeader.Content>
+                    <MainHeader.Bottom className="flex ai-center border border-bottom border-thin border-light-100 lg-only">
+                        <TopNavigationBar categories={categories} />
+                    </MainHeader.Bottom>
+                </MainHeader>
+                {isHome && (
+                    <SubHeader className="py-12 h-53 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 lg-none">
+                        <Promotions />
+                    </SubHeader>
+                )}
+            </Header>
+            <DrawerMenu categories={categories} />
+        </>
     );
 };
 

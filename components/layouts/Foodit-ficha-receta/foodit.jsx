@@ -6,6 +6,8 @@ import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import OpeningRecipe from '../../features/foodit-global/common/OpeningRecipe/foodit';
 import PowerupsReceta from '../../features/foodit-global/Body/PowerupsReceta/foodit';
 import Subtitle from '../../features/foodit-global/common/subtitle/foodit';
+import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
+import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
@@ -14,7 +16,11 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
 
     return (
         <BaseLayout>
-            <OpeningRecipe article={globalContent} />
+            <UserBookmarks />
+            <section className="flex flex-column gap-24">
+                <Breadcrumb globalContent={globalContent} className="lg-only" />
+                <OpeningRecipe article={globalContent} />
+            </section>
             <Subtitle globalContent={globalContent} calssName="lg-none" />
             <section className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg row-gap-40 cuerpo__nota">
                 <div className="col-span-8 col-span-4_md col-span-5_lg flex flex-column gap-32">
@@ -29,7 +35,8 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
                     {body}
                 </div>
             </section>
-            <section>{bottom}</section>
+            <Breadcrumb globalContent={globalContent} className="lg-none" />
+            <section className="flex flex-column gap-40">{bottom}</section>
         </BaseLayout>
     );
 };

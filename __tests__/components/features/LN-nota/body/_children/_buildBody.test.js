@@ -146,10 +146,6 @@ describe('BuildBody', () => {
             container.querySelectorAll(`img[class*="com-image"]`)
         ).toHaveLength(13);
         expect(container.querySelectorAll(`amp-img`)).toHaveLength(0);
-        /* video */
-        expect(
-            container.querySelectorAll(`div[class*="mod-video"]`)
-        ).toHaveLength(2);
         /* blockquiote */
         expect(
             container.querySelectorAll(`blockquote[class*="mod-paragraph"]`)
@@ -252,10 +248,6 @@ describe('BuildBody', () => {
         expect(
             container.querySelectorAll(`img[class*="com-image"]`)
         ).toHaveLength(0);
-        /* video */
-        expect(
-            container.querySelectorAll(`div[class*="mod-video"]`)
-        ).toHaveLength(2);
         /* blockquiote */
         expect(
             container.querySelectorAll(`blockquote[class*="mod-paragraph"]`)
@@ -412,6 +404,6 @@ describe('BuildBody', () => {
             })
         );
 
-        expect(utils.transformEmbedScript).toBeCalledTimes(15);
+        expect(utils.transformEmbedScript).toBeCalledTimes(13);
     });
 });

@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import Header from '../private/LN10/header';
+import Header from '../features/LN-10-global/header/default';
 import Footer from '../private/LN10/footer';
 import PwaModals from '../private/LN/common/pwaModals';
 
@@ -33,7 +33,7 @@ const lnNotaVideo = ({ children, outputType, tree, isAdmin }) => {
             {/* Banner MEGATOP */}
             <div id="wrapper" className={classNameWrapper}>
                 <Header />
-                <main id="content" className="--header-fixed-margin">
+                <main id="content">
                     <div className="--apertura">
                         {children[1]}
                         <div className="lay">

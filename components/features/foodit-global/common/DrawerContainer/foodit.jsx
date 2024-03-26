@@ -1,10 +1,8 @@
 import React from 'react';
-import { Button } from '@ln/common-ui-button';
 import { Drawer, toggleDrawer } from '@ln/common-ui-drawer';
-import { Icon } from '@ln/common-ui-icon';
 import { Text } from '@ln/common-ui-text';
 import classNames from 'classnames';
-import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import { Closebutton } from '@ln/common-ui-closebutton';
 
 export const DrawerContainer = ({
     drawerId,
@@ -31,15 +29,11 @@ export const DrawerContainer = ({
                 }
             >
                 {title && <Text className="roboto-bold text-24">{title}</Text>}
-                <Button
+                <Closebutton
                     title="Cerrar menú"
                     className="ml-auto"
                     onClick={handleClose}
-                >
-                    <Icon size={24} color="dark">
-                        <IconSprite name="close" />
-                    </Icon>
-                </Button>
+                />
             </Drawer.Header>
             <Drawer.Body
                 className={classNames(

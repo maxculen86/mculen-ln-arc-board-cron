@@ -12,40 +12,29 @@ const FooterSaveRecipe = ({
     selectedFolder,
     setIndexStep,
     ids,
-    articles = []
+    collectionArticles = []
 }) => {
+    const articles = useGetFooditArticles(
+        (!collectionArticles.length && ids) || []
+    );
+
     const articlesDetails =
-        (articles.length &&
-            articles.map(article => transformBookmarkContent(article))) ||
-        useGetFooditArticles(ids);
+        (collectionArticles.length &&
+            collectionArticles.map(article =>
+                transformBookmarkContent(article)
+            )) ||
+        articles;
 
     return (
-        <footer className="flex gap-16 as-end">
+        <footer className="flex gap-16">
             <Button
-                variant="secondary"
-                title="Cancelar"
+                variant="primary"
+                title={leftButton.title}
+                className="w-100"
                 size={40}
                 onClick={() =>
                     actionButtons({
                         action: leftButton.action,
-                        close,
-                        ids,
-                        indexStep,
-                        newFolder,
-                        selectedFolder,
-                        setIndexStep
-                    })
-                }
-            >
-                {leftButton.text}
-            </Button>
-            <Button
-                variant="primary"
-                title="Guardar"
-                size={40}
-                onClick={() =>
-                    actionButtons({
-                        action: rightButton.action,
                         close,
                         indexStep,
                         newFolder,
@@ -54,7 +43,26 @@ const FooterSaveRecipe = ({
                         articlesDetails
                     })
                 }
-                disabled={!selectedFolder?.value}
+                disabled={!selectedFolder?.value || !articlesDetails.length}
+            >
+                {leftButton.text}
+            </Button>
+            <Button
+                variant="secondary"
+                title={rightButton.title}
+                size={40}
+                className="w-100"
+                onClick={() =>
+                    actionButtons({
+                        action: rightButton.action,
+                        close,
+                        ids,
+                        indexStep,
+                        newFolder,
+                        selectedFolder,
+                        setIndexStep
+                    })
+                }
             >
                 {rightButton.text}
             </Button>

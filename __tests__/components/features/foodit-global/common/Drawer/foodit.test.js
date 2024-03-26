@@ -1,10 +1,11 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import DrawerMenu from '../../../../../../components/features/foodit-global/common/DrawerMenu/foodit';
+import menuCategories from '../../../../../../__mocks__/data/fooditMenuCategories/menuCategories';
 
 describe('Components - Features - foodit-global - Common - DrawerMenu', () => {
     beforeEach(() => {
-        render(<DrawerMenu />);
+        render(<DrawerMenu categories={menuCategories} />);
     });
     // TODO: testear todo lo relacionado al contenido del drawer cuando se defina
     it('should be hidden by default', () => {
@@ -31,7 +32,9 @@ describe('Components - Features - foodit-global - Common - DrawerMenu', () => {
     });
 
     it('should match snapshot', () => {
-        const { container } = render(<DrawerMenu />);
+        const { container } = render(
+            <DrawerMenu categories={menuCategories} />
+        );
         expect(container).toMatchSnapshot();
     });
 });

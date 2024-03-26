@@ -11,7 +11,7 @@ const getBookmarkGroups = async () => {
 
     try {
         const response = await fetch(
-            `${PERSONALIZACION_API_FOODIT}bookmarks-groups/?size=10`,
+            `${PERSONALIZACION_API_FOODIT}bookmarks-groups/?size=25`,
             {
                 method: 'GET',
                 headers: {

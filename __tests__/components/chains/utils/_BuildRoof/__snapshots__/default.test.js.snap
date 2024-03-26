@@ -65,11 +65,11 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
         </a>
       </div>
       <div
-        class="--ln-roof-right flex ai-center --sub-exclusive"
+        class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --sub-exclusive"
         roof-group="right"
       >
         <a
-          class="button ln-button line-height-18 font-bold border border-thin rounded-4 gap-8 bg-yellow-subscribe px-16 py-6 --roof-button --subscribe"
+          class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-yellow-subscribe h-32 px-12 py-8 --roof-button --subscribe"
           data-variant="subscribe"
           href="https://linkDelBoton.com.ar"
           id="btnsexclusivo"
@@ -83,6 +83,7 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
     </div>
   </div>
   <script
+    async=""
     id="scriptBtnSuscriptionRoof"
     type="text/javascript"
   />

@@ -1,7 +1,7 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from '../../LN10/header';
+import Header from '../../../features/LN-10-global/header/default';
 import Footer from '../../LN10/footer';
 
 const NotaMain = ({ children, className }) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor, act } from '@testing-library/react';
+import { render, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import getBookmarks from '../../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks';
 import getToken from '../../../../../../../components/private/common/utils/getToken';
@@ -27,7 +27,7 @@ describe('UserBookmarks', () => {
     });
 
     it('fetches bookmarks and updates state and localStorage when premium token is valid', async () => {
-        getToken.mockReturnValue('2');
+        getToken.mockReturnValue('22');
 
         await act(async () => {
             render(<UserBookmarks />);

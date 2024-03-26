@@ -11,7 +11,7 @@ import {
     setEventsWeather
 } from '../../../../../components/private/common/utils/eventsHelper';
 import preHeaderEventLogResult from '../../../../../__mocks__/data/preHeader/preHeaderEventLogResult.json';
-import { Sun } from '@ln/contenidos-ui-assets';
+import IconSprite from '../../../../../components/features/private-global/common/iconSprite/IconSprite';
 
 jest.mock('fusion:context', () => ({
     useAppContext: () => {
@@ -33,7 +33,7 @@ describe('Components - Features - LN-Common - PreHeader', () => {
 
     const mock = {
         weather: {
-            icon: <Sun />,
+            icon: <IconSprite name="sun" critical />,
             temperature: '24.5',
             place: 'Capital Federal',
             dataEvent: 'e_linkclick',

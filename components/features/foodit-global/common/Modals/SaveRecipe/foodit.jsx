@@ -5,6 +5,7 @@ import SaveRecipe from './saveRecipe';
 import useIsomorphicPopupHandling from './hooks/useIsomorphicPopupHandling';
 import get from '../../../../../private/common/utils/get';
 import fetchDeleteBookmark from '../../bookmark/api/deleteBookmark';
+import { unfillBookmarks } from '../../bookmark/iconHelper';
 
 export const Modal = () => {
     const { close, modalData } = useIsomorphicPopupHandling();
@@ -17,6 +18,10 @@ export const Modal = () => {
 
     useEffect(() => {
         if (bookmarkedArticles.length > 0) {
+            unfillBookmarks(
+                bookmarkedArticles.map(article => article.bookmarkTypeId)
+            );
+
             const deleteBookmarkedArticles = async () => {
                 await fetchDeleteBookmark(bookmarkedArticles);
             };
@@ -39,7 +44,7 @@ export const Modal = () => {
             transitionOut={['fade-out']}
         >
             <ModalFoodit
-                classNameModal="bg-light-1 rounded-24 h-fit p-24 flex gap-8_md"
+                classNameModal="bg-light-1 rounded-4 h-fit max-w-328 p-32 flex gap-32"
                 classNameWrapper="px-16"
                 id="modal-save"
                 onClose={() => close(restoreIndex)}

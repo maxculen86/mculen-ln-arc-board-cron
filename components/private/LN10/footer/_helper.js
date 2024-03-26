@@ -1,5 +1,6 @@
 import React from 'react';
-import { Facebook, Twitter, Instagram, Rss } from '@ln/contenidos-ui-assets';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
+import { Adaptableimage } from '@ln/common-ui-adaptableimage';
 import getAssetsPath from '../../common/utils/getAssetsPath';
 import { SITIO_SEGURO_REGISTRACION, SITE_LANACION } from 'fusion:environment';
 
@@ -7,62 +8,46 @@ export const optionsIcons = (contextPath, deployment) => {
     const url = asset => getAssetsPath(contextPath)(deployment)(asset);
     return {
         laNacion: (
-            <img
+            <Adaptableimage
                 src={url('la-nacion.webp')}
-                alt="Logo de LA NACION"
+                alt="App store"
                 className="w-100"
-                loading="lazy"
-                fetchpriority="low"
-                decoding="async"
             />
         ),
-        facebook: <Facebook />,
-        twitter: <Twitter />,
-        instagram: <Instagram />,
-        rss: <Rss />,
+        facebook: <IconSprite name="facebook" fill="#333333" />,
+        twitter: <IconSprite name="twitter" fill="#333333" />,
+        instagram: <IconSprite name="instagram" fill="#333333" />,
+        rss: <IconSprite name="rss" fill="#333333" />,
         storesAndroid: (
-            <img
+            <Adaptableimage
                 src={url('android-store.webp')}
-                alt="Google app store"
+                alt="App store"
                 className="w-100"
-                loading="lazy"
-                fetchpriority="low"
-                decoding="async"
             />
         ),
         storesIos: (
-            <img
+            <Adaptableimage
                 src={url('app-store.webp')}
                 alt="App store"
                 className="w-100"
-                loading="lazy"
-                fetchpriority="low"
-                decoding="async"
             />
         ),
         gdaXs: (
-            <img
+            <Adaptableimage
                 src={url('gda.webp')}
-                alt="Grupo de Diarios América"
+                alt="App store"
                 className="w-100"
-                loading="lazy"
-                fetchpriority="low"
-                decoding="async"
             />
         ),
         dataFiscal: (
-            <img
+            <Adaptableimage
                 src={url('data-fiscal.webp')}
-                alt="Data fiscal"
+                alt="App store"
                 className="w-100"
-                loading="lazy"
-                fetchpriority="low"
-                decoding="async"
             />
         )
     };
 };
-
 export const commonPropsFooter = (text, href) => {
     return {
         ...(text && { text }),

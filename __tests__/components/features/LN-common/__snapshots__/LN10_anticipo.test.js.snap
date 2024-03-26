@@ -58,7 +58,8 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
             </div>
           </article>
           <button
-            class="button ln-button line-height-18 font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent text-light-700 px-16 p-0 py-24_m --default"
+            class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 py-24_m --default"
             data-variant="default"
             id="closeAdvance"
             title="Cerrar"
@@ -86,6 +87,7 @@ exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anti
     </section>
   </div>
   <script
+    async=""
     id="scriptAnticipoLN10"
   />
 </div>

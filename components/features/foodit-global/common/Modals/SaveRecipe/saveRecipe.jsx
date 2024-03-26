@@ -1,9 +1,11 @@
+import { useRef } from 'react';
+import useInputListener from './hooks/useInputListener';
+
 import HeaderSaveRecipe from './components/header';
 import MainSaveRecipe from './components/main';
 import FooterSaveRecipe from './components/footer';
+
 import { getConfig, saveRecipeConfig } from './helpers';
-import useInputListener from './hooks/useInputListener';
-import { useRef } from 'react';
 
 const SaveRecipe = props => {
     const { close, ids, indexStep, setIndexStep, collectionArticles } = props;
@@ -38,17 +40,17 @@ const SaveRecipe = props => {
                 suggestions={suggestions}
                 inputRef={inputRef}
             />
+            <hr />
             <FooterSaveRecipe
                 close={close}
-                ids={ids}
-                articles={collectionArticles}
                 indexStep={indexStep}
                 leftButton={leftButton}
                 newFolder={inputValue}
                 rightButton={rightButton}
                 selectedFolder={selectValue}
                 setIndexStep={setIndexStep}
-                inputRef={inputRef}
+                ids={ids}
+                collectionArticles={collectionArticles}
             />
         </>
     );

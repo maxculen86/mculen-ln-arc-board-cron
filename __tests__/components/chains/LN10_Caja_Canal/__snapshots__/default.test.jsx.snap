@@ -37,11 +37,9 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
             </div>
           </div>
           <div
-            class="--ln-roof-right flex ai-center --generico"
+            class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
             roof-group="right"
-          >
-            
-          </div>
+          />
         </div>
       </div>
       <section
@@ -367,11 +365,9 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
             </div>
           </div>
           <div
-            class="--ln-roof-right flex ai-center --generico"
+            class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
             roof-group="right"
-          >
-            
-          </div>
+          />
         </div>
       </div>
       <section
@@ -666,11 +662,9 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
             </div>
           </div>
           <div
-            class="--ln-roof-right flex ai-center --generico"
+            class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
             roof-group="right"
-          >
-            
-          </div>
+          />
         </div>
       </div>
       <section
@@ -965,11 +959,9 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
             </div>
           </div>
           <div
-            class="--ln-roof-right flex ai-center --generico"
+            class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
             roof-group="right"
-          >
-            
-          </div>
+          />
         </div>
       </div>
       <section
@@ -1212,11 +1204,9 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
             </div>
           </div>
           <div
-            class="--ln-roof-right flex ai-center --generico"
+            class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
             roof-group="right"
-          >
-            
-          </div>
+          />
         </div>
       </div>
       <section
@@ -1409,11 +1399,9 @@ exports[`components - chains - LN10_Caja_canal should return six articles with l
             </div>
           </div>
           <div
-            class="--ln-roof-right flex ai-center --generico"
+            class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
             roof-group="right"
-          >
-            
-          </div>
+          />
         </div>
       </div>
       <section

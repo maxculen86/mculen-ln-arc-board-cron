@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN-10-global - header - navbar should match snapshot 1`] = `
+<div>
+  <nav
+    class="ln-navbar --no-app"
+  >
+    <ul>
+      <li
+        class="--item home"
+      >
+        <a
+          class="link ln-link --font-2xs"
+          href="https://www.lanacion.com.ar/"
+          target="_self"
+          title="Ir a Inicio"
+        >
+          <i
+            class="icon --icon-20"
+          >
+            <mock-icon
+              critical="true"
+              name="home"
+            />
+          </i>
+          Inicio
+        </a>
+      </li>
+      <li
+        class="--item sections"
+      >
+        <a
+          class="link ln-link --font-2xs"
+          href="#"
+          target="_self"
+          title="Ir a Secciones"
+        >
+          <i
+            class="icon --icon-20"
+          >
+            <mock-icon
+              critical="true"
+              name="sections"
+            />
+          </i>
+          Secciones
+        </a>
+      </li>
+      <li
+        class="--item bookmark"
+      >
+        <a
+          class="link ln-link --font-2xs"
+          href="https://www.lanacion.com.ar/pf/mis-notas/?_website=la-nacion-ar"
+          target="_self"
+          title="Ir a Mis Notas"
+        >
+          <i
+            class="icon --icon-20"
+          >
+            <mock-icon
+              critical="true"
+              name="bookmark"
+            />
+          </i>
+          Mis Notas
+        </a>
+      </li>
+      <li
+        class="--item club-ln"
+      >
+        <a
+          class="link ln-link --font-2xs"
+          href="https://club.lanacion.com.ar/"
+          target="_self"
+          title="Ir a Club LN"
+        >
+          <i
+            class="icon --icon-20"
+          >
+            <mock-icon
+              critical="true"
+              name="clubLnDefault"
+            />
+          </i>
+          Club LN
+        </a>
+      </li>
+      <li
+        class="--item profile"
+      >
+        <a
+          class="link ln-link --font-2xs"
+          href="https://myaccount.lanacion.com.ar/mi-usuario/"
+          target="_self"
+          title="Ir a Perfil"
+        >
+          <i
+            class="icon --icon-20"
+          >
+            <mock-icon
+              critical="true"
+              name="profile"
+            />
+          </i>
+          Perfil
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;

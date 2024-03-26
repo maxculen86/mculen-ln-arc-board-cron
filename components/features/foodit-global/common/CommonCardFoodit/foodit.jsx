@@ -19,7 +19,9 @@ const CommonCardFoodit = ({
     fill = false,
     title,
     author,
-    subtitle
+    subtitle,
+    bookmarkAction = null,
+    titleEllipsis
 }) => {
     return (
         <Card
@@ -39,7 +41,11 @@ const CommonCardFoodit = ({
 
                 {tag && <Card.Badge>{tag}</Card.Badge>}
             </Card.Top>
-            <Card.Main title={title} subtitle={subtitle}>
+            <Card.Main
+                title={title}
+                subtitle={subtitle}
+                titleEllipsis={titleEllipsis}
+            >
                 <Card.Footer
                     author={author}
                     showTime={Boolean(time) && showTime}
@@ -59,9 +65,14 @@ const CommonCardFoodit = ({
                         onClick: e => {
                             e.preventDefault();
                             e.stopPropagation();
-                            window.LN.observable.publish('openModal', {
-                                ids: [articleId]
-                            });
+
+                            if (bookmarkAction) {
+                                bookmarkAction();
+                            } else {
+                                window.LN.observable.publish('openModal', {
+                                    ids: [articleId]
+                                });
+                            }
                         }
                     }}
                 />

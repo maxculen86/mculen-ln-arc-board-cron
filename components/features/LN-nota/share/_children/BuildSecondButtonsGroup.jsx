@@ -1,42 +1,83 @@
 /* eslint-disable react/require-default-props */
 import React, { useState } from 'react';
 import PropTypes from 'fusion:prop-types';
-import ComButton from '../../../../private/common/com-button';
 import ModTooltip from '../../../../private/common/mod-tooltip';
 import {
     buttonsList,
     BtnContainer,
-    addEventToDataLayer
+    addEventToDataLayer,
+    setEventShare,
+    getTwitterTitle
 } from '../../../../private/LN/common/utils/shareHelper';
-import '../../../../../resources/dist/css/ln/components/build-second-buttons-group.css';
+import { Button } from '@ln/contenidos-ui-button';
+import { Icon } from '@ln/common-ui-icon';
+import classNames from 'classnames';
 
 const BuildSecondButtonsGroup = ({
     requestUri,
     host,
     title: basic,
-    mobileTitle
+    mobileTitle,
+    subtypeVideo
 } = {}) => {
     const [copy, setCopy] = useState(false);
 
+    const paddingPosition = subtypeVideo
+        ? 'pl-8 ai-center gap-16_m gap-24'
+        : 'pl-8_max1023 ai-center_max1023 jc-center_l pt-16_l gap-24';
+
+    const flexVideo = subtypeVideo ? '' : 'flex-column_l';
+    const _classes = classNames(
+        'second-buttons-group',
+        'flex ai-center',
+        flexVideo,
+        paddingPosition
+    );
+
+    const shareButton = () => {
+        const shareTitle = getTwitterTitle(mobileTitle, basic);
+        const shareUrl = host.concat(requestUri);
+        const shareData = {
+            title: shareTitle,
+            text: shareTitle,
+            url: shareUrl
+        };
+
+        if (navigator && Boolean(navigator.canShare)) {
+            navigator.share(shareData);
+        }
+    };
+
     return (
-        <div className="second-buttons-group">
+        <div className={_classes}>
+            <Button
+                id="compartirMobile"
+                title="Compartir"
+                variant="secondary"
+                label="Compartir"
+                className="sm-only"
+                isNegative={subtypeVideo}
+                onClick={() => {
+                    shareButton();
+                    setEventShare();
+                }}
+            />
             {buttonsList.map(
                 ({
                     withContainer = false,
                     id,
                     dataEvent,
                     dataSection,
-                    iconName,
+                    icon,
                     title,
                     handleClick,
-                    className = ''
+                    className
                 } = {}) => {
                     return (
                         <BtnContainer withContainer={withContainer} key={id}>
-                            <ComButton
+                            <Button
                                 dataEvent={dataEvent}
                                 dataSection={dataSection}
-                                iconName={iconName}
                                 title={title}
                                 id={id}
                                 onClick={() => {
@@ -49,8 +90,15 @@ const BuildSecondButtonsGroup = ({
                                     });
                                     addEventToDataLayer(title);
                                 }}
-                                classCondition={className}
-                            />
+                                className={className}
+                                iconOnly
+                                isNegative={subtypeVideo}
+                                size="inherit"
+                            >
+                                <Icon size={24} color="inherit">
+                                    {icon}
+                                </Icon>
+                            </Button>
                             {id === 'copyLinkNote' && copy && (
                                 <ModTooltip
                                     className="copy"
@@ -70,7 +118,8 @@ BuildSecondButtonsGroup.propTypes = {
     requestUri: PropTypes.string,
     host: PropTypes.string,
     title: PropTypes.string,
-    mobileTitle: PropTypes.string
+    mobileTitle: PropTypes.string,
+    subtypeVideo: PropTypes.string
 };
 
 export default BuildSecondButtonsGroup;

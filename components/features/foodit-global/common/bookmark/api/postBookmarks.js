@@ -1,7 +1,7 @@
 import { PERSONALIZACION_API_FOODIT } from 'fusion:environment';
 
 import getToken from '../../../../../private/common/utils/getToken';
-import { checkCarouselsRoofBookmark, fillBookmarks } from '../iconHelper';
+import { unfillBookmarks } from '../iconHelper';
 import { addStorageFolder } from '../foldersHelper';
 import safeJSONParse from '../../../../private-global/common/utils/safeJSONParse';
 
@@ -47,25 +47,37 @@ const postBookmarks = async (articlesDetails, folderName = '') => {
                 console.error(
                     `No se pudo guardar ${id}, HTTP error! status: ${response.status}`
                 );
-                return {};
+                return { bookmarkTypeId: id };
             }
 
             return await response.json();
         })
     );
 
-    return results.filter(result => result.bookmarkId);
+    const { successfullResponses, failureResponses } = results.reduce(
+        (acum, response) => {
+            if (response.bookmarkId) {
+                acum.successfullResponses.push(response);
+            } else {
+                acum.failureResponses.push(response);
+            }
+            return acum;
+        },
+        { successfullResponses: [], failureResponses: [] }
+    );
+
+    return { successfullResponses, failureResponses };
 };
 
 const saveBookmarks = async (articlesDetails, nameFolder, newFolder) => {
-    const responses = await postBookmarks(articlesDetails, nameFolder);
+    const { successfullResponses, failureResponses } = await postBookmarks(
+        articlesDetails,
+        nameFolder
+    );
 
-    if (responses && responses.length) {
+    if (successfullResponses && successfullResponses.length) {
         if (newFolder) addStorageFolder(nameFolder);
-
-        fillBookmarks(responses.map(response => response.bookmarkTypeId));
-
-        responses.forEach(({ bookmarkTypeId, bookmarkId }) => {
+        successfullResponses.forEach(({ bookmarkTypeId, bookmarkId }) => {
             const bookmarkedArticles = safeJSONParse(
                 localStorage.getItem('bookmarkedItems')
             );
@@ -78,7 +90,7 @@ const saveBookmarks = async (articlesDetails, nameFolder, newFolder) => {
             );
         });
 
-        if (responses.length === articlesDetails.length) {
+        if (successfullResponses.length === articlesDetails.length) {
             window.LN.observable.publish('addToast', {
                 variant: 'success',
                 title: 'Guardado!',
@@ -91,14 +103,18 @@ const saveBookmarks = async (articlesDetails, nameFolder, newFolder) => {
                 message: `Hubo un error al guardar algunos de los artículos en la carpeta ${nameFolder}`
             });
         }
-
-        checkCarouselsRoofBookmark();
     } else {
         window.LN.observable.publish('addToast', {
             variant: 'danger',
             title: 'Error!',
             message: `No fue posible guardar los articulos en la carpeta ${nameFolder}`
         });
+    }
+
+    if (failureResponses && failureResponses.length) {
+        unfillBookmarks(
+            failureResponses.map(response => response.bookmarkTypeId)
+        );
     }
 };
 

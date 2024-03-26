@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN-10-global - header - mainHeader - rightOptions - BellButton should match snapshot 1`] = `
+<div>
+  <button
+    class="button ln-button font-bold border border-thin rounded-4 gap-8 border-all border-transparent bg-transparent 
+      text-light-700 h-40 px-16 py-12 campanita none --default"
+    data-variant="default"
+    title="Campanita"
+    type="button"
+  >
+    <i
+      class="icon --icon-24"
+    >
+      <mock-icon
+        critical="true"
+        name="bell"
+      />
+    </i>
+  </button>
+</div>
+`;

@@ -4,8 +4,37 @@ import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import IngredientsSection from './ingredientsSection';
 import IconSprite from '../../../../../features/private-global/common/iconSprite/IconSprite';
+import { saveIngredientsList } from './_helper';
 
-export const Ingredients = ({ ingredientsLists = [], portions }) => {
+export const Ingredients = ({
+    articleId,
+    ingredientsLists = [],
+    title,
+    portions
+}) => {
+    const addToShoppingLists = ingredientsLists.reduce(
+        (accumulator, currentList) => {
+            if (currentList.typeList === 'ingredientes')
+                return [...accumulator, currentList];
+
+            const filteredItems = currentList.items.filter(
+                item => item.includeInShoppingList
+            );
+
+            if (filteredItems.length)
+                return [
+                    ...accumulator,
+                    {
+                        ...currentList,
+                        items: filteredItems
+                    }
+                ];
+
+            return accumulator;
+        },
+        []
+    );
+
     return (
         <div className="flex flex-column gap-24">
             {portions && (
@@ -43,12 +72,13 @@ export const Ingredients = ({ ingredientsLists = [], portions }) => {
             </Text>
             {ingredientsLists.map(list => {
                 const { items = [], titleList = '' } = list || {};
-                const ingredientsNames = items.map(
-                    item =>
+                const ingredientsNames = items.map(item => {
+                    const ingredientName =
                         item.fullIngredientString ||
                         (typeof item === 'string' && item) ||
-                        ''
-                );
+                        '';
+                    return ingredientName.toLowerCase();
+                });
                 return (
                     <IngredientsSection
                         key={titleList}
@@ -57,7 +87,17 @@ export const Ingredients = ({ ingredientsLists = [], portions }) => {
                     />
                 );
             })}
-            <Button title="Agregar" size={{ sm: 32, md: 40 }}>
+            <Button
+                title="Agregar"
+                size={{ sm: 32, md: 40 }}
+                onClick={() => {
+                    saveIngredientsList({
+                        text: title,
+                        sections: addToShoppingLists,
+                        id: articleId
+                    });
+                }}
+            >
                 <Icon size={16}>
                     <IconSprite name="cart" critical />
                 </Icon>

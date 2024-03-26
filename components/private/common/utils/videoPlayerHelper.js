@@ -1,144 +1,9 @@
-import { comscorePlayEvent } from '../videoPlayer/comscoreStreamingTag';
-
-export const setPrerollAdsForPowa = adsURL => {
-    window.PoWaSettings = window.PoWaSettings || {};
-    window.PoWaSettings.advertising = window.PoWaSettings.advertising || {};
-
-    window.PoWaSettings.advertising.adTag = (() => {
-        return ({ powa, videoData }) => {
-            return videoData.additional_properties.advertising.playAds
-                ? adsURL
-                : '';
-        };
-    })();
-    window.PoWaSettings.advertising.adBar = {
-        skipOffset: 5
-    };
-};
-
 export const addToDataLayer = (eventName, titulo, id) => {
     window.dataLayer.push({
         event: eventName,
         videoName: titulo,
         videoID: id
     });
-};
-
-export const setCustomErrorsVideoPlayer = () => {
-    window.PoWaSettings = window.PoWaSettings || {};
-    window.PoWaSettings.error = window.PoWaSettings.error || {
-        template: error => {
-            const eventIDs = {
-                913: '¡Ups! Parece que este video no esta disponible en tu ubicación',
-                931: '¡Ups! Parece que este video no esta disponible en tu ubicación'
-            };
-            return (
-                eventIDs[error.eventID] ||
-                eventIDs[error.error.eventID] ||
-                '¡Ups! Parece que hubo un problema'
-            );
-        }
-    };
-};
-
-// Logica de carga diferida de script de powa
-
-export const buildScriptPowa = apiEnv => {
-    if (!document.querySelector('#script-powa')) {
-        const scriptPowa = document.createElement('script');
-        scriptPowa.src = `https://lanacionar.video-player.arcpublishing.com/${apiEnv}/powaBoot.js`; // Aca va concatenado apiEnv
-        scriptPowa.id = 'script-powa';
-        document.head.appendChild(scriptPowa);
-    }
-};
-
-export const removeFacade = () => {
-    const facade = document.querySelector('.content-facade');
-    if (facade) facade.remove();
-};
-
-export const handleClickEvent = (videoId, target, apiEnv) => {
-    const divPowa = document.querySelector(`[data-uuid="${videoId}"]`);
-    const buttonPlay = target && target.querySelector('#button-play');
-
-    divPowa && divPowa.setAttribute('data-autoPlay', true);
-    buttonPlay && buttonPlay.classList.add('loader');
-
-    buildScriptPowa(apiEnv);
-};
-
-export const withAutoPlay = (
-    target,
-    firstVideoId,
-    isApertura,
-    firstVideoCuerpoAutoplay,
-    isDesktop
-) => {
-    if (isDesktop && target && target.getAttribute('id') === firstVideoId) {
-        return isApertura || firstVideoCuerpoAutoplay;
-    }
-
-    return false;
-};
-
-export const setIntersectionObserver = (
-    elements,
-    apiEnv,
-    isDesktop,
-    firstVideoCuerpoAutoplay,
-    firstVideoId,
-    videoId,
-    isApertura
-) => {
-    const observer = new IntersectionObserver(
-        entries => {
-            entries.forEach(({ isIntersecting, target } = {}) => {
-                if (isIntersecting) {
-                    target.addEventListener('click', () =>
-                        handleClickEvent(videoId, target, apiEnv)
-                    );
-
-                    withAutoPlay(
-                        target,
-                        firstVideoId,
-                        isApertura,
-                        firstVideoCuerpoAutoplay,
-                        isDesktop
-                    ) && target.click();
-                }
-            });
-        },
-        { threshold: 0.5 }
-    );
-
-    elements.forEach(item => {
-        const videoPowa = item.querySelector(`[id="${videoId}"]`);
-        if (videoPowa) {
-            observer.observe(videoPowa);
-        }
-    });
-
-    return observer;
-};
-
-export const getClassCondition = (withFacade, isApertura) => {
-    if (withFacade) {
-        return isApertura ? ' --isApertura --facade' : ' --facade';
-    }
-
-    return '';
-};
-
-export const getClassForFacade = (arcSite, isVerticalVideo) => {
-    const classCondition = {
-        ott: 'powa-shadow',
-        'la-nacion-ar': isVerticalVideo && '--vertical-video',
-        default: ''
-    };
-
-    return classCondition[arcSite]
-        ? classCondition[arcSite]
-        : classCondition.default;
 };
 
 export const isInDatalayerEvent = (event, videoId) => {
@@ -180,20 +45,11 @@ export const setProgressEvent = (player, tituloVideo, videoId) => {
     });
 };
 
-export const setVideoEvents = (
-    event,
-    videoId,
-    tituloVideo,
-    withComscore,
-    streamingAnalyticInstance = {}
-) => {
+export const setVideoEvents = (event, videoId, tituloVideo) => {
     const setEvent = (player, _event, eventName) => {
         player.on(_event, () => {
             !isInDatalayerEvent(eventName, videoId) &&
                 addToDataLayer(eventName, tituloVideo, videoId);
-            withComscore &&
-                event === 'play' &&
-                comscorePlayEvent(streamingAnalyticInstance);
         });
     };
 

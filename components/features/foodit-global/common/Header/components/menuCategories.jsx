@@ -1,0 +1,39 @@
+import React from 'react';
+import { Dropdown } from '@ln/common-ui-dropdown';
+import { MenuCategories } from '../../MenuCategories/foodit';
+import { Link } from '@ln/foodit-ui-link';
+
+const Categories = ({ title, href, data }) => {
+    if (data) {
+        return (
+            <Dropdown toggleOn="hover" key={title} className="flex ai-center">
+                <>
+                    <Dropdown.Toggle
+                        onClick={() => console.log(title)}
+                        className="ai-center roboto-bold text-12 uppercase text-light-800 text-accent-lechuga__hover"
+                        gap={8}
+                        title={`Ir a ${title}`}
+                    >
+                        {title}
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu
+                        alignment="left"
+                        className="bg-light-1 p-24 rounded-4 shadow-center"
+                    >
+                        <MenuCategories data={data} />
+                    </Dropdown.Menu>
+                </>
+            </Dropdown>
+        );
+    }
+    return (
+        <Link
+            href={href}
+            className="text-12 roboto-bold uppercase"
+            text={title}
+            title={`Ir a ${title}`}
+        />
+    );
+};
+
+export default Categories;

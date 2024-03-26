@@ -436,8 +436,10 @@ describe('Components - Chains - Utils - _helpers', () => {
                 logoId: 'testLogoId',
                 navigator: 'testNavigator',
                 buttonText: 'Test Button Text',
+                buttonLogo: 'Test Button Logo',
                 linkButton: 'testButtonLink',
                 buttonStyle: 'testButtonStyle',
+                // buttonHTML: 'testButtonHTML',
                 isAdmin: true,
                 isManual: false
             };
@@ -452,6 +454,13 @@ describe('Components - Chains - Utils - _helpers', () => {
                     width: '100px'
                 },
                 logoId: 'testLogoId',
+                //buttonHTML: 'testButtonHTML',
+                buttonLogo: {
+                    src: 'https://example.com/logo.png',
+                    alt: 'Test Title',
+                    height: '50px',
+                    width: '100px'
+                },
                 buttonText: 'Test Button Text',
                 linkButton: 'testButtonLink',
                 buttonStyle: 'testButtonStyle',
@@ -486,6 +495,13 @@ describe('Components - Chains - Utils - _helpers', () => {
                     width: ''
                 },
                 logoId: undefined,
+                //buttonHTML: undefined,
+                buttonLogo: {
+                    src: '',
+                    alt: 'Test Title',
+                    height: '',
+                    width: ''
+                },
                 buttonText: 'Test Button Text',
                 linkButton: undefined,
                 buttonStyle: undefined,
@@ -498,7 +514,6 @@ describe('Components - Chains - Utils - _helpers', () => {
             };
 
             const result = useRoofData(props);
-
             expect(result).toEqual(expected);
         });
     });

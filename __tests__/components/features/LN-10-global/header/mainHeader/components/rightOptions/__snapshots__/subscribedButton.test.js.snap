@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features - LN-10-global - header - mainHeader - rightOptions - BellButton should match snapshot 1`] = `
+<div>
+  <button
+    class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-yellow-subscribe h-32 px-12 py-8 h-40_md px-16_m py-12_m relative --subscribe"
+    data-variant="subscribe"
+    id="btnsuscribite"
+    title="Suscribite"
+    type="button"
+  >
+    
+    <i
+      class="icon --mobile-none --icon-16"
+      icon="suscriptorExclusivo"
+    >
+      <mock-icon
+        critical="true"
+        fill="#FDB727"
+        name="exclusivoSuscriptores"
+      />
+    </i>
+    <span
+      id="sticky-button-text"
+    >
+      StickyButtonText
+    </span>
+  </button>
+</div>
+`;

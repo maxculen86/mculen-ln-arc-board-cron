@@ -21,9 +21,11 @@ export const useGetFooditArticles = articleIds => {
             filter
         });
 
+        if (!articleContent) return null;
+
         const article = transformArticleFoodit(articleContent);
 
         return transformBookmarkContent(article);
     });
-    return articles;
+    return articles.filter(article => article);
 };

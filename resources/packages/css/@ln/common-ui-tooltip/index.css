@@ -1,0 +1,82 @@
+.tooltip {
+  transition: opacity 0.2s linear, visibility 0.2s linear, transform 0.2s linear;
+}
+.tooltip:after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-bottom: inherit;
+  border-right: inherit;
+  border-bottom-right-radius: 50%;
+  z-index: 1;
+}
+.tooltip[data-visible=false] {
+  opacity: 0;
+  visibility: hidden;
+}
+.tooltip[data-visible=false][data-position=bottom] {
+  transform: translate3d(-50%, -0.625rem, 0);
+}
+.tooltip[data-visible=false][data-position=top] {
+  transform: translate3d(-50%, 0.625rem, 0);
+}
+.tooltip[data-visible=false][data-position=left] {
+  transform: translate3d(0.625rem, -50%, 0);
+}
+.tooltip[data-visible=false][data-position=right] {
+  transform: translate3d(-0.625rem, -50%, 0);
+}
+.tooltip[data-visible=true] {
+  opacity: 1;
+  visibility: visible;
+}
+.tooltip[data-visible=true][data-position=bottom] {
+  transform: translate3d(-50%, 0, 0);
+}
+.tooltip[data-visible=true][data-position=top] {
+  transform: translate3d(-50%, 0, 0);
+}
+.tooltip[data-visible=true][data-position=left] {
+  transform: translate3d(0, -50%, 0);
+}
+.tooltip[data-visible=true][data-position=right] {
+  transform: translate3d(0, -50%, 0);
+}
+.tooltip[data-position=bottom] {
+  top: calc(100% + 0.5rem);
+  left: 50%;
+}
+.tooltip[data-position=bottom]::after {
+  bottom: 100%;
+  left: 50%;
+  transform: rotate(-135deg) translate(0, -50%);
+}
+.tooltip[data-position=top] {
+  bottom: calc(100% + 0.5rem);
+  left: 50%;
+}
+.tooltip[data-position=top]::after {
+  top: 100%;
+  left: 50%;
+  transform: rotate(45deg) translate(-50%);
+}
+.tooltip[data-position=left] {
+  right: calc(100% + 0.5rem);
+  top: 50%;
+}
+.tooltip[data-position=left]::after {
+  left: 100%;
+  bottom: 50%;
+  transform: rotate(-45deg) translate(-50%, 0);
+}
+.tooltip[data-position=right] {
+  left: calc(100% + 0.5rem);
+  top: 50%;
+}
+.tooltip[data-position=right]::after {
+  right: 100%;
+  bottom: 50%;
+  transform: rotate(135deg) translate(0, -50%);
+}

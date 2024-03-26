@@ -251,6 +251,7 @@ describe('Components - private - common - utils - useGetMetaDescriptionForAcum',
         it('Check isInPVS function', () => {
             expect(isInPVS('/clima')).toBe(true);
             expect(isInPVS('/economia')).toBe(false);
+            expect(isInPVS('/juegos')).toBe(true);
             expect(isInPVS('')).toBe(false);
             expect(isInPVS()).toBe(false);
             expect(isInPVS('/')).toBe(false);

@@ -21,6 +21,7 @@ const Anticipo = ({
                 />
             </StaticContent>
             <script
+                async
                 id="scriptAnticipoLN10"
                 src={deployment(
                     `${contextPath}/resources/js/LN/scriptAnticipoLN10.min.js`

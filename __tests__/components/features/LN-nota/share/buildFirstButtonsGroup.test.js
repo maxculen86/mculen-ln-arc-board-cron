@@ -52,7 +52,7 @@ describe('Components - Features - LN-nota - share', () => {
         );
 
         expect(useTermica).toHaveBeenCalled();
-        expect(screen.getByText('escuchar')).toBeInTheDocument();
+        expect(screen.getByTitle('Escuchar nota')).toBeInTheDocument();
         expect(screen.getByRole('button')).toHaveAttribute(
             'title',
             'Escuchar nota'

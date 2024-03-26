@@ -12,8 +12,8 @@ const FooterFoodit = () => {
     const { contextPath, deployment } = useAppContext();
     return (
         <StaticContent>
-            <footer className="container mb-64">
-                <div className="grid grid-cols-12_md relative w-100 pb-72 text-center border border-top border-thin border-light-100">
+            <footer className="container">
+                <div className="grid grid-cols-12_md relative w-100 pb-32 pb-0_lg text-center border border-top border-thin border-light-100">
                     <section className="flex flex-column ai-center gap-16 text-16 col-span-6_md my-32 border border-thin border-light-100 border-right_md -mx-12">
                         <Text>
                             <strong className="roboto-bold">Seguinos</strong> en
@@ -71,7 +71,7 @@ const FooterFoodit = () => {
                     </section>
                     <section className="flex flex-column flex-row_lg jc-center ai-center gap-16 text-14 col-span-6_md py-32 border border-top border-thin border-light-100">
                         <Text>
-                            © 2023 S.A. LA NACION. Todos los derechos reservados
+                            © 2024 S.A. LA NACION. Todos los derechos reservados
                         </Text>
                         {/* TODO: actualizar link */}
                         <Link
@@ -88,11 +88,11 @@ const FooterFoodit = () => {
                             />
                         </Link>
                     </section>
-                    <section className="flex flex-column flex-row_lg ai-center ai-start_lg jc-center_lg gap-16 text-14 col-span-6_md pt-32 border border-top border-thin border-light-100">
-                        <Text className="block mb-4">
+                    <section className="flex flex-column flex-row_lg ai-center ai-start_lg jc-center_lg gap-4 gap-8_lg text-14 col-span-6_md py-32 border border-top border-thin border-light-100">
+                        <Text className="block my-auto">
                             Protegido por re CAPTCHA:
                         </Text>
-                        <div className="flex ai-center ai-start_lg">
+                        <div className="flex my-auto">
                             <Link
                                 href="https://policies.google.com/terms?hl=es-419/"
                                 uppercase

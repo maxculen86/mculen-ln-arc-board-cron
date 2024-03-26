@@ -44,11 +44,9 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner dsk 
             </div>
           </div>
           <div
-            class="--ln-roof-right flex ai-center --generico"
+            class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
             roof-group="right"
-          >
-            
-          </div>
+          />
         </div>
       </div>
       <section
@@ -114,11 +112,9 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner mob 
             </div>
           </div>
           <div
-            class="--ln-roof-right flex ai-center --generico"
+            class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
             roof-group="right"
-          >
-            
-          </div>
+          />
         </div>
       </div>
       <section
@@ -233,14 +229,13 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
             </div>
           </div>
           <div
-            class="--ln-roof-right flex ai-center --generico"
+            class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
             roof-group="right"
-          >
-            
-          </div>
+          />
         </div>
       </div>
       <script
+        async=""
         id="scriptBtnSuscriptionRoof"
         type="text/javascript"
       />

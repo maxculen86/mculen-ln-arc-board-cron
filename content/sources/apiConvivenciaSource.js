@@ -2,8 +2,8 @@ import request from 'request-promise-native';
 import logger from '../../components/private/common/utils/logger';
 import { API_CONVIVENCIA_TOKEN } from 'fusion:environment';
 
-const fetch = query => {
-    const { uri } = query;
+export const fetch = query => {
+    const { uri, sectionId = '' } = query;
     const urlSearchIdJw = `https://videomapper.lanacion.com.ar${uri}`;
     const arcSite = 'la-nacion-ar';
 

@@ -47,8 +47,12 @@ export const RenderCollection = ({
                             e.stopPropagation();
                             window.LN.observable.publish('openModal', {
                                 ids: articles.map(article => article.articleId),
-                                collectionId,
-                                collectionArticles: articles
+                                collectionArticles: articles.filter(
+                                    article =>
+                                        !bookmarkedArticles.includes(
+                                            article.articleId
+                                        )
+                                )
                             });
                         }
                     }}

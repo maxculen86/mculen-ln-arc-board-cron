@@ -9,7 +9,7 @@ export const createArticleList = ({ articles = [] } = {}) => {
             articleId,
             author,
             href,
-            size,
+            size = 'small',
             tag,
             time,
             title,

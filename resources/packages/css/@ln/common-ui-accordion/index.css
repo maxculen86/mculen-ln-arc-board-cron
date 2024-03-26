@@ -1,0 +1,14 @@
+.accordion-body:not(.--visible) {
+  grid-template-rows: 0fr;
+  visibility: hidden;
+}
+.accordion-body.--visible {
+  grid-template-rows: 1fr;
+  visibility: visible;
+}
+.accordion-icon {
+  transition: all 0.2s ease-in-out;
+}
+.accordion-icon.--rotate {
+  transform: rotate(180deg);
+}

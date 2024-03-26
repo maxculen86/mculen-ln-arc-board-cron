@@ -40,12 +40,6 @@ jest.mock(
         };
     }
 );
-
-jest.mock(
-    '../../../../../../components/private/LN/common/media/videoPlayer',
-    () => 'mock-video'
-);
-
 describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
     const aperturaMultimedia = {
         _id: '2adb18dc-46d9-4159-ba59-8636349ab0e3',
@@ -292,35 +286,6 @@ describe('PRIVATE - LN - Nota - Apertura - Noticia', () => {
             expect(
                 figcaption.querySelector('.com-text').innerHTML
             ).toStrictEqual(aperturaImage.caption);
-        });
-
-        test('Render OK when is Apertura Noticia with opening Multimedia', () => {
-            const properties = {
-                ...props,
-                globalContent: {
-                    ...props.globalContent,
-                    headlines: {
-                        basic: 'Apertura con Video'
-                    },
-                    promo_items: {
-                        apertura_multimedia: aperturaMultimedia
-                    }
-                }
-            };
-
-            render(<AperturaNoticia {...properties} />);
-
-            const contentVideo = screen.getByRole('button');
-            const video = contentVideo.querySelector(
-                `[videoid='${aperturaMultimedia._id}']`
-            );
-
-            expect(video).toBeDefined();
-            expect(video.getAttribute('autoplay')).toStrictEqual('false');
-            expect(video.getAttribute('isapertura')).toStrictEqual('true');
-            expect(video.getAttribute('titulonota')).toStrictEqual(
-                'Apertura con Video'
-            );
         });
     });
 });

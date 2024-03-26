@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import getToken from '../../../../../../private/common/utils/getToken';
 import safeJSONParse from '../../../../../private-global/common/utils/safeJSONParse';
+import { isFooditSuscriptor } from '../../../../hooks/useGetUserData';
 
 export default function useIsomorphicPopupHandling() {
     const [modalData, setModalData] = useState({
@@ -21,7 +22,7 @@ export default function useIsomorphicPopupHandling() {
             return;
         }
 
-        if (!premiumProduct.includes('2')) {
+        if (!isFooditSuscriptor(premiumProduct)) {
             window.LN.observable.publish('addToast', {
                 variant: 'danger',
                 title: 'Error!',
@@ -31,13 +32,24 @@ export default function useIsomorphicPopupHandling() {
             return;
         }
 
-        const { ids = [], collectionId = '', collectionArticles = [] } =
-            data || {};
+        if (!localStorage || !localStorage.getItem('bookmarkedItems')) return;
+
+        const { ids = [], collectionArticles = [] } = data || {};
 
         const idSet = new Set(ids);
         const allArticles = safeJSONParse(
             localStorage.getItem('bookmarkedItems')
         );
+
+        if (allArticles.length >= 150) {
+            window.LN.observable.publish('addToast', {
+                variant: 'danger',
+                title: 'Error!',
+                message: `Se alcanzo el limite de 150 articulos guardados`
+            });
+
+            return;
+        }
 
         const bookmarkedArticles = allArticles.filter(({ bookmarkTypeId }) => {
             if (idSet.has(bookmarkTypeId)) {
@@ -59,8 +71,7 @@ export default function useIsomorphicPopupHandling() {
                 ...(deleteBookmarks
                     ? { bookmarkedArticles }
                     : { noBookmarkedArticles }),
-                ...((collectionId && { collectionId, collectionArticles }) ||
-                    {})
+                ...((collectionArticles.length && { collectionArticles }) || {})
             }
         });
     };

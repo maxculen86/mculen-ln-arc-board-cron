@@ -1,8 +1,10 @@
 /* eslint-disable no-param-reassign */
+import React from 'react';
 import { AUDIO_NEWS_URL } from 'fusion:environment';
 import { addEventToDataLayer } from '../../LN/common/utils/shareHelper';
 import get from '../utils/get';
 import eventHandler from './trackerAudioNews';
+import IconSprite from '../../../features/private-global/common/iconSprite/IconSprite';
 
 // POSIBLEMENTE TODAS LAS FUNCIONES SE ELIMINEN
 export const calculateTime = secs => {
@@ -23,6 +25,11 @@ export const getTitleAndIcon = isPlaying =>
 
 export const parseDate = (date = '') =>
     date && date.replace(/-|:|[a-z]|\.[^\/]+/gi, '');
+
+export const getIconByOpenPlayer = enableButton =>
+    enableButton
+        ? { headphoneIcon: <IconSprite name="headphoneFilled" /> }
+        : { headphoneIcon: <IconSprite name="headphone" /> };
 
 export const handleClickAudioNews = (
     // permanece

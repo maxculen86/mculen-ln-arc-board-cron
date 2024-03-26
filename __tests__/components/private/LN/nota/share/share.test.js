@@ -102,7 +102,7 @@ describe('Share', () => {
 
     test('Snapshot - Should show 7 buttons ', () => {
         const { container } = component;
-        expect(screen.getAllByRole('button').length).toStrictEqual(7);
+        expect(screen.getAllByRole('button').length).toStrictEqual(8);
         expect(container).toMatchSnapshot();
     });
 
@@ -264,7 +264,7 @@ describe('Note display comment in false ', () => {
     });
     test('Matches snapshot when the note is not comments', () => {
         const { container } = render(<Share />);
-        expect(screen.getAllByRole('button').length).toStrictEqual(6);
+        expect(screen.getAllByRole('button').length).toStrictEqual(7);
         expect(container).toMatchSnapshot();
     });
 });

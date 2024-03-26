@@ -6,10 +6,10 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
     class="hidden"
   >
     <footer
-      class="container mb-64"
+      class="container"
     >
       <div
-        class="grid grid-cols-12_md relative w-100 pb-72 text-center border border-top border-thin border-light-100"
+        class="grid grid-cols-12_md relative w-100 pb-32 pb-0_lg text-center border border-top border-thin border-light-100"
       >
         <section
           class="flex flex-column ai-center gap-16 text-16 col-span-6_md my-32 border border-thin border-light-100 border-right_md -mx-12"
@@ -103,7 +103,7 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
           <span
             class="text"
           >
-            © 2023 S.A. LA NACION. Todos los derechos reservados
+            © 2024 S.A. LA NACION. Todos los derechos reservados
           </span>
           <a
             class="link foodit-link flex gap-8 ai-center roboto-regular --unstyled"
@@ -120,15 +120,15 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
           </a>
         </section>
         <section
-          class="flex flex-column flex-row_lg ai-center ai-start_lg jc-center_lg gap-16 text-14 col-span-6_md pt-32 border border-top border-thin border-light-100"
+          class="flex flex-column flex-row_lg ai-center ai-start_lg jc-center_lg gap-4 gap-8_lg text-14 col-span-6_md py-32 border border-top border-thin border-light-100"
         >
           <span
-            class="text block mb-4"
+            class="text block my-auto"
           >
             Protegido por re CAPTCHA:
           </span>
           <div
-            class="flex ai-center ai-start_lg"
+            class="flex my-auto"
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-bold uppercase"

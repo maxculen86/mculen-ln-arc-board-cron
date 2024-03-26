@@ -943,48 +943,6 @@
         "width": 960
     },
     {
-        "_id": "76c88e0b-33e7-405f-b6ad-b6a98fef7c77",
-        "additional_properties": {
-            "advertising": {
-                "playAds": true
-            }
-        },
-        "created_date": "2019-06-10T17:20:12Z",
-        "credits": {},
-        "distributor": {},
-        "duration": 59178,
-        "headlines": {
-            "basic": "Test cambio de nombre y ordenn"
-        },
-        "promo_items": {
-            "basic": {
-                "caption": "ver que onda",
-                "credits": {},
-                "height": 720,
-                "type": "image",
-                "url": "https://d3us6z9haan6vf.cloudfront.net/06-10-2019/t_2214b49fc13b40e9a536fe92a650694e_name_file_1280x720_2000_v3_1_.jpg",
-                "width": 1280
-            }
-        },
-        "publish_date": "2020-03-18T12:35:37Z",
-        "streams": [
-            {
-                "height": 360,
-                "stream_type": "mp4",
-                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_640x360-600.mp4",
-                "width": 640
-            },
-            {
-                "height": 720,
-                "stream_type": "mp4",
-                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/06/10/5cfe914c46e0fb000981496e/t_520577cda990476baa7a9ecf733e4a97_name_05_30_2019_t_a35f599ee6764026add3d7967f88b000_name_Marilina_Rolling_1920x1080_2/file_1280x720-2000-v3_1.mp4",
-                "width": 1280
-            }
-        ],
-        "subtype": "ln---ln-mas",
-        "type": "video"
-    },
-    {
         "_id": "VADRWL2EQVG55DO743ZUJHU25I",
         "additional_properties": {},
         "content": "Esto es un <a href=\"https://www.lanacion.com.ar/sociedad/la-provincia-misiones-va-plantar-marihuana-usos-nid2408352\" target=\"_blank\">LINK</a>.",
@@ -1999,48 +1957,6 @@
         "additional_properties": {},
         "content": "<opta-widget sport=\"football\" widget=\"standings\" template=\"normal\" live=\"false\" competition=\"8\" season=\"2015\" match=\"\" team=\"\" team_padding=\"\" navigation=\"\" default_nav=\"1\" side=\"combined\" data_detail=\"default\" dividers=\"\" show_key=\"false\" show_crests=\"false\" points_in_first_column=\"false\" show_form=\"6\" group=\"\" crop=\"\" competition_naming=\"full\" team_naming=\"full\" team_link=\"\" date_format=\"dddd D MMMM YYYY\" sorting=\"false\" show_logo=\"true\" breakpoints=\"400\"></opta-widget>\n",
         "type": "raw_html"
-    },
-    {
-        "_id": "6c75af33-e0f1-4300-bd66-7b2913ca05c1",
-        "additional_properties": {
-            "advertising": {
-                "playAds": true
-            }
-        },
-        "created_date": "2019-10-22T16:23:24Z",
-        "credits": {},
-        "distributor": {},
-        "duration": 42804,
-        "headlines": {
-            "basic": "Este es el titulo del video"
-        },
-        "promo_items": {
-            "basic": {
-                "caption": "epigrafe de la imagen que capture",
-                "credits": {},
-                "height": 720,
-                "type": "image",
-                "url": "https://d3us6z9haan6vf.cloudfront.net/10-22-2019/t_499f59d0c4e74cdc93ffc1937097565b_name_file_1280x720_2000_v3_1_.jpg",
-                "width": 1280
-            }
-        },
-        "publish_date": "2020-04-27T23:34:14Z",
-        "streams": [
-            {
-                "height": 360,
-                "stream_type": "mp4",
-                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_640x360-600.mp4",
-                "width": 640
-            },
-            {
-                "height": 720,
-                "stream_type": "mp4",
-                "url": "https://d20x44kddxtp6m.cloudfront.net/wp-lanacionar/2019/10/22/5daf2cfc46e0fb0009c12a9b/t_19b8dc8ac5b24ccead4960711ad0376f_name_DREAM_THEATER___Untethered_Angel__OFFICIAL_VIDEO__cropped/file_1280x720-2000-v3_1.mp4",
-                "width": 1280
-            }
-        ],
-        "subtype": "ln---videos-no-propios",
-        "type": "video"
     },
     {
         "_id": "3PJZH265DJBT3MCROZPBD6MVUU",

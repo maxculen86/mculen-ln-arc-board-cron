@@ -1,5 +1,4 @@
 /* eslint-disable import/no-cycle */
-import dataLayerScriptReceta from '../../../LN/nota/dataLayer/dataLayerScriptReceta';
 import generico from './generico';
 
 const receta = {
@@ -10,9 +9,6 @@ const receta = {
             (receta[name] && receta[name](...args)) ||
             (generico[name] && generico[name](...args))
         );
-    },
-    getDataLayer: () => {
-        return dataLayerScriptReceta;
     }
 };
 

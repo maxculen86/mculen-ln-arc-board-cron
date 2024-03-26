@@ -14,6 +14,8 @@ export default function BuildRoof(props) {
         titleLink,
         logo,
         logoId,
+        //buttonHTML,
+        buttonLogo,
         buttonText,
         linkButton,
         buttonStyle,
@@ -55,6 +57,8 @@ export default function BuildRoof(props) {
 
     const propsRight = hasDataRoof({ chainStyle }) && {
         navData: links,
+        // buttonHTML,
+        buttonLogo,
         buttonType: buttonStyle || 'generico',
         textButton: buttonText,
         hrefButton: linkButton,
@@ -64,6 +68,7 @@ export default function BuildRoof(props) {
 
     const scriptBtnSuscription = isSubExclusive ? (
         <script
+            async
             id="scriptBtnSuscriptionRoof"
             type="text/javascript"
             src={deployment(
@@ -98,6 +103,8 @@ BuildRoof.propTypes = {
     title: PropTypes.string.isRequired,
     titleLink: PropTypes.string,
     logoId: PropTypes.string,
+    //buttonHTML: PropTypes.string,
+    buttonLogo: PropTypes.string,
     buttonText: PropTypes.string,
     linkButton: PropTypes.string,
     buttonStyle: PropTypes.string,
@@ -110,6 +117,8 @@ BuildRoof.defaultProps = {
     hideRoof: false,
     logoId: '',
     titleLink: '',
+    //buttonHTML: '',
+    buttonLogo: '',
     buttonText: '',
     linkButton: '',
     buttonStyle: '',

@@ -163,6 +163,7 @@ exports[`components - private - common - mod-category Mod category snapshot test
       
     </button>
     <script
+      async=""
       id="mod-navigation"
       type="text/javascript"
     />
