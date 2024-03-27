@@ -299,7 +299,7 @@ const Default = props => {
                     globalContent={globalContent}
                 />
                 <div id="fusion-app">{children}</div>
-                <Fusion hydrateOnly />
+                <Fusion />
                 <Scripts
                     location="body-bottom"
                     section={_nodeType}

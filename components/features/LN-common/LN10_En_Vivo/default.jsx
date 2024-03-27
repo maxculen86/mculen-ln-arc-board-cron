@@ -8,7 +8,6 @@ import {
     findError,
     validateId
 } from './_helpers';
-import StaticContent from '../../../private/common/staticContent';
 import get from '../../../private/common/utils/get';
 import { typeBadge } from '../../LN-10/article/common/_helper-WebApi';
 import getDynamicBanners from '../../../private/common/banners/dynamicBanners/getDynamicBanners';
@@ -16,7 +15,7 @@ import setRender from '../../../chains/utils/setRender';
 import { findPositionInsideSection } from '../../../private/LN/common/utils/cajaTemasHelper';
 import { getMarkupForDatalayer } from '../../../private/LN/common/utils/cajaTemasHelper';
 import { getDataAttributesForViewability } from '../../../features/LN-10/article/_helper';
-import sectionsValidations from '../../../layouts/config/LN10-Home.config.json';
+import StaticContentV2 from '../../../chains/LN10-global/staticContentV2';
 
 const EnVivo = ({ customFields, id: featureId }) => {
     const { isAdmin, renderables } = useAppContext() || {};
@@ -65,7 +64,7 @@ const EnVivo = ({ customFields, id: featureId }) => {
         .filter(article => validateId(article.id));
 
     return (
-        <StaticContent {...extraOptsDiv}>
+        <StaticContentV2 {...{ ...extraOptsDiv, id: featureId }}>
             {setRender({
                 isAdmin,
                 error,
@@ -89,7 +88,7 @@ const EnVivo = ({ customFields, id: featureId }) => {
                     )
                 }
             })}
-        </StaticContent>
+        </StaticContentV2>
     );
 };
 

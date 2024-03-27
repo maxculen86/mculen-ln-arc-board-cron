@@ -96,7 +96,7 @@ const CajaManual = props => {
         }
     });
 
-    return setStaticDynamically(Component, hasVariants, extraOptsDiv);
+    return setStaticDynamically(Component, hasVariants, extraOptsDiv, chainId);
 };
 
 CajaManual.label = 'LN10 Caja Manual';

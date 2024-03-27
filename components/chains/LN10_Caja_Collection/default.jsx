@@ -18,7 +18,6 @@ import { validateChain, getBreakingChildren } from './common/_helper-WebApi';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
 import diagramationRules from '../../private/common/utils/diagramationRules';
 import setRender from '../utils/setRender';
-import StaticContent from '../../private/common/staticContent';
 import getGridType from '../utils/getGridType';
 import getComponent from '../utils/getComponent';
 import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
@@ -26,6 +25,7 @@ import { useRoofData } from '../utils/_helpers';
 import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDynamicBanners';
 import isContentLabAt100 from '../utils/isContentLabAt100';
 import bannersHome from '../../private/common/banners/bannersDivHome';
+import StaticContentV2 from '../LN10-global/staticContentV2';
 
 const CajaCollection = props => {
     const {
@@ -131,7 +131,7 @@ const CajaCollection = props => {
     const ContainerCards = getComponent(chainStyle, layout);
 
     return (
-        <StaticContent {...extraOptsDiv}>
+        <StaticContentV2 {...{ ...extraOptsDiv, id: chainId }}>
             {setRender({
                 chainId,
                 viewabilityData,
@@ -167,7 +167,7 @@ const CajaCollection = props => {
                     )
                 }
             })}
-        </StaticContent>
+        </StaticContentV2>
     );
 };
 

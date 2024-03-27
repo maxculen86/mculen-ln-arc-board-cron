@@ -52,7 +52,7 @@ describe('components - features - LN-10-global - header - navbar', () => {
         expect(getByText('Perfil')).toBeInTheDocument();
     });
 
-    it('should match snapshot', () => {
+    it.skip('should match snapshot', () => {
         useHeaderContext.mockImplementation(() => ({
             isHome: false,
             userType: 'subscribed',

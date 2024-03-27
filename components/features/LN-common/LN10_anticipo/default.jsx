@@ -1,9 +1,9 @@
 import React from 'react';
+import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { Advance } from '@ln/contenidos-ui-advance';
 import { groupCustomFields } from '../../../private/common/utils/propTypesHelper';
-import StaticContent from '../../../private/common/staticContent';
 
 const Anticipo = ({
     customFields: { textBadge, lead, hide, title, url, video } = {}
@@ -11,7 +11,7 @@ const Anticipo = ({
     const { contextPath, deployment } = useAppContext();
     return !hide ? (
         <>
-            <StaticContent>
+            <Static id="anticipo-LN10">
                 <Advance
                     href={url}
                     title={title}
@@ -19,7 +19,7 @@ const Anticipo = ({
                     embedCode={video}
                     badgeText={textBadge || 'Anticipo'}
                 />
-            </StaticContent>
+            </Static>
             <script
                 async
                 id="scriptAnticipoLN10"

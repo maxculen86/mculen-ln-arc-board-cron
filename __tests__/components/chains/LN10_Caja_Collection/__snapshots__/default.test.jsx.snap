@@ -2,1873 +2,1900 @@
 
 exports[`Tests Chain CajaCollection Tests banner cases should render banner dsk returned from getDynamicBanners 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
-    <section
-      data-chain-id="c0fuuilRMMtV6pi"
+  <div>
+    <div
+      class="hidden"
+      id="c0fuuilRMMtV6pi"
     >
-      <div
-        class="mod-banner --billboard_dsk billboard_dsk "
+      <section
+        data-chain-id="c0fuuilRMMtV6pi"
       >
         <div
-          class="com-banner lazy"
-          data-prebid-enabled="false"
-          data-size="[]"
-          data-sizemap="[]"
-          data-subscription="false"
-          data-without-hide="true"
-          id="billboard_dsk"
-        />
-      </div>
-      <div
-        class="ln-roof --generic"
-        roof-container="roof-container"
-      >
-        <div
-          class="--ln-roof-full flex jc-between pt-24"
+          class="mod-banner --billboard_dsk billboard_dsk "
         >
           <div
-            class="--ln-roof-left"
-          >
-            <div
-              class="flex ai-center uppercase"
-              roof-group="left"
-            >
-              <h3
-                class="text ln-text --roof-title --prumo --font-l"
-              >
-                Caja Collection
-              </h3>
-              
-            </div>
-          </div>
-          <div
-            class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
-            roof-group="right"
+            class="com-banner lazy"
+            data-prebid-enabled="false"
+            data-size="[]"
+            data-sizemap="[]"
+            data-subscription="false"
+            data-without-hide="true"
+            id="billboard_dsk"
           />
         </div>
-      </div>
-      <section
-        class="content-lab"
-      >
-        <article
-          class="ln-card flex flex-column ai-start --3xl --regular --no-media"
+        <div
+          class="ln-roof --generic"
+          roof-container="roof-container"
         >
-          <a
-            class="link ln-link flex flex-column --unstyled"
-            href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-            target="_self"
-            title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+          <div
+            class="--ln-roof-full flex jc-between pt-24"
           >
-            <section
-              class="description-container relative flex flex-column"
-              href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+            <div
+              class="--ln-roof-left"
             >
-              <h2
-                class="text ln-text title --prumo --font-medium --font-3xl"
+              <div
+                class="flex ai-center uppercase"
+                roof-group="left"
               >
+                <h3
+                  class="text ln-text --roof-title --prumo --font-l"
+                >
+                  Caja Collection
+                </h3>
                 
-                Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
-              </h2>
-              
-            </section>
-          </a>
-        </article>
+              </div>
+            </div>
+            <div
+              class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
+              roof-group="right"
+            />
+          </div>
+        </div>
+        <section
+          class="content-lab"
+        >
+          <article
+            class="ln-card flex flex-column ai-start --3xl --regular --no-media"
+          >
+            <a
+              class="link ln-link flex flex-column --unstyled"
+              href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+              target="_self"
+              title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+            >
+              <section
+                class="description-container relative flex flex-column"
+                href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+              >
+                <h2
+                  class="text ln-text title --prumo --font-medium --font-3xl"
+                >
+                  
+                  Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
+                </h2>
+                
+              </section>
+            </a>
+          </article>
+        </section>
       </section>
-    </section>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Tests Chain CajaCollection Tests banner cases should render banner mob returned from getDynamicBanners 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
-    <section
-      data-chain-id="c0fuuilRMMtV6pi"
+  <div>
+    <div
+      class="hidden"
+      id="c0fuuilRMMtV6pi"
     >
-      <div
-        class="ln-roof --generic"
-        roof-container="roof-container"
+      <section
+        data-chain-id="c0fuuilRMMtV6pi"
       >
         <div
-          class="--ln-roof-full flex jc-between pt-24"
+          class="ln-roof --generic"
+          roof-container="roof-container"
         >
           <div
-            class="--ln-roof-left"
+            class="--ln-roof-full flex jc-between pt-24"
           >
             <div
-              class="flex ai-center uppercase"
-              roof-group="left"
+              class="--ln-roof-left"
             >
-              <h3
-                class="text ln-text --roof-title --prumo --font-l"
+              <div
+                class="flex ai-center uppercase"
+                roof-group="left"
               >
-                Caja Collection
-              </h3>
-              
+                <h3
+                  class="text ln-text --roof-title --prumo --font-l"
+                >
+                  Caja Collection
+                </h3>
+                
+              </div>
             </div>
+            <div
+              class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
+              roof-group="right"
+            />
           </div>
+        </div>
+        <section
+          class="content-lab"
+        >
+          <article
+            class="ln-card flex flex-column ai-start --3xl --regular --no-media"
+          >
+            <a
+              class="link ln-link flex flex-column --unstyled"
+              href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+              target="_self"
+              title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+            >
+              <section
+                class="description-container relative flex flex-column"
+                href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+              >
+                <h2
+                  class="text ln-text title --prumo --font-medium --font-3xl"
+                >
+                  
+                  Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
+                </h2>
+                
+              </section>
+            </a>
+          </article>
+        </section>
+        <div
+          class="mod-banner --billboard_mob billboard_mob "
+        >
           <div
-            class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
-            roof-group="right"
+            class="com-banner lazy"
+            data-prebid-enabled="false"
+            data-size="[]"
+            data-sizemap="[]"
+            data-subscription="false"
+            data-without-hide="true"
+            id="billboard_mob"
           />
         </div>
-      </div>
-      <section
-        class="content-lab"
-      >
-        <article
-          class="ln-card flex flex-column ai-start --3xl --regular --no-media"
-        >
-          <a
-            class="link ln-link flex flex-column --unstyled"
-            href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-            target="_self"
-            title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
-          >
-            <section
-              class="description-container relative flex flex-column"
-              href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-            >
-              <h2
-                class="text ln-text title --prumo --font-medium --font-3xl"
-              >
-                
-                Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
-              </h2>
-              
-            </section>
-          </a>
-        </article>
       </section>
-      <div
-        class="mod-banner --billboard_mob billboard_mob "
-      >
-        <div
-          class="com-banner lazy"
-          data-prebid-enabled="false"
-          data-size="[]"
-          data-sizemap="[]"
-          data-subscription="false"
-          data-without-hide="true"
-          id="billboard_mob"
-        />
-      </div>
-    </section>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Tests Chain CajaCollection Tests banner cases should render banner subscriber when chain style is sub-exclusive 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
-    <section
-      data-chain-id="c0fUjhrcHRHB8X"
+  <div>
+    <div
+      class="hidden"
+      id="c0fUjhrcHRHB8X"
     >
-      <div
-        class="mod-banner --billboard_dsk billboard_dsk "
+      <section
+        data-chain-id="c0fUjhrcHRHB8X"
       >
         <div
-          class="com-banner lazy"
-          data-prebid-enabled="false"
-          data-size="[]"
-          data-sizemap="[]"
-          data-subscription="false"
-          data-without-hide="true"
-          id="billboard_dsk"
-        />
-      </div>
-      <div
-        class="ln-roof --sub-exclusive"
-        roof-container="roof-container"
-      >
-        <div
-          class="--ln-roof-full flex jc-between pt-24"
+          class="mod-banner --billboard_dsk billboard_dsk "
         >
           <div
-            class="--ln-roof-left"
+            class="com-banner lazy"
+            data-prebid-enabled="false"
+            data-size="[]"
+            data-sizemap="[]"
+            data-subscription="false"
+            data-without-hide="true"
+            id="billboard_dsk"
+          />
+        </div>
+        <div
+          class="ln-roof --sub-exclusive"
+          roof-container="roof-container"
+        >
+          <div
+            class="--ln-roof-full flex jc-between pt-24"
           >
             <div
-              class="flex ai-center uppercase"
-              roof-group="left"
+              class="--ln-roof-left"
             >
-              <i
-                class="icon --suscriptor-logo --icon-32"
+              <div
+                class="flex ai-center uppercase"
+                roof-group="left"
               >
-                <svg
-                  fill="none"
-                  viewBox="0 0 32 33"
-                  xmlns="http://www.w3.org/2000/svg"
+                <i
+                  class="icon --suscriptor-logo --icon-32"
                 >
-                  <rect
-                    fill="#0D0D0D"
-                    height="32"
-                    rx="16"
-                    width="32"
-                    y="0.298"
-                  />
-                  <path
-                    clip-rule="evenodd"
-                    d="M12.706 12.13H8v.874h1.092v6.253H8v.874h6.878v-3.394H14v.503c0 .826-.268 1.314-.678 1.605-.423.3-1.025.412-1.732.412h-.088v-6.253h1.204zm6.151 0h-3.419v.874h.357c.33 0 .663.271.663.682v4.964c0 .3-.08.435-.163.503-.092.075-.228.104-.408.104H15.4v.874h3.04v-.874h-.38a2.71 2.71 0 0 1-.413-.024.574.574 0 0 1-.23-.077c-.083-.056-.146-.16-.146-.45v-4.443l4.517 5.868h1.156v-6.717a.35.35 0 0 1 .125-.262c.09-.079.246-.148.496-.148H24v-.873h-3.046v.873h.497c.257 0 .427.048.529.121.09.066.144.163.144.323v2.912z"
-                    fill="#FDB727"
-                    fill-rule="evenodd"
-                  />
-                </svg>
-              </i>
-              <h3
-                class="text ln-text --roof-title --prumo --font-l"
-              >
-                Caja Collection
-              </h3>
-              
+                  <svg
+                    fill="none"
+                    viewBox="0 0 32 33"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      fill="#0D0D0D"
+                      height="32"
+                      rx="16"
+                      width="32"
+                      y="0.298"
+                    />
+                    <path
+                      clip-rule="evenodd"
+                      d="M12.706 12.13H8v.874h1.092v6.253H8v.874h6.878v-3.394H14v.503c0 .826-.268 1.314-.678 1.605-.423.3-1.025.412-1.732.412h-.088v-6.253h1.204zm6.151 0h-3.419v.874h.357c.33 0 .663.271.663.682v4.964c0 .3-.08.435-.163.503-.092.075-.228.104-.408.104H15.4v.874h3.04v-.874h-.38a2.71 2.71 0 0 1-.413-.024.574.574 0 0 1-.23-.077c-.083-.056-.146-.16-.146-.45v-4.443l4.517 5.868h1.156v-6.717a.35.35 0 0 1 .125-.262c.09-.079.246-.148.496-.148H24v-.873h-3.046v.873h.497c.257 0 .427.048.529.121.09.066.144.163.144.323v2.912z"
+                      fill="#FDB727"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </i>
+                <h3
+                  class="text ln-text --roof-title --prumo --font-l"
+                >
+                  Caja Collection
+                </h3>
+                
+              </div>
             </div>
+            <div
+              class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
+              roof-group="right"
+            />
+          </div>
+        </div>
+        <script
+          async=""
+          id="scriptBtnSuscriptionRoof"
+          type="text/javascript"
+        />
+        <section
+          class="content-lab"
+        >
+          <article
+            class="ln-card flex flex-column ai-start  text-center_m --3xl --regular --no-media"
+          >
+            <a
+              class="link ln-link flex flex-column --unstyled"
+              href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+              target="_self"
+              title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+            >
+              <section
+                class="description-container relative flex flex-column"
+                href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+              >
+                <h2
+                  class="text ln-text title --prumo --font-medium --font-3xl"
+                >
+                  
+                  Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
+                </h2>
+                
+              </section>
+            </a>
+          </article>
+        </section>
+        <div
+          class="banner-subscriber"
+        >
+          <div
+            class="mod-banner --cajasuscriptores_dsk  "
+          >
+            <div
+              class="com-banner lazy"
+              data-prebid-enabled="false"
+              data-size="[]"
+              data-sizemap="[]"
+              data-subscription="false"
+              data-without-hide="false"
+              id="cajasuscriptores_dsk"
+            />
           </div>
           <div
-            class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
-            roof-group="right"
-          />
-        </div>
-      </div>
-      <script
-        async=""
-        id="scriptBtnSuscriptionRoof"
-        type="text/javascript"
-      />
-      <section
-        class="content-lab"
-      >
-        <article
-          class="ln-card flex flex-column ai-start  text-center_m --3xl --regular --no-media"
-        >
-          <a
-            class="link ln-link flex flex-column --unstyled"
-            href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-            target="_self"
-            title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+            class="mod-banner --cajasuscriptores_mob  "
           >
-            <section
-              class="description-container relative flex flex-column"
-              href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-            >
-              <h2
-                class="text ln-text title --prumo --font-medium --font-3xl"
-              >
-                
-                Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
-              </h2>
-              
-            </section>
-          </a>
-        </article>
+            <div
+              class="com-banner lazy"
+              data-prebid-enabled="false"
+              data-size="[]"
+              data-sizemap="[]"
+              data-subscription="false"
+              data-without-hide="false"
+              id="cajasuscriptores_mob"
+            />
+          </div>
+          <div
+            class="mod-banner --cajasuscriptores_tab  "
+          >
+            <div
+              class="com-banner lazy"
+              data-prebid-enabled="false"
+              data-size="[]"
+              data-sizemap="[]"
+              data-subscription="false"
+              data-without-hide="false"
+              id="cajasuscriptores_tab"
+            />
+          </div>
+        </div>
       </section>
-      <div
-        class="banner-subscriber"
-      >
-        <div
-          class="mod-banner --cajasuscriptores_dsk  "
-        >
-          <div
-            class="com-banner lazy"
-            data-prebid-enabled="false"
-            data-size="[]"
-            data-sizemap="[]"
-            data-subscription="false"
-            data-without-hide="false"
-            id="cajasuscriptores_dsk"
-          />
-        </div>
-        <div
-          class="mod-banner --cajasuscriptores_mob  "
-        >
-          <div
-            class="com-banner lazy"
-            data-prebid-enabled="false"
-            data-size="[]"
-            data-sizemap="[]"
-            data-subscription="false"
-            data-without-hide="false"
-            id="cajasuscriptores_mob"
-          />
-        </div>
-        <div
-          class="mod-banner --cajasuscriptores_tab  "
-        >
-          <div
-            class="com-banner lazy"
-            data-prebid-enabled="false"
-            data-size="[]"
-            data-sizemap="[]"
-            data-subscription="false"
-            data-without-hide="false"
-            id="cajasuscriptores_tab"
-          />
-        </div>
-      </div>
-    </section>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Tests Chain CajaCollection Tests cases for focal layouts should return five articles with layout bn_1_4_grid 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
-    <section
-      data-chain-id="c0fuuilRMMtV6pi"
+  <div>
+    <div
+      class="hidden"
+      id="c0fuuilRMMtV6pi"
     >
-      <div
-        style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
-      >
-        <div
-          class="mod-warning --warning"
-        >
-          <h2
-            class="title"
-          >
-            Advertencia
-          </h2>
-          <p
-            class="text"
-          >
-            El ID de la imagen del logo es incorrecto.
-          </p>
-        </div>
-      </div>
       <section
-        class="ln-bngrid --bn_1_4_grid --bienestar"
+        data-chain-id="c0fuuilRMMtV6pi"
       >
         <div
-          class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+          style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
         >
           <div
-            class="grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12"
+            class="mod-warning --warning"
           >
-            <article
-              class="ln-card flex flex-column ai-start --3xl --regular --no-media --tablet-img-right --desktop-img-right"
+            <h2
+              class="title"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                target="_self"
-                title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
-              >
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-3xl"
-                  >
-                    
-                    Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
-                  </h2>
-                  
-                </section>
-              </a>
-            </article>
+              Advertencia
+            </h2>
+            <p
+              class="text"
+            >
+              El ID de la imagen del logo es incorrecto.
+            </p>
           </div>
+        </div>
+        <section
+          class="ln-bngrid --bn_1_4_grid --bienestar"
+        >
           <div
-            class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular"
+            <div
+              class="grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                target="_self"
-                title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+              <article
+                class="ln-card flex flex-column ai-start --3xl --regular --no-media --tablet-img-right --desktop-img-right"
               >
-                <section
-                  class="media-container"
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  target="_self"
+                  title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+                >
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-3xl"
+                    >
+                      
+                      Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
+                    </h2>
+                    
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                  target="_self"
                   title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                 >
-                  <picture
-                    class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                  <section
+                    class="media-container"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                    title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                   >
-                    <source
-                      media="(min-width: 1024px)"
-                      srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <img
-                      alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex w-100 h-100 --cover"
-                      decoding="async"
-                      fetchpriority="low"
-                      loading="lazy"
-                      src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                  </picture>
-                </section>
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
-                  >
-                    
-                    Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
-                  </h2>
-                  <div
-                    class="marquee-container flex ai-center"
-                    title="Por Carlos Pagni"
-                  >
-                    <div
-                      class="marquee-text flex flex-column --font-2xs w-100"
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
                     >
-                      <span
-                        class="text ln-text marquee"
-                      >
-                        Por 
-                        <strong>
-                          Carlos Pagni
-                        </strong>
-                      </span>
-                    </div>
-                  </div>
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular"
-            >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                target="_self"
-                title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-              >
-                <section
-                  class="media-container"
-                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                >
-                  <picture
-                    class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <img
+                        alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                   >
-                    <source
-                      media="(min-width: 1024px)"
-                      srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                    <img
-                      alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image flex w-100 h-100 --cover"
-                      decoding="async"
-                      fetchpriority="low"
-                      loading="lazy"
-                      src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                  </picture>
-                </section>
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                >
-                  <span
-                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
-                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
+                    </h2>
                     <div
-                      class="pulse-animation"
+                      class="marquee-container flex ai-center"
+                      title="Por Carlos Pagni"
                     >
                       <div
-                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
-                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
+                        class="marquee-text flex flex-column --font-2xs w-100"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Carlos Pagni
+                          </strong>
+                        </span>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  target="_self"
+                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                >
+                  <section
+                    class="media-container"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                    title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                  >
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                    >
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
                       />
-                    </div>
-                    vivo
-                  </span>
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <img
+                        alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
-                    
-                    Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
-                  </h2>
-                  <div
-                    class="marquee-container flex ai-center"
-                    title="Por Celina Chatruc"
-                  >
-                    <div
-                      class="marquee-text flex flex-column --font-2xs w-100"
+                    <span
+                      class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
                     >
-                      <span
-                        class="text ln-text marquee"
+                      <div
+                        class="pulse-animation"
                       >
-                        Por 
-                        <strong>
-                          Celina Chatruc
-                        </strong>
-                      </span>
+                        <div
+                          class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                          style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
+                        />
+                      </div>
+                      vivo
+                    </span>
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
+                    </h2>
+                    <div
+                      class="marquee-container flex ai-center"
+                      title="Por Celina Chatruc"
+                    >
+                      <div
+                        class="marquee-text flex flex-column --font-2xs w-100"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Celina Chatruc
+                          </strong>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular --no-media"
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
-                target="_self"
-                title="Bullrich visita El Calafate y presenta libro"
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular --no-media"
               >
-                <section
-                  class="description-container relative flex flex-column"
+                <a
+                  class="link ln-link flex flex-column --unstyled"
                   href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                  target="_self"
+                  title="Bullrich visita El Calafate y presenta libro"
                 >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                   >
-                    
-                    Bullrich visita El Calafate y presenta libro
-                  </h2>
-                  <h3
-                    class="text ln-text subhead --font-s"
-                  >
-                    Incidentes frente al hotel donde convocó a militantes 
-                  </h3>
-                  <div
-                    class="marquee-container flex ai-center"
-                    title="Por Mariela Arias"
-                  >
-                    <div
-                      class="marquee-text flex flex-column --font-2xs w-100"
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      <span
-                        class="text ln-text marquee"
+                      
+                      Bullrich visita El Calafate y presenta libro
+                    </h2>
+                    <h3
+                      class="text ln-text subhead --font-s"
+                    >
+                      Incidentes frente al hotel donde convocó a militantes 
+                    </h3>
+                    <div
+                      class="marquee-container flex ai-center"
+                      title="Por Mariela Arias"
+                    >
+                      <div
+                        class="marquee-text flex flex-column --font-2xs w-100"
                       >
-                        Por 
-                        <strong>
-                          Mariela Arias
-                        </strong>
-                      </span>
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Mariela Arias
+                          </strong>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular --no-media"
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                target="_self"
-                title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular --no-media"
               >
-                <section
-                  class="description-container relative flex flex-column"
+                <a
+                  class="link ln-link flex flex-column --unstyled"
                   href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  target="_self"
+                  title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
                 >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                   >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
+                    </h2>
                     
-                    Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
-                  </h2>
-                  
-                </section>
-              </a>
-            </article>
+                  </section>
+                </a>
+              </article>
+            </div>
           </div>
-        </div>
+        </section>
       </section>
-    </section>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Tests Chain CajaCollection Tests cases for focal layouts should return five articles with layout bn_2_1_2_grid 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
-    <section
-      data-chain-id="c0fuuilRMMtV6pi"
+  <div>
+    <div
+      class="hidden"
+      id="c0fuuilRMMtV6pi"
     >
-      <div
-        style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
-      >
-        <div
-          class="mod-warning --warning"
-        >
-          <h2
-            class="title"
-          >
-            Advertencia
-          </h2>
-          <p
-            class="text"
-          >
-            El ID de la imagen del logo es incorrecto.
-          </p>
-        </div>
-      </div>
       <section
-        class="ln-bngrid --bn_2_1_2_grid --bienestar"
+        data-chain-id="c0fuuilRMMtV6pi"
       >
         <div
-          class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+          style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
         >
           <div
-            class="grid-item --0 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
+            class="mod-warning --warning"
           >
-            <article
-              class="ln-card flex flex-column ai-start --xl --regular --no-media"
+            <h2
+              class="title"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                target="_self"
-                title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
-              >
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-xl"
-                  >
-                    
-                    Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
-                  </h2>
-                  
-                </section>
-              </a>
-            </article>
+              Advertencia
+            </h2>
+            <p
+              class="text"
+            >
+              El ID de la imagen del logo es incorrecto.
+            </p>
           </div>
+        </div>
+        <section
+          class="ln-bngrid --bn_2_1_2_grid --bienestar"
+        >
           <div
-            class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular"
+            <div
+              class="grid-item --0 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                target="_self"
-                title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+              <article
+                class="ln-card flex flex-column ai-start --xl --regular --no-media"
               >
-                <section
-                  class="media-container"
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  target="_self"
+                  title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+                >
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-xl"
+                    >
+                      
+                      Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
+                    </h2>
+                    
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                  target="_self"
                   title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                 >
-                  <picture
-                    class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                  <section
+                    class="media-container"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                    title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                   >
-                    <source
-                      media="(min-width: 1024px)"
-                      srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <img
-                      alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex w-100 h-100 --cover"
-                      decoding="async"
-                      fetchpriority="low"
-                      loading="lazy"
-                      src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                  </picture>
-                </section>
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
-                  >
-                    
-                    Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
-                  </h2>
-                  <div
-                    class="marquee-container flex ai-center"
-                    title="Por Carlos Pagni"
-                  >
-                    <div
-                      class="marquee-text flex flex-column --font-2xs w-100"
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
                     >
-                      <span
-                        class="text ln-text marquee"
-                      >
-                        Por 
-                        <strong>
-                          Carlos Pagni
-                        </strong>
-                      </span>
-                    </div>
-                  </div>
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-none --desktop-img-none"
-            >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                target="_self"
-                title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-              >
-                <section
-                  class="media-container"
-                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                >
-                  <picture
-                    class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <img
+                        alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                   >
-                    <source
-                      media="(min-width: 1024px)"
-                      srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                    <img
-                      alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image flex w-100 h-100 --cover"
-                      decoding="async"
-                      fetchpriority="low"
-                      loading="lazy"
-                      src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                  </picture>
-                </section>
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                >
-                  <span
-                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
-                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
+                    </h2>
                     <div
-                      class="pulse-animation"
+                      class="marquee-container flex ai-center"
+                      title="Por Carlos Pagni"
                     >
                       <div
-                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
-                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
+                        class="marquee-text flex flex-column --font-2xs w-100"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Carlos Pagni
+                          </strong>
+                        </span>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-none --desktop-img-none"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  target="_self"
+                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                >
+                  <section
+                    class="media-container"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                    title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                  >
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                    >
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
                       />
-                    </div>
-                    vivo
-                  </span>
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <img
+                        alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
                   >
-                    
-                    Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
-                  </h2>
-                  <div
-                    class="marquee-container flex ai-center"
-                    title="Por Celina Chatruc"
-                  >
-                    <div
-                      class="marquee-text flex flex-column --font-2xs w-100"
+                    <span
+                      class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
                     >
-                      <span
-                        class="text ln-text marquee"
+                      <div
+                        class="pulse-animation"
                       >
-                        Por 
-                        <strong>
-                          Celina Chatruc
-                        </strong>
-                      </span>
+                        <div
+                          class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                          style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
+                        />
+                      </div>
+                      vivo
+                    </span>
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
+                    </h2>
+                    <div
+                      class="marquee-container flex ai-center"
+                      title="Por Celina Chatruc"
+                    >
+                      <div
+                        class="marquee-text flex flex-column --font-2xs w-100"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Celina Chatruc
+                          </strong>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular --no-media"
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
-                target="_self"
-                title="Bullrich visita El Calafate y presenta libro"
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular --no-media"
               >
-                <section
-                  class="description-container relative flex flex-column"
+                <a
+                  class="link ln-link flex flex-column --unstyled"
                   href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                  target="_self"
+                  title="Bullrich visita El Calafate y presenta libro"
                 >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
                   >
-                    
-                    Bullrich visita El Calafate y presenta libro
-                  </h2>
-                  <h3
-                    class="text ln-text subhead --font-s"
-                  >
-                    Incidentes frente al hotel donde convocó a militantes 
-                  </h3>
-                  <div
-                    class="marquee-container flex ai-center"
-                    title="Por Mariela Arias"
-                  >
-                    <div
-                      class="marquee-text flex flex-column --font-2xs w-100"
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      <span
-                        class="text ln-text marquee"
+                      
+                      Bullrich visita El Calafate y presenta libro
+                    </h2>
+                    <h3
+                      class="text ln-text subhead --font-s"
+                    >
+                      Incidentes frente al hotel donde convocó a militantes 
+                    </h3>
+                    <div
+                      class="marquee-container flex ai-center"
+                      title="Por Mariela Arias"
+                    >
+                      <div
+                        class="marquee-text flex flex-column --font-2xs w-100"
                       >
-                        Por 
-                        <strong>
-                          Mariela Arias
-                        </strong>
-                      </span>
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Mariela Arias
+                          </strong>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular --no-media --tablet-img-none --desktop-img-none"
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                target="_self"
-                title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular --no-media --tablet-img-none --desktop-img-none"
               >
-                <section
-                  class="description-container relative flex flex-column"
+                <a
+                  class="link ln-link flex flex-column --unstyled"
                   href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  target="_self"
+                  title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
                 >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
                   >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
+                    </h2>
                     
-                    Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
-                  </h2>
-                  
-                </section>
-              </a>
-            </article>
+                  </section>
+                </a>
+              </article>
+            </div>
           </div>
-        </div>
+        </section>
       </section>
-    </section>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Tests Chain CajaCollection Tests cases for focal layouts should return four articles with layout bn_1_3_grid 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
-    <section
-      data-chain-id="c0fuuilRMMtV6pi"
+  <div>
+    <div
+      class="hidden"
+      id="c0fuuilRMMtV6pi"
     >
-      <div
-        style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
-      >
-        <div
-          class="mod-warning --warning"
-        >
-          <h2
-            class="title"
-          >
-            Advertencia
-          </h2>
-          <p
-            class="text"
-          >
-            El ID de la imagen del logo es incorrecto.
-          </p>
-        </div>
-      </div>
       <section
-        class="ln-bngrid --bn_1_3_grid --bienestar"
+        data-chain-id="c0fuuilRMMtV6pi"
       >
         <div
-          class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+          style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
         >
           <div
-            class="grid-item --0 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
+            class="mod-warning --warning"
           >
-            <article
-              class="ln-card flex flex-column ai-start --3xl --regular --no-media"
+            <h2
+              class="title"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                target="_self"
-                title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
-              >
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-3xl"
-                  >
-                    
-                    Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
-                  </h2>
-                  
-                </section>
-              </a>
-            </article>
+              Advertencia
+            </h2>
+            <p
+              class="text"
+            >
+              El ID de la imagen del logo es incorrecto.
+            </p>
           </div>
+        </div>
+        <section
+          class="ln-bngrid --bn_1_3_grid --bienestar"
+        >
           <div
-            class="grid-item --1 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
+            class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-right --desktop-img-right"
+            <div
+              class="grid-item --0 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                target="_self"
-                title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+              <article
+                class="ln-card flex flex-column ai-start --3xl --regular --no-media"
               >
-                <section
-                  class="media-container"
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  target="_self"
+                  title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+                >
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-3xl"
+                    >
+                      
+                      Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
+                    </h2>
+                    
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --1 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-right --desktop-img-right"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                  target="_self"
                   title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                 >
-                  <picture
-                    class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                  <section
+                    class="media-container"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                    title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                   >
-                    <source
-                      media="(min-width: 1024px)"
-                      srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <img
-                      alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex w-100 h-100 --cover"
-                      decoding="async"
-                      fetchpriority="low"
-                      loading="lazy"
-                      src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                  </picture>
-                </section>
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
-                  >
-                    
-                    Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
-                  </h2>
-                  <div
-                    class="marquee-container flex ai-center"
-                    title="Por Carlos Pagni"
-                  >
-                    <div
-                      class="marquee-text flex flex-column --font-2xs w-100"
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
                     >
-                      <span
-                        class="text ln-text marquee"
-                      >
-                        Por 
-                        <strong>
-                          Carlos Pagni
-                        </strong>
-                      </span>
-                    </div>
-                  </div>
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --2 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-right --desktop-img-right"
-            >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                target="_self"
-                title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-              >
-                <section
-                  class="media-container"
-                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                >
-                  <picture
-                    class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <img
+                        alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                   >
-                    <source
-                      media="(min-width: 1024px)"
-                      srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                    <img
-                      alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image flex w-100 h-100 --cover"
-                      decoding="async"
-                      fetchpriority="low"
-                      loading="lazy"
-                      src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                  </picture>
-                </section>
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                >
-                  <span
-                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
-                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
+                    </h2>
                     <div
-                      class="pulse-animation"
+                      class="marquee-container flex ai-center"
+                      title="Por Carlos Pagni"
                     >
                       <div
-                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
-                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
-                      />
-                    </div>
-                    vivo
-                  </span>
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
-                  >
-                    
-                    Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
-                  </h2>
-                  <div
-                    class="marquee-container flex ai-center"
-                    title="Por Celina Chatruc"
-                  >
-                    <div
-                      class="marquee-text flex flex-column --font-2xs w-100"
-                    >
-                      <span
-                        class="text ln-text marquee"
+                        class="marquee-text flex flex-column --font-2xs w-100"
                       >
-                        Por 
-                        <strong>
-                          Celina Chatruc
-                        </strong>
-                      </span>
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Carlos Pagni
+                          </strong>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --3 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular --no-media --tablet-img-right --desktop-img-right"
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --2 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
-                target="_self"
-                title="Bullrich visita El Calafate y presenta libro"
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-right --desktop-img-right"
               >
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  target="_self"
+                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
                 >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
+                  <section
+                    class="media-container"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                    title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
                   >
-                    
-                    Bullrich visita El Calafate y presenta libro
-                  </h2>
-                  <h3
-                    class="text ln-text subhead --font-s"
-                  >
-                    Incidentes frente al hotel donde convocó a militantes 
-                  </h3>
-                  <div
-                    class="marquee-container flex ai-center"
-                    title="Por Mariela Arias"
-                  >
-                    <div
-                      class="marquee-text flex flex-column --font-2xs w-100"
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
                     >
-                      <span
-                        class="text ln-text marquee"
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <img
+                        alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  >
+                    <span
+                      class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                    >
+                      <div
+                        class="pulse-animation"
                       >
-                        Por 
-                        <strong>
-                          Mariela Arias
-                        </strong>
-                      </span>
+                        <div
+                          class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                          style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
+                        />
+                      </div>
+                      vivo
+                    </span>
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
+                    </h2>
+                    <div
+                      class="marquee-container flex ai-center"
+                      title="Por Celina Chatruc"
+                    >
+                      <div
+                        class="marquee-text flex flex-column --font-2xs w-100"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Celina Chatruc
+                          </strong>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </section>
-              </a>
-            </article>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --3 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular --no-media --tablet-img-right --desktop-img-right"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                  target="_self"
+                  title="Bullrich visita El Calafate y presenta libro"
+                >
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Bullrich visita El Calafate y presenta libro
+                    </h2>
+                    <h3
+                      class="text ln-text subhead --font-s"
+                    >
+                      Incidentes frente al hotel donde convocó a militantes 
+                    </h3>
+                    <div
+                      class="marquee-container flex ai-center"
+                      title="Por Mariela Arias"
+                    >
+                      <div
+                        class="marquee-text flex flex-column --font-2xs w-100"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Mariela Arias
+                          </strong>
+                        </span>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </article>
+            </div>
           </div>
-        </div>
+        </section>
       </section>
-    </section>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Tests Chain CajaCollection Tests cases for focal layouts should return seven articles with layout hash-1-2-2-2_grid 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
-    <section
-      data-chain-id="c0fuuilRMMtV6pi"
+  <div>
+    <div
+      class="hidden"
+      id="c0fuuilRMMtV6pi"
     >
-      <div
-        style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
-      >
-        <div
-          class="mod-warning --warning"
-        >
-          <h2
-            class="title"
-          >
-            Advertencia
-          </h2>
-          <p
-            class="text"
-          >
-            El ID de la imagen del logo es incorrecto.
-          </p>
-        </div>
-      </div>
       <section
-        class="ln-bngrid --hash-1-2-2-2_grid --bienestar"
+        data-chain-id="c0fuuilRMMtV6pi"
       >
         <div
-          class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+          style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
         >
           <div
-            class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            class="mod-warning --warning"
           >
-            <article
-              class="ln-card flex flex-column ai-start --txt-center --m --regular --no-media"
+            <h2
+              class="title"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                target="_self"
-                title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
-              >
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m"
-                  >
-                    
-                    Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
-                  </h2>
-                  
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
+              Advertencia
+            </h2>
+            <p
+              class="text"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                target="_self"
-                title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-              >
-                <section
-                  class="media-container"
-                  href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                  title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                >
-                  <picture
-                    class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
-                  >
-                    <source
-                      media="(min-width: 1024px)"
-                      srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <img
-                      alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex w-100 h-100 --cover"
-                      decoding="async"
-                      fetchpriority="low"
-                      loading="lazy"
-                      src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                  </picture>
-                </section>
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
-                  >
-                    
-                    Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
-                  </h2>
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
-            >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                target="_self"
-                title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-              >
-                <section
-                  class="media-container"
-                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                >
-                  <picture
-                    class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
-                  >
-                    <source
-                      media="(min-width: 1024px)"
-                      srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                    <img
-                      alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image flex w-100 h-100 --cover"
-                      decoding="async"
-                      fetchpriority="low"
-                      loading="lazy"
-                      src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                  </picture>
-                </section>
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                >
-                  <span
-                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
-                  >
-                    <div
-                      class="pulse-animation"
-                    >
-                      <div
-                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
-                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
-                      />
-                    </div>
-                    vivo
-                  </span>
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
-                  >
-                    
-                    Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
-                  </h2>
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --txt-center --m-l --regular --no-media"
-            >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
-                target="_self"
-                title="Bullrich visita El Calafate y presenta libro"
-              >
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
-                  >
-                    
-                    Bullrich visita El Calafate y presenta libro
-                  </h2>
-                  <h3
-                    class="text ln-text subhead --font-s"
-                  >
-                    Incidentes frente al hotel donde convocó a militantes 
-                  </h3>
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --txt-center --m-l --regular --no-media"
-            >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                target="_self"
-                title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
-              >
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
-                  >
-                    
-                    Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
-                  </h2>
-                  
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
-            >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                target="_self"
-                title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-              >
-                <section
-                  class="media-container"
-                  href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                  title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                >
-                  <picture
-                    class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
-                  >
-                    <source
-                      media="(min-width: 1024px)"
-                      srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <img
-                      alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex w-100 h-100 --cover"
-                      decoding="async"
-                      fetchpriority="low"
-                      loading="lazy"
-                      src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                  </picture>
-                </section>
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
-                  >
-                    
-                    Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
-                  </h2>
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
-            >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                target="_self"
-                title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-              >
-                <section
-                  class="media-container"
-                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                >
-                  <picture
-                    class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
-                  >
-                    <source
-                      media="(min-width: 1024px)"
-                      srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                    <img
-                      alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image flex w-100 h-100 --cover"
-                      decoding="async"
-                      fetchpriority="low"
-                      loading="lazy"
-                      src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                  </picture>
-                </section>
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                >
-                  <span
-                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
-                  >
-                    <div
-                      class="pulse-animation"
-                    >
-                      <div
-                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
-                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
-                      />
-                    </div>
-                    vivo
-                  </span>
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
-                  >
-                    
-                    Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
-                  </h2>
-                </section>
-              </a>
-            </article>
+              El ID de la imagen del logo es incorrecto.
+            </p>
           </div>
         </div>
+        <section
+          class="ln-bngrid --hash-1-2-2-2_grid --bienestar"
+        >
+          <div
+            class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+          >
+            <div
+              class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --txt-center --m --regular --no-media"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  target="_self"
+                  title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+                >
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m"
+                    >
+                      
+                      Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
+                    </h2>
+                    
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                  target="_self"
+                  title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                >
+                  <section
+                    class="media-container"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                    title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                  >
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                    >
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <img
+                        alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
+                    </h2>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --2 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  target="_self"
+                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                >
+                  <section
+                    class="media-container"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                    title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                  >
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                    >
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <img
+                        alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  >
+                    <span
+                      class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                    >
+                      <div
+                        class="pulse-animation"
+                      >
+                        <div
+                          class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                          style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
+                        />
+                      </div>
+                      vivo
+                    </span>
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
+                    </h2>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --3 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --txt-center --m-l --regular --no-media"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                  target="_self"
+                  title="Bullrich visita El Calafate y presenta libro"
+                >
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/politica/bullrich-visita-el-calafate-y-presenta-libro-nid11032021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Bullrich visita El Calafate y presenta libro
+                    </h2>
+                    <h3
+                      class="text ln-text subhead --font-s"
+                    >
+                      Incidentes frente al hotel donde convocó a militantes 
+                    </h3>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --4 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --txt-center --m-l --regular --no-media"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  target="_self"
+                  title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+                >
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
+                    </h2>
+                    
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --5 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                  target="_self"
+                  title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                >
+                  <section
+                    class="media-container"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                    title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                  >
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                    >
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <img
+                        alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
+                    </h2>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --6 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --txt-center --m-l --regular"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  target="_self"
+                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                >
+                  <section
+                    class="media-container"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                    title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                  >
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                    >
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <img
+                        alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  >
+                    <span
+                      class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                    >
+                      <div
+                        class="pulse-animation"
+                      >
+                        <div
+                          class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                          style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
+                        />
+                      </div>
+                      vivo
+                    </span>
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
+                    </h2>
+                  </section>
+                </a>
+              </article>
+            </div>
+          </div>
+        </section>
       </section>
-    </section>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Tests Chain CajaCollection Tests cases for focal layouts should return three articles with layout bn_1_2_grid 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
-    <section
-      data-chain-id="c0fuuilRMMtV6pi"
+  <div>
+    <div
+      class="hidden"
+      id="c0fuuilRMMtV6pi"
     >
-      <div
-        style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
-      >
-        <div
-          class="mod-warning --warning"
-        >
-          <h2
-            class="title"
-          >
-            Advertencia
-          </h2>
-          <p
-            class="text"
-          >
-            El ID de la imagen del logo es incorrecto.
-          </p>
-        </div>
-      </div>
       <section
-        class="ln-bngrid --bn_1_2_grid --bienestar"
+        data-chain-id="c0fuuilRMMtV6pi"
       >
         <div
-          class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+          style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
         >
           <div
-            class="grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12"
+            class="mod-warning --warning"
           >
-            <article
-              class="ln-card flex flex-column ai-start --3xl --regular --no-media --tablet-img-right --desktop-img-right"
+            <h2
+              class="title"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                target="_self"
-                title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
-              >
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-3xl"
-                  >
-                    
-                    Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
-                  </h2>
-                  
-                </section>
-              </a>
-            </article>
+              Advertencia
+            </h2>
+            <p
+              class="text"
+            >
+              El ID de la imagen del logo es incorrecto.
+            </p>
           </div>
+        </div>
+        <section
+          class="ln-bngrid --bn_1_2_grid --bienestar"
+        >
           <div
-            class="grid-item --1 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
+            class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-right --desktop-img-right"
+            <div
+              class="grid-item --0 --col-8 --col-md-12 --col-lg-12 --col-xl-12"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                target="_self"
-                title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+              <article
+                class="ln-card flex flex-column ai-start --3xl --regular --no-media --tablet-img-right --desktop-img-right"
               >
-                <section
-                  class="media-container"
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  target="_self"
+                  title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+                >
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-3xl"
+                    >
+                      
+                      Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
+                    </h2>
+                    
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --1 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-right --desktop-img-right"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                  target="_self"
                   title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                 >
-                  <picture
-                    class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                  <section
+                    class="media-container"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                    title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                   >
-                    <source
-                      media="(min-width: 1024px)"
-                      srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <img
-                      alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex w-100 h-100 --cover"
-                      decoding="async"
-                      fetchpriority="low"
-                      loading="lazy"
-                      src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                  </picture>
-                </section>
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
-                  >
-                    
-                    Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
-                  </h2>
-                  <div
-                    class="marquee-container flex ai-center"
-                    title="Por Carlos Pagni"
-                  >
-                    <div
-                      class="marquee-text flex flex-column --font-2xs w-100"
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
                     >
-                      <span
-                        class="text ln-text marquee"
-                      >
-                        Por 
-                        <strong>
-                          Carlos Pagni
-                        </strong>
-                      </span>
-                    </div>
-                  </div>
-                </section>
-              </a>
-            </article>
-          </div>
-          <div
-            class="grid-item --2 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
-          >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-right --desktop-img-right"
-            >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                target="_self"
-                title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-              >
-                <section
-                  class="media-container"
-                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                >
-                  <picture
-                    class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <img
+                        alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
                   >
-                    <source
-                      media="(min-width: 1024px)"
-                      srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                    <img
-                      alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
-                      class="image flex w-100 h-100 --cover"
-                      decoding="async"
-                      fetchpriority="low"
-                      loading="lazy"
-                      src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
-                    />
-                  </picture>
-                </section>
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
-                >
-                  <span
-                    class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
-                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
+                    </h2>
                     <div
-                      class="pulse-animation"
+                      class="marquee-container flex ai-center"
+                      title="Por Carlos Pagni"
                     >
                       <div
-                        class="pulse w-5 h-5 bg-light-0 rounded-circle"
-                        style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
-                      />
-                    </div>
-                    vivo
-                  </span>
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
-                  >
-                    
-                    Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
-                  </h2>
-                  <div
-                    class="marquee-container flex ai-center"
-                    title="Por Celina Chatruc"
-                  >
-                    <div
-                      class="marquee-text flex flex-column --font-2xs w-100"
-                    >
-                      <span
-                        class="text ln-text marquee"
+                        class="marquee-text flex flex-column --font-2xs w-100"
                       >
-                        Por 
-                        <strong>
-                          Celina Chatruc
-                        </strong>
-                      </span>
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Carlos Pagni
+                          </strong>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </section>
-              </a>
-            </article>
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --2 --col-8 --col-md-6 --col-lg-6 --col-xl-6"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular --tablet-img-right --desktop-img-right"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  target="_self"
+                  title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                >
+                  <section
+                    class="media-container"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                    title="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                  >
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                    >
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/zjnDs0_VUIbr4qr58x4IZg9O-Qw=/360x240/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/n5lSSh3ckD4EkPD89wVn3kUNQ84=/768x512/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                      <img
+                        alt="Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/yZD_ef4PuFuOAAyIO06CzT0PaqA=/351x234/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/FBBNRZSHRVGLTJP5RPBUMIS7YY.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/deportes/futbol/boca-juniors/boca-claypole-en-lanus-el-favorito-gano-luego-de-sufrir-en-los-32os-de-final-de-la-copa-argentina-nid16032021/"
+                  >
+                    <span
+                      class="ln-badge inline-flex w-fit ai-center rounded-16 text-12 z-1 flex-nowrap overflow-hidden bg-danger-600 text-light-0 uppercase py-6 pl-10 pr-8 gap-8 h-24 --live"
+                    >
+                      <div
+                        class="pulse-animation"
+                      >
+                        <div
+                          class="pulse w-5 h-5 bg-light-0 rounded-circle"
+                          style="animation-duration: 1s; animation-timing-function: linear; animation-name: pulse-shadow; animation-iteration-count: infinite;"
+                        />
+                      </div>
+                      vivo
+                    </span>
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
+                    </h2>
+                    <div
+                      class="marquee-container flex ai-center"
+                      title="Por Celina Chatruc"
+                    >
+                      <div
+                        class="marquee-text flex flex-column --font-2xs w-100"
+                      >
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Celina Chatruc
+                          </strong>
+                        </span>
+                      </div>
+                    </div>
+                  </section>
+                </a>
+              </article>
+            </div>
           </div>
-        </div>
+        </section>
       </section>
-    </section>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Tests Chain CajaCollection Tests cases for focal layouts should return two articles with layout bn_1_1_grid 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
-    <section
-      data-chain-id="c0fuuilRMMtV6pi"
+  <div>
+    <div
+      class="hidden"
+      id="c0fuuilRMMtV6pi"
     >
-      <div
-        style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
-      >
-        <div
-          class="mod-warning --warning"
-        >
-          <h2
-            class="title"
-          >
-            Advertencia
-          </h2>
-          <p
-            class="text"
-          >
-            El ID de la imagen del logo es incorrecto.
-          </p>
-        </div>
-      </div>
       <section
-        class="ln-bngrid --bn_1_1_grid --bienestar"
+        data-chain-id="c0fuuilRMMtV6pi"
       >
         <div
-          class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+          style="margin-top: 10px; margin-bottom: 10px; width: 100%;"
         >
           <div
-            class="grid-item --0 --col-8 --col-md-9 --col-lg-9 --col-xl-9"
+            class="mod-warning --warning"
           >
-            <article
-              class="ln-card flex flex-column ai-start --2xl --regular --no-media --tablet-img-right --desktop-img-right"
+            <h2
+              class="title"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                target="_self"
-                title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
-              >
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-2xl"
-                  >
-                    
-                    Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
-                  </h2>
-                  
-                </section>
-              </a>
-            </article>
+              Advertencia
+            </h2>
+            <p
+              class="text"
+            >
+              El ID de la imagen del logo es incorrecto.
+            </p>
           </div>
+        </div>
+        <section
+          class="ln-bngrid --bn_1_1_grid --bienestar"
+        >
           <div
-            class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
           >
-            <article
-              class="ln-card flex flex-column ai-start --m-l --regular"
+            <div
+              class="grid-item --0 --col-8 --col-md-9 --col-lg-9 --col-xl-9"
             >
-              <a
-                class="link ln-link flex flex-column --unstyled"
-                href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                target="_self"
-                title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+              <article
+                class="ln-card flex flex-column ai-start --2xl --regular --no-media --tablet-img-right --desktop-img-right"
               >
-                <section
-                  class="media-container"
+                <a
+                  class="link ln-link flex flex-column --unstyled"
+                  href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  target="_self"
+                  title="Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra"
+                >
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/sociedad/comunidad/elefante-azul-la-tragica-historia-detras-del-imponente-edificio-abandonado-en-saavedra-nid22042021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-2xl"
+                    >
+                      
+                      Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
+                    </h2>
+                    
+                  </section>
+                </a>
+              </article>
+            </div>
+            <div
+              class="grid-item --1 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
+            >
+              <article
+                class="ln-card flex flex-column ai-start --m-l --regular"
+              >
+                <a
+                  class="link ln-link flex flex-column --unstyled"
                   href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                  target="_self"
                   title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                 >
-                  <picture
-                    class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
+                  <section
+                    class="media-container"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                    title="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
                   >
-                    <source
-                      media="(min-width: 1024px)"
-                      srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <source
-                      media="(min-width: 768px)"
-                      srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                    <img
-                      alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
-                      class="image flex w-100 h-100 --cover"
-                      decoding="async"
-                      fetchpriority="low"
-                      loading="lazy"
-                      src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
-                    />
-                  </picture>
-                </section>
-                <section
-                  class="description-container relative flex flex-column"
-                  href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
-                >
-                  <h2
-                    class="text ln-text title --prumo --font-medium --font-m-l"
-                  >
-                    
-                    Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
-                  </h2>
-                  <div
-                    class="marquee-container flex ai-center"
-                    title="Por Carlos Pagni"
-                  >
-                    <div
-                      class="marquee-text flex flex-column --font-2xs w-100"
+                    <picture
+                      class="ln-placeholder flex jc-center ai-center relative ratio-3-2"
                     >
-                      <span
-                        class="text ln-text marquee"
+                      <source
+                        media="(min-width: 1024px)"
+                        srcset="https://resizer.glanacion.com/resizer/49bGzm_PlvwkFdq_mPUWYPu1Ll4=/360x240/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <source
+                        media="(min-width: 768px)"
+                        srcset="https://resizer.glanacion.com/resizer/F_QTa-zf0qUhummZ_iSXQg5DJ8M=/768x512/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                      <img
+                        alt="Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial"
+                        class="image flex w-100 h-100 --cover"
+                        decoding="async"
+                        fetchpriority="low"
+                        loading="lazy"
+                        src="https://resizer.glanacion.com/resizer/vI9F3VNVuHph7r0iT_GuISwhq0s=/351x234/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/IRC57MQ7QVGRVJCGMT2TRIXGYM.jpg"
+                      />
+                    </picture>
+                  </section>
+                  <section
+                    class="description-container relative flex flex-column"
+                    href="/politica/coronavirus-la-sorpresa-negativa-que-suma-incertidumbre-al-escenario-mundial-nid16032021/"
+                  >
+                    <h2
+                      class="text ln-text title --prumo --font-medium --font-m-l"
+                    >
+                      
+                      Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
+                    </h2>
+                    <div
+                      class="marquee-container flex ai-center"
+                      title="Por Carlos Pagni"
+                    >
+                      <div
+                        class="marquee-text flex flex-column --font-2xs w-100"
                       >
-                        Por 
-                        <strong>
-                          Carlos Pagni
-                        </strong>
-                      </span>
+                        <span
+                          class="text ln-text marquee"
+                        >
+                          Por 
+                          <strong>
+                            Carlos Pagni
+                          </strong>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </section>
-              </a>
-            </article>
+                  </section>
+                </a>
+              </article>
+            </div>
           </div>
-        </div>
+        </section>
       </section>
-    </section>
+    </div>
   </div>
 </div>
 `;

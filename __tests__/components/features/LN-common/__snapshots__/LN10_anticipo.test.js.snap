@@ -2,9 +2,7 @@
 
 exports[`Components - Features - Anticipo => LN10 Anticipo Snapshot Feature Anticipo with video 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <div>
     <section
       class="ln-advance bg-light-900 py-8 p-0_m --withVideo"
     >
