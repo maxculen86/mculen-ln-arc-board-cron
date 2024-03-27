@@ -103,7 +103,7 @@ const CajaBomba = props => {
         }
     });
 
-    return setStaticDynamically(Component, isAdmin, extraOptsDiv);
+    return setStaticDynamically(Component, isAdmin, extraOptsDiv, chainId);
 };
 
 CajaBomba.label = 'LN10 Caja Bomba';

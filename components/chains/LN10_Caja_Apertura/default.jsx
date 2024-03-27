@@ -112,7 +112,7 @@ const CajaApertura = props => {
         }
     });
 
-    return setStaticDynamically(Component, isAdmin, extraOptsDiv);
+    return setStaticDynamically(Component, isAdmin, extraOptsDiv, chainId);
 };
 
 CajaApertura.label = 'LN10 Caja Apertura';

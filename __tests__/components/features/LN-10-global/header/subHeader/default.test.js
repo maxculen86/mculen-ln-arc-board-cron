@@ -72,8 +72,8 @@ describe('components - features - LN-10-global - subHeader - default', () => {
         useHeaderContext.mockImplementation(() => ({
             isHome: true
         }));
-        setDollarData.mockImplementation(() => mockDollar);
 
+        setDollarData.mockImplementation(() => mockDollar);
         const { getByText } = render(<SubHeaderLN />);
 
         mockDollar.forEach(dollar => {
