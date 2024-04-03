@@ -25,6 +25,11 @@ const FooterFoodit = () => {
                                 title="Seguinos en Facebook"
                                 iconOnly
                                 size={32}
+                                data-interaction="dataLayerInteraction"
+                                data-event-data-layer="e_linkclick"
+                                data-dynamic-category="interaction"
+                                data-dynamic-label={'Social'}
+                                data-dynamic-action={'Facebook'}
                             >
                                 <Icon size={16}>
                                     <IconSprite name="facebook" />
@@ -35,6 +40,11 @@ const FooterFoodit = () => {
                                 title="Seguinos en X"
                                 iconOnly
                                 size={32}
+                                data-interaction="dataLayerInteraction"
+                                data-event-data-layer="e_linkclick"
+                                data-dynamic-category="interaction"
+                                data-dynamic-label={'Social'}
+                                data-dynamic-action={'X'}
                             >
                                 <Icon size={16}>
                                     <IconSprite name="twitter" />
@@ -45,6 +55,11 @@ const FooterFoodit = () => {
                                 title="Seguinos en Instagram"
                                 iconOnly
                                 size={32}
+                                data-interaction="dataLayerInteraction"
+                                data-event-data-layer="e_linkclick"
+                                data-dynamic-category="interaction"
+                                data-dynamic-label={'Social'}
+                                data-dynamic-action={'Instagram'}
                             >
                                 <Icon size={16}>
                                     <IconSprite name="instagram" />
@@ -58,6 +73,11 @@ const FooterFoodit = () => {
                             href="/"
                             unstyled
                             title="Ir a la página principal"
+                            data-interaction="dataLayerInteraction"
+                            data-event-data-layer="e_linkclick"
+                            data-dynamic-category="footer"
+                            data-dynamic-label={'Pagina principal'}
+                            data-dynamic-action={'LA NACION'}
                         >
                             <img
                                 width={151}
@@ -78,6 +98,11 @@ const FooterFoodit = () => {
                             href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/GenericError.htm?aspxerrorpath=/clavefiscal/qr/publicInfoD.aspx"
                             unstyled
                             title="Data fiscal"
+                            data-interaction="dataLayerInteraction"
+                            data-event-data-layer="e_linkclick"
+                            data-dynamic-category="footer"
+                            data-dynamic-label={'Legales'}
+                            data-dynamic-action={'Data fiscal'}
                         >
                             <img
                                 width={28}
@@ -98,6 +123,11 @@ const FooterFoodit = () => {
                                 uppercase
                                 bold
                                 title="Ir a condiciones"
+                                data-interaction="dataLayerInteraction"
+                                data-event-data-layer="e_linkclick"
+                                data-dynamic-category="footer"
+                                data-dynamic-label={'Legales'}
+                                data-dynamic-action={'Condiciones'}
                             >
                                 CONDICIONES
                             </Link>
@@ -109,6 +139,11 @@ const FooterFoodit = () => {
                                 uppercase
                                 bold
                                 title="Ir a privacidad"
+                                data-interaction="dataLayerInteraction"
+                                data-event-data-layer="e_linkclick"
+                                data-dynamic-category="footer"
+                                data-dynamic-label={'Legales'}
+                                data-dynamic-action={'Privacidad'}
                             >
                                 PRIVACIDAD
                             </Link>

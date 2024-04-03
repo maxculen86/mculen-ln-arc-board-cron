@@ -22,6 +22,7 @@ import Marfeel from '../../../common/scriptManager/Marfeel';
 import ScriptCloseBanners from '../../../common/scriptManager/scriptCloseBanners';
 import ScriptDataModal from '../../../common/scriptManager/scriptDataModal';
 import ObservableFoodit from '../../../../output-types/Helper/observableFoodit';
+import FooditEventsHelper from '../../../common/scriptManager/FooditEventsHelper';
 
 import { pipe } from '../../../common/utils/functional';
 import EventsHelpers from './EventsHelpers';
@@ -117,6 +118,13 @@ const scriptList = [
     },
     {
         component: { name: 'DataModal', function: ScriptDataModal },
+        feature: 'none'
+    },
+    {
+        component: {
+            name: 'FooditEventsHelper',
+            function: FooditEventsHelper
+        },
         feature: 'none'
     },
     {

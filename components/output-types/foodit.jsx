@@ -4,6 +4,7 @@ import CssLinksByArcSite from './Helper/cssLinksByArcSite';
 import PreloadFooditImages from '../features/foodit-global/common/image/preloadImage/foodit';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
+import DataLayerIndex from '../private/common/dataLayerIndex';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import MetaFoodit from '../features/foodit-global/common/MetaFoodit/foodit';
 import BuildComments from '../features/foodit-global/common/MetaCommentsViafoura/foodit';
@@ -83,6 +84,11 @@ const Foodit = ({
                 />
             </head>
             <body>
+                <DataLayerIndex
+                    arcSite={arcSite}
+                    layout={layout}
+                    globalContent={globalContent}
+                />
                 <Scripts location="body-top" />
                 <TagsLoadingList
                     section={_nodeType}

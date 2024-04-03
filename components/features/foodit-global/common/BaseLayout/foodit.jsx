@@ -1,5 +1,4 @@
 import React from 'react';
-import DrawerMenu from '../DrawerMenu/foodit';
 import Header from '../Header/foodit';
 import Footer from '../Footer/foodit';
 import Modal from '../Modals/SaveRecipe/foodit';
@@ -7,6 +6,8 @@ import DrawerMyAccount from '../DrawerMyAccount/foodit';
 import FloatingGroupButton from '../floatingGroupButton/foodit';
 import Toasts from '../toasts/foodit';
 import AuthProvider from '../context/authContext/foodit';
+import FooditEventsHelper from '../dataLayer/FooditEventsHelper';
+import DataLayerInteractions from '../../../../private/common/scriptManager/DataLayerInteracions';
 
 const BaseLayout = ({ children }) => {
     return (
@@ -19,6 +20,8 @@ const BaseLayout = ({ children }) => {
                     {children}
                 </main>
                 <Footer />
+                <FooditEventsHelper />
+                <DataLayerInteractions />
                 <Modal />
                 <Toasts />
                 <FloatingGroupButton />
