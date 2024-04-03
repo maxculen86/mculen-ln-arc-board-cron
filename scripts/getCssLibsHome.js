@@ -1,19 +1,34 @@
 const fs = require('fs');
 
-const copyCssLibsHomeLn10LaNacionAr = () => {
+const getCssLibsHome = () => {
     try {
-        const outputFilePath = 'resources/packages/css/homeln10-style.css';
-        fs.unlinkSync(outputFilePath);
+        const outputFilePathStyles =
+            'resources/packages/css/LN10-Home_Main.css';
+        fs.unlinkSync(outputFilePathStyles);
+
+        const outputFilePathCriticalStyles =
+            'resources/packages/css/LN10-Home_Main-critical.css';
+        fs.unlinkSync(outputFilePathCriticalStyles);
 
         const copyFile = (source, target) => {
             const fileContent = fs.readFileSync(source, 'utf-8');
             fs.appendFileSync(target, fileContent);
         };
 
-        const file = package =>
-            `resources/packages/css/@ln/${package}/index.css`;
+        const file = packageName =>
+            `resources/packages/css/@ln/${packageName}/index.css`;
 
-        const filesToCopy = [
+        const filesToCopyStyles = [
+            // CONTENIDOS
+            file('contenidos-ui-bannersubscriber'),
+            file('contenidos-ui-cajaafondo'),
+            file('contenidos-ui-cajahashtag'),
+            file('contenidos-ui-cajaopinion'),
+            file('contenidos-ui-cajaranking'),
+            file('contenidos-ui-contentlab'),
+            file('contenidos-ui-roof')
+        ];
+        const filesToCopyCriticalStyles = [
             // COMMON
             file('common-ui-button'),
             file('common-ui-dropdown'),
@@ -26,27 +41,20 @@ const copyCssLibsHomeLn10LaNacionAr = () => {
             file('common-ui-scrollinx'),
             file('common-ui-text'),
             file('common-ui-video'),
+
             // CONTENIDOS
             file('contenidos-ui-advance'),
             file('contenidos-ui-anexob'),
             file('contenidos-ui-banners'),
-            file('contenidos-ui-bannersubscriber'),
             file('contenidos-ui-bngrid'),
             file('contenidos-ui-bomba'),
-            file('contenidos-ui-cajaafondo'),
-            file('contenidos-ui-cajahashtag'),
-            file('contenidos-ui-cajaopinion'),
-            file('contenidos-ui-cajaranking'),
             file('contenidos-ui-card'),
-            file('contenidos-ui-cardgames'),
-            file('contenidos-ui-contentlab'),
             file('contenidos-ui-dropdown'),
             file('contenidos-ui-link'),
             file('contenidos-ui-live'),
             file('contenidos-ui-navbarmobile'),
             file('contenidos-ui-opening'),
             file('contenidos-ui-pwamodal'),
-            file('contenidos-ui-roof'),
             file('contenidos-ui-sass'),
             file('contenidos-ui-text'),
             file('contenidos-ui-timeline'),
@@ -54,8 +62,11 @@ const copyCssLibsHomeLn10LaNacionAr = () => {
             file('contenidos-ui-webstories')
         ];
 
-        filesToCopy.forEach(file => {
-            copyFile(file, outputFilePath);
+        filesToCopyStyles.forEach(file => {
+            copyFile(file, outputFilePathStyles);
+        });
+        filesToCopyCriticalStyles.forEach(file => {
+            copyFile(file, outputFilePathCriticalStyles);
         });
         console.log('✔️ Css libs Ln10 copied successfully');
     } catch (error) {
@@ -63,4 +74,4 @@ const copyCssLibsHomeLn10LaNacionAr = () => {
     }
 };
 
-copyCssLibsHomeLn10LaNacionAr();
+getCssLibsHome();

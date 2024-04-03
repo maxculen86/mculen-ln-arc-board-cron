@@ -3,7 +3,6 @@ import { useAppContext } from 'fusion:context';
 
 const CssLinksByArcSite = () => {
     const { contextPath, deployment, arcSite } = useAppContext();
-
     return (
         <link
             id="fusion-output-type-styles"

@@ -9,7 +9,7 @@ import {
 
 //TODO: Cargar diferidas las fuentes que no necesitamos en el primer viewport. Falta definicion de diseño y prod.
 
-export const FontFaceFoodit = ({ contextPath, deployment }) => `
+export const fontFaceFoodit = ({ contextPath, deployment }) => `
 @font-face {font-family:'Prumo';src:url('${getWebFont({
     font: FONT_PRUMO,
     contextPath,

@@ -1,14 +1,14 @@
 import React from 'react';
-import CriticalCSS from '../features/foodit-global/common/CriticalCss/foodit';
 import CssLinksByArcSite from './Helper/cssLinksByArcSite';
 import PreloadFooditImages from '../features/foodit-global/common/image/preloadImage/foodit';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import MetaFoodit from '../features/foodit-global/common/MetaFoodit/foodit';
-import BuildComments from '../features/foodit-global/common/MetaCommentsViafoura/foodit';
 import useTermica from '../private/common/hooks/useTermica';
+import BuildComments from '../features/foodit-global/common/MetaCommentsViafoura/foodit';
 import { allowCommentsFoodit } from '../private/common/utils/commentsHelper';
+import { GetFonts } from './criticalCss/getFonts';
 
 const Foodit = ({
     children,
@@ -69,7 +69,11 @@ const Foodit = ({
                     siteProperties={siteProperties}
                     deployment={deployment}
                 />
-                <CriticalCSS />
+                <GetFonts
+                    contextPath={contextPath}
+                    deployment={deployment}
+                    arcSite={arcSite}
+                />
                 <CssLinksByArcSite />
                 <Scripts location="head" />
                 <BuildComments

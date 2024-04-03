@@ -105,21 +105,6 @@ export const embedsForNote = [
 
 const customElementForNote = elementForNote.map(elem => customElements[elem]);
 
-export const styleConfig = {
-    OTT: {},
-    'la-nacion-ar': {
-        'LN-nota-foto-al-100': 'resources/dist/css/ln/amp/amp-foto100.css',
-        'LN-nota-infografia': 'resources/dist/css/ln/amp/amp-infografia.css',
-        'LN-nota-noticia': 'resources/dist/css/ln/amp/amp-noticia.css',
-        'LN-nota-receta': 'resources/dist/css/ln/amp/amp-receta.css',
-        'LN-nota-storytelling':
-            'resources/dist/css/ln/amp/amp-storytelling.css',
-        'LN-acumulado': 'resources/dist/css/ln/amp/amp-acumulado.css',
-        'LN-nota-video': 'resources/dist/css/ln/amp/amp-video.css',
-        Error: 'resources/dist/css/ln/amp/amp-error.css'
-    }
-};
-
 export const config = {
     OTT: {},
     'la-nacion-ar': {

@@ -1,19 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import CssLinksByArcSite from './cssLinksByArcSite';
 
 const CssLinksLn10 = props => {
-    const { CssLinks, isLN10, deployment, contextPath } = props;
-
-    const CssHomeLN10 = (
-        <link
-            id="fusion-output-type-styles"
-            rel="stylesheet"
-            type="text/css"
-            href={deployment(
-                `${contextPath}/resources/packages/css/homeln10-style.min.css`
-            )}
-        />
-    );
-    return isLN10 ? CssHomeLN10 : <CssLinks />;
+    const { CssLinks, isLN10, arcSite } = props;
+    if (arcSite === 'la-nacion-ar' && isLN10) return <></>;
+    if (arcSite !== 'la-nacion-ar') {
+        return <CssLinksByArcSite />;
+    }
+    return <CssLinks />;
 };
 export default CssLinksLn10;
