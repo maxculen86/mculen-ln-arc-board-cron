@@ -36,6 +36,7 @@ export default {
                         minScreenWidth: 1440,
                         useFullSize: true,
                         proportion: '3:2',
+                        device: 'desktop',
                         media_preload: setMediaCondition({ minWidth: 1440 })
                     },
                     {
@@ -43,6 +44,7 @@ export default {
                         height: 800,
                         minScreenWidth: 1024,
                         useFullSize: true,
+                        device: 'desktop',
                         proportion: '3:2',
                         media_preload: setMediaCondition({
                             minWidth: 1024,
@@ -50,11 +52,12 @@ export default {
                         })
                     },
                     {
-                        width: 770,
-                        height: 1155,
+                        width: 880,
+                        height: 587,
                         minScreenWidth: 768,
                         useFullSize: true,
-                        proportion: '2:3',
+                        device: 'mobile',
+                        proportion: '3:2',
                         media_preload: setMediaCondition({
                             minWidth: 768,
                             maxWidth: 1023
@@ -62,9 +65,10 @@ export default {
                     },
                     {
                         width: 420,
-                        height: 630,
+                        height: 280,
                         useFullSize: true,
-                        proportion: '2:3',
+                        device: 'mobile',
+                        proportion: '3:2',
                         media_preload: setMediaCondition({ maxWidth: 767 })
                     }
                 ]
@@ -99,31 +103,19 @@ export default {
             promo_items: {
                 sizes: [
                     {
-                        width: 1302,
-                        height: 868,
-                        proportion: '3:2',
-                        media_preload: setMediaCondition({
-                            minWidth: 1280
-                        }),
-                        minScreenWidth: 1280
-                    },
-                    {
-                        width: 976,
-                        height: 651,
-                        proportion: '3:2',
-                        media_preload: setMediaCondition({
-                            minWidth: 768,
-                            maxWidth: 1279
-                        }),
-                        minScreenWidth: 768
+                        width: 880,
+                        height: 587,
+                        minScreenWidth: 768,
+                        media_preload: setMediaCondition({ minWidth: 768 }),
+                        useFullSize: true,
+                        proportion: '3:2'
                     },
                     {
                         width: 420,
                         height: 280,
-                        proportion: '3:2',
-                        media_preload: setMediaCondition({
-                            maxWidth: 767
-                        })
+                        media_preload: setMediaCondition({ maxWidth: 767 }),
+                        useFullSize: true,
+                        proportion: '3:2'
                     }
                 ]
             },

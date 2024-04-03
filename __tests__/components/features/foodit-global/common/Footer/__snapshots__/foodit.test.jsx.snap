@@ -29,6 +29,11 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
           >
             <a
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover p-8"
+              data-dynamic-action="Facebook"
+              data-dynamic-category="interaction"
+              data-dynamic-label="Social"
+              data-event-data-layer="e_linkclick"
+              data-interaction="dataLayerInteraction"
               data-variant="primary"
               href="https://www.facebook.com/lanacion/"
               target="_self"
@@ -44,6 +49,11 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
             </a>
             <a
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover p-8"
+              data-dynamic-action="X"
+              data-dynamic-category="interaction"
+              data-dynamic-label="Social"
+              data-event-data-layer="e_linkclick"
+              data-interaction="dataLayerInteraction"
               data-variant="primary"
               href="https://www.twitter.com/lanacion/"
               target="_self"
@@ -59,6 +69,11 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
             </a>
             <a
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover p-8"
+              data-dynamic-action="Instagram"
+              data-dynamic-category="interaction"
+              data-dynamic-label="Social"
+              data-event-data-layer="e_linkclick"
+              data-interaction="dataLayerInteraction"
               data-variant="primary"
               href="https://www.instagram.com/lanacioncom/"
               target="_self"
@@ -84,6 +99,11 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
           </span>
           <a
             class="link foodit-link flex gap-8 ai-center roboto-regular --unstyled"
+            data-dynamic-action="LA NACION"
+            data-dynamic-category="footer"
+            data-dynamic-label="Pagina principal"
+            data-event-data-layer="e_linkclick"
+            data-interaction="dataLayerInteraction"
             data-variant="primary"
             href="/"
             target="_self"
@@ -107,6 +127,11 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
           </span>
           <a
             class="link foodit-link flex gap-8 ai-center roboto-regular --unstyled"
+            data-dynamic-action="Data fiscal"
+            data-dynamic-category="footer"
+            data-dynamic-label="Legales"
+            data-event-data-layer="e_linkclick"
+            data-interaction="dataLayerInteraction"
             data-variant="primary"
             href="https://serviciosweb.afip.gob.ar/clavefiscal/qr/GenericError.htm?aspxerrorpath=/clavefiscal/qr/publicInfoD.aspx"
             target="_self"
@@ -132,6 +157,11 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-bold uppercase"
+              data-dynamic-action="Condiciones"
+              data-dynamic-category="footer"
+              data-dynamic-label="Legales"
+              data-event-data-layer="e_linkclick"
+              data-interaction="dataLayerInteraction"
               data-variant="primary"
               href="https://policies.google.com/terms?hl=es-419/"
               target="_self"
@@ -148,6 +178,11 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
             </i>
             <a
               class="link foodit-link flex gap-8 ai-center roboto-bold uppercase"
+              data-dynamic-action="Privacidad"
+              data-dynamic-category="footer"
+              data-dynamic-label="Legales"
+              data-event-data-layer="e_linkclick"
+              data-interaction="dataLayerInteraction"
               data-variant="primary"
               href="https://policies.google.com/privacy?hl=es-419/"
               target="_self"

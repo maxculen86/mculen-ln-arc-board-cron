@@ -1,0 +1,3 @@
+window.addEventListener('DOMContentLoaded', () => {
+    window.LN.fooditEventsHelper.setEventsInteraction();
+});

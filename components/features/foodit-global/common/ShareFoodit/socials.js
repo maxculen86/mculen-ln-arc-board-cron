@@ -8,11 +8,13 @@ import {
 } from '../../../../private/LN/common/utils/shareHelper';
 import get from '../../../../private/common/utils/get';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import { addActionToDataLayer } from '../ActionsButtons/_helper';
 
 export const socials = [
     {
         type: 'button',
         onClick: ({ article }) => {
+            addActionToDataLayer(article, 'compartir');
             const url = get(article, 'website_url', '');
             const title = get(article, 'headlines.basic', '');
 
@@ -25,6 +27,7 @@ export const socials = [
     {
         type: 'button',
         onClick: ({ article }) => {
+            addActionToDataLayer(article, 'compartir');
             const url = get(article, 'website_url', '');
             const title = get(article, 'headlines.basic', '');
 
@@ -37,6 +40,7 @@ export const socials = [
     {
         type: 'button',
         onClick: ({ article }) => {
+            addActionToDataLayer(article, 'compartir');
             const url = get(article, 'website_url', '');
             const title = get(article, 'headlines.basic', '');
 
@@ -49,6 +53,7 @@ export const socials = [
     {
         type: 'button',
         onClick: ({ article }) => {
+            addActionToDataLayer(article, 'compartir');
             const url = get(article, 'website_url', '');
             popUpCompartirMailTo(url, config.host);
         },

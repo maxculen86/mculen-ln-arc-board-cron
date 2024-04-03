@@ -2,7 +2,7 @@ import { useContent } from 'fusion:content';
 
 import get from '../../../../../private/common/utils/get';
 import { checkForId } from '../../../../LN-10/article/common/_helper-WebApi.js';
-import { filterImagesByProportion } from '../../../../private-global/common/utils/filterImagesByProportion.js';
+import { filterImagesByDevice } from '../../../../private-global/common/utils/filterImagesByDevice.js';
 import { getVideoData } from '../../../../private-global/common/utils/getVideoData.js';
 
 import filter from '../../../../../../content/filters/foodit/home/articleFoodit.js';
@@ -17,7 +17,7 @@ export const getHomeOpeningImages = (renderables = [], isAdmin = false) => {
 
     const { promo_items = {} } =
         useContent({
-            source: id ? 'fooditArticleSource' : null,
+            source: id ? 'fooditBaseArticleSource' : null,
             query: {
                 id,
                 published: true,
@@ -57,15 +57,15 @@ export const getPromoItemsImages = (article = {}, layout = '') => {
         };
 
         return [
-            ...filterImagesByProportion(basicImageMobile, '2:3'),
+            ...filterImagesByDevice(basicImageMobile, 'mobile'),
             posterImage
         ];
     }
 
     if (basicImageMobile)
         return [
-            ...filterImagesByProportion(basicImage, '3:2'),
-            ...filterImagesByProportion(basicImageMobile, '2:3')
+            ...filterImagesByDevice(basicImage, 'desktop'),
+            ...filterImagesByDevice(basicImageMobile, 'mobile')
         ];
 
     return get(basicImage, 'resized_urls', []);

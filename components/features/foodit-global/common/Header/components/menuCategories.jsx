@@ -32,6 +32,11 @@ const Categories = ({ title, href, data }) => {
             className="text-12 roboto-bold uppercase"
             text={title}
             title={`Ir a ${title}`}
+            data-interaction="dataLayerInteraction"
+            data-event-data-layer="e_linkclick"
+            data-dynamic-category="header"
+            data-dynamic-label={title}
+            data-dynamic-action="N/A"
         />
     );
 };

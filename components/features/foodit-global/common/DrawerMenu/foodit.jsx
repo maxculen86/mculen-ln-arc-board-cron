@@ -24,6 +24,11 @@ const DrawerMenu = ({ categories = [] }) => {
                             level={1}
                             fullWidth
                             arrowIcon={<IconSprite name="arrow-right" />}
+                            data-interaction="dataLayerInteraction"
+                            data-event-data-layer="e_linkclick"
+                            data-dynamic-category="header"
+                            data-dynamic-label={title}
+                            data-dynamic-action="N/A"
                         />
                     ) : (
                         <Text className="roboto-bold text-14 uppercase bg-positive p-8 block rounded-top-right-4 rounded-bottom-right-4">
