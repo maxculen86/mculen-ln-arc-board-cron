@@ -11,14 +11,6 @@ import setContextDatadog from '../utils/setContextDatadog';
 export const GlobalContext = React.createContext();
 
 const actionType = {
-    ADD_TAGS_ARTICLES: (state = {}, action = {}) => {
-        const tags = state.tagsHome;
-        tags.push(action.article);
-        return {
-            ...state,
-            tagsHome: tags
-        };
-    },
     SET_LOGIN: (state = {}, action = {}) => {
         const { logueado, loginData } = action.payload || {};
         return {
@@ -27,37 +19,6 @@ const actionType = {
             loginData: {
                 ...state.loginData,
                 ...loginData
-            }
-        };
-    },
-    ADD_ADUNIT_DEFINITION: (state, action) => {
-        const adUnits = state.bannersConfig.bannersToLoad || [];
-        adUnits.push(action.payload);
-        return {
-            ...state,
-            bannersConfig: { ...state.bannersConfig, bannersToLoad: adUnits }
-        };
-    },
-    REMOVE_ITEM_FROM_SHALL_BE_EXLUDED_LIST: (state, action) => {
-        const shallBeExcluded = state.bannersConfig.shallBeExcluded.filter(
-            el => el !== action.payload.id
-        );
-        return {
-            ...state,
-            bannersConfig: {
-                ...state.bannersConfig,
-                shallBeExcluded
-            }
-        };
-    },
-    ADD_BANNER_IN_GRILLAS: (state, action) => {
-        const adUnits = state.bannersConfig.bannersInGrillaNotas || [];
-        adUnits.push(action.payload.id);
-        return {
-            ...state,
-            bannersConfig: {
-                ...state.bannersConfig,
-                bannersInGrillaNotas: adUnits
             }
         };
     },
@@ -96,7 +57,6 @@ const GlobalProvider = ({ children }) => {
                 const {
                     site = {},
                     Termicas: termicasConfig = {},
-                    bannerConfig = {},
                     migration = {}
                 } = response || {};
                 const {
@@ -105,14 +65,9 @@ const GlobalProvider = ({ children }) => {
                     not_recommended_sections: notRecommendedSections = []
                 } = site;
                 return {
-                    bannerConfig: { dfp_id: bannerConfig.dfp_id },
                     tooltips: Object.keys(tooltips).map(key => ({
                         text: key,
                         label: tooltips[key]
-                    })),
-                    banners: Object.keys(bannerConfig).map(key => ({
-                        adunit: key,
-                        dimensions: bannerConfig[key]
                     })),
                     adserver: Object.keys(sitioAdserver).map(key => ({
                         key,
@@ -127,18 +82,6 @@ const GlobalProvider = ({ children }) => {
                 };
             }
         }),
-        bannersConfig: {
-            bannersToLoad: [],
-            bannersInGrillaNotas: [],
-            shallBeExcluded: [
-                'caja3_dsk',
-                'caja4_dsk',
-                'caja2_tab',
-                'middle_1_tab',
-                'middle_2_tab'
-            ]
-        },
-        tagsHome: [],
         logueado: false,
         showModal: {
             typeModal: '',
