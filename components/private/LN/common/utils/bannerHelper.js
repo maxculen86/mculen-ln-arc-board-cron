@@ -396,7 +396,11 @@ export const queueGoogletagCommand = bannersToLoad => {
             .filter(e => !e.prebidEnabled)
             .map(defineSlot);
 
+        const saleFrameValidation = determineSafeFrame(bannersToLoad);
         // initialize
+        saleFrameValidation.map(banner => {
+            googletag.pubads().setForceSafeFrame(banner.safeFrame);
+        });
         googletag.pubads().enableSingleRequest();
         googletag.pubads().enableAsyncRendering();
         googletag.pubads().disableInitialLoad();
@@ -488,4 +492,18 @@ export const queueGoogletagCommand = bannersToLoad => {
                 }
             });
     });
+};
+
+export const determineSafeFrame = bannersToLoad => {
+    const validValues = [
+        'caja1_dsk',
+        'caja2_dsk',
+        'caja3_dsk',
+        'caja4_dsk',
+        'caja5_dsk'
+    ];
+    return bannersToLoad.map(banner => ({
+        ...banner,
+        safeFrame: validValues.includes(banner.opt_div)
+    }));
 };

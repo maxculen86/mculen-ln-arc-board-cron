@@ -32,6 +32,7 @@ googletag.cmd.push(() => {
         });
     }
 
+    googletag.pubads().set('page_url', newTags[3]);
     googletag.enableServices();
     console.log('🚀 ::: setTargeting ON ::: 🚀');
     googletag.pubads().setTargeting('tags_nuevos', newTags);

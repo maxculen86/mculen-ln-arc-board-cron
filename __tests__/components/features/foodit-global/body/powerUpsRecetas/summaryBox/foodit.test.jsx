@@ -25,6 +25,30 @@ describe('components - features - foodit-global - body - powerUpRecetas - summar
         expect(icons.length).toBe(3);
     });
 
+    it('should render correctly without cooktime, items mapper and title', () => {
+        const { getByText } = render(
+            <SummaryBox cookTime={cookTime} counterTime={counterTime} />
+        );
+
+        expect(getByText('Tiempo de cocción')).toBeInTheDocument();
+        expect(getByText('Tiempo total')).toBeInTheDocument();
+
+        const icons = document.querySelectorAll('i');
+        expect(icons.length).toBe(2);
+    });
+
+    it('should render correctly without preptime, items mapper and title', () => {
+        const { getByText } = render(
+            <SummaryBox prepTime={prepTime} counterTime={counterTime} />
+        );
+
+        expect(getByText('Tiempo de Preparación')).toBeInTheDocument();
+        expect(getByText('Tiempo total')).toBeInTheDocument();
+
+        const icons = document.querySelectorAll('i');
+        expect(icons.length).toBe(2);
+    });
+
     it('should render correctly with no props', () => {
         const { container } = render(<SummaryBox />);
 

@@ -49,8 +49,9 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                 />
               </i>
             </label>
-            <div
-              id="mock-getQuerylyScript"
+            <script
+              defer=""
+              id="script-getQuerylyScript"
             />
           </div>
           <div
@@ -129,6 +130,9 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
           <div
             class="right-options flex jc-end ai-center gap-16 gap-24_md"
           >
+            <div
+              id="mock-bell-button"
+            />
             <div
               class="dropdown relative h-max flex cursor-pointer l-only pt-4"
             >

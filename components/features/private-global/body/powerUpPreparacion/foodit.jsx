@@ -8,9 +8,6 @@ export const PowerUpPreparacion = ({ data }) => {
 
     return items.length > 0 ? (
         <div className="flex flex-column gap-24">
-            <h3 className="prumo prumo-light text-24 text-32_md text-36_lg">
-                Preparación
-            </h3>
             {titleList && (
                 <Text as="h4" className="roboto-bold text-16 text-18_md">
                     {titleList}

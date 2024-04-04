@@ -17,7 +17,7 @@ import LinkCanonical from '../private/common/linkCanonical';
 import GetDataToLinkImage from '../private/common/utils/image/getDataToLinkImage';
 import ScriptLogoEvent from '../private/common/scriptManager/scriptLogoEvent';
 import setMetasOtt from '../private/common/metaTags/setMetasHelper';
-import CriticalCss from '../private/common/criticalcss';
+import { GetCriticalCss } from './criticalCss/getCriticalCss';
 import MetaViafoura from '../private/common/metaViafoura';
 import Favicon from '../private/common/favicon';
 import {
@@ -32,6 +32,7 @@ import CssLinksLn10 from './Helper/cssLinksLn10';
 import CssLinksByArcSite from './Helper/cssLinksByArcSite';
 import ScriptVideoPowaHTML from '../private/common/scriptManager/scriptVideoPowaHTML';
 import OpeningRawHTML from '../private/common/scriptManager/OpeningRawHtml';
+import { GetFonts } from './criticalCss/getFonts';
 
 const lnBuscador = 'LN-buscador';
 
@@ -59,7 +60,8 @@ const Default = props => {
         outputType,
         isAdmin,
         requestUri,
-        template
+        template,
+        Resource
     } = props;
 
     const {
@@ -166,19 +168,25 @@ const Default = props => {
                     isAdmin={isAdmin}
                     layout={layout}
                 />
-                <CriticalCss isLN10={layoutsName.HomeLN10 === layout} />
-                {arcSite === 'la-nacion-ar' ? (
-                    <CssLinksLn10
-                        CssLinks={CssLinks}
-                        isLN10={layoutsName.HomeLN10 === layout}
-                        deployment={deployment}
-                        contextPath={contextPath}
-                    />
-                ) : (
-                    <CssLinksByArcSite />
-                )}
+                <GetFonts
+                    contextPath={contextPath}
+                    deployment={deployment}
+                    arcSite={arcSite}
+                />
+                <GetCriticalCss
+                    layout={layout}
+                    layoutsName={layoutsName}
+                    arcSite={arcSite}
+                    Resource={Resource}
+                />
+                <CssLinksLn10
+                    deployment={deployment}
+                    CssLinks={CssLinks}
+                    isLN10={layoutsName.HomeLN10 === layout}
+                    arcSite={arcSite}
+                    contextPath={contextPath}
+                />
                 <Libs />
-
                 <TagsLoadingList
                     section="all"
                     location="head"

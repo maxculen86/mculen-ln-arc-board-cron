@@ -16,5 +16,6 @@
 @media (min-width: 80rem) {
   .card .--img-full-width_max1280 {
     --_spacing: 0;
+    width: 100%;
   }
 }

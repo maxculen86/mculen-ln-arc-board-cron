@@ -14,7 +14,6 @@ export default function BuildRoof(props) {
         titleLink,
         logo,
         logoId,
-        //buttonHTML,
         buttonLogo,
         buttonText,
         linkButton,
@@ -57,7 +56,6 @@ export default function BuildRoof(props) {
 
     const propsRight = hasDataRoof({ chainStyle }) && {
         navData: links,
-        // buttonHTML,
         buttonLogo,
         buttonType: buttonStyle || 'generico',
         textButton: buttonText,
@@ -103,7 +101,6 @@ BuildRoof.propTypes = {
     title: PropTypes.string.isRequired,
     titleLink: PropTypes.string,
     logoId: PropTypes.string,
-    //buttonHTML: PropTypes.string,
     buttonLogo: PropTypes.string,
     buttonText: PropTypes.string,
     linkButton: PropTypes.string,
@@ -117,7 +114,6 @@ BuildRoof.defaultProps = {
     hideRoof: false,
     logoId: '',
     titleLink: '',
-    //buttonHTML: '',
     buttonLogo: '',
     buttonText: '',
     linkButton: '',

@@ -272,6 +272,22 @@
                 "name": "Pollo",
                 "path": "/salados/pollo",
                 "type": "section"
+            },
+            {
+                "_id": "/recetas/saladas/sin-gluten",
+                "_website": "foodit",
+                "additional_properties": {
+                    "original": {
+                        "ancestors": {
+                            "default": ["/recetas", "/recetas/saladas"]
+                        },
+                        "site": {}
+                    }
+                },
+                "name": "Sin gluten",
+                "parent_id": "/recetas/saladas",
+                "path": "/recetas/saladas/sin-gluten",
+                "type": "section"
             }
         ]
     },

@@ -5,12 +5,10 @@ import PropTypes from 'prop-types';
 import {
     embedElements,
     embedsForNote,
-    styleConfig,
     evaluateFunctionInclusion,
     config
 } from './utils/scripts/amp/helper';
 import getOembedScripts from './scriptManager/getOembedScripts';
-import { CriticalCSSString } from './criticalcss';
 import get from './utils/get';
 
 export const _AMPBoilerplate = `
@@ -61,28 +59,6 @@ export const _AMPBoilerplate = `
         }
     }`;
 
-export const AMPCustomStyle = props => {
-    const { arcSite, layout, Resource } = props;
-    const { [layout]: StylesConfig } = styleConfig[arcSite] || {};
-
-    return StylesConfig ? (
-        <Resource path={StylesConfig}>
-            {({ data }) => {
-                return data ? (
-                    <style
-                        amp-custom="amp-custom"
-                        dangerouslySetInnerHTML={{
-                            __html: `
-                            ${CriticalCSSString}
-                            ${data.replace('@charset "UTF-8";', '')}`
-                        }}
-                    />
-                ) : null;
-            }}
-        </Resource>
-    ) : null;
-};
-
 const AMPScripts = props => {
     const scriptsToLoad = [];
     const { arcSite, layout, globalContent } = props;
@@ -115,12 +91,6 @@ const AMPScripts = props => {
 AMPScripts.propTypes = {
     arcSite: PropTypes.string.isRequired,
     layout: PropTypes.string.isRequired
-};
-
-AMPCustomStyle.propTypes = {
-    arcSite: PropTypes.string.isRequired,
-    layout: PropTypes.string.isRequired,
-    Resource: PropTypes.func.isRequired
 };
 
 export default AMPScripts;

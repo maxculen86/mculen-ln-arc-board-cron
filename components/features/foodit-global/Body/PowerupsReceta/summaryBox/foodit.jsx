@@ -5,28 +5,33 @@ import IconSprite from '../../../../../features/private-global/common/iconSprite
 export const SummaryBox = ({ cookTime, prepTime, counterTime }) => {
     const items = [
         {
+            type: cookTime && 'cookTime',
             icon: <IconSprite name="timer" />,
             time: `${cookTime} min.`,
             text: 'Tiempo de cocción'
         },
         {
+            type: prepTime && 'prepTime',
             icon: <IconSprite name="resto" />,
             time: `${prepTime} min.`,
             text: 'Tiempo de Preparación'
         },
         {
+            type: counterTime && 'counterTime',
             icon: <IconSprite name="timer" />,
             time: `${counterTime} min.`,
             text: 'Tiempo total'
         }
     ];
 
-    return cookTime && prepTime && counterTime ? (
+    return (cookTime || prepTime) && counterTime ? (
         <div>
             <ul className="p-16 p-24_md p-32_lg flex flex-column gap-16 border border-all border-thin border-light-300 text-16">
-                {items.map((item, i) => (
-                    <SummaryItem key={i} {...item} />
-                ))}
+                {items
+                    .filter(item => item.type)
+                    .map((item, i) => (
+                        <SummaryItem key={i} {...item} />
+                    ))}
             </ul>
         </div>
     ) : (

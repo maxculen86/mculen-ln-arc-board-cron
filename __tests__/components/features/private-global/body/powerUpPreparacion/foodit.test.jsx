@@ -53,7 +53,6 @@ describe('PowerUpPreparacion', () => {
         };
 
         render(<PowerUpPreparacion data={data} />);
-        expect(screen.getByText('Preparación')).toBeInTheDocument();
         expect(screen.getByText('Título de Prueba 2')).toBeInTheDocument();
         expect(
             screen.getByText('Item 1', { selector: 'li' })

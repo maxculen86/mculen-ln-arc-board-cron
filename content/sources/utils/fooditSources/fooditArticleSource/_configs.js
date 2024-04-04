@@ -6,15 +6,10 @@ import get from '../../../../../components/private/common/utils/get';
 import { transformElementText } from '.';
 
 export const configPromoItems = {
-    video: ({ element }) => convertVideoArcToJw(element),
-    gallery: ({ cachedCall, element, arcSite }) =>
-        addGalleryData(cachedCall, element, arcSite)
+    video: ({ element }) => convertVideoArcToJw(element, arcSite, cachedCall)
 };
 
 export const configCallbackContentElements = {
-    gallery: ({ cachedCall, element, arcSite } = {}) => {
-        return addGalleryData(cachedCall, element, arcSite);
-    },
     text: props => transformElementText(props),
     interstitial_link: ({ element = {} } = {}) => {
         const interstitialLink = get(element, 'url', '');
@@ -24,14 +19,17 @@ export const configCallbackContentElements = {
     },
     custom_embed: ({ element }) =>
         get(element, 'subtype', '') !== 'custom-parallax' && element,
-    video: ({ element, arcSite } = {}) => {
-        return convertVideoArcToJw(element, arcSite);
+    video: ({ element, arcSite, cachedCall } = {}) => {
+        return convertVideoArcToJw(element, arcSite, cachedCall);
     },
     list: ({ element, withSponsoredLink } = {}) => {
         return {
             ...element,
             items: get(element, 'items', []).map(item =>
-                transformElementText({ element: item, withSponsoredLink })
+                transformElementText({
+                    element: item,
+                    withSponsoredLink
+                })
             )
         };
     }

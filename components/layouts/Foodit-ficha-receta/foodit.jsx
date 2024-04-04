@@ -8,6 +8,7 @@ import PowerupsReceta from '../../features/foodit-global/Body/PowerupsReceta/foo
 import Subtitle from '../../features/foodit-global/common/subtitle/foodit';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
+import { RecipeSchema } from '../../features/foodit-global/schemas/Recipe';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
@@ -16,6 +17,7 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
 
     return (
         <BaseLayout>
+            <RecipeSchema article={globalContent} />
             <UserBookmarks />
             <section className="flex flex-column gap-24">
                 <Breadcrumb globalContent={globalContent} className="lg-only" />
@@ -32,6 +34,9 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
                         globalContent={globalContent}
                         calssName="lg-only"
                     />
+                    <h3 className="prumo prumo-light text-24 text-32_md text-36_lg">
+                        Preparación
+                    </h3>
                     {body}
                 </div>
             </section>

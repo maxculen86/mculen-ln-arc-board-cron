@@ -134,6 +134,7 @@ describe('getScriptsToLoad', () => {
             'ScriptCloseBanners',
             'ObservableFoodit',
             'DataModal',
+            'FooditEventsHelper',
             'EventsHelper'
         ]);
         expect(Object.keys(result)).toEqual([
@@ -159,6 +160,7 @@ describe('getScriptsToLoad', () => {
             'ScriptCloseBanners',
             'ObservableFoodit',
             'DataModal',
+            'FooditEventsHelper',
             'EventsHelper'
         ]);
         expect(result.Datadog).toBeDefined();

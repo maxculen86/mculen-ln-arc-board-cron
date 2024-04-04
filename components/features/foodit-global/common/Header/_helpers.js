@@ -31,10 +31,16 @@ const setPageUrl = (path = '') => `${SITE_FOODIT}${path}/`;
 
 const transformSubategorie = (subcategoryList = []) => {
     return subcategoryList.map(({ name, _id, children = [] } = {}) => {
+        const subCategorysWithoutUrl = [
+            '/recetas/dietas',
+            '/recetas/que-cocinar-hoy'
+        ];
         const newElement = {
             title: {
                 text: name,
-                href: setPageUrl(_id),
+                href: subCategorysWithoutUrl.includes(_id)
+                    ? null
+                    : setPageUrl(_id),
                 icon: iconList.find(icon => _id.includes(icon.section)).icon
             },
             items: children.map(({ name, _id } = {}) => {
@@ -79,8 +85,8 @@ export default function transformMenuData({ children = [] } = {}) {
                     {
                         items: [
                             {
-                                text: 'Chef protagonistas',
-                                href: `${SITE_FOODIT}/chefs/`
+                                text: 'Chefs protagonistas',
+                                href: `${SITE_FOODIT}/chefs-protagonistas/`
                             }
                         ]
                     }

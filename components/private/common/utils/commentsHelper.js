@@ -19,7 +19,9 @@ export const CALLBACKS_BY_CHANNEL_AND_EVENT = {
     },
     commenting: {
         loaded: ({ setIsReady, outputType }) => {
-            outputType === 'default' && setIsReady && setIsReady(true);
+            (outputType === 'default' || outputType === 'foodit') &&
+                setIsReady &&
+                setIsReady(true);
             if (outputType === 'widgets') {
                 const loader = document.getElementsByClassName('loader');
                 loader && loader[0].classList.add('hlp-none');
@@ -55,6 +57,13 @@ export const allowComments = props =>
     get(props, 'globalContent._id', '') &&
     get(props, 'globalContent.comments.display_comments', true);
 
+export const allowCommentsFoodit = ({ globalContent }) => {
+    return (
+        get(globalContent, 'type', '') === 'story' &&
+        get(globalContent, '_id', '') &&
+        get(globalContent, 'comments.display_comments', false)
+    );
+};
 export const shouldLoadViafoura = inputDate => {
     const gc = useContext(GlobalContext);
     const deadlineLivefyre = get(
@@ -87,6 +96,16 @@ export const getLoginAndRegistrationURLS = () => {
     return {
         loginUrl: `${LOGIN_URL}${urlBase64}`,
         registracionUrl: `${SITIO_SEGURO_REGISTRACION}/suscribirme?callback=${urlBase64}&cv=670&fc=744#`
+    };
+};
+
+export const getLoginAndRegistrationURLSFoodit = () => {
+    const urlBase64 =
+        typeof window !== 'undefined' ? window.btoa(location.href) : '';
+
+    return {
+        loginUrl: `${LOGIN_URL}${urlBase64}`,
+        registracionUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/${urlBase64}`
     };
 };
 

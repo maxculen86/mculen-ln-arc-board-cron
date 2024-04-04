@@ -2,10 +2,6 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import AMPScripts, {
-    _AMPBoilerplate,
-    AMPCustomStyle
-} from '../private/common/ampIndex';
 import AMPSnippet from '../private/common/ampSnippet';
 import Robot from '../private/common/robot';
 import MetaTitle from '../private/common/metaTitle';
@@ -32,12 +28,9 @@ const Amp = props => {
         arcSite,
         children,
         metaValue,
-        Resource,
         layout,
         siteProperties = {},
         renderables,
-        deployment,
-        contextPath,
         globalContent = {},
         requestUri
     } = props;
@@ -148,13 +141,7 @@ const Amp = props => {
                     subtype={subtype}
                     syndication={syndication}
                 />
-                <AMPCustomStyle
-                    layout={layout}
-                    arcSite={arcSite}
-                    Resource={Resource}
-                    contextPath={contextPath}
-                    deployment={deployment}
-                />
+
                 <link
                     rel="preload"
                     as="script"

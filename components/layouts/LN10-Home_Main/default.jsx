@@ -23,6 +23,7 @@ import { hasBomba } from '../../private/common/banners/dynamicBanners/getDynamic
 import Ranking from '../../features/LN-10/ranking/default';
 import RoofEventsScript from '../../private/common/scriptManager/RoofEventsScript';
 import ScriptViewability from '../../private/common/utils/ScriptViewability';
+import DynamicStylesheetLoader from '../../output-types/criticalCss/dynamicStylesheetLoader';
 import {
     createBannersIntersectionObserver,
     createDifferVideosObserver,
@@ -30,7 +31,15 @@ import {
 } from '../../private/common/banners/intersectionObservers';
 
 const LN10Home = props => {
-    const { children, outputType, isAdmin, renderables } = props;
+    const {
+        children,
+        outputType,
+        isAdmin,
+        renderables,
+        contextPath,
+        deployment,
+        layout
+    } = props;
 
     const [
         cabezal,
@@ -70,6 +79,11 @@ const LN10Home = props => {
             {bannersHome.comercialDsk}
             {getScriptForComercial()}
             {bannersHome.comercialMob}
+            <DynamicStylesheetLoader
+                contextPath={contextPath}
+                deployment={deployment}
+                layout={layout}
+            />
             <div className="wrapper homepage">
                 {bannersHome.megatopDsk}
                 {bannersHome.megatopTab}

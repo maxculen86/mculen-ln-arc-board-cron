@@ -169,13 +169,6 @@ const setCommonCustomFields = featuredName => {
             defaultValue: '',
             group: 'Techo'
         }),
-        // buttonHTML: PropTypes.richtext.tag({
-        //     name: 'HTML del Boton',
-        //     description: 'Ingrese aquí el html del botón',
-        //     defaultValue: '',
-        //     group: 'Techo',
-        //     hidden: customFieldsRules[featuredName].hideButton
-        // }),
         buttonLogo: PropTypes.string.tag({
             name: 'Logo Boton',
             description: 'Ingrese aquí el id del botón',

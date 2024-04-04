@@ -3,11 +3,21 @@ import StaticContent from '../../../../private/common/staticContent';
 import { GridArticlesFoodit } from './gridArticles';
 import useGridArticlesFoodit from '../hooks/useGridArticles';
 
-const GridFooditServer = ({ idSection = '' }) => {
+const GridFooditServer = ({
+    id = '',
+    layout = '',
+    haveShowButton,
+    maxArticles = 24
+}) => {
     const { articles } = useGridArticlesFoodit({
-        id: idSection,
-        staticMode: true
+        id,
+        layout,
+        staticMode: true,
+        maxArticles
     });
+    if (articles.length < maxArticles) {
+        haveShowButton();
+    }
     return (
         <StaticContent>
             <GridArticlesFoodit articles={articles} />

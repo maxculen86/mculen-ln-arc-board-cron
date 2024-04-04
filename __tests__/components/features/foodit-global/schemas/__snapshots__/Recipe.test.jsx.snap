@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - features- foodit-global - schemas - RecipeSchema matches the snapshot 1`] = `
+<div>
+  <script
+    type="application/ld+json"
+  >
+    {"@context":"https://schema.org","@type":"Recipe","cookTime":"PT18M","cookingMethod":"A la cazuela","recipeCategory":"Pollo","recipeCuisine":"Sueca","recipeInstructions":[],"recipeYield":1,"suitableForDiet":["https://schema.org/GlutenFreeDiet"]}
+  </script>
+  <script
+    type="application/ld+json"
+  >
+    {"@context":"https://schema.org","@type":"HowTo","performTime":"PT3M","totalTime":"PT21M"}
+  </script>
+  <script
+    type="application/ld+json"
+  >
+    {"@context":"https://schema.org","@type":"CreativeWork","author":{"@type":"Person","name":"Por Elisabetta Piqué, Ariel Torres y Leo Mechi"},"dateCreated":"","headline":"Receta para comer mas rico con ...MILANESAS "}
+  </script>
+</div>
+`;

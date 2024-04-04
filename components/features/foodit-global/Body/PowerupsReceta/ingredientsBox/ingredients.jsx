@@ -5,6 +5,7 @@ import { Icon } from '@ln/common-ui-icon';
 import IngredientsSection from './ingredientsSection';
 import IconSprite from '../../../../../features/private-global/common/iconSprite/IconSprite';
 import { saveIngredientsList } from './_helper';
+import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 export const Ingredients = ({
     articleId,
@@ -91,6 +92,15 @@ export const Ingredients = ({
                 title="Agregar"
                 size={{ sm: 32, md: 40 }}
                 onClick={() => {
+                    addEventToDataLayer({
+                        event: 'e_linkclick',
+                        category: 'interaction',
+                        label: 'receta',
+                        action: 'agregar a la lista',
+                        title,
+                        articleId
+                    });
+
                     saveIngredientsList({
                         text: title,
                         sections: addToShoppingLists,
@@ -101,7 +111,7 @@ export const Ingredients = ({
                 <Icon size={16}>
                     <IconSprite name="cart" critical />
                 </Icon>
-                Agregar a la lista
+                AGREGAR A LISTA DE COMPRAS
             </Button>
         </div>
     );

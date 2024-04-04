@@ -21,6 +21,9 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
                     title="Suscribirse"
                     variant="accent"
                     size={{ sm: 32, md: 32, lg: 40 }}
+                    data-interaction="dataLayerInteraction"
+                    data-event-data-layer="subscription_start"
+                    data-button="buttonSubscribeText"
                 >
                     {buttonSubscribeText}
                 </Button>

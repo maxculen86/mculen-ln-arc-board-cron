@@ -169,6 +169,9 @@ select:focus {
   .ai-end_md {
     align-items: flex-end;
   }
+  .ai-start_md {
+    align-items: flex-start;
+  }
 }
 @media (min-width: 80rem) {
   .ai-start_lg {
@@ -1679,6 +1682,11 @@ b, strong {
   text-align: left;
 }
 
+@media (min-width: 48rem) {
+  .text-start_md {
+    text-align: start;
+  }
+}
 .text-ellipsis-1 {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1742,6 +1750,14 @@ b, strong {
 
 .z-15 {
   z-index: 15;
+}
+
+.viafoura header.vf-comment-header.vf-comment-header {
+  display: none;
+}
+
+.viafoura div.vf-comments-trending-articles.vf3-comments.vf-trending-articles {
+  display: none;
 }
 
 hr {

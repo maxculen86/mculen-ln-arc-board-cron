@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components - outputType - criticalCss - createStyleTag should match snapshot 1`] = `
+<head>
+  <link
+    href="/pf/resources/packages/css/HomeLN10.min.css"
+    id="fusion-output-type-styles"
+    rel="stylesheet"
+    type="text/css"
+  />
+</head>
+`;

@@ -16,7 +16,25 @@ describe('Components - features - helpers - gridFooditClient', () => {
         });
 
         const { container } = render(
-            <GridFooditClient idSection="/recetas/saladas" />
+            <GridFooditClient idSection="/recetas/saladas" showButton={false} />
+        );
+        const hiddenDiv = container.querySelector('.hidden');
+        const gridDiv = container.querySelector('.grid');
+
+        expect(hiddenDiv).not.toBeInTheDocument();
+        expect(gridDiv).toBeInTheDocument();
+        const loading = container.querySelector('.text-center');
+        expect(loading).toBeFalsy();
+        expect(screen.getAllByRole('article').length).toStrictEqual(24);
+    });
+
+    it('should render gridFooditClient with ver mas', () => {
+        useGridArticlesFoodit.mockImplementation(() => {
+            return { articles: articlesFoodit, hasMoreArticle: false };
+        });
+
+        const { container } = render(
+            <GridFooditClient idSection="/recetas/saladas" showButton={true} />
         );
         const hiddenDiv = container.querySelector('.hidden');
         const gridDiv = container.querySelector('.grid');
@@ -24,5 +42,8 @@ describe('Components - features - helpers - gridFooditClient', () => {
         expect(hiddenDiv).not.toBeInTheDocument();
         expect(gridDiv).toBeInTheDocument();
         expect(screen.getAllByRole('article').length).toStrictEqual(24);
+        const loading = container.querySelector('.text-center');
+        expect(loading).toBeTruthy();
+        expect(screen.getByText('Ver más')).toBeInTheDocument();
     });
 });
