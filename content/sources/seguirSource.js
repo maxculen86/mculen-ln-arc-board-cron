@@ -193,6 +193,7 @@ export const generateSectionsToExclude = sections => {
 
 const getElements = async query => {
     const { url = '', followedItems, cachedCall } = query;
+
     const arcSite = query['arc-site'];
 
     const queryTransform = {
@@ -225,7 +226,7 @@ const getElements = async query => {
     };
     return request(opt)
         .then(response => {
-            return transform(response, queryTransform, { cachedCall });
+            return transform(response, queryTransform, cachedCall);
         })
         .catch(err => {
             logger.push(err, { source: 'content/source', url }, arcSite);
@@ -304,7 +305,7 @@ const fetch = async (query, { cachedCall }) => {
                 page,
                 api,
                 arcSite,
-                cachedCall: { cachedCall }
+                cachedCall
             },
             ttl: 120
         });
