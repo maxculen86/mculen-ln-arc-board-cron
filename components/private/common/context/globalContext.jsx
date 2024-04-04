@@ -57,6 +57,7 @@ const GlobalProvider = ({ children }) => {
                 const {
                     site = {},
                     Termicas: termicasConfig = {},
+                    bannerConfig = {},
                     migration = {}
                 } = response || {};
                 const {
@@ -65,9 +66,14 @@ const GlobalProvider = ({ children }) => {
                     not_recommended_sections: notRecommendedSections = []
                 } = site;
                 return {
+                    bannerConfig: { dfp_id: bannerConfig.dfp_id },
                     tooltips: Object.keys(tooltips).map(key => ({
                         text: key,
                         label: tooltips[key]
+                    })),
+                    banners: Object.keys(bannerConfig).map(key => ({
+                        adunit: key,
+                        dimensions: bannerConfig[key]
                     })),
                     adserver: Object.keys(sitioAdserver).map(key => ({
                         key,
