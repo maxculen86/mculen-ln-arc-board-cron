@@ -388,6 +388,10 @@
         display: none;
     }
 }
+#content {
+    position: relative;
+    padding-top: 1.5rem;
+}
 
 .--header-fixed-margin.--header-fixed-margin {
     margin-top: 3.5rem;

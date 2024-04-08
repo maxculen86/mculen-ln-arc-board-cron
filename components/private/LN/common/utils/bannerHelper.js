@@ -446,8 +446,7 @@ export const queueGoogletagCommand = bannersToLoad => {
             if (_headerBiddingSlots.length === 0) return;
             googletag.cmd.push(() => {
                 // don't run again if already ran
-                if (typeof pbjs === 'undefined' && pbjs.adserverRequestSent)
-                    return;
+                if (pbjs.adserverRequestSent) return;
                 pbjs.adserverRequestSent = true;
                 googletag.pubads().refresh(_headerBiddingSlots);
             });
