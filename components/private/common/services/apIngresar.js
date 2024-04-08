@@ -47,7 +47,8 @@ const apiIngresar = () => {
         }
 
         const headers = {};
-        headers.Authorization = accessToken || getCookie('access-token');
+        headers.Authorization =
+            `Bearer ${accessToken}` || `Bearer ${getCookie('access-token')}`;
         headers['X-Token'] = token || getCookie('token');
 
         if (xvalue) headers['X-Value'] = xvalue;
