@@ -49,7 +49,7 @@ export const buttonConfig = [
             buttonCopy();
         },
         description: 'Copiar',
-        IconButton: <IconSprite name="bookmark" critical />
+        IconButton: <IconSprite name="copy" />
     },
     {
         type: 'print',
@@ -59,7 +59,7 @@ export const buttonConfig = [
             buttonPrint();
         },
         description: 'Imprimir',
-        IconButton: <IconSprite name="profile" critical />
+        IconButton: <IconSprite name="printer" />
     },
     {
         type: 'share',
@@ -69,7 +69,7 @@ export const buttonConfig = [
             buttonShare(shareData);
         },
         description: 'Compartir',
-        IconButton: <IconSprite name="exit" />
+        IconButton: <IconSprite name="share" />
     },
     {
         type: 'comment',
@@ -79,7 +79,7 @@ export const buttonConfig = [
             buttonComment();
         },
         description: 'Comentarios',
-        IconButton: <IconSprite name="cake" />
+        IconButton: <IconSprite name="chat" />
     }
 ];
 

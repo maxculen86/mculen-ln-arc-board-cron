@@ -6,7 +6,7 @@ export const SummaryBox = ({ cookTime, prepTime, counterTime }) => {
     const items = [
         {
             type: cookTime && 'cookTime',
-            icon: <IconSprite name="timer" />,
+            icon: <IconSprite name="fire" />,
             time: `${cookTime} min.`,
             text: 'Tiempo de cocción'
         },
@@ -18,7 +18,7 @@ export const SummaryBox = ({ cookTime, prepTime, counterTime }) => {
         },
         {
             type: counterTime && 'counterTime',
-            icon: <IconSprite name="timer" />,
+            icon: <IconSprite name="clock" />,
             time: `${counterTime} min.`,
             text: 'Tiempo total'
         }

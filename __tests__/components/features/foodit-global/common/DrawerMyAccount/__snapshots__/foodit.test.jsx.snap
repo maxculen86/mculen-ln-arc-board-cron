@@ -136,7 +136,8 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
                 class="icon --icon-20 --inherit"
               >
                 <mock-icon
-                  name="calendar"
+                  critical="true"
+                  name="newsletter"
                 />
               </i>
               <span
@@ -163,7 +164,7 @@ exports[`DrawerMyAccount component should match snapshot 1`] = `
                 class="icon --icon-20 --inherit"
               >
                 <mock-icon
-                  name="diet"
+                  name="custom-service"
                 />
               </i>
               <span

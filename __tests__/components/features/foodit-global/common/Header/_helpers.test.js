@@ -52,7 +52,7 @@ describe('transformMenuData function', () => {
                             text: 'Dulces',
                             href:
                                 'https://foodit.lanacion.com.ar/recetas/dulces/',
-                            icon: <mock-icon name="cake" />
+                            icon: <mock-icon name="ice-cream" />
                         },
                         items: []
                     }
@@ -137,7 +137,7 @@ describe('transformMenuData function', () => {
                     {
                         title: {
                             text: 'Saladas',
-                            icon: <mock-icon critical={true} name="bookmark" />,
+                            icon: <mock-icon name="salty" />,
                             href:
                                 'https://foodit.lanacion.com.ar/recetas/saladas/'
                         },
@@ -222,7 +222,7 @@ describe('transformMenuData function', () => {
                     {
                         title: {
                             text: 'Excluir esto tambien',
-                            icon: <mock-icon critical={true} name="cart" />,
+                            icon: <mock-icon name="resto" />,
                             href: null
                         },
                         items: [

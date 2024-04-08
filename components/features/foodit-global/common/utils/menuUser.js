@@ -46,7 +46,7 @@ export const menuUser = [
     },
     {
         text: 'Newsletters',
-        icon: <IconSprite name="calendar" />,
+        icon: <IconSprite name="newsletter" critical />,
         onClick: () => {
             console.log('click');
             addEventToDataLayer({
@@ -59,7 +59,7 @@ export const menuUser = [
     },
     {
         text: '¿Cómo podemos ayudarte?',
-        icon: <IconSprite name="diet" />,
+        icon: <IconSprite name="custom-service" />,
         onClick: () => {
             console.log('click');
             addEventToDataLayer({

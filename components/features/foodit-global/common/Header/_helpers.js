@@ -11,11 +11,11 @@ const listDescubrir = [
 const iconList = [
     {
         section: '/saladas',
-        icon: <IconSprite name="bookmark" critical />
+        icon: <IconSprite name="salty" />
     },
     {
         section: '/dulces',
-        icon: <IconSprite name="cake" />
+        icon: <IconSprite name="ice-cream" />
     },
     {
         section: '/dieta',
@@ -23,7 +23,7 @@ const iconList = [
     },
     {
         section: '/que-cocinar-hoy',
-        icon: <IconSprite name="cart" critical />
+        icon: <IconSprite name="resto" />
     }
 ];
 

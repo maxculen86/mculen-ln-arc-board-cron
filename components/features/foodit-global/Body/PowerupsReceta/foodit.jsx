@@ -77,7 +77,7 @@ export const PowerupsReceta = ({ article = {} }) => {
                 prepTime={prepTime}
                 counterTime={counterTime}
             />
-            <div className="bg-positive flex flex-column gap-32 p-16 p-24_md p-32_lg">
+            <div className="bg-positive flex flex-column gap-16 gap-24_md gap-32_lg p-16 p-24_md p-32_lg">
                 <Ingredients
                     articleId={_id}
                     ingredientsLists={[

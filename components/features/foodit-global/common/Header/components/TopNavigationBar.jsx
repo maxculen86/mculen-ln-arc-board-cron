@@ -46,6 +46,21 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         </Icon>
                         LISTA DE COMPRAS
                     </Link>
+                    <Link
+                        href="https://newsletter.lanacion.com.ar/?_ga=2.113114052.1174706434.1669633950-901996504.1663609274"
+                        title="Ir a newsletter"
+                        className="gap-8"
+                        data-interaction="dataLayerInteraction"
+                        data-event-data-layer="e_linkclick"
+                        data-dynamic-category="header"
+                        data-dynamic-label="newsletter"
+                        data-dynamic-action="N/A"
+                    >
+                        <Icon size={20}>
+                            <IconSprite name="newsletter" critical />
+                        </Icon>
+                        NEWSLETTER
+                    </Link>
                 </Topnavigationbar>
             </StaticContent>
         </div>
