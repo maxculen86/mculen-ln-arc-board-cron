@@ -10,7 +10,6 @@ import Image from '../../../../private/LN/nota/cuerpo/image';
 import Video from '../../../../private/LN/nota/cuerpo/video';
 import VideoJW from '../../../../private/common/videoPlayerJw/index';
 import RawHTML from '../../../../private/LN/common/rawHTML';
-import OembedAMP from '../../../../private/LN/nota/cuerpo/oembedAMP';
 import BotonLink from '../../../../private/LN/nota/cuerpo/botonLink';
 import Html from '../../../../private/LN/nota/cuerpo/html';
 import OptaAMP from '../../../../private/LN/nota/cuerpo/optaAMP';
@@ -35,7 +34,6 @@ const bodyComponents = [
     Video,
     VideoJW,
     RawHTML,
-    OembedAMP,
     BotonLink,
     Html,
     OptaAMP,
