@@ -15,7 +15,7 @@ export const IngredientsListContent = ({
             )}
             {items?.map(item => (
                 <Ingredient
-                    key={`${bookmarkId}-${item.ingredient || item}`}
+                    key={`${bookmarkId}-${item.ingredient || ''}`}
                     item={item}
                     typeList={typeList}
                 />

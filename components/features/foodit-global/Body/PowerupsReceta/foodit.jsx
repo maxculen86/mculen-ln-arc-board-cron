@@ -82,7 +82,13 @@ export const PowerupsReceta = ({ article = {} }) => {
                     articleId={_id}
                     ingredientsLists={[
                         ...ingredientsLists,
-                        ...customIngredientsLists
+                        ...customIngredientsLists.map(data => ({
+                            ...data,
+                            items: data.items.map(item => ({
+                                fullIngredientString: item,
+                                ingredient: item
+                            }))
+                        }))
                     ]}
                     title={get(headlines, 'basic', '')}
                     portions={counterPortion}

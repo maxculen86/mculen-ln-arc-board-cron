@@ -8,25 +8,24 @@ export const ButtonAccept = ({
     close = () => null,
     clickAction
 }) => {
-    const {
-        title = '',
-        description = '',
-        button = undefined
-    } = getToastMessages(type);
+    const { title = '', description = '' } = getToastMessages(type);
 
-    const handleClick = () => {
-        window.LN.observable.publish('addToast', {
-            variant: 'success',
-            title,
-            message: `${displayName} ${description}`,
-            ...(button && {
-                buttonProps: {
-                    ...button,
-                    onClick: clickAction()
-                }
-            })
-        });
+    const handleClick = async () => {
         close();
+
+        const { status } = await clickAction();
+        if (status === '200')
+            window.LN.observable.publish('addToast', {
+                variant: 'success',
+                title,
+                message: `${displayName} ${description}`
+            });
+        else
+            window.LN.observable.publish('addToast', {
+                variant: 'danger',
+                title,
+                message: `No se ah podido eliminar lista de ingredientes`
+            });
     };
 
     return (

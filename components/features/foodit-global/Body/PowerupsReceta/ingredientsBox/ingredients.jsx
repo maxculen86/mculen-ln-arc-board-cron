@@ -6,6 +6,7 @@ import IngredientsSection from './ingredientsSection';
 import IconSprite from '../../../../../features/private-global/common/iconSprite/IconSprite';
 import { saveIngredientsList } from './_helper';
 import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
+import get from '../../../../../private/common/utils/get';
 
 export const Ingredients = ({
     articleId,
@@ -73,13 +74,10 @@ export const Ingredients = ({
             </Text>
             {ingredientsLists.map(list => {
                 const { items = [], titleList = '' } = list || {};
-                const ingredientsNames = items.map(item => {
-                    const ingredientName =
-                        item.fullIngredientString ||
-                        (typeof item === 'string' && item) ||
-                        '';
-                    return ingredientName.toLowerCase();
-                });
+                const ingredientsNames = items.map(item =>
+                    get(item, 'fullIngredientString', '').toLowerCase()
+                );
+
                 return (
                     <IngredientsSection
                         key={titleList}

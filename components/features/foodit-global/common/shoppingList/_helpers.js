@@ -2,19 +2,17 @@ export const transformObjectToText = ({ text = '', sections = [] }) => {
     if (!sections.length) return '';
 
     const sectionDetails = sections
-        .map(section => {
-            const itemsText = section.items
-                .map(item => {
-                    if (section.typeList === 'foodit-ingredientes') {
-                        return `\t-${item.fullIngredientString}`;
-                    } else {
-                        return `\t-${item}`;
-                    }
-                })
-                .join('\n');
-            return section.titleList
-                ? `\t${section.titleList}:\n${itemsText}`
-                : itemsText;
+        .map(({ items = [], titleList = '' }) => {
+            const itemsText = items.length
+                ? items
+                      .map(
+                          ({ fullIngredientString = '' }) =>
+                              `\t-${fullIngredientString}`
+                      )
+                      .join('\n')
+                : '';
+
+            return titleList ? `\t${titleList}:\n${itemsText}` : itemsText;
         })
         .join('\n\n');
 

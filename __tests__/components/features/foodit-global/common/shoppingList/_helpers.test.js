@@ -18,7 +18,10 @@ describe('transformObjectToText', () => {
                 },
                 {
                     titleList: 'Especias',
-                    items: ['Sal', 'Pimienta']
+                    items: [
+                        { fullIngredientString: 'Sal' },
+                        { fullIngredientString: 'Pimienta' }
+                    ]
                 }
             ]
         };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from '@ln/common-ui-text';
 
 export const Ingredient = ({ item, typeList }) => {
-    const { ingredient = item || '', amount, abbreviation = '' } = item;
+    const { ingredient = '', amount, abbreviation = '' } = item;
     const quantity = (amount && `${amount} ${abbreviation}`) || abbreviation;
 
     return (
