@@ -12,7 +12,7 @@ const metarefresh = localStorage.getItem('CDmetaRefresh');
 const countNotas = localStorage.getItem('countNotas');
 
 const _metarefresh = metarefresh != null ? 'yes' : 'no';
-const _countNotas = countNotas || 0;
+const _countNotas = countNotas || '0';
 
 if (_metarefresh === 'yes') {
     localStorage.removeItem('CDmetaRefresh');

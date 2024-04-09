@@ -69,3 +69,10 @@ export const FallBackTextButton = ({
         />
     );
 };
+
+export const toggleBellColor = negative => {
+    document.documentElement.style.setProperty(
+        '--notification-drawer-button-icon-color',
+        negative ? '#FEFEFE' : 'currentColor'
+    );
+};

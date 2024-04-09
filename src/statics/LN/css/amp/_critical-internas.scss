@@ -393,6 +393,8 @@
     padding-top: 1.5rem;
 }
 
-.--header-fixed-margin.--header-fixed-margin {
-    margin-top: 3.5rem;
+@media (min-width: 64em) {
+    .--header-fixed-margin.--header-fixed-margin {
+        margin-top: 3.5rem;
+    }
 }
