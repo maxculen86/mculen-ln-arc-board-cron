@@ -1,6 +1,13 @@
 import { useContent } from 'fusion:content';
-import React, { useContext } from 'react';
+import React from 'react';
 import useTermica from '../../../../../../components/private/common/hooks/useTermica';
+import useSiteServices from '../../../../../../components/features/LN-10-global/hooks/useSiteServices';
+import siteServicesMock from '../../../../../../__mocks__/data/siteServices/siteServices.json';
+
+jest.mock(
+    '../../../../../../components/features/LN-10-global/hooks/useSiteServices',
+    () => jest.fn()
+);
 
 jest.mock('react', () => {
     const ActualReact = require.requireActual('react');
@@ -8,6 +15,10 @@ jest.mock('react', () => {
         ...ActualReact,
         useContext: () => ({})
     };
+});
+
+useSiteServices.mockImplementation(() => {
+    return siteServicesMock;
 });
 
 describe('components - private - LN - common - hook - useTermica', () => {
@@ -93,12 +104,9 @@ describe('components - private - LN - common - hook - useTermica', () => {
     };
 
     const createImplementation = (key, value) =>
-        jest.spyOn(React, 'useContext').mockImplementation(() => ({
-            state: {
-                siteService: {
-                    termicas: [{ key, value }]
-                }
-            }
+        useSiteServices.mockImplementation(() => ({
+            ...siteServicesMock,
+            termicas: [{ key, value }]
         }));
 
     it('works in regular case', () => {

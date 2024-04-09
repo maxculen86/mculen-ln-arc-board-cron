@@ -12,6 +12,13 @@ import {
 } from '../../../../../components/private/common/utils/eventsHelper';
 import preHeaderEventLogResult from '../../../../../__mocks__/data/preHeader/preHeaderEventLogResult.json';
 import IconSprite from '../../../../../components/features/private-global/common/iconSprite/IconSprite';
+import useSiteServices from '../../../../../components/features/LN-10-global/hooks/useSiteServices';
+import siteServicesMock from '../../../../../__mocks__/data/siteServices/siteServices.json';
+
+jest.mock(
+    '../../../../../components/features/LN-10-global/hooks/useSiteServices',
+    () => jest.fn()
+);
 
 jest.mock('fusion:context', () => ({
     useAppContext: () => {
@@ -27,6 +34,10 @@ jest.mock(
         getTopicsFromCustomFields: jest.fn()
     })
 );
+
+useSiteServices.mockImplementation(() => {
+    return siteServicesMock;
+});
 
 describe('Components - Features - LN-Common - PreHeader', () => {
     global.window.dataLayer = [];

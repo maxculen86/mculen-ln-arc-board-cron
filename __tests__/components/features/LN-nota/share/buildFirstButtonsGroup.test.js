@@ -4,6 +4,13 @@ import '@testing-library/jest-dom';
 import BuildFirtsButtonsGroup from '../../../../../components/features/LN-nota/share/_children/BuildFirstButtonsGroup';
 import useFetch from '../../../../../components/private/common/hooks/useFetch';
 import useTermica from '../../../../../components/private/common/hooks/useTermica';
+import siteServicesMock from '../../../../../__mocks__/data/siteServices/siteServices.json';
+import useSiteServices from '../../../../../components/features/LN-10-global/hooks/useSiteServices';
+
+jest.mock(
+    '../../../../../components/features/LN-10-global/hooks/useSiteServices',
+    () => jest.fn()
+);
 
 jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
     jest.fn()
@@ -12,6 +19,10 @@ jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
 jest.mock('../../../../../components/private/common/hooks/useFetch', () =>
     jest.fn()
 );
+
+useSiteServices.mockImplementation(() => {
+    return siteServicesMock;
+});
 
 describe('Components - Features - LN-nota - share', () => {
     const globalContent = (isListenable, comments) => ({

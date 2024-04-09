@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from 'react';
 import { GlobalContext } from '../context/globalContext';
 import useTermica from '../hooks/useTermica';
 import get from './get';
+import useSiteServices from '../../../features/LN-10-global/hooks/useSiteServices';
 
 export const CLOSED_BY_TERMIC = 'CLOSED_BY_TERMIC';
 export const CLOSED_COMMENTS = 'CLOSED_COMMENTS';
@@ -65,14 +66,12 @@ export const allowCommentsFoodit = ({ globalContent }) => {
     );
 };
 export const shouldLoadViafoura = inputDate => {
-    const gc = useContext(GlobalContext);
-    const deadlineLivefyre = get(
-        gc,
-        'state.siteService.migration.deadline_livefyre'
-    );
+    const { migration } = useSiteServices();
+    const migrationDeadlineLivefyre = get(migration, 'deadline_livefyre', null);
 
     const deadlineDate =
-        deadlineLivefyre && new Date(`${deadlineLivefyre}T20:00:00`);
+        migrationDeadlineLivefyre &&
+        new Date(`${migrationDeadlineLivefyre}T20:00:00`);
     const articlePublishDate = inputDate && new Date(inputDate);
 
     return (
@@ -112,7 +111,7 @@ export const getLoginAndRegistrationURLSFoodit = () => {
 export const getMessageProps = (props, messageType, gc) => {
     const canonicalUrl = get(props, 'globalContent.canonical_url', '');
     const outputType = get(props, 'outputType', 'default');
-    const termicas = get(gc, 'state.siteService.termicas', []);
+    const { termicas } = useSiteServices() || [];
     const element = termicas.find(
         ter => ter && ter.key === 'mensaje_para_cierre_de_comentarios'
     );
