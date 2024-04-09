@@ -1,10 +1,39 @@
 import {
     getHighestPriorityTag,
     validateArticleFoodit,
-    getRenderablesData
+    getRenderablesData,
+    getFooditAuthor
 } from '../../../../../../components/features/foodit-global/common/utils/notaFooditHelper';
 
 import renderables from '../../../../../../__mocks__/data/renderables/foodit/fooditRenderables2';
+import noTypeAuthorMock from '../../../../../../__mocks__/data/articlesFoodit/SubtypeReceta/withVideoOpening.json';
+
+const authorTypeUserMock = {
+    credits: {
+        by: [
+            {
+                _id: 'elisabetta-pique',
+                additional_properties: {
+                    original: {
+                        author_type: 'Estándar',
+                        byline: 'Elisabetta Piqué',
+                        image:
+                            'https://sandbox.lanacion.com.ar/resizer/v2/https%3A%2F%2Fbucket.glanacion.com%2Fanexos%2Ffotos%2F31%2F2089231.png?auth=1bc7c4692c820c7eee35fdaf9862e02133269f4a864bf1599d07a037bb09ee20&width=80&quality=70&smart=false',
+                        role: 'LA NACION'
+                    }
+                },
+                name: 'Elisabetta Piqué',
+                slug: 'elisabetta-pique',
+                type: 'author'
+            }
+        ]
+    },
+    label: {
+        autor: {
+            text: 'Usuario'
+        }
+    }
+};
 
 describe('Foodit - notaFooditHelper', () => {
     describe('getHighestPriorityTag function', () => {
@@ -91,6 +120,24 @@ describe('Foodit - notaFooditHelper', () => {
             const featureId = 'fakeFeatureId';
             const result = getRenderablesData(renderables, featureId);
             expect(result.layout).toEqual('');
+        });
+    });
+
+    describe('getFooditAuthor', () => {
+        it('should return an empty string if author type is Usuario', () => {
+            expect(getFooditAuthor(authorTypeUserMock, true)).toEqual('');
+        });
+
+        it('should return author name', () => {
+            expect(getFooditAuthor(noTypeAuthorMock, true)).toEqual(
+                'Vinciane Smeets'
+            );
+        });
+
+        it('should return "Por" + author name', () => {
+            expect(getFooditAuthor(noTypeAuthorMock, false)).toEqual(
+                'Por Vinciane Smeets'
+            );
         });
     });
 });

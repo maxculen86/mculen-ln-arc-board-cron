@@ -98,6 +98,9 @@ export default `
             enviar_a_apps {
                 text
             }
+            autor{
+                text
+            }
         }
         related_content {
             basic{

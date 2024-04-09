@@ -12,8 +12,10 @@ import ActionsButtons from '../ActionsButtons/foodit';
 import StaticContent from '../../../../private/common/staticContent';
 import VideoPlayer from '../../../private-global/common/videoPlayer/foodit';
 
-import { getHighestPriorityTag } from '../utils/notaFooditHelper';
-import getAuthorsAsString from '../../../../private/common/utils/getAuthorsAsString';
+import {
+    getFooditAuthor,
+    getHighestPriorityTag
+} from '../utils/notaFooditHelper';
 import {
     getImagesToLoadWithPicture,
     getShortestImage
@@ -26,7 +28,6 @@ export const OpeningRecipe = ({ article = {} }) => {
     const sections = get(taxonomy, 'sections', []);
     const badge = getHighestPriorityTag(sections);
     const title = get(headlines, 'basic', '');
-    const author = getAuthorsAsString(article);
 
     const videoJW = get(promo_items, 'video_jw', null);
     const { caption = '', resized_urls = [], url = '' } = get(
@@ -77,7 +78,7 @@ export const OpeningRecipe = ({ article = {} }) => {
                             />
                             <Text
                                 className="text-14"
-                                text={author || 'Por Foodit'}
+                                text={getFooditAuthor(article)}
                                 as="h3"
                             />
                         </div>

@@ -5,7 +5,7 @@ import {
     getImagesToLoadWithPicture,
     getShortestImage
 } from '../../../../private/LN/common/utils/mediaHelper';
-import getAuthorsAsString from '../../../../private/common/utils/getAuthorsAsString';
+import { getFooditAuthor } from '../../../foodit-global/common/utils/notaFooditHelper';
 
 export const Image = ({ data }) => {
     const { caption = '', resized_urls = [], url = '' } = data || {};
@@ -23,7 +23,7 @@ export const Image = ({ data }) => {
             />
             {data && (
                 <Epigraph
-                    credits={getAuthorsAsString(data, true)}
+                    credits={getFooditAuthor(data, true)}
                     caption={caption}
                 />
             )}

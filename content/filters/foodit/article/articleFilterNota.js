@@ -156,6 +156,9 @@ const labels = `
             text
             display
         }
+        autor{
+            text
+        }
     }
 `;
 const table = `

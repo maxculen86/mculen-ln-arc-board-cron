@@ -112,12 +112,10 @@ const RecetarioBody = () => {
                                                 tag={bookmarkParent}
                                                 fill={true}
                                                 title={title}
-                                                author={
-                                                    getAuthorsAsString(
-                                                        bookmarkContent,
-                                                        false
-                                                    ) || 'Por Foodit'
-                                                }
+                                                author={getAuthorsAsString(
+                                                    bookmarkContent,
+                                                    false
+                                                )}
                                                 bookmarkAction={() =>
                                                     fetchDeleteBookmark(
                                                         [
