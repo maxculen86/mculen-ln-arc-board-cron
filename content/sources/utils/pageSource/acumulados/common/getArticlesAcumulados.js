@@ -2,7 +2,10 @@ import get from '../../../../../../components/private/common/utils/get';
 import acuArticlesSource from '../../../../acuArticlesSource';
 
 const getParamsAcus = query => {
-    const sectionId = get(query, 'sectionId', '');
+    const sectionId =
+        (get(query, 'sectionId', '') || '').length > 0
+            ? get(query, 'sectionId', '')
+            : null;
     const size = get(query, 'size', '30');
     const restriction = get(query, 'restriction', null);
     const sections = get(query, 'sections', null);
@@ -47,11 +50,11 @@ const getParamsAcus = query => {
     };
 };
 
-const getArticlesAcumulados = async params => {
+const getArticlesAcumulados = async (params, { cachedCall }) => {
     try {
         const queryParams = getParamsAcus(params);
-
-        return await acuArticlesSource.fetch(queryParams);
+        console.log(queryParams);
+        return await acuArticlesSource.fetch(queryParams, { cachedCall });
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(

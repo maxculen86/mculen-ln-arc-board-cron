@@ -177,7 +177,7 @@ const resolve = key => {
     &sort=display_date:desc`;
 };
 
-const fetch = query => {
+const fetch = (query, { cachedCall } = {}) => {
     const opt = {
         uri: `${CONTENT_BASE}${resolve(query)}`,
         json: true
@@ -189,7 +189,7 @@ const fetch = query => {
     }
     return request(opt)
         .then(response => {
-            return transform(response, query);
+            return transform(response, query, cachedCall);
         })
         .catch(error => {
             // eslint-disable-next-line no-console

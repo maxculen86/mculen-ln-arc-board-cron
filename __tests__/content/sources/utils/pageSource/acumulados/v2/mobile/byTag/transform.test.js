@@ -34,6 +34,9 @@ jest.mock(
 );
 
 describe('Test transform page', () => {
+    const cachedCall = async (nameOfCall, callbackFunc, params) => {
+        return await callbackFunc(params);
+    };
     test('transform Ok when is Acu Economia', async () => {
         const queryParams = {
             size: 30,
@@ -54,7 +57,7 @@ describe('Test transform page', () => {
             }
         };
 
-        const result = await transformHomeAcuV1(queryParams);
+        const result = await transformHomeAcuV1(queryParams, { cachedCall });
         expect(Object.keys(result[0]).sort()).toEqual(
             [
                 'acumuladoTotal',

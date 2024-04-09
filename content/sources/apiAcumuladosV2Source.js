@@ -74,7 +74,7 @@ const fetch = async (query, { cachedCall }) => {
             queryParams.tagId = 'la-nacion-cerca';
         }
 
-        const transformedAcu = await transformAcu(queryParams);
+        const transformedAcu = await transformAcu(queryParams, { cachedCall });
 
         if (page * size - size > 16) {
             delete transformedAcu[0].banners;

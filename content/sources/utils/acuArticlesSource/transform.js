@@ -1,7 +1,6 @@
-import { RESIZER_KEY, RESIZER_URL } from 'fusion:environment';
-import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer';
 import getPresets from '../presets';
 import get from '../../../../components/private/common/utils/get';
+import { addResizedUrls } from '../../../../components/private/common/utils/image/resizer/addResizerUrls';
 import { isFotoAl100orStorytelling } from '../../../../components/private/common/utils/subtypes/subtypeHelper';
 import { isNotRecommend } from '../collectionsHelper';
 import {
@@ -9,8 +8,9 @@ import {
     hasFutureDisplayDate,
     isOlderThanXHoursAgo
 } from '../../../../components/private/common/utils/dateAndTimeUtil';
+import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
 
-const transform = (data = {}, siteProps = {}) => {
+const transform = async (data = {}, siteProps = {}, cachedCall) => {
     try {
         const respData = data;
         const {
@@ -21,45 +21,51 @@ const transform = (data = {}, siteProps = {}) => {
             excludePreload,
             hasCollectionApertura
         } = siteProps;
-        const { content_elements: contentElements = [] } = data;
-        const { presets, presetsDefault } = getPresets(siteProps);
 
+        const { content_elements: contentElements = [] } = data;
+
+        const { presets, presetsDefault } = getPresets(siteProps);
         const presetsPromoItems = get(presets, 'promo_items', null);
 
-        respData.content_elements = contentElements.map((elem, index) => {
-            const isInApertura =
-                !hasCollectionApertura && !excludePreload && index === 0;
-            const promoItems = get(elem, `promo_items`, null);
-            const subtype = get(elem, `subtype`, null);
-            const presetsCredits = get(presets, 'credits', null);
-            const credits = get(elem, 'credits', null);
-            const api = get(siteProps, 'api', false);
-            return {
-                ...elem,
-                ...addResizedUrls(
-                    {
-                        ...(promoItems && { promo_items: promoItems }),
-                        ...(api && credits && { credits })
-                    },
-                    {
-                        resizerSecret: RESIZER_KEY,
-                        resizerUrl: RESIZER_URL,
-                        presets: {
-                            promoItems: presetsPromoItems,
-                            ...(api && credits && { credits: presetsCredits }),
-                            presetsDefault
+        respData.content_elements = await Promise.all(
+            contentElements.map(async (elem, index) => {
+                const newElem = await getAllImagesAuth(elem, cachedCall);
+                Object.assign(elem, newElem);
+
+                const isInApertura =
+                    !hasCollectionApertura && !excludePreload && index === 0;
+                const promoItems = get(elem, 'promo_items', null);
+                const subtype = get(elem, 'subtype', null);
+                const presetsCredits = get(presets, 'credits', null);
+                const credits = get(elem, 'credits', null);
+                const api = get(siteProps, 'api', false);
+                return {
+                    ...elem,
+                    ...addResizedUrls(
+                        {
+                            ...(promoItems && { promo_items: promoItems }),
+                            ...(api && credits && { credits })
                         },
-                        // Se pasa el subtype para que las notas de foto al 100
-                        // y storytelling no sean excluidas de las validaciones del resizer
-                        // y pueda aplicarse 3:2, focal point o smartcrop
-                        subtype: isFotoAl100orStorytelling(subtype)
-                            ? '-1'
-                            : subtype,
-                        isInApertura
-                    }
-                )
-            };
-        });
+                        {
+                            presets: {
+                                promoItems: presetsPromoItems,
+                                ...(api &&
+                                    credits && { credits: presetsCredits }),
+                                presetsDefault
+                            },
+                            // Se pasa el subtype para que las notas de foto al 100
+                            // y storytelling no sean excluidas de las validaciones del resizer
+                            // y pueda aplicarse 3:2, focal point o smartcrop
+                            subtype: isFotoAl100orStorytelling(subtype)
+                                ? '-1'
+                                : subtype,
+                            shouldUseV2: true,
+                            isInApertura
+                        }
+                    )
+                };
+            })
+        );
 
         // Si viene de mas notas return solo las necesarias mas 1 por si se excluye misma nota
         if (type === 'story') {

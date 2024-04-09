@@ -24,7 +24,7 @@ const fetch = async (query, { cachedCall }) => {
             tagSourceResult
         };
 
-        const transformedAcu = await transformAcu(queryParams);
+        const transformedAcu = await transformAcu(queryParams, { cachedCall });
 
         const paginationValue = calculatePaginationValue(
             transformedAcu[0].acumuladoTotal,
