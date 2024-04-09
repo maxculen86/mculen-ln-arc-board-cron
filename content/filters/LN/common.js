@@ -11,6 +11,7 @@ export const imageResizedUrl = `
         media_preload
         minScreenWidth
         maxScreenWidth
+        device
         proportion
         configPixelRatio {
             forScreenWidth

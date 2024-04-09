@@ -396,7 +396,11 @@ export const queueGoogletagCommand = bannersToLoad => {
             .filter(e => !e.prebidEnabled)
             .map(defineSlot);
 
+        const saleFrameValidation = determineSafeFrame(bannersToLoad);
         // initialize
+        saleFrameValidation.map(banner => {
+            googletag.pubads().setForceSafeFrame(banner.safeFrame);
+        });
         googletag.pubads().enableSingleRequest();
         googletag.pubads().enableAsyncRendering();
         googletag.pubads().disableInitialLoad();
@@ -423,8 +427,7 @@ export const queueGoogletagCommand = bannersToLoad => {
             function(bids) {
                 // set apstag targeting on googletag, then trigger the first GAM request in googletag's disableInitialLoad integration
                 googletag.cmd.push(function() {
-                    if (typeof pbjs === 'undefined' || pbjs.adserverRequestSent)
-                        return;
+                    if (pbjs.adserverRequestSent) return;
                     apstag.setDisplayBids();
                 });
             }
@@ -435,29 +438,24 @@ export const queueGoogletagCommand = bannersToLoad => {
         //	once by Prebid when the auction's done
         //	once by the failsafe timeout
         // so a boolean is used to make sure ads are refreshed only once
-        if (typeof pbjs !== 'undefined') {
-            pbjs.adserverRequestSent = false;
-        }
+        pbjs.adserverRequestSent = false;
         const sendAdServerRequest = _headerBiddingSlots => {
             if (_headerBiddingSlots.length === 0) return;
             googletag.cmd.push(() => {
                 // don't run again if already ran
-                if (typeof pbjs === 'undefined' && pbjs.adserverRequestSent)
-                    return;
+                if (pbjs.adserverRequestSent) return;
                 pbjs.adserverRequestSent = true;
                 googletag.pubads().refresh(_headerBiddingSlots);
             });
         };
 
-        if (typeof pbjs !== 'undefined') {
-            !isWebview(navigator.userAgent) &&
-                pbjs.que.push(function() {
-                    pbjs.rp.requestBids({
-                        callback: sendAdServerRequest,
-                        gptSlotObjects: headerBiddingSlots
-                    });
+        !isWebview(navigator.userAgent) &&
+            pbjs.que.push(function() {
+                pbjs.rp.requestBids({
+                    callback: sendAdServerRequest,
+                    gptSlotObjects: headerBiddingSlots
                 });
-        }
+            });
 
         // this timeout is a failsafe
         // the ad ops team can set lower thresholds that will be respected by Prebid
@@ -488,4 +486,18 @@ export const queueGoogletagCommand = bannersToLoad => {
                 }
             });
     });
+};
+
+export const determineSafeFrame = bannersToLoad => {
+    const validValues = [
+        'caja1_dsk',
+        'caja2_dsk',
+        'caja3_dsk',
+        'caja4_dsk',
+        'caja5_dsk'
+    ];
+    return bannersToLoad.map(banner => ({
+        ...banner,
+        safeFrame: validValues.includes(banner.opt_div)
+    }));
 };

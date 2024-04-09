@@ -4,9 +4,11 @@ import { MenuUser } from './menuUser';
 import { SubscribeButton } from './subscribeButton';
 import { UpsellingButton } from './upsellingButton';
 import { useHeaderContext } from '../../../context';
+import BellButton from './bellButton';
 
 export const RightOptions = () => {
     const [loadingData, setLoadingData] = useState(true);
+
     const { loading } = useHeaderContext();
     useEffect(() => {
         setLoadingData(loading);
@@ -15,7 +17,7 @@ export const RightOptions = () => {
     if (loadingData) return <></>;
     return (
         <>
-            {/* <BellButton /> */}
+            <BellButton />
             <UpsellingButton />
             <MenuUser />
             <SignInButton />
@@ -23,3 +25,5 @@ export const RightOptions = () => {
         </>
     );
 };
+
+export default RightOptions;

@@ -439,7 +439,6 @@ describe('Components - Chains - Utils - _helpers', () => {
                 buttonLogo: 'Test Button Logo',
                 linkButton: 'testButtonLink',
                 buttonStyle: 'testButtonStyle',
-                // buttonHTML: 'testButtonHTML',
                 isAdmin: true,
                 isManual: false
             };
@@ -454,7 +453,6 @@ describe('Components - Chains - Utils - _helpers', () => {
                     width: '100px'
                 },
                 logoId: 'testLogoId',
-                //buttonHTML: 'testButtonHTML',
                 buttonLogo: {
                     src: 'https://example.com/logo.png',
                     alt: 'Test Title',
@@ -495,7 +493,6 @@ describe('Components - Chains - Utils - _helpers', () => {
                     width: ''
                 },
                 logoId: undefined,
-                //buttonHTML: undefined,
                 buttonLogo: {
                     src: '',
                     alt: 'Test Title',

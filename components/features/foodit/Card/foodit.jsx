@@ -18,7 +18,6 @@ import {
     getImagesToLoadWithPicture,
     getShortestImage
 } from '../../../private/LN/common/utils/mediaHelper';
-import StaticContent from '../../../private/common/staticContent';
 import fooditRules from '../../foodit-global/common/utils/fooditRules';
 import classNames from 'classnames';
 import CommonCardFoodit from '../../foodit-global/common/CommonCardFoodit/foodit.jsx';
@@ -37,7 +36,7 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
     } = fooditRules(layout);
 
     const articleContent = useContent({
-        source: articleId ? 'fooditArticleSource' : null,
+        source: articleId ? 'fooditBaseArticleSource' : null,
         query: {
             id: articleId,
             published: true,
@@ -84,7 +83,7 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
     const { resizedUrl = '' } = getShortestImage(resized_urls);
 
     return (
-        <StaticContent className={staticContentClassName} key={featureId}>
+        <div className={staticContentClassName} key={featureId}>
             {!error && articleContent && (
                 <CommonCardFoodit
                     articleId={articleId}
@@ -106,7 +105,7 @@ const CardFoodit = ({ id: featureId, customFields: { noteId: id } }) => {
                     }
                 />
             )}
-        </StaticContent>
+        </div>
     );
 };
 

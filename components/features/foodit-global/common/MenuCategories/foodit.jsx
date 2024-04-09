@@ -22,6 +22,11 @@ export const MenuCategories = ({ data = [], fullWidth }) => {
                                 {...(title.href && {
                                     arrowIcon: <IconSprite name="arrow-right" />
                                 })}
+                                data-interaction="dataLayerInteraction"
+                                data-event-data-layer="e_linkclick"
+                                data-dynamic-category="header"
+                                data-dynamic-label={title.text}
+                                data-dynamic-action="N/A"
                             />
                         </li>
                     )}
@@ -34,6 +39,13 @@ export const MenuCategories = ({ data = [], fullWidth }) => {
                                 level={2}
                                 fullWidth={fullWidth}
                                 icon={<IconSprite name="bullet-xs" />}
+                                data-interaction="dataLayerInteraction"
+                                data-event-data-layer="e_linkclick"
+                                data-dynamic-category="header"
+                                data-dynamic-label={
+                                    (title && title.text) || 'N/A'
+                                }
+                                data-dynamic-action={text}
                             />
                         </li>
                     ))}

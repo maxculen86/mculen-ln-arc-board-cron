@@ -60,18 +60,22 @@ jest.mock(
 );
 
 jest.mock(
-    '../../../../../../components/private/common/scriptManager/GetQuerylyScript',
+    '../../../../../../components/features/LN-10-global/header/mainHeader/components/rightOptions/bellButton',
     () => {
-        return jest.fn(() => <div id="mock-getQuerylyScript" />);
+        return jest.fn(() => <div id="mock-bell-button" />);
     }
 );
 
 describe('components - features - LN-10-global - header - mainHeader - default', () => {
-    Context.useAppContext = jest.fn(() => ({}));
+    Context.useAppContext = jest.fn(() => ({
+        deployment: jest.fn()
+    }));
+
     it('should render successfully', () => {
         const { baseElement } = render(<MainHeaderLN />);
         expect(baseElement).toBeTruthy();
     });
+
     it('should match snapshot', () => {
         const { container } = render(<MainHeaderLN />);
         expect(container).toMatchSnapshot();

@@ -8,6 +8,7 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
         const { baseElement } = render(<BellButton />);
         expect(baseElement).toBeInTheDocument();
     });
+
     it('should match snapshot', () => {
         const { container } = render(<BellButton />);
         expect(container).toMatchSnapshot();

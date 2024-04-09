@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import AuthorBiography from '../../features/foodit-global/common/authorBiography/foodit';
+import { Text } from '@ln/common-ui-text';
 
 const pageBuilderSections = ['Notas'];
 
@@ -55,7 +56,15 @@ const ChefFoodit = props => {
             <div className="flex flex-column gap-32">
                 <AuthorBiography {...authorBiography} />
                 <hr className="floating-button-sentinel" />
-                <section className="flex flex-column gap-32">{notas}</section>
+                <section className="flex flex-column gap-32">
+                    <Text
+                        as="h1"
+                        className="prumo prumo-semibold text-28 text-40_md text-48_lg"
+                    >
+                        Sus recetas
+                    </Text>
+                    {notas}
+                </section>
             </div>
         </BaseLayout>
     );

@@ -4,6 +4,7 @@ exports[`Foodit - Preload Images - Helper getHomeOpeningImages Should return ima
 Array [
   Object {
     "option": Object {
+      "device": "desktop",
       "height": 1280,
       "media": "(min-width: 1280px)",
       "media_preload": "(min-width: 1440px)",
@@ -15,6 +16,7 @@ Array [
   },
   Object {
     "option": Object {
+      "device": "desktop",
       "height": 800,
       "media": "(min-width: 1280px)",
       "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
@@ -26,6 +28,7 @@ Array [
   },
   Object {
     "option": Object {
+      "device": "mobile",
       "height": 1155,
       "media": "(min-width: 1280px)",
       "media_preload": "(min-width: 768px) and (max-width: 1023px)",
@@ -37,6 +40,7 @@ Array [
   },
   Object {
     "option": Object {
+      "device": "mobile",
       "height": 630,
       "media": "(min-width: 1280px)",
       "media_preload": "(max-width: 767px)",
@@ -52,6 +56,7 @@ exports[`Foodit - Preload Images - Helper getPromoItemsImages With recipe subtyp
 Array [
   Object {
     "option": Object {
+      "device": "desktop",
       "height": 1280,
       "media": "(min-width: 1280px)",
       "media_preload": "(min-width: 1440px)",
@@ -63,6 +68,7 @@ Array [
   },
   Object {
     "option": Object {
+      "device": "desktop",
       "height": 800,
       "media": "(min-width: 1280px)",
       "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
@@ -74,6 +80,7 @@ Array [
   },
   Object {
     "option": Object {
+      "device": "mobile",
       "height": 1155,
       "media": "(min-width: 1280px)",
       "media_preload": "(min-width: 768px) and (max-width: 1023px)",
@@ -85,6 +92,7 @@ Array [
   },
   Object {
     "option": Object {
+      "device": "mobile",
       "height": 630,
       "media": "(min-width: 1280px)",
       "media_preload": "(max-width: 767px)",
@@ -100,6 +108,7 @@ exports[`Foodit - Preload Images - Helper getPromoItemsImages With storytelling 
 Array [
   Object {
     "option": Object {
+      "device": "desktop",
       "height": 1280,
       "media": "(min-width: 1280px)",
       "media_preload": "(min-width: 1440px)",
@@ -111,6 +120,7 @@ Array [
   },
   Object {
     "option": Object {
+      "device": "desktop",
       "height": 800,
       "media": "(min-width: 1280px)",
       "media_preload": "(min-width: 1024px) and (max-width: 1439px)",
@@ -122,6 +132,7 @@ Array [
   },
   Object {
     "option": Object {
+      "device": "mobile",
       "height": 1155,
       "media": "(min-width: 1280px)",
       "media_preload": "(min-width: 768px) and (max-width: 1023px)",
@@ -133,6 +144,7 @@ Array [
   },
   Object {
     "option": Object {
+      "device": "mobile",
       "height": 630,
       "media": "(min-width: 1280px)",
       "media_preload": "(max-width: 767px)",
@@ -148,6 +160,7 @@ exports[`Foodit - Preload Images - Helper getPromoItemsImages With videoJW and s
 Array [
   Object {
     "option": Object {
+      "device": "mobile",
       "height": 1155,
       "media": "(min-width: 1280px)",
       "media_preload": "(min-width: 768px) and (max-width: 1023px)",
@@ -159,6 +172,7 @@ Array [
   },
   Object {
     "option": Object {
+      "device": "mobile",
       "height": 630,
       "media": "(min-width: 1280px)",
       "media_preload": "(max-width: 767px)",

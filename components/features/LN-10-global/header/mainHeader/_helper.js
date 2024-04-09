@@ -96,3 +96,8 @@ export const showSubscribeButton = (subscription = false) => {
     const paywall = useTermica('paywall') || false;
     return paywall && typeof window !== 'undefined' && !subscription;
 };
+
+export const getInitialState = () => {
+    const showTooltip = localStorage.getItem('showTooltip');
+    return showTooltip ? JSON.parse(showTooltip) : true;
+};

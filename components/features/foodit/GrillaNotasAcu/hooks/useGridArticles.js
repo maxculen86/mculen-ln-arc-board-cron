@@ -1,18 +1,30 @@
 import { useContent } from 'fusion:content';
+import { useAppContext } from 'fusion:context';
 import get from '../../../../private/common/utils/get';
 
 const useGridArticlesFoodit = ({
     id = '',
     maxArticles = 24,
     page = 1,
-    staticMode = false
+    staticMode = false,
+    layout = ''
 }) => {
+    const { siteProperties } = useAppContext();
+
+    const { layoutsName = {} } = siteProperties || {};
+
+    const queryLayout = {
+        [layoutsName.FooditAcumulado]: 'sectionId',
+        [layoutsName.FooditChef]: 'authorId'
+    };
+    const queryId = queryLayout[layout];
+
     const isFirstGridClient = page === 1 && !staticMode;
 
     const config = {
         source: isFirstGridClient ? null : 'acuArticlesSource',
         query: {
-            sectionId: id,
+            [queryId]: queryId ? id : null,
             page,
             size: maxArticles,
             website: 'foodit'

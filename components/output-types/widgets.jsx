@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { SITE_LANACION } from 'fusion:environment';
 import { addMetaNoIndexNoFollow } from '../private/common/utils/outputTypeHelper';
-import { getStyleFontsInLineForLN10 } from '../private/common/fontface';
+import { fontFaceLn10 } from '../features/LN-10-global/fontFace/default';
 
 const TAGS_BY_WIDGET = {
     viafoura: ({ globalContent, contextPath, deployment }) => {
@@ -39,7 +39,7 @@ const TAGS_BY_WIDGET = {
                                 .widget {
                                     padding: 32px 16px 0;
                                 }
-                                ${getStyleFontsInLineForLN10({
+                                ${fontFaceLn10({
                                     contextPath,
                                     deployment
                                 })}

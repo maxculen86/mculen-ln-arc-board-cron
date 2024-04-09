@@ -25,7 +25,7 @@ export const OpeningRecipe = ({ article = {} }) => {
     const { promo_items = {}, headlines = {}, taxonomy, _id = '' } = article;
     const sections = get(taxonomy, 'sections', []);
     const badge = getHighestPriorityTag(sections);
-
+    const title = get(headlines, 'basic', '');
     const author = getAuthorsAsString(article);
 
     const videoJW = get(promo_items, 'video_jw', null);
@@ -44,7 +44,7 @@ export const OpeningRecipe = ({ article = {} }) => {
                     {videoJW ? (
                         <VideoPlayer
                             data={videoJW}
-                            tituloNota={get(headlines, 'basic', '')}
+                            tituloNota={title}
                             isOpening
                             className="w-100 ratio-16-9"
                         />
@@ -77,7 +77,7 @@ export const OpeningRecipe = ({ article = {} }) => {
                             />
                             <Text
                                 className="text-14"
-                                text={author || 'Por foodit'}
+                                text={author || 'Por Foodit'}
                                 as="h3"
                             />
                         </div>
@@ -87,8 +87,14 @@ export const OpeningRecipe = ({ article = {} }) => {
                     <Button
                         title="Guardar"
                         size={{ sm: 32, lg: 40 }}
-                        data-id={_id}
                         data-modal={'open-modal'}
+                        data-id={_id}
+                        data-interaction="dataLayerInteraction"
+                        data-event-data-layer="e_linkclick"
+                        data-dynamic-category="interaction"
+                        data-dynamic-label="receta"
+                        data-dynamic-action="guardar"
+                        data-title={title}
                     >
                         <Icon size={16} className="sm-none">
                             <IconSprite name="bookmark" critical />

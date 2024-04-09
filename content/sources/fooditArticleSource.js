@@ -1,31 +1,24 @@
-import request from 'request-promise-native';
-import {
-    CONTENT_BASE,
-    ARC_ACCESS_TOKEN,
-    SITE_FOODIT,
-    SITIO_SEGURO_REGISTRACION
-} from 'fusion:environment';
+import { SITE_FOODIT, SITIO_SEGURO_REGISTRACION } from 'fusion:environment';
 import { transform } from './utils/fooditSources/fooditArticleSource';
 import get from '../../components/private/common/utils/get';
 import logger from '../../components/private/common/utils/logger.js';
-import { getUrlQuery, setRedirect } from './utils/articleSourceNota/_helper';
+import { setRedirect } from './utils/articleSourceNota/_helper';
+import fooditBaseArticleSource from './fooditBaseArticleSource.js';
+import filter from '../filters/foodit/article/articleFilterNota.js';
 
 const fetch = (query, { cachedCall } = {}) => {
     const arcSite = query['arc-site'];
-    const opt = {
-        uri: `${CONTENT_BASE}${getUrlQuery(query)}`,
-        json: true
-    };
-
-    if (ARC_ACCESS_TOKEN) {
-        opt.auth = {
-            bearer: ARC_ACCESS_TOKEN
-        };
-    }
 
     const resolveData = async () => {
         try {
-            const response = await request(opt);
+            const response = await cachedCall(
+                'fooditBaseArticleSource',
+                fooditBaseArticleSource.fetch,
+                {
+                    query,
+                    independent: true
+                }
+            );
 
             setRedirect({
                 response,
@@ -36,7 +29,7 @@ const fetch = (query, { cachedCall } = {}) => {
 
             return transform(response, query, cachedCall);
         } catch (error) {
-            return logger.push(
+            logger.push(
                 error,
                 {
                     source: 'content/source/fooditArticleSource',
@@ -44,6 +37,7 @@ const fetch = (query, { cachedCall } = {}) => {
                 },
                 arcSite
             );
+            return {};
         }
     };
 
@@ -63,7 +57,6 @@ export default {
         outputType: 'text',
         sourceInclude: 'text'
     },
-    // TODO: Una vez que esten definidas las fichas, definir filtro correspondiente.
-    // filter,
+    filter,
     ttl: 120
 };

@@ -4,13 +4,8 @@ const HEAD = 'head';
 
 export default {
     Datadog: { props: {}, location: [HEAD] },
-    Permutive: { props: {}, location: [HEAD] },
-    ScriptCripto: {
-        props: {},
-        location: [BODYBOTTOM]
-    },
     GTM: {
-        props: { id: 'GTM-GHV6' },
+        props: { id: 'GTM-M5NBFQW9' },
         location: [HEAD, BODYTOP]
     },
     PostBid: {
@@ -25,14 +20,6 @@ export default {
             }
         },
         location: [HEAD]
-    },
-    AdblockDetector: {
-        props: {},
-        location: [BODYBOTTOM]
-    },
-    LiftIgniter: {
-        props: {},
-        location: [BODYTOP]
     },
     GooglePublisherTag: {
         props: {},
@@ -51,5 +38,6 @@ export default {
         location: [HEAD]
     },
     ObservableFoodit: { props: {}, location: [BODYBOTTOM] },
-    DataModal: { props: {}, location: [BODYBOTTOM] }
+    DataModal: { props: {}, location: [BODYBOTTOM] },
+    FooditEventsHelper: { props: {}, location: [BODYBOTTOM] }
 };

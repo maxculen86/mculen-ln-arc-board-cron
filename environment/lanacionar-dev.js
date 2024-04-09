@@ -48,6 +48,22 @@ export default {
             trackLongTasks: true,
             trackUserInteractions: true,
             trackSessionAcrossSubdomains: false
+        },
+        foodit: {
+            clientTokenLogs: 'pub540b3115d2684163d47c67bcb76097a8',
+            clientTokenRum: 'pub1ad54b5c46d268e96bf42a24c15ed5be',
+            applicationId: '265afe0d-6798-4354-a3d1-e40ce8840c7a',
+            site: 'datadoghq.com',
+            forwardErrorsToLogs: true,
+            sampleRateLog: 1,
+            sampleRateRum: 0.15,
+            service: 'foodit',
+            env: 'dev',
+            sessionReplaySampleRate: 30,
+            trackResources: true,
+            trackLongTasks: true,
+            trackUserInteractions: true,
+            trackSessionAcrossSubdomains: false
         }
     },
     ARC_STATIC: '',

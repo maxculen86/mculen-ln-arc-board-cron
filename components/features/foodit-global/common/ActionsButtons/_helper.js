@@ -5,6 +5,7 @@ import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import ShareFoodit from '../ShareFoodit/foodit';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 const buttonCopy = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -23,11 +24,28 @@ const buttonPrint = () => {
     window.print();
 };
 
+export const addActionToDataLayer = (article, action) => {
+    const TYPES_LABEL = {
+        7: 'receta',
+        4: 'nota'
+    };
+
+    addEventToDataLayer({
+        event: 'e_linkclick',
+        category: 'interaction',
+        label: TYPES_LABEL[get(article, 'subtype', '')] || '',
+        action,
+        title: get(article, 'headlines.basic', ''),
+        articleId: get(article, '_id', '')
+    });
+};
+
 export const buttonConfig = [
     {
         type: 'copy',
         enabled: true,
-        handleClick: () => {
+        handleClick: article => {
+            addActionToDataLayer(article, 'copiar');
             buttonCopy();
         },
         description: 'Copiar',
@@ -36,7 +54,8 @@ export const buttonConfig = [
     {
         type: 'print',
         enabled: true,
-        handleClick: () => {
+        handleClick: article => {
+            addActionToDataLayer(article, 'imprimir');
             buttonPrint();
         },
         description: 'Imprimir',
@@ -46,6 +65,7 @@ export const buttonConfig = [
         type: 'share',
         enabled: true,
         handleClick: shareData => {
+            addActionToDataLayer(shareData, 'compartir');
             buttonShare(shareData);
         },
         description: 'Compartir',
@@ -54,7 +74,8 @@ export const buttonConfig = [
     {
         type: 'comment',
         enabled: true,
-        handleClick: () => {
+        handleClick: article => {
+            addActionToDataLayer(article, 'comentarios');
             buttonComment();
         },
         description: 'Comentarios',
@@ -83,9 +104,15 @@ const renderRegularButton = ({
     IconButton,
     description,
     handleClick,
-    type
+    type,
+    article
 }) => (
-    <Button key={type} title={description} variant="link" onClick={handleClick}>
+    <Button
+        key={type}
+        title={description}
+        variant="link"
+        onClick={() => handleClick(article)}
+    >
         <Icon size={24}>{IconButton}</Icon>
     </Button>
 );
@@ -110,7 +137,8 @@ export const renderAction = ({
             IconButton,
             description,
             handleClick,
-            type
+            type,
+            article
         })
     };
 

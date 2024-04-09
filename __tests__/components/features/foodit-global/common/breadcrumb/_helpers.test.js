@@ -53,7 +53,12 @@ describe('Tests - helpers- breadcrumb - foodit ', () => {
         });
 
         test('returns an array with an object for the given section', () => {
-            expect(setArraySection('miSeccion')).toEqual([
+            expect(setArraySection('/miSeccion')).toEqual([
+                {
+                    name: 'Foodit',
+                    url: 'https://foodit.lanacion.com.ar',
+                    disabled: false
+                },
                 {
                     name: 'MiSeccion',
                     url: `${site}/miSeccion/`,
@@ -63,7 +68,12 @@ describe('Tests - helpers- breadcrumb - foodit ', () => {
         });
 
         test('returns an array with objects for each provided section', () => {
-            expect(setArraySection('seccion1/seccion2')).toEqual([
+            expect(setArraySection('/seccion1/seccion2')).toEqual([
+                {
+                    name: 'Foodit',
+                    url: 'https://foodit.lanacion.com.ar',
+                    disabled: false
+                },
                 {
                     name: 'Seccion1',
                     url: `${site}/seccion1/`,
@@ -71,14 +81,19 @@ describe('Tests - helpers- breadcrumb - foodit ', () => {
                 },
                 {
                     name: 'Seccion2',
-                    url: `${site}/seccion2/`,
+                    url: `${site}/seccion1/seccion2/`,
                     disabled: false
                 }
             ]);
         });
 
         test('marks the last section as disabled when it is accumulated', () => {
-            expect(setArraySection('seccion1/seccion2', true)).toEqual([
+            expect(setArraySection('/seccion1/seccion2', true)).toEqual([
+                {
+                    name: 'Foodit',
+                    url: 'https://foodit.lanacion.com.ar',
+                    disabled: false
+                },
                 {
                     name: 'Seccion1',
                     url: `${site}/seccion1/`,
@@ -86,7 +101,7 @@ describe('Tests - helpers- breadcrumb - foodit ', () => {
                 },
                 {
                     name: 'Seccion2',
-                    url: `${site}/seccion2/`,
+                    url: `${site}/seccion1/seccion2/`,
                     disabled: true
                 }
             ]);

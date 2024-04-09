@@ -1,17 +1,17 @@
 import get from './get';
 import { getShortestImage } from '../../LN/common/utils/mediaHelper';
 import { getVideoData } from '../../../features/private-global/common/utils/getVideoData';
-import { filterImagesByProportion } from '../../../features/private-global/common/utils/filterImagesByProportion';
+import { filterImagesByDevice } from '../../../features/private-global/common/utils/filterImagesByDevice';
 
 const getListOfOpeningImages = (video, basicImageMobile, basicImageDsk) => {
     if (video && basicImageMobile) {
-        return filterImagesByProportion(basicImageMobile, '2:3');
+        return filterImagesByDevice(basicImageMobile, 'mobile');
     }
 
     if (basicImageMobile) {
         return [
-            ...filterImagesByProportion(basicImageDsk, '3:2'),
-            ...filterImagesByProportion(basicImageMobile, '2:3')
+            ...filterImagesByDevice(basicImageDsk, 'desktop'),
+            ...filterImagesByDevice(basicImageMobile, 'mobile')
         ];
     }
 

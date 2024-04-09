@@ -64,7 +64,7 @@ export const PowerupsReceta = ({ article = {} }) => {
                 url: '#'
             },
             {
-                text: 'Sustituto de ingredientes',
+                text: 'GUÍA DE SUSTITUTOS DE INGREDIENTES ',
                 url: '#'
             }
         ]

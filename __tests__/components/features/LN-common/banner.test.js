@@ -9,7 +9,8 @@ import {
     isForAmp,
     isPrimarySectionInBannerSegments,
     handleCanchallenaException,
-    shouldShow
+    shouldShow,
+    determineSafeFrame
 } from '../../../../components/private/LN/common/utils/bannerHelper';
 import Banner from '../../../../components/features/LN-common/bannerRefactor/default';
 import BannerAmp from '../../../../components/features/LN-common/bannerRefactor/amp';
@@ -1138,5 +1139,31 @@ describe('getBannerConfiguration =>', () => {
             />
         );
         expect(container.innerHTML).toStrictEqual(ampBanner);
+    });
+
+    describe('determineSafeFrame', () => {
+        test('Should set safeFrame to true if opt_div is valid', () => {
+            const bannersToLoad = [
+                { opt_div: 'caja1_dsk' },
+                { opt_div: 'caja2_dsk' }
+            ];
+            const result = determineSafeFrame(bannersToLoad);
+            expect(result).toEqual([
+                { opt_div: 'caja1_dsk', safeFrame: true },
+                { opt_div: 'caja2_dsk', safeFrame: true }
+            ]);
+        });
+
+        test('Should set safeFrame to false if opt_div is invalid', () => {
+            const bannersToLoad = [
+                { opt_div: 'caja1_dsk' },
+                { opt_div: 'caja1_amp' }
+            ];
+            const result = determineSafeFrame(bannersToLoad);
+            expect(result).toEqual([
+                { opt_div: 'caja1_dsk', safeFrame: true },
+                { opt_div: 'caja1_amp', safeFrame: false }
+            ]);
+        });
     });
 });

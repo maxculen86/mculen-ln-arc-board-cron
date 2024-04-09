@@ -126,7 +126,7 @@ export const getClassAndIconByBookmark = bookmark =>
     bookmark
         ? {
               bookmarkClass: '--is-saved',
-              bookmarkIcon: <IconSprite name="bookmarkFilled" />
+              bookmarkIcon: <IconSprite name="bookmarkFilled" critical />
           }
         : {
               bookmarkIcon: <IconSprite name="bookmark" critical />

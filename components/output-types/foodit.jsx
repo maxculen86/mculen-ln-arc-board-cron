@@ -1,13 +1,16 @@
 import React from 'react';
-import CriticalCSS from '../features/foodit-global/common/CriticalCss/foodit';
 import CssLinksByArcSite from './Helper/cssLinksByArcSite';
 import PreloadFooditImages from '../features/foodit-global/common/image/preloadImage/foodit';
 import buildScriptComponent from '../private/LN/common/utils/scriptsHelper';
 import TagsLoadingList from '../private/common/scriptManager/tagsLoadingList';
+import DataLayerIndex from '../private/common/dataLayerIndex';
 import getSectionName from '../private/LN/common/utils/getSectionName';
 import MetaFoodit from '../features/foodit-global/common/MetaFoodit/foodit';
+import useTermica from '../private/common/hooks/useTermica';
+import BuildComments from '../features/foodit-global/common/MetaCommentsViafoura/foodit';
+import { allowCommentsFoodit } from '../private/common/utils/commentsHelper';
+import { GetFonts } from './criticalCss/getFonts';
 
-// TODO: OutputType base, queda pendiente agregar manejo de metadatos
 const Foodit = ({
     children,
     Libs,
@@ -22,7 +25,17 @@ const Foodit = ({
     metaValue,
     isAdmin
 } = {}) => {
-    const { node_type: nodeType, type } = globalContent;
+    const {
+        node_type: nodeType,
+        type,
+        _id,
+        canonical_url: canonicalUrl = '',
+        headlines: { mobile, basic } = {}
+    } = globalContent;
+    const { layoutsName = {} } = siteProperties || {};
+
+    const allowCommentsValidate =
+        useTermica('livefyre') && allowCommentsFoodit({ globalContent });
 
     const _nodeType = getSectionName({ nodeType, type, arcSite });
 
@@ -44,7 +57,6 @@ const Foodit = ({
                 {/*  TODO: Una vez salga foodit a PROD, elminar el meta noindex,nofollow y sumar la validacion para agregarlo al preview de composer*/}
                 <meta name="robots" content="noindex, nofollow" />
                 <meta name="theme-color" content="#ffffff" />
-                <link rel="manifest" href="/manifest.json" />
                 <PreloadFooditImages
                     layout={layout}
                     renderables={renderables}
@@ -58,11 +70,29 @@ const Foodit = ({
                     siteProperties={siteProperties}
                     deployment={deployment}
                 />
-                <CriticalCSS />
+                <GetFonts
+                    contextPath={contextPath}
+                    deployment={deployment}
+                    arcSite={arcSite}
+                />
                 <CssLinksByArcSite />
                 <Scripts location="head" />
+                <BuildComments
+                    _id={_id}
+                    layout={layout}
+                    canonicalUrl={canonicalUrl}
+                    mobile={mobile}
+                    basic={basic}
+                    allowComments={allowCommentsValidate}
+                    layoutsName={layoutsName}
+                />
             </head>
             <body>
+                <DataLayerIndex
+                    arcSite={arcSite}
+                    layout={layout}
+                    globalContent={globalContent}
+                />
                 <Scripts location="body-top" />
                 <TagsLoadingList
                     section={_nodeType}

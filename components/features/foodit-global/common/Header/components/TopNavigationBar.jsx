@@ -20,6 +20,11 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         href="/recetario"
                         title="Ir a mis recetas"
                         className="gap-8"
+                        data-interaction="dataLayerInteraction"
+                        data-event-data-layer="e_linkclick"
+                        data-dynamic-category="header"
+                        data-dynamic-label={'Recetario'}
+                        data-dynamic-action="N/A"
                     >
                         <Icon size={20}>
                             <IconSprite name="bookmark" critical />
@@ -30,6 +35,11 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         href="/lista-de-compras"
                         title="Ir a lista de compras"
                         className="gap-8"
+                        data-interaction="dataLayerInteraction"
+                        data-event-data-layer="e_linkclick"
+                        data-dynamic-category="header"
+                        data-dynamic-label={'Lista de compras'}
+                        data-dynamic-action="N/A"
                     >
                         <Icon size={20}>
                             <IconSprite name="cart" critical />

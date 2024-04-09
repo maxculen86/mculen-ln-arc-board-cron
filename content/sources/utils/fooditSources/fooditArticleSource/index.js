@@ -201,38 +201,16 @@ export const getArticleSubtype = subtype => {
 };
 
 // TODO: Pendiente por sumar tests al transform
-export const transform = async (response, query, cachedCall) => {
-    const {
-        meteringVariant,
-        paywallEnabled = '',
-        isInApertura = false,
-        isAdmin = false
-    } = query;
+export const transform = async (result, query, cachedCall) => {
+    const { meteringVariant, paywallEnabled = '' } = query;
 
     const arcSite = query['arc-site'];
     const siteProperties = getProperties(query[arcSite]);
 
-    const newData = await getAllImagesAuth(response, cachedCall);
-    Object.assign(response, newData);
-
-    const subtype = getArticleSubtype(get(response, 'subtype', null));
-
-    const result = {
-        ...response,
-        ...addResizedUrls(response, {
-            presets: {
-                ...getImageConfig(response, query)
-            },
-            subtype,
-            isInApertura,
-            isAdmin,
-            shouldUseV1: false,
-            shouldUseV2: true
-        })
-    };
+    const subtype = getArticleSubtype(get(result, 'subtype', null));
 
     const aditionalProps = {
-        withSponsoredLink: validateSponsoredLink(response),
+        withSponsoredLink: validateSponsoredLink(result),
         siteProperties,
         cachedCall,
         subtype,
@@ -283,7 +261,7 @@ export const transform = async (response, query, cachedCall) => {
             ...get(result, 'credits', {}),
             by: transformAuthors(get(result, 'credits.by', []))
         },
-        taxonomy: filterSections(response),
-        category: get(response, 'taxonomy.primary_section.name', '')
+        taxonomy: filterSections(result),
+        category: get(result, 'taxonomy.primary_section.name', '')
     };
 };

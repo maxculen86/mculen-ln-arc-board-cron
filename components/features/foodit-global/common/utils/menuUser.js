@@ -1,6 +1,7 @@
 import React from 'react';
 import { logout } from '../context/authContext/_helpers';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
 
 // TODO: Eliminar cuando se consigan los datos dinámicamente
 export const menuUser = [
@@ -9,6 +10,12 @@ export const menuUser = [
         icon: <IconSprite name="profile" critical />,
         onClick: () => {
             console.log('click');
+            addEventToDataLayer({
+                event: 'e_linkclick',
+                category: 'autogestion',
+                label: 'ayuda',
+                action: 'mi_cuenta'
+            });
         }
     },
     {
@@ -16,6 +23,12 @@ export const menuUser = [
         icon: <IconSprite name="bookmark" critical />,
         onClick: () => {
             console.log('click');
+            addEventToDataLayer({
+                event: 'e_linkclick',
+                category: 'autogestion',
+                label: 'ayuda',
+                action: 'mis_recetas'
+            });
         }
     },
     {
@@ -23,6 +36,12 @@ export const menuUser = [
         icon: <IconSprite name="list" />,
         onClick: () => {
             console.log('click');
+            addEventToDataLayer({
+                event: 'e_linkclick',
+                category: 'autogestion',
+                label: 'ayuda',
+                action: 'lista_de_compras'
+            });
         }
     },
     {
@@ -30,6 +49,12 @@ export const menuUser = [
         icon: <IconSprite name="calendar" />,
         onClick: () => {
             console.log('click');
+            addEventToDataLayer({
+                event: 'e_linkclick',
+                category: 'autogestion',
+                label: 'ayuda',
+                action: 'newsletters'
+            });
         }
     },
     {
@@ -37,6 +62,12 @@ export const menuUser = [
         icon: <IconSprite name="diet" />,
         onClick: () => {
             console.log('click');
+            addEventToDataLayer({
+                event: 'e_linkclick',
+                category: 'autogestion',
+                label: 'ayuda',
+                action: 'como_ayudarte'
+            });
         }
     },
     {

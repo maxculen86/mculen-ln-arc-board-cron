@@ -23,7 +23,7 @@ const CardChef = ({ customFields: { id = '' } }) => {
 
     const {
         _id: authorId,
-        canonical_url: canonicalUrl,
+        canonical_url: canonicalUrl = '',
         name,
         image: { url: imageUrl } = {}
     } = author || {};
@@ -51,7 +51,7 @@ const CardChef = ({ customFields: { id = '' } }) => {
     return (
         <AuthorCard
             key={authorId}
-            href={canonicalUrl}
+            href={canonicalUrl.replace('autor', 'chefs-protagonistas')}
             name={name}
             imageProps={{ src: imageUrl }}
         />
