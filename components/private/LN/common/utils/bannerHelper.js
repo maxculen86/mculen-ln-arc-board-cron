@@ -384,6 +384,7 @@ export const getTargetingFormat = sections => {
 
 export const queueGoogletagCommand = bannersToLoad => {
     googletag.cmd.push(() => {
+        let pbjs = [];
         const defineSlot = ({ adUnitPath, size, opt_div: optDiv }) =>
             googletag
                 .defineSlot(adUnitPath, size, optDiv)
@@ -450,6 +451,8 @@ export const queueGoogletagCommand = bannersToLoad => {
         };
 
         !isWebview(navigator.userAgent) &&
+            pbjs.que &&
+            typeof pbjs.que.push === 'function' &&
             pbjs.que.push(function() {
                 pbjs.rp.requestBids({
                     callback: sendAdServerRequest,
