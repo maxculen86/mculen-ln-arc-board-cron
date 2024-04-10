@@ -6,14 +6,12 @@ import {
     getBannerConfiguration,
     getDimsFromSiteService,
     getTargetingFormat,
-    isForAmp,
     isPrimarySectionInBannerSegments,
     handleCanchallenaException,
     shouldShow,
     determineSafeFrame
 } from '../../../../components/private/LN/common/utils/bannerHelper';
 import Banner from '../../../../components/features/LN-common/bannerRefactor/default';
-import BannerAmp from '../../../../components/features/LN-common/bannerRefactor/amp';
 import { render, screen } from '@testing-library/react';
 
 jest.mock(
@@ -502,20 +500,6 @@ const siteProperties = {
                     dimensions: [[1, 1]],
                     targeting: defaultTargeting
                 }
-            },
-            amp: {
-                caja1_amp: {
-                    slotName: '/133919216/AMP/ROS/caja1_amp',
-                    dimensions: [[300, 250]]
-                },
-                caja2_amp: {
-                    slotName: '/133919216/AMP/ROS/caja2_amp',
-                    dimensions: [[300, 250]]
-                },
-                caja3_amp: {
-                    slotName: '/133919216/AMP/ROS/caja3_amp',
-                    dimensions: [[300, 250]]
-                }
             }
         }
     }
@@ -796,32 +780,6 @@ describe('changeSegmentAdUnit =>', () => {
 
         expect(configCaja1.slotName).toEqual('campo_desktop/Nota/caja1_dsk');
 
-        const configCaja1Amp = getBannerConfiguration(
-            globalContentDeNotaCampo,
-            {
-                desktop: 'caja1_amp',
-                group: 'nota'
-            },
-            null,
-            { slotId: 'caja1_amp' }
-        );
-
-        expect(configCaja1Amp.slotName).toEqual('/campo_amp/AMP/ROS/caja1_amp');
-
-        const configCajaAmpNoCampo = getBannerConfiguration(
-            globalContent,
-            {
-                desktop: 'caja1_amp',
-                group: 'nota'
-            },
-            null,
-            { slotId: 'caja1_amp' }
-        );
-
-        expect(configCajaAmpNoCampo.slotName).toEqual(
-            '/133919216/AMP/ROS/caja1_amp'
-        );
-
         const configCajaNoCampo = getBannerConfiguration(
             globalContent,
             {
@@ -916,9 +874,7 @@ describe('getBannerConfiguration =>', () => {
         customFields = {
             desktop: 'cabezal_dsk',
             sticky: true,
-            // background,
             group: 'nota'
-            //amp
         };
 
         const componentBannerCabezal = render(
@@ -954,10 +910,7 @@ describe('getBannerConfiguration =>', () => {
         customFields = {
             mobile: 'adhesion_mob',
             fixed: true,
-            // sticky,
-            // background,
             group: 'nota'
-            //amp
         };
         const configAdhesionMobileConSuscripcion = getBannerConfiguration(
             globalContent,
@@ -982,49 +935,6 @@ describe('getBannerConfiguration =>', () => {
             />
         );
         expect(componentAdhesionBanner).toMatchSnapshot();
-    });
-
-    it('No deberia renderizar el adhesion_amp con y sin suscripcion', () => {
-        const componentAmp = render(
-            <Banner
-                customFields={{
-                    mobile: 'adhesion_amp',
-                    group: 'nota',
-                    amp: true
-                }}
-                globalContent={globalContent}
-            />
-        );
-
-        expect(componentAmp).toBeEmptyRender;
-    });
-
-    it('Deberia renderizar el caja1_amp con y sin suscripcion', () => {
-        const { container } = render(
-            <BannerAmp
-                customFields={{
-                    desktop: 'caja1_amp',
-                    group: 'nota',
-                    amp: true
-                }}
-                globalContent={globalContent}
-                outputType="amp"
-            />
-        );
-
-        const ampAd = container.querySelector('.mod-banner.--bg-banner amp-ad');
-        const divBannerAMP = container.querySelector('.mod-banner.--bg-banner');
-
-        expect(container).toBeDefined();
-        expect(ampAd).toBeTruthy();
-        expect(divBannerAMP).toBeTruthy();
-        expect(container).toMatchSnapshot();
-    });
-
-    it('Validar si el banner es para amp o no', () => {
-        expect(isForAmp(undefined, undefined, undefined)).toBeFalsy();
-        expect(isForAmp('caja1_desk', undefined, 'caja1_tab')).toBeFalsy();
-        expect(isForAmp('caja1_amp', undefined, undefined)).toBeTruthy();
     });
 
     it('Validar que las clases css se construyan bien segun la configuracion del banner', () => {
@@ -1108,39 +1018,6 @@ describe('getBannerConfiguration =>', () => {
         );
         expect(container.innerHTML).toStrictEqual(cabezalBanner);
     });
-    it('deberia ocultar banner si es el usuario es suscriptor y el banner es solo para no suscriptores para amp', () => {
-        customFields = {
-            desktop: 'caja1_amp',
-            solo_no_suscriptores: true,
-            amp: true,
-            group: 'nota'
-        };
-        const { container } = render(
-            <BannerAmp
-                customFields={customFields}
-                globalContent={globalContent}
-            />
-        );
-        expect(container.innerHTML).toStrictEqual('');
-    });
-    it('deberia mostrar banner para todos los usuarios con nuevo custom field para amp', () => {
-        const ampBanner = `<div class=\"row \"><div class=\"mod-banner --bg-banner \"><amp-ad id=\"caja1_amp\" type=\"doubleclick\" class=\"banner\" width=\"300\" height=\"250\" data-slot=\"/133919216/AMP/ROS/caja1_amp\" json=\"{&quot;tags&quot;:[&quot;ca_el mundo|ca_ciencia|te_deportes|te_sake&quot;],&quot;tags_nuevos&quot;:[&quot;ca_el mundo&quot;,&quot;ca_ciencia&quot;,&quot;te_deportes&quot;,&quot;te_sake&quot;]}\"></amp-ad></div></div>`;
-        customFields = {
-            desktop: 'caja1_amp',
-            solo_no_suscriptores: false,
-            amp: true,
-            group: 'nota'
-        };
-        const { container } = render(
-            <BannerAmp
-                customFields={customFields}
-                globalContent={globalContent}
-                outputType="amp"
-            />
-        );
-        expect(container.innerHTML).toStrictEqual(ampBanner);
-    });
-
     describe('determineSafeFrame', () => {
         test('Should set safeFrame to true if opt_div is valid', () => {
             const bannersToLoad = [
@@ -1155,15 +1032,9 @@ describe('getBannerConfiguration =>', () => {
         });
 
         test('Should set safeFrame to false if opt_div is invalid', () => {
-            const bannersToLoad = [
-                { opt_div: 'caja1_dsk' },
-                { opt_div: 'caja1_amp' }
-            ];
+            const bannersToLoad = [{ opt_div: 'caja1_dsk' }];
             const result = determineSafeFrame(bannersToLoad);
-            expect(result).toEqual([
-                { opt_div: 'caja1_dsk', safeFrame: true },
-                { opt_div: 'caja1_amp', safeFrame: false }
-            ]);
+            expect(result).toEqual([{ opt_div: 'caja1_dsk', safeFrame: true }]);
         });
     });
 });

@@ -3,7 +3,6 @@ import {
     getBannerConfiguration,
     suffixDevice
 } from '../../common/utils/bannerHelper';
-import DivBannerAMP from '../../../common/banners/DivBannerAMP';
 import DivBannerSSR from '../../../common/banners/DivBannerSSR';
 
 const Banner = props => {
@@ -64,18 +63,9 @@ const Banner = props => {
                     }
                 );
 
-                if (
-                    !bannerConfiguration ||
-                    (outputType === 'amp' && !slotId.includes('_amp')) ||
-                    (outputType === 'default' && slotId.includes('_amp'))
-                )
-                    return <></>;
+                if (!bannerConfiguration) return <></>;
 
-                const isAmp = outputType === 'amp' && slotId.includes('_amp');
-
-                return isAmp ? (
-                    <DivBannerAMP bannerConfiguration={bannerConfiguration} />
-                ) : (
+                return (
                     <DivBannerSSR bannerConfiguration={bannerConfiguration} />
                 );
             });

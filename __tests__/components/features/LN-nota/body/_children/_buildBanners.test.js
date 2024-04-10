@@ -48,7 +48,6 @@ const banners = [
         position: 2
     },
     { desktop: 'middle_1_dsk', position: 3, sticky: true },
-    { desktop: 'caja1_amp', position: 3 },
     { mobile: 'caja2_mob', position: 4, background: true },
     { mobile: 'caja3_mob', position: 5 },
     { mobile: 'caja4_mob', position: 6 },
@@ -90,23 +89,6 @@ describe('BuildBanners', () => {
             container.querySelectorAll(`div`)[0].getAttribute('class')
         ).toEqual('mod-banner --middle_1_dsk  ');
     });
-
-    it('deberia renderizar un Div Banner amp caja1_amp', () => {
-        const { container } = render(
-            BuildBanners({
-                banners,
-                globalContent: {},
-                elementPosition: 3,
-                contentElements,
-                outputType: 'amp'
-            })
-        );
-
-        expect(container.querySelector(`amp-ad`).getAttribute('id')).toEqual(
-            'caja1_amp'
-        );
-    });
-
     it('no deberia renderizar nada', () => {
         const { container } = render(
             BuildBanners({
