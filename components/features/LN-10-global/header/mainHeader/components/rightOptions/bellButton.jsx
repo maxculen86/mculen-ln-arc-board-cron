@@ -33,7 +33,7 @@ export const BellButton = () => {
             ...(token &&
                 accessToken && {
                     userIdToken: token,
-                    userAccessToken: accessToken
+                    bearer: accessToken
                 }),
             isTestEnvironment: API_ENV !== 'prod',
             zone: 'lanacion',
