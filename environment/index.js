@@ -9,6 +9,8 @@ export default {
     RELOGIN_VALIDATION: '8121600000',
     SITIO_SEGURO_REGISTRACION: 'https://suscripciones.lanacion.com.ar',
     LOGIN_URL: 'https://ingresar.lanacion.com.ar/login/ingresar/D/1/?callback=',
+    FOODIT_LOGIN_URL:
+        'https://ingresar.lanacion.com.ar/login/ingresar/S/19/?callback=',
     COOKIE_EXPIRATION: '8640000000',
     DOMINIO_COOKIE: '.lanacion.com.ar',
     RANKING_URL:

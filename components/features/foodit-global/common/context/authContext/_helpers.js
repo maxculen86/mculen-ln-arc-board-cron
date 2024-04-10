@@ -107,7 +107,12 @@ export const handleResponse = async (res, callback) => {
 
         try {
             const { response } =
-                (await apiIngresar.getMe(newToken, newXvalue, true)) || {};
+                (await apiIngresar.getMe(
+                    newToken,
+                    newXvalue,
+                    accessToken,
+                    true
+                )) || {};
             const { Usuario } = JSON.parse(response);
 
             setReloginCookie();

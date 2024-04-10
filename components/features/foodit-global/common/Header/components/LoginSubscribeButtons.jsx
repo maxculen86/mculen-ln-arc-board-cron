@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
-import { LOGIN_URL } from 'fusion:environment';
+import { FOODIT_LOGIN_URL } from 'fusion:environment';
 import useGetUserData from '../../../hooks/useGetUserData';
 import classNames from 'classnames';
 
@@ -34,7 +34,8 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
                     title="Iniciar sesión"
                     data-variant="link"
                     onClick={() =>
-                        (location.href = LOGIN_URL + window.btoa(location.href))
+                        (location.href =
+                            FOODIT_LOGIN_URL + window.btoa(location.href))
                     }
                 >
                     {buttonLogginText}
