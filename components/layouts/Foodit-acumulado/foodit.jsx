@@ -4,6 +4,7 @@ import BreadcrumbFoodit from '../../features/foodit-global/common/breadcrumb/foo
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import { Text } from '@ln/common-ui-text';
 import { formatSectionName } from '../../features/foodit-global/common/breadcrumb/_helpers';
+import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
 
 const pageBuilderSections = ['Apertura', 'Notas'];
 
@@ -15,6 +16,7 @@ const AcumuladoFoodit = props => {
 
     return (
         <BaseLayout>
+            <UserBookmarks />
             <div className="flex flex-column gap-32">
                 <section className="flex flex-column gap-24">
                     <BreadcrumbFoodit globalContent={globalContent} />

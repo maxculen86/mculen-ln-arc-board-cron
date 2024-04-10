@@ -8,7 +8,7 @@ import { isFooditSuscriptor } from '../../../hooks/useGetUserData';
 export const UserBookmarks = () => {
     useEffect(() => {
         localStorage.removeItem('bookmarkFolders');
-        localStorage.removeItem('bookmarkItems');
+        localStorage.removeItem('bookmarkedItems');
 
         const fetchUserBookmarks = async () => {
             const { data = [] } = await getBookmarks();
