@@ -384,7 +384,6 @@ export const getTargetingFormat = sections => {
 
 export const queueGoogletagCommand = bannersToLoad => {
     googletag.cmd.push(() => {
-        let pbjs = [];
         const defineSlot = ({ adUnitPath, size, opt_div: optDiv }) =>
             googletag
                 .defineSlot(adUnitPath, size, optDiv)
@@ -397,11 +396,11 @@ export const queueGoogletagCommand = bannersToLoad => {
             .filter(e => !e.prebidEnabled)
             .map(defineSlot);
 
-        const saleFrameValidation = determineSafeFrame(bannersToLoad);
+        /* const saleFrameValidation = determineSafeFrame(bannersToLoad);
         // initialize
         saleFrameValidation.map(banner => {
             googletag.pubads().setForceSafeFrame(banner.safeFrame);
-        });
+        }); */
         googletag.pubads().enableSingleRequest();
         googletag.pubads().enableAsyncRendering();
         googletag.pubads().disableInitialLoad();
@@ -440,19 +439,18 @@ export const queueGoogletagCommand = bannersToLoad => {
         //	once by the failsafe timeout
         // so a boolean is used to make sure ads are refreshed only once
         pbjs.adserverRequestSent = false;
-        const sendAdServerRequest = _headerBiddingSlots => {
+        const sendAdServerRequest = (_headerBiddingSlots, fallback = false) => {
             if (_headerBiddingSlots.length === 0) return;
             googletag.cmd.push(() => {
                 // don't run again if already ran
                 if (pbjs.adserverRequestSent) return;
+                fallback && console.log('🚀 ~ prebid ~ fallback:', fallback);
                 pbjs.adserverRequestSent = true;
                 googletag.pubads().refresh(_headerBiddingSlots);
             });
         };
 
         !isWebview(navigator.userAgent) &&
-            pbjs.que &&
-            typeof pbjs.que.push === 'function' &&
             pbjs.que.push(function() {
                 pbjs.rp.requestBids({
                     callback: sendAdServerRequest,
@@ -464,7 +462,7 @@ export const queueGoogletagCommand = bannersToLoad => {
         // the ad ops team can set lower thresholds that will be respected by Prebid
         // but the web-dev team can define the worst case here
         setTimeout(() => {
-            sendAdServerRequest(headerBiddingSlots);
+            sendAdServerRequest(headerBiddingSlots, true);
         }, 3500);
 
         const bannersWithoutHide = bannersToLoad
@@ -491,7 +489,7 @@ export const queueGoogletagCommand = bannersToLoad => {
     });
 };
 
-export const determineSafeFrame = bannersToLoad => {
+/* export const determineSafeFrame = bannersToLoad => {
     const validValues = [
         'caja1_dsk',
         'caja2_dsk',
@@ -503,4 +501,4 @@ export const determineSafeFrame = bannersToLoad => {
         ...banner,
         safeFrame: validValues.includes(banner.opt_div)
     }));
-};
+}; */

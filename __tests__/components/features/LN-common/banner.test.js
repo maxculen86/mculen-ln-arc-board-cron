@@ -1141,7 +1141,7 @@ describe('getBannerConfiguration =>', () => {
         expect(container.innerHTML).toStrictEqual(ampBanner);
     });
 
-    describe('determineSafeFrame', () => {
+    xdescribe('determineSafeFrame', () => {
         test('Should set safeFrame to true if opt_div is valid', () => {
             const bannersToLoad = [
                 { opt_div: 'caja1_dsk' },
