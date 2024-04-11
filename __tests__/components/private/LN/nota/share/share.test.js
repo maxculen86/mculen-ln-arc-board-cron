@@ -7,6 +7,13 @@ import getToken from '../../../../../../components/private/common/utils/getToken
 import toggleBookmark from '../../../../../../components/private/common/utils/bookmarkHelper';
 import useCheckBookmark from '../../../../../../components/private/common/hooks/bookmark/useCheckBookmark';
 import useFetch from '../../../../../../components/private/common/hooks/useFetch';
+import useSiteServices from '../../../../../../components/features/LN-10-global/hooks/useSiteServices';
+import siteServicesMock from '../../../../../../__mocks__/data/siteServices/siteServices.json';
+
+jest.mock(
+    '../../../../../../components/features/LN-10-global/hooks/useSiteServices',
+    () => jest.fn()
+);
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -31,6 +38,10 @@ jest.mock(
 jest.mock('../../../../../../components/private/common/hooks/useFetch', () =>
     jest.fn()
 );
+
+useSiteServices.mockImplementation(() => {
+    return siteServicesMock;
+});
 
 const props = {
     outputType: 'default',

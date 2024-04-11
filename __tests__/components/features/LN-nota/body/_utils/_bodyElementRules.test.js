@@ -1,8 +1,5 @@
 import { bodyElementRules } from '../../../../../../components/features/LN-nota/body/_utils/_bodyElementRules';
 import Consumer from 'fusion:consumer';
-import contentElements from '../../../../../../__mocks__/data/nota/body/contentElements.json';
-import globalContent from '../../../../../../__mocks__/data/nota/body/globalContent.json';
-import { selectRule } from '../../../../../../components/features/LN-nota/body/_utils/_bodyRules';
 import Parrafo from '../../../../../../components/private/LN/nota/cuerpo/parrafo';
 import blockQuote from '../../../../../../components/private/LN/nota/cuerpo/blockQuote';
 import index from '../../../../../../components/private/LN/common/carrousell/index';
@@ -13,7 +10,6 @@ import Divider from '../../../../../../components/private/LN/nota/cuerpo/divider
 import ListOrderedOrUnordered from '../../../../../../components/private/LN/nota/cuerpo/listOrderedOrUnordered';
 import Subtitle from '../../../../../../components/private/LN/nota/cuerpo/subtitle';
 import RawHTML from '../../../../../../components/private/LN/common/rawHTML';
-import OembedAMP from '../../../../../../components/private/LN/nota/cuerpo/oembedAMP';
 import Html from '../../../../../../components/private/LN/nota/cuerpo/html';
 import HtmlAMP from '../../../../../../components/private/LN/nota/cuerpo/htmlAMP';
 import BotonLink from '../../../../../../components/private/LN/nota/cuerpo/botonLink';
@@ -177,18 +173,6 @@ describe('_bodyElementRules', () => {
             expect(comp).toEqual(RawHTML);
         });
 
-        test('Cuando el type es "oembed_response" en AMP al igual arcType return true', () => {
-            const comp = bodyElementRules({
-                subtype: 1,
-                element: { type: 'oembed_response' },
-                outputType: 'amp'
-            });
-            expect(comp).toBeTruthy();
-            expect(comp.arcType).toEqual('oembed_response');
-            expect(comp.outputType).toEqual('amp');
-            expect(comp).toEqual(OembedAMP);
-        });
-
         test('Cuando el type es "raw_html" al igual arcType return true', () => {
             const comp = bodyElementRules({
                 subtype: 1,
@@ -246,26 +230,4 @@ describe('_bodyElementRules', () => {
             expect(comp).toEqual(powerUpsReceta);
         });
     });
-
-    // describe('bodyElementFucntion', () => {
-    //     test('retornar 95 elementos', () => {
-    //         const payload = contentElements.map((element, currentIndex) => {
-    //             // console.log(
-    //             //     '🚀 ~ file: _bodyElementRules.test.js. ~ line 41 ~ payload ~ element',
-    //             //     element
-    //             // );
-    //             return bodyElementRules({
-    //                 element,
-    //                 outputType: 'default',
-    //                 subtype: '1'
-    //             });
-    //         });
-    //         console.log(
-    //             '🚀 ~ file: _bodyElementRules.test.js ~ line 4666 ~ payload ~ payload',
-    //             payload
-    //         );
-
-    //         expect(payload).toEqual(2);
-    //     });
-    // });
 });

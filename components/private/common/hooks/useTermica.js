@@ -1,10 +1,8 @@
-import { useContext } from 'react';
-import { GlobalContext } from '../context/globalContext';
-import get from '../utils/get';
+import useSiteServices from '../../../features/LN-10-global/hooks/useSiteServices';
 
 const useTermica = (key, value) => {
-    const gc = useContext(GlobalContext);
-    const termicas = get(gc, 'state.siteService.termicas', []);
+    const { termicas } = useSiteServices() || [];
+
     const element = termicas.find(ter => ter.key === key) || { value: 'true' };
     const result = element.value && element.value.toString() === 'true';
 
