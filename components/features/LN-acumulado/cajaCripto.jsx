@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import ModCripto from '../../private/common/mod-cripto';
-import StaticContent from '../../private/common/staticContent';
+import Static from 'fusion:static';
 
 const CajaCripto = ({ id: featureId }) => {
     return featureId ? (
-        <StaticContent id={featureId}>
+        <Static id={featureId}>
             <ModCripto />
-        </StaticContent>
+        </Static>
     ) : null;
 };
 

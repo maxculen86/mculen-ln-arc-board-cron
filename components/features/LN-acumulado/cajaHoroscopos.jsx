@@ -3,16 +3,16 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
 import HoroscopeBox from '../../private/common/horoscopeBox';
-import StaticContent from '../../private/common/staticContent';
+import Static from 'fusion:static';
 
-const CajaHoroscopos = ({ customFields }) => {
+const CajaHoroscopos = ({ customFields, id: featureId }) => {
     const { globalContent, deployment, contextPath, arcSite } = useAppContext();
     const { title } = customFields;
     const { _id = '' } = globalContent || {};
     const path = _id.split('/').slice(1);
 
     return (
-        <StaticContent>
+        <Static id={featureId}>
             {(() => {
                 const { data } =
                     useContent({
@@ -20,8 +20,7 @@ const CajaHoroscopos = ({ customFields }) => {
                         query: {
                             arcSite,
                             horoscope: path.length ? path[0] : ''
-                        },
-                        staticMode: true
+                        }
                     }) || {};
                 return data ? (
                     <HoroscopeBox
@@ -34,7 +33,7 @@ const CajaHoroscopos = ({ customFields }) => {
                     <></>
                 );
             })()}
-        </StaticContent>
+        </Static>
     );
 };
 

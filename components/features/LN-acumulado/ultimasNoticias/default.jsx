@@ -8,12 +8,12 @@ import useGridPagination from '../../../private/LN/common/hooks/useGridPaginatio
 import GrillaNotas from '../../../private/LN/acumulado/grillaNotas/grillaNotas';
 
 const UltimasNoticias = props => {
-    const { customFields } = props;
+    const { customFields, id } = props;
     const { sections, layout, size } = customFields;
     const globalProviderAcu = useGlobalProviderAcu();
 
     const {
-        globalContent: { type, name, node_type: nodeType } = {},
+        globalContent: { type, name } = {},
         outputType,
         renderables
     } = useAppContext();
@@ -29,7 +29,7 @@ const UltimasNoticias = props => {
         ...globalProviderAcu
     });
 
-    return <GrillaNotas {...grillaNotasProps} name={name} />;
+    return <GrillaNotas {...grillaNotasProps} name={name} featureId={id} />;
 };
 
 UltimasNoticias.label = 'LN Acumulado Ultimas Noticias';

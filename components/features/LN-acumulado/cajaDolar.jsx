@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import ModDolar from '../../private/common/mod-dolar';
-import StaticContent from '../../private/common/staticContent';
+import Static from 'fusion:static';
 import filter from '../../../content/filters/LN/services/dolar';
 import getAssetsPath from '../../private/common/utils/getAssetsPath';
 import get from '../../private/common/utils/get';
@@ -12,7 +12,7 @@ import config from '../../../properties/sites/la-nacion-ar';
 const { layoutsName = {} } = config || {};
 
 // TODO hacer refactor de componente, unificar para acumulado y nota
-const CajaDolar = ({ id }) => {
+const CajaDolar = ({ id: featureId }) => {
     const { contextPath, deployment, outputType, layout, globalContent = {} } =
         useAppContext() || {};
     const { _id = '', type = '' } = globalContent;
@@ -57,14 +57,14 @@ const CajaDolar = ({ id }) => {
     );
 
     return shouldShowDollar && !isAmp ? (
-        <StaticContent>
+        <Static id={featureId}>
             {type === 'story' && (
                 <h2 className="com-title --font-primary --xl --font-extra">
                     Cotización del dólar de hoy
                 </h2>
             )}
             {dolarComponent}
-        </StaticContent>
+        </Static>
     ) : (
         <></>
     );

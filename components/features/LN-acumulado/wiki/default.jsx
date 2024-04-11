@@ -11,9 +11,9 @@ import Icon from '../../../private/common/icon';
 import TaxonomyImportantList from '../../../private/LN/common/taxonomyImportantList';
 import SchemaInfoWiki from '../../../private/LN/acumulado/wiki/SchemaInfoWiki';
 import { wikiImagesWithWWW } from '../../../private/LN/common/utils/mediaHelper';
-import StaticContent from '../../../private/common/staticContent';
+import Static from 'fusion:static';
 
-const WikiFeature = () => {
+const WikiFeature = ({ id: featureId }) => {
     const props = get(useAppContext(), 'globalContent', {});
     const { isWiki } = props;
     const { wikiSourceData = {} } = props;
@@ -80,7 +80,7 @@ const WikiFeature = () => {
     const isOrganization = type === 2;
 
     return (
-        <StaticContent>
+        <Static id={featureId}>
             <article
                 className={`wiki-tags ${isOrganization && '--organization'}`}
             >
@@ -163,7 +163,7 @@ const WikiFeature = () => {
                     />
                 )}
             </article>
-        </StaticContent>
+        </Static>
     );
 };
 

@@ -2,7 +2,7 @@
 
 exports[`Features - LN-acumulado - Caja Detalle Signo Feature => With a valid response Should render CajaDetalleSigno component and child components 1`] = `
 <div>
-  <mock-static-validation>
+  <div>
     <article
       class="daily-horoscope "
     >
@@ -88,6 +88,6 @@ exports[`Features - LN-acumulado - Caja Detalle Signo Feature => With a valid re
         </p>
       </main>
     </article>
-  </mock-static-validation>
+  </div>
 </div>
 `;

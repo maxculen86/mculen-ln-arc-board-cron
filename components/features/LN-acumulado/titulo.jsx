@@ -3,9 +3,10 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Title from '../../private/LN/acumulado/acumuladoTitle';
 import useGlobalProviderAcu from '../../private/LN/acumulado/hooks/useGlobalProviderAcu';
-import StaticContent from '../../private/common/staticContent';
+import Static from 'fusion:static';
 
 const TitleFeature = props => {
+    const { id: featureId = '' } = props;
     const { acumuladoColor, acumuladoGeneral } = useGlobalProviderAcu();
     const {
         hidesectionslist = 'false',
@@ -25,7 +26,7 @@ const TitleFeature = props => {
         />
     );
 
-    return <StaticContent>{Component}</StaticContent>;
+    return <Static id={featureId}>{Component}</Static>;
 };
 
 TitleFeature.label = 'LN-Acumulado-Titulo';

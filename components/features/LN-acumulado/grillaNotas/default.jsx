@@ -15,7 +15,7 @@ import GrillaNotas from '../../../private/LN/acumulado/grillaNotas/grillaNotas';
 import { verifyChainsBeforeGrid } from '../../../private/common/utils/preloadHelper';
 
 const GrillaNotasFeature = props => {
-    const { customFields, globalContentConfig, globalContent } = props;
+    const { customFields, globalContentConfig, globalContent, id } = props;
     const globalProviderAcu = useGlobalProviderAcu();
 
     const {
@@ -78,6 +78,7 @@ const GrillaNotasFeature = props => {
             InitialGrid={InitialGrid}
             NextResults={NextResults}
             name={globalContent.name}
+            featureId={id}
         />
     );
 };
