@@ -65,10 +65,12 @@ export const allowCommentsFoodit = ({ globalContent }) => {
         get(globalContent, 'comments.display_comments', false)
     );
 };
-export const shouldLoadViafoura = inputDate => {
-    const { migration } = useSiteServices();
-    const migrationDeadlineLivefyre = get(migration, 'deadline_livefyre', null);
-
+export const shouldLoadViafoura = (inputDate, siteServices) => {
+    const migrationDeadlineLivefyre = get(
+        siteServices,
+        'migration.deadline_livefyre',
+        null
+    );
     const deadlineDate =
         migrationDeadlineLivefyre &&
         new Date(`${migrationDeadlineLivefyre}T20:00:00`);
@@ -108,10 +110,10 @@ export const getLoginAndRegistrationURLSFoodit = () => {
     };
 };
 
-export const getMessageProps = (props, messageType, gc) => {
+export const getMessageProps = (props, messageType, siteServices) => {
     const canonicalUrl = get(props, 'globalContent.canonical_url', '');
     const outputType = get(props, 'outputType', 'default');
-    const { termicas } = useSiteServices() || [];
+    const { termicas = [] } = siteServices || {};
     const element = termicas.find(
         ter => ter && ter.key === 'mensaje_para_cierre_de_comentarios'
     );
@@ -148,14 +150,15 @@ export const getMessageProps = (props, messageType, gc) => {
 };
 
 export const useValidateComments = (props, subscription) => {
-    const gc = useContext(GlobalContext);
+    const siteServices = useSiteServices();
     const [data, setData] = useState({});
     const allow = get(props, 'globalContent.comments.allow_comments', true);
     const show = get(props, 'globalContent.comments.display_comments', true);
     const firstPublishDate = get(props, 'globalContent.first_publish_date');
     const termicaLivefyre = useTermica('livefyre');
     const shouldLoad =
-        allowComments(props) && shouldLoadViafoura(firstPublishDate);
+        allowComments(props) &&
+        shouldLoadViafoura(firstPublishDate, siteServices);
 
     useEffect(() => {
         const messageType =
@@ -167,11 +170,11 @@ export const useValidateComments = (props, subscription) => {
             shouldLoad,
             allowComments: allow,
             showComments: show,
-            messageProps: getMessageProps(props, messageType, gc),
+            messageProps: getMessageProps(props, messageType, siteServices),
             showCounter: show,
             messageType
         });
-    }, [subscription, termicaLivefyre, allow, show, shouldLoad, props, gc]);
+    }, [subscription, termicaLivefyre, allow, show, shouldLoad, props]);
 
     const setMessage = message => {
         if (data.messageProps) {
