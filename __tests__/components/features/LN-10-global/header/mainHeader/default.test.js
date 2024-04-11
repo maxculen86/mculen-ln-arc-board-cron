@@ -18,6 +18,12 @@ jest.mock('react', () => {
         })
     };
 });
+jest.mock('fusion:environment', () => {
+    return {
+        SITE_LANACION: 'https://www.lanacion.com.ar',
+        MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar'
+    };
+});
 
 const intersectionObserverMock = () => ({
     observe: () => null

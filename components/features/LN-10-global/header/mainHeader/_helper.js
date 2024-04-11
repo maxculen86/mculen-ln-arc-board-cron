@@ -16,7 +16,7 @@ export const getMenuUser = (goToLogout = () => {}) => {
             className: 'text-blue-500 p-12 bg-blue-100__hover rounded-4'
         },
         {
-            url: `${MY_ACCOUNT_URL}/mi-usuario/`,
+            url: `${MY_ACCOUNT_URL}/`,
             text: 'Mi cuenta',
             title: 'Ir a mi cuenta',
             target: '_self',

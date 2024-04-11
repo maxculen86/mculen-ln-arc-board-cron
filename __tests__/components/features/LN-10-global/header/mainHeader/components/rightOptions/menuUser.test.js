@@ -17,7 +17,7 @@ jest.mock(
                     target: '_self'
                 },
                 {
-                    url: 'https://myaccount.lanacion.com.ar/mi-usuario/',
+                    url: 'https://myaccount.lanacion.com.ar/',
                     text: 'Mi cuenta',
                     title: 'Ir a mi cuenta',
                     target: '_self'

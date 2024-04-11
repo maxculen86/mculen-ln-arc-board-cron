@@ -71,7 +71,7 @@ exports[`components - features - LN-10-global - header - mainHeader - rightOptio
         <li>
           <a
             class="link ln-link --unstyled"
-            href="https://myaccount.lanacion.com.ar/mi-usuario/"
+            href="https://myaccount.lanacion.com.ar/"
             target="_self"
             title="Ir a mi cuenta"
           >
@@ -185,7 +185,7 @@ exports[`components - features - LN-10-global - header - mainHeader - rightOptio
         <li>
           <a
             class="link ln-link --unstyled"
-            href="https://myaccount.lanacion.com.ar/mi-usuario/"
+            href="https://myaccount.lanacion.com.ar/"
             target="_self"
             title="Ir a mi cuenta"
           >

@@ -206,7 +206,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                   >
                     <a
                       class="link ln-link --unstyled"
-                      href="undefined/mi-usuario/"
+                      href="https://myaccount.lanacion.com.ar/"
                       target="_self"
                       title="Ir a mi cuenta"
                     >
@@ -218,7 +218,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                   >
                     <a
                       class="link ln-link --unstyled"
-                      href="undefined/datos-personales/"
+                      href="https://myaccount.lanacion.com.ar/datos-personales/"
                       target="_self"
                       title="Ir a mis datos"
                     >
@@ -230,7 +230,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                   >
                     <a
                       class="link ln-link --unstyled"
-                      href="undefined/mis-suscripciones/"
+                      href="https://myaccount.lanacion.com.ar/mis-suscripciones/"
                       target="_self"
                       title="Ir a mis suscripciones"
                     >
