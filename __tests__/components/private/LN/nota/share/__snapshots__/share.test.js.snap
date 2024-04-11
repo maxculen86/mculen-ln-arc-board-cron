@@ -28,6 +28,7 @@ exports[`Note display comment in false  Matches snapshot when the note is not co
               class="icon --icon-24 --inherit"
             >
               <mock-icon
+                critical="true"
                 name="bookmarkFilled"
               />
             </i>
@@ -177,6 +178,7 @@ exports[`Share Snapshot - Should show 7 buttons  1`] = `
               class="icon --icon-24 --inherit"
             >
               <mock-icon
+                critical="true"
                 name="bookmarkFilled"
               />
             </i>
@@ -343,6 +345,7 @@ exports[`Share Test click button bookmark 1`] = `
               class="icon --icon-24 --inherit"
             >
               <mock-icon
+                critical="true"
                 name="bookmarkFilled"
               />
             </i>

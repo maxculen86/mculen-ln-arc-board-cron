@@ -2,11 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { API_ENV, LOGIN_URL } from 'fusion:environment';
 import handleCookie from '../../../../../../private/LN/common/utils/handleCookie';
 import { getInitialState } from '../../_helper';
+import { toggleBellColor } from './_helper';
 import { NotificationsCentre } from '@ln/lib-personalizacion';
+import { useHeaderContext } from '../../../context';
 
 export const BellButton = () => {
+    const { negative } = useHeaderContext();
+
     const [showTooltip, setShowTooltip] = useState(false);
     const [props, setProps] = useState({});
+
     const { getCookie } = handleCookie();
     const token = getCookie('token');
     const accessToken = getCookie('access-token');
@@ -21,12 +26,14 @@ export const BellButton = () => {
         setShowTooltip(getInitialState());
     };
 
+    toggleBellColor(negative);
+
     const buildProps = () => {
         return {
             ...(token &&
                 accessToken && {
                     userIdToken: token,
-                    userAccessToken: accessToken
+                    userAccessToken: `Bearer ${accessToken}`
                 }),
             isTestEnvironment: API_ENV !== 'prod',
             zone: 'lanacion',
@@ -48,7 +55,6 @@ export const BellButton = () => {
             onMessageButtonClick: handleMessageButtonClick
         };
     };
-
     const handleBellClick = () => {
         setShowTooltip(false);
         localStorage.setItem('showTooltip', false);
@@ -59,7 +65,6 @@ export const BellButton = () => {
             label: 'N/A'
         });
     };
-
     const handleNotificationsClick = notification => {
         dataLayer.push({
             event: 'action_notification',
@@ -70,7 +75,6 @@ export const BellButton = () => {
             page_notification: notification.url || 'N/A'
         });
     };
-
     const handleMessageButtonClick = message => {
         dataLayer.push({
             event: 'action_notification',
@@ -79,8 +83,6 @@ export const BellButton = () => {
             page_notification: message.url || 'N/A'
         });
     };
-
     return <NotificationsCentre {...props} />;
 };
-
 export default BellButton;
