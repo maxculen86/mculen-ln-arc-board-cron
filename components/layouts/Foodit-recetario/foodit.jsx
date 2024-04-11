@@ -17,7 +17,7 @@ const RecetarioFoodit = ({ children }) => {
                 <section className="flex flex-column gap-24">
                     <BreadcrumbCustomFoodit
                         sectionsCustom={[
-                            { name: 'Recetario', url: '/recetario/' }
+                            { name: 'Mis recetas', url: '/recetario/' }
                         ]}
                     />
                     <Text

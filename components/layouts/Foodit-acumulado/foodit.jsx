@@ -11,7 +11,15 @@ const pageBuilderSections = ['Apertura', 'Notas'];
 const AcumuladoFoodit = props => {
     const { globalContent, children } = props;
     const { _id: id = '' } = globalContent;
-    const title = formatSectionName(id, true);
+
+    const sectionsArray = id.split('/').filter(Boolean);
+    const sectionsTransformed =
+        sectionsArray.length > 1
+            ? [...sectionsArray.slice(0, 1), ...sectionsArray.slice(-1)]
+            : sectionsArray;
+    const sectionStringTransformed = sectionsTransformed.join('/');
+    const title = formatSectionName(sectionStringTransformed);
+
     const [apertura, notas] = children;
 
     return (
