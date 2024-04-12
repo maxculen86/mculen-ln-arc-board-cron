@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Common - Resizer - v2 - resizerFactory When is not admin and is not isInapertura resizeUrlCollection function should return array with resized urls with options 1`] = `
+exports[`first When is not admin and is not isInapertura resizeUrlCollection function should return array with resized urls with options 1`] = `
 Array [
   Object {
     "option": Object {
@@ -51,20 +51,20 @@ Array [
 ]
 `;
 
-exports[`Common - Resizer - v2 - resizerFactory resizeArcImage resizeArcImage 1`] = `
+exports[`first resizeArcImage resizeArcImage 1`] = `
 Object {
   "_id": "J43DRG7ZGZCANB6PYJG2VQ35QY",
   "additional_properties": Object {
-    "fullSizeResizeUrl": "/resizer/rOia9tQrJSvFalApJUoiM7LmF88=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
+    "fullSizeResizeUrl": "rOia9tQrJSvFalApJUoiM7LmF88=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
     "galleries": Array [],
     "mime_type": "image/jpeg",
     "originalName": "https://c.files.bbci.co.uk/AD33/production/_126593344_mediaitem126593343.jpg",
     "originalUrl": "https://cloudfront-us-east-1.images.arcpublishing.com/sandbox.lanacionar/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
-    "proxyUrl": "/resizer/rOia9tQrJSvFalApJUoiM7LmF88=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
+    "proxyUrl": "rOia9tQrJSvFalApJUoiM7LmF88=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
     "published": true,
-    "resizeUrl": "/resizer/rOia9tQrJSvFalApJUoiM7LmF88=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
+    "resizeUrl": "rOia9tQrJSvFalApJUoiM7LmF88=/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
     "restricted": false,
-    "thumbnailResizeUrl": "/resizer/XariBOP5f8WS-4e1CqTTHBx9m8Q=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
+    "thumbnailResizeUrl": "XariBOP5f8WS-4e1CqTTHBx9m8Q=/300x0/arc-anglerfish-arc2-sandbox-sandbox-lanacionar/public/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg",
     "version": 0,
   },
   "auth": Object {
