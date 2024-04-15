@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import VideoTabContainer from '../../private/OTT/ficha/videoTab';
-import StaticContent from '../../private/common/staticContent';
+// TODO: Se quito el StaticContent
 
 const VideoFicha = () => {
-    return (
-        <StaticContent>
-            <VideoTabContainer />
-        </StaticContent>
-    );
+    return <VideoTabContainer />;
 };
 
 export default VideoFicha;
