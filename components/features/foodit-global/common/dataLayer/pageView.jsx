@@ -1,25 +1,23 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
+import { SITE_FOODIT } from 'fusion:environment';
 
 import get from '../../../../private/common/utils/get';
 import getAuthorsInfo from '../../../../private/common/utils/getAuthorsInfo';
 import { TRANSLATE_LAYOUTS } from './_helpers';
-import capitalizeFirstLetter from '../../../../private/common/utils/capitalizeFirstLetter';
+import removeAccents from '../../../../private/common/utils/removeAccents';
 
 const PageViewDataLayer = ({ globalContent = {} }) => {
     const {
         subtype: _subtype,
         _id,
         publish_date = '',
-        taxonomy
+        taxonomy,
+        headlines,
+        content_restrictions
     } = globalContent;
 
-    const {
-        authorsName = '',
-        authorsIds = '',
-        authorTypes = ''
-    } = getAuthorsInfo(globalContent);
-
+    const { authorsName = '', authorsIds = '' } = getAuthorsInfo(globalContent);
     const { name: primarySection = '', parent_id: parentSection = '' } = get(
         taxonomy,
         'primary_section',
@@ -31,12 +29,9 @@ const PageViewDataLayer = ({ globalContent = {} }) => {
     const {
         contextPath,
         deployment,
-        siteProperties,
         layout,
         requestUri = ''
     } = useAppContext();
-
-    const { title } = siteProperties;
 
     return (
         <script
@@ -44,17 +39,15 @@ const PageViewDataLayer = ({ globalContent = {} }) => {
             id="scriptDataLayerPageView"
             type="text/javascript"
             data-id={_id || 'N/A'}
-            data-url={`www.foodit.lanacion.com.ar${requestUri.split('?')[0]}`}
-            data-section={
-                capitalizeFirstLetter(parentSection.split('/').pop()) || 'N/A'
-            }
-            data-sub-section={primarySection}
+            data-url={`${SITE_FOODIT}${requestUri.split('?')[0]}`}
+            data-section={parentSection.split('/').pop() || 'N/A'}
+            data-sub-section={removeAccents(primarySection.toLowerCase())}
             data-content-type={TRANSLATE_LAYOUTS[layout] || ''}
             data-published-day={date || ''}
             data-published-time={time || ''}
-            data-title={title || 'N/A'}
+            data-title={get(headlines, 'basic', 'N/A')}
             data-author-name={authorsName}
-            data-author-type={authorTypes}
+            data-valor={get(content_restrictions, 'content_code')}
             data-author-url={authorsIds}
             src={deployment(
                 `${contextPath}/resources/js/LN/dataLayerPageView.min.js`

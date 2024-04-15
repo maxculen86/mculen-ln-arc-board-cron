@@ -8,7 +8,6 @@ export const getAuthorsInfo = article => {
         (acc, curr) => {
             const authorName = get(curr, 'name', '').trim();
             const authorId = get(curr, '_id', 'no_url').trim();
-            const authorType = get(curr, 'type', '').trim();
 
             acc.authorsName = acc.authorsName
                 ? `${acc.authorsName}, ${authorName}`
@@ -16,13 +15,10 @@ export const getAuthorsInfo = article => {
             acc.authorsIds = acc.authorsIds
                 ? `${acc.authorsIds}, ${authorId}`
                 : authorId;
-            acc.authorTypes = acc.authorTypes
-                ? `${acc.authorTypes}, ${authorType}`
-                : authorType;
 
             return acc;
         },
-        { authorsName: '', authorsIds: '', authorTypes: '' }
+        { authorsName: '', authorsIds: '' }
     );
 };
 

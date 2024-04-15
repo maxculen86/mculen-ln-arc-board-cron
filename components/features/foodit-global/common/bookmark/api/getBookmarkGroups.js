@@ -22,6 +22,14 @@ const getBookmarkGroups = async () => {
         );
 
         if (!response.ok) {
+            addEventToDataLayer({
+                event: 'erros_ms',
+                type: 'failed_request',
+                detail: 'get_bookmark_groups',
+                code: response.status,
+                notificationsCategory: 'obtener_carpetas'
+            });
+
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 

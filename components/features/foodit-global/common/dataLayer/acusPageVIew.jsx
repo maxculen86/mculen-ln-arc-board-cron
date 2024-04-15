@@ -1,41 +1,42 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
-import { TRANSLATE_LAYOUTS } from './_helpers';
-import capitalizeFirstLetter from '../../../../private/common/utils/capitalizeFirstLetter';
+import { SITE_FOODIT } from 'fusion:environment';
 
-const AcusPageView = ({ globalContent = {} }) => {
-    const { _id, parent = {}, name = '' } = globalContent;
+import removeAccents from '../../../../private/common/utils/removeAccents';
 
-    const { default: parentSection = '' } = parent;
+const AcusPageView = () => {
+    const { contextPath, deployment, requestUri = '' } = useAppContext();
 
-    const {
-        contextPath,
-        deployment,
-        siteProperties,
-        requestUri = '',
-        layout = ''
-    } = useAppContext();
+    const params = requestUri.split('?')[0];
 
-    const { title } = siteProperties;
-
+    const [firstSection = '', secondSection = '', thirdSection = ''] =
+        (params &&
+            removeAccents(params)
+                .replace(/^\/|\/$/g, '')
+                .split('/')
+                .map(section => section.replace(/-/g, '_'))) ||
+        [];
+    const isDescubrir =
+        firstSection === 'nutricion' || firstSection === 'restaurantes';
     return (
-        <script
-            async
-            id="scriptDataLayerPageView"
-            type="text/javascript"
-            data-id={_id || 'N/A'}
-            data-url={`www.foodit.lanacion.com.ar${requestUri.split('?')[0]}`}
-            data-section={
-                capitalizeFirstLetter(parentSection.split('/').pop()) || 'N/A'
-            }
-            data-sub-section={name}
-            data-category={'Acumulado'}
-            data-content-type={TRANSLATE_LAYOUTS[layout] || ''}
-            data-title={title || 'N/A'}
-            src={deployment(
-                `${contextPath}/resources/js/LN/dataLayerPageView.min.js`
-            )}
-        />
+        firstSection && (
+            <script
+                async
+                id="scriptDataLayerPageView"
+                type="text/javascript"
+                data-url={`${SITE_FOODIT}${params}`}
+                data-section={(isDescubrir && 'descubrir') || firstSection}
+                data-sub-section={
+                    (isDescubrir && firstSection) || secondSection || 'N/A'
+                }
+                data-category={thirdSection}
+                data-content-type={firstSection}
+                data-title={'N/A'}
+                src={deployment(
+                    `${contextPath}/resources/js/LN/dataLayerPageView.min.js`
+                )}
+            />
+        )
     );
 };
 

@@ -13,7 +13,7 @@ export const menuUser = [
             addEventToDataLayer({
                 event: 'e_linkclick',
                 category: 'autogestion',
-                label: 'ayuda',
+                label: 'perfil',
                 action: 'mi_cuenta'
             });
             window.location.replace(MY_ACCOUNT_URL);
@@ -26,7 +26,7 @@ export const menuUser = [
             addEventToDataLayer({
                 event: 'e_linkclick',
                 category: 'autogestion',
-                label: 'ayuda',
+                label: 'perfil',
                 action: 'mis_recetas'
             });
             window.location.replace(`${SITE_FOODIT}/recetario/`);
@@ -40,7 +40,7 @@ export const menuUser = [
             addEventToDataLayer({
                 event: 'e_linkclick',
                 category: 'autogestion',
-                label: 'ayuda',
+                label: 'perfil',
                 action: 'lista_de_compras'
             });
             window.location.replace(`${SITE_FOODIT}/lista-de-compras/`);
@@ -53,7 +53,7 @@ export const menuUser = [
             addEventToDataLayer({
                 event: 'e_linkclick',
                 category: 'autogestion',
-                label: 'ayuda',
+                label: 'perfil',
                 action: 'newsletters'
             });
             window.location.replace('https://newsletter.lanacion.com.ar/');
@@ -78,6 +78,9 @@ export const menuUser = [
         text: 'Cerrar sesión',
         icon: <IconSprite name="exit" />,
         onClick: ({ callback }) => {
+            addEventToDataLayer({
+                event: 'logout'
+            });
             logout(callback);
         },
         variant: 'danger',

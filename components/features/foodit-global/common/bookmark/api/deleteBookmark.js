@@ -31,6 +31,14 @@ const deleteBookmark = async bookmarks => {
             );
 
             if (!response.ok) {
+                addEventToDataLayer({
+                    event: 'erros_ms',
+                    type: 'failed_request',
+                    detail: 'delete_bookmark',
+                    code: response.status,
+                    notificationsCategory: 'eliminar_nota_guardada'
+                });
+
                 console.error(
                     `Error al eliminar nota ${bookmarkTypeId}, status: ${response.status}`
                 );

@@ -28,8 +28,8 @@ const FooterFoodit = () => {
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
-                                data-dynamic-label={'Social'}
-                                data-dynamic-action={'Facebook'}
+                                data-dynamic-label={'social'}
+                                data-dynamic-action={'facebook'}
                             >
                                 <Icon size={16}>
                                     <IconSprite name="facebook" />
@@ -43,8 +43,8 @@ const FooterFoodit = () => {
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
-                                data-dynamic-label={'Social'}
-                                data-dynamic-action={'X'}
+                                data-dynamic-label={'social'}
+                                data-dynamic-action={'x'}
                             >
                                 <Icon size={16}>
                                     <IconSprite name="twitter" />
@@ -58,8 +58,8 @@ const FooterFoodit = () => {
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
-                                data-dynamic-label={'Social'}
-                                data-dynamic-action={'Instagram'}
+                                data-dynamic-label={'social'}
+                                data-dynamic-action={'instagram'}
                             >
                                 <Icon size={16}>
                                     <IconSprite name="instagram" />
@@ -76,8 +76,8 @@ const FooterFoodit = () => {
                             data-interaction="dataLayerInteraction"
                             data-event-data-layer="e_linkclick"
                             data-dynamic-category="footer"
-                            data-dynamic-label={'Pagina principal'}
-                            data-dynamic-action={'LA NACION'}
+                            data-dynamic-label={'pagina_principal'}
+                            data-dynamic-action={'la_nacion'}
                         >
                             <img
                                 width={151}
@@ -101,8 +101,8 @@ const FooterFoodit = () => {
                             data-interaction="dataLayerInteraction"
                             data-event-data-layer="e_linkclick"
                             data-dynamic-category="footer"
-                            data-dynamic-label={'Legales'}
-                            data-dynamic-action={'Data fiscal'}
+                            data-dynamic-label={'legales'}
+                            data-dynamic-action={'data_fiscal'}
                         >
                             <img
                                 width={28}
@@ -126,8 +126,8 @@ const FooterFoodit = () => {
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="footer"
-                                data-dynamic-label={'Legales'}
-                                data-dynamic-action={'Condiciones'}
+                                data-dynamic-label={'legales'}
+                                data-dynamic-action={'condiciones'}
                             >
                                 CONDICIONES
                             </Link>
@@ -142,8 +142,8 @@ const FooterFoodit = () => {
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="footer"
-                                data-dynamic-label={'Legales'}
-                                data-dynamic-action={'Privacidad'}
+                                data-dynamic-label={'legales'}
+                                data-dynamic-action={'privacidad'}
                             >
                                 PRIVACIDAD
                             </Link>
