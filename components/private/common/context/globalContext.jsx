@@ -6,7 +6,6 @@ import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import { loginSetup } from '../../LN/common/utils/loginHelper';
 import startPWASetup from '../../LN/common/utils/register';
-import setContextDatadog from '../utils/setContextDatadog';
 
 export const GlobalContext = React.createContext();
 
@@ -48,46 +47,6 @@ const GlobalProvider = ({ children }) => {
         deployment = {}
     } = useAppContext();
     const [state, dispatch] = React.useReducer(reducer, {
-        siteService: useContent({
-            source: 'navigationTreeSource',
-            query: {
-                website
-            },
-            transform: response => {
-                const {
-                    site = {},
-                    Termicas: termicasConfig = {},
-                    bannerConfig = {},
-                    migration = {}
-                } = response || {};
-                const {
-                    sitio_adserver: sitioAdserver = {},
-                    tooltips = {},
-                    not_recommended_sections: notRecommendedSections = []
-                } = site;
-                return {
-                    bannerConfig: { dfp_id: bannerConfig.dfp_id },
-                    tooltips: Object.keys(tooltips).map(key => ({
-                        text: key,
-                        label: tooltips[key]
-                    })),
-                    banners: Object.keys(bannerConfig).map(key => ({
-                        adunit: key,
-                        dimensions: bannerConfig[key]
-                    })),
-                    adserver: Object.keys(sitioAdserver).map(key => ({
-                        key,
-                        value: sitioAdserver[key]
-                    })),
-                    termicas: Object.keys(termicasConfig).map(key => ({
-                        key,
-                        value: termicasConfig[key]
-                    })),
-                    migration,
-                    notRecommendedSections
-                };
-            }
-        }),
         logueado: false,
         showModal: {
             typeModal: '',
@@ -105,7 +64,6 @@ const GlobalProvider = ({ children }) => {
             loading: true
         }
     });
-    setContextDatadog();
 
     useEffect(() => {
         loginSetup(dispatch);

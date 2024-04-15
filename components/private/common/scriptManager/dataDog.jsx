@@ -6,7 +6,16 @@ import { useAppContext } from 'fusion:context';
 import handleCookie from '../../LN/common/utils/handleCookie';
 
 const Datadog = ({ location = 'head' }) => {
-    const { deployment: version, arcSite = 'la-nacion-ar' } = useAppContext();
+    const {
+        deployment,
+        arcSite = 'la-nacion-ar',
+        globalContent,
+        template,
+        outputType,
+        globalContentConfig,
+        layout,
+        contextPath
+    } = useAppContext();
     const { getCookie } = handleCookie();
 
     const {
@@ -60,7 +69,7 @@ const Datadog = ({ location = 'head' }) => {
           sessionSampleRate: ${sampleRateLog},
           service: "${service}",
           env: "${env}",
-          version: "${version}",
+          version: "${deployment}",
           trackSessionAcrossSubdomains: ${trackSessionAcrossSubdomains},
         });
 
@@ -69,7 +78,7 @@ const Datadog = ({ location = 'head' }) => {
         
         if ("${env}" !== "prod")
           console.log(
-            \`Datadog initialized. Version: ${version}, sampleRate: ${sampleRateLog}, env: ${env}\`
+            \`Datadog initialized. Version: ${deployment}, sampleRate: ${sampleRateLog}, env: ${env}\`
           );
       });
     `;
@@ -102,7 +111,7 @@ const Datadog = ({ location = 'head' }) => {
           site: "${site}",
           service: "${service}",
           env: "${env}",
-          version: "${version}",
+          version: "${deployment}",
           sessionSampleRate: ${sampleRateRum},
           sessionReplaySampleRate: ${sessionReplaySampleRate},
           trackResources: ${trackResources},
@@ -122,9 +131,18 @@ const Datadog = ({ location = 'head' }) => {
         
         if ("${env}" !== "prod")
             console.log(
-              \`Datadog RUM initialized. Version: ${version}, sampleRate: ${sampleRateRum}, env: ${env}\`
+              \`Datadog RUM initialized. Version: ${deployment}, sampleRate: ${sampleRateRum}, env: ${env}\`
             );
       });`;
+
+    const obj = {
+        layout,
+        contentSource: globalContentConfig && globalContentConfig.source,
+        outputType,
+        subtype: globalContent && globalContent.subtype,
+        template,
+        nodeType: globalContent && globalContent.node_type
+    };
 
     return (
         location === 'head' && (
@@ -138,6 +156,16 @@ const Datadog = ({ location = 'head' }) => {
                     async
                     type="text/javascript"
                     dangerouslySetInnerHTML={{ __html: scriptRum }}
+                />
+                <script
+                    async
+                    id="script-configure-datadog-context"
+                    data-obj={JSON.stringify(obj)}
+                    defer
+                    type="text/javascript"
+                    src={deployment(
+                        `${contextPath}/resources/js/LN/configureDatadogContext.min.js`
+                    )}
                 />
             </>
         )

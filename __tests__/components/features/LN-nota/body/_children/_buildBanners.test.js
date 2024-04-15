@@ -6,6 +6,13 @@ import contentElements from '../../../../../../__mocks__/data/nota/body/contentE
 import siteProperties from '../../../../../../__mocks__/data/nota/body/siteProperties.json';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import useSiteServices from '../../../../../../components/features/LN-10-global/hooks/useSiteServices';
+import siteServicesMock from '../../../../../../__mocks__/data/siteServices/siteServices.json';
+
+jest.mock(
+    '../../../../../../components/features/LN-10-global/hooks/useSiteServices',
+    () => jest.fn()
+);
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -18,26 +25,16 @@ jest.mock(
     () => 'mock-static-content'
 );
 
-jest.mock('react', () => {
-    const ActualReact = require.requireActual('react');
-    return {
-        ...ActualReact,
-        useContext: () => ({
-            state: {
-                siteService: {
-                    adserver: []
-                }
-            }
-        })
-    };
-});
-
 useContent.mockImplementation(() => {});
 
 Context.useAppContext = jest.fn(() => ({
     globalContent: {},
     siteProperties
 }));
+
+useSiteServices.mockImplementation(() => {
+    return siteServicesMock;
+});
 
 const banners = [
     { mobile: 'caja1_mob', position: 1 },
