@@ -89,7 +89,7 @@ export const authorHomeMobile = author => {
     return {
         ...authorData,
         tipo: authorData.slug ? 1 : 2,
-        imagen: !image ? null : image,
+        imagen: image,
         absoluteUrl,
         mail: email,
         twitter: twitter ? twitter.trim() : twitter
