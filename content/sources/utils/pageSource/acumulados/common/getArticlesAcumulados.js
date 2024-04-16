@@ -3,7 +3,7 @@ import acuArticlesSource from '../../../../acuArticlesSource';
 
 const getParamsAcus = query => {
     const sectionId =
-        (get(query, 'sectionId', '') || '').length > 0
+        (get(query, 'sectionId') || '').length > 0
             ? get(query, 'sectionId', '')
             : null;
     const size = get(query, 'size', '30');

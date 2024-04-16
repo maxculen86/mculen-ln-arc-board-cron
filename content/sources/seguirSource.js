@@ -192,7 +192,7 @@ export const generateSectionsToExclude = sections => {
 };
 
 const getElements = async query => {
-    const { url = '', followedItems, cachedCall = {} } = query;
+    const { url = '', followedItems, cachedCall } = query;
 
     const arcSite = query['arc-site'];
 
