@@ -44,6 +44,7 @@ const VideoPlayer = ({
                 data-has-autoplay={isOpening}
                 data-media-id={mediaid}
                 data-tags-url={''}
+                data-autostart={false}
                 src={deployment(
                     `${contextPath}/resources/js/LN/scriptVideosJw.min.js`
                 )}
