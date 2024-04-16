@@ -35,6 +35,11 @@ export const PowerupsReceta = ({ article = {} }) => {
         })
     );
 
+    const EXCLUDED_TAGS = ['¿Qué cocinar hoy?', 'Recetas', 'Dieta'];
+    const filteredTags = tags.filter(
+        ({ text = '' }) => text && !EXCLUDED_TAGS.includes(text)
+    );
+
     const {
         'custom-nutrition': nutritionLists,
         'foodit-ingredientes': ingredientsLists,
@@ -97,7 +102,7 @@ export const PowerupsReceta = ({ article = {} }) => {
                 <ExternalLinks {...externalLinksMock} />
                 <hr />
                 <Nutritional nutritionLists={nutritionLists} />
-                <Tags items={tags} />
+                <Tags items={filteredTags} />
             </div>
         </>
     );
