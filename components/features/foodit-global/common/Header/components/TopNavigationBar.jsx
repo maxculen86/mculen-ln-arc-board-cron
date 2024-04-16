@@ -8,7 +8,7 @@ import StaticContent from '../../../../../private/common/staticContent';
 
 export const TopNavigationBar = ({ categories = [] }) => {
     return (
-        <div className="flex w-100 jc-between container py-12">
+        <div className="flex w-100 jc-between container py-12 h-44">
             <Topnavigationbar className="flex jc-center">
                 {categories.map((category, i) => (
                     <Categories {...category} key={i} />

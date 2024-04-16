@@ -3,13 +3,13 @@
 exports[`Components - Features - foodit-global - Common - HeaderFoodit should return buttons login and button suscribed when the user is unlogged 1`] = `
 <div>
   <div
-    class="common-header-container mb-12 mb-40_lg"
+    class="common-header-container z-10 w-100 sticky top-0 mb-12 mb-40_lg"
   >
     <header
       class="common-header flex flex-column w-100"
     >
       <div
-        class="common-main-header"
+        class="common-main-header z-1"
       >
         <div
           class="content bg-positive py-16"
@@ -99,10 +99,10 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
           </div>
         </div>
         <div
-          class="bottom-options flex flex ai-center border border-bottom border-thin border-light-100 lg-only"
+          class="bottom-options flex flex ai-center border border-bottom border-thin border-light-100 bg-light-1 lg-only h-44"
         >
           <div
-            class="flex w-100 jc-between container py-12"
+            class="flex w-100 jc-between container py-12 h-44"
           >
             <nav
               class="top-navigation-bar flex jc-center"
@@ -1210,7 +1210,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
         </div>
       </div>
       <div
-        class="sub-header container py-12 h-53 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 lg-none"
+        class="sub-header container py-12 h-53 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 bg-light-1 lg-none hide"
       >
         <div
           class="promotions-container lg-none flex ai-center gap-24 w-100 jc-center"
