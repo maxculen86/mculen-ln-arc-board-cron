@@ -16,9 +16,6 @@ const googleTagSuscriptionType = googleTagUserCookie.includes('2')
     ? 'suscriptor'
     : 'no suscriptor';
 
-var pbjs = pbjs || {};
-pbjs.que = pbjs.que || [];
-
 window.googletag = window.googletag || { cmd: [] };
 googletag.cmd.push(() => {
     // initialize
@@ -32,9 +29,10 @@ googletag.cmd.push(() => {
         });
     }
 
-    googletag.pubads().set('page_url', newTags[3]);
     googletag.enableServices();
     console.log('🚀 ::: setTargeting ON ::: 🚀');
     googletag.pubads().setTargeting('tags_nuevos', newTags);
     googletag.pubads().setTargeting('usuario_tipo', googleTagSuscriptionType);
+
+    // googletag.pubads().set('page_url', newTags[3]);
 });

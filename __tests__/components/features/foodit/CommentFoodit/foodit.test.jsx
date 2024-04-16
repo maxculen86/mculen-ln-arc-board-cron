@@ -3,6 +3,13 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CommentFoodit from '../../../../../components/features/foodit/CommentFoodit/foodit';
 import useTermica from '../../../../../components/private/common/hooks/useTermica';
+import useSiteServices from '../../../../../components/features/LN-10-global/hooks/useSiteServices';
+import siteServicesMock from '../../../../../__mocks__/data/siteServices/siteServices.json';
+
+jest.mock(
+    '../../../../../components/features/LN-10-global/hooks/useSiteServices',
+    () => jest.fn()
+);
 
 jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
     jest.fn()
@@ -21,6 +28,10 @@ global.IntersectionObserver = jest.fn((callback, options) => {
         disconnect: jest.fn(),
         unobserve: jest.fn()
     };
+});
+
+useSiteServices.mockImplementation(() => {
+    return siteServicesMock;
 });
 describe('Components - features - CommentFoodit', () => {
     it('should render CommentFoodit component', () => {

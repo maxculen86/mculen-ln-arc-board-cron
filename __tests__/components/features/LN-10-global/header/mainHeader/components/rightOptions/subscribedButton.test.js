@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, render } from '@testing-library/react';
 import { getTermicaValues } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/_helper';
@@ -7,6 +7,13 @@ import { SubscribeButton } from '../../../../../../../../components/features/LN-
 import { termicaValuesSubscribe } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/components/rightOptions/_helper';
 import useTermica from '../../../../../../../../components/private/common/hooks/useTermica';
 import addEventToDataLayer from '../../../../../../../../components/private/LN/common/utils/addEventToDataLayer';
+import useSiteServices from '../../../../../../../../components/features/LN-10-global/hooks/useSiteServices';
+import siteServicesMock from '../../../../../../../../__mocks__/data/siteServices/siteServices.json';
+
+jest.mock(
+    '../../../../../../../../components/features/LN-10-global/hooks/useSiteServices',
+    () => jest.fn()
+);
 
 jest.mock(
     '../../../../../../../../components/private/LN/common/utils/addEventToDataLayer',
@@ -21,11 +28,6 @@ jest.mock(
     () => jest.fn()
 );
 
-jest.mock('react', () => ({
-    ...jest.requireActual('react'),
-    useContext: jest.fn(() => ({}))
-}));
-
 jest.mock(
     '../../../../../../../../components/features/LN-10-global/header/context',
     () => {
@@ -34,6 +36,10 @@ jest.mock(
         };
     }
 );
+
+useSiteServices.mockImplementation(() => {
+    return siteServicesMock;
+});
 
 describe('components - features - LN-10-global - header - mainHeader - rightOptions - BellButton', () => {
     afterAll(() => {
@@ -58,15 +64,12 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
         useHeaderContext.mockImplementation(() => ({
             userType: 'unlogged'
         }));
-        useContext.mockImplementation(() => ({
-            state: {
-                siteService: {
-                    termicas: [
-                        { key: 'tooltip_text', value: 'TooltipText' },
-                        { key: 'class_tooltip', value: 'TooltipClass' }
-                    ]
-                }
-            }
+        useSiteServices.mockImplementation(() => ({
+            ...siteServicesMock,
+            termicas: [
+                { key: 'tooltip_text', value: 'TooltipText' },
+                { key: 'class_tooltip', value: 'TooltipClass' }
+            ]
         }));
         const { getByText } = render(<SubscribeButton />);
 
@@ -81,15 +84,12 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
         useHeaderContext.mockImplementation(() => ({
             userType: 'logged'
         }));
-        useContext.mockImplementation(() => ({
-            state: {
-                siteService: {
-                    termicas: [
-                        { key: 'button_text', value: '' },
-                        { key: 'sticky_button_text', value: 'StickyButtonText' }
-                    ]
-                }
-            }
+        useSiteServices.mockImplementation(() => ({
+            ...siteServicesMock,
+            termicas: [
+                { key: 'button_text', value: '' },
+                { key: 'sticky_button_text', value: 'StickyButtonText' }
+            ]
         }));
         const { getByText } = render(<SubscribeButton />);
         const fallbackText = getByText('Suscribite');
@@ -100,15 +100,12 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
         useHeaderContext.mockImplementation(() => ({
             userType: 'logged'
         }));
-        useContext.mockImplementation(() => ({
-            state: {
-                siteService: {
-                    termicas: [
-                        { key: 'button_text', value: 'ButtonText' },
-                        { key: 'sticky_button_text', value: '' }
-                    ]
-                }
-            }
+        useSiteServices.mockImplementation(() => ({
+            ...siteServicesMock,
+            termicas: [
+                { key: 'button_text', value: 'ButtonText' },
+                { key: 'sticky_button_text', value: '' }
+            ]
         }));
         const { getByText } = render(<SubscribeButton />);
         const fallbackText = getByText('Suscribite');
@@ -120,15 +117,12 @@ describe('components - features - LN-10-global - header - mainHeader - rightOpti
             userType: 'logged',
             sticky: true
         }));
-        useContext.mockImplementation(() => ({
-            state: {
-                siteService: {
-                    termicas: [
-                        { key: 'button_text', value: 'ButtonText' },
-                        { key: 'sticky_button_text', value: 'StickyButtonText' }
-                    ]
-                }
-            }
+        useSiteServices.mockImplementation(() => ({
+            ...siteServicesMock,
+            termicas: [
+                { key: 'button_text', value: 'ButtonText' },
+                { key: 'sticky_button_text', value: 'StickyButtonText' }
+            ]
         }));
 
         const { getByText } = render(<SubscribeButton />);

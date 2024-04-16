@@ -16,9 +16,6 @@ const googleTagSuscriptionType = googleTagUserCookie.includes('2')
     ? 'suscriptor'
     : 'no suscriptor';
 
-var pbjs = pbjs || {};
-pbjs.que = pbjs.que || [];
-
 window.googletag = window.googletag || { cmd: [] };
 googletag.cmd.push(function() {
     if (googleTagEmailCookie) {

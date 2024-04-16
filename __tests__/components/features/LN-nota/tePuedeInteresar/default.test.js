@@ -4,6 +4,8 @@ import TePuedeInteresar from '../../../../../components/features/LN-nota/tePuede
 import Context from 'fusion:context';
 import { useContent } from 'fusion:content';
 import liftigniterResponse from '../../../../../__mocks__/data/tePuedeInteresar/liftigniterResponse.json';
+import useSiteServices from '../../../../../components/features/LN-10-global/hooks/useSiteServices';
+import siteServicesMock from '../../../../../__mocks__/data/siteServices/siteServices.json';
 
 const crypto = require('crypto');
 
@@ -13,10 +15,19 @@ Object.defineProperty(global.self, 'crypto', {
     }
 });
 
+jest.mock(
+    '../../../../../components/features/LN-10-global/hooks/useSiteServices',
+    () => jest.fn()
+);
+
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;
     };
+});
+
+useSiteServices.mockImplementation(() => {
+    return siteServicesMock;
 });
 
 Context.useAppContext = jest.fn(() => ({
