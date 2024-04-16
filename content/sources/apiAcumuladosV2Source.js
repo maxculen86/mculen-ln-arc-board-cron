@@ -8,7 +8,7 @@ import acuTransformV2Format from './utils/pageSource/acumulados/v2/mobile/bySect
 import calculatePaginationValue from './utils/pageSource/acumulados/common/calculatePaginationValue';
 import NotFoundError from './utils/notFoundError';
 
-const fetch = async (query, { cachedCall }) => {
+const fetch = async (query, { cachedCall } = {}) => {
     let restriction = 'true';
     let configuration = null;
 

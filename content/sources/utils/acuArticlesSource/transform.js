@@ -10,7 +10,7 @@ import {
 } from '../../../../components/private/common/utils/dateAndTimeUtil';
 import { getAllImagesAuth } from '../signingServiceSource/getImagesAuth';
 
-const transform = async (data = {}, siteProps = {}, cachedCall) => {
+const transform = async (data = {}, siteProps = {}, cachedCall = {}) => {
     try {
         const respData = data;
         const {

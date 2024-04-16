@@ -50,10 +50,9 @@ const getParamsAcus = query => {
     };
 };
 
-const getArticlesAcumulados = async (params, { cachedCall }) => {
+const getArticlesAcumulados = async (params, { cachedCall } = {}) => {
     try {
         const queryParams = getParamsAcus(params);
-        console.log(queryParams);
         return await acuArticlesSource.fetch(queryParams, { cachedCall });
     } catch (error) {
         // eslint-disable-next-line no-console

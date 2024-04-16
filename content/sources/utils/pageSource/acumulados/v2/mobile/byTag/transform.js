@@ -1,7 +1,7 @@
 import transformAcu from '../../../common/transform';
 import getArticlesAcumulados from '../../../common/getArticlesAcumulados';
 
-const getAcumulado = async (queryParams, { cachedCall }) => {
+const getAcumulado = async (queryParams, { cachedCall } = {}) => {
     const {
         uri,
         configuration,
@@ -31,7 +31,7 @@ const getAcumulado = async (queryParams, { cachedCall }) => {
     });
 };
 
-const transform = async (query, { cachedCall }) => {
+const transform = async (query, { cachedCall } = {}) => {
     try {
         return (await getAcumulado(query, { cachedCall })) || [];
     } catch (error) {

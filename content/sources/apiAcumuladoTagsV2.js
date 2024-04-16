@@ -5,7 +5,7 @@ import calculatePaginationValue from './utils/pageSource/acumulados/common/calcu
 import tagSource from './tagSource';
 import NotFoundError from './utils/notFoundError';
 
-const fetch = async (query, { cachedCall }) => {
+const fetch = async (query, { cachedCall } = {}) => {
     try {
         query.slug = query.slug.replace('/', '');
 

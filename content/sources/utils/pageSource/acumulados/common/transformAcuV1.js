@@ -1,7 +1,7 @@
 import transformAcu from './transform';
 import getArticlesAcumulados from './getArticlesAcumulados';
 
-const getAcumulado = async (queryParams, { cachedCall }) => {
+const getAcumulado = async (queryParams, { cachedCall } = {}) => {
     const { uri, title, configuration, categoryUri, versionUri } = queryParams;
 
     const respAcumulados = await getArticlesAcumulados(queryParams, {
@@ -17,7 +17,7 @@ const getAcumulado = async (queryParams, { cachedCall }) => {
     });
 };
 
-const transform = async (query, { cachedCall }) => {
+const transform = async (query, { cachedCall } = {}) => {
     try {
         return (await getAcumulado(query, { cachedCall })) || [];
     } catch (error) {

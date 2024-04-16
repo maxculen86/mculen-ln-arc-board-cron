@@ -8,7 +8,7 @@ import request from 'request-promise-native';
 import NotFoundError from './utils/notFoundError';
 import logger from '../../components/private/common/utils/logger';
 
-const fetch = async (query, { cachedCall }) => {
+const fetch = async (query, { cachedCall } = {}) => {
     try {
         const size = getSizeParamFromQuery(query);
         const page = getPageParamFromQuery(query);
