@@ -16,7 +16,8 @@ export const addResizedUrls = (ansDoc, options) => {
         isInApertura,
         isAdmin,
         shouldUseV2 = false,
-        shouldUseV1
+        shouldUseV1,
+        arcSite = 'lanacionar'
     } = options;
 
     const {
@@ -96,7 +97,8 @@ export const addResizedUrls = (ansDoc, options) => {
                           zoomSizes,
                           subtype,
                           promoItems,
-                          isInApertura
+                          isInApertura,
+                          arcSite
                       )
                     : resizerV1.resizePromoItems(
                           promoItems,

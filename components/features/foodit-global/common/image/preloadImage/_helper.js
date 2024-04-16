@@ -6,6 +6,7 @@ import { filterImagesByDevice } from '../../../../private-global/common/utils/fi
 import { getVideoData } from '../../../../private-global/common/utils/getVideoData.js';
 
 import filter from '../../../../../../content/filters/foodit/home/articleFoodit.js';
+import replaceBaseUrl from '../../utils/replaceBaseUrl.js';
 
 export const getHomeOpeningImages = (renderables = [], isAdmin = false) => {
     const aperturaSection = renderables.find(
@@ -38,10 +39,10 @@ export const getPromoItemsImages = (article = {}, layout = '') => {
     const { promo_items } = article;
 
     const videoJw = get(promo_items, 'video_jw', null);
-    const basicImage = get(promo_items, 'basic', {});
+    const basicImage = replaceBaseUrl(get(promo_items, 'basic', {}));
     const basicImageMobile =
         layout === 'Foodit-ficha-nota' &&
-        get(promo_items, 'storytelling_mobile', null);
+        replaceBaseUrl(get(promo_items, 'storytelling_mobile', null));
 
     if (videoJw) {
         const { posterUrl = '' } = getVideoData(videoJw);

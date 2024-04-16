@@ -3,6 +3,7 @@ import * as resizerHelper from '../../../../../../../../components/private/commo
 jest.mock('fusion:environment', () => {
     return {
         SITE_LANACION: 'https://sandbox.lanacion.com.ar/',
+        SITE_FOODIT: 'https://foodit-sandbox.lanacion.com.ar/',
         RESIZER_URL_PUBLIC: 'https://resizer.glanacion.com/resizer/',
         API_ENV: 'prod'
     };
@@ -207,6 +208,7 @@ describe('Common - Resizer', () => {
 
     describe('baseUrl function', () => {
         const siteLanacion = 'https://sandbox.lanacion.com.ar/';
+        const siteFoodit = 'https://foodit-sandbox.lanacion.com.ar/';
         const resizerUrlPublic = 'https://resizer.glanacion.com/resizer/';
 
         const baseUrlCases = [
@@ -215,6 +217,19 @@ describe('Common - Resizer', () => {
                 {
                     testArguments: [{ isAdmin: false, isInApertura: true }],
                     testResult: siteLanacion
+                }
+            ],
+            [
+                'When isAdmin false, isInApertura true and arcSite "foodit" should return https://foodit-sandbox.lanacion.com.ar/',
+                {
+                    testArguments: [
+                        {
+                            isAdmin: false,
+                            isInApertura: true,
+                            arcSite: 'foodit'
+                        }
+                    ],
+                    testResult: siteFoodit
                 }
             ],
             [
