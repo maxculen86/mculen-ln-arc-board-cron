@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import useInputListener from './hooks/useInputListener';
 
 import HeaderSaveRecipe from './components/header';
@@ -16,17 +16,24 @@ const SaveRecipe = props => {
         value: inputValue
     } = useInputListener('');
 
-    const { onChange: onSelectChange, value: selectValue } = useInputListener();
+    const {
+        onChange: onSelectChange,
+        value: selectValue = {}
+    } = useInputListener();
 
     const {
         leftButton,
         rightButton,
         showInputFolder,
         showSelect,
-        suggestions,
         title
-    } = getConfig(saveRecipeConfig, selectValue, indexStep);
+    } = getConfig(saveRecipeConfig, indexStep);
 
+    useEffect(() => {
+        if (selectValue.value === 'new') {
+            setIndexStep(prev => prev + 1);
+        }
+    }, [selectValue]);
     return (
         <>
             <HeaderSaveRecipe title={title} />
@@ -37,7 +44,6 @@ const SaveRecipe = props => {
                 onSelectChange={onSelectChange}
                 showInputFolder={showInputFolder}
                 showSelect={showSelect}
-                suggestions={suggestions}
                 inputRef={inputRef}
             />
             <hr />

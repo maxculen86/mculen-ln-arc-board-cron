@@ -6,10 +6,16 @@ import useIsomorphicPopupHandling from './hooks/useIsomorphicPopupHandling';
 import get from '../../../../../private/common/utils/get';
 import fetchDeleteBookmark from '../../bookmark/api/deleteBookmark';
 import { unfillBookmarks } from '../../bookmark/iconHelper';
+import useGetUserData from '../../../hooks/useGetUserData';
+import EmptyState from '../../emptyState/foodit';
+import { getVariantBarrier } from '../../emptyState/helpers';
+import classNames from 'classnames';
 
 export const Modal = () => {
     const { close, modalData } = useIsomorphicPopupHandling();
     const showModal = get(modalData, 'isVisible', false);
+    const { userType } = useGetUserData();
+
     const {
         bookmarkedArticles = [],
         noBookmarkedArticles = [],
@@ -35,6 +41,14 @@ export const Modal = () => {
         setIndexStep(1);
     };
 
+    const classNameModal = userType =>
+        classNames(
+            'rounded-4 h-fit p-16 p-24_md p-32_lg flex gap-16 gap-24_md gap-32_lg',
+            userType === 'subscribed'
+                ? 'bg-light-1 max-w-328'
+                : 'w-100 max-w-720_md max-w-944_lg bg-positive'
+        );
+
     return (
         <Animate
             duration={400}
@@ -44,19 +58,27 @@ export const Modal = () => {
             transitionOut={['fade-out']}
         >
             <ModalFoodit
-                classNameModal="bg-light-1 rounded-4 h-fit max-w-328 p-32 flex gap-32"
+                classNameModal={classNameModal(userType)}
                 classNameWrapper="px-16"
                 id="modal-save"
                 onClose={() => close(restoreIndex)}
                 show
             >
-                <SaveRecipe
-                    close={() => close(restoreIndex)}
-                    ids={noBookmarkedArticles}
-                    collectionArticles={collectionArticles}
-                    indexStep={indexStep}
-                    setIndexStep={setIndexStep}
-                />
+                {userType === 'subscribed' ? (
+                    <SaveRecipe
+                        close={() => close(restoreIndex)}
+                        ids={noBookmarkedArticles}
+                        collectionArticles={collectionArticles}
+                        indexStep={indexStep}
+                        setIndexStep={setIndexStep}
+                    />
+                ) : (
+                    <EmptyState
+                        variant={getVariantBarrier(userType)}
+                        className="pt-40 pt-48_md pt-56_lg"
+                        direction="column"
+                    />
+                )}
             </ModalFoodit>
         </Animate>
     );

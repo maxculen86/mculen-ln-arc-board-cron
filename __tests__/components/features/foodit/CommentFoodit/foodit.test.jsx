@@ -3,6 +3,18 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CommentFoodit from '../../../../../components/features/foodit/CommentFoodit/foodit';
 import useTermica from '../../../../../components/private/common/hooks/useTermica';
+import Context from 'fusion:context';
+
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
+
+Context.useAppContext = jest.fn(() => ({
+    contextPath: '/pf',
+    deployment: arg => arg
+}));
 
 jest.mock('../../../../../components/private/common/hooks/useTermica', () =>
     jest.fn()

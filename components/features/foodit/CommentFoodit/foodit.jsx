@@ -9,7 +9,6 @@ import {
     allowCommentsFoodit,
     useValidateComments
 } from '../../../private/common/utils/commentsHelper';
-import Message from '../../../private/common/message';
 import { HeaderComments } from '../../foodit-global/common/headerComments/foodit';
 import useTermica from '../../../private/common/hooks/useTermica';
 import useGetUserData from '../../foodit-global/hooks/useGetUserData';
@@ -17,6 +16,8 @@ import { loginViafoura } from './_helper';
 import LazyLoad from '../../foodit-global/common/LazyLoad/foodit';
 import LoadingFoodit from '../../foodit-global/common/Loading/foodit';
 import CommentsViafoura from '../../foodit-global/common/CommentFoodit/foodit';
+import EmptyState from '../../foodit-global/common/emptyState/foodit';
+import { getVariantBarrier } from '../../foodit-global/common/emptyState/helpers';
 
 const CommentFoodit = props => {
     const {
@@ -24,7 +25,7 @@ const CommentFoodit = props => {
         customFields: { hideCaja },
         globalContent
     } = props;
-    const { isSuscribed: subscription } = useGetUserData();
+    const { isSuscribed: subscription, userType } = useGetUserData();
 
     const {
         messageType,
@@ -45,11 +46,8 @@ const CommentFoodit = props => {
         }
     }, [isVisible]);
 
-    // TODO: reemplazar por el componente empty state, con la variante,
-    // barrier-unlogged o barrier-logged segun corresponda por tipo de usuario
-
     if (shouldLoad && !termicaLivefyre && messageType === CLOSED_BY_TERMIC)
-        return <PlaceholderBarrier />;
+        return <></>;
 
     if (!allowCommentsValidate || hideCaja) return <></>;
 
@@ -57,15 +55,17 @@ const CommentFoodit = props => {
         setIsVisible(true);
     };
 
-    // TODO: reemplazar por el componente empty state, con la variante,
-    // barrier-unlogged o barrier-logged segun corresponda por tipo de usuario
-    const PlaceholderBarrier = () => {
-        return <div>Placeholder Barrier</div>;
-    };
-
     return (
-        <div>
-            {messageProps ? <PlaceholderBarrier /> : <HeaderComments />}
+        <div id="viafoura-comments">
+            {subscription ? (
+                <HeaderComments />
+            ) : (
+                <EmptyState
+                    variant={getVariantBarrier(userType)}
+                    direction="row"
+                    className="bg-positive mb-40"
+                />
+            )}
             <LazyLoad
                 showComponent={isReady}
                 rootMargin="600px"

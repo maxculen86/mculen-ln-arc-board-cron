@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import { useShoppingList } from './hooks/useShoppingList';
 import EmptyState from '../emptyState/foodit';
-import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import CollectionBox from '../collectionBox/foodit';
 import { IngredientsList } from '../ingredientsList/foodit';
 import { ModalRemoveIngredient } from '../Modals/RemoveIngredients/foodit';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import { useAppContext } from 'fusion:context';
+import { Spinner } from '@ln/foodit-ui-spinner';
 import { copyListToClipboard } from './_helpers';
+import { getVariantBarrier } from '../emptyState/helpers';
+import useGetUserData from '../../hooks/useGetUserData';
 
 const ShoppingList = () => {
-    const { contextPath, deployment } = useAppContext();
-
     const {
         loading,
         isMobile,
@@ -22,6 +21,8 @@ const ShoppingList = () => {
     } = useShoppingList();
 
     const [selectedItem, setSelectedItem] = useState({ id: 'Todas' });
+
+    const { userType } = useGetUserData();
 
     const selectedArticle = shoppingList.find(
         list => list.id === selectedItem.id
@@ -34,26 +35,25 @@ const ShoppingList = () => {
         setSelectedItem({ id: 'Todas' });
 
     // TODO: agregar loader cuando esté definido
-    if (loading) return <div className="h-250 bg-positive">Cargando...</div>;
+    if (loading)
+        return (
+            <div className="min-h-344 flex jc-center ai-center">
+                <Spinner variant="secondary" />
+            </div>
+        );
 
     if (!shoppingList.length)
         return (
-            <EmptyState
-                title="Aún no hay nada por aca"
-                description="Agregá los ingredientes que necesitas comprar para hacer tus recetas"
-                imageProps={{
-                    src: getAssetsPath(contextPath)(deployment)(
-                        'empty-state-recetario.webp'
-                    ),
-                    alt: 'No se encontraron resultados',
-                    with: 147,
-                    height: 151
-                }}
-            />
+            <div className="min-h-344">
+                <EmptyState
+                    variant={getVariantBarrier(userType)}
+                    direction="column"
+                />
+            </div>
         );
 
     return (
-        <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg">
+        <div className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg min-h-344">
             <aside className="sm-none col-span-5 bg-positive p-24 p-32_lg">
                 <CollectionBox
                     title="Recetas"

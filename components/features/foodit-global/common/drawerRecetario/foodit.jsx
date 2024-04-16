@@ -42,6 +42,9 @@ const DrawerRecetario = () => {
                 hoverClassName="border-accent-lechuga__hover"
                 listClassName="foodit-scrollbar shadow-down-lg"
                 onChange={onSelect}
+                floatingLabelProps={{
+                    className: 'bg-white'
+                }}
             >
                 {list.map(({ id, text }) => (
                     <Select.Options

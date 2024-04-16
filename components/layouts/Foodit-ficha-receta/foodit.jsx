@@ -25,11 +25,11 @@ const FichaRecetaFoodit = ({ children = [], globalContent = {} }) => {
             </section>
             <Subtitle globalContent={globalContent} calssName="lg-none" />
             <section className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg row-gap-40 cuerpo__nota">
-                <div className="col-span-8 col-span-4_md col-span-5_lg flex flex-column gap-32">
+                <div className="col-span-8 col-span-4_md col-span-5_lg flex flex-column gap-40 gap-32_md">
                     <PowerupsReceta article={globalContent} />
                 </div>
                 <div className="col-span-1_md sm-none" />
-                <div className="col-span-8 col-span-7_md col-span-10_lg flex flex-column gap-32">
+                <div className="col-span-8 col-span-7_md col-span-10_lg flex flex-column gap-24">
                     <Subtitle
                         globalContent={globalContent}
                         calssName="lg-only"

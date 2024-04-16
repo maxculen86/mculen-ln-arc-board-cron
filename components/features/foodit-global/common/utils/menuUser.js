@@ -34,7 +34,7 @@ export const menuUser = [
     },
     {
         text: 'Lista de compras',
-        icon: <IconSprite name="list" />,
+        icon: <IconSprite name="cart" critical />,
         onClick: () => {
             console.log('click');
             addEventToDataLayer({

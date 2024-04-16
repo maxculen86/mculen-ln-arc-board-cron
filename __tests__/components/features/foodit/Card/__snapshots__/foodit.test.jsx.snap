@@ -70,22 +70,6 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
               >
                 Por Foodit
               </span>
-              <div
-                class="none"
-              >
-                <i
-                  class="icon --icon-12 --inherit"
-                >
-                  <mock-icon
-                    name="timer"
-                  />
-                </i>
-                <span
-                  class="text text-12 roboto-light"
-                >
-                  false min
-                </span>
-              </div>
             </div>
             <button
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
@@ -122,7 +106,7 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
     class="hidden"
   >
     <article
-      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-background-positive"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-positive"
       data-variant="note"
     >
       <a

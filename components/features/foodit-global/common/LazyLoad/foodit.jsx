@@ -29,6 +29,9 @@ export const LazyLoad = ({
         if (targetRef.current) {
             observer.observe(targetRef.current);
         }
+        return () => {
+            observer.unobserve(targetRef.current);
+        };
     }, [rootMargin, threshold]);
 
     if (hide) {

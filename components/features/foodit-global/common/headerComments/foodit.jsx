@@ -8,7 +8,7 @@ export const HeaderComments = () => {
         verLegalesText && verLegalesText.classList.toggle('none');
     };
     return (
-        <div className="flex flex-column mb-12">
+        <div className="flex flex-column mb-40">
             <section className="mb-16">
                 <div className="flex ai-center jc-between mb-4">
                     <Text as="h4" className="prumo prumo-medium text-24">

@@ -30,7 +30,7 @@ const FooterSaveRecipe = ({
             <Button
                 variant="primary"
                 title={leftButton.title}
-                className="w-100"
+                fullWidth
                 size={40}
                 onClick={() =>
                     actionButtons({
@@ -43,7 +43,11 @@ const FooterSaveRecipe = ({
                         articlesDetails
                     })
                 }
-                disabled={!selectedFolder?.value || !articlesDetails.length}
+                disabled={
+                    !selectedFolder?.value ||
+                    !articlesDetails.length ||
+                    (indexStep === 2 && !newFolder)
+                }
             >
                 {leftButton.text}
             </Button>
@@ -51,7 +55,7 @@ const FooterSaveRecipe = ({
                 variant="secondary"
                 title={rightButton.title}
                 size={40}
-                className="w-100"
+                fullWidth
                 onClick={() =>
                     actionButtons({
                         action: rightButton.action,

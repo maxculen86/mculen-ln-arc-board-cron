@@ -2,14 +2,16 @@ import React from 'react';
 import get from '../../../../private/common/utils/get';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
+// TODO: Aplicar logica para obtener promociones de suscripcion desde sites.
+
 export const mockConfigUserTypes = {
     unlogged: {
         buttonLogginText: 'INICIAR SESIÓN',
-        buttonSubscribeText: 'SUSCRIBIRSE POR $999',
+        buttonSubscribeText: 'SUSCRIBITE',
         containerClassName: 'jc-center'
     },
     logged: {
-        buttonSubscribeText: 'SUSCRIBIRSE POR $999',
+        buttonSubscribeText: 'SUSCRIBITE',
         plan: 'Gratis',
         containerClassName: 'jc-between'
     },

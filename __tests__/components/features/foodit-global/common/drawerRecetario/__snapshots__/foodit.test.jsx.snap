@@ -53,7 +53,7 @@ exports[`DrawerRecetario component should match snapshot 1`] = `
             tabindex="0"
           >
             <label
-              class="floating-label absolute cursor-inherit transition-regular pointer-events-none"
+              class="floating-label absolute cursor-inherit transition-regular pointer-events-none bg-white"
             >
               Colección
             </label>
