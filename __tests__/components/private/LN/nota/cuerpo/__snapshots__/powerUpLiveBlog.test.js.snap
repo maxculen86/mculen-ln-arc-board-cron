@@ -2,10 +2,7 @@
 
 exports[`Components - private - LN - nota - cuerpo. Liveblog powerUp test Should return the correct render with the given data. Static validator must be visible 1`] = `
 <div>
-  <div
-    class="hidden"
-    id=""
-  >
+  <div>
     <h2
       class="com-title --font-primary --xl --font-extra"
     >

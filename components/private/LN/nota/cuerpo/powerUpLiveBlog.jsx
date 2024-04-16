@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Static from 'fusion:static';
 import ComTitle from '../../../common/com-title';
-import StaticContent from '../../../common/staticContent';
 
 const PowerUpLiveBlog = ({ data = {} }) => {
     const { embed = {}, _id = '' } = data;
@@ -17,14 +17,14 @@ const PowerUpLiveBlog = ({ data = {} }) => {
     if (time === '' || title === '') return <></>;
 
     return (
-        <StaticContent id={_id}>
+        <Static id={`LN-liveblog-${_id}`}>
             <ComTitle
                 tag="h2"
                 size="--xl"
                 weight="--font-extra"
                 content={`${timeWithoutSeconds(time)} | ${title}`}
             />
-        </StaticContent>
+        </Static>
     );
 };
 

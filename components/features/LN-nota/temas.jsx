@@ -2,8 +2,8 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import Temas from '../../private/LN/nota/apertura/tags';
-import StaticContent from '../../private/common/staticContent';
 
 // TODO Fix props y hacer unit test
 
@@ -14,9 +14,9 @@ const temas = props => {
     const { tags, sections } = taxonomy || {};
 
     return (
-        <StaticContent>
+        <Static id="LN-temas" htmlOnly>
             <Temas tags={tags} sections={sections} destacado temas />
-        </StaticContent>
+        </Static>
     );
 };
 

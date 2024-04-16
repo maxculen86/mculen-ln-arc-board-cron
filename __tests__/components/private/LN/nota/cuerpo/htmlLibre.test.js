@@ -52,7 +52,7 @@ describe('Private - LN - nota - cuerpo - HtmlLibre', () => {
         const props = setCommonProps(mockContentElements.slice(1, 2));
         const { container } = render(<HtmlLibre {...props} />);
 
-        expect(container.childNodes[0].className).toBe('hidden');
+        expect(container.childNodes[0].className).toBe('');
         expect(container).toMatchSnapshot();
     });
 });

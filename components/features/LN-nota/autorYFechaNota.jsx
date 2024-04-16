@@ -1,13 +1,13 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
 import AuthorAndDate from '../../private/LN/nota/author/authorAndDate';
-import StaticContent from '../../private/common/staticContent';
 
 const authorAndDate = props => {
     return (
-        <StaticContent>
+        <Static id="LN-autor-fecha-nota" htmlOnly>
             <AuthorAndDate {...props} authorDate />
-        </StaticContent>
+        </Static>
     );
 };
 
