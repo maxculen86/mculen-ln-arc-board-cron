@@ -1,7 +1,10 @@
 import React from 'react';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../../private-global/common/iconSprite/IconSprite';
-import { FOODIT_LOGIN_URL } from 'fusion:environment';
+import {
+    SITIO_SEGURO_REGISTRACION,
+    FOODIT_LOGIN_URL
+} from 'fusion:environment';
 
 export const titleByVariant = {
     'barrier-unlogged': '¡Exclusivo suscriptor!',

@@ -1,6 +1,9 @@
 import React from 'react';
 import { Button } from '@ln/foodit-ui-button';
-import { FOODIT_LOGIN_URL } from 'fusion:environment';
+import {
+    FOODIT_LOGIN_URL,
+    SITIO_SEGURO_REGISTRACION
+} from 'fusion:environment';
 import useGetUserData from '../../../hooks/useGetUserData';
 import classNames from 'classnames';
 
@@ -24,6 +27,11 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
                     data-interaction="dataLayerInteraction"
                     data-event-data-layer="subscription_start"
                     data-button="buttonSubscribeText"
+                    onClick={() =>
+                        (location.href = `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?callback=${window.btoa(
+                            window.location.href
+                        )}`)
+                    }
                 >
                     {buttonSubscribeText}
                 </Button>
