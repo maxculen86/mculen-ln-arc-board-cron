@@ -396,18 +396,13 @@ export const queueGoogletagCommand = bannersToLoad => {
         const nonHeaderBiddingSlots = bannersToLoad
             .filter(e => !e.prebidEnabled)
             .map(defineSlot);
+        const hastSlotswithBids = headerBiddingSlots.length !== 0;
 
         /* const saleFrameValidation = determineSafeFrame(bannersToLoad);
         // initialize
         saleFrameValidation.map(banner => {
             googletag.pubads().setForceSafeFrame(banner.safeFrame);
         }); */
-        googletag.pubads().enableSingleRequest();
-        googletag.pubads().enableAsyncRendering();
-        googletag.pubads().disableInitialLoad();
-        googletag.enableServices();
-
-        googletag.pubads().refresh(nonHeaderBiddingSlots);
 
         const slotAPS = {
             slots: bannersToLoad.map(slot => {
@@ -427,34 +422,24 @@ export const queueGoogletagCommand = bannersToLoad => {
             },
             function(bids) {
                 // set apstag targeting on googletag, then trigger the first GAM request in googletag's disableInitialLoad integration
-                googletag.cmd.push(function() {
-                    if (pbjs.adserverRequestSent) return;
-                    apstag.setDisplayBids();
-                });
+                if (pbjs.adserverRequestSent) return;
+                apstag.setDisplayBids();
             }
         );
 
-        // the callback function
-        // will be called twice:
-        //	once by Prebid when the auction's done
-        //	once by the failsafe timeout
-        // so a boolean is used to make sure ads are refreshed only once
-        pbjs.adserverRequestSent = false;
-        const sendAdServerRequest = (_headerBiddingSlots, fallback = false) => {
-            if (_headerBiddingSlots.length === 0) return;
-            googletag.cmd.push(() => {
-                // don't run again if already ran
-                if (pbjs.adserverRequestSent) return;
-                fallback && console.log('🚀 ~ prebid ~ fallback:', fallback);
-                pbjs.adserverRequestSent = true;
-                googletag.pubads().refresh(_headerBiddingSlots);
-            });
-        };
+        // function that calls the ad-server
+        function callAdserver(_headerBiddingSlots, fallback = false) {
+            if (pbjs.adserverCalled) return;
+            fallback && console.log('🚀 ~ callAdserver ~ fallback:', fallback);
+            pbjs.adserverCalled = true;
+            googletag.pubads().refresh(_headerBiddingSlots);
+        }
 
         !isWebview(navigator.userAgent) &&
+            hastSlotswithBids &&
             pbjs.que.push(function() {
                 pbjs.rp.requestBids({
-                    callback: sendAdServerRequest,
+                    callback: callAdserver,
                     gptSlotObjects: headerBiddingSlots
                 });
             });
@@ -463,8 +448,10 @@ export const queueGoogletagCommand = bannersToLoad => {
         // the ad ops team can set lower thresholds that will be respected by Prebid
         // but the web-dev team can define the worst case here
         setTimeout(() => {
-            sendAdServerRequest(headerBiddingSlots, true);
+            callAdserver(headerBiddingSlots, true);
         }, 3500);
+
+        googletag.pubads().refresh(nonHeaderBiddingSlots);
 
         const bannersWithoutHide = bannersToLoad
             .filter(e => e.withoutHide)

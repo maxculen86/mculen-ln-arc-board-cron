@@ -71,7 +71,7 @@ xdescribe('GooglePublisherTag', () => {
         const script =
             "googletag.pubads().setTargeting('tags_nuevos', ['ca_economia','ca_revista_jardin', 'te_comun','te_turismo', 'au_john_doe', 'url_economia_ultima-prueba-syndication-nid14052020', 'te_6WTWFSCNKBGHTPTZUBF7WOPC5M'])";
 
-        expect(component.find('script')).toHaveLength(3);
+        expect(component.find('script')).toHaveLength(2);
         expect(
             component
                 .find('script')

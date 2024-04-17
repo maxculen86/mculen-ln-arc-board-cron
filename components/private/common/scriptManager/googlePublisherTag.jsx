@@ -69,13 +69,6 @@ const GooglePublisherTag = props => {
                 src=" https://securepubads.g.doubleclick.net/tag/js/gpt.js?network-code=133919216"
             />
             <script
-                dangerouslySetInnerHTML={{
-                    __html: `
-var pbjs = pbjs || {};
-pbjs.que = pbjs.que || [];`
-                }}
-            />
-            <script
                 defer
                 id="googlePublisherTag-metadata"
                 type="text/javascript"
