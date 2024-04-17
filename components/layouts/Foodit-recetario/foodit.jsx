@@ -1,7 +1,6 @@
 import React from 'react';
 
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
-import DrawerRecetario from '../../features/foodit-global/common/drawerRecetario/foodit';
 import RecetarioBody from '../../features/foodit-global/common/recetario/RecetarioBody';
 import BreadcrumbCustomFoodit from '../../features/foodit-global/common/breadcrumb/_childrens/BreadcrumbCustom/foodit';
 import { Text } from '@ln/common-ui-text';
@@ -29,7 +28,6 @@ const RecetarioFoodit = ({ children }) => {
                 </section>
                 <RecetarioBody />
             </div>
-            <DrawerRecetario />
         </BaseLayout>
     );
 };

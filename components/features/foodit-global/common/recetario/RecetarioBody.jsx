@@ -13,6 +13,7 @@ import getBookmarks from '../bookmark/api/getBookmarks';
 import { Button } from '@ln/foodit-ui-button';
 import { EmptyStateComponent } from './helpers';
 import useGetUserData, { isFooditSuscriptor } from '../../hooks/useGetUserData';
+import DrawerRecetario from '../drawerRecetario/foodit';
 
 const RecetarioBody = () => {
     const [userBookmarks, setUserBookmarks] = useState([]);
@@ -158,6 +159,10 @@ const RecetarioBody = () => {
                     />
                 )}
             </section>
+            <DrawerRecetario
+                summaryList={summaryList}
+                onItemSelected={setSelectedItem}
+            />
         </div>
     );
 };
