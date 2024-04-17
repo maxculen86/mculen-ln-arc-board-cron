@@ -1,13 +1,13 @@
 import React from 'react';
 import { API_ENV, SITE_LANACION } from 'fusion:environment';
+import Static from 'fusion:static';
 import ServiceMiniCard from '../../../private/common/serviceMiniCard';
 import { meanings } from '../../../../content/sources/utils/servicesSource/lottery/_config';
 import ModHeaderSection from '../../../private/common/mod-headerSection';
-import StaticContent from '../../../private/common/staticContent';
 
 const LotteryMeanings = () => {
     return (
-        <StaticContent>
+        <Static id="home-lotteries-meaning-of-numbers" htmlOnly>
             <ModHeaderSection
                 tag="h2"
                 title="Significado de números según los sueños"
@@ -26,7 +26,7 @@ const LotteryMeanings = () => {
                     />
                 ))}
             </div>
-        </StaticContent>
+        </Static>
     );
 };
 

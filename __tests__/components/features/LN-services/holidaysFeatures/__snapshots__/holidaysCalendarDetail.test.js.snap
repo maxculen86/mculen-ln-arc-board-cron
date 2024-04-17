@@ -2,9 +2,7 @@
 
 exports[`Components- Features - HolidaysCalendarDetail - default.jsx - test Should match snapshot showing all the private components 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <div>
     <div
       class="holidays-nav --month"
     >

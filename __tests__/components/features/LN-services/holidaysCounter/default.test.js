@@ -1,20 +1,17 @@
 import React from 'react';
-import { useContent } from 'fusion:content';
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
+import { useContent } from 'fusion:content';
 import HolidaysCountdown from '../../../../../components/features/LN-services/holidaysCounter/default';
 import mockCalendar from '../../../../../__mocks__/data/holidays/outputTransformHome.json';
 
 jest.mock('fusion:content', () => ({
     useContent: jest.fn()
 }));
+jest.mock('../../../../../__mocks__/fusion:static', () => 'static');
 jest.mock(
     '../../../../../components/private/LN/services/holidays/HolidaysCounter',
     () => 'mock-holidays-counter'
-);
-jest.mock(
-    '../../../../../components/private/common/staticContent.jsx',
-    () => 'mock-static-validation'
 );
 jest.mock(
     '../../../../../components/private/common/utils/dateAndTimeUtil',
@@ -33,9 +30,7 @@ describe('It renders holidays countdown', () => {
         const { container } = render(<HolidaysCountdown />);
 
         expect(container).toBeTruthy();
-        expect(
-            container.getElementsByTagName('mock-static-validation')[0]
-        ).toBeInTheDocument();
+        expect(container.getElementsByTagName('static')[0]).toBeInTheDocument();
     });
 
     it('Should pass props to component', () => {

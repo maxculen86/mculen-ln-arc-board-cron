@@ -2,9 +2,7 @@
 
 exports[`Features - LN-servicios - LN Loteria Significado de Números => snapshot test 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <div>
     <mock-mod-header-section
       tag="h2"
       title="Significado de números según los sueños"

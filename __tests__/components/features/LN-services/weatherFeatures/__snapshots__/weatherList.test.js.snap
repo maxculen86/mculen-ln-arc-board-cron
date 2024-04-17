@@ -2,9 +2,7 @@
 
 exports[`Components- Features - WeatherList - default.jsx - test WeatherList with home data Should render all the provinces in the right order 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <div>
     <div
       class="grid-weather-home"
     >
@@ -2018,9 +2016,7 @@ exports[`Components- Features - WeatherList - default.jsx - test WeatherList wit
 
 exports[`Components- Features - WeatherList - default.jsx - test WeatherList with province w/ cities Should render the cities in alphabetical order 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <div>
     <div
       class="grid-weather-home"
     >

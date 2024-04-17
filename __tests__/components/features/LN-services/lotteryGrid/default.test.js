@@ -5,10 +5,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import gridLotteries from '../../../../../__mocks__/data/lottery/gridLotteries.json';
 
-jest.mock(
-    '../../../../../components/private/common/staticContent.jsx',
-    () => 'mock-static-content'
-);
+jest.mock('../../../../../__mocks__/fusion:static', () => 'static');
 
 jest.mock('fusion:context', () => () => ({
     default: props => {
@@ -28,21 +25,19 @@ Context.useAppContext = jest.fn(() => ({
 
 describe('Features - LN-servicios - LN Loteria Apertura Home', () => {
     const { container } = render(<LotteryGrid id="QWERTYUIOP" />);
-    const StaticContent = container.querySelector('mock-static-content');
+    const Static = container.querySelector('static');
 
-    it('should be wrapped by StaticContent component', () => {
+    it('should be wrapped by Static component', () => {
         expect(
             screen.getByText(
-                (content, element) =>
-                    element.tagName.toLowerCase() === 'mock-static-content'
+                (content, element) => element.tagName.toLowerCase() === 'static'
             )
         ).toBeVisible();
     });
+
     it('should return a list of lotteries', () => {
-        expect(
-            StaticContent.getElementsByClassName('lottery-header').length
-        ).toBe(12);
-        expect(StaticContent.firstChild.children.length).toBe(12);
+        expect(Static.getElementsByClassName('lottery-header').length).toBe(12);
+        expect(Static.firstChild.children.length).toBe(12);
     });
 
     it('Should Test Lotteries Cards', () => {
