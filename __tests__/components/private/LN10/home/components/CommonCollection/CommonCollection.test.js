@@ -25,7 +25,7 @@ jest.mock('fusion:context', () => ({
 
 describe('Tests Component CommonCollection', () => {
     Context.useAppContext = jest.fn(() => ({
-        deployment: jest.fn(),
+        deployment: arg => arg,
         contextPath: '/pf'
     }));
     const roofData = {

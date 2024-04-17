@@ -15,6 +15,8 @@ jest.mock('fusion:context', Component => {
 });
 
 Context.useAppContext = jest.fn(() => ({
+    deployment: arg => arg,
+    contextPath: '/pf',
     isAdmin: false,
     layout: ''
 }));
@@ -158,6 +160,8 @@ describe('features - LN-common - anexo - default', () => {
         });
         it('Should set src when isAdmin (PB) and NOT data-src', () => {
             Context.useAppContext = jest.fn(() => ({
+                contextPath: '/pf',
+                deployment: arg => arg,
                 isAdmin: true,
                 layout: ''
             }));

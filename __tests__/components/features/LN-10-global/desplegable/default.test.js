@@ -1,10 +1,10 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
+import Context from 'fusion:context';
 import { useContent } from 'fusion:content';
 import { useHeaderContext } from '../../../../../components/features/LN-10-global/header/context';
 import { render } from '@testing-library/react';
 import { Desplegable } from '../../../../../components/features/LN-10-global/desplegable/default';
-
 import menuData from '../../../../../__mocks__/data/menu/menu.json';
 
 jest.mock(
@@ -13,10 +13,18 @@ jest.mock(
         useHeaderContext: jest.fn(() => {})
     })
 );
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn()
+}));
+
 describe('components - features - LN-10-global - Desplegable', () => {
     useContent.mockImplementation(() => menuData);
     useHeaderContext.mockImplementation(() => ({
         toggleDesplegable: jest.fn()
+    }));
+    Context.useAppContext = jest.fn(() => ({
+        deployment: arg => arg,
+        contextPath: '/pf'
     }));
     afterAll(() => {
         jest.clearAllMocks();
