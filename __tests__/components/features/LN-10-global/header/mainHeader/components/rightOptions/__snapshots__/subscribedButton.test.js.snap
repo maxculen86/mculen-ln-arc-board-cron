@@ -3,7 +3,7 @@
 exports[`components - features - LN-10-global - header - mainHeader - rightOptions - BellButton should match snapshot 1`] = `
 <div>
   <button
-    class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-yellow-subscribe h-32 px-12 py-8 h-40_md px-16_m py-12_m relative --subscribe"
+    class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-yellow-subscribe h-32 px-12 py-8 h-40_md px-16_m py-12_m relative text-neutral-light-800 --subscribe"
     data-variant="subscribe"
     id="btnsuscribite"
     title="Suscribite"

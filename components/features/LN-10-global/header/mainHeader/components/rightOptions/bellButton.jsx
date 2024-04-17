@@ -7,7 +7,7 @@ import { NotificationsCentre } from '@ln/lib-personalizacion';
 import { useHeaderContext } from '../../../context';
 
 export const BellButton = () => {
-    const { negative } = useHeaderContext();
+    const { negative, intersectingSentinel } = useHeaderContext();
 
     const [showTooltip, setShowTooltip] = useState(false);
     const [props, setProps] = useState({});
@@ -20,10 +20,11 @@ export const BellButton = () => {
     useEffect(() => {
         initializeTooltip();
         setProps(buildProps());
-    }, [showTooltip]);
+    }, [showTooltip, intersectingSentinel]);
 
     const initializeTooltip = () => {
-        setShowTooltip(getInitialState());
+        const toggleTooltip = getInitialState() ? intersectingSentinel : false;
+        setShowTooltip(toggleTooltip);
     };
 
     toggleBellColor(negative);
