@@ -88,11 +88,12 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                       name="search"
                     />
                   </i>
-                  <span
-                    class="text text-light-600 text-14"
-                  >
-                    ¿Qué querés cocinar hoy?
-                  </span>
+                  <input
+                    class="text-light-600 text-14 w-100"
+                    placeholder="¿Qué querés cocinar hoy?"
+                    type="text"
+                    value=""
+                  />
                 </div>
               </div>
             </div>
