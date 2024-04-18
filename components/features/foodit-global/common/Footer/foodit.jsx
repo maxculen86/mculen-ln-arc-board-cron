@@ -21,18 +21,18 @@ const FooterFoodit = () => {
                         </Text>
                         <div className="flex gap-24 jc-center">
                             <Button
-                                href="https://www.tiktok.com/@fooditar?lang=es "
-                                title="Seguinos en TikTok"
+                                href="https://www.instagram.com/foodit_ar/"
+                                title="Seguinos en Instagram"
                                 iconOnly
                                 size={32}
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
                                 data-dynamic-label={'social'}
-                                data-dynamic-action={'tiktok'}
+                                data-dynamic-action={'instagram'}
                             >
                                 <Icon size={16}>
-                                    <IconSprite name="tikTok" />
+                                    <IconSprite name="instagram" />
                                 </Icon>
                             </Button>
                             <Button
@@ -51,18 +51,18 @@ const FooterFoodit = () => {
                                 </Icon>
                             </Button>
                             <Button
-                                href="https://www.instagram.com/foodit_ar/"
-                                title="Seguinos en Instagram"
+                                href="https://www.tiktok.com/@fooditar?lang=es "
+                                title="Seguinos en TikTok"
                                 iconOnly
                                 size={32}
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
                                 data-dynamic-label={'social'}
-                                data-dynamic-action={'instagram'}
+                                data-dynamic-action={'tiktok'}
                             >
                                 <Icon size={16}>
-                                    <IconSprite name="instagram" />
+                                    <IconSprite name="tiktok" />
                                 </Icon>
                             </Button>
                             <Button
