@@ -4,7 +4,6 @@ import {
     suffixDevice
 } from '../../../../private/LN/common/utils/bannerHelper';
 import DivBannerSSR from '../../../../private/common/banners/DivBannerSSR';
-import DivBannerAMP from '../../../../private/common/banners/DivBannerAMP';
 import { supportedTypes } from '../_utils/_bodyRules';
 import StaticContent from '../../../../private/common/staticContent';
 
@@ -13,7 +12,6 @@ export const BuildBanners = ({
     globalContent = {},
     elementPosition,
     contentElements,
-    // counter,
     outputType
 }) => {
     const elementsCount = getElementsCount({ contentElements });
@@ -70,18 +68,12 @@ const isAmpWithoutSlotIdAmpValidator = ({
 const DivBannerRender = ({
     elementsCount,
     elementPosition,
-    slotId,
-    outputType,
     bannerConfiguration
 }) => {
     return (
         elementsCount > elementPosition && (
             <StaticContent>
-                {outputType === 'amp' && slotId.includes('_amp') ? (
-                    <DivBannerAMP bannerConfiguration={bannerConfiguration} />
-                ) : (
-                    <DivBannerSSR bannerConfiguration={bannerConfiguration} />
-                )}
+                <DivBannerSSR bannerConfiguration={bannerConfiguration} />
             </StaticContent>
         )
     );

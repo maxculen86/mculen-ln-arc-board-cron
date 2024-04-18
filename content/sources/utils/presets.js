@@ -10,12 +10,13 @@ const getPresets = siteProps => {
         'imageConfig.resize.l.credits',
         null
     );
+    const shouldUseV2 = get(siteProps, 'shouldUseV2', true);
 
     return {
         presets: get(properties, `imageConfig.resize.${presetsSize}`, null),
         presetsDefault: { size: presetsDefault },
         presetsCredits,
-        shouldUseV2: get(siteProps, 'shouldUseV2', false)
+        shouldUseV2
     };
 };
 

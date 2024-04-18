@@ -100,6 +100,9 @@ jest.mock('../../../../../../../components/private/common/utils/logger', () => {
 });
 
 describe('Test transform page', () => {
+    const cachedCall = async (nameOfCall, callbackFunc, params) => {
+        return await callbackFunc(params);
+    };
     test('transform Ok when is Acu Economia', async () => {
         const queryParams = {
             sectionId: 'economia',
@@ -116,7 +119,7 @@ describe('Test transform page', () => {
             isPage: false
         };
 
-        const result = await transformHomeAcuV1(queryParams);
+        const result = await transformHomeAcuV1(queryParams, { cachedCall });
         expect(Object.keys(result[0]).sort()).toEqual(
             [
                 'acumuladoTotal',

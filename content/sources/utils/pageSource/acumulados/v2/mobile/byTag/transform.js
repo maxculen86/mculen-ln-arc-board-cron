@@ -1,7 +1,7 @@
 import transformAcu from '../../../common/transform';
 import getArticlesAcumulados from '../../../common/getArticlesAcumulados';
 
-const getAcumulado = async queryParams => {
+const getAcumulado = async (queryParams, { cachedCall } = {}) => {
     const {
         uri,
         configuration,
@@ -10,7 +10,9 @@ const getAcumulado = async queryParams => {
         tagSourceResult
     } = queryParams;
 
-    const respAcumulados = await getArticlesAcumulados(queryParams);
+    const respAcumulados = await getArticlesAcumulados(queryParams, {
+        cachedCall
+    });
 
     const tag = {
         slug: tagSourceResult.Payload.items[0].slug,
@@ -29,9 +31,9 @@ const getAcumulado = async queryParams => {
     });
 };
 
-const transform = async query => {
+const transform = async (query, { cachedCall } = {}) => {
     try {
-        return (await getAcumulado(query)) || [];
+        return (await getAcumulado(query, { cachedCall })) || [];
     } catch (error) {
         // eslint-disable-next-line no-console
         console.warn(

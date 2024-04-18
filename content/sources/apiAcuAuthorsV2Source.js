@@ -8,7 +8,7 @@ import request from 'request-promise-native';
 import NotFoundError from './utils/notFoundError';
 import logger from '../../components/private/common/utils/logger';
 
-const fetch = async (query, { cachedCall }) => {
+const fetch = async (query, { cachedCall } = {}) => {
     try {
         const size = getSizeParamFromQuery(query);
         const page = getPageParamFromQuery(query);
@@ -45,7 +45,7 @@ const fetch = async (query, { cachedCall }) => {
                 );
             });
 
-        const transformedAcu = await transformAcu(queryParams);
+        const transformedAcu = await transformAcu(queryParams, { cachedCall });
 
         const paginationValue = calculatePaginationValue(
             transformedAcu[0].acumuladoTotal,

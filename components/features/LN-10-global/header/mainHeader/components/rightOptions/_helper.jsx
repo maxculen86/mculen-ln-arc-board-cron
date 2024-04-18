@@ -27,9 +27,12 @@ export const getClassNameButtonSubscribe = ({
             '--mobile-none',
             class_tooltip
         ),
-        subscribeButtonClassName: classNames('relative', {
-            '--negative': negative
-        })
+        subscribeButtonClassName: classNames(
+            'relative text-neutral-light-800',
+            {
+                '--negative': negative
+            }
+        )
     };
 };
 
@@ -73,6 +76,6 @@ export const FallBackTextButton = ({
 export const toggleBellColor = negative => {
     document.documentElement.style.setProperty(
         '--notification-drawer-button-icon-color',
-        negative ? '#FEFEFE' : 'currentColor'
+        negative ? '#FEFEFE' : '#333333'
     );
 };

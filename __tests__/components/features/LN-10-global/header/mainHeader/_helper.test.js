@@ -4,6 +4,13 @@ import {
     getTermicaValues,
     getInitialState
 } from '../../../../../../components/features/LN-10-global/header/mainHeader/_helper';
+import useSiteServices from '../../../../../../components/features/LN-10-global/hooks/useSiteServices';
+import siteServicesMock from '../../../../../../__mocks__/data/siteServices/siteServices.json';
+
+jest.mock(
+    '../../../../../../components/features/LN-10-global/hooks/useSiteServices',
+    () => jest.fn()
+);
 
 jest.mock('../../../../../../components/private/common/hooks/useTermica', () =>
     jest.fn()
@@ -30,6 +37,10 @@ jest.mock('react', () => ({
         }
     }))
 }));
+
+useSiteServices.mockImplementation(() => {
+    return siteServicesMock;
+});
 
 describe('components - features - LN-10-global - header - mainHeader - helper', () => {
     describe('getTermicaValues function', () => {

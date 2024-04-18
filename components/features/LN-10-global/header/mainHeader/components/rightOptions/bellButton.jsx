@@ -5,9 +5,10 @@ import { getInitialState } from '../../_helper';
 import { toggleBellColor } from './_helper';
 import { NotificationsCentre } from '@ln/lib-personalizacion';
 import { useHeaderContext } from '../../../context';
+import addEventToDataLayer from '../../../../../../private/LN/common/utils/addEventToDataLayer';
 
 export const BellButton = () => {
-    const { negative } = useHeaderContext();
+    const { negative, intersectingSentinel } = useHeaderContext();
 
     const [showTooltip, setShowTooltip] = useState(false);
     const [props, setProps] = useState({});
@@ -20,10 +21,11 @@ export const BellButton = () => {
     useEffect(() => {
         initializeTooltip();
         setProps(buildProps());
-    }, [showTooltip]);
+    }, [showTooltip, intersectingSentinel]);
 
     const initializeTooltip = () => {
-        setShowTooltip(getInitialState());
+        const toggleTooltip = getInitialState() ? intersectingSentinel : false;
+        setShowTooltip(toggleTooltip);
     };
 
     toggleBellColor(negative);
@@ -41,13 +43,15 @@ export const BellButton = () => {
             loginHref: LOGIN_URL,
             notificationsRequestSize: 5,
             messagesRequestSize: 5,
+            loginText:
+                'Si formas parte de nuestra comunidad de suscriptores, descubrí todas las novedades que tenemos para vos.',
             tooltipText: 'Aquí encontrarás todas nuestras notificaciones',
             loginOnClick: () => {
-                dataLayer.push({
-                    event: 'trackEvent',
+                addEventToDataLayer({
                     category: 'campanita',
+                    label: 'Iniciar Sesión',
                     action: 'click',
-                    label: 'Iniciar Sesión'
+                    event: 'trackEvent'
                 });
             },
             onBellClick: handleBellClick,

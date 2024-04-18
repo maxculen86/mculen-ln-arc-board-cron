@@ -192,7 +192,8 @@ export const generateSectionsToExclude = sections => {
 };
 
 const getElements = async query => {
-    const { url = '', followedItems } = query;
+    const { url = '', followedItems, cachedCall } = query;
+
     const arcSite = query['arc-site'];
 
     const queryTransform = {
@@ -225,14 +226,14 @@ const getElements = async query => {
     };
     return request(opt)
         .then(response => {
-            return transform(response, queryTransform);
+            return transform(response, queryTransform, cachedCall);
         })
         .catch(err => {
             logger.push(err, { source: 'content/source', url }, arcSite);
         });
 };
 
-const fetch = async (query, { cachedCall }) => {
+const fetch = async (query, { cachedCall } = {}) => {
     const {
         version = 1,
         token,
@@ -303,7 +304,8 @@ const fetch = async (query, { cachedCall }) => {
                 days,
                 page,
                 api,
-                arcSite
+                arcSite,
+                cachedCall
             },
             ttl: 120
         });

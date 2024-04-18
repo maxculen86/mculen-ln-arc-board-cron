@@ -78,7 +78,8 @@ export const authorAcuFollow = (authorFollow, page) => {
 export const authorHomeMobile = author => {
     const authorData = getAuthorData(author);
     const { email, twitter } = author;
-    const image = getImageUrl(
+
+    const image = getImageUrlBasedOnResizerVersion(
         get(author, 'image.resized_urls[0].resizedUrl', null)
     );
     const absoluteUrl =
@@ -88,7 +89,7 @@ export const authorHomeMobile = author => {
     return {
         ...authorData,
         tipo: authorData.slug ? 1 : 2,
-        imagen: image ? image[0] : null,
+        imagen: image,
         absoluteUrl,
         mail: email,
         twitter: twitter ? twitter.trim() : twitter

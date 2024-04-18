@@ -11,9 +11,7 @@ import ListOrderedOrUnordered from '../../../../../../components/private/LN/nota
 import Subtitle from '../../../../../../components/private/LN/nota/cuerpo/subtitle';
 import RawHTML from '../../../../../../components/private/LN/common/rawHTML';
 import Html from '../../../../../../components/private/LN/nota/cuerpo/html';
-import HtmlAMP from '../../../../../../components/private/LN/nota/cuerpo/htmlAMP';
 import BotonLink from '../../../../../../components/private/LN/nota/cuerpo/botonLink';
-import optaAMP from '../../../../../../components/private/LN/nota/cuerpo/optaAMP';
 import powerUpsReceta from '../../../../../../components/private/LN/nota/cuerpo/powerUpsReceta';
 
 jest.mock('fusion:consumer', Component => {
@@ -185,18 +183,6 @@ describe('_bodyElementRules', () => {
             expect(comp).toEqual(Html);
         });
 
-        test('Cuando el type es "raw_html" en AMP al igual arcType return true', () => {
-            const comp = bodyElementRules({
-                subtype: 1,
-                element: { type: 'raw_html' },
-                outputType: 'amp'
-            });
-            expect(comp).toBeTruthy();
-            expect(comp.arcType).toEqual('raw_html');
-            expect(comp.outputType).toEqual('amp');
-            expect(comp).toEqual(HtmlAMP);
-        });
-
         test('Cuando el type es "interstitial_link" al igual arcType return true', () => {
             const comp = bodyElementRules({
                 subtype: 1,
@@ -208,18 +194,7 @@ describe('_bodyElementRules', () => {
             expect(comp).toEqual(BotonLink);
         });
 
-        test('Cuando el type es "opta_amp" al igual arcType return true', () => {
-            const comp = bodyElementRules({
-                subtype: 1,
-                element: { type: 'raw_html', content: '<opta-widget>' },
-                outputType: 'amp'
-            });
-            expect(comp).toBeTruthy();
-            expect(comp.arcType).toEqual('raw_html');
-            expect(comp).toEqual(optaAMP);
-        });
-
-        test('Cuando el type es "opta_amp" al igual arcType return true', () => {
+        test('Cuando el type es powerUpReceta igual al arcType return true', () => {
             const comp = bodyElementRules({
                 subtype: 7,
                 element: { type: 'custom_embed', subtype: 'power-up-receta' },

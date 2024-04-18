@@ -53,10 +53,6 @@ const fetch = (query, { cachedCall } = {}) => {
 };
 
 const transform = async (data, siteProps, cachedCall) => {
-    console.log(
-        '000000000000000000000000000000000000000000000000000000000000000>',
-        siteProps
-    );
     const { presets, presetsDefault, shouldUseV2 } = getPresets(siteProps);
 
     if (shouldUseV2) {
@@ -76,9 +72,9 @@ const transform = async (data, siteProps, cachedCall) => {
     };
 
     const presetsPromoItems = get(presets, 'promo_items', null);
-    const subtype = get(siteProps, `subtype`, null);
-    const isInApertura = get(siteProps, `isInApertura`, false);
-    const isAdmin = get(siteProps, `isAdmin`, false);
+    const subtype = get(siteProps, 'subtype', null);
+    const isInApertura = get(siteProps, 'isInApertura', false);
+    const isAdmin = get(siteProps, 'isAdmin', false);
     const isFotoAl100orStorytelling =
         subtype === FOTOAL100 || subtype === STORYTELLING;
 
