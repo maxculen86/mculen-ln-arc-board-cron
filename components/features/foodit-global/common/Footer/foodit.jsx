@@ -21,22 +21,22 @@ const FooterFoodit = () => {
                         </Text>
                         <div className="flex gap-24 jc-center">
                             <Button
-                                href="https://www.facebook.com/lanacion/"
-                                title="Seguinos en Facebook"
+                                href="https://www.tiktok.com/@fooditar?lang=es "
+                                title="Seguinos en TikTok"
                                 iconOnly
                                 size={32}
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
                                 data-dynamic-label={'social'}
-                                data-dynamic-action={'facebook'}
+                                data-dynamic-action={'tiktok'}
                             >
                                 <Icon size={16}>
-                                    <IconSprite name="facebook" />
+                                    <IconSprite name="tikTok" />
                                 </Icon>
                             </Button>
                             <Button
-                                href="https://www.twitter.com/lanacion/"
+                                href="https://twitter.com/FOODITAR"
                                 title="Seguinos en X"
                                 iconOnly
                                 size={32}
@@ -51,7 +51,7 @@ const FooterFoodit = () => {
                                 </Icon>
                             </Button>
                             <Button
-                                href="https://www.instagram.com/lanacioncom/"
+                                href="https://www.instagram.com/foodit_ar/"
                                 title="Seguinos en Instagram"
                                 iconOnly
                                 size={32}
@@ -63,6 +63,21 @@ const FooterFoodit = () => {
                             >
                                 <Icon size={16}>
                                     <IconSprite name="instagram" />
+                                </Icon>
+                            </Button>
+                            <Button
+                                href="https://ar.pinterest.com/foodit_ar/"
+                                title="Seguinos en Pinterest"
+                                iconOnly
+                                size={32}
+                                data-interaction="dataLayerInteraction"
+                                data-event-data-layer="e_linkclick"
+                                data-dynamic-category="interaction"
+                                data-dynamic-label={'social'}
+                                data-dynamic-action={'pinterest'}
+                            >
+                                <Icon size={16}>
+                                    <IconSprite name="pinterest" />
                                 </Icon>
                             </Button>
                         </div>
