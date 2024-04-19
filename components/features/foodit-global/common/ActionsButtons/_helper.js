@@ -18,7 +18,8 @@ const buttonShare = article => {
     });
 };
 const buttonComment = () => {
-    //TODO: funcionalidad para comentarios en foodit
+    const commentsBox = document.querySelector('#viafoura-comments');
+    commentsBox && commentsBox.scrollIntoView({ behavior: 'smooth' });
 };
 const buttonPrint = () => {
     window.print();
@@ -75,8 +76,8 @@ export const buttonConfig = [
         type: 'comment',
         enabled: true,
         handleClick: article => {
-            addActionToDataLayer(article, 'comentarios');
             buttonComment();
+            addActionToDataLayer(article, 'comentarios');
         },
         description: 'Comentarios',
         IconButton: <IconSprite name="chat" />

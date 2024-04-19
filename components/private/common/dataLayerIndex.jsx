@@ -5,6 +5,8 @@ import NotaDataLayer from '../LN/nota/dataLayer/dataLayer';
 import HomeDataLayer from '../LN/home/dataLayer/dataLayerHome';
 import PageViewDataLayer from '../../features/foodit-global/common/dataLayer/pageView';
 import AcusPageView from '../../features/foodit-global/common/dataLayer/acusPageVIew';
+import AutogestionPageView from '../../features/foodit-global/common/dataLayer/autogestionPageView';
+import ChefsPageView from '../../features/foodit-global/common/dataLayer/chefsPageView';
 
 const config = {
     OTT: {},
@@ -26,10 +28,10 @@ const config = {
         'Foodit-ficha-receta': PageViewDataLayer,
         'Foodit-ficha-nota': PageViewDataLayer,
         'Foodit-chef': PageViewDataLayer,
-        'Foodit-compras': PageViewDataLayer,
-        'Foodit-recetario': PageViewDataLayer,
+        'Foodit-compras': AutogestionPageView,
+        'Foodit-recetario': AutogestionPageView,
         'Foodit-acumulado': AcusPageView,
-        'Foodit-acumulado-chef': AcusPageView
+        'Foodit-acumulado-chef': ChefsPageView
     }
 };
 

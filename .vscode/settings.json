@@ -25,5 +25,5 @@
         "/.scannerwork/**":true,
         "/dist/**":true,
         "/resources/dist/**":true
-    }
+    },
 }

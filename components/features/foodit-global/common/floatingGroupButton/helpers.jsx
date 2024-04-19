@@ -8,8 +8,12 @@ const { layoutsName = {} } = siteProperties || {};
 
 const defaultClassName = 'lg-none';
 const defaultButtons = [
-    { title: 'Ir a Mis recetas', children: 'Mis recetas', href: '/recetario' },
-    { title: 'Ir a Lista de compras', children: 'Lista de compras', href: '#' } // TODO: agregar href cuando se cree el layout
+    { title: 'Ir a Mis recetas', children: 'Mis recetas', href: '/recetario/' },
+    {
+        title: 'Ir a Lista de compras',
+        children: 'Lista de compras',
+        href: '/lista-de-compras/'
+    }
 ];
 
 export const floatingButtonConfig = {
@@ -37,11 +41,11 @@ export const floatingButtonConfig = {
         observerSelector: '.floating-button-sentinel',
         className: 'sm-only',
         buttons: [
-            {
-                title: 'Crear colección',
-                children: 'Crear colección'
-                // TODO: agregar callback o href para el botón
-            },
+            // {
+            //     title: 'Crear colección',
+            //     children: 'Crear colección'
+            //     TODO: agregar callback o href para el botón
+            // },
             {
                 title: 'Elegir colección',
                 children: 'Elegir colección',

@@ -54,7 +54,6 @@ const getCssLibsHome = () => {
             file('contenidos-ui-live'),
             file('contenidos-ui-navbarmobile'),
             file('contenidos-ui-opening'),
-            file('contenidos-ui-pwamodal'),
             file('contenidos-ui-sass'),
             file('contenidos-ui-text'),
             file('contenidos-ui-timeline'),

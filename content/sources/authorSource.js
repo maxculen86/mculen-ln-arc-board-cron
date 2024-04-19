@@ -6,6 +6,7 @@ import filter from '../filters/LN/acumulado/author';
 import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
 import { resizeImgUrl } from '../../components/private/common/utils/image/resizer/v2/buildResizerUrls';
 import { isEmptyString } from '../../components/private/common/utils/dataValidation';
+import logger from '../../components/private/common/utils/logger';
 
 const resolve = key => {
     const { _id, website } = key;

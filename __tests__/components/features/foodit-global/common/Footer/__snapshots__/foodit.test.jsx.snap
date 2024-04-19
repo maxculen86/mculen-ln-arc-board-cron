@@ -29,33 +29,33 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
           >
             <a
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover p-8"
-              data-dynamic-action="Facebook"
+              data-dynamic-action="instagram"
               data-dynamic-category="interaction"
-              data-dynamic-label="Social"
+              data-dynamic-label="social"
               data-event-data-layer="e_linkclick"
               data-interaction="dataLayerInteraction"
               data-variant="primary"
-              href="https://www.facebook.com/lanacion/"
+              href="https://www.instagram.com/foodit_ar/"
               target="_self"
-              title="Seguinos en Facebook"
+              title="Seguinos en Instagram"
             >
               <i
                 class="icon --icon-16"
               >
                 <mock-icon
-                  name="facebook"
+                  name="instagram"
                 />
               </i>
             </a>
             <a
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover p-8"
-              data-dynamic-action="X"
+              data-dynamic-action="x"
               data-dynamic-category="interaction"
-              data-dynamic-label="Social"
+              data-dynamic-label="social"
               data-event-data-layer="e_linkclick"
               data-interaction="dataLayerInteraction"
               data-variant="primary"
-              href="https://www.twitter.com/lanacion/"
+              href="https://twitter.com/FOODITAR"
               target="_self"
               title="Seguinos en X"
             >
@@ -69,21 +69,41 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
             </a>
             <a
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover p-8"
-              data-dynamic-action="Instagram"
+              data-dynamic-action="tiktok"
               data-dynamic-category="interaction"
-              data-dynamic-label="Social"
+              data-dynamic-label="social"
               data-event-data-layer="e_linkclick"
               data-interaction="dataLayerInteraction"
               data-variant="primary"
-              href="https://www.instagram.com/lanacioncom/"
+              href="https://www.tiktok.com/@fooditar?lang=es "
               target="_self"
-              title="Seguinos en Instagram"
+              title="Seguinos en TikTok"
             >
               <i
                 class="icon --icon-16"
               >
                 <mock-icon
-                  name="instagram"
+                  name="tiktok"
+                />
+              </i>
+            </a>
+            <a
+              class="button foodit-button gap-8 roboto-bold text-12 rounded-4 bg-primary-positive text-light-1 bg-accent-lechuga__hover p-8"
+              data-dynamic-action="pinterest"
+              data-dynamic-category="interaction"
+              data-dynamic-label="social"
+              data-event-data-layer="e_linkclick"
+              data-interaction="dataLayerInteraction"
+              data-variant="primary"
+              href="https://ar.pinterest.com/foodit_ar/"
+              target="_self"
+              title="Seguinos en Pinterest"
+            >
+              <i
+                class="icon --icon-16"
+              >
+                <mock-icon
+                  name="pinterest"
                 />
               </i>
             </a>
@@ -99,9 +119,9 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
           </span>
           <a
             class="link foodit-link flex gap-8 ai-center roboto-regular --unstyled"
-            data-dynamic-action="LA NACION"
+            data-dynamic-action="la_nacion"
             data-dynamic-category="footer"
-            data-dynamic-label="Pagina principal"
+            data-dynamic-label="pagina_principal"
             data-event-data-layer="e_linkclick"
             data-interaction="dataLayerInteraction"
             data-variant="primary"
@@ -127,9 +147,9 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
           </span>
           <a
             class="link foodit-link flex gap-8 ai-center roboto-regular --unstyled"
-            data-dynamic-action="Data fiscal"
+            data-dynamic-action="data_fiscal"
             data-dynamic-category="footer"
-            data-dynamic-label="Legales"
+            data-dynamic-label="legales"
             data-event-data-layer="e_linkclick"
             data-interaction="dataLayerInteraction"
             data-variant="primary"
@@ -157,9 +177,9 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
           >
             <a
               class="link foodit-link flex gap-8 ai-center roboto-bold uppercase"
-              data-dynamic-action="Condiciones"
+              data-dynamic-action="condiciones"
               data-dynamic-category="footer"
-              data-dynamic-label="Legales"
+              data-dynamic-label="legales"
               data-event-data-layer="e_linkclick"
               data-interaction="dataLayerInteraction"
               data-variant="primary"
@@ -178,9 +198,9 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
             </i>
             <a
               class="link foodit-link flex gap-8 ai-center roboto-bold uppercase"
-              data-dynamic-action="Privacidad"
+              data-dynamic-action="privacidad"
               data-dynamic-category="footer"
-              data-dynamic-label="Legales"
+              data-dynamic-label="legales"
               data-event-data-layer="e_linkclick"
               data-interaction="dataLayerInteraction"
               data-variant="primary"

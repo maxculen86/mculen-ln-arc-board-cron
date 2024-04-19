@@ -1,44 +1,46 @@
 import React, { useEffect, useState } from 'react';
-import { useAppContext } from 'fusion:context';
 
 import CollectionBox from '../collectionBox/foodit';
 import RoofFoodit from '../RoofFoodit/foodit';
 import CommonCardFoodit from '../CommonCardFoodit/foodit';
-import EmptyState from '../emptyState/foodit';
-
 import get from '../../../../private/common/utils/get';
 import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/mediaHelper';
 import getAuthorsAsString from '../../../../private/common/utils/getAuthorsAsString';
 import fetchDeleteBookmark from '../bookmark/api/deleteBookmark';
-import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
 import { createSummaryList } from '../utils/recetarioHelper';
 import getToken from '../../../../private/common/utils/getToken';
 import getBookmarks from '../bookmark/api/getBookmarks';
 import { Button } from '@ln/foodit-ui-button';
-import { isFooditSuscriptor } from '../../hooks/useGetUserData';
+import { EmptyStateComponent } from './helpers';
+import useGetUserData, { isFooditSuscriptor } from '../../hooks/useGetUserData';
+import DrawerRecetario from '../drawerRecetario/foodit';
 
 const RecetarioBody = () => {
-    const { contextPath, deployment } = useAppContext();
-    const [userBookmarks, setUserBookmarks] = useState(null);
+    const [userBookmarks, setUserBookmarks] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [selectedItem, setSelectedItem] = useState({});
     const [displayArticlesNum, setDisplayArticlesNum] = useState(24);
+
+    const { userType } = useGetUserData();
 
     const { id: selectedItemId, quantity: selectedItemQuantity } = selectedItem;
 
     useEffect(() => {
-        if (isFooditSuscriptor(getToken('ProductoPremiumId')))
+        if (isFooditSuscriptor(getToken('ProductoPremiumId'))) {
             (async () => {
                 const { data = [] } = await getBookmarks();
                 setUserBookmarks(data);
                 setSelectedItem({ id: 'Todas', quantity: data.length });
+                setLoading(false);
             })();
+        } else {
+            setLoading(false);
+        }
     }, []);
 
     useEffect(() => {
         setDisplayArticlesNum(24);
     }, [selectedItemId]);
-
-    if (!userBookmarks) return <h2>Cargando...</h2>;
 
     const summaryList = createSummaryList(userBookmarks);
 
@@ -51,7 +53,7 @@ const RecetarioBody = () => {
                     onItemSelected={setSelectedItem}
                 />
             </aside>
-            <section className="col-span-8 col-span-12_lg">
+            <section className="col-span-8 col-span-12_lg min-h-344">
                 <div className="floating-button-sentinel" />
                 <RoofFoodit title={{ text: selectedItemId, as: 'h2' }} />
                 {userBookmarks.length ? (
@@ -91,7 +93,7 @@ const RecetarioBody = () => {
 
                                         return (
                                             <CommonCardFoodit
-                                                key={bookmarkTypeId}
+                                                key={bookmarkId}
                                                 articleId={bookmarkTypeId}
                                                 showTime={Boolean(time)}
                                                 time={time}
@@ -112,12 +114,10 @@ const RecetarioBody = () => {
                                                 tag={bookmarkParent}
                                                 fill={true}
                                                 title={title}
-                                                author={
-                                                    getAuthorsAsString(
-                                                        bookmarkContent,
-                                                        false
-                                                    ) || 'Por Foodit'
-                                                }
+                                                author={getAuthorsAsString(
+                                                    bookmarkContent,
+                                                    false
+                                                )}
                                                 bookmarkAction={() =>
                                                     fetchDeleteBookmark(
                                                         [
@@ -153,20 +153,16 @@ const RecetarioBody = () => {
                         )}
                     </>
                 ) : (
-                    <EmptyState
-                        title="Aún no hay nada por aca"
-                        description="Comenzá a guardar el contenido que te gusta y accede muy fácil en cualquier momento"
-                        imageProps={{
-                            src: getAssetsPath(contextPath)(deployment)(
-                                'empty-state-recetario.webp'
-                            ),
-                            alt: 'No se encontraron resultados',
-                            width: 147,
-                            height: 151
-                        }}
+                    <EmptyStateComponent
+                        userType={userType}
+                        loading={loading}
                     />
                 )}
             </section>
+            <DrawerRecetario
+                summaryList={summaryList}
+                onItemSelected={setSelectedItem}
+            />
         </div>
     );
 };

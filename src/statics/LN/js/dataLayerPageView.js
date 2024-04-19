@@ -13,9 +13,9 @@ const {
     publishedTime,
     title,
     authorName,
-    authorType,
     authorUrl,
-    contentType
+    contentType,
+    valor
 } = scriptDataLayer.dataset;
 
 window.dataLayer.push({
@@ -31,6 +31,6 @@ window.dataLayer.push({
     ...(title && { title }),
     ...(id && { nota_id_arc: id }),
     ...(authorName && { autor_nombre: authorName }),
-    ...(authorType && { autor_tipo: authorType }),
-    ...(authorUrl && { autor_url: authorUrl })
+    ...(authorUrl && { autor_url: authorUrl }),
+    ...(valor && { valor })
 });

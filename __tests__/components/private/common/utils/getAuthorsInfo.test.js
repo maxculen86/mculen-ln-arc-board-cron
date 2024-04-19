@@ -25,8 +25,7 @@ describe('utils - getAuthorsInfo', () => {
 
         const expectedOutput = {
             authorsName: 'Elisabetta Piqué, Ariel Torres, Leo Mechi',
-            authorsIds: 'elisabetta-pique, ariel-torres, no_url',
-            authorTypes: 'author, author, author'
+            authorsIds: 'elisabetta-pique, ariel-torres, no_url'
         };
 
         expect(getAuthorsInfo(mockArticle)).toEqual(expectedOutput);
@@ -35,8 +34,7 @@ describe('utils - getAuthorsInfo', () => {
     it('should return empty strings if there are no authors', () => {
         const expectedOutput = {
             authorsName: '',
-            authorsIds: '',
-            authorTypes: ''
+            authorsIds: ''
         };
 
         expect(getAuthorsInfo(null)).toEqual(expectedOutput);

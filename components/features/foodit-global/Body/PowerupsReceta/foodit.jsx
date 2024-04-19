@@ -1,4 +1,5 @@
 import React from 'react';
+import { SITE_FOODIT } from 'fusion:environment';
 import PropTypes from 'prop-types';
 import Ingredients from './ingredientsBox/ingredients';
 import ExternalLinks from './ingredientsBox/externalLinks';
@@ -35,6 +36,11 @@ export const PowerupsReceta = ({ article = {} }) => {
         })
     );
 
+    const EXCLUDED_TAGS = ['¿Qué cocinar hoy?', 'Recetas', 'Dieta'];
+    const filteredTags = tags.filter(
+        ({ text = '' }) => text && !EXCLUDED_TAGS.includes(text)
+    );
+
     const {
         'custom-nutrition': nutritionLists,
         'foodit-ingredientes': ingredientsLists,
@@ -61,11 +67,11 @@ export const PowerupsReceta = ({ article = {} }) => {
         items: [
             {
                 text: 'Guia de equivalencias',
-                url: '#'
+                url: `${SITE_FOODIT}/guia-de-cocina/guia-de-equivalencias-nid16042024/`
             },
             {
-                text: 'GUÍA DE SUSTITUTOS DE INGREDIENTES ',
-                url: '#'
+                text: 'Guía de sustitutos de ingredientes',
+                url: `${SITE_FOODIT}/guia-de-cocina/guia-de-sustituciones-nid16042024/`
             }
         ]
     };
@@ -97,7 +103,7 @@ export const PowerupsReceta = ({ article = {} }) => {
                 <ExternalLinks {...externalLinksMock} />
                 <hr />
                 <Nutritional nutritionLists={nutritionLists} />
-                <Tags items={tags} />
+                <Tags items={filteredTags} />
             </div>
         </>
     );

@@ -3,7 +3,7 @@ import saveBookmarks from '../../bookmark/api/postBookmarks';
 import { fillBookmarks } from '../../bookmark/iconHelper';
 
 export const saveRecipeConfig = {
-    'new-folder': {
+    'save-folder': {
         'step-1': {
             title: 'Guardar',
             rightButton: {
@@ -12,43 +12,25 @@ export const saveRecipeConfig = {
                 action: 'close'
             },
             leftButton: {
-                text: 'Siguiente',
-                title: 'Siguiente',
-                action: 'nextStep'
-            },
-            showSelect: true,
-            action: 'nextStep'
-        },
-        'step-2': {
-            title: 'Nueva carpeta',
-            rightButton: {
-                text: 'Atras',
-                title: 'Atras',
-                action: 'forwardStep'
-            },
-            leftButton: {
-                text: 'Guardar',
-                title: 'Guardar',
-                action: 'save'
-            },
-            showInputFolder: true,
-            suggestions: ['Para los lunes', 'Para los martes', 'Para el finde']
-        }
-    },
-    'current-folder': {
-        'step-1': {
-            title: 'Guardar',
-            rightButton: {
-                text: 'Cancelar',
-                title: 'Cancelar',
-                action: 'close'
-            },
-            leftButton: {
-                text: 'Siguiente',
-                title: 'Siguiente',
+                text: 'Aceptar',
+                title: 'Aceptar',
                 action: 'save'
             },
             showSelect: true
+        },
+        'step-2': {
+            title: 'Guardar',
+            rightButton: {
+                text: 'Cancelar',
+                title: 'Cancelar',
+                action: 'close'
+            },
+            leftButton: {
+                text: 'Aceptar',
+                title: 'Aceptar',
+                action: 'save'
+            },
+            showInputFolder: true
         }
     }
 };
@@ -64,7 +46,6 @@ export const actionButtons = ({
 }) => {
     const actions = {
         close,
-        forwardStep: () => setIndexStep(indexStep - 1),
         nextStep: () => setIndexStep(indexStep + 1),
         save: async () => {
             fillBookmarks(
@@ -82,37 +63,30 @@ export const actionButtons = ({
     return actions[action] && actions[action]();
 };
 
-export const getConfig = (saveRecipeConfig, selectedFolder, indexStep) => {
-    const optionsSave =
-        selectedFolder.value === 'new' ? 'new-folder' : 'current-folder';
+export const getConfig = (saveRecipeConfig, indexStep) => {
     const stepIndex = `step-${indexStep}`;
 
     return {
-        title: get(saveRecipeConfig[optionsSave], `${stepIndex}.title`, ''),
+        title: get(saveRecipeConfig['save-folder'], `${stepIndex}.title`, ''),
         leftButton: get(
-            saveRecipeConfig[optionsSave],
+            saveRecipeConfig['save-folder'],
             `${stepIndex}.leftButton`,
             {}
         ),
         rightButton: get(
-            saveRecipeConfig[optionsSave],
+            saveRecipeConfig['save-folder'],
             `${stepIndex}.rightButton`,
             {}
         ),
         showSelect: get(
-            saveRecipeConfig[optionsSave],
+            saveRecipeConfig['save-folder'],
             `${stepIndex}.showSelect`,
             false
         ),
         showInputFolder: get(
-            saveRecipeConfig[optionsSave],
+            saveRecipeConfig['save-folder'],
             `${stepIndex}.showInputFolder`,
             false
-        ),
-        suggestions: get(
-            saveRecipeConfig[optionsSave],
-            `${stepIndex}.suggestions`,
-            []
         )
     };
 };

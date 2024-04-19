@@ -16,7 +16,7 @@ jest.mock('fusion:context', () => ({
 
 describe('Tests component BuildRoof', () => {
     Context.useAppContext = jest.fn(() => ({
-        deployment: jest.fn(),
+        deployment: arg => arg,
         contextPath: '/pf'
     }));
     const props = {

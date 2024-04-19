@@ -30,7 +30,7 @@ const useGetUserData = () => {
 
     // TODO: QUeda pendiente ver cual es la cookie para suscribedPlus
     const isSuscribed = isFooditSuscriptor(ProductoPremiumId);
-    const [userType, setUserType] = useState('unlogged');
+    const [userType, setUserType] = useState('loading');
 
     useEffect(() => {
         setUserType(getUserType(UsuarioDetalleEmail, isSuscribed));

@@ -46,7 +46,11 @@ const props = {
 };
 
 describe('Tests - helpers - feature - Opinion', () => {
-    Context.useAppContext = jest.fn(() => ({ ...useAppContext }));
+    Context.useAppContext = jest.fn(() => ({
+        ...useAppContext,
+        deployment: arg => arg,
+        contextPath: '/pf'
+    }));
     it('should should return feature', () => {
         const { container } = render(<Opinion {...props} />);
         expect(container).toMatchSnapshot();

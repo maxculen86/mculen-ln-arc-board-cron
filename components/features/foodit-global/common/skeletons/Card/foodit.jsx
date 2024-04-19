@@ -3,7 +3,11 @@ import { Skeleton } from '@ln/common-ui-skeleton';
 import { Image } from '@ln/foodit-ui-image';
 import classNames from 'classnames';
 
-export const SkeletonCard = ({ className = '', variant = 'recipe' }) => {
+export const SkeletonCard = ({
+    className = '',
+    variant = 'recipe',
+    isResultdata
+}) => {
     const containerClassName = classNames(
         'border border-all border-thin border-light-100 flex flex-column pb-16',
         { 'bg-positive p-16': variant === 'note' },
@@ -23,13 +27,19 @@ export const SkeletonCard = ({ className = '', variant = 'recipe' }) => {
                 <div
                     className={classNames(
                         'jc-between',
-                        variant === 'acu' ? 'none' : 'flex'
+                        variant === 'acu' ? 'none' : 'flex',
+                        isResultdata ? 'sm-none w-100 gap-16' : ''
                     )}
                 >
-                    <div className="flex flex-column gap-8">
+                    <div
+                        className={classNames(
+                            'flex flex-column gap-8',
+                            isResultdata && 'w-100'
+                        )}
+                    >
                         <Skeleton
                             className="rounded-4"
-                            width={194}
+                            width={!isResultdata ? 194 : '100%'}
                             height={14}
                         />
                         <Skeleton

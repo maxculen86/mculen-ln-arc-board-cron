@@ -20,13 +20,13 @@ describe('Components - Features - foodit-global - Common - FooterFoodit', () => 
     beforeEach(() => {
         render(<FooterFoodit />);
     });
-    it('should contain five links', () => {
+    it('should contain eight links', () => {
         const { length } = screen.getAllByRole('link');
-        expect(length).toEqual(7);
+        expect(length).toEqual(8);
     });
-    it('should contain four icons', () => {
+    it('should contain five icons', () => {
         const { length } = document.querySelectorAll('.icon');
-        expect(length).toEqual(4);
+        expect(length).toEqual(5);
     });
     it('should match snapshot', () => {
         const { container } = render(<FooterFoodit />);

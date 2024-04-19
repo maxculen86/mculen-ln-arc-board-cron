@@ -4,6 +4,7 @@ import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToD
 import { GlobalContext } from '../../../../private/common/context/globalContext';
 import useTermica from '../../../../private/common/hooks/useTermica';
 import get from '../../../../private/common/utils/get';
+import useSiteServices from '../../hooks/useSiteServices';
 
 export const getMenuUser = (goToLogout = () => {}) => {
     const LogoutText = 'Cerrar sesión';
@@ -16,7 +17,7 @@ export const getMenuUser = (goToLogout = () => {}) => {
             className: 'text-blue-500 p-12 bg-blue-100__hover rounded-4'
         },
         {
-            url: `${MY_ACCOUNT_URL}/mi-usuario/`,
+            url: `${MY_ACCOUNT_URL}/`,
             text: 'Mi cuenta',
             title: 'Ir a mi cuenta',
             target: '_self',
@@ -61,8 +62,7 @@ export const getMenuUser = (goToLogout = () => {}) => {
 };
 
 export const getTermicaValues = propertyNames => {
-    const gc = useContext(GlobalContext);
-    const termicas = get(gc, 'state.siteService.termicas', []);
+    const { termicas } = useSiteServices() || [];
 
     return propertyNames.reduce((acc, propertyName) => {
         const element = termicas.find(

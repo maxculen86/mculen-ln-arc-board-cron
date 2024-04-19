@@ -5,7 +5,11 @@ import '@testing-library/jest-dom/';
 import { useAppContext } from 'fusion:context';
 import RecetarioBody from '../../../../../../components/features/foodit-global/common/recetario/RecetarioBody';
 import getBookmarks from '../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks';
-import getToken from '../../../../../../components/private/common/utils/getToken';
+import useGetUserData, {
+    isFooditSuscriptor
+} from '../../../../../../components/features/foodit-global/hooks/useGetUserData';
+import useSiteServices from '../../../../../../components/features/LN-10-global/hooks/useSiteServices';
+import siteServicesMock from '../../../../../../__mocks__/data/siteServices/siteServices.json';
 
 class MockMutationObserver {
     constructor(callback) {
@@ -21,10 +25,17 @@ class MockMutationObserver {
 
 global.MutationObserver = MockMutationObserver;
 
+jest.mock(
+    '../../../../../../components/features/LN-10-global/hooks/useSiteServices',
+    () => jest.fn()
+);
+
 jest.mock('fusion:context', () => ({
     useAppContext: jest.fn()
 }));
-
+jest.mock(
+    '../../../../../../components/features/foodit-global/hooks/useGetUserData'
+);
 jest.mock(
     '../../../../../../components/features/foodit-global/common/bookmark/api/getBookmarks'
 );
@@ -35,6 +46,9 @@ jest.mock(
 
 jest.mock('../../../../../../components/private/common/utils/getToken');
 
+useSiteServices.mockImplementation(() => {
+    return siteServicesMock;
+});
 describe('RecetarioBody', () => {
     beforeEach(() => {
         useAppContext.mockImplementation(() => ({
@@ -53,25 +67,47 @@ describe('RecetarioBody', () => {
         });
     });
 
-    test('Should render Loading icon and after should render empty state component', async () => {
+    test('Should render empty state component variant="barrier-unlogged" when user is unlogged', async () => {
         getBookmarks.mockResolvedValueOnce({ data: [] });
-        getToken.mockReturnValue('22');
-        console.log(window.navigator.userAgent);
-
+        useGetUserData.mockReturnValue({
+            userType: 'unlogged'
+        });
         render(<RecetarioBody />);
 
-        await waitFor(() =>
-            expect(screen.getByText('Cargando...')).toBeInTheDocument()
-        );
-        await waitFor(() =>
+        await waitFor(
+            () =>
+                expect(
+                    screen.getByText('¡Exclusivo suscriptor!')
+                ).toBeInTheDocument(),
             expect(
-                screen.getByText('Aún no hay nada por aca')
+                screen.getByText(
+                    'Para realizar esta acción es necesario que inicies sesión.'
+                )
+            ).toBeInTheDocument()
+        );
+    });
+    test('Should render empty state component variant="barrier-logged" when user is logged', async () => {
+        getBookmarks.mockResolvedValueOnce({ data: [] });
+        useGetUserData.mockReturnValue({
+            userType: 'logged'
+        });
+
+        render(<RecetarioBody />);
+        await waitFor(
+            () =>
+                expect(
+                    screen.getByText('¡Exclusivo suscriptor!')
+                ).toBeInTheDocument(),
+            expect(
+                screen.getByText(
+                    'Para realizar esta acción es necesario que tengas una suscripción.'
+                )
             ).toBeInTheDocument()
         );
     });
 
-    test('Should render Loading icon and after should bookmarks', async () => {
-        getBookmarks.mockResolvedValue({
+    test('Should render bookmarks', async () => {
+        getBookmarks.mockReturnValue({
             data: [
                 { bookmarkTypeId: 'test1', bookmarkId: 'id1' },
                 { bookmarkTypeId: 'test2', bookmarkId: 'id2' },
@@ -79,12 +115,13 @@ describe('RecetarioBody', () => {
             ]
         });
 
-        getToken.mockReturnValue('22');
+        useGetUserData.mockReturnValue({
+            userType: 'subscribed'
+        });
+
+        isFooditSuscriptor.mockReturnValue(true);
 
         render(<RecetarioBody />);
-        await waitFor(() =>
-            expect(screen.getByText('Cargando...')).toBeInTheDocument()
-        );
 
         await waitFor(() =>
             expect(screen.getByText('Colecciones')).toBeInTheDocument()

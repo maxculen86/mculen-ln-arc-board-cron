@@ -5,28 +5,22 @@ import { toggleDrawer } from '@ln/common-ui-drawer';
 import { Select } from '@ln/common-ui-select';
 import { Itemcard } from '@ln/foodit-ui-itemcard';
 
-const mockList = [
-    { id: 'todas', text: 'Todas', quantity: 6 },
-    { id: 'dulces', text: 'Dulces', quantity: 3 },
-    { id: 'saladas', text: 'Saladas', quantity: 2 },
-    { id: 'postres', text: 'Postres', quantity: 1 },
-    { id: 'otro', text: 'Otro', quantity: 0 }
-];
+const DrawerRecetario = ({ onItemSelected, summaryList = [] }) => {
+    if (!summaryList.length) return <></>;
 
-const DrawerRecetario = () => {
     const [selectedId, setSelectedId] = useState('');
-
-    // TODO: eliminar el mock cuando se lea la data
-    const list = mockList;
+    const [selectedQuantity, setSelectedQuantity] = useState(null);
 
     const onSelect = ({ label, value }) => {
-        // TODO: agregar funcionalidad
-        setSelectedId(value);
-        console.log(value, label);
+        const { quantity, id } = value;
+        setSelectedId(id);
+        setSelectedQuantity(quantity);
     };
+
     const handleApplyFilters = () => {
-        // TODO: agregar funcionalidad para aplicar filtros
         toggleDrawer({ id: 'drawer-recetario' });
+        if (onItemSelected)
+            onItemSelected({ id: selectedId, quantity: selectedQuantity });
     };
 
     return (
@@ -42,12 +36,16 @@ const DrawerRecetario = () => {
                 hoverClassName="border-accent-lechuga__hover"
                 listClassName="foodit-scrollbar shadow-down-lg"
                 onChange={onSelect}
+                floatingLabelProps={{
+                    className: 'bg-white'
+                }}
             >
-                {list.map(({ id, text }) => (
+                {summaryList.map(({ id, text, quantity }) => (
                     <Select.Options
                         key={id}
-                        value={id}
+                        value={{ id, quantity }}
                         label={text}
+                        quantity={quantity}
                         as={props => (
                             <Itemcard
                                 type="button"

@@ -13,7 +13,11 @@ export const useHeaderVariants = ({
         section,
         layoutsName
     });
-    const [variants, setVariants] = useState({ sticky: !isHome, negative });
+    const [variants, setVariants] = useState({
+        sticky: !isHome,
+        negative,
+        intersectingSentinel: true
+    });
 
     useEffect(() => {
         const typeOfDevice = getTypeOfDevice({
@@ -37,7 +41,8 @@ export const useHeaderVariants = ({
                 if (entry.isIntersecting) {
                     setVariants(prev => ({
                         sticky: isHome ? false : prev.sticky,
-                        negative: isHome ? false : negative
+                        negative: isHome ? false : negative,
+                        intersectingSentinel: true
                     }));
                     wrapperHome && wrapperHome.classList.remove('--top-fixed');
                 } else {
@@ -46,7 +51,8 @@ export const useHeaderVariants = ({
                         negative:
                             !isHome && negative && toogleNegative
                                 ? !prev.negative
-                                : prev.negative
+                                : prev.negative,
+                        intersectingSentinel: false
                     }));
                     wrapperHome && wrapperHome.classList.add('--top-fixed');
                 }

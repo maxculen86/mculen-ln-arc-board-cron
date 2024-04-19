@@ -46,6 +46,8 @@ describe('CajaJuegos Component', () => {
 
     it('renders content when shouldShowGame is true and hideCaja is false', () => {
         useAppContext.mockReturnValue({
+            contextPath: '/pf',
+            deployment: arg => arg,
             globalContent: {
                 type: 'story',
                 label: { mostrar_caja_juegos: { text: 'Mostrar' } }
@@ -64,6 +66,8 @@ describe('CajaJuegos Component', () => {
 
     it('renders nothing when hideCaja is true', () => {
         useAppContext.mockReturnValue({
+            contextPath: '/pf',
+            deployment: arg => arg,
             globalContent: {}
         });
 

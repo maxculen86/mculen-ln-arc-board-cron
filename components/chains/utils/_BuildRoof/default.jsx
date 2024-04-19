@@ -7,6 +7,7 @@ import validateRoof from './_helper/validateRoof';
 import setRender from '../setRender';
 import hasDataRoof from './_helper/hasDataRoof';
 import { CHAIN_STYLE, VERTICALS } from '../common/_helpers-WebApi';
+import { getAssetsLeft, getAssetsRight } from './_helper/assets';
 
 export default function BuildRoof(props) {
     const {
@@ -51,7 +52,8 @@ export default function BuildRoof(props) {
         href: titleLink,
         text: !logo && title,
         title,
-        'roof-group': 'left'
+        'roof-group': 'left',
+        assets: getAssetsLeft
     };
 
     const propsRight = hasDataRoof({ chainStyle }) && {
@@ -60,7 +62,8 @@ export default function BuildRoof(props) {
         buttonType: buttonStyle || 'generico',
         textButton: buttonText,
         hrefButton: linkButton,
-        'roof-group': 'right'
+        'roof-group': 'right',
+        assets: getAssetsRight
     };
     const isSubExclusive = chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE;
 

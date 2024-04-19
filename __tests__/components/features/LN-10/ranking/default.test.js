@@ -28,7 +28,10 @@ jest.mock('../../../../../components/features/LN-10/ranking/_helper', () => ({
 }));
 
 describe('features - LN10 - Ranking', () => {
-    Context.useAppContext = jest.fn(() => ({}));
+    Context.useAppContext = jest.fn(() => ({
+        contextPath: '/pf',
+        deployment: arg => arg
+    }));
 
     test('should returns fragment if articles length is empty', () => {
         getDataContent.mockImplementation(() => ({ articles: [] }));

@@ -281,22 +281,6 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               >
                 Por Maru Botana
               </span>
-              <div
-                class="opacity-0"
-              >
-                <i
-                  class="icon --icon-12 --inherit"
-                >
-                  <mock-icon
-                    name="timer"
-                  />
-                </i>
-                <span
-                  class="text text-12 roboto-light"
-                >
-                  null min
-                </span>
-              </div>
             </div>
             <button
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
@@ -427,7 +411,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
       </a>
     </article>
     <article
-      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-background-positive col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-positive col-span-8 col-span-4_md"
       data-variant="note"
     >
       <a
@@ -530,7 +514,7 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
       </a>
     </article>
     <article
-      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-background-positive col-span-8 col-span-4_md"
+      class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-positive col-span-8 col-span-4_md"
       data-variant="note"
     >
       <a
@@ -693,22 +677,6 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               >
                 Por Maru Botana
               </span>
-              <div
-                class="opacity-0"
-              >
-                <i
-                  class="icon --icon-12 --inherit"
-                >
-                  <mock-icon
-                    name="timer"
-                  />
-                </i>
-                <span
-                  class="text text-12 roboto-light"
-                >
-                  null min
-                </span>
-              </div>
             </div>
             <button
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
@@ -795,22 +763,6 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               >
                 Por Emilio Ocampo
               </span>
-              <div
-                class="opacity-0"
-              >
-                <i
-                  class="icon --icon-12 --inherit"
-                >
-                  <mock-icon
-                    name="timer"
-                  />
-                </i>
-                <span
-                  class="text text-12 roboto-light"
-                >
-                  null min
-                </span>
-              </div>
             </div>
             <button
               class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
@@ -1583,22 +1535,6 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     >
                       Por Maru Botana
                     </span>
-                    <div
-                      class="opacity-0"
-                    >
-                      <i
-                        class="icon --icon-12 --inherit"
-                      >
-                        <mock-icon
-                          name="timer"
-                        />
-                      </i>
-                      <span
-                        class="text text-12 roboto-light"
-                      >
-                        null min
-                      </span>
-                    </div>
                   </div>
                   <button
                     class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
@@ -1737,7 +1673,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-background-positive"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-positive"
             data-variant="note"
           >
             <a
@@ -1844,7 +1780,7 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
           data-scroller="element"
         >
           <article
-            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-background-positive"
+            class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-positive"
             data-variant="note"
           >
             <a
@@ -2011,22 +1947,6 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     >
                       Por Maru Botana
                     </span>
-                    <div
-                      class="opacity-0"
-                    >
-                      <i
-                        class="icon --icon-12 --inherit"
-                      >
-                        <mock-icon
-                          name="timer"
-                        />
-                      </i>
-                      <span
-                        class="text text-12 roboto-light"
-                      >
-                        null min
-                      </span>
-                    </div>
                   </div>
                   <button
                     class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"
@@ -2117,22 +2037,6 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     >
                       Por Emilio Ocampo
                     </span>
-                    <div
-                      class="opacity-0"
-                    >
-                      <i
-                        class="icon --icon-12 --inherit"
-                      >
-                        <mock-icon
-                          name="timer"
-                        />
-                      </i>
-                      <span
-                        class="text text-12 roboto-light"
-                      >
-                        null min
-                      </span>
-                    </div>
                   </div>
                   <button
                     class="button foodit-button gap-8 roboto-bold text-12 rounded-4 text-light-800 text-accent-lechuga__hover"

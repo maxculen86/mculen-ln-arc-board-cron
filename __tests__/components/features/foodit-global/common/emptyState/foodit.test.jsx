@@ -1,44 +1,52 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import Context from 'fusion:context';
 import '@testing-library/jest-dom/extend-expect';
 import EmptyState from '../../../../../../components/features/foodit-global/common/emptyState/foodit';
+import { titleByVariant } from '../../../../../../components/features/foodit-global/common/emptyState/helpers';
 
+jest.mock('fusion:context', Component => {
+    return function(Component) {
+        return props => <Component {...props} />;
+    };
+});
 describe('EmptyState component', () => {
-    it('should render title', () => {
-        render(<EmptyState title="some title" />);
-        const title = screen.getByText('some title');
+    const deployment = deploymentValue => deploymentValue;
+    Context.useAppContext = jest.fn(() => ({
+        deployment: deployment,
+        contextPath: '/pf'
+    }));
+    it('should render title for variant "empty-state"', () => {
+        render(<EmptyState variant="empty-state" />);
+        const title = screen.getByText(titleByVariant['empty-state']);
         expect(title).toBeInTheDocument();
     });
-    it('should render description', () => {
-        render(<EmptyState description="some description" />);
-        const description = screen.getByText('some description');
-        expect(description).toBeInTheDocument();
+    it('should render title and button "accent" for variant "barrier-logged"', () => {
+        render(<EmptyState variant="barrier-logged" />);
+        const title = screen.getByText(titleByVariant['barrier-logged']);
+        const button = screen.getByRole('button');
+        expect(button).toHaveAttribute('data-variant', 'accent');
+        expect(button).toHaveTextContent('Suscribite');
+        expect(title).toBeInTheDocument();
     });
-    it('should render image', () => {
-        const src =
-            'https://sandbox.lanacion.com.ar/resizer/v2/algo-bien-7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg?auth=df16a0c399ffbc23925cb0b8a210dc3e0851b79aafa339076a956a01025a710a&width=238&height=158&quality=70&smart=true';
-        render(<EmptyState imageProps={{ src }} />);
-        const image = screen.getByRole('img');
-        expect(image).toBeInTheDocument();
-        expect(image).toHaveAttribute('src', src);
+    it('should render title, button "primary" for variant "barrier-unlogged"', () => {
+        render(<EmptyState variant="barrier-unlogged" />);
+        const title = screen.getByText(titleByVariant['barrier-unlogged']);
+        const button = screen.getByRole('button');
+        expect(title).toBeInTheDocument();
+        expect(button).toHaveAttribute('data-variant', 'primary');
+        expect(button).toHaveTextContent('Inicia sesión');
     });
-    it('should render button', () => {
-        render(<EmptyState buttonProps={{ children: 'some button' }} />);
-        const button = screen.getByText('some button');
-        expect(button).toBeInTheDocument();
+    it('should match snapshot with variant "barrier-logged"', () => {
+        const { container } = render(<EmptyState variant="barrier-logged" />);
+        expect(container).toMatchSnapshot();
     });
-    it('should match snapshot', () => {
-        const { container } = render(
-            <EmptyState
-                title="some title"
-                description="some description"
-                imageProps={{
-                    src:
-                        'https://sandbox.lanacion.com.ar/resizer/v2/algo-bien-7MLRVAHIWNGBVIO4HLLU3GRVUQ.jpg?auth=df16a0c399ffbc23925cb0b8a210dc3e0851b79aafa339076a956a01025a710a&width=238&height=158&quality=70&smart=true'
-                }}
-                buttonProps={{ children: 'some button' }}
-            />
-        );
+    it('should match snapshot with variant "barrier-unlogged', () => {
+        const { container } = render(<EmptyState variant="barrier-unlogged" />);
+        expect(container).toMatchSnapshot();
+    });
+    it('should match snapshot with variant "empty-state', () => {
+        const { container } = render(<EmptyState variant="empty-state" />);
         expect(container).toMatchSnapshot();
     });
 });

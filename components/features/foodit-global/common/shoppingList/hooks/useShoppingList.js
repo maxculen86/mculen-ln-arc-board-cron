@@ -36,8 +36,11 @@ export const useShoppingList = () => {
 
         setIsMobile(isMobile);
 
-        if (isFooditSuscriptor(getToken('ProductoPremiumId')))
+        if (isFooditSuscriptor(getToken('ProductoPremiumId'))) {
             fetchUserBookmarks();
+        } else {
+            setLoading(false);
+        }
     }, []);
 
     return {

@@ -1405,6 +1405,9 @@ a {
 .border.border-neutral-dark-999 {
   border-color: var(--neutral-dark-999);
 }
+.border.border-black {
+  border-color: var(--dark-neutral-0);
+}
 .border.border-dark-200 {
   border-color: var(--dark-neutral-200);
 }
@@ -1422,6 +1425,9 @@ a {
 }
 .border.border-1 {
   border-width: 0.0625rem;
+}
+.border.border-5 {
+  border-width: 0.3125rem;
 }
 
 @media (min-width: 64rem) {
@@ -1456,6 +1462,10 @@ a {
 
 .z-1500 {
   z-index: 1500;
+}
+
+.z-1600 {
+  z-index: 1600;
 }
 
 .text-black {
@@ -2561,6 +2571,10 @@ strong:not(.--font-primary),
     width: 23.75rem;
   }
 }
+.max-w-365.max-w-365 {
+  max-width: 22.8125rem;
+}
+
 @media (min-width: 48rem) {
   .max-w-100px_m.max-w-100px_m {
     max-width: 6.25rem;
@@ -2714,6 +2728,10 @@ strong:not(.--font-primary),
 
 .shadow-center {
   box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-pwamodal {
+  box-shadow: 0 0 1.75rem 0.1875rem rgba(0, 0, 0, 0.5);
 }
 
 .text-ellipsis-1 {
@@ -3090,12 +3108,20 @@ strong:not(.--font-primary),
   top: 7.0625rem;
 }
 
+.bottom-60 {
+  bottom: 3.75rem;
+}
+
 .bottom-64 {
   bottom: 4rem;
 }
 
 .right--2 {
   right: -0.125rem;
+}
+
+.left-50 {
+  left: 50%;
 }
 
 .absolute {
@@ -3135,6 +3161,24 @@ strong:not(.--font-primary),
 @media (min-width: 64rem) {
   .top-73_min1024 {
     top: 4.5625rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .left-90_l {
+    left: 5.625rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .bottom-auto_l {
+    bottom: auto;
+  }
+}
+
+@media (min-width: 64rem) {
+  .top-0_l {
+    top: 0rem;
   }
 }
 
@@ -3197,7 +3241,7 @@ strong:not(.--font-primary),
   --notification-drawer-scrollbar-color: #0250c9;
   --notification-drawer-tooltip-background: #0250c9;
   --notification-drawer-tooltip-border-radius: 0.25rem;
-  --notification-drawer-tooltip-z-index: 1500;
+  --notification-drawer-tooltip-z-index: 1000;
   --notification-card-border-radius: 0.25rem;
   --notification-header-font-family: Prumo, georgia, serif;
   --notification-header-line-height: 110%;
@@ -3336,4 +3380,16 @@ hr {
 
 .white-space-nowrap {
   white-space: nowrap;
+}
+
+.-transform-50 {
+  transform: translateX(-50%);
+  -webkit-transform: translate(-50%);
+}
+
+@media (min-width: 64rem) {
+  .transform-none_l {
+    transform: none;
+    -webkit-transform: none;
+  }
 }

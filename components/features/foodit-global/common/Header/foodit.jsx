@@ -3,7 +3,8 @@ import { useAppContext } from 'fusion:context';
 import { toggleDrawer } from '@ln/common-ui-drawer';
 import { Button } from '@ln/common-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-import { Header, MainHeader, SubHeader } from '@ln/common-ui-header';
+import { Header, MainHeader } from '@ln/common-ui-header';
+import { SubHeader } from './components/subHeader/SubHeader';
 import { Search } from './components/Search';
 import { TopNavigationBar } from './components/TopNavigationBar';
 import { Promotions } from './components/promotions/Promotions';
@@ -22,14 +23,15 @@ const HeaderFoodit = () => {
 
     const { layoutsName = {} } = siteProperties || {};
 
+    const isHome = layout === layoutsName.FooditHome;
+
     const classNameHeaderContainer = classNames(
+        'z-10 w-100 sticky top-0',
         layout === layoutsName.FooditHome ||
             layout === layoutsName.FooditFichaReceta
             ? 'mb-12 mb-40_lg'
             : 'mb-40'
     );
-
-    const isHome = layout === layoutsName.FooditHome;
 
     const categories = useContent({
         source: 'navigationSource',
@@ -41,14 +43,10 @@ const HeaderFoodit = () => {
         filter: filterMenuSections
     });
 
-    //TODO: validar tipo de usuario  'subscribedPlus';
-
-    // TODO: falta cerrar comportamiento de sticky
-
     return (
         <>
             <Header classNameContainer={classNameHeaderContainer}>
-                <MainHeader>
+                <MainHeader className="z-1">
                     <MainHeader.Content containerClassName="bg-positive py-16">
                         <MainHeader.Content.Left className="flex jc-start ai-center lg-none">
                             <Button
@@ -89,12 +87,12 @@ const HeaderFoodit = () => {
                             <Search />
                         </MainHeader.Content.Search>
                     </MainHeader.Content>
-                    <MainHeader.Bottom className="flex ai-center border border-bottom border-thin border-light-100 lg-only">
+                    <MainHeader.Bottom className="flex ai-center border border-bottom border-thin border-light-100 bg-light-1 lg-only h-44">
                         <TopNavigationBar categories={categories} />
                     </MainHeader.Bottom>
                 </MainHeader>
                 {isHome && (
-                    <SubHeader className="py-12 h-53 flex gap-24 jc-center ai-center jc-start_lg border border-bottom border-thin border-light-100 lg-none">
+                    <SubHeader>
                         <Promotions />
                     </SubHeader>
                 )}

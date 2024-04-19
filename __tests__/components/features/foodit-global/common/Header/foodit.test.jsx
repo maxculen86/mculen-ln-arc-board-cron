@@ -52,7 +52,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
         const { container } = render(<HeaderFoodit />);
 
         expect(screen.getAllByText('INICIAR SESIÓN')).toHaveLength(2);
-        expect(screen.getAllByText('SUSCRIBIRSE POR $999')).toHaveLength(2);
+        expect(screen.getAllByText('SUSCRIBITE')).toHaveLength(2);
         expect(container).toMatchSnapshot();
     });
 
@@ -97,22 +97,7 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
 
         render(<HeaderFoodit />);
 
-        expect(screen.getAllByText('SUSCRIBIRSE POR $999')).toHaveLength(2);
+        expect(screen.getAllByText('SUSCRIBITE')).toHaveLength(2);
         expect(screen.getAllByText('HM')).toHaveLength(1);
     });
-
-    // TODO: queda pendiente Test para el tipo de suscriptor suscibedPlus
-    // it('should show the user avatar only when the user is a plus subscriber', () => {
-    //     useContext.mockReturnValue({
-    //         ProductoPremiumId: '2,3,4,5,6',??
-    //         UsuarioDetalleEmail: 'hola@mundo.com',
-    //         UsuarioDetalleNombre: 'Hola',
-    //         UsuarioDetalleApellido: 'Mundo'
-    //     });
-
-    //     render(<HeaderFoodit />);
-
-    //     expect(screen.getAllByText('HM')).toHaveLength(1);
-
-    // });
 });

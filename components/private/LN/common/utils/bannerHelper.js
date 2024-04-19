@@ -1,12 +1,11 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/no-danger */
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useContext } from 'react';
 import { useAppContext } from 'fusion:context';
 import get from '../../../common/utils/get';
-import { GlobalContext } from '../../../common/context/globalContext';
 import bannersRules from '../../../common/banners/bannersRules';
 import isWebview from '../../../common/utils/isWebview';
+import useSiteServices from '../../../../features/LN-10-global/hooks/useSiteServices';
 
 export const suffixDevice = {
     desktop: '_dsk',
@@ -127,19 +126,13 @@ export const getBannerConfiguration = (
     const { label, taxonomy, type } = globalContent;
     const { sections = [], tags = [] } = taxonomy || { sections: [], tags: [] };
 
-    const getSiteService = () => {
-        const gc = useContext(GlobalContext);
-        return get(gc, 'state.siteService', {});
-    };
-
-    const siteService = getSiteService();
+    const siteService = useSiteServices() || {};
 
     const {
         banners: bannersSiteConfig,
         termicas = [],
         adserver = []
     } = siteService;
-
     const segments = adserver.map(segment => segment.value);
     const dfpId = get(siteProperties, 'bannerConfig.dfp_id');
     const sponsored = get(globalContent, 'owner.sponsored');
@@ -149,7 +142,6 @@ export const getBannerConfiguration = (
         type && type === 'story'
             ? get(globalContent, 'taxonomy.primary_section._id', '')
             : get(globalContentConfig, 'query.id');
-
     const hideBanners = get(
         globalContent,
         'acumuladoGeneral.hide_banner',
@@ -172,20 +164,6 @@ export const getBannerConfiguration = (
         !bannersRules[slotGroup][device][slotId].validateInclusion(
             globalContent
         );
-
-    /* config es esto de abajo para el slotId
-    adhesion_dsk: {
-            slotName: 'la_nacion_desktop/Nota/adhesion_dsk',
-            dimensions: [
-                [728, 90],
-                [920, 100]
-            ],
-            targeting: {
-                sitio: 'lanacion',
-                seccion: 'nota'
-            }
-        },
-    */
 
     if (
         !config ||
@@ -396,11 +374,11 @@ export const queueGoogletagCommand = bannersToLoad => {
             .filter(e => !e.prebidEnabled)
             .map(defineSlot);
 
-        const saleFrameValidation = determineSafeFrame(bannersToLoad);
+        /* const saleFrameValidation = determineSafeFrame(bannersToLoad);
         // initialize
         saleFrameValidation.map(banner => {
             googletag.pubads().setForceSafeFrame(banner.safeFrame);
-        });
+        }); */
         googletag.pubads().enableSingleRequest();
         googletag.pubads().enableAsyncRendering();
         googletag.pubads().disableInitialLoad();
@@ -427,8 +405,7 @@ export const queueGoogletagCommand = bannersToLoad => {
             function(bids) {
                 // set apstag targeting on googletag, then trigger the first GAM request in googletag's disableInitialLoad integration
                 googletag.cmd.push(function() {
-                    if (typeof pbjs === 'undefined' || pbjs.adserverRequestSent)
-                        return;
+                    if (pbjs.adserverRequestSent) return;
                     apstag.setDisplayBids();
                 });
             }
@@ -439,35 +416,31 @@ export const queueGoogletagCommand = bannersToLoad => {
         //	once by Prebid when the auction's done
         //	once by the failsafe timeout
         // so a boolean is used to make sure ads are refreshed only once
-        if (typeof pbjs !== 'undefined') {
-            pbjs.adserverRequestSent = false;
-        }
-        const sendAdServerRequest = _headerBiddingSlots => {
+        pbjs.adserverRequestSent = false;
+        const sendAdServerRequest = (_headerBiddingSlots, fallback = false) => {
             if (_headerBiddingSlots.length === 0) return;
             googletag.cmd.push(() => {
                 // don't run again if already ran
-                if (typeof pbjs === 'undefined' && pbjs.adserverRequestSent)
-                    return;
+                if (pbjs.adserverRequestSent) return;
+                fallback && console.log('🚀 ~ prebid ~ fallback:', fallback);
                 pbjs.adserverRequestSent = true;
                 googletag.pubads().refresh(_headerBiddingSlots);
             });
         };
 
-        if (typeof pbjs !== 'undefined') {
-            !isWebview(navigator.userAgent) &&
-                pbjs.que.push(function() {
-                    pbjs.rp.requestBids({
-                        callback: sendAdServerRequest,
-                        gptSlotObjects: headerBiddingSlots
-                    });
+        !isWebview(navigator.userAgent) &&
+            pbjs.que.push(function() {
+                pbjs.rp.requestBids({
+                    callback: sendAdServerRequest,
+                    gptSlotObjects: headerBiddingSlots
                 });
-        }
+            });
 
         // this timeout is a failsafe
         // the ad ops team can set lower thresholds that will be respected by Prebid
         // but the web-dev team can define the worst case here
         setTimeout(() => {
-            sendAdServerRequest(headerBiddingSlots);
+            sendAdServerRequest(headerBiddingSlots, true);
         }, 3500);
 
         const bannersWithoutHide = bannersToLoad
@@ -494,7 +467,7 @@ export const queueGoogletagCommand = bannersToLoad => {
     });
 };
 
-export const determineSafeFrame = bannersToLoad => {
+/* export const determineSafeFrame = bannersToLoad => {
     const validValues = [
         'caja1_dsk',
         'caja2_dsk',
@@ -506,4 +479,4 @@ export const determineSafeFrame = bannersToLoad => {
         ...banner,
         safeFrame: validValues.includes(banner.opt_div)
     }));
-};
+}; */

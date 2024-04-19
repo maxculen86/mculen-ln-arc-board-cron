@@ -40,7 +40,8 @@ const fetch = (query, { cachedCall } = {}) => {
                     isInApertura: get(query, 'isInApertura', false),
                     isAdmin: get(query, 'isAdmin', false),
                     shouldUseV1: false,
-                    shouldUseV2: true
+                    shouldUseV2: true,
+                    arcSite
                 })
             };
 

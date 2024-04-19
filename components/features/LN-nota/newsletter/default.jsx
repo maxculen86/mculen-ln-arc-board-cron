@@ -2,7 +2,6 @@ import Consumer from 'fusion:consumer';
 import { LAZY_OFFSETTOP, API_ENV } from 'fusion:environment';
 import React, { useEffect, useState } from 'react';
 import Lazy from 'lazy-child';
-import AmpContainer from '../../../private/common/ampContainer';
 import { NewsletterBox } from '@ln/lib-newsletter';
 import handleCookie from '../../../private/LN/common/utils/handleCookie';
 import get from '../../../private/common/utils/get';
@@ -51,7 +50,7 @@ const NewsLetter = ({ globalContent }) => {
             }}
             offsetTop={LAZY_OFFSETTOP}
         >
-            <AmpContainer isForAmp={false}>
+            <>
                 <ToastContainer
                     transitionIn={['fade-in-up']}
                     vPosition="inherit"
@@ -62,7 +61,7 @@ const NewsLetter = ({ globalContent }) => {
                 <div className="mb-32">
                     <NewsletterBox {...props} />
                 </div>
-            </AmpContainer>
+            </>
             <NewsLetterEventsScript />
         </Lazy>
     );

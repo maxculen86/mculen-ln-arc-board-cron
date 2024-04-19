@@ -21,48 +21,63 @@ const FooterFoodit = () => {
                         </Text>
                         <div className="flex gap-24 jc-center">
                             <Button
-                                href="https://www.facebook.com/lanacion/"
-                                title="Seguinos en Facebook"
-                                iconOnly
-                                size={32}
-                                data-interaction="dataLayerInteraction"
-                                data-event-data-layer="e_linkclick"
-                                data-dynamic-category="interaction"
-                                data-dynamic-label={'Social'}
-                                data-dynamic-action={'Facebook'}
-                            >
-                                <Icon size={16}>
-                                    <IconSprite name="facebook" />
-                                </Icon>
-                            </Button>
-                            <Button
-                                href="https://www.twitter.com/lanacion/"
-                                title="Seguinos en X"
-                                iconOnly
-                                size={32}
-                                data-interaction="dataLayerInteraction"
-                                data-event-data-layer="e_linkclick"
-                                data-dynamic-category="interaction"
-                                data-dynamic-label={'Social'}
-                                data-dynamic-action={'X'}
-                            >
-                                <Icon size={16}>
-                                    <IconSprite name="twitter" />
-                                </Icon>
-                            </Button>
-                            <Button
-                                href="https://www.instagram.com/lanacioncom/"
+                                href="https://www.instagram.com/foodit_ar/"
                                 title="Seguinos en Instagram"
                                 iconOnly
                                 size={32}
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="interaction"
-                                data-dynamic-label={'Social'}
-                                data-dynamic-action={'Instagram'}
+                                data-dynamic-label={'social'}
+                                data-dynamic-action={'instagram'}
                             >
                                 <Icon size={16}>
                                     <IconSprite name="instagram" />
+                                </Icon>
+                            </Button>
+                            <Button
+                                href="https://twitter.com/FOODITAR"
+                                title="Seguinos en X"
+                                iconOnly
+                                size={32}
+                                data-interaction="dataLayerInteraction"
+                                data-event-data-layer="e_linkclick"
+                                data-dynamic-category="interaction"
+                                data-dynamic-label={'social'}
+                                data-dynamic-action={'x'}
+                            >
+                                <Icon size={16}>
+                                    <IconSprite name="twitter" />
+                                </Icon>
+                            </Button>
+                            <Button
+                                href="https://www.tiktok.com/@fooditar?lang=es "
+                                title="Seguinos en TikTok"
+                                iconOnly
+                                size={32}
+                                data-interaction="dataLayerInteraction"
+                                data-event-data-layer="e_linkclick"
+                                data-dynamic-category="interaction"
+                                data-dynamic-label={'social'}
+                                data-dynamic-action={'tiktok'}
+                            >
+                                <Icon size={16}>
+                                    <IconSprite name="tiktok" />
+                                </Icon>
+                            </Button>
+                            <Button
+                                href="https://ar.pinterest.com/foodit_ar/"
+                                title="Seguinos en Pinterest"
+                                iconOnly
+                                size={32}
+                                data-interaction="dataLayerInteraction"
+                                data-event-data-layer="e_linkclick"
+                                data-dynamic-category="interaction"
+                                data-dynamic-label={'social'}
+                                data-dynamic-action={'pinterest'}
+                            >
+                                <Icon size={16}>
+                                    <IconSprite name="pinterest" />
                                 </Icon>
                             </Button>
                         </div>
@@ -76,8 +91,8 @@ const FooterFoodit = () => {
                             data-interaction="dataLayerInteraction"
                             data-event-data-layer="e_linkclick"
                             data-dynamic-category="footer"
-                            data-dynamic-label={'Pagina principal'}
-                            data-dynamic-action={'LA NACION'}
+                            data-dynamic-label={'pagina_principal'}
+                            data-dynamic-action={'la_nacion'}
                         >
                             <img
                                 width={151}
@@ -101,8 +116,8 @@ const FooterFoodit = () => {
                             data-interaction="dataLayerInteraction"
                             data-event-data-layer="e_linkclick"
                             data-dynamic-category="footer"
-                            data-dynamic-label={'Legales'}
-                            data-dynamic-action={'Data fiscal'}
+                            data-dynamic-label={'legales'}
+                            data-dynamic-action={'data_fiscal'}
                         >
                             <img
                                 width={28}
@@ -126,8 +141,8 @@ const FooterFoodit = () => {
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="footer"
-                                data-dynamic-label={'Legales'}
-                                data-dynamic-action={'Condiciones'}
+                                data-dynamic-label={'legales'}
+                                data-dynamic-action={'condiciones'}
                             >
                                 CONDICIONES
                             </Link>
@@ -142,8 +157,8 @@ const FooterFoodit = () => {
                                 data-interaction="dataLayerInteraction"
                                 data-event-data-layer="e_linkclick"
                                 data-dynamic-category="footer"
-                                data-dynamic-label={'Legales'}
-                                data-dynamic-action={'Privacidad'}
+                                data-dynamic-label={'legales'}
+                                data-dynamic-action={'privacidad'}
                             >
                                 PRIVACIDAD
                             </Link>

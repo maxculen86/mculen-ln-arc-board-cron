@@ -16,6 +16,7 @@ export const ExternalLinks = props => {
                             uppercase
                             href={url}
                             className="text-12"
+                            title={`Ir a ${text}`}
                         >
                             <Icon size={16}>
                                 <IconSprite name="cart" critical />

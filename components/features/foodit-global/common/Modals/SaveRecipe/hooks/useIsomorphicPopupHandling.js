@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import getToken from '../../../../../../private/common/utils/getToken';
 import safeJSONParse from '../../../../../private-global/common/utils/safeJSONParse';
-import { isFooditSuscriptor } from '../../../../hooks/useGetUserData';
 
 export default function useIsomorphicPopupHandling() {
     const [modalData, setModalData] = useState({
@@ -10,30 +8,6 @@ export default function useIsomorphicPopupHandling() {
     });
 
     const handleData = data => {
-        const premiumProduct = getToken('ProductoPremiumId');
-
-        if (typeof premiumProduct !== 'string') {
-            window.LN.observable.publish('addToast', {
-                variant: 'danger',
-                title: 'Error!',
-                message: `Redirect to Login`
-            });
-
-            return;
-        }
-
-        if (!isFooditSuscriptor(premiumProduct)) {
-            window.LN.observable.publish('addToast', {
-                variant: 'danger',
-                title: 'Error!',
-                message: `No premium user, redirect to Paywall`
-            });
-
-            return;
-        }
-
-        if (!localStorage || !localStorage.getItem('bookmarkedItems')) return;
-
         const { ids = [], collectionArticles = [] } = data || {};
 
         const idSet = new Set(ids);

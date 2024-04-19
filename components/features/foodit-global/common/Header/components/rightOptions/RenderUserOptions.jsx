@@ -14,7 +14,7 @@ const RenderUserOptions = () => {
         suscription
     } = useGetUserData();
 
-    if (userType === 'unlogged') return <></>;
+    if (userType === 'loading' || userType === 'unlogged') return <></>;
     return (
         <>
             <AvatarRecetas

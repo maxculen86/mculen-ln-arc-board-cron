@@ -50,7 +50,8 @@ export const getJWScript = (
     playlist,
     hasAutoplay = false,
     idVideo,
-    tagsUrl
+    tagsUrl,
+    autostart = true
 ) => {
     const facadeDiv = document.getElementById(`facade-${idVideo}`);
 
@@ -62,7 +63,7 @@ export const getJWScript = (
         scriptElement.addEventListener('load', function() {
             window.jwplayer(`${idVideo}`).setup({
                 playlist,
-                autostart: true,
+                autostart,
                 mute: hasAutoplay || false,
                 ...(player === 'ih0086X3'
                     ? {

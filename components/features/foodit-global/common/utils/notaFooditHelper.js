@@ -51,7 +51,7 @@ export const transformArticleFoodit = article => {
         articleId: get(article, '_id', ''),
         title: get(article, 'headlines.basic', ''),
         mobileTitle: get(article, 'headlines.mobile', ''),
-        author: getAuthorsAsString(article, false) || 'Por Foodit',
+        author: getFooditAuthor(article),
         image: get(article, 'promo_items.basic', {}),
         href: get(article, 'website_url', ''),
         time: get(article, 'promo_items.receta.embed.config.counterTime', null),
@@ -101,3 +101,8 @@ export const getRenderablesData = (renderables, featureId) => {
         layout: get(parent, 'props.customFields.layout', '')
     };
 };
+
+export const getFooditAuthor = (article, getOnlyAuthorName = false) =>
+    get(article, 'label.autor.text') === 'Usuario'
+        ? ''
+        : getAuthorsAsString(article, getOnlyAuthorName) || 'Por Foodit';

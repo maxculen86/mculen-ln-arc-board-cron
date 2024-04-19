@@ -61,6 +61,7 @@ const videoPlayerJW = ({
                             data-has-autoplay={hasAutoplay}
                             data-media-id={mediaid}
                             data-tags-url={tagsUrl}
+                            data-autostart
                             src={deployment(
                                 `${contextPath}/resources/js/LN/scriptVideosJw.min.js`
                             )}

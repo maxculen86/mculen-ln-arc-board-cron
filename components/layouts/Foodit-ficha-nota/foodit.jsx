@@ -5,7 +5,6 @@ import Consumer from 'fusion:consumer';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import StaticContent from '../../private/common/staticContent';
 import ActionsButtons from '../../features/foodit-global/common/ActionsButtons/foodit';
-import Epigraph from '../../features/foodit-global/common/epigraph/foodit';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
 import { OpeningStorytelling } from '../../features/foodit-global/common/OpeningStorytelling/foodit';
 import { Note } from '@ln/foodit-ui-note';
@@ -13,10 +12,10 @@ import { Text } from '@ln/common-ui-text';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 
-import getAuthorsAsString from '../../private/common/utils/getAuthorsAsString';
 import get from '../../private/common/utils/get';
 import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
+import { getFooditAuthor } from '../../features/foodit-global/common/utils/notaFooditHelper';
 
 const pageBuilderSections = ['Cuerpo', 'Bottom'];
 
@@ -27,11 +26,6 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
 
     const title = get(headlines, 'basic', '');
     const subtitle = get(subheadlines, 'basic', '');
-    const author = getAuthorsAsString(globalContent);
-    const credits = getAuthorsAsString(
-        get(promo_items, (video && 'video_jw') || 'basic', {}),
-        true
-    );
 
     return (
         <BaseLayout>
@@ -64,7 +58,9 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                                         </Text>
                                     )}
                                 </div>
-                                <Text className="text-14">{author}</Text>
+                                <Text className="text-14">
+                                    {getFooditAuthor(globalContent, true)}
+                                </Text>
                             </Note.Body>
                             <Note.Footer>
                                 <Button

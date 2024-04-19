@@ -206,7 +206,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                   >
                     <a
                       class="link ln-link --unstyled"
-                      href="undefined/mi-usuario/"
+                      href="https://myaccount.lanacion.com.ar/"
                       target="_self"
                       title="Ir a mi cuenta"
                     >
@@ -218,7 +218,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                   >
                     <a
                       class="link ln-link --unstyled"
-                      href="undefined/datos-personales/"
+                      href="https://myaccount.lanacion.com.ar/datos-personales/"
                       target="_self"
                       title="Ir a mis datos"
                     >
@@ -230,7 +230,7 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                   >
                     <a
                       class="link ln-link --unstyled"
-                      href="undefined/mis-suscripciones/"
+                      href="https://myaccount.lanacion.com.ar/mis-suscripciones/"
                       target="_self"
                       title="Ir a mis suscripciones"
                     >
@@ -253,13 +253,21 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
               </div>
             </div>
             <button
-              class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-yellow-subscribe h-32 px-12 py-8 h-40_md px-16_m py-12_m relative --subscribe"
+              class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-yellow-subscribe h-32 px-12 py-8 h-40_md px-16_m py-12_m relative text-neutral-light-800 --subscribe"
               data-variant="subscribe"
               id="btnsuscribite"
               title="Suscribite"
               type="button"
             >
-              
+              <div
+                class="ln-tooltip border-thin border border-all border-thin border-light-50 rounded-4 flex p-8 absolute jc-center --text-2xs text-light-50 bg-dark-100 z-100 --font-regular none --mobile-none --top_l"
+              >
+                <span>
+                  Información y análisis 
+                  <br />
+                  para una era de cambios
+                </span>
+              </div>
               <i
                 class="icon --mobile-none --icon-16"
                 icon="suscriptorExclusivo"
@@ -270,8 +278,19 @@ exports[`components - features - LN-10-global - header - mainHeader - default sh
                   name="exclusivoSuscriptores"
                 />
               </i>
-              <span>
-                Suscribite
+              <span
+                id="sticky-button-text"
+              >
+                Suscribite 
+                <span
+                  class="--mobile-none"
+                >
+                  por 
+                  <del>
+                    $4890 
+                  </del>
+                  $400
+                </span>
               </span>
             </button>
           </div>

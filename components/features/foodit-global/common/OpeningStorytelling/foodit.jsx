@@ -10,6 +10,7 @@ import { getImagesToLoadWithPicture } from '../../../../private/LN/common/utils/
 import getAperturaStorytelling from '../../../../private/common/utils/getAperturaStorytelling';
 import isSSR from '../../../../private/LN/common/utils/isSSR';
 import VideoSource from '../../../private-global/common/videoSource/foodit';
+import replaceBaseUrl from '../utils/replaceBaseUrl';
 
 export const OpeningStorytelling = ({ article = {} }) => {
     const { promo_items = {} } = article;
@@ -21,8 +22,10 @@ export const OpeningStorytelling = ({ article = {} }) => {
         }
     });
 
-    const basicImage = get(promo_items, 'basic', null);
-    const basicImageMobile = get(promo_items, 'storytelling_mobile');
+    const basicImage = replaceBaseUrl(get(promo_items, 'basic', null));
+    const basicImageMobile = replaceBaseUrl(
+        get(promo_items, 'storytelling_mobile')
+    );
     const videoJw = get(promo_items, 'video_jw', null);
 
     const {

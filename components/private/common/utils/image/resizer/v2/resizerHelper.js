@@ -1,5 +1,9 @@
 /* eslint-disable no-underscore-dangle */
-import { RESIZER_URL_PUBLIC, SITE_LANACION, API_ENV } from 'fusion:environment';
+import {
+    RESIZER_URL_PUBLIC,
+    SITE_LANACION,
+    SITE_FOODIT
+} from 'fusion:environment';
 import slugify from 'slugify';
 import {
     FOTOAL100,
@@ -100,8 +104,15 @@ export const updateHeight = (originalHeight, originalWidth, opt = {}) => {
 
 // URl Logic
 
-export const baseUrl = ({ isInApertura, isAdmin }) => {
-    return isInApertura && !isAdmin ? SITE_LANACION : RESIZER_URL_PUBLIC;
+export const baseUrl = ({ isInApertura, isAdmin, arcSite = 'lanacionar' }) => {
+    const SITE_URL = {
+        foodit: SITE_FOODIT,
+        lanacionar: SITE_LANACION
+    };
+
+    return isInApertura && !isAdmin
+        ? SITE_URL[arcSite] || SITE_LANACION
+        : RESIZER_URL_PUBLIC;
 };
 
 export const buildQueryParams = ({

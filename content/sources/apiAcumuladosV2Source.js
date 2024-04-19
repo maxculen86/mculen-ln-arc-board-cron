@@ -8,7 +8,7 @@ import acuTransformV2Format from './utils/pageSource/acumulados/v2/mobile/bySect
 import calculatePaginationValue from './utils/pageSource/acumulados/common/calculatePaginationValue';
 import NotFoundError from './utils/notFoundError';
 
-const fetch = async (query, { cachedCall }) => {
+const fetch = async (query, { cachedCall } = {}) => {
     let restriction = 'true';
     let configuration = null;
 
@@ -74,7 +74,7 @@ const fetch = async (query, { cachedCall }) => {
             queryParams.tagId = 'la-nacion-cerca';
         }
 
-        const transformedAcu = await transformAcu(queryParams);
+        const transformedAcu = await transformAcu(queryParams, { cachedCall });
 
         if (page * size - size > 16) {
             delete transformedAcu[0].banners;

@@ -21,6 +21,14 @@ const getBookmarks = async (bookmarkType = 'article') => {
         );
 
         if (!response.ok) {
+            addEventToDataLayer({
+                event: 'erros_ms',
+                type: 'failed_request',
+                detail: 'get_bookmarks',
+                code: response.status,
+                notificationsCategory: 'obtener_notas_guardadas'
+            });
+
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 

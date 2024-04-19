@@ -7,7 +7,8 @@ export const resizePromoItems = (
     zoomSizes,
     subtype,
     promoItems = {},
-    isInApertura = false
+    isInApertura = false,
+    arcSite = 'lanacionar'
 ) => {
     const resp = {};
 
@@ -24,7 +25,8 @@ export const resizePromoItems = (
                 zoomSizes,
                 smartCropExcluded: shouldExcludeCrop,
                 defaultResize,
-                isInApertura
+                isInApertura,
+                arcSite
             });
         } else if (promoItem.type === 'video') {
             resp[key] = {
@@ -37,7 +39,8 @@ export const resizePromoItems = (
                             zoomSizes,
                             smartCropExcluded: shouldExcludeCrop,
                             defaultResize,
-                            isInApertura
+                            isInApertura,
+                            arcSite
                         })
                     }
                 }

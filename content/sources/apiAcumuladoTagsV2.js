@@ -5,7 +5,7 @@ import calculatePaginationValue from './utils/pageSource/acumulados/common/calcu
 import tagSource from './tagSource';
 import NotFoundError from './utils/notFoundError';
 
-const fetch = async (query, { cachedCall }) => {
+const fetch = async (query, { cachedCall } = {}) => {
     try {
         query.slug = query.slug.replace('/', '');
 
@@ -24,7 +24,7 @@ const fetch = async (query, { cachedCall }) => {
             tagSourceResult
         };
 
-        const transformedAcu = await transformAcu(queryParams);
+        const transformedAcu = await transformAcu(queryParams, { cachedCall });
 
         const paginationValue = calculatePaginationValue(
             transformedAcu[0].acumuladoTotal,

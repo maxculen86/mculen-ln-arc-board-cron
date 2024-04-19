@@ -1,7 +1,7 @@
 import React from 'react';
 import get from '../../../private/common/utils/get';
-import getAuthorsAsString from '../../../private/common/utils/getAuthorsAsString';
 import { getSuitableForDietUrls } from './_helpers';
+import { getFooditAuthor } from '../common/utils/notaFooditHelper';
 
 export const RecipeSchema = ({ article = {} }) => {
     const {
@@ -23,7 +23,7 @@ export const RecipeSchema = ({ article = {} }) => {
             name: `Paso ${index + 1}`
         }));
 
-    const author = getAuthorsAsString(article);
+    const author = getFooditAuthor(article);
 
     const { playlist = [], title = '', description = '' } = get(
         promo_items,

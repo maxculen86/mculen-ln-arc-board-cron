@@ -6,7 +6,11 @@ const addEventToDataLayer = ({
     action,
     event,
     title,
-    articleId
+    articleId,
+    type,
+    detail,
+    code,
+    notificationsCategory
 } = {}) => {
     !isSSR() &&
         window.dataLayer &&
@@ -15,8 +19,14 @@ const addEventToDataLayer = ({
             ...(action && { dynamic_action: action }),
             ...(category && { dynamic_category: category }),
             ...(label && { dynamic_label: label }),
-            ...((title && { title }) || {}),
-            ...((articleId && { nota_id_arc: articleId }) || {})
+            ...(title && { title }),
+            ...(articleId && { nota_id_arc: articleId }),
+            ...(type && { type }),
+            ...(detail && { detail }),
+            ...(code && { code }),
+            ...(notificationsCategory && {
+                notifications_category: notificationsCategory
+            })
         });
 };
 

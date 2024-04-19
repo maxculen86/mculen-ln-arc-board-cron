@@ -6,6 +6,13 @@ import contentElements from '../../../../../../__mocks__/data/nota/body/contentE
 import siteProperties from '../../../../../../__mocks__/data/nota/body/siteProperties.json';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import useSiteServices from '../../../../../../components/features/LN-10-global/hooks/useSiteServices';
+import siteServicesMock from '../../../../../../__mocks__/data/siteServices/siteServices.json';
+
+jest.mock(
+    '../../../../../../components/features/LN-10-global/hooks/useSiteServices',
+    () => jest.fn()
+);
 
 jest.mock('fusion:context', Component => {
     return function(Component) {
@@ -18,26 +25,16 @@ jest.mock(
     () => 'mock-static-content'
 );
 
-jest.mock('react', () => {
-    const ActualReact = require.requireActual('react');
-    return {
-        ...ActualReact,
-        useContext: () => ({
-            state: {
-                siteService: {
-                    adserver: []
-                }
-            }
-        })
-    };
-});
-
 useContent.mockImplementation(() => {});
 
 Context.useAppContext = jest.fn(() => ({
     globalContent: {},
     siteProperties
 }));
+
+useSiteServices.mockImplementation(() => {
+    return siteServicesMock;
+});
 
 const banners = [
     { mobile: 'caja1_mob', position: 1 },
@@ -48,7 +45,6 @@ const banners = [
         position: 2
     },
     { desktop: 'middle_1_dsk', position: 3, sticky: true },
-    { desktop: 'caja1_amp', position: 3 },
     { mobile: 'caja2_mob', position: 4, background: true },
     { mobile: 'caja3_mob', position: 5 },
     { mobile: 'caja4_mob', position: 6 },
@@ -90,23 +86,6 @@ describe('BuildBanners', () => {
             container.querySelectorAll(`div`)[0].getAttribute('class')
         ).toEqual('mod-banner --middle_1_dsk  ');
     });
-
-    it('deberia renderizar un Div Banner amp caja1_amp', () => {
-        const { container } = render(
-            BuildBanners({
-                banners,
-                globalContent: {},
-                elementPosition: 3,
-                contentElements,
-                outputType: 'amp'
-            })
-        );
-
-        expect(container.querySelector(`amp-ad`).getAttribute('id')).toEqual(
-            'caja1_amp'
-        );
-    });
-
     it('no deberia renderizar nada', () => {
         const { container } = render(
             BuildBanners({

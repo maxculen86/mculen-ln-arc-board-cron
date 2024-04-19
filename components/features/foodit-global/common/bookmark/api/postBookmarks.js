@@ -4,6 +4,7 @@ import getToken from '../../../../../private/common/utils/getToken';
 import { unfillBookmarks } from '../iconHelper';
 import { addStorageFolder } from '../foldersHelper';
 import safeJSONParse from '../../../../private-global/common/utils/safeJSONParse';
+import addEventToDataLayer from '../../../../../private/LN/common/utils/addEventToDataLayer';
 
 const postBookmarks = async (articlesDetails, folderName = '') => {
     // TODO: should use useClientLibs
@@ -47,6 +48,15 @@ const postBookmarks = async (articlesDetails, folderName = '') => {
                 console.error(
                     `No se pudo guardar ${id}, HTTP error! status: ${response.status}`
                 );
+
+                addEventToDataLayer({
+                    event: 'erros_ms',
+                    type: 'failed_request',
+                    detail: 'post_bookmark',
+                    code: response.status,
+                    notificationsCategory: 'guardar_nota'
+                });
+
                 return { bookmarkTypeId: id };
             }
 

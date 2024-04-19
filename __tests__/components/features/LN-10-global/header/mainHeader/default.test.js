@@ -3,6 +3,13 @@ import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import MainHeaderLN from '../../../../../../components/features/LN-10-global/header/mainHeader/default';
 import Context from 'fusion:context';
+import useSiteServices from '../../../../../../components/features/LN-10-global/hooks/useSiteServices';
+import siteServicesMock from '../../../../../../__mocks__/data/siteServices/siteServices.json';
+
+jest.mock(
+    '../../../../../../components/features/LN-10-global/hooks/useSiteServices',
+    () => jest.fn()
+);
 
 jest.mock('react', () => {
     const ActualReact = require.requireActual('react');
@@ -16,6 +23,12 @@ jest.mock('react', () => {
             },
             dispatch: jest.fn()
         })
+    };
+});
+jest.mock('fusion:environment', () => {
+    return {
+        SITE_LANACION: 'https://www.lanacion.com.ar',
+        MY_ACCOUNT_URL: 'https://myaccount.lanacion.com.ar'
     };
 });
 
@@ -65,6 +78,10 @@ jest.mock(
         return jest.fn(() => <div id="mock-bell-button" />);
     }
 );
+
+useSiteServices.mockImplementation(() => {
+    return siteServicesMock;
+});
 
 describe('components - features - LN-10-global - header - mainHeader - default', () => {
     Context.useAppContext = jest.fn(() => ({

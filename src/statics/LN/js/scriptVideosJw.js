@@ -9,6 +9,15 @@ scriptVideosJw.forEach(scriptElement => {
     const hasAutoplay = scriptElement.getAttribute('data-has-autoplay');
     const idVideo = scriptElement.getAttribute('data-media-id');
     const tagsUrl = scriptElement.getAttribute('data-tags-url');
+    const autostart = scriptElement.getAttribute('data-autostart');
 
-    getJWScript(title, player, playlist, hasAutoplay, idVideo, tagsUrl);
+    getJWScript(
+        title,
+        player,
+        playlist,
+        hasAutoplay,
+        idVideo,
+        tagsUrl,
+        autostart
+    );
 });

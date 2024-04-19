@@ -11,29 +11,30 @@ import { Button } from '@ln/foodit-ui-button';
 import ActionsButtons from '../ActionsButtons/foodit';
 import StaticContent from '../../../../private/common/staticContent';
 import VideoPlayer from '../../../private-global/common/videoPlayer/foodit';
+import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
-import { getHighestPriorityTag } from '../utils/notaFooditHelper';
-import getAuthorsAsString from '../../../../private/common/utils/getAuthorsAsString';
+import {
+    getFooditAuthor,
+    getHighestPriorityTag
+} from '../utils/notaFooditHelper';
 import {
     getImagesToLoadWithPicture,
     getShortestImage
 } from '../../../../private/LN/common/utils/mediaHelper';
 import get from '../../../../private/common/utils/get';
-import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
+import replaceBaseUrl from '../utils/replaceBaseUrl';
 
 export const OpeningRecipe = ({ article = {} }) => {
     const { promo_items = {}, headlines = {}, taxonomy, _id = '' } = article;
     const sections = get(taxonomy, 'sections', []);
     const badge = getHighestPriorityTag(sections);
     const title = get(headlines, 'basic', '');
-    const author = getAuthorsAsString(article);
 
     const videoJW = get(promo_items, 'video_jw', null);
-    const { caption = '', resized_urls = [], url = '' } = get(
-        promo_items,
-        'basic',
-        {}
+    const { caption = '', resized_urls = [], url = '' } = replaceBaseUrl(
+        get(promo_items, 'basic', {})
     );
+
     const { resizedUrl = '' } = getShortestImage(resized_urls);
 
     // TODO: Icons still pending design definitions
@@ -77,7 +78,7 @@ export const OpeningRecipe = ({ article = {} }) => {
                             />
                             <Text
                                 className="text-14"
-                                text={author || 'Por Foodit'}
+                                text={getFooditAuthor(article)}
                                 as="h3"
                             />
                         </div>

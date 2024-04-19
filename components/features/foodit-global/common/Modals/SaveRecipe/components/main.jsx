@@ -4,6 +4,8 @@ import { Itemcard } from '@ln/foodit-ui-itemcard';
 import { loadBookmarkFolders } from '../../../bookmark/foldersHelper';
 import { useEffect, useState } from 'react';
 import safeJSONParse from '../../../../../private-global/common/utils/safeJSONParse';
+import IconSprite from '../../../../../private-global/common/iconSprite/IconSprite';
+import { Icon } from '@ln/common-ui-icon';
 
 const MainSaveRecipe = props => {
     const {
@@ -13,11 +15,11 @@ const MainSaveRecipe = props => {
         onSelectChange,
         showInputFolder,
         showSelect,
-        suggestions,
         inputRef
     } = props;
+
     const [folders, setFolders] = useState([
-        { bookmarkGroup: 'Nueva carpeta', value: 'new' }
+        { bookmarkGroup: 'Crear colección', value: 'new' }
     ]);
 
     useEffect(() => {
@@ -39,20 +41,41 @@ const MainSaveRecipe = props => {
         <main className="mb-16">
             {showSelect && (
                 <Select
-                    label="Elegir carpeta"
+                    label="Colección"
                     defaultValue={selectedFolder}
                     openClassName="border-secondary-positive"
                     hoverClassName="border-accent-lechuga__hover"
-                    listClassName="foodit-scrollbar"
+                    listClassName="foodit-scrollbar shadow-down-lg"
                     onChange={onSelectChange}
                     name="select"
+                    floatingLabelProps={{
+                        className: 'bg-white'
+                    }}
                 >
                     {folders.map(({ bookmarkGroup, value }) => (
                         <Select.Options
                             key={value || bookmarkGroup}
                             value={value || bookmarkGroup}
                             label={bookmarkGroup}
-                            as={props => <Itemcard type="button" {...props} />}
+                            as={props => {
+                                return (
+                                    <>
+                                        {value === 'new' ? (
+                                            <span className="flex ai-center roboto-bold py-8 text-12 gap-8 border border-bottom border-thin border-light-100">
+                                                <Icon size={16}>
+                                                    <IconSprite name="plus" />
+                                                </Icon>
+                                                {bookmarkGroup}
+                                            </span>
+                                        ) : (
+                                            <Itemcard
+                                                type="button"
+                                                {...props}
+                                            />
+                                        )}
+                                    </>
+                                );
+                            }}
                         />
                     ))}
                 </Select>
@@ -61,24 +84,16 @@ const MainSaveRecipe = props => {
                 <Inputfield
                     autoFocus
                     type="text"
-                    placeholder="Introducir nombre nueva carpeta"
                     onChange={onInputFolderChange}
                     value={newFolder}
                     focusClassName="border-secondary-positive"
                     hoverClassName="border-accent-lechuga__hover"
                     inputRef={inputRef}
+                    label="Colección"
+                    floatingLabelProps={{
+                        className: 'bg-white'
+                    }}
                 />
-            )}
-            {suggestions.length ? (
-                <div className="py-16">
-                    {suggestions.map(suggestion => (
-                        <p className="mb-8" key={suggestion}>
-                            {suggestion}
-                        </p>
-                    ))}
-                </div>
-            ) : (
-                <></>
             )}
         </main>
     );

@@ -19,16 +19,26 @@ const CollectionBox = ({
         <div className="flex flex-column gap-24">
             <Text className="prumo prumo-light text-24">{title}</Text>
             <ol className="flex flex-column gap-16">
-                {list.map(({ text, quantity, id }) => (
+                {list.length ? (
+                    list.map(({ text, quantity, id }) => (
+                        <Itemcard
+                            key={id}
+                            level={1}
+                            text={text}
+                            type="button"
+                            selected={id === selectedId}
+                            onClick={() => handleItemClick(id, quantity)}
+                        />
+                    ))
+                ) : (
                     <Itemcard
-                        key={id}
-                        level={1}
-                        text={text}
+                        text="Todas (0)"
                         type="button"
-                        selected={id === selectedId}
-                        onClick={() => handleItemClick(id, quantity)}
+                        className="border border-bottom border-thin border-secondary-positive text-12"
+                        selected
+                        disabled
                     />
-                ))}
+                )}
             </ol>
             {button}
         </div>

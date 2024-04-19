@@ -12,6 +12,7 @@ export const Toasts = () => {
             transitionIn={['fade-in-right']}
             vPosition="top"
             hPosition="end"
+            className="z-15"
         />
     );
 };
