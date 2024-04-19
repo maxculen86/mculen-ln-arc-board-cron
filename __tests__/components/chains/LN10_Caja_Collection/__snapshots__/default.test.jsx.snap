@@ -205,42 +205,14 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
                 class="flex ai-center uppercase"
                 roof-group="left"
               >
-<<<<<<< HEAD
-                <mock-icon
-                  critical="true"
-                  fill="#FDB727"
-                  name="exclusivoSuscriptores"
-                />
-              </i>
-              <h3
-                class="text ln-text --roof-title --prumo --font-l"
-              >
-                Caja Collection
-              </h3>
-              
-=======
                 <i
                   class="icon --suscriptor-logo --icon-32"
                 >
-                  <svg
-                    fill="none"
-                    viewBox="0 0 32 33"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect
-                      fill="#0D0D0D"
-                      height="32"
-                      rx="16"
-                      width="32"
-                      y="0.298"
-                    />
-                    <path
-                      clip-rule="evenodd"
-                      d="M12.706 12.13H8v.874h1.092v6.253H8v.874h6.878v-3.394H14v.503c0 .826-.268 1.314-.678 1.605-.423.3-1.025.412-1.732.412h-.088v-6.253h1.204zm6.151 0h-3.419v.874h.357c.33 0 .663.271.663.682v4.964c0 .3-.08.435-.163.503-.092.075-.228.104-.408.104H15.4v.874h3.04v-.874h-.38a2.71 2.71 0 0 1-.413-.024.574.574 0 0 1-.23-.077c-.083-.056-.146-.16-.146-.45v-4.443l4.517 5.868h1.156v-6.717a.35.35 0 0 1 .125-.262c.09-.079.246-.148.496-.148H24v-.873h-3.046v.873h.497c.257 0 .427.048.529.121.09.066.144.163.144.323v2.912z"
-                      fill="#FDB727"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
+                  <mock-icon
+                    critical="true"
+                    fill="#FDB727"
+                    name="exclusivoSuscriptores"
+                  />
                 </i>
                 <h3
                   class="text ln-text --roof-title --prumo --font-l"
@@ -249,7 +221,6 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
                 </h3>
                 
               </div>
->>>>>>> 432547620 (se retira hydrateOnly en outputType y se reemplazan Static components)
             </div>
             <div
               class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
