@@ -62,7 +62,6 @@ describe('Components - Features - foodit-global - common - Header - components -
 
         expect(icons).toHaveLength(1);
         expect(PromotionContainer).toHaveClass('jc-between');
-        expect(screen.getByText('MEJORA TU PLAN')).toBeInTheDocument();
         expect(screen.getByText('Digital')).toBeInTheDocument();
     });
 });

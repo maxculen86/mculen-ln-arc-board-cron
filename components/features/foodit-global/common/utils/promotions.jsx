@@ -16,7 +16,8 @@ export const mockConfigUserTypes = {
         containerClassName: 'jc-between'
     },
     subscribed: {
-        buttonSubscribeText: 'MEJORA TU PLAN',
+        // TODO: Implementacion upsellin queda para proximo MVP
+        // buttonSubscribeText: 'MEJORA TU PLAN',
         plan: 'Digital',
         icons: {
             foodit: {
