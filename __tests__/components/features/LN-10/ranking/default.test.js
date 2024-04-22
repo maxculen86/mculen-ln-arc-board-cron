@@ -38,7 +38,6 @@ describe('features - LN10 - Ranking', () => {
 
         const { container } = render(<Ranking />);
         const divElement = container.querySelector('div');
-        expect(divElement).toHaveClass('hidden');
         expect(divElement.textContent).toBe('');
     });
 

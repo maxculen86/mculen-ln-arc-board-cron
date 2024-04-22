@@ -2,6 +2,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import {
     cajaTemasCustomsFields,
     getCommonProps
@@ -10,7 +11,6 @@ import { validateChainManual } from '../../private/LN/common/utils/cajaTemasVali
 import CajaTema from '../../private/LN/common/cajaTema';
 import PageBuilderMessage from '../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import { productClickFromClient } from '../../private/common/utils/viewability';
-import StaticContent from '../../private/common/staticContent';
 import setFilteredChildren from '../../private/LN/common/utils/setFilteredChildren';
 
 const CajaManual = props => {
@@ -86,7 +86,11 @@ const CajaManual = props => {
             pageLayout={pageLayout}
         />
     );
-    return <StaticContent>{Component}</StaticContent>;
+    return (
+        <Static id={`LN-Caja-Manual-${featureId}`} htmlOnly>
+            {Component}
+        </Static>
+    );
 };
 
 CajaManual.label = 'LN Caja Manual';

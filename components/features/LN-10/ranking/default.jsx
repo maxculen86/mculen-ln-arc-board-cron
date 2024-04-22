@@ -2,6 +2,7 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import { Cajaranking } from '@ln/contenidos-ui-cajaranking';
 import { getDataContent } from './_helper';
 import {
@@ -9,7 +10,6 @@ import {
     getSectionParentId,
     RANKING_LAYOUT
 } from './common/_helper-WebApi';
-import StaticContent from '../../../private/common/staticContent';
 import diagramationRules from '../../../private/common/utils/diagramationRules';
 import CommonCollection from '../../../private/LN10/home/components/CommonCollection/default';
 import { getMarkupForDatalayer } from '../../../private/LN/common/utils/cajaTemasHelper';
@@ -63,7 +63,11 @@ const RankingFeature = ({ id: featureId }) => {
         <></>
     );
 
-    return <StaticContent>{component}</StaticContent>;
+    return (
+        <Static id={featureId} htmlOnly>
+            {component}
+        </Static>
+    );
 };
 
 RankingFeature.label = 'LN10 Ranking';

@@ -1,19 +1,21 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import ModheaderSection from '../../private/common/mod-headerSection';
-import StaticContent from '../../private/common/staticContent';
 
 const TechoFeatured = props => {
     const {
         customFields: { url, title, color, imageId },
-        outputType
+        outputType,
+        type,
+        id
     } = props;
 
     if (!title && !imageId) return <></>;
 
     return (
-        <StaticContent>
+        <Static id={`${type}-${id}`} htmlOnly>
             <ModheaderSection
                 title={title}
                 link={url}
@@ -23,7 +25,7 @@ const TechoFeatured = props => {
                 outputType={outputType}
                 line={color !== 'default' ? false : true}
             />
-        </StaticContent>
+        </Static>
     );
 };
 

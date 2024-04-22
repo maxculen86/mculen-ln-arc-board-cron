@@ -10,7 +10,6 @@ import DivBannerSSR from '../../../private/common/banners/DivBannerSSR';
 import bannersRules from '../../../private/common/banners/bannersRules';
 import get from '../../../private/common/utils/get';
 import { bannerPropTypes } from '../../../private/common/utils/propTypesHelper';
-import StaticContent from '../../../private/common/staticContent';
 
 const Banner = props => {
     const { isAdmin, customFields, globalContent, globalContentConfig } = props;

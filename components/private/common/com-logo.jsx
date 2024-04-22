@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
-import StaticContent from './staticContent';
+import Static from 'fusion:static';
 import getAssetsPath from './utils/getAssetsPath';
 
 import ComLink from './com-link';
@@ -33,7 +33,7 @@ const ComLogo = props => {
     if (!logoName) return null;
 
     const Logo = (
-        <StaticContent id={`logo-${logoName}`}>
+        <Static id={`logo-${logoName}`} htmlOnly>
             <Image
                 classCondition={classes}
                 width={width}
@@ -45,7 +45,7 @@ const ComLogo = props => {
                 amp={amp}
                 svg
             />
-        </StaticContent>
+        </Static>
     );
 
     const Link = (

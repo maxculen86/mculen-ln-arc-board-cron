@@ -33,11 +33,7 @@ global.MutationObserver = class {
     disconnect() {}
     observe(element, initObject) {}
 };
-
-jest.mock(
-    '../../../../../components/private/common/staticContent',
-    () => 'mock-static-content'
-);
+jest.mock('../../../../../__mocks__/fusion:static', () => 'static');
 
 afterEach(() => {
     useContent.mockClear();
@@ -59,7 +55,7 @@ describe('Features - LN - Common - Ranking - default', () => {
         }));
         const { container } = render(<Ranking />);
         expect(container.innerHTML).toBe(
-            '<mock-static-content></mock-static-content>'
+            '<static id="common-ranking-undefined"></static>'
         );
     });
     it('Should render ranking acu politica', async () => {

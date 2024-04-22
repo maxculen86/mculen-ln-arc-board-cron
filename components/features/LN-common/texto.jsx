@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import ComText from '../../private/common/text';
 import { fonts, sizes, weights } from '../../private/common/text/getFontData';
 import StaticContent from '../../private/common/staticContent';
 
 const Text = props => {
     const {
+        type,
         id: featureId,
         customFields: { font, size, weight, htmlTag, link, text, className }
     } = props;
 
     return (
-        <StaticContent>
+        <Static id={`${type}-${featureId}`} htmlOnly>
             <ComText
                 id={featureId}
                 tag={htmlTag || 'span'}
@@ -22,7 +24,7 @@ const Text = props => {
                 link={link}
                 extraClass={className}
             />
-        </StaticContent>
+        </Static>
     );
 };
 

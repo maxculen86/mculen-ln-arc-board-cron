@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import { useContent as getContent } from 'fusion:content';
+import Static from 'fusion:static';
 import CajaTema from '../../../private/LN/common/cajaTema';
 import {
     getRankingProps,
@@ -88,7 +89,11 @@ const RankingFeature = ({ id: featureId }) => {
         />
     );
 
-    return <StaticContent>{component}</StaticContent>;
+    return (
+        <Static id={`common-ranking-${featureId}`} htmlOnly>
+            {component}
+        </Static>
+    );
 };
 
 RankingFeature.label = 'LN-Common-Ranking';
