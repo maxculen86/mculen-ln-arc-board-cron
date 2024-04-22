@@ -46,6 +46,7 @@ describe('Components - features - CardFoodit', () => {
         expect(container).toMatchSnapshot();
 
         expect(screen.getByRole('article')).toHaveClass('--day-recipe');
+        expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
 
         expect(screen.getByRole('img').getAttribute('loading')).toBe('eager');
         expect(screen.getByRole('img').getAttribute('fetchPriority')).toBe(
