@@ -1,3 +1,5 @@
+import { SITE_FOODIT } from 'fusion:environment';
+
 export const size = {
     XS: 'xs',
     S: 's',
@@ -1404,6 +1406,73 @@ const diagramationRules = diagramation => {
                 cardSize: size.threeXL,
                 imageConfig: size.T1,
                 isLoadWithPicture: true
+            }
+        ],
+        foodit_1_grid: [
+            {
+                variantsDisabled: [author],
+                withSection: false,
+                withSubhead: true,
+                withMarquee: true,
+                withMarqueeImg: false,
+                withMedia: true,
+                cardSize: '2xl',
+                imageConfig: size.T1,
+                isLoadWithPicture: true,
+                href: SITE_FOODIT,
+                hideBadget: true,
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.right,
+                    desktop: img.right
+                }
+            }
+        ],
+        foodit_3_grid: [
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
+                href: SITE_FOODIT,
+                hideBadget: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
+                href: SITE_FOODIT,
+                hideBadget: true
+            },
+            {
+                imagePosition: {
+                    mobile: img.top,
+                    tablet: img.top,
+                    desktop: img.top
+                },
+                withMarquee: true,
+                withMarqueeImg: false,
+                withSubhead: false,
+                cardSize: size.ML,
+                imageConfig: size.XS,
+                isLoadWithPicture: true,
+                href: SITE_FOODIT,
+                hideBadget: true
             }
         ]
     };

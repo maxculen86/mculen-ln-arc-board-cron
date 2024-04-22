@@ -18,6 +18,7 @@ import {
     getDataAttributesForViewability,
     showSection
 } from '../../../../../features/LN-10/article/_helper';
+import { targetUrlRedirect } from '../../../../../chains/utils/targetUrlRedirect';
 
 export default function CommonCollection({
     roofData = {},
@@ -28,12 +29,22 @@ export default function CommonCollection({
     ContainerCards = Bngrid,
     layout,
     isContentLab100,
-    isExclusiveSub
+    isExclusiveSub,
+    isFoodit
 }) {
+    const { linkButton } = roofData;
+    const hrefButtonFoodit = isFoodit && linkButton;
+    const targetButton = targetUrlRedirect(linkButton);
     return (
         <>
             <BuildRoof {...roofData} isAFondo={layout === 'bnFondo'} />
-            <ContainerCards gridType={gridType} gridStyle={roofData.chainStyle}>
+            <ContainerCards
+                gridType={gridType}
+                gridStyle={roofData.chainStyle}
+                hrefButton={hrefButtonFoodit}
+                hrefLink={linkButton}
+                targetButton={targetButton}
+            >
                 {articles.map((article, index) => {
                     const {
                         withImage,
@@ -44,7 +55,8 @@ export default function CommonCollection({
                         mediaData,
                         imagePosition,
                         className = '',
-                        withSection
+                        withSection,
+                        href
                     } = getCardConfig(rules[index], article);
 
                     const extraOpts = getDataAttributesForViewability(
@@ -62,8 +74,10 @@ export default function CommonCollection({
 
                     const { badgeText, badgeStyle } = getBadge({
                         article,
-                        isExclusiveSub
+                        isExclusiveSub,
+                        isFoodit
                     });
+                    const targetFoodit = isFoodit && `_blank`;
 
                     return (
                         <Card
@@ -73,7 +87,7 @@ export default function CommonCollection({
                             marquee={marquee}
                             marqueeImg={marqueeImg}
                             subhead={subhead}
-                            href={get(article, 'website_url', '')}
+                            href={getArticleHref(article, href)}
                             mediaData={mediaData}
                             cardSize={isContentLab100 ? '4xl' : cardSize}
                             imagePosition={imagePosition}
@@ -86,6 +100,7 @@ export default function CommonCollection({
                             badgeText={badgeText}
                             badgeType={badgeStyle}
                             {...extraOpts}
+                            target={targetFoodit}
                         />
                     );
                 })}
@@ -93,3 +108,8 @@ export default function CommonCollection({
         </>
     );
 }
+
+const getArticleHref = (article, href) => {
+    const defaultUrl = get(article, 'website_url', '');
+    return href ? `${href}${defaultUrl}` : defaultUrl;
+};

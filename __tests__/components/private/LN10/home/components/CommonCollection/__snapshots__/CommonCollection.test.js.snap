@@ -7,14 +7,15 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
     roof-container="roof-container"
   >
     <div
-      class="--ln-roof-full flex jc-between pt-24"
+      class="--ln-roof-full pt-24 flex jc-between"
     >
       <div
         class="--ln-roof-left"
       >
         <div
-          class="flex ai-center uppercase"
+          class="flex uppercase ai-center"
           roof-group="left"
+          target="_blank"
         >
           <h3
             class="text ln-text --roof-title --prumo --font-l"
@@ -24,16 +25,18 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
         </div>
       </div>
       <div
-        class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
+        class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
         roof-group="right"
+        target="_blank"
       />
     </div>
   </div>
   <section
-    class="ln-bngrid --bn-4-8"
+    class="ln-bngrid pb-16 --bn-4-8"
+    target="_blank"
   >
     <div
-      class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+      class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
     >
       <div
         class="grid-item --0 --col-8 --col-md-3 --col-lg-3 --col-xl-3"
@@ -600,13 +603,13 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
     roof-container="roof-container"
   >
     <div
-      class="--ln-roof-full flex jc-between pt-24"
+      class="--ln-roof-full pt-24 flex jc-between"
     >
       <div
         class="--ln-roof-left"
       >
         <div
-          class="flex ai-center uppercase"
+          class="flex uppercase ai-center"
         >
           <h3
             class="roof-img"
@@ -658,7 +661,7 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
         </div>
       </div>
       <div
-        class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --generico"
+        class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
       />
     </div>
   </div>

@@ -12,7 +12,8 @@ const getCardConfig = (config, articleData) => {
         withSubhead,
         withMedia,
         withSection,
-        isLoadWithPicture
+        isLoadWithPicture,
+        href = ''
     } = config || {};
     const promoItems = get(articleData, 'promo_items.basic');
     const containsImage =
@@ -35,7 +36,8 @@ const getCardConfig = (config, articleData) => {
         }),
         imagePosition: get(config, 'imagePosition'),
         className: get(config, 'className'),
-        withSection
+        withSection,
+        href
     };
 };
 
@@ -75,16 +77,29 @@ export const setFinalClassName = (
         : className;
 };
 
-export const getBadge = ({ article, isExclusiveSub }) => {
+export const getBadge = ({ article, isExclusiveSub, isFoodit }) => {
     if (
         get(article, 'content_restrictions.content_code') === 'cerrada' &&
-        !isExclusiveSub
+        !isExclusiveSub &&
+        !isFoodit
     ) {
         return {
             badgeStyle: 'exclusive-ln',
             badgeText: 'Exclusivo suscriptores'
         };
     }
+
+    if (
+        get(article, 'content_restrictions.content_code') === 'cerrada' &&
+        isFoodit &&
+        !isExclusiveSub
+    ) {
+        return {
+            badgeStyle: 'none',
+            badgeText: ''
+        };
+    }
+
     if (get(article, 'subtype') === LIVEBLOG) {
         return {
             badgeStyle: 'live',

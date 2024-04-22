@@ -26,6 +26,7 @@ import getDynamicBanners from '../../private/common/banners/dynamicBanners/getDy
 import isContentLabAt100 from '../utils/isContentLabAt100';
 import bannersHome from '../../private/common/banners/bannersDivHome';
 import StaticContentV2 from '../LN10-global/staticContentV2';
+import CajaFooditEventScript from '../../private/common/scriptManager/scriptDataLayerCajaFoodit';
 
 const CajaCollection = props => {
     const {
@@ -79,6 +80,8 @@ const CajaCollection = props => {
 
     const isInBreakings = checkChildInSection(chainId, breakingsChildren);
 
+    const isFoodit = chainStyle === CHAIN_STYLE.FOODIT;
+
     const articlesToShow = !isInSiteService
         ? getArticleInCollection({
               notesQuantity: rules.length || notesQuantity,
@@ -90,7 +93,7 @@ const CajaCollection = props => {
               filterRecomendar: true,
               filterRepetead: !isInSiteService,
               layout,
-              website,
+              website: isFoodit ? 'foodit' : 'la-nacion-ar',
               hasHydrateOnly: isHome
           })
         : [];
@@ -119,7 +122,8 @@ const CajaCollection = props => {
         position,
         '',
         positionInsideSection,
-        isExclusiveSub
+        isExclusiveSub,
+        isFoodit
     );
 
     const { bannerMob = undefined, bannerDsk = undefined } =
@@ -131,7 +135,7 @@ const CajaCollection = props => {
     const ContainerCards = getComponent(chainStyle, layout);
 
     return (
-        <StaticContentV2 {...{ ...extraOptsDiv, id: chainId }}>
+        <StaticContentV2 {...{ ...extraOptsDiv, id: chainId, htmlOnly: false }}>
             {setRender({
                 chainId,
                 viewabilityData,
@@ -156,6 +160,7 @@ const CajaCollection = props => {
                                     renderables
                                 )}
                                 isExclusiveSub={isExclusiveSub}
+                                isFoodit={isFoodit}
                             />
                             {chainStyle === CHAIN_STYLE.SUB_EXCLUSIVE && (
                                 <Bannersubscriber>
@@ -167,6 +172,7 @@ const CajaCollection = props => {
                     )
                 }
             })}
+            {isFoodit && <CajaFooditEventScript />}
         </StaticContentV2>
     );
 };

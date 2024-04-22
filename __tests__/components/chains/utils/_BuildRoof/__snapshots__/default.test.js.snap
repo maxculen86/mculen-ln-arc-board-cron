@@ -7,16 +7,17 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
     roof-container="roof-container"
   >
     <div
-      class="--ln-roof-full flex jc-between pt-24"
+      class="--ln-roof-full pt-24 flex jc-between"
     >
       <div
         class="--ln-roof-left"
       >
         <a
-          class="link ln-link flex ai-center uppercase"
+          class="link ln-link flex uppercase ai-center"
           href="https://lanacion.com.ar"
+          rel="nofollow"
           roof-group="left"
-          target="_self"
+          target="_blank"
           title="Ir a suscripcion"
         >
           <i
@@ -45,8 +46,9 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
         </a>
       </div>
       <div
-        class="--ln-roof-right flex ai-center jc-end overflow-hidden h-36 --sub-exclusive"
+        class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --sub-exclusive jc-end ai-center"
         roof-group="right"
+        target="_blank"
       >
         <a
           class="button ln-button font-bold border border-thin rounded-4 gap-8 bg-yellow-subscribe h-32 px-12 py-8 --roof-button --subscribe"

@@ -17,14 +17,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
         id="tema_00"
       >
         <div
+<<<<<<< HEAD
           class="ln-roof --generic"
           roof-container="roof-container"
+=======
+          class="--ln-roof-full pt-24 flex jc-between"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
         >
           <div
             class="--ln-roof-full flex jc-between pt-24"
           >
             <div
+<<<<<<< HEAD
               class="--ln-roof-left"
+=======
+              class="flex uppercase ai-center"
+              roof-group="left"
+              target="_blank"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
             >
               <div
                 class="flex ai-center uppercase"
@@ -42,9 +52,25 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
               roof-group="right"
             />
           </div>
+<<<<<<< HEAD
         </div>
         <section
           class="ln-bngrid --canal_1_4_grid --bienestar"
+=======
+          <div
+            class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
+            roof-group="right"
+            target="_blank"
+          />
+        </div>
+      </div>
+      <section
+        class="ln-bngrid pb-16 --canal_1_4_grid --bienestar"
+        target="_blank"
+      >
+        <div
+          class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
         >
           <div
             class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
@@ -340,14 +366,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
         id="tema_00"
       >
         <div
+<<<<<<< HEAD
           class="ln-roof --generic"
           roof-container="roof-container"
+=======
+          class="--ln-roof-full pt-24 flex jc-between"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
         >
           <div
             class="--ln-roof-full flex jc-between pt-24"
           >
             <div
+<<<<<<< HEAD
               class="--ln-roof-left"
+=======
+              class="flex uppercase ai-center"
+              roof-group="left"
+              target="_blank"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
             >
               <div
                 class="flex ai-center uppercase"
@@ -365,9 +401,25 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
               roof-group="right"
             />
           </div>
+<<<<<<< HEAD
         </div>
         <section
           class="ln-bngrid --bn-4-8 --bienestar"
+=======
+          <div
+            class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
+            roof-group="right"
+            target="_blank"
+          />
+        </div>
+      </div>
+      <section
+        class="ln-bngrid pb-16 --bn-4-8 --bienestar"
+        target="_blank"
+      >
+        <div
+          class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
         >
           <div
             class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
@@ -634,14 +686,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
         id="tema_00"
       >
         <div
+<<<<<<< HEAD
           class="ln-roof --generic"
           roof-container="roof-container"
+=======
+          class="--ln-roof-full pt-24 flex jc-between"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
         >
           <div
             class="--ln-roof-full flex jc-between pt-24"
           >
             <div
+<<<<<<< HEAD
               class="--ln-roof-left"
+=======
+              class="flex uppercase ai-center"
+              roof-group="left"
+              target="_blank"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
             >
               <div
                 class="flex ai-center uppercase"
@@ -659,9 +721,25 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
               roof-group="right"
             />
           </div>
+<<<<<<< HEAD
         </div>
         <section
           class="ln-bngrid --canal_1_3_grid --bienestar"
+=======
+          <div
+            class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
+            roof-group="right"
+            target="_blank"
+          />
+        </div>
+      </div>
+      <section
+        class="ln-bngrid pb-16 --canal_1_3_grid --bienestar"
+        target="_blank"
+      >
+        <div
+          class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
         >
           <div
             class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
@@ -928,14 +1006,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
         id="tema_00"
       >
         <div
+<<<<<<< HEAD
           class="ln-roof --generic"
           roof-container="roof-container"
+=======
+          class="--ln-roof-full pt-24 flex jc-between"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
         >
           <div
             class="--ln-roof-full flex jc-between pt-24"
           >
             <div
+<<<<<<< HEAD
               class="--ln-roof-left"
+=======
+              class="flex uppercase ai-center"
+              roof-group="left"
+              target="_blank"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
             >
               <div
                 class="flex ai-center uppercase"
@@ -953,9 +1041,25 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
               roof-group="right"
             />
           </div>
+<<<<<<< HEAD
         </div>
         <section
           class="ln-bngrid --canal_1_2_grid --bienestar"
+=======
+          <div
+            class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
+            roof-group="right"
+            target="_blank"
+          />
+        </div>
+      </div>
+      <section
+        class="ln-bngrid pb-16 --canal_1_2_grid --bienestar"
+        target="_blank"
+      >
+        <div
+          class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
         >
           <div
             class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
@@ -1171,14 +1275,24 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
         id="tema_00"
       >
         <div
+<<<<<<< HEAD
           class="ln-roof --generic"
           roof-container="roof-container"
+=======
+          class="--ln-roof-full pt-24 flex jc-between"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
         >
           <div
             class="--ln-roof-full flex jc-between pt-24"
           >
             <div
+<<<<<<< HEAD
               class="--ln-roof-left"
+=======
+              class="flex uppercase ai-center"
+              roof-group="left"
+              target="_blank"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
             >
               <div
                 class="flex ai-center uppercase"
@@ -1196,9 +1310,25 @@ exports[`components - chains - LN10_Caja_canal Tests cases for different layouts
               roof-group="right"
             />
           </div>
+<<<<<<< HEAD
         </div>
         <section
           class="ln-bngrid --bn_1_1_grid --bienestar"
+=======
+          <div
+            class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
+            roof-group="right"
+            target="_blank"
+          />
+        </div>
+      </div>
+      <section
+        class="ln-bngrid pb-16 --bn_1_1_grid --bienestar"
+        target="_blank"
+      >
+        <div
+          class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
         >
           <div
             class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
@@ -1371,14 +1501,24 @@ exports[`components - chains - LN10_Caja_canal should return six articles with l
         id="tema_00"
       >
         <div
+<<<<<<< HEAD
           class="ln-roof --generic"
           roof-container="roof-container"
+=======
+          class="--ln-roof-full pt-24 flex jc-between"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
         >
           <div
             class="--ln-roof-full flex jc-between pt-24"
           >
             <div
+<<<<<<< HEAD
               class="--ln-roof-left"
+=======
+              class="flex uppercase ai-center"
+              roof-group="left"
+              target="_blank"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
             >
               <div
                 class="flex ai-center uppercase"
@@ -1396,9 +1536,25 @@ exports[`components - chains - LN10_Caja_canal should return six articles with l
               roof-group="right"
             />
           </div>
+<<<<<<< HEAD
         </div>
         <section
           class="ln-bngrid --bn_2_2_grid --bienestar"
+=======
+          <div
+            class="--ln-roof-right flex overflow-hidden h-100 min-h-36 --generico jc-end ai-center"
+            roof-group="right"
+            target="_blank"
+          />
+        </div>
+      </div>
+      <section
+        class="ln-bngrid pb-16 --bn_2_2_grid --bienestar"
+        target="_blank"
+      >
+        <div
+          class="grid container-op-top  --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
+>>>>>>> 5f36d1691 (Se agrega caja foodit)
         >
           <div
             class="grid container-op-top --grid-cols-8 --grid-cols-md-12 --grid-cols-lg-12 --grid-cols-xl-12 --gap-sm --grid-ai-stretch"
