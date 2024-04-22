@@ -5,7 +5,7 @@ import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import ShareFoodit from '../ShareFoodit/foodit';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
+import addActionToDataLayer from '../utils/addActionToDataLayer';
 
 const buttonCopy = () => {
     navigator.clipboard.writeText(window.location.href);

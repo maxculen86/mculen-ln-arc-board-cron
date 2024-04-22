@@ -8,8 +8,7 @@ import {
 } from '../../../../private/LN/common/utils/shareHelper';
 import get from '../../../../private/common/utils/get';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-// import { addActionToDataLayer } from '../ActionsButtons/_helper';
-import { addEventToDataLayer } from '../../../../private/LN/common/utils/shareHelper';
+import addActionToDataLayer from '../utils/addActionToDataLayer';
 
 export const socials = [
     {
@@ -63,19 +62,3 @@ export const socials = [
         icon: <IconSprite name="email" />
     }
 ];
-
-export const addActionToDataLayer = (article, action) => {
-    const TYPES_LABEL = {
-        7: 'receta',
-        4: 'nota'
-    };
-
-    addEventToDataLayer({
-        event: 'e_linkclick',
-        category: 'interaction',
-        label: TYPES_LABEL[get(article, 'subtype', '')] || '',
-        action,
-        title: get(article, 'headlines.basic', ''),
-        articleId: get(article, '_id', '')
-    });
-};

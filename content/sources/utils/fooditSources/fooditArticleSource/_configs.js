@@ -1,12 +1,8 @@
-import addGalleryData from '../../articleSourceNota/cachedCalls/addGalleryData';
-import { formatInterstitialLink } from '../../articleSourceNota/_helper';
+import { formatInterstitialLink } from '../../articleSourceNota/_configs';
 import convertVideoArcToJw from '../../articleSourceNota/cachedCalls/convertVideoArcToJW';
 import addFollowAnotherNoteData from '../../articleSourceNota/cachedCalls/addFollowAnotherNoteData';
 import get from '../../../../../components/private/common/utils/get';
-import {
-    addForwardSlashInInterstitialLink,
-    addForwardSlashInParagraphsLinks
-} from '../../../../../components/private/LN/common/utils/addForwardSlash';
+import { addForwardSlashInParagraphsLinks } from '../../../../../components/private/LN/common/utils/addForwardSlash';
 import { compose } from '../../../../../components/private/common/utils/functional';
 
 export const configPromoItems = {

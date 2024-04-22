@@ -1,7 +1,4 @@
 import addGalleryData from './cachedCalls/addGalleryData';
-////////////
-// import { formatElementText, formatInterstitialLink } from './_helper';
-////////////
 import {
     addForwardSlashInInterstitialLink,
     addForwardSlashInParagraphsLinks

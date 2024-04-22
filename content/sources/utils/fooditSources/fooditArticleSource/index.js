@@ -2,8 +2,6 @@ import {
     STORYTELLING,
     RECETA
 } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
-import { addResizedUrls } from '../../../../../components/private/common/utils/image/resizer/addResizerUrls';
-import { getAllImagesAuth } from '../../signingServiceSource/getImagesAuth';
 import get from '../../../../../components/private/common/utils/get';
 import validateSponsoredLink from '../../validateSponsoredLink';
 import getProperties from 'fusion:properties';

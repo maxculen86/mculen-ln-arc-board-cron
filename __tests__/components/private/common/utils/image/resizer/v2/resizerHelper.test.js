@@ -17,7 +17,6 @@ jest.mock('fusion:environment', () => {
 });
 
 describe('Common - Resizer', () => {
-    // https://sandbox.lanacion.com.ar/resizer/v2/J43DRG7ZGZCANB6PYJG2VQ35QY.jpg?auth=1f6894f8d079227a933c5b63e67a9d263f2c20ac045aa3c992ab691cbcc7fff9&width=309&height=206&quality=80&smart=true
     describe('buildQueryParams', () => {
         const arcImage = {
             _id: 'J43DRG7ZGZCANB6PYJG2VQ35QY',
@@ -214,9 +213,9 @@ describe('Common - Resizer', () => {
     });
 
     describe('baseUrl function', () => {
-        const siteLanacion = 'https://sandbox.lanacion.com.ar/';
+        const siteLanacion = 'https://sandbox.lanacion.com.ar';
         const siteFoodit = 'https://foodit-sandbox.lanacion.com.ar/';
-        const resizerUrlPublic = 'https://resizer.glanacion.com/resizer/';
+        const resizerUrlPublic = 'https://resizer.glanacion.com';
 
         const baseUrlCases = [
             [
@@ -344,9 +343,7 @@ describe('Common - Resizer - updateHeight fn', () => {
     });
 });
 
-// TODO: Unificacion de buildResizerUrls.js y resizerHelper.js
-// TODO: Mejorar mocks y unificar describe.
-describe('first', () => {
+describe('Tests resizer helper', () => {
     const filterQuality = 70;
     const smartCropExcluded = false;
     const focalPoint = [];

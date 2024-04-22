@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`first When is not admin and is not isInapertura resizeUrlCollection function should return array with resized urls with options 1`] = `
+exports[`Tests resizer helper When is not admin and is not isInapertura resizeUrlCollection function should return array with resized urls with options 1`] = `
 Array [
   Object {
     "option": Object {
@@ -51,7 +51,7 @@ Array [
 ]
 `;
 
-exports[`first resizeArcImage resizeArcImage 1`] = `
+exports[`Tests resizer helper resizeArcImage resizeArcImage 1`] = `
 Object {
   "_id": "J43DRG7ZGZCANB6PYJG2VQ35QY",
   "additional_properties": Object {

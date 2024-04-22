@@ -18,8 +18,6 @@ import {
     isValidString,
     isValidNonZeroNumber
 } from '../../../dataValidation';
-// import { resizeArcImage } from './buildResizerUrls';
-// import { resizeImgUrl, resizeUrlCollection } from './buildResizerUrls';
 
 const MEDIAMINWIDTH = '(min-width: 768px)';
 
@@ -221,8 +219,6 @@ export const resizeImgUrl = ({
     if (newHeight === 0 && (focalPoint.length > 1 || smartCropExcluded)) {
         newHeight = autoHeight(originalHeight, originalWidth, newWidth);
     }
-
-    // const [fileName = ''] = originalUrl.match(/[^\/]+\.(jpg|png|jpeg)/gm) || [];
 
     // TODO: quitar este early return, solo cumple funcion temporal para que no fallen imagenes con url v1 de liftigniter te puede interesar
     const imageUrl = get(arcImage, 'url', '');
