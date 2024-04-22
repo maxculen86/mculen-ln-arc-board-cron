@@ -4,13 +4,13 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import WikiAuthor from '../../private/LN/acumulado/author/wikiAuthor';
 import { wikiAuthorPropTypes } from '../../private/common/utils/propTypesHelper';
-import StaticContent from '../../private/common/staticContent';
+import Static from 'fusion:static';
 
-const wikiAuthor = ({ globalContent, outputType }) => {
+const wikiAuthor = ({ globalContent, outputType, id: featureId }) => {
     return (
-        <StaticContent>
+        <Static id={featureId}>
             <WikiAuthor data={globalContent} outputType={outputType} />
-        </StaticContent>
+        </Static>
     );
 };
 

@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BtnMasNotas from '../botonVerMasNotas';
 import LoadingIcon from '../../common/loadingIcon';
-import StaticContent from '../../../common/staticContent';
+import Static from 'fusion:static';
 
 const GrillaNotas = props => {
     const {
@@ -13,13 +13,14 @@ const GrillaNotas = props => {
         loading = false,
         goToNextPage,
         name = '',
-        outputType = 'default'
+        outputType = 'default',
+        featureId
     } = props;
 
     return (
         <>
             <div className={hasMoreArticles ? 'hlp-degrade' : ''}>
-                <StaticContent>{InitialGrid}</StaticContent>
+                <Static id={featureId}>{InitialGrid}</Static>
                 {NextResults}
             </div>
             {outputType !== 'amp' && hasMoreArticles && (
