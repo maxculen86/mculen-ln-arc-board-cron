@@ -76,7 +76,7 @@ class GetCajaCollection {
             website:
                 layout === 'foodit_1_grid' || layout === 'foodit_3_grid'
                     ? 'foodit'
-                    : 'lanacionar',
+                    : 'la-nacion-ar',
             from: Number(initialPosition) - 1,
             idsArticlesToExclude,
             filterRecomendar: true,
