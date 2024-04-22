@@ -51,7 +51,8 @@ export const configTypesbyChainOrFeature = sectionAliasMobile => {
             'LN-acumulado/titulo',
             'LN-acumulado/anexoIframe',
             'ln-10/timeline'
-        ]
+        ],
+        11: ['foodit']
     };
     let defaultType = 9; // For discard box
     Object.keys(boxTypeContainer).some(typeIndexBox => {
