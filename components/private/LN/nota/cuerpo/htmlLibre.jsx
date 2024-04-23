@@ -2,7 +2,7 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-import StaticContent from '../../../common/staticContent';
+import Static from 'fusion:static';
 
 const HtmlLibre = props => {
     const {
@@ -17,14 +17,14 @@ const HtmlLibre = props => {
 
     return (
         outputType === 'default' && (
-            <StaticContent>
+            <Static id="LN-htmlLibre">
                 <div
                     key={_id}
                     dangerouslySetInnerHTML={{
                         __html: content
                     }}
                 />
-            </StaticContent>
+            </Static>
         )
     );
 };

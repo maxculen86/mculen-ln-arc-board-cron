@@ -14,7 +14,6 @@ import intersectionObserverForRelatedTags from '../private/common/utils/relatedT
 import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
 import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import get from '../private/common/utils/get';
-import StaticContent from '../private/common/staticContent';
 import classNames from 'classnames';
 
 const lnNotaStorytelling = ({
@@ -37,12 +36,10 @@ const lnNotaStorytelling = ({
             listOfAllowedSection,
             noteType: subtype
         }) && !amp;
-
     const withoutVideoBackground = !Boolean(
         get(globalContent, 'promo_items.storytelling', null) ||
             get(globalContent, 'promo_items.video_jw', null)
     );
-
     const bannerMegatop = getBannerMegatop(children[0], amp, tree, isAdmin);
     const logo = getSectionLogo(sections, layout, name);
     const magazine = logo ? logo.logoName : '';
@@ -65,12 +62,12 @@ const lnNotaStorytelling = ({
                     {children[1]}
 
                     {isLoadWithPicture && withoutVideoBackground ? (
-                        <StaticContent>
+                        <>
                             <AperturaStorytelling
                                 isLoadWithPicture={isLoadWithPicture}
                                 withoutVideoBackground={withoutVideoBackground}
                             />
-                        </StaticContent>
+                        </>
                     ) : (
                         <AperturaStorytelling
                             isLoadWithPicture={isLoadWithPicture}

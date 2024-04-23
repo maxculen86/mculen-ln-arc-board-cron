@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import { useAppContext } from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
 import { GlobalContext } from '../../../private/common/context/globalContext';
 import { getMessageProps } from '../../../private/common/utils/commentsHelper';
 import Message from '../../../private/common/message';
 import HeaderComments from '../../../private/LN/nota/comments/header';
 import LoadingIcon from '../../../private/LN/common/loadingIcon';
 import '../../../../resources/dist/css/ln/modules/comments.css';
-import StaticContent from '../../../private/common/staticContent';
 
 const CommentsViafouraFeature = props => {
     const { globalContent: { messageType = '' } = {} } = props;
@@ -17,7 +17,7 @@ const CommentsViafouraFeature = props => {
     const messageProps = getMessageProps(props, messageType, gc);
 
     return (
-        <StaticContent>
+        <Static id="LN-comments">
             {messageProps ? <Message {...messageProps} /> : <HeaderComments />}
             <LoadingIcon />
             <div
@@ -46,7 +46,7 @@ const CommentsViafouraFeature = props => {
                     `${contextPath}/resources/js/LN/scriptHeaderComments.min.js`
                 )}
             />
-        </StaticContent>
+        </Static>
     );
 };
 

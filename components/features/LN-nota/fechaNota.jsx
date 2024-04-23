@@ -1,15 +1,15 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
 import AuthorAndDate from '../../private/LN/nota/author/authorAndDate';
-import StaticContent from '../../private/common/staticContent';
 
 // TODO agregar Unit test
 
 const dateNota = props => {
     return (
-        <StaticContent>
+        <Static id="LN-fecha-nota" htmlOnly>
             <AuthorAndDate {...props} date />
-        </StaticContent>
+        </Static>
     );
 };
 

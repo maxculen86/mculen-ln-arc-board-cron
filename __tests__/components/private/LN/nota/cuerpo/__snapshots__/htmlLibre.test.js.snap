@@ -2,9 +2,7 @@
 
 exports[`Private - LN - nota - cuerpo - HtmlLibre should render the first content element if there are less than one 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <div>
     <div>
       <script>
         window.doc_admin = "18ixecirZPP50Hp7ry6mR9ErGCR7b3_kk7TWPhqVP-Uc"
@@ -102,9 +100,7 @@ exports[`Private - LN - nota - cuerpo - HtmlLibre should render the first conten
 
 exports[`Private - LN - nota - cuerpo - HtmlLibre should render the second content element if there are more than one 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <div>
     <div>
       <div
         id="preload"
@@ -254,9 +250,7 @@ exports[`Private - LN - nota - cuerpo - HtmlLibre should render the second conte
 
 exports[`Private - LN - nota - cuerpo - HtmlLibre should render wrapped in a StaticContent 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <div>
     <div>
       <script>
         window.doc_admin = "18ixecirZPP50Hp7ry6mR9ErGCR7b3_kk7TWPhqVP-Uc"

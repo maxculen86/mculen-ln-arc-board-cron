@@ -3,6 +3,7 @@ import React from 'react';
 import { SITE_LANACION } from 'fusion:environment';
 import Context from 'fusion:context';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import ComPartner from '../../private/common/com-partner';
 import ComLink from '../../private/common/com-link';
 import formatDistributorName from '../../private/LN/common/utils/formatDistributorName';
@@ -10,7 +11,6 @@ import {
     HTMLLIBRE,
     RECETA
 } from '../../private/common/utils/subtypes/subtypeHelper';
-import StaticContent from '../../private/common/staticContent';
 
 // TODO testear static content, migrar a testing library, fix default props
 
@@ -44,7 +44,11 @@ const FirmaLogoExterno = props => {
     if (subtype === HTMLLIBRE)
         content = <ComPartner size="--xs">{name}</ComPartner>;
 
-    return <StaticContent>{content}</StaticContent>;
+    return (
+        <Static id="LN-firma-logo-externo" htmlOnly>
+            {content}
+        </Static>
+    );
 };
 
 FirmaLogoExterno.propTypes = {

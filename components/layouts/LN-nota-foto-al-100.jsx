@@ -13,7 +13,6 @@ import PwaModals from '../private/LN/common/pwaModals';
 import listOfAllowedSection from '../private/LN/common/media/helpers/allowSectionAndLayout';
 import { notaAl100andStorytellingLayoutsPropTypes } from '../private/common/utils/propTypesHelper';
 import intersectionObserverForRelatedTags from '../private/common/utils/relatedTagTracker';
-import StaticContent from '../private/common/staticContent';
 import isAllowedSection from '../private/LN/common/utils/isAllowedSection';
 import get from '../private/common/utils/get';
 
@@ -70,11 +69,11 @@ const lnNotaFotoAl100 = ({
                 <main id="content" className="--header-fixed-margin">
                     {preTitulo}
                     {isLoadWithPicture && withoutVideoBackground ? (
-                        <StaticContent>
+                        <>
                             <AperturaStorytelling
                                 isLoadWithPicture={isLoadWithPicture}
                             />
-                        </StaticContent>
+                        </>
                     ) : (
                         <AperturaStorytelling
                             isLoadWithPicture={isLoadWithPicture}
