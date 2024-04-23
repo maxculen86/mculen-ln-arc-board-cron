@@ -1,9 +1,9 @@
 import React from 'react';
+import Static from 'fusion:static';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
 import classNames from 'classnames';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
 import { HomeSchema } from '../../features/foodit-global/schemas/Home';
-import StaticContent from '../../private/common/staticContent';
 
 // TODO: Estas secciones son a modo orientativo, pueden cambiar en base a definiciones de producto.
 const pageBuilderSections = ['Apertura', 'Bloque-1', 'Bloque-2'];
@@ -16,9 +16,9 @@ const HomeFoodit = ({ children }) => {
         <BaseLayout>
             <HomeSchema />
             <UserBookmarks />
-            <StaticContent>
+            <Static id="opening-home" htmlOnly persistent>
                 <section>{opening}</section>
-            </StaticContent>
+            </Static>
             <hr className="lg-none" />
             <section className={sectionClasses}>{bloque1}</section>
             <section className={sectionClasses}>{bloque2}</section>

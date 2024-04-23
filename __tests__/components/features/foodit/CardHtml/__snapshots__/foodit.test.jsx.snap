@@ -2,9 +2,7 @@
 
 exports[`Tests - Feature - Foodit HtmlBanner Tests banners HTML should return a iframe with attributes loading, title and the web component defined in custom field "Tablero / html"  1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <div>
     <section
       class="flex flex-column"
     >

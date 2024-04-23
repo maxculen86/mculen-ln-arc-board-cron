@@ -3,7 +3,7 @@ import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import Consumer from 'fusion:consumer';
-
+import Static from 'fusion:static';
 import { checkForId } from '../../LN-10/article/common/_helper-WebApi.js';
 import { validateBannerReceta } from './_helper';
 import {
@@ -15,7 +15,6 @@ import get from '../../../private/common/utils/get';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import { Link } from '@ln/foodit-ui-link';
 import { Adaptableimage } from '@ln/common-ui-adaptableimage';
-import StaticContent from '../../../private/common/staticContent';
 import filter from '../../../../content/filters/LN/home/imageFilter.js';
 
 const Banner = ({
@@ -68,7 +67,7 @@ const Banner = ({
     }
 
     return (
-        <StaticContent>
+        <Static htmlOnly persistent id={featureId}>
             {!error && relatedImage && (
                 <div className="banner-container relative w-100 z-1 flex jc-center ai-center h-250 h-160_lg overflow-y-clip">
                     <Link href={redirectUrl} title={title}>
@@ -80,7 +79,7 @@ const Banner = ({
                     </Link>
                 </div>
             )}
-        </StaticContent>
+        </Static>
     );
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { SITE_FOODIT } from 'fusion:environment';
+import Static from 'fusion:static';
 import PropTypes from 'prop-types';
 import Ingredients from './ingredientsBox/ingredients';
 import ExternalLinks from './ingredientsBox/externalLinks';
@@ -78,11 +79,13 @@ export const PowerupsReceta = ({ article = {} }) => {
 
     return (
         <>
-            <SummaryBox
-                cookTime={cookTime}
-                prepTime={prepTime}
-                counterTime={counterTime}
-            />
+            <Static htmlOnly persistent id={`sumary-box-${_id}`}>
+                <SummaryBox
+                    cookTime={cookTime}
+                    prepTime={prepTime}
+                    counterTime={counterTime}
+                />
+            </Static>
             <div className="bg-positive flex flex-column gap-16 gap-24_md gap-32_lg p-16 p-24_md p-32_lg">
                 <Ingredients
                     articleId={_id}
@@ -99,11 +102,13 @@ export const PowerupsReceta = ({ article = {} }) => {
                     title={get(headlines, 'basic', '')}
                     portions={counterPortion}
                 />
-                <hr />
-                <ExternalLinks {...externalLinksMock} />
-                <hr />
-                <Nutritional nutritionLists={nutritionLists} />
-                <Tags items={filteredTags} />
+                <Static htmlOnly persistent id={`adintional-info-${_id}`}>
+                    <hr />
+                    <ExternalLinks {...externalLinksMock} />
+                    <hr />
+                    <Nutritional nutritionLists={nutritionLists} />
+                    <Tags items={tags} />
+                </Static>
             </div>
         </>
     );

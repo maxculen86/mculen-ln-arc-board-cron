@@ -1,18 +1,19 @@
 import React from 'react';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
-import StaticContent from '../../private/common/staticContent';
+import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 import { SkeletonResultdata } from '../../features/foodit-global/common/skeletons/Buscador/resultdata';
 import { SkeletonFaceteddata } from '../../features/foodit-global/common/skeletons/Buscador/faceteddata';
+
 export default function FooditSearch() {
     const { contextPath, deployment } = useAppContext();
 
     return (
         <BaseLayout>
-            <StaticContent>
+            <Static htmlOnly persistent id="foodit-queryly-search">
                 <div
                     id="queryly_advanced_container"
                     className="grid grid-cols-8 grid-cols-12_md grid-cols-16_lg relative"
@@ -104,7 +105,7 @@ export default function FooditSearch() {
                         `${contextPath}/resources/js/FOODIT/fooditScriptBuscadorQueryly.js`
                     )}
                 />
-            </StaticContent>
+            </Static>
         </BaseLayout>
     );
 }

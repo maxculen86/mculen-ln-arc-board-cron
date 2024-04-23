@@ -1,9 +1,9 @@
 import React from 'react';
+import Static from 'fusion:static';
 import get from '../../../../private/common/utils/get';
 import classNames from 'classnames';
 import { Link } from '@ln/foodit-ui-link';
 import { Breadcrumb } from '@ln/common-ui-breadcrumb';
-import StaticContent from '../../../../private/common/staticContent';
 import { setArraySection } from './_helpers';
 import BreadcrumbTooltip from './_childrens/BreadcrumbTooltip/foodit';
 
@@ -22,7 +22,7 @@ export default function BreadcrumbFoodit({ globalContent, className }) {
 
     return (
         <div className={classNames('flex ai-center gap-8', className)}>
-            <StaticContent>
+            <Static htmlOnly persistent id="breadcrumb-foodit">
                 <Breadcrumb gap={8} className="text-14">
                     {sections.map(({ name, url, disabled = false } = {}) => (
                         <Link
@@ -35,7 +35,7 @@ export default function BreadcrumbFoodit({ globalContent, className }) {
                         </Link>
                     ))}
                 </Breadcrumb>
-            </StaticContent>
+            </Static>
             {showTooltip && <BreadcrumbTooltip />}
         </div>
     );

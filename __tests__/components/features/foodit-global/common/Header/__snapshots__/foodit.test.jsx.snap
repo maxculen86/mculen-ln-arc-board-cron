@@ -34,21 +34,23 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 </i>
               </button>
             </div>
-            <div
-              class="center-options flex jc-center ai-center"
-            >
-              <a
-                class="link flex"
-                href="/"
-                target="_self"
-                title="Ir a inicio"
+            <div>
+              <div
+                class="center-options flex jc-center ai-center"
               >
-                <img
-                  alt="Foodit"
-                  class="h-32 h-44_md h-52_lg"
-                  src=""
-                />
-              </a>
+                <a
+                  class="link flex"
+                  href="/"
+                  target="_self"
+                  title="Ir a inicio"
+                >
+                  <img
+                    alt="Foodit"
+                    class="h-32 h-44_md h-52_lg"
+                    src=""
+                  />
+                </a>
+              </div>
             </div>
             <div
               class="right-options flex jc-end ai-center gap-16 gap-24_md"
@@ -1123,9 +1125,7 @@ exports[`Components - Features - foodit-global - Common - HeaderFoodit should re
                 </li>
               </ul>
             </nav>
-            <div
-              class="hidden"
-            >
+            <div>
               <nav
                 class="top-navigation-bar text-12"
               >

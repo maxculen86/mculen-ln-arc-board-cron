@@ -45,6 +45,7 @@ describe('Components - Features - foodit-global - common - Header - components -
         expect(screen.getByText('Gratis')).toBeInTheDocument();
     });
 
+    //TODO: queda pendiente la validacion para el suscribedPlus (MVP2)
     it('renders correctly for user type "subscribed"', () => {
         useContext.mockReturnValue({
             ProductoPremiumId: '2,3,4,5,22',
