@@ -24,16 +24,16 @@ exports[`components - features - LN-10-global - Desplegable should match snapsho
             style="width: 164px;"
           >
             <img
-              class="image flex --cover"
+              alt="LA NACION"
+              class="image flex h-100 w-100 --cover"
               decoding="async"
               fetchpriority="low"
               loading="lazy"
               src="/pf/resources/images/la-nacion.webp"
-              width="164"
             />
           </i>
           <button
-            class="cursor-pointer transition-regular flex opacity-80_hover ln-button-close"
+            class="cursor-pointer transition-regular flex opacity-80_hover ln-button-close py-4"
             title="Cerrar"
           >
             <i

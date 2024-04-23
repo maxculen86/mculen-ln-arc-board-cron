@@ -21,7 +21,13 @@ export const Desplegable = () => {
         <div>
             <Dropdown
                 search={<Search />}
-                logo={<Adaptableimage src={deploymentPath} width={164} />}
+                logo={
+                    <Adaptableimage
+                        src={deploymentPath}
+                        className="h-100 w-100"
+                        alt="LA NACION"
+                    />
+                }
                 data={menuData}
                 callback={toggleDesplegable}
                 className={showMenu ? '--dd-active' : ''}
