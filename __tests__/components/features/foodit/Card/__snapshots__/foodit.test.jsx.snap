@@ -52,11 +52,11 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant day
               >
                 Receta del día
               </span>
-              <span
+              <h1
                 class="text card-title prumo transition-regular prumo-book text-28 text-40_md text-48_lg"
               >
                 Receta para comer mas rico con ...POLLITO 2
-              </span>
+              </h1>
             </div>
           </div>
           <div

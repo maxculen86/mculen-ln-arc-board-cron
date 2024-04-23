@@ -19,7 +19,7 @@ const fooditRules = diagramation => {
             minArticles: 4,
             minRelatedArticles: 4,
             maxArticles: 8,
-            roofAs: tag.h1,
+            roofAs: tag.h3,
             isStatic: false,
             classNameRoof: 'mb-24',
             layoutImgConfig: 'm'

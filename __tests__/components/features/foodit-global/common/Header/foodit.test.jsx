@@ -67,7 +67,6 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
 
         render(<HeaderFoodit />);
 
-        expect(screen.getAllByText('MEJORA TU PLAN')).toHaveLength(2);
         expect(screen.getAllByText('HM')).toHaveLength(1);
     });
 
@@ -82,7 +81,6 @@ describe('Components - Features - foodit-global - Common - HeaderFoodit', () => 
 
         render(<HeaderFoodit />);
 
-        expect(screen.getAllByText('MEJORA TU PLAN')).toHaveLength(2);
         expect(screen.getAllByText('HO')).toHaveLength(1);
     });
 

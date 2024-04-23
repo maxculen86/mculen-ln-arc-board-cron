@@ -34,7 +34,7 @@ export const buttonPropsByVariant = {
         label: 'Suscribite',
         variant: 'accent',
         onClick: () => {
-            location.href = `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/callback=${window.btoa(
+            location.href = `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=670&fc=826&callback=${window.btoa(
                 window.location.href
             )}}`;
         }

@@ -38,7 +38,7 @@ exports[`Tests component BuildRoof Return tests outside page Builder should retu
             style="height: 16.8px;"
           >
             <mock-icon
-              fill="#333"
+              fill="#fff"
               name="arrowDark"
             />
           </i>
