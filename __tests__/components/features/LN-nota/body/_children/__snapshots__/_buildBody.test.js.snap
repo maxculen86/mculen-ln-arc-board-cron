@@ -40,25 +40,21 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     .
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja1_mob  "
   >
     <div
-      class="mod-banner --caja1_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja1_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[300,250],[300,450],[320,100],[1,1]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja1_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja1_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,250],[300,450],[320,100],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja1_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -162,45 +158,37 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     Tipo de letra normal
   </p>
   <div
-    class="hidden"
+    class="mod-banner --middle_1_dsk  "
   >
     <div
-      class="mod-banner --middle_1_dsk  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_1_dsk"
-        data-device="desktop"
-        data-prebid-enabled="true"
-        data-size="[[1,1],[640,360],[640,480],[728,90],[468,60]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="middle_1_dsk"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_1_dsk"
+      data-device="desktop"
+      data-prebid-enabled="true"
+      data-size="[[1,1],[640,360],[640,480],[728,90],[468,60]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="middle_1_dsk"
+    />
   </div>
   <div
-    class="hidden"
+    class="mod-banner --caja1_amp none  "
   >
     <div
-      class="mod-banner --caja1_amp none  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216//133919216/AMP/ROS/caja1_amp"
-        data-prebid-enabled="false"
-        data-size="[[300,250]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
-        data-without-hide="false"
-        id="caja1_amp"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216//133919216/AMP/ROS/caja1_amp"
+      data-prebid-enabled="false"
+      data-size="[[300,250]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
+      data-without-hide="false"
+      id="caja1_amp"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -210,25 +198,21 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </strong>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja2_mob  "
   >
     <div
-      class="mod-banner --caja2_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja2_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[320,50],[320,100],[300,250],[300,450],[1,1],[360,270],[320,180],[360,450],[380,450]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja2_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja2_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[320,50],[320,100],[300,250],[300,450],[1,1],[360,270],[320,180],[360,450],[380,450]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja2_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -238,24 +222,20 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja2_amp none  "
   >
     <div
-      class="mod-banner --caja2_amp none  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216//133919216/AMP/ROS/caja2_amp"
-        data-prebid-enabled="false"
-        data-size="[[300,250]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
-        data-without-hide="false"
-        id="caja2_amp"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216//133919216/AMP/ROS/caja2_amp"
+      data-prebid-enabled="false"
+      data-size="[[300,250]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
+      data-without-hide="false"
+      id="caja2_amp"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -265,25 +245,21 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </u>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --middle_2_dsk  "
   >
     <div
-      class="mod-banner --middle_2_dsk  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_2_dsk"
-        data-device="desktop"
-        data-prebid-enabled="true"
-        data-size="[[468,60],[640,480],[728,90],[1,1]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="middle_2_dsk"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_2_dsk"
+      data-device="desktop"
+      data-prebid-enabled="true"
+      data-size="[[468,60],[640,480],[728,90],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="middle_2_dsk"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -295,25 +271,21 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja3_mob  "
   >
     <div
-      class="mod-banner --caja3_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja3_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[300,250],[320,100],[1,1]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja3_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja3_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,250],[320,100],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja3_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -334,25 +306,21 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja4_mob  "
   >
     <div
-      class="mod-banner --caja4_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja4_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[300,250],[320,100],[1,1]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja4_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja4_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,250],[320,100],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja4_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -375,25 +343,21 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </mark>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja5_mob  "
   >
     <div
-      class="mod-banner --caja5_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja5_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[320,100],[300,250],[1,1],[\\"fluid\\"]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja5_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja5_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[320,100],[300,250],[1,1],[\\"fluid\\"]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja5_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -2775,25 +2739,21 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     .
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja1_mob  "
   >
     <div
-      class="mod-banner --caja1_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja1_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[300,250],[300,450],[320,100],[1,1]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja1_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja1_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,250],[300,450],[320,100],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja1_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -2897,45 +2857,37 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     Tipo de letra normal
   </p>
   <div
-    class="hidden"
+    class="mod-banner --middle_1_dsk  "
   >
     <div
-      class="mod-banner --middle_1_dsk  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_1_dsk"
-        data-device="desktop"
-        data-prebid-enabled="true"
-        data-size="[[1,1],[640,360],[640,480],[728,90],[468,60]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="middle_1_dsk"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_1_dsk"
+      data-device="desktop"
+      data-prebid-enabled="true"
+      data-size="[[1,1],[640,360],[640,480],[728,90],[468,60]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="middle_1_dsk"
+    />
   </div>
   <div
-    class="hidden"
+    class="mod-banner --caja1_amp none  "
   >
     <div
-      class="mod-banner --caja1_amp none  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216//133919216/AMP/ROS/caja1_amp"
-        data-prebid-enabled="false"
-        data-size="[[300,250]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
-        data-without-hide="false"
-        id="caja1_amp"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216//133919216/AMP/ROS/caja1_amp"
+      data-prebid-enabled="false"
+      data-size="[[300,250]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
+      data-without-hide="false"
+      id="caja1_amp"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -2945,25 +2897,21 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </strong>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja2_mob  "
   >
     <div
-      class="mod-banner --caja2_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja2_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[320,50],[320,100],[300,250],[300,450],[1,1],[360,270],[320,180],[360,450],[380,450]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja2_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja2_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[320,50],[320,100],[300,250],[300,450],[1,1],[360,270],[320,180],[360,450],[380,450]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja2_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -2973,24 +2921,20 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja2_amp none  "
   >
     <div
-      class="mod-banner --caja2_amp none  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216//133919216/AMP/ROS/caja2_amp"
-        data-prebid-enabled="false"
-        data-size="[[300,250]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
-        data-without-hide="false"
-        id="caja2_amp"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216//133919216/AMP/ROS/caja2_amp"
+      data-prebid-enabled="false"
+      data-size="[[300,250]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
+      data-without-hide="false"
+      id="caja2_amp"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -3000,25 +2944,21 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </u>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --middle_2_dsk  "
   >
     <div
-      class="mod-banner --middle_2_dsk  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_2_dsk"
-        data-device="desktop"
-        data-prebid-enabled="true"
-        data-size="[[468,60],[640,480],[728,90],[1,1]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="middle_2_dsk"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_2_dsk"
+      data-device="desktop"
+      data-prebid-enabled="true"
+      data-size="[[468,60],[640,480],[728,90],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="middle_2_dsk"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -3030,25 +2970,21 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja3_mob  "
   >
     <div
-      class="mod-banner --caja3_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja3_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[300,250],[320,100],[1,1]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja3_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja3_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,250],[320,100],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja3_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -3069,25 +3005,21 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </em>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja4_mob  "
   >
     <div
-      class="mod-banner --caja4_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja4_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[300,250],[320,100],[1,1]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja4_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja4_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,250],[320,100],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja4_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -3110,25 +3042,21 @@ exports[`BuildBody deberia renderizar solo los elementos del cuerpo permitidos p
     </mark>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja5_mob  "
   >
     <div
-      class="mod-banner --caja5_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja5_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[320,100],[300,250],[1,1],[\\"fluid\\"]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja5_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja5_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[320,100],[300,250],[1,1],[\\"fluid\\"]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja5_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -5510,25 +5438,21 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     .
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja1_mob  "
   >
     <div
-      class="mod-banner --caja1_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja1_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[300,250],[300,450],[320,100],[1,1]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja1_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja1_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,250],[300,450],[320,100],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja1_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -5632,45 +5556,37 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     Tipo de letra normal
   </p>
   <div
-    class="hidden"
+    class="mod-banner --middle_1_dsk  "
   >
     <div
-      class="mod-banner --middle_1_dsk  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_1_dsk"
-        data-device="desktop"
-        data-prebid-enabled="true"
-        data-size="[[1,1],[640,360],[640,480],[728,90],[468,60]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="middle_1_dsk"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_1_dsk"
+      data-device="desktop"
+      data-prebid-enabled="true"
+      data-size="[[1,1],[640,360],[640,480],[728,90],[468,60]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="middle_1_dsk"
+    />
   </div>
   <div
-    class="hidden"
+    class="mod-banner --caja1_amp none  "
   >
     <div
-      class="mod-banner --caja1_amp none  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216//133919216/AMP/ROS/caja1_amp"
-        data-prebid-enabled="false"
-        data-size="[[300,250]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
-        data-without-hide="false"
-        id="caja1_amp"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216//133919216/AMP/ROS/caja1_amp"
+      data-prebid-enabled="false"
+      data-size="[[300,250]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
+      data-without-hide="false"
+      id="caja1_amp"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -5680,25 +5596,21 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </strong>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja2_mob  "
   >
     <div
-      class="mod-banner --caja2_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja2_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[320,50],[320,100],[300,250],[300,450],[1,1],[360,270],[320,180],[360,450],[380,450]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja2_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja2_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[320,50],[320,100],[300,250],[300,450],[1,1],[360,270],[320,180],[360,450],[380,450]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja2_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -5708,24 +5620,20 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </em>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja2_amp none  "
   >
     <div
-      class="mod-banner --caja2_amp none  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216//133919216/AMP/ROS/caja2_amp"
-        data-prebid-enabled="false"
-        data-size="[[300,250]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
-        data-without-hide="false"
-        id="caja2_amp"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216//133919216/AMP/ROS/caja2_amp"
+      data-prebid-enabled="false"
+      data-size="[[300,250]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="\\"{\\\\\\"tags\\\\\\":[\\\\\\"\\\\\\"],\\\\\\"tags_nuevos\\\\\\":[]}\\""
+      data-without-hide="false"
+      id="caja2_amp"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -5735,25 +5643,21 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </u>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --middle_2_dsk  "
   >
     <div
-      class="mod-banner --middle_2_dsk  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_2_dsk"
-        data-device="desktop"
-        data-prebid-enabled="true"
-        data-size="[[468,60],[640,480],[728,90],[1,1]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="middle_2_dsk"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_desktop/Nota/middle_2_dsk"
+      data-device="desktop"
+      data-prebid-enabled="true"
+      data-size="[[468,60],[640,480],[728,90],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="middle_2_dsk"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -5765,25 +5669,21 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </em>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja3_mob  "
   >
     <div
-      class="mod-banner --caja3_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja3_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[300,250],[320,100],[1,1]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja3_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja3_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,250],[320,100],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja3_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -5804,25 +5704,21 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </em>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja4_mob  "
   >
     <div
-      class="mod-banner --caja4_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja4_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[300,250],[320,100],[1,1]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja4_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja4_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[300,250],[320,100],[1,1]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja4_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"
@@ -5845,25 +5741,21 @@ exports[`BuildBody deberia renderizar todos los elementos del cuerpo para defaul
     </mark>
   </p>
   <div
-    class="hidden"
+    class="mod-banner --caja5_mob  "
   >
     <div
-      class="mod-banner --caja5_mob  "
-    >
-      <div
-        class="com-banner"
-        data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja5_mob"
-        data-device="mobile"
-        data-prebid-enabled="true"
-        data-size="[[320,100],[300,250],[1,1],[\\"fluid\\"]]"
-        data-sizemap="[]"
-        data-slot-group="nota"
-        data-subscription="false"
-        data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
-        data-without-hide="true"
-        id="caja5_mob"
-      />
-    </div>
+      class="com-banner"
+      data-ad-unit-path="/133919216/la_nacion_mobile/Nota/caja5_mob"
+      data-device="mobile"
+      data-prebid-enabled="true"
+      data-size="[[320,100],[300,250],[1,1],[\\"fluid\\"]]"
+      data-sizemap="[]"
+      data-slot-group="nota"
+      data-subscription="false"
+      data-targeting="{\\"sitio\\":\\"lanacion\\",\\"seccion\\":\\"nota\\"}"
+      data-without-hide="true"
+      id="caja5_mob"
+    />
   </div>
   <p
     class="com-paragraph   --s"

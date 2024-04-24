@@ -10,18 +10,21 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner dsk 
       <section
         data-chain-id="c0fuuilRMMtV6pi"
       >
-        <div
-          class="mod-banner --billboard_dsk billboard_dsk "
-        >
+        <div>
           <div
-            class="com-banner lazy"
-            data-prebid-enabled="false"
-            data-size="[]"
-            data-sizemap="[]"
-            data-subscription="false"
-            data-without-hide="true"
+            class="mod-banner --billboard_dsk billboard_dsk "
             id="billboard_dsk"
-          />
+          >
+            <div
+              class="com-banner lazy"
+              data-prebid-enabled="false"
+              data-size="[]"
+              data-sizemap="[]"
+              data-subscription="false"
+              data-without-hide="true"
+              id="billboard_dsk"
+            />
+          </div>
         </div>
         <div
           class="ln-roof --generic"
@@ -149,18 +152,21 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner mob 
             </a>
           </article>
         </section>
-        <div
-          class="mod-banner --billboard_mob billboard_mob "
-        >
+        <div>
           <div
-            class="com-banner lazy"
-            data-prebid-enabled="false"
-            data-size="[]"
-            data-sizemap="[]"
-            data-subscription="false"
-            data-without-hide="true"
+            class="mod-banner --billboard_mob billboard_mob "
             id="billboard_mob"
-          />
+          >
+            <div
+              class="com-banner lazy"
+              data-prebid-enabled="false"
+              data-size="[]"
+              data-sizemap="[]"
+              data-subscription="false"
+              data-without-hide="true"
+              id="billboard_mob"
+            />
+          </div>
         </div>
       </section>
     </div>
@@ -178,18 +184,21 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
       <section
         data-chain-id="c0fUjhrcHRHB8X"
       >
-        <div
-          class="mod-banner --billboard_dsk billboard_dsk "
-        >
+        <div>
           <div
-            class="com-banner lazy"
-            data-prebid-enabled="false"
-            data-size="[]"
-            data-sizemap="[]"
-            data-subscription="false"
-            data-without-hide="true"
+            class="mod-banner --billboard_dsk billboard_dsk "
             id="billboard_dsk"
-          />
+          >
+            <div
+              class="com-banner lazy"
+              data-prebid-enabled="false"
+              data-size="[]"
+              data-sizemap="[]"
+              data-subscription="false"
+              data-without-hide="true"
+              id="billboard_dsk"
+            />
+          </div>
         </div>
         <div
           class="ln-roof --sub-exclusive"
@@ -263,44 +272,53 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
         <div
           class="banner-subscriber"
         >
-          <div
-            class="mod-banner --cajasuscriptores_dsk  "
-          >
+          <div>
             <div
-              class="com-banner lazy"
-              data-prebid-enabled="false"
-              data-size="[]"
-              data-sizemap="[]"
-              data-subscription="false"
-              data-without-hide="false"
+              class="mod-banner --cajasuscriptores_dsk  "
               id="cajasuscriptores_dsk"
-            />
+            >
+              <div
+                class="com-banner lazy"
+                data-prebid-enabled="false"
+                data-size="[]"
+                data-sizemap="[]"
+                data-subscription="false"
+                data-without-hide="false"
+                id="cajasuscriptores_dsk"
+              />
+            </div>
           </div>
-          <div
-            class="mod-banner --cajasuscriptores_mob  "
-          >
+          <div>
             <div
-              class="com-banner lazy"
-              data-prebid-enabled="false"
-              data-size="[]"
-              data-sizemap="[]"
-              data-subscription="false"
-              data-without-hide="false"
+              class="mod-banner --cajasuscriptores_mob  "
               id="cajasuscriptores_mob"
-            />
+            >
+              <div
+                class="com-banner lazy"
+                data-prebid-enabled="false"
+                data-size="[]"
+                data-sizemap="[]"
+                data-subscription="false"
+                data-without-hide="false"
+                id="cajasuscriptores_mob"
+              />
+            </div>
           </div>
-          <div
-            class="mod-banner --cajasuscriptores_tab  "
-          >
+          <div>
             <div
-              class="com-banner lazy"
-              data-prebid-enabled="false"
-              data-size="[]"
-              data-sizemap="[]"
-              data-subscription="false"
-              data-without-hide="false"
+              class="mod-banner --cajasuscriptores_tab  "
               id="cajasuscriptores_tab"
-            />
+            >
+              <div
+                class="com-banner lazy"
+                data-prebid-enabled="false"
+                data-size="[]"
+                data-sizemap="[]"
+                data-subscription="false"
+                data-without-hide="false"
+                id="cajasuscriptores_tab"
+              />
+            </div>
           </div>
         </div>
       </section>

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useAppContext } from 'fusion:context';
 import { Closebutton } from '@ln/common-ui-closebutton';
 import { Button } from '@ln/contenidos-ui-button';
 import ComButton from '../com-button';
 import flatArray from '../utils/flatArray';
-import StaticContent from '../staticContent';
+import StaticContentV2 from '../../../chains/LN10-global/staticContentV2';
 import siteProperties from '../../../../properties/sites/la-nacion-ar';
 import get from '../utils/get';
 import classNames from 'classnames';
@@ -30,12 +30,16 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
         isStatic = false,
         lazyClass = ''
     } = bannerConfiguration;
+    const [isHidden, setIsHidden] = useState(false);
     const homeLN10PropName = 'layoutsName.HomeLN10';
     const { layout } = useAppContext();
+
+    const handleHideBanner = () => setIsHidden(true);
 
     const comercialButton =
         layout !== get(siteProperties, homeLN10PropName) ? (
             <ComButton
+                onClick={handleHideBanner}
                 classCondition="--primary --compact"
                 dataEvent="LinkClick"
                 dataSection="Comercial-home"
@@ -44,6 +48,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
             />
         ) : (
             <Button
+                onClick={handleHideBanner}
                 variant="primary"
                 dataEvent="LinkClick"
                 dataSection="Comercial-home"
@@ -72,7 +77,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
         layout !== get(siteProperties, homeLN10PropName)
             ? 'mod-banner'
             : 'ln-banner-container'
-    } --${slotId} ${classes || ''} `;
+    } --${slotId} ${classes || ''} ${isHidden ? 'none' : ''}`;
     const Comp = (
         <>
             <div
@@ -94,6 +99,7 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
                         comercialButton
                     ) : (
                         <Closebutton
+                            onClick={handleHideBanner}
                             id={`${slotId}_btnCloseAd`}
                             type="button"
                             aria-label="Close"
@@ -110,7 +116,9 @@ const DivBannerSSR = ({ bannerConfiguration }) => {
     );
 
     return isStatic ? (
-        <StaticContent className={_classNames}>{Comp}</StaticContent>
+        <StaticContentV2 id={slotId} className={_classNames}>
+            {Comp}
+        </StaticContentV2>
     ) : (
         <div className={_classNames}>{Comp}</div>
     );

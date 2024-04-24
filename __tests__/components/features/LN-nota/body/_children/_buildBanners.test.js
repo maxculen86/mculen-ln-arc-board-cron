@@ -1,5 +1,7 @@
 import React from 'react';
-import BuildBanners from '../../../../../../components/features/LN-nota/body/_children/_buildBanners';
+import BuildBanners, {
+    DivBannerRender
+} from '../../../../../../components/features/LN-nota/body/_children/_buildBanners';
 import { useContent } from 'fusion:content';
 import Context from 'fusion:context';
 import contentElements from '../../../../../../__mocks__/data/nota/body/contentElements.json';
@@ -19,11 +21,6 @@ jest.mock('fusion:context', Component => {
         return props => <Component {...props} />;
     };
 });
-
-jest.mock(
-    '../../../../../../components/private/common/staticContent',
-    () => 'mock-static-content'
-);
 
 useContent.mockImplementation(() => {});
 

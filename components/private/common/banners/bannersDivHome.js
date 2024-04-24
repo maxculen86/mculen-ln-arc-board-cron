@@ -63,8 +63,7 @@ const bannersHome = {
             bannerConfiguration={{
                 slotId: 'comercial_dsk',
                 classes: '--comercial none',
-                closeButton: true,
-                isStatic: true
+                closeButton: true
             }}
         />
     ),
@@ -73,8 +72,7 @@ const bannersHome = {
             bannerConfiguration={{
                 slotId: 'comercial_mob',
                 classes: '--comercial none',
-                closeButton: true,
-                isStatic: true
+                closeButton: true
             }}
         />
     ),
@@ -424,8 +422,7 @@ const bannersHome = {
                 slotId: 'adhesion_dsk',
                 classes: '--adhesion_dsk --fixed --close none',
                 hideForSubscriptor: true,
-                closeButton: true,
-                isStatic: true
+                closeButton: true
             }}
         />
     ),
@@ -435,8 +432,7 @@ const bannersHome = {
                 slotId: 'adhesion_mob',
                 classes: '--adhesion_mob --fixed --close none',
                 hideForSubscriptor: true,
-                closeButton: true,
-                isStatic: true
+                closeButton: true
             }}
         />
     ),
@@ -446,8 +442,7 @@ const bannersHome = {
                 slotId: 'adhesion_tab',
                 classes: '--adhesion_tab --fixed --close none',
                 hideForSubscriptor: true,
-                closeButton: true,
-                isStatic: true
+                closeButton: true
             }}
         />
     ),
@@ -482,7 +477,6 @@ const bannersHome = {
                 bannerConfiguration={{
                     classes: '--logo none',
                     slotId: 'logo_header_dsk',
-                    isStatic: true,
                     withoutHide: true
                 }}
             />
@@ -490,7 +484,6 @@ const bannersHome = {
                 bannerConfiguration={{
                     classes: '--logo --logo_sticky_dsk none',
                     slotId: 'logo_header_dsk_sticky',
-                    isStatic: true,
                     withoutHide: true
                 }}
             />
@@ -498,7 +491,6 @@ const bannersHome = {
                 bannerConfiguration={{
                     classes: '--logo none',
                     slotId: 'logo_header_tab',
-                    isStatic: true,
                     withoutHide: true
                 }}
             />
@@ -506,7 +498,6 @@ const bannersHome = {
                 bannerConfiguration={{
                     classes: '--logo none',
                     slotId: 'logo_header_mob',
-                    isStatic: true,
                     withoutHide: true
                 }}
             />

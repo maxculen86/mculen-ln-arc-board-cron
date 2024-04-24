@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
 
+// TODO: para ser borrado
 const ScriptCloseBanners = () => {
     const { contextPath, deployment } = useAppContext();
 
