@@ -1,4 +1,4 @@
-import { configure } from 'enzyme';
+/* import { configure } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
 jest.mock(
@@ -7,3 +7,4 @@ jest.mock(
 );
 
 configure({ adapter: new Adapter() });
+ */
