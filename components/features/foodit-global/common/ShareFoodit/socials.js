@@ -8,7 +8,7 @@ import {
 } from '../../../../private/LN/common/utils/shareHelper';
 import get from '../../../../private/common/utils/get';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-import { addActionToDataLayer } from '../ActionsButtons/_helper';
+import addActionToDataLayer from '../utils/addActionToDataLayer';
 
 export const socials = [
     {

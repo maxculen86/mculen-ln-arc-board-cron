@@ -1,15 +1,13 @@
 import React from 'react';
+import Static from 'fusion:static';
 import PropTypes from 'prop-types';
-
 import { Text } from '@ln/common-ui-text';
 import { Icon } from '@ln/common-ui-icon';
 import { Recipe } from '@ln/foodit-ui-recipe';
 import { Image } from '@ln/foodit-ui-image';
 import { Badge } from '@ln/foodit-ui-badge';
 import { Button } from '@ln/foodit-ui-button';
-
 import ActionsButtons from '../ActionsButtons/foodit';
-import StaticContent from '../../../../private/common/staticContent';
 import VideoPlayer from '../../../private-global/common/videoPlayer/foodit';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
@@ -41,49 +39,46 @@ export const OpeningRecipe = ({ article = {} }) => {
     return (
         <Recipe>
             <Recipe.Media className="z-1">
-                <StaticContent>
-                    {videoJW ? (
+                {videoJW ? (
+                    <Static id="opening-media-recipe">
                         <VideoPlayer
                             data={videoJW}
                             tituloNota={title}
-                            isOpening
                             className="w-100 ratio-16-9"
                         />
-                    ) : (
-                        <Image
-                            alt={caption}
-                            src={resizedUrl || url}
-                            className="w-100 ratio-3-2"
-                            fetchPriority="high"
-                            loading="eager"
-                            sources={getImagesToLoadWithPicture(resized_urls)}
-                        />
-                    )}
-                    {badge && (
-                        <Badge className="lg-none absolute bottom-0 left-0 m-8">
-                            {badge}
-                        </Badge>
-                    )}
-                </StaticContent>
+                    </Static>
+                ) : (
+                    <Image
+                        alt={caption}
+                        src={resizedUrl || url}
+                        className="w-100 ratio-3-2"
+                        fetchPriority="high"
+                        loading="eager"
+                        sources={getImagesToLoadWithPicture(resized_urls)}
+                    />
+                )}
+                {badge && (
+                    <Badge className="lg-none absolute bottom-0 left-0 m-8">
+                        {badge}
+                    </Badge>
+                )}
             </Recipe.Media>
             <Recipe.Body>
-                <StaticContent>
-                    <div className="flex flex-column ai-start gap-12">
-                        {badge && <Badge className="lg-only">{badge}</Badge>}
-                        <div className="flex flex-column ai-start gap-16">
-                            <Text
-                                className="prumo prumo-black text-28 text-40_md text-48_lg"
-                                text={get(headlines, 'basic', '')}
-                                as="h1"
-                            />
-                            <Text
-                                className="text-14"
-                                text={getFooditAuthor(article)}
-                                as="h3"
-                            />
-                        </div>
+                <div className="flex flex-column ai-start gap-12">
+                    {badge && <Badge className="lg-only">{badge}</Badge>}
+                    <div className="flex flex-column ai-start gap-16">
+                        <Text
+                            className="prumo prumo-black text-28 text-40_md text-48_lg"
+                            text={get(headlines, 'basic', '')}
+                            as="h1"
+                        />
+                        <Text
+                            className="text-14"
+                            text={getFooditAuthor(article)}
+                            as="h3"
+                        />
                     </div>
-                </StaticContent>
+                </div>
                 <div className="flex ai-center gap-24">
                     <Button
                         title="Guardar"

@@ -1,9 +1,8 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import { useAppContext } from 'fusion:context';
+import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
-
-import StaticContent from '../../../private/common/staticContent';
 import WarningMessage from '../../../private/common/warningMessage/warningMessage';
 import validateHtmlFeature from './_helper';
 import SetFixedHeight from '../../../private/common/SetFixedHeight';
@@ -36,7 +35,7 @@ export default function HtmlFeature({
     }
 
     return (
-        <StaticContent>
+        <Static htmlOnly persistent id={featureId}>
             {!error && (
                 <section className="flex flex-column">
                     <div className="w-100vw as-center py-72 bg-light-50">
@@ -65,7 +64,7 @@ export default function HtmlFeature({
                     </div>
                 </section>
             )}
-        </StaticContent>
+        </Static>
     );
 }
 

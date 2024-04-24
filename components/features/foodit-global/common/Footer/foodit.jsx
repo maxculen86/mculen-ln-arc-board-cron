@@ -5,13 +5,12 @@ import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import { useAppContext } from 'fusion:context';
 import getAssetsPath from '../../../../private/common/utils/getAssetsPath';
-import StaticContent from '../../../../private/common/staticContent';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
 
 const FooterFoodit = () => {
     const { contextPath, deployment } = useAppContext();
     return (
-        <StaticContent>
+        <div className="hidden">
             <footer className="container">
                 <div className="grid grid-cols-12_md relative w-100 pb-32 pb-0_lg text-center border border-top border-thin border-light-100">
                     <section className="flex flex-column ai-center gap-16 text-16 col-span-6_md my-32 border border-thin border-light-100 border-right_md -mx-12">
@@ -166,7 +165,7 @@ const FooterFoodit = () => {
                     </section>
                 </div>
             </footer>
-        </StaticContent>
+        </div>
     );
 };
 

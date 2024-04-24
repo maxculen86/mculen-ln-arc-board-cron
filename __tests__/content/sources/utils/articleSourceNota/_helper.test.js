@@ -1,19 +1,20 @@
 import {
-    addHttpsInterstitialLink,
-    addHttpsLinkInParagraphs,
     getUrlQuery,
     transformPromoItems,
-    getMalformedAnchorTags,
-    replaceMalformedAnchorTags,
-    formatElementText,
-    removeErrosInterstitialLink,
-    formatInterstitialLink,
     filterSections,
     transformAuthors,
     transformElementsBasedOnType,
     setRedirect
 } from '../../../../../content/sources/utils/articleSourceNota/_helper';
 import Redirect from '../../../../../content/sources/utils/redirect';
+import {
+    addHttpsLinkInParagraphs,
+    addHttpsInterstitialLink,
+    replaceMalformedAnchorTags,
+    formatElementText,
+    removeErrosInterstitialLink,
+    formatInterstitialLink
+} from '../../../../../content/sources/utils/articleSourceNota/_configs';
 
 describe('Tests articleSourceNota - _helper', () => {
     describe('Tests addHttpsInterstitialLink function', () => {

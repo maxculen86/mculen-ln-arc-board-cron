@@ -5,7 +5,7 @@ import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
 import ShareFoodit from '../ShareFoodit/foodit';
 import IconSprite from '../../../../features/private-global/common/iconSprite/IconSprite';
-import addEventToDataLayer from '../../../../private/LN/common/utils/addEventToDataLayer';
+import addActionToDataLayer from '../utils/addActionToDataLayer';
 
 const buttonCopy = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -23,22 +23,6 @@ const buttonComment = () => {
 };
 const buttonPrint = () => {
     window.print();
-};
-
-export const addActionToDataLayer = (article, action) => {
-    const TYPES_LABEL = {
-        7: 'receta',
-        4: 'nota'
-    };
-
-    addEventToDataLayer({
-        event: 'e_linkclick',
-        category: 'interaction',
-        label: TYPES_LABEL[get(article, 'subtype', '')] || '',
-        action,
-        title: get(article, 'headlines.basic', ''),
-        articleId: get(article, '_id', '')
-    });
 };
 
 export const buttonConfig = [

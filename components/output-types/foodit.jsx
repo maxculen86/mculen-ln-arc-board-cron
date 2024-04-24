@@ -102,7 +102,7 @@ const Foodit = ({
                     globalContent={globalContent}
                 />
                 <div id="fusion-app">{children}</div>
-                <Fusion hydrateOnly />
+                <Fusion />
                 <Libs />
                 <Scripts location="body-bottom" />
                 <TagsLoadingList

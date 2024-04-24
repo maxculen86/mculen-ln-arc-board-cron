@@ -59,13 +59,13 @@ var searchPage = {
 
         var result_template = `
             <script type="text/html" id="queryly_resultpage_template">
-            <article class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden bg-light-1 col-span-4 col-span-4_md" data-variant="recipe">
+            <article class="card relative h-100 w-100 max-w-1366 mx-auto border border-all border-thin border-light-100 overflow-hidden  <%=queryly.data.subtype === '7' ? 'bg-light-1' : 'bg-positive'%> col-span-4 col-span-4_md" data-variant="<%=queryly.data.subtype === '7' ? 'recipe' : 'note'%>">
                 <a href="<%=queryly.data.link%>" <%=queryly.data.trackevent%> class="link foodit-link flex gap-8 ai-center roboto-regular card-container flex-column row-gap-0 column-gap-32 h-100 text-inherit" title="<%=queryly.data.title%>" target="_self" data-variant="primary">
-                    <div class="relative w-100">
+                    <div class="<%=queryly.data.subtype === '7' ? 'relative w-100' : 'relative w-100 px-16 pt-16 pb-4'%>">
                         <div class="foodit-placeholder card-image ratio-3-2 w-100">
                             <picture>
                                 <source media="(max-width: 767px)" srcset="<%=queryly.data.image%>">
-                                <img class="image flex card-image ratio-3-2 w-100 --cover" decoding="async" fetchpriority="low" loading="lazy" src="<%=queryly.data.image%>" alt="">
+                                <img class="image flex card-image ratio-3-2 w-100  <%=queryly.data.subtype === '7' ? '' : 'none'%> --cover" decoding="async" fetchpriority="low" loading="lazy" src="<%=queryly.data.image%>" alt="">
                             </picture>
                         </div>
                         <%if (typeof queryly.data.badge != "undefined") {%>
@@ -81,14 +81,14 @@ var searchPage = {
                                 <%if (queryly.data.creator) {%>
                                     <span class="text text-14">Por <%=queryly.data.creator%></span>
                                 <%}%>
-                                <%if (queryly.data.count_time) {%>
-                                    <div class="opacity-0">
+                                <%if (queryly.data.counter_time) {%>
+                                    <div class="opacity-1">
                                         <i class="icon --icon-12 --inherit">
                                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                                                 <use href="/pf/resources/images/foodit-sprite-default.svg?d=2115#timer"></use>
                                             </svg>
                                         </i>
-                                        <span class="text text-12 roboto-light"><%=queryly.data.count_time%> min</span>
+                                        <span class="text text-12 roboto-light"><%=queryly.data.counter_time%> min</span>
                                     </div>
                                 <%}%>
                             </div>
@@ -121,7 +121,7 @@ var searchPage = {
     // 2. Queda comentada una porcion de stylehtml para futura implementacion de checkbox custom
     renderStyle: function () {
         var style = document.createElement('style');
-        var stylehtml = '.collapsed::after {content:"Ver más +";color:#846B05;font-size:14px;} .collapsed > * {display:none!important;} .expanded {display:flex;flex-direction:column;padding-bottom:16px;gap:8px;} .expanded::after {content:"Ver menos -";color:#846B05;font-size:14px;} .expanded > * {display:flex!important;} .search-button {padding: 10px 15px;vertical-align:top;;color: white;border-style: hidden;font-weight: bold;position: absolute;top: 0px;right: 0px;font-size: 16px;cursor: pointer;} .queryly_filter_hide {display:none!important;} .queryly_filter {border-bottom: 1px solid #E6E6E6;margin-bottom:16px; } .queryly_filter_title {cursor:pointer;font-weight:bold;font-size:12px;margin-bottom:16px} .queryly_filter_title img {content:url(https://www.queryly.com/images/chevron_right_black_24dp.svg);float:right;vertical-align:middle;margin-top:3px;} .queryly_filter_title_expand {margin-bottom: 16px;} .queryly_filter_title_expand img {content:url(https://www.queryly.com/images/expand_more_black_24dp.svg)}';
+        var stylehtml = '.collapsed::after {content:"Ver más +";color:#846B05;font-size:14px; font-weight: bold;} .collapsed > * {display:none!important;} .expanded {display:flex;flex-direction:column;padding-bottom:16px;gap:8px;} .expanded::after {content:"Ver menos -";color:#846B05;font-size:14px; font-weight: bold;} .expanded > * {display:flex!important;} .search-button {padding: 10px 15px;vertical-align:top;;color: white;border-style: hidden;font-weight: bold;position: absolute;top: 0px;right: 0px;font-size: 16px;cursor: pointer;} .queryly_filter_hide {display:none!important;} .queryly_filter {border-bottom: 1px solid #E6E6E6;margin-bottom:16px; } .queryly_filter_title {cursor:pointer;font-weight:bold;font-size:12px;margin-bottom:16px} .queryly_filter_title img {content:url(https://www.queryly.com/images/chevron_right_black_24dp.svg);float:right;vertical-align:middle;margin-top:3px;} .queryly_filter_title_expand {margin-bottom: 16px;} .queryly_filter_title_expand img {content:url(https://www.queryly.com/images/expand_more_black_24dp.svg)}';
         // stylehtml = stylehtml + '.filter_item_label {-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;} .filter_item_label:hover input ~ .checkmark{border-color:#787932; opacity:0.8;} .filter_item_label input:checked ~ .checkmark{border:none; background-color:#787932; opacity:0.8;} .checkmark:after {content:"";position:absolute;display:none;} .filter_item_label input:checked ~ .checkmark:after {display:block;} .filter_item_label .checkmark:after {left:8px;top:3px;width:8px;height:16px;border:solid #F3F0EB;border-width:0 3px 3px 0; border-radius:0px 3px 3px 3px; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg);} ';
         stylehtml = stylehtml + '.filter_item_counter {vertical-align: middle;color: var(--neutral-light-600); font-size: 14px;}.hideElement {display:none} .showElement {display:flex}  #queryly_advanced_container {width:100%;} #faceteddata {font-size: 16px;line-height:150%;} .queryly_item_row img {} .queryly_item_row {width:calc(33% - 28px);overflow:hidden;display:inline-block;margin-right:0px;margin-left:20px;margin-bottom:20px;margin-right:0px;;padding-bottom:0px;background:white;vertical-align:top;} .queryly_item_title {overflow: hidden;} .queryly_item_description {color: #5f5f5f; font-size: 14px;font-weight: 400;   overflow: hidden;  } #resultdata {margin-bottom: 60px;} .queryly_advanced_item_imagecontainer {margin-right: 20px; padding-bottom: 0px;  height: 120px;width: 210px; overflow: hidden;  background-size: cover; background-position: 50% 50%; position: relative;}';
         stylehtml = stylehtml + '.filterbar_item {display:inline-block;margin-right:10px;margin-bottom:10px;padding:8px 12px;border-radius:4px;background:#333333;color:#FEFEFE;font-size: 14px;line-height:100%; font-weight:700; font-family: Roboto} .selectedFilterItem a {font-weight:800} .queryly_item_title {color:red;margin-top:0px;margin-bottom:6px;font-family: FoundersGroteskCond,Arial Narrow,Arial,sans-serif;font-size:24px;line-height:24px;font-weight:600;}; @media (max-width: 780px) { section {width:100%!important;padding:0px!important;} #resultdata{margin-left:0px!important;} .queryly_item_title {font-weight:normal;}  } ';
@@ -326,8 +326,7 @@ var searchPage = {
         document.getElementById('resultdata').innerHTML = '';
 
         //assemble the rest api.
-        var url = "//api.queryly.com/json.aspx?queryly_key=" + queryly.QuerylyKey + "&query=" + searchPage.query + "&endindex=0&batchsize=" + searchPage.batchSize + "&callback=searchPage.resultcallback&showfaceted=true&maxfacetitems=40&extendeddatafields=guid,creator,imageresizer,promo_image,count_time,section&timezoneoffset=" + (new Date(0)).getTimezoneOffset();
-
+        var url = "//api.queryly.com/json.aspx?queryly_key=" + queryly.QuerylyKey + "&query=" + searchPage.query + "&endindex=0&batchsize=" + searchPage.batchSize + "&callback=searchPage.resultcallback&showfaceted=true&maxfacetitems=40&extendeddatafields=guid,creator,imageresizer,promo_image,counter_time,section,subtype&timezoneoffset=" + (new Date(0)).getTimezoneOffset();
         url = url + "&sort=" + searchPage.sortby;
 
         var keys = '';
@@ -367,7 +366,7 @@ var searchPage = {
             document.getElementById('btn-toggle-filter').classList.add('none');
             document.querySelector('.faceteddata').style.display = 'none';
             document.getElementById('resultdata').classList.replace('col-span-12_lg', 'col-span-16_lg');
-            document.getElementById('resultdata').innerHTML = '<div class="search-bar-area flex flex-column ai-center" style="position: relative;"><form class="search-bar none" action=""><input style="border-radius:60px" class="queryly_searchbox" name="query" type="text"  value="' + (results.metadata.query.trim().toLowerCase() == "Saladas" ? "" : results.metadata.query.trim()) + '" placeholder="" onkeydown="searchPage.processEnterKey(event);"><button class="search-button" type="submit">Search</button></form><div class="empty-state-svg mb-32">'+ emptyState +'</div><div class="prumo prumo-semibold text-32 text-center mb-8">Nada por acá</div><div class="roboto text-24 text-center">No se encontraron resultados para "' + (results.metadata.query.trim().toLowerCase() == "Saladas" ? "" : results.metadata.query.trim()) + '"</div></div>';
+            document.getElementById('resultdata').innerHTML = '<div class="search-bar-area flex flex-column ai-center" style="position: relative;"><form class="search-bar none" action=""><input style="border-radius:60px" class="queryly_searchbox" name="query" type="text"  value="' + (results.metadata.query.trim().toLowerCase() == "Saladas" ? "" : results.metadata.query.trim()) + '" placeholder="" onkeydown="searchPage.processEnterKey(event);"><button class="search-button" type="submit">Search</button></form><div class="empty-state-svg mb-32">'+ emptyState +'</div><div class="prumo prumo-semibold text-24 text-28_md text-32_lg text-center mb-8">Nada por acá</div><div class="roboto text-24 text-center">No se encontraron resultados para "' + (results.metadata.query.trim().toLowerCase() == "Saladas" ? "" : results.metadata.query.trim()) + '"</div></div>';
             return;
         }
 
@@ -588,7 +587,7 @@ var searchPage = {
                 values = values + searchPage.facetedvalue[i].join('^') + "|";
             }
         }
-        var url = "//api.queryly.com/json.aspx?queryly_key=" + queryly.QuerylyKey + "&query=" + searchPage.query + "&endindex=" + searchPage.endIndex + "&batchsize=" + searchPage.batchSize + "&callback=searchPage.resultcallback&showfaceted=true&maxfacetitems=40&extendeddatafields=guid,creator,imageresizer,promo_image,count_time,section&timezoneoffset=" + (new Date(0)).getTimezoneOffset();
+        var url = "//api.queryly.com/json.aspx?queryly_key=" + queryly.QuerylyKey + "&query=" + searchPage.query + "&endindex=" + searchPage.endIndex + "&batchsize=" + searchPage.batchSize + "&callback=searchPage.resultcallback&showfaceted=true&maxfacetitems=40&extendeddatafields=guid,creator,imageresizer,promo_image,counter_time,section,subtype&timezoneoffset=" + (new Date(0)).getTimezoneOffset();
         url = url + "&sort=" + searchPage.sortby;
         if (searchPage.facetedkey.length > 0) {
             url = url + "&facetedkey=" + encodeURIComponent(keys) + "&facetedvalue=" + encodeURIComponent(values);
@@ -607,8 +606,7 @@ var searchPage = {
         //document.getElementById('resultdata').innerHTML = '';
 
         //assemble the rest api.
-        var url = "//api.queryly.com/json.aspx?queryly_key=" + queryly.QuerylyKey + "&query=" + searchPage.query + "&endindex=" + index + "&batchsize=" + searchPage.batchSize + "&callback=searchPage.resultcallback&showfaceted=true&maxfacetitems=40&extendeddatafields=guid,creator,imageresizer,promo_image,count_time,section&timezoneoffset=" + (new Date(0)).getTimezoneOffset();
-
+        var url = "//api.queryly.com/json.aspx?queryly_key=" + queryly.QuerylyKey + "&query=" + searchPage.query + "&endindex=" + index + "&batchsize=" + searchPage.batchSize + "&callback=searchPage.resultcallback&showfaceted=true&maxfacetitems=40&extendeddatafields=guid,creator,imageresizer,promo_image,counter_time,section,subtype&timezoneoffset=" + (new Date(0)).getTimezoneOffset();
         if (key != '') {
 
             var fkeys = [];

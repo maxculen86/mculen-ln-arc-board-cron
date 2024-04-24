@@ -18,7 +18,6 @@ import {
     isValidString,
     isValidNonZeroNumber
 } from '../../../dataValidation';
-import { resizeArcImage } from './buildResizerUrls';
 
 const MEDIAMINWIDTH = '(min-width: 768px)';
 
@@ -182,6 +181,181 @@ export const buildQueryParams = ({
     return arcImage
         ? `${image}?${auth()}${width()}${height()}${quality()}${smart()}${setFocal()}`
         : '';
+};
+
+export const resizeImgUrl = ({
+    originalUrl,
+    originalWidth,
+    originalHeight,
+    defaultResizeWithSmart = {},
+    focalPoint = [],
+    smartCropExcluded,
+    filterQuality = 70,
+    isInApertura = false,
+    isAdmin = false,
+    arcImage
+}) => {
+    const {
+        useFullSize,
+        proportion,
+        width: newWidth = 0
+    } = defaultResizeWithSmart;
+    let { height: newHeight = 0 } = defaultResizeWithSmart;
+
+    newHeight = !useFullSize ? 0 : newHeight;
+
+    if (!newHeight && !newWidth) throw new Error('Height and Width required');
+
+    // TODO: Revisar el buen funcionamiento del Crop
+    const crop = setCropMethod({
+        defaultResizeWithSmart,
+        originalWidth,
+        originalHeight,
+        focalPoint
+    });
+
+    proportion && (newHeight = setHeight(newWidth, newHeight, proportion));
+
+    if (newHeight === 0 && (focalPoint.length > 1 || smartCropExcluded)) {
+        newHeight = autoHeight(originalHeight, originalWidth, newWidth);
+    }
+
+    // TODO: quitar este early return, solo cumple funcion temporal para que no fallen imagenes con url v1 de liftigniter te puede interesar
+    const imageUrl = get(arcImage, 'url', '');
+    if (
+        !get(arcImage, '_id', '') &&
+        (isResizerV1(imageUrl) || isResizerV2(imageUrl))
+    ) {
+        return imageUrl;
+    }
+
+    return `${baseUrl({
+        isInApertura,
+        isAdmin
+    })}/resizer/v2/${buildQueryParams({
+        originalUrl,
+        newWidth,
+        newHeight,
+        filterQuality,
+        smartCropExcluded,
+        focalPoint,
+        arcImage,
+        crop
+    })}`;
+};
+
+// TODO: Exceso de complejida ciclomatica
+export const resizeArcImage = ({
+    arcImage,
+    resizeOptions,
+    zoomSizes,
+    smartCropExcluded = false,
+    defaultResize = {
+        width: 768,
+        height: 513,
+        media: MEDIAMINWIDTH
+    },
+    isInApertura = false
+}) => {
+    if (arcImage.type !== 'image' || !arcImage.url)
+        throw new Error(
+            'Tipo de dato no valido. Se necesita un tipo "image" y una url para realizar el resize'
+        );
+
+    // TODO: Cambiar nombre Punto Focal
+    const fp = get(
+        arcImage,
+        'additional_properties.focal_point.min',
+        undefined
+    );
+
+    const defaultResizeWithSmart = {
+        ...defaultResize,
+        isNotSmart: typeof fp !== 'undefined'
+    };
+
+    const _resizeOptions =
+        typeof fp !== 'undefined'
+            ? resizeOptions &&
+              resizeOptions.map(e => ({ ...e, isNotSmart: true }))
+            : resizeOptions;
+
+    const _zoomSizes =
+        typeof fp !== 'undefined'
+            ? zoomSizes && zoomSizes.map(e => ({ ...e, isNotSmart: true }))
+            : zoomSizes;
+
+    return {
+        ...arcImage,
+        width: fp || !smartCropExcluded ? 768 : arcImage.width,
+        height: fp || !smartCropExcluded ? 513 : arcImage.height,
+        url: resizeImgUrl({
+            originalUrl: arcImage.url,
+            originalWidth: arcImage.width,
+            originalHeight: arcImage.height,
+            defaultResizeWithSmart,
+            focalPoint: fp,
+            smartCropExcluded,
+            arcImage,
+            isInApertura
+        }),
+        // TODO: Hacer logica del resizerUrls
+        resized_urls: resizeUrlCollection({
+            originalUrl: arcImage.url,
+            originalWidth: arcImage.width,
+            originalHeight: arcImage.height,
+            defaultResizeWithSmart: _resizeOptions,
+            focalPoint: fp,
+            smartCropExcluded,
+            arcImage,
+            isInApertura
+        }),
+        resized_urls_zoom: resizeUrlCollection({
+            originalUrl: arcImage.url,
+            originalWidth: arcImage.width,
+            originalHeight: arcImage.height,
+            defaultResizeWithSmart: _zoomSizes,
+            focalPoint: fp,
+            smartCropExcluded,
+            arcImage
+        })
+    };
+};
+
+export const resizeUrlCollection = ({
+    originalUrl,
+    originalWidth,
+    originalHeight,
+    defaultResizeWithSmart,
+    focalPoint = [],
+    smartCropExcluded,
+    arcImage,
+    isInApertura
+}) => {
+    const resp = [];
+    const finalPreset = defaultResizeWithSmart;
+    finalPreset &&
+        finalPreset.forEach(opt => {
+            const resizedUrl = resizeImgUrl({
+                originalUrl,
+                originalWidth,
+                originalHeight,
+                defaultResizeWithSmart: opt,
+                focalPoint,
+                smartCropExcluded,
+                arcImage,
+                isInApertura
+            });
+            resp.push({
+                resizedUrl,
+                option: {
+                    ...opt,
+                    height: updateHeight(originalHeight, originalWidth, opt)
+                }
+            });
+        });
+
+    return resp;
 };
 
 export const resizeArcGallery = (

@@ -2,9 +2,7 @@
 
 exports[`Components - features - recetas - Banner should test Receta Banner 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <div>
     <div
       class="banner-container relative w-100 z-1 flex jc-center ai-center h-250 h-160_lg overflow-y-clip"
     >

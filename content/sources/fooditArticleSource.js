@@ -24,7 +24,7 @@ const fetch = (query, { cachedCall } = {}) => {
                 response,
                 query,
                 siteUrl: SITE_FOODIT,
-                paywallUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/`
+                paywallUrl: `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/4/?cv=800&fc=825`
             });
 
             return transform(response, query, cachedCall);

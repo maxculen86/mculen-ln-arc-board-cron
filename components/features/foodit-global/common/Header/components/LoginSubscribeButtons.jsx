@@ -28,7 +28,7 @@ const LoginSubscribeButtons = ({ classNameButtons = '' }) => {
                     data-event-data-layer="subscription_start"
                     data-button="buttonSubscribeText"
                     onClick={() =>
-                        (location.href = `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?callback=${window.btoa(
+                        (location.href = `${SITIO_SEGURO_REGISTRACION}/suscripcion/V/3/?cv=670&fc=825&callback=${window.btoa(
                             window.location.href
                         )}`)
                     }
