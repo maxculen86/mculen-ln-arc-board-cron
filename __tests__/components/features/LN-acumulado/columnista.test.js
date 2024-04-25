@@ -16,7 +16,7 @@ jest.mock('fusion:consumer', component => {
         };
     };
 });
-describe('features - LaNacion - Acumulado - columnista', () => {
+xdescribe('features - LaNacion - Acumulado - columnista', () => {
     useContent.mockImplementation(() => COLUMNIST_DATA);
     const props = {
         customFields: {

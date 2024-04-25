@@ -1,5 +1,5 @@
 import { createLinkTag } from '../../../../components/output-types/criticalCss/helpers';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 describe('components - outputType - criticalCss - createStyleTag', () => {
     const mockParams = {
         contextPath: '/pf',

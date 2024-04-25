@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Consumer from 'fusion:consumer';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import Container from '../../../../../../components/private/OTT/programa/programImage/container';
 
 jest.mock(

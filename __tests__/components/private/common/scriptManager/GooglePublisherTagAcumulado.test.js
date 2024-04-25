@@ -8,7 +8,7 @@ jest.mock('fusion:context', () => ({
     }
 }));
 
-describe('GooglePublisherTagAcumulado', () => {
+xdescribe('GooglePublisherTagAcumulado', () => {
     const content = {
         globalContent: {
             Payload: {

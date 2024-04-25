@@ -24,7 +24,7 @@ describe('components - features- foodit-global - schemas - RecipeSchema', () => 
         );
 
         expect(dietScriptTag).toBeTruthy();
-        expect(dietScriptTag.textContent).toContain(
+        expect(dietScriptTag.textContent).toMatch(
             'https://schema.org/GlutenFreeDiet'
         );
     });

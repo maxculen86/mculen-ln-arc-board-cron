@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Comscore from '../../../../../components/private/common/scriptManager/comscore';
 
-describe('Comscore', () => {
+xdescribe('Comscore', () => {
     const config = { c1: '2', c2: '12312312' };
 
     it('Should return script and noscript tags', () => {

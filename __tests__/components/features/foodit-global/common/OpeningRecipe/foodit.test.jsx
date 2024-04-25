@@ -2,7 +2,7 @@ import React from 'react';
 import Context from 'fusion:context';
 
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 import OpeningRecipe from '../../../../../../components/features/foodit-global/common/OpeningRecipe/foodit';
 import withVideoArticle from '../../../../../../__mocks__/data/articlesFoodit/SubtypeReceta/withVideoOpening.json';

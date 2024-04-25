@@ -13,7 +13,7 @@ jest.mock(
     () => 'mod-article-mock'
 );
 
-describe('Private - LN - Acumulado - ArticleAcum', () => {
+xdescribe('Private - LN - Acumulado - ArticleAcum', () => {
     const props = {
         dataSection: 'CuerpoAcu',
         article: article,

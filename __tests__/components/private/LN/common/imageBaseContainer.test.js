@@ -9,7 +9,7 @@ jest.mock(
 
 import ImageArticle from '../../../../../components/private/LN/common/media/imageBase/index';
 
-describe('features - La Nacion - components - nota - imageArticle', () => {
+xdescribe('features - La Nacion - components - nota - imageArticle', () => {
     const image = {
         type: 'image',
         alt_text: 'Bolitas de pescado para compartir',

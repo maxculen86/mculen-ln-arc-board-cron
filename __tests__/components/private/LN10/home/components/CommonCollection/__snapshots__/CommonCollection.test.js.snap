@@ -21,7 +21,6 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
           >
             CommonCOllection
           </h3>
-          
         </div>
       </div>
       <div
@@ -85,7 +84,6 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               <h2
                 class="text ln-text title --prumo --font-medium --font-m-l"
               >
-                
                 Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
               </h2>
               <div
@@ -171,7 +169,6 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               <h2
                 class="text ln-text title --prumo --font-medium --font-m-l"
               >
-                
                 Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
               </h2>
               <div
@@ -244,7 +241,6 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               <h2
                 class="text ln-text title --prumo --font-medium --font-m-l"
               >
-                
                 Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
               </h2>
               <div
@@ -317,7 +313,6 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               <h2
                 class="text ln-text title --prumo --font-medium --font-m-l"
               >
-                
                 El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres
               </h2>
               <div
@@ -390,7 +385,6 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               <h2
                 class="text ln-text title --prumo --font-medium --font-m-l"
               >
-                
                 El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
               </h2>
               <div
@@ -463,7 +457,6 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               <h2
                 class="text ln-text title --prumo --font-medium --font-m-l"
               >
-                
                 Test noticia en ARC
               </h2>
               <div
@@ -536,7 +529,6 @@ exports[`Tests Component CommonCollection should return 8 articles 1`] = `
               <h2
                 class="text ln-text title --prumo --font-medium --font-m-l"
               >
-                
                 Test noticia en ARC
               </h2>
             </section>
@@ -725,7 +717,6 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               <h2
                 class="text ln-text title --prumo --font-medium --font-m"
               >
-                
                 Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
               </h2>
             </section>
@@ -794,7 +785,6 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               <h2
                 class="text ln-text title --prumo --font-medium --font-m-l"
               >
-                
                 Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
               </h2>
             </section>
@@ -850,7 +840,6 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               <h2
                 class="text ln-text title --prumo --font-medium --font-m-l"
               >
-                
                 Papelón: Benoit Paire se despidió del Argentina Open con una actuación escandalo
               </h2>
             </section>
@@ -906,7 +895,6 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               <h2
                 class="text ln-text title --prumo --font-medium --font-m-l"
               >
-                
                 El músico mexicano encargado de enviar un mensaje de la humanidad a los extraterrestres
               </h2>
             </section>
@@ -962,7 +950,6 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               <h2
                 class="text ln-text title --prumo --font-medium --font-m-l"
               >
-                
                 El boliviano que escapó por segunda vez de la muerte, tras sobrevivir a la caída del avión del Chapecoense
               </h2>
             </section>
@@ -1018,7 +1005,6 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               <h2
                 class="text ln-text title --prumo --font-medium --font-m-l"
               >
-                
                 Test noticia en ARC
               </h2>
             </section>
@@ -1074,7 +1060,6 @@ exports[`Tests Component CommonCollection should return hashTag with 7 articles 
               <h2
                 class="text ln-text title --prumo --font-medium --font-m-l"
               >
-                
                 Test noticia en ARC
               </h2>
             </section>

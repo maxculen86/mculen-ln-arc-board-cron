@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Game from '../../../../components/features/LN-common/Juego/default';
 import Context from 'fusion:context';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import '@testing-library/jest-dom';
 import getGameProperties from '../../../../components/private/LN/common/utils/getGameProperties';
 

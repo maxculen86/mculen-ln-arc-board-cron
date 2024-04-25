@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import ModShield from '../../../../components/private/common/mod-shield';
 import SHIELD_DATA from '../../../../__mocks__/data/shields/shields';
 

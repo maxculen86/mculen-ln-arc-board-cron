@@ -1,29 +1,27 @@
-import React from 'react';
-jest.mock('fusion:context', WrappedComponent => {
-    return function(WrappedComponent) {
-        class element extends WrappedComponent {
-            constructor(props) {
-                super(props);
-                this.props = props;
-            }
-            render() {
-                return (
-                    <WrappedComponent
-                        contextPath={'contextPath'}
-                        deployment={path => `pathDeployment/${path}`}
-                        siteProperties={{}}
-                        arcSite="ott"
-                        {...this.props}
-                    />
-                );
-            }
+jest.mock('fusion:context', () => ({
+    useAppContext: jest.fn(() => ({
+        deployment: jest.fn(path => `pathDeployment/${path}`),
+        contextPath: 'pf/',
+        arcSite: 'ott',
+        siteProperties: {}
+    })),
+    useComponentContext: jest.fn(() => ({
+        // Agrega los valores mockeados necesarios aquí
+    })),
+    useFusionContext: jest.fn(() => ({
+        isAdmin: false,
+        siteProperties: {
+            site: 'the-prophet'
         }
+    }))
+}));
 
-        return element;
-    };
-});
-
-export const useAppContext = jest.fn();
+export const useAppContext = jest.fn(() => ({
+    deployment: path => `pathDeployment/${path}`,
+    contextPath: 'contextPath',
+    arcSite: 'ott',
+    siteProperties: {} // Asegúrate de incluir cualquier otra propiedad que necesite ser mockeada
+}));
 export const useComponentContext = jest.fn();
 export const useFusionContext = jest.fn(() => {
     return {

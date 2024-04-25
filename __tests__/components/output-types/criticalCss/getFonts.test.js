@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { GetFonts } from '../../../../components/output-types/criticalCss/getFonts';
 
 jest.mock('fusion:environment', () => {

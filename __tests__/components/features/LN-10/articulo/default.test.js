@@ -126,7 +126,7 @@ describe('Components - features - LN-10 - articulo - default', () => {
             <ArticleFeature {...getProps('author')} />
         );
         expect(screen.getByRole('article')).not.toHaveClass('--author');
-        expect(container.innerHTML).not.toContain('marquee-img');
+        expect(container.innerHTML).not.toMatch('marquee-img');
     });
 
     it('should render page builder error', () => {
@@ -255,7 +255,7 @@ describe('Components - features - LN-10 - articulo - default', () => {
                 <ArticleFeature {...getProps('liveblog', { delTest: true })} />
             );
             expect(screen.getByText('Carlos Pagni')).toBeVisible();
-            expect(container.innerHTML).toContain('marquee-img');
+            expect(container.innerHTML).toMatch('marquee-img');
         });
 
         test('It should return the titles of the note powerups instead of the subhead.', () => {
@@ -300,7 +300,7 @@ describe('Components - features - LN-10 - articulo - default', () => {
             <ArticleFeature {...getProps('author')} />
         );
         expect(screen.getByRole('article')).not.toHaveClass('--author');
-        expect(container.innerHTML).not.toContain('marquee-img');
+        expect(container.innerHTML).not.toMatch('marquee-img');
     });
 
     it('should render page builder error', () => {

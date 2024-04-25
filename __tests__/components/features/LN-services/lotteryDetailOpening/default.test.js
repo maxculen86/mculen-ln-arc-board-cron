@@ -64,7 +64,7 @@ describe('Features - LN-servicios - LN Loteria Detalle =>', () => {
         expect(Static.getElementsByClassName('lottery-detail-box').length).toBe(
             1
         );
-        expect(Static.firstChild.textContent).toContain('Últimos resultados');
+        expect(Static.firstChild.textContent).toMatch('Últimos resultados');
     });
 
     it('should test lottery cards', () => {

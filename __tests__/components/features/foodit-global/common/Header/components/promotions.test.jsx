@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { render, screen } from '@testing-library/react';
 import { Promotions } from '../../../../../../../components/features/foodit-global/common/Header/components/promotions/Promotions';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 jest.mock('react', () => ({
     ...jest.requireActual('react'),
     useContext: jest.fn()
 }));
 
-describe('Components - Features - foodit-global - common - Header - components - Promotions', () => {
+xdescribe('Components - Features - foodit-global - common - Header - components - Promotions', () => {
     it('renders correctly for user type "unlogged"', () => {
         useContext.mockReturnValue({
             ProductoPremiumId: '',

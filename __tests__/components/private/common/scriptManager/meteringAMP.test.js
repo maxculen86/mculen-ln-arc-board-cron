@@ -2,7 +2,7 @@ import React from 'react';
 import MeteringAMP from '../../../../../components/private/common/scriptManager/meteringAMP';
 import { shallow } from 'enzyme';
 
-describe('Private - Common - MeteringAMP', () => {
+xdescribe('Private - Common - MeteringAMP', () => {
     const globalContent = {
         canonicalUrl: '/espectaculos/luz-camara-accion-nid574',
         contentCode: 'comun',

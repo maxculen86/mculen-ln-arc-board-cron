@@ -42,9 +42,16 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
               <i
                 class="icon --icon-16"
               >
-                <mock-icon
-                  name="instagram"
-                />
+                <svg
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <use
+                    href="/pf/resources/images/undefined-sprite-default.svg#instagram"
+                  />
+                </svg>
               </i>
             </a>
             <a
@@ -62,9 +69,16 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
               <i
                 class="icon --icon-16"
               >
-                <mock-icon
-                  name="twitter"
-                />
+                <svg
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <use
+                    href="/pf/resources/images/undefined-sprite-default.svg#twitter"
+                  />
+                </svg>
               </i>
             </a>
             <a
@@ -82,9 +96,16 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
               <i
                 class="icon --icon-16"
               >
-                <mock-icon
-                  name="tiktok"
-                />
+                <svg
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <use
+                    href="/pf/resources/images/undefined-sprite-default.svg#tiktok"
+                  />
+                </svg>
               </i>
             </a>
             <a
@@ -102,9 +123,16 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
               <i
                 class="icon --icon-16"
               >
-                <mock-icon
-                  name="pinterest"
-                />
+                <svg
+                  fill="currentColor"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <use
+                    href="/pf/resources/images/undefined-sprite-default.svg#pinterest"
+                  />
+                </svg>
               </i>
             </a>
           </div>
@@ -192,9 +220,16 @@ exports[`Components - Features - foodit-global - Common - FooterFoodit should ma
             <i
               class="icon --icon-24"
             >
-              <mock-icon
-                name="bullet-xs"
-              />
+              <svg
+                fill="currentColor"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <use
+                  href="/pf/resources/images/undefined-sprite-default.svg#bullet-xs"
+                />
+              </svg>
             </i>
             <a
               class="link foodit-link flex gap-8 ai-center roboto-bold uppercase"

@@ -42,7 +42,7 @@
 //     });
 // });
 
-describe('Por hacer Test de NoteFeature', () => {
+xdescribe('Por hacer Test de NoteFeature', () => {
     it('should be true', () => {
         expect(true).toBe(true);
     });

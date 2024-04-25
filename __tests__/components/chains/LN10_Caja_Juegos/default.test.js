@@ -6,7 +6,7 @@ import {
     useRoofData,
     useGetLinks
 } from '../../../../components/chains/utils/_helpers';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import '@testing-library/jest-dom';
 
 jest.mock('fusion:context', () => ({

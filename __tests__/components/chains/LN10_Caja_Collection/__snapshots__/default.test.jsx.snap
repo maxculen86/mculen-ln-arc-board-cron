@@ -45,7 +45,6 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner dsk 
                 >
                   Caja Collection
                 </h3>
-                
               </div>
             </div>
             <div
@@ -73,10 +72,8 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner dsk 
                 <h2
                   class="text ln-text title --prumo --font-medium --font-3xl"
                 >
-                  
                   Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
                 </h2>
-                
               </section>
             </a>
           </article>
@@ -116,7 +113,6 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner mob 
                 >
                   Caja Collection
                 </h3>
-                
               </div>
             </div>
             <div
@@ -144,10 +140,8 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner mob 
                 <h2
                   class="text ln-text title --prumo --font-medium --font-3xl"
                 >
-                  
                   Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
                 </h2>
-                
               </section>
             </a>
           </article>
@@ -228,7 +222,6 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
                 >
                   Caja Collection
                 </h3>
-                
               </div>
             </div>
             <div
@@ -240,6 +233,7 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
         <script
           async=""
           id="scriptBtnSuscriptionRoof"
+          src="pathDeployment/pf//resources/js/LN/scriptBuildRoof.min.js"
           type="text/javascript"
         />
         <section
@@ -261,10 +255,8 @@ exports[`Tests Chain CajaCollection Tests banner cases should render banner subs
                 <h2
                   class="text ln-text title --prumo --font-medium --font-3xl"
                 >
-                  
                   Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
                 </h2>
-                
               </section>
             </a>
           </article>
@@ -380,10 +372,8 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-3xl"
                     >
-                      
                       Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
                     </h2>
-                    
                   </section>
                 </a>
               </article>
@@ -433,7 +423,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                     </h2>
                     <div
@@ -515,7 +504,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                     </h2>
                     <div
@@ -558,7 +546,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Bullrich visita El Calafate y presenta libro
                     </h2>
                     <h3
@@ -606,10 +593,8 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
                     </h2>
-                    
                   </section>
                 </a>
               </article>
@@ -675,10 +660,8 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-xl"
                     >
-                      
                       Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
                     </h2>
-                    
                   </section>
                 </a>
               </article>
@@ -728,7 +711,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                     </h2>
                     <div
@@ -810,7 +792,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                     </h2>
                     <div
@@ -853,7 +834,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Bullrich visita El Calafate y presenta libro
                     </h2>
                     <h3
@@ -901,10 +881,8 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
                     </h2>
-                    
                   </section>
                 </a>
               </article>
@@ -970,10 +948,8 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-3xl"
                     >
-                      
                       Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
                     </h2>
-                    
                   </section>
                 </a>
               </article>
@@ -1023,7 +999,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                     </h2>
                     <div
@@ -1105,7 +1080,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                     </h2>
                     <div
@@ -1148,7 +1122,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Bullrich visita El Calafate y presenta libro
                     </h2>
                     <h3
@@ -1238,10 +1211,8 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m"
                     >
-                      
                       Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
                     </h2>
-                    
                   </section>
                 </a>
               </article>
@@ -1291,7 +1262,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                     </h2>
                   </section>
@@ -1356,7 +1326,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                     </h2>
                   </section>
@@ -1382,7 +1351,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Bullrich visita El Calafate y presenta libro
                     </h2>
                     <h3
@@ -1413,10 +1381,8 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
                     </h2>
-                    
                   </section>
                 </a>
               </article>
@@ -1466,7 +1432,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                     </h2>
                   </section>
@@ -1531,7 +1496,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                     </h2>
                   </section>
@@ -1599,10 +1563,8 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-3xl"
                     >
-                      
                       Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
                     </h2>
-                    
                   </section>
                 </a>
               </article>
@@ -1652,7 +1614,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                     </h2>
                     <div
@@ -1734,7 +1695,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Boca - Claypole: en Lanús, el favorito ganó luego de sufrir, en los 32os de final de la Copa Argentina
                     </h2>
                     <div
@@ -1819,10 +1779,8 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-2xl"
                     >
-                      
                       Elefante Azul: la trágica historia detrás del imponente edificio abandonado en Saavedra
                     </h2>
-                    
                   </section>
                 </a>
               </article>
@@ -1872,7 +1830,6 @@ exports[`Tests Chain CajaCollection Tests cases for focal layouts should return 
                     <h2
                       class="text ln-text title --prumo --font-medium --font-m-l"
                     >
-                      
                       Coronavirus, la sorpresa negativa que suma incertidumbre al escenario mundial
                     </h2>
                     <div

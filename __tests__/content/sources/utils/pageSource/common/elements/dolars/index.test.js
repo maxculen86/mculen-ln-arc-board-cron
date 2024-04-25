@@ -65,7 +65,7 @@ jest.mock(
                     return null;
                 }
 
-                const addElement = require.requireActual(
+                const addElement = jest.requireActual(
                     '../../../../../../../../components/private/LN/api/global/page/common/utils/addElements.js'
                 );
                 return addElement.addElementsByKey(

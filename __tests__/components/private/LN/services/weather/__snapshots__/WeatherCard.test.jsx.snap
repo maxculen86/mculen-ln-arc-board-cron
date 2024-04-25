@@ -21,7 +21,6 @@ exports[`Components - private - services - weather - WeatherCard => Test when do
     <div
       class="box-icon"
     >
-      
       <p
         class="com-text --font-bold --twoxl"
       >
@@ -117,7 +116,6 @@ exports[`Components - private - services - weather - WeatherCard => Test when do
         </span>
       </p>
     </div>
-    
   </div>
 </div>
 `;

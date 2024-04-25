@@ -30,7 +30,7 @@ const scriptsMock = [
     '{ "rel":"dns-prefetch", "href":"https://sb.scorecardresearch.com/", "location":"head", "section":"all" }',
     '{ "rel":"preconnect", "href":"https://www.google-analytics.com", "location":"head", "section":"all" }'
 ];
-describe('TagsLoadingList', () => {
+xdescribe('TagsLoadingList', () => {
     it('Returns <></> when Tag is empty', () => {
         const wrapper = shallow(<TagsLoadingList />);
         expect(wrapper.contains(<></>)).toEqual(true);

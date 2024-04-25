@@ -18,10 +18,6 @@ jest.mock(
     () => jest.fn()
 );
 
-jest.mock('fusion:context', () => ({
-    useAppContext: jest.fn()
-}));
-
 describe('components - chains - LN10_Caja_canal', () => {
     Context.useAppContext = jest.fn(() => ({
         deployment: jest.fn(),

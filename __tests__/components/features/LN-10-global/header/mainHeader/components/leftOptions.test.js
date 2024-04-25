@@ -5,10 +5,6 @@ import { LeftOptions } from '../../../../../../../components/features/LN-10-glob
 import { useHeaderContext } from '../../../../../../../components/features/LN-10-global/header/context';
 import { sectionsCallback } from '../../../../../../../components/features/LN-10-global/header/mainHeader/_helper';
 
-jest.mock('fusion:context', () => () => ({
-    useAppContext: jest.fn()
-}));
-
 jest.mock(
     '../../../../../../../components/features/LN-10-global/header/context',
     () => {

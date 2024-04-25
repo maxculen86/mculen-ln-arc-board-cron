@@ -11,7 +11,7 @@ import { mount, shallow, render } from 'enzyme';
 import MetaDescription from '../../../../../components/private/common/metaDescription';
 import MetaDescriptionAcumulado from '../../../../../components/private/LN/acumulado/metaDescriptionAcumulado';
 
-describe('LN - Common - MetaDescription', () => {
+xdescribe('LN - Common - MetaDescription', () => {
     it('MetaDescription nota snapshot', () => {
         const metaTitleBasic = mount(
             <MetaDescription

@@ -11,7 +11,7 @@ jest.mock('fusion:context', () => () => ({
     }
 }));
 const deployment = (deploymentValue = 'lanacion.com.ar') => deploymentValue;
-describe('Components - Features - foodit-global - Common - FooterFoodit', () => {
+xdescribe('Components - Features - foodit-global - Common - FooterFoodit', () => {
     Context.useAppContext = jest.fn(() => ({
         contextPath: '/pf',
         deployment

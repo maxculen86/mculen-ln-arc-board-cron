@@ -6,12 +6,6 @@ import { CenterOptions } from '../../../../../../../components/features/LN-10-gl
 import { useHeaderContext } from '../../../../../../../components/features/LN-10-global/header/context';
 import { logoCallback } from '../../../../../../../components/features/LN-10-global/header/mainHeader/_helper';
 
-jest.mock('fusion:context', () => () => ({
-    default: props => {
-        const mockAvailableProps = {};
-        return props.children(mockAvailableProps);
-    }
-}));
 jest.mock(
     '../../../../../../../components/features/LN-10-global/header/mainHeader/_helper',
     () => {
@@ -29,7 +23,6 @@ jest.mock(
     }
 );
 describe('components - features - LN-10-global - header - mainHeader - centerOptions', () => {
-    Context.useAppContext = jest.fn(() => ({}));
     useHeaderContext.mockImplementation(() => ({
         centerOptionsClassNames: 'logo-header flex jc-center'
     }));

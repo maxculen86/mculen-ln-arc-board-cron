@@ -137,7 +137,6 @@ exports[`Components - features - CardFoodit should test CardFoodit - variant not
               />
             </picture>
           </div>
-          
         </div>
         <div
           class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"

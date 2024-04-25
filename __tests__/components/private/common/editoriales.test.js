@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import Editoriales from '../../../../components/private/common/editoriales';
 
 // Mock de fusion:context y fusion:properties si es necesario

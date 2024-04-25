@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import MenuCategories from '../../../../../../components/features/foodit-global/common/MenuCategories/foodit';
 import IconSprite from '../../../../../../components/features/private-global/common/iconSprite/IconSprite';
 

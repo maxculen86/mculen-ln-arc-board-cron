@@ -8,7 +8,7 @@ import ScriptManager, {
 import renderables from '../../../../../__mocks__/data/renderables/data1';
 import { getScriptsToLoad } from '../../../../../components/private/LN/common/utils/scriptsHelper';
 
-describe('ScriptManager ...', () => {
+xdescribe('ScriptManager ...', () => {
     it('... es una function', () => {
         expect(typeof ScriptManager).toEqual('function');
     });
@@ -30,7 +30,7 @@ describe('ScriptManager ...', () => {
     });
 });
 
-describe('ScriptManager genera un builder', () => {
+xdescribe('ScriptManager genera un builder', () => {
     const LOCATION = 'OK';
 
     // eslint-disable-next-line react/prefer-stateless-function

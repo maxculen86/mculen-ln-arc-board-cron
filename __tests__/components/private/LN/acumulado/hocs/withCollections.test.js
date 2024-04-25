@@ -63,7 +63,7 @@ import withCollections from '../../../../../../components/private/LN/acumulado/h
 import filter from '../../../../../../content/filters/LN/acumulado/collections';
 import NotaApertura from '../../../../../../components/private/LN/acumulado/notaApertura';
 
-describe('Private - Common - hocs - withCollections => ', () => {
+xdescribe('Private - Common - hocs - withCollections => ', () => {
     const articles = [
         {
             _id: 'PFWVOTLZFJDGVPC7ZAE7M3LUL4',

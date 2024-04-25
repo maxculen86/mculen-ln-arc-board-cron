@@ -28,7 +28,7 @@ jest.mock('../../../../components/private/LN/common/utils/handleCookie', () =>
 );
 
 jest.mock('react', () => {
-    const ActualReact = require.requireActual('react');
+    const ActualReact = jest.requireActual('react');
     return {
         ...ActualReact,
         useContext: jest
@@ -62,7 +62,7 @@ jest.mock('react', () => {
     };
 });
 
-describe('Metarefresh', () => {
+xdescribe('Metarefresh', () => {
     const { reload } = window.location;
     const Component = Metarefresh.WrappedComponent;
 

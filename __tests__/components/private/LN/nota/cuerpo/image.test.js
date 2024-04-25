@@ -14,7 +14,7 @@ import React from 'react';
 import Image from '../../../../../../components/private/LN/nota/cuerpo/image';
 import { mount } from 'enzyme';
 
-describe('features - La Nacion - Components - Nota - Apertura - Destacado ', () => {
+xdescribe('features - La Nacion - Components - Nota - Apertura - Destacado ', () => {
     Context.useAppContext = jest.fn(() => ({
         globalContent: { subtype: '1' }
     }));

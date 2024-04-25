@@ -3,7 +3,7 @@ import { NavBar } from '../../../../../../components/features/LN-10-global/heade
 import { useHeaderContext } from '../../../../../../components/features/LN-10-global/header/context';
 import { render } from '@testing-library/react';
 import useTermica from '../../../../../../components/private/common/hooks/useTermica';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 jest.mock(
     '../../../../../../components/features/LN-10-global/header/context',

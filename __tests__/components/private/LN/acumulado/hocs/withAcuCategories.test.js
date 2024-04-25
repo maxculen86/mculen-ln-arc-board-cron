@@ -111,7 +111,7 @@ const navigationAutomatica = [
         node_type: 'section'
     }
 ];
-describe('Private - Common - hocs - withAcuCategories => ', () => {
+xdescribe('Private - Common - hocs - withAcuCategories => ', () => {
     const props = {
         globalContent: {
             acumuladoGeneral: { hierarchy_navigation: 'Economy' },

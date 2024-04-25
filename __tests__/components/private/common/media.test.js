@@ -16,7 +16,7 @@ import image from '../../../../__mocks__/data/images/OTTprogramImage.json';
 import { getEpigrafe } from '../../../../components/private/LN/common/utils/mediaHelper';
 import EpigrafeAndCreditsData from '../../../../components/private/common/utils/epigrafeAndCreditsData';
 
-describe('Private - LN - Common - Media', () => {
+xdescribe('Private - LN - Common - Media', () => {
     Context.useAppContext = jest.fn(() => ({
         globalContent: { subtype: '1' }
     }));

@@ -33,7 +33,7 @@ describe('CssLinksBySite', () => {
                 `${contextPath}/dist/css/site-${arcSite}.css`
             );
             const element = document.querySelector('link');
-            expect(element.href).toContain(urlBase);
+            expect(element.href).toMatch(urlBase);
         });
         it('should return a fragment when arcSite is la-nacion-ar', () => {
             arcSite = 'la-nacion-ar';

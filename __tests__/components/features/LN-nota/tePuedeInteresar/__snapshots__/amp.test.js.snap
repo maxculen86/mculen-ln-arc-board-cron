@@ -66,12 +66,10 @@ exports[`TePuedeIneresarAmp should render the component with AMP tags when therm
                   </a>
                 </figure>
               </section>
-              
             </div>
             <section
               class="mod-description"
             >
-              
               <h2
                 class="com-title --font-primary --l --font-medium"
               >
@@ -89,7 +87,6 @@ exports[`TePuedeIneresarAmp should render the component with AMP tags when therm
                 </a>
               </h2>
               <div />
-              
             </section>
           </article>
           <article
@@ -130,12 +127,10 @@ exports[`TePuedeIneresarAmp should render the component with AMP tags when therm
                   </a>
                 </figure>
               </section>
-              
             </div>
             <section
               class="mod-description"
             >
-              
               <h2
                 class="com-title --font-primary --l --font-medium"
               >
@@ -153,7 +148,6 @@ exports[`TePuedeIneresarAmp should render the component with AMP tags when therm
                 </a>
               </h2>
               <div />
-              
             </section>
           </article>
         </div>

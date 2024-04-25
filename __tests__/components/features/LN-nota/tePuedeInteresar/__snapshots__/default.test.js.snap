@@ -65,12 +65,10 @@ exports[`Tests when the section may interest you is visible. Matche Snapshot wit
                   </a>
                 </figure>
               </section>
-              
             </div>
             <section
               class="mod-description"
             >
-              
               <h3
                 class="com-title --font-primary --l --font-medium"
               >
@@ -88,7 +86,6 @@ exports[`Tests when the section may interest you is visible. Matche Snapshot wit
                 </a>
               </h3>
               <div />
-              
             </section>
           </article>
           <article
@@ -130,12 +127,10 @@ exports[`Tests when the section may interest you is visible. Matche Snapshot wit
                   </a>
                 </figure>
               </section>
-              
             </div>
             <section
               class="mod-description"
             >
-              
               <h3
                 class="com-title --font-primary --l --font-medium"
               >
@@ -153,7 +148,6 @@ exports[`Tests when the section may interest you is visible. Matche Snapshot wit
                 </a>
               </h3>
               <div />
-              
             </section>
           </article>
         </div>

@@ -21,7 +21,7 @@ describe('components - private - LN - api - v1 - mobile - storyText - cuerpo - e
             'Subtitulo 1 <mark class="hl_blue"><i><b>&nbsp;Tipo de letra negrita con cursiva y subrayado de color&nbsp;</b></i></mark>';
         const resp = htmlText(itemText);
 
-        expect(resp).not.toContain(/&nbsp/);
+        expect(resp).not.toMatch(/&nbsp/);
     });
 
     it('No contiene caracteres &nbsp', () => {

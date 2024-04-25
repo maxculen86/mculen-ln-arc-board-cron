@@ -14,9 +14,9 @@ describe('Components - Feature - Foodit Global - Common - Utils - replaceBaseUrl
     test('Should replace RESIZER_URL_PUBLIC with basic SITE_FOODIT url', () => {
         const result = replaceBaseUrl(storytelling_mobile);
 
-        expect(result.url).toContain('https://foodit-lanacion.com.ar/');
+        expect(result.url).toMatch('https://foodit-lanacion.com.ar/');
 
-        expect(result.resized_urls[0].resizedUrl).toContain(
+        expect(result.resized_urls[0].resizedUrl).toMatch(
             'https://foodit-lanacion.com.ar/'
         );
     });

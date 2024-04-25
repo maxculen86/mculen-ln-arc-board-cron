@@ -32,7 +32,7 @@ function testToRenderChildrenAsText(component, expectedText) {
 }
 
 function expectHTML(component, expectedHTML) {
-    expect(component.html()).toContain(expectedHTML);
+    expect(component.html()).toMatch(expectedHTML);
 }
 
 export default {

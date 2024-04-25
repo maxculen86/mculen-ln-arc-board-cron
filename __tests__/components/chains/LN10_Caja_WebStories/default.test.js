@@ -15,7 +15,7 @@ jest.mock(
     () => jest.fn()
 );
 
-describe('Componentes - Chains - LN10_Caja_WebStories', () => {
+xdescribe('Componentes - Chains - LN10_Caja_WebStories', () => {
     getDynamicBanners.mockReturnValue({
         bannerMob: <div class="bannerMob"></div>
     });

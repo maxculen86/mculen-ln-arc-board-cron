@@ -2,7 +2,7 @@ import React from 'react';
 import { Search } from '../../../../../components/features/LN-10-global/desplegable/search';
 import { render, fireEvent } from '@testing-library/react';
 import addEventToDataLayer from '../../../../../components/private/LN/common/utils/addEventToDataLayer';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 jest.mock(
     '../../../../../components/private/LN/common/utils/addEventToDataLayer',

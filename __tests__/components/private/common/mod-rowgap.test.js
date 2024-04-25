@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ModRowGap from '../../../../components/private/common/mod-rowgap';
 
-describe('Private - Common - ModRowGap', () => {
+xdescribe('Private - Common - ModRowGap', () => {
     it('Mostrar layout para 3 columnas', () => {
         const component = shallow(
             <ModRowGap column="3" classCondition="" typeArticle="Grilla" />

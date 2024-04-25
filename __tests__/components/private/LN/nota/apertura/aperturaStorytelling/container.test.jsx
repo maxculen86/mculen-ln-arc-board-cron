@@ -23,15 +23,15 @@ jest.mock('fusion:properties', () => () => ({
     }
 }));
 
-jest.mock('fusion:context', () => () => ({
-    useAppContext: jest.fn(() => ({
-        contextPath: '',
-        deployment: () => {},
-        outputType: 'default'
-    }))
-}));
-
 const getProps = ({ withoutVideo, outputType = 'default', device }) => {
+    Context.useAppContext = jest.fn(() => ({
+        globalContent: { subtype: '1' },
+        useAppContext: jest.fn(() => ({
+            contextPath: '',
+            deployment: () => {},
+            outputType: 'default'
+        }))
+    }));
     return {
         globalContent: withoutVideo
             ? storytellingWithVideo

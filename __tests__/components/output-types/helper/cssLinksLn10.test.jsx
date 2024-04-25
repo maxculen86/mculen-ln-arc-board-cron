@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import CssLinksLn10 from '../../../../components/output-types/Helper/cssLinksLn10';
 import Context from 'fusion:context';
 

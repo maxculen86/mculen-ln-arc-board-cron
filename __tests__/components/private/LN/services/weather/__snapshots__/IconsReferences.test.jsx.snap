@@ -24,12 +24,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
         <i
           class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="sun"
-          />
-        </i>
+        />
         <span
           class="com-text --2xs"
         >
@@ -42,12 +37,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
         <i
           class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="clearNight"
-          />
-        </i>
+        />
         <span
           class="com-text --2xs"
         >
@@ -60,12 +50,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
         <i
           class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="windy"
-          />
-        </i>
+        />
         <span
           class="com-text --2xs"
         >
@@ -78,12 +63,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
         <i
           class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="sunCloudy"
-          />
-        </i>
+        />
         <span
           class="com-text --2xs"
         >
@@ -96,12 +76,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
         <i
           class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="cloudy"
-          />
-        </i>
+        />
         <span
           class="com-text --2xs"
         >
@@ -114,12 +89,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
         <i
           class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="rainyCloudy"
-          />
-        </i>
+        />
         <span
           class="com-text --2xs"
         >
@@ -132,12 +102,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
         <i
           class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="rain"
-          />
-        </i>
+        />
         <span
           class="com-text --2xs"
         >
@@ -150,12 +115,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
         <i
           class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="stormCloudy"
-          />
-        </i>
+        />
         <span
           class="com-text --2xs"
         >
@@ -168,12 +128,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
         <i
           class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="storm"
-          />
-        </i>
+        />
         <span
           class="com-text --2xs"
         >
@@ -186,12 +141,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
         <i
           class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="snowCloudy"
-          />
-        </i>
+        />
         <span
           class="com-text --2xs"
         >
@@ -204,12 +154,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
         <i
           class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="snow"
-          />
-        </i>
+        />
         <span
           class="com-text --2xs"
         >
@@ -222,12 +167,7 @@ exports[`Components - private - services - weather - IconsReferences => Test whe
         <i
           class="icon mr-16 --icon-24 --hasWrapper"
           style="background-color: rgb(242, 242, 242);"
-        >
-          <mock-icon
-            critical="true"
-            name="drop"
-          />
-        </i>
+        />
         <span
           class="com-text --2xs"
         >

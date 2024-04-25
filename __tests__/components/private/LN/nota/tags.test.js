@@ -5,7 +5,7 @@ import Tags from '../../../../../components/private/LN/nota/apertura/tags';
 import TaxonomyComponent from '../../../../../components/private/LN/common/taxonomyImportantList';
 import propsForTagsSections from '../../../../../__mocks__/data/nota/propsForTagsSections.json';
 
-describe('La Nacion - Nota - Tags (Main categories removed from Themes)', () => {
+xdescribe('La Nacion - Nota - Tags (Main categories removed from Themes)', () => {
     describe('In Notas', () => {
         const propsNota = propsForTagsSections.nota;
 

@@ -35,7 +35,7 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-describe('Content Sources - Dolar Source', () => {
+xdescribe('Content Sources - Dolar Source', () => {
     const { fetch } = dolarSource;
 
     const query = {

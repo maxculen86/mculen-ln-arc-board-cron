@@ -39,12 +39,12 @@ describe('Component - Private - LN - common - hooks - useGridArticles', () => {
             sourceOrigin: '',
             excludePreload: false
         });
-        expect(articles[0].promo_items.basic.url).toContain(
+        expect(articles[0].promo_items.basic.url).toMatch(
             'https://www.lanacion.com.ar'
         );
         articles.shift();
         articles.forEach(article => {
-            expect(article.promo_items.basic.url).toContain(
+            expect(article.promo_items.basic.url).toMatch(
                 'https://resizer.glanacion.com'
             );
         });
@@ -76,7 +76,7 @@ describe('Component - Private - LN - common - hooks - useGridArticles', () => {
             excludePreload: true
         });
         articles.forEach(article => {
-            expect(article.promo_items.basic.url).toContain(
+            expect(article.promo_items.basic.url).toMatch(
                 'https://resizer.glanacion.com'
             );
         });
