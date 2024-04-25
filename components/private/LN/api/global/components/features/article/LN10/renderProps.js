@@ -22,7 +22,8 @@ export const renderProps = (
         opinion,
         html,
         variant,
-        chapitaStyle
+        chapitaStyle,
+        description
     } = props.customFields;
 
     const additionalProperties = {
@@ -37,6 +38,7 @@ export const renderProps = (
         html,
         variant,
         chapitaStyle,
+        description,
         idRender: props.id //  Se usa en un metodo compartido con front para validar articulos de apertura
     };
     return { ...articleSourceNota, additionalProperties };

@@ -26,7 +26,7 @@ describe('storyBox LN10', () => {
                         '/sociedad/el-holocausto-olvidado-perpetrado-por-los-nazis-durante-la-segunda-guerra-mundial-nid27012023/',
                     titulo:
                         'Messi finalmente levanta la copa mas esperada por todos los argentinos.',
-                    volanta: 'ARGENTINA CAMPEON. ',
+                    volanta: 'ARGENTINA CAMPEON.',
                     autor: {
                         id: 330,
                         slug: 'alfredo-leuco-330',
