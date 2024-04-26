@@ -144,17 +144,20 @@ const getFeature = sectionAliasMobile => {
 const transform = async (dataPage, query) => {
     const {
         information: { layoutPage },
-        content_elements: elementsPage
+        content_elements: elementsPage,
+        homeFetchDate: homeFetchDate = null
     } = dataPage;
     try {
         let cajaCount = 1;
         const cajas = [];
+
         elementsPage.forEach((elem, i) => {
             if (elem.type !== 0 && elem.type !== 7) return; // Ignorar elementos que no son cajas
             if (omitSections[elem.sectionAliasMobile]) return; // Ignorar cajas que deben omitirse
             cajaCount = createBoxAndNotas(elem, cajaCount, cajas);
         });
-        return { cajas };
+
+        return { cajas, homeFetchDate };
     } catch (error) {
         // eslint-disable-next-line no-console
 

@@ -49,7 +49,8 @@ const index = (
     paramsFromPage = {
         rootPath:
             'https://www.lanacion.com.ar/?_website=la-nacion-ar&outputType=json'
-    }
+    },
+    homeFetchDate = null
 ) => {
     const layoutPage =
         get(paramsFromPage, 'information.layoutPage', 'null') + '-V2';
@@ -190,7 +191,8 @@ const index = (
     return [
         {
             metadata: {
-                paginate: false
+                paginate: false,
+                homeFetchDate: homeFetchDate
             },
             items: resultWithoutEmptyItems
         }
