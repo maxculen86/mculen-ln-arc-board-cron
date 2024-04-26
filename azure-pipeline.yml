@@ -1,0 +1,20 @@
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: Arquitectura/PipelineTemplates #Se define el nombre del TeamProject / Repositorio donde se encuentra el template.
+      ref: refs/tags/2.12.1
+
+trigger:
+  - demo/*
+
+pool:
+  vmImage: ubuntu-latest #El agente utilizado, adentro cada template tiene su agente particular.
+
+jobs:
+- job: BuildArc
+  steps:
+    - template: Arc/build.yml@templates
+      parameters:
+        runTest: true
+        nodeVersion: 18.x
