@@ -14,6 +14,13 @@ pool:
 jobs:
 - job: BuildArc
   steps:
+    - bash: | 
+        echo "checking date"
+        date
+        echo "setting date to America/Argentina/Buenos_Aires"
+        sudo timedatectl set-timezone "America/Argentina/Buenos_Aires"
+        date
+      displayName: Cambio zona horaria
     - template: Arc/build.yml@templates
       parameters:
         runTest: true
