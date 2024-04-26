@@ -101,4 +101,16 @@ describe('componentes - private - common - videoPlayerJw', () => {
             />
         );
     });
+
+    it('matches snapshot', () => {
+        const { asFragment } = render(
+            <VideoPlayerJW
+                data={mockData}
+                parrafo="MockParrafo"
+                tituloNota="MockTituloNota"
+                hasAutoplay={true}
+            />
+        );
+        expect(asFragment()).toMatchSnapshot();
+    });
 });

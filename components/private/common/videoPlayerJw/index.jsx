@@ -41,7 +41,7 @@ const videoPlayerJW = ({
     const tagsUrl = urlForPrerollAds(device, true);
 
     return (
-        <Static id="video_jw" htmlOnly>
+        <Static id={mediaid}>
             <div className={container}>
                 <section className={mediaContainer}>
                     <div className={videoContainer}>

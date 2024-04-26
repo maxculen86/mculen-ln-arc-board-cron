@@ -3,10 +3,10 @@ import logger from '../../components/private/common/utils/logger';
 import { getMediaJwData } from './utils/videoFichaJwSource/_helper';
 
 const fetch = async query => {
-    const { uri, url, 'arc-site': arcSite } = query;
+    const { url, 'arc-site': arcSite } = query;
 
     const regex = /jwid(\w{8})/;
-    const { 1: videoId } = uri.match(regex) || {};
+    const { 1: videoId } = url.match(regex) || {};
 
     if (!videoId) {
         throw new Error('Invalid video ID');
