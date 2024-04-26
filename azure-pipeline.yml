@@ -7,6 +7,8 @@ resources:
 
 trigger:
   - demo/*
+  - sandbox
+  - demo-sandbox/*
 
 pool:
   vmImage: ubuntu-latest #El agente utilizado, adentro cada template tiene su agente particular.
