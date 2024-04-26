@@ -71,11 +71,7 @@ const FirmaFeature = props => {
         </div>
     );
 
-    return (
-        <Static id="LN-firma" htmlOnly>
-            {content}
-        </Static>
-    );
+    return <>{content}</>;
 };
 
 FirmaFeature.propTypes = {
