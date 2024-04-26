@@ -16,7 +16,10 @@ const validateByLayoutHide = {
     bn_1_2_grid: [1],
     bn_1_3_grid: [1],
     bn_1_4_grid: [1],
-    cajaContent1: [1]
+    cajaContent1: [1],
+    canal_1_2_grid: [1],
+    canal_1_3_grid: [1],
+    canal_1_4_grid: [1]
 };
 
 export const getDroptext = article => {
