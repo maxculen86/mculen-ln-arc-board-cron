@@ -6,7 +6,6 @@ import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
 import { configClassName } from './utils/helperJw';
 import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
-import useViewportSize from '../hooks/useViewportSize';
 
 const videoPlayerJW = ({
     data,
@@ -36,10 +35,6 @@ const videoPlayerJW = ({
         facade
     } = get(configClassName, arcSite, {});
 
-    const device = useViewportSize();
-
-    const tagsUrl = urlForPrerollAds(device, true);
-
     return (
         <Static id={mediaid}>
             <div className={container}>
@@ -62,7 +57,7 @@ const videoPlayerJW = ({
                                 data-playlist={JSON.stringify(playlist)}
                                 data-has-autoplay={hasAutoplay}
                                 data-media-id={mediaid}
-                                data-tags-url={tagsUrl}
+                                data-tags-url={urlForPrerollAds()}
                                 data-autostart
                                 src={deployment(
                                     `${contextPath}/resources/js/LN/scriptVideosJw.min.js`
