@@ -80,23 +80,25 @@ export const OpeningRecipe = ({ article = {} }) => {
                     </div>
                 </div>
                 <div className="flex ai-center gap-24">
-                    <Button
-                        title="Guardar"
-                        size={{ sm: 32, lg: 40 }}
-                        data-modal={'open-modal'}
-                        data-id={_id}
-                        data-interaction="dataLayerInteraction"
-                        data-event-data-layer="e_linkclick"
-                        data-dynamic-category="interaction"
-                        data-dynamic-label="receta"
-                        data-dynamic-action="guardar"
-                        data-title={title}
-                    >
-                        <Icon size={16} className="sm-none">
-                            <IconSprite name="bookmark" critical />
-                        </Icon>
-                        Guardar
-                    </Button>
+                    <Static id={`btn-saved-${_id}`}>
+                        <Button
+                            title="Guardar"
+                            size={{ sm: 32, lg: 40 }}
+                            data-modal={'open-modal'}
+                            data-id={_id}
+                            data-interaction="dataLayerInteraction"
+                            data-event-data-layer="e_linkclick"
+                            data-dynamic-category="interaction"
+                            data-dynamic-label="receta"
+                            data-dynamic-action="guardar"
+                            data-title={title}
+                        >
+                            <Icon size={16} className="sm-none">
+                                <IconSprite name="bookmark" critical />
+                            </Icon>
+                            Guardar
+                        </Button>
+                    </Static>
                     <hr className="h-100 lg-only" />
                     <div className="flex ai-center gap-16 gap-24_md">
                         <ActionsButtons article={article} />

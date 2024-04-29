@@ -20,7 +20,7 @@ const BaseLayout = ({ children }) => {
                 <main className="container flex flex-column pb-64 gap-40">
                     {children}
                 </main>
-                <Static htmlOnly persistent id="footer-static">
+                <Static id="footer-static">
                     <Footer />
                 </Static>
                 <FooditEventsHelper />

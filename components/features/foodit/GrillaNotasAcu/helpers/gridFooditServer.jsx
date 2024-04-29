@@ -19,7 +19,7 @@ const GridFooditServer = ({
         haveShowButton();
     }
     return (
-        <Static htmlOnly persistent id="acu-grid-ssr">
+        <Static id={`acu-grid-ssr-${id}`}>
             <GridArticlesFoodit articles={articles} />
         </Static>
     );

@@ -16,7 +16,7 @@ const HomeFoodit = ({ children }) => {
         <BaseLayout>
             <HomeSchema />
             <UserBookmarks />
-            <Static id="opening-home" htmlOnly persistent>
+            <Static id="opening-home">
                 <section>{opening}</section>
             </Static>
             <hr className="lg-none" />

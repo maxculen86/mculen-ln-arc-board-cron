@@ -87,7 +87,7 @@ const CajaCollection = props => {
             {Component}
         </LazyLoad>
     ) : (
-        <Static htmlOnly persistent id={chainId}>
+        <Static id={chainId}>
             <div className={staticContentClassName}>{Component}</div>
         </Static>
     );

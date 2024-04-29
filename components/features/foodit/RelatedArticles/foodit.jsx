@@ -122,7 +122,7 @@ const RelatedArticles = ({
             {Component}
         </LazyLoad>
     ) : (
-        <Static htmlOnly persistent id={featureId}>
+        <Static id={featureId}>
             <div className={staticContentClassName}>{Component}</div>
         </Static>
     );

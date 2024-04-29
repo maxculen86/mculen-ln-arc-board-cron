@@ -39,7 +39,7 @@ const CajaManual = props => {
     });
 
     return (
-        <Static htmlOnly persistent id={chainId}>
+        <Static id={chainId}>
             {setRender({
                 chainId,
                 isAdmin,
