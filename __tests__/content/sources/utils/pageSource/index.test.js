@@ -41,7 +41,13 @@ describe('Test page', () => {
         };
         const result = await page.fetch(queryParams);
         expect(Object.keys(result).sort()).toEqual(
-            ['arcSite', 'children', 'layout', 'renderables'].sort()
+            [
+                'arcSite',
+                'children',
+                'layout',
+                'renderables',
+                'homeFetchDate'
+            ].sort()
         );
     });
 
@@ -53,7 +59,13 @@ describe('Test page', () => {
         };
         const result = await page.fetch(queryParams);
         expect(Object.keys(result).sort()).toEqual(
-            ['arcSite', 'children', 'layout', 'renderables'].sort()
+            [
+                'arcSite',
+                'children',
+                'layout',
+                'renderables',
+                'homeFetchDate'
+            ].sort()
         );
     });
 
@@ -65,7 +77,13 @@ describe('Test page', () => {
         };
         const result = await page.fetch(queryParams);
         expect(Object.keys(result).sort()).toEqual(
-            ['arcSite', 'children', 'layout', 'renderables'].sort()
+            [
+                'arcSite',
+                'children',
+                'layout',
+                'renderables',
+                'homeFetchDate'
+            ].sort()
         );
     });
 
@@ -79,7 +97,13 @@ describe('Test page', () => {
         };
         const result = await page.fetch(queryParams);
         expect(Object.keys(result).sort()).toEqual(
-            ['arcSite', 'children', 'layout', 'renderables'].sort()
+            [
+                'arcSite',
+                'children',
+                'layout',
+                'renderables',
+                'homeFetchDate'
+            ].sort()
         );
     });
 
@@ -93,7 +117,13 @@ describe('Test page', () => {
         };
         const result = await page.fetch(queryParams);
         expect(Object.keys(result).sort()).toEqual(
-            ['arcSite', 'children', 'layout', 'renderables'].sort()
+            [
+                'arcSite',
+                'children',
+                'layout',
+                'renderables',
+                'homeFetchDate'
+            ].sort()
         );
     });
 
