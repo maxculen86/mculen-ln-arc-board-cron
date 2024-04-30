@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
-import WithNavigation from '../../common/hocs/WithNavigation';
+import { generatePathStructure } from './generatePathStructure';
 
 const DATA_SECTION = 'AperturaAcuRecetas';
-function BreadcrumbSection({ sections, host, colorCategory }) {
+function BreadcrumbSection({ sectionId, host, colorCategory }) {
+    const sections = generatePathStructure(sectionId);
+
     return (
         <>
             <BreadCrumbBase
@@ -40,4 +42,4 @@ BreadcrumbSection.defaultProps = {
     colorCategory: ''
 };
 
-export default WithNavigation(BreadcrumbSection);
+export default BreadcrumbSection;
