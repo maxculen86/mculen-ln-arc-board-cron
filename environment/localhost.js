@@ -22,7 +22,7 @@ export default {
         '%{AQICAHh/411m8FGwOHtrUTs9KkxN3n0LVOK3XAvOUKflIN5VygH4H8MiTVHZCbdSuL7xddF4AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHe+801QKRWObkNsMAIBEIA/+JYrRgViUeZiux4Xx9AYqmEhA6cKtfM+dnDk+EbdKHGGSKcmrcaSQFYRToSVNw0bTAHsmp6d3pfGxrYHrwZU}',
     JSK_ID: '8561ps8ov66e7mim',
     OPTA_WIDGET_URL: 'http://arc-widgets.lanacion.com.ar/opta-embed',
-    ARC_STATIC: 'http://localhost.lanacion.com.ar',
+    ARC_STATIC: 'http://arc.lanacion.com.ar',
     WIDGETS: 'li-nacion-recommended-item-template-1',
     IS_DEV: 'true',
     CONTENT_TIMEOUT: '8000000'

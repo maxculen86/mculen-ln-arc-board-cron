@@ -70,7 +70,12 @@ export default {
         paywallUrl: 'text',
         paywallEnabled: 'text',
         outputType: 'text',
-        sourceInclude: 'text'
+        sourceInclude: 'text',
+        imageConfig: 'text',
+        diagramation: 'text',
+        isInApertura: 'bool',
+        checkExclusiveAccess: 'bool',
+        isAdmin: 'bool'
     },
     filter,
     ttl: 120

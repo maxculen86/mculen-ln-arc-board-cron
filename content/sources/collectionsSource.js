@@ -180,8 +180,11 @@ export default {
         idsArticlesToExclude: 'text',
         filterRecomendar: 'bool',
         filterRepetead: 'bool',
+        diagramation: 'text',
         filterFutureDisplayDate: 'bool',
-        notesQuantity: 'text'
+        notesQuantity: 'text',
+        isFocal: 'bool',
+        shouldUseV2: 'bool'
     },
     ttl: 120
 };
