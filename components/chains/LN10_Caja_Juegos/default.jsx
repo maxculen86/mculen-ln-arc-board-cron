@@ -28,7 +28,7 @@ const CajaJuegos = ({ customFields, children }) => {
             : true;
 
     return shouldShowGame && !hideCaja ? (
-        <Static id={`${logoId}-${title}`} htmlOnly>
+        <Static id={`${logoId}-${title}`}>
             <BuildRoof {...roofData} />
             <div className="grid grid-cols-8 grid-cols-12_sm gap-16 mb-32">
                 {children}

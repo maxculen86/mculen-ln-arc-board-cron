@@ -524,7 +524,9 @@ describe('Components - Chains - Utils - _helpers', () => {
             const result = setStaticDynamically(Component, exception, props);
 
             expect(result).toEqual(
-                <StaticContentV2 id="">{Component}</StaticContentV2>
+                <StaticContentV2 htmlOnly={false} id="">
+                    {Component}
+                </StaticContentV2>
             );
         });
 
@@ -546,7 +548,9 @@ describe('Components - Chains - Utils - _helpers', () => {
             const result = setStaticDynamically(Component, exception, props);
 
             expect(result).toEqual(
-                <StaticContentV2 id="">{Component}</StaticContentV2>
+                <StaticContentV2 htmlOnly={false} id="">
+                    {Component}
+                </StaticContentV2>
             );
         });
     });

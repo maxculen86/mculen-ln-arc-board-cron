@@ -32,7 +32,7 @@ const PreHeaderFeature = ({ customFields = {} }) => {
     const topics = getTopicsFromCustomFields(customFields);
 
     return (
-        <Static id="clima-Ln10" htmlOnly>
+        <Static id="clima-Ln10">
             <PreHeader>
                 <PreHeader.Weather weatherData={weatherData} />
                 {topics.length && <PreHeader.Topics tags={topics} />}

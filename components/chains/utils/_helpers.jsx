@@ -224,6 +224,8 @@ export const setStaticDynamically = (Component, exception, props, id = '') => {
     return exception ? (
         <>{Component}</>
     ) : (
-        <StaticContentV2 {...{ ...props, id }}>{Component}</StaticContentV2>
+        <StaticContentV2 {...{ ...props, id, htmlOnly: false }}>
+            {Component}
+        </StaticContentV2>
     );
 };

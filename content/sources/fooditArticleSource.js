@@ -53,9 +53,14 @@ export default {
         meteringVariant: 'text',
         paywallUrl: 'text',
         paywallEnabled: 'text',
-        imageConfig: 'text',
         outputType: 'text',
-        sourceInclude: 'text'
+        sourceInclude: 'text',
+        imageConfig: 'text',
+        diagramation: 'text',
+        isInApertura: 'bool',
+        checkExclusiveAccess: 'bool',
+        isAdmin: 'bool',
+        uri: 'text'
     },
     filter,
     ttl: 120
