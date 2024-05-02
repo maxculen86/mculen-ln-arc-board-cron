@@ -9,6 +9,8 @@ trigger:
   - demo/*
   - sandbox
   - demo-sandbox/*
+  - master
+  - demo-prod/*
 
 pool:
   vmImage: ubuntu-latest #El agente utilizado, adentro cada template tiene su agente particular.
