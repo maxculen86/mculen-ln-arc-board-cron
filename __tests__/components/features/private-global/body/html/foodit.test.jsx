@@ -23,7 +23,7 @@ describe('BodyComponents - Foodit - Html', () => {
 
     it('Should innerHTML', () => {
         const { container } = renderHtml('<div>sample html block</div>');
-        expect(container.innerHTML).toContain('sample html block');
+        expect(container.innerHTML).toMatch('sample html block');
     });
 
     it('Should innerHTML', () => {

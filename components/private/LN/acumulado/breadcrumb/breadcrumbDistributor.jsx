@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
-import StaticContent from '../../../common/staticContent';
 
 const DATA_SECTION = 'AperturaAcuRecetas';
 function BreadcrumbDistributor({ name, canonicalUrl, host }) {
@@ -18,10 +17,10 @@ function BreadcrumbDistributor({ name, canonicalUrl, host }) {
     ];
 
     return (
-        <StaticContent>
+        <>
             <BreadCrumbBase sections={sections} dataSection={DATA_SECTION} />
             <BreadCrumbSchema sections={sections} host={host} />
-        </StaticContent>
+        </>
     );
 }
 

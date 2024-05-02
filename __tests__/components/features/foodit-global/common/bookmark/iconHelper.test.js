@@ -65,7 +65,7 @@ describe('Bookmark functionality tests', () => {
                 expect(icon).toBeDefined();
 
                 const href = icon.getAttribute('href');
-                expect(href).toContain('bookmark-filled');
+                expect(href).toMatch('bookmark-filled');
             });
         });
 
@@ -82,7 +82,7 @@ describe('Bookmark functionality tests', () => {
             expect(icon).toBeDefined();
 
             const href = icon.getAttribute('href');
-            expect(href).toContain('bookmark-filled');
+            expect(href).toMatch('bookmark-filled');
         });
 
         // Finally, i unfill al the bookmarks
@@ -102,7 +102,7 @@ describe('Bookmark functionality tests', () => {
                 expect(icon).toBeDefined();
 
                 const href = icon.getAttribute('href');
-                expect(href).not.toContain('bookmark-filled');
+                expect(href).not.toMatch('bookmark-filled');
             });
         });
     });

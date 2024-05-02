@@ -4,7 +4,7 @@ import get from '../../components/private/common/utils/get';
 import getProperties from 'fusion:properties';
 import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
 import { isEmptyString } from '../../components/private/common/utils/dataValidation';
-import { resizeImgUrl } from '../../components/private/common/utils/image/resizer/v2/buildResizerUrls';
+import { resizeImgUrl } from '../../components/private/common/utils/image/resizer/v2/resizerHelper';
 
 const resolve = key => {
     const { _id, website } = key;

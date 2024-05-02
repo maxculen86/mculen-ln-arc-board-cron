@@ -2,45 +2,41 @@
 
 exports[`components - private - LN - acumulado - breadcrumbs - breadcrumbTag Should render tag breadcrumb correctly with two bullets 1`] = `
 <div>
-  <div
-    class="hidden"
+  <nav
+    class="com-breadcrumb --no-app "
   >
-    <nav
-      class="com-breadcrumb --no-app "
+    <a
+      class="com-link --fourxs"
+      data-event="LinkClick"
+      data-section="AperturaAcuRecetas"
+      href="https://www.lanacion.com.ar/"
+      title="Noticias de LA NACION"
     >
-      <a
-        class="com-link --fourxs"
-        data-event="LinkClick"
-        data-section="AperturaAcuRecetas"
-        href="https://www.lanacion.com.ar/"
-        title="Noticias de LA NACION"
+      <i
+        class="--bullet --fourxs"
       >
-        <i
-          class="--bullet --fourxs"
-        >
-          &gt;
-        </i>
-        LA NACION
-      </a>
-      <a
-        class="com-link --fourxs"
-        data-event="LinkClick"
-        data-section="AperturaAcuRecetas"
-        href="/tema/soy-un-tag/"
-        title="Noticias de "
-      >
-        <i
-          class="--bullet --fourxs"
-        >
-          &gt;
-        </i>
-        
-      </a>
-    </nav>
-    <script
-      type="application/ld+json"
+        &gt;
+      </i>
+      LA NACION
+    </a>
+    <a
+      class="com-link --fourxs"
+      data-event="LinkClick"
+      data-section="AperturaAcuRecetas"
+      href="/tema/soy-un-tag/"
+      title="Noticias de "
     >
-      
+      <i
+        class="--bullet --fourxs"
+      >
+        &gt;
+      </i>
+    </a>
+  </nav>
+  <script
+    type="application/ld+json"
+  >
+    
             {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
@@ -53,7 +49,6 @@ exports[`components - private - LN - acumulado - breadcrumbs - breadcrumbTag Sho
                 }
             ]
             }
-    </script>
-  </div>
+  </script>
 </div>
 `;

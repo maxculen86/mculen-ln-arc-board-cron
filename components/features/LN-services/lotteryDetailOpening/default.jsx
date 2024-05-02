@@ -3,13 +3,13 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
+import Static from 'fusion:static';
 import Text from '../../../private/common/text';
 import get from '../../../private/common/utils/get';
 import ComLink from '../../../private/common/com-link';
 import LotteryCard from '../../../private/LN/services/lotteries/LotteryCard';
 import DetailsTable from '../../../private/LN/services/lotteries/DetailsTable';
 import TableHorizontalResults from '../../../private/LN/services/lotteries/TableHorizontalResults';
-import StaticContent from '../../../private/common/staticContent';
 
 import '../../../../resources/dist/css/ln/pages/lotteries.css';
 import {
@@ -33,7 +33,7 @@ const LotteryDetailOpening = () => {
 
     return (
         lottery.length && (
-            <StaticContent>
+            <Static id={id} htmlOnly>
                 <Text
                     font="sueca"
                     size="xs"
@@ -85,7 +85,7 @@ const LotteryDetailOpening = () => {
                         Data Factory
                     </ComLink>
                 </Text>
-            </StaticContent>
+            </Static>
         )
     );
 };

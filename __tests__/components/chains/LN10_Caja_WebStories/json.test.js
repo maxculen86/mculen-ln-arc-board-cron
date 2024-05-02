@@ -163,7 +163,9 @@ describe('components - chains - LN10_Caja_WebStories - json', () => {
         expect(Object.keys(resultChain).sort()).toEqual(
             ['props', 'renderResponse', 'state', 'validate'].sort()
         );
-        expect(result.Message).toBe("Cannot read property 'children' of null");
+        expect(result.Message).toBe(
+            "Cannot read properties of null (reading 'children')"
+        );
         expect(result.Success).toBe(false);
     });
 });

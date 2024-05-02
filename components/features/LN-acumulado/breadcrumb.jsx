@@ -1,14 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
+import Static from 'fusion:static';
 
 import Breadcrumb from '../../private/LN/acumulado/breadcrumb';
-import StaticContent from '../../private/common/staticContent';
 
 const BreadcrumbFeature = props => {
+    const { id: featureId } = props;
     return (
-        <StaticContent>
+        <Static id={featureId}>
             <Breadcrumb {...props} />
-        </StaticContent>
+        </Static>
     );
 };
 

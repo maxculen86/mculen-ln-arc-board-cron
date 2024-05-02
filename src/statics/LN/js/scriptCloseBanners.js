@@ -1,4 +1,4 @@
-export const addCloseListenerToDivBanners = () => {
+/* export const addCloseListenerToDivBanners = () => {
     const bannerElements = document.querySelectorAll('.ln-banner, .com-banner');
 
     if (bannerElements) {
@@ -17,3 +17,4 @@ export const addCloseListenerToDivBanners = () => {
 };
 
 addCloseListenerToDivBanners();
+ */

@@ -1,15 +1,15 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
 import BreadCrumbArticle from '../../private/LN/nota/breadcrumb/breadcrumbArticle';
-import StaticContent from '../../private/common/staticContent';
 
 // TODO testear staticContent, migrar test de enzyme
 
 const breadCrumbArticle = props => {
     return (
-        <StaticContent>
+        <Static id="LN-breadcrumb-article" htmlOnly>
             <BreadCrumbArticle {...props} />
-        </StaticContent>
+        </Static>
     );
 };
 

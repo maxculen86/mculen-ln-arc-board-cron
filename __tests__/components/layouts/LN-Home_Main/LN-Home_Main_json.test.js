@@ -558,7 +558,7 @@ describe('components - layouts - LN-Home_Main - json', () => {
                 expect(homeSections).toBe(null);
             } catch (err) {
                 expect(err.message).toBe(
-                    `Cannot read property 'children' of null`
+                    `Cannot read properties of null (reading 'children')`
                 );
             }
         });

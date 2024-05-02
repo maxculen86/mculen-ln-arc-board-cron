@@ -12,12 +12,15 @@ document.getElementById = jest.fn(id => ({
 }));
 
 jest.useFakeTimers();
+// Espiar sobre setTimeout
+jest.spyOn(global, 'setTimeout');
 
 describe('src - statics - LN - js - bannerRulesComercial', () => {
     test('hideBannerComercial should work as expected', () => {
-        hideBannerComercial();
+        hideBannerComercial('comercial_mob');
         jest.advanceTimersByTime(12000);
 
+        // Verificar que setTimeout ha sido llamado con una función y un tiempo de espera de 12000 milisegundos
         expect(setTimeout).toHaveBeenCalledWith(expect.any(Function), 12000);
     });
 });

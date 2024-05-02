@@ -3,15 +3,15 @@ import PropTypes from 'fusion:prop-types';
 import { useContent } from 'fusion:content';
 import { useAppContext } from 'fusion:context';
 import DailyHoroscope from '../../private/common/dailyHoroscope';
-import StaticContent from '../../private/common/staticContent';
+import Static from 'fusion:static';
 
-const CajaDetalleSigno = () => {
+const CajaDetalleSigno = ({ id: featureId }) => {
     const { globalContent, deployment, contextPath, arcSite } = useAppContext();
     const { _id = '' } = globalContent || {};
     const path = _id.split('/').slice(1);
 
     return (
-        <StaticContent>
+        <Static id={featureId}>
             {(() => {
                 const { data } =
                     useContent({
@@ -33,7 +33,7 @@ const CajaDetalleSigno = () => {
                     <></>
                 );
             })()}
-        </StaticContent>
+        </Static>
     );
 };
 

@@ -53,7 +53,6 @@ exports[`components - private - common - mod-category Mod category snapshot test
           />
         </svg>
       </i>
-      
     </button>
     <ul
       class="com-unordered --no-scrollbar  --category --font-primary --l --font-medium"
@@ -160,7 +159,6 @@ exports[`components - private - common - mod-category Mod category snapshot test
           />
         </svg>
       </i>
-      
     </button>
     <script
       async=""

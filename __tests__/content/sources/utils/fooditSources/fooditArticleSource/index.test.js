@@ -1,13 +1,5 @@
 import {
     getImageConfig,
-    deleteTagsForTitle,
-    addAttribute,
-    setOtherChar,
-    replaceClassForMark,
-    setBoldText,
-    setItalicText,
-    transformLinks,
-    transformElementText,
     getArticleSubtype
 } from '../../../../../../content/sources/utils/fooditSources/fooditArticleSource';
 import {
@@ -15,6 +7,16 @@ import {
     RECETA
 } from '../../../../../../components/private/common/utils/subtypes/subtypeHelper';
 import getProperties from 'fusion:properties';
+import {
+    transformElementText,
+    setOtherChar,
+    replaceClassForMark,
+    setBoldText,
+    setItalicText,
+    transformLinks,
+    addAttribute,
+    deleteTagsForTitle
+} from '../../../../../../content/sources/utils/fooditSources/fooditArticleSource/_configs';
 
 const mockResults = {
     imageConfig: {

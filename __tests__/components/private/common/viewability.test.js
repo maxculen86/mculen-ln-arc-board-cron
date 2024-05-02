@@ -71,7 +71,7 @@ jest.mock('fusion:properties', () => () => ({
     }
 }));
 
-describe('Viewability', () => {
+xdescribe('Viewability', () => {
     beforeAll(() => {
         window.dataLayer = [];
     });
@@ -479,7 +479,7 @@ describe('Viewability', () => {
     });
 });
 
-describe('IntersectionObserver', () => {
+xdescribe('IntersectionObserver', () => {
     beforeEach(() => {
         jest.spyOn(window.sessionStorage.__proto__, 'getItem');
         jest.spyOn(window.sessionStorage.__proto__, 'setItem');

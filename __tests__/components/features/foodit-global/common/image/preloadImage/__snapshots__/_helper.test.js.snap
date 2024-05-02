@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Foodit - Preload Images - Helper getHomeOpeningImages Should return images array 1`] = `
-Array [
-  Object {
-    "option": Object {
+[
+  {
+    "option": {
       "device": "desktop",
       "height": 1280,
       "media": "(min-width: 1280px)",
@@ -14,8 +14,8 @@ Array [
     },
     "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/comid-YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg?auth=603dc01e35a4ae0b09e2cc65bfa5aaf7aac6f255a9fc709b9764e6feae89b64e&width=1920&height=1280&quality=70&smart=true",
   },
-  Object {
-    "option": Object {
+  {
+    "option": {
       "device": "desktop",
       "height": 800,
       "media": "(min-width: 1280px)",
@@ -26,8 +26,8 @@ Array [
     },
     "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/comid-YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg?auth=603dc01e35a4ae0b09e2cc65bfa5aaf7aac6f255a9fc709b9764e6feae89b64e&width=1200&height=800&quality=70&smart=true",
   },
-  Object {
-    "option": Object {
+  {
+    "option": {
       "device": "mobile",
       "height": 1155,
       "media": "(min-width: 1280px)",
@@ -38,8 +38,8 @@ Array [
     },
     "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/comid-YXS2J3YI7ZFWJC5I3ECOTV45O4.jpg?auth=603dc01e35a4ae0b09e2cc65bfa5aaf7aac6f255a9fc709b9764e6feae89b64e&width=770&height=1155&quality=70&smart=true",
   },
-  Object {
-    "option": Object {
+  {
+    "option": {
       "device": "mobile",
       "height": 630,
       "media": "(min-width: 1280px)",
@@ -53,9 +53,9 @@ Array [
 `;
 
 exports[`Foodit - Preload Images - Helper getPromoItemsImages With recipe subtype, should return desk images 1`] = `
-Array [
-  Object {
-    "option": Object {
+[
+  {
+    "option": {
       "device": "desktop",
       "height": 1280,
       "media": "(min-width: 1280px)",
@@ -66,8 +66,8 @@ Array [
     },
     "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/GGV53JHPFFGJ5IHR2FNHBGVFLM.jpg?auth=8d0d8cf5d1a19c2a2bb4daea6fbacfd19860c4727bc1b7df1e21333b5e4936b6&width=1920&height=1280&quality=70&smart=true",
   },
-  Object {
-    "option": Object {
+  {
+    "option": {
       "device": "desktop",
       "height": 800,
       "media": "(min-width: 1280px)",
@@ -78,8 +78,8 @@ Array [
     },
     "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/GGV53JHPFFGJ5IHR2FNHBGVFLM.jpg?auth=8d0d8cf5d1a19c2a2bb4daea6fbacfd19860c4727bc1b7df1e21333b5e4936b6&width=1200&height=800&quality=70&smart=true",
   },
-  Object {
-    "option": Object {
+  {
+    "option": {
       "device": "mobile",
       "height": 1155,
       "media": "(min-width: 1280px)",
@@ -90,8 +90,8 @@ Array [
     },
     "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/GGV53JHPFFGJ5IHR2FNHBGVFLM.jpg?auth=8d0d8cf5d1a19c2a2bb4daea6fbacfd19860c4727bc1b7df1e21333b5e4936b6&width=770&height=1155&quality=70&smart=true",
   },
-  Object {
-    "option": Object {
+  {
+    "option": {
       "device": "mobile",
       "height": 630,
       "media": "(min-width: 1280px)",
@@ -105,9 +105,9 @@ Array [
 `;
 
 exports[`Foodit - Preload Images - Helper getPromoItemsImages With storytelling subtype, should return mobile and desk images 1`] = `
-Array [
-  Object {
-    "option": Object {
+[
+  {
+    "option": {
       "device": "desktop",
       "height": 1280,
       "media": "(min-width: 1280px)",
@@ -118,8 +118,8 @@ Array [
     },
     "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/GGV53JHPFFGJ5IHR2FNHBGVFLM.jpg?auth=8d0d8cf5d1a19c2a2bb4daea6fbacfd19860c4727bc1b7df1e21333b5e4936b6&width=1920&height=1280&quality=70&smart=true",
   },
-  Object {
-    "option": Object {
+  {
+    "option": {
       "device": "desktop",
       "height": 800,
       "media": "(min-width: 1280px)",
@@ -130,8 +130,8 @@ Array [
     },
     "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/GGV53JHPFFGJ5IHR2FNHBGVFLM.jpg?auth=8d0d8cf5d1a19c2a2bb4daea6fbacfd19860c4727bc1b7df1e21333b5e4936b6&width=1200&height=800&quality=70&smart=true",
   },
-  Object {
-    "option": Object {
+  {
+    "option": {
       "device": "mobile",
       "height": 1155,
       "media": "(min-width: 1280px)",
@@ -142,8 +142,8 @@ Array [
     },
     "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/BPMJVKSDBZD5ZFPSAAPKBYSEQA.jpg?auth=4d4b928e045a065a1e194f5e4411c237d6aadb9eda6cbb7d23d5f8a83ae934f7&width=770&height=1155&quality=70&smart=true",
   },
-  Object {
-    "option": Object {
+  {
+    "option": {
       "device": "mobile",
       "height": 630,
       "media": "(min-width: 1280px)",
@@ -157,9 +157,9 @@ Array [
 `;
 
 exports[`Foodit - Preload Images - Helper getPromoItemsImages With videoJW and storytelling subtype, should return mobile and poster images 1`] = `
-Array [
-  Object {
-    "option": Object {
+[
+  {
+    "option": {
       "device": "mobile",
       "height": 1155,
       "media": "(min-width: 1280px)",
@@ -170,8 +170,8 @@ Array [
     },
     "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/goldbitcoincryptocurrencyonbackgroundofchartdiagr-EILWU6JH7NDNDLVCVEVQHB33UU.jpg?auth=029fd2a3936e51c0946368e50f33e01208bc0dd7cfa04e309c214a721e7faab2&width=770&height=1155&quality=70&smart=true",
   },
-  Object {
-    "option": Object {
+  {
+    "option": {
       "device": "mobile",
       "height": 630,
       "media": "(min-width: 1280px)",
@@ -181,8 +181,8 @@ Array [
     },
     "resizedUrl": "https://sandbox.lanacion.com.ar/resizer/v2/goldbitcoincryptocurrencyonbackgroundofchartdiagr-EILWU6JH7NDNDLVCVEVQHB33UU.jpg?auth=029fd2a3936e51c0946368e50f33e01208bc0dd7cfa04e309c214a721e7faab2&width=420&height=630&quality=70&smart=true",
   },
-  Object {
-    "option": Object {
+  {
+    "option": {
       "media_preload": "(min-width: 1024px)",
       "proportion": "3:2",
       "useFullSize": true,

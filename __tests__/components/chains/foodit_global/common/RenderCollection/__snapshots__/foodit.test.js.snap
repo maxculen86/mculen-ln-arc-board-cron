@@ -46,7 +46,6 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               />
             </picture>
           </div>
-          
         </div>
         <div
           class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -149,7 +148,6 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               />
             </picture>
           </div>
-          
         </div>
         <div
           class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -252,7 +250,6 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               />
             </picture>
           </div>
-          
         </div>
         <div
           class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -339,7 +336,6 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               />
             </picture>
           </div>
-          
         </div>
         <div
           class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -442,7 +438,6 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               />
             </picture>
           </div>
-          
         </div>
         <div
           class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -545,7 +540,6 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               />
             </picture>
           </div>
-          
         </div>
         <div
           class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -648,7 +642,6 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               />
             </picture>
           </div>
-          
         </div>
         <div
           class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -734,7 +727,6 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               />
             </picture>
           </div>
-          
         </div>
         <div
           class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -820,7 +812,6 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               />
             </picture>
           </div>
-          
         </div>
         <div
           class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -922,7 +913,6 @@ exports[`RenderCollection should render BN_12_GRID layout with articles 1`] = `
               />
             </picture>
           </div>
-          
         </div>
         <div
           class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -1292,7 +1282,6 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     />
                   </picture>
                 </div>
-                
               </div>
               <div
                 class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -1399,7 +1388,6 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     />
                   </picture>
                 </div>
-                
               </div>
               <div
                 class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -1506,7 +1494,6 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     />
                   </picture>
                 </div>
-                
               </div>
               <div
                 class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -1597,7 +1584,6 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     />
                   </picture>
                 </div>
-                
               </div>
               <div
                 class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -1704,7 +1690,6 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     />
                   </picture>
                 </div>
-                
               </div>
               <div
                 class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -1811,7 +1796,6 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     />
                   </picture>
                 </div>
-                
               </div>
               <div
                 class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -1918,7 +1902,6 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     />
                   </picture>
                 </div>
-                
               </div>
               <div
                 class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -2008,7 +1991,6 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     />
                   </picture>
                 </div>
-                
               </div>
               <div
                 class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -2098,7 +2080,6 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     />
                   </picture>
                 </div>
-                
               </div>
               <div
                 class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"
@@ -2204,7 +2185,6 @@ exports[`RenderCollection should render Carousel layout with title and link 1`] 
                     />
                   </picture>
                 </div>
-                
               </div>
               <div
                 class="card-main w-100 flex flex-column flex-grow-1 jc-between gap-16  text-light-800 px-16 pb-16 pt-20"

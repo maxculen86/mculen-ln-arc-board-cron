@@ -24,12 +24,11 @@ const getModule = settings => {
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            hmr: !isProd
-                        }
+                        options: {}
                     },
                     {
-                        loader: 'css-loader'
+                        loader: 'css-loader',
+                        options: { url: false }
                     },
                     {
                         loader: 'resolve-url-loader',
@@ -38,9 +37,11 @@ const getModule = settings => {
                     {
                         loader: 'sass-loader',
                         options: {
-                            sourceMap: true,
-                            importer: importer(),
-                            outputStyle: isProd ? 'compressed' : 'expanded'
+                            sassOptions: {
+                                sourceMap: true,
+                                importer: importer(),
+                                outputStyle: isProd ? 'compressed' : 'expanded'
+                            }
                         }
                     }
                 ]
@@ -77,7 +78,10 @@ const getModule = settings => {
     };
 };
 const getDevtool = settings => {
-    return settings.devtool || (settings.isProd ? 'none' : 'source-map');
+    return (
+        settings.devtool ||
+        (settings.isProd ? 'eval' : 'eval-cheap-module-source-map')
+    );
 };
 
 const getMode = settings => (settings.isProd ? 'production' : 'development');
@@ -159,7 +163,8 @@ module.exports = (config, options) => {
     const { site, entries, maxSize, env } = config;
 
     const settings = { site, entries, maxSize, ...options };
-    settings.isProd = isProduction(config.env || settings.env || env);
+    const isProd = isProduction(config.env || settings.env || env);
+    settings.isProd = isProd;
 
     const mode = getMode(settings);
     const entry = getEntry(settings);
@@ -172,7 +177,7 @@ module.exports = (config, options) => {
     return {
         module,
         performance,
-        devtool,
+        devtool: devtool || {},
         mode,
         entry,
         output,

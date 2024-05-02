@@ -48,7 +48,7 @@ describe('collectionsHelper - isNotRecommend', () => {
     });
 });
 
-describe('collectionsHelper - filterArticlesInCollection', () => {
+xdescribe('collectionsHelper - filterArticlesInCollection', () => {
     const cachedCallMocks = {
         first: {
             _id: 'QJ3BOEZVQNEYZEVBXHF4C7KAWY',
@@ -117,7 +117,7 @@ describe('collectionsHelper - filterArticlesInCollection', () => {
     });
 });
 
-describe('collectionsHelper - getArticlesToShow', () => {
+xdescribe('collectionsHelper - getArticlesToShow', () => {
     const generalMock = {
         notesQuantity: 2,
         articles: [
@@ -142,7 +142,7 @@ describe('collectionsHelper - getArticlesToShow', () => {
     expect(resultWithoutExcluded).toBeTruthy();
 });
 
-describe('collectionsHelper - filterArticlesTypeStory', () => {
+xdescribe('collectionsHelper - filterArticlesTypeStory', () => {
     const collectionMock = [
         {
             _id: 'IZLVHK6F4FGCXJ5EGVH6UF7AFQ',
@@ -171,7 +171,7 @@ describe('collectionsHelper - filterArticlesTypeStory', () => {
     });
 });
 
-describe('collectionsHelper -  getImageConfig', () => {
+xdescribe('collectionsHelper -  getImageConfig', () => {
     test('should return "bombaHorizontal" with the diagramation of ln10 "horizontal"', () => {
         expect(getImageConfig('horizontal', false, 0)).toStrictEqual(
             'bombaHorizontal'

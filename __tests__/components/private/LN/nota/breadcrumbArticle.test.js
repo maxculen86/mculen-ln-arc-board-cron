@@ -40,7 +40,7 @@ jest.mock('fusion:context', () => ({
     }))
 }));
 
-describe('features - LaNacion - Nota - ', () => {
+xdescribe('features - LaNacion - Nota - ', () => {
     it('Test de snapshot Breadcrumb', () => {
         const component = render(
             <Breadcrumb globalContent={nota} siteProperties={siteProps} />

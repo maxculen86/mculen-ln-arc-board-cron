@@ -11,7 +11,7 @@ import {
 } from '../../../../components/chains/utils/_helpers';
 import renderablesWithVariants from '../../../../__mocks__/data/renderables/dataWithVariants.json';
 import renderablesWithoutVariants from '../../../../__mocks__/data/renderables/data1.json';
-import StaticContent from '../../../../components/private/common/staticContent';
+import StaticContentV2 from '../../../../components/chains/LN10-global/staticContentV2';
 
 jest.mock(
     '../../../../components/private/common/hooks/useGetLogoImage',
@@ -523,7 +523,9 @@ describe('Components - Chains - Utils - _helpers', () => {
 
             const result = setStaticDynamically(Component, exception, props);
 
-            expect(result).toEqual(<StaticContent>{Component}</StaticContent>);
+            expect(result).toEqual(
+                <StaticContentV2 id="">{Component}</StaticContentV2>
+            );
         });
 
         it('should render Component without StaticContent when exception is truthy', () => {
@@ -543,7 +545,9 @@ describe('Components - Chains - Utils - _helpers', () => {
 
             const result = setStaticDynamically(Component, exception, props);
 
-            expect(result).toEqual(<StaticContent>{Component}</StaticContent>);
+            expect(result).toEqual(
+                <StaticContentV2 id="">{Component}</StaticContentV2>
+            );
         });
     });
 });

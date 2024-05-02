@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
-import StaticContent from '../../private/common/staticContent';
+import Static from 'fusion:static';
 import Header from '../../features/LN-10-global/header/default';
 import Footer from '../../private/LN10/footer';
 import GlobalProvider from '../../private/common/context/globalContext';
@@ -68,9 +68,9 @@ const LNSportsHome = props => {
                             {/* Cuerpo */}
                             <div className="sidebar__main">
                                 {/* SECCIONES */}
-                                <StaticContent id="staticApertura">
+                                <Static id="staticApertura" htmlOnly>
                                     {apertura}
-                                </StaticContent>
+                                </Static>
                                 {cuerpo}
                             </div>
                             <div className="sidebar__aside hlp-tabletlm-none">

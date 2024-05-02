@@ -8,7 +8,6 @@ import {
     getEpigrafe,
     getMediaData
 } from '../../private/LN/common/utils/mediaHelper';
-import StaticContent from '../../private/common/staticContent';
 
 const AperturaNoticia = props => {
     const { globalContent, outputType, layout } = props;
@@ -61,11 +60,7 @@ const AperturaNoticia = props => {
         </section>
     );
 
-    return (
-        (subtype === INFOGRAFIA && Component) || (
-            <StaticContent>{Component}</StaticContent>
-        )
-    );
+    return (subtype === INFOGRAFIA && Component) || <div>{Component}</div>;
 };
 
 AperturaNoticia.label = 'LN-Nota-AperturaNoticia';

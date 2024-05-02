@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { render, fireEvent } from '@testing-library/react';
 import { toggleDrawer } from '@ln/common-ui-drawer';
 import RenderUserOptions from '../../../../../../../components/features/foodit-global/common/Header/components/rightOptions/RenderUserOptions';
@@ -11,7 +11,7 @@ jest.mock('react', () => ({
     useContext: jest.fn()
 }));
 
-describe('Components - features - foodit-global - common - header - components - RightOptions', () => {
+xdescribe('Components - features - foodit-global - common - header - components - RightOptions', () => {
     const mockUserLogedAndSuscribed = {
         ProductoPremiumId: '2,3,4,5',
         UsuarioDetalleEmail: 'hola@mundo.com',

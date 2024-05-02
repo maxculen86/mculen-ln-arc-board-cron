@@ -12,7 +12,7 @@ jest.mock(
 );
 
 jest.mock('react', () => {
-    const ActualReact = require.requireActual('react');
+    const ActualReact = jest.requireActual('react');
     return {
         ...ActualReact,
         useContext: () => ({
@@ -57,13 +57,6 @@ jest.mock(
         isLoggedIn: jest.fn()
     })
 );
-
-jest.mock('fusion:context', () => () => ({
-    default: props => {
-        const mockAvailableProps = {};
-        return props.children(mockAvailableProps);
-    }
-}));
 
 jest.mock(
     '../../../../../../components/private/common/scriptManager/MainHeaderEventsScript',

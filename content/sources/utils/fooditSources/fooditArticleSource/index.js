@@ -2,8 +2,6 @@ import {
     STORYTELLING,
     RECETA
 } from '../../../../../components/private/common/utils/subtypes/subtypeHelper';
-import { addResizedUrls } from '../../../../../components/private/common/utils/image/resizer/addResizerUrls';
-import { getAllImagesAuth } from '../../signingServiceSource/getImagesAuth';
 import get from '../../../../../components/private/common/utils/get';
 import validateSponsoredLink from '../../validateSponsoredLink';
 import getProperties from 'fusion:properties';
@@ -15,11 +13,9 @@ import {
 import {
     transformElementsBasedOnType,
     transformPromoItems,
-    formatElementText,
     transformAuthors,
     filterSections
 } from '../../articleSourceNota/_helper';
-import { compose } from '../../../../../components/private/common/utils/functional';
 
 export const getImageConfig = (response, query) => {
     const siteProperties = getProperties('foodit');
@@ -92,105 +88,6 @@ export const getImageConfig = (response, query) => {
         imgConfigBySubtype[get(response, 'subtype', '')] ||
         imgConfigBySubtype.default
     );
-};
-
-export const deleteTagsForTitle = text =>
-    text ? text.replace(/(<|<\/)(em|strong)>/g, '') : '';
-
-export const addAttribute = ({ attributes, text = '' }) => {
-    if (Array.isArray(attributes) && attributes.length && text) {
-        const attributeString = attributes
-            .map(
-                ({ property, value }) =>
-                    property && value && ` ${property}="${value}"`
-            )
-            .join('');
-
-        return text.replace(/(<[^>]+)/, `$1${attributeString}`);
-    }
-
-    return text;
-};
-
-export const setOtherChar = (text = '') =>
-    text ? text.replace(/&lt;/g, '<').replace(/&gt;/g, '>') : '';
-
-export const replaceClassForMark = text =>
-    text
-        ? text.replace(/hl_(yellow|pink|purple|orange|green)/g, 'hl_underline')
-        : '';
-
-export const setBoldText = ({ content, withSponsoredLink } = {}) => ({
-    text: content ? content.replace(/(?:<|<(\/))b(?:>)/g, '<$1strong>') : '',
-    withSponsoredLink
-});
-
-export const setItalicText = ({ text, withSponsoredLink } = {}) => ({
-    content: text ? text.replace(/(?:<|<(\/))i(?:>)/g, '<$1em>') : '',
-    withSponsoredLink
-});
-
-export const transformLinks = ({ content, withSponsoredLink } = {}) => {
-    if (content) {
-        return content.replace(
-            /<a[\s]+([^>]+)>((?:.(?!\<\/a\>))*.)<\/a>/g,
-            (match, attributes, string) => {
-                let newText = addAttribute({
-                    attributes: [
-                        {
-                            property: 'title',
-                            value: deleteTagsForTitle(string)
-                        },
-                        { property: 'class', value: 'link foodit-link' },
-                        { property: 'data-variant', value: 'secondary' }
-                    ],
-                    text: match
-                });
-
-                const [, , link] = attributes.match(
-                    /href=(["'\\])+(.*?)\1/
-                ) || [null, null, '#'];
-
-                const isInternalLink = link.includes('lanacion.com.ar');
-
-                if (isInternalLink) {
-                    newText = newText.replace(
-                        /target=(["'\\])+(.*?)\1/,
-                        'target="_self"'
-                    );
-                }
-
-                if (!isInternalLink && !withSponsoredLink) {
-                    newText = addAttribute({
-                        attributes: [{ property: 'rel', value: 'nofollow' }],
-                        text: newText
-                    });
-                }
-
-                return newText;
-            }
-        );
-    }
-    return '';
-};
-
-export const transformElementText = ({
-    element = {},
-    withSponsoredLink
-} = {}) => {
-    const newElement = formatElementText(element);
-    const content = compose(
-        replaceClassForMark,
-        setOtherChar,
-        transformLinks,
-        setItalicText,
-        setBoldText
-    )({ content: get(newElement, 'content', ''), withSponsoredLink });
-
-    return {
-        ...newElement,
-        content
-    };
 };
 
 export const getArticleSubtype = subtype => {

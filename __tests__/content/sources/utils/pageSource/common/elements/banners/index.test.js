@@ -30,7 +30,7 @@ describe('Test Methods Banners sources-utils-pageSource-common-elements-banners-
                 null
             );
         } catch (error) {
-            expect(error.message).toContain(
+            expect(error.message).toMatch(
                 'Cannot convert undefined or null to object'
             );
         }
@@ -58,8 +58,8 @@ describe('Test Methods Banners sources-utils-pageSource-common-elements-banners-
                 null
             );
         } catch (error) {
-            expect(error.message).toContain(
-                "Cannot read property '0' of undefined"
+            expect(error.message).toMatch(
+                "Cannot read properties of undefined (reading '0')"
             );
         }
     });

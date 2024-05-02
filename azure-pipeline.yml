@@ -1,0 +1,29 @@
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: Arquitectura/PipelineTemplates #Se define el nombre del TeamProject / Repositorio donde se encuentra el template.
+      ref: refs/tags/2.13.1
+
+trigger:
+  - demo/*
+  - sandbox
+  - demo-sandbox/*
+
+pool:
+  vmImage: ubuntu-latest #El agente utilizado, adentro cada template tiene su agente particular.
+
+jobs:
+- job: BuildArc
+  steps:
+    - bash: | 
+        echo "checking date"
+        date
+        echo "setting date to America/Argentina/Buenos_Aires"
+        sudo timedatectl set-timezone "America/Argentina/Buenos_Aires"
+        date
+      displayName: Cambio zona horaria
+    - template: Arc/build.yml@templates
+      parameters:
+        runTest: true
+        nodeVersion: 18.x

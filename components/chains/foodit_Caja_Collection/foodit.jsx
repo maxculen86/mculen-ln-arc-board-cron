@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Consumer from 'fusion:consumer';
+import Static from 'fusion:static';
 import PropTypes from 'fusion:prop-types';
 import { getIdCollection, validateChainFoodit } from './common/_helper';
 import WarningMessage from '../../private/common/warningMessage/warningMessage';
@@ -11,11 +12,10 @@ import setChainFooditCustomFields from '../foodit-global/common/utils/setChainCu
 import get from '../../private/common/utils/get';
 import classNames from 'classnames';
 import LazyLoad from '../../features/foodit-global/common/LazyLoad/foodit';
-import StaticContent from '../../private/common/staticContent';
 
 const CajaCollection = props => {
     const [inViewport, setInViewport] = useState(false);
-    const { isAdmin, customFields } = props;
+    const { isAdmin, customFields, id: chainId } = props;
 
     const {
         idCollection,
@@ -87,9 +87,9 @@ const CajaCollection = props => {
             {Component}
         </LazyLoad>
     ) : (
-        <StaticContent className={staticContentClassName}>
-            {Component}
-        </StaticContent>
+        <Static id={chainId}>
+            <div className={staticContentClassName}>{Component}</div>
+        </Static>
     );
 };
 

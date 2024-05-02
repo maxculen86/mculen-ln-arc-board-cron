@@ -23,7 +23,7 @@ describe('Components - Layout - LNAcumuladoColumnistasLayout Default', () => {
         expect(JSON.stringify(component)).toMatch(
             /Columnas y opinión: política, economía, internacionales y más/gi
         );
-        expect(JSON.stringify(component)).toContain(
+        expect(JSON.stringify(component)).toMatch(
             'Leé los análisis de los columnistas, periodistas y escritores más destacados de la redacción. ' +
                 'Además, descubrí contenidos especializados de nuestros colaboradores. Informate con LA NACION.'
         );

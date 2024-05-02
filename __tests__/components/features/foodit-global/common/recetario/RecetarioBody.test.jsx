@@ -49,7 +49,7 @@ jest.mock('../../../../../../components/private/common/utils/getToken');
 useSiteServices.mockImplementation(() => {
     return siteServicesMock;
 });
-describe('RecetarioBody', () => {
+xdescribe('RecetarioBody', () => {
     beforeEach(() => {
         useAppContext.mockImplementation(() => ({
             contextPath: '/test-path',

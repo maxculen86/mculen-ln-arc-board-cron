@@ -230,7 +230,7 @@ describe('Test transform page', () => {
                 paramsQuery
             );
         } catch (error) {
-            expect(error.message).toContain('Missing data Layout');
+            expect(error.message).toMatch('Missing data Layout');
         }
     });
 
@@ -243,7 +243,7 @@ describe('Test transform page', () => {
                 paramsQuery
             );
         } catch (error) {
-            expect(error.message).toContain('Missing data Layout');
+            expect(error.message).toMatch('Missing data Layout');
         }
     });
 
@@ -256,7 +256,7 @@ describe('Test transform page', () => {
                 paramsQuery
             );
         } catch (error) {
-            expect(error.message).toContain(
+            expect(error.message).toMatch(
                 "Cannot read property 'information' of null"
             );
         }

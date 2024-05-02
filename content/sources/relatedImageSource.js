@@ -106,7 +106,8 @@ export default {
         imageConfig: 'text',
         isAddRelated: 'text',
         nid: 'text',
-        boxType: 'text'
+        boxType: 'text',
+        useDataSizes: 'bool'
     },
     ttl: 600
 };

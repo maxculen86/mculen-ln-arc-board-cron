@@ -131,7 +131,9 @@ describe('Test page', () => {
         try {
             await page.fetch(null);
         } catch (err) {
-            expect(err.message).toBe("Cannot read property 'cookie' of null");
+            expect(err.message).toBe(
+                "Cannot read properties of null (reading 'cookie')"
+            );
         }
     });
     test('fetch Error', async () => {

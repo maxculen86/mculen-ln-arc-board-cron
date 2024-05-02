@@ -18,7 +18,7 @@ import PageBuilderMessage from '../../private/LN/home/common/components/pageBuil
 import siteConfig from '../../../properties/sites/la-nacion-ar';
 import get from '../../private/common/utils/get';
 import { productClickFromClient } from '../../private/common/utils/viewability';
-import StaticContent from '../../private/common/staticContent';
+import Static from 'fusion:static';
 
 const CajaCollection = props => {
     const {
@@ -146,7 +146,7 @@ const CajaCollection = props => {
         />
     );
 
-    return <StaticContent>{Component}</StaticContent>;
+    return <Static id={featureId}>{Component}</Static>;
 };
 
 CajaCollection.label = 'LN Caja Collection';

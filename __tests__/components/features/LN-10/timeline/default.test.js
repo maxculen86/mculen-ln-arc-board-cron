@@ -7,14 +7,6 @@ import mockArticles from '../../../../../__mocks__/data/timeline/articles.json';
 import useTimeline from '../../../../../components/private/LN/common/hooks/useTimeline';
 import pageBuilderValidator from '../../../../../components/private/common/utils/pageBuilderValidator';
 
-jest.mock('fusion:context', () => () => ({
-    default: props => {
-        const mockAvailableProps = {};
-        return props.children(mockAvailableProps);
-    },
-    useAppContext: jest.fn(() => ({}))
-}));
-
 jest.mock('fusion:consumer', component => {
     return function(component) {
         return component;

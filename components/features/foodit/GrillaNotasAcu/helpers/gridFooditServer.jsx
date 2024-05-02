@@ -1,5 +1,5 @@
 import React from 'react';
-import StaticContent from '../../../../private/common/staticContent';
+import Static from 'fusion:static';
 import { GridArticlesFoodit } from './gridArticles';
 import useGridArticlesFoodit from '../hooks/useGridArticles';
 
@@ -19,9 +19,9 @@ const GridFooditServer = ({
         haveShowButton();
     }
     return (
-        <StaticContent>
+        <Static id={`acu-grid-ssr-${id}`}>
             <GridArticlesFoodit articles={articles} />
-        </StaticContent>
+        </Static>
     );
 };
 

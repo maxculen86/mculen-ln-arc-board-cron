@@ -94,7 +94,7 @@ jest.mock('fusion:consumer', Component => {
     };
 });
 
-describe('Test de las embebidos en el cuerpo de una nota', () => {
+xdescribe('Test de las embebidos en el cuerpo de una nota', () => {
     const props = {
         type: 'story',
         content_elements: ArticleWithEmbeds

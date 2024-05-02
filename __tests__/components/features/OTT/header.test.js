@@ -65,12 +65,6 @@ describe('components - features - OTT - header', () => {
 
         test('Header should be wrapped in static content tag', () => {
             const { container } = render(<Header {...props} />);
-            expect(
-                screen.getByText(
-                    (content, element) =>
-                        element.tagName.toLowerCase() === 'mock-static-content'
-                )
-            ).toBeVisible();
             expect(container).toMatchSnapshot();
         });
     });

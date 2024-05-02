@@ -34,7 +34,7 @@ describe('components - features - LN-Api - AccumulatedStoryByIds - json.js', () 
                 expect(objArticle).toBe(null);
             } catch (err) {
                 expect(err.message).toBe(
-                    `Cannot read property 'globalContent' of null`
+                    `Cannot read properties of null (reading 'globalContent')`
                 );
             }
         });
@@ -80,7 +80,9 @@ describe('components - features - LN-Api - AccumulatedStoryByIds - json.js', () 
             const objArticle = new AccumulatedStoryByIds.default(props);
             objArticle.props.requestUri = null;
             const result = objArticle.render();
-            expect(result.Message).toBe(`Cannot read property '1' of null`);
+            expect(result.Message).toBe(
+                `Cannot read properties of null (reading '1')`
+            );
         });
     });
 });

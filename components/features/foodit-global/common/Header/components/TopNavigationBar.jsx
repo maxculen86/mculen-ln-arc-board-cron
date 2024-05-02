@@ -1,4 +1,5 @@
 import React from 'react';
+import Static from 'fusion:static';
 import { Topnavigationbar } from '@ln/foodit-ui-topnavigationbar';
 import { Icon } from '@ln/common-ui-icon';
 import { Link } from '@ln/foodit-ui-link';
@@ -14,7 +15,7 @@ export const TopNavigationBar = ({ categories = [] }) => {
                     <Categories {...category} key={i} />
                 ))}
             </Topnavigationbar>
-            <StaticContent>
+            <Static id="foodit-top-navigation-bar">
                 <Topnavigationbar className="text-12">
                     <Link
                         href="/recetario"
@@ -62,7 +63,7 @@ export const TopNavigationBar = ({ categories = [] }) => {
                         NEWSLETTER
                     </Link>
                 </Topnavigationbar>
-            </StaticContent>
+            </Static>
         </div>
     );
 };

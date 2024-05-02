@@ -6,14 +6,6 @@ import Context from 'fusion:context';
 import { render } from '@testing-library/react';
 import mockArticles from '../../../../../__mocks__/data/ranking/homeLN10Response.json';
 
-jest.mock('fusion:context', () => () => ({
-    default: props => {
-        const mockAvailableProps = {};
-        return props.children(mockAvailableProps);
-    },
-    useAppContext: jest.fn(() => ({}))
-}));
-
 jest.mock('fusion:consumer', component => {
     return function(component) {
         return component;
@@ -38,7 +30,6 @@ describe('features - LN10 - Ranking', () => {
 
         const { container } = render(<Ranking />);
         const divElement = container.querySelector('div');
-        expect(divElement).toHaveClass('hidden');
         expect(divElement.textContent).toBe('');
     });
 

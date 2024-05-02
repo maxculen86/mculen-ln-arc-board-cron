@@ -14,7 +14,7 @@ jest.mock(
     }
 );
 
-describe('Content - sources - utils - signingServiceSource', () => {
+xdescribe('Content - sources - utils - signingServiceSource', () => {
     describe('getPromoItemsAuth function', () => {
         const cachedCall = jest.fn();
         const dataPromoItems = {

@@ -5,7 +5,6 @@ import {
 } from '../../../../private/LN/common/utils/bannerHelper';
 import DivBannerSSR from '../../../../private/common/banners/DivBannerSSR';
 import { supportedTypes } from '../_utils/_bodyRules';
-import StaticContent from '../../../../private/common/staticContent';
 
 export const BuildBanners = ({
     banners = [],
@@ -72,9 +71,9 @@ const DivBannerRender = ({
 }) => {
     return (
         elementsCount > elementPosition && (
-            <StaticContent>
+            <>
                 <DivBannerSSR bannerConfiguration={bannerConfiguration} />
-            </StaticContent>
+            </>
         )
     );
 };

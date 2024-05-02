@@ -15,10 +15,10 @@ import { validateChain } from '../LN10_Caja_Collection/common/_helper-WebApi';
 import setCommonCustomFields from '../utils/setCommonCustomFields';
 import diagramationRules from '../../private/common/utils/diagramationRules';
 import setRender from '../utils/setRender';
-import StaticContent from '../../private/common/staticContent';
 import getGridType from '../utils/getGridType';
 import CommonCollection from '../../private/LN10/home/components/CommonCollection/default';
 import { useRoofData } from '../utils/_helpers';
+import StaticContentV2 from '../LN10-global/staticContentV2';
 
 const CajaCanal = props => {
     const {
@@ -109,7 +109,7 @@ const CajaCanal = props => {
     );
 
     return (
-        <StaticContent {...extraOptsDiv}>
+        <StaticContentV2 {...{ ...extraOptsDiv, id: chainId }}>
             {setRender({
                 chainId,
                 viewabilityData,
@@ -129,7 +129,7 @@ const CajaCanal = props => {
                     )
                 }
             })}
-        </StaticContent>
+        </StaticContentV2>
     );
 };
 

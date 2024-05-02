@@ -1,11 +1,11 @@
 import React from 'react';
 import { Facade } from './utils/facade';
 import { useAppContext } from 'fusion:context';
+import Static from 'fusion:static';
 import VideoPlayerSnippet from '../scriptManager/snippetVideo';
 import get from '../utils/get';
 import { configClassName } from './utils/helperJw';
 import urlForPrerollAds from '../../LN/common/utils/urlForPrerollAds';
-import useViewportSize from '../hooks/useViewportSize';
 
 const videoPlayerJW = ({
     data,
@@ -35,49 +35,47 @@ const videoPlayerJW = ({
         facade
     } = get(configClassName, arcSite, {});
 
-    const device = useViewportSize();
-
-    const tagsUrl = urlForPrerollAds(device, true);
-
     return (
-        <div className={container}>
-            <section className={mediaContainer}>
-                <div className={videoContainer}>
-                    <div className={videoPlayer}>
-                        <Facade
-                            id={mediaid}
-                            playlist={playlist}
-                            className={facade}
-                            title={title}
-                        />
-                        <div id={mediaid} />
-                        <script
-                            defer
-                            className="video-jw"
-                            id="scriptVideosJw"
-                            data-title={title}
-                            data-player={player}
-                            data-playlist={JSON.stringify(playlist)}
-                            data-has-autoplay={hasAutoplay}
-                            data-media-id={mediaid}
-                            data-tags-url={tagsUrl}
-                            data-autostart
-                            src={deployment(
-                                `${contextPath}/resources/js/LN/scriptVideosJw.min.js`
-                            )}
-                        />
+        <Static id={mediaid}>
+            <div className={container}>
+                <section className={mediaContainer}>
+                    <div className={videoContainer}>
+                        <div className={videoPlayer}>
+                            <Facade
+                                id={mediaid}
+                                playlist={playlist}
+                                className={facade}
+                                title={title}
+                            />
+                            <div id={mediaid} />
+                            <script
+                                defer
+                                className="video-jw"
+                                id="scriptVideosJw"
+                                data-title={title}
+                                data-player={player}
+                                data-playlist={JSON.stringify(playlist)}
+                                data-has-autoplay={hasAutoplay}
+                                data-media-id={mediaid}
+                                data-tags-url={urlForPrerollAds()}
+                                data-autostart
+                                src={deployment(
+                                    `${contextPath}/resources/js/LN/scriptVideosJw.min.js`
+                                )}
+                            />
+                        </div>
                     </div>
-                </div>
-                {!isOtt && (
-                    <VideoPlayerSnippet
-                        parrafo={parrafo || description}
-                        tituloNota={tituloNota}
-                        mediaData={video}
-                        minStream={{ url: get(video, 'link', '') }}
-                    />
-                )}
-            </section>
-        </div>
+                    {!isOtt && (
+                        <VideoPlayerSnippet
+                            parrafo={parrafo || description}
+                            tituloNota={tituloNota}
+                            mediaData={video}
+                            minStream={{ url: get(video, 'link', '') }}
+                        />
+                    )}
+                </section>
+            </div>
+        </Static>
     );
 };
 

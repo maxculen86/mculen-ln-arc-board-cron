@@ -2,10 +2,7 @@
 
 exports[`Componentes - features - LN-Acumulado - CryptoCarrouse Should render live coin watch script 1`] = `
 <div>
-  <div
-    class="hidden"
-    id="randomId"
-  >
+  <div>
     <div
       class="container-widget-carrousel"
     >

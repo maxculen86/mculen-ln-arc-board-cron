@@ -74,7 +74,7 @@ describe('components - features - LN-common - LN10_En_Vivo - json.js', () => {
                 expect(objArticle).toBe(null);
             } catch (err) {
                 expect(err.message).toBe(
-                    `Cannot read property 'customFields' of null`
+                    `Cannot read properties of null (reading 'customFields')`
                 );
             }
         });

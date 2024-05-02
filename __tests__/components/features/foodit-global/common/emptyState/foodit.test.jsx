@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Context from 'fusion:context';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import EmptyState from '../../../../../../components/features/foodit-global/common/emptyState/foodit';
 import { titleByVariant } from '../../../../../../components/features/foodit-global/common/emptyState/helpers';
 

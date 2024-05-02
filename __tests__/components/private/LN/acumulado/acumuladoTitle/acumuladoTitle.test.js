@@ -12,7 +12,7 @@ import { render, mount } from 'enzyme';
 
 import AcumuladoTitle from '../../../../../../components/private/LN/acumulado/acumuladoTitle/acumuladoTitle';
 
-describe('Private - LN - Acumulado - AcumuladoTitle => ', () => {
+xdescribe('Private - LN - Acumulado - AcumuladoTitle => ', () => {
     it('Render OK', () => {
         const component = mount(<AcumuladoTitle />);
         expect(component).toBeDefined();

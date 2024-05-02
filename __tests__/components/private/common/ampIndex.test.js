@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import AMPScripts from '../../../../components/private/common/ampIndex';
 
 describe('Check ampScrips works correctly', () => {

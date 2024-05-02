@@ -5,20 +5,6 @@ exports[`features - LN10 - Timeline should not render timeline component if sour
 exports[`features - LN10 - Timeline should render pagebuilder message component when isAdmin and error are truthy 1`] = `
 <div>
   <div
-    class="mod-warning --warning"
-  >
-    <h2
-      class="title"
-    >
-      Advertencia
-    </h2>
-    <p
-      class="text"
-    >
-      Mock error message
-    </p>
-  </div>
-  <div
     class="ln-timeline"
   >
     <div

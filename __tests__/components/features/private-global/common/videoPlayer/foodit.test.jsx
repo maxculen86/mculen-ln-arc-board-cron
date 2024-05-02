@@ -2,7 +2,7 @@ import React from 'react';
 import Context from 'fusion:context';
 
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 
 import VideoPlayer from '../../../../../../components/features/private-global/common/videoPlayer/foodit';
 

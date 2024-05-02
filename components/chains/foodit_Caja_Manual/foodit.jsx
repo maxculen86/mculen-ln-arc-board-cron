@@ -3,19 +3,14 @@
 import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
-
+import Static from 'fusion:static';
 import validateCajaManual from './common/_helper-WebApi';
-
 import setRender from '../utils/setRender';
-
 import RoofFoodit from '../../features/foodit-global/common/RoofFoodit/foodit';
 import setChainFooditCustomFields from '../foodit-global/common/utils/setChainCustomFieldsFoodit';
 
-import { setStaticDynamically } from '../utils/_helpers';
 import { setSlicedChildren } from '../utils/common/_helpers-WebApi';
-
 import fooditRules from '../../features/foodit-global/common/utils/fooditRules';
-import StaticContent from '../../private/common/staticContent';
 
 const CajaManual = props => {
     const {
@@ -43,26 +38,28 @@ const CajaManual = props => {
         children
     });
 
-    const Component = setRender({
-        chainId,
-        isAdmin,
-        error,
-        hideBox: hideCaja,
-        extraOptions: {
-            default: (
-                <StaticContent>
-                    <RoofFoodit
-                        title={{ text: title, as: 'h3' }}
-                        hide={hideTitle}
-                        linkProps={{ href: link, text: title }}
-                    />
-                    <div className={classNameParent}>{cards}</div>
-                </StaticContent>
-            )
-        }
-    });
-
-    return setStaticDynamically(Component);
+    return (
+        <Static id={chainId}>
+            {setRender({
+                chainId,
+                isAdmin,
+                error,
+                hideBox: hideCaja,
+                extraOptions: {
+                    default: (
+                        <div className="hidden">
+                            <RoofFoodit
+                                title={{ text: title, as: 'h3' }}
+                                hide={hideTitle}
+                                linkProps={{ href: link, text: title }}
+                            />
+                            <div className={classNameParent}>{cards}</div>
+                        </div>
+                    )
+                }
+            })}
+        </Static>
+    );
 };
 
 CajaManual.label = 'foodit Caja Manual';

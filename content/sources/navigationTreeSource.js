@@ -109,7 +109,8 @@ export default {
     fetch,
     schemaName: 'navigation-tree-schema',
     params: {
-        website: 'text'
+        website: 'text',
+        sectionId: 'text'
     },
     ttl: 600
 };

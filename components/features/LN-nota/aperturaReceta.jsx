@@ -2,15 +2,14 @@ import React from 'react';
 import Consumer from 'fusion:consumer';
 import PropTypes from 'fusion:prop-types';
 import AperturaRecetaComponent from '../../private/LN/nota/apertura/AperturaReceta/aperturaReceta';
-import StaticContent from '../../private/common/staticContent';
 
 // TODO hacer unit test
 
 const aperturaReceta = props => {
     return (
-        <StaticContent>
+        <div>
             <AperturaRecetaComponent {...props} />
-        </StaticContent>
+        </div>
     );
 };
 

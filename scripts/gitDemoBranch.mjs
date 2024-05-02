@@ -5,7 +5,19 @@ import { Spinner } from 'cli-spinner';
 import { spawn } from 'child_process';
 
 const git = simpleGit();
-const demoBranchPrefixes = ['LN/', 'hotfix', 'release'];
+const demoBranchPrefixes = [
+    'LN/',
+    'develop',
+    'sandbox',
+    'master',
+    'feature',
+    'fix',
+    'core',
+    'upgrade',
+    'update',
+    'hotfix',
+    'release'
+];
 let demoBranchSuffix = 'demo';
 
 async function checkUncommittedChanges() {

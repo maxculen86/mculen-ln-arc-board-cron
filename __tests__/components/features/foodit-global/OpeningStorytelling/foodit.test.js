@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import Context from 'fusion:context';
 
 import { getTypeOfDevice } from '@ln/hooks';

@@ -4,7 +4,7 @@ import { CONTENT_BASE, ARC_ACCESS_TOKEN } from 'fusion:environment';
 import get from '../../components/private/common/utils/get';
 import filter from '../filters/LN/acumulado/author';
 import { signingServiceCachedCall } from './utils/signingServiceSource/getImagesAuth';
-import { resizeImgUrl } from '../../components/private/common/utils/image/resizer/v2/buildResizerUrls';
+import { resizeImgUrl } from '../../components/private/common/utils/image/resizer/v2/resizerHelper';
 import { isEmptyString } from '../../components/private/common/utils/dataValidation';
 import logger from '../../components/private/common/utils/logger';
 

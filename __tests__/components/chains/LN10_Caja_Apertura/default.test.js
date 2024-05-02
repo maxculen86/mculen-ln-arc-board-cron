@@ -9,13 +9,6 @@ import getDynamicBanners from '../../../../components/private/common/banners/dyn
 import DivBannerSSR from '../../../../components/private/common/banners/DivBannerSSR';
 import Context from 'fusion:context';
 
-jest.mock('fusion:context', () => () => ({
-    default: props => {
-        const mockAvailableProps = {};
-        return props.children(mockAvailableProps);
-    }
-}));
-
 jest.mock(
     '../../../../components/private/common/banners/dynamicBanners/getDynamicBanners',
     () => jest.fn()
@@ -33,7 +26,7 @@ jest.mock(
 );
 
 describe('components - chains - LN10_Caja_Apertura - helper', () => {
-    Context.useAppContext = jest.fn(() => ({}));
+    // Context.useAppContext = jest.fn(() => ({}));
 
     const articleFeature = <ArticleFeature id="noteId" />;
 

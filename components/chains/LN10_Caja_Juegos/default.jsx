@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
-
-import StaticContent from '../../private/common/staticContent';
 import get from '../../private/common/utils/get';
 import BuildRoof from '../utils/_BuildRoof/default';
 import { useRoofData } from '../utils/_helpers';
@@ -29,13 +28,13 @@ const CajaJuegos = ({ customFields, children }) => {
             : true;
 
     return shouldShowGame && !hideCaja ? (
-        <StaticContent>
+        <Static id={`${logoId}-${title}`} htmlOnly>
             <BuildRoof {...roofData} />
             <div className="grid grid-cols-8 grid-cols-12_sm gap-16 mb-32">
                 {children}
             </div>
             <GameEventScript />
-        </StaticContent>
+        </Static>
     ) : (
         <></>
     );

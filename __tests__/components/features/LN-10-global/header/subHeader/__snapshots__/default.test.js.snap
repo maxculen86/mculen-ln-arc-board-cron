@@ -2,9 +2,7 @@
 
 exports[`components - features - LN-10-global - subHeader - default should match snapshot of SubHeader 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <div>
     <div
       class="sub-header container"
     >

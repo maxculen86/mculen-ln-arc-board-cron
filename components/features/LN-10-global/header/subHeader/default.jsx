@@ -6,9 +6,9 @@ import { Dollar } from './components/dollar';
 import { Access } from './components/access';
 import { setDollarData, setAccessData } from './_helper';
 import filterDollar from '../../../../../content/filters/LN/services/dolar';
-import StaticContent from '../../../../private/common/staticContent';
 import useTermica from '../../../../private/common/hooks/useTermica';
 import SubHeaderEventsScript from '../../../../private/common/scriptManager/SubHeaderEventsScript';
+import Static from 'fusion:static';
 
 const SubHeaderLN = () => {
     const { data: dollar = [] } =
@@ -25,7 +25,7 @@ const SubHeaderLN = () => {
 
     if (!isHome) return <></>;
     return (
-        <StaticContent>
+        <Static id="subheader-LN10" htmlOnly>
             <SubHeader className={subHeaderClassNames}>
                 <div className="lay-container relative --degrade-scroll_max767">
                     <div className="flex py-16 text-14 ai-center jc-between">
@@ -35,7 +35,7 @@ const SubHeaderLN = () => {
                 </div>
             </SubHeader>
             <SubHeaderEventsScript />
-        </StaticContent>
+        </Static>
     );
 };
 

@@ -37,6 +37,9 @@ const renderBreadcrumbColumnista = (host, requestUri) => (
     <BreadcrumbColumnista host={host} requestUri={requestUri} />
 );
 
+/**
+ * TODO: Revisar argumentos que no se usan o explotar eso segun Juanca y Maurizio
+ */
 function isRender(
     globalContent,
     globalContentConfig,

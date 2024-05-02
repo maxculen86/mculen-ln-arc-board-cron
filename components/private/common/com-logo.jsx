@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
 import { useAppContext } from 'fusion:context';
-import StaticContent from './staticContent';
+import Static from 'fusion:static';
 import getAssetsPath from './utils/getAssetsPath';
 
 import ComLink from './com-link';
@@ -9,10 +10,11 @@ import Image from './com-image';
 
 import '../../../resources/dist/css/ln/components/com-logo.css';
 
+//TODO: CREAR ID UNICO PARA STATIC QUE LLEGUE DESDE EL FEATURE QUE SE IMPORTE
 const ComLogo = props => {
     const {
         logoName,
-        size,
+        size = '',
         width,
         height,
         classCondition,
@@ -33,7 +35,7 @@ const ComLogo = props => {
     if (!logoName) return null;
 
     const Logo = (
-        <StaticContent id={`logo-${logoName}`}>
+        <Static id={`com-logo-${logoName}-${size}`} htmlOnly>
             <Image
                 classCondition={classes}
                 width={width}
@@ -45,7 +47,7 @@ const ComLogo = props => {
                 amp={amp}
                 svg
             />
-        </StaticContent>
+        </Static>
     );
 
     const Link = (

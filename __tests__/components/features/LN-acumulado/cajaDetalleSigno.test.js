@@ -17,10 +17,7 @@ jest.mock('fusion:environment', () => {
         ARC_STATIC: 'https://arc-static.glanacion.com'
     };
 });
-jest.mock(
-    '../../../../components/private/common/staticContent',
-    () => 'mock-static-validation'
-);
+
 jest.mock('fusion:context', Component => {
     return function(Component) {
         return props => <Component {...props} />;
@@ -63,13 +60,6 @@ describe('Features - LN-acumulado - Caja Detalle Signo Feature =>', () => {
             const cajaDetalleSigno = container.getElementsByClassName(
                 'daily-horoscope '
             );
-            expect(
-                screen.getByText(
-                    (content, element) =>
-                        element.tagName.toLowerCase() ===
-                        'mock-static-validation'
-                )
-            ).toBeVisible();
             expect(container).toMatchSnapshot();
             expect(cajaDetalleSigno[0]).toBeVisible();
         });

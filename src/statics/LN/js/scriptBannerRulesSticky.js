@@ -56,4 +56,6 @@ export const initializeStickyBanner = () => {
     });
 };
 
-window.addEventListener('DOMContentLoaded', initializeStickyBanner);
+window.addEventListener('DOMContentLoaded', function() {
+    setTimeout(initializeStickyBanner, 0);
+});

@@ -3,8 +3,6 @@ import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
 import { useContent } from 'fusion:content';
 import { Cardgames } from '@ln/contenidos-ui-cardgames';
-
-import StaticContent from '../../../private/common/staticContent';
 import get from '../../../private/common/utils/get';
 import getGameProperties from '../../../private/LN/common/utils/getGameProperties';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
@@ -54,15 +52,14 @@ const Game = ({ id: featureId, customFields, isAdmin }) => {
 
     const GameCard = (props = {}) => {
         const { forSubscriber, ...restProps } = props;
-
         return (
-            <StaticContent className="col-span-4 col-span-3_sm">
+            <div className="col-span-4 col-span-3_sm">
                 <Cardgames
                     {...restProps}
                     isHomeGames={primarySection}
                     forSubscriber={forSubscriber}
                 />
-            </StaticContent>
+            </div>
         );
     };
 

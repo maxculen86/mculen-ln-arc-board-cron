@@ -3,7 +3,6 @@ import PropTypes from 'fusion:prop-types';
 import BreadCrumbBase from '../../common/breadcrumbBase';
 import BreadCrumbSchema from '../../common/breadcrumbSchema';
 import capitalizeFirstLetter from '../../../common/utils/capitalizeFirstLetter';
-import StaticContent from '../../../common/staticContent';
 
 const DATA_SECTION = 'AperturaAcuRecetas';
 function BreadcrumbTag({ tag, host }) {
@@ -18,14 +17,14 @@ function BreadcrumbTag({ tag, host }) {
         }
     ];
     return (
-        <StaticContent>
+        <>
             <BreadCrumbBase
                 sections={sections}
                 lastLinked
                 dataSection={DATA_SECTION}
             />
             <BreadCrumbSchema sections={sections} host={host} />
-        </StaticContent>
+        </>
     );
 }
 

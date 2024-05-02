@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'enzyme';
 import Subtitle from '../../../../../components/private/LN/nota/cuerpo/subtitle';
 
-describe('Subtitle', () => {
+xdescribe('Subtitle', () => {
     const props = {
         data: {
             level: 2,

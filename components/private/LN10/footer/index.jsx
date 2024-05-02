@@ -2,6 +2,7 @@
 import React from 'react';
 import { Footerhome } from '@ln/contenidos-ui-footerhome';
 import { useAppContext } from 'fusion:context';
+import Static from 'fusion:static';
 import siteConfig from '../../../../properties/sites/la-nacion-ar';
 import {
     masInformacion,
@@ -10,7 +11,6 @@ import {
     secciones,
     optionsIcons
 } from './_helper';
-import StaticContent from '../../common/staticContent';
 import FooterEventsScript from '../../common/scriptManager/FooterEventsScript';
 import { datesDiffInDays } from '../../common/utils/dateAndTimeUtil';
 import { getArgentinaDateMonthYear } from '../../common/utils/dateAndTimeUtil';
@@ -25,7 +25,7 @@ const Footer = () => {
 
     return (
         <>
-            <StaticContent>
+            <Static id="LN-footer">
                 <Footerhome
                     listFooterMasInformacion={masInformacion}
                     listFooterProductos={productos}
@@ -37,7 +37,7 @@ const Footer = () => {
                     edNumber={currentEdNumber}
                 />
                 <FooterEventsScript />
-            </StaticContent>
+            </Static>
         </>
     );
 };

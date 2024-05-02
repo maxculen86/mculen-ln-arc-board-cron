@@ -3,10 +3,10 @@ import PropTypes from 'fusion:prop-types';
 import Consumer from 'fusion:consumer';
 import NotaApertura from '../../../private/LN/acumulado/notaApertura';
 import useGlobalProviderAcu from '../../../private/LN/acumulado/hooks/useGlobalProviderAcu';
-import StaticContent from '../../../private/common/staticContent';
+import Static from 'fusion:static';
 
 const AperturaFeature = props => {
-    const { outputType = 'default' } = props;
+    const { outputType = 'default', id: featureId } = props;
     const { articlesInCollection = [] } = useGlobalProviderAcu();
 
     const Component = (
@@ -17,7 +17,7 @@ const AperturaFeature = props => {
         />
     );
 
-    return <StaticContent>{Component}</StaticContent>;
+    return <Static id={featureId}>{Component}</Static>;
 };
 
 AperturaFeature.propTypes = {

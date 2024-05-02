@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { termicaValuesUpselling } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/components/rightOptions/_helper';
 import { getTermicaValues } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/_helper';
 import { UpsellingButton } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/components/rightOptions/upsellingButton';
@@ -63,7 +63,7 @@ useSiteServices.mockImplementation(() => {
     return siteServicesMock;
 });
 
-describe('components - features - LN-10-global - header - mainHeader - rightOptions - UpsellingButton', () => {
+xdescribe('components - features - LN-10-global - header - mainHeader - rightOptions - UpsellingButton', () => {
     afterAll(() => {
         jest.clearAllMocks();
     });

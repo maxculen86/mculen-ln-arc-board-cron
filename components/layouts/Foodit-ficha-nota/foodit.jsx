@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Consumer from 'fusion:consumer';
-
+import Static from 'fusion:static';
 import BaseLayout from '../../features/foodit-global/common/BaseLayout/foodit';
-import StaticContent from '../../private/common/staticContent';
 import ActionsButtons from '../../features/foodit-global/common/ActionsButtons/foodit';
 import { UserBookmarks } from '../../features/foodit-global/common/bookmark/components/UserBookmarks';
 import { OpeningStorytelling } from '../../features/foodit-global/common/OpeningStorytelling/foodit';
@@ -11,7 +10,6 @@ import { Note } from '@ln/foodit-ui-note';
 import { Text } from '@ln/common-ui-text';
 import { Button } from '@ln/foodit-ui-button';
 import { Icon } from '@ln/common-ui-icon';
-
 import get from '../../private/common/utils/get';
 import IconSprite from '../../features/private-global/common/iconSprite/IconSprite';
 import Breadcrumb from '../../features/foodit-global/common/breadcrumb/foodit';
@@ -39,9 +37,9 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                     {video ? (
                         <OpeningStorytelling article={globalContent} />
                     ) : (
-                        <StaticContent className="hidden h-100 w-100">
+                        <div className="hidden h-100 w-100">
                             <OpeningStorytelling article={globalContent} />
-                        </StaticContent>
+                        </div>
                     )}
                 </div>
                 <div className="note-body row-gap-32 z-1">
@@ -58,28 +56,39 @@ const FichaNotaFoodit = ({ children = [], globalContent = {} }) => {
                                         </Text>
                                     )}
                                 </div>
-                                <Text className="text-14">
-                                    {getFooditAuthor(globalContent, true)}
-                                </Text>
+                                <Static
+                                    htmlOnly
+                                    persistent
+                                    id="author-ficha-nota"
+                                >
+                                    <Text className="text-14">
+                                        {getFooditAuthor(globalContent, true)}
+                                    </Text>
+                                </Static>
                             </Note.Body>
                             <Note.Footer>
-                                <Button
-                                    title="Guardar"
-                                    size={{ sm: 32, lg: 40 }}
-                                    data-id={_id}
-                                    data-modal={'open-modal'}
-                                    data-interaction="dataLayerInteraction"
-                                    data-event-data-layer="e_linkclick"
-                                    data-dynamic-category="interaction"
-                                    data-dynamic-label="nota"
-                                    data-dynamic-action="guardar"
-                                    data-title={title}
-                                >
-                                    <Icon size={16} className="sm-none">
-                                        <IconSprite name="bookmark" critical />
-                                    </Icon>
-                                    Guardar
-                                </Button>
+                                <Static id={`btn-saved-${_id}`}>
+                                    <Button
+                                        title="Guardar"
+                                        size={{ sm: 32, lg: 40 }}
+                                        data-id={_id}
+                                        data-modal={'open-modal'}
+                                        data-interaction="dataLayerInteraction"
+                                        data-event-data-layer="e_linkclick"
+                                        data-dynamic-category="interaction"
+                                        data-dynamic-label="nota"
+                                        data-dynamic-action="guardar"
+                                        data-title={title}
+                                    >
+                                        <Icon size={16} className="sm-none">
+                                            <IconSprite
+                                                name="bookmark"
+                                                critical
+                                            />
+                                        </Icon>
+                                        Guardar
+                                    </Button>
+                                </Static>
                                 <hr className="h-100 lg-only" />
                                 <div className="flex ai-center gap-16 gap-24_md">
                                     <ActionsButtons article={globalContent} />

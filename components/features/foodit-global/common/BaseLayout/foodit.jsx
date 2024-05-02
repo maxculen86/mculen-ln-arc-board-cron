@@ -1,4 +1,5 @@
 import React from 'react';
+import Static from 'fusion:static';
 import Header from '../Header/foodit';
 import Footer from '../Footer/foodit';
 import Modal from '../Modals/SaveRecipe/foodit';
@@ -19,7 +20,9 @@ const BaseLayout = ({ children }) => {
                 <main className="container flex flex-column pb-64 gap-40">
                     {children}
                 </main>
-                <Footer />
+                <Static id="footer-static">
+                    <Footer />
+                </Static>
                 <FooditEventsHelper />
                 <DataLayerInteractions />
                 <Modal />

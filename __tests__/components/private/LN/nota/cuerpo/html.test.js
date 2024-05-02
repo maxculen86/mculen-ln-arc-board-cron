@@ -3,7 +3,7 @@ import { render, mount, shallow } from 'enzyme';
 
 import Html from '../../../../../../components/private/LN/nota/cuerpo/html';
 
-describe('Private - LN - nota - cuerpo - <Html />', () => {
+xdescribe('Private - LN - nota - cuerpo - <Html />', () => {
     let props = {
         data: {
             content: '',

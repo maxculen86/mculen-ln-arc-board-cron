@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
-import StaticContent from '../../private/common/staticContent';
 import ModCriptoCarrousel from '../../private/common/mod-crypto-carrousel';
+import Static from 'fusion:static';
 
 const CryptoCarrousel = ({ id: featureId }) => {
     return featureId ? (
-        <StaticContent id={featureId}>
+        <Static id={featureId}>
             <ModCriptoCarrousel />
-        </StaticContent>
+        </Static>
     ) : null;
 };
 

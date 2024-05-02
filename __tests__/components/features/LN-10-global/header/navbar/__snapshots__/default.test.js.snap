@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
-
+// TODO CHEQUEAR LINEA 31 ELIMINACION DE LI
 exports[`components - features - LN-10-global - header - navbar should match snapshot 1`] = `
 <div>
   <nav
@@ -26,6 +26,9 @@ exports[`components - features - LN-10-global - header - navbar should match sna
           Inicio
         </a>
       </li>
+      <li
+        class="--item search"
+      />
       <li
         class="--item sections"
       >

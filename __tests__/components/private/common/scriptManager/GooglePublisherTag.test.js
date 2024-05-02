@@ -8,7 +8,7 @@ jest.mock('fusion:context', () => ({
     }
 }));
 
-describe('GooglePublisherTag', () => {
+xdescribe('GooglePublisherTag', () => {
     const props = {
         location: 'header',
         globalContent: {

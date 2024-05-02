@@ -30,10 +30,7 @@ import telekinoHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/ht
 import lotoHtml from '../../../../../__mocks__/data/lottery/lotteryDetail/html/lotoHtml.json';
 import loto5Html from '../../../../../__mocks__/data/lottery/lotteryDetail/html/loto5Html.json';
 
-jest.mock(
-    '../../../../../components/private/common/staticContent.jsx',
-    () => 'mock-static-content'
-);
+jest.mock('../../../../../__mocks__/fusion:static', () => 'static');
 
 jest.mock('fusion:context', () => () => ({
     default: props => {
@@ -51,25 +48,25 @@ describe('Features - LN-servicios - LN Loteria Detalle =>', () => {
             }
         }
     }));
+
     it('should be wrapped by StaticContent component', () => {
         render(<LotteryDetailOpening id="QWERTYUIOP" />);
         expect(
             screen.getByText(
-                (content, element) =>
-                    element.tagName.toLowerCase() === 'mock-static-content'
+                (content, element) => element.tagName.toLowerCase() === 'static'
             )
         ).toBeVisible();
     });
+
     it('should return a lottery detail', () => {
         const { container } = render(<LotteryDetailOpening id="QWERTYUIOP" />);
-        const StaticContent = container.querySelector('mock-static-content');
-        expect(
-            StaticContent.getElementsByClassName('lottery-detail-box').length
-        ).toBe(1);
-        expect(StaticContent.firstChild.textContent).toContain(
-            'Últimos resultados'
+        const Static = container.querySelector('static');
+        expect(Static.getElementsByClassName('lottery-detail-box').length).toBe(
+            1
         );
+        expect(Static.firstChild.textContent).toMatch('Últimos resultados');
     });
+
     it('should test lottery cards', () => {
         Object.keys(lotteriesDetailsHTML).forEach(lottery => {
             Context.useAppContext = jest.fn(() => ({

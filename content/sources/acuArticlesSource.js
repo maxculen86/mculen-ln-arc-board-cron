@@ -220,7 +220,15 @@ export default {
         sourceOrigin: 'text',
         excludeSourceOrigin: 'text',
         excludeSectionId: 'text',
-        api: 'bool'
+        api: 'bool',
+        promoItemsOnly: 'text',
+        distributorId: 'text',
+        type: 'text',
+        shouldNotFilter: 'text',
+        page: 'text',
+        excludePreload: 'bool',
+        hasCollectionApertura: 'bool',
+        collectionId: 'text'
     },
     filter,
     ttl: 120

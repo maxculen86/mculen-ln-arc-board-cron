@@ -175,7 +175,16 @@ export default {
         size: 'text',
         imageConfig: 'text',
         website: 'text',
-        sourceInclude: 'text'
+        sourceInclude: 'text',
+        from: 'text',
+        idsArticlesToExclude: 'text',
+        filterRecomendar: 'bool',
+        filterRepetead: 'bool',
+        diagramation: 'text',
+        filterFutureDisplayDate: 'bool',
+        notesQuantity: 'text',
+        isFocal: 'bool',
+        shouldUseV2: 'bool'
     },
     ttl: 120
 };

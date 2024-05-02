@@ -1,4 +1,5 @@
 import React from 'react';
+import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
 import { toggleDrawer } from '@ln/common-ui-drawer';
 import { Button } from '@ln/common-ui-button';
@@ -64,21 +65,23 @@ const HeaderFoodit = () => {
                                 </Icon>
                             </Button>
                         </MainHeader.Content.Left>
-                        <MainHeader.Content.Center className="jc-center ai-center">
-                            <MainHeader.Brand
-                                href="/"
-                                title="Ir a inicio"
-                                className="flex"
-                            >
-                                <img
-                                    className="h-32 h-44_md h-52_lg"
-                                    src={getAssetsPath(contextPath)(deployment)(
-                                        'logo-foodit.webp'
-                                    )}
-                                    alt="Foodit"
-                                />
-                            </MainHeader.Brand>
-                        </MainHeader.Content.Center>
+                        <Static htmlOnly persistent id="foodit-logo">
+                            <MainHeader.Content.Center className="jc-center ai-center">
+                                <MainHeader.Brand
+                                    href="/"
+                                    title="Ir a inicio"
+                                    className="flex"
+                                >
+                                    <img
+                                        className="h-32 h-44_md h-52_lg"
+                                        src={getAssetsPath(contextPath)(
+                                            deployment
+                                        )('logo-foodit.webp')}
+                                        alt="Foodit"
+                                    />
+                                </MainHeader.Brand>
+                            </MainHeader.Content.Center>
+                        </Static>
                         <MainHeader.Content.Right className="flex jc-end ai-center gap-16 gap-24_md">
                             <LoginSubscribeButtons classNameButtons="lg-only" />
                             <RenderUserOptions />

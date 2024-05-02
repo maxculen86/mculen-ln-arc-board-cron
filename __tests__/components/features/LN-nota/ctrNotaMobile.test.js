@@ -6,7 +6,7 @@ import CTRNota, {
 import useViewportSize from '../../../../components/private/common/hooks/useViewportSize';
 import { isSubscribed } from '../../../../components/private/LN/common/utils/contextHelper';
 import { useAppContext } from 'fusion:context';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import StickyMobile from '../../../../components/private/LN/nota/StickyMobile';
 import { useContent as getContent } from 'fusion:content';
 

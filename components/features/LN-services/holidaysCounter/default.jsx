@@ -1,9 +1,9 @@
 import React from 'react';
 import { useContent } from 'fusion:content';
+import Static from 'fusion:static';
 import HolidaysCounter from '../../../private/LN/services/holidays/HolidaysCounter';
 import { getNextHolidayData } from '../../../../content/sources/utils/servicesSource/holidays/holidaysHelper';
 import filter from '../../../../content/filters/LN/services/nextHolidayFilter';
-import StaticContent from '../../../private/common/staticContent';
 
 const HolidaysCountdown = () => {
     const { dataService = {} } =
@@ -17,7 +17,7 @@ const HolidaysCountdown = () => {
             filter
         }) || {};
     return (
-        <StaticContent>
+        <Static id="next-holiday-counter" htmlOnly>
             {(() => {
                 const { calendars = [] } = dataService;
 
@@ -37,7 +37,7 @@ const HolidaysCountdown = () => {
                     <></>
                 );
             })()}
-        </StaticContent>
+        </Static>
     );
 };
 

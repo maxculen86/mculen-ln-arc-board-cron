@@ -79,7 +79,7 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
             expect(home.length).toBe(null);
         } catch (err) {
             expect(err.message).toBe(
-                "Cannot read property 'layout' of undefined"
+                "Cannot read properties of undefined (reading 'layout')"
             );
         }
     });
@@ -98,7 +98,9 @@ describe('components - private - LN - api - v1 - home - index.js', () => {
             const home = index(Seccion, paramsPage) || [];
             expect(home.length).toBe(null);
         } catch (err) {
-            expect(err.message).toBe("Cannot read property 'reduce' of null");
+            expect(err.message).toBe(
+                "Cannot read properties of null (reading 'reduce')"
+            );
         }
     });
     it('Testeo Seccion Apertura', () => {

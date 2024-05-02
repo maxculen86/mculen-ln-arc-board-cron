@@ -1,9 +1,9 @@
 import React from 'react';
 import { useAppContext } from 'fusion:context';
+import Static from 'fusion:static';
 import get from '../../../private/common/utils/get';
 import HolidaysGridContainer from '../../../private/LN/services/holidays/HolidaysGridContainer';
 import HolidaysNav from '../../../private/LN/services/holidays/HolidaysNav';
-import StaticContent from '../../../private/common/staticContent';
 
 const HolidaysHomeCalendar = () => {
     const { globalContent = {} } = useAppContext();
@@ -11,10 +11,10 @@ const HolidaysHomeCalendar = () => {
     const calendars = get(globalContent, 'dataService.calendars', []);
 
     return calendars.length ? (
-        <StaticContent>
+        <Static id="home-holidays-calendar" htmlOnly>
             <HolidaysNav layout="home" year={serviceItem} />
             <HolidaysGridContainer calendars={calendars} year={serviceItem} />
-        </StaticContent>
+        </Static>
     ) : (
         <></>
     );

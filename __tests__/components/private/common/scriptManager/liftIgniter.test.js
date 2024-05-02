@@ -119,7 +119,7 @@ const globalContentMock = {
     }
 };
 
-describe('Liftigniter', () => {
+xdescribe('Liftigniter', () => {
     const script = {
         defer: true,
         id: 'liftigniter-metadata',

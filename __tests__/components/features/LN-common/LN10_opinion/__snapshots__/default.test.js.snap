@@ -2,9 +2,7 @@
 
 exports[`Tests - helpers - feature - Opinion should should return feature 1`] = `
 <div>
-  <div
-    class="hidden"
-  >
+  <div>
     <div
       data-module="tema_opinion"
     >
@@ -33,7 +31,6 @@ exports[`Tests - helpers - feature - Opinion should should return feature 1`] = 
                 >
                   Opinión
                 </h3>
-                
               </div>
             </div>
             <div

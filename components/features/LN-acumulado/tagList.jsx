@@ -13,9 +13,9 @@ import {
 import getSectionName from '../../private/LN/common/utils/getSectionName';
 import ComTitle from '../../private/common/com-title';
 import sectionsFormated from '../../private/common/utils/sectionsFormated';
-import StaticContent from '../../private/common/staticContent';
+import Static from 'fusion:static';
 
-const TagsListFeature = ({ id, title, layout = '' }) => {
+const TagsListFeature = ({ id: featureId, title }) => {
     const {
         globalContent: { _id: sectionId, node_type: nodeType, type } = {},
         renderables = [],
@@ -68,7 +68,7 @@ const TagsListFeature = ({ id, title, layout = '' }) => {
         </>
     )) || <></>;
 
-    return <StaticContent>{Component}</StaticContent>;
+    return <Static id={featureId}>{Component}</Static>;
 };
 
 TagsListFeature.label = 'LN-Acumulado-Tag-List';

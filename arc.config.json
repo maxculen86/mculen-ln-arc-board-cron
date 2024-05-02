@@ -1,0 +1,9 @@
+{
+    "compiler": {
+        "parallel": true,
+        "devtool": "eval",
+        "contentSources": {
+            "excludeModules": "*"
+        }
+    }
+}

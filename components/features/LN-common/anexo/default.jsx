@@ -4,10 +4,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'fusion:prop-types';
 import { useAppContext } from 'fusion:context';
+import Static from 'fusion:static';
 import PageBuilderMessage from '../../../private/LN/home/common/components/pageBuilderMessage/pageBuilderMessage';
 import get from '../../../private/common/utils/get';
 import { adjustByURL } from '../../../private/common/utils/propTypesHelper';
-import StaticContent from '../../../private/common/staticContent';
 import getDynamicBanners from '../../../private/common/banners/dynamicBanners/getDynamicBanners';
 import { getErrorMessage, isInSection } from './common/_helper-WebApi';
 import SetFixedHeight from '../../../private/common/SetFixedHeight';
@@ -113,7 +113,11 @@ const AnexoFeature = props => {
         </>
     );
 
-    const iframeFinal = <StaticContent>{iframeURLContent}</StaticContent>;
+    const iframeFinal = (
+        <Static id={anexoId} htmlOnly>
+            {iframeURLContent}
+        </Static>
+    );
 
     return _type === 'Iframe' ? iframeFinal : comp();
 };

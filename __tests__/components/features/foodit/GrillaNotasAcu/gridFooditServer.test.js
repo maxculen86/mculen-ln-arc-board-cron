@@ -23,10 +23,8 @@ describe('Components - features - helpers - gridFooditServer', () => {
                 haveShowButton={haveShowButton}
             />
         );
-        const hiddenDiv = container.querySelector('.hidden');
         const gridDiv = container.querySelector('.grid');
 
-        expect(hiddenDiv).toBeInTheDocument();
         expect(gridDiv).toBeInTheDocument();
         expect(haveShowButton).toHaveBeenCalledTimes(0);
 
@@ -47,10 +45,8 @@ describe('Components - features - helpers - gridFooditServer', () => {
                 haveShowButton={haveShowButton}
             />
         );
-        const hiddenDiv = container.querySelector('.hidden');
         const gridDiv = container.querySelector('.grid');
 
-        expect(hiddenDiv).toBeInTheDocument();
         expect(gridDiv).toBeInTheDocument();
         expect(haveShowButton).toHaveBeenCalledTimes(1);
 

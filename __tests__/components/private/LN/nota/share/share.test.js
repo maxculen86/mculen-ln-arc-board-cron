@@ -68,7 +68,7 @@ Content.useContent = jest.fn(() => ({
 }));
 
 jest.mock('react', () => {
-    const ActualReact = require.requireActual('react');
+    const ActualReact = jest.requireActual('react');
     return {
         ...ActualReact,
         useContext: () => ({

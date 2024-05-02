@@ -10,7 +10,6 @@ import {
     suffixDevice
 } from '../../LN/common/utils/bannerHelper';
 import DivBannerSSR from './DivBannerSSR';
-import StaticContent from '../staticContent';
 
 const BannerLogoHeader = ({ section, isAdmin }) => {
     const { siteProperties } = useAppContext();
@@ -71,7 +70,7 @@ const BannerLogoHeader = ({ section, isAdmin }) => {
         </>
     );
 
-    return <StaticContent>{Component}</StaticContent>;
+    return <>{Component}</>;
 };
 
 BannerLogoHeader.propTypes = {

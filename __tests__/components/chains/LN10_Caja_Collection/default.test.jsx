@@ -20,14 +20,6 @@ jest.mock('fusion:consumer', Component => {
     };
 });
 
-jest.mock('fusion:context', () => () => ({
-    default: props => {
-        const mockAvailableProps = {};
-        return props.children(mockAvailableProps);
-    },
-    useAppContext: jest.fn()
-}));
-
 jest.mock(
     '../../../../components/private/common/banners/dynamicBanners/getDynamicBanners',
     () => jest.fn()
@@ -39,11 +31,6 @@ jest.mock(
 );
 
 describe('Tests Chain CajaCollection', () => {
-    Context.useAppContext = jest.fn(() => ({
-        deployment: jest.fn(),
-        contextPath: '/pf'
-    }));
-
     const customFields = {
         title: 'Caja Collection',
         layout: '',

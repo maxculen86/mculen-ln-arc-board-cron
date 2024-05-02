@@ -405,8 +405,8 @@ describe('Content - sources - utils - powerUp (recipes w/ ingredients and prepar
         const stringWrapper = JSON.stringify(wrapper);
         test('Should return content_element with correct format and array for recipes PowerUps be first on top.', () => {
             expect(wrapper).toStrictEqual(contentElementRecipe.formatted);
-            expect(stringWrapper).toContain('custom-ingrediente');
-            expect(stringWrapper).toContain('custom-preparacion');
+            expect(stringWrapper).toMatch('custom-ingrediente');
+            expect(stringWrapper).toMatch('custom-preparacion');
         });
     });
     describe('Should return correct content_element format', () => {

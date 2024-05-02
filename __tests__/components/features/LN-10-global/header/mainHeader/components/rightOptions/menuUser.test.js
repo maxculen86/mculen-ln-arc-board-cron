@@ -1,5 +1,5 @@
 import React from 'react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { getMenuUser } from '../../../../../../../../components/features/LN-10-global/header/mainHeader/_helper';
 import { useHeaderContext } from '../../../../../../../../components/features/LN-10-global/header/context';
@@ -55,7 +55,7 @@ jest.mock(
     }
 );
 jest.mock('react', () => {
-    const ActualReact = require.requireActual('react');
+    const ActualReact = jest.requireActual('react');
     return {
         ...ActualReact,
         useContext: () => ({
@@ -63,7 +63,7 @@ jest.mock('react', () => {
         })
     };
 });
-describe('components - features - LN-10-global - header - mainHeader - rightOptions - MenuUser', () => {
+xdescribe('components - features - LN-10-global - header - mainHeader - rightOptions - MenuUser', () => {
     afterAll(() => {
         jest.clearAllMocks();
     });

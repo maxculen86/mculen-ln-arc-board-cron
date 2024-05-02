@@ -33,6 +33,7 @@ export default {
     fetch,
     params: {
         url: 'text',
+        uri: 'text',
         website: 'text'
     },
     ttl: 900

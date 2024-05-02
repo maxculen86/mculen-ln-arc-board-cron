@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'fusion:prop-types';
+import Static from 'fusion:static';
 import { useAppContext } from 'fusion:context';
 import { Cajaopinion } from '@ln/contenidos-ui-cajaopinion';
 import {
@@ -16,7 +17,6 @@ import {
     getMarkupForDatalayer
 } from '../../../private/LN/common/utils/cajaTemasHelper';
 import diagramationRules from '../../../private/common/utils/diagramationRules';
-import StaticContent from '../../../private/common/staticContent';
 import setRender from '../../../chains/utils/setRender';
 import { validateFeatureOpinion } from './_helper-WebApi';
 import { useRoofData } from '../../../chains/utils/_helpers';
@@ -133,7 +133,7 @@ const Opinion = props => {
     ] = cardsOpinionBottom;
 
     return (
-        <StaticContent>
+        <Static id={featureId} htmlOnly>
             <div {...extraOptsDiv}>
                 {setRender({
                     chainId: featureId,
@@ -171,7 +171,7 @@ const Opinion = props => {
                     }
                 })}
             </div>
-        </StaticContent>
+        </Static>
     );
 };
 
