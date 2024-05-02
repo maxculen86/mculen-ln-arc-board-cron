@@ -75,7 +75,8 @@ export default {
         diagramation: 'text',
         isInApertura: 'bool',
         checkExclusiveAccess: 'bool',
-        isAdmin: 'bool'
+        isAdmin: 'bool',
+        uri: 'text'
     },
     filter,
     ttl: 120

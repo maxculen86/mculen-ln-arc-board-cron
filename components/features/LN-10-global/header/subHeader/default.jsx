@@ -25,7 +25,7 @@ const SubHeaderLN = () => {
 
     if (!isHome) return <></>;
     return (
-        <Static id="subheader-LN10" htmlOnly>
+        <Static id="subheader-LN10">
             <SubHeader className={subHeaderClassNames}>
                 <div className="lay-container relative --degrade-scroll_max767">
                     <div className="flex py-16 text-14 ai-center jc-between">
