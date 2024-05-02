@@ -32,7 +32,8 @@ describe('components - private - ott - ficha', () => {
                     ]
                 }
             }
-        }
+        },
+        _id: '1234'
     };
 
     it('renders Video component section', () => {
@@ -52,7 +53,7 @@ describe('components - private - ott - ficha', () => {
             <Video videoData={videoData} isOtt={true} />
         );
 
-        const facade = container.querySelector('#facade-yPJ53Pzg');
+        const facade = container.querySelector('#facade-yPJ53Pzg-1234-');
 
         expect(facade).toBeInTheDocument();
     });

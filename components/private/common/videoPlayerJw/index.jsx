@@ -12,7 +12,8 @@ const videoPlayerJW = ({
     parrafo,
     tituloNota,
     hasAutoplay,
-    isOtt = false
+    isOtt = false,
+    featureId = ''
 }) => {
     const {
         embed: {
@@ -20,7 +21,8 @@ const videoPlayerJW = ({
                 idPlayer,
                 videoJw: { title = '', description = '', playlist = [] } = {}
             } = {}
-        } = {}
+        } = {},
+        _id = ''
     } = data;
     const player = isOtt ? '81YXy6Mt' : idPlayer || 'ih0086X3';
     const [video] = playlist || [];
@@ -36,18 +38,18 @@ const videoPlayerJW = ({
     } = get(configClassName, arcSite, {});
 
     return (
-        <Static id={mediaid}>
+        <Static id={`${mediaid}-${_id}-${featureId}`}>
             <div className={container}>
                 <section className={mediaContainer}>
                     <div className={videoContainer}>
                         <div className={videoPlayer}>
                             <Facade
-                                id={mediaid}
+                                id={`${mediaid}-${_id}-${featureId}`}
                                 playlist={playlist}
                                 className={facade}
                                 title={title}
                             />
-                            <div id={mediaid} />
+                            <div id={`${mediaid}-${_id}-${featureId}`} />
                             <script
                                 defer
                                 className="video-jw"
@@ -56,7 +58,7 @@ const videoPlayerJW = ({
                                 data-player={player}
                                 data-playlist={JSON.stringify(playlist)}
                                 data-has-autoplay={hasAutoplay}
-                                data-media-id={mediaid}
+                                data-media-id={`${mediaid}-${_id}-${featureId}`}
                                 data-tags-url={urlForPrerollAds()}
                                 data-autostart
                                 src={deployment(

@@ -39,7 +39,8 @@ describe('componentes - private - common - videoPlayerJw', () => {
                     ]
                 }
             }
-        }
+        },
+        _id: '1234'
     };
 
     it('renders the video player facade', () => {
@@ -49,9 +50,10 @@ describe('componentes - private - common - videoPlayerJw', () => {
                 parrafo="MockParrafo"
                 tituloNota="MockTituloNota"
                 hasAutoplay={true}
+                featureId="5678"
             />
         );
-        const facadeDiv = document.querySelector(`#facade-yPJ53Pzg`);
+        const facadeDiv = document.querySelector(`#facade-yPJ53Pzg-1234-5678`);
 
         expect(facadeDiv).toBeInTheDocument();
     });
@@ -63,9 +65,10 @@ describe('componentes - private - common - videoPlayerJw', () => {
                 parrafo="MockParrafo"
                 tituloNota="MockTituloNota"
                 hasAutoplay={true}
+                featureId="5678"
             />
         );
-        const videoPlayerDiv = document.querySelector(`#yPJ53Pzg`);
+        const videoPlayerDiv = document.querySelector(`#yPJ53Pzg-1234-5678`);
 
         expect(videoPlayerDiv).toBeInTheDocument();
     });
@@ -77,6 +80,7 @@ describe('componentes - private - common - videoPlayerJw', () => {
                 parrafo="MockParrafo"
                 tituloNota="MockTituloNota"
                 hasAutoplay={true}
+                featureId="5678"
             />
         );
         const buttonPlay = document.querySelector(`#button-play`);
@@ -98,6 +102,7 @@ describe('componentes - private - common - videoPlayerJw', () => {
                 parrafo="MockParrafo"
                 tituloNota="MockTituloNota"
                 hasAutoplay={true}
+                featureId="5678"
             />
         );
     });
@@ -109,6 +114,7 @@ describe('componentes - private - common - videoPlayerJw', () => {
                 parrafo="MockParrafo"
                 tituloNota="MockTituloNota"
                 hasAutoplay={true}
+                featureId="5678"
             />
         );
         expect(asFragment()).toMatchSnapshot();
