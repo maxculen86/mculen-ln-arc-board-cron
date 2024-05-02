@@ -90,7 +90,10 @@ export default {
         days: 'number',
         size: 'number',
         imageConfig: 'text',
-        website: 'text'
+        website: 'text',
+        layout: 'text',
+        sectionId: 'text',
+        shouldUseV2: 'bool'
     },
     filter,
     ttl: 300
