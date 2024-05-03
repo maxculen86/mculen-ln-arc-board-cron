@@ -16,7 +16,7 @@
         @media ($media-l) {
             -webkit-line-clamp: 1;
             .sidebar__aside & {
-                -webkit-line-clamp: initial;
+                -webkit-line-clamp: unset;
             }
         }
     }
