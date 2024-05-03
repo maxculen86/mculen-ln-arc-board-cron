@@ -1,4 +1,6 @@
 window.addEventListener('DOMContentLoaded', () => {
-    window.LN.eventshelper.setEventSignIn();
-    window.LN.eventshelper.setEventsSections();
+    setTimeout(() => {
+        window.LN.eventshelper.setEventSignIn();
+        window.LN.eventshelper.setEventsSections();
+    }, 0);
 });
