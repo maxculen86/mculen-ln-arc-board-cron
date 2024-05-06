@@ -34,8 +34,7 @@ const Media = ({
     withMobileImage,
     searchableField,
     layoutPageBuilder,
-    globalContent,
-    featureId
+    globalContent
 }) => {
     const refContainer = useRef();
     const [zoom, setZoom] = useState(false);
@@ -124,7 +123,6 @@ const Media = ({
                     parrafo={parrafo}
                     tituloNota={tituloNota}
                     hasAutoplay={true}
-                    featureId={featureId}
                 />
             )
         };

@@ -15,7 +15,7 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
           >
             <div
               class="content-facade-jw relative bg-black ratio-16-9"
-              id="facade-yPJ53Pzg-1234-5678"
+              id="facade-yPJ53Pzg"
             >
               <div
                 class="absolute flex w-100 h-100 jc-center ai-center z-15"
@@ -55,13 +55,13 @@ exports[`componentes - private - common - videoPlayerJw matches snapshot 1`] = `
               />
             </div>
             <div
-              id="yPJ53Pzg-1234-5678"
+              id="yPJ53Pzg"
             />
             <script
               class="video-jw"
               data-autostart="true"
               data-has-autoplay="true"
-              data-media-id="yPJ53Pzg-1234-5678"
+              data-media-id="yPJ53Pzg"
               data-player="mockPlayer"
               data-playlist="[{"images":["image1.jpg","image2.jpg"],"image":"main-image.jpg","pubdate":16809218408,"mediaid":"yPJ53Pzg"}]"
               data-title="MockTitle"
