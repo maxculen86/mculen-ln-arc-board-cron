@@ -64,7 +64,7 @@ const RankingFeature = ({ id: featureId }) => {
     );
 
     return (
-        <Static id={featureId} htmlOnly>
+        <Static id={featureId} htmlOnly={false}>
             {component}
         </Static>
     );
