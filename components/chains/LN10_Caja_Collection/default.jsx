@@ -131,7 +131,7 @@ const CajaCollection = props => {
     const ContainerCards = getComponent(chainStyle, layout);
 
     return (
-        <StaticContentV2 {...{ ...extraOptsDiv, id: chainId }}>
+        <StaticContentV2 {...{ ...extraOptsDiv, id: chainId, htmlOnly: false }}>
             {setRender({
                 chainId,
                 viewabilityData,

@@ -109,7 +109,7 @@ const CajaCanal = props => {
     );
 
     return (
-        <StaticContentV2 {...{ ...extraOptsDiv, id: chainId }}>
+        <StaticContentV2 {...{ ...extraOptsDiv, id: chainId, htmlOnly: false }}>
             {setRender({
                 chainId,
                 viewabilityData,
