@@ -64,9 +64,7 @@ const EnVivo = ({ customFields, id: featureId }) => {
         .filter(article => validateId(article.id));
 
     return (
-        <StaticContentV2
-            {...{ ...extraOptsDiv, id: featureId, htmlOnly: false }}
-        >
+        <StaticContentV2 {...{ ...extraOptsDiv, id: featureId }}>
             {setRender({
                 isAdmin,
                 error,

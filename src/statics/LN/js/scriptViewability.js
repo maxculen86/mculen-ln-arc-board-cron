@@ -13,5 +13,5 @@ window.addEventListener('DOMContentLoaded', () => {
                 productClickFromClient(element);
             });
         });
-    }, 50);
+    }, 0);
 });
